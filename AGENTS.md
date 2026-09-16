@@ -14,6 +14,8 @@
 
 - 2026-09-16 사용자 지시: 이 게임의 작업 결과는 `https://github.com/duq711/musimusihan-rpg` 리포지터리에 지속적으로 반영합니다. 사용자의 후속 지시에 따라 공개 리포지터리로 운영합니다. 작업 단위가 완료되면 관련 검증을 마치고 해당 변경을 커밋·푸시한 뒤 원격 반영 여부를 확인합니다. 이 지시는 이후 게임 작업에도 적용되며, 통상적인 해당 리포지터리 업로드를 매번 재승인받지 않습니다.
   User instruction dated 2026-09-16: Share this game's work in the repository above. A subsequent user instruction makes this a public repository. After completing a unit of work and the relevant checks, commit and push its changes, then verify the remote result. This authorization also applies to future game work; routine uploads to this repository do not require repeated confirmation.
+- 2026-09-17 재확인: 아이템 추가·수정·삭제, 캐릭터 모델 추가·교체·삭제, 맵·UI·상인·퀘스트·밸런스·코드·기획·에셋 등 모든 게임 작업 결과가 공유 대상입니다. 모든 분야 담당자는 관련 검증과 GitHub 원격 반영 확인까지 수행합니다. 파일의 신규 추가뿐 아니라 수정·삭제·이름 변경도 해당 작업의 커밋에 포함합니다.
+  Reconfirmed on 2026-09-17: Share all game work, including item additions, changes and deletions; character model additions, replacements and deletions; maps, UI, merchants, quests, balance, code, design and assets. Every contributor must complete the relevant checks and verify publication on GitHub. Include modifications, deletions and renames as well as new files in the task's commit.
 - 커밋 메시지, PR 제목·설명, 작업 결과·검증 요약은 쉬운 한국어와 영어를 함께 작성합니다. 사용자에게는 한국어를 먼저 설명하고 같은 핵심 내용을 영어로 덧붙입니다. 코드 식별자나 파일 경로를 번역할 필요는 없습니다.
   Write commit messages, PR titles and descriptions, and work and validation summaries in both plain Korean and English. Explain the result in Korean first, followed by the same key information in English. Code identifiers and file paths do not need translation.
 - 현재 작업에 속한 변경만 묶고 다른 진행 중 작업을 임의로 커밋하지 않습니다. 재생성 가능한 캐시·임시 파일·인증 정보는 업로드에서 제외합니다. 원본 제작 자료는 보존하고, 대용량 에셋은 크기를 확인하여 적절한 저장 방식을 적용합니다.

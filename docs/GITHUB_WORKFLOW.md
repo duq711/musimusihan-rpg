@@ -8,11 +8,15 @@
 
 Following the user's instruction on 2026-09-16, publish subsequent game work to GitHub and describe it in both Korean and English.
 
+2026-09-17 사용자가 재확인한 공유 범위는 모든 게임 작업입니다. 아이템 추가·수정·삭제, 캐릭터 모델 추가·교체·삭제를 포함하며 맵·UI·상인·퀘스트·밸런스·코드·기획·에셋에도 동일하게 적용합니다. 모든 분야 담당자는 작업 단위가 끝나면 관련 검증부터 원격 반영 확인까지 수행합니다.
+
+On 2026-09-17, the user reconfirmed that sharing covers all game work, including item additions, changes and deletions; character model additions, replacements and deletions; maps, UI, merchants, quests, balance, code, design and assets. Every contributor must complete the relevant checks and verify publication when a unit of work is finished.
+
 ## 작업 순서 / Steps
 
 1. 현재 브랜치·원격 상태·다른 진행 중 변경을 확인합니다. / Check the current branch, remote state, and other work in progress.
 2. 게임 지침에 따라 구현과 관련 검증을 마칩니다. / Complete implementation and the relevant checks required by the game instructions.
-3. 해당 작업의 코드·기획·에셋·필요한 제작 원본·검증 요약만 선택하여 커밋합니다. / Commit the task's code, design, assets, required production sources, and validation summary.
+3. 해당 작업의 코드·기획·에셋·필요한 제작 원본·검증 요약만 선택하여 커밋합니다. 신규 파일뿐 아니라 수정·삭제·이름 변경도 검토하여 포함하고, 다른 진행 중 작업은 섞지 않습니다. 게임에서 사용하는 파일을 삭제·교체할 때도 원본 제작 자료는 보존합니다. / Commit only the task's code, design, assets, required production sources, and validation summary. Review and include modifications, deletions and renames as well as new files, without mixing in other work in progress. Preserve original production materials when deleting or replacing files used by the game.
 4. 커밋 제목·설명은 한국어와 영어로 함께 작성합니다. / Write commit titles and descriptions in Korean and English.
 5. 브랜치를 푸시하고 GitHub의 커밋 SHA와 로컬 SHA가 같은지 확인합니다. LFS 에셋도 업로드되어야 완료입니다. / Push the branch and verify that GitHub and local commit SHAs match. LFS assets must also be uploaded for completion.
 6. 사용자에게 변경 내용·검증 결과·GitHub 링크를 한국어 먼저, 영어 다음으로 설명합니다. / Report the changes, validation results, and GitHub link in Korean first, then English.
