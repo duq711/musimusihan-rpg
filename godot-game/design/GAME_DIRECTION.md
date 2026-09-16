@@ -295,3 +295,15 @@ The user requested an enemy NPC using the supplied orc assets. The implementatio
 사용자가 추가된 몬스터 그래픽을 거부하고 삭제를 요청했다. 위 오크 추가 결정을 철회하여 게임용 오크 모델·행동 코드·테스트룸 대련을 제거하고 동쪽 창고의 기존 검지기를 복원한다. 제작 원본은 보존하며 이 에셋을 재적용하지 않는다. 다른 적과 전투·보상 규칙은 유지한다.
 
 The user rejected the added monster graphics and requested removal, superseding the orc addition above. Remove the runtime asset, controller and trial, restore the original store warden, and preserve the source files without reapplying them. Other enemies and combat/reward rules remain unchanged.
+
+### 2026-09-17 사용자 후속 확정 — CGTrader 크리프 적용 / CGTrader Creep integration
+
+사용자는 오크 삭제 후 지정한 [Creep Creature](https://www.cgtrader.com/free-3d-models/character/fantasy-character/creep-creature)의 모델과 애니메이션을 받아 적용하도록 요청했다. 새 모델의 적용은 확정이며, 이전 오크를 다시 쓰는 결정은 아니다. 제작자는 andriichykrii다. 라이선스에 따른 원본·변환 에셋의 로컬 보관과 공개 저장소 설치 방법은 [크리프 안내](../docs/CREEP_ASSET.md)에 기록한다.
+
+After removing the orc, the user requested the specified Creep Creature model and animations by andriichykrii. This confirms use of the new asset without reinstating the rejected orc. The linked guide documents local asset storage and installation for public-repository users.
+
+구현 판단: 에셋 설치 시 폐광 동쪽 창고 적 한 명과 테스트룸 전용 대련에 연결한다. 기존 적 여섯 명·창고 적 수치·근접 전투·방패·피격·보상·귀환 규칙을 재사용한다. 원본 17개 클립은 보존하고, 게임에서는 대기·추적·물기·양손 연타·피격·사망 6개를 사용한다. 반복이 포함된 공격 클립은 첫 완결 동작 구간만 게임의 한 공격으로 사용한다. 미설치 환경은 기존 검지기를 유지한다. 신규 보스·종족 서사·추가 공격 규칙은 확정하지 않는다.
+
+Implementation choice: integrate one eastern-store encounter and a dedicated test-room duel when installed. Reuse existing encounter count, stats, combat, shield, damage, reward, and extraction rules. Preserve all seventeen clips, connecting six to current behavior and using the first complete cycle of repeating attack clips. Missing-asset environments retain the original warden. No new boss, species lore, or additional combat system is established.
+
+실제 게임 연결과 설치·미설치 자동 검사, GPU 화면 10장 검토를 완료했다. [검증 기록](../artifacts/validation/creep_20260917/README.md)을 따른다. / Integration, installed/missing-asset checks and ten actual GPU renders are verified; see the validation record.

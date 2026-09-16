@@ -1,5 +1,5 @@
 extends SceneTree
-## Actual restored mine encounter; native input and automatic gameplay stay off.
+## Actual mine encounter; native input and automatic gameplay stay off.
 
 func _init() -> void:
 	call_deferred("run")
@@ -34,10 +34,13 @@ func run() -> void:
 	view.add_child(mine)
 	load("res://tests/item_detail_preview.gd").stop_external_execution(mine)
 	var enemy: DungeonEnemy
+	var installed := preload("res://scripts/creep_enemy.gd").is_available()
+	var expected_name := "동쪽 창고의 크리프" if installed else "동쪽 창고의 검지기"
 	for actor in mine.get_children():
-		if actor is DungeonEnemy and actor.display_name == "동쪽 창고의 검지기":
+		if actor is DungeonEnemy and actor.display_name == expected_name:
 			enemy = actor
-	assert(enemy != null and enemy.get_script() == load("res://scripts/enemy.gd"))
+	assert(enemy != null)
+	assert(enemy.get_meta("enemy_archetype", "warden") == ("creep" if installed else "warden"))
 	assert(mine.enemies_alive == 6)
 	var eye := enemy.global_position + Vector3(0, 0.7, -3.4)
 	load("res://tests/performance_preview.gd").position_player(mine, {"position": eye, "target": enemy.global_position + Vector3(0, 0.65, 0)}, true)
@@ -54,7 +57,7 @@ func run() -> void:
 	for i in 8:
 		await process_frame
 	RenderingServer.force_draw(false)
-	assert(view.get_texture().get_image().save_png(path.path_join("restored_store_warden.png")) == OK)
+	assert(view.get_texture().get_image().save_png(path.path_join("mine_store_creep.png" if installed else "restored_store_warden.png")) == OK)
 	var actor_name := enemy.display_name
 	mine.suspend_stress_effects()
 	view.queue_free()

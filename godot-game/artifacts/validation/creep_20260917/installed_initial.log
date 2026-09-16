@@ -1,0 +1,78 @@
+[HEADLESS] creep_enemy_test.gd
+WARNING: 'res://assets/licensed/creep/creep.glb': In external resource #0, invalid UID: 'uid://dltl1242e5pgr' - using text path instead: 'res://assets/licensed/creep/creep_Creep_BaseColor.png'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+     GDScript backtrace (most recent call first):
+         [0] _build_body (res://scripts/creep_enemy.gd:34)
+         [1] _ready (res://scripts/enemy.gd:100)
+         [2] _spawn_enemy (res://scripts/game.gd:610)
+         [3] _prepare_creep (res://scripts/test_room.gd:1771)
+         [4] run_feature (res://scripts/test_room.gd:436)
+         [5] _run (res://tests/creep_enemy_test.gd:34)
+WARNING: 'res://assets/licensed/creep/creep.glb': In external resource #1, invalid UID: 'uid://dnfu4oq6da2f5' - using text path instead: 'res://assets/licensed/creep/creep_occlusion-Creep_Roughness-Creep_Metallic.png'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+     GDScript backtrace (most recent call first):
+         [0] _build_body (res://scripts/creep_enemy.gd:34)
+         [1] _ready (res://scripts/enemy.gd:100)
+         [2] _spawn_enemy (res://scripts/game.gd:610)
+         [3] _prepare_creep (res://scripts/test_room.gd:1771)
+         [4] run_feature (res://scripts/test_room.gd:436)
+         [5] _run (res://tests/creep_enemy_test.gd:34)
+WARNING: 'res://assets/licensed/creep/creep.glb': In external resource #2, invalid UID: 'uid://djm2l8mebsjre' - using text path instead: 'res://assets/licensed/creep/creep_Creep_Normal_OpenGL.png'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+     GDScript backtrace (most recent call first):
+         [0] _build_body (res://scripts/creep_enemy.gd:34)
+         [1] _ready (res://scripts/enemy.gd:100)
+         [2] _spawn_enemy (res://scripts/game.gd:610)
+         [3] _prepare_creep (res://scripts/test_room.gd:1771)
+         [4] run_feature (res://scripts/test_room.gd:436)
+         [5] _run (res://tests/creep_enemy_test.gd:34)
+WARNING: 'res://assets/licensed/creep/creep.glb': In external resource #0, invalid UID: 'uid://dltl1242e5pgr' - using text path instead: 'res://assets/licensed/creep/creep_Creep_BaseColor.png'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+     GDScript backtrace (most recent call first):
+         [0] _build_body (res://scripts/creep_enemy.gd:34)
+         [1] _ready (res://scripts/enemy.gd:100)
+         [2] _spawn_enemy (res://scripts/game.gd:610)
+         [3] _prepare_creep (res://scripts/test_room.gd:1771)
+         [4] run_feature (res://scripts/test_room.gd:436)
+         [5] _test_installed_asset (res://tests/creep_enemy_test.gd:93)
+WARNING: 'res://assets/licensed/creep/creep.glb': In external resource #1, invalid UID: 'uid://dnfu4oq6da2f5' - using text path instead: 'res://assets/licensed/creep/creep_occlusion-Creep_Roughness-Creep_Metallic.png'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+     GDScript backtrace (most recent call first):
+         [0] _build_body (res://scripts/creep_enemy.gd:34)
+         [1] _ready (res://scripts/enemy.gd:100)
+         [2] _spawn_enemy (res://scripts/game.gd:610)
+         [3] _prepare_creep (res://scripts/test_room.gd:1771)
+         [4] run_feature (res://scripts/test_room.gd:436)
+         [5] _test_installed_asset (res://tests/creep_enemy_test.gd:93)
+WARNING: 'res://assets/licensed/creep/creep.glb': In external resource #2, invalid UID: 'uid://djm2l8mebsjre' - using text path instead: 'res://assets/licensed/creep/creep_Creep_Normal_OpenGL.png'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+     GDScript backtrace (most recent call first):
+         [0] _build_body (res://scripts/creep_enemy.gd:34)
+         [1] _ready (res://scripts/enemy.gd:100)
+         [2] _spawn_enemy (res://scripts/game.gd:610)
+         [3] _prepare_creep (res://scripts/test_room.gd:1771)
+         [4] run_feature (res://scripts/test_room.gd:436)
+         [5] _test_installed_asset (res://tests/creep_enemy_test.gd:93)
+CREEP ENEMY TEST PASS: installed rig, source clips, timed contacts, shield/parry, death rewards, repeat/reset, session restoration
+[HEADLESS] cave_dungeon_test.gd
+TIMEOUT after 600s: cave_dungeon_test.gd
+SCRIPT ERROR: Parse Error: Cannot infer the type of "use_creep" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://scripts/cave_dungeon.gd:71)
+          GDScript backtrace (most recent call first):
+              [0] _run (res://tests/cave_dungeon_test.gd:14)
+ERROR: Failed to load script "res://scripts/cave_dungeon.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/cave_dungeon_test.gd:14)
+SCRIPT ERROR: Invalid access to property or key 'player' on a base object of type 'Node3D'.
+          at: _run (res://tests/cave_dungeon_test.gd:23)
+          GDScript backtrace (most recent call first):
+              [0] _run (res://tests/cave_dungeon_test.gd:23)
+Script error detected in cave_dungeon_test.gd, regardless of engine exit status.
+[HEADLESS] test_room_test.gd
+TEST ROOM PASS: catalog, actors, chest hands/equipment/repeat/cancellation, stress accumulation/recovery/perception/isolation, pause, camping, flail, archery, fixtures, results, reset, scene roundtrip and original session restoration
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2535)
+
+Headless validation: 2 passed, 1 failed.
+FAILED: cave_dungeon_test.gd (1)

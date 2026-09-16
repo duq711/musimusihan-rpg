@@ -18,6 +18,7 @@ static func entries() -> Array[Dictionary]:
 		_entry("archery_accuracy", "기본", "활 반동 · 당기기별 정확도", "8m 과녁 · 0.1초 이하 낙하 / 길게 당겨 사격 · 조준선 확장 → 축소", "archery_accuracy"),
 		_entry("archery_power", "기본", "활 피해 · 기력 유지", "0.1초 이하 낙하 · 피해 18 → 46 · 기력 초당 22 · 고갈 시 현재 힘으로 1발", "archery_power"),
 		_entry("skeleton", "기본", "해부학적 골격 · 적 AI", "무장 없는 성소지기 · 피격 / 경직 / 골절", "skeleton"),
+		_entry("creep", "기본", "크리프 · 괴물 근접 전투", "추적·물기·양손 연타·피격·사망 · LMB 공격 / RMB 방어 · F2 재선택: 회복·재생성", "creep"),
 		_entry("torch", "기본", "횃불 · 조명", "Unity 불꽃 애니메이션 · 기름 먹인 천 전체 연소 · F 점화 / 소등", "torch"),
 		_entry("wall_equipment", "기본", "벽 접근 · 무기와 방패 표시", "북쪽 벽 앞으로 이동 · W 접근 / S 후퇴 · I 장비 교체 · F 횃불", "wall_equipment"),
 		_entry("inventory", "기본", "인벤토리 · 장비 교체", "I로 가방 · 장착 / 해제 / 소비품 사용", "inventory"),

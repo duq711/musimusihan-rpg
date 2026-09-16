@@ -44,7 +44,10 @@ func _run() -> void:
 	_check(is_equal_approx(float(info.width_m), 131.0) and is_equal_approx(float(info.depth_m), 139.0), "the cave footprint must be exactly 131 by 139 metres")
 	_check(info.chambers == 18 and enemies.size() == 6 and cave.enemies_alive == 6, "eighteen reference-traced chambers must contain six live encounters")
 	_check(traps.size() == 4 and preload("res://tests/loot_test_helpers.gd").valid_count(cave), "four real traps and the visit's selected loot sites must be spawned")
-	_check(enemies.filter(func(actor): return actor.display_name == "동쪽 창고의 검지기" and actor.get_script() == preload("res://scripts/enemy.gd")).size() == 1, "eastern store encounter must use the restored warden")
+	var creep_installed := preload("res://scripts/creep_enemy.gd").is_available()
+	var store_name := "동쪽 창고의 크리프" if creep_installed else "동쪽 창고의 검지기"
+	_check(enemies.filter(func(actor): return actor.display_name == store_name).size() == 1, "store encounter must match installed Creep or original warden fallback")
+	_check(enemies.filter(func(actor): return actor.get_meta("enemy_archetype", "") == "creep").size() == int(creep_installed), "only the store encounter may use the licensed creature")
 	var has_poison_source := false
 	var has_paralysis_source := false
 	for actor: DungeonEnemy in enemies:

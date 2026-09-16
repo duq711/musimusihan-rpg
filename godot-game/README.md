@@ -652,3 +652,13 @@ F2 → 기본 → **주무장 1번 · 방패 수납**은 검·방패와 2m 정�
 사용자의 그래픽 삭제 요청에 따라 오크 모델·동작 코드·F2 시험 항목을 제거하고 폐광 동쪽 창고를 기존 검지기로 복구했다. 적 수·기존 수치·보상·귀환문 조건은 유지한다. 제작 원본은 `asset-staging/orc_20260917/`에 보존한다.
 
 At the user’s request, the orc model, controller and F2 trial were removed. The eastern mine store uses the original warden again; encounter counts, stats, rewards and extraction rules are unchanged. Production sources are preserved outside the game.
+
+## 크리프 괴물 · 로컬 에셋 설치 / Creep creature · local asset installation
+
+사용자가 지정한 CGTrader **Creep Creature**를 적 NPC로 연결합니다. 에셋 설치 후 `F2 → 기본 → 크리프 · 괴물 근접 전투`에서 추적·물기·양손 연타·피격·사망을 시험합니다. 재선택하면 회복·재생성되며 원래 원정은 보존됩니다. 본편은 폐광 동쪽 창고 한 자리만 교체하며 적 여섯 명과 기존 수치·보상·귀환 조건을 유지합니다.
+
+The requested CGTrader Creep Creature is integrated as an enemy NPC. Once installed, the F2 Creep trial offers pursuit, bite, two-punch attacks, hit reactions, and death, with recovery/replay and isolated expedition state. Only the eastern mine store encounter changes; the six-enemy count, existing stats, rewards, and extraction rules remain.
+
+라이선스 에셋은 공개 저장소에 포함하지 않습니다. [출처·설치·검증 안내](docs/CREEP_ASSET.md)에 따라 로컬에 설치합니다. 미설치 복사본은 창고의 기존 검지기를 사용하며 F2 항목은 설치 안내를 표시합니다. 전투·테스트룸·폐광 및 미설치 대체 검사가 통과했고 실제 GPU 화면 10장을 검토했습니다. [검증 기록](artifacts/validation/creep_20260917/README.md)을 참고하세요.
+
+Licensed binaries are not distributed in the public repository. Follow the linked source, installation, and validation guide. Without installation, the store retains its original warden and F2 shows setup guidance. Installed and missing-asset checks passed, and ten actual GPU renders were inspected. See the linked validation record for scope and remaining warnings.

@@ -1,0 +1,34 @@
+[HEADLESS] cave_dungeon_test.gd
+WARNING: 'res://assets/licensed/creep/creep.glb': In external resource #0, invalid UID: 'uid://dltl1242e5pgr' - using text path instead: 'res://assets/licensed/creep/creep_Creep_BaseColor.png'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+     GDScript backtrace (most recent call first):
+         [0] _build_body (res://scripts/creep_enemy.gd:34)
+         [1] _ready (res://scripts/enemy.gd:100)
+         [2] _spawn_enemy (res://scripts/game.gd:610)
+         [3] _spawn_encounters (res://scripts/cave_dungeon.gd:72)
+         [4] _ready (res://scripts/game.gd:89)
+         [5] _ready (res://scripts/cave_dungeon.gd:14)
+         [6] _run (res://tests/cave_dungeon_test.gd:20)
+WARNING: 'res://assets/licensed/creep/creep.glb': In external resource #1, invalid UID: 'uid://dnfu4oq6da2f5' - using text path instead: 'res://assets/licensed/creep/creep_occlusion-Creep_Roughness-Creep_Metallic.png'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+     GDScript backtrace (most recent call first):
+         [0] _build_body (res://scripts/creep_enemy.gd:34)
+         [1] _ready (res://scripts/enemy.gd:100)
+         [2] _spawn_enemy (res://scripts/game.gd:610)
+         [3] _spawn_encounters (res://scripts/cave_dungeon.gd:72)
+         [4] _ready (res://scripts/game.gd:89)
+         [5] _ready (res://scripts/cave_dungeon.gd:14)
+         [6] _run (res://tests/cave_dungeon_test.gd:20)
+WARNING: 'res://assets/licensed/creep/creep.glb': In external resource #2, invalid UID: 'uid://djm2l8mebsjre' - using text path instead: 'res://assets/licensed/creep/creep_Creep_Normal_OpenGL.png'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+     GDScript backtrace (most recent call first):
+         [0] _build_body (res://scripts/creep_enemy.gd:34)
+         [1] _ready (res://scripts/enemy.gd:100)
+         [2] _spawn_enemy (res://scripts/game.gd:610)
+         [3] _spawn_encounters (res://scripts/cave_dungeon.gd:72)
+         [4] _ready (res://scripts/game.gd:89)
+         [5] _ready (res://scripts/cave_dungeon.gd:14)
+         [6] _run (res://tests/cave_dungeon_test.gd:20)
+CAVE DUNGEON TEST PASS: 131 × 139 m scene, grounded player / encounters, dark cave environment, real trap and chest actions, six-kill extraction and cave retry contract
+
+Headless validation: 1 passed, 0 failed.

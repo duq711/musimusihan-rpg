@@ -68,7 +68,8 @@ func _spawn_encounters() -> void:
 	}
 	for placement: Dictionary in CAVE_LAYOUT.gameplay("enemies"):
 		var profile: Array = guards[placement.id]
-		_spawn_enemy(profile[0], placement.position, profile[1], profile[2], profile[3], Color(0.24, 0.21, 0.17), profile[4])
+		var use_creep: bool = placement.id == "store_guard" and preload("res://scripts/creep_enemy.gd").is_available()
+		_spawn_enemy("동쪽 창고의 크리프" if use_creep else profile[0], placement.position, profile[1], profile[2], profile[3], Color(0.24, 0.21, 0.17), profile[4], "creep" if use_creep else "warden")
 	for actor in get_children():
 		if actor is DungeonEnemy:
 			actor.detection_range = 9.0

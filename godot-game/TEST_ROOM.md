@@ -835,3 +835,21 @@ Selecting the beef-jerky trial under F2 → Survival supplies three portions, se
 사용자의 그래픽 삭제 요청에 따라 오크 모델·동작 코드·F2 시험 항목을 제거하고 폐광 동쪽 창고를 기존 검지기로 복구했다. 적 수·기존 수치·보상·귀환문 조건은 유지한다. 제작 원본은 `asset-staging/orc_20260917/`에 보존한다.
 
 At the user’s request, the orc model, controller and F2 trial were removed. The eastern mine store uses the original warden again; encounter counts, stats, rewards and extraction rules are unchanged. Production sources are preserved outside the game.
+
+## 크리프 · 괴물 근접 전투 / Creep melee encounter
+
+먼저 [크리프 에셋 설치 안내](docs/CREEP_ASSET.md)에 따라 로컬 모델을 준비합니다. `F2 → 기본 → 크리프 · 괴물 근접 전투`를 선택하면 실제 크리프 한 명, 검·방패와 회복된 플레이어를 준비하고 전투를 재개합니다.
+
+Install the local model using the guide above. Selecting `F2 → 기본 → 크리프 · 괴물 근접 전투` starts a real one-creature duel with a healed player and sword/shield.
+
+- `LMB`: 공격해 피격·사망·보상을 확인합니다. / Attack to exercise hit reactions, death, and rewards.
+- `RMB`: 방패 가드와 공격 직전 저스트 가드를 확인합니다. / Check shield blocking and just guard.
+- `F2`: 전투를 멈추고 메뉴로 돌아갑니다. 같은 항목 재선택은 회복·크리프 재생성, 초기화는 기존 적 두 명 복구입니다. / Pause and return; reselection heals and respawns Creep, while reset restores the two default enemies.
+
+크리프는 물기와 두 번의 주먹 타격을 번갈아 사용합니다. 주먹 두 접촉의 총 피해는 설정된 공격 한 번의 피해이며, 저스트 가드로 경직되면 남은 접촉이 취소됩니다. 원본의 17개 동작 중 전투에 연결한 것은 대기·걷기·물기·주먹·피격·사망 6개입니다. 기타 동작이 게임에서 실행된다고 표시하지 않습니다.
+
+Creep alternates bite and a two-contact punch. Both punch contacts together equal one configured attack; a just guard interrupts the remaining contact. Six of the seventeen source clips are connected to combat: idle, walk, bite, punch, hit, and death.
+
+공개 저장소 복사본에 에셋이 없으면 설치 안내만 표시하고 메뉴와 기존 시험 대상을 유지합니다. 원정과 인벤토리는 시험과 분리되며 시험을 나가면 복원됩니다. 관련 검사: 프로젝트 루트에서 `GODOT_TEST_TIMEOUT_SECONDS=600 ./godot-game/tests/run_headless_tests.sh creep_enemy cave_dungeon test_room`. 미설치 검사는 모델 검증을 **SKIPPED**로 구분합니다. 설치·미설치 자동 검사와 실제 GPU 화면 10장 검토를 완료했습니다. [검증 기록](artifacts/validation/creep_20260917/README.md)을 참고하세요.
+
+Without the licensed asset, the entry displays setup guidance and keeps the menu and current actors intact. The original expedition and inventory remain isolated and are restored on exit. Run the listed checks from the repository root; absent-asset runs mark model coverage **SKIPPED**. Installed and missing-asset checks passed, and ten actual GPU renders were inspected. See the linked validation record for scope and remaining warnings.

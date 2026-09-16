@@ -188,6 +188,15 @@ HIDEOUT_DISTILLING_QA_ITERATION=iteration_01 ./tests/run_embedded_preview.sh dis
 
 ## 폐광 동쪽 창고 적 복구 / Restored eastern-store enemy
 
-`CAVE_STORE_QA_ITERATION=<새 이름> GODOT_PREVIEW_TIMEOUT_SECONDS=360 ./tests/run_embedded_preview.sh cave_store_enemy_preview.gd`는 기존 performance scene factory의 안전한 폐광 진입을 재사용한다. 실제 검지기와 6명 배치를 확인하고 창고 위치의 게임 화면을 촬영한다. 외부 입력·자동 처리·오디오를 끄고 원정/커서를 보존한다. 먼저 `cave_dungeon`, `test_room`을 실행한다. 성공 표식: `CAVE STORE ENEMY PREVIEW PASS:`.
+`CAVE_STORE_QA_ITERATION=<새 이름> GODOT_PREVIEW_TIMEOUT_SECONDS=360 ./tests/run_embedded_preview.sh cave_store_enemy_preview.gd`는 기존 performance scene factory의 안전한 폐광 진입을 재사용한다. 설치된 에셋에 맞는 실제 창고 적(크리프 또는 기본 검지기)과 6명 배치를 확인하고 창고 위치의 게임 화면을 촬영한다. 외부 입력·자동 처리·오디오를 끄고 원정/커서를 보존한다. 먼저 `cave_dungeon`, `test_room`을 실행한다. 성공 표식: `CAVE STORE ENEMY PREVIEW PASS:`.
 
-This uses the audited mine adapter and production geometry, actors, camera and HUD, with native input/audio disabled. It verifies the restored warden and six-enemy encounter count, then saves an actual GPU image and checks session/cursor preservation.
+This uses the audited mine adapter and production geometry, actors, camera and HUD, with native input/audio disabled. It verifies the installed Creep (or original warden fallback) and six-enemy encounter count, then saves an actual GPU image and checks session/cursor preservation.
+
+
+## 크리프 원본 애니메이션 / Creep source animations
+
+먼저 `GODOT_TEST_TIMEOUT_SECONDS=600 ./tests/run_headless_tests.sh creep_enemy cave_dungeon test_room`을 실행한다. 로컬 크리프 설치가 있어야 모델·애니메이션 검증을 실행한다. 미설치 검증은 대체 적과 설치 안내만 확인하며 에셋 검사를 생략했다고 명시한다.
+
+`CREEP_QA_ITERATION=<새 이름> GODOT_PREVIEW_TIMEOUT_SECONDS=600 ./tests/run_embedded_preview.sh creep_enemy_preview.gd`는 흰 조명 아래 앞·옆·뒤, 걷기·물기·양손 타격·피격·사망과 실제 폐광 창고 장면을 GPU로 촬영한다. 원본 애니메이션의 접촉 시점을 본편 상태 코드로 선택한다. 창·하드웨어 입력·커서·오디오를 건드리지 않으며 원래 원정을 복원한다. 출력은 `artifacts/visual_qa/creep/<새 이름>/`, 성공 표식은 `CREEP ENEMY PREVIEW PASS:`이다. 정지 시점의 렌더 검사이며 사용자가 직접 조작한 플레이 영상으로 표현하지 않는다.
+
+Run the headless checks first. Installed mode checks the source rig and animations; missing-asset mode explicitly skips those checks and verifies the public-clone fallback. The embedded preview renders nine source poses and the production mine encounter without opening a window or changing the cursor, and restores the original session. These are actual GPU stills, not a claim of manual playtesting.

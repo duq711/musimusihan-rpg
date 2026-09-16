@@ -1,0 +1,76 @@
+extends SceneTree
+const CREEP := preload("res://scripts/creep_enemy.gd")
+func _init():call_deferred("run")
+func run():
+	if DisplayServer.get_name() != "embedded":quit(2);return
+	var tag:=OS.get_environment("CREEP_QA_ITERATION")
+	if not tag.is_valid_filename() or tag.begins_with("."):quit(2);return
+	var path:=ProjectSettings.globalize_path("res://artifacts/visual_qa/creep/"+tag)
+	if DirAccess.dir_exists_absolute(path):quit(2);return
+	DirAccess.make_dir_recursive_absolute(path)
+	root.gui_disable_input=true;root.physics_object_picking=false;AudioServer.set_bus_mute(0,true)
+	var before:=ExpeditionSession.capture_snapshot();var cursor:=Input.mouse_mode
+	var sandbox:=root.get_node("TestRoomSandbox");sandbox.begin()
+	var view:=SubViewport.new();view.size=Vector2i(1000,1000);view.own_world_3d=true;view.gui_disable_input=true;view.render_target_update_mode=SubViewport.UPDATE_ALWAYS
+	root.add_child(view)
+	var world:=Node3D.new();view.add_child(world)
+	var env:=WorldEnvironment.new();var e:=Environment.new();e.background_mode=Environment.BG_COLOR;e.background_color=Color(.065,.078,.088);e.ambient_light_source=Environment.AMBIENT_SOURCE_COLOR;e.ambient_light_color=Color(.85,.9,1);e.ambient_light_energy=.65;e.tonemap_mode=Environment.TONE_MAPPER_FILMIC;env.environment=e;world.add_child(env)
+	var light:=DirectionalLight3D.new();world.add_child(light);light.rotation_degrees=Vector3(-35,-35,0);light.light_energy=2.0;light.shadow_enabled=true
+	var fill:=OmniLight3D.new();world.add_child(fill);fill.position=Vector3(2,3,1);fill.omni_range=8;fill.light_energy=2
+	var floor_mesh:=MeshInstance3D.new();var plane:=PlaneMesh.new();plane.size=Vector2(20,20);floor_mesh.mesh=plane;world.add_child(floor_mesh)
+	var mat:=StandardMaterial3D.new();mat.albedo_color=Color(.15,.17,.18);mat.roughness=1;floor_mesh.material_override=mat
+	var creep:=CREEP.new();creep.position.y=.9;world.add_child(creep);creep.set_physics_process(false)
+	var cam:=Camera3D.new();world.add_child(cam);cam.position=Vector3(3,2.3,-4.5);cam.look_at(Vector3(0,1.0,0));cam.fov=40;cam.current=true
+	var captures=[]
+	var poses: Array = ["front","side","back","walk","bite","punch_right","punch_left","hit","death"]
+	for pose: String in poses:
+		cam.position=Vector3(0,1.5,-4.6)
+		if pose=="side":cam.position=Vector3(4.6,1.8,0)
+		if pose=="back":cam.position=Vector3(0,1.8,4.6)
+		cam.look_at(Vector3(0,1.0,0))
+		creep._set_state(DungeonEnemy.AIState.IDLE);creep.state_time=.5
+		if pose=="walk":creep._set_state(DungeonEnemy.AIState.CHASE);creep.state_time=.35
+		if pose in ["bite", "punch_right", "punch_left"]:
+			creep.attack_index = 0 if pose == "bite" else 1
+			creep._set_state(DungeonEnemy.AIState.ACTIVE)
+			creep.state_time = .18 if pose == "bite" else (.06 if pose == "punch_right" else .34)
+		if pose=="hit":creep._set_state(DungeonEnemy.AIState.STAGGER);creep.state_time=.25
+		if pose=="death":creep._set_state(DungeonEnemy.AIState.DEAD);creep.state_time=5
+		creep._update_visual_pose(0)
+		for i in 6:await process_frame
+		RenderingServer.force_draw(false)
+		assert(view.get_texture().get_image().save_png(path.path_join(pose+".png"))==OK)
+		captures.append({"pose":pose,"state":creep.get_creep_snapshot()})
+	view.queue_free();await process_frame
+	await capture_mine(path)
+	sandbox.finish()
+	assert(before==ExpeditionSession.capture_snapshot() and cursor==Input.mouse_mode)
+	var file:=FileAccess.open(path.path_join("manifest.json"),FileAccess.WRITE)
+	file.store_string(JSON.stringify({"renderer":RenderingServer.get_current_rendering_driver_name(),"captures":captures,"preserved_session_cursor":true,"source_sha256":FileAccess.get_sha256(CREEP.MODEL_PATH)},"\t"))
+	print("CREEP ENEMY PREVIEW PASS: ",path)
+	quit()
+
+func capture_mine(path: String) -> void:
+	var view:=SubViewport.new();view.size=Vector2i(1280,720);view.own_world_3d=true;view.gui_disable_input=true;view.render_target_update_mode=SubViewport.UPDATE_ALWAYS
+	root.add_child(view)
+	var mine: Node=load("res://tests/performance_scene_factory.gd").create("mine")
+	view.add_child(mine)
+	load("res://tests/item_detail_preview.gd").stop_external_execution(mine)
+	var creep: Node3D
+	for actor in mine.get_children():
+		if actor.get_meta("enemy_archetype", "") == "creep":creep=actor;break
+	assert(creep != null and mine.enemies_alive == 6)
+	# Keep the actual authored spawn and existing cave lights/materials.
+	var eye:=creep.global_position+Vector3(0,.7,-3.4)
+	load("res://tests/performance_preview.gd").position_player(mine,{"position":eye,"target":creep.global_position+Vector3(0,.65,0)},true)
+	creep._face_direction((mine.player.global_position-creep.global_position).normalized(),1)
+	creep._set_state(DungeonEnemy.AIState.IDLE);creep.state_time=.5;creep._update_visual_pose(0)
+	for i in 30:
+		mine.player._update_viewmodel(1.0/60.0)
+		mine.player._update_torch(1.0/60.0)
+		await process_frame
+	mine.player.viewmodel_renderer.sync_view()
+	for i in 8:await process_frame
+	RenderingServer.force_draw(false)
+	assert(view.get_texture().get_image().save_png(path.path_join("mine_encounter.png"))==OK)
+	mine.suspend_stress_effects();view.queue_free();await process_frame

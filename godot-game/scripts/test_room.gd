@@ -432,6 +432,9 @@ func run_feature(feature_id: String) -> void:
 		player.set_hands_visual_profile("original")
 	var payload := str(entry.payload)
 	match str(entry.action):
+		"creep":
+			if _prepare_creep():
+				_hide_test_panel()
 		"performance":
 			TestRoomSandbox.toggle_performance_monitor()
 			_hide_test_panel()
@@ -1754,3 +1757,20 @@ func _prepare_jerky_eat_trial() -> void:
 	player._update_viewmodel(1.0)
 	var result := player.begin_item_use("beef_jerky", inventory)
 	_status("육포 먹기 · " + str(result.get("message", "")) + " · F2에서 다시 시험")
+
+
+func _prepare_creep() -> bool:
+	if not preload("res://scripts/creep_enemy.gd").is_available():
+		_status("크리프 에셋이 설치되지 않았습니다 · docs/CREEP_ASSET.md의 설치 안내를 확인해주세요")
+		return false
+	_remove_test_actors(true)
+	_recover_player()
+	inventory.equipment["offhand"] = "round_shield"
+	_equip_weapon("rusted_sword")
+	player.cancel_sword_attack()
+	_spawn_enemy("크리프", Vector3(0, 1, -3), 82, 21, 2.2, Color.WHITE, "fracture", "creep")
+	_set_enemy_ai(true)
+	_teleport(Vector3(0, 1, 2))
+	hud.update_objective(enemies_alive, loot_count, traps_disarmed)
+	_status("크리프 전투 · LMB 공격 / RMB 방어 · F2 재선택: 회복·재생성")
+	return true
