@@ -37,6 +37,6 @@ The initial upload covers the current `godot-game/` source, runtime assets, desi
 
 Historical work in `asset-staging/`, `exports/`, `concept-art/`, `generated-assets/`, `game/`, and `UE_Agent_Test/` stays preserved locally outside the initial upload. Future completed game work will include the relevant production outputs, required source materials, and documentation in its commits.
 
-현재 리포지터리는 비공개입니다. 타사 에셋과 폰트에 포함된 라이선스·출처 문서를 유지합니다.
+사용자 요청에 따라 이 리포지터리는 공개로 운영합니다. 타사 에셋과 폰트에 포함된 라이선스·출처 문서를 유지합니다.
 
-This repository is private. Keep the license and attribution documents included with third-party assets and fonts.
+This repository is public at the user's request. Keep the license and attribution documents included with third-party assets and fonts.

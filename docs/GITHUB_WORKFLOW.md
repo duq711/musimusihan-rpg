@@ -2,6 +2,8 @@
 
 대상 / Repository: https://github.com/duq711/musimusihan-rpg
 
+공개 범위 / Visibility: 공개 / Public (사용자 요청 / At the user's request)
+
 2026-09-16 사용자 지시에 따라 이후 게임 작업을 GitHub에 반영하고, 작업 설명은 한국어와 영어로 함께 남깁니다.
 
 Following the user's instruction on 2026-09-16, publish subsequent game work to GitHub and describe it in both Korean and English.
