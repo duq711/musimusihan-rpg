@@ -288,3 +288,10 @@ The referenced 1:45–1:53 sequence was inspected in the browser. Its right-hand
 사용자가 오크의 원본 메시·애니메이션 FBX·텍스처를 제공하고 적 NPC 추가를 요청했다. 기존 캐릭터 그래픽 담당이 원본 도끼·장비·스킨·애니메이션을 통합한다. 구현 판단으로 기존 근접 적 AI와 방패/피격/보상 규칙을 재사용하고 테스트룸 전용 대련 및 폐광 동쪽 창고 적에 적용한다. 던전의 적 수와 기존 창고 적 수치를 유지하며 신규 보스·종족 서사·별도 전투 규칙은 확정하지 않는다.
 
 The user requested an enemy NPC using the supplied orc assets. The implementation reuses existing melee AI, blocking, damage and rewards, with a dedicated test-room duel and the eastern mine store encounter. Existing counts/stats remain unchanged; no new boss, lore or separate combat rules are established.
+
+
+### 2026-09-17 사용자 후속 확정 — 오크 그래픽 삭제 / Orc graphics removed
+
+사용자가 추가된 몬스터 그래픽을 거부하고 삭제를 요청했다. 위 오크 추가 결정을 철회하여 게임용 오크 모델·행동 코드·테스트룸 대련을 제거하고 동쪽 창고의 기존 검지기를 복원한다. 제작 원본은 보존하며 이 에셋을 재적용하지 않는다. 다른 적과 전투·보상 규칙은 유지한다.
+
+The user rejected the added monster graphics and requested removal, superseding the orc addition above. Remove the runtime asset, controller and trial, restore the original store warden, and preserve the source files without reapplying them. Other enemies and combat/reward rules remain unchanged.

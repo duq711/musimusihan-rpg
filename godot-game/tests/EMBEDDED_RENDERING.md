@@ -184,3 +184,10 @@ HIDEOUT_DISTILLING_QA_ITERATION=iteration_01 ./tests/run_embedded_preview.sh dis
 물약 모션은 `POTION_QA_ITERATION=<새이름> ./tests/run_embedded_preview.sh potion_motion_preview.gd`로 촬영합니다. 기존 팔 프리뷰의 입력·오디오 비활성 SubViewport와 TestRoomSandbox를 재사용하며 실제 시간 사용·완료와 소스/세션 보존을 검사합니다. 출력은 `artifacts/visual_qa/potion_drink/<새이름>/`의 실제 사용 시간 + 0.7초 분량(현재 219프레임) 및 manifest.json, 성공 표식은 `POTION MOTION PREVIEW PASS:`입니다. 먼저 `potion_motion` 헤드리스 검사를 통과해야 합니다.
 
 물약 자세 비교에는 같은 실행기에 `POTION_QA_POSE_STUDY=1`을 전달할 수 있습니다. 실제 손·병 에셋의 접촉 관계를 보존한 채 기울기·손목 회전 9개 후보를 숨김 렌더로 비교하며, `diagnostic_pose_study: true`와 후보 값을 매니페스트에 기록합니다. 이 비교 이미지는 완성된 본편 모션으로 제공하지 않습니다. 자세를 본편에 반영한 뒤 회귀 검사를 통과하고, 해당 옵션 없이 전체 실제 모션을 다시 촬영해야 합니다.
+
+
+## 폐광 동쪽 창고 적 복구 / Restored eastern-store enemy
+
+`CAVE_STORE_QA_ITERATION=<새 이름> GODOT_PREVIEW_TIMEOUT_SECONDS=360 ./tests/run_embedded_preview.sh cave_store_enemy_preview.gd`는 기존 performance scene factory의 안전한 폐광 진입을 재사용한다. 실제 검지기와 6명 배치를 확인하고 창고 위치의 게임 화면을 촬영한다. 외부 입력·자동 처리·오디오를 끄고 원정/커서를 보존한다. 먼저 `cave_dungeon`, `test_room`을 실행한다. 성공 표식: `CAVE STORE ENEMY PREVIEW PASS:`.
+
+This uses the audited mine adapter and production geometry, actors, camera and HUD, with native input/audio disabled. It verifies the restored warden and six-enemy encounter count, then saves an actual GPU image and checks session/cursor preservation.

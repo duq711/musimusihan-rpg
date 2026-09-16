@@ -1,5 +1,8 @@
 # 오크 제작 자료 / Orc production sources
 
+> **사용자 요청으로 적용 취소됨 (2026-09-17).** 게임과 테스트룸에서 제거한 에셋의 제작/과거 검증 기록이다. 현재 게임의 적용 상태가 아니며 재적용하지 않는다. 원본과 기록만 보존한다.
+> **Withdrawn at the user’s request (2026-09-17).** This is a preserved source/historical validation record, not the current game state. Do not reapply the removed asset.
+
 `source_used.zip`에는 사용한 12개 애니메이션 FBX, 원본 기본 메시·도끼 FBX, albedo/normal/AO/metallic/gloss TGA가 들어 있다. 사용자가 제공한 Downloads 원본은 이동·변경하지 않았다. 나머지 제공 파일도 `source_manifest.json`에 크기와 SHA-256을 기록했다.
 
 The archive preserves the original files used by the conversion. Downloads originals remain untouched; the manifest also records the other supplied files.

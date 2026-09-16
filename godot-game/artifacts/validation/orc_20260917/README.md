@@ -1,5 +1,8 @@
 # 오크 적 통합 검증 / Orc enemy validation — 2026-09-17
 
+> **사용자 요청으로 적용 취소됨 (2026-09-17).** 게임과 테스트룸에서 제거한 에셋의 제작/과거 검증 기록이다. 현재 게임의 적용 상태가 아니며 재적용하지 않는다. 원본과 기록만 보존한다.
+> **Withdrawn at the user’s request (2026-09-17).** This is a preserved source/historical validation record, not the current game state. Do not reapply the removed asset.
+
 ## 결과 / Result
 
 제공된 리깅 오크·양손 도끼·텍스처·12개 애니메이션을 추가했다. 테스트룸 `F2 → 기본 → 오크 · 도끼 근접 전투`, 실제 폐광의 동쪽 창고 적에 연결했다. 기존 던전 적 수 6명, 원래 창고 적의 수치, 방패 방어·저스트 가드·처치 보상·귀환문 조건을 유지했다.

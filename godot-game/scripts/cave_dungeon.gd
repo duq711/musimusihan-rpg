@@ -62,13 +62,13 @@ func _spawn_encounters() -> void:
 		"quarry_warden": ["중앙 채석장의 검지기", 82.0, 21.0, 2.1, "fracture"],
 		"drowned_miner": ["굶주린 침수 갱도의 광부", 65.0, 17.0, 2.1, "poison"],
 		"workroom_guard": ["감독관 작업실의 감시자", 76.0, 20.0, 2.0, "curse"],
-		"store_guard": ["동쪽 창고의 오크", 68.0, 18.0, 2.2, "fracture"],
+		"store_guard": ["동쪽 창고의 검지기", 68.0, 18.0, 2.2, "fracture"],
 		"shrine_warden": ["기둥 성소의 수호자", 92.0, 23.0, 2.05, "curse"],
 		"bone_scavenger": ["굶주린 거수 무덤의 망자", 64.0, 17.0, 2.3, "bleeding"],
 	}
 	for placement: Dictionary in CAVE_LAYOUT.gameplay("enemies"):
 		var profile: Array = guards[placement.id]
-		_spawn_enemy(profile[0], placement.position, profile[1], profile[2], profile[3], Color(0.24, 0.21, 0.17), profile[4], "orc" if placement.id == "store_guard" else "warden")
+		_spawn_enemy(profile[0], placement.position, profile[1], profile[2], profile[3], Color(0.24, 0.21, 0.17), profile[4])
 	for actor in get_children():
 		if actor is DungeonEnemy:
 			actor.detection_range = 9.0

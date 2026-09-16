@@ -1,0 +1,36 @@
+[HEADLESS] cave_dungeon_test.gd
+CAVE DUNGEON TEST PASS: 131 × 139 m scene, grounded player / encounters, dark cave environment, real trap and chest actions, six-kill extraction and cave retry contract
+[HEADLESS] test_room_test.gd
+ERROR: every entry must have an executable action: bandage_forearm / bandage_forearm
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/test_room_test.gd:82)
+ERROR: every entry must have an executable action: splint_forearm / splint_forearm
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/test_room_test.gd:82)
+ERROR: every entry must have an executable action: potion_drink / potion_drink
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/test_room_test.gd:82)
+ERROR: every entry must have an executable action: jerky_eat / jerky_eat
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/test_room_test.gd:82)
+ERROR: every entry must have an executable action: timed_item_use / timed_item_use
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/test_room_test.gd:82)
+ERROR: every entry must have an executable action: dungeon_combat_hud / dungeon_combat_hud
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/test_room_test.gd:82)
+ERROR: every entry must have an executable action: storage_equipment / storage_equipment
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/test_room_test.gd:82)
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2535)
+
+Headless validation: 1 passed, 1 failed.
+FAILED: test_room_test.gd (1)
