@@ -615,7 +615,7 @@ F2 → 기본 → **주무장 1번 · 방패 수납**은 검·방패와 2m 정�
 
 퀵 인벤토리나 가방의 약·음식·물·치료품·마법서 사용을 시작하면 중앙 원형 진행 표시, 소수 첫째 자리의 남은 초, 물품 이름과 `[F] 취소`가 나타납니다. 가방에서 시작한 사용은 가방을 닫고 게임 시간으로 진행합니다. 사용 중 `F`는 횃불 전환보다 취소를 우선합니다. 취소하면 아이템 수량과 효과는 바뀌지 않으며, 완료 순간 소지 여부·치료 가능 상태를 다시 검사한 뒤 한 개만 소비하고 효과를 적용합니다. 체력 0 부위에 일반 약을 쓰거나 이미 가득 찬 수치를 회복하려 하면 시작부터 거절합니다.
 
-현재 사용 시간은 핏빛 회복약 6.6초, 그 외 일반 약·해독·정화·물 3초, 식량 4초, 마법서 5초, 붕대 5.35초, 부목 7.2초, 수술 12초입니다. 붕대·부목은 기존 왼팔 모션의 원본 길이를 사용합니다. 핏빛 회복약에는 마개 돌리기·다시 잡기·네 번 마시기·출렁이는 액체 감소 모션이 연결됩니다. 그 외 물품의 전용 손 모션은 별도 범위입니다. 타이머 중에는 공격·주문·다른 퀵 슬롯 사용을 막고, 가방/F2/일시정지·야영·장면 전환·사망 등으로 사용이 중단되면 미완료 효과를 적용하지 않습니다. 마비 상태에서는 해당 마비 해제약 사용을 허용합니다. 완료 후와 사용 중이 아닐 때 F의 기존 횃불 조작은 유지합니다.
+현재 사용 시간은 핏빛 회복약 6.6초, 그 외 일반 약·해독·정화·물 3초, 일반 식량 4초, 육포 8초, 마법서 5초, 붕대 5.35초, 부목 7.2초, 수술 12초입니다. 붕대·부목은 기존 왼팔 모션의 원본 길이를 사용합니다. 핏빛 회복약에는 마개 돌리기·다시 잡기·네 번 마시기·출렁이는 액체 감소 모션이 연결됩니다. 육포에는 꺼내서 입으로 가져가 먹는 전용 손 모션이 연결됩니다. 그 외 물품의 전용 손 모션은 별도 범위입니다. 타이머 중에는 공격·주문·다른 퀵 슬롯 사용을 막고, 가방/F2/일시정지·야영·장면 전환·사망 등으로 사용이 중단되면 미완료 효과를 적용하지 않습니다. 마비 상태에서는 해당 마비 해제약 사용을 허용합니다. 완료 후와 사용 중이 아닐 때 F의 기존 횃불 조작은 유지합니다.
 
 `F2 → 기본 → 아이템 사용 시간 · F 취소`는 부상과 보급품을 준비합니다. `4 약 / 5 붕대 / 6 식량 / 7 물`을 누르고 중간에 F로 취소하거나 끝까지 기다려 비교합니다. F2로 같은 항목을 재선택하면 수량·부상을 다시 준비하고 원래 원정은 보존합니다.
 
@@ -635,3 +635,12 @@ F2 → 기본 → **주무장 1번 · 방패 수납**은 검·방패와 2m 정�
 ## 물약 마시기 · 2026-09-15
 
 `F2 → 생존 → 물약 마시기 · 액체 출렁임`에서 제공 모델의 붉은 병으로 실제 핏빛 회복약을 마십니다. 6.6초 완료 시 소비·회복, F 취소, F2 재시험을 지원합니다. 마개를 엄지·검지로 집고 두 차례 돌린 뒤 빼냅니다. 제작·검증: [물약 뚜껑 동작 수정](../exports/Potion_Cap_Twist_2026-09-16/README.md).
+
+
+## 육포 먹기 / Eating beef jerky · 2026-09-17
+
+`F2 → 생존 → 육포 먹기 · 꺼내서 한입씩`은 육포 3개와 포만감 35를 준비하고 실제 사용을 시작합니다. 제작한 육포를 손으로 꺼내 먹으며, 8초를 마치면 1개를 소비하고 기존 식량과 같은 포만감 32를 회복합니다. `F`로 취소하거나 `F2`로 메뉴에 돌아가면 미완료 소비·효과 없이 손과 무기를 복구합니다. 같은 항목으로 다시 보급·재생할 수 있습니다. 물품 탭에도 육포가 자동 등록됩니다.
+
+`F2 → Survival → Eating beef jerky` supplies three portions, sets hunger to 35, and starts the real item-use action. The character takes out the authored jerky and eats it. Completing eight seconds consumes one portion and restores the existing ration value of 32 hunger. F cancels; F2 returns to the menu, restores equipment, and allows a fresh trial. Interrupted use consumes nothing. Jerky is also registered automatically in the item catalog.
+
+검증 / Checks: `./tests/run_headless_tests.sh jerky_item_use jerky_test_room timed_item_use jerky_motion jerky_grip`. 모두 통과했으며 실제 Vulkan 262프레임에서 손 파지·두 번의 입 접근·장비 복귀를 검토했습니다. All checks pass; the 262-frame Vulkan capture was reviewed for grip, both bites and equipment return. [전체 영상·검증 기록 / Full video and validation](../exports/Jerky_Eating_2026-09-17/README.md).

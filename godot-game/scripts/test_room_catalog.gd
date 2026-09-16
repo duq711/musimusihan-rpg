@@ -61,6 +61,7 @@ static func entries() -> Array[Dictionary]:
 		_entry("bandage_forearm", "생존", "붕대 사용 · 왼팔 감기", "왼팔에 실제 붕대 1개 사용 · 무기 수납 → 팔 들기 → 세 번 감기 → 당겨 찢기 → 무기 복귀 · F2 재선택으로 재보급·재생", "bandage_forearm", ""),
 		_entry("splint_forearm", "생존", "부목 사용 · 왼팔 고정", "팔을 가로로 들고 위에 판자 놓기 → 붕대 세 번 감기 → 끝 눌러 고정 · 7.2초 완료 후 골절 치료 · F 취소 / F2 반복", "splint_forearm", ""),
 		_entry("potion_drink", "생존", "물약 마시기 · 액체 출렁임", "마개 돌리기·다시 잡기 → 병목을 시점 아래 입에 대고 네 번 꿀꺽 → 빈 병 · 6.6초 완료 후 회복 · F 취소 / F2 반복", "potion_drink", ""),
+		_entry("jerky_eat", "생존", "육포 먹기 · 꺼내서 한입씩", "제공 육포를 꺼내 입으로 가져가 먹기 · 8초 완료 후 1개 소비·포만감 32 회복 · F 취소 / F2 재보급·반복", "jerky_eat", ""),
 		_entry("body_health", "생존", "장비·건강 통합 · 7부위 치료", "왼쪽 부위 치료 · 오른쪽 실제 장비/주머니/파우치/배낭 · 우클릭 상세 · 1~0 빠른 사용 / F2 재보급", "body_health", "damage"),
 		_entry("timed_item_use", "기본", "아이템 사용 시간 · F 취소", "4 회복약 / 5 붕대 / 6 식량 / 7 물 · 중앙 남은 초 · F 취소 · 완료 시 소비·효과 / F2 재보급", "timed_item_use"),
 		_entry("dungeon_combat_hud", "기본", "던전 전투 UI · 소지품과 경고", "1 검 · 2 활 · 3 횃불 · 4 약 · 5 붕대 · 6 음식 · 7 물 · 낮은 생존/부상/저주 경고 · F2 재시험", "dungeon_combat_hud"),

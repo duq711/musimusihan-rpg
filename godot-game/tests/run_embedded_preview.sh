@@ -22,6 +22,7 @@ fi
 case "$preview_name" in
 	supplied_fp_arms_preview.gd) preview_pass_marker="^SUPPLIED FP ARMS PREVIEW PASS:" ;;
 	potion_motion_preview.gd) preview_pass_marker='POTION MOTION PREVIEW PASS:' ;;
+	jerky_motion_preview.gd) preview_pass_marker='JERKY MOTION PREVIEW PASS:' ;;
 	splint_motion_preview.gd) preview_pass_marker='SPLINT MOTION PREVIEW PASS:' ;;
 	dungeon_combat_hud_preview.gd) preview_pass_marker='DUNGEON COMBAT HUD PREVIEW PASS:' ;;
 	bandage_motion_preview.gd) preview_pass_marker='^BANDAGE MOTION PREVIEW PASS:' ;;

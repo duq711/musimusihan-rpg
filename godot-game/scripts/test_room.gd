@@ -440,6 +440,8 @@ func run_feature(feature_id: String) -> void:
 			_select_category("생존")
 			status_controls.focus_stat("stress")
 			_status("현재 시험의 수치를 직접 바꿉니다. F2로 재개하면 회복·소모와 스트레스 연출이 이어집니다.")
+		"jerky_eat":
+			_prepare_jerky_eat_trial()
 		"potion_drink":
 			_prepare_potion_drink_trial()
 		"splint_forearm":
@@ -1738,3 +1740,17 @@ func _prepare_potion_drink_trial() -> void:
 	player._update_viewmodel(1.0)
 	var result := player.begin_item_use("healing_draught", inventory)
 	_status("물약 마시기 · " + str(result.get("message", "")) + " · F2에서 다시 시험")
+
+
+func _prepare_jerky_eat_trial() -> void:
+	_remove_test_actors()
+	_recover_player()
+	ExpeditionSession.clear_conditions()
+	_teleport(HOME_POSITION)
+	_restock_trial_supplies({"beef_jerky": 3})
+	ExpeditionSession.hunger = 35.0
+	player._refresh_survival_hud()
+	_hide_test_panel()
+	player._update_viewmodel(1.0)
+	var result := player.begin_item_use("beef_jerky", inventory)
+	_status("육포 먹기 · " + str(result.get("message", "")) + " · F2에서 다시 시험")

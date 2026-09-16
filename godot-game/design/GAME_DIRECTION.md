@@ -265,6 +265,14 @@ UI 구현 기준: 1~0의 고정 자동 기본 배치, 실제 일곱 부위 체�
 
 중앙 원형 사용 진행 표시와 남은 초, F 취소를 실제 아이템 사용에 연결한다. UI에서 시작하는 소모품 사용은 시간이 끝나야 아이템 한 개 소비와 효과가 적용된다. 취소·중단은 미완료 소비/효과를 남기지 않는다. 붕대·부목은 기존 제작 모션 시간과 맞추고, 일반 약/물 3초·식량 4초·마법서 5초·수술 12초를 이번 구현의 조정 가능한 기본 시간으로 둔다. 참고 영상은 직접 불러오지 못했으므로 첨부 스크린샷의 원형 타이머·소수 초·F 취소를 시각 기준으로 사용한다. 타이머는 원정 저장 필드가 아닌 현재 플레이어의 일시적 행동 상태이며 장면 전환과 시험 복원 때 취소한다.
 
+### 2026-09-17 사용자 지시 — 제작한 육포를 꺼내 먹기 / Eating the authored jerky
+
+[참고 영상 1:45–1:53](https://www.youtube.com/watch?v=kaJqMSBgi00&t=105s)의 오른손으로 꺼내기·입에 가져가 베어 물기·잠깐 내리기·두 번째 한입 흐름을 제작한 불규칙 육포에 적용한다. 해당 구간을 실제 브라우저 화면에서 확인했다. 영상의 소시지를 기존 육포 모델로 바꾸고 엄지·검지로 얇은 끝을 집으며, 손목과 팔은 연결한 채 입을 시점 아래에 둔다. 두 번 베어 문 모양은 원본 재질과 손에 잡힌 부분을 유지하고 노출된 끝만 바꾼다.
+
+구현 시간은 영상 구간에 맞춘 8초이며 조정 가능하다. 음식 효과는 기존 식량의 포만감 32를 재사용한 구현값이다. 완료 시 1개 소비, 중도 취소 시 미소비, F 취소·F2 재시험·원정 격리를 유지한다. 새로운 회복 효과나 식량 밸런스 확정은 아니다.
+
+The referenced 1:45–1:53 sequence was inspected in the browser. Its right-hand draw, bite, brief lowering and second bite are adapted to the existing irregular jerky, using a calibrated thumb/index pinch and connected wrist. The food reaches the lips below the eye camera. Bitten meshes preserve the held end and original material. The adjustable duration is eight seconds; the implementation reuses the existing ration's 32-point hunger effect, commits one item only on completion, and retains cancellation and isolated test-room replay.
+
 ### 2026-09-15 사용자 후속 지시 — 나무 막대와 붕대로 부목 제작
 
 사용자는 버클·가죽 스트랩 방식의 부목이 어색하다고 지적하고 [Gray Zone Warfare 영상 31초부터](https://www.youtube.com/watch?v=sjPpfdlupx4&t=31s)처럼 손목 아래에 나무 막대를 받치고 붕대를 감는 방식으로 교체하도록 지시했다. 이전 버클형은 현재 확정 외형이 아니며 제작 이력으로 보존한다. 해당 영상 31~37초의 지지대 배치·팔 회전·붕대 감기·끝 눌러 고정을 실제 브라우저 화면으로 확인했다. 기존 왼팔 치료에 맞춰 좌우 반전하고 현대식 지지대 재질은 단순 나무로 바꾼다. 공통 사용 완료·F 취소 규칙은 유지하며 모션 시간은 7.2초로 조정한다. 제작·실제 검증 상태는 `asset-staging/splint_wrap_20260915/` 기록을 따른다.

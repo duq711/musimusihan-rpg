@@ -9,7 +9,13 @@
 
 ## 시험
 
-`F2 → 기본 → 육포 외형 · 불규칙한 8종`에서 실행합니다. 목록으로 묶음·8종 펼친 모습·개별 조각을 선택할 수 있습니다. 음식 효과·먹기 모션은 이번 에셋 제작 범위에 포함되지 않습니다.
+`F2 → 기본 → 육포 외형 · 불규칙한 8종`에서 실행합니다. 목록으로 묶음·8종 펼친 모습·개별 조각을 선택할 수 있습니다. 2026-09-16 에셋 제작에는 음식 효과·먹기 모션이 포함되지 않았으며, 아래 후속 작업에서 연결했습니다.
+
+## 먹기 모션 / Eating motion · 2026-09-17
+
+`F2 → 생존 → 육포 먹기 · 꺼내서 한입씩`에서 긴 조각 `Jerky_01_long_torn_strip`을 실제 음식으로 사용합니다. 오른손 엄지·검지 파지, 두 번 베어 물기, 손 내리기, 장비 복귀가 8초 동안 이어집니다. 베어 문 끝은 런타임에서 별도 메시로 만들고 원본 GLB와 재질을 보존합니다. [파지 측정 기록](production/GRIP_CALIBRATION.md)을 참고하세요.
+
+The F2 survival trial uses the original long strip for an eight-second draw, two bites, lowering and equipment return. Runtime bitten meshes retain the original material and held end. The source GLB is unchanged. [Grip calibration](production/GRIP_CALIBRATION.md) records the supplied-hand contact measurements.
 
 2026-09-16 검증:
 

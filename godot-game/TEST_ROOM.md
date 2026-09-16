@@ -760,7 +760,7 @@ REFERENCE_SWORD_MOTION_QA_SCOPE=cut_refinement REFERENCE_SWORD_MOTION_QA_ITERATI
 
 퀵 인벤토리나 가방의 약·음식·물·치료품·마법서 사용을 시작하면 중앙 원형 진행 표시, 소수 첫째 자리의 남은 초, 물품 이름과 `[F] 취소`가 나타납니다. 가방에서 시작한 사용은 가방을 닫고 게임 시간으로 진행합니다. 사용 중 `F`는 횃불 전환보다 취소를 우선합니다. 취소하면 아이템 수량과 효과는 바뀌지 않으며, 완료 순간 소지 여부·치료 가능 상태를 다시 검사한 뒤 한 개만 소비하고 효과를 적용합니다. 체력 0 부위에 일반 약을 쓰거나 이미 가득 찬 수치를 회복하려 하면 시작부터 거절합니다.
 
-현재 사용 시간은 일반 약·해독·정화·물 3초, 식량 4초, 마법서 5초, 붕대 5.35초, 부목 7.2초, 수술 12초입니다. 붕대·부목은 기존 왼팔 모션의 원본 길이를 사용합니다. 나머지 물품에는 이번 작업에서 별도 손 모션을 만들지 않습니다. 타이머 중에는 공격·주문·다른 퀵 슬롯 사용을 막고, 가방/F2/일시정지·야영·장면 전환·사망 등으로 사용이 중단되면 미완료 효과를 적용하지 않습니다. 마비 상태에서는 해당 마비 해제약 사용을 허용합니다. 완료 후와 사용 중이 아닐 때 F의 기존 횃불 조작은 유지합니다.
+현재 사용 시간은 핏빛 회복약 6.6초, 그 외 일반 약·해독·정화·물 3초, 일반 식량 4초, 육포 8초, 마법서 5초, 붕대 5.35초, 부목 7.2초, 수술 12초입니다. 붕대·부목은 기존 왼팔 모션의 원본 길이를 사용합니다. 핏빛 회복약과 육포에는 각각 마시기와 먹기 손 모션이 연결됩니다. 그 외 물품의 전용 손 모션은 별도 범위입니다. 타이머 중에는 공격·주문·다른 퀵 슬롯 사용을 막고, 가방/F2/일시정지·야영·장면 전환·사망 등으로 사용이 중단되면 미완료 효과를 적용하지 않습니다. 마비 상태에서는 해당 마비 해제약 사용을 허용합니다. 완료 후와 사용 중이 아닐 때 F의 기존 횃불 조작은 유지합니다.
 
 `F2 → 기본 → 아이템 사용 시간 · F 취소`는 부상과 보급품을 준비합니다. `4 약 / 5 붕대 / 6 식량 / 7 물`을 누르고 중간에 F로 취소하거나 끝까지 기다려 비교합니다. F2로 같은 항목을 재선택하면 수량·부상을 다시 준비하고 원래 원정은 보존합니다.
 
@@ -814,3 +814,16 @@ REFERENCE_SWORD_MOTION_QA_SCOPE=cut_refinement REFERENCE_SWORD_MOTION_QA_ITERATI
 2026-09-16 음용 위치 재수정: 바로 위 버전의 입구 목표가 눈높이에 가까워 코로 마시는 인상을 주었다. 입구 목표를 시점보다 15cm 아래·3.5cm 앞으로 옮기고 화면 아래에 유지한다. 병 몸통은 아래 중앙에 크게 배치하고 병·손목을 함께 회전하며, 오른팔꿈치는 화면 밖으로 이어지도록 연결한다. 기존 마개 파지와 액체 감소를 유지한다. 실제 카메라에서 입구가 눈·코 아래 및 화면 하단 밖에 있는 회귀 검사를 추가했고 `potion_motion`, `potion_test_room`이 통과했다. 최종 219프레임 촬영·소스 해시 일치 확인. [음용 구간·전체 영상과 기록](../exports/Potion_Reference_Match_2026-09-16/README.md).
 
 2026-09-16 마개 열기 양팔 높이 수정: 병·양손 준비 위치를 6cm 낮추고 5cm 앞으로 보내 낮춘 병이 보이게 했다. 왼손의 진입 높이와 마개를 들어 빼는 폭을 줄이고, 왼팔꿈치를 몸 옆 아래에 두어 소매가 카메라 쪽으로 솟지 않게 연결했다. 음용 시 입 위치·각도는 유지한다. `potion_motion`, `potion_test_room` 통과 및 최종 219프레임 실제 렌더 확인. [수정 영상과 검증 기록](../exports/Potion_Lower_Arms_2026-09-16/README.md).
+
+
+## 육포 먹기 / Eating beef jerky · 2026-09-17
+
+`F2 → 생존 → 육포 먹기 · 꺼내서 한입씩`을 선택하면 시험용 육포 3개와 포만감 35를 준비하고 실제 `begin_item_use("beef_jerky")`를 실행합니다. 8초 동안 무기를 수납하고 육포를 꺼내 먹은 뒤 무기로 복귀합니다. 완료 시에만 `use_consumable()`의 기존 음식 효과로 1개 소비·포만감 32 회복을 적용하며, 체력·수분 효과는 추가하지 않습니다.
+
+`F` 취소, `F2` 메뉴 복귀, 회복·초기화는 진행 타이머와 임시 손을 함께 정리합니다. 중도 취소는 소비·포만감 변화 없이 끝납니다. 재선택하면 시험 수량·포만감을 복원하여 반복할 수 있습니다. 물품 탭의 육포 항목과 시험 보급은 원본 아이템 카탈로그에서 자동 생성합니다. 원래 원정의 가방 참조·내용·생존 수치는 시험과 분리해 보존합니다.
+
+Selecting the beef-jerky trial under F2 → Survival supplies three portions, sets hunger to 35, and calls the production item-use action. The eight-second animation stows equipment, takes out the authored jerky, eats, and restores equipment. Only completion consumes one portion and applies the existing 32-point hunger effect; it adds no health or thirst effect. F/F2, recovery, and reset clear both the timer and temporary hands. Reselecting restocks the fixture. The item entry is generated from the production inventory catalog, and the original expedition and inventory stay isolated.
+
+자동 검증 / Automated checks: `./tests/run_headless_tests.sh jerky_item_use jerky_test_room timed_item_use`. 육포 항목 자동 등록, 8초 완료 경계와 단일 소비, 포만감 상한·소지 재검사, 무기 복귀, F/F2 취소, 재보급·회복·초기화, 원정·인벤토리 참조·커서의 정확한 복원을 검사합니다. These tests cover catalog registration, the completion boundary, single consumption, hunger limits, ownership revalidation, equipment return, interruptions, repeated trials, and exact session restoration.
+
+`jerky_motion`, `jerky_grip`은 이동 연속성과 실제 손 피부·육포 삼각형의 접촉을 검사합니다. 두 입은 시점 아래 입 위치를 향하며 베어 문 끝만 줄어듭니다. 실제 Vulkan 전체 촬영 262프레임과 옆면 진단 10장 검증을 마쳤습니다. These additional tests check continuous movement and actual skin-to-food contact. Both bites target the mouth below the camera and remove only the exposed end. Full Vulkan capture and side diagnostics passed. [영상·측정 결과 / Video and measurements](../exports/Jerky_Eating_2026-09-17/README.md).

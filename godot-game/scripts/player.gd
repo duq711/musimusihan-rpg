@@ -119,6 +119,7 @@ var last_item_use_result: Dictionary = {}
 var bandage_hands: Node3D
 var splint_hands: Node3D
 var potion_hands: Node3D
+var jerky_hands: Node3D
 var chest_equipment_stowed := false
 var _chest_stow_amount := 0.0
 var _chest_carried_poses: Dictionary = {}
@@ -452,10 +453,14 @@ func _build_viewmodel() -> void:
 	potion_hands.name = "PotionDrinkHands"
 	camera.add_child(potion_hands)
 	potion_hands.visible = false
+	jerky_hands = preload("res://scripts/jerky_eat_visuals.gd").new()
+	jerky_hands.name = "JerkyEatHands"
+	camera.add_child(jerky_hands)
+	jerky_hands.visible = false
 	viewmodel_renderer = FIRST_PERSON_RENDERER.new()
 	viewmodel_renderer.name = "FirstPersonRenderer"
 	add_child(viewmodel_renderer)
-	viewmodel_renderer.setup(camera, [weapon_pivot, shield_pivot, torch_pivot, support_arm_root, bandage_hands, splint_hands, potion_hands])
+	viewmodel_renderer.setup(camera, [weapon_pivot, shield_pivot, torch_pivot, support_arm_root, bandage_hands, splint_hands, potion_hands, jerky_hands])
 	configure_safe_zone(safe_zone_mode)
 
 
@@ -3831,7 +3836,7 @@ func _refresh_hand_visibility() -> void:
 
 
 func is_bandage_motion_active() -> bool:
-	return (is_instance_valid(bandage_hands) and bool(bandage_hands.active)) or (is_instance_valid(splint_hands) and bool(splint_hands.active)) or (is_instance_valid(potion_hands) and bool(potion_hands.active))
+	return (is_instance_valid(bandage_hands) and bool(bandage_hands.active)) or (is_instance_valid(splint_hands) and bool(splint_hands.active)) or (is_instance_valid(potion_hands) and bool(potion_hands.active)) or (is_instance_valid(jerky_hands) and bool(jerky_hands.active))
 
 
 func cancel_bandage_motion() -> void:
@@ -3839,6 +3844,7 @@ func cancel_bandage_motion() -> void:
 	bandage_hands.clear()
 	splint_hands.clear()
 	potion_hands.clear()
+	jerky_hands.clear()
 	_refresh_carried_visibility()
 
 
@@ -3854,11 +3860,17 @@ func advance_bandage_motion(delta: float) -> void:
 
 
 func _active_treatment_hands() -> Node3D:
+	if is_instance_valid(jerky_hands) and jerky_hands.active: return jerky_hands
 	if is_instance_valid(potion_hands) and potion_hands.active: return potion_hands
 	return splint_hands if is_instance_valid(splint_hands) and splint_hands.active else bandage_hands
 
 
 func _play_consumable_motion(item_id: String, treatment_part: String) -> void:
+	if item_id == "beef_jerky" and is_instance_valid(jerky_hands):
+		cancel_bandage_motion()
+		jerky_hands.begin([weapon_pivot, shield_pivot, torch_pivot, support_arm_root])
+		viewmodel_renderer._assign_equipment_layer(jerky_hands)
+		_refresh_carried_visibility()
 	if item_id == "healing_draught" and is_instance_valid(potion_hands):
 		cancel_bandage_motion()
 		potion_hands.begin([weapon_pivot, shield_pivot, torch_pivot, support_arm_root])
@@ -3899,6 +3911,7 @@ func begin_item_use(item_id: String, inventory: ExpeditionInventory, from_invent
 		"restore_hunger": duration = 4.0
 		"restore_thirst": duration = 3.0
 		"learn_spell": duration = 5.0
+	if item_id == "beef_jerky": duration = preload("res://scripts/jerky_eat_visuals.gd").EAT_DURATION
 	if item_id == "healing_draught": duration = preload("res://scripts/potion_drink_visuals.gd").DRINK_DURATION
 	if item_id == "splint": duration = preload("res://scripts/splint_use_visuals.gd").SPLINT_DURATION
 	var part := get_selected_treatment_part()

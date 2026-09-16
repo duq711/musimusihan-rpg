@@ -391,6 +391,12 @@ const ITEM_DEFINITIONS := {
 		"weight": 0.35, "value": 8, "stack_max": 5, "rarity": "common",
 		"summary": "포만감 32 회복", "description": "검은 빵과 말린 뿌리채소를 천에 싸 둔 오래가는 원정 식량입니다."
 	},
+	"beef_jerky": {
+		"name": "말린 소고기 육포", "glyph": "▤", "category": "consumable", "effect": "restore_hunger", "amount": 32.0,
+		"icon_path": "res://assets/ui/beef_jerky.svg", "ui_span": Vector2i(1, 1),
+		"weight": 0.35, "value": 8, "stack_max": 5, "rarity": "common",
+		"summary": "포만감 32 회복 · 먹기 8초", "description": "결대로 찢어 말린 소고기입니다. 손으로 꺼내 입에 가져가 먹습니다. 다 먹으면 포만감을 회복하며, 중간에 F로 취소하면 소비하지 않습니다."
+	},
 	"boiled_rainwater": {
 		"name": "끓인 빗물병", "glyph": "◒", "category": "consumable", "effect": "restore_thirst", "amount": 38.0,
 		"icon_path": "res://assets/ui/boiled_rainwater.svg", "ui_span": Vector2i(1, 1),
