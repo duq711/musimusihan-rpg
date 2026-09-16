@@ -49,18 +49,25 @@ func _run() -> void:
 		var ring := rig.get_bone_pose_rotation(rig.find_bone("ring1"))
 		if i > 1 and ring.angle_to(ring_before) > 0.0001: ring_moves = true
 		ring_before = ring
-		if i in [159, 336]:
-			var end: float = motion.food.mesh.get_aabb().end.x
-			var endpoint: Vector3 = motion.food.transform * Vector3(end, 0.004, 0.0)
-			distances.append(endpoint.distance_to(MOTION.EAT_MOUTH))
-			_check(endpoint.distance_to(MOTION.EAT_MOUTH) < 0.008, "the actual edible tip reaches the lips for both bites")
-			_check(endpoint.y < -0.11 and endpoint.z > -0.09, "bite stays below the nose and eye camera")
 		if i == 150: _check(motion.bite_count == 0, "food remains whole before first contact")
 		if i == 210: _check(motion.bite_count == 1, "first bite is visible while lowering")
 		if i == 400: _check(motion.bite_count == 2, "second bite is visible after second contact")
 	_check(ring_moves, "free fingers settle instead of a frozen fist")
 	motion.advance(0.1)
 	_check(not motion.active and not motion.visible and equipment.transform.is_equal_approx(equipment_before), "finish restores the original equipment transform")
+	var contact_flow := []
+	for bite_time: float in [MOTION.BITE_TIMES.x, MOTION.BITE_TIMES.y]:
+		motion.begin([equipment])
+		# Inspect the edible tip just before it is removed by the bite, rather
+		# than requiring a held pose early in the approach.
+		motion.set_time(bite_time - 0.001)
+		var end: float = motion.food.mesh.get_aabb().end.x
+		var endpoint: Vector3 = motion.food.transform * Vector3(end, 0.004, 0.0)
+		distances.append(endpoint.distance_to(MOTION.EAT_MOUTH))
+		_check(endpoint.distance_to(MOTION.EAT_MOUTH) < 0.008, "the actual edible tip reaches the lips for both bites")
+		_check(endpoint.y < -0.11 and endpoint.z > -0.09, "bite stays below the nose and eye camera")
+		contact_flow.append(_check_contact_flow(motion, bite_time))
+		motion.clear()
 	motion.begin([equipment])
 	motion.set_time(5.6)
 	motion.clear()
@@ -71,5 +78,40 @@ func _run() -> void:
 	parent.queue_free()
 	await process_frame
 	for failure in failures: push_error(failure)
-	print("JERKY MOTION TEST %s: bite-tip distances %s" % ["PASS" if failures.is_empty() else "FAIL", distances])
+	print("JERKY MOTION TEST %s: bite-tip distances %s; contact flow %s" % ["PASS" if failures.is_empty() else "FAIL", distances, contact_flow])
 	quit(0 if failures.is_empty() else 1)
+
+func _check_contact_flow(motion: Node3D, bite_time: float) -> Dictionary:
+	# A brief turnaround is natural, but a several-frame frozen wrist reads
+	# as a pause. Track actual rendered transforms over both sides of contact.
+	# The held end survives both bites, so mesh removal cannot fake movement.
+	var held_end: Vector3 = motion.source_bounds.position
+	var previous_wrist := Vector3.ZERO
+	var previous_food := Vector3.ZERO
+	var previous_rotation := Quaternion.IDENTITY
+	var still_frames := 0
+	var longest_still := 0
+	var minimum_step := INF
+	var maximum_step := 0.0
+	var maximum_rotation := 0.0
+	for sample in range(31):
+		motion.set_time(bite_time - 0.25 + float(sample) / 60.0)
+		var wrist: Vector3 = motion.right_arm.position
+		var food_point: Vector3 = motion.food.transform * held_end
+		var rotation: Quaternion = motion.right_arm.quaternion
+		if sample > 0:
+			var wrist_step := wrist.distance_to(previous_wrist)
+			var food_step := food_point.distance_to(previous_food)
+			var turn := rotation.angle_to(previous_rotation)
+			var movement := maxf(wrist_step, food_step)
+			minimum_step = minf(minimum_step, movement)
+			maximum_step = maxf(maximum_step, movement)
+			maximum_rotation = maxf(maximum_rotation, turn)
+			still_frames = still_frames + 1 if movement < 0.000015 and turn < 0.0001 else 0
+			longest_still = maxi(longest_still, still_frames)
+		previous_wrist = wrist
+		previous_food = food_point
+		previous_rotation = rotation
+	_check(longest_still <= 2, "each bite flows through lip contact without a frozen wrist or food plateau")
+	_check(maximum_step < 0.015 and maximum_rotation < 0.075, "continuous mouth contact does not introduce a position or rotation jump")
+	return {"bite": bite_time, "longest_still_frames": longest_still, "min_step_m": minimum_step, "max_step_m": maximum_step, "max_rotation_rad": maximum_rotation}

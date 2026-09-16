@@ -644,3 +644,5 @@ F2 → 기본 → **주무장 1번 · 방패 수납**은 검·방패와 2m 정�
 `F2 → Survival → Eating beef jerky` supplies three portions, sets hunger to 35, and starts the real item-use action. The character takes out the authored jerky and eats it. Completing eight seconds consumes one portion and restores the existing ration value of 32 hunger. F cancels; F2 returns to the menu, restores equipment, and allows a fresh trial. Interrupted use consumes nothing. Jerky is also registered automatically in the item catalog.
 
 검증 / Checks: `./tests/run_headless_tests.sh jerky_item_use jerky_test_room timed_item_use jerky_motion jerky_grip`. 모두 통과했으며 실제 Vulkan 262프레임에서 손 파지·두 번의 입 접근·장비 복귀를 검토했습니다. All checks pass; the 262-frame Vulkan capture was reviewed for grip, both bites and equipment return. [전체 영상·검증 기록 / Full video and validation](../exports/Jerky_Eating_2026-09-17/README.md).
+
+입 앞에서 멈추던 자세를 연속된 접근·베어 물기·손 내리기로 수정했습니다. 접촉 전후 정지 회귀 검사와 파지·테스트룸 검사를 통과했습니다. Removed the held pose at the mouth; contact now flows into withdrawal. Motion, grip and test-room checks pass. [최신 전체 영상 / Updated full motion](../exports/Jerky_Continuous_Bites_2026-09-17/README.md).

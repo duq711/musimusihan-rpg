@@ -1,0 +1,60 @@
+{
+  "tests_passed": [
+    "jerky_motion",
+    "jerky_grip",
+    "jerky_test_room"
+  ],
+  "baseline_commit": "818a65d2eebc2d7018f030b43be21db72efaa1d3",
+  "baseline_contact_flow": [
+    {
+      "bite": 2.79999995231628,
+      "longest_still_frames": 13,
+      "min_step_m": 0.0,
+      "max_step_m": 0.00771700590849,
+      "max_rotation_rad": 0.02473485842347
+    },
+    {
+      "bite": 5.80000019073486,
+      "longest_still_frames": 14,
+      "min_step_m": 0.0,
+      "max_step_m": 0.00664163054898,
+      "max_rotation_rad": 0.02549439668655
+    }
+  ],
+  "updated_contact_flow": [
+    {
+      "bite": 2.79999995231628,
+      "longest_still_frames": 0,
+      "min_step_m": 0.00048021995462,
+      "max_step_m": 0.00559901678935,
+      "max_rotation_rad": 0.01860628277063
+    },
+    {
+      "bite": 5.80000019073486,
+      "longest_still_frames": 0,
+      "min_step_m": 0.00042345671682,
+      "max_step_m": 0.00497727654874,
+      "max_rotation_rad": 0.01860628277063
+    }
+  ],
+  "rendered_contact_frame_differences": [
+    {
+      "bite_time": 2.8,
+      "minimum_changed_pixels_per_frame": 62855,
+      "max_changed_pixels_per_frame": 73315,
+      "frozen_frame_pairs": 0
+    },
+    {
+      "bite_time": 5.8,
+      "minimum_changed_pixels_per_frame": 62764,
+      "max_changed_pixels_per_frame": 84219,
+      "frozen_frame_pairs": 0
+    }
+  ],
+  "production_source_sha256": "7201fc8077158d469d88dbc563a275a075dd97cbb23b48dcb5c0c370b609d5ea",
+  "render_frames": 262,
+  "renderer": "vulkan",
+  "state_and_sources_preserved": true,
+  "timed_completion_verified": true,
+  "os_input_tested": false
+}

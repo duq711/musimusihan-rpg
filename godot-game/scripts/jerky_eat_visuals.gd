@@ -5,6 +5,7 @@ const EAT_DURATION := 8.0
 const POCKET_TIME := 7.55
 const EAT_MOUTH := Vector3(0.0, -0.13, -0.07)
 const BITE_TIMES := Vector2(2.80, 5.80)
+const BITE_HALF_WINDOW := 1.15
 const FOOD_SCENE := preload("res://assets/3d/items/beef_jerky/beef_jerky_variants.glb")
 # Calibrated against the supplied right hand, in the wrist's local space.
 var food_in_hand := Transform3D(Basis(Vector3(0.052640656, -0.986006268, 0.158179013), Vector3(0.311346431, 0.166708245, 0.935559598), Vector3(-0.948837373, 0.0, 0.315765164)), Vector3(-0.020170543, -0.118799206, -0.096766052))
@@ -73,9 +74,9 @@ func set_time(seconds: float) -> void:
 	visible = elapsed >= STOW_END and elapsed < POCKET_TIME
 	left_arm.visible = false
 	var draw := smoothstep(0.42, 1.18, elapsed)
-	var first := smoothstep(1.85, 2.55, elapsed) * (1.0 - smoothstep(2.96, 3.58, elapsed))
-	var second := smoothstep(4.68, 5.45, elapsed) * (1.0 - smoothstep(5.96, 6.57, elapsed))
-	var bite := first + second
+	var first := _bite_arc(BITE_TIMES.x)
+	var second := _bite_arc(BITE_TIMES.y)
+	var bite := first.x + second.x
 	var pocket := smoothstep(6.88, POCKET_TIME, elapsed)
 	bite_count = int(elapsed >= BITE_TIMES.x) + int(elapsed >= BITE_TIMES.y)
 	food.mesh = food_meshes[bite_count]
@@ -86,8 +87,8 @@ func set_time(seconds: float) -> void:
 		var pose: Vector3 = FINGER_POSE[digit]
 		if digit == "ring" or digit == "little": pose += Vector3(0.3, 1.0, 0.5) * settle
 		right_arm.set_digit_flexion(digit, pose)
-	var exposed_tip := source_bounds.end.x - (0.052 if elapsed >= 3.58 else 0.0)
-	if elapsed >= 6.57: exposed_tip -= 0.050
+	var exposed_tip := source_bounds.end.x - (0.052 if elapsed >= BITE_TIMES.x + BITE_HALF_WINDOW else 0.0)
+	if elapsed >= BITE_TIMES.y + BITE_HALF_WINDOW: exposed_tip -= 0.050
 	# The exposed end approaches lips below the eye camera. The forearm stays
 	# connected to its low, right-side elbow throughout both bites.
 	var idle_axis := Vector3(-0.82, 0.44, 0.37).normalized()
@@ -102,15 +103,23 @@ func set_time(seconds: float) -> void:
 	idle_grip += Vector3(sin(elapsed * 2.4) * 0.006, chew, cos(elapsed * 2.0) * 0.003)
 	var origin := (idle_grip - food_basis * Vector3(FOOD_GRIP_X, 0.004, 0.0)).lerp(EAT_MOUTH - food_basis * Vector3(exposed_tip, 0.004, 0.0), bite)
 	origin += Vector3(0.19, -0.48, 0.04) * (1.0 - draw + pocket)
-	# A short outward tug after contact suggests teeth tearing tough fibres.
-	var tug := (smoothstep(2.78, 2.92, elapsed) - smoothstep(2.92, 3.12, elapsed)) + (smoothstep(5.78, 5.93, elapsed) - smoothstep(5.93, 6.14, elapsed))
-	origin -= axis * 0.010 * tug
+	# Continue sideways/downward through lip contact into the pull-away. The
+	# tangent stays nonzero at the closest point, without a hold or a separate
+	# stop-and-restart tug. Thumb/index contact and the bite event stay fixed.
+	origin += Vector3(0.018, -0.008, -0.007) * (first.y + second.y)
 	food.transform = Transform3D(food_basis, origin)
 	right_arm.transform = food.transform * food_in_hand.affine_inverse()
 	right_arm.fit_arm(to_global(Vector3(0.58, -0.62, 0.10)), to_global(Vector3(0.48, -0.39, 0.05)))
 	bite_tip = food.transform * Vector3(exposed_tip, 0.004, 0.0)
 	mouth_contact = bite > 0.999
-	stage = "육포 꺼내기" if elapsed < 1.4 else ("첫 한입" if elapsed < 3.58 else ("씹으며 손 내리기" if elapsed < 4.68 else ("두 번째 한입" if elapsed < 6.57 else "손 내리기")))
+	stage = "육포 꺼내기" if elapsed < 1.4 else ("첫 한입" if elapsed < BITE_TIMES.x + BITE_HALF_WINDOW else ("씹으며 손 내리기" if elapsed < BITE_TIMES.y - BITE_HALF_WINDOW else ("두 번째 한입" if elapsed < BITE_TIMES.y + BITE_HALF_WINDOW else "손 내리기")))
+
+func _bite_arc(contact_time: float) -> Vector2:
+	# A bell-shaped reach has no flat mouth-contact interval. Its companion
+	# arc supplies a continuous follow-through as the reaching direction turns.
+	var phase := clampf((elapsed - contact_time) / BITE_HALF_WINDOW, -1.0, 1.0)
+	var reach := 0.5 + 0.5 * cos(PI * phase)
+	return Vector2(reach, sin(PI * phase) * reach)
 
 func _bite_distance(point: Vector3, cutoff: float) -> float:
 	# Several rounded teeth marks and uneven pulled fibres across the width.
