@@ -1,0 +1,11 @@
+# 대장간 목표 이미지
+
+- Built-in `image_gen` 사용. 2026-09-07.
+- 참고: https://www.youtube.com/watch?v=xvsZjhPIHLo (가열 4:32, 모루 타격 5:27 장면 직접 관찰).
+- 파일: `smithing_target_sheet.png`.
+- 왼쪽부터 공방, 가열/풀무, 모루, 담금질, 손잡이/칼날, 홈/룬의 여섯 장면. 룬 시공은 사용자 요청에 따른 게임 확장이다.
+- 생성 이미지는 시각적 목표 자료이며 실제 게임 화면으로 표시하거나 배경으로 덮어씌우지 않는다.
+
+## 생성 프롬프트
+
+Use case: stylized-concept. Asset type: six-frame visual target sheet for a real playable Godot medieval first-person blacksmith system. Primary request: closely match the realistic Kingdom Come Deliverance 2 smithing visual language observed in the reference gameplay: first-person view angled steeply down toward a worn horned steel anvil on a broad circular tree stump, bright yellow hot slender blade held with long iron tongs in the left hand, square steel hammer with ash handle in right hand, sparks at impact; old masonry coal forge and wooden leather bellows, honest worn tools and earthen stone flooring. Make a cohesive 3 columns by 2 rows cinematic 16:9 contact sheet of six equal landscape frames, no borders or text. Frames: 1 overview of small soot-dark stone smithy with coal hearth at back left, bellows far left, anvil center foreground, oak quench tub at right, workbench with tools at back right; 2 close first-person heating blade in yellow-orange coals and pulling leather bellows; 3 close downward first-person hammer striking glowing sword diagonally along anvil face, hand and tongs at bottom left hammer at bottom right; 4 sword dipped in wooden water trough with steam rising, wet steel becoming dark; 5 close hands replacing a leather-wrapped grip and fixing a silver reinforcing strip to the blade on a heavy oak workbench; 6 close hand-operated brace drill cutting a visibly recessed round socket into cold steel blade then a small teal rune stone beside the empty hole and one inset gem already in second hole. Style: grounded physically based rendered realistic game screenshot, detailed chipped anvil steel, weathered oak grain, soot masonry, riveted worn leather gauntlets and dark quilted sleeves. Warm fire orange and soft neutral daylight; visible detail even in shadows; discreet teal light only at rune stone. No external logos, no captions, no HUD, no menus, no photographic backdrop cheat. Consistent workshop and same sword across all 6 frames.

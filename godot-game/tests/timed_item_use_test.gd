@@ -1,0 +1,75 @@
+extends SceneTree
+var failures: Array[String] = []
+func _init() -> void: call_deferred("_run")
+func check(value: bool, label: String) -> void:
+ if not value: failures.append(label)
+func _run() -> void:
+ var original := ExpeditionSession.capture_snapshot()
+ var cursor := Input.mouse_mode
+ var sandbox := root.get_node("TestRoomSandbox")
+ sandbox.begin()
+ var inventory := ExpeditionSession.get_inventory()
+ inventory.seed_default_loadout()
+ for id in ["healing_draught","linen_bandage","surgery_kit","splint","pilgrim_ration","boiled_rainwater","nerve_tonic"]: inventory.add_item(id,3)
+ var player := DungeonPlayer.new()
+ player.inventory_model = inventory
+ var hud := DungeonHUD.new()
+ root.add_child(hud)
+ player.hud = hud
+ hud.item_use_player = player
+ player.apply_body_damage("left_arm",40)
+ player.select_treatment_part("left_arm")
+ var hp: float = player.get_body_health_snapshot().parts.left_arm.health
+ var count := inventory.count_item("healing_draught")
+ var result := player.begin_item_use("healing_draught",inventory)
+ check(result.get("started",false) and inventory.count_item("healing_draught")==count, "Begin reserves time, never consumes early")
+ check(hud.item_use_progress.visible and not hud.crosshair.visible, "Center timer visible and reticle hidden")
+ player.advance_item_use(1.2)
+ check(is_equal_approx(float(player.get_item_use_snapshot().remaining),float(result.duration)-1.2) and player.get_body_health_snapshot().parts.left_arm.health==hp, "Remaining time tracks actual elapsed without early effect")
+ check(not player.begin_item_use("linen_bandage",inventory).accepted, "Cannot start simultaneous use")
+ var torch_before: bool = player.torch_enabled
+ player.handle_torch_action()
+ check(not player.is_item_use_active() and inventory.count_item("healing_draught")==count and player.get_body_health_snapshot().parts.left_arm.health==hp, "F cancels without consuming or healing")
+ check(player.torch_enabled==torch_before and not hud.item_use_progress.visible and hud.crosshair.visible, "F cancellation never toggles torch; timer closes and reticle returns")
+ player.begin_item_use("healing_draught",inventory)
+ player.advance_item_use(float(result.duration)-0.01)
+ check(inventory.count_item("healing_draught")==count, "No consumption before exact boundary")
+ player.advance_item_use(0.02)
+ check(inventory.count_item("healing_draught")==count-1 and player.get_body_health_snapshot().parts.left_arm.health>hp, "Completion consumes once and heals")
+ player.advance_item_use(10)
+ check(inventory.count_item("healing_draught")==count-1, "Completion is not repeated")
+ player.apply_body_damage("right_arm",60)
+ player.select_treatment_part("right_arm")
+ check(not player.begin_item_use("healing_draught",inventory).accepted, "Zero limb rejects normal medicine before timer")
+ player.begin_item_use("surgery_kit",inventory)
+ player.advance_item_use(12)
+ check(player.get_body_health_snapshot().parts.right_arm.health==1, "Timed surgery restores exactly one health")
+ player.apply_condition("fracture",120,"right_arm")
+ check(is_equal_approx(float(player.begin_item_use("splint",inventory).duration),7.2), "Splint time matches authored animation")
+ player.cancel_item_use()
+ ExpeditionSession.hunger = 10
+ player.begin_item_use("pilgrim_ration",inventory)
+ player.prepare_for_inventory()
+ check(not player.is_item_use_active() and ExpeditionSession.hunger==10, "Opening inventory cancels pending use")
+ ExpeditionSession.thirst = 10
+ player.begin_item_use("boiled_rainwater",inventory)
+ player.camping = true
+ player.advance_item_use(10)
+ check(not player.is_item_use_active() and ExpeditionSession.thirst==10, "Camp interruption cannot complete old timer")
+ player.camping = false
+ player.begin_item_use("boiled_rainwater",inventory)
+ inventory.remove_item("boiled_rainwater",inventory.count_item("boiled_rainwater"))
+ player.advance_item_use(10)
+ check(not player.last_item_use_result.accepted and ExpeditionSession.thirst==10, "Completion revalidates ownership")
+ player.apply_condition("paralysis",30)
+ var nerve_count := inventory.count_item("nerve_tonic")
+ check(player.begin_item_use("nerve_tonic",inventory).accepted, "Paralyzed player can begin the matching cure")
+ player.advance_item_use(3)
+ check(not player.is_paralyzed() and inventory.count_item("nerve_tonic")==nerve_count-1, "Matching timed cure removes paralysis and consumes once")
+ player.free()
+ hud.free()
+ sandbox.finish()
+ check(ExpeditionSession.capture_snapshot()==original and Input.mouse_mode==cursor, "Original expedition and cursor restored")
+ for failure in failures: push_error(failure)
+ print("TIMED ITEM USE TEST %s: countdown, F cancellation, atomic completion, surgery, interruption and restoration" % ("PASS" if failures.is_empty() else "FAIL"))
+ quit(0 if failures.is_empty() else 1)

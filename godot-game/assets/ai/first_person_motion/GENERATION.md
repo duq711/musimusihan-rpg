@@ -1,0 +1,32 @@
+# 1인칭 모션 목표 이미지
+
+2026-09-07. 내장 image_gen 도구를 사용했습니다. 기존 플레이어 전신 이미지는 의상·브레이서·장갑 참고용이며, 각 이미지의 주요 자세를 실제 게임 모션과 비교합니다. 생성 이미지는 동영상이나 실제 게임 캡처가 아닙니다.
+
+참고: `artifacts/visual_qa/player_appearance/final/player_front.png`.
+
+5개 시트: `sword_target.png`, `shield_target.png`, `bow_target.png`, `flail_target.png`, `utility_target.png`. 각 시트는 왼쪽부터 오른쪽, 위에서 아래 순서입니다. 생성 결과의 일부 자세나 사슬 곡선은 실제 손 접촉·물리 제약을 기준으로 보정합니다.
+
+## 공통 프롬프트
+
+Use case: stylized-concept. Asset type: first-person animation keyframe target sheet for a playable dark medieval Godot RPG. Input image is REFERENCE ONLY for the same existing character identity, charcoal quilted sleeves, weathered dark leather forearm bracers and fingerless gloves; create entirely new first-person views seen through this character's eyes. Keep realistic human wrists/finger contacts, two anatomical arms maximum, no floating hands, no extra arms. Medium-high quality realtime physically based 3D game rendering, readable neutral cool fill and warm side light on dark leather and steel. Background in every frame: identical simple charcoal gray (#1b2021) room with flat muted brown stone floor and a level horizon at 52% height, no other characters. Camera eye height 1.65m, FOV76 degrees, no camera roll. Keep aiming center open. All subjects are hands and weapons in foreground, no third person body/head. No HUD, labels, text, borders, captions or arrows; sharply readable contact points without motion blur. This is a consistent animation reference, not a collage of different equipment. 
+
+## sword
+
+A 2 by 2 sheet, four equally sized landscape16:9 frames reading left to right, top to bottom. ONE one-handed steel longsword with simple iron crossguard and dark leather grip held in RIGHT hand, left hand low relaxed empty counterbalance. Frame1 relaxed ready: right forearm rises from bottom right, hand around grip at x73% y74%, blade tips toward upper right at x80% y18%. Frame2 windup: bent right elbow and wrist lift sword beside right shoulder, hand x80%y58%, blade leans up-left slightly, no severed arm. Frame3 actual slash contact: right arm extends diagonally from bottom-right toward center, sword crosses center with blade sweeping right-to-left downstroke, visible continuous wrist to handle. Frame4 follow-through/recovery: hand toward lower-left with blade diagonally toward upper-left, then settled. Entire same sword throughout, no shield or torch.
+
+## shield
+
+A 2 by 2 sheet, four equally sized landscape16:9 frames reading left to right, top to bottom. Same one-handed steel sword in RIGHT hand and iron-rimmed weathered round wooden shield held by left forearm's rear handle. Frame1 ready: shield lowerleft quarter with visible left bracer behind, right sword raised lower-right, center clear. Frame2 guard: left forearm lifts tilted shield to cover lower-left/leftcenter 35% of view, uppercenter remains readable, right sword stays compact right. Frame3 shield impact: shield recoils toward left shoulder and tilts a little with elbow absorbing force, right wrist braces sword, avoid full-screen disc. Frame4 counter slash: left shield opens slightly to left, right hand directs sword across central-right field, natural two-handed separate roles. No torch, no third arm. Shield must have real thickness, grip on inside.
+
+## bow
+
+A 2 by 2 sheet, four equally sized landscape16:9 frames reading left to right, top to bottom. Right-handed archer: LEFT hand holds vertical slender weathered oak recurve bow grip at leftcenter x36%y58%; RIGHT hand hooks the bowstring at the feathered arrow nock. The arrow rests just above left index finger and points away from camera near the crosshair. Frame1 bow ready low: left hand onbow, right hand near nock at centerlow. Frame2 half draw: left arm extends, right hand pulls nock back and to right, string has two taut segments from top/bottom tips into hooked fingers. Frame3 full draw: left bow grip x33% y57%, right drawing hand nearer right cheek at x77%y68%, arrow shaft extends from nock away through aimingcenter, the perspective bow limb on left, not crossing torso. Frame4 release: right fingers open and hand follows back to right cheek, taut string springs forward, released arrow leaves clear aimingcenter. Two correct human hands, no sword/shield/torch. Bowstring, arrow nock and hooked fingers must meet physically.
+
+## flail
+
+A 2 columns by 3 rows sheet of six equally sized landscape16:9 frames reading left to right, top to bottom. One handed chain flail: dark leather short wooden handle in RIGHT hand, 60cm real interlinked iron chain ending in single spiked iron ball. Left hand low empty counterbalance, no shield or torch. Frame1 ready: right hand bottomright, chain droops undergravity, ball lower-right/center clear. Frame2 melee windup: wrist carries handle to right shoulder, weighted head trails to right. Frame3 melee strike: arm extends forward with handle angled down-left, ball swings in front on taut chain with real continuity. Frame4 charged spin: hand stays right lower-mid, taut chain and ball orbit on player's right side, center clear, show one head only. Frame5 throw release: right arm extends forward/right, head travels away toward aiming center while long chain stays attached to handle in hand. Frame6 return catch: ball returns to right side, elbow folds and wrist settles, chain slackens continuously. No duplicated balls or motion ghost trails, no detached chain.
+
+## utility
+
+A 2 columns by 3 rows sheet of six equally sized landscape16:9 frames reading left to right, top to bottom. Same character bracers and correct two hands. Frame1 staffready: RIGHT hand wraps lower leathergrip of crooked oak staff with small teal crystal, forearm bottomright, left hand relaxed low. Frame2 spellcast: right hand advances and angles staff focus toward crosshair, left open palm assists below leftcenter, tiny teal spell at stafftip. Frame3 torchwalk: LEFT hand holds ironcage torch at leftside, right empty hand low counterbalance, flame upperleft never coverscenter. Frame4 swordsprint: right forearm and steel sword lowered and tilted inward at lower-right, left hand low; centralview fully clear, physical bentelbows. Frame5 chestlatch: both empty gloved hands reach forward to actual wooden chest at waistheight, left hand braces lid edge left and right hand holds latch right. Frame6 chestlidraise: both empty hands lift the chestlid with palms against its real loweredge, fingerswrapped, wristsfollowlidarc, no weaponsinvisiblehands. Eachframe humanproportions, no extra arms.
+

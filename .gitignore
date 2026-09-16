@@ -1,0 +1,36 @@
+# Local tools and authentication / 로컬 도구와 인증
+/.local-tools/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.codex/
+.agents/
+
+# OS and editor caches / 운영체제·편집기 캐시
+.DS_Store
+._*
+.godot
+.godot-*/
+__pycache__/
+*.pyc
+node_modules/
+.next/
+.venv/
+
+# Generated builds and local QA captures / 빌드와 로컬 검증 촬영
+/godot-game/artifacts/
+/godot-game/build/
+/godot-game/builds/
+/UE_Agent_Test/Binaries/
+/UE_Agent_Test/DerivedDataCache/
+/UE_Agent_Test/Intermediate/
+/UE_Agent_Test/Saved/
+
+# Blender automatic backups / Blender 자동 백업
+*.blend1
+*.blend2
+
+# Export credentials / 내보내기 인증 정보
+export_credentials.cfg

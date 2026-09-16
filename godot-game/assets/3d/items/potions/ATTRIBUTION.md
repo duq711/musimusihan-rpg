@@ -1,0 +1,1 @@
+User supplied realistic_potions.glb from Downloads. Source preserved unchanged. Red health bottle, liquid and cork selected; original mesh/material/buffer data retained. Author/license not supplied. Source SHA256: 5a283b9e351476d039cfced686732b8d8224b6d5799130f3c71624a9aae84f7c

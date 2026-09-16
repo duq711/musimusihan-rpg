@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+  <defs>
+    <linearGradient id="ceramic" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#718184"/>
+      <stop offset="0.48" stop-color="#334345"/>
+      <stop offset="1" stop-color="#172124"/>
+    </linearGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#58b5bd" stop-opacity=".72"/>
+      <stop offset="1" stop-color="#123f4a" stop-opacity=".88"/>
+    </linearGradient>
+    <clipPath id="bottleClip">
+      <path d="M91 65h74v31c27 14 39 42 39 74 0 45-31 68-76 68s-76-23-76-68c0-32 12-60 39-74Z"/>
+    </clipPath>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="170%">
+      <feGaussianBlur stdDeviation="7"/>
+    </filter>
+  </defs>
+  <ellipse cx="128" cy="224" rx="73" ry="16" fill="#000" opacity=".44" filter="url(#shadow)"/>
+  <path d="M91 65h74v31c27 14 39 42 39 74 0 45-31 68-76 68s-76-23-76-68c0-32 12-60 39-74Z" fill="url(#ceramic)" stroke="#101719" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M48 155c38-13 108 13 165-4v96H44Z" fill="url(#water)" clip-path="url(#bottleClip)"/>
+  <path d="M58 159c34-17 100 12 141-1" fill="none" stroke="#8cd6d7" stroke-width="5" opacity=".72" clip-path="url(#bottleClip)"/>
+  <path d="M101 75h54" stroke="#9b7953" stroke-width="17" stroke-linecap="round"/>
+  <path d="M101 75h54" stroke="#4f3828" stroke-width="8" stroke-linecap="round"/>
+  <rect x="102" y="34" width="52" height="37" rx="8" fill="#6f5133" stroke="#291e17" stroke-width="7"/>
+  <path d="M109 45h38m-37 12h36" stroke="#aa8252" stroke-width="3" opacity=".62"/>
+  <path d="M91 86c-22 17-36 45-38 73m112-73c23 17 36 46 38 74" fill="none" stroke="#9d7650" stroke-width="9" stroke-linecap="round"/>
+  <path d="M72 139c8-28 23-43 39-49" fill="none" stroke="#b4c2bd" stroke-width="8" stroke-linecap="round" opacity=".45"/>
+  <circle cx="172" cy="187" r="19" fill="#20292a" stroke="#75999a" stroke-width="5"/>
+  <path d="m164 187 6 6 12-15" fill="none" stroke="#83c9c7" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
