@@ -44,6 +44,7 @@ func _run() -> void:
 	_check(is_equal_approx(float(info.width_m), 131.0) and is_equal_approx(float(info.depth_m), 139.0), "the cave footprint must be exactly 131 by 139 metres")
 	_check(info.chambers == 18 and enemies.size() == 6 and cave.enemies_alive == 6, "eighteen reference-traced chambers must contain six live encounters")
 	_check(traps.size() == 4 and preload("res://tests/loot_test_helpers.gd").valid_count(cave), "four real traps and the visit's selected loot sites must be spawned")
+	_check(enemies.filter(func(actor): return actor.get_meta("enemy_archetype", "") == "orc").size() == 1, "eastern store encounter must contain one production orc")
 	var has_poison_source := false
 	var has_paralysis_source := false
 	for actor: DungeonEnemy in enemies:

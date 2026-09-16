@@ -646,3 +646,18 @@ F2 → 기본 → **주무장 1번 · 방패 수납**은 검·방패와 2m 정�
 검증 / Checks: `./tests/run_headless_tests.sh jerky_item_use jerky_test_room timed_item_use jerky_motion jerky_grip`. 모두 통과했으며 실제 Vulkan 262프레임에서 손 파지·두 번의 입 접근·장비 복귀를 검토했습니다. All checks pass; the 262-frame Vulkan capture was reviewed for grip, both bites and equipment return. [전체 영상·검증 기록 / Full video and validation](../exports/Jerky_Eating_2026-09-17/README.md).
 
 입 앞에서 멈추던 자세를 연속된 접근·베어 물기·손 내리기로 수정했습니다. 접촉 전후 정지 회귀 검사와 파지·테스트룸 검사를 통과했습니다. Removed the held pose at the mouth; contact now flows into withdrawal. Motion, grip and test-room checks pass. [최신 전체 영상 / Updated full motion](../exports/Jerky_Continuous_Bites_2026-09-17/README.md).
+
+
+## 오크 적 NPC · 2026-09-17 / Orc enemy NPC
+
+`F2 → 기본 → 오크 · 도끼 근접 전투`에서 제공된 오크와 대련한다. LMB로 공격하고 RMB로 방어한다. 적 AI가 플레이어를 발견·추적하며 양손 도끼 공격 3종, 피격 반응과 사망 애니메이션을 사용한다. F2에서 같은 항목을 다시 고르면 회복·재생성한다. 시험 초기화는 기존 기본 표적으로 복귀하고 종료 시 원래 원정을 복원한다.
+
+Choose **F2 → 기본 → 오크 · 도끼 근접 전투** for the orc duel. LMB attacks and RMB blocks. Re-selecting heals the player and respawns the orc; reset restores the default trial targets and leaving restores the original expedition.
+
+실제 폐광의 동쪽 창고에도 오크를 연결했다. 기존 6개 적 자리와 창고 적의 체력 68·피해 18·이동 속도 2.2 및 보상·귀환문 규칙은 유지한다. 수치는 이번 캐릭터 추가에서 새로 확정한 밸런스가 아니다.
+
+The eastern mine store encounter now uses the orc. Its existing stats, six-enemy layout, rewards and extraction rules are retained.
+
+검증 명령 / Checks: `./tests/run_headless_tests.sh orc_enemy shield_guard cave_dungeon`.
+숨김 실제 렌더 / Hidden GPU capture: `ORC_QA_ITERATION=<새 이름> ./tests/run_embedded_preview.sh orc_enemy_preview.gd`.
+[모델·변환 안내 / Asset notes](assets/3d/enemies/orc/README.md).

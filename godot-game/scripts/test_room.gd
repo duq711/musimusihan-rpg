@@ -539,6 +539,9 @@ func run_feature(feature_id: String) -> void:
 			player.head.rotation.x = -0.55
 			player._pitch = -0.55
 			_hide_test_panel()
+		"orc":
+			_prepare_orc()
+			_hide_test_panel()
 		"ai":
 			_set_enemy_ai(not enemy_ai_enabled)
 			_status("적 AI: " + ("활성 · 시험장을 재개하면 공격합니다" if enemy_ai_enabled else "정지 · 피격 가능한 표적"))
@@ -1754,3 +1757,16 @@ func _prepare_jerky_eat_trial() -> void:
 	player._update_viewmodel(1.0)
 	var result := player.begin_item_use("beef_jerky", inventory)
 	_status("육포 먹기 · " + str(result.get("message", "")) + " · F2에서 다시 시험")
+
+
+func _prepare_orc() -> void:
+	_remove_test_actors(true)
+	_recover_player()
+	inventory.equipment["offhand"] = "round_shield"
+	_equip_weapon("rusted_sword")
+	player.cancel_sword_attack()
+	_spawn_enemy("도끼 오크", Vector3(0, 1, -3), 82, 21, 2.2, Color.WHITE, "fracture", "orc")
+	_set_enemy_ai(true)
+	_teleport(Vector3(0, 1, 2))
+	hud.update_objective(enemies_alive, loot_count, traps_disarmed)
+	_status("오크 전투 · LMB 공격 / RMB 방어 · F2 재선택: 회복·오크 재생성")

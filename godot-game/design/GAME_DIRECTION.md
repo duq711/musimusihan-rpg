@@ -281,3 +281,10 @@ The referenced 1:45–1:53 sequence was inspected in the browser. Its right-hand
 ### 2026-09-15 사용자 확정 — 제공한 FP arms로 팔·손 교체
 
 제공 파일 `fp_arms.glb`를 1인칭 팔·손 기본 외형으로 사용한다. 검은 소매·갈색 반장갑을 원본대로 유지하고 좌우 실제 뼈대를 기존 무기 동작에 연결했다. 검·방패와 양손 베기의 기존 궤적·장비 위치·전투 규칙은 유지한다. 원본은 `asset-staging/fp_arms_20260915/`에 보존하며 제작·검증은 Mac에서 수행했다. 이번 작업은 1인칭 팔 교체이며 전신 캐릭터 외형 교체를 의미하지 않는다.
+
+
+### 2026-09-17 사용자 확정 — 제공 모델로 오크 적 추가 / Supplied orc enemy
+
+사용자가 오크의 원본 메시·애니메이션 FBX·텍스처를 제공하고 적 NPC 추가를 요청했다. 기존 캐릭터 그래픽 담당이 원본 도끼·장비·스킨·애니메이션을 통합한다. 구현 판단으로 기존 근접 적 AI와 방패/피격/보상 규칙을 재사용하고 테스트룸 전용 대련 및 폐광 동쪽 창고 적에 적용한다. 던전의 적 수와 기존 창고 적 수치를 유지하며 신규 보스·종족 서사·별도 전투 규칙은 확정하지 않는다.
+
+The user requested an enemy NPC using the supplied orc assets. The implementation reuses existing melee AI, blocking, damage and rewards, with a dedicated test-room duel and the eastern mine store encounter. Existing counts/stats remain unchanged; no new boss, lore or separate combat rules are established.

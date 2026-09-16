@@ -20,6 +20,7 @@ if [[ "$(/usr/bin/uname -s)" != Darwin || ! -x "$godot_executable" ]]; then
 	exit 2
 fi
 case "$preview_name" in
+	orc_enemy_preview.gd) preview_pass_marker="^ORC ENEMY PREVIEW PASS:" ;;
 	supplied_fp_arms_preview.gd) preview_pass_marker="^SUPPLIED FP ARMS PREVIEW PASS:" ;;
 	potion_motion_preview.gd) preview_pass_marker='POTION MOTION PREVIEW PASS:' ;;
 	jerky_motion_preview.gd) preview_pass_marker='JERKY MOTION PREVIEW PASS:' ;;

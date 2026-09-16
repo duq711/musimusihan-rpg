@@ -829,3 +829,18 @@ Selecting the beef-jerky trial under F2 → Survival supplies three portions, se
 `jerky_motion`, `jerky_grip`은 이동 연속성과 실제 손 피부·육포 삼각형의 접촉을 검사합니다. 두 입은 시점 아래 입 위치를 향하며 베어 문 끝만 줄어듭니다. 실제 Vulkan 전체 촬영 262프레임과 옆면 진단 10장 검증을 마쳤습니다. These additional tests check continuous movement and actual skin-to-food contact. Both bites target the mouth below the camera and remove only the exposed end. Full Vulkan capture and side diagnostics passed. [영상·측정 결과 / Video and measurements](../exports/Jerky_Eating_2026-09-17/README.md).
 
 2026-09-17 입 접촉 연속성 수정: 고정 자세와 별도로 당기던 구간을 연속 곡선으로 연결했습니다. 기존 F2 육포 시험에 바로 적용됩니다. `jerky_motion`의 각 입 접촉 전후 0.5초 검사에서 이전 버전의 13/14프레임 정지를 검출했고, 수정본은 두 접촉 모두 정지 0프레임입니다. `jerky_grip`, `jerky_test_room`도 통과했습니다. The existing trial now uses continuous mouth contact and withdrawal. The new regression detects the old 13/14-frame stalls; the updated motion has none. Grip and test-room regressions also pass. [수정 영상·검증 / Updated video and validation](../exports/Jerky_Continuous_Bites_2026-09-17/README.md).
+
+
+## 오크 적 NPC · 2026-09-17 / Orc enemy NPC
+
+`F2 → 기본 → 오크 · 도끼 근접 전투`에서 제공된 오크와 대련한다. LMB로 공격하고 RMB로 방어한다. 적 AI가 플레이어를 발견·추적하며 양손 도끼 공격 3종, 피격 반응과 사망 애니메이션을 사용한다. F2에서 같은 항목을 다시 고르면 회복·재생성한다. 시험 초기화는 기존 기본 표적으로 복귀하고 종료 시 원래 원정을 복원한다.
+
+Choose **F2 → 기본 → 오크 · 도끼 근접 전투** for the orc duel. LMB attacks and RMB blocks. Re-selecting heals the player and respawns the orc; reset restores the default trial targets and leaving restores the original expedition.
+
+실제 폐광의 동쪽 창고에도 오크를 연결했다. 기존 6개 적 자리와 창고 적의 체력 68·피해 18·이동 속도 2.2 및 보상·귀환문 규칙은 유지한다. 수치는 이번 캐릭터 추가에서 새로 확정한 밸런스가 아니다.
+
+The eastern mine store encounter now uses the orc. Its existing stats, six-enemy layout, rewards and extraction rules are retained.
+
+검증 명령 / Checks: `./tests/run_headless_tests.sh orc_enemy shield_guard cave_dungeon`.
+숨김 실제 렌더 / Hidden GPU capture: `ORC_QA_ITERATION=<새 이름> ./tests/run_embedded_preview.sh orc_enemy_preview.gd`.
+[모델·변환 안내 / Asset notes](assets/3d/enemies/orc/README.md).

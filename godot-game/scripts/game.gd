@@ -598,8 +598,8 @@ func _spawn_loot_chest(title_text: String, spawn_position: Vector3, item_stacks:
 	loot_chests.append(chest)
 	return chest
 
-func _spawn_enemy(enemy_name: String, spawn_position: Vector3, hp: float, damage: float, speed: float, tint: Color, ailment_id := "") -> void:
-	var enemy := ENEMY_SCRIPT.new() as DungeonEnemy
+func _spawn_enemy(enemy_name: String, spawn_position: Vector3, hp: float, damage: float, speed: float, tint: Color, ailment_id := "", archetype := "warden") -> void:
+	var enemy := (load("res://scripts/orc_enemy.gd").new() if archetype == "orc" else ENEMY_SCRIPT.new()) as DungeonEnemy
 	enemy.configure(enemy_name, hp, damage, speed, tint, ailment_id)
 	enemy.setup(player, hud, self)
 	enemy.position = spawn_position
