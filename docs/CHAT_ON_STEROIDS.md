@@ -24,10 +24,18 @@ A personal `chat-on-steroids` integration skill and persistent continuity prefer
 
 ## 평소 사용하는 순서 / Everyday use
 
-1. 이 Mac에서 **Chat On Steroids**를 실행하고 터널 연결을 유지합니다. / Run **Chat On Steroids** on this Mac and keep its tunnel connected.
-2. companion이 설치된 Chrome의 ChatGPT에서 **+ → Chat On Steroids Core**를 선택합니다. 검증한 대화에서는 바로 후속 작업을 요청할 수 있습니다. / In ChatGPT on Chrome with the companion installed, select **+ → Chat On Steroids Core**. The verified conversation can also accept follow-up tasks.
+1. 이 Mac에서 **Chat On Steroids**를 실행하고 터널 연결을 유지합니다. Chrome과 companion도 실행하고 ChatGPT 로그인을 유지합니다. Chrome은 백그라운드에 두고 앱 화면에서 작업할 수 있습니다. / Run **Chat On Steroids** and keep its tunnel connected. Keep Chrome, the companion, and the ChatGPT login available in the background while working in the app.
+2. **앱에서 직접 입력하는 방식을 기본으로 사용합니다.** 왼쪽의 기존 대화를 선택해 아래 **Message ChatGPT**에 입력하고 **Send message**를 누릅니다. 새 작업은 프로젝트 옆 **New chat in this project**에서 시작합니다. / **Use the app's own composer by default.** Select an existing conversation, enter the request in **Message ChatGPT**, and press **Send message**. Use **New chat in this project** for a new project task.
 3. “`/rpg`의 인계 문서와 AGENTS.md를 읽고, [요청할 작업]을 진행해 주세요”라고 요청합니다. 같은 파일을 수정 중인 다른 작업이 있으면 담당 범위를 나눕니다. / Ask: “Read the handoff guide and AGENTS.md in `/rpg`, then [requested task].” Coordinate ownership when other tasks are editing the same files.
 4. 작업별 관련 검증 후 해당 변경만 커밋·푸시하고 원격 SHA까지 확인하도록 합니다. / Have each task validate its changes, commit and push only those changes, and verify the remote SHA.
+
+2026-09-17 추가 검증: 앱의 **Message ChatGPT**에서 README 1~5행을 읽는 후속 요청을 직접 전송했습니다. 모델 목록이 자동으로 로딩된 뒤 기존 대화의 GPT-6 Pro로 전송됐고, Core 읽기 결과와 프로젝트 이름·장르 답변이 앱에 표시됐습니다.
+
+Additional verification on 2026-09-17: A follow-up request to read README lines 1–5 was sent directly from the app's **Message ChatGPT** composer. Models loaded automatically, the request used the existing conversation's GPT-6 Pro, and the Core read result and project-name/genre answer appeared in the app.
+
+Chrome에서 직접 입력하는 방법도 있습니다. ChatGPT의 **+ → Chat On Steroids Core**를 선택합니다. 설치 직후 기존 탭의 메뉴에 Core가 없으면 빈 입력창인 상태에서 페이지를 새로고침합니다. 이 Mac에서는 새로고침 후 Core 항목이 표시되고 선택되는 것을 확인했습니다. Chrome 화면에서 항상 입력할 필요는 없지만, 앱의 요청 전송은 로그인된 ChatGPT와 companion을 사용하므로 Chrome을 완전히 종료하지 않습니다.
+
+You can also compose in Chrome by selecting **+ → Chat On Steroids Core** in ChatGPT. If an older tab does not list Core immediately after installation, reload the page with an empty composer. Reloading restored the Core entry on this Mac, and selection was verified. You do not need to type in Chrome, but keep it running because the app sends requests through the signed-in ChatGPT session and companion.
 
 ## 기존 작업을 이어 쓰는 방법 / Continue existing work
 
