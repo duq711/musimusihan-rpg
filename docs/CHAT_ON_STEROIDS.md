@@ -2,17 +2,17 @@
 
 ## 이 Mac의 준비 상태 / Setup status on this Mac
 
-2026-09-17: 앱 2.1.13 설치와 기존 프로젝트 `/rpg` 등록, ChatGPT 워크스페이스용 터널 생성·지정까지 완료했습니다. 아직 API 키가 입력되지 않아 **Connect**가 비활성화돼 있고, Core 플러그인과 Chrome companion의 실제 연결은 완료되지 않았습니다.
+2026-09-17: 앱 2.1.13 설치와 기존 프로젝트 `/rpg` 등록, ChatGPT 워크스페이스용 터널 생성·지정까지 완료했습니다. 사용자가 Chrome companion을 설치한 뒤 ChatGPT 페이지에서 확장 설정 버튼이 표시되고, 데스크톱 앱의 브라우저 상태가 **Connected · last message just now**인 것을 확인했습니다. API 키는 아직 입력되지 않아 터널의 **Connect** 버튼은 비활성화돼 있습니다. Core 플러그인 연결과 실제 프로젝트 파일 읽기는 아직 확인하지 않았습니다.
 
-2026-09-17: App 2.1.13 is installed; the existing project is registered as `/rpg`, and a tunnel associated with the ChatGPT workspace is created and selected. **Connect** remains disabled until the API key is entered. The Core plugin and Chrome companion are not yet connected.
+2026-09-17: App 2.1.13 is installed; the existing project is registered as `/rpg`, and a tunnel associated with the ChatGPT workspace is created and selected. After the user installed the Chrome companion, its settings button appeared in ChatGPT and the desktop app reported **Connected · last message just now** for the browser. The tunnel **Connect** button remains disabled until the API key is entered. Core plugin connectivity and a real project file read are not yet verified.
 
-사용자가 직접 할 단계: API 키 화면에서 **Restricted → Tunnels: Read + Use**로 키를 만들고 앱의 **Settings → Setup → TUNNEL API KEY**에 입력합니다. 키는 대화에 보내지 않습니다. Chrome에서 `chrome://extensions` → **Developer mode → Load unpacked**를 선택하고 앱의 **Open extension folder**가 가리키는 폴더를 불러옵니다. 이 두 단계 뒤에는 아래 연결 절차를 따라 **Connected**, Core 연결, 실제 파일 읽기를 확인합니다.
+사용자가 직접 할 다음 단계: API 키 화면에서 **Restricted → Tunnels: Read + Use**로 키를 만들고 앱의 **Settings → Setup → TUNNEL API KEY**에 입력합니다. 키는 대화에 보내지 않습니다. 입력 후 아래 연결 절차를 따라 터널의 **Connected**, Core 연결, 실제 파일 읽기를 확인합니다. 확인된 Chrome 확장을 다시 설치할 필요는 없습니다.
 
-User steps: Create a restricted key with **Tunnels: Read + Use** and enter it under **Settings → Setup → TUNNEL API KEY**, without sharing it in chat. In Chrome, open `chrome://extensions`, enable **Developer mode**, choose **Load unpacked**, and select the app's **Open extension folder** location. Then follow the connection steps below and verify **Connected**, Core pairing, and a real project file read.
+Next user step: Create a restricted key with **Tunnels: Read + Use** and enter it under **Settings → Setup → TUNNEL API KEY**, without sharing it in chat. Then follow the connection steps below and verify the tunnel is **Connected**, Core pairing works, and a real project file can be read. The verified Chrome companion does not need to be reinstalled.
 
-컴퓨터 제어 도구는 새 인증 정보의 최종 입력을 사용자에게 넘기도록 요구하며, Chrome 확장 관리 페이지에 대한 자동 접근도 보안 정책으로 차단했습니다. 이 상태를 연결 완료로 간주하지 않습니다.
+컴퓨터 제어 도구는 새 인증 정보의 입력을 사용자에게 넘기도록 요구합니다. 브라우저와 앱의 연결 완료는 확인했지만, 이것만으로 OpenAI 터널과 Core 연결이 완료됐다고 간주하지 않습니다.
 
-The computer-control tool requires user handoff for new credentials and blocks automated access to Chrome extension management. These remaining steps are not treated as completed.
+The computer-control tool requires user handoff for entering new credentials. Browser-to-app pairing is verified; this alone does not prove OpenAI tunnel or Core connectivity.
 
 Codex용 개인 연결 스킬 `chat-on-steroids`와 이후 작업의 연속성 지침을 이 Mac에 저장했습니다. 공유용 [스킬 원본](../skills/chat-on-steroids/SKILL.md)도 포함합니다. 이 스킬은 이번에 작성한 인계 지침이며, 앱 자체가 Codex 안에 설치되거나 모든 대화가 자동 이전된다는 뜻은 아닙니다. 기존 제작 자료의 공유 내역은 [아카이브 안내](WORK_ARCHIVE_20260917.md)를 확인합니다.
 
