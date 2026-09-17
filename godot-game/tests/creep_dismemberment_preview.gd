@@ -22,6 +22,7 @@ func _run() -> void:
  var tag := OS.get_environment("CREEP_DISMEMBERMENT_QA_ITERATION")
  if not tag.is_valid_filename() or tag.begins_with("."):
   push_error("Choose a new CREEP_DISMEMBERMENT_QA_ITERATION directory."); quit(2); return
+ var record_video := OS.get_environment("CREEP_DISMEMBERMENT_VIDEO") == "1"
  var directory := "/private/tmp/creep-dismemberment-" + tag
  if DirAccess.dir_exists_absolute(directory):
   push_error("Cannot overwrite existing renders."); quit(2); return
@@ -62,8 +63,8 @@ func _run() -> void:
   actor.target = target
   # Match production game's attack-resolution pass after actor physics.
   fixture.world.get_parent().name = "IsolatedRuntime_" + case.region
-  fixture.camera.position = Vector3(-2.7, 2.0, -4.3) if case.region != "left_leg" else Vector3(3.2, 1.8, -3.6)
-  fixture.camera.look_at(Vector3(0, .9, -.2))
+  fixture.camera.position = Vector3(-2.7, 2.0, -4.3) if case.region != "left_leg" else Vector3(3.6, 2.2, -5.2)
+  fixture.camera.look_at(Vector3(0, .9, -.9) if case.region == "left_leg" else Vector3(0, .9, -.2))
   actor.set_physics_process(false)
   for warm in 8:
    await process_frame
@@ -83,11 +84,16 @@ func _run() -> void:
     actor.attack_index = 0
    actor._resolve_active_attack()
    fixture.status.text = "%0.2f초 | 누적 %d / 35 | 절단 %s | HP %d | %s" % [float(frame)/15, actor.dismemberment.damage[case.region], str(actor.dismemberment.severed), actor.health, actor.animation_clip]
-   if frame in [8, 21, 28, 60, 89]:
+   if record_video or frame in [8, 21, 28, 60, 89]:
+    # Render exactly once per recorded physics state. Continuous UPDATE_ALWAYS
+    # also rendered while disk readback was pending in the previous attempt.
     viewport.render_target_update_mode = SubViewport.UPDATE_ONCE
     await RenderingServer.frame_post_draw
     var rendered := viewport.get_texture().get_image()
-    _check(rendered.save_png(directory.path_join("%s_%03d.png" % [case.region, frame])) == OK, "GPU still saved")
+    if record_video:
+     _check(rendered.save_jpg(directory.path_join("frames/%05d.jpg" % frame_number), .94) == OK, "continuous GPU frame saved")
+    if frame in [8, 21, 28, 60, 89]:
+     _check(rendered.save_png(directory.path_join("%s_%03d.png" % [case.region, frame])) == OK, "GPU still saved")
    frames.append({"frame": frame_number, "case": case.region, "case_frame": frame, "state": actor.ai_state, "clip": actor.animation_clip, "snapshot": actor.dismemberment.snapshot(), "ragdoll": actor.ragdoll.phase, "contacts": target.contacts})
    frame_number += 1
   _check(actor.dismemberment.severed == [case.region], "only selected region severed")
@@ -102,6 +108,6 @@ func _run() -> void:
  _check(cursor == Input.mouse_mode, "cursor unchanged")
  for path: String in hashes: _check(hashes[path] == FileAccess.get_sha256(path), "source unchanged: " + path)
  var output := FileAccess.open(directory.path_join("manifest.json"), FileAccess.WRITE)
- output.store_string(JSON.stringify(_json_safe({"capture_mode": "Selected real GPU frames; no video", "frames": frames, "outcomes": outcomes, "hashes": hashes, "failures": failures, "fps": 15, "physics_hz": 60, "renderer": "embedded Vulkan Forward+"}), "\t"))
+ output.store_string(JSON.stringify(_json_safe({"capture_mode": "Continuous real GPU frames" if record_video else "Selected real GPU frames; no video", "frames": frames, "outcomes": outcomes, "hashes": hashes, "failures": failures, "fps": 15, "physics_hz": 60, "renderer": "embedded Vulkan Forward+"}), "\t"))
  print("CREEP DISMEMBERMENT PREVIEW %s: %s" % ["PASS" if failures.is_empty() else "FAIL", directory])
  quit(0 if failures.is_empty() else 1)

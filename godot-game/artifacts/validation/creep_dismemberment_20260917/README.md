@@ -6,6 +6,8 @@
 
 ## 실제 화면 / Actual renders
 
+후속 완료: [2026-09-18 연속 영상과 검증](../creep_dismemberment_video_20260918/README.md). 실제 GPU 270프레임으로 18초 MP4를 완성했다. 아래의 영상 실패 기록은 이전 시도에 해당한다. / Follow-up complete: an 18-second MP4 containing 270 actual GPU frames is now available. The failed-video notes below describe the earlier attempts.
+
 [절단 전](right_arm_008.png) · [오른팔 낙하](right_arm_028.png) · [남은 팔로 공격](right_arm_089.png) · [다리 절단 후 추적](left_leg_060.png) · [머리 분리](head_028.png) · [사망 후 상태](head_089.png)
 
 15개 PNG는 게임의 동일한 Creep 코드·설치 모델·재질을 격리된 흰 조명 시험장에 배치해 **embedded Vulkan Forward+**로 촬영했다. 실제 60Hz 물리를 연속 진행하고 15Hz 표본 중 각 경우의 지정된 5개 시점만 그렸다. 생성 이미지·합성·데스크톱 캡처가 아니다. 원래 게임의 카메라나 배경을 촬영한 화면은 아니며, 카메라는 시험장 검수용이다.

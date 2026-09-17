@@ -50,3 +50,5 @@ Restart the game and select one of five region trials or the distributed-hit com
 ```
 
 검수 기록과 확인 범위는 [검증 결과](../artifacts/validation/creep_dismemberment_20260917/README.md)에 남긴다. / See the linked validation record for executed checks, actual renders and remaining limits.
+
+2026-09-18: [18초 실제 렌더링 영상](../artifacts/validation/creep_dismemberment_video_20260918/creep_dismemberment.mp4)과 [촬영·검증 기록](../artifacts/validation/creep_dismemberment_video_20260918/README.md)을 추가했다. 팔·다리·머리 순서로 절단과 후속 동작을 연속 확인할 수 있다. / Added an 18-second actual-render video and capture record showing arm, leg and head severance with subsequent behavior.
