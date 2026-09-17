@@ -4,6 +4,9 @@ extends SkeletonModifier3D
 var controller: Node3D
 
 func _process_modification_with_delta(_delta: float) -> void:
+	apply_physical_pose()
+
+func apply_physical_pose() -> void:
 	if not is_instance_valid(controller) or controller.phase not in ["simulating", "settled"]:
 		return
 	var rig := get_skeleton()

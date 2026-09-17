@@ -48,7 +48,7 @@ func _run() -> void:
 			if child is CanvasLayer:
 				for label in child.get_children():
 					if label is Label and label.text.begins_with("CREEP  |"):
-						label.text = "CREEP | 다리 손실 후 포복 / CRAWLING AFTER LEG LOSS"
+						label.text = "CREEP | 랙돌 착지 → 포복 추적 / FALL → GROUND → CRAWL"
 		var actor = fixture.actor
 		actor.health = 118; actor.max_health = 118
 		var target := DUMMY.TargetDummy.new()
@@ -58,7 +58,9 @@ func _run() -> void:
 		actor.set_physics_process(false)
 		for warm in 8: await process_frame
 		var previous_tick := -1
-		for frame in 180:
+		var seen_phases := {}
+		var phase_stills := {}
+		for frame in 300:
 			await process_frame
 			var tick := int(Engine.get_physics_frames())
 			if previous_tick >= 0: _check(tick - previous_tick == 4, "continuous 60 Hz physics at 15 fps")
@@ -70,22 +72,32 @@ func _run() -> void:
 					actor.receive_located_hit(18, actor.global_position + Vector3(0, 0, -3), .5, false, actor.dismemberment.hit_point_for_region(region))
 			if frame == 22: actor.set_physics_process(true)
 			actor._resolve_active_attack()
-			fixture.camera.position = actor.position + scenario.camera
-			fixture.camera.look_at(actor.position + Vector3(0, -.35, .0))
-			fixture.status.text = "%0.2f초 | 절단 %s | HP %d | %s | 공격 접촉 %d" % [float(frame)/15, str(actor.dismemberment.severed), actor.health, actor.animation_clip, target.contacts]
-			if record_video or frame in [8, 21, 36, 60, 90, 119, 150, 179]:
+			var core: Vector3 = (actor.skeleton.global_transform * actor.skeleton.get_bone_global_pose(actor.skeleton.find_bone("Torso"))).origin
+			var focus := Vector3(core.x, .65, core.z)
+			fixture.camera.position = focus + scenario.camera
+			fixture.camera.look_at(focus)
+			var current_phase: String = actor.knockdown_phase
+			if not actor.dismemberment.severed.is_empty() and current_phase == "none": current_phase = "crawling"
+			var first_phase := not seen_phases.has(current_phase)
+			seen_phases[current_phase] = true
+			var phase_label: String = {"none": "타격 전 / BEFORE", "falling": "물리 낙하 · 착지 대기 / PHYSICS FALL", "recovering": "착지 완료 · 포복 전환 / GROUNDED RECOVERY", "crawling": "포복 추적 / CRAWL"}[current_phase]
+			fixture.status.text = "%0.2f초 | %s | HP %d | 접촉 %d" % [float(frame)/15, phase_label, actor.health, target.contacts]
+			var capture_still := frame in [8, 21, 36, 60, 90, 119, 150, 210, 299] or first_phase
+			if record_video or capture_still:
 				viewport.render_target_update_mode = SubViewport.UPDATE_ONCE
 				await RenderingServer.frame_post_draw
 				var rendered := viewport.get_texture().get_image()
 				if record_video: _check(rendered.save_jpg(directory.path_join("frames/%05d.jpg" % frame_number), .94) == OK, "GPU frame saved")
-				if frame in [8, 21, 36, 60, 90, 119, 150, 179]:
+				if capture_still:
 					_check(rendered.save_png(directory.path_join("%s_%03d.png" % [scenario.id, frame])) == OK, "GPU still saved")
-			frames.append({"frame": frame_number, "case": scenario.id, "case_frame": frame, "clip": actor.animation_clip, "crawl": actor.crawl.snapshot(), "position": actor.position, "severed": actor.dismemberment.severed.duplicate(), "contacts": target.contacts})
+					if first_phase: phase_stills[current_phase] = "%s_%03d.png" % [scenario.id, frame]
+			frames.append({"frame": frame_number, "case": scenario.id, "case_frame": frame, "phase": current_phase, "clip": actor.animation_clip, "ragdoll": actor.ragdoll.snapshot(), "crawl": actor.crawl.snapshot(), "position": actor.position, "severed": actor.dismemberment.severed.duplicate(), "contacts": target.contacts})
 			frame_number += 1
 		_check(actor.dismemberment.severed == scenario.regions, "only selected legs severed")
 		_check(actor.is_crawling() and actor.crawl.blend > .99, "living crawl fully active")
 		_check(target.contacts > 0, "surviving crawler reaches and bites target")
-		outcomes.append({"case": scenario.id, "contacts": target.contacts, "snapshot": actor.get_creep_snapshot()})
+		for required_phase in ["falling", "recovering", "crawling"]: _check(seen_phases.has(required_phase), "continuous phase observed: " + required_phase)
+		outcomes.append({"case": scenario.id, "contacts": target.contacts, "phase_stills": phase_stills, "snapshot": actor.get_creep_snapshot()})
 		viewport.queue_free()
 		await process_frame
 		print("CREEP CRAWL CASE: ", scenario.id)

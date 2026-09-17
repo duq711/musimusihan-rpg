@@ -1,0 +1,12 @@
+--- a/godot-game/scripts/creep_enemy.gd
++++ b/godot-game/scripts/creep_enemy.gd
+@@ -280,6 +280,9 @@
+ 		var labels := {"left_arm": "왼팔", "right_arm": "오른팔", "left_leg": "왼다리", "right_leg": "오른다리", "head": "머리"}
+ 		hud.show_event("크리프 · %s 절단" % labels[cut], 1.0)
+ 
++func is_execution_vulnerable() -> bool:
++	return not is_knocked_down() and super.is_execution_vulnerable()
++
+ func _capture_execution_pose() -> void:
+ 	super._capture_execution_pose()
+ 	_execution_entry_bones.clear()

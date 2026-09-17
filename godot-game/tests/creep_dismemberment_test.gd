@@ -60,6 +60,15 @@ func strike(actor, region: String, amount := 18.0) -> void:
 	var point: Vector3 = actor.dismemberment.hit_point_for_region(region)
 	actor.receive_located_hit(amount, Vector3(0, .9, -3), .5, region == "head", point)
 
+func execution_gate(actor) -> void:
+	# The local execution feature is optional on public branches. At low health
+	# a knocked-down stagger must still be protected while physics owns the rig.
+	if not actor.has_method("is_execution_vulnerable") or not actor.is_knocked_down(): return
+	var saved_health: float = actor.health
+	actor.health = actor.max_health * .1
+	check(not bool(actor.call("is_execution_vulnerable")), "temporary fall/recovery cannot be reserved for execution")
+	actor.health = saved_health
+
 func scenario(region: String) -> void:
 	var f := fixture()
 	var actor = f.actor
@@ -104,9 +113,12 @@ func scenario(region: String) -> void:
 	check((actor.ai_state == DungeonEnemy.AIState.DEAD) == (region == "head"), "only head severance immediately kills")
 	check(counts[0] == int(region == "head"), "no limb-cut loot, exactly one decapitation reward")
 	if region != "head":
-		actor._set_state(DungeonEnemy.AIState.WINDUP)
-		check(actor.ai_state == DungeonEnemy.AIState.WINDUP, "surviving Creep can attack")
-		if region.ends_with("leg"): check(actor.move_speed < actor.dismemberment.base_move_speed, "missing leg reduces travel")
+		if region.ends_with("leg"):
+			check(actor.is_knocked_down(), "surviving leg cut first enters physical fall")
+			check(actor.move_speed < actor.dismemberment.base_move_speed, "missing leg reduces travel")
+		else:
+			actor._set_state(DungeonEnemy.AIState.WINDUP)
+			check(actor.ai_state == DungeonEnemy.AIState.WINDUP, "surviving arm-cut Creep can attack")
 	for frame in 300: await physics_frame
 	check(detached.global_position.distance_to(start) > .15, "released part actually falls")
 	check(detached.global_position.y > -.35 and detached.global_position.length() < 8, "floor collision prevents runaway part")
@@ -150,6 +162,14 @@ func multiple_parts() -> void:
 	for region in ["left_arm", "right_arm", "left_leg", "right_leg"]:
 		strike(actor, region); strike(actor, region)
 	check(actor.ai_state != DungeonEnemy.AIState.DEAD and actor.dismemberment.detached.size() == 4, "four missing limbs do not force death")
+	check(actor.is_knocked_down(), "four-limb loss must physically fall before biting")
+	actor.set_physics_process(true)
+	for frame in 1200:
+		await physics_frame
+		execution_gate(actor)
+		if not actor.is_knocked_down(): break
+	check(not actor.is_knocked_down(), "armless body settles and completes crawl recovery")
+	actor.set_physics_process(false)
 	actor.attack_index = 0
 	actor._set_state(DungeonEnemy.AIState.WINDUP)
 	check(actor.attack_index == 0 and actor.animation_clip == "crawl_bite", "armless crawling Creep only selects low bite")
@@ -166,6 +186,13 @@ func stance_grounding() -> void:
 		strike(actor, "left_leg"); strike(actor, "left_leg")
 		if legs == 2:
 			strike(actor, "right_leg"); strike(actor, "right_leg")
+		actor.set_physics_process(true)
+		for frame in 1200:
+			await physics_frame
+			execution_gate(actor)
+			if not actor.is_knocked_down(): break
+		check(not actor.is_knocked_down(), "grounding samples begin after physical recovery")
+		actor.set_physics_process(false)
 		actor._set_state(DungeonEnemy.AIState.CHASE)
 		for sample in 8:
 			actor.state_time = sample * .22

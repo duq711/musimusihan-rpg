@@ -53,7 +53,7 @@ func _run() -> void:
 	_check(ExpeditionSession.get_inventory() == original and ExpeditionSession.capture_snapshot() == before, "exit restores the exact expedition and original inventory identity")
 	for failure in failures:
 		push_error("CREEP DISMEMBERMENT TRIAL TEST FAIL: " + failure)
-	var coverage := "five localized cuts, surviving both-leg loss, crawling and F2 pose pause, distributed-hit comparison, single head-death reward, real timers and partial-cut pause/cancel/reset, session restoration" if asset_checks_executed else "catalog, absent-asset guidance and session restoration; actual cuts SKIPPED"
+	var coverage := "five localized cuts, surviving both-leg loss, physical fall then crawl recovery, F2 fall/recovery/crawl pause, distributed-hit comparison, single head-death reward, real timers and partial-cut pause/cancel/reset, session restoration" if asset_checks_executed else "catalog, absent-asset guidance and session restoration; actual cuts SKIPPED"
 	print("CREEP DISMEMBERMENT TRIAL TEST " + ("PASS" if failures.is_empty() else "FAIL") + ": " + coverage)
 	quit(0 if failures.is_empty() else 1)
 
@@ -67,7 +67,7 @@ func _test_catalog() -> void:
 			var entry: Dictionary = matching[0]
 			_check(entry.category == "기본" and entry.action == "creep_dismemberment" and entry.payload == region, "entry dispatches its actual localized trial: " + feature_id)
 			if region in ["left_leg", "right_leg", "both_legs"]:
-				_check(str(entry.detail).contains("기어"), "leg trial describes the new crawling behavior: " + feature_id)
+				_check(str(entry.detail).contains("기어") and str(entry.detail).contains("랙돌") and str(entry.detail).contains("착지"), "leg trial describes physical landing before crawling: " + feature_id)
 
 
 func _test_missing_asset() -> void:
@@ -127,12 +127,14 @@ func _test_trial(region: String) -> void:
 		_check(await _wait_for_hit_count(2), "the four-hit fixture finishes the first leg before targeting the second")
 		var partial: Dictionary = creep.dismemberment.snapshot()
 		_check(partial.severed.size() == 1 and "left_leg" in partial.severed and partial.detached_bodies == 1 and is_zero_approx(float(partial.damage.get("right_leg", 0.0))), "two real hits remove only the left leg, without a premature right-leg hit")
-		_check(not creep.is_physics_processing() and creep.is_crawling(), "AI remains on hold, but actual leg loss already selects crawling")
+		_check(not creep.is_physics_processing() and creep.is_crawling() and creep.is_knocked_down(), "AI remains on hold while real leg loss begins the independent physical fall")
 		await _press_f2()
 		var partial_time := timer.time_left
 		var partial_bodies := _physical_transforms(creep)
+		var partial_phase: String = creep.knockdown_phase
+		var partial_pose := _skeletal_pose(creep)
 		await _advance_frames(60)
-		_check(is_equal_approx(timer.time_left, partial_time) and room.creep_dismemberment_hit_count == 2 and creep.dismemberment.snapshot().severed == partial.severed and _physical_transforms(creep) == partial_bodies, "F2 pauses the partially completed both-leg trial and its detached-part physics")
+		_check(is_equal_approx(timer.time_left, partial_time) and room.creep_dismemberment_hit_count == 2 and creep.dismemberment.snapshot().severed == partial.severed and _physical_transforms(creep) == partial_bodies and creep.knockdown_phase == partial_phase and _skeletal_pose(creep) == partial_pose, "F2 pauses pending second-leg hits, the living ragdoll, and detached-part physics")
 		await _press_f2()
 	var completed := await _wait_for_completion()
 	_check(completed, "the final ordinary hit completes the trial: " + region)
@@ -156,7 +158,7 @@ func _test_trial(region: String) -> void:
 	else:
 		var expected_damage := 72.0 if region == "both_legs" else 36.0
 		_check(creep.ai_state != DungeonEnemy.AIState.DEAD and is_equal_approx(creep.health, creep.max_health - expected_damage) and room.enemies_alive == 1, "limb loss or distributed hits preserve the damaged live enemy: " + region)
-		_check(creep.is_physics_processing() and room.enemy_ai_enabled, "real AI resumes after all scheduled hits: " + region)
+		_check(creep.is_physics_processing() and room.enemy_ai_enabled, "the fixture releases processing after all scheduled hits; the actor still gates combat during its fall: " + region)
 		_check(defeat_count == defeats_before and room.loot_count == loot_before and room.inventory.count_item("rune_fragment") == fragments_before, "a living dismembered enemy grants no kill or reward: " + region)
 	if region in ["left_leg", "right_leg", "both_legs"]:
 		await _test_crawl_trial(creep, region)
@@ -175,7 +177,8 @@ func _test_trial(region: String) -> void:
 
 func _test_crawl_trial(creep, region: String) -> void:
 	_check(creep.is_crawling(), "actual loss of either leg enters crawling: " + region)
-	await _advance_frames(45)
+	_check(await _wait_for_fall_recovery(creep, region, true), "actual physical fall and pose recovery finish before pursuit within the bounded fixture time: " + region)
+	await _advance_frames(36)
 	var crawl_state: Dictionary = creep.crawl.snapshot()
 	_check(bool(crawl_state.active) and float(crawl_state.blend) > 0.95 and str(creep.animation_clip).begins_with("crawl"), "surviving leg-loss trial uses the fully blended production crawl pose: " + region)
 	await _press_f2()
@@ -214,8 +217,9 @@ func _test_reselection_cancellation_reset() -> void:
 	_check(await _wait_for_hit_count(2), "cancellation case reaches the intermediate one-leg cut")
 	var partial_damage: Dictionary = partly_cut.dismemberment.snapshot().damage.duplicate(true)
 	room.run_feature("torch")
-	await _advance_frames(110)
-	_check(room.creep_dismemberment_timer == null and partly_cut.dismemberment.snapshot().damage == partial_damage and partly_cut.dismemberment.snapshot().severed.size() == 1 and partly_cut.is_crawling() and partly_cut.is_physics_processing(), "cancelling between legs prevents later right-leg hits and releases the retained crawler")
+	_check(await _wait_for_fall_recovery(partly_cut, "cancelled both-leg trial", false), "cancellation leaves the retained enemy able to finish its physical fall and recover")
+	await _advance_frames(12)
+	_check(room.creep_dismemberment_timer == null and partly_cut.dismemberment.snapshot().damage == partial_damage and partly_cut.dismemberment.snapshot().severed.size() == 1 and partly_cut.is_crawling() and partly_cut.is_physics_processing() and not partly_cut.is_knocked_down(), "cancelling between legs prevents later right-leg hits and releases the recovered crawler")
 	room.run_feature("creep_dismemberment:head")
 	var reset_target = _find_creep()
 	var reset_timer: Timer = room.creep_dismemberment_timer
@@ -244,10 +248,54 @@ func _wait_for_completion() -> bool:
 	return false
 
 
+func _wait_for_fall_recovery(creep, region: String, verify_pause: bool) -> bool:
+	var observed_falling := false
+	var observed_recovering := false
+	var paused_phases: Array[String] = []
+	# This waits for the production contact/stability decision rather than
+	# treating a fixed pose-animation delay as proof that the body has landed.
+	for frame in 900:
+		if not is_instance_valid(creep) or creep.ai_state == DungeonEnemy.AIState.DEAD:
+			return false
+		if not creep.is_knocked_down():
+			if verify_pause:
+				_check(observed_falling and observed_recovering, "the trial passes through both falling and recovering before pursuit: " + region)
+				_check("falling" in paused_phases and "recovering" in paused_phases, "F2 was tested during both fall and pose recovery: " + region)
+			return true
+		var phase: String = creep.knockdown_phase
+		observed_falling = observed_falling or phase == "falling"
+		observed_recovering = observed_recovering or phase == "recovering"
+		_check(phase in ["falling", "recovering"], "knockdown uses an explicit physical-fall or recovery phase: " + region)
+		_check(creep.ai_state not in [DungeonEnemy.AIState.WINDUP, DungeonEnemy.AIState.ACTIVE], "the grounded recovery gate prevents attacking: " + region)
+		var health_before: float = room.player.health
+		creep._resolve_active_attack()
+		_check(is_equal_approx(room.player.health, health_before), "actual attack resolution deals no damage during fall/recovery: " + region)
+		if verify_pause and phase not in paused_phases:
+			await _press_f2()
+			var held_phase: String = creep.knockdown_phase
+			var held_bodies := _physical_transforms(creep)
+			var held_pose := _skeletal_pose(creep)
+			var held_crawl: Dictionary = creep.crawl.snapshot().duplicate(true)
+			var held_position: Vector3 = creep.position
+			await _advance_frames(24)
+			_check(paused and creep.knockdown_phase == held_phase and _physical_transforms(creep) == held_bodies and _skeletal_pose(creep) == held_pose and creep.crawl.snapshot() == held_crawl and creep.position == held_position, "F2 freezes physical bodies, the skeletal pose, recovery progress and actor position: " + region + "/" + phase)
+			paused_phases.append(phase)
+			await _press_f2()
+		await _advance_frames(1)
+	return false
+
+
+func _skeletal_pose(creep) -> Array[Transform3D]:
+	var result: Array[Transform3D] = []
+	for bone in creep.skeleton.get_bone_count():
+		result.append(creep.skeleton.get_bone_global_pose(bone))
+	return result
+
+
 func _physical_transforms(node: Node) -> Dictionary:
 	var result := {}
 	for child in node.get_children():
-		if child is RigidBody3D:
+		if child is RigidBody3D or child is PhysicalBone3D:
 			result[child.get_instance_id()] = child.global_transform
 		result.merge(_physical_transforms(child))
 	return result

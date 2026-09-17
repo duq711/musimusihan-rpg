@@ -20,6 +20,7 @@ var resolved_contacts := 0
 var ragdoll: Node3D
 var dismemberment: Node3D
 var crawl: Node
+var knockdown_phase := "none"
 
 static func is_available() -> bool:
 	return ResourceLoader.exists(MODEL_PATH)
@@ -65,6 +66,31 @@ func _build_body() -> void:
 func is_crawling() -> bool:
 	return is_instance_valid(dismemberment) and dismemberment.missing_legs() > 0
 
+func is_knocked_down() -> bool:
+	return knockdown_phase != "none" and ai_state != AIState.DEAD
+
+func _process_knockdown(delta: float) -> void:
+	velocity = Vector3.ZERO
+	if knockdown_phase == "falling":
+		if ragdoll.temporary and ragdoll.phase == "settled":
+			var fallen: Dictionary = ragdoll.take_recovery_pose()
+			if fallen.is_empty():
+				return
+			var bones: Array = fallen.bones
+			var hip: Vector3 = bones[skeleton.find_bone("Torso")].origin
+			var offset: Vector3 = global_basis * crawl.prone[skeleton.find_bone("Torso")].origin
+			# Re-anchor navigation under the physical landing, then restore every
+			# world-space bone so the skin does not teleport with its root.
+			global_position = Vector3(hip.x - offset.x, fallen.ground_point.y + .9, hip.z - offset.z)
+			knockdown_phase = "recovering"
+			crawl.begin_from_world_pose(bones)
+	elif knockdown_phase == "recovering":
+		crawl.apply(delta)
+		if crawl.blend >= 1.0:
+			knockdown_phase = "none"
+			collision_shape.set_deferred("disabled", false)
+			_set_state(AIState.CHASE if is_instance_valid(target) else AIState.IDLE)
+
 func get_aim_point() -> Vector3:
 	if is_crawling():
 		return (skeleton.global_transform * skeleton.get_bone_global_pose(skeleton.find_bone("Chest"))).origin
@@ -80,9 +106,12 @@ func _find_skeleton(node: Node) -> Skeleton3D:
 	return null
 
 func _physics_process(delta: float) -> void:
-	state_time += delta
 	if ai_state == AIState.DEAD:
 		return
+	if is_knocked_down():
+		_process_knockdown(delta)
+		return
+	state_time += delta
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	var toward := Vector3.ZERO
@@ -147,7 +176,7 @@ func _set_state(next_state: AIState, stagger_seconds: float = STAGGER_SECONDS) -
 		_update_visual_pose(0.0)
 
 func _resolve_active_attack() -> void:
-	if ai_state != AIState.ACTIVE:
+	if ai_state != AIState.ACTIVE or is_knocked_down():
 		return
 	var contacts: Array = CONTACTS[_attack()]
 	while resolved_contacts < contacts.size() and state_time >= contacts[resolved_contacts]:
@@ -176,6 +205,9 @@ func _update_visual_pose(_delta: float) -> void:
 		return
 	if is_instance_valid(ragdoll) and ragdoll.phase != "living":
 		return # The death reaction/physics controller exclusively owns the rig.
+	if knockdown_phase == "recovering":
+		crawl.apply(_delta)
+		return
 	var clip := "idle"
 	var sample := state_time
 	match ai_state:
@@ -221,10 +253,21 @@ func receive_located_hit(amount: float, attacker_position: Vector3, charge: floa
 		return # A stale contact on an absent limb is a miss, not torso damage.
 	# Bake before the damage reaction seeks a different animation frame.
 	var cut: String = dismemberment.register_hit(amount, hit_position, attacker_position)
+	if not cut.is_empty() and ragdoll.is_knockdown_active():
+		ragdoll.remove_severed_parts()
+	if cut.ends_with("_leg") and health > amount and knockdown_phase != "falling":
+		# Acquire the current pose before receive_hit can seek a standing recoil.
+		if ragdoll.begin_knockdown(velocity):
+			knockdown_phase = "falling"
+			collision_shape.set_deferred("disabled", true)
+			attack_index = 0
+			resolved_contacts = 0
 	if cut == "head":
 		super.receive_hit(maxf(amount, health), attacker_position, charge, true)
 	else:
 		super.receive_hit(amount, attacker_position, charge, headshot)
+	if is_knocked_down():
+		velocity = Vector3.ZERO # Only physical parts may move during collapse.
 	if not cut.is_empty() and hud:
 		var labels := {"left_arm": "왼팔", "right_arm": "오른팔", "left_leg": "왼다리", "right_leg": "오른다리", "head": "머리"}
 		hud.show_event("크리프 · %s 절단" % labels[cut], 1.0)
@@ -234,6 +277,7 @@ func _die() -> void:
 	if ai_state == AIState.DEAD:
 		return
 	ragdoll.begin(velocity)
+	knockdown_phase = "none"
 	_set_state(AIState.DEAD)
 	velocity = Vector3.ZERO
 	collision_layer = 0
@@ -246,4 +290,4 @@ func _die() -> void:
 	defeated.emit(self)
 
 func get_creep_snapshot() -> Dictionary:
-	return {"archetype": "creep", "state": ai_state, "clip": animation_clip, "sample": animation_sample, "attack_index": attack_index, "resolved_contacts": resolved_contacts, "bones": skeleton.get_bone_count(), "meshes": visual_meshes.size(), "clips": animation_player.get_animation_list(), "source": MODEL_PATH, "ragdoll": ragdoll.snapshot(), "dismemberment": dismemberment.snapshot(), "crawl": crawl.snapshot()}
+	return {"archetype": "creep", "knockdown_phase": knockdown_phase, "state": ai_state, "clip": animation_clip, "sample": animation_sample, "attack_index": attack_index, "resolved_contacts": resolved_contacts, "bones": skeleton.get_bone_count(), "meshes": visual_meshes.size(), "clips": animation_player.get_animation_list(), "source": MODEL_PATH, "ragdoll": ragdoll.snapshot(), "dismemberment": dismemberment.snapshot(), "crawl": crawl.snapshot()}

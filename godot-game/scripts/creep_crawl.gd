@@ -17,6 +17,21 @@ var last_position := Vector3.ZERO
 var hand_targets := {}
 var planted := {}
 var movement_blend := 0.0
+var entry_seconds := ENTER_SECONDS
+
+func begin_from_world_pose(world_poses: Array) -> void:
+	assert(world_poses.size() == rig.get_bone_count())
+	entry.clear()
+	var to_actor := actor.global_transform.affine_inverse()
+	for pose: Transform3D in world_poses:
+		entry.append(to_actor * pose)
+	active = true
+	blend = 0.0
+	phase = 0.0
+	movement_blend = 0.0
+	entry_seconds = .85
+	last_position = actor.global_position
+	apply(0.0)
 
 func configure(owner_actor: Node3D, skeleton: Skeleton3D) -> void:
 	actor = owner_actor
@@ -103,13 +118,14 @@ func apply(delta: float) -> void:
 	var displacement := actor.global_position - last_position
 	displacement.y = 0
 	last_position = actor.global_position
-	blend = minf(1.0, blend + maxf(delta, 0.0) / ENTER_SECONDS)
-	var moving: bool = actor.ai_state == DungeonEnemy.AIState.CHASE and displacement.length() > .00001
+	blend = minf(1.0, blend + maxf(delta, 0.0) / entry_seconds)
+	var recovering: bool = actor.is_knocked_down()
+	var moving: bool = not recovering and actor.ai_state == DungeonEnemy.AIState.CHASE and displacement.length() > .00001
 	movement_blend = move_toward(movement_blend, 1.0 if moving else 0.0, maxf(delta, 0.0) * 9.0)
 	if moving:
 		phase = fposmod(phase + displacement.length() / STRIDE, 1.0)
 	var poses: Array[Transform3D] = prone.duplicate()
-	var biting: bool = actor.ai_state in [DungeonEnemy.AIState.WINDUP, DungeonEnemy.AIState.ACTIVE, DungeonEnemy.AIState.RECOVERY]
+	var biting: bool = not recovering and actor.ai_state in [DungeonEnemy.AIState.WINDUP, DungeonEnemy.AIState.ACTIVE, DungeonEnemy.AIState.RECOVERY]
 	var t: float = actor.state_time
 	if actor.ai_state == DungeonEnemy.AIState.ACTIVE: t += actor.WINDUPS[0]
 	if actor.ai_state == DungeonEnemy.AIState.RECOVERY: t += actor.WINDUPS[0] + actor.ACTIVE_TIMES[0]
@@ -145,6 +161,7 @@ func apply(delta: float) -> void:
 	for bone in order:
 		rig.set_bone_global_pose(bone, to_rig * entry[bone].interpolate_with(poses[bone], weight))
 	actor.animation_clip = "crawl_bite" if biting else ("crawl_hit" if actor.ai_state == DungeonEnemy.AIState.STAGGER else ("crawl" if actor.ai_state == DungeonEnemy.AIState.CHASE else "crawl_idle"))
+	if recovering: actor.animation_clip = "crawl_recover"
 	actor.animation_sample = phase
 
 func snapshot() -> Dictionary:

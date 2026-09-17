@@ -1890,7 +1890,8 @@ func _prepare_creep_dismemberment_trial(region: String) -> bool:
 	creep_dismemberment_timer.timeout.connect(_apply_creep_dismemberment_trial_hit)
 	creep_dismemberment_timer.start()
 	_status("크리프 부위 절단 · %s · 0.8초 간격 18 피해 %d회 / F2 일시정지·재선택" % [labels[region], creep_dismemberment_regions.size()])
-	hud.show_event("%s · %d회 타격 후 전투 재개 · F2 일시정지" % [labels[region], creep_dismemberment_regions.size()], 1.5)
+	var trial_outcome := "랙돌 착지 → 포복 자세 → 추적" if region in ["left_leg", "right_leg", "both_legs"] else "타격 후 전투 재개"
+	hud.show_event("%s · %d회 타격 · %s · F2 일시정지" % [labels[region], creep_dismemberment_regions.size(), trial_outcome], 1.5)
 	return true
 
 
@@ -1908,7 +1909,7 @@ func _apply_creep_dismemberment_trial_hit() -> void:
 	if creep_dismemberment_hit_count >= creep_dismemberment_regions.size():
 		_cancel_creep_dismemberment_trial()
 		_set_enemy_ai(true)
-		_status("부위 타격 시험 완료 · 다리 절단 후 기어서 전투 / 머리 절단 시 사망 · F2 재선택: 회복·재생성")
+		_status("부위 타격 시험 완료 · 다리 절단: 랙돌 착지 → 포복 → 추적 / 머리: 사망 · F2 재선택: 회복·재생성")
 
 
 func _cancel_creep_dismemberment_trial() -> void:

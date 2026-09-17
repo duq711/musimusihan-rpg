@@ -1,6 +1,6 @@
 extends Node3D
 ## Real rigid-body ragdoll, explicit connections for the imported Creep IK rig.
-## No source mesh/rest hierarchy changes; no physics work while alive.
+## Death and temporary leg-loss falls share the same solved physical rig.
 const POSE_DRIVER := preload("res://scripts/creep_ragdoll_pose.gd")
 const REACTION_SECONDS := 0.18
 const WORLD_LAYER := 2
@@ -8,6 +8,9 @@ const CORPSE_LAYER := 32
 const SETTLE_SPEED := 0.50
 const SETTLE_MEAN_SQUARED_SPEED := 0.018
 const SETTLE_HOLD := 0.60
+const KNOCKDOWN_SETTLE_HOLD := 0.35
+const GROUND_NORMAL_DOT := 0.65
+const CORE_PARTS := ["Torso", "Chest", "Head"]
 
 # bone, endpoint, parent body, radius(m), mass(kg), extra endpoint length(m).
 const PARTS := [
@@ -46,6 +49,14 @@ var impact_velocity := Vector3.ZERO
 var reaction_time := 0.0
 var simulation_time := 0.0
 var quiet_time := 0.0
+var temporary := false
+var ground_supported := false
+var core_low := false
+var ground_point := Vector3.ZERO
+var support_parts: Array[String] = []
+var mean_squared_speed := 0.0
+var support_normals: Array[Vector3] = []
+var settled_evidence: Dictionary = {}
 
 func configure(owner_actor: Node3D, skeleton: Skeleton3D, animation: AnimationPlayer) -> void:
 	actor = owner_actor
@@ -59,8 +70,25 @@ func configure(owner_actor: Node3D, skeleton: Skeleton3D, animation: AnimationPl
 	set_physics_process(false)
 
 func begin(death_velocity: Vector3) -> void:
+	if temporary and phase in ["simulating", "settled"]:
+		# A fatal hit during a living fall kills this physical body in place.
+		# No standing reaction, duplicate bodies, or pending recovery survives it.
+		temporary = false
+		remove_severed_parts()
+		actor.animation_clip = "ragdoll"
+		return
 	if phase != "living":
 		return
+	temporary = false
+	reaction_time = 0.0
+	simulation_time = 0.0
+	quiet_time = 0.0
+	ground_supported = false
+	core_low = false
+	support_parts.clear()
+	support_normals.clear()
+	settled_evidence.clear()
+	initial_pose.clear()
 	for bone in rig.get_bone_count():
 		initial_pose.append(rig.get_bone_pose(bone))
 	impact_velocity = death_velocity.limit_length(3.2)
@@ -70,6 +98,29 @@ func begin(death_velocity: Vector3) -> void:
 	actor.animation_clip = "hit"
 	actor.animation_sample = 0.0
 	set_physics_process(true)
+
+func begin_knockdown(fall_velocity: Vector3) -> bool:
+	if phase != "living" or actor.ai_state == DungeonEnemy.AIState.DEAD:
+		return false
+	temporary = true
+	reaction_time = 0.0
+	simulation_time = 0.0
+	quiet_time = 0.0
+	ground_supported = false
+	core_low = false
+	support_parts.clear()
+	support_normals.clear()
+	settled_evidence.clear()
+	impact_velocity = fall_velocity.limit_length(3.2)
+	if impact_velocity.length_squared() < .01:
+		impact_velocity = actor.global_basis.z.normalized() * 1.2
+	# The amputated pose is sampled before any hit/crawl animation can replace it.
+	_start_physics()
+	set_physics_process(true)
+	return true
+
+func is_knockdown_active() -> bool:
+	return temporary and phase in ["simulating", "settled"]
 
 func _physics_process(delta: float) -> void:
 	if phase == "reaction":
@@ -89,6 +140,9 @@ func _physics_process(delta: float) -> void:
 			_start_physics()
 	elif phase == "simulating":
 		simulation_time += delta
+		# SkeletonModifier3D output is transient during skin rendering. Persist
+		# the solved pose for physics-time damage queries and the recovery handoff.
+		driver.call("apply_physical_pose")
 		var quiet := true
 		var energy := 0.0
 		var total_mass := 0.0
@@ -106,12 +160,63 @@ func _physics_process(delta: float) -> void:
 				body.linear_damp = 1.5
 				body.angular_damp = 3.0
 		var slow_parts := quiet
-		quiet = quiet and energy / maxf(total_mass, 1.0) < SETTLE_MEAN_SQUARED_SPEED
-		quiet_time = quiet_time + delta if quiet and supported and simulation_time > 1.0 else maxf(0.0, quiet_time - delta * 2.0)
-		if quiet_time >= SETTLE_HOLD:
-			_settle()
-		elif simulation_time > 6.0 and supported and slow_parts and energy / maxf(total_mass, 1.0) < .08:
-			_settle() # Bound small solver jitter on a supported corpse, never mid-air.
+		mean_squared_speed = energy / maxf(total_mass, 1.0)
+		quiet = quiet and mean_squared_speed < SETTLE_MEAN_SQUARED_SPEED
+		_read_ground_support()
+		if temporary:
+			# Feet/arms hitting a wall or a short timer cannot authorize recovery.
+			# The torso must be down and actual upward core contacts must stay quiet.
+			quiet_time = quiet_time + delta if quiet and ground_supported and core_low else 0.0
+			if quiet_time >= KNOCKDOWN_SETTLE_HOLD:
+				_settle()
+		else:
+			quiet_time = quiet_time + delta if quiet and supported and simulation_time > 1.0 else maxf(0.0, quiet_time - delta * 2.0)
+			if quiet_time >= SETTLE_HOLD:
+				_settle()
+			elif simulation_time > 6.0 and supported and slow_parts and mean_squared_speed < .08:
+				_settle() # Bound small solver jitter on a supported corpse, never mid-air.
+
+func _read_ground_support() -> void:
+	support_parts.clear()
+	support_normals.clear()
+	ground_supported = false
+	core_low = false
+	var support_sum := Vector3.ZERO
+	var contact_count := 0
+	for name_value: String in CORE_PARTS:
+		if not parts.has(name_value):
+			continue
+		var body: RigidBody3D = parts[name_value].body
+		var state := PhysicsServer3D.body_get_direct_state(body.get_rid())
+		if state == null:
+			continue
+		for contact in state.get_contact_count():
+			var collider = state.get_contact_collider_object(contact)
+			if not collider is PhysicsBody3D or (collider.collision_layer & WORLD_LAYER) == 0:
+				continue
+			# Godot's contact "local normal" refers to this body's contact side;
+			# the vector, like contact positions, is already in WORLD coordinates.
+			var normal := state.get_contact_local_normal(contact).normalized()
+			if normal.dot(Vector3.UP) < GROUND_NORMAL_DOT:
+				continue
+			if name_value not in support_parts:
+				support_parts.append(name_value)
+			support_normals.append(normal)
+			support_sum += state.get_contact_collider_position(contact)
+			contact_count += 1
+	if contact_count == 0:
+		return
+	ground_point = support_sum / float(contact_count)
+	# At least one load-bearing core body must actually contact the floor.
+	# Head contact alone while the hips are still standing cannot qualify.
+	ground_supported = "Torso" in support_parts or "Chest" in support_parts
+	core_low = ground_supported
+	for name_value: String in CORE_PARTS:
+		if not parts.has(name_value):
+			continue
+		var height: float = parts[name_value].body.global_position.y - ground_point.y
+		var maximum := .58 if name_value == "Torso" else (.68 if name_value == "Chest" else .78)
+		core_low = core_low and height >= -.12 and height < maximum
 
 func _bone_world(name_value: String) -> Transform3D:
 	var index := rig.find_bone(name_value)
@@ -149,7 +254,7 @@ func _start_physics() -> void:
 		body.angular_damp = 1.5
 		body.can_sleep = true
 		body.contact_monitor = str(spec[0]) in ["Torso", "Chest", "Head", "Foot.L", "Foot.R"]
-		body.max_contacts_reported = 4 if body.contact_monitor else 0
+		body.max_contacts_reported = 8 if body.contact_monitor else 0
 		var material := PhysicsMaterial.new()
 		material.friction = .85
 		material.bounce = 0.0
@@ -166,7 +271,7 @@ func _start_physics() -> void:
 		parts[spec[0]] = entry
 		pose_order.append(entry)
 	for entry: Dictionary in pose_order:
-		if not str(entry.parent).is_empty():
+		if not str(entry.parent).is_empty() and parts.has(entry.parent):
 			_create_joint(entry, parts[entry.parent])
 	# Ignore connected and initially overlapping parts; remaining limbs collide.
 	# This avoids explosions from the original hunched shoulders/neck overlap.
@@ -231,10 +336,85 @@ func _create_joint(entry: Dictionary, parent: Dictionary) -> void:
 	joint.node_a = joint.get_path_to(parent.body)
 	joint.node_b = joint.get_path_to(entry.body)
 	joint.exclude_nodes_from_collision = true
+	joint.set_meta("child_body_name", entry.name)
+	joint.set_meta("parent_body_name", parent.name)
 	joints.append(joint)
+
+func remove_severed_parts() -> void:
+	if phase not in ["simulating", "settled"] or not is_instance_valid(actor.get("dismemberment")):
+		return
+	var removed: Array[String] = []
+	for name_value: String in parts:
+		if actor.dismemberment.is_bone_severed(name_value):
+			removed.append(name_value)
+	if removed.is_empty():
+		return
+	# Remove constraints first so a missing limb cannot pull on its old parent.
+	for index in range(joints.size() - 1, -1, -1):
+		var joint := joints[index]
+		if str(joint.get_meta("child_body_name", "")) in removed or str(joint.get_meta("parent_body_name", "")) in removed:
+			_disable_joint(joint)
+			joints.remove_at(index)
+	for index in range(pose_order.size() - 1, -1, -1):
+		var entry: Dictionary = pose_order[index]
+		if str(entry.name) in removed:
+			_disable_body(entry.body)
+			parts.erase(entry.name)
+			pose_order.remove_at(index)
+	quiet_time = 0.0
+	ground_supported = false
+	core_low = false
+	settled_evidence.clear()
+	# Removing a support from a settled body requires a new physical settling.
+	if phase == "settled":
+		phase = "simulating"
+		for entry: Dictionary in pose_order:
+			entry.body.freeze = false
+			entry.body.sleeping = false
+		set_physics_process(true)
+
+func _disable_joint(joint: Joint3D) -> void:
+	joint.node_a = NodePath()
+	joint.node_b = NodePath()
+	joint.queue_free()
+
+func _disable_body(body: RigidBody3D) -> void:
+	body.freeze = true
+	body.collision_layer = 0
+	body.collision_mask = 0
+	body.queue_free()
+
+func take_recovery_pose() -> Dictionary:
+	if not temporary or phase != "settled" or actor.ai_state == DungeonEnemy.AIState.DEAD:
+		return {}
+	# Modifiers can run after actor physics. Synchronize before capturing so the
+	# handoff includes this exact final physical frame, including independent IK roots.
+	driver.call("apply_physical_pose")
+	var bones: Array[Transform3D] = []
+	for bone in rig.get_bone_count():
+		bones.append(rig.global_transform * rig.get_bone_global_pose(bone))
+	var result := {"bones": bones, "ground_point": ground_point, "evidence": settled_evidence.duplicate(true)}
+	driver.active = false
+	for joint: Joint3D in joints:
+		_disable_joint(joint)
+	for entry: Dictionary in pose_order:
+		_disable_body(entry.body)
+	joints.clear()
+	pose_order.clear()
+	parts.clear()
+	initial_pose.clear()
+	phase = "living"
+	temporary = false
+	set_physics_process(false)
+	return result
 
 func _settle() -> void:
 	# Freeze the actual solved pose, not the original animation's end pose.
+	driver.call("apply_physical_pose")
+	settled_evidence = {"temporary": temporary, "ground_supported": ground_supported,
+		"core_low": core_low, "ground_point": ground_point, "support_parts": support_parts.duplicate(),
+		"support_normals": support_normals.duplicate(), "quiet_time": quiet_time,
+		"mean_squared_speed": mean_squared_speed, "simulation_time": simulation_time}
 	for entry: Dictionary in pose_order:
 		var body: RigidBody3D = entry.body
 		body.linear_velocity = Vector3.ZERO
@@ -249,4 +429,8 @@ func snapshot() -> Dictionary:
 	for entry: Dictionary in pose_order:
 		positions[entry.name] = entry.body.global_position
 		max_speed = maxf(max_speed, entry.body.linear_velocity.length())
-	return {"phase": phase, "reaction_time": reaction_time, "simulation_time": simulation_time, "bodies": parts.size(), "joints": joints.size(), "max_speed": max_speed, "positions": positions, "impact_velocity": impact_velocity}
+	return {"phase": phase, "temporary": temporary, "reaction_time": reaction_time, "simulation_time": simulation_time,
+		"bodies": parts.size(), "joints": joints.size(), "max_speed": max_speed, "positions": positions, "impact_velocity": impact_velocity,
+		"ground_supported": ground_supported, "core_low": core_low, "ground_point": ground_point,
+		"support_parts": support_parts.duplicate(), "support_normals": support_normals.duplicate(),
+		"quiet_time": quiet_time, "mean_squared_speed": mean_squared_speed, "settled_evidence": settled_evidence.duplicate(true)}

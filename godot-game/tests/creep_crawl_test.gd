@@ -129,12 +129,14 @@ func scenario(legs: Array) -> void:
 	actor._set_state(DungeonEnemy.AIState.CHASE)
 	actor.set_physics_process(true)
 	var blend_samples: Array = []
-	for frame in 90:
+	# Live leg loss must first finish the supported physical fall and recovery.
+	for frame in 1200:
 		await physics_frame
 		actor._resolve_active_attack()
 		if frame % 15 == 0:
 			blend_samples.append(actor.crawl.blend)
 			check(actor.crawl.blend >= 0.0 and actor.crawl.blend <= 1.0, label + ": normalized transition")
+		if not actor.is_knocked_down() and actor.crawl.blend > .99: break
 	check(actor.crawl.active and actor.crawl.blend > .99, label + ": prone transition completes")
 	for i in range(1, blend_samples.size()):
 		check(float(blend_samples[i]) >= float(blend_samples[i - 1]), label + ": no backward jump during transition")
@@ -236,7 +238,10 @@ func optional_execution() -> void:
 	actor.target = null
 	actor.velocity = Vector3.ZERO
 	actor.set_physics_process(true)
-	await advance(actor, 45)
+	for frame in 1200:
+		await physics_frame
+		if not actor.is_knocked_down(): break
+	check(not actor.is_knocked_down(), "crawl/execution: physical fall and recovery complete before execution entry")
 	actor.health = actor.max_health * .1
 	actor._set_state(DungeonEnemy.AIState.STAGGER, 1.0)
 	check(bool(actor.call("begin_execution", f.victim)), "crawl/execution: real low-health target can enter execution")
