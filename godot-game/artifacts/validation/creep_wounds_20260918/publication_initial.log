@@ -1,0 +1,18 @@
+[HEADLESS] creep_wound_test.gd
+CREEP WOUND TEST PASS: bounded emission, floor contact, pause, expiry, owner cleanup and test-room isolation/restoration; imported tissue depth, both cut surfaces, baked colors/UVs, hidden intact caps and no restored limbs; []
+[HEADLESS] creep_hit_query_test.gd
+CREEP HIT QUERY TEST PASS: 1692 posed contacts retain the selected body region across 4680 front/side ray and sphere sweeps
+[HEADLESS] located_hit_path_test.gd
+LOCATED HIT PATH TEST PASS: real melee and arrow/flail/magic contact routing, off-capsule limbs, removed-region misses, wall blocking, single hits and cursor preservation
+[HEADLESS] creep_enemy_test.gd
+CREEP ENEMY TEST PASS: installed rig, source clips, timed contacts, shield/parry, death rewards, repeat/reset, session restoration
+[HEADLESS] test_room_test.gd
+ERROR: every entry must have an executable action: creep_wound:head / creep_wound
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/test_room_test.gd:82)
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2535)
+
+Headless validation: 4 passed, 1 failed.
+FAILED: test_room_test.gd (1)

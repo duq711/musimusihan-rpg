@@ -1,0 +1,10 @@
+[HEADLESS] creep_wound_test.gd
+CREEP WOUND TEST PASS: bounded emission, floor contact, pause, expiry, owner cleanup and test-room isolation/restoration; imported tissue depth, both cut surfaces, baked colors/UVs, hidden intact caps and no restored limbs; []
+[HEADLESS] test_room_test.gd
+TEST ROOM PASS: catalog, actors, chest hands/equipment/repeat/cancellation, stress accumulation/recovery/perception/isolation, pause, camping, flail, archery, fixtures, results, reset, scene roundtrip and original session restoration
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2535)
+[HEADLESS] test_room_session_test.gd
+TEST ROOM SESSION TEST PASS: inventory identity, stress accumulation/recovery isolation, camping supplies, bow and arrows, chain flail, wallet, deep stock copies, needs, ailments, magic, and unstarted-session restoration
+
+Headless validation: 3 passed, 0 failed.

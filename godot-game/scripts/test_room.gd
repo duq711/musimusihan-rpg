@@ -450,6 +450,10 @@ func run_feature(feature_id: String) -> void:
 		"creep_dismemberment":
 			if _prepare_creep_dismemberment_trial(payload):
 				_hide_test_panel()
+		"creep_wound":
+			if _prepare_creep_dismemberment_trial(payload):
+				_hide_test_panel()
+				_status("절단면 검수 · 실제 2회 타격 → 깊은 단면·출혈·접촉 혈흔 / F2 정지·재선택 초기화")
 		"performance":
 			TestRoomSandbox.toggle_performance_monitor()
 			_hide_test_panel()

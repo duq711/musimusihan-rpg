@@ -211,3 +211,9 @@ For a motion reel, run `creep_motion_reel` first, then use `CREEP_QA_SEQUENCE=1`
 `creep_ragdoll`, `creep_ragdoll_trial`, `creep_enemy` 자동 검사 후 `CREEP_RAGDOLL_QA_ITERATION=<새 이름> GODOT_PREVIEW_TIMEOUT_SECONDS=600 ./tests/run_embedded_preview.sh creep_ragdoll_preview.gd`를 사용한다. 실행기가 `--fixed-fps 30`을 지정하고 실제 60 Hz 물리를 프레임마다 2회 진행한다. 실제 `receive_hit()`로 사망시켜 반응·낙하·벽/바닥 접촉·안정화 과정을 1280×720 연속 프레임으로 기록한다. 스튜디오 시험 장면이며 본편 수동 조작 영상으로 표현하지 않는다. 포즈를 수동 샘플하거나 생성 이미지로 대체하지 않는다. 원정·커서·원본 해시를 보존하고 출력은 `artifacts/visual_qa/creep_ragdoll/<이름>/`에 저장한다. 성공 표식은 `CREEP RAGDOLL PREVIEW PASS:`다.
 
 After the relevant headless checks, the audited embedded runner captures continuous production death at 60 Hz physics and fixed 30 fps. Each saved frame spans exactly two physics ticks. The isolated studio uses real fatal hits, floor/wall collision and settling, preserves session/cursor/source hashes, and produces actual GPU frames rather than sampled death-animation poses.
+
+### 절단면 검수 / Wound inspection
+
+`CREEP_WOUND_QA_ITERATION=<새 이름> GODOT_PREVIEW_TIMEOUT_SECONDS=360 ./tests/run_embedded_preview.sh creep_wound_preview.gd`는 머리·팔·다리의 온전한 상태, 실제 두 타격 직후, 떨어진 부위와 혈흔·분리 부위의 단면을 12장 저장한다. 출력: `artifacts/visual_qa/creep_wounds/<새 이름>/`. `creep_wound` 자동 검증을 먼저 통과해야 한다. 원정·커서·원본 해시를 보존하고 외부 입력·소리를 비활성화한다.
+
+The wound preview captures twelve actual GPU stills (intact, just cut, contact stains, detached surface) across head, arm and leg trials. Run the `creep_wound` headless test first. Expedition, cursor and source hashes must remain unchanged; desktop input and sound are disabled.

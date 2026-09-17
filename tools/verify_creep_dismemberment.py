@@ -124,7 +124,30 @@ def main():
         regions[region] = {'edge_face_counts': dict(Counter(region_edges.values())), 'new_cut_is_closed': True}
     for region in REGIONS:
         cap, _ = mesh_data(derived, meshes['CreepCap_body_'+region])
-        boundary_keys = {tuple(round(x, 6) for x in p) for p in cap['POSITION']}
+        part_cap, _ = mesh_data(derived, meshes['CreepCap_part_'+region])
+        cap_edges, _ = edges_and_area(derived, [meshes['CreepCap_body_'+region]])
+        boundary_keys = {key for edge, count in cap_edges.items() if count == 1 for key in edge}
+        assert len(cap['POSITION']) > len(boundary_keys)*2, region
+        assert 'COLOR_0' in cap and 'COLOR_0' in part_cap, region
+        colors = cap['COLOR_0']
+        assert len(set(colors)) >= 8 and all(c[3] == 1 for c in colors), region
+        assert any(c[0] > .4 and c[1] > .25 for c in colors), (region, 'bone missing')
+        assert any(c[0] < .1 and c[1] < .02 for c in colors), (region, 'dark rim missing')
+        assert all(0 <= channel <= 1 for color in colors for channel in color), region
+        assert all(0 <= channel <= 1 for uv in cap['TEXCOORD_0'] for channel in uv), region
+        for attrs in (cap, part_cap):
+            assert all(abs(dot(n, n)-1) < 1e-5 for n in attrs['NORMAL']), region
+            for a, b in zip(attrs['WEIGHTS_0'], attrs['WEIGHTS_1']):
+                assert abs(sum(a+b)-1) < 1e-6 and all(w >= 0 for w in a+b), region
+        # Body and loose-part interiors recess in opposite directions. A flat
+        # plate (even a non-planar boundary fan) cannot pass this measurement.
+        positions_by_uv = {uv: p for uv, p in zip(part_cap['TEXCOORD_0'], part_cap['POSITION'])}
+        separation = [math.dist(p, positions_by_uv[uv]) for uv, p in zip(cap['TEXCOORD_0'], cap['POSITION'])]
+        assert max(separation) > .02, (region, max(separation))
+        assert max(separation) < .071, (region, max(separation))
+        regions[region]['wound_surface'] = {'vertices': len(cap['POSITION']), 'rim_vertices': len(boundary_keys),
+            'unique_tissue_colors': len(set(colors)), 'maximum_two_sided_recess_m': max(separation),
+            'bone_marrow_and_dark_rim_present': True}
         groups = {key: [] for key in boundary_keys}
         for name in ('CreepPart_torso', 'CreepPart_'+region, 'CreepCap_body_'+region, 'CreepCap_part_'+region):
             attrs, _ = mesh_data(derived, meshes[name])

@@ -4,6 +4,8 @@ extends Node3D
 const MODEL_PATH := "res://assets/licensed/creep/creep_dismembered.glb"
 const SEVERED_PART := preload("res://scripts/creep_severed_part.gd")
 const RAGDOLL := preload("res://scripts/creep_ragdoll.gd")
+const WOUND_EFFECT := preload("res://scripts/creep_wound_effect.gd")
+const WOUND_MATERIAL := preload("res://shaders/creep_wound.tres")
 const REGIONS := ["left_arm", "right_arm", "left_leg", "right_leg", "head"]
 const DAMAGE_THRESHOLD := 35.0
 const MIN_HITS := 2
@@ -12,7 +14,7 @@ const REGION_BONES := {
 	"right_arm": ["Arm1.R", "Arm2.R", "Hand.R"],
 	"left_leg": ["Leg1.L", "Leg2.L", "Leg3.L", "Foot.L"],
 	"right_leg": ["Leg1.R", "Leg2.R", "Leg3.R", "Foot.R"],
-	"head": ["Neck", "Head"],
+	"head": ["Head"],
 }
 const AIM_BONES := {"left_arm": "Arm2.L", "right_arm": "Arm2.R", "left_leg": "Leg2.L", "right_leg": "Leg2.R", "head": "Head"}
 
@@ -26,6 +28,7 @@ var meshes: Dictionary = {}
 var body_caps: Dictionary = {}
 var part_caps: Dictionary = {}
 var detached: Array[RigidBody3D] = []
+var wound_effects: Array[Node3D] = []
 var base_move_speed := 2.2
 var last_region := "torso"
 var last_bake_ms := 0
@@ -83,9 +86,13 @@ func _collect(node: Node) -> void:
 				meshes[region].append(node)
 			elif str(node.name).begins_with("CreepCap_body_" + region):
 				body_caps[region].append(node)
+				node.material_override = WOUND_MATERIAL
+				node.material_overlay = null
 				node.hide()
 			elif str(node.name).begins_with("CreepCap_part_" + region):
 				part_caps[region].append(node)
+				node.material_override = WOUND_MATERIAL
+				node.material_overlay = null
 				node.hide()
 	for child in node.get_children():
 		_collect(child)
@@ -240,7 +247,9 @@ func _sever(region: String, attacker_position: Vector3) -> bool:
 	collision.shape = convex
 	body.add_child(collision)
 	for mesh: MeshInstance3D in meshes[region]: mesh.hide()
-	for cap: MeshInstance3D in body_caps[region]: cap.show()
+	for cap: MeshInstance3D in body_caps[region]:
+		cap.material_overlay = null
+		cap.show()
 	severed.append(region)
 	detached.append(body)
 	for index in range(attachments.size() - 1, -1, -1):
@@ -259,9 +268,20 @@ func _sever(region: String, attacker_position: Vector3) -> bool:
 	body.freeze = false
 	body.linear_velocity = actor.velocity.limit_length(2.0) + impulse_direction.normalized() * 1.1
 	body.angular_velocity = Vector3(1.4, .6, -.8)
+	_emit_wound(region, impulse_direction)
 	last_bake_ms = Time.get_ticks_msec() - start_ms
 	_update_mobility()
 	return true
+
+func _emit_wound(region: String, direction: Vector3) -> void:
+	# Use the actual animated cut surface, not the limb hit capsule's centre.
+	var cap: MeshInstance3D = body_caps[region][0]
+	var posed := _bake_world_mesh(cap, Vector3.ZERO)
+	var effect := WOUND_EFFECT.new()
+	effect.name = "WoundBurst_" + region
+	add_child(effect)
+	effect.configure(posed.get_aabb().get_center(), direction, region)
+	wound_effects.append(effect)
 
 func _bake_world_mesh(source: MeshInstance3D, origin: Vector3) -> ArrayMesh:
 	# CPU skinning also works in headless physics tests, without GPU readback.
@@ -329,4 +349,7 @@ func snapshot() -> Dictionary:
 	var positions := {}
 	for body in detached:
 		if is_instance_valid(body): positions[body.region] = body.global_position
-	return {"enabled": enabled, "damage": damage.duplicate(), "hit_counts": hit_counts.duplicate(), "severed": severed.duplicate(), "detached_bodies": detached.size(), "positions": positions, "last_region": last_region, "last_bake_ms": last_bake_ms, "move_speed": actor.move_speed}
+	var visual_effects := 0
+	for effect in wound_effects:
+		if is_instance_valid(effect) and not effect.is_queued_for_deletion(): visual_effects += 1
+	return {"enabled": enabled, "damage": damage.duplicate(), "hit_counts": hit_counts.duplicate(), "severed": severed.duplicate(), "detached_bodies": detached.size(), "positions": positions, "last_region": last_region, "last_bake_ms": last_bake_ms, "move_speed": actor.move_speed, "visual_effects": visual_effects}

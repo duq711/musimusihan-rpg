@@ -28,6 +28,7 @@ static func entries() -> Array[Dictionary]:
 		_entry("creep_dismemberment:right_leg", "기본", "크리프 절단 · 오른다리", "오른다리에 0.8초 간격 18 피해 2회 · 랙돌로 쓰러져 착지한 뒤 기어서 추적 · F2 일시정지 / 재선택", "creep_dismemberment", "right_leg"),
 		_entry("creep_dismemberment:both_legs", "기본", "크리프 절단 · 양다리 기어가기", "시험 체력 118 · 양다리에 18 피해씩 2회, 총 4회 · 랙돌 착지 후 살아서 기어 추적 · F2 일시정지 / 재선택", "creep_dismemberment", "both_legs"),
 		_entry("creep_dismemberment:head", "기본", "크리프 절단 · 머리", "머리에 0.8초 간격 18 피해 2회 · 머리 절단과 실제 사망·보상 · F2 일시정지 / 재선택", "creep_dismemberment", "head"),
+		_entry("creep_wound:head", "기본", "크리프 절단면 · 깊이·혈흔", "실제 머리 절단 · 움푹한 단면·불규칙한 조직·짧은 출혈·접촉 혈흔 · F2 정지 / 재선택: 온전한 몸으로 초기화", "creep_wound", "head"),
 		_entry("creep_dismemberment:distributed", "기본", "크리프 절단 · 분산 타격 비교", "양팔에 18 피해씩 1회 · 총 피해는 같아도 절단 안 됨 · 이후 전투 계속 · F2 재선택", "creep_dismemberment", "distributed"),
 		_entry("torch", "기본", "횃불 · 조명", "Unity 불꽃 애니메이션 · 기름 먹인 천 전체 연소 · F 점화 / 소등", "torch"),
 		_entry("wall_equipment", "기본", "벽 접근 · 무기와 방패 표시", "북쪽 벽 앞으로 이동 · W 접근 / S 후퇴 · I 장비 교체 · F 횃불", "wall_equipment"),

@@ -1,0 +1,213 @@
+{
+  "source_sha256": "6bc05636d9931b6a37e6534c8444dd7d4081672ed6a8ae2e69f2afdb5dc147a4",
+  "output_sha256": "a1f943371cda70e142550dad67138a2443b4abe84f58f64c51d9adb66367d57f",
+  "skeleton_bones": 55,
+  "animation_clips": 17,
+  "regions": {
+    "left_arm": {
+      "bones": [
+        "Hand.L",
+        "FingA1.L",
+        "FindA2.L",
+        "FingB1.L",
+        "FingB2.L",
+        "FingB3.L",
+        "FingC1.L",
+        "FingC2.L",
+        "FingC3.L",
+        "FingD1.L",
+        "FingD2.L",
+        "Arm1.L",
+        "Arm2.L"
+      ],
+      "boundary_vertices": 46,
+      "cut_center_mesh_local": [
+        -0.3941658216296992,
+        1.5053973362436235,
+        -0.1787646567304342
+      ],
+      "cap_triangles": 1632
+    },
+    "right_arm": {
+      "bones": [
+        "Hand.R",
+        "FingA1.R",
+        "FindA2.R",
+        "FingB1.R",
+        "FingB2.R",
+        "FingB3.R",
+        "FingC1.R",
+        "FingC2.R",
+        "FingC3.R",
+        "FingD1.R",
+        "FingD2.R",
+        "Arm1.R",
+        "Arm2.R"
+      ],
+      "boundary_vertices": 46,
+      "cut_center_mesh_local": [
+        0.39416613227438296,
+        1.5053974077431416,
+        -0.1787644797132749
+      ],
+      "cap_triangles": 1664
+    },
+    "left_leg": {
+      "bones": [
+        "Foot.L",
+        "StepA1.L",
+        "StepA2.L",
+        "StepB1.L",
+        "StepB2.L",
+        "Leg1.L",
+        "Leg2.L",
+        "Leg3.L"
+      ],
+      "boundary_vertices": 55,
+      "cut_center_mesh_local": [
+        -0.0782463289839171,
+        1.0307264711739708,
+        0.037216967014565526
+      ],
+      "cap_triangles": 1859
+    },
+    "right_leg": {
+      "bones": [
+        "Foot.R",
+        "StepA1.R",
+        "StepA2.R",
+        "StepB1.R",
+        "StepB2.R",
+        "Leg1.R",
+        "Leg2.R",
+        "Leg3.R"
+      ],
+      "boundary_vertices": 55,
+      "cut_center_mesh_local": [
+        0.07824629662283857,
+        1.0307264651333712,
+        0.03721694942418129
+      ],
+      "cap_triangles": 1439
+    },
+    "head": {
+      "bones": [
+        "Head",
+        "Jaw1",
+        "Jaw2",
+        "Tongue"
+      ],
+      "boundary_vertices": 90,
+      "cut_center_mesh_local": [
+        -2.1245645639236502e-05,
+        1.643350543163498,
+        -0.4428944678556586
+      ],
+      "cap_triangles": 2032
+    }
+  },
+  "meshes": [
+    {
+      "name": "CreepPart_left_arm",
+      "vertices": 1273,
+      "triangles": 2110,
+      "max_discarded_weight": 0.0
+    },
+    {
+      "name": "CreepPart_right_arm",
+      "vertices": 1273,
+      "triangles": 2110,
+      "max_discarded_weight": 0.0
+    },
+    {
+      "name": "CreepPart_left_leg",
+      "vertices": 1457,
+      "triangles": 2473,
+      "max_discarded_weight": 0.0
+    },
+    {
+      "name": "CreepPart_right_leg",
+      "vertices": 1460,
+      "triangles": 2473,
+      "max_discarded_weight": 0.0
+    },
+    {
+      "name": "CreepPart_head",
+      "vertices": 3274,
+      "triangles": 5368,
+      "max_discarded_weight": 0.014140528255291529
+    },
+    {
+      "name": "CreepPart_torso",
+      "vertices": 1375,
+      "triangles": 1902,
+      "max_discarded_weight": 0.014140528255291529
+    },
+    {
+      "name": "CreepCap_body_left_arm",
+      "vertices": 840,
+      "triangles": 1632,
+      "max_discarded_weight": 0.0
+    },
+    {
+      "name": "CreepCap_part_left_arm",
+      "vertices": 840,
+      "triangles": 1632,
+      "max_discarded_weight": 0.0
+    },
+    {
+      "name": "CreepCap_body_right_arm",
+      "vertices": 856,
+      "triangles": 1664,
+      "max_discarded_weight": 0.0
+    },
+    {
+      "name": "CreepCap_part_right_arm",
+      "vertices": 856,
+      "triangles": 1664,
+      "max_discarded_weight": 0.0
+    },
+    {
+      "name": "CreepCap_body_left_leg",
+      "vertices": 958,
+      "triangles": 1859,
+      "max_discarded_weight": 0.0
+    },
+    {
+      "name": "CreepCap_part_left_leg",
+      "vertices": 958,
+      "triangles": 1859,
+      "max_discarded_weight": 0.0
+    },
+    {
+      "name": "CreepCap_body_right_leg",
+      "vertices": 748,
+      "triangles": 1439,
+      "max_discarded_weight": 0.0
+    },
+    {
+      "name": "CreepCap_part_right_leg",
+      "vertices": 748,
+      "triangles": 1439,
+      "max_discarded_weight": 0.0
+    },
+    {
+      "name": "CreepCap_body_head",
+      "vertices": 1062,
+      "triangles": 2032,
+      "max_discarded_weight": 0.02678881099888756
+    },
+    {
+      "name": "CreepCap_part_head",
+      "vertices": 1062,
+      "triangles": 2032,
+      "max_discarded_weight": 0.02678881099888756
+    }
+  ],
+  "source_triangles": 15852,
+  "surface_triangles": 16436,
+  "source_preserved": true,
+  "animation_skin_material_records_preserved": true,
+  "wound_geometry": "Recessed mirrored closed surfaces with dark irregular rim, muscle folds, small bone and marrow center; COLOR_0 tissue colors, UV planar 0..1. Neck retained on torso.",
+  "contract": "Shared Skeleton3D; caps hidden until severed. Bake part and part cap before hiding originals; show corresponding body cap."
+}

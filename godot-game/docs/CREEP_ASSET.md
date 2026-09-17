@@ -114,3 +114,5 @@ GPU 촬영: `CREEP_RAGDOLL_QA_ITERATION=<새 이름> GODOT_PREVIEW_TIMEOUT_SECON
 Automatic checks and GPU capture commands are above. F2 front/side/wall demonstrations are documented in TEST_ROOM.md.
 
 [래그돌 실제 검증 영상·검사 결과 / Ragdoll video and verification](../artifacts/validation/creep_ragdoll_20260917/README.md).
+
+절단면 표현·실제 검수: [절단면 개선](CREEP_WOUNDS.md). / See the wound rendering and validation guide.

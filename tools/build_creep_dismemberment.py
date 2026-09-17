@@ -79,7 +79,9 @@ class GLB:
 
 
 def region_bones(names, region):
-    if region == 'head': return {i for i, name in enumerate(names) if name in ('Neck', 'Head', 'Jaw1', 'Jaw2', 'Tongue')}
+    # This creature's Neck includes its entire raised back/hump. Removing that
+    # bone produced the huge flat opening behind the face. Keep it on the body.
+    if region == 'head': return {i for i, name in enumerate(names) if name in ('Head', 'Jaw1', 'Jaw2', 'Tongue')}
     suffix = '.L' if region.startswith('left') else '.R'
     prefixes = ('Arm', 'Hand', 'Fing', 'Find') if region.endswith('arm') else ('Leg', 'Foot', 'Step')
     return {i for i, name in enumerate(names) if name.endswith(suffix) and name.startswith(prefixes)}
@@ -140,8 +142,8 @@ def boundary_loops(segments):
 
 
 def make_caps(loop, outward):
-    # Interior tessellation of the actual cut loop; no open stump and no thin
-    # crossing plate. Perimeter points and weights match both original surfaces.
+    # Keep the original rim and skin weights exactly shared. All additional
+    # depth is inside the closed cut, independently recessed into either side.
     center = mean([v['p'] for v in loop])
     normal = normalized(tuple(sum(cross(sub(loop[i]['p'], center), sub(loop[(i+1)%len(loop)]['p'], center))[axis]
                                   for i in range(len(loop))) for axis in range(3)))
@@ -165,15 +167,112 @@ def make_caps(loop, outward):
         if not found: raise ValueError('Cut loop cannot be tessellated without overlapping triangles')
     result.append(tuple(pending))
     radius = max(math.sqrt(dot(sub(v['p'], center), sub(v['p'], center))) for v in loop)
-    body, part = [], []
+    vertices = list(loop)
+    boundary = {tuple(sorted((i, (i+1) % len(loop)))) for i in range(len(loop))}
+    # Refine internal edges only: subdividing the outer edges would leave T
+    # junctions against the untouched source skin. A uniform interior gives
+    # the recess and small bone center real silhouettes at oblique angles.
+    for _ in range(4):
+        edges = {tuple(sorted((t[i], t[(i+1) % 3]))) for t in result for i in range(3)}
+        midpoints = {}
+        for a, b in sorted(edges-boundary):
+            if math.dist(vertices[a]['p'], vertices[b]['p']) > radius*.18:
+                midpoints[(a, b)] = len(vertices)
+                vertices.append(interpolate(vertices[a], vertices[b], .5))
+        if not midpoints: break
+        refined = []
+        for a, b, c in result:
+            ab, bc, ca = (midpoints.get(tuple(sorted(e))) for e in ((a, b), (b, c), (c, a)))
+            count = sum(v is not None for v in (ab, bc, ca))
+            if count == 0: refined.append((a, b, c))
+            elif count == 3: refined.extend(((a, ab, ca), (ab, b, bc), (ca, bc, c), (ab, bc, ca)))
+            else:
+                # Rotate so the one absent/present midpoint uses the same case.
+                for _rotate in range(3):
+                    if (count == 1 and ab is not None) or (count == 2 and bc is None): break
+                    a, b, c = b, c, a; ab, bc, ca = bc, ca, ab
+                if count == 1: refined.extend(((a, ab, c), (ab, b, c)))
+                else: refined.extend(((a, ab, ca), (ab, b, c), (ab, c, ca)))
+        result = refined
+
+    # Ear clipping starts with long thin triangles. Relax only interior samples
+    # so their smooth normals do not form a specular fan across broad cuts.
+    # Interpolate the skin weights with the positions, keeping the boundary
+    # untouched and rejecting any move that could invert a projected triangle.
+    neighbours = [set() for _ in vertices]
+    incident = [[] for _ in vertices]
     for tri in result:
-        vs = []
         for i in tri:
-            v = dict(loop[i]); v['n'] = normal
-            v['uv'] = tuple((v['p'][axis]-center[axis])/(radius*2)+.5 for axis in axes)
-            vs.append(v)
-        body.append(tuple(vs))
-        part.append(tuple(dict(v, n=mul(normal, -1)) for v in reversed(vs)))
+            neighbours[i].update(j for j in tri if j != i)
+            incident[i].append(tri)
+    for _ in range(6):
+        for i in range(len(loop), len(vertices)):
+            nearby = [vertices[j] for j in sorted(neighbours[i])]
+            target = dict(vertices[i], p=mean([v['p'] for v in nearby]),
+                          w={j: sum(v['w'].get(j, 0) for v in nearby)/len(nearby)
+                             for j in set().union(*(v['w'] for v in nearby))})
+            candidate = interpolate(vertices[i], target, .45)
+            safe = True
+            for tri in incident[i]:
+                q = [tuple((candidate if j == i else vertices[j])['p'][axis] for axis in axes) for j in tri]
+                if sign*area2(*q) <= 1e-12:
+                    safe = False; break
+            if safe: vertices[i] = candidate
+
+    def point2(v): return tuple(v['p'][axis] for axis in axes)
+    def boundary_distance(p):
+        distances = []
+        for a, b in zip(points, points[1:]+points[:1]):
+            edge = sub(b, a); delta = sub(p, a)
+            t = max(0., min(1., dot(delta, edge)/max(dot(edge, edge), 1e-20)))
+            distances.append(math.dist(p, add(a, mul(edge, t))))
+        return min(distances)
+    distances = [boundary_distance(point2(v)) for v in vertices]
+    # Choose a center actually inside the contour, including concave neck cuts.
+    core_i = max(range(len(vertices)), key=lambda i: distances[i])
+    core = point2(vertices[core_i]); clearance = distances[core_i]
+    depth = min(.035, radius*.22)
+    bone_radius = min(clearance*.30, radius*.15)
+    body, part = [], []
+    def smooth(a, b, x):
+        t = max(0., min(1., (x-a)/max(b-a, 1e-12)))
+        return t*t*(3-2*t)
+    for side in (1, -1):
+        shaped = []
+        for i, source in enumerate(vertices):
+            v = dict(source); p = point2(source); d = distances[i]
+            x, y = ((p[k]-core[k])/max(radius, 1e-8) for k in range(2))
+            fold = .5+.5*math.sin(x*39+y*9+2*math.sin(y*16))
+            grain = .5+.5*math.sin(x*73-y*61)*math.sin(y*47+x*13)
+            angle = math.atan2(y, x)
+            bone_distance = math.dist(p, core)/(1+.12*math.sin(angle*5)+.06*math.cos(angle*9))
+            bone = 1-smooth(bone_radius*.78, bone_radius*1.1, bone_distance)
+            marrow = 1-smooth(bone_radius*.21, bone_radius*.39, bone_distance)
+            recess = smooth(0., min(radius*.25, clearance*.85), d)
+            # Broad depth carries the wound. Sub-millimetre relief avoids the
+            # foil-like specular spikes produced by deep procedural corrugation.
+            displacement = (depth*.94+min(.0008, depth*.025)*(fold-.5))*recess*(1-.66*bone)
+            if i < len(loop): displacement = 0.0
+            v['p'] = sub(source['p'], mul(normal, side*displacement))
+            # COLOR_0 is the direct linear tissue color; the runtime may add
+            # finer fiber/roughness detail without reconstructing the anatomy.
+            rim = 1-smooth(.0015, min(.014, radius*.12), d)
+            muscle = (.17+.09*fold+.028*grain, .012+.017*grain, .014+.016*fold)
+            color = add(mul(muscle, 1-rim), mul((.052, .007, .009), rim))
+            color = add(mul(color, 1-bone), mul((.54, .405, .245), bone))
+            color = add(mul(color, 1-marrow), mul((.085, .013, .009), marrow))
+            v['color'] = (*color, 1.)
+            v['uv'] = tuple((p[k]-center[axis])/(radius*2)+.5 for k, axis in enumerate(axes))
+            shaped.append(v)
+        normals = [(0., 0., 0.) for _ in shaped]
+        side_triangles = result if side == 1 else [tuple(reversed(t)) for t in result]
+        for a, b, c in side_triangles:
+            face = cross(sub(shaped[b]['p'], shaped[a]['p']), sub(shaped[c]['p'], shaped[a]['p']))
+            for i in (a, b, c): normals[i] = add(normals[i], face)
+        for i, v in enumerate(shaped): v['n'] = normalized(normals[i])
+        cap = [tuple(shaped[i] for i in tri) for tri in side_triangles]
+        if side == 1: body = cap
+        else: part = cap
     return body, part
 
 
@@ -187,7 +286,7 @@ def write_mesh(glb, name, tris, material):
             weights = weights[:8]; total = sum(w for _, w in weights)
             weights = [(i, w/total) for i, w in weights]+[(0, 0)]*(8-len(weights))
             joints, values = zip(*weights)
-            key = (v['p'], v['n'], v['uv'], joints, values)
+            key = (v['p'], v['n'], v['uv'], joints, values, v.get('color', (1., 1., 1., 1.)))
             if key not in by_key: by_key[key] = len(vertices); vertices.append(key)
             indices.append(by_key[key])
     attrs = {}
@@ -200,6 +299,8 @@ def write_mesh(glb, name, tris, material):
         ('WEIGHTS_0', [v[4][:4] for v in vertices], 5126, 'VEC4'),
         ('WEIGHTS_1', [v[4][4:] for v in vertices], 5126, 'VEC4')):
         attrs[name_attr] = glb.accessor(data, component, kind, 34962)
+    if any('color' in v for triangle in tris for v in triangle):
+        attrs['COLOR_0'] = glb.accessor([v[5] for v in vertices], 5126, 'VEC4', 34962)
     primitive = {'attributes': attrs, 'indices': glb.accessor([(i,) for i in indices], 5125, 'SCALAR', 34963), 'material': material}
     glb.doc['meshes'].append({'name': name, 'primitives': [primitive]})
     return {'name': name, 'vertices': len(vertices), 'triangles': len(tris), 'max_discarded_weight': max_discarded}
@@ -250,7 +351,7 @@ def main():
     parent = next(node for node in doc['nodes'] if original_node in node.get('children', []))
     source_node = dict(doc['nodes'][original_node]); doc['meshes'] = []
     cap_material = len(doc['materials'])
-    doc['materials'].append({'name': 'CreepCutInterior', 'pbrMetallicRoughness': {'baseColorFactor': [.16, .07, .055, 1], 'metallicFactor': 0, 'roughnessFactor': .94}, 'doubleSided': True})
+    doc['materials'].append({'name': 'CreepCutInterior', 'pbrMetallicRoughness': {'baseColorFactor': [1, 1, 1, 1], 'metallicFactor': 0, 'roughnessFactor': .48}, 'doubleSided': True})
     outputs = []
     all_meshes = [('CreepPart_'+name, tris, primitive['material']) for name, tris in split.items()]
     all_meshes += [(name, tris, cap_material) for name, tris in cap_meshes.items()]
@@ -262,15 +363,18 @@ def main():
         else: parent['children'].append(len(doc['nodes'])); doc['nodes'].append(node)
     assert doc['animations'] == original_animations and doc['skins'] == original_skins and doc['materials'][:len(original_materials)] == original_materials
     assert len(skin_nodes) == 55 and len(doc['animations']) == 17
-    # Godot supports eight influences. Clipped neck vertices can combine more;
-    # retain the strongest eight identically on both sides and cap perimeter.
-    assert max(item['max_discarded_weight'] for item in outputs) < .02
+    # Godot supports eight influences. Clipped boundary vertices retain the
+    # strongest eight identically on both sides and the cap perimeter. Interior
+    # interpolation may blend more joints, but still drops less than 4% total.
+    assert max(item['max_discarded_weight'] for item in outputs if item['name'].startswith('CreepPart_')) < .02
+    assert max(item['max_discarded_weight'] for item in outputs) < .04
     assert hashlib.sha256(args.source.read_bytes()).hexdigest() == source_hash
     args.output.parent.mkdir(parents=True, exist_ok=True); glb.write(args.output)
     report = {'source_sha256': source_hash, 'output_sha256': hashlib.sha256(args.output.read_bytes()).hexdigest(),
               'skeleton_bones': len(skin_nodes), 'animation_clips': len(doc['animations']), 'regions': metadata,
               'meshes': outputs, 'source_triangles': len(index)//3, 'surface_triangles': sum(len(t) for t in split.values()),
               'source_preserved': True, 'animation_skin_material_records_preserved': True,
+              'wound_geometry': 'Recessed mirrored closed surfaces with dark irregular rim, muscle folds, small bone and marrow center; COLOR_0 tissue colors, UV planar 0..1. Neck retained on torso.',
               'contract': 'Shared Skeleton3D; caps hidden until severed. Bake part and part cap before hiding originals; show corresponding body cap.'}
     args.report.parent.mkdir(parents=True, exist_ok=True); args.report.write_text(json.dumps(report, indent=2)+'\n')
     print(json.dumps(report, indent=2))

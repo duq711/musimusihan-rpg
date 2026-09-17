@@ -897,3 +897,9 @@ Enemy AI waits during the timed hits while the living ragdoll falls under actual
 2026-09-18 후속 변경: 다리 절단 후 랙돌 착지 → 포복 회복 → 추적 순서와 F2 정지를 시험에 연결했습니다. 새 `creep_knockdown`과 관련 회귀·시험룸을 포함한 **자동 검사 8개와 실제 GPU 영상 60초 검증을 통과**했습니다. 일반 테스트룸의 기존 ObjectDB 2개 종료 경고는 유지됩니다. [시연 영상](artifacts/validation/creep_living_fall_20260918/creep_living_fall.mp4)과 [랙돌 착지·회복 검수 기록](artifacts/validation/creep_living_fall_20260918/README.md)을 참고하세요.
 
 Follow-up: leg trials exercise physical landing, prone recovery and pursuit, including F2 pause in each phase. **Eight automated suites and a 60-second actual GPU video review passed**, including the new knockdown suite, related regressions and test-room checks. The general test-room check retains its existing two-ObjectDB exit warning. See the linked video and validation record.
+
+## 크리프 절단면 · 깊이·혈흔 / Creep wound surfaces
+
+`F2 → 기본 → 크리프 절단면 · 깊이·혈흔`은 기존 부위 타격 함수를 통해 머리를 두 번 공격한다. 목은 몸체에 남고 양쪽에 깊이·불규칙한 조직색이 있는 단면이 드러나며, 짧은 출혈과 월드 접촉 혈흔을 관찰한다. F2는 효과와 수명을 함께 정지하고 재선택은 온전한 몸·체력을 복구한다. 기존 팔·다리 시험에도 동일하게 적용된다. [구현·검수 안내](docs/CREEP_WOUNDS.md).
+
+The new F2 wound entry uses two actual localized hits. Inspect the retained neck, both recessed surfaces, brief blood burst and contact stains. F2 pauses effect motion/lifetime; reselecting restores the complete actor. Existing limb trials use the same visuals. See the linked implementation and validation guide.
