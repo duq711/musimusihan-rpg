@@ -355,10 +355,3 @@ The crawl follow-up moves the pelvis and surviving leg alongside the upper body.
 기존 F2 왼다리·오른다리·양다리 시험의 설명과 정지 검사를 확장하고 실제 크리프 추적 경로를 유지한다. 골반·남은 다리 관절을 포함해 F2 정지 시 자세가 고정되는지 확인했다. 관련 자동 검사 **6개와 마지막 조정 후 집중 검사, 실제 GPU 영상 60초 검증을 통과**했다. 새 [검수 기록](../artifacts/validation/creep_lower_body_20260918/README.md)과 [시연 영상](../artifacts/validation/creep_lower_body_20260918/creep_lower_body.mp4)은 이전 랙돌·포복 영상의 검증 완료와 구분한다. 평평한 바닥에서 확인했으며 경사·계단 접지는 미확인이다.
 
 Existing F2 left-leg, right-leg and both-leg descriptions and pause checks are expanded while retaining production Creep pursuit. Pose freezing includes the pelvis and surviving leg joints. **Six related suites, the focused check after the final adjustment, and a 60-second actual GPU video review passed**. The linked new validation record and video are separate from the earlier ragdoll/crawl video results. Validation used a flat floor; slopes and stairs remain unverified.
-
-
-## 2026-09-18 크리프 절단면 — 사용자 확정 / Wound appearance — confirmed
-
-사용자는 단색 분홍색 판 같은 절단면이 공포와 긴장감을 깨뜨린다고 지적하고 실제 절단처럼 보이도록 개선을 요청했다. 목과 몸체의 경계를 보존하고 양면 깊이·조직색·짧은 출혈·접촉 혈흔으로 구현한다. 기존 절단·생존·보상 규칙은 유지한다. 제작 수치와 실제 검증은 [절단면 개선 안내](../docs/CREEP_WOUNDS.md)에 남긴다.
-
-The user requested convincing severance instead of a uniform pink cap. The implementation retains the neck boundary and adds recessed tissue on both sides, a brief burst and contact stains. Existing severance, survival and reward rules remain unchanged. The linked guide records implementation choices and executed checks.

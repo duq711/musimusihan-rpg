@@ -901,9 +901,3 @@ Follow-up: leg trials exercise physical landing, prone recovery and pursuit, inc
 2026-09-18 하체 보완: 기존 왼다리·오른다리·양다리 시험에서 포복 중 남은 다리 관절의 움직임과 골반의 무게 이동을 확인하도록 설명과 검사를 확장했습니다. 실제 절단·AI·추적 경로는 그대로 사용하며, F2 정지는 골반·남은 다리의 관절 자세도 포함합니다. 관련 자동 검사 **6개와 마지막 조정 후 집중 검사, 실제 GPU 영상 60초 검증을 통과**했습니다. 새 결과는 [하체 동작 검수 기록](artifacts/validation/creep_lower_body_20260918/README.md)과 [시연 영상](artifacts/validation/creep_lower_body_20260918/creep_lower_body.mp4)에 남깁니다. 평평한 바닥에서 검증했으며 경사·계단 접지는 미확인입니다.
 
 Lower-body follow-up: the existing left-leg, right-leg and both-leg trials now describe and check remaining-leg articulation and pelvic weight transfer during crawling. They retain the real severance, AI and pursuit paths; F2 pose checks include the pelvis and surviving leg joints. **Six related suites, the focused check after the final adjustment, and a 60-second actual GPU video review passed**. New results belong in the linked lower-body validation record and video. Validation used a flat floor; slopes and stairs remain unverified.
-
-## 크리프 절단면 · 깊이·혈흔 / Creep wound surfaces
-
-`F2 → 기본 → 크리프 절단면 · 깊이·혈흔`은 기존 부위 타격 함수를 통해 머리를 두 번 공격한다. 목은 몸체에 남고 양쪽에 깊이·불규칙한 조직색이 있는 단면이 드러나며, 짧은 출혈과 월드 접촉 혈흔을 관찰한다. F2는 효과와 수명을 함께 정지하고 재선택은 온전한 몸·체력을 복구한다. 기존 팔·다리 시험에도 동일하게 적용된다. [구현·검수 안내](docs/CREEP_WOUNDS.md).
-
-The new F2 wound entry uses two actual localized hits. Inspect the retained neck, both recessed surfaces, brief blood burst and contact stains. F2 pauses effect motion/lifetime; reselecting restores the complete actor. Existing limb trials use the same visuals. See the linked implementation and validation guide.

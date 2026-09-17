@@ -674,9 +674,3 @@ Licensed binaries are not distributed in the public repository. Follow the linke
 하체 보완에서는 포복 추적 중 남은 다리의 관절도 움직이고 골반이 팔의 당김에 맞춰 무게를 옮깁니다. 양다리를 잃은 경우 팔·골반을 사용하며 없어진 다리를 다시 표시하지 않습니다. 기존 왼다리·오른다리·양다리 F2 시험에서 확인하며, 이번 하체 동작의 검증 상태는 [절단 동작 안내](docs/CREEP_DISMEMBERMENT.md#하체-동작-보완--lower-body-motion-follow-up)를 따릅니다.
 
 The lower-body follow-up articulates the surviving leg and shifts pelvic weight with the pulling arms. With both legs missing, the arms and pelvis provide the motion without restoring severed legs. Use the existing left-leg, right-leg and both-leg F2 trials; see the linked motion guide for this follow-up's verification status.
-
-### 크리프 절단면 / Creep wound surfaces
-
-`F2 → 기본 → 크리프 절단면 · 깊이·혈흔`에서 실제 절단을 시험한다. 평평한 분홍 단면 대신 목을 보존하는 머리 분리, 양면의 깊이·조직색·젖은 질감, 짧은 출혈과 접촉 혈흔을 사용한다. 원본 에셋은 보존한다. [재생성·검수 안내](docs/CREEP_WOUNDS.md).
-
-The F2 wound trial uses actual severance with a retained neck, recessed tissue on both sides, wet surface detail, a brief burst and contact stains. Original assets are preserved. See the linked rebuild and validation guide.
