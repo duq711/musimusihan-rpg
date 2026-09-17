@@ -1,0 +1,16 @@
+[HEADLESS] creep_crawl_test.gd
+CREEP CRAWL TEST PASS: []
+[HEADLESS] creep_knockdown_test.gd
+CREEP KNOCKDOWN TEST PASS: []
+[HEADLESS] creep_dismemberment_test.gd
+CREEP DISMEMBERMENT TEST PASS: []
+[HEADLESS] creep_hit_query_test.gd
+CREEP HIT QUERY TEST PASS: 1692 posed contacts retain the selected body region across 4680 front/side ray and sphere sweeps
+[HEADLESS] creep_dismemberment_trial_test.gd
+CREEP DISMEMBERMENT TRIAL TEST PASS: five localized cuts, surviving both-leg loss, physical fall then crawl recovery, F2 fall/recovery/crawl pause, distributed-hit comparison, single head-death reward, real timers and partial-cut pause/cancel/reset, session restoration
+[HEADLESS] test_room_test.gd
+TEST ROOM PASS: catalog, actors, chest hands/equipment/repeat/cancellation, stress accumulation/recovery/perception/isolation, pause, camping, flail, archery, fixtures, results, reset, scene roundtrip and original session restoration
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2535)
+
+Headless validation: 6 passed, 0 failed.

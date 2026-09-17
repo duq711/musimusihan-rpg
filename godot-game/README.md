@@ -670,3 +670,13 @@ Licensed binaries are not distributed in the public repository. Follow the linke
 `F2 → 기본 → 크리프 절단`은 왼팔·오른팔·왼다리·오른다리·머리의 집중 타격과 양다리 절단·양팔 분산 타격 비교를 제공합니다. 0.8초 간격 18 피해 두 번을 실제 부위 타격 경로로 전달하며, 사지 절단 후 살아서 전투를 계속하고 머리 절단은 즉시 사망합니다. 다리 하나만 잃어도 실제 랙돌로 쓰러집니다. 몸이 착지해 안정된 뒤 포복 자세로 이어지고, 그 전환이 끝나야 기어서 추적·공격합니다. 양다리 항목은 시험 체력 118에서 각 다리를 두 번씩 총 네 번 타격하므로 살아 있는 상태를 관찰할 수 있습니다. `F2`로 낙하·포복 자세 회복·기어가는 동작을 포함한 일시정지·재선택·초기화를 지원합니다. [시험 방법](TEST_ROOM.md#크리프-부위-절단--creep-localized-dismemberment)을 참고하세요.
 
 `F2 → 기본 → 크리프 절단` offers focused hits to either arm, either leg or the head, plus both-leg loss and a distributed-hit comparison. Two 18-damage hits, 0.8 seconds apart, use the actual localized damage path. Limb loss leaves the enemy alive and fighting; decapitation is fatal. Losing either leg causes a physical ragdoll fall. Once the body has landed and stabilized, it recovers into a prone pose before crawling pursuit and attacks resume. The both-leg fixture starts with 118 test HP and applies two hits per leg, allowing live behavior after all four hits. `F2` pauses the fall, prone recovery and crawling as well as the rest of the trial; replay and reset are supported. See the linked trial guide.
+
+하체 보완에서는 포복 추적 중 남은 다리의 관절도 움직이고 골반이 팔의 당김에 맞춰 무게를 옮깁니다. 양다리를 잃은 경우 팔·골반을 사용하며 없어진 다리를 다시 표시하지 않습니다. 기존 왼다리·오른다리·양다리 F2 시험에서 확인하며, 이번 하체 동작의 검증 상태는 [절단 동작 안내](docs/CREEP_DISMEMBERMENT.md#하체-동작-보완--lower-body-motion-follow-up)를 따릅니다.
+
+The lower-body follow-up articulates the surviving leg and shifts pelvic weight with the pulling arms. With both legs missing, the arms and pelvis provide the motion without restoring severed legs. Use the existing left-leg, right-leg and both-leg F2 trials; see the linked motion guide for this follow-up's verification status.
+
+### 크리프 절단면 / Creep wound surfaces
+
+`F2 → 기본 → 크리프 절단면 · 깊이·혈흔`에서 실제 절단을 시험한다. 평평한 분홍 단면 대신 목을 보존하는 머리 분리, 양면의 깊이·조직색·젖은 질감, 짧은 출혈과 접촉 혈흔을 사용한다. 원본 에셋은 보존한다. [재생성·검수 안내](docs/CREEP_WOUNDS.md).
+
+The F2 wound trial uses actual severance with a retained neck, recessed tissue on both sides, wet surface detail, a brief burst and contact stains. Original assets are preserved. See the linked rebuild and validation guide.

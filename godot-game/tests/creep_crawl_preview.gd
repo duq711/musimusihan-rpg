@@ -2,9 +2,9 @@ extends "res://tests/creep_ragdoll_preview.gd"
 ## Continuous production crawl, real cuts, chase and bite in an isolated viewport.
 const DUMMY := preload("res://tests/creep_dismemberment_preview.gd")
 const CRAWL_CASES := [
-	{"regions": ["left_leg"], "id": "left_leg", "title": "왼다리 절단 · 기어서 추적 / LEFT LEG · CRAWL", "camera": Vector3(-2.7, 1.8, -3.5)},
-	{"regions": ["right_leg"], "id": "right_leg", "title": "오른다리 절단 · 측면 / RIGHT LEG · SIDE VIEW", "camera": Vector3(3.8, 1.3, -.6)},
-	{"regions": ["left_leg", "right_leg"], "id": "both_legs", "title": "양다리 절단 · 기어서 물기 / BOTH LEGS · CRAWL & BITE", "camera": Vector3(-2.7, 1.8, -3.5)},
+	{"regions": ["left_leg"], "id": "left_leg", "title": "남은 오른다리 · 접기와 밀기 / SURVIVING RIGHT LEG", "camera": Vector3(3.2, 1.0, 2.4)},
+	{"regions": ["right_leg"], "id": "right_leg", "title": "남은 왼다리 · 접기와 밀기 / SURVIVING LEFT LEG", "camera": Vector3(-3.2, 1.0, 2.4)},
+	{"regions": ["left_leg", "right_leg"], "id": "both_legs", "title": "양다리 절단 · 골반 무게 이동 / BOTH LEGS · PELVIS SHIFT", "camera": Vector3(-2.7, 1.8, -3.5)},
 ]
 
 func _run() -> void:
@@ -48,12 +48,12 @@ func _run() -> void:
 			if child is CanvasLayer:
 				for label in child.get_children():
 					if label is Label and label.text.begins_with("CREEP  |"):
-						label.text = "CREEP | 랙돌 착지 → 포복 추적 / FALL → GROUND → CRAWL"
+						label.text = "CREEP | 골반 · 무릎 · 발목의 포복 / LOWER-BODY CRAWLING"
 		var actor = fixture.actor
 		actor.health = 118; actor.max_health = 118
 		var target := DUMMY.TargetDummy.new()
 		fixture.world.add_child(target)
-		target.position = Vector3(0, .9, -2.0 if scenario.id == "both_legs" else -3.8)
+		target.position = Vector3(0, .9, -4.0 if scenario.id == "both_legs" else -6.0)
 		actor.target = target
 		actor.set_physics_process(false)
 		for warm in 8: await process_frame

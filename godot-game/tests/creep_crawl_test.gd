@@ -64,6 +64,147 @@ func bone_world(actor, bone_name: String) -> Vector3:
 	assert(index >= 0, "source bone must exist: " + bone_name)
 	return (actor.skeleton.global_transform * actor.skeleton.get_bone_global_pose(index)).origin
 
+func bone_in_actor(actor, bone_name: String) -> Transform3D:
+	var index: int = actor.skeleton.find_bone(bone_name)
+	assert(index >= 0, "source bone must exist: " + bone_name)
+	return actor.global_transform.affine_inverse() * actor.skeleton.global_transform * actor.skeleton.get_bone_global_pose(index)
+
+func lower_body_sample(actor) -> Dictionary:
+	# Remove navigation translation and turning before measuring articulation.
+	var pelvis := bone_in_actor(actor, "Torso")
+	var limbs := {}
+	for side: String in ["L", "R"]:
+		var region := "left_leg" if side == "L" else "right_leg"
+		if region in actor.dismemberment.severed: continue
+		var thigh := bone_in_actor(actor, "Leg1." + side)
+		var knee := bone_in_actor(actor, "Leg2." + side)
+		var ankle := bone_in_actor(actor, "Leg3." + side)
+		var foot := bone_in_actor(actor, "Foot." + side)
+		var hip_rotation := pelvis.basis.orthonormalized().inverse() * thigh.basis.orthonormalized()
+		var knee_rotation := thigh.basis.orthonormalized().inverse() * knee.basis.orthonormalized()
+		var distal_rotation := pelvis.basis.orthonormalized().inverse() * ankle.basis.orthonormalized()
+		limbs[side] = {"hip_rotation": hip_rotation.get_rotation_quaternion(), "knee_rotation": knee_rotation.get_rotation_quaternion(), "distal_rotation": distal_rotation.get_rotation_quaternion(), "lengths": Vector3(thigh.origin.distance_to(knee.origin), knee.origin.distance_to(ankle.origin), ankle.origin.distance_to(foot.origin)), "foot": foot.origin, "ankle": ankle.origin, "joints": PackedVector3Array([thigh.origin, knee.origin, ankle.origin, foot.origin])}
+	return {"pelvis": pelvis, "limbs": limbs, "phase": actor.crawl.phase}
+
+func record_lower_body(samples: Array, actor) -> void:
+	samples.append(lower_body_sample(actor))
+	for region: String in ["left_leg", "right_leg"]:
+		if region not in actor.dismemberment.severed: continue
+		for mesh: MeshInstance3D in actor.dismemberment.meshes[region]:
+			check(not mesh.visible, "lower-body motion never restores a severed leg mesh: " + region)
+
+func check_lower_body_motion(samples: Array, _actor, label: String) -> Dictionary:
+	check(samples.size() >= 60, label + ": locomotion supplies a full set of actual lower-body samples")
+	if samples.is_empty(): return {}
+	var first: Dictionary = samples[0]
+	var minimum_x := INF
+	var maximum_x := -INF
+	var minimum_yaw := INF
+	var maximum_yaw := -INF
+	var angles := {}
+	var length_error := {}
+	var foot_travel := {}
+	for side: String in first.limbs:
+		angles[side] = Vector3.ZERO
+		length_error[side] = Vector3.ZERO
+		foot_travel[side] = 0.0
+	for sample: Dictionary in samples:
+		var pelvis: Transform3D = sample.pelvis
+		minimum_x = minf(minimum_x, pelvis.origin.x)
+		maximum_x = maxf(maximum_x, pelvis.origin.x)
+		var relative: Basis = pelvis.basis.orthonormalized() * first.pelvis.basis.orthonormalized().inverse()
+		var yaw := relative.get_euler().y
+		minimum_yaw = minf(minimum_yaw, yaw)
+		maximum_yaw = maxf(maximum_yaw, yaw)
+		for side: String in sample.limbs:
+			var current: Dictionary = sample.limbs[side]
+			var initial: Dictionary = first.limbs[side]
+			var angle: Vector3 = angles[side]
+			angle.x = maxf(angle.x, initial.hip_rotation.angle_to(current.hip_rotation))
+			angle.y = maxf(angle.y, initial.knee_rotation.angle_to(current.knee_rotation))
+			angle.z = maxf(angle.z, initial.distal_rotation.angle_to(current.distal_rotation))
+			angles[side] = angle
+			var delta_length: Vector3 = (current.lengths - initial.lengths).abs()
+			length_error[side] = length_error[side].max(delta_length)
+			foot_travel[side] = maxf(float(foot_travel[side]), initial.foot.distance_to(current.foot))
+			var tolerance: Vector3 = initial.lengths * .07 + Vector3.ONE * .012
+			check(delta_length.x < tolerance.x and delta_length.y < tolerance.y and delta_length.z < tolerance.z, label + ": original thigh/shin/independent-foot connection lengths stay intact: " + side)
+	check(maximum_x - minimum_x > .012, label + ": pelvis visibly shifts side to side independently of navigation")
+	check(maximum_yaw - minimum_yaw > deg_to_rad(1.0), label + ": pelvis alternates yaw, beyond the old rigid whole-body roll")
+	for side: String in angles:
+		var angle: Vector3 = angles[side]
+		check(angle.x > deg_to_rad(2.0), label + ": surviving thigh folds relative to pelvis: " + side)
+		check(angle.y > deg_to_rad(2.0), label + ": surviving knee actually bends, rather than translating rigidly: " + side)
+		check(angle.z > deg_to_rad(2.0), label + ": distal leg articulates through the drag cycle: " + side)
+		check(float(foot_travel[side]) > .025, label + ": independent foot follows the moving leg: " + side)
+	return {"pelvis_lateral_range": maximum_x - minimum_x, "pelvis_yaw_range_radians": maximum_yaw - minimum_yaw, "leg_angle_ranges_radians": angles, "leg_length_error": length_error, "foot_travel": foot_travel, "surviving_legs": first.limbs.keys()}
+
+func check_lower_body_rest(actor, label: String) -> Dictionary:
+	# Check actual bones after the stop blend, not only an internal blend flag.
+	var initial := lower_body_sample(actor)
+	var maximum_pelvis_translation := 0.0
+	var maximum_pelvis_rotation := 0.0
+	var maximum_leg_rotation := 0.0
+	var maximum_foot_translation := 0.0
+	var phase_start: float = actor.crawl.phase
+	for frame in 45:
+		await physics_frame
+		var sample := lower_body_sample(actor)
+		maximum_pelvis_translation = maxf(maximum_pelvis_translation, initial.pelvis.origin.distance_to(sample.pelvis.origin))
+		maximum_pelvis_rotation = maxf(maximum_pelvis_rotation, initial.pelvis.basis.orthonormalized().get_rotation_quaternion().angle_to(sample.pelvis.basis.orthonormalized().get_rotation_quaternion()))
+		for side: String in initial.limbs:
+			var before: Dictionary = initial.limbs[side]
+			var after: Dictionary = sample.limbs[side]
+			maximum_leg_rotation = maxf(maximum_leg_rotation, before.hip_rotation.angle_to(after.hip_rotation))
+			maximum_leg_rotation = maxf(maximum_leg_rotation, before.knee_rotation.angle_to(after.knee_rotation))
+			maximum_foot_translation = maxf(maximum_foot_translation, before.foot.distance_to(after.foot))
+	check(is_equal_approx(phase_start, actor.crawl.phase), label + ": idle does not keep advancing the travel cycle")
+	check(maximum_pelvis_translation < .005 and maximum_pelvis_rotation < deg_to_rad(.5), label + ": pelvis settles instead of rocking in place after stopping")
+	check(maximum_leg_rotation < deg_to_rad(.5) and maximum_foot_translation < .005, label + ": surviving leg and independent foot settle after stopping")
+	return {"pelvis_translation": maximum_pelvis_translation, "pelvis_rotation": maximum_pelvis_rotation, "leg_rotation": maximum_leg_rotation, "foot_translation": maximum_foot_translation}
+
+func lower_body_distance(before: Dictionary, after: Dictionary) -> float:
+	var distance: float = before.pelvis.origin.distance_to(after.pelvis.origin)
+	for side: String in before.limbs:
+		for i in before.limbs[side].joints.size():
+			distance = maxf(distance, before.limbs[side].joints[i].distance_to(after.limbs[side].joints[i]))
+	return distance
+
+func check_walk_to_stop(actor, label: String) -> Dictionary:
+	var saved_target: Node3D = actor.target
+	var saved_state: int = actor.ai_state
+	var before := lower_body_sample(actor)
+	var phase_start: float = actor.crawl.phase
+	actor.target = null
+	actor._set_state(DungeonEnemy.AIState.IDLE)
+	var previous := before
+	var maximum_step := 0.0
+	var final_steps := 0.0
+	var stop_samples: Array = []
+	for frame in 20:
+		await physics_frame
+		var sample := lower_body_sample(actor)
+		check(sample.pelvis.is_finite(), label + ": stopping leaves a finite pelvis transform")
+		for side: String in sample.limbs:
+			for point: Vector3 in sample.limbs[side].joints:
+				check(point.is_finite(), label + ": stopping leaves finite surviving leg/foot joints")
+		var step := lower_body_distance(previous, sample)
+		maximum_step = maxf(maximum_step, step)
+		if frame >= 15: final_steps = maxf(final_steps, step)
+		stop_samples.append(step)
+		previous = sample
+	check(maximum_step < .12, label + ": walk-to-stop lower-body fade has no per-frame snap")
+	check(final_steps < .002, label + ": lower-body motion fades into a settled pose within the stop window")
+	check(lower_body_distance(before, previous) > .001, label + ": stop blends out locomotion rather than freezing the moving posture")
+	check(is_equal_approx(phase_start, actor.crawl.phase), label + ": stopping freezes the travel phase instead of cycling in place")
+	actor.target = saved_target
+	if is_instance_valid(saved_target):
+		saved_target.global_position = actor.global_position + Vector3(0, 0, -8)
+	actor._set_state(saved_state)
+	await advance(actor, 24)
+	check(actor.ai_state == DungeonEnemy.AIState.CHASE and str(actor.animation_clip).begins_with("crawl"), label + ": restoring the target resumes actual crawling")
+	return {"maximum_step": maximum_step, "settled_step": final_steps, "pose_change": lower_body_distance(before, previous), "steps": stop_samples}
+
 func strike(actor, region: String) -> void:
 	var point: Vector3 = actor.dismemberment.hit_point_for_region(region)
 	actor.receive_located_hit(18.0, Vector3(0, .9, -3), .5, false, point)
@@ -148,6 +289,8 @@ func scenario(legs: Array) -> void:
 	var maximum_hand := Vector2(-INF, -INF)
 	var relative_min := INF
 	var relative_max := -INF
+	var lower_samples: Array = []
+	var stride_skin_samples := {}
 	for frame in 120:
 		await physics_frame
 		actor._resolve_active_attack()
@@ -157,12 +300,22 @@ func scenario(legs: Array) -> void:
 		maximum_hand = maximum_hand.max(Vector2(left.z, right.z))
 		relative_min = minf(relative_min, left.z - right.z)
 		relative_max = maxf(relative_max, left.z - right.z)
+		record_lower_body(lower_samples, actor)
+		# Eight bins catch drag/plant extrema across the complete travel cycle.
+		var stride_bin := mini(7, int(float(actor.crawl.phase) * 8.0))
+		if frame > 10 and not stride_skin_samples.has(stride_bin):
+			var skin_y := skin_floor(actor, label + "/stride_" + str(stride_bin))
+			stride_skin_samples[stride_bin] = skin_y
+			minimum_skin = minf(minimum_skin, skin_y)
 		if frame % 30 == 0:
 			low_samples.append(low_pose(actor, label + "/moving"))
 			if frame == 60: minimum_skin = minf(minimum_skin, skin_floor(actor, label + "/pull"))
 	check(actor.global_position.distance_to(start) > .20, label + ": actual AI moves the low body toward its target")
 	check((maximum_hand - minimum_hand).x > .04 and (maximum_hand - minimum_hand).y > .04, label + ": both real hand bones move through reaching/pulling")
 	check(relative_max - relative_min > .06, label + ": arms alternate instead of rigidly sliding together")
+	check(stride_skin_samples.size() == 8, label + ": skin-floor checks cover every eighth of the actual stride cycle")
+	var lower_body_motion := check_lower_body_motion(lower_samples, actor, label)
+	var lower_body_stop: Dictionary = await check_walk_to_stop(actor, label)
 	var paused_position: Transform3D = actor.global_transform
 	var paused_hand := bone_world(actor, "Hand.L")
 	var paused_phase: float = actor.crawl.phase
@@ -197,6 +350,7 @@ func scenario(legs: Array) -> void:
 	actor.target = null
 	actor._set_state(DungeonEnemy.AIState.IDLE)
 	await advance(actor, 20)
+	var lower_body_rest: Dictionary = await check_lower_body_rest(actor, label)
 	low_samples.append(low_pose(actor, label + "/idle"))
 	check(actor.animation_clip == "crawl_idle", label + ": resting never stands up again")
 	for side: String in ["L", "R"]:
@@ -219,7 +373,7 @@ func scenario(legs: Array) -> void:
 	for region: String in legs:
 		for bone: String in PARTS.REGION_BONES[region]:
 			check(not actor.ragdoll.parts.has(bone), label + ": death does not recreate removed leg")
-	report.append({"legs": legs, "transition": blend_samples, "low_poses": low_samples, "hand_ranges": maximum_hand - minimum_hand, "arm_alternation": relative_max - relative_min, "minimum_skin_y": minimum_skin, "contacts": f.victim.contacts, "maximum_death_head_y": maximum_death_head, "crawl": actor.crawl.snapshot(), "ragdoll": actor.ragdoll.snapshot()})
+	report.append({"legs": legs, "transition": blend_samples, "low_poses": low_samples, "hand_ranges": maximum_hand - minimum_hand, "arm_alternation": relative_max - relative_min, "lower_body_motion": lower_body_motion, "lower_body_stop": lower_body_stop, "lower_body_rest": lower_body_rest, "stride_skin_samples": stride_skin_samples, "minimum_skin_y": minimum_skin, "contacts": f.victim.contacts, "maximum_death_head_y": maximum_death_head, "crawl": actor.crawl.snapshot(), "ragdoll": actor.ragdoll.snapshot()})
 	f.world.queue_free()
 	await process_frame
 

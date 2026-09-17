@@ -18,6 +18,66 @@ var hand_targets := {}
 var planted := {}
 var movement_blend := 0.0
 var entry_seconds := ENTER_SECONDS
+var foot_targets := {}
+
+func _lower_body(poses: Array[Transform3D], body_basis: Basis) -> void:
+	var pelvis := rig.find_bone("Torso")
+	var chest := rig.find_bone("Chest")
+	var supported_chest := poses[chest]
+	var cycle := phase * TAU
+	var sway := sin(cycle) * movement_blend
+	var pull := sin(cycle * 2.0) * movement_blend
+	var pelvis_origin := poses[pelvis].origin + Vector3(.045 * sway, .012 * (1.0 - cos(cycle * 2.0)) * movement_blend, .025 * pull)
+	# Unroll the sleeping pelvis onto its belly. Hip spacing comes from the
+	# original rig; the chest stays supported while the pelvis twists below it.
+	var pelvis_basis := body_basis * Basis(Vector3.UP, .14 * sway) * Basis(Vector3.FORWARD, .07 * sway) * Basis(Vector3.RIGHT, -PI * .5 + .045 * pull) * upright[pelvis].basis
+	_branch(poses, pelvis, Transform3D(pelvis_basis, pelvis_origin))
+	_branch(poses, chest, supported_chest)
+	foot_targets.clear()
+	for side: String in ["L", "R"]:
+		var region := "left_leg" if side == "L" else "right_leg"
+		if region in actor.dismemberment.severed:
+			continue
+		# The remaining leg helps the opposite hand: plant/push, then draw the
+		# bent knee forward and drag the toes back into position near the floor.
+		var p := fposmod(phase + (.5 if side == "L" else 0.0), 1.0)
+		var stance := .70
+		var foot_z := .68 + STRIDE * p if p < stance else lerpf(.68 + STRIDE * stance, .68, smoothstep(stance, 1.0, p))
+		var lift := sin((p - stance) / (1.0 - stance) * PI) * .045 if p >= stance else 0.0
+		# The source foot flesh extends about 13cm below its ankle joint.
+		var target := Vector3(-.36 if side == "L" else .36, -.76 + lift * movement_blend, lerpf(.88, foot_z, movement_blend))
+		_leg(poses, side, target)
+		foot_targets[side] = actor.global_transform * poses[rig.find_bone("Foot." + side)].origin
+
+func _leg(poses: Array[Transform3D], side: String, foot_target: Vector3) -> void:
+	var upper := rig.find_bone("Leg1." + side)
+	var lower := rig.find_bone("Leg2." + side)
+	var hock := rig.find_bone("Leg3." + side)
+	var foot := rig.find_bone("Foot." + side)
+	var hip := poses[upper].origin
+	var a := upright[upper].origin.distance_to(upright[lower].origin)
+	var b := upright[lower].origin.distance_to(upright[hock].origin)
+	var c := upright[hock].origin.distance_to(upright[foot].origin)
+	var lateral := -1.0 if side == "L" else 1.0
+	var ankle_offset := Vector3(lateral * .025, .16, -sqrt(c * c - .16 * .16 - .025 * .025))
+	var ankle := foot_target + ankle_offset
+	var reach := clampf(hip.distance_to(ankle), absf(a - b) + .005, a + b - .01)
+	var direction := hip.direction_to(ankle)
+	# Keep the knee outside the belly, bending in the plane of travel.
+	var pole := Vector3(lateral, .04, -.45)
+	pole = (pole - direction * pole.dot(direction)).normalized()
+	var along := (a * a - b * b + reach * reach) / (2.0 * reach)
+	var knee := hip + direction * along + pole * sqrt(maxf(0.0, a * a - along * along))
+	ankle = hip + direction * reach
+	foot_target = ankle - ankle_offset
+	var old_hock := upright[hock]
+	var old_ankle_direction := old_hock.origin.direction_to(upright[foot].origin)
+	_aim(poses, upper, lower, hip, knee)
+	_aim(poses, lower, hock, knee, ankle)
+	_branch(poses, hock, Transform3D(Basis(Quaternion(old_ankle_direction, ankle.direction_to(foot_target))) * old_hock.basis, ankle))
+	# Foot is a separate imported IK root. Move its complete toe hierarchy to
+	# the solved ankle, with relaxed toes trailing behind the crawling body.
+	_branch(poses, foot, Transform3D(Basis(Vector3.UP, PI) * upright[foot].basis, foot_target))
 
 func begin_from_world_pose(world_poses: Array) -> void:
 	assert(world_poses.size() == rig.get_bone_count())
@@ -121,7 +181,7 @@ func apply(delta: float) -> void:
 	blend = minf(1.0, blend + maxf(delta, 0.0) / entry_seconds)
 	var recovering: bool = actor.is_knocked_down()
 	var moving: bool = not recovering and actor.ai_state == DungeonEnemy.AIState.CHASE and displacement.length() > .00001
-	movement_blend = move_toward(movement_blend, 1.0 if moving else 0.0, maxf(delta, 0.0) * 9.0)
+	movement_blend = move_toward(movement_blend, 1.0 if moving else 0.0, maxf(delta, 0.0) * 4.5)
 	if moving:
 		phase = fposmod(phase + displacement.length() / STRIDE, 1.0)
 	var poses: Array[Transform3D] = prone.duplicate()
@@ -132,9 +192,10 @@ func apply(delta: float) -> void:
 	var lunge := (smoothstep(.60, 1.0, t) * (1.0 - smoothstep(1.04, 1.60, t))) if biting else 0.0
 	var recoil := sin(clampf(actor.state_time / maxf(actor.stagger_duration, .01), 0.0, 1.0) * PI) if actor.ai_state == DungeonEnemy.AIState.STAGGER else 0.0
 	# Low breathing / weight transfer stays on the ground, including attacks.
-	var roll := sin(phase * TAU) * .035 if moving else 0.0
+	var roll := sin(phase * TAU) * .035 * movement_blend
 	var body := Transform3D(Basis(Vector3.FORWARD, roll), Vector3(0, .055 + .025 * lunge, -.13 * lunge + .025 * recoil))
 	for bone in poses.size(): poses[bone] = body * poses[bone]
+	_lower_body(poses, body.basis)
 	# Keep the alert face forward instead of the sleeping head's sideways tilt.
 	var head := rig.find_bone("Head")
 	_branch(poses, head, Transform3D(upright[head].basis, poses[head].origin))
@@ -165,4 +226,4 @@ func apply(delta: float) -> void:
 	actor.animation_sample = phase
 
 func snapshot() -> Dictionary:
-	return {"active": active, "blend": blend, "phase": phase, "hands": hand_targets.duplicate(), "planted": planted.duplicate()}
+	return {"active": active, "blend": blend, "phase": phase, "hands": hand_targets.duplicate(), "planted": planted.duplicate(), "feet": foot_targets.duplicate(), "movement_blend": movement_blend}

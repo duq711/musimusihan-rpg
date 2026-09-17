@@ -68,6 +68,7 @@ func _test_catalog() -> void:
 			_check(entry.category == "기본" and entry.action == "creep_dismemberment" and entry.payload == region, "entry dispatches its actual localized trial: " + feature_id)
 			if region in ["left_leg", "right_leg", "both_legs"]:
 				_check(str(entry.detail).contains("기어") and str(entry.detail).contains("랙돌") and str(entry.detail).contains("착지"), "leg trial describes physical landing before crawling: " + feature_id)
+				_check(str(entry.detail).contains("골반") and (region == "both_legs" or str(entry.detail).contains("다리 관절")), "existing leg trial describes pelvic weight transfer and remaining-leg articulation: " + feature_id)
 
 
 func _test_missing_asset() -> void:
@@ -184,8 +185,10 @@ func _test_crawl_trial(creep, region: String) -> void:
 	await _press_f2()
 	var held_pose: Dictionary = creep.crawl.snapshot().duplicate(true)
 	var held_position: Vector3 = creep.position
+	var held_lower_body := _lower_body_pose(creep)
+	_check(held_lower_body.size() == (1 if region == "both_legs" else 5), "lower-body observation includes the pelvis and only the surviving leg chain: " + region)
 	await _advance_frames(24)
-	_check(creep.crawl.snapshot() == held_pose and creep.position == held_position, "F2 freezes the actual crawl motion and movement: " + region)
+	_check(creep.crawl.snapshot() == held_pose and creep.position == held_position and _lower_body_pose(creep) == held_lower_body, "F2 freezes the actual crawl motion, pelvis, remaining leg joints and movement: " + region)
 	await _press_f2()
 	await _advance_frames(12)
 	_check(creep.is_crawling() and (creep.crawl.snapshot() != held_pose or creep.position != held_position), "resuming continues the production crawl motion: " + region)
@@ -289,6 +292,22 @@ func _skeletal_pose(creep) -> Array[Transform3D]:
 	var result: Array[Transform3D] = []
 	for bone in creep.skeleton.get_bone_count():
 		result.append(creep.skeleton.get_bone_global_pose(bone))
+	return result
+
+
+func _lower_body_pose(creep) -> Dictionary:
+	var result := {}
+	var names: Array[String] = ["Torso"]
+	for side in ["L", "R"]:
+		var region := "left_leg" if side == "L" else "right_leg"
+		if region not in creep.dismemberment.severed:
+			for joint in ["Leg1.", "Leg2.", "Leg3.", "Foot."]:
+				names.append(joint + side)
+	for bone_name in names:
+		var bone: int = creep.skeleton.find_bone(bone_name)
+		_check(bone >= 0, "the installed rig contains the observed lower-body bone: " + bone_name)
+		if bone >= 0:
+			result[bone_name] = creep.skeleton.get_bone_global_pose(bone)
 	return result
 
 

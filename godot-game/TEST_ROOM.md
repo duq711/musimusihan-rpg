@@ -881,8 +881,8 @@ The three `F2 → 기본 → 크리프 래그돌` entries reuse the Creep encoun
 | 항목 ID / Entry ID | 확인할 결과 / Expected result |
 | --- | --- |
 | `creep_dismemberment:left_arm`, `creep_dismemberment:right_arm` | 해당 팔만 절단되고 살아서 전투 재개 / Only the targeted arm detaches; the enemy survives and combat resumes |
-| `creep_dismemberment:left_leg`, `creep_dismemberment:right_leg` | 해당 다리가 절단되면 랙돌로 쓰러져 착지·안정 후 포복 자세로 전환하고 추적·공격 / Losing either leg triggers a physical fall, then grounded prone recovery before pursuit and attacks |
-| `creep_dismemberment:both_legs` | 양다리 절단 후 살아서 랙돌 착지·포복 회복을 거쳐 추적·공격. 시험 체력만 118로 준비해 네 번 타격 후 46 유지 / A living physical fall and prone recovery precede crawling after both legs detach; this fixture alone starts at 118 HP and retains 46 after four hits |
+| `creep_dismemberment:left_leg`, `creep_dismemberment:right_leg` | 해당 다리가 절단되면 랙돌 착지·안정 후 포복으로 회복하고 남은 다리 관절·골반을 움직여 추적·공격 / Physical fall and grounded prone recovery precede pursuit and attacks with remaining-leg articulation and pelvic weight transfer |
+| `creep_dismemberment:both_legs` | 양다리 절단 후 랙돌 착지·포복 회복을 거쳐 팔·골반으로 추적·공격. 시험 체력만 118로 준비해 네 번 타격 후 46 유지 / After physical landing and prone recovery, arms and pelvic weight transfer support pursuit and attacks; this fixture alone starts at 118 HP and retains 46 after four hits |
 | `creep_dismemberment:head` | 머리 절단과 즉시 사망, 일반 처치 보상 한 번 / Decapitation, immediate death, and one ordinary kill reward |
 | `creep_dismemberment:distributed` | 양팔에 각각 18 피해 한 번: 총 피해 36이어도 절단 없음 / One 18-damage hit per arm: the same 36 total damage causes no severing |
 
@@ -897,3 +897,13 @@ Enemy AI waits during the timed hits while the living ragdoll falls under actual
 2026-09-18 후속 변경: 다리 절단 후 랙돌 착지 → 포복 회복 → 추적 순서와 F2 정지를 시험에 연결했습니다. 새 `creep_knockdown`과 관련 회귀·시험룸을 포함한 **자동 검사 8개와 실제 GPU 영상 60초 검증을 통과**했습니다. 일반 테스트룸의 기존 ObjectDB 2개 종료 경고는 유지됩니다. [시연 영상](artifacts/validation/creep_living_fall_20260918/creep_living_fall.mp4)과 [랙돌 착지·회복 검수 기록](artifacts/validation/creep_living_fall_20260918/README.md)을 참고하세요.
 
 Follow-up: leg trials exercise physical landing, prone recovery and pursuit, including F2 pause in each phase. **Eight automated suites and a 60-second actual GPU video review passed**, including the new knockdown suite, related regressions and test-room checks. The general test-room check retains its existing two-ObjectDB exit warning. See the linked video and validation record.
+
+2026-09-18 하체 보완: 기존 왼다리·오른다리·양다리 시험에서 포복 중 남은 다리 관절의 움직임과 골반의 무게 이동을 확인하도록 설명과 검사를 확장했습니다. 실제 절단·AI·추적 경로는 그대로 사용하며, F2 정지는 골반·남은 다리의 관절 자세도 포함합니다. 관련 자동 검사 **6개와 마지막 조정 후 집중 검사, 실제 GPU 영상 60초 검증을 통과**했습니다. 새 결과는 [하체 동작 검수 기록](artifacts/validation/creep_lower_body_20260918/README.md)과 [시연 영상](artifacts/validation/creep_lower_body_20260918/creep_lower_body.mp4)에 남깁니다. 평평한 바닥에서 검증했으며 경사·계단 접지는 미확인입니다.
+
+Lower-body follow-up: the existing left-leg, right-leg and both-leg trials now describe and check remaining-leg articulation and pelvic weight transfer during crawling. They retain the real severance, AI and pursuit paths; F2 pose checks include the pelvis and surviving leg joints. **Six related suites, the focused check after the final adjustment, and a 60-second actual GPU video review passed**. New results belong in the linked lower-body validation record and video. Validation used a flat floor; slopes and stairs remain unverified.
+
+## 크리프 절단면 · 깊이·혈흔 / Creep wound surfaces
+
+`F2 → 기본 → 크리프 절단면 · 깊이·혈흔`은 기존 부위 타격 함수를 통해 머리를 두 번 공격한다. 목은 몸체에 남고 양쪽에 깊이·불규칙한 조직색이 있는 단면이 드러나며, 짧은 출혈과 월드 접촉 혈흔을 관찰한다. F2는 효과와 수명을 함께 정지하고 재선택은 온전한 몸·체력을 복구한다. 기존 팔·다리 시험에도 동일하게 적용된다. [구현·검수 안내](docs/CREEP_WOUNDS.md).
+
+The new F2 wound entry uses two actual localized hits. Inspect the retained neck, both recessed surfaces, brief blood burst and contact stains. F2 pauses effect motion/lifetime; reselecting restores the complete actor. Existing limb trials use the same visuals. See the linked implementation and validation guide.

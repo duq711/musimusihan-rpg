@@ -345,3 +345,20 @@ After leg severance, the creature falls with actual ragdoll physics rather than 
 착지 판단은 몸통·머리의 지면 접근과 물리 움직임의 안정성을 함께 확인하며 고정 시간만으로 판정하지 않는다. 이 기준과 회복 시간은 구현에서 조정할 수 있는 값이다. 기존 F2 왼다리·오른다리·양다리 항목에 실제 절단 → 랙돌 낙하 → 착지 → 포복 → 전투 재개를 연결하고 각 단계의 일시정지와 중도 취소를 검증했다. 새 `creep_knockdown`을 포함한 **자동 검사 8개와 실제 GPU 영상 60초 검증을 통과**했다. 결과·기록·남은 제약은 [랙돌 착지·회복 검수 기록](../artifacts/validation/creep_living_fall_20260918/README.md), 실제 동작은 [새 시연 영상](../artifacts/validation/creep_living_fall_20260918/creep_living_fall.mp4)에 남긴다. 이전 포복 영상 통과를 이번 물리 전환의 완료 근거로 사용하지 않는다.
 
 Landing uses both torso/head ground proximity and stable physical movement, not a timer alone; thresholds and recovery duration are tunable implementation choices. Existing F2 left-leg, right-leg and both-leg trials exercise real severance, physical fall, landing, prone recovery and resumed combat, with phase pause and cancellation checks. **Eight automated suites and a 60-second actual GPU video review passed**, including the new knockdown suite. Results, evidence and limitations belong in the linked fall/recovery validation record and new demonstration video. The earlier crawl video does not validate this physical transition.
+
+### 2026-09-18 후속 제작 — 포복 중 하체 동작 / Lower-body motion during crawling
+
+포복 중 상체뿐 아니라 골반과 남은 다리도 움직이도록 보완한다. 남은 다리 관절을 원본의 누운 자세에 고정하지 않고 움직이며, 골반은 팔로 몸을 당기는 흐름에 맞춰 무게를 옮긴다. 양다리가 없으면 팔·골반의 움직임으로 진행하고 없어진 다리는 되살리지 않는다. 기존 랙돌 낙하 → 착지·안정 → 포복 회복 → 추적과 낮은 물기 공격, 피해·속도·보상 규칙은 유지한다.
+
+The crawl follow-up moves the pelvis and surviving leg alongside the upper body. Remaining leg joints articulate instead of staying fixed in the source sleeping pose, and pelvic weight shifts follow the arm-pulling rhythm. When both legs are missing, motion uses the arms and pelvis without restoring detached limbs. Existing physical fall, stable landing, prone recovery, pursuit, low bites, damage, speed and reward rules remain intact.
+
+기존 F2 왼다리·오른다리·양다리 시험의 설명과 정지 검사를 확장하고 실제 크리프 추적 경로를 유지한다. 골반·남은 다리 관절을 포함해 F2 정지 시 자세가 고정되는지 확인했다. 관련 자동 검사 **6개와 마지막 조정 후 집중 검사, 실제 GPU 영상 60초 검증을 통과**했다. 새 [검수 기록](../artifacts/validation/creep_lower_body_20260918/README.md)과 [시연 영상](../artifacts/validation/creep_lower_body_20260918/creep_lower_body.mp4)은 이전 랙돌·포복 영상의 검증 완료와 구분한다. 평평한 바닥에서 확인했으며 경사·계단 접지는 미확인이다.
+
+Existing F2 left-leg, right-leg and both-leg descriptions and pause checks are expanded while retaining production Creep pursuit. Pose freezing includes the pelvis and surviving leg joints. **Six related suites, the focused check after the final adjustment, and a 60-second actual GPU video review passed**. The linked new validation record and video are separate from the earlier ragdoll/crawl video results. Validation used a flat floor; slopes and stairs remain unverified.
+
+
+## 2026-09-18 크리프 절단면 — 사용자 확정 / Wound appearance — confirmed
+
+사용자는 단색 분홍색 판 같은 절단면이 공포와 긴장감을 깨뜨린다고 지적하고 실제 절단처럼 보이도록 개선을 요청했다. 목과 몸체의 경계를 보존하고 양면 깊이·조직색·짧은 출혈·접촉 혈흔으로 구현한다. 기존 절단·생존·보상 규칙은 유지한다. 제작 수치와 실제 검증은 [절단면 개선 안내](../docs/CREEP_WOUNDS.md)에 남긴다.
+
+The user requested convincing severance instead of a uniform pink cap. The implementation retains the neck boundary and adds recessed tissue on both sides, a brief burst and contact stains. Existing severance, survival and reward rules remain unchanged. The linked guide records implementation choices and executed checks.

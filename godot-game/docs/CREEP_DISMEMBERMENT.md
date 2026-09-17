@@ -25,6 +25,16 @@ Each of five regions requires at least two positive hits and 35 accumulated dama
 
 The source prone `sleep_loop` pose (imported in Godot as `sleep`) provides the skeletal basis. Code turns the head forward and adds procedural hand-target IK and body motion, alternating forward reaches with planted pulling phases. All seventeen source FBX/GLB clips remain intact. This is a procedural crawl based on a source pose, not a separately authored crawl FBX clip.
 
+### 하체 동작 보완 / Lower-body motion follow-up
+
+포복 추적 중 남은 다리를 원본의 누운 자세에 고정하지 않고 관절이 굽혀지고 펴지는 동작을 더한다. 골반도 팔로 몸을 당기는 흐름에 맞춰 무게를 옮겨 상체와 하체가 함께 이동하게 한다. 한쪽 다리만 남으면 그 다리의 관절을 사용하고, 양다리가 없으면 골반과 팔의 움직임으로 추적한다. 없어진 다리를 다시 표시하거나 보이지 않는 다리로 지면을 밀지 않는다. 랙돌로 쓰러짐 → 실제 착지·안정 → 포복 회복 → 추적 순서와 낮은 물기 공격은 유지한다.
+
+During prone pursuit, the remaining leg articulates instead of staying fixed in the source sleeping pose. Pelvic weight transfer follows the pulling rhythm so the upper and lower body move together. A surviving leg uses its joints; after both legs are lost, pursuit uses the pelvis and supporting arms. Missing legs do not reappear or provide invisible ground support. Physical fall, stable landing, prone recovery, subsequent pursuit and low bite attacks remain intact.
+
+기존 F2 왼다리·오른다리·양다리 시험에서 이 동작을 확인한다. 새 시험 항목을 중복 생성하지 않으며 실제 크리프의 추적 코드를 사용한다. F2 정지 시 골반과 남은 다리의 관절 자세도 멈추는지 검사한다. 관련 자동 검사 **6개와 마지막 동작 조정 후 집중 검사, 실제 GPU 영상 60초 검증을 통과**했다. 일반 테스트룸의 기존 ObjectDB 2개 종료 경고는 남아 있다. 새 결과는 [하체 동작 검수 기록](../artifacts/validation/creep_lower_body_20260918/README.md)과 [시연 영상](../artifacts/validation/creep_lower_body_20260918/creep_lower_body.mp4)에 보존한다. 평평한 바닥에서 확인했으며 경사·계단 접지는 미확인이다. 검사 중 피부 최저점은 바닥 아래 약 1.05cm로, 작은 접촉 겹침은 남아 있다. 아래의 이전 영상 통과는 새 하체 동작의 검증을 대신하지 않는다.
+
+The existing F2 left-leg, right-leg and both-leg trials expose this motion through the production Creep pursuit code without duplicate entries. Pause checks include the pelvis and surviving leg joints. **Six related suites, the focused check after the final adjustment, and a 60-second actual GPU video review passed**. The general test-room check retains its existing two-ObjectDB exit warning. New results belong in the linked lower-body validation record and video. Validation used a flat floor; slopes and stairs remain unverified. The lowest tested skin point was about 1.05cm below the floor, so minor contact overlap remains. The earlier videos below do not establish validation of the new motion.
+
 ## 실제 3D 및 타격 / Geometry and contacts
 
 `tools/build_creep_dismemberment.py`는 로컬 원본 `creep.glb`에서 여섯 개 스킨 메시와 열 개 절단면을 만든다. 원본은 변경하지 않는다. 원본의 55개 뼈, 17개 클립, 피부 재질·텍스처를 유지한다. 절단면은 평소 숨기고 해당 부위가 잘릴 때 표시한다. 잘리는 순간의 피부 변형을 한 번 계산해 독립된 `RigidBody3D`로 옮긴다. 분리 부위는 지면·벽과 충돌하며, 본체가 움직이거나 나중에 사망해도 다시 연결되지 않는다.
@@ -69,3 +79,5 @@ Restart the game and select one of five region trials, both-legs crawling, or th
 후속 랙돌 착지·포복 회복 변경은 위 자동 검사 **8개와 실제 GPU 영상 60초 검증을 통과**했다. 실제 물리 착지·자세 인계 연속성·바닥 없는 상태의 회복 금지·일시정지·사망 전환과 F2 시험·관련 회귀를 확인했다. 일반 테스트룸의 기존 종료 시 ObjectDB 2개 경고는 남아 있다. [새 시연 영상](../artifacts/validation/creep_living_fall_20260918/creep_living_fall.mp4)은 왼다리·오른다리·양다리의 낙하·착지·회복·추적을 실제 900프레임으로 보여준다. 결과와 남은 제약은 [랙돌 착지·회복 검수 기록](../artifacts/validation/creep_living_fall_20260918/README.md)에 남긴다. 위 기어가기 영상은 이 물리 전환이 추가되기 전의 기록이다.
 
 The physical fall and prone recovery change **passed eight automated suites and a 60-second actual GPU video review**, covering actual landing, pose-handoff continuity, no recovery without a floor, pause, fatal transition, F2 trials and related regressions. The general test-room check retains its existing two-ObjectDB exit warning. The new video contains 900 actual frames showing the left-leg, right-leg and both-leg falls, landing, recovery and pursuit. Results and limitations belong in the linked fall/recovery validation record. The earlier crawl video predates this physical transition.
+
+2026-09-18 절단면 개선: 목은 몸체에 남기고 양면에 깊이·조직색·젖은 질감과 접촉 혈흔을 적용했습니다. 제작·F2 시험·실행 검증은 [절단면 개선 기록](CREEP_WOUNDS.md)을 참고하세요. / The wound update retains the neck and adds recessed tissue, wet surface detail and contact stains; see the linked build, F2 and validation record.
