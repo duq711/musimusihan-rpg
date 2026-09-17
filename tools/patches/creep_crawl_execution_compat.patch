@@ -1,0 +1,13 @@
+--- a/godot-game/scripts/creep_enemy.gd
++++ b/godot-game/scripts/creep_enemy.gd
+@@ -235,6 +249,10 @@
+ 		return
+ 	if is_instance_valid(ragdoll) and ragdoll.phase != "living":
+ 		return
++	if is_crawling() and is_instance_valid(crawl):
++		# Existing local execution work must also preserve the new prone pose.
++		crawl.apply(0.0)
++		return
+ 	var press := smoothstep(0.0, EXECUTION_SHIELD_SECONDS, _execution_elapsed)
+ 	var kneel := smoothstep(EXECUTION_SHIELD_SECONDS, EXECUTION_CUT_START_SECONDS, _execution_elapsed)
+ 	var cut := smoothstep(EXECUTION_CUT_START_SECONDS, EXECUTION_HIT_SECONDS, _execution_elapsed)

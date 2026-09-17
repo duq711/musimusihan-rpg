@@ -315,25 +315,15 @@ func missing_legs() -> int:
 func _update_mobility() -> void:
 	var legs := missing_legs()
 	actor.move_speed = base_move_speed * [1.0, .50, .18][legs]
+	actor.attack_range = 1.15 if legs > 0 else 1.50
 	# Keep the bottom of the living capsule at the floor after lowering the body.
-	var height: float = [1.80, 1.25, .85][legs]
+	var height: float = 1.80 if legs == 0 else .86
 	actor.collision_shape.shape.height = height
 	actor.collision_shape.position.y = (height - 1.80) * .5
 
 func apply_living_pose(delta: float) -> void:
-	var legs := missing_legs()
-	if legs == 0: return
-	# Lean onto surviving limbs, then align their support capsules to the floor.
-	# A fixed downward offset would bury feet/head as the hunched rig rotates.
-	var lean: float = [0.0, 18.0, 58.0][legs]
-	actor.visual_root.position = actor.visual_base_position
-	actor.visual_root.rotation.x = lerp_angle(actor.visual_root.rotation.x, deg_to_rad(-lean), 1.0 - exp(-8.0 * delta))
-	var lowest := INF
-	for segment: Dictionary in _segments():
-		lowest = minf(lowest, minf(segment.start.y, segment.end.y) - float(segment.radius))
-	var foot_level: float = actor.global_position.y - .9
-	if is_finite(lowest):
-		actor.visual_root.position.y += foot_level + .03 - lowest
+	if missing_legs() > 0 and is_instance_valid(actor.crawl):
+		actor.crawl.apply(delta)
 
 func snapshot() -> Dictionary:
 	var positions := {}

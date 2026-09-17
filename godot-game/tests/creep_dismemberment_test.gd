@@ -152,7 +152,7 @@ func multiple_parts() -> void:
 	check(actor.ai_state != DungeonEnemy.AIState.DEAD and actor.dismemberment.detached.size() == 4, "four missing limbs do not force death")
 	actor.attack_index = 0
 	actor._set_state(DungeonEnemy.AIState.WINDUP)
-	check(actor.attack_index == 0 and actor.animation_clip == "bite", "armless Creep only selects bite")
+	check(actor.attack_index == 0 and actor.animation_clip == "crawl_bite", "armless crawling Creep only selects low bite")
 	check(is_equal_approx(actor.move_speed, actor.dismemberment.base_move_speed * .18), "two missing legs use crawl speed")
 	strike(actor, "head"); strike(actor, "head")
 	check(actor.ai_state == DungeonEnemy.AIState.DEAD and actor.dismemberment.detached.size() == 5, "head cut terminates remaining combat")

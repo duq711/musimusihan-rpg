@@ -323,3 +323,15 @@ The test room adds front, side, and north-wall death scenarios. Each heals and r
 같은 팔·다리·머리를 집중 공격하면 해당 부위를 절단한다. 사용자는 팔다리 절단 후에도 크리프가 살아서 전투를 계속하도록 선택했다. 머리 절단은 즉시 사망이며, 일반 체력 소진에 따른 사망·기존 처치 보상은 유지한다. 초기 구현값(부위당 2회 이상·누적 35, 다리 손실 시 이동 속도 50%/18%)은 조정 가능한 제작 판단이다. 실제 부위 메시·피격 위치·분리 물리·생존 공격·F2 시험을 연결했다. [동작·설치 안내](../docs/CREEP_DISMEMBERMENT.md)와 [검증 근거](../artifacts/validation/creep_dismemberment_20260917/README.md)를 따른다.
 
 Focused hits sever the selected arm, leg or head. The user chose continued combat after limb loss; decapitation kills immediately. Normal health depletion and single death rewards remain. The initial two-hit/35-damage threshold and 50%/18% leg-loss speeds are tunable implementation values. See the linked implementation and validation records.
+
+### 2026-09-18 후속 사용자 확정 — 다리 절단 후 기어가기 / Confirmed follow-up: crawling after leg loss
+
+사용자는 다리가 절단된 크리프가 기어다니도록 요청했다. 한쪽 다리만 잃어도 몸을 지면으로 낮추고 손을 번갈아 뻗어 당기며 이동한다. 기존의 서 있는 추적 자세를 기울여 보이는 방식은 대체한다. 낮은 자세에서는 서서 펀치하지 않고 물기로 공격한다. 팔다리 절단 후 생존, 머리 절단 즉시 사망, 체력 소진과 보상 규칙은 유지한다.
+
+The user requested crawling after leg severance. Losing either leg lowers the body to the ground and alternates reaching and pulling with the supporting hands, replacing the earlier tilted upright pursuit. Attacks use a low bite instead of standing punches. Continued survival after limb loss, immediate death after decapitation, ordinary health depletion and reward rules remain.
+
+구현 판단: 원본 `sleep_loop`의 누운 골격 자세에 코드로 손 IK·몸통 이동을 더하며, 별도 FBX 포복 클립 제작으로 간주하지 않는다. 약 0.48초 자세 전환, 이동 속도 50%/18%, 이동용 캡슐 높이 0.86m, 공격 사거리 1.15m를 조정 가능한 초기값으로 사용한다. `F2 → 기본 → 크리프 절단`의 왼다리·오른다리에 새 동작을 연결하고 양다리 시험을 추가한다. 양다리 시험에만 체력 118을 주고 실제 18 피해 네 번으로 체력 46을 남긴다. 원본 모델·17개 클립과 일반 적 체력은 보존한다.
+
+Implementation choice: use the source prone `sleep_loop` skeletal pose with procedural hand IK and body movement, rather than claiming a separately authored crawl FBX clip. Tunable starting values are a 0.48-second pose transition, 50%/18% movement factors, a 0.86m navigation capsule and 1.15m attack range. Existing left/right-leg F2 trials use the new motion, and a both-legs trial starts at 118 test-only HP before four actual 18-damage hits leave 46 HP. The source model, seventeen clips and normal enemy health are preserved.
+
+관련 자동 검사 7개, 최종 집중 검사와 실제 GPU 영상 36초 검증을 완료했다. 실제 검사·영상과 남은 제약은 [기어가기 검수 기록](../artifacts/validation/creep_crawl_20260918/README.md)에 남기며, 이전 절단 영상의 검증 완료를 새 동작의 완료로 간주하지 않는다. / Seven related suites, a focused final rerun and a 36-second actual GPU video passed. Executed checks, actual video and remaining limits belong in the linked crawl validation record; completion of the earlier dismemberment video does not establish completion of this motion.

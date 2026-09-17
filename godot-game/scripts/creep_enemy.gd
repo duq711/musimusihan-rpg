@@ -9,6 +9,7 @@ const RECOVERIES := [0.48, 0.45]
 const CONTACTS := [[0.18], [0.06, 0.34]]
 const RAGDOLL := preload("res://scripts/creep_ragdoll.gd")
 const DISMEMBERMENT := preload("res://scripts/creep_dismemberment.gd")
+const CRAWL := preload("res://scripts/creep_crawl.gd")
 
 var animation_player: AnimationPlayer
 var skeleton: Skeleton3D
@@ -18,6 +19,7 @@ var animation_sample := 0.0
 var resolved_contacts := 0
 var ragdoll: Node3D
 var dismemberment: Node3D
+var crawl: Node
 
 static func is_available() -> bool:
 	return ResourceLoader.exists(MODEL_PATH)
@@ -55,6 +57,18 @@ func _build_body() -> void:
 	dismemberment.name = "CreepDismemberment"
 	add_child(dismemberment)
 	dismemberment.configure(self, skeleton)
+	crawl = CRAWL.new()
+	crawl.name = "CreepCrawl"
+	add_child(crawl)
+	crawl.configure(self, skeleton)
+
+func is_crawling() -> bool:
+	return is_instance_valid(dismemberment) and dismemberment.missing_legs() > 0
+
+func get_aim_point() -> Vector3:
+	if is_crawling():
+		return (skeleton.global_transform * skeleton.get_bone_global_pose(skeleton.find_bone("Chest"))).origin
+	return super.get_aim_point()
 
 func _find_skeleton(node: Node) -> Skeleton3D:
 	if node is Skeleton3D:
@@ -127,8 +141,8 @@ func _set_state(next_state: AIState, stagger_seconds: float = STAGGER_SECONDS) -
 	resolved_contacts = 0
 	if next_state == AIState.WINDUP:
 		attack_index = (attack_index + 1) % ATTACKS.size()
-		if is_instance_valid(dismemberment) and "left_arm" in dismemberment.severed and "right_arm" in dismemberment.severed:
-			attack_index = 0 # Both arms gone: the surviving head can still bite.
+		if is_crawling() or (is_instance_valid(dismemberment) and "left_arm" in dismemberment.severed and "right_arm" in dismemberment.severed):
+			attack_index = 0 # Prone creatures keep supporting hands down and bite.
 	if is_instance_valid(animation_player):
 		_update_visual_pose(0.0)
 
@@ -166,7 +180,7 @@ func _update_visual_pose(_delta: float) -> void:
 	var sample := state_time
 	match ai_state:
 		AIState.CHASE:
-			clip = "walk"
+			clip = "idle" if is_crawling() else "walk"
 			# The source strides are in place; body travel uses the common AI.
 			sample *= move_speed / 2.2
 		AIState.WINDUP, AIState.ACTIVE, AIState.RECOVERY:
@@ -232,4 +246,4 @@ func _die() -> void:
 	defeated.emit(self)
 
 func get_creep_snapshot() -> Dictionary:
-	return {"archetype": "creep", "state": ai_state, "clip": animation_clip, "sample": animation_sample, "attack_index": attack_index, "resolved_contacts": resolved_contacts, "bones": skeleton.get_bone_count(), "meshes": visual_meshes.size(), "clips": animation_player.get_animation_list(), "source": MODEL_PATH, "ragdoll": ragdoll.snapshot(), "dismemberment": dismemberment.snapshot()}
+	return {"archetype": "creep", "state": ai_state, "clip": animation_clip, "sample": animation_sample, "attack_index": attack_index, "resolved_contacts": resolved_contacts, "bones": skeleton.get_bone_count(), "meshes": visual_meshes.size(), "clips": animation_player.get_animation_list(), "source": MODEL_PATH, "ragdoll": ragdoll.snapshot(), "dismemberment": dismemberment.snapshot(), "crawl": crawl.snapshot()}

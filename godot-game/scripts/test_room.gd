@@ -1855,7 +1855,7 @@ func _cancel_creep_ragdoll_trial() -> void:
 
 
 func _prepare_creep_dismemberment_trial(region: String) -> bool:
-	var labels := {"left_arm": "왼팔", "right_arm": "오른팔", "left_leg": "왼다리", "right_leg": "오른다리", "head": "머리", "distributed": "양팔 분산 타격"}
+	var labels := {"left_arm": "왼팔", "right_arm": "오른팔", "left_leg": "왼다리", "right_leg": "오른다리", "both_legs": "양다리 기어가기", "head": "머리", "distributed": "양팔 분산 타격"}
 	if not labels.has(region) or not _prepare_creep():
 		return false
 	_set_enemy_ai(false)
@@ -1871,7 +1871,14 @@ func _prepare_creep_dismemberment_trial(region: String) -> bool:
 		_status("크리프 절단 에셋이 설치되지 않았습니다 · docs/CREEP_ASSET.md의 설치 안내를 확인해주세요")
 		return false
 	creep_dismemberment_target.rotation.y = PI
-	creep_dismemberment_regions.assign(["left_arm", "right_arm"] if region == "distributed" else [region, region])
+	if region == "both_legs":
+		# Only this fixture gets enough health for four ordinary hits, ending
+		# at the same 46 HP as a single-limb trial. Production stats stay intact.
+		creep_dismemberment_target.max_health = 118.0
+		creep_dismemberment_target.health = 118.0
+		creep_dismemberment_regions.assign(["left_leg", "left_leg", "right_leg", "right_leg"])
+	else:
+		creep_dismemberment_regions.assign(["left_arm", "right_arm"] if region == "distributed" else [region, region])
 	creep_dismemberment_hit_count = 0
 	creep_dismemberment_timer = Timer.new()
 	creep_dismemberment_timer.name = "CreepDismembermentTrialTimer"
@@ -1882,8 +1889,8 @@ func _prepare_creep_dismemberment_trial(region: String) -> bool:
 	add_child(creep_dismemberment_timer)
 	creep_dismemberment_timer.timeout.connect(_apply_creep_dismemberment_trial_hit)
 	creep_dismemberment_timer.start()
-	_status("크리프 부위 절단 · %s · 0.8초 간격 18 피해 2회 / F2 일시정지·재선택" % labels[region])
-	hud.show_event("%s · 두 번 타격 후 전투 재개 · F2 일시정지" % labels[region], 1.5)
+	_status("크리프 부위 절단 · %s · 0.8초 간격 18 피해 %d회 / F2 일시정지·재선택" % [labels[region], creep_dismemberment_regions.size()])
+	hud.show_event("%s · %d회 타격 후 전투 재개 · F2 일시정지" % [labels[region], creep_dismemberment_regions.size()], 1.5)
 	return true
 
 
@@ -1901,7 +1908,7 @@ func _apply_creep_dismemberment_trial_hit() -> void:
 	if creep_dismemberment_hit_count >= creep_dismemberment_regions.size():
 		_cancel_creep_dismemberment_trial()
 		_set_enemy_ai(true)
-		_status("부위 타격 시험 완료 · 사지 절단 후 전투 계속 / 머리 절단 시 사망 · F2 재선택: 회복·재생성")
+		_status("부위 타격 시험 완료 · 다리 절단 후 기어서 전투 / 머리 절단 시 사망 · F2 재선택: 회복·재생성")
 
 
 func _cancel_creep_dismemberment_trial() -> void:
@@ -1909,7 +1916,7 @@ func _cancel_creep_dismemberment_trial() -> void:
 		creep_dismemberment_timer.stop()
 		creep_dismemberment_timer.queue_free()
 	# A feature switch can retain the live target. Do not leave it permanently
-	# frozen merely because its scripted two-hit demonstration was cancelled.
+	# frozen merely because its scripted localized-hit demonstration was cancelled.
 	if is_instance_valid(creep_dismemberment_target) and not creep_dismemberment_target.is_queued_for_deletion() and creep_dismemberment_target.ai_state != DungeonEnemy.AIState.DEAD:
 		_set_enemy_ai(true)
 	creep_dismemberment_timer = null

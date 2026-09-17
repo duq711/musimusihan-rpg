@@ -74,12 +74,16 @@ func begin(death_velocity: Vector3) -> void:
 func _physics_process(delta: float) -> void:
 	if phase == "reaction":
 		reaction_time = minf(reaction_time + delta, REACTION_SECONDS)
-		player.play("hit")
-		player.seek(reaction_time * 1.25, true)
-		var blend := smoothstep(0.0, REACTION_SECONDS, reaction_time)
-		for bone in rig.get_bone_count():
-			var hit := rig.get_bone_pose(bone)
-			rig.set_bone_pose(bone, initial_pose[bone].interpolate_with(hit, blend))
+		if actor.is_crawling():
+			# Never blend a prone death back into the standing source hit clip.
+			for bone in rig.get_bone_count(): rig.set_bone_pose(bone, initial_pose[bone])
+		else:
+			player.play("hit")
+			player.seek(reaction_time * 1.25, true)
+			var blend := smoothstep(0.0, REACTION_SECONDS, reaction_time)
+			for bone in rig.get_bone_count():
+				var hit := rig.get_bone_pose(bone)
+				rig.set_bone_pose(bone, initial_pose[bone].interpolate_with(hit, blend))
 		actor.animation_sample = reaction_time * 1.25
 		if reaction_time >= REACTION_SECONDS:
 			_start_physics()
