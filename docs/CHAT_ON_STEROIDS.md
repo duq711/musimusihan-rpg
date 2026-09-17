@@ -2,21 +2,32 @@
 
 ## 이 Mac의 준비 상태 / Setup status on this Mac
 
-2026-09-17: 앱 2.1.13 설치와 기존 프로젝트 `/rpg` 등록, ChatGPT 워크스페이스용 터널 생성·지정까지 완료했습니다. Chrome companion의 브라우저 연결을 확인했고, 사용자가 API 키를 앱에 직접 입력한 뒤 터널이 **Connected. Pick the tunnel in ChatGPT.**, 앱의 Core가 **Published**로 표시되는 것을 확인했습니다. ChatGPT의 개발자 모드는 현재 꺼져 있으며, ChatGPT Core 플러그인 등록과 실제 프로젝트 파일 읽기는 아직 확인하지 않았습니다. 앱의 Published는 ChatGPT 등록 완료를 뜻하지 않습니다.
+2026-09-17: 앱 2.1.13 설치, 기존 프로젝트 `/rpg` 등록, Chrome companion 연결, OpenAI 터널 연결, ChatGPT 개발자 모드 및 **Chat On Steroids Core** 등록을 완료했습니다. ChatGPT에서 Core의 **read**와 **exec_command**가 실제로 성공하는 것을 확인했습니다. 아래 검증은 파일 수정 없이 수행했습니다.
 
-2026-09-17: App 2.1.13 is installed; the existing project is registered as `/rpg`, and a tunnel associated with the ChatGPT workspace is created and selected. Chrome companion pairing is verified. After the user entered the API key directly in the app, the tunnel reported **Connected. Pick the tunnel in ChatGPT.** and the app's Core status became **Published**. ChatGPT Developer mode is currently off; ChatGPT Core plugin registration and a real project file read are not yet verified. Published in the app does not mean registration in ChatGPT is complete.
+2026-09-17: App 2.1.13 is installed with the existing project registered as `/rpg`. Chrome companion pairing, the OpenAI tunnel, ChatGPT Developer mode, and **Chat On Steroids Core** registration are complete. Core's **read** and **exec_command** tools succeeded from ChatGPT. The checks below made no file changes.
 
-다음 단계: ChatGPT의 **설정 → 보안 및 로그인 → 개발자 모드**를 켜고 **Chat On Steroids Core**를 기존 터널에 등록한 뒤 실제 파일 읽기를 확인합니다. 컴퓨터 제어 도구는 이 보안 접근 권한 추가 시점에 사용자 확인을 요구합니다. 이미 저장된 API 키를 다시 만들거나 Chrome 확장을 다시 설치할 필요는 없습니다. 키는 대화에 보내지 않습니다.
+검증 결과: Core가 `/rpg/README.md`, `/rpg/AGENTS.md`, `/rpg/docs/CHAT_ON_STEROIDS.md`를 읽었고, README 내용은 로컬 원본과 일치했습니다. `/rpg`에서 `pwd`와 프로젝트 전용 Git 도구로 확인한 경로·브랜치·HEAD도 별도 로컬 확인과 일치했습니다. 세 명령은 모두 종료 코드 0으로 완료됐습니다. 검증 당시 작업 브랜치는 `codex/creep-creature`, HEAD는 `220bc1697bd52d8d59a2a0faa070cabf702d3366`입니다. 이 작업 폴더의 브랜치와 과거 자료 공유용 `codex/project-archive-20260917` 브랜치는 구분합니다.
 
-Next steps: Enable **Settings → Security and login → Developer mode** in ChatGPT, register **Chat On Steroids Core** using the existing tunnel, then verify an actual file read. The computer-control tool requires user confirmation when adding this security-sensitive access. The stored API key and verified Chrome companion do not need to be recreated or reinstalled. Keep the key out of chat.
+Verification: Core read `/rpg/README.md`, `/rpg/AGENTS.md`, and `/rpg/docs/CHAT_ON_STEROIDS.md`; the README matched the local original. Running `pwd` and the project Git wrapper from `/rpg` returned the same path, branch, and HEAD as an independent local check. All three commands exited with code 0. At verification, the working branch was `codex/creep-creature` at `220bc1697bd52d8d59a2a0faa070cabf702d3366`. This working checkout is distinct from the historical publication branch `codex/project-archive-20260917`.
 
-API 키는 사용자가 직접 입력했으며 앱에서 운영체제의 보안 인증 정보 저장소에 보관 중임을 확인했습니다. 브라우저 연결, 터널 연결, 앱의 Core 공개 상태, ChatGPT 등록, 실제 파일 읽기는 각각 따로 확인합니다.
+API 키는 사용자가 직접 입력했으며 앱에서 운영체제의 보안 인증 정보 저장소에 보관 중임을 확인했습니다. ChatGPT의 플러그인 권한은 **저위험 액션 허용**입니다. 화면·키보드 제어용 선택 기능인 Desktop 연결은 추가하지 않았습니다.
 
-The user entered the API key directly, and the app confirms it is stored in secure OS credential storage. Verify browser pairing, tunnel connectivity, the app's Core publication status, ChatGPT registration, and an actual file read separately.
+The user entered the API key directly, and the app confirms it is stored in secure OS credential storage. The ChatGPT plugin permission is **Allow low-risk actions**. The optional Desktop connection for screen and keyboard control was not added.
+
+첫 read 응답에는 대화 식별 지연으로 Unattributed 경고가 있었으나, 앱 Activity에서 두 호출을 해당 대화로 자동 복구했고 미식별 호출이 0개로 바뀐 것을 확인했습니다. 앱의 ‘연결 검증 요약’ 대화에서도 읽기·명령 실행 기록과 결과가 표시됩니다. 초기 응답의 경고는 복구 전 상태입니다.
+
+The initial read response warned of delayed conversation attribution. App Activity subsequently confirmed that both calls were repaired into the correct conversation, with zero calls remaining unknown. The app's verification conversation displays the read and command records and results. The initial response's warning predates this repair.
 
 Codex용 개인 연결 스킬 `chat-on-steroids`와 이후 작업의 연속성 지침을 이 Mac에 저장했습니다. 공유용 [스킬 원본](../skills/chat-on-steroids/SKILL.md)도 포함합니다. 이 스킬은 이번에 작성한 인계 지침이며, 앱 자체가 Codex 안에 설치되거나 모든 대화가 자동 이전된다는 뜻은 아닙니다. 기존 제작 자료의 공유 내역은 [아카이브 안내](WORK_ARCHIVE_20260917.md)를 확인합니다.
 
 A personal `chat-on-steroids` integration skill and persistent continuity preference are saved on this Mac. Its [shareable source](../skills/chat-on-steroids/SKILL.md) is included. This newly authored handoff skill does not embed the app inside Codex or automatically migrate conversations. See the [archive report](WORK_ARCHIVE_20260917.md) for historical materials.
+
+## 평소 사용하는 순서 / Everyday use
+
+1. 이 Mac에서 **Chat On Steroids**를 실행하고 터널 연결을 유지합니다. / Run **Chat On Steroids** on this Mac and keep its tunnel connected.
+2. companion이 설치된 Chrome의 ChatGPT에서 **+ → Chat On Steroids Core**를 선택합니다. 검증한 대화에서는 바로 후속 작업을 요청할 수 있습니다. / In ChatGPT on Chrome with the companion installed, select **+ → Chat On Steroids Core**. The verified conversation can also accept follow-up tasks.
+3. “`/rpg`의 인계 문서와 AGENTS.md를 읽고, [요청할 작업]을 진행해 주세요”라고 요청합니다. 같은 파일을 수정 중인 다른 작업이 있으면 담당 범위를 나눕니다. / Ask: “Read the handoff guide and AGENTS.md in `/rpg`, then [requested task].” Coordinate ownership when other tasks are editing the same files.
+4. 작업별 관련 검증 후 해당 변경만 커밋·푸시하고 원격 SHA까지 확인하도록 합니다. / Have each task validate its changes, commit and push only those changes, and verify the remote SHA.
 
 ## 기존 작업을 이어 쓰는 방법 / Continue existing work
 
