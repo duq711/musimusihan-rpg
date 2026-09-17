@@ -41,6 +41,10 @@ The default output is the game's `creep.glb`. A working copy is normalized to 1.
 
 ## 게임 연결 / Gameplay integration
 
+집중 타격에 따른 팔다리·머리 절단은 [부위 절단 안내](CREEP_DISMEMBERMENT.md)를 따른다. 원본 설치 뒤 `python3 tools/build_creep_dismemberment.py`를 실행하면 별도 `creep_dismembered.glb`를 만든다. 원본을 보존하며, 파생 에셋 역시 로컬에만 둔다.
+
+For concentrated-hit limb/head severance, follow the linked dismemberment guide. After installing the original, run `python3 tools/build_creep_dismemberment.py` to build the separate local-only `creep_dismembered.glb`.
+
 테스트룸의 `F2 → 기본 → 크리프 · 괴물 근접 전투`는 실제 크리프 1명, 검·방패와 회복된 플레이어를 준비합니다. `LMB` 공격, `RMB` 방어, `F2` 메뉴 복귀를 사용합니다. 같은 항목을 다시 선택하면 적을 재생성하고 체력을 회복합니다. 초기화하면 기존 시험 적 두 명으로 복구하고, 시험 종료 시 원래 원정과 인벤토리를 복원합니다.
 
 `F2 → 기본 → 크리프 · 괴물 근접 전투` starts a real Creep duel with a healed player and sword/shield. LMB attacks, RMB guards, and F2 returns to the menu. Reselecting heals and respawns the opponent; reset restores the two default trial enemies. Leaving restores the original expedition and inventory.

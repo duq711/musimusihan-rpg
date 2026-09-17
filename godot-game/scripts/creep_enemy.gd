@@ -8,6 +8,7 @@ const ACTIVE_TIMES := [0.30, 0.45]
 const RECOVERIES := [0.48, 0.45]
 const CONTACTS := [[0.18], [0.06, 0.34]]
 const RAGDOLL := preload("res://scripts/creep_ragdoll.gd")
+const DISMEMBERMENT := preload("res://scripts/creep_dismemberment.gd")
 
 var animation_player: AnimationPlayer
 var skeleton: Skeleton3D
@@ -16,6 +17,7 @@ var animation_clip := "idle"
 var animation_sample := 0.0
 var resolved_contacts := 0
 var ragdoll: Node3D
+var dismemberment: Node3D
 
 static func is_available() -> bool:
 	return ResourceLoader.exists(MODEL_PATH)
@@ -33,7 +35,8 @@ func _build_body() -> void:
 	visual_root.position.y = -0.90
 	add_child(visual_root)
 	visual_base_position = visual_root.position
-	model_root = (load(MODEL_PATH) as PackedScene).instantiate()
+	var installed_model := DISMEMBERMENT.MODEL_PATH if ResourceLoader.exists(DISMEMBERMENT.MODEL_PATH) else MODEL_PATH
+	model_root = (load(installed_model) as PackedScene).instantiate()
 	visual_root.add_child(model_root)
 	animation_player = model_root.find_child("AnimationPlayer", true, false) as AnimationPlayer
 	skeleton = _find_skeleton(model_root)
@@ -48,6 +51,10 @@ func _build_body() -> void:
 	ragdoll.name = "CreepRagdoll"
 	add_child(ragdoll)
 	ragdoll.configure(self, skeleton, animation_player)
+	dismemberment = DISMEMBERMENT.new()
+	dismemberment.name = "CreepDismemberment"
+	add_child(dismemberment)
+	dismemberment.configure(self, skeleton)
 
 func _find_skeleton(node: Node) -> Skeleton3D:
 	if node is Skeleton3D:
@@ -120,6 +127,8 @@ func _set_state(next_state: AIState, stagger_seconds: float = STAGGER_SECONDS) -
 	resolved_contacts = 0
 	if next_state == AIState.WINDUP:
 		attack_index = (attack_index + 1) % ATTACKS.size()
+		if is_instance_valid(dismemberment) and "left_arm" in dismemberment.severed and "right_arm" in dismemberment.severed:
+			attack_index = 0 # Both arms gone: the surviving head can still bite.
 	if is_instance_valid(animation_player):
 		_update_visual_pose(0.0)
 
@@ -129,6 +138,10 @@ func _resolve_active_attack() -> void:
 	var contacts: Array = CONTACTS[_attack()]
 	while resolved_contacts < contacts.size() and state_time >= contacts[resolved_contacts]:
 		resolved_contacts += 1
+		if _attack() == 1 and is_instance_valid(dismemberment):
+			var attacking_arm := "right_arm" if resolved_contacts == 1 else "left_arm"
+			if attacking_arm in dismemberment.severed:
+				continue # A missing limb cannot deal an invisible punch.
 		# One punch cycle has two contacts, sharing the original encounter damage.
 		var full_damage := attack_damage
 		attack_damage = full_damage / float(contacts.size())
@@ -178,6 +191,30 @@ func _update_visual_pose(_delta: float) -> void:
 	animation_player.seek(sample, true)
 	animation_clip = clip
 	animation_sample = sample
+	if is_instance_valid(dismemberment):
+		dismemberment.apply_living_pose(_delta)
+
+func query_located_hit(from: Vector3, to: Vector3, radius: float = 0.0) -> Dictionary:
+	return dismemberment.query_hit(from, to, radius) if is_instance_valid(dismemberment) else {}
+
+func get_located_hit_attachment(hit_position: Vector3) -> Node3D:
+	return dismemberment.create_attachment(hit_position)
+
+func receive_located_hit(amount: float, attacker_position: Vector3, charge: float, headshot: bool, hit_position: Vector3) -> void:
+	if ai_state == AIState.DEAD or amount <= 0.0 or not hit_position.is_finite():
+		return
+	if dismemberment.region_at_point(hit_position).is_empty():
+		return # A stale contact on an absent limb is a miss, not torso damage.
+	# Bake before the damage reaction seeks a different animation frame.
+	var cut: String = dismemberment.register_hit(amount, hit_position, attacker_position)
+	if cut == "head":
+		super.receive_hit(maxf(amount, health), attacker_position, charge, true)
+	else:
+		super.receive_hit(amount, attacker_position, charge, headshot)
+	if not cut.is_empty() and hud:
+		var labels := {"left_arm": "왼팔", "right_arm": "오른팔", "left_leg": "왼다리", "right_leg": "오른다리", "head": "머리"}
+		hud.show_event("크리프 · %s 절단" % labels[cut], 1.0)
+
 
 func _die() -> void:
 	if ai_state == AIState.DEAD:
@@ -195,4 +232,4 @@ func _die() -> void:
 	defeated.emit(self)
 
 func get_creep_snapshot() -> Dictionary:
-	return {"archetype": "creep", "state": ai_state, "clip": animation_clip, "sample": animation_sample, "attack_index": attack_index, "resolved_contacts": resolved_contacts, "bones": skeleton.get_bone_count(), "meshes": visual_meshes.size(), "clips": animation_player.get_animation_list(), "source": MODEL_PATH, "ragdoll": ragdoll.snapshot()}
+	return {"archetype": "creep", "state": ai_state, "clip": animation_clip, "sample": animation_sample, "attack_index": attack_index, "resolved_contacts": resolved_contacts, "bones": skeleton.get_bone_count(), "meshes": visual_meshes.size(), "clips": animation_player.get_animation_list(), "source": MODEL_PATH, "ragdoll": ragdoll.snapshot(), "dismemberment": dismemberment.snapshot()}

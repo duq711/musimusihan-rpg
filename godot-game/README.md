@@ -666,3 +666,7 @@ Licensed binaries are not distributed in the public repository. Follow the linke
 `F2 → 기본 → 크리프 래그돌`에는 정면·측면·벽 충돌의 세 사망 시험이 있습니다. 선택하면 실제 크리프와 회복된 플레이어를 준비하고 1초 뒤 일반 피격 경로로 치명타를 적용합니다. `F2`로 대기·물리를 멈추고, 같은 항목 재선택으로 시체 제거·회복·재생성을 반복합니다. [테스트룸 안내](TEST_ROOM.md#크리프-래그돌--정면측면벽--creep-ragdoll--front-side-and-wall)를 참고하세요. 물리·전투·테스트룸 검사와 실제 렌더 검증을 완료했습니다. [검증 영상·범위](artifacts/validation/creep_ragdoll_20260917/README.md)를 참고하세요.
 
 `F2 → 기본 → 크리프 래그돌` provides front, side, and wall death trials. Each prepares a real Creep and healed player, then applies a fatal hit through the ordinary damage path after one second. `F2` pauses the countdown and physics; reselection removes the corpse, heals, and respawns. See the test-room guide. Physics, combat and test-room checks plus actual GPU rendering passed; see the linked validation record for scope and limits.
+
+`F2 → 기본 → 크리프 절단`은 왼팔·오른팔·왼다리·오른다리·머리의 집중 타격과 양팔 분산 타격 비교를 제공합니다. 0.8초 간격 18 피해 두 번을 실제 부위 타격 경로로 전달하며, 사지 절단 후 살아서 전투를 계속하고 머리 절단은 즉시 사망합니다. `F2` 일시정지·재선택·초기화를 지원합니다. [시험 방법](TEST_ROOM.md#크리프-부위-절단--creep-localized-dismemberment)을 참고하세요.
+
+`F2 → 기본 → 크리프 절단` offers focused hits to either arm, either leg or the head, plus a distributed-hit comparison. Two 18-damage hits, 0.8 seconds apart, use the actual localized damage path. Limb loss leaves the enemy alive and fighting; decapitation is fatal. `F2` pause, replay and reset are supported; see the linked trial guide.

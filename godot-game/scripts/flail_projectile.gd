@@ -10,6 +10,7 @@ const WORLD_LAYER := 2
 const ENEMY_LAYER := 4
 const MAX_LIFETIME := 8.0
 const CATCH_RADIUS := 0.16
+const LOCATED_HIT_QUERY := preload("res://scripts/located_hit_query.gd")
 
 var phase := "outbound"
 var charge := 0.0
@@ -28,6 +29,7 @@ var _sweep_cast: ShapeCast3D
 var _head: Node3D
 var _chain: Node3D
 var _caster_exclusion_rids: Array[RID] = []
+var _last_sweep_contact := Vector3.INF
 
 
 func configure(caster_ref: Node3D, travel_direction: Vector3, draw_charge: float) -> FlailProjectile:
@@ -134,6 +136,10 @@ func abort() -> void:
 func _sweep(from: Vector3, to: Vector3) -> bool:
 	if _sweep_cast == null or _hit_resolved or _finished:
 		return false
+	_sync_caster_exclusions()
+	var located := LOCATED_HIT_QUERY.collect(get_tree(), from, to, PROFILE.HEAD_RADIUS, _caster_exclusion_rids)
+	for body: CollisionObject3D in located.bodies:
+		_sweep_cast.add_exception(body)
 	# Motion casts can miss a sphere already wholly enclosed by a wall. Probe
 	# the real head volume at the start as well, especially the camera spawn.
 	var overlap_query := PhysicsShapeQueryParameters3D.new()
@@ -142,7 +148,7 @@ func _sweep(from: Vector3, to: Vector3) -> bool:
 	overlap_query.collision_mask = WORLD_LAYER | ENEMY_LAYER
 	overlap_query.collide_with_areas = false
 	overlap_query.collide_with_bodies = true
-	overlap_query.exclude = _caster_exclusion_rids
+	overlap_query.exclude = located.excluded
 	var overlaps := get_world_3d().direct_space_state.intersect_shape(overlap_query, 32)
 	if not overlaps.is_empty():
 		var overlap_target: Node
@@ -154,24 +160,30 @@ func _sweep(from: Vector3, to: Vector3) -> bool:
 			if not candidate.has_method("receive_hit"):
 				break
 		global_position = from
-		_resolve_impact(overlap_target)
+		_resolve_impact(overlap_target, from)
 		return true
 	_sweep_cast.global_position = from
 	_sweep_cast.target_position = _sweep_cast.to_local(to)
 	_sweep_cast.force_shapecast_update()
-	if not _sweep_cast.is_colliding():
+	if not _sweep_cast.is_colliding() and located.hit.is_empty():
 		_sweep_cast.position = Vector3.ZERO
 		return false
 	var motion := to - from
 	var fraction := clampf(_sweep_cast.get_closest_collision_safe_fraction(), 0.0, 1.0)
 	var target := _first_collider(from, motion)
-	global_position = from + motion * fraction
+	var contact: Dictionary = {"collider": target, "position": _last_sweep_contact, "fraction": fraction} if target != null else {}
+	contact = LOCATED_HIT_QUERY.nearer(contact, located.hit, from, to)
+	if contact.is_empty():
+		_sweep_cast.position = Vector3.ZERO
+		return false
+	target = contact.collider
+	global_position = contact.position if target.has_method("query_located_hit") else from + motion * fraction
 	_sweep_cast.position = Vector3.ZERO
-	_resolve_impact(target)
+	_resolve_impact(target, contact.position)
 	return true
 
 
-func _resolve_impact(target: Node) -> void:
+func _resolve_impact(target: Node, hit_position: Vector3 = Vector3.INF) -> void:
 	if _finished or _hit_resolved:
 		return
 	# Resolve the phase before calling gameplay code or signals. A callback can
@@ -179,12 +191,16 @@ func _resolve_impact(target: Node) -> void:
 	phase = "returning"
 	_hit_resolved = true
 	if is_instance_valid(target) and target.has_method("receive_hit"):
-		target.call("receive_hit", damage, _caster_origin, charge, false)
+		if hit_position.is_finite() and target.has_method("receive_located_hit"):
+			target.call("receive_located_hit", damage, _caster_origin, charge, false, hit_position)
+		else:
+			target.call("receive_hit", damage, _caster_origin, charge, false)
 		if not _finished and is_instance_valid(target):
 			hit_target.emit(target, damage, false)
 
 
 func _first_collider(from: Vector3, motion: Vector3) -> Node:
+	_last_sweep_contact = Vector3.INF
 	var best: Node
 	var best_progress := INF
 	var best_is_wall := false
@@ -203,6 +219,7 @@ func _first_collider(from: Vector3, motion: Vector3) -> Node:
 			best = candidate
 			best_progress = progress
 			best_is_wall = is_wall
+			_last_sweep_contact = _sweep_cast.get_collision_point(index)
 	return best
 
 

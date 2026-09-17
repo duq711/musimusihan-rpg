@@ -15,6 +15,7 @@ const PLAYER_LAYER := 1
 const WORLD_LAYER := 2
 const ENEMY_LAYER := 4
 const INTERACT_LAYER := 16
+const LOCATED_HIT_QUERY := preload("res://scripts/located_hit_query.gd")
 
 const SWORD_SCENE := preload("res://assets/3d/player/sword_hold_long_grip/SwordHold_Static.glb")
 const SWORD_LONG_GRIP := preload("res://scripts/sword_long_grip_visual.gd")
@@ -1094,14 +1095,22 @@ func _perform_melee_hit() -> void:
 			continue
 		if not _has_clear_melee_path(candidate):
 			continue
+		var contact := _located_melee_contact(candidate, lerpf(2.12, 2.40, attack_charge))
+		if candidate.has_method("query_located_hit") and contact.is_empty():
+			continue
 		attack_hit_ids[instance_id] = true
 		var aim_point: Vector3 = candidate.call("get_aim_point") if candidate.has_method("get_aim_point") else candidate.global_position
 		var aim_direction := camera.global_position.direction_to(aim_point)
 		var headshot: bool = (-camera.global_transform.basis.z).dot(aim_direction) > 0.991 and aim_point.y > candidate.global_position.y + 0.35
+		if not contact.is_empty():
+			headshot = str(contact.get("region", "")) == "head"
 		var damage := get_melee_damage(attack_charge)
 		if headshot:
 			damage *= 1.42
-		candidate.call("receive_hit", damage, global_position, attack_charge, headshot)
+		if not contact.is_empty() and candidate.has_method("receive_located_hit"):
+			candidate.call("receive_located_hit", damage, global_position, attack_charge, headshot, contact.position)
+		else:
+			candidate.call("receive_hit", damage, global_position, attack_charge, headshot)
 		apply_smithing_on_hit()
 		landed = true
 		attack_landed.emit(damage, headshot)
@@ -1121,7 +1130,36 @@ func _query_melee_hits() -> Array[Dictionary]:
 	query.collision_mask = ENEMY_LAYER
 	query.collide_with_bodies = true
 	query.collide_with_areas = false
-	return get_world_3d().direct_space_state.intersect_shape(query, 12)
+	var hits := get_world_3d().direct_space_state.intersect_shape(query, 12)
+	_append_located_melee_hit(hits, lerpf(2.12, 2.40, attack_charge))
+	return hits
+
+
+func _located_melee_contact(target: Node, reach: float) -> Dictionary:
+	if not target.has_method("query_located_hit"):
+		return {}
+	var from := camera.global_position
+	var to := from - camera.global_basis.z * reach
+	var contact: Dictionary = target.call("query_located_hit", from, to, 0.10)
+	if not contact.is_empty():
+		var wall := PhysicsRayQueryParameters3D.create(from, contact.position, WORLD_LAYER)
+		wall.collide_with_areas = false
+		if not get_world_3d().direct_space_state.intersect_ray(wall).is_empty():
+			return {}
+	return contact
+
+
+func _append_located_melee_hit(hits: Array[Dictionary], reach: float) -> void:
+	var from := camera.global_position
+	var contacts := LOCATED_HIT_QUERY.collect(get_tree(), from, from - camera.global_basis.z * reach, 0.10)
+	var contact: Dictionary = contacts.hit
+	if contact.is_empty():
+		return
+	for hit in hits:
+		if hit.get("collider") == contact.collider:
+			return
+	# Arms outside the navigation capsule remain directly targetable.
+	hits.append(contact)
 
 
 func is_sword_attack_active() -> bool:
@@ -1646,11 +1684,19 @@ func _perform_flail_melee_hit() -> void:
 	query.collision_mask = ENEMY_LAYER
 	query.collide_with_areas = false
 	query.exclude = [get_rid()]
-	for result: Dictionary in get_world_3d().direct_space_state.intersect_shape(query, 12):
+	var hits := get_world_3d().direct_space_state.intersect_shape(query, 12)
+	_append_located_melee_hit(hits, 2.25)
+	for result: Dictionary in hits:
 		var target := result.get("collider") as Node3D
 		if not is_instance_valid(target) or not target.has_method("receive_hit") or not _has_clear_melee_path(target):
 			continue
-		target.call("receive_hit", damage, global_position, 0.5, false)
+		var contact := _located_melee_contact(target, 2.25)
+		if target.has_method("query_located_hit") and contact.is_empty():
+			continue
+		if not contact.is_empty() and target.has_method("receive_located_hit"):
+			target.call("receive_located_hit", damage, global_position, 0.5, false, contact.position)
+		else:
+			target.call("receive_hit", damage, global_position, 0.5, false)
 		attack_landed.emit(damage, false)
 		if is_instance_valid(hud):
 			hud.show_hit(false)

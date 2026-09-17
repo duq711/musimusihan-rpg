@@ -5,6 +5,7 @@ signal hit_target(spell_id: String, target: Node, damage: float)
 
 const WORLD_LAYER := 2
 const ENEMY_LAYER := 4
+const LOCATED_HIT_QUERY := preload("res://scripts/located_hit_query.gd")
 
 var spell_id := ""
 var element := ""
@@ -19,6 +20,7 @@ var _resolved := false
 var _spell_color := Color.WHITE
 var _sweep_cast: ShapeCast3D
 var _visual_root: Node3D
+var _last_sweep_contact := Vector3.INF
 
 
 func configure(id: String, definition: Dictionary, caster_ref: Node, travel_direction: Vector3) -> MagicProjectile:
@@ -58,9 +60,16 @@ func _physics_process(delta: float) -> void:
 	var from := global_position
 	var motion := direction * speed * delta
 	var to := from + motion
+	_sync_caster_exception()
+	var exclusions: Array[RID] = []
+	if is_instance_valid(caster) and caster is CollisionObject3D:
+		exclusions.append((caster as CollisionObject3D).get_rid())
+	var located := LOCATED_HIT_QUERY.collect(get_tree(), from, to, radius, exclusions)
+	for body: CollisionObject3D in located.bodies:
+		_sweep_cast.add_exception(body)
 	_sweep_cast.target_position = _sweep_cast.to_local(to)
 	_sweep_cast.force_shapecast_update()
-	if not _sweep_cast.is_colliding():
+	if not _sweep_cast.is_colliding() and located.hit.is_empty():
 		global_position = to
 		_spin_visual(delta)
 		return
@@ -68,23 +77,29 @@ func _physics_process(delta: float) -> void:
 	# ShapeCast3D sweeps the projectile's real SphereShape3D, preventing fast or
 	# off-centre shots from tunnelling through thin walls and enemy silhouettes.
 	var safe_fraction := clampf(_sweep_cast.get_closest_collision_safe_fraction(), 0.0, 1.0)
-	global_position = from + motion * safe_fraction
 	var target := _first_sweep_collider(from, motion)
+	var contact: Dictionary = {"collider": target, "position": _last_sweep_contact, "fraction": safe_fraction} if target != null else {}
+	contact = LOCATED_HIT_QUERY.nearer(contact, located.hit, from, to)
+	target = contact.get("collider") as Node
+	global_position = contact.position if target != null and target.has_method("query_located_hit") else from + motion * safe_fraction
 	if target != null and target.has_method("receive_hit"):
-		resolve_hit(target)
+		resolve_hit(target, contact.position)
 	else:
 		_resolved = true
 		queue_free()
 
 
-func resolve_hit(target: Node) -> bool:
+func resolve_hit(target: Node, hit_position: Vector3 = Vector3.INF) -> bool:
 	if _resolved or target == null or not is_instance_valid(target) or not target.has_method("receive_hit"):
 		return false
 	_resolved = true
 	var attacker_position := global_position - direction
 	if is_instance_valid(caster) and caster is Node3D:
 		attacker_position = (caster as Node3D).global_position
-	target.call("receive_hit", damage, attacker_position, knockback, false)
+	if hit_position.is_finite() and target.has_method("receive_located_hit"):
+		target.call("receive_located_hit", damage, attacker_position, knockback, false, hit_position)
+	else:
+		target.call("receive_hit", damage, attacker_position, knockback, false)
 	hit_target.emit(spell_id, target, damage)
 	queue_free()
 	return true
@@ -125,6 +140,7 @@ func _build_visual() -> void:
 
 
 func _first_sweep_collider(from: Vector3, motion: Vector3) -> Node:
+	_last_sweep_contact = Vector3.INF
 	var best_target: Node
 	var best_progress := INF
 	var best_is_blocker := false
@@ -147,6 +163,7 @@ func _first_sweep_collider(from: Vector3, motion: Vector3) -> Node:
 			best_target = candidate
 			best_progress = progress
 			best_is_blocker = is_blocker
+			_last_sweep_contact = _sweep_cast.get_collision_point(index)
 	return best_target
 
 

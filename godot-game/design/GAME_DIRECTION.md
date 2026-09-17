@@ -317,3 +317,9 @@ The follow-up request connects Creep death to physical joints. The implementatio
 테스트룸에 정면·측면·북쪽 벽 사망 시험을 연결한다. 회복·재생성 후 1초 뒤 실제 피격 함수로 치명타를 주고, F2 일시정지·재선택·초기화·원정 격리를 포함한다. 물리·테스트룸·관련 전투 검사와 실제 GPU 영상 검증을 완료했다. [검증 범위](../artifacts/validation/creep_ragdoll_20260917/README.md)를 따른다.
 
 The test room adds front, side, and north-wall death scenarios. Each heals and respawns, then sends a fatal hit through the real damage function after one second, including F2 pause, replay, reset, and expedition isolation. Physics, test-room, related combat checks and real GPU-video validation passed; see the linked scope and limitations.
+
+## 2026-09-18 크리프 부위 절단 — 사용자 확정 / Creep dismemberment — confirmed
+
+같은 팔·다리·머리를 집중 공격하면 해당 부위를 절단한다. 사용자는 팔다리 절단 후에도 크리프가 살아서 전투를 계속하도록 선택했다. 머리 절단은 즉시 사망이며, 일반 체력 소진에 따른 사망·기존 처치 보상은 유지한다. 초기 구현값(부위당 2회 이상·누적 35, 다리 손실 시 이동 속도 50%/18%)은 조정 가능한 제작 판단이다. 실제 부위 메시·피격 위치·분리 물리·생존 공격·F2 시험을 연결했다. [동작·설치 안내](../docs/CREEP_DISMEMBERMENT.md)와 [검증 근거](../artifacts/validation/creep_dismemberment_20260917/README.md)를 따른다.
+
+Focused hits sever the selected arm, leg or head. The user chose continued combat after limb loss; decapitation kills immediately. Normal health depletion and single death rewards remain. The initial two-hit/35-damage threshold and 50%/18% leg-loss speeds are tunable implementation values. See the linked implementation and validation records.

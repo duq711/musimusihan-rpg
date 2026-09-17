@@ -125,6 +125,8 @@ func _start_physics() -> void:
 	set_as_top_level(true)
 	global_transform = Transform3D.IDENTITY
 	for spec: Array in PARTS:
+		if is_instance_valid(actor.get("dismemberment")) and actor.dismemberment.is_bone_severed(spec[0]):
+			continue # Already detached geometry has its own independent body.
 		var bone_world := _bone_world(spec[0])
 		var start := bone_world.origin
 		var end: Vector3 = _bone_world(spec[1]).origin if not str(spec[1]).is_empty() else start + bone_world.basis.y.normalized() * float(spec[5])

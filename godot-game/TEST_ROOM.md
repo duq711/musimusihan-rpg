@@ -871,3 +871,24 @@ The three `F2 → 기본 → 크리프 래그돌` entries reuse the Creep encoun
 `F2` pauses both the pending fatal hit and physics, and resuming continues them. Reselection removes the corpse, heals, and respawns. Switching entries, resetting, or changing scenes cancels any pending hit. Missing assets show setup guidance; `TestRoomSandbox` restores the original expedition and inventory on exit.
 
 `creep_ragdoll`, `creep_ragdoll_trial`, `creep_enemy`, `creep_motion_reel`, `test_room` 검사 및 실제 GPU 촬영을 통과했습니다. [검증 영상·범위](artifacts/validation/creep_ragdoll_20260917/README.md). / The listed checks and real GPU capture passed; the linked record includes scope and remaining limits.
+
+## 크리프 부위 절단 / Creep localized dismemberment
+
+`F2 → 기본 → 크리프 절단`에서 왼팔·오른팔·왼다리·오른다리·머리를 각각 시험합니다. 재개하면 해당 부위에 0.8초 간격으로 18 피해씩 두 번을 가합니다. 실제 현재 자세의 부위 위치를 일반 부위 타격 코드에 전달하므로, 시험 메뉴가 직접 부위를 제거하거나 보상을 지급하지 않습니다. 같은 부위의 누적 피해 35 이상과 두 번 이상 피격이 절단 조건입니다.
+
+`F2 → 기본 → 크리프 절단` offers separate left-arm, right-arm, left-leg, right-leg and head trials. After resuming, two ordinary localized hits deal 18 damage each, 0.8 seconds apart. Hit points come from the current posed body region; the fixture does not remove parts or grant rewards itself. Severing requires at least 35 accumulated damage and two positive hits to the same region.
+
+| 항목 ID / Entry ID | 확인할 결과 / Expected result |
+| --- | --- |
+| `creep_dismemberment:left_arm`, `creep_dismemberment:right_arm` | 해당 팔만 절단되고 살아서 전투 재개 / Only the targeted arm detaches; the enemy survives and combat resumes |
+| `creep_dismemberment:left_leg`, `creep_dismemberment:right_leg` | 해당 다리만 절단되고 살아서 전투 재개 / Only the targeted leg detaches; the enemy survives and combat resumes |
+| `creep_dismemberment:head` | 머리 절단과 즉시 사망, 일반 처치 보상 한 번 / Decapitation, immediate death, and one ordinary kill reward |
+| `creep_dismemberment:distributed` | 양팔에 각각 18 피해 한 번: 총 피해 36이어도 절단 없음 / One 18-damage hit per arm: the same 36 total damage causes no severing |
+
+두 번의 자동 타격 동안 적 AI는 대기하며, 완료 후 살아 있는 적은 실제 전투를 계속합니다. `F2`로 타격 예약과 떨어진 부위의 물리를 함께 멈출 수 있습니다. 재선택은 떨어진 부위까지 제거하고 새 크리프·체력을 준비합니다. 다른 항목 선택·초기화·장면 이동은 예약 타격을 취소합니다. 원래 원정과 인벤토리는 시험 종료 시 복원됩니다. `./godot-game/tests/run_headless_tests.sh creep_dismemberment_trial test_room`으로 등록·실제 부위 피해·생존/보상·중단/재개·재선택/초기화·원정 복원을 검사합니다.
+
+Enemy AI waits during the two timed hits, then surviving enemies resume real combat. `F2` pauses both scheduled hits and detached-part physics. Reselection removes the previous actor and detached parts, then restores health and spawns a new Creep. Changing entries, resetting, or changing scenes cancels pending hits. The original expedition and inventory are restored on exit. The command above checks registration, actual regional damage, survival/rewards, pause/resume, replay/reset and expedition restoration.
+
+2026-09-17: `creep_dismemberment_trial`, `test_room` 헤드리스 검사가 통과했습니다. 실제 다섯 부위 절단·분산 타격 비교·사지 생존과 머리 단일 처치 보상·F2의 타격 대기 및 떨어진 부위 물리 정지/재개·초기화·원정 복원을 확인했습니다. 일반 테스트룸의 기존 종료 시 ObjectDB 2개 경고는 남아 있습니다. 이 검사 자체는 화면 검증이 아닙니다.
+
+2026-09-17: `creep_dismemberment_trial` and `test_room` headless checks passed. Coverage includes actual five-region severing, distributed hits, living limb loss and a single decapitation reward, F2 pause/resume for pending hits and detached-part physics, reset and expedition restoration. The general test-room check retains its existing two-ObjectDB exit warning. These checks alone do not constitute visual validation.

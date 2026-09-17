@@ -10,6 +10,7 @@ const HEADSHOT_MULTIPLIER := 1.5
 const MAX_FLIGHT_TIME := 8.0
 const STICK_TIME := 4.0
 const MAX_FLIGHT_STEP := 1.0 / 60.0
+const LOCATED_HIT_QUERY := preload("res://scripts/located_hit_query.gd")
 
 var damage := BowShotProfile.MIN_DAMAGE
 var speed := 0.0
@@ -93,20 +94,22 @@ func check_spawn_path(from: Vector3) -> bool:
 func _sweep(from: Vector3, to: Vector3) -> bool:
 	if not is_inside_tree() or from.distance_squared_to(to) < 0.00000001:
 		return false
-	var query := PhysicsRayQueryParameters3D.create(from, to, WORLD_LAYER | ENEMY_LAYER, _collision_exclusions)
+	var located := LOCATED_HIT_QUERY.collect(get_tree(), from, to, 0.0, _collision_exclusions)
+	var query := PhysicsRayQueryParameters3D.create(from, to, WORLD_LAYER | ENEMY_LAYER, located.excluded)
 	query.collide_with_areas = false
 	query.collide_with_bodies = true
 	query.hit_from_inside = true
 	var hit := get_world_3d().direct_space_state.intersect_ray(query)
+	hit = LOCATED_HIT_QUERY.nearer(hit, located.hit, from, to)
 	if hit.is_empty():
 		return false
 	var target := hit.get("collider") as Node
 	global_position = hit.get("position", from) as Vector3
-	_resolve_impact(target)
+	_resolve_impact(target, global_position, str(hit.get("region", "")))
 	return true
 
 
-func _resolve_impact(target: Node) -> void:
+func _resolve_impact(target: Node, hit_position: Vector3 = Vector3.INF, hit_region: String = "") -> void:
 	if impacted:
 		return
 	impacted = true
@@ -117,14 +120,26 @@ func _resolve_impact(target: Node) -> void:
 		return
 	if target.has_method("receive_hit"):
 		var headshot := target is Node3D and global_position.y >= (target as Node3D).global_position.y + HEADSHOT_HEIGHT
+		if not hit_region.is_empty():
+			headshot = hit_region == "head"
 		var applied_damage := damage * (HEADSHOT_MULTIPLIER if headshot else 1.0)
 		# Mark resolved before calling gameplay code or signals: listeners may
 		# trigger another physics update, despawn the victim, or end the scene.
-		target.call("receive_hit", applied_damage, _caster_origin, charge, headshot)
+		if hit_position.is_finite() and target.has_method("receive_located_hit"):
+			target.call("receive_located_hit", applied_damage, _caster_origin, charge, headshot, hit_position)
+		else:
+			target.call("receive_hit", applied_damage, _caster_origin, charge, headshot)
 		hit_target.emit(target, applied_damage, headshot)
 	if is_instance_valid(target) and target is Node3D and not target.is_queued_for_deletion():
-		_stuck_target = weakref(target)
-		_stuck_transform = (target as Node3D).global_transform.affine_inverse() * global_transform
+		var attachment := target as Node3D
+		if hit_position.is_finite() and target.has_method("get_located_hit_attachment"):
+			var region_anchor := target.call("get_located_hit_attachment", hit_position) as Node3D
+			if is_instance_valid(region_anchor) and region_anchor.is_inside_tree() and not region_anchor.is_queued_for_deletion():
+				attachment = region_anchor
+		# A region anchor follows the live bone and can be reparented to the
+		# severed rigid body without leaving its embedded arrows on the actor.
+		_stuck_target = weakref(attachment)
+		_stuck_transform = attachment.global_transform.affine_inverse() * global_transform
 
 
 func _update_stuck_transform() -> void:
