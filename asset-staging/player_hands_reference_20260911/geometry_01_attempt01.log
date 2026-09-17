@@ -1,0 +1,18 @@
+00:00.631  blend            | Read blend: "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/player_hands_realism_20260911/mac_output/iteration_04/bilateral_hands_realistic.blend"
+Traceback (most recent call last):
+  File "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/player_hands_reference_20260911/tools/build_reference_hands.py", line 173, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/player_hands_reference_20260911/tools/build_reference_hands.py", line 132, in main
+    report['hands'][side]=refine_hand(skin,rig,holder,nails)
+                          ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/player_hands_reference_20260911/tools/reference_geometry.py", line 244, in refine_hand
+    make_skin(skin,[local@p for p in mapped],physical,weights,mapped_keys)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/player_hands_reference_20260911/tools/reference_geometry.py", line 68, in make_skin
+    skin.vertex_groups[group].add([index],weight,'REPLACE')
+    ~~~~~~~~~~~~~~~~~~^^^^^^^
+IndexError: bpy_prop_collection[index]: index 6 out of range, size 0
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 01:35:57)
+
+Blender quit

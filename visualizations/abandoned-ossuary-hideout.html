@@ -1,0 +1,351 @@
+<div id="ossuary-hideout-v1">
+  <style>
+    #ossuary-hideout-v1 {
+      color: var(--foreground);
+      display: grid;
+      gap: 12px;
+      width: 100%;
+    }
+
+    #ossuary-hideout-v1 .oss-heading {
+      display: grid;
+      gap: 2px;
+    }
+
+    #ossuary-hideout-v1 .oss-heading h2,
+    #ossuary-hideout-v1 .oss-heading p,
+    #ossuary-hideout-v1 .oss-detail h3,
+    #ossuary-hideout-v1 .oss-detail p {
+      margin: 0;
+    }
+
+    #ossuary-hideout-v1 .oss-map {
+      width: 100%;
+      height: auto;
+      display: block;
+      color: var(--border);
+    }
+
+    #ossuary-hideout-v1 .oss-room {
+      fill: color-mix(in srgb, var(--viz-series-1) 13%, transparent);
+      stroke: var(--border);
+      stroke-width: 3;
+      vector-effect: non-scaling-stroke;
+    }
+
+    #ossuary-hideout-v1 .oss-room[data-locked="true"] {
+      fill: color-mix(in srgb, var(--muted) 68%, transparent);
+      stroke-dasharray: 8 6;
+    }
+
+    #ossuary-hideout-v1 [data-map-room] {
+      cursor: pointer;
+    }
+
+    #ossuary-hideout-v1 [data-map-room].is-selected .oss-room {
+      stroke: var(--primary);
+      stroke-width: 5;
+    }
+
+    #ossuary-hideout-v1 .oss-wall {
+      fill: none;
+      stroke: var(--foreground);
+      stroke-width: 8;
+      stroke-linecap: square;
+      vector-effect: non-scaling-stroke;
+    }
+
+    #ossuary-hideout-v1 .oss-water {
+      fill: color-mix(in srgb, var(--viz-series-1) 22%, transparent);
+      stroke: var(--viz-series-1);
+      stroke-width: 2;
+      vector-effect: non-scaling-stroke;
+    }
+
+    #ossuary-hideout-v1 .oss-water-line {
+      fill: none;
+      stroke: var(--viz-series-1);
+      stroke-width: 2;
+      opacity: .65;
+      vector-effect: non-scaling-stroke;
+    }
+
+    #ossuary-hideout-v1 .oss-rubble {
+      fill: var(--muted);
+      stroke: var(--border);
+      stroke-width: 2;
+      vector-effect: non-scaling-stroke;
+    }
+
+    #ossuary-hideout-v1 .oss-marker {
+      fill: var(--background);
+      stroke: var(--foreground);
+      stroke-width: 2;
+      vector-effect: non-scaling-stroke;
+    }
+
+    #ossuary-hideout-v1 .oss-number,
+    #ossuary-hideout-v1 .oss-label,
+    #ossuary-hideout-v1 .oss-note {
+      fill: var(--foreground);
+      text-anchor: middle;
+      pointer-events: none;
+    }
+
+    #ossuary-hideout-v1 .oss-number {
+      font-size: 26px;
+      font-weight: 500;
+      dominant-baseline: central;
+    }
+
+    #ossuary-hideout-v1 .oss-label {
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    #ossuary-hideout-v1 .oss-note {
+      fill: var(--muted-foreground);
+      font-size: 12px;
+      font-weight: 400;
+    }
+
+    #ossuary-hideout-v1 .oss-door {
+      stroke: var(--foreground);
+      stroke-width: 7;
+      vector-effect: non-scaling-stroke;
+    }
+
+    #ossuary-hideout-v1 .oss-seal {
+      fill: var(--muted);
+      stroke: var(--foreground);
+      stroke-width: 3;
+      vector-effect: non-scaling-stroke;
+    }
+
+    #ossuary-hideout-v1 .oss-controls {
+      justify-content: flex-start;
+    }
+
+    #ossuary-hideout-v1 .oss-detail-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+      gap: 12px;
+      align-items: start;
+    }
+
+    #ossuary-hideout-v1 .oss-detail-label {
+      color: var(--muted-foreground);
+    }
+
+    @media (max-width: 520px) {
+      #ossuary-hideout-v1 .oss-label,
+      #ossuary-hideout-v1 .oss-note {
+        display: none;
+      }
+
+      #ossuary-hideout-v1 .oss-detail-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <header class="oss-heading">
+    <h2>시작 은신처 — 침수된 납골당</h2>
+    <p class="text-muted">폐허 예배당 지하 · 약 25 × 18m · 얕은 침수 · 지상 채광 없음</p>
+  </header>
+
+  <svg class="oss-map" viewBox="0 0 760 480" role="img" aria-labelledby="oss-map-title oss-map-desc">
+    <title id="oss-map-title">침수된 납골당 시작 은신처 평면도</title>
+    <desc id="oss-map-desc">무너진 예배당 계단에서 전실을 지나 중앙 저수 홀로 진입한다. 좌우에 관리인 골방, 저장고, 작업실이 있고 아래에는 잠긴 납골실과 배수 수로가 있다.</desc>
+
+    <g data-map-room="entrance">
+      <path class="oss-room" d="M320 18h120v78H320z" />
+      <path class="oss-wall" d="M320 18h120M320 18v78M440 18v78" />
+      <path class="oss-water-line" d="M340 34h80M346 48h68M352 62h56M360 76h40" />
+      <circle class="oss-marker" cx="380" cy="54" r="22" />
+      <text class="oss-number" x="380" y="54">1</text>
+      <text class="oss-label" x="380" y="88">무너진 계단</text>
+    </g>
+
+    <g data-map-room="vestibule">
+      <rect class="oss-room" x="304" y="96" width="152" height="74" />
+      <path class="oss-wall" d="M304 96h152M304 96v74M456 96v74" />
+      <circle class="oss-marker" cx="380" cy="128" r="22" />
+      <text class="oss-number" x="380" y="128">2</text>
+      <text class="oss-label" x="380" y="160">배수 전실</text>
+    </g>
+
+    <g data-map-room="sleep">
+      <path class="oss-room" d="M76 170h154v108H76z" />
+      <path class="oss-wall" d="M76 170h154M76 170v108M76 278h154" />
+      <path class="oss-rubble" d="M93 245l22-22 20 18 20-10 25 27H95z" />
+      <circle class="oss-marker" cx="153" cy="206" r="22" />
+      <text class="oss-number" x="153" y="206">4</text>
+      <text class="oss-label" x="153" y="268">관리인 골방</text>
+    </g>
+
+    <g data-map-room="storage">
+      <path class="oss-room" d="M92 298h138v108H92z" />
+      <path class="oss-wall" d="M92 298h138M92 406h138M92 298v108" />
+      <path class="oss-water-line" d="M116 335h92M110 350h100M120 365h82" />
+      <circle class="oss-marker" cx="161" cy="328" r="22" />
+      <text class="oss-number" x="161" y="328">5</text>
+      <text class="oss-label" x="161" y="397">빈 저장고</text>
+    </g>
+
+    <g data-map-room="hall" class="is-selected">
+      <rect class="oss-room" x="230" y="170" width="300" height="236" />
+      <path class="oss-wall" d="M230 170h300M230 406h300" />
+      <path class="oss-water" d="M352 170h56v236h-56z" />
+      <path class="oss-water-line" d="M360 205h40M360 240h40M360 275h40M360 310h40M360 345h40M360 380h40" />
+      <circle class="oss-rubble" cx="380" cy="285" r="34" />
+      <path class="oss-wall" d="M380 254v62M350 285h60" />
+      <circle class="oss-marker" cx="380" cy="220" r="22" />
+      <text class="oss-number" x="380" y="220">3</text>
+      <text class="oss-label" x="300" y="270">중앙 저수 홀</text>
+      <text class="oss-note" x="300" y="290">부서진 성인상</text>
+      <text class="oss-note" x="300" y="307">꺼져가는 화로 하나</text>
+    </g>
+
+    <g data-map-room="workshop">
+      <path class="oss-room" d="M530 174h154v122H530z" />
+      <path class="oss-wall" d="M530 174h154M684 174v122M530 296h154" />
+      <path class="oss-rubble" d="M578 258h80v18h-80zM592 224h12v34h-12zM636 224h12v34h-12z" />
+      <circle class="oss-marker" cx="607" cy="210" r="22" />
+      <text class="oss-number" x="607" y="210">6</text>
+      <text class="oss-label" x="607" y="287">버려진 작업실</text>
+    </g>
+
+    <g data-map-room="drain" >
+      <path class="oss-room" data-locked="true" d="M530 316h166v90H530z" />
+      <path class="oss-wall" d="M696 316v90M530 406h166" />
+      <path class="oss-water" d="M560 341h136v40H560z" />
+      <path class="oss-seal" d="M525 340h18v42h-18z" />
+      <circle class="oss-marker" cx="613" cy="342" r="22" />
+      <text class="oss-number" x="613" y="342">7</text>
+      <text class="oss-label" x="613" y="397">봉인된 배수 수로</text>
+    </g>
+
+    <g data-map-room="ossuary">
+      <path class="oss-room" data-locked="true" d="M284 406h192v58H284z" />
+      <path class="oss-wall" d="M284 464h192M284 406v58M476 406v58" />
+      <path class="oss-seal" d="M355 400h50v15h-50z" />
+      <circle class="oss-marker" cx="380" cy="435" r="22" />
+      <text class="oss-number" x="380" y="435">8</text>
+      <text class="oss-label" x="380" y="459">봉인된 납골실</text>
+    </g>
+
+    <path class="oss-door" d="M362 94h36M362 168h36M226 206v38M226 330v38M526 214v40M526 340v42" />
+  </svg>
+
+  <nav class="viz-controls oss-controls" aria-label="공간 선택">
+    <button type="button" class="btn" data-room="entrance" aria-pressed="false">1 입구</button>
+    <button type="button" class="btn" data-room="vestibule" aria-pressed="false">2 전실</button>
+    <button type="button" class="btn btn-primary" data-room="hall" aria-pressed="true">3 중앙 홀</button>
+    <button type="button" class="btn" data-room="sleep" aria-pressed="false">4 골방</button>
+    <button type="button" class="btn" data-room="storage" aria-pressed="false">5 저장고</button>
+    <button type="button" class="btn" data-room="workshop" aria-pressed="false">6 작업실</button>
+    <button type="button" class="btn" data-room="drain" aria-pressed="false">7 수로</button>
+    <button type="button" class="btn" data-room="ossuary" aria-pressed="false">8 납골실</button>
+  </nav>
+
+  <section class="card oss-detail" aria-live="polite">
+    <div class="oss-detail-grid">
+      <div>
+        <p class="oss-detail-label text-small">선택 공간</p>
+        <h3 data-detail-name>중앙 저수 홀</h3>
+        <p class="text-small" data-detail-state>초기 사용 가능 · 핵심 허브</p>
+      </div>
+      <div>
+        <p data-detail-role>처음에는 부서진 성인상, 작은 화로, 물에 잠긴 모자이크만 남아 있습니다.</p>
+        <p class="text-muted text-small" data-detail-upgrade>성장 후: 작전 지도와 동료 집결지를 설치하되 중앙의 빈 공간은 유지합니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (() => {
+      const root = document.getElementById('ossuary-hideout-v1');
+      const rooms = {
+        entrance: {
+          name: '무너진 예배당 계단',
+          state: '초기 사용 가능 · 유일한 출입구',
+          role: '잡초와 돌무더기 사이에 숨은 계단입니다. 빗물이 그대로 흘러들어 은신처가 축축한 이유를 한눈에 설명합니다.',
+          upgrade: '성장 후: 위장문, 경보용 종줄, 간단한 덫을 설치합니다.'
+        },
+        vestibule: {
+          name: '배수 전실',
+          state: '초기 사용 가능 · 진입 완충 공간',
+          role: '녹슨 못 몇 개와 진흙 발자국만 있는 좁은 전실입니다. 중앙 홀을 바로 노출하지 않아 은신처다운 긴장감을 만듭니다.',
+          upgrade: '성장 후: 무기 걸이와 침입 경보를 설치합니다.'
+        },
+        hall: {
+          name: '중앙 저수 홀',
+          state: '초기 사용 가능 · 핵심 허브',
+          role: '처음에는 부서진 성인상, 작은 화로, 물에 잠긴 모자이크만 남아 있습니다.',
+          upgrade: '성장 후: 작전 지도와 동료 집결지를 설치하되 중앙의 빈 공간은 유지합니다.'
+        },
+        sleep: {
+          name: '관리인 골방',
+          state: '초기 사용 가능 · 휴식과 저장',
+          role: '썩은 침상 위에 플레이어의 낡은 침낭 하나와 작은 상자만 둡니다. 무료 은신처의 궁핍함을 담당합니다.',
+          upgrade: '성장 후: 제대로 된 침대, 개인 보관함, 작은 촛대를 추가합니다.'
+        },
+        storage: {
+          name: '빈 저장고',
+          state: '초기 사용 가능 · 텅 빈 보조 공간',
+          role: '깨진 선반과 빈 술통 자국만 남아 있습니다. 실제 물건보다 벽의 얼룩과 먼지 없는 빈자리로 과거를 암시합니다.',
+          upgrade: '성장 후: 식량 선반과 약초 건조대를 설치합니다.'
+        },
+        workshop: {
+          name: '버려진 작업실',
+          state: '초기 사용 가능 · 망가진 설비',
+          role: '상판이 갈라진 작업대와 녹슨 죔쇠만 남아 있어 처음에는 제작 기능을 사용할 수 없습니다.',
+          upgrade: '성장 후: 수리대와 대장간 기능을 단계적으로 해금합니다.'
+        },
+        drain: {
+          name: '봉인된 배수 수로',
+          state: '초기 잠김 · 후반 탈출 동선',
+          role: '쇠사슬 너머에서 물 흐르는 소리와 먼 바람만 들립니다. 처음부터 보이지만 들어갈 수 없는 확장 약속입니다.',
+          upgrade: '퀘스트 후: 지하 수로, 비밀 출구, 원정 지역 지름길로 연결됩니다.'
+        },
+        ossuary: {
+          name: '봉인된 납골실',
+          state: '초기 잠김 · 위험한 확장 공간',
+          role: '문 아래로 검은 물이 새고 간헐적으로 긁는 소리가 납니다. 은신처가 완전히 안전하지 않다는 첫 미스터리입니다.',
+          upgrade: '정화 후: 연금술실이나 지하 재배실로 전환할 수 있습니다.'
+        }
+      };
+
+      const name = root.querySelector('[data-detail-name]');
+      const state = root.querySelector('[data-detail-state]');
+      const role = root.querySelector('[data-detail-role]');
+      const upgrade = root.querySelector('[data-detail-upgrade]');
+
+      function selectRoom(id) {
+        const room = rooms[id];
+        if (!room) return;
+        name.textContent = room.name;
+        state.textContent = room.state;
+        role.textContent = room.role;
+        upgrade.textContent = room.upgrade;
+
+        root.querySelectorAll('[data-room]').forEach((button) => {
+          const selected = button.dataset.room === id;
+          button.setAttribute('aria-pressed', String(selected));
+          button.classList.toggle('btn-primary', selected);
+        });
+        root.querySelectorAll('[data-map-room]').forEach((region) => {
+          region.classList.toggle('is-selected', region.dataset.mapRoom === id);
+        });
+      }
+
+      root.querySelectorAll('[data-room]').forEach((button) => {
+        button.addEventListener('click', () => selectRoom(button.dataset.room));
+      });
+      root.querySelectorAll('[data-map-room]').forEach((region) => {
+        region.addEventListener('click', () => selectRoom(region.dataset.mapRoom));
+      });
+    })();
+  </script>
+</div>

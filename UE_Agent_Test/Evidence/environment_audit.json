@@ -1,0 +1,70 @@
+{
+  "project_folder": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/UE_Agent_Test",
+  "project_descriptor": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/UE_Agent_Test/UE_Agent_Test.uproject",
+  "write_create_modify_readback": "passed (new descriptor file only)",
+  "unreal_project_load": "not tested; no engine executable found",
+  "commands": [
+    {
+      "label": "os",
+      "command": [
+        "sw_vers"
+      ],
+      "exit_code": 0,
+      "stdout": "ProductName:\t\tmacOS\nProductVersion:\t\t26.6.2\nBuildVersion:\t\t25G83\n",
+      "stderr": ""
+    },
+    {
+      "label": "architecture",
+      "command": [
+        "uname",
+        "-m"
+      ],
+      "exit_code": 0,
+      "stdout": "arm64\n",
+      "stderr": ""
+    },
+    {
+      "label": "xcode",
+      "command": [
+        "xcodebuild",
+        "-version"
+      ],
+      "exit_code": 0,
+      "stdout": "Xcode 26.6\nBuild version 17F113\n",
+      "stderr": ""
+    },
+    {
+      "label": "developer_directory",
+      "command": [
+        "xcode-select",
+        "-p"
+      ],
+      "exit_code": 0,
+      "stdout": "/Applications/Xcode.app/Contents/Developer\n",
+      "stderr": ""
+    },
+    {
+      "label": "disk",
+      "command": [
+        "df",
+        "-h",
+        "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/UE_Agent_Test"
+      ],
+      "exit_code": 0,
+      "stdout": "Filesystem      Size    Used   Avail Capacity iused ifree %iused  Mounted on\n/dev/disk2s5   228Gi   181Gi    15Gi    93%    1.2M  158M    1%   /System/Volumes/Data\n",
+      "stderr": ""
+    }
+  ],
+  "standard_install_paths": {
+    "/Applications/UnrealEditor.app": false,
+    "/Applications/UE4Editor.app": false,
+    "/Applications/Epic Games Launcher.app": false,
+    "/Applications/Epic Games": false,
+    "/Users/Shared/Epic Games": false,
+    "/Users/Shared/Epic": false,
+    "/Users/duq711gmail.com/Library/Application Support/Epic/UnrealEngine/Install.ini": false,
+    "/Users/duq711gmail.com/Library/Application Support/Epic/EpicGamesLauncher/Data/Manifests": false,
+    "/Library/Application Support/Epic/UnrealEngineLauncher/LauncherInstalled.dat": false
+  },
+  "no_existing_file_writes_by_this_task": true
+}

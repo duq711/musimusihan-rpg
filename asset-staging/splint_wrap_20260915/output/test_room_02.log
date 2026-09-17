@@ -1,0 +1,12 @@
+[HEADLESS] body_health_test_room_test.gd
+TIMEOUT after 600s: body_health_test_room_test.gd
+SCRIPT ERROR: Invalid call. Nonexistent function 'leave_room' in base 'previously freed'.
+          at: _run (res://tests/body_health_test_room_test.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _run (res://tests/body_health_test_room_test.gd:96)
+              [1] _check_vital_death_and_scene_return (res://tests/body_health_test_room_test.gd:203)
+              [2] _wait_for_scene (res://tests/body_health_test_room_test.gd:274)
+Script error detected in body_health_test_room_test.gd, regardless of engine exit status.
+
+Headless validation: 0 passed, 1 failed.
+FAILED: body_health_test_room_test.gd (1)

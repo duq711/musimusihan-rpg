@@ -1,0 +1,181 @@
+{
+  "status": "passed",
+  "verified_utc": "2026-09-10T14:49:49.697420+00:00",
+  "geometry_iteration": "iteration_02",
+  "gpu_iteration": "final_04",
+  "source_request": "손가락 마디마다 관절 효과를 구현해주세요.",
+  "host": {
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "blender_binary": "/Applications/Blender.app/Contents/MacOS/Blender",
+    "blender_version": "5.2.1 LTS",
+    "background": true
+  },
+  "blender_independent_verification": "verification_report.json",
+  "verified_asset_sha256": {
+    "bilateral_hands_articulated.blend": "7dd08999cb6a4a41268470bce5efb2e885684f8db22b9993a21d0e05dc5040b5",
+    "left_hand_articulated.glb": "4443b02c6c962fc1f8d625e26448029c2c2828ef4a5d7adcd7c714585df81a70",
+    "right_hand_articulated.glb": "771841b7262e81bcaff7fddcd975868a218cff876ea22c71b18138823d397e05"
+  },
+  "per_hand": {
+    "left": {
+      "triangles": 57346,
+      "bones": 16,
+      "corrective_shapes": 15,
+      "max_nail_vertex_skin_gap_m": 0.0003200203354936093
+    },
+    "right": {
+      "triangles": 57346,
+      "bones": 16,
+      "corrective_shapes": 15,
+      "max_nail_vertex_skin_gap_m": 0.0003200174542143941
+    }
+  },
+  "godot_tests": {
+    "player_finger_joints": {
+      "status": "passed",
+      "log": "Validation_Logs/godot_joint_final04.log",
+      "marker": "PLAYER FINGER JOINTS PASS:"
+    },
+    "player_hands_detailed": {
+      "status": "passed",
+      "log": "Validation_Logs/godot_hands_final02.log",
+      "marker": "PLAYER HANDS DETAILED PASS:"
+    },
+    "player_hands_greybox": {
+      "status": "passed",
+      "log": "Validation_Logs/godot_hands_final02.log",
+      "marker": "PLAYER HANDS GREYBOX PASS:"
+    },
+    "player_arm": {
+      "status": "passed",
+      "log": "Validation_Logs/godot_regressions_01.log",
+      "marker": "PLAYER ARM PASS:"
+    },
+    "weapon_hand_contacts": {
+      "status": "passed",
+      "log": "Validation_Logs/godot_regressions_01.log",
+      "marker": "WEAPON HAND CONTACTS PASS:"
+    },
+    "chest_hands": {
+      "status": "passed",
+      "log": "Validation_Logs/godot_regressions_01.log",
+      "marker": "CHEST HANDS PASS:"
+    },
+    "test_room_session": {
+      "status": "passed",
+      "log": "Validation_Logs/godot_regressions_01.log",
+      "marker": "TEST ROOM SESSION TEST PASS:"
+    }
+  },
+  "gpu": {
+    "display_driver": "embedded",
+    "actual_renderer": "vulkan",
+    "static_captures": 9,
+    "sequence_frames": 226,
+    "image_size": [
+      1280,
+      720
+    ],
+    "all_capture_checks_passed": true,
+    "desktop_capture": false,
+    "external_input": false,
+    "expedition_inventory_and_cursor_preserved": true,
+    "sources_unchanged_during_capture": true,
+    "source_sha256": {
+      "res://assets/3d/player/hands_detailed/left_hand_detailed.glb": "4443b02c6c962fc1f8d625e26448029c2c2828ef4a5d7adcd7c714585df81a70",
+      "res://assets/3d/player/hands_detailed/right_hand_detailed.glb": "771841b7262e81bcaff7fddcd975868a218cff876ea22c71b18138823d397e05",
+      "res://assets/fonts/NotoSansKR-Variable.ttf": "194018e6b2b293a7964f037b25c0249ce1418bc9ab3c971060a03aa57861e252",
+      "res://scripts/chest_hand_visuals.gd": "f4012bebd0fb03ab0fe76c57b7251dc56987fd35612ab1168d4fbe7498831bf3",
+      "res://scripts/finger_joint_controls.gd": "f2eae23b35b39dd2609d42663e760341e96e8e6e435a5f7cda6cf539f72c8a07",
+      "res://scripts/greybox_arm_visual.gd": "68d42478f53bc2f61d2bc621998aa8d7dff96336771158c81667b16acc702bc8",
+      "res://scripts/player.gd": "6489a9134de1da55f54d5544996b150a26e5decbc7293828c4247bc0317126d9",
+      "res://scripts/player_arm_visual.gd": "87678bd0feb1a8b42719ba9e5f9c09b83ceccdce80f8c7a6ce1c8daf16ddc3f7",
+      "res://scripts/test_room.gd": "65e4e4df32be0f0a76c7c8fcb9f5a2e8439007c7fe2070b4290ff135acbae05e",
+      "res://tests/player_arm_preview.gd": "2066f51f064a5b24cde5896c277d83602ae9784d26e10059bd4309b69b0c4d06",
+      "res://tests/player_finger_joints_preview.gd": "489443030e466ea49a72c81d8266bbc726ccceb07725099285d79142630e1362",
+      "res://tests/player_hands_detailed_preview.gd": "6ee4f5e46ad91f85e714e355bee05da8b13fab1b4515e5c0fc05f68db3947c40"
+    },
+    "manifest": "Game_Preview/capture_manifest.json",
+    "visual_review": "All nine static poses reviewed; bow/chest hashes identical to inspected prior capture. Palm/dorsal, individual joint groups, fist, panel layout and sample sequence frames inspected. All15 slider numbers fit and CanvasLayer70 overlays forearms."
+  },
+  "animation": {
+    "status": "passed",
+    "source_manifest_sha256": "cce21d7eea231b8e6514c8b73711db784494d6e3f95be30cec0b174cacc3d90d",
+    "source_frames": 226,
+    "gif_frames": 226,
+    "size": [
+      1280,
+      720
+    ],
+    "duration_ms": 15070,
+    "source_fps": 15,
+    "loop": "continuous",
+    "gif": "finger_joint_sequence.gif",
+    "gif_sha256": "deb7372fdd71014d270ad5014a330125769b1262a3b03ee83367afa54b33c052",
+    "gif_bytes": 14898207,
+    "encoding": "256-color shared palette, GIF 10ms timing; original dimensions; no compositing or frame interpolation",
+    "sources_verified_against_capture_manifest": true
+  },
+  "prior_artifacts_preserved_count": 44,
+  "prior_artifact_sha256": {
+    "exports/Player_Hands_Detailed_2026-09-10/both_hands_dorsum.png": "f7df6cbebc87dd4dee46549470d3c13770548d097f79cfe0aac8063f27f7af77",
+    "exports/Player_Hands_Detailed_2026-09-10/build_report.json": "b7792255bd34026bc6a3b4d73e334b0a5751d917d429824aace5c9e648ef0549",
+    "exports/Player_Hands_Detailed_2026-09-10/validation_summary.json": "d2ea75257c6c5802bd72485ccc851a9c7f7dce2f74792cf1b2db3ddad84e4535",
+    "exports/Player_Hands_Detailed_2026-09-10/verification_report.json": "fcef42ee04e196b579a59f6eb9eb65dcb0dfacae2127f417bb77d0ca9e07f0ca",
+    "exports/Player_Hands_Detailed_2026-09-10/bilateral_hands_detailed.blend": "8255d8a23182b8f9333e2b48b311a271d12f734d8f5ae517c3271268f204513f",
+    "exports/Player_Hands_Detailed_2026-09-10/right_hand_detailed.glb": "b3331cff415b0f10c4f204e48004a523ed2e8bad669ffa38a4df5639eed5494b",
+    "exports/Player_Hands_Detailed_2026-09-10/both_hands_closeup_palm.png": "e3cae8b1d136fe84dc9a8a97326155c348101a0276becb5ec947900f5e32eab2",
+    "exports/Player_Hands_Detailed_2026-09-10/README_KO.md": "599871acdb525b37ba9db9cd11dbf7a6b8b8a582b44422062db3f2d7fb9a5e83",
+    "exports/Player_Hands_Detailed_2026-09-10/both_hands_closeup_dorsum.png": "081a03b6a3b91423e15b5665aad1ee3ce8dc54d5833c15e5d22cfb2979f8a277",
+    "exports/Player_Hands_Detailed_2026-09-10/left_hand_detailed.glb": "6afe2b131ad47760b43bf9067aa686e3f48978d31c22a382f217aa2f3470e029",
+    "exports/Player_Hands_Detailed_2026-09-10/both_hands_detailed_preview.glb": "c7ed1d8fecabb945304bdd26158f2dfb0e836ae99b155ff5f31cac9206500668",
+    "exports/Player_Hands_Detailed_2026-09-10/both_hands_side.png": "52e9c45a05581ea9ac95030a587d70bd8fdf041e027fa03cea07d7ecabdb3f85",
+    "exports/Player_Hands_Detailed_2026-09-10/FILE_MANIFEST.json": "9b1648b55cdcf5cfa60300bf0cbf955555630857f6c020a96a572af5606b2340",
+    "exports/Player_Hands_Detailed_2026-09-10/both_hands_palm.png": "3426df10f598f2c0c67d5e5f99c0a40e15dc0661549c81ce6367652d37c2d263",
+    "exports/Player_Hands_Detailed_2026-09-10/tools/build_hands_detailed.py": "25902b9c69d4ff2d46b6c319c27a4cb286e089749c7f03e9e507ae6216deb44a",
+    "exports/Player_Hands_Detailed_2026-09-10/tools/hand_detail_geometry.py": "999649437724ca52a14e3e145bf92f20037ab0b1ed29f31f9c472547bc0addbb",
+    "exports/Player_Hands_Detailed_2026-09-10/tools/verify_hands_detailed.py": "d1f115fc633d0182f2156526c19fdc64a14d9f8fd1f2b6c592530461a88ed73f",
+    "exports/Player_Hands_Detailed_2026-09-10/tools/README.md": "694e5c40133bd6d5e0485c79f3b6c25686a074355c5cf6d37cfac1410cbc675d",
+    "exports/Player_Hands_Detailed_2026-09-10/tools/render_detail_comparison.py": "7505434691dcad7b0ed0dd45fc3f4e576a120abc56d8834b3697153781eb757d",
+    "exports/Player_Hands_Detailed_2026-09-10/Game_Preview/free_hands.png": "dff8c388526697bb7a7d63c1d50df1314ad001d518c256b9c54ff7de404929c7",
+    "exports/Player_Hands_Detailed_2026-09-10/Game_Preview/capture_manifest.json": "e97667e21e219fc9ddd3029343a2c72c5275b8641af70f37ee02d0f0402489c4",
+    "exports/Player_Hands_Detailed_2026-09-10/Game_Preview/free_hands_greybox.png": "bc5cd128bf0969b90d2adffc93798107c3992a9a18e52506551ad998d7d0ac35",
+    "exports/Player_Hands_Detailed_2026-09-10/Game_Preview/chest_lift.png": "6a7ed805a8a76af72af2f682a499703297b68b3ec098b4f587dcb5a4fbb6f931",
+    "exports/Player_Hands_Detailed_2026-09-10/Game_Preview/bow_release.png": "8497f5547af583eabda3d078f03f0ba5e7c58b1ab99e065825291056bd855ddd",
+    "exports/Player_Hands_Detailed_2026-09-10/Game_Preview/bow_draw.png": "47d2bc46d943762ff764319f7b257359f27912407d110f197a53bcf01627b47d",
+    "exports/Player_Hands_Detailed_2026-09-10/Game_Preview/chest_touch.png": "7b44354e1d243c53012b0d11b5d0b4e5819959f4729b8e3d0ca57f9a36908336",
+    "exports/Player_Hands_Detailed_2026-09-10/Comparison/greybox_to_detailed.png": "8a334186700e34b76c6d0952fb1c0c6b2361ce2c04ce4f5b1ac074b94cbd009c",
+    "exports/Player_Hands_Detailed_2026-09-10/Comparison/comparison_manifest.json": "dfd1c6d5102dfbeacba51bba49d5e35839bfc0085cf006aaa25197d88ef25ef6",
+    "exports/Player_Hands_Detailed_2026-09-10/Validation_Logs/verify_03.log": "7f9927bad7ed707ae94e22db16cca1ae228dd08b2b1ddfdc8e6528fb9cfd2043",
+    "exports/Player_Hands_Detailed_2026-09-10/Validation_Logs/godot_hands_final03.log": "c3fb69f27620f26a14fd7c7790121186b4499bae0d99175d9edcb3aa716f7600",
+    "exports/Player_Hands_Detailed_2026-09-10/Validation_Logs/godot_regressions_01.log": "ce5424ea534068c94757ed8431efdfcb96c72a9a7412cd08b92a626317735ecb",
+    "exports/Player_Hands_Detailed_2026-09-10/Validation_Logs/godot_preview_final03.log": "072ee9caea9e52533dceee2bbffaa1c3d3661df6a087148c7116fdafa7f3861b",
+    "asset-staging/player_hands_detail_20260910/mac_output/iteration_03/both_hands_dorsum.png": "f7df6cbebc87dd4dee46549470d3c13770548d097f79cfe0aac8063f27f7af77",
+    "asset-staging/player_hands_detail_20260910/mac_output/iteration_03/build_report.json": "b7792255bd34026bc6a3b4d73e334b0a5751d917d429824aace5c9e648ef0549",
+    "asset-staging/player_hands_detail_20260910/mac_output/iteration_03/verification_report.json": "fcef42ee04e196b579a59f6eb9eb65dcb0dfacae2127f417bb77d0ca9e07f0ca",
+    "asset-staging/player_hands_detail_20260910/mac_output/iteration_03/bilateral_hands_detailed.blend": "8255d8a23182b8f9333e2b48b311a271d12f734d8f5ae517c3271268f204513f",
+    "asset-staging/player_hands_detail_20260910/mac_output/iteration_03/right_hand_detailed.glb": "b3331cff415b0f10c4f204e48004a523ed2e8bad669ffa38a4df5639eed5494b",
+    "asset-staging/player_hands_detail_20260910/mac_output/iteration_03/both_hands_closeup_palm.png": "e3cae8b1d136fe84dc9a8a97326155c348101a0276becb5ec947900f5e32eab2",
+    "asset-staging/player_hands_detail_20260910/mac_output/iteration_03/both_hands_closeup_dorsum.png": "081a03b6a3b91423e15b5665aad1ee3ce8dc54d5833c15e5d22cfb2979f8a277",
+    "asset-staging/player_hands_detail_20260910/mac_output/iteration_03/left_hand_detailed.glb": "6afe2b131ad47760b43bf9067aa686e3f48978d31c22a382f217aa2f3470e029",
+    "asset-staging/player_hands_detail_20260910/mac_output/iteration_03/both_hands_detailed_preview.glb": "c7ed1d8fecabb945304bdd26158f2dfb0e836ae99b155ff5f31cac9206500668",
+    "asset-staging/player_hands_detail_20260910/mac_output/iteration_03/both_hands_side.png": "52e9c45a05581ea9ac95030a587d70bd8fdf041e027fa03cea07d7ecabdb3f85",
+    "asset-staging/player_hands_detail_20260910/mac_output/iteration_03/both_hands_palm.png": "3426df10f598f2c0c67d5e5f99c0a40e15dc0661549c81ce6367652d37c2d263",
+    "exports/Player_Hands_Detailed_2026-09-10.zip": "be9290ff4255727bbbb315b15f0dfa25f041fbd1fadf746ca6d7788e249fc61e"
+  },
+  "resolved_findings": [
+    "Rigid nail and skin separated at high distal flex; pinned skin under nail with 4mm weight transition, suppressed nailbed dorsal corrective. Final max vertex gap ~0.320mm.",
+    "Initial arbitrary thumb bone-head radius assertion mismatched offset authored pivot; corrected to actual owned skin section with independent axial/radial bounds and other-digit isolation. Final joint suite passed.",
+    "Initial1280x720 panel clipped final percentage row; spacing fixed and all30 control/label rectangles checked.",
+    "Preview originally put controls below viewmodel; made CanvasLayer70 match actual production test room and verified layer in every capture."
+  ],
+  "validation_limits": [
+    "No Blender auto-drivers or baked animation clips; Godot drives joint and corrective together.",
+    "Neutral grey materials; no new texture or normal-map baking.",
+    "Related tests only; not a claim that every unrelated project suite passed.",
+    "Shared headless fixtures still log2 ObjectDB exit instances as before this task; passing status and warnings preserved in raw logs."
+  ],
+  "warnings": [
+    "Initial godot_hands_final02.log contains a resolved joint-only radius assertion; its detailed and greybox tests passed. Final joint result is godot_joint_final04.log."
+  ]
+}

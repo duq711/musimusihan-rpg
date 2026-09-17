@@ -1,0 +1,31 @@
+{
+  "source_defect": "Canonical left dorsal hand was labelled right by build_assets.py",
+  "coordinate_convention": {
+    "fingers": "-Z",
+    "dorsal_normal": "+Y",
+    "right_thumb": "-X",
+    "left_thumb": "+X"
+  },
+  "arms": [
+    {
+      "file": "left_arm.glb",
+      "source_hand_file": "right_arm.glb",
+      "anatomical_side": "left",
+      "thumb_rest_x": 0.03749999776482582,
+      "skin_bones": 16,
+      "unchanged_donor_hand_sha256": "d1f28ae9cf7bf59112f45ac26c0ce87325c5361af21ceaed81b9ebbf7d955e18",
+      "recipient_rigid_binary_unchanged": true,
+      "appended_hand_bytes": 1881880
+    },
+    {
+      "file": "right_arm.glb",
+      "source_hand_file": "left_arm.glb",
+      "anatomical_side": "right",
+      "thumb_rest_x": -0.03749999776482582,
+      "skin_bones": 16,
+      "unchanged_donor_hand_sha256": "81e0bff333740972446e2a54f5397272b590c226043b51fb22d47095397a4f39",
+      "recipient_rigid_binary_unchanged": true,
+      "appended_hand_bytes": 1881380
+    }
+  ]
+}

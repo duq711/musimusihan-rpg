@@ -1,0 +1,440 @@
+{
+  "status": "complete",
+  "renderer_sha256": "0123bfa4766fc0576e9e152f01ee6849ecea09c1346bb829e63b607749cb652e",
+  "engine": "CYCLES",
+  "samples": 16,
+  "threads": 2,
+  "width": 1100,
+  "height": 1000,
+  "exposure_stops": -0.7,
+  "actual_materials": true,
+  "additional_flex_limits_degrees": {
+    "thumb": [
+      25.0,
+      35.0,
+      45.0
+    ],
+    "index": [
+      60.0,
+      45.0,
+      45.0
+    ],
+    "middle": [
+      60.0,
+      45.0,
+      45.0
+    ],
+    "ring": [
+      60.0,
+      45.0,
+      45.0
+    ],
+    "little": [
+      60.0,
+      45.0,
+      45.0
+    ]
+  },
+  "neutral_definition": "Supplied anatomy with zero added bone rotations; original source curl retained.",
+  "source_geometry_sha256": {
+    "Supplied_AnatomicalHand_left": "072f3efe1b8ae6681045b36421c764e2125585b17b2176c3ed4a3a24f6971c6e",
+    "WristCuff_Surface_left": "85a9a1a417e1fbf16560365338d8ea3dbdf92b967e69178844a2de7f6a5aa0e5",
+    "UpperArm_Surface_left": "f5b55453ce1d6584495f360dd599a323331b76642f95fdffda16d893871524ba",
+    "Nail_index_right": "6726210d5d2b91dc9410c19101579dbe435b367f2d1770a401184ffbdc666e9b",
+    "Forearm_Surface_right": "1e618928cd7445805bb09aab965db1a8436fdc3f153adcb6cbedf1d653ad1d9a",
+    "Nail_little_right": "3e3deb57fccbeeb2587e3f7fb12499df21a99c71084d319c41ca8f8492a58a8f",
+    "Nail_ring_right": "f0a3382167f0f239d68a727f2f3fd91d0ab9128c9e45388ec440b826b8e9ef1d",
+    "Forearm_Surface_left": "9d787aa8e165ae973707cf0cc65d71682c0bbaed6223afc444f31c6b43b185a8",
+    "Nail_index_left": "5ce74321348906505059f9a8f29a789bf367d7bdd6f3b4a829ca6047fce0081e",
+    "Nail_ring_left": "046f633576d243cff5e8c8f4f8a0c8b3e0d02b282e1105e9c4c583f00823fb6e",
+    "Nail_middle_right": "c48a57933bd2991683ed956b53a7f5e420f10f42bfa6676d3ad3040092062007",
+    "Nail_thumb_right": "25b52d3595520ce17f576b922b2447c1b67a7a409be967f6a0ff001c9495eecd",
+    "Nail_little_left": "975d263c1576df93ef1349f34586e7524fca752073bc909ed4e5dbd5943672e5",
+    "Nail_middle_left": "37810e94ae60f5bd26772e916bd633b8b3c02199171e2d483ae4f43155e0745c",
+    "Nail_thumb_left": "fd9be0f5c26a780768fc9270b0f6bce7add74c40f0e54684511647c10c2b2108",
+    "Supplied_AnatomicalHand_right": "eb006df7548d6a95ca4f8276b4f28e5dbf146b4d1fffa9fedec47cf89af93c30",
+    "UpperArm_Surface_right": "64a7803e60809979514635f39912aef07d83d75ae36280b8cf0a3f1c0004e04b",
+    "WristCuff_Surface_right": "8d05ff936e62f9cdaf7ff3d43d349512c31e009feb35b1e50f4e33147cea22b8"
+  },
+  "renders": {
+    "hands_three_quarter_fist": {
+      "file": "hands_three_quarter_fist.png",
+      "sha256": "8e43ddbaf63be4655b2334e766318f87f90409e989c838545458a9b9e93d0af1",
+      "actual_blender_geometry": true,
+      "camera_center": [
+        0.008383456617593765,
+        -0.00848296843469143,
+        0.029536817222833633
+      ],
+      "camera_outward": [
+        0.37338289618492126,
+        -0.41486990451812744,
+        0.8297398090362549
+      ],
+      "camera_up": [
+        0.17024794220924377,
+        0.9098807573318481,
+        0.378328800201416
+      ],
+      "ortho_scale_m": 0.3344655824417079,
+      "lighting": [
+        {
+          "name": "Key",
+          "location": [
+            -0.05760333314538002,
+            0.08542744815349579,
+            0.46774518489837646
+          ],
+          "watts": 9.0,
+          "size_m": 0.3149999976158142
+        },
+        {
+          "name": "Fill",
+          "location": [
+            0.37412551045417786,
+            -0.09440353512763977,
+            0.11123991012573242
+          ],
+          "watts": 4.0,
+          "size_m": 0.375
+        },
+        {
+          "name": "Rim",
+          "location": [
+            0.1522739827632904,
+            0.24482250213623047,
+            -0.08934074640274048
+          ],
+          "watts": 6.0,
+          "size_m": 0.23999999463558197
+        }
+      ],
+      "additional_flex_amount": 1.0
+    },
+    "hands_palmar_fist": {
+      "file": "hands_palmar_fist.png",
+      "sha256": "62b302d3fcbf56aa6a909515024c7026b068848ca9abf3d6fd4d30de80a6421d",
+      "actual_blender_geometry": true,
+      "camera_center": [
+        -0.0003020111471414566,
+        0.01182318851351738,
+        0.02251535840332508
+      ],
+      "camera_outward": [
+        0.2296576052904129,
+        -0.3215206563472748,
+        -0.9186304211616516
+      ],
+      "camera_up": [
+        0.07798021286725998,
+        0.9469025135040283,
+        -0.3119208514690399
+      ],
+      "ortho_scale_m": 0.3640004539489746,
+      "lighting": [
+        {
+          "name": "Key",
+          "location": [
+            0.32014477252960205,
+            0.14262361824512482,
+            -0.2697262465953827
+          ],
+          "watts": 9.0,
+          "size_m": 0.3149999976158142
+        },
+        {
+          "name": "Fill",
+          "location": [
+            -0.23505724966526031,
+            -0.05113824084401131,
+            -0.2753954529762268
+          ],
+          "watts": 4.0,
+          "size_m": 0.375
+        },
+        {
+          "name": "Rim",
+          "location": [
+            -0.19300048053264618,
+            0.25890082120895386,
+            0.051150131970644
+          ],
+          "watts": 6.0,
+          "size_m": 0.23999999463558197
+        }
+      ],
+      "additional_flex_amount": 1.0
+    },
+    "hands_dorsal_neutral": {
+      "file": "hands_dorsal_neutral.png",
+      "sha256": "d66c9bd66a160574a83733bc233e3bf63bae3ce3f652143dd0766db121e88391",
+      "actual_blender_geometry": true,
+      "camera_center": [
+        0.0,
+        0.04068818688392639,
+        0.020954065024852753
+      ],
+      "camera_outward": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "camera_up": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "ortho_scale_m": 0.4103432369232178,
+      "lighting": [
+        {
+          "name": "Key",
+          "location": [
+            -0.24000000953674316,
+            0.28068819642066956,
+            0.3209540843963623
+          ],
+          "watts": 9.0,
+          "size_m": 0.3149999976158142
+        },
+        {
+          "name": "Fill",
+          "location": [
+            0.30000001192092896,
+            0.05568818747997284,
+            0.2609540820121765
+          ],
+          "watts": 4.0,
+          "size_m": 0.375
+        },
+        {
+          "name": "Rim",
+          "location": [
+            0.18000000715255737,
+            0.25068819522857666,
+            -0.12904593348503113
+          ],
+          "watts": 6.0,
+          "size_m": 0.23999999463558197
+        }
+      ],
+      "additional_flex_amount": 0.0
+    },
+    "hands_palmar_neutral": {
+      "file": "hands_palmar_neutral.png",
+      "sha256": "8206e17328bc5dc2bdf796baf0c49ff11502558723914ddd3514bec78b6659b6",
+      "actual_blender_geometry": true,
+      "camera_center": [
+        0.0,
+        0.04068818688392639,
+        0.020954065024852753
+      ],
+      "camera_outward": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "camera_up": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "ortho_scale_m": 0.4103432369232178,
+      "lighting": [
+        {
+          "name": "Key",
+          "location": [
+            0.24000000953674316,
+            0.28068819642066956,
+            -0.2790459394454956
+          ],
+          "watts": 9.0,
+          "size_m": 0.3149999976158142
+        },
+        {
+          "name": "Fill",
+          "location": [
+            -0.30000001192092896,
+            0.05568818747997284,
+            -0.21904593706130981
+          ],
+          "watts": 4.0,
+          "size_m": 0.375
+        },
+        {
+          "name": "Rim",
+          "location": [
+            -0.18000000715255737,
+            0.25068819522857666,
+            0.17095407843589783
+          ],
+          "watts": 6.0,
+          "size_m": 0.23999999463558197
+        }
+      ],
+      "additional_flex_amount": 0.0
+    },
+    "hands_three_quarter_relaxed": {
+      "file": "hands_three_quarter_relaxed.png",
+      "sha256": "00cb7b77e1a0b6015195c4e7168ec609f335fcf6a69407360169a69f13669599",
+      "actual_blender_geometry": true,
+      "camera_center": [
+        0.008377177640795708,
+        0.017470670863986015,
+        0.025370070710778236
+      ],
+      "camera_outward": [
+        0.37338289618492126,
+        -0.41486990451812744,
+        0.8297398090362549
+      ],
+      "camera_up": [
+        0.17024794220924377,
+        0.9098807573318481,
+        0.378328800201416
+      ],
+      "ortho_scale_m": 0.3885070365121527,
+      "lighting": [
+        {
+          "name": "Key",
+          "location": [
+            -0.05760961025953293,
+            0.11138109117746353,
+            0.4635784327983856
+          ],
+          "watts": 9.0,
+          "size_m": 0.3149999976158142
+        },
+        {
+          "name": "Fill",
+          "location": [
+            0.37411922216415405,
+            -0.06844989210367203,
+            0.10707316547632217
+          ],
+          "watts": 4.0,
+          "size_m": 0.375
+        },
+        {
+          "name": "Rim",
+          "location": [
+            0.1522677093744278,
+            0.2707761228084564,
+            -0.09350749850273132
+          ],
+          "watts": 6.0,
+          "size_m": 0.23999999463558197
+        }
+      ],
+      "additional_flex_amount": 0.0
+    },
+    "wrist_left_dorsal": {
+      "file": "wrist_left_dorsal.png",
+      "sha256": "95d00afc132f81a984ea7d89c277073ca917393fb1bed296ab72aba532fe09bf",
+      "actual_blender_geometry": true,
+      "camera_center": [
+        -0.10938459634780884,
+        -0.037250690162181854,
+        0.01259743981063366
+      ],
+      "camera_outward": [
+        0.27944785356521606,
+        -0.23287320137023926,
+        0.931492805480957
+      ],
+      "camera_up": [
+        0.06691562384366989,
+        0.972507119178772,
+        0.22305205464363098
+      ],
+      "ortho_scale_m": 0.16604235157137737,
+      "lighting": [
+        {
+          "name": "Key",
+          "location": [
+            -0.23936881124973297,
+            0.12628906965255737,
+            0.4145412743091583
+          ],
+          "watts": 9.0,
+          "size_m": 0.3149999976158142
+        },
+        {
+          "name": "Fill",
+          "location": [
+            0.24603453278541565,
+            -0.07855265587568283,
+            0.15329712629318237
+          ],
+          "watts": 4.0,
+          "size_m": 0.375
+        },
+        {
+          "name": "Rim",
+          "location": [
+            0.03515924513339996,
+            0.20190680027008057,
+            -0.13200818002223969
+          ],
+          "watts": 6.0,
+          "size_m": 0.23999999463558197
+        }
+      ]
+    },
+    "wrist_right_dorsal": {
+      "file": "wrist_right_dorsal.png",
+      "sha256": "f241913d077c8745a9a1983e5733cef8db42754e6f0ba4b78cfd63e1d6d983e5",
+      "actual_blender_geometry": true,
+      "camera_center": [
+        0.10938455164432526,
+        -0.03724982589483261,
+        0.012597639113664627
+      ],
+      "camera_outward": [
+        -0.27944785356521606,
+        -0.23287320137023926,
+        0.931492805480957
+      ],
+      "camera_up": [
+        -0.06691562384366989,
+        0.972507119178772,
+        0.22305205464363098
+      ],
+      "ortho_scale_m": 0.16603990568546578,
+      "lighting": [
+        {
+          "name": "Key",
+          "location": [
+            -0.22038786113262177,
+            0.12628993391990662,
+            0.2766145169734955
+          ],
+          "watts": 9.0,
+          "size_m": 0.3149999976158142
+        },
+        {
+          "name": "Fill",
+          "location": [
+            0.3286612331867218,
+            -0.07855178415775299,
+            0.3257060945034027
+          ],
+          "watts": 4.0,
+          "size_m": 0.375
+        },
+        {
+          "name": "Rim",
+          "location": [
+            0.3096581995487213,
+            0.2019076645374298,
+            -0.028562720865011215
+          ],
+          "watts": 6.0,
+          "size_m": 0.23999999463558197
+        }
+      ]
+    }
+  },
+  "source_geometry_unchanged": true,
+  "source_pose_restore_maximum_matrix_error": 0.0,
+  "source_camera_and_render_settings_untouched": true
+}

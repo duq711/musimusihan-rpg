@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "status": "local_receiving_baseline_for_incomplete_review",
+  "normalization": "camera_motion_delta_times_production_shield_idle",
+  "coordinate_space": "godot_camera_local_x_right_y_up_minus_z_forward",
+  "mac_source_match_verified": false,
+  "selection": "Local supplied game paired_sword branch, CHOREOGRAPHY.shield(0,0,ready,0,0,overhead)",
+  "position": [-0.34, -0.30, -0.60],
+  "euler_degrees": [-19.28, 83.44, 20.0],
+  "euler_order": "Godot default YXZ; matrix R_y * R_x * R_z",
+  "basis_columns": [
+    [-0.004836632054724607, 0.32283837636886914, -0.9464417518970091],
+    [-0.3473145289560112, 0.8869911492068607, 0.3043342228615714],
+    [0.9377362235545939, 0.33018492390205373, 0.10783640879296633]
+  ],
+  "matrix_rows": [
+    [-0.004836632054724607, -0.3473145289560112, 0.9377362235545939, -0.34],
+    [0.32283837636886914, 0.8869911492068607, 0.33018492390205373, -0.30],
+    [-0.9464417518970091, 0.3043342228615714, 0.10783640879296633, -0.60],
+    [0.0, 0.0, 0.0, 1.0]
+  ],
+  "sources": [
+    {
+      "path": "C:/Users/duq71/Documents/Codex/2026-09-08/d/work/game-project/RPG_Workspace/godot-game/scripts/player.gd",
+      "sha256": "28b7e613665fb06d0a13580b778fd3adf218ab200ebc7db81ae3206a284402df",
+      "lines": "2105,2163-2171",
+      "evidence": "paired_sword chooses CHOREOGRAPHY.shield and applies its absolute transform to ShieldPivot"
+    },
+    {
+      "path": "C:/Users/duq71/Documents/Codex/2026-09-08/d/work/game-project/RPG_Workspace/godot-game/scripts/sword_shield_choreography.gd",
+      "sha256": "43063d4fbc2a5363128f14a437d5c80c25a765fd62f0f8f55c9b33e38210842b",
+      "lines": "23-24,149-160",
+      "evidence": "shield() idle pose, zero raise/recoil and ready phase returns idle"
+    },
+    {
+      "path": "C:/Users/duq71/Documents/Codex/2026-09-08/d/work/game-project/RPG_Workspace/godot-game/scripts/first_person_motion.gd",
+      "sha256": "b9fbdd642cb375a7f83a050573385b5a2f9a51f129e19b407e0b3727517c9494",
+      "lines": "116-127",
+      "evidence": "Separate MOTION.shield baseline; not the paired_sword branch"
+    }
+  ],
+  "conversion": {
+    "raw_control_space": "Camera local after Blender camera transform inversion, not unconverted Blender world axes",
+    "formula": "D_shield(t)=A_shield(t)*inverse(A_shield_rest); T_shield(t)=D_shield(t)*S_shield_local",
+    "geometry_formula": "v_canonical=inverse(S_shield_local)*v_camera_at_source_rest; v_camera(t)=T_shield(t)*v_canonical",
+    "direct_authoring": "If geometry already uses that canonical normalization, evaluate T_shield directly. Never apply both paths."
+  },
+  "limits": [
+    "Read-only local source inspection and matrix arithmetic; no claim of a Godot runtime execution.",
+    "Mac current source may differ. Compare the source SHA or actual idle matrix before integration.",
+    "This file documents a reviewed choice for an incomplete preview; it does not authorize changing Mac production code.",
+    "Initial ShieldPivot setup (-0.72,-0.76,-0.82) is replaced by the animation update; it is not this selected idle.",
+    "MOTION.shield (-0.3985,-0.5272,-0.6575) is a different equipment branch and must not be mixed into the paired baseline."
+  ]
+}

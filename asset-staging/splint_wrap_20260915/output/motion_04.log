@@ -1,0 +1,9 @@
+[HEADLESS] splint_motion_test.gd
+ERROR: hand transfers must be continuous
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/splint_motion_test.gd:74)
+SPLINT MOTION TEST FAIL: wrist gap 0.000000, maximum hand step 0.0790 at 4.450s
+
+Headless validation: 0 passed, 1 failed.
+FAILED: splint_motion_test.gd (1)

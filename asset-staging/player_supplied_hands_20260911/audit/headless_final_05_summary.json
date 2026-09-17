@@ -1,0 +1,89 @@
+{
+  "asset_iteration": "05",
+  "passed_count": 8,
+  "failed_count": 0,
+  "test_names": [
+    "player_arm",
+    "player_appearance",
+    "chest_hands",
+    "player_hands_detailed",
+    "player_finger_joints",
+    "player_hands_greybox",
+    "test_room_session",
+    "test_room"
+  ],
+  "log": "audit/headless_final_05.log",
+  "log_sha256": "728aed4eb084d774f7b181038b5fe4c59974e1a348a03f6776b59f9ab0e54cc3",
+  "model_sha256": {
+    "res://assets/3d/player/gravebound_player.glb": "b25875dadb920303d7e8b0e58085973586b9cdf4cceb383159bcdb7e2c9fc92b",
+    "res://assets/3d/player/hands_detailed/left_hand_detailed.glb": "2e9a95b11654862125c2d082017ef18bbc7de75be6685f0e3831f8281b2f74db",
+    "res://assets/3d/player/hands_detailed/right_hand_detailed.glb": "8b57c758f46838b045a9e91f34352112801360e126b013d3f5ba54624f775402"
+  },
+  "models_unchanged_during_tests": true,
+  "bound_texture_sha256": {
+    "res://assets/3d/player/gravebound_player_gravebound_atlas.png": "f8568d06a7638b4a25bf09ab412afe8c5a1f2a5ccadc601be420bf6f3d46f996",
+    "res://assets/3d/player/gravebound_player_supplied_hand_basecolor.png": "772537d7afe7831260f00c2e71f17a2e2fc1cec80146c06934b9cacc1f1626f3",
+    "res://assets/3d/player/gravebound_player_supplied_hand_normal.png": "8f241a09a8459ac1015fc344804b346b66e7f441367056ee082c0ef156927c9e",
+    "res://assets/3d/player/gravebound_player_supplied_hand_roughness.png": "bfb57d9f7c770785cd4b38c6f7a9a0ea80baf81fd30af87b17a57afb9d3306c7",
+    "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_basecolor.png": "b6c1eadbbbf4bf305afa1c51d286fc2bd8584b56217ffff1eeb7cfb6858630d8",
+    "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_normal.png": "24d9699b7e78dd7da94911175e9a4dd6719951eb639e2cdb67f186391546cfb3",
+    "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_roughness.png": "6d6dd5c76f4b30e7da77973fdebc66f9cbbca179f667853695b8add33accfa32",
+    "res://assets/3d/player/hands_detailed/left_hand_detailed_supplied_hand_basecolor.png": "772537d7afe7831260f00c2e71f17a2e2fc1cec80146c06934b9cacc1f1626f3",
+    "res://assets/3d/player/hands_detailed/left_hand_detailed_supplied_hand_normal.png": "8f241a09a8459ac1015fc344804b346b66e7f441367056ee082c0ef156927c9e",
+    "res://assets/3d/player/hands_detailed/left_hand_detailed_supplied_hand_roughness.png": "bfb57d9f7c770785cd4b38c6f7a9a0ea80baf81fd30af87b17a57afb9d3306c7",
+    "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_basecolor.png": "b6c1eadbbbf4bf305afa1c51d286fc2bd8584b56217ffff1eeb7cfb6858630d8",
+    "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_normal.png": "24d9699b7e78dd7da94911175e9a4dd6719951eb639e2cdb67f186391546cfb3",
+    "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_roughness.png": "6d6dd5c76f4b30e7da77973fdebc66f9cbbca179f667853695b8add33accfa32",
+    "res://assets/3d/player/hands_detailed/right_hand_detailed_supplied_hand_basecolor.png": "772537d7afe7831260f00c2e71f17a2e2fc1cec80146c06934b9cacc1f1626f3",
+    "res://assets/3d/player/hands_detailed/right_hand_detailed_supplied_hand_normal.png": "8f241a09a8459ac1015fc344804b346b66e7f441367056ee082c0ef156927c9e",
+    "res://assets/3d/player/hands_detailed/right_hand_detailed_supplied_hand_roughness.png": "bfb57d9f7c770785cd4b38c6f7a9a0ea80baf81fd30af87b17a57afb9d3306c7"
+  },
+  "stump_and_fixed_wrist_regression": {
+    "maximum_allowed_source_and_posed_stump_z_m": 0.014,
+    "maximum_allowed_fixed_skin_movement_m": 2e-06,
+    "actual_cpu_skinning_includes_active_correctives": true,
+    "all_15_joints_at_max": true,
+    "measurements": [
+      {
+        "context": "supplied wrist/-1",
+        "actual_proximal_vertices": 3290.0,
+        "finger_vertices": 26274.0,
+        "full-flex_wrist_movement_m": 0.0,
+        "finger_movement_m": 0.12740451097488,
+        "source_max_z_m": 0.0129999993369,
+        "posed_stump_max_z_m": 0.01299999374896
+      },
+      {
+        "context": "supplied wrist/1",
+        "actual_proximal_vertices": 3290.0,
+        "finger_vertices": 26274.0,
+        "full-flex_wrist_movement_m": 0.0,
+        "finger_movement_m": 0.12740440666676,
+        "source_max_z_m": 0.0129999993369,
+        "posed_stump_max_z_m": 0.01299999374896
+      }
+    ]
+  },
+  "uid_check": {
+    "passed": true,
+    "missing_registrations": 0,
+    "load_warnings": 0,
+    "fresh_process_loaded_all_three_models": true,
+    "report": "audit/import_uid_final_05.json"
+  },
+  "baseline_warning": "Two ObjectDB instances at exit predate supplied hands; see uid_warning_diagnosis.json.",
+  "validation_scope": "Headless runtime, actual imported/deformed geometry and source/PBR binding. GPU visual review is performed separately.",
+  "script_sha256": {
+    "godot-game/scripts/player_arm_visual.gd": "7b4bf01960fbaec490741afc815385de1ea9bba7909a324406a8516233907a44",
+    "godot-game/scripts/greybox_arm_visual.gd": "f0ab4b3d11f3ed45b8e25b7909b5aa6900885ce74bdcd2dbb8a54d6ea5d919d8",
+    "godot-game/scripts/wrist_cuff_deformer.gd": "ca9702206cf2485bf638047b7cddf66b404d86842a89b181295d4c1fc0203682",
+    "godot-game/tests/player_arm_test.gd": "2f3be740b494ab58c3225bdb67b992ea372cb6a1e91cb842148572ba95a36c6c",
+    "godot-game/tests/player_appearance_test.gd": "20350029b292416710560292d9142ed795a7fcf44e2cba1d14cbdcab5025675a",
+    "godot-game/tests/chest_hands_test.gd": "7afc713dfb569a35ca2aaa80e04b7d6cce7f3553ce575db77df39eac0c125472",
+    "godot-game/tests/player_hands_detailed_test.gd": "e55d347abb0e672966d143c9e6d483b17dc9726d8eb0435d7f6e50b8dc9ed3b6",
+    "godot-game/tests/player_finger_joints_test.gd": "83c4bae7db5d88729fed6cbd910c7fdb1f34bc9df76261b27d7ce87b20812e48",
+    "godot-game/tests/player_hands_greybox_test.gd": "fc336f34211f5c602d30071de2334c8d5d4365f340f89e04c7da4a7326af6050",
+    "godot-game/tests/test_room_session_test.gd": "c5a184757fd33e21fba4a3456761bf9b0d8530dd647b439c14c5e8ee232421c3",
+    "godot-game/tests/test_room_test.gd": "511f715bca0e6bb40559a7df466b4ed42736e1a1174fca6b8e2eaed5312c4d9b"
+  }
+}

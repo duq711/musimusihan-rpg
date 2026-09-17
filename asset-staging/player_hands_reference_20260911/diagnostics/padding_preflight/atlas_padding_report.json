@@ -1,0 +1,30 @@
+{
+  "status": "passed",
+  "width": 4096,
+  "height": 4096,
+  "surface_seed_pixels": 10768545,
+  "filled_background_pixels": 6008671,
+  "maps": {
+    "basecolor": {
+      "source_sha256": "36da2988e4a64541a6b7865890f413c2363911145ad71b2fc99b138fe0e269f4",
+      "output_sha256": "b7cf40948bef0958c0bb2b8f3b680e84963ea0ff7cd0011cbdce8f6b5eb75460",
+      "all_existing_surface_pixels_exact": true,
+      "changed_existing_surface_pixels": 0
+    },
+    "normal": {
+      "source_sha256": "30f0f898afdce591a5de1eef5475acca56588fceffd18d9bc2d61a9bf8407ad2",
+      "output_sha256": "ade2806b6b367a1cc2463c0e6692cd2ab940d1c078093e7484ce639988e82d33",
+      "all_existing_surface_pixels_exact": true,
+      "changed_existing_surface_pixels": 0
+    },
+    "roughness": {
+      "source_sha256": "d0a543ed80faa8995abc53d760e02437904efefd7ae8634bf0917c151eb63f01",
+      "output_sha256": "f9e07275e7abb7cf92d0cd3916490f3575a9f239d18077c8b01a5ee1c55d869e",
+      "all_existing_surface_pixels_exact": true,
+      "changed_existing_surface_pixels": 0
+    }
+  },
+  "nearest_source_seed_pixels": 10758663,
+  "quantized_edge_mask_disagreement": 121,
+  "method": "Preserve all nonzero base or roughness pixels exactly; fill only unused pixels from nearest jointly nonzero (>8/255) source. No surface smoothing."
+}

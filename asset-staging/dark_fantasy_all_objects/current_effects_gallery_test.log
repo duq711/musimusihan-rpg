@@ -1,0 +1,17 @@
+[HEADLESS] dark_fantasy_gallery_test.gd
+GALLERY FACTORY CHECK: fire_bolt
+GALLERY FACTORY CHECK: water_bolt
+GALLERY FACTORY CHECK: ice_shard
+GALLERY FACTORY CHECK: stone_shard
+GALLERY FACTORY CHECK: peripheral_afterimage
+GALLERY FACTORY CHECK: archery_accuracy_target
+GALLERY FACTORY CHECK: flail_station_markers
+DARK FANTASY GALLERY PASS: 7 production factories, actual mesh bounds and six complete views, disabled simulation, repeated paused test-room controls, F2/close/reset cleanup and original expedition restoration
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2535)
+[HEADLESS] archery_system_test.gd
+ARCHERY SYSTEM TEST PASS: input, draw strength, ammo, stamina, cooldown, safe zone, interruption, weapon transitions, HUD, pause and dungeon loot
+[HEADLESS] flail_system_test.gd
+FLAIL SYSTEM TEST PASS: starter equipment, gates, timed melee, rotating charge, queued short release, physical hit and return, one-time costs, cancellation, pause and ordinary weapons
+
+Headless validation: 3 passed, 0 failed.

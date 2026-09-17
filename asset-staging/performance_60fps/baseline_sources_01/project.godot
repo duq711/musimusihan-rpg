@@ -1,0 +1,50 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="잔향의 성소: 검은 성물실"
+config/version="0.1.0"
+run/main_scene="res://boot.tscn"
+config/features=PackedStringArray("4.7")
+boot_splash/bg_color=Color(0.012, 0.02, 0.022, 1)
+boot_splash/image="res://assets/ui/boot_splash.png"
+
+[autoload]
+
+TestRoomSandbox="*res://scripts/test_room_sandbox.gd"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/size/window_width_override=1280
+window/size/window_height_override=720
+window/stretch/mode="canvas_items"
+
+[layer_names]
+
+3d_physics/layer_1="Player"
+3d_physics/layer_2="World"
+3d_physics/layer_3="Enemy"
+3d_physics/layer_4="TrapTrigger"
+3d_physics/layer_5="Interactable"
+
+[physics]
+
+3d/default_gravity=18.0
+
+[rendering]
+
+rendering_device/driver.macos="vulkan"
+renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.007, 0.009, 0.014, 1)
+anti_aliasing/quality/use_taa=true
+occlusion_culling/use_occlusion_culling=true

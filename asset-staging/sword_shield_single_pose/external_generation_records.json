@@ -1,0 +1,621 @@
+{
+  "schema_version": 1,
+  "created_local_date": "2026-09-07",
+  "scope": "3 sword-cut contact poses × 4 external directions; newly generated individual reference PNGs",
+  "label_ko": "AI 생성 자세 참고 — 실제 게임 촬영이나 AI 생성 영상이 아님",
+  "generation_mode": "builtin image_gen.imagegen only",
+  "processing": "선택된 원본 PNG를 바이트 그대로 복사. 자르기·좌우반전·색보정·콜라주·컨택트시트·이미지 합성 없음. 원본 경로 보존.",
+  "direction_convention": {
+    "left": "외부 카메라가 인물의 왼쪽. 가까운 팔은 방패팔, 얼굴·몸통 화면 오른쪽.",
+    "right": "외부 카메라가 인물의 오른쪽. 가까운 팔은 검팔, 얼굴·몸통 화면 왼쪽.",
+    "top": "외부 카메라가 위에서 아래를 향함. 정수리·어깨 윗면 확인. 인물 화면 전방 방향은 개별 검수에 기록.",
+    "bottom": "외부 카메라가 아래에서 위를 향함. 턱·전완·검 가드 아랫면 확인."
+  },
+  "limitations_ko": [
+    "독립 생성 원본들이므로 카메라 정확한 수치·인물 얼굴·가죽 버클 세부·관절 각도가 모든 방향에서 완전히 동일하지 않다.",
+    "외부 측면은 반대편 팔이 몸통이나 방패에 가려질 수 있다. 손목의 가려진 세부는 다른 방향과 실제 게임 촬영으로 검증해야 한다.",
+    "정적 중간 자세 참고이며 정확히 동일한 3D 자세의 다중 카메라 렌더나 연속 동작의 증거가 아니다."
+  ],
+  "selected_count": 12,
+  "attempt_count": 23,
+  "attempts": [
+    {
+      "id": "right_diagonal_left_contact",
+      "action": "right_diagonal",
+      "pose": "contact",
+      "intended_direction": "left",
+      "tool": "builtin image_gen.imagegen",
+      "prompt_exact": "Use case: stylized-concept. Asset type: a NEW single-frame photoreal medieval game animation modeling reference, not a screenshot of the implemented game. Input image 1 is appearance/material reference ONLY; input image 2 gives the instant of the right-diagonal sword cut ONLY. Generate a wholly new external-camera image; do not crop, mirror, recycle, or reproduce the POV framing of either reference. Exactly ONE adult fighter, ONE frozen contact-phase pose, ONE camera direction, ONE image. Tight upper-body view including connected shoulders, chest, both elbows and both wrists, plus the sword and shield; legs are unnecessary. The fighter's anatomical RIGHT hand holds the slender straight double-edged arming sword with straight crossguard and dark wrapped one-hand grip; anatomical LEFT hand and forearm hold the round dark oak shield with thin iron rim. Worn charcoal leather sleeves, two thin buckled forearm straps, fingerless dark gloves with visible fingers; match the references' identity, materials and moody dark studio lighting. The action is the MIDDLE/contact instant of a right-to-left descending diagonal cut: right fist extended in front at lower chest height, sword traversing toward the fighter's left, blade slightly above horizontal and cutting down-left; left shield low beside the torso. No final low follow-through, no kneeling, no second person. Natural plausible shoulder-elbow-wrist chain and firm grip. Single landscape 16:9 composition. No panel, collage, montage, inset, split-screen, sequence, labels, arrows, ghost trails, HUD, or text. CAMERA IS TRUE EXTERNAL LEFT PROFILE, on the fighter's anatomical LEFT side at shoulder height, looking sideways across the whole torso. The fighter's nose, chest and attack direction face toward the RIGHT EDGE OF THE IMAGE. The LEFT shield arm is nearest the external camera, the RIGHT sword arm is farther away. Show a plainly recognizable left side of head/neck/torso and visible shoulder-to-elbow connections. The camera is several feet outside the body, not behind the eyes and not behind either arm. Opposite-side (right profile) or first-person pictures are incorrect.",
+      "referenced_image_paths": [
+        "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/sword_shield_single_pose/references/ready_pov.png",
+        "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/sword_shield_single_pose/references/right_diagonal_pov_contact.png"
+      ],
+      "native_original_path": "/Users/duq711gmail.com/.codex/generated_images/01a077c7-4067-7231-821d-2f199aef8394/exec-42786f23-d45a-481d-8c93-fe89fcc45c1c.png",
+      "selected": false,
+      "output": null,
+      "visual_qa": {
+        "review_method": "원본 이미지를 직접 육안 검토; 자동 유사도 점수 없음",
+        "single_pose_single_direction": true,
+        "decision": "rejected",
+        "notes_ko": "가까운 팔이 검팔로 생성되어 의도한 LEFT의 방패팔 전경 조건에 맞지 않음."
+      },
+      "native_sha256": "fde8e6079c2b185f92798c4fcfee9c4d63db529b840879e8e353203f5502acb0",
+      "dimensions": [
+        1672,
+        941
+      ]
+    },
+    {
+      "id": "right_diagonal_left_contact_v2",
+      "action": "right_diagonal",
+      "pose": "contact",
+      "intended_direction": "left",
+      "tool": "builtin image_gen.imagegen",
+      "prompt_exact": "Create ONE NEW photoreal medieval animation reference image, ONE adult male fighter at ONE frozen right-diagonal-cut CONTACT pose from ONE external camera. Inputs are materials and contact-position references ONLY, never copy their first-person camera. Charcoal leather sleeves, two thin buckled forearm straps, fingerless black gloves; slender straight arming sword in anatomical RIGHT hand; round dark oak shield with narrow iron rim in anatomical LEFT hand and forearm. Match the dark studio stone-ground look and equipment of the input references. Upper body close-up with crown or chin, chest, both shoulders, connected elbows, wrists, sword and shield. Middle/contact of a descending right-to-left diagonal cut, right fist held FORWARD around chest height, blade traversing to the fighter's anatomical left. Shield held at left flank. Not low finished follow-through. Natural human anatomy, exactly two hands. ONE full landscape image, no panels, no collage, no inset, no extra pose, no text or labels. STRICT 90-DEGREE LEFT SIDE PROFILE. Detached camera stands beside the fighter's anatomical LEFT shoulder. The torso, sternum and nose all point HORIZONTALLY toward the RIGHT edge of the image. Only the left side profile of the head and narrow side of torso are visible, NOT the full chest facing camera. The anatomical LEFT shoulder/LEFT elbow and LEFT SHIELD arm are the NEAR foreground limb. The round SHIELD and its left forearm clearly occlude the farther RIGHT SWORD arm. The right sword hand appears beyond/above the shield as the far-side arm reaches forward. The near arm MUST hold the shield, not the sword. If the sword arm is nearest the camera this is the wrong side. The right-diagonal cut crosses toward the camera slightly, with natural blade foreshortening. This is a new external LEFT-side camera image, absolutely not a POV image.",
+      "referenced_image_paths": [
+        "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/sword_shield_single_pose/references/ready_pov.png",
+        "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/sword_shield_single_pose/references/right_diagonal_pov_contact.png"
+      ],
+      "native_original_path": "/Users/duq711gmail.com/.codex/generated_images/01a077c7-4067-7231-821d-2f199aef8394/exec-e97b8cd8-9d47-49ed-bfb7-a6b184a65d73.png",
+      "selected": false,
+      "output": null,
+      "visual_qa": {
+        "review_method": "원본 이미지를 직접 육안 검토; 자동 유사도 점수 없음",
+        "single_pose_single_direction": true,
+        "decision": "rejected",
+        "notes_ko": "왼쪽 프로필을 요청했으나 가까운 팔이 다시 검을 들고 있어 제외."
+      },
+      "native_sha256": "bc0d512df056788458569e4ee31c76317da8170d635bf7d70f307293be5c1524",
+      "dimensions": [
+        1672,
+        941
+      ]
+    },
+    {
+      "id": "right_diagonal_left_contact_v3",
+      "action": "right_diagonal",
+      "pose": "contact",
+      "intended_direction": "left",
+      "tool": "builtin image_gen.imagegen",
+      "prompt_exact": "Create a completely NEW single photoreal medieval modeling reference picture. ONE person, ONE pose, ONE direction, not a sheet. Use image1 for exact external LEFT camera angle, identity, clothing and handedness. Keep his head and torso facing SCREEN RIGHT. His NEAR shoulder and bent near elbow must connect to the SHIELD forearm and shield hand, exactly as image1. His far shoulder and far arm hold the SWORD beyond the shield. Do not swap these limbs. Image2 supplies ONLY the middle contact moment of a descending right-to-left diagonal cut; do NOT use its first-person camera. Change the ready sword pose of image1 to the MIDDLE CONTACT of that cut: the FAR right sword fist moves forward around chest height with sword extending diagonally down-left across the body, slightly toward this left-side camera, natural foreshortening. Near left shield elbow remains bent low, showing its connected upper sleeve and two thin buckled leather straps. Shield can partly occlude far sword wrist but keep the blade visible. Exact detached 90-degree left-side profile camera, upper-body framing from head to belt plus both elbows, no legs required. Same charcoal sleeves, dark worn leather fingerless gloves, slender straight arming sword, round dark oak shield with thin iron rim, dark stone studio. No frontal pose, no near sword arm, no mirror, no POV, no multiple pictures or panels, no collage, no text. Single 16:9 landscape.",
+      "referenced_image_paths": [
+        "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/sword_shield_single_pose/references/ready_left_v3.png",
+        "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/sword_shield_single_pose/references/right_diagonal_pov_contact.png"
+      ],
+      "native_original_path": "/Users/duq711gmail.com/.codex/generated_images/01a077c7-4067-7231-821d-2f199aef8394/exec-5c129e3a-b198-47d9-9d25-24b2a1acd2ba.png",
+      "selected": false,
+      "output": null,
+      "visual_qa": {
+        "review_method": "원본 이미지를 직접 육안 검토; 자동 유사도 점수 없음",
+        "single_pose_single_direction": true,
+        "decision": "rejected",
+        "notes_ko": "얼굴은 오른쪽을 향하지만 몸통 회전으로 검팔이 전경을 차지하여 LEFT 조건 불충족."
+      },
+      "native_sha256": "715d3ae01fe9cede5454101258c871a7c5daab45082870009ba571167343febf",
+      "dimensions": [
+        1672,
+        941
+      ]
+    },
+    {
+      "id": "right_diagonal_left_contact_v4",
+      "action": "right_diagonal",
+      "pose": "contact",
+      "intended_direction": "left",
+      "tool": "builtin image_gen.imagegen",
+      "prompt_exact": "Create one NEW photoreal medieval animation reference image. One fighter, one frozen pose, one external direction. No collage, sheet, panels, comparison, ghosting, arrows, text. Preserve this reference fighter's identity, charcoal sleeves, worn leather two-buckle bracers and fingerless gloves, his single right-hand straight arming sword and single left-hand oak shield. Upper-body connected anatomy, head through waist with elbows. Landscape16:9. Use this EXACT LEFT SIDE camera and EXACT torso and head orientation facing screen RIGHT. Preserve the NEAR LEFT ARM holding the SHIELD in the foreground exactly as it is: shoulder, elbow, wrist, fingers and shield all keep their original positions. Preserve the shield side of the torso nearest camera. CHANGE ONLY THE FAR RIGHT SWORD ARM into a middle descending-cut pose. The far right sword upper arm rises in front of the far side of chest, the far elbow extends so the far sword hand travels above and BEHIND the foreground shield, at chest height. Single straight blade extends forwards-right with a slight downward slope and foreshortening, crossing behind the shield. The near shield remains foreground and partially OCCLUDES the far sword forearm. Sword arm must remain on the FAR SIDE, do not rotate torso or bring sword arm in front of near shield arm. The near arm bends low and holds ONLY the shield. This is contact middle of right-to-left diagonal cut, not final low pose. Do not alter which hand holds which equipment. No POV.",
+      "referenced_image_paths": [
+        "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/sword_shield_single_pose/references/ready_left_v3.png"
+      ],
+      "native_original_path": "/Users/duq711gmail.com/.codex/generated_images/01a077c7-4067-7231-821d-2f199aef8394/exec-c226b81d-9582-4abf-b68a-a48392152bff.png",
+      "selected": false,
+      "output": null,
+      "visual_qa": {
+        "review_method": "원본 이미지를 직접 육안 검토; 자동 유사도 점수 없음",
+        "single_pose_single_direction": true,
+        "decision": "rejected",
+        "notes_ko": "검팔이 가까운 어깨에 연결된 모습이며 방패팔 깊이 관계가 잘못되어 제외."
+      },
+      "native_sha256": "a780988e97a8f2b81f89f7edf1bd45878a11980b5e3ee45a0a9f5a79b77c7336",
+      "dimensions": [
+        1672,
+        941
+      ]
+    },
+    {
+      "id": "right_diagonal_left_contact_v5",
+      "action": "right_diagonal",
+      "pose": "contact",
+      "intended_direction": "left",
+      "tool": "builtin image_gen.imagegen",
+      "prompt_exact": "Generate a single new pose image of this same man from exactly this camera. Keep the entire foreground shield arm COMPLETELY UNCHANGED: the big near shoulder, low bent elbow, bracer, hand and round shield must all stay exactly where they are. Keep the head looking screen right and torso unchanged. The ONLY change is to the SMALL FAR SWORD HAND currently visible ABOVE THE SHIELD: tilt that sword hand's wrist so its blade is now angled 20 degrees downward toward screen right, rather than pointing straight up. The far sword hand stays ABOVE the shield, beyond the near shield forearm; no new arm comes in front of the shield arm. The sword far elbow extends slightly forward but stays mostly hidden BEHIND the existing near shoulder/arm/shield. Make no other pose changes. One straight sword in the original hand, one shield in its original hand. This is a middle descending-contact sword pose. Single 16:9 upper-body photograph, no text, no panels, no collage, no POV. The shield-bearing arm MUST remain the large foreground arm from the source image.",
+      "referenced_image_paths": [
+        "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/sword_shield_single_pose/references/ready_left_v3.png"
+      ],
+      "native_original_path": "/Users/duq711gmail.com/.codex/generated_images/01a077c7-4067-7231-821d-2f199aef8394/exec-f79b1862-5715-4583-90ad-8beb59432153.png",
+      "selected": false,
+      "output": null,
+      "visual_qa": {
+        "review_method": "원본 이미지를 직접 육안 검토; 자동 유사도 점수 없음",
+        "single_pose_single_direction": true,
+        "decision": "rejected",
+        "notes_ko": "가까운 방패팔은 맞지만 칼날이 위로 향해 요청한 하강 contact 대신 준비 자세에 가까움."
+      },
+      "native_sha256": "b3683dda1c8df7d7a632c4b1a2ca309674374b4fb28300ed4c1964d617f3354e",
+      "dimensions": [
+        1672,
+        941
+      ]
+    },
+    {
+      "id": "right_diagonal_left_contact_v6",
+      "action": "right_diagonal",
+      "pose": "contact",
+      "intended_direction": "left",
+      "tool": "builtin image_gen.imagegen",
+      "prompt_exact": "Single photoreal new modeling image of the exact referenced man in the exact referenced external LEFT PROFILE camera, shield arm closest camera. Maintain foreground shoulder-to-shield anatomy completely unchanged. Modify the SMALL FAR SWORD HAND ABOVE THE SHIELD only: rotate the blade CLOCKWISE roughly 105 degrees from its vertical ready pose, so the blade now points SCREEN RIGHT and slightly DOWN. Blade must be BELOW a horizontal line through the fist, never pointing upward. Sword fist remains at CHEST HEIGHT, not at waist. The far elbow extends forward behind the foreground shield, fingers stay wrapped firmly on leather sword grip. Foreground bent shield elbow must stay where it is and the near hand continues holding ONLY the shield. Head and torso remain facing SCREEN RIGHT. Only one sword, one shield, two arms. New middle descending-cut CONTACT pose, not a ready pose, not overhead windup. Slender straight arming sword with one normal blade, not a double-ended blade; same charcoal sleeves and fingerless gloves. One landscape16:9 image. NO sheet, collage, multiple pose, text, POV, or mirrored limb swaps.",
+      "referenced_image_paths": [
+        "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/sword_shield_single_pose/references/ready_left_v3.png"
+      ],
+      "native_original_path": "/Users/duq711gmail.com/.codex/generated_images/01a077c7-4067-7231-821d-2f199aef8394/exec-80417a55-25ac-4656-86f6-04af7d76786c.png",
+      "selected": true,
+      "output": "references/right_diagonal_left_contact.png",
+      "visual_qa": {
+        "review_method": "원본 이미지를 직접 육안 검토; 자동 유사도 점수 없음",
+        "single_pose_single_direction": true,
+        "decision": "accepted",
+        "notes_ko": "왼쪽 외부 측면. 얼굴·몸통이 화면 오른쪽을 향하며 낮게 굽힌 방패팔이 앞, 검팔이 뒤에 있다. 검끝이 주먹보다 낮은 중간 하강 자세. 두 어깨와 팔꿈치 연결 확인."
+      },
+      "native_sha256": "e12f40bfc11afb56f079d539aa683c44744ca423637638638d16ef5a4b73013c",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "output_sha256": "e12f40bfc11afb56f079d539aa683c44744ca423637638638d16ef5a4b73013c"
+    },
+    {
+      "id": "right_diagonal_right_contact",
+      "action": "right_diagonal",
+      "pose": "contact",
+      "intended_direction": "right",
+      "tool": "builtin image_gen.imagegen",
+      "prompt_exact": "Use case: stylized-concept. Asset type: a NEW single-frame photoreal medieval game animation modeling reference, not a screenshot of the implemented game. Input image 1 is appearance/material reference ONLY; input image 2 gives the instant of the right-diagonal sword cut ONLY. Generate a wholly new external-camera image; do not crop, mirror, recycle, or reproduce the POV framing of either reference. Exactly ONE adult fighter, ONE frozen contact-phase pose, ONE camera direction, ONE image. Tight upper-body view including connected shoulders, chest, both elbows and both wrists, plus the sword and shield; legs are unnecessary. The fighter's anatomical RIGHT hand holds the slender straight double-edged arming sword with straight crossguard and dark wrapped one-hand grip; anatomical LEFT hand and forearm hold the round dark oak shield with thin iron rim. Worn charcoal leather sleeves, two thin buckled forearm straps, fingerless dark gloves with visible fingers; match the references' identity, materials and moody dark studio lighting. The action is the MIDDLE/contact instant of a right-to-left descending diagonal cut: right fist extended in front at lower chest height, sword traversing toward the fighter's left, blade slightly above horizontal and cutting down-left; left shield low beside the torso. No final low follow-through, no kneeling, no second person. Natural plausible shoulder-elbow-wrist chain and firm grip. Single landscape 16:9 composition. No panel, collage, montage, inset, split-screen, sequence, labels, arrows, ghost trails, HUD, or text. CAMERA IS TRUE EXTERNAL RIGHT PROFILE, on the fighter's anatomical RIGHT side at shoulder height, looking sideways across the whole torso. The fighter's nose, chest and attack direction face toward the LEFT EDGE OF THE IMAGE. The RIGHT sword arm is nearest the external camera, the LEFT shield arm is farther away. Show a plainly recognizable right side of head/neck/torso and visible shoulder-to-elbow connections. The camera is several feet outside the body, not behind the eyes and not behind either arm. Opposite-side (left profile) or first-person pictures are incorrect.",
+      "referenced_image_paths": [
+        "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/sword_shield_single_pose/references/ready_pov.png",
+        "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/sword_shield_single_pose/references/right_diagonal_pov_contact.png"
+      ],
+      "native_original_path": "/Users/duq711gmail.com/.codex/generated_images/01a077c7-4067-7231-821d-2f199aef8394/exec-3b4d52c2-1fc1-45b9-96b1-5e52e4b9c773.png",
+      "selected": false,
+      "output": null,
+      "visual_qa": {
+        "review_method": "원본 이미지를 직접 육안 검토; 자동 유사도 점수 없음",
+        "single_pose_single_direction": true,
+        "decision": "rejected",
+        "notes_ko": "몸통이 정면으로 크게 돌아가 엄격한 오른쪽 측면 검수에 불명확하여 더 명확한 원본으로 대체."
+      },
+      "native_sha256": "dbbc1c8a66d305d446635ab02f09750ba0925c546fbe70cbc95af39f16076c51",
+      "dimensions": [
+        1672,
+        941
+      ]
+    },
+    {
+      "id": "right_diagonal_right_contact_v2",
+      "action": "right_diagonal",
+      "pose": "contact",
+      "intended_direction": "right",
+      "tool": "builtin image_gen.imagegen",
+      "prompt_exact": "Create a completely NEW single photoreal medieval modeling reference picture. ONE person, ONE pose, ONE direction, not a sheet. Use image1 for exact external RIGHT camera angle, identity, clothing and handedness. Keep his head and torso facing SCREEN LEFT. His NEAR shoulder and near elbow connect to the SWORD forearm and sword hand, exactly as image1. His far shoulder and far arm hold the SHIELD beyond the sword arm. Do not swap these limbs. Image2 supplies ONLY the middle contact moment of a descending right-to-left diagonal cut; do NOT use its first-person camera. Change image1's ready sword into the MIDDLE CONTACT of the cut: near right sword elbow extends forward around chest height, fist ahead of torso, blade sweeps toward the fighter's left side slightly away from camera and downward, with natural perspective. Keep right shoulder, upper arm, elbow, wrist and sword hand clearly connected. Far left shield elbow bent low at flank. Exact detached 90-degree right-side profile camera, head through belt and both elbows, not full chest front, no legs required. Same charcoal sleeves, dark worn leather fingerless gloves and two thin bracer straps, slender straight arming sword, round dark oak shield with thin iron rim, dark stone studio. No POV, no mirror, no multiple pictures or panels, no collage, no text. Single 16:9 landscape.",
+      "referenced_image_paths": [
+        "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/sword_shield_single_pose/references/ready_right.png",
+        "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/sword_shield_single_pose/references/right_diagonal_pov_contact.png"
+      ],
+      "native_original_path": "/Users/duq711gmail.com/.codex/generated_images/01a077c7-4067-7231-821d-2f199aef8394/exec-ab9e3438-1408-41ef-b942-401e317fdadd.png",
+      "selected": false,
+      "output": null,
+      "visual_qa": {
+        "review_method": "원본 이미지를 직접 육안 검토; 자동 유사도 점수 없음",
+        "single_pose_single_direction": true,
+        "decision": "rejected",
+        "notes_ko": "얼굴은 왼쪽이지만 방패팔이 가까운 전경이어서 RIGHT 조건 불충족."
+      },
+      "native_sha256": "b38d6cc7d3086bf11a3e220b61018c888a90a4743b8aa64700256b5bfaa92e5a",
+      "dimensions": [
+        1672,
+        941
+      ]
+    },
+    {
+      "id": "right_diagonal_right_contact_v3",
+      "action": "right_diagonal",
+      "pose": "contact",
+      "intended_direction": "right",
+      "tool": "builtin image_gen.imagegen",
+      "prompt_exact": "Create one NEW photoreal medieval animation reference image. One fighter, one frozen pose, one external direction. No collage, sheet, panels, comparison, ghosting, arrows, text. Preserve this reference fighter's identity, charcoal sleeves, worn leather two-buckle bracers and fingerless gloves, his single right-hand straight arming sword and single left-hand oak shield. Upper-body connected anatomy, head through waist with elbows. Landscape16:9. Use this EXACT RIGHT SIDE camera and EXACT torso and head orientation facing screen LEFT. Preserve the NEAR RIGHT SHOULDER and NEAR RIGHT SWORD ARM as the closest foreground limb. Preserve the FAR LEFT SHIELD ARM and shield beyond it. Keep the torso broad shoulder pointing toward camera exactly like the input. Change ONLY the sword angle and right elbow extension into middle of a descending right-to-left diagonal cut: near right sword fist travels forward-left around chest height, near elbow slightly straighter, straight blade extends screen-left and slightly downward. Sword forearm is in FRONT OF and OCCLUDES the farther shield. Shield hand and shield remain FARTHER FROM CAMERA than sword arm; shield never becomes nearest limb. Do not rotate the torso, change handedness, exchange limb depths, or reproduce a first-person view. Camera is outside beside right shoulder. Middle contact, not low finish.",
+      "referenced_image_paths": [
+        "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/sword_shield_single_pose/references/ready_right.png"
+      ],
+      "native_original_path": "/Users/duq711gmail.com/.codex/generated_images/01a077c7-4067-7231-821d-2f199aef8394/exec-040bdd3e-1472-4e21-8b29-aa6de8b60f24.png",
+      "selected": false,
+      "output": null,
+      "visual_qa": {
+        "review_method": "원본 이미지를 직접 육안 검토; 자동 유사도 점수 없음",
+        "single_pose_single_direction": true,
+        "decision": "rejected",
+        "notes_ko": "오른쪽 방향과 가까운 검팔은 맞지만 칼날이 위를 향해 중간 하강 자세가 명확한 v4로 대체."
+      },
+      "native_sha256": "315ffda0d21ce906c01939c9cc8564f07e3a130b885673907c6a9ec3c6234679",
+      "dimensions": [
+        1672,
+        941
+      ]
+    },
+    {
+      "id": "right_diagonal_right_contact_v4",
+      "action": "right_diagonal",
+      "pose": "contact",
+      "intended_direction": "right",
+      "tool": "builtin image_gen.imagegen",
+      "prompt_exact": "Generate a new single-pose photoreal image from this EXACT RIGHT-side external camera. Preserve the man facing SCREEN LEFT and keep the near RIGHT sword shoulder, elbow, forearm and hand closest camera, with far shield behind, exactly as reference. Change only sword wrist angle and slight elbow height so the sword fist is at CHEST height and the straight blade points SCREEN LEFT and 15 degrees DOWN BELOW the fist horizontal, rather than angled up. Blade tip must be LOWER on screen than the crossguard, shallow downward diagonal. This is middle descending right-to-left diagonal cut, not ready guard or finished low pose. The near sword arm remains in front of shield; do not change which arm holds sword or shield, do not turn torso. Fit full normal single arming sword and connected near elbow within frame. Preserve charcoal sleeves, two thin bracer straps, fingerless gloves, oak shield and moody stone studio. One upper-body landscape16:9 photograph only, no panels, collage, text, ghost trail, duplicate equipment or first-person view.",
+      "referenced_image_paths": [
+        "/Users/duq711gmail.com/.codex/generated_images/01a077c7-4067-7231-821d-2f199aef8394/exec-040bdd3e-1472-4e21-8b29-aa6de8b60f24.png"
+      ],
+      "native_original_path": "/Users/duq711gmail.com/.codex/generated_images/01a077c7-4067-7231-821d-2f199aef8394/exec-5d8bd755-02e8-4cfc-b212-0919344614db.png",
+      "selected": true,
+      "output": "references/right_diagonal_right_contact.png",
+      "visual_qa": {
+        "review_method": "원본 이미지를 직접 육안 검토; 자동 유사도 점수 없음",
+        "single_pose_single_direction": true,
+        "decision": "accepted",
+        "notes_ko": "오른쪽 외부 측면. 얼굴·몸통이 화면 왼쪽을 향하며 검팔이 앞, 방패팔이 뒤에 있다. 얕게 내려가는 칼날과 파지 확인. LEFT와 몸 방향 반대."
+      },
+      "native_sha256": "e8a08fc96211b8ef4c266cb3d064c0a75cc022165e0a33f0625a425c699daf65",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "output_sha256": "e8a08fc96211b8ef4c266cb3d064c0a75cc022165e0a33f0625a425c699daf65"
+    },
+    {
+      "id": "right_diagonal_top_contact",
+      "action": "right_diagonal",
+      "pose": "contact",
+      "intended_direction": "top",
+      "tool": "builtin image_gen.imagegen",
+      "prompt_exact": "Create ONE NEW photoreal medieval animation reference image, ONE adult male fighter at ONE frozen right-diagonal-cut CONTACT pose from ONE external camera. Inputs are materials and contact-position references ONLY, never copy their first-person camera. Charcoal leather sleeves, two thin buckled forearm straps, fingerless black gloves; slender straight arming sword in anatomical RIGHT hand; round dark oak shield with narrow iron rim in anatomical LEFT hand and forearm. Match the dark studio stone-ground look and equipment of the input references. Upper body close-up with crown or chin, chest, both shoulders, connected elbows, wrists, sword and shield. Middle/contact of a descending right-to-left diagonal cut, right fist held FORWARD around chest height, blade traversing to the fighter's anatomical left. Shield held at left flank. Not low finished follow-through. Natural human anatomy, exactly two hands. ONE full landscape image, no panels, no collage, no inset, no extra pose, no text or labels. TRUE TOP CAMERA: camera directly ABOVE the fighter, looking VERTICALLY DOWN, a bird's-eye plan view. Prominent TOP of head, TOPS of both shoulders and forearms, upper surfaces of gloves and sword, ground below. The torso's forward direction runs toward the TOP edge of the image. This is a detached overhead camera outside the fighter, including his crown and shoulder-to-elbow chains. Absolutely not the fighter's own eyesight or a frontal portrait. Keep right hand/right shoulder connected, left arm connected to shield.",
+      "referenced_image_paths": [
+        "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/sword_shield_single_pose/references/ready_pov.png",
+        "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/sword_shield_single_pose/references/right_diagonal_pov_contact.png"
+      ],
+      "native_original_path": "/Users/duq711gmail.com/.codex/generated_images/01a077c7-4067-7231-821d-2f199aef8394/exec-6d68bd4e-126e-4070-84bf-c247ddc023d1.png",
+      "selected": true,
+      "output": "references/right_diagonal_top_contact.png",
+      "visual_qa": {
+        "review_method": "원본 이미지를 직접 육안 검토; 자동 유사도 점수 없음",
+        "single_pose_single_direction": true,
+        "decision": "accepted",
+        "notes_ko": "수직 위쪽 외부 시점. 정수리·양어깨 윗면·팔꿈치가 보인다. 인물 전방은 화면 아래이며 오른검팔은 화면 왼쪽, 왼방패팔은 화면 오른쪽이다. 대각 중간 칼날 확인."
+      },
+      "native_sha256": "dfc5ee3f26d2a0daa3d55cbbe7d672f827db7447f28d5e1f8bbf5162c32f30f8",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "output_sha256": "dfc5ee3f26d2a0daa3d55cbbe7d672f827db7447f28d5e1f8bbf5162c32f30f8"
+    },
+    {
+      "id": "right_diagonal_bottom_contact",
+      "action": "right_diagonal",
+      "pose": "contact",
+      "intended_direction": "bottom",
+      "tool": "builtin image_gen.imagegen",
+      "prompt_exact": "Create ONE NEW photoreal medieval animation reference image, ONE adult male fighter at ONE frozen right-diagonal-cut CONTACT pose from ONE external camera. Inputs are materials and contact-position references ONLY, never copy their first-person camera. Charcoal leather sleeves, two thin buckled forearm straps, fingerless black gloves; slender straight arming sword in anatomical RIGHT hand; round dark oak shield with narrow iron rim in anatomical LEFT hand and forearm. Match the dark studio stone-ground look and equipment of the input references. Upper body close-up with crown or chin, chest, both shoulders, connected elbows, wrists, sword and shield. Middle/contact of a descending right-to-left diagonal cut, right fist held FORWARD around chest height, blade traversing to the fighter's anatomical left. Shield held at left flank. Not low finished follow-through. Natural human anatomy, exactly two hands. ONE full landscape image, no panels, no collage, no inset, no extra pose, no text or labels. TRUE BOTTOM CAMERA: detached camera BELOW the fighter's hands and chest, aimed sharply UP almost vertically, an unmistakable worm's-eye underside view. Show UNDERSIDE of his jaw/chin, undersides of the sword crossguard and clenched right fingers, undersides of forearms and elbows, torso rising behind them. Looking up into dark studio space, not down at floor. Frame chest through head and the connected arms; no legs needed. Camera is outside the body, not first person, not a normal frontal portrait. The sword in anatomical right hand is still at CHEST-level mid-contact, never down below the waist.",
+      "referenced_image_paths": [
+        "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/sword_shield_single_pose/references/ready_pov.png",
+        "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/sword_shield_single_pose/references/right_diagonal_pov_contact.png"
+      ],
+      "native_original_path": "/Users/duq711gmail.com/.codex/generated_images/01a077c7-4067-7231-821d-2f199aef8394/exec-0619a8a6-124a-4011-94b1-027efd7c162f.png",
+      "selected": true,
+      "output": "references/right_diagonal_bottom_contact.png",
+      "visual_qa": {
+        "review_method": "원본 이미지를 직접 육안 검토; 자동 유사도 점수 없음",
+        "single_pose_single_direction": true,
+        "decision": "accepted",
+        "notes_ko": "아래에서 위로 올려다보는 외부 시점. 턱·전완·가드 아랫면이 보인다. 오른손 검은 화면 왼쪽, 왼손 방패는 화면 오른쪽. 가슴 앞 횡단 중간 자세 확인."
+      },
+      "native_sha256": "d7963a9d218332deadc59c8b38c5d7617a98d4dbaef35d0977550c44c3f12ac9",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "output_sha256": "d7963a9d218332deadc59c8b38c5d7617a98d4dbaef35d0977550c44c3f12ac9"
+    },
+    {
+      "id": "left_reverse_top_contact",
+      "action": "left_reverse",
+      "pose": "contact",
+      "intended_direction": "top",
+      "tool": "builtin image_gen.imagegen",
+      "prompt_exact": "Generate ONE NEW single photoreal medieval sword animation modeling reference: ONE adult fighter at middle CONTACT of a LEFT-TO-RIGHT RISING REVERSE CUT, true external TOP view. Sword in anatomical RIGHT hand, round oak shield on anatomical LEFT arm. Reference1 gives equipment/material identity; reference2 gives rising reverse-cut instant ONLY, not its camera. Right fist reaches forward at chest height, blade traversing from low left to high RIGHT, blade diagonally rising rather than descending; middle stroke, not final high recovery. Detached camera DIRECTLY ABOVE the fighter looking VERTICALLY DOWN. Prominent crown of head, tops of both shoulders, connected upper arms, elbows and wrists with ground below. His forward torso direction is towards the TOP edge, so anatomical right sword arm is on SCREEN RIGHT and left shield arm on SCREEN LEFT. Shield rests low at left flank; no other weapon. Tight upper-body bird's-eye framing including head-to-belt, connected two arms and all sword and shield. Charcoal leather sleeves, two thin buckled forearm straps, dark fingerless gloves, slender straight arming sword with straight crossguard, round dark oak shield with thin iron rim; dark studio/stone-ground look. Exactly one image, no montage, no collage, no panels, no labels/text/arrows, no ghost trail. No eye-level camera, no first-person view, no duplicate arms. Landscape16:9.",
+      "referenced_image_paths": [
+        "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/sword_shield_single_pose/references/ready_pov.png",
+        "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/sword_shield_single_pose/references/left_reverse_pov_contact.png"
+      ],
+      "native_original_path": "/Users/duq711gmail.com/.codex/generated_images/01a077c7-4067-7231-821d-2f199aef8394/exec-41beea12-13a4-486e-9fcb-fc65a87e87c2.png",
+      "selected": false,
+      "output": null,
+      "visual_qa": {
+        "review_method": "원본 이미지를 직접 육안 검토; 자동 유사도 점수 없음",
+        "single_pose_single_direction": true,
+        "decision": "rejected",
+        "notes_ko": "손잡이 반대쪽에도 칼날이 생긴 쌍날 무기 오류. 정상 한손검이 아니어서 제외."
+      },
+      "native_sha256": "61aa2ad50b21b9cc72810f479ed074a4a4c0f3e515ee0efbf0db41223ba95bd5",
+      "dimensions": [
+        1672,
+        941
+      ]
+    },
+    {
+      "id": "left_reverse_top_contact_v2",
+      "action": "left_reverse",
+      "pose": "contact",
+      "intended_direction": "top",
+      "tool": "builtin image_gen.imagegen",
+      "prompt_exact": "Create one NEW photoreal medieval animation reference image. One fighter, one frozen pose, one external direction. No collage, sheet, panels, comparison, ghosting, arrows, text. Preserve this reference fighter's identity, charcoal sleeves, worn leather two-buckle bracers and fingerless gloves, his single right-hand straight arming sword and single left-hand oak shield. Upper-body connected anatomy, head through waist with elbows. Landscape16:9. Detached camera DIRECTLY ABOVE the fighter, looking VERTICALLY DOWN: crown of head prominent, both shoulder tops, elbows and wrist tops visible; stone floor behind. Torso points toward TOP of screen. Anatomical RIGHT sword arm at screen RIGHT, anatomical LEFT shield arm at screen LEFT. Pose is middle of LEFT-TO-RIGHT RISING REVERSE CUT: right elbow bent, right fist forward around CHEST height; single straight blade points diagonally up and to the fighter's right, rising through mid-stroke. The sword is a NORMAL ONE-HANDED ARMING SWORD: exactly ONE BLADE on ONE SIDE of the crossguard only; on the opposite side of crossguard is a short DARK LEATHER GRIP enclosed by fingers, ending in ONE small round POMMEL, NOT another blade. No double-ended weapon. Both arms are naturally connected to the torso. Shield low at left flank. Upper-body top view, never first person or eye level.",
+      "referenced_image_paths": [
+        "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/sword_shield_single_pose/references/ready_pov.png"
+      ],
+      "native_original_path": "/Users/duq711gmail.com/.codex/generated_images/01a077c7-4067-7231-821d-2f199aef8394/exec-62086eff-782d-4954-ad37-04211403c359.png",
+      "selected": true,
+      "output": "references/left_reverse_top_contact.png",
+      "visual_qa": {
+        "review_method": "원본 이미지를 직접 육안 검토; 자동 유사도 점수 없음",
+        "single_pose_single_direction": true,
+        "decision": "accepted",
+        "notes_ko": "수직 위쪽 외부 시점. 정수리와 어깨 윗면, 양팔 연결 확인. 인물 전방 화면 위, 오른검팔 화면 오른쪽·왼방패팔 화면 왼쪽. 정상 단일 칼날·짧은 손잡이·폼멜 확인."
+      },
+      "native_sha256": "2588558c5c7c1388a953a622a01e903422acc7465614627ebb8ff1cbda0fa8b1",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "output_sha256": "2588558c5c7c1388a953a622a01e903422acc7465614627ebb8ff1cbda0fa8b1"
+    },
+    {
+      "id": "left_reverse_left_contact",
+      "action": "left_reverse",
+      "pose": "contact",
+      "intended_direction": "left",
+      "tool": "builtin image_gen.imagegen",
+      "prompt_exact": "Generate one new single pose modeling photograph preserving this EXACT external left-side camera and EXACT foreground shield arm. Near left shoulder, bent left elbow, leather bracer, left hand and oak shield remain in the same lower foreground positions. Head and torso still face screen RIGHT. Change ONLY the SMALL FAR SWORD HAND seen above the shield to a rising reverse-cut CONTACT instant: its far right elbow reaches forward behind the near arm, fist moves a little forward at chest height, wrist turns so the single blade extends diagonally UP and SCREEN RIGHT at 35 degrees instead of vertical. This is the mid-stroke of a low-left to high-right rising reverse cut. Keep the far sword forearm beyond and partially hidden behind the big foreground shield arm; do NOT swap limbs or rotate torso to show chest. Single right-hand straight arming sword; left-hand round oak shield; same man and charcoal sleeves, two thin leather buckles and fingerless gloves. Detached external LEFT PROFILE camera, head to belt with both elbows. ONE image only, no panels, collage, ghosting, text, first-person framing.",
+      "referenced_image_paths": [
+        "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/sword_shield_single_pose/references/ready_left_v3.png"
+      ],
+      "native_original_path": "/Users/duq711gmail.com/.codex/generated_images/01a077c7-4067-7231-821d-2f199aef8394/exec-0f36f430-eb4b-4a8e-a280-f992ada551b5.png",
+      "selected": true,
+      "output": "references/left_reverse_left_contact.png",
+      "visual_qa": {
+        "review_method": "원본 이미지를 직접 육안 검토; 자동 유사도 점수 없음",
+        "single_pose_single_direction": true,
+        "decision": "accepted",
+        "notes_ko": "왼쪽 외부 측면. 얼굴이 화면 오른쪽, 가까운 방패팔과 뒤의 검팔이 유지된다. 칼날이 위로 기울어진 역베기 중간 자세. 준비 자세와 닮은 정적 실루엣 한계가 있어 연속 궤적 증거로 사용하지 않는다."
+      },
+      "native_sha256": "7c27f8f786e8a59135df625ddf47145cc9aba6ed51f0fa5815bcb93b4bc3109b",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "output_sha256": "7c27f8f786e8a59135df625ddf47145cc9aba6ed51f0fa5815bcb93b4bc3109b"
+    },
+    {
+      "id": "left_reverse_bottom_contact",
+      "action": "left_reverse",
+      "pose": "contact",
+      "intended_direction": "bottom",
+      "tool": "builtin image_gen.imagegen",
+      "prompt_exact": "Generate ONE NEW photoreal medieval animation reference photograph, ONE fighter at ONE middle/contact instant of a LEFT-TO-RIGHT RISING REVERSE CUT, ONE true external BOTTOM view. Inputs equipment and sword-pose guides only, never copy POV. Camera is detached BELOW the chest and hands looking STEEPLY UP: clearly show underside of chin, undersides of connected elbows/forearms, underside of sword crossguard. Torso and head rise away into dark studio above camera, no floor visible. Anatomical RIGHT hand holds the one slender normal straight arming sword, anatomical LEFT arm holds oak round shield low at left flank. Right fist forward at chest height; single blade extends diagonally UP across front toward fighter's right, mid rising stroke, NOT a descending cut or finished overhead pose. Sword has ONE blade on one side of the crossguard, short dark grip and round pommel opposite, never a double blade. Both arms connected shoulders-to-elbows-to-wrists; visible fingerless gloves, charcoal leather sleeves and two thin buckled bracer straps. Upper-body close-up chest through chin/head with sword and shield. No full-body, first person, eye-level portrait, collage, panels, captions, labels, duplicate limbs or weapons. One landscape16:9 image.",
+      "referenced_image_paths": [
+        "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/sword_shield_single_pose/references/ready_pov.png",
+        "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/sword_shield_single_pose/references/left_reverse_pov_contact.png"
+      ],
+      "native_original_path": "/Users/duq711gmail.com/.codex/generated_images/01a077c7-4067-7231-821d-2f199aef8394/exec-bdbe599a-67d3-410a-83b3-0486c622a812.png",
+      "selected": true,
+      "output": "references/left_reverse_bottom_contact.png",
+      "visual_qa": {
+        "review_method": "원본 이미지를 직접 육안 검토; 자동 유사도 점수 없음",
+        "single_pose_single_direction": true,
+        "decision": "accepted",
+        "notes_ko": "아래에서 위로 올려다보는 외부 시점. 턱과 검 가드·전완 아랫면이 보이며 가슴 앞에서 위로 기울어진 칼날 확인. 오른손 검/왼손 방패 유지."
+      },
+      "native_sha256": "0bb615706a381b06866f171d557a0699a655fa39ba2449a1d7f241bb5da6da4b",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "output_sha256": "0bb615706a381b06866f171d557a0699a655fa39ba2449a1d7f241bb5da6da4b"
+    },
+    {
+      "id": "left_reverse_right_contact",
+      "action": "left_reverse",
+      "pose": "contact",
+      "intended_direction": "right",
+      "tool": "builtin image_gen.imagegen",
+      "prompt_exact": "Generate one NEW single-pose modeling photograph preserving this EXACT external RIGHT-side camera and EXACT sword/shield handedness. Near right shoulder and near elbow connect to the LARGE foreground SWORD ARM. Far left arm holds oak shield behind it. Head and torso still face screen LEFT. Change only the foreground sword arm into a rising reverse-cut CONTACT instant: near right elbow reaches forward, fist at chest height, wrist turns the single straight blade diagonally UP and SCREEN LEFT at about 35 degrees, instead of vertical. The blade is at middle rising reverse stroke, not overhead windup. The sword forearm stays in FRONT OF the farther shield. Shield forearm must not become closest arm. Do not rotate torso to full chest view. Same man, charcoal sleeves, two thin leather bracer buckles, fingerless gloves, slender straight arming sword with short leather grip and round pommel, round oak shield. Exact detached external RIGHT PROFILE camera from head to belt with elbows. One landscape16:9 image only, no panels, collage, ghosting, text, first-person view, duplicate weapons.",
+      "referenced_image_paths": [
+        "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/sword_shield_single_pose/references/ready_right.png"
+      ],
+      "native_original_path": "/Users/duq711gmail.com/.codex/generated_images/01a077c7-4067-7231-821d-2f199aef8394/exec-35341faa-a2f6-4f1d-b054-8e255e1bfc9a.png",
+      "selected": true,
+      "output": "references/left_reverse_right_contact.png",
+      "visual_qa": {
+        "review_method": "원본 이미지를 직접 육안 검토; 자동 유사도 점수 없음",
+        "single_pose_single_direction": true,
+        "decision": "accepted",
+        "notes_ko": "오른쪽 외부 측면. 얼굴이 화면 왼쪽, 가까운 검팔과 뒤의 방패팔이 확인된다. 칼날이 위로 기울어진 역베기 중간 자세. LEFT와 몸 방향 반대."
+      },
+      "native_sha256": "52944b41b65fa1354cb9fcca8c65e00924b20b3f82e55796251fb4141cd59a43",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "output_sha256": "52944b41b65fa1354cb9fcca8c65e00924b20b3f82e55796251fb4141cd59a43"
+    },
+    {
+      "id": "overhead_top_contact",
+      "action": "overhead",
+      "pose": "contact",
+      "intended_direction": "top",
+      "tool": "builtin image_gen.imagegen",
+      "prompt_exact": "Create ONE NEW single photoreal medieval animation reference image: ONE fighter at the MIDDLE/contact instant of a straight OVERHEAD DOWNWARD CHOP, true external TOP camera. The inputs only guide equipment and pose; never copy POV framing. Detached camera DIRECTLY ABOVE looking VERTICALLY DOWN: clearly show crown of head, both shoulder tops and forearm tops, stone floor below. Torso forward direction is TOP of screen. Anatomical RIGHT sword arm at SCREEN RIGHT comes inward to center: shoulder slightly raised, elbow bent forward, fist forward at chest height on torso centerline. His one normal straight arming sword has just descended from above; blade extends straight FORWARD and slightly DOWN along the torso central vertical cutting plane, with perspective foreshortening from overhead. This is the MIDDLE stroke, not final finish down near knees. Anatomical LEFT arm at SCREEN LEFT holds the single round dark oak shield low at left flank, elbow bent. Complete connected shoulders/elbows/wrists plus head-to-belt, no legs needed. Same charcoal sleeves, dark fingerless gloves, two thin buckled bracer straps, slender double-edged arming sword with ONE blade, short leather grip and pommel, dark studio. ONE image, no panels, montage, collage, captions, arrows, ghost trails, duplicate weapons or arms. Landscape16:9.",
+      "referenced_image_paths": [
+        "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/sword_shield_single_pose/references/ready_pov.png",
+        "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/sword_shield_single_pose/references/overhead_pov_contact.png"
+      ],
+      "native_original_path": "/Users/duq711gmail.com/.codex/generated_images/01a077c7-4067-7231-821d-2f199aef8394/exec-e7d346ee-e8d7-473e-9e44-43f97c807e35.png",
+      "selected": false,
+      "output": null,
+      "visual_qa": {
+        "review_method": "원본 이미지를 직접 육안 검토; 자동 유사도 점수 없음",
+        "single_pose_single_direction": true,
+        "decision": "rejected",
+        "notes_ko": "정수리가 보이는 TOP이지만 화면 아래를 향하는 몸통에서 검팔이 화면 오른쪽으로 바뀌어 해부학적 손 방향 불일치."
+      },
+      "native_sha256": "2fff1e5d1c552fa7b643047452589abfaa42ea1b1363e9ff6f39299bedb8bbec",
+      "dimensions": [
+        1672,
+        941
+      ]
+    },
+    {
+      "id": "overhead_top_contact_v2",
+      "action": "overhead",
+      "pose": "contact",
+      "intended_direction": "top",
+      "tool": "builtin image_gen.imagegen",
+      "prompt_exact": "Create one NEW single-pose photoreal image keeping the EXACT true TOP external camera and EXACT handedness from this reference. Camera looks vertically down onto crown of head and both shoulders; the fighter faces BOTTOM of screen, which means anatomical RIGHT SWORD ARM is on SCREEN LEFT and anatomical LEFT SHIELD ARM is on SCREEN RIGHT. DO NOT exchange the limbs. Keep shield arm and shield on screen RIGHT exactly as pictured. Only change sword pose into middle of a straight OVERHEAD DOWNWARD CHOP: move screen-LEFT sword fist inward to just left of center IN FRONT OF CHEST, right elbow still belongs to screen-LEFT shoulder. Sword's ONE blade now points toward the BOTTOM edge on the central body line with normal foreshortening, no sideways slash. Its tip is forward and down from crossguard, fist remains at chest level not knee-level finish. Preserve crown, shoulder tops, elbow chains, dark stone ground and upper-body framing; same charcoal sleeves, fingerless gloves and bracers. One normal arming sword with one blade, short handle and round pommel. One new landscape16:9 picture only, no panels, collage, labels, text, POV, extra weapon or limb.",
+      "referenced_image_paths": [
+        "/Users/duq711gmail.com/.codex/generated_images/01a077c7-4067-7231-821d-2f199aef8394/exec-6d68bd4e-126e-4070-84bf-c247ddc023d1.png"
+      ],
+      "native_original_path": "/Users/duq711gmail.com/.codex/generated_images/01a077c7-4067-7231-821d-2f199aef8394/exec-84aee459-9ef4-42b8-88f4-baf68c4d03df.png",
+      "selected": true,
+      "output": "references/overhead_top_contact.png",
+      "visual_qa": {
+        "review_method": "원본 이미지를 직접 육안 검토; 자동 유사도 점수 없음",
+        "single_pose_single_direction": true,
+        "decision": "accepted",
+        "notes_ko": "수직 위쪽 외부 시점. 정수리와 양어깨·팔꿈치 윗면 확인. 인물 전방 화면 아래, 오른검팔 화면 왼쪽·왼방패팔 화면 오른쪽. 검 주먹이 가슴 중앙으로 모이고 단일 칼날이 몸 중앙 앞쪽 아래로 향한다."
+      },
+      "native_sha256": "14687209e5f416e3a08b60f9ec0c7a040ba6f2bd05fee9ecc275461ca370bb89",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "output_sha256": "14687209e5f416e3a08b60f9ec0c7a040ba6f2bd05fee9ecc275461ca370bb89"
+    },
+    {
+      "id": "overhead_bottom_contact",
+      "action": "overhead",
+      "pose": "contact",
+      "intended_direction": "bottom",
+      "tool": "builtin image_gen.imagegen",
+      "prompt_exact": "Create ONE NEW single photoreal medieval animation reference image: ONE fighter at the MIDDLE/contact instant of a straight OVERHEAD DOWNWARD CHOP, true external BOTTOM camera. Reference equipment and pose only; never copy POV framing. Detached camera BELOW chest/hands looking STEEPLY UP; prominently see underside of chin, forearms, elbows and sword crossguard, upper body receding upward into dark studio. Anatomical RIGHT arm holds a single normal straight arming sword in firm fingerless-glove grip: right elbow forward, fist at chest height centered just in front of sternum. The single blade is cutting straight DOWN in the central vertical plane, tip lower and forward than crossguard; the hand remains CHEST-HIGH in the MIDDLE stroke, NOT an ended chop near knees. Left arm holds round oak shield low at left flank; both shoulders-to-elbows-to-wrists naturally connected. Camera sufficiently offset forward below sword to see blade flat and guard underside; not an eye-level portrait or overhead view. Charcoal leather sleeves, two thin buckled bracer straps, slender arming sword and dark wood shield with iron rim, same reference equipment. One upper-body landscape16:9 image only, no collage, panels, inset, labels, motion trails, extra fingers, duplicate limbs or weapons.",
+      "referenced_image_paths": [
+        "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/sword_shield_single_pose/references/ready_pov.png",
+        "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/sword_shield_single_pose/references/overhead_pov_contact.png"
+      ],
+      "native_original_path": "/Users/duq711gmail.com/.codex/generated_images/01a077c7-4067-7231-821d-2f199aef8394/exec-4cc2bb4c-9bd7-45b2-9fc8-761056f650de.png",
+      "selected": true,
+      "output": "references/overhead_bottom_contact.png",
+      "visual_qa": {
+        "review_method": "원본 이미지를 직접 육안 검토; 자동 유사도 점수 없음",
+        "single_pose_single_direction": true,
+        "decision": "accepted",
+        "notes_ko": "아래에서 위로 올려다보는 외부 시점. 턱·전완·가드 아랫면 확인. 오른검팔의 주먹이 가슴 높이, 칼끝이 아래를 향하는 중간 내려베기. 낮게 끝난 자세가 아니다."
+      },
+      "native_sha256": "48073e2001f4430d8b3e9a6f99795bff1d77091deaa17765336423fe3cf18da4",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "output_sha256": "48073e2001f4430d8b3e9a6f99795bff1d77091deaa17765336423fe3cf18da4"
+    },
+    {
+      "id": "overhead_left_contact",
+      "action": "overhead",
+      "pose": "contact",
+      "intended_direction": "left",
+      "tool": "builtin image_gen.imagegen",
+      "prompt_exact": "Generate one new single-pose photoreal modeling image from this EXACT external LEFT PROFILE camera. Foreground near LEFT shoulder, bent LEFT elbow, bracer, LEFT hand and round shield all remain exactly in their existing near-side positions. Head and torso still face SCREEN RIGHT. ONLY move the SMALL FAR RIGHT SWORD HAND from above the shield into a MIDDLE OVERHEAD DOWNWARD CHOP: the far sword elbow lifts in front of far chest, fist reaches forward at upper chest height BEHIND AND ABOVE foreground shield, wrist turns the straight blade so its tip points sharply DOWN at about 65 degrees BELOW horizontal, forward of the body. A vertical central-plane descending stroke, not sideways diagonal, not finished at the knees. Keep fist at CHEST height, shoulder and elbow connected; blade crosses behind or just outside the shield edge. The far sword arm is NOT allowed to replace foreground shield arm. Same man, charcoal leather sleeves and two thin buckled bracers, fingerless gloves, one slender straight arming sword, one round oak shield. Single landscape16:9 upper-body image head to belt and elbows. No sheet, collage, panels, labels, POV, ghost trail, extra arm or duplicated sword.",
+      "referenced_image_paths": [
+        "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/sword_shield_single_pose/references/ready_left_v3.png"
+      ],
+      "native_original_path": "/Users/duq711gmail.com/.codex/generated_images/01a077c7-4067-7231-821d-2f199aef8394/exec-10b0a1c9-21f3-4312-92ab-ce14f35b293a.png",
+      "selected": false,
+      "output": null,
+      "visual_qa": {
+        "review_method": "원본 이미지를 직접 육안 검토; 자동 유사도 점수 없음",
+        "single_pose_single_direction": true,
+        "decision": "rejected",
+        "notes_ko": "가까운 검팔이 생성되어 LEFT 방패팔 전경 조건 불충족."
+      },
+      "native_sha256": "e9aadbdf07772ad9bc2777157761b4291b7d30db3eb074b20bd0f19e1d2bd130",
+      "dimensions": [
+        1672,
+        941
+      ]
+    },
+    {
+      "id": "overhead_left_contact_v2",
+      "action": "overhead",
+      "pose": "contact",
+      "intended_direction": "left",
+      "tool": "builtin image_gen.imagegen",
+      "prompt_exact": "Generate a new SINGLE pose picture from exactly the same LEFT-side external camera as this reference. Keep EVERYTHING about the man, camera, face looking screen RIGHT, torso, near shoulder and NEAR bent SHIELD arm exactly unchanged. The far sword arm stays above/beyond the foreground shield. Change ONLY the angle of the sword and its far wrist: lower the sword tip sharply so the blade points SCREEN DOWN and a little RIGHT at 65 degrees below horizontal, instead of the source's shallow diagonal. Crossguard and fist stay at the SAME CHEST HEIGHT and FAR-SIDE LOCATION. This converts the diagonal cut into middle of a straight overhead downward chop. Do not bring the sword arm in front of the near shoulder or foreground shield arm. Do not move the shield. Preserve two arms, one normal sword, one round shield; shoulder-elbow connections retained. Same dark charcoal clothes, two thin bracer straps, fingerless gloves. New single upper-body landscape16:9 image, one pose, one direction, no panels, text, collage, ghosting, POV or duplicated equipment.",
+      "referenced_image_paths": [
+        "/Users/duq711gmail.com/.codex/generated_images/01a077c7-4067-7231-821d-2f199aef8394/exec-80417a55-25ac-4656-86f6-04af7d76786c.png"
+      ],
+      "native_original_path": "/Users/duq711gmail.com/.codex/generated_images/01a077c7-4067-7231-821d-2f199aef8394/exec-0c52e9f3-b7df-47e4-a4d4-54c2d75160a8.png",
+      "selected": true,
+      "output": "references/overhead_left_contact.png",
+      "visual_qa": {
+        "review_method": "원본 이미지를 직접 육안 검토; 자동 유사도 점수 없음",
+        "single_pose_single_direction": true,
+        "decision": "accepted",
+        "notes_ko": "왼쪽 외부 측면. 얼굴·몸통 화면 오른쪽, 가까운 방패팔과 뒤의 검팔 유지. 검 주먹은 가슴 높이에 있고 칼끝은 가파르게 아래로 향한다. 무릎 높이의 종료 자세가 아니다."
+      },
+      "native_sha256": "ced721e65ffd240d45d91319618b1b31010f60d2fd4aee01edad702623268768",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "output_sha256": "ced721e65ffd240d45d91319618b1b31010f60d2fd4aee01edad702623268768"
+    },
+    {
+      "id": "overhead_right_contact",
+      "action": "overhead",
+      "pose": "contact",
+      "intended_direction": "right",
+      "tool": "builtin image_gen.imagegen",
+      "prompt_exact": "Generate one new single-pose photoreal modeling image from this EXACT external RIGHT PROFILE camera. Head and torso face SCREEN LEFT. NEAR RIGHT shoulder, upper arm, elbow, wrist and SWORD HAND must remain the foreground chain; FAR LEFT arm and shield remain behind. Change near sword arm into MIDDLE of an OVERHEAD DOWNWARD CHOP: near elbow raised forward, right fist forward at CHEST HEIGHT centered in front of sternum, wrist rolls so the one straight blade points sharply DOWN about 65 degrees BELOW horizontal toward SCREEN LEFT. Blade descends in the central vertical plane, not a sideways slash, not a low finished pose. Keep fist at chest height and connected to near elbow. The near sword forearm occludes far shield, never swap arms. Same referenced man, charcoal sleeves, two thin leather bracer buckles, fingerless gloves, slender normal arming sword with straight crossguard, short grip and pommel, round oak shield. One upper-body landscape16:9 photograph including head and elbows. Single pose, single view, no sheet, collage, text, motion trail, inset, first-person view or duplicate weapons.",
+      "referenced_image_paths": [
+        "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/sword_shield_single_pose/references/ready_right.png"
+      ],
+      "native_original_path": "/Users/duq711gmail.com/.codex/generated_images/01a077c7-4067-7231-821d-2f199aef8394/exec-73f724e5-8e51-48bd-b881-5a1791d3b55a.png",
+      "selected": true,
+      "output": "references/overhead_right_contact.png",
+      "visual_qa": {
+        "review_method": "원본 이미지를 직접 육안 검토; 자동 유사도 점수 없음",
+        "single_pose_single_direction": true,
+        "decision": "accepted",
+        "notes_ko": "오른쪽 외부 측면. 얼굴·몸통 화면 왼쪽, 검팔이 앞에서 가슴 높이를 유지하며 칼끝이 아래를 향한다. 방패는 몸통 뒤쪽에 일부 가려져 먼 팔 연결 전체는 이 한 장에서 확인할 수 없다. LEFT와 몸 방향 반대."
+      },
+      "native_sha256": "c2449660ed3a19c88b6b2557faed0509de7f84fa9d9035b8c357ce87347ef78c",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "output_sha256": "c2449660ed3a19c88b6b2557faed0509de7f84fa9d9035b8c357ce87347ef78c"
+    }
+  ]
+}

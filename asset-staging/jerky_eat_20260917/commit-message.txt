@@ -1,0 +1,7 @@
+feat: 육포 꺼내 먹기 모션 추가 / Add jerky eating animation
+
+한국어: 기존 불규칙 육포를 오른손으로 꺼내 두 번 베어 먹는 8초 동작을 추가했습니다. 실제 손 피부에 파지를 맞추고 원본 재질을 유지한 베어 문 메시를 사용합니다. F2 시험, 완료 시 단일 음식 소비, F/F2 취소와 장비 복귀를 연결했습니다.
+검증: jerky_item_use, jerky_test_room, timed_item_use, jerky_motion, jerky_grip 통과. 실제 Vulkan 262프레임과 옆면 진단 10장 검토 및 원정·커서·소스 해시 보존 확인.
+
+English: Add an eight-second draw-and-eat motion with two bites using the original irregular jerky. Fit the grip to actual hand skin and retain the material and held end in bitten meshes. Connect the F2 trial, atomic food consumption, cancellation and equipment return.
+Validation: Five relevant headless suites pass. Reviewed 262 Vulkan frames and ten side diagnostics, with expedition, cursor and source hashes preserved.

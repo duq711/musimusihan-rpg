@@ -1,0 +1,2101 @@
+{
+  "source_capture": "single_pose_motion_03",
+  "source_files": [
+    {
+      "package_file": "Models/left_arm.glb",
+      "source_file": "godot-game/assets/3d/player/sword_shield/left_arm.glb",
+      "sha256": "e3f7d9415bd89e24deaa83d05b05021563d84a4f2c5aa28f37d81a97beecd5cf",
+      "size_bytes": 6921944
+    },
+    {
+      "package_file": "Models/longsword.glb",
+      "source_file": "godot-game/assets/3d/player/sword_shield/longsword.glb",
+      "sha256": "0991e685f4845d5401fe13dc4ab2cbab4de7fc0e8fb86dacaf9e980641c70ac8",
+      "size_bytes": 861772
+    },
+    {
+      "package_file": "Models/right_arm.glb",
+      "source_file": "godot-game/assets/3d/player/sword_shield/right_arm.glb",
+      "sha256": "4234e0d9a9f2ccdb7399e13b909e458e359230a22ce3c3e13df4f4ea158ad56d",
+      "size_bytes": 6921996
+    },
+    {
+      "package_file": "Models/round_shield.glb",
+      "source_file": "godot-game/assets/3d/player/sword_shield/round_shield.glb",
+      "sha256": "8ca7482ae498083b426200cc8257e90e00d51a81ef6f08749c893ad3c59bdfe0",
+      "size_bytes": 2799680
+    },
+    {
+      "package_file": "Textures/weapon_material_atlas_v2.png",
+      "source_file": "godot-game/assets/ai/sword_shield/weapon_material_atlas_v2.png",
+      "sha256": "649dde7bdd433de1caba0f763cd86367c1fc86f5fe78a59d25991a722086979f",
+      "size_bytes": 3052794
+    },
+    {
+      "package_file": "Textures/weapon_material_normal_v2.png",
+      "source_file": "godot-game/assets/ai/sword_shield/weapon_material_normal_v2.png",
+      "sha256": "724cdfafb7e972c954e1ed3b9152077b6d45ae33ef8502e3eb622e913adfc108",
+      "size_bytes": 3423947
+    },
+    {
+      "package_file": "Textures/weathered_hand_skin.png",
+      "source_file": "godot-game/assets/ai/sword_shield/weathered_hand_skin.png",
+      "sha256": "12bbfdd97fb34535ea6985fcbe11127dcefbcbe71e1e696139f15a6aff6c8a88",
+      "size_bytes": 2734270
+    },
+    {
+      "package_file": "Textures/worn_charcoal_leather.png",
+      "source_file": "godot-game/assets/ai/sword_shield/worn_charcoal_leather.png",
+      "sha256": "23e8b4c8924c90a1266fa147acad84c2abbee02d5fd9341a918c00152c1580f5",
+      "size_bytes": 3352159
+    },
+    {
+      "package_file": "Textures/leather_normal.jpg",
+      "source_file": "godot-game/assets/3d/player/sword_shield/textures/leather_normal.jpg",
+      "sha256": "3386277290af50b4d464dc9a9f195bbf8dd6f137b9ae0274552397d2f0135c98",
+      "size_bytes": 3030702
+    },
+    {
+      "package_file": "Textures/linen_albedo.jpg",
+      "source_file": "godot-game/assets/3d/player/sword_shield/textures/linen_albedo.jpg",
+      "sha256": "e71016e08dfebea1dd4e8a2a675e3b617a889a782af782f1abb795906f4db1b4",
+      "size_bytes": 3607181
+    },
+    {
+      "package_file": "Textures/linen_normal.jpg",
+      "source_file": "godot-game/assets/3d/player/sword_shield/textures/linen_normal.jpg",
+      "sha256": "c5733ad50cfe0f90c546f3d4076590c1c78a4fd1a83c967cc9c92dc8175b99e6",
+      "size_bytes": 3849356
+    },
+    {
+      "package_file": "Preview/videos/ready.mp4",
+      "source_file": "asset-staging/sword_shield_single_pose/reviews/single_pose_motion_03/videos/ready.mp4",
+      "sha256": "7e37742d257199780352ec4346e786616b430eda67bf8899025041a6a8937e6e",
+      "size_bytes": 664378
+    },
+    {
+      "package_file": "Preview/frames/ready/external/key_000_bottom.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/ready/external/key_000_bottom.png",
+      "sha256": "3d49567761461d58e5d8d09a419a6e69ed27521089dcedc2e6da71eac2332bf8",
+      "size_bytes": 94534
+    },
+    {
+      "package_file": "Preview/frames/ready/external/key_000_left.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/ready/external/key_000_left.png",
+      "sha256": "d4d3a08e8b3cd34485698c7ebd57668cfbcee3d689f6f563073d99901af08131",
+      "size_bytes": 102170
+    },
+    {
+      "package_file": "Preview/frames/ready/external/key_000_right.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/ready/external/key_000_right.png",
+      "sha256": "d0c164d06b81ca5b9f5fa4ee138835bacd6d2a9e57eddfba362de417252374a3",
+      "size_bytes": 141002
+    },
+    {
+      "package_file": "Preview/frames/ready/external/key_000_top.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/ready/external/key_000_top.png",
+      "sha256": "634a8c6700291cd0f580012fb2a73860c99d709bf121ca5414bd64c22d65ed54",
+      "size_bytes": 109058
+    },
+    {
+      "package_file": "Preview/frames/ready/external/key_011_bottom.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/ready/external/key_011_bottom.png",
+      "sha256": "a9deaa854719b894645d88360931007576c4c64bd8e95b36479eb938a553f360",
+      "size_bytes": 94582
+    },
+    {
+      "package_file": "Preview/frames/ready/external/key_011_left.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/ready/external/key_011_left.png",
+      "sha256": "00979f96d2595294850c78c323f098d676b6ecd458f9a00241a5d2ef05243a9b",
+      "size_bytes": 102288
+    },
+    {
+      "package_file": "Preview/frames/ready/external/key_011_right.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/ready/external/key_011_right.png",
+      "sha256": "fa1c86aa8e782e7fa6d2dbcce21e45f395b465d1f82093f60b7630fffeee8474",
+      "size_bytes": 140962
+    },
+    {
+      "package_file": "Preview/frames/ready/external/key_011_top.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/ready/external/key_011_top.png",
+      "sha256": "7625849efe61198ec5dcb511c059fdbf2913892b2049fe0e8b4e57c191711439",
+      "size_bytes": 109118
+    },
+    {
+      "package_file": "Preview/frames/ready/external/key_022_bottom.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/ready/external/key_022_bottom.png",
+      "sha256": "43722dd68a0e01bf1ceab2f533fae40c0232801c806ca096f6fb1ec6f518a9a7",
+      "size_bytes": 94706
+    },
+    {
+      "package_file": "Preview/frames/ready/external/key_022_left.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/ready/external/key_022_left.png",
+      "sha256": "53679f6a04c43af8c917a5a19cbb14cc9657c1110674e8fb3deb4a5854ae5f63",
+      "size_bytes": 102350
+    },
+    {
+      "package_file": "Preview/frames/ready/external/key_022_right.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/ready/external/key_022_right.png",
+      "sha256": "7203cb64e5cb531fcc9f000bb4c9db1bcfb2c6ae797659f19ce91ee2f7cdd52c",
+      "size_bytes": 141267
+    },
+    {
+      "package_file": "Preview/frames/ready/external/key_022_top.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/ready/external/key_022_top.png",
+      "sha256": "83391dfbf4d0a14c4e4ad4f46e0bb45c5bfc4ffea66f5a132b4b0390dd6bec96",
+      "size_bytes": 109359
+    },
+    {
+      "package_file": "Preview/frames/ready/external/key_033_bottom.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/ready/external/key_033_bottom.png",
+      "sha256": "3ac8476d916c34b61d073b8363107499dc51fe0fd05a72753105066ea9eaed13",
+      "size_bytes": 94449
+    },
+    {
+      "package_file": "Preview/frames/ready/external/key_033_left.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/ready/external/key_033_left.png",
+      "sha256": "5f6576a29fb056a273ca3b066be4fbadc10067e2f9b0d50341ff6e8892809126",
+      "size_bytes": 102409
+    },
+    {
+      "package_file": "Preview/frames/ready/external/key_033_right.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/ready/external/key_033_right.png",
+      "sha256": "25ab446a32530f6dbbd2aa816326f66371b44a06b84f1da8ec0b7a14c28f7532",
+      "size_bytes": 141133
+    },
+    {
+      "package_file": "Preview/frames/ready/external/key_033_top.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/ready/external/key_033_top.png",
+      "sha256": "6bcef7a026eb1562e76771aec63ffb5482a9419690193e0c9d20d7ea9cc58967",
+      "size_bytes": 109500
+    },
+    {
+      "package_file": "Preview/frames/ready/pov/frame_000.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/ready/pov/frame_000.png",
+      "sha256": "459cd61988156aff4ddaaa6d078387223da1954943ba97d8571d1a48bbdc62e5",
+      "size_bytes": 716341
+    },
+    {
+      "package_file": "Preview/frames/ready/pov/frame_001.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/ready/pov/frame_001.png",
+      "sha256": "d6ad4ca4adb80e74281d2e803093cb870dcbe2063bc89bc1f356dbf14a623cc4",
+      "size_bytes": 716486
+    },
+    {
+      "package_file": "Preview/frames/ready/pov/frame_002.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/ready/pov/frame_002.png",
+      "sha256": "fca9ef55f2b2e4b46adfde0482d3061b7e425a28ec71304b4b97ad45f2e13df5",
+      "size_bytes": 716670
+    },
+    {
+      "package_file": "Preview/frames/ready/pov/frame_003.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/ready/pov/frame_003.png",
+      "sha256": "dc5a037529712fdc59bf2dff71baf65b24faacd40a38861cf5c186c0275b261f",
+      "size_bytes": 716420
+    },
+    {
+      "package_file": "Preview/frames/ready/pov/frame_004.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/ready/pov/frame_004.png",
+      "sha256": "d84a13153539de733513029748712a97cfaa2c3785f8d267e7811dcc9c303867",
+      "size_bytes": 716088
+    },
+    {
+      "package_file": "Preview/frames/ready/pov/frame_005.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/ready/pov/frame_005.png",
+      "sha256": "5de37d2a360426a68fe0bd9d64aa7f834351a2d127c1746e3c8ceca20b947284",
+      "size_bytes": 715955
+    },
+    {
+      "package_file": "Preview/frames/ready/pov/frame_006.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/ready/pov/frame_006.png",
+      "sha256": "a0a71a6f1808ec7e60e0dfa51d485727c518f384f3fe165232786c178ba6b99b",
+      "size_bytes": 715645
+    },
+    {
+      "package_file": "Preview/frames/ready/pov/frame_007.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/ready/pov/frame_007.png",
+      "sha256": "bd9735fcc142ffcfddb1449e11522d19df34dbad1cc9681ef01eff2bbb6f5751",
+      "size_bytes": 715695
+    },
+    {
+      "package_file": "Preview/frames/ready/pov/frame_008.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/ready/pov/frame_008.png",
+      "sha256": "7e5dcafdde86c0b23301ba48fb3acfef2f0ad9dfd1c14d458d531423d0f00fd5",
+      "size_bytes": 716066
+    },
+    {
+      "package_file": "Preview/frames/ready/pov/frame_009.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/ready/pov/frame_009.png",
+      "sha256": "51d2218c4dae0ef9cfd73c03e94b1cfc0923db23ceaa701a7ac1148975f78fb6",
+      "size_bytes": 715925
+    },
+    {
+      "package_file": "Preview/frames/ready/pov/frame_010.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/ready/pov/frame_010.png",
+      "sha256": "e85837e67e6c013f58026b2f8f05ac7efe2565d605fe9d3398389cd92d37f774",
+      "size_bytes": 716016
+    },
+    {
+      "package_file": "Preview/frames/ready/pov/frame_011.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/ready/pov/frame_011.png",
+      "sha256": "e605d43fe520006f0f8ad6ac99835043399282352ca14b7ff54afb2eeaafb1fe",
+      "size_bytes": 716003
+    },
+    {
+      "package_file": "Preview/frames/ready/pov/frame_012.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/ready/pov/frame_012.png",
+      "sha256": "6436957d276d45cd5eaa9397a173800734d71542aa75bbd79de3446e2d463db6",
+      "size_bytes": 715296
+    },
+    {
+      "package_file": "Preview/frames/ready/pov/frame_013.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/ready/pov/frame_013.png",
+      "sha256": "141288f3076a3c88c48169b9937e8428e7d806c393b295f3175b841249669c6e",
+      "size_bytes": 715120
+    },
+    {
+      "package_file": "Preview/frames/ready/pov/frame_014.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/ready/pov/frame_014.png",
+      "sha256": "e84ce8cf6cc247025e7be8262e0d19aaff879cc527f1a3e7c5a79b6a0609d310",
+      "size_bytes": 714961
+    },
+    {
+      "package_file": "Preview/frames/ready/pov/frame_015.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/ready/pov/frame_015.png",
+      "sha256": "4ad34b9a21cea23b95a65241869a00514a5af6314a784694601e8139baa98832",
+      "size_bytes": 715003
+    },
+    {
+      "package_file": "Preview/frames/ready/pov/frame_016.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/ready/pov/frame_016.png",
+      "sha256": "4ff11eeb5e72f8adaef3f3dcaf2cb0d894e7203097caf4a267bc4725f99ad3d9",
+      "size_bytes": 714867
+    },
+    {
+      "package_file": "Preview/frames/ready/pov/frame_017.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/ready/pov/frame_017.png",
+      "sha256": "892ac453fd55603d6319b76ca11c4af12c8719b652e64462a6956fcb4d7c595e",
+      "size_bytes": 715054
+    },
+    {
+      "package_file": "Preview/frames/ready/pov/frame_018.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/ready/pov/frame_018.png",
+      "sha256": "8213187d427c2591bb01751f8aac2bac3e72af144a75efef60750ca01d6c11be",
+      "size_bytes": 715037
+    },
+    {
+      "package_file": "Preview/frames/ready/pov/frame_019.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/ready/pov/frame_019.png",
+      "sha256": "c45f5ae0be9f5115b5becddfb0b4e9d8279afeefd5d4635a538b9fde275b323d",
+      "size_bytes": 714793
+    },
+    {
+      "package_file": "Preview/frames/ready/pov/frame_020.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/ready/pov/frame_020.png",
+      "sha256": "d4e2bc06861168fa1198e3ca0d092d8d3aa8d381fe8c06d3842cb1f5660ca1d5",
+      "size_bytes": 714799
+    },
+    {
+      "package_file": "Preview/frames/ready/pov/frame_021.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/ready/pov/frame_021.png",
+      "sha256": "55ff28e07bab3397007b05920f2bacbad2c3e4cdd32bafa32767387f3001e513",
+      "size_bytes": 715031
+    },
+    {
+      "package_file": "Preview/frames/ready/pov/frame_022.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/ready/pov/frame_022.png",
+      "sha256": "bf4f25cb7ba76107e217ad9b950a67b3cac1017550d7b714b2eeed2297c605cb",
+      "size_bytes": 714959
+    },
+    {
+      "package_file": "Preview/frames/ready/pov/frame_023.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/ready/pov/frame_023.png",
+      "sha256": "51061341da76caf9ffae31511d7b3c343ace0d43b50c5e6ca6c6f6830ab53a96",
+      "size_bytes": 714842
+    },
+    {
+      "package_file": "Preview/frames/ready/pov/frame_024.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/ready/pov/frame_024.png",
+      "sha256": "c5f4ce316b524fe769b9cf7fa4b2cdd8450acac2bd9a89c4cfe7d9e0f04b88af",
+      "size_bytes": 715221
+    },
+    {
+      "package_file": "Preview/frames/ready/pov/frame_025.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/ready/pov/frame_025.png",
+      "sha256": "9b9423644658403c4078fc820a7d034d941451ce4d97cf7efe3f99e86198ac7a",
+      "size_bytes": 714707
+    },
+    {
+      "package_file": "Preview/frames/ready/pov/frame_026.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/ready/pov/frame_026.png",
+      "sha256": "cf4bfc34be274fa9cd99151909fb028b4d251a859df900fe4a00ebb677ac687c",
+      "size_bytes": 715036
+    },
+    {
+      "package_file": "Preview/frames/ready/pov/frame_027.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/ready/pov/frame_027.png",
+      "sha256": "f4d1a981e297e099c6b46ae4ef10ad754822b91138ae2e55f9be5d989c14a4b9",
+      "size_bytes": 714786
+    },
+    {
+      "package_file": "Preview/frames/ready/pov/frame_028.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/ready/pov/frame_028.png",
+      "sha256": "036557b12172e1775d47ffc5e52479d98f0858236437402a54cf5957ef5f31f9",
+      "size_bytes": 714843
+    },
+    {
+      "package_file": "Preview/frames/ready/pov/frame_029.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/ready/pov/frame_029.png",
+      "sha256": "2412b8fd46b847dab34dff575e6dc2d80f06dce8bb960d41c1a11e6335108aaf",
+      "size_bytes": 715024
+    },
+    {
+      "package_file": "Preview/frames/ready/pov/frame_030.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/ready/pov/frame_030.png",
+      "sha256": "5846750f4e84e804ab255249cd13979c63c295d5e1ffc1bb617d72c60dc63cb0",
+      "size_bytes": 714921
+    },
+    {
+      "package_file": "Preview/frames/ready/pov/frame_031.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/ready/pov/frame_031.png",
+      "sha256": "d5e33a53f4f8b3883551ab84bacff2d317d804aac568e7932864517bc19973b8",
+      "size_bytes": 714810
+    },
+    {
+      "package_file": "Preview/frames/ready/pov/frame_032.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/ready/pov/frame_032.png",
+      "sha256": "9f96d86f062472edd40b93c5589296cb0374934b10f83259568cef9e98e0888e",
+      "size_bytes": 714818
+    },
+    {
+      "package_file": "Preview/frames/ready/pov/frame_033.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/ready/pov/frame_033.png",
+      "sha256": "493ed638b9a0836b854e7767afbb65ea29930cc8665ad49bc3d36d906869c849",
+      "size_bytes": 714701
+    },
+    {
+      "package_file": "Preview/videos/right_diagonal.mp4",
+      "source_file": "asset-staging/sword_shield_single_pose/reviews/single_pose_motion_03/videos/right_diagonal.mp4",
+      "sha256": "6f77b01075f3db46c75795913f83008f6cf821f73d4a60871cd051405159d7f7",
+      "size_bytes": 1199763
+    },
+    {
+      "package_file": "Preview/frames/right_diagonal/external/key_000_bottom.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/right_diagonal/external/key_000_bottom.png",
+      "sha256": "3d49567761461d58e5d8d09a419a6e69ed27521089dcedc2e6da71eac2332bf8",
+      "size_bytes": 94534
+    },
+    {
+      "package_file": "Preview/frames/right_diagonal/external/key_000_left.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/right_diagonal/external/key_000_left.png",
+      "sha256": "d4d3a08e8b3cd34485698c7ebd57668cfbcee3d689f6f563073d99901af08131",
+      "size_bytes": 102170
+    },
+    {
+      "package_file": "Preview/frames/right_diagonal/external/key_000_right.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/right_diagonal/external/key_000_right.png",
+      "sha256": "d0c164d06b81ca5b9f5fa4ee138835bacd6d2a9e57eddfba362de417252374a3",
+      "size_bytes": 141002
+    },
+    {
+      "package_file": "Preview/frames/right_diagonal/external/key_000_top.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/right_diagonal/external/key_000_top.png",
+      "sha256": "634a8c6700291cd0f580012fb2a73860c99d709bf121ca5414bd64c22d65ed54",
+      "size_bytes": 109058
+    },
+    {
+      "package_file": "Preview/frames/right_diagonal/external/key_006_bottom.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/right_diagonal/external/key_006_bottom.png",
+      "sha256": "4618bd307e8f249707cd9dfa6c6ce0f6305a6671786b9edb537ea74cef8fdcf4",
+      "size_bytes": 108880
+    },
+    {
+      "package_file": "Preview/frames/right_diagonal/external/key_006_left.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/right_diagonal/external/key_006_left.png",
+      "sha256": "00c39b7c2cf74430ba659cf5f39e0cc3ef765374dc46fe9caeacb187c94d0599",
+      "size_bytes": 92133
+    },
+    {
+      "package_file": "Preview/frames/right_diagonal/external/key_006_right.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/right_diagonal/external/key_006_right.png",
+      "sha256": "ef4fa401620ac1625ea0c0f1210d9266da06e25be02a7db4fe248524ee242183",
+      "size_bytes": 133866
+    },
+    {
+      "package_file": "Preview/frames/right_diagonal/external/key_006_top.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/right_diagonal/external/key_006_top.png",
+      "sha256": "28ab275f52db30ad13ae6fdb8084c646bd714ac7bb9248b83a90abee6682b7a3",
+      "size_bytes": 128528
+    },
+    {
+      "package_file": "Preview/frames/right_diagonal/external/key_011_bottom.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/right_diagonal/external/key_011_bottom.png",
+      "sha256": "c7040786fcb8ede371b9da27c93c6e54b36e3c7b3f86f96a12af19a97d10ca24",
+      "size_bytes": 83503
+    },
+    {
+      "package_file": "Preview/frames/right_diagonal/external/key_011_left.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/right_diagonal/external/key_011_left.png",
+      "sha256": "9d8102939fb61fbdc269f9f98192429a715567a19b9d2637a36fd8e66ebc1875",
+      "size_bytes": 152058
+    },
+    {
+      "package_file": "Preview/frames/right_diagonal/external/key_011_right.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/right_diagonal/external/key_011_right.png",
+      "sha256": "3c20341626e62b30e02ee6ffa64ee33eb87085ca832417752d1f29396c5e82d1",
+      "size_bytes": 236641
+    },
+    {
+      "package_file": "Preview/frames/right_diagonal/external/key_011_top.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/right_diagonal/external/key_011_top.png",
+      "sha256": "9de35d8692b1004ca64adb9bc05838809adb1a577d0d63e9d9b4f91c14adc040",
+      "size_bytes": 95874
+    },
+    {
+      "package_file": "Preview/frames/right_diagonal/external/key_017_bottom.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/right_diagonal/external/key_017_bottom.png",
+      "sha256": "9a6aee1b1115b8955e74ade9a83fb3bddcb8b5a763c2effc57550c3e306506c5",
+      "size_bytes": 111904
+    },
+    {
+      "package_file": "Preview/frames/right_diagonal/external/key_017_left.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/right_diagonal/external/key_017_left.png",
+      "sha256": "a05b74553d78d0267c10497b65b1c108de5d1562c45b540610668b503db5c72e",
+      "size_bytes": 147704
+    },
+    {
+      "package_file": "Preview/frames/right_diagonal/external/key_017_right.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/right_diagonal/external/key_017_right.png",
+      "sha256": "7630b6b6302f4fb4cf06470ebdf0411970e2e4d0f3be50abe3ca463126655c4b",
+      "size_bytes": 229470
+    },
+    {
+      "package_file": "Preview/frames/right_diagonal/external/key_017_top.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/right_diagonal/external/key_017_top.png",
+      "sha256": "17435bb271687eb7d77173f1049514fdf106c5ffc857d9880df40171fa308631",
+      "size_bytes": 127431
+    },
+    {
+      "package_file": "Preview/frames/right_diagonal/pov/frame_000.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/right_diagonal/pov/frame_000.png",
+      "sha256": "459cd61988156aff4ddaaa6d078387223da1954943ba97d8571d1a48bbdc62e5",
+      "size_bytes": 716341
+    },
+    {
+      "package_file": "Preview/frames/right_diagonal/pov/frame_001.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/right_diagonal/pov/frame_001.png",
+      "sha256": "a5c45fc157c556f456e3a1431397e27854fa7f0838cebcb03bfffa48eb15466f",
+      "size_bytes": 717758
+    },
+    {
+      "package_file": "Preview/frames/right_diagonal/pov/frame_002.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/right_diagonal/pov/frame_002.png",
+      "sha256": "e65d8019903883c1d14858b03cd4ac1d2aacfd0f597840f72e97276f33aa402d",
+      "size_bytes": 719466
+    },
+    {
+      "package_file": "Preview/frames/right_diagonal/pov/frame_003.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/right_diagonal/pov/frame_003.png",
+      "sha256": "a24eef2538a2e2753835eead8e66b1033923603ec462857f7fe169cb666cbc06",
+      "size_bytes": 711195
+    },
+    {
+      "package_file": "Preview/frames/right_diagonal/pov/frame_004.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/right_diagonal/pov/frame_004.png",
+      "sha256": "fe9fed92172668f069593c6167e8f074ab83fab8b83ef90f0981247802bcc0f0",
+      "size_bytes": 716482
+    },
+    {
+      "package_file": "Preview/frames/right_diagonal/pov/frame_005.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/right_diagonal/pov/frame_005.png",
+      "sha256": "f6976e68477dc6034b2bfad14797771943911387a221bfd345e6ead2bccec73c",
+      "size_bytes": 733262
+    },
+    {
+      "package_file": "Preview/frames/right_diagonal/pov/frame_006.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/right_diagonal/pov/frame_006.png",
+      "sha256": "c05d6434a1b92c5a94b59fe51546e35e34093abc0ff8224d4438d844f8f0ff1d",
+      "size_bytes": 745893
+    },
+    {
+      "package_file": "Preview/frames/right_diagonal/pov/frame_007.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/right_diagonal/pov/frame_007.png",
+      "sha256": "c14af18fd5beb3f84b17fb7f6fd41b1c50d1a8f9cf25cc68ae25e49ac765f24e",
+      "size_bytes": 748275
+    },
+    {
+      "package_file": "Preview/frames/right_diagonal/pov/frame_008.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/right_diagonal/pov/frame_008.png",
+      "sha256": "ebcfb9ffedf75b67132bcf2d473630246e8f04c42d2930cdaa6ec13a17c0d9f1",
+      "size_bytes": 719175
+    },
+    {
+      "package_file": "Preview/frames/right_diagonal/pov/frame_009.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/right_diagonal/pov/frame_009.png",
+      "sha256": "b128120c74ef506f8759a0d87e7659f362aacbbab7ff70dc1f1c426586b04ae4",
+      "size_bytes": 703233
+    },
+    {
+      "package_file": "Preview/frames/right_diagonal/pov/frame_010.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/right_diagonal/pov/frame_010.png",
+      "sha256": "c1d222d5be93accfb4f75ab0fca2174ab62b0068f720f518fb8ed73bf7253450",
+      "size_bytes": 700943
+    },
+    {
+      "package_file": "Preview/frames/right_diagonal/pov/frame_011.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/right_diagonal/pov/frame_011.png",
+      "sha256": "406f261dab06c59b084e54b5c0c967011880745283e8a1775761e8ec5c27312a",
+      "size_bytes": 702058
+    },
+    {
+      "package_file": "Preview/frames/right_diagonal/pov/frame_012.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/right_diagonal/pov/frame_012.png",
+      "sha256": "576a860d347149ad5bd06569664231f639b1c589a97525edc081d198a45d0a6d",
+      "size_bytes": 701713
+    },
+    {
+      "package_file": "Preview/frames/right_diagonal/pov/frame_013.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/right_diagonal/pov/frame_013.png",
+      "sha256": "961034898e560daa3c8038855d4cc7e5af7fae60df32761f0e5cece292fe3340",
+      "size_bytes": 697425
+    },
+    {
+      "package_file": "Preview/frames/right_diagonal/pov/frame_014.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/right_diagonal/pov/frame_014.png",
+      "sha256": "14e7238487019d667cf77f00e7fb1ebbb0d4a4a8554ed5f0e8bdbabee9583440",
+      "size_bytes": 698197
+    },
+    {
+      "package_file": "Preview/frames/right_diagonal/pov/frame_015.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/right_diagonal/pov/frame_015.png",
+      "sha256": "422ee49add3b5dbcc573e4cea84eda4af2403971be0df73caf251bf2ddc05aeb",
+      "size_bytes": 692483
+    },
+    {
+      "package_file": "Preview/frames/right_diagonal/pov/frame_016.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/right_diagonal/pov/frame_016.png",
+      "sha256": "c902d4a3a0953839ad5176f3c517c658a56f3003d1837a6925cc994fbf8ec573",
+      "size_bytes": 691075
+    },
+    {
+      "package_file": "Preview/frames/right_diagonal/pov/frame_017.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/right_diagonal/pov/frame_017.png",
+      "sha256": "601d87dcd737d87431b66548c66441b4790790a0a928fad0e49cfb18e95322e2",
+      "size_bytes": 691099
+    },
+    {
+      "package_file": "Preview/frames/right_diagonal/pov/frame_018.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/right_diagonal/pov/frame_018.png",
+      "sha256": "32977f56eece497a9c05217a4a9e910103dc3c2d61591d4378a8965a157ab50e",
+      "size_bytes": 692363
+    },
+    {
+      "package_file": "Preview/frames/right_diagonal/pov/frame_019.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/right_diagonal/pov/frame_019.png",
+      "sha256": "4050f8867eeb5eb8089df24ddb77efae920936eb3492f9188a624acdaf4837a5",
+      "size_bytes": 694147
+    },
+    {
+      "package_file": "Preview/frames/right_diagonal/pov/frame_020.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/right_diagonal/pov/frame_020.png",
+      "sha256": "2d602b0bacb612733708aeeda5de93f4cbb7aab67e10bb4339f3d4b845b37e36",
+      "size_bytes": 692732
+    },
+    {
+      "package_file": "Preview/frames/right_diagonal/pov/frame_021.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/right_diagonal/pov/frame_021.png",
+      "sha256": "2017a64037e07f32de16633f082ac1265f9c6bb39bd5a3950f77d700612af0bd",
+      "size_bytes": 690104
+    },
+    {
+      "package_file": "Preview/frames/right_diagonal/pov/frame_022.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/right_diagonal/pov/frame_022.png",
+      "sha256": "dbff8c79ce40219d20fa0eec45310b9f26c5b92491f3239e3e6c5a1efaf3a6a8",
+      "size_bytes": 697415
+    },
+    {
+      "package_file": "Preview/frames/right_diagonal/pov/frame_023.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/right_diagonal/pov/frame_023.png",
+      "sha256": "0f3886c9306a5a4b7e94e84dc2a230e88fd2538aa12c84ef3a568c2334122911",
+      "size_bytes": 693528
+    },
+    {
+      "package_file": "Preview/frames/right_diagonal/pov/frame_024.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/right_diagonal/pov/frame_024.png",
+      "sha256": "33ecffb1169f7de1af3a811957e68685ae8a224b87d55b24b73637b5486b4e89",
+      "size_bytes": 704767
+    },
+    {
+      "package_file": "Preview/frames/right_diagonal/pov/frame_025.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/right_diagonal/pov/frame_025.png",
+      "sha256": "1150f2f21955a340e8581ee4c0cc956063d5c165301a438f69ef7465eb0130f8",
+      "size_bytes": 709681
+    },
+    {
+      "package_file": "Preview/frames/right_diagonal/pov/frame_026.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/right_diagonal/pov/frame_026.png",
+      "sha256": "06342eb955e8318b2f879909d0585f1643344d6711265ad513b0cd58b60ad87e",
+      "size_bytes": 713617
+    },
+    {
+      "package_file": "Preview/frames/right_diagonal/pov/frame_027.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/right_diagonal/pov/frame_027.png",
+      "sha256": "2c9395e2b8b34d6807d087f4061737aa78244a5ba2056b3a682472363bab46ae",
+      "size_bytes": 715401
+    },
+    {
+      "package_file": "Preview/frames/right_diagonal/pov/frame_028.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/right_diagonal/pov/frame_028.png",
+      "sha256": "244081b89e1e5a27b00392fd2a0f9e19cbaf34bbdc29bede4687e1427db693c8",
+      "size_bytes": 715130
+    },
+    {
+      "package_file": "Preview/frames/right_diagonal/pov/frame_029.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/right_diagonal/pov/frame_029.png",
+      "sha256": "76149e3b83de2561cc8695774ea735059637795636ce35c91b1a37ba595daea5",
+      "size_bytes": 714301
+    },
+    {
+      "package_file": "Preview/frames/right_diagonal/pov/frame_030.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/right_diagonal/pov/frame_030.png",
+      "sha256": "6259ec5a0b19ac5ccd38cd7f0f49b6c1181da44b51a80008a8936f4a2a01a2a6",
+      "size_bytes": 715011
+    },
+    {
+      "package_file": "Preview/frames/right_diagonal/pov/frame_031.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/right_diagonal/pov/frame_031.png",
+      "sha256": "d5e33a53f4f8b3883551ab84bacff2d317d804aac568e7932864517bc19973b8",
+      "size_bytes": 714810
+    },
+    {
+      "package_file": "Preview/frames/right_diagonal/pov/frame_032.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/right_diagonal/pov/frame_032.png",
+      "sha256": "9f96d86f062472edd40b93c5589296cb0374934b10f83259568cef9e98e0888e",
+      "size_bytes": 714818
+    },
+    {
+      "package_file": "Preview/frames/right_diagonal/pov/frame_033.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/right_diagonal/pov/frame_033.png",
+      "sha256": "493ed638b9a0836b854e7767afbb65ea29930cc8665ad49bc3d36d906869c849",
+      "size_bytes": 714701
+    },
+    {
+      "package_file": "Preview/videos/left_reverse.mp4",
+      "source_file": "asset-staging/sword_shield_single_pose/reviews/single_pose_motion_03/videos/left_reverse.mp4",
+      "sha256": "0ce655e805ea078e0c91043bc6973114afdaa95eced726a9493eb26084205a11",
+      "size_bytes": 1339421
+    },
+    {
+      "package_file": "Preview/frames/left_reverse/external/key_000_bottom.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/left_reverse/external/key_000_bottom.png",
+      "sha256": "3d49567761461d58e5d8d09a419a6e69ed27521089dcedc2e6da71eac2332bf8",
+      "size_bytes": 94534
+    },
+    {
+      "package_file": "Preview/frames/left_reverse/external/key_000_left.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/left_reverse/external/key_000_left.png",
+      "sha256": "d4d3a08e8b3cd34485698c7ebd57668cfbcee3d689f6f563073d99901af08131",
+      "size_bytes": 102170
+    },
+    {
+      "package_file": "Preview/frames/left_reverse/external/key_000_right.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/left_reverse/external/key_000_right.png",
+      "sha256": "d0c164d06b81ca5b9f5fa4ee138835bacd6d2a9e57eddfba362de417252374a3",
+      "size_bytes": 141002
+    },
+    {
+      "package_file": "Preview/frames/left_reverse/external/key_000_top.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/left_reverse/external/key_000_top.png",
+      "sha256": "634a8c6700291cd0f580012fb2a73860c99d709bf121ca5414bd64c22d65ed54",
+      "size_bytes": 109058
+    },
+    {
+      "package_file": "Preview/frames/left_reverse/external/key_006_bottom.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/left_reverse/external/key_006_bottom.png",
+      "sha256": "8c9aa94adb1238059ec98888182c4ab9a4db4afe388ea50ea0a2446710e28d9a",
+      "size_bytes": 105908
+    },
+    {
+      "package_file": "Preview/frames/left_reverse/external/key_006_left.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/left_reverse/external/key_006_left.png",
+      "sha256": "83b404751d8cb2ce3d493156f7cfc49820d40e2274a7603a291e586569af7924",
+      "size_bytes": 69409
+    },
+    {
+      "package_file": "Preview/frames/left_reverse/external/key_006_right.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/left_reverse/external/key_006_right.png",
+      "sha256": "0f7e299af269dc5e33c8931e6abf66854090bc55d4efd2b71f8824a6d6fac26b",
+      "size_bytes": 96441
+    },
+    {
+      "package_file": "Preview/frames/left_reverse/external/key_006_top.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/left_reverse/external/key_006_top.png",
+      "sha256": "9a715e972167c6fdedee6e7e68933b3fff599dad9e033e750e6c8cabc91fc32f",
+      "size_bytes": 137199
+    },
+    {
+      "package_file": "Preview/frames/left_reverse/external/key_011_bottom.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/left_reverse/external/key_011_bottom.png",
+      "sha256": "bb8d2d54d79c08e3dc6b8e11404a2fb41182ebef9dff4803d5da0647a2f4fdd8",
+      "size_bytes": 77475
+    },
+    {
+      "package_file": "Preview/frames/left_reverse/external/key_011_left.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/left_reverse/external/key_011_left.png",
+      "sha256": "0c6e6b5d70b93c523521669b891f55b0ada94fc90133057c3d3bfb70522915c9",
+      "size_bytes": 112344
+    },
+    {
+      "package_file": "Preview/frames/left_reverse/external/key_011_right.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/left_reverse/external/key_011_right.png",
+      "sha256": "73b75f077deccbc492548c56359793ddbec3b70ec7dc3cf20b41386bc3c4b8ad",
+      "size_bytes": 163407
+    },
+    {
+      "package_file": "Preview/frames/left_reverse/external/key_011_top.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/left_reverse/external/key_011_top.png",
+      "sha256": "730f0e7a7d05cef63d16bfecfb6e07bd9c56a35a0bf4a6e7c4739a53692d70d9",
+      "size_bytes": 99699
+    },
+    {
+      "package_file": "Preview/frames/left_reverse/external/key_017_bottom.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/left_reverse/external/key_017_bottom.png",
+      "sha256": "b9ad98d1d1420c9fc02fa9d24821220161470a91d06b43106beb3e833eb11540",
+      "size_bytes": 95764
+    },
+    {
+      "package_file": "Preview/frames/left_reverse/external/key_017_left.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/left_reverse/external/key_017_left.png",
+      "sha256": "e65fe49e9cd2aea200941b9de810debebcafcae50a494400aabbd36a89110ffe",
+      "size_bytes": 73627
+    },
+    {
+      "package_file": "Preview/frames/left_reverse/external/key_017_right.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/left_reverse/external/key_017_right.png",
+      "sha256": "59884545e98e413cc05c009aad312a5df371a913eef732953610c4c3b6303943",
+      "size_bytes": 101343
+    },
+    {
+      "package_file": "Preview/frames/left_reverse/external/key_017_top.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/left_reverse/external/key_017_top.png",
+      "sha256": "8e8c6d3821d37f5718d5cde160a4dbecfa196674343dcbf2b1521d9d489a89de",
+      "size_bytes": 124105
+    },
+    {
+      "package_file": "Preview/frames/left_reverse/pov/frame_000.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/left_reverse/pov/frame_000.png",
+      "sha256": "459cd61988156aff4ddaaa6d078387223da1954943ba97d8571d1a48bbdc62e5",
+      "size_bytes": 716341
+    },
+    {
+      "package_file": "Preview/frames/left_reverse/pov/frame_001.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/left_reverse/pov/frame_001.png",
+      "sha256": "7c15053a10cf861be3ebc9cf7e301729b5e4a42c92405d10cdeedb1fb668365c",
+      "size_bytes": 718512
+    },
+    {
+      "package_file": "Preview/frames/left_reverse/pov/frame_002.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/left_reverse/pov/frame_002.png",
+      "sha256": "5f8dd489cd08baf22cda996a84e889e2d1f43aab5226b7ae71a7382b7ae43b49",
+      "size_bytes": 716899
+    },
+    {
+      "package_file": "Preview/frames/left_reverse/pov/frame_003.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/left_reverse/pov/frame_003.png",
+      "sha256": "cccc5bac6e7d0a8811fc6e6816a2e98f3798a39db262e0dc348a3878a17c1c3a",
+      "size_bytes": 718400
+    },
+    {
+      "package_file": "Preview/frames/left_reverse/pov/frame_004.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/left_reverse/pov/frame_004.png",
+      "sha256": "89eb331e39147795e7b195c30dfb8bcfd84192fb48d94ef6822ff611b822b358",
+      "size_bytes": 725672
+    },
+    {
+      "package_file": "Preview/frames/left_reverse/pov/frame_005.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/left_reverse/pov/frame_005.png",
+      "sha256": "f0106c92d01f4250d1366bd1c3adc870a1072cd2cf8c2e4b4ac965d4175f6675",
+      "size_bytes": 724531
+    },
+    {
+      "package_file": "Preview/frames/left_reverse/pov/frame_006.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/left_reverse/pov/frame_006.png",
+      "sha256": "b3abaa685143dda6fd4a2df015fe99e71f2a8639422f08e75f5dc6956c487d50",
+      "size_bytes": 731772
+    },
+    {
+      "package_file": "Preview/frames/left_reverse/pov/frame_007.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/left_reverse/pov/frame_007.png",
+      "sha256": "305d06ee88fcd2c92bb55edf0484cf3545cb864a7f4fb2f9f928d0312ff1efc7",
+      "size_bytes": 733724
+    },
+    {
+      "package_file": "Preview/frames/left_reverse/pov/frame_008.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/left_reverse/pov/frame_008.png",
+      "sha256": "4ab14528e3a44ae4a55d4bb52bfad2434dc46c83adf878619176f7e5be25a043",
+      "size_bytes": 714719
+    },
+    {
+      "package_file": "Preview/frames/left_reverse/pov/frame_009.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/left_reverse/pov/frame_009.png",
+      "sha256": "18f9986fff8b577663610df86d261ecc0406ef38a3d8bc560c10bbc793396196",
+      "size_bytes": 714435
+    },
+    {
+      "package_file": "Preview/frames/left_reverse/pov/frame_010.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/left_reverse/pov/frame_010.png",
+      "sha256": "19205a396be311fcd35149eedcab198da44862a04b0a26841a43949daf78e14a",
+      "size_bytes": 705507
+    },
+    {
+      "package_file": "Preview/frames/left_reverse/pov/frame_011.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/left_reverse/pov/frame_011.png",
+      "sha256": "0b898e89c743d1907e9fbdbbff06109a82003e3a60fab1671dc0dec70f29db2a",
+      "size_bytes": 696812
+    },
+    {
+      "package_file": "Preview/frames/left_reverse/pov/frame_012.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/left_reverse/pov/frame_012.png",
+      "sha256": "bacbdf77973495c5a7b4ffaa8211962c92541a0025006159017b8abc1c4db100",
+      "size_bytes": 696508
+    },
+    {
+      "package_file": "Preview/frames/left_reverse/pov/frame_013.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/left_reverse/pov/frame_013.png",
+      "sha256": "8ded994f3895770cdb75ad4a5c4e1f022ac3bac37fa407ccee77b4c12bf763d8",
+      "size_bytes": 700439
+    },
+    {
+      "package_file": "Preview/frames/left_reverse/pov/frame_014.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/left_reverse/pov/frame_014.png",
+      "sha256": "6fd57d6a40362aeadb3fe8836dc4c7cab4a9247c08dd7572424ad65c523461ed",
+      "size_bytes": 708285
+    },
+    {
+      "package_file": "Preview/frames/left_reverse/pov/frame_015.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/left_reverse/pov/frame_015.png",
+      "sha256": "b807d281434f834bba8296a1a59d84c5a129c31cf3d2450772b97c61fa4cc40f",
+      "size_bytes": 718737
+    },
+    {
+      "package_file": "Preview/frames/left_reverse/pov/frame_016.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/left_reverse/pov/frame_016.png",
+      "sha256": "4304eca5d45faaa9882e481d1eee5188b9083a3e6c49e7003d2e53442d6b3e4a",
+      "size_bytes": 721396
+    },
+    {
+      "package_file": "Preview/frames/left_reverse/pov/frame_017.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/left_reverse/pov/frame_017.png",
+      "sha256": "c69ce62a5e63ddf9bea2652abdcea6c5ac73add9abcaaf11d32237ca41555854",
+      "size_bytes": 720466
+    },
+    {
+      "package_file": "Preview/frames/left_reverse/pov/frame_018.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/left_reverse/pov/frame_018.png",
+      "sha256": "69961ec5c31620d3059c156b640d89912bdbe2cae2c700bc179bb7b5e1d32bd7",
+      "size_bytes": 719001
+    },
+    {
+      "package_file": "Preview/frames/left_reverse/pov/frame_019.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/left_reverse/pov/frame_019.png",
+      "sha256": "56be00be6714cc6688030fdc4b146add6ef35dea8a9b0f457723d69d9abb3d63",
+      "size_bytes": 717872
+    },
+    {
+      "package_file": "Preview/frames/left_reverse/pov/frame_020.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/left_reverse/pov/frame_020.png",
+      "sha256": "4ad966c2d2b14697e795cb9c3cfe99b14455d9436ec2d980dcae74fec16ddd3d",
+      "size_bytes": 715203
+    },
+    {
+      "package_file": "Preview/frames/left_reverse/pov/frame_021.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/left_reverse/pov/frame_021.png",
+      "sha256": "90e48cf1c40c630dba6753865683999b7b8c362673006a02ea1e2eae97bf9016",
+      "size_bytes": 711775
+    },
+    {
+      "package_file": "Preview/frames/left_reverse/pov/frame_022.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/left_reverse/pov/frame_022.png",
+      "sha256": "acec3873a0591939e9d54d34e73a9c54248c3a1c1176f1129e7a86ba7724eddf",
+      "size_bytes": 705727
+    },
+    {
+      "package_file": "Preview/frames/left_reverse/pov/frame_023.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/left_reverse/pov/frame_023.png",
+      "sha256": "daab626cd392469578ad83fe9f0ae7d689a13b58c46935eed67def554a09c7eb",
+      "size_bytes": 699286
+    },
+    {
+      "package_file": "Preview/frames/left_reverse/pov/frame_024.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/left_reverse/pov/frame_024.png",
+      "sha256": "ad995e8546727c292435afe2c308157b3c501e981d2db56b31dd68eee3a9c185",
+      "size_bytes": 697958
+    },
+    {
+      "package_file": "Preview/frames/left_reverse/pov/frame_025.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/left_reverse/pov/frame_025.png",
+      "sha256": "914c2a66aad3d2d95d99dce21966d4f7f3c5e538d432620db6d446c593c0f54e",
+      "size_bytes": 698952
+    },
+    {
+      "package_file": "Preview/frames/left_reverse/pov/frame_026.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/left_reverse/pov/frame_026.png",
+      "sha256": "903b9c717e334792fad8094b3794ca9d788d1ddb230a7341426da358d576d051",
+      "size_bytes": 707135
+    },
+    {
+      "package_file": "Preview/frames/left_reverse/pov/frame_027.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/left_reverse/pov/frame_027.png",
+      "sha256": "b6c971ed3782831469169812f09858ea480a8e98e6a013b4c763ef8f4dbf9b56",
+      "size_bytes": 713468
+    },
+    {
+      "package_file": "Preview/frames/left_reverse/pov/frame_028.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/left_reverse/pov/frame_028.png",
+      "sha256": "b721a10ee5e2107b9d75e1a090ffc97799c7e79c9d6750238faf89b152864504",
+      "size_bytes": 714971
+    },
+    {
+      "package_file": "Preview/frames/left_reverse/pov/frame_029.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/left_reverse/pov/frame_029.png",
+      "sha256": "604a80246935e448ee648814aac723c5a0b3c7a4db17dc342d54c7e2931eb56c",
+      "size_bytes": 714184
+    },
+    {
+      "package_file": "Preview/frames/left_reverse/pov/frame_030.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/left_reverse/pov/frame_030.png",
+      "sha256": "8bdc6960d8fac4a33044dd2b683912e88f7dd9b86dab64fc49c503cf51704b91",
+      "size_bytes": 714818
+    },
+    {
+      "package_file": "Preview/frames/left_reverse/pov/frame_031.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/left_reverse/pov/frame_031.png",
+      "sha256": "d5e33a53f4f8b3883551ab84bacff2d317d804aac568e7932864517bc19973b8",
+      "size_bytes": 714810
+    },
+    {
+      "package_file": "Preview/frames/left_reverse/pov/frame_032.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/left_reverse/pov/frame_032.png",
+      "sha256": "9f96d86f062472edd40b93c5589296cb0374934b10f83259568cef9e98e0888e",
+      "size_bytes": 714818
+    },
+    {
+      "package_file": "Preview/frames/left_reverse/pov/frame_033.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/left_reverse/pov/frame_033.png",
+      "sha256": "493ed638b9a0836b854e7767afbb65ea29930cc8665ad49bc3d36d906869c849",
+      "size_bytes": 714701
+    },
+    {
+      "package_file": "Preview/videos/overhead.mp4",
+      "source_file": "asset-staging/sword_shield_single_pose/reviews/single_pose_motion_03/videos/overhead.mp4",
+      "sha256": "cf65602a32f27b1e934dc0fb5a19863915013aa204b543a958d7b888ba4c384f",
+      "size_bytes": 1344602
+    },
+    {
+      "package_file": "Preview/frames/overhead/external/key_000_bottom.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/overhead/external/key_000_bottom.png",
+      "sha256": "3d49567761461d58e5d8d09a419a6e69ed27521089dcedc2e6da71eac2332bf8",
+      "size_bytes": 94534
+    },
+    {
+      "package_file": "Preview/frames/overhead/external/key_000_left.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/overhead/external/key_000_left.png",
+      "sha256": "d4d3a08e8b3cd34485698c7ebd57668cfbcee3d689f6f563073d99901af08131",
+      "size_bytes": 102170
+    },
+    {
+      "package_file": "Preview/frames/overhead/external/key_000_right.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/overhead/external/key_000_right.png",
+      "sha256": "d0c164d06b81ca5b9f5fa4ee138835bacd6d2a9e57eddfba362de417252374a3",
+      "size_bytes": 141002
+    },
+    {
+      "package_file": "Preview/frames/overhead/external/key_000_top.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/overhead/external/key_000_top.png",
+      "sha256": "634a8c6700291cd0f580012fb2a73860c99d709bf121ca5414bd64c22d65ed54",
+      "size_bytes": 109058
+    },
+    {
+      "package_file": "Preview/frames/overhead/external/key_006_bottom.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/overhead/external/key_006_bottom.png",
+      "sha256": "7b490466384208a8bec696da8f656f8e9d1604206c51a6c774093c6a21500a6b",
+      "size_bytes": 108532
+    },
+    {
+      "package_file": "Preview/frames/overhead/external/key_006_left.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/overhead/external/key_006_left.png",
+      "sha256": "3f15c7ed1e54ac196064599f34c53095fedd23a74c4adc515128f6dce34ffd98",
+      "size_bytes": 100361
+    },
+    {
+      "package_file": "Preview/frames/overhead/external/key_006_right.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/overhead/external/key_006_right.png",
+      "sha256": "1774e2308aa924307290ab048d60a6aff21a7f71b3f039707a4f125f5ae5680e",
+      "size_bytes": 139489
+    },
+    {
+      "package_file": "Preview/frames/overhead/external/key_006_top.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/overhead/external/key_006_top.png",
+      "sha256": "7142de62f62ea7583bd75022172ce39ed62e3c07775b6f9da569253c2a771e9d",
+      "size_bytes": 114100
+    },
+    {
+      "package_file": "Preview/frames/overhead/external/key_011_bottom.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/overhead/external/key_011_bottom.png",
+      "sha256": "1f0cac139becfaed377af6f0671b44600fde06f91f9799101dfa123b97cd5f9a",
+      "size_bytes": 73152
+    },
+    {
+      "package_file": "Preview/frames/overhead/external/key_011_left.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/overhead/external/key_011_left.png",
+      "sha256": "fdb02030e8d7684ffc0163c8dfe3f04cf74ce9819c1eda9a437648143c2ea6bc",
+      "size_bytes": 158401
+    },
+    {
+      "package_file": "Preview/frames/overhead/external/key_011_right.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/overhead/external/key_011_right.png",
+      "sha256": "c73f4090dbcbcfee3d33ff1bb54d640133c3e5be703e4384b22d9c6e9dbcefcb",
+      "size_bytes": 234783
+    },
+    {
+      "package_file": "Preview/frames/overhead/external/key_011_top.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/overhead/external/key_011_top.png",
+      "sha256": "df962c748a9fe5475fe170826ba93c8300b380417afd2bd79f28d11fcb0825eb",
+      "size_bytes": 74098
+    },
+    {
+      "package_file": "Preview/frames/overhead/external/key_017_bottom.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/overhead/external/key_017_bottom.png",
+      "sha256": "08b0f8fb07e578fcd5bf303268f2e83107adc6855709995749c72b98358ceaee",
+      "size_bytes": 80186
+    },
+    {
+      "package_file": "Preview/frames/overhead/external/key_017_left.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/overhead/external/key_017_left.png",
+      "sha256": "e1f7ef4c1fc47b2322ee17b01cb3b4125369d1739722e273a614b1c3df381e99",
+      "size_bytes": 118840
+    },
+    {
+      "package_file": "Preview/frames/overhead/external/key_017_right.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/overhead/external/key_017_right.png",
+      "sha256": "c64250e7e7f01603b4cb12426f1daf92f75084bf8ef52e0d75e9d1ca532120ce",
+      "size_bytes": 181563
+    },
+    {
+      "package_file": "Preview/frames/overhead/external/key_017_top.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/overhead/external/key_017_top.png",
+      "sha256": "dedb82d03eb3f312f14a560a97b31025e05015b06ab2772584e6790b7bbeb931",
+      "size_bytes": 80902
+    },
+    {
+      "package_file": "Preview/frames/overhead/pov/frame_000.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/overhead/pov/frame_000.png",
+      "sha256": "459cd61988156aff4ddaaa6d078387223da1954943ba97d8571d1a48bbdc62e5",
+      "size_bytes": 716341
+    },
+    {
+      "package_file": "Preview/frames/overhead/pov/frame_001.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/overhead/pov/frame_001.png",
+      "sha256": "c715ac3d869322bde2d6e3deef48c5fa1843727be82d78efc9f03cb7799f9d27",
+      "size_bytes": 719456
+    },
+    {
+      "package_file": "Preview/frames/overhead/pov/frame_002.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/overhead/pov/frame_002.png",
+      "sha256": "8ba731cbb9847f2b446a75895380b66edda3d2f10a0a2ab48949d09f75c03fd1",
+      "size_bytes": 730506
+    },
+    {
+      "package_file": "Preview/frames/overhead/pov/frame_003.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/overhead/pov/frame_003.png",
+      "sha256": "ba9c12064f2596995bbcaeca48edf099463259c30c5bd08d0c19b1a0b3bb3c2a",
+      "size_bytes": 744243
+    },
+    {
+      "package_file": "Preview/frames/overhead/pov/frame_004.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/overhead/pov/frame_004.png",
+      "sha256": "f8e96e0016c1ad741194ce1e59f4c166e17653faa5735df86155e12e22095fe2",
+      "size_bytes": 766600
+    },
+    {
+      "package_file": "Preview/frames/overhead/pov/frame_005.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/overhead/pov/frame_005.png",
+      "sha256": "0972d2b3e5a917098ae72d38d7845ab66891fbe30abef26920c4ceba0bffaea7",
+      "size_bytes": 809321
+    },
+    {
+      "package_file": "Preview/frames/overhead/pov/frame_006.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/overhead/pov/frame_006.png",
+      "sha256": "05392d782b8423b72e7111bfdcdc4ced7e887748241421a899156a0025f122a0",
+      "size_bytes": 816865
+    },
+    {
+      "package_file": "Preview/frames/overhead/pov/frame_007.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/overhead/pov/frame_007.png",
+      "sha256": "fd3ebc7133c5566e7698c56d9e815fbd47c3d9c6b1290d67695b9de3c1cbcbc0",
+      "size_bytes": 815730
+    },
+    {
+      "package_file": "Preview/frames/overhead/pov/frame_008.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/overhead/pov/frame_008.png",
+      "sha256": "3239181e054f9884f87b613833316d2521028fdcb6928bf5d5a1ff81feb9d777",
+      "size_bytes": 849182
+    },
+    {
+      "package_file": "Preview/frames/overhead/pov/frame_009.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/overhead/pov/frame_009.png",
+      "sha256": "d254b24cb8d88065ae40af13805935ff7d5b17ecdd7d1b3a3b6a680847622b9e",
+      "size_bytes": 770119
+    },
+    {
+      "package_file": "Preview/frames/overhead/pov/frame_010.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/overhead/pov/frame_010.png",
+      "sha256": "69338cb974470b5f50d66e8c51c660ff8324b7e94b224ff5b81722405c74e323",
+      "size_bytes": 724957
+    },
+    {
+      "package_file": "Preview/frames/overhead/pov/frame_011.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/overhead/pov/frame_011.png",
+      "sha256": "f2b5a2d6ef763845f4ea9e8a158e4fbe1e143f56e2107927c219426646397c5c",
+      "size_bytes": 702858
+    },
+    {
+      "package_file": "Preview/frames/overhead/pov/frame_012.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/overhead/pov/frame_012.png",
+      "sha256": "0301137fb670a1b859997eccb1eda8a7f653a6e0792901f02db22956f15c3d2a",
+      "size_bytes": 700167
+    },
+    {
+      "package_file": "Preview/frames/overhead/pov/frame_013.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/overhead/pov/frame_013.png",
+      "sha256": "aa5e0358a9344171731ee6c28aef4bfd3b47e126a2ea198822c162a8d99eb67f",
+      "size_bytes": 701890
+    },
+    {
+      "package_file": "Preview/frames/overhead/pov/frame_014.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/overhead/pov/frame_014.png",
+      "sha256": "15042bee60815887ff4eaa7ae5d97684850c61fa1281d6a3b023f8b92b6878c7",
+      "size_bytes": 699675
+    },
+    {
+      "package_file": "Preview/frames/overhead/pov/frame_015.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/overhead/pov/frame_015.png",
+      "sha256": "73abade321dd760d34a99bc7a7e93a867f06badc05cebc8c1663bffeea4347c5",
+      "size_bytes": 695966
+    },
+    {
+      "package_file": "Preview/frames/overhead/pov/frame_016.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/overhead/pov/frame_016.png",
+      "sha256": "e896a57951f8930133fe6c71fb27e1f2c20813bfdedd181438cc99ce6a72c3d7",
+      "size_bytes": 693458
+    },
+    {
+      "package_file": "Preview/frames/overhead/pov/frame_017.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/overhead/pov/frame_017.png",
+      "sha256": "28262d2024077a9a65e259e60e32595e518771486b444c345351b329f9faa1ee",
+      "size_bytes": 694897
+    },
+    {
+      "package_file": "Preview/frames/overhead/pov/frame_018.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/overhead/pov/frame_018.png",
+      "sha256": "dc55d72438b025b0de68deaffba1c5ba7742ba23c566509ace0b5978318599c0",
+      "size_bytes": 696595
+    },
+    {
+      "package_file": "Preview/frames/overhead/pov/frame_019.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/overhead/pov/frame_019.png",
+      "sha256": "4c6b7d617431b550d576891054cab42f3b40a4eae9734f2e66dc56c096b39417",
+      "size_bytes": 696610
+    },
+    {
+      "package_file": "Preview/frames/overhead/pov/frame_020.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/overhead/pov/frame_020.png",
+      "sha256": "e0e6b20e71fc9fb9833f1e332eeed8795426483a46c87953ad211846d379e02c",
+      "size_bytes": 698757
+    },
+    {
+      "package_file": "Preview/frames/overhead/pov/frame_021.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/overhead/pov/frame_021.png",
+      "sha256": "a0df12b568f23fdcb6eda497581dc4d848283d6111cd11a0732b32f2bb30c5af",
+      "size_bytes": 703121
+    },
+    {
+      "package_file": "Preview/frames/overhead/pov/frame_022.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/overhead/pov/frame_022.png",
+      "sha256": "419d9d7ab52d37f62f363009c5ff0a455a1851261ab64fbcb407466aa37a8a43",
+      "size_bytes": 712661
+    },
+    {
+      "package_file": "Preview/frames/overhead/pov/frame_023.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/overhead/pov/frame_023.png",
+      "sha256": "3a91dde15b4538d25dc5a061cbf2d63577b90d97ef10d432dcb9a20123d040ea",
+      "size_bytes": 716915
+    },
+    {
+      "package_file": "Preview/frames/overhead/pov/frame_024.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/overhead/pov/frame_024.png",
+      "sha256": "d878593f819fc55a0e8f0490babd1bd0db7bc416033149b06daa75ad9394a047",
+      "size_bytes": 716233
+    },
+    {
+      "package_file": "Preview/frames/overhead/pov/frame_025.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/overhead/pov/frame_025.png",
+      "sha256": "49706bfb6d179786340b27ca22ac32c92cc3b1df41d7c2bf336c3eaba5940a4d",
+      "size_bytes": 716015
+    },
+    {
+      "package_file": "Preview/frames/overhead/pov/frame_026.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/overhead/pov/frame_026.png",
+      "sha256": "2b94c9fa1d66a6d49b489ec6f7a456e2dd5cfff70bf8ef3b8f59a1db584c1b6c",
+      "size_bytes": 719415
+    },
+    {
+      "package_file": "Preview/frames/overhead/pov/frame_027.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/overhead/pov/frame_027.png",
+      "sha256": "53e4ce056d9ba5aa17fd226f8349ff8577502febf7d714e6bda8d23a143b09d2",
+      "size_bytes": 718366
+    },
+    {
+      "package_file": "Preview/frames/overhead/pov/frame_028.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/overhead/pov/frame_028.png",
+      "sha256": "55883494accaba6842bfc2012665beac99432ad2079ce028761f757a6ed2f1b8",
+      "size_bytes": 714110
+    },
+    {
+      "package_file": "Preview/frames/overhead/pov/frame_029.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/overhead/pov/frame_029.png",
+      "sha256": "0bf2760abb3dea384cb1ca8255f8539fefcc2681b6488a2422da50394b5efe15",
+      "size_bytes": 715521
+    },
+    {
+      "package_file": "Preview/frames/overhead/pov/frame_030.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/overhead/pov/frame_030.png",
+      "sha256": "d9a8c82f0c31a2efd6cbbda031cd21d5fe948443ec9bada158a6a5dd2467d813",
+      "size_bytes": 714718
+    },
+    {
+      "package_file": "Preview/frames/overhead/pov/frame_031.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/overhead/pov/frame_031.png",
+      "sha256": "d5e33a53f4f8b3883551ab84bacff2d317d804aac568e7932864517bc19973b8",
+      "size_bytes": 714810
+    },
+    {
+      "package_file": "Preview/frames/overhead/pov/frame_032.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/overhead/pov/frame_032.png",
+      "sha256": "9f96d86f062472edd40b93c5589296cb0374934b10f83259568cef9e98e0888e",
+      "size_bytes": 714818
+    },
+    {
+      "package_file": "Preview/frames/overhead/pov/frame_033.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/overhead/pov/frame_033.png",
+      "sha256": "493ed638b9a0836b854e7767afbb65ea29930cc8665ad49bc3d36d906869c849",
+      "size_bytes": 714701
+    },
+    {
+      "package_file": "Preview/videos/shield_raise.mp4",
+      "source_file": "asset-staging/sword_shield_single_pose/reviews/single_pose_motion_03/videos/shield_raise.mp4",
+      "sha256": "cc593432325b739f8442170f9e6d1237679db065b2973767ac350a99918509e4",
+      "size_bytes": 1441276
+    },
+    {
+      "package_file": "Preview/frames/shield_raise/external/key_000_bottom.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/shield_raise/external/key_000_bottom.png",
+      "sha256": "3d49567761461d58e5d8d09a419a6e69ed27521089dcedc2e6da71eac2332bf8",
+      "size_bytes": 94534
+    },
+    {
+      "package_file": "Preview/frames/shield_raise/external/key_000_left.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/shield_raise/external/key_000_left.png",
+      "sha256": "d4d3a08e8b3cd34485698c7ebd57668cfbcee3d689f6f563073d99901af08131",
+      "size_bytes": 102170
+    },
+    {
+      "package_file": "Preview/frames/shield_raise/external/key_000_right.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/shield_raise/external/key_000_right.png",
+      "sha256": "d0c164d06b81ca5b9f5fa4ee138835bacd6d2a9e57eddfba362de417252374a3",
+      "size_bytes": 141002
+    },
+    {
+      "package_file": "Preview/frames/shield_raise/external/key_000_top.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/shield_raise/external/key_000_top.png",
+      "sha256": "634a8c6700291cd0f580012fb2a73860c99d709bf121ca5414bd64c22d65ed54",
+      "size_bytes": 109058
+    },
+    {
+      "package_file": "Preview/frames/shield_raise/external/key_005_bottom.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/shield_raise/external/key_005_bottom.png",
+      "sha256": "b550f7d33beb0753815cfbbcf51d4109ee8d611d8af9f4b0fc2bc17afc689637",
+      "size_bytes": 85258
+    },
+    {
+      "package_file": "Preview/frames/shield_raise/external/key_005_left.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/shield_raise/external/key_005_left.png",
+      "sha256": "c7ef34018e64e63ea3833e40a3e90d7012261e9cd21b8c43b62359fba0d1c2e9",
+      "size_bytes": 100485
+    },
+    {
+      "package_file": "Preview/frames/shield_raise/external/key_005_right.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/shield_raise/external/key_005_right.png",
+      "sha256": "e6cd3aea4982278dfd0eaa5db8d53d53fd22e4b28e940c7576da6ccf82aced9a",
+      "size_bytes": 143957
+    },
+    {
+      "package_file": "Preview/frames/shield_raise/external/key_005_top.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/shield_raise/external/key_005_top.png",
+      "sha256": "6d453e9f73e0e70d057a27e879fdadce7fea41071b836a95438c35457661f75e",
+      "size_bytes": 94658
+    },
+    {
+      "package_file": "Preview/frames/shield_raise/external/key_012_bottom.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/shield_raise/external/key_012_bottom.png",
+      "sha256": "430347616020781cb9f6dd11b10127355a657d82b03ca4a2244172c243d4a2e3",
+      "size_bytes": 132447
+    },
+    {
+      "package_file": "Preview/frames/shield_raise/external/key_012_left.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/shield_raise/external/key_012_left.png",
+      "sha256": "814805e3da09e36f7a8dc64fc9edf8c63c5feacba5b9526bd3b4e143ebf3d867",
+      "size_bytes": 102539
+    },
+    {
+      "package_file": "Preview/frames/shield_raise/external/key_012_right.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/shield_raise/external/key_012_right.png",
+      "sha256": "7197b07c5fae29f05b1f212e9a47fdd25ffa2c1f66575e5fb4fb24326c8a9ba2",
+      "size_bytes": 143029
+    },
+    {
+      "package_file": "Preview/frames/shield_raise/external/key_012_top.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/shield_raise/external/key_012_top.png",
+      "sha256": "8167ab8b9253e4cf7962591bbada1c23249353b81b9f41643f4670ccd4a27f0f",
+      "size_bytes": 107104
+    },
+    {
+      "package_file": "Preview/frames/shield_raise/external/key_027_bottom.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/shield_raise/external/key_027_bottom.png",
+      "sha256": "9deb2b4a3900263ee8797824787be80481fa79a24c6b803f4e60f57c4e98d4dd",
+      "size_bytes": 89334
+    },
+    {
+      "package_file": "Preview/frames/shield_raise/external/key_027_left.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/shield_raise/external/key_027_left.png",
+      "sha256": "a6eb39104321b9dd104916c9045581eacac3084f5742d460fbb9ee831f128f0d",
+      "size_bytes": 101306
+    },
+    {
+      "package_file": "Preview/frames/shield_raise/external/key_027_right.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/shield_raise/external/key_027_right.png",
+      "sha256": "be815e8580287385a542d9658194cca7e9349f1c7a1c02b6e57b98d0d9317d5d",
+      "size_bytes": 143150
+    },
+    {
+      "package_file": "Preview/frames/shield_raise/external/key_027_top.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/shield_raise/external/key_027_top.png",
+      "sha256": "a858a3a8296e697cf70786cb54cb67dd26acbe03c73c4adc50973c551db73a2e",
+      "size_bytes": 102997
+    },
+    {
+      "package_file": "Preview/frames/shield_raise/pov/frame_000.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/shield_raise/pov/frame_000.png",
+      "sha256": "459cd61988156aff4ddaaa6d078387223da1954943ba97d8571d1a48bbdc62e5",
+      "size_bytes": 716341
+    },
+    {
+      "package_file": "Preview/frames/shield_raise/pov/frame_001.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/shield_raise/pov/frame_001.png",
+      "sha256": "d6ad4ca4adb80e74281d2e803093cb870dcbe2063bc89bc1f356dbf14a623cc4",
+      "size_bytes": 716486
+    },
+    {
+      "package_file": "Preview/frames/shield_raise/pov/frame_002.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/shield_raise/pov/frame_002.png",
+      "sha256": "fca9ef55f2b2e4b46adfde0482d3061b7e425a28ec71304b4b97ad45f2e13df5",
+      "size_bytes": 716670
+    },
+    {
+      "package_file": "Preview/frames/shield_raise/pov/frame_003.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/shield_raise/pov/frame_003.png",
+      "sha256": "dc5a037529712fdc59bf2dff71baf65b24faacd40a38861cf5c186c0275b261f",
+      "size_bytes": 716420
+    },
+    {
+      "package_file": "Preview/frames/shield_raise/pov/frame_004.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/shield_raise/pov/frame_004.png",
+      "sha256": "fdb4e8584ea9e92fba8432da36b7bd2b5debdcf572d94c8b777d9fc34c46b597",
+      "size_bytes": 722615
+    },
+    {
+      "package_file": "Preview/frames/shield_raise/pov/frame_005.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/shield_raise/pov/frame_005.png",
+      "sha256": "694b19fa62a78f053d4e0225f4294ee4dd7d1cc8b5c796a649cd5a2ed4f458c9",
+      "size_bytes": 741937
+    },
+    {
+      "package_file": "Preview/frames/shield_raise/pov/frame_006.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/shield_raise/pov/frame_006.png",
+      "sha256": "79643bec3dfaa2733b44155a469fc8749abfe577ca5fd4f255f21178f780ba92",
+      "size_bytes": 772584
+    },
+    {
+      "package_file": "Preview/frames/shield_raise/pov/frame_007.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/shield_raise/pov/frame_007.png",
+      "sha256": "df05e8c73a5fe7b6b8923ea48fe7c72f3bc627fc46875b111e0fa59752779d60",
+      "size_bytes": 809741
+    },
+    {
+      "package_file": "Preview/frames/shield_raise/pov/frame_008.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/shield_raise/pov/frame_008.png",
+      "sha256": "296c6a92879e930aa378c6e27ee9aa9920647b4c8a73b1aef259483693955414",
+      "size_bytes": 848048
+    },
+    {
+      "package_file": "Preview/frames/shield_raise/pov/frame_009.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/shield_raise/pov/frame_009.png",
+      "sha256": "2aeb7a316e2775c11f2e7a153926d42ca7350d3a5e3ed7595bc647662cde32cb",
+      "size_bytes": 878214
+    },
+    {
+      "package_file": "Preview/frames/shield_raise/pov/frame_010.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/shield_raise/pov/frame_010.png",
+      "sha256": "2a67fe32d4b598511ff18849c0c759c40e355af5d3fd16a29e207b9b04fbc6d4",
+      "size_bytes": 885901
+    },
+    {
+      "package_file": "Preview/frames/shield_raise/pov/frame_011.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/shield_raise/pov/frame_011.png",
+      "sha256": "b5649fd5b13e5011e916c8078f029c5b1ed486be7f432e53d17398e01e74ef92",
+      "size_bytes": 886433
+    },
+    {
+      "package_file": "Preview/frames/shield_raise/pov/frame_012.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/shield_raise/pov/frame_012.png",
+      "sha256": "b2d52864cd54e6ed9ffd133024f55083ac961651d13599a9d111e0e30b11c9c7",
+      "size_bytes": 885570
+    },
+    {
+      "package_file": "Preview/frames/shield_raise/pov/frame_013.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/shield_raise/pov/frame_013.png",
+      "sha256": "15aadad97c0ad4d524c16dc7ba9673c86865f2cfafffb453e14b9b68e0075637",
+      "size_bytes": 886285
+    },
+    {
+      "package_file": "Preview/frames/shield_raise/pov/frame_014.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/shield_raise/pov/frame_014.png",
+      "sha256": "e50ae4849619f8519b491f9220ca8dcd968d1f479981a95ebd25dc5212c8e233",
+      "size_bytes": 886206
+    },
+    {
+      "package_file": "Preview/frames/shield_raise/pov/frame_015.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/shield_raise/pov/frame_015.png",
+      "sha256": "7bf2905aa7d626edb523e5f2d7430ae9facfa85ed4d134110760d9b625b0aee5",
+      "size_bytes": 885873
+    },
+    {
+      "package_file": "Preview/frames/shield_raise/pov/frame_016.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/shield_raise/pov/frame_016.png",
+      "sha256": "1233674ff322382d1fe57cf4545a05dec44535c099f5a8d3d9c258d81ef6000e",
+      "size_bytes": 885801
+    },
+    {
+      "package_file": "Preview/frames/shield_raise/pov/frame_017.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/shield_raise/pov/frame_017.png",
+      "sha256": "36489648092f7c13570ca16856deead7d260a48aee9955effb174edd3dde8190",
+      "size_bytes": 885878
+    },
+    {
+      "package_file": "Preview/frames/shield_raise/pov/frame_018.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/shield_raise/pov/frame_018.png",
+      "sha256": "1b49190808de5b3feb297975dfd5901c4e974c0ea204e750bb11806705cc7083",
+      "size_bytes": 886289
+    },
+    {
+      "package_file": "Preview/frames/shield_raise/pov/frame_019.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/shield_raise/pov/frame_019.png",
+      "sha256": "5f6126e8b0c889388507a63dd8ec82fee68aff71841163bd15f82b783741bb8b",
+      "size_bytes": 885013
+    },
+    {
+      "package_file": "Preview/frames/shield_raise/pov/frame_020.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/shield_raise/pov/frame_020.png",
+      "sha256": "69513c3e3a2be1fca41443381a25c168d05927cc70b0467e3bb104296c82148e",
+      "size_bytes": 884598
+    },
+    {
+      "package_file": "Preview/frames/shield_raise/pov/frame_021.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/shield_raise/pov/frame_021.png",
+      "sha256": "08b163eba45fd393dcd40263af9c7285816cd42c0d8ef7a78e6e65ab7dbd007e",
+      "size_bytes": 877502
+    },
+    {
+      "package_file": "Preview/frames/shield_raise/pov/frame_022.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/shield_raise/pov/frame_022.png",
+      "sha256": "b0d0df3f409fe5ad9a39954b2d717866bc4b2487934c522a75068f2e9f05cebc",
+      "size_bytes": 854879
+    },
+    {
+      "package_file": "Preview/frames/shield_raise/pov/frame_023.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/shield_raise/pov/frame_023.png",
+      "sha256": "96ea5dabbe5033b7ebb04b4a73c13ccb3f80e2e671e2b662c43591626220d8bc",
+      "size_bytes": 823514
+    },
+    {
+      "package_file": "Preview/frames/shield_raise/pov/frame_024.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/shield_raise/pov/frame_024.png",
+      "sha256": "b962e3472afd8d95c471245ecb5eba08c4ff77b3b206b48cff2eb1cd396c7ebe",
+      "size_bytes": 792486
+    },
+    {
+      "package_file": "Preview/frames/shield_raise/pov/frame_025.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/shield_raise/pov/frame_025.png",
+      "sha256": "345030ecb15a26b69cd874639c009133935a6df10ebe517d3c8d0acf74c7841e",
+      "size_bytes": 764118
+    },
+    {
+      "package_file": "Preview/frames/shield_raise/pov/frame_026.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/shield_raise/pov/frame_026.png",
+      "sha256": "ad06ed2e8b40ec4ae8bb466300deb1013ee7e8a20d5ad06066d2c91fffb0b4be",
+      "size_bytes": 739825
+    },
+    {
+      "package_file": "Preview/frames/shield_raise/pov/frame_027.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/shield_raise/pov/frame_027.png",
+      "sha256": "cdf3a6129b4068e7f8f7e319854e66ac1850b50072b67facb7555f72e63f495e",
+      "size_bytes": 724189
+    },
+    {
+      "package_file": "Preview/frames/shield_raise/pov/frame_028.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/shield_raise/pov/frame_028.png",
+      "sha256": "bf3a6294b3a68baed320a4a18d3272fb0edf8a4a54dbe20df816eb7be5cb8750",
+      "size_bytes": 716043
+    },
+    {
+      "package_file": "Preview/frames/shield_raise/pov/frame_029.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/shield_raise/pov/frame_029.png",
+      "sha256": "2412b8fd46b847dab34dff575e6dc2d80f06dce8bb960d41c1a11e6335108aaf",
+      "size_bytes": 715024
+    },
+    {
+      "package_file": "Preview/frames/shield_raise/pov/frame_030.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/shield_raise/pov/frame_030.png",
+      "sha256": "5846750f4e84e804ab255249cd13979c63c295d5e1ffc1bb617d72c60dc63cb0",
+      "size_bytes": 714921
+    },
+    {
+      "package_file": "Preview/frames/shield_raise/pov/frame_031.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/shield_raise/pov/frame_031.png",
+      "sha256": "d5e33a53f4f8b3883551ab84bacff2d317d804aac568e7932864517bc19973b8",
+      "size_bytes": 714810
+    },
+    {
+      "package_file": "Preview/frames/shield_raise/pov/frame_032.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/shield_raise/pov/frame_032.png",
+      "sha256": "9f96d86f062472edd40b93c5589296cb0374934b10f83259568cef9e98e0888e",
+      "size_bytes": 714818
+    },
+    {
+      "package_file": "Preview/frames/shield_raise/pov/frame_033.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/shield_raise/pov/frame_033.png",
+      "sha256": "493ed638b9a0836b854e7767afbb65ea29930cc8665ad49bc3d36d906869c849",
+      "size_bytes": 714701
+    },
+    {
+      "package_file": "Preview/videos/block_impact.mp4",
+      "source_file": "asset-staging/sword_shield_single_pose/reviews/single_pose_motion_03/videos/block_impact.mp4",
+      "sha256": "9953c2d8ada494d126eda1c99fafe47a27d782abc110fcefd9f43198845c4668",
+      "size_bytes": 1363835
+    },
+    {
+      "package_file": "Preview/frames/block_impact/external/key_000_bottom.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/block_impact/external/key_000_bottom.png",
+      "sha256": "c3f9faebf8e9f643f39a8f0cbbdc4d94b2ee98762e46fb5d33b8e34dbac7c0da",
+      "size_bytes": 132503
+    },
+    {
+      "package_file": "Preview/frames/block_impact/external/key_000_left.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/block_impact/external/key_000_left.png",
+      "sha256": "614fc29845fcd8b66ee30cd4b1bbdc058e42da87d3863e4abd260c570588e643",
+      "size_bytes": 102565
+    },
+    {
+      "package_file": "Preview/frames/block_impact/external/key_000_right.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/block_impact/external/key_000_right.png",
+      "sha256": "f48c8d08a9a07556c08cadbb96c3adae89dbce51e2e29c85e56a7082a49f1bab",
+      "size_bytes": 143022
+    },
+    {
+      "package_file": "Preview/frames/block_impact/external/key_000_top.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/block_impact/external/key_000_top.png",
+      "sha256": "cc237f41592f51a658392fa92de34ba50f4886dd3065725ce0b24a72cfd3af19",
+      "size_bytes": 107238
+    },
+    {
+      "package_file": "Preview/frames/block_impact/external/key_010_bottom.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/block_impact/external/key_010_bottom.png",
+      "sha256": "b459333732a03be99a7cb69dca18e472ca9d49db35c9cffa66241940dfb0a831",
+      "size_bytes": 125655
+    },
+    {
+      "package_file": "Preview/frames/block_impact/external/key_010_left.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/block_impact/external/key_010_left.png",
+      "sha256": "c871f58aa2d2b944bc4de827c8453386c952ed2294a5e8ab841d303e0d5d2d20",
+      "size_bytes": 100370
+    },
+    {
+      "package_file": "Preview/frames/block_impact/external/key_010_right.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/block_impact/external/key_010_right.png",
+      "sha256": "0392b743419e7e7a1da4fded76f29a9a06d470add58ddea20585043abd403406",
+      "size_bytes": 140649
+    },
+    {
+      "package_file": "Preview/frames/block_impact/external/key_010_top.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/block_impact/external/key_010_top.png",
+      "sha256": "5038f7f5ffc4c85f7fbd12e20cde6df303cc49e35cf2793cfa10897f317aaba4",
+      "size_bytes": 104484
+    },
+    {
+      "package_file": "Preview/frames/block_impact/external/key_011_bottom.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/block_impact/external/key_011_bottom.png",
+      "sha256": "68259296cdb16bfbf8371d3cbec4d6e9d650c3cae09b99206b9703b720931be9",
+      "size_bytes": 107530
+    },
+    {
+      "package_file": "Preview/frames/block_impact/external/key_011_left.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/block_impact/external/key_011_left.png",
+      "sha256": "18dc7cc8623c1fd7171c78dfe0f5013fabb84cc52f10fcb0ef9b073fc35b02c1",
+      "size_bytes": 99510
+    },
+    {
+      "package_file": "Preview/frames/block_impact/external/key_011_right.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/block_impact/external/key_011_right.png",
+      "sha256": "9086d6664051be9a807eacf3fccebae8224d319197f7adec7a710b2f9c556f6d",
+      "size_bytes": 138706
+    },
+    {
+      "package_file": "Preview/frames/block_impact/external/key_011_top.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/block_impact/external/key_011_top.png",
+      "sha256": "0216d7d8da29a248c71a0057d5a162b26d3bfa16c616de86d6791254bc029de2",
+      "size_bytes": 92830
+    },
+    {
+      "package_file": "Preview/frames/block_impact/external/key_018_bottom.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/block_impact/external/key_018_bottom.png",
+      "sha256": "2a9d5749a5b6b88c28b29e48f1a11da40dc790c91e092dd19f66d158a0e127b8",
+      "size_bytes": 132246
+    },
+    {
+      "package_file": "Preview/frames/block_impact/external/key_018_left.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/block_impact/external/key_018_left.png",
+      "sha256": "ba9c57f6df72aef8ba1e96ce62513389a151f3063781381576c8dc95d7efb3cd",
+      "size_bytes": 102393
+    },
+    {
+      "package_file": "Preview/frames/block_impact/external/key_018_right.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/block_impact/external/key_018_right.png",
+      "sha256": "b75f17fb1966b89edcf8f8e2876d03c62dd938fa36d20e1f5f9cbc478cf545cd",
+      "size_bytes": 143309
+    },
+    {
+      "package_file": "Preview/frames/block_impact/external/key_018_top.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/block_impact/external/key_018_top.png",
+      "sha256": "91fbf524a2cc56c9ae7e7ef67d70bbb91594c4449f9185b32a358dda8abedfec",
+      "size_bytes": 107310
+    },
+    {
+      "package_file": "Preview/frames/block_impact/pov/frame_000.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/block_impact/pov/frame_000.png",
+      "sha256": "30f4777e972c8b74ec664a69d011e506dabfd138317a720eeb56d757470948f1",
+      "size_bytes": 886245
+    },
+    {
+      "package_file": "Preview/frames/block_impact/pov/frame_001.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/block_impact/pov/frame_001.png",
+      "sha256": "64269cb08245c53b466fee5093dd9a540b74f472b08c7bffd9e80b856fb0f6c6",
+      "size_bytes": 886626
+    },
+    {
+      "package_file": "Preview/frames/block_impact/pov/frame_002.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/block_impact/pov/frame_002.png",
+      "sha256": "067408126c8d057da84b374c5a4ceb5ca5f30290a477d1b3838da5f124eccc30",
+      "size_bytes": 885970
+    },
+    {
+      "package_file": "Preview/frames/block_impact/pov/frame_003.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/block_impact/pov/frame_003.png",
+      "sha256": "ec940137cbf564063cd6c20218d8da9d54eab6303427a086c4478dc14ba37bb2",
+      "size_bytes": 886474
+    },
+    {
+      "package_file": "Preview/frames/block_impact/pov/frame_004.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/block_impact/pov/frame_004.png",
+      "sha256": "59ced8773c03f1a27ebf0f5d8215ad99fb1d3997d0956ed36f7dc0041186b0c6",
+      "size_bytes": 886364
+    },
+    {
+      "package_file": "Preview/frames/block_impact/pov/frame_005.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/block_impact/pov/frame_005.png",
+      "sha256": "b143a733f93dfcbe75716e516688f226ed03363037c3f7f371e5b3b6690d9fe9",
+      "size_bytes": 886459
+    },
+    {
+      "package_file": "Preview/frames/block_impact/pov/frame_006.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/block_impact/pov/frame_006.png",
+      "sha256": "5440955b863081d8009931077641b186788c64ad1b1341f09329ad72f6b857d9",
+      "size_bytes": 886650
+    },
+    {
+      "package_file": "Preview/frames/block_impact/pov/frame_007.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/block_impact/pov/frame_007.png",
+      "sha256": "58f11e80a28e0495ba003a20be3c57be82a5415a680ae7bf13280cf7fdb94117",
+      "size_bytes": 885824
+    },
+    {
+      "package_file": "Preview/frames/block_impact/pov/frame_008.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/block_impact/pov/frame_008.png",
+      "sha256": "d06be2df4be140f0f75a9b96533450fb384c8c1059ee7b9d1b10dffeaf64022e",
+      "size_bytes": 886355
+    },
+    {
+      "package_file": "Preview/frames/block_impact/pov/frame_009.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/block_impact/pov/frame_009.png",
+      "sha256": "606a5fe6e1fca3666d3b3ced3439db17966f256560016c00f7618e04d91a663f",
+      "size_bytes": 886597
+    },
+    {
+      "package_file": "Preview/frames/block_impact/pov/frame_010.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/block_impact/pov/frame_010.png",
+      "sha256": "8e06acc0401fbca5bbf0927bff8fcf1578602ed24146dc8afaf518296c4902f1",
+      "size_bytes": 862327
+    },
+    {
+      "package_file": "Preview/frames/block_impact/pov/frame_011.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/block_impact/pov/frame_011.png",
+      "sha256": "d1baf082eb4e4c46a871e8ac2c7a25810fce262474a83b56b343da43954dcfdd",
+      "size_bytes": 841752
+    },
+    {
+      "package_file": "Preview/frames/block_impact/pov/frame_012.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/block_impact/pov/frame_012.png",
+      "sha256": "b5158f161558f42fe3f6d8eae58007640b51db87528fe17a762a33ec2b6c1d98",
+      "size_bytes": 844133
+    },
+    {
+      "package_file": "Preview/frames/block_impact/pov/frame_013.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/block_impact/pov/frame_013.png",
+      "sha256": "f7b6695b86b4fff05ae97bd30a51a6552269c30e8cdd69fe5523c7d1ea29e0e5",
+      "size_bytes": 849503
+    },
+    {
+      "package_file": "Preview/frames/block_impact/pov/frame_014.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/block_impact/pov/frame_014.png",
+      "sha256": "b141d6388b77a900bf85f1bd536025771a4cbe8f833e099c9a3b1aad91e0723b",
+      "size_bytes": 856239
+    },
+    {
+      "package_file": "Preview/frames/block_impact/pov/frame_015.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/block_impact/pov/frame_015.png",
+      "sha256": "f7b09a44bf991aaf67cf6dee095a4d6842361ebc0d1400828c5d16ad421ae53e",
+      "size_bytes": 864625
+    },
+    {
+      "package_file": "Preview/frames/block_impact/pov/frame_016.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/block_impact/pov/frame_016.png",
+      "sha256": "d70e860e8d563d0255c6e54b7fa224bc5f6c517eb46863be6e723e3961411687",
+      "size_bytes": 876414
+    },
+    {
+      "package_file": "Preview/frames/block_impact/pov/frame_017.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/block_impact/pov/frame_017.png",
+      "sha256": "37f0373a9d09cfa45f103bceea28871576871465f20cd2a1876a738dd024d2c4",
+      "size_bytes": 882753
+    },
+    {
+      "package_file": "Preview/frames/block_impact/pov/frame_018.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/block_impact/pov/frame_018.png",
+      "sha256": "f274a0c691ac5e8b918af977404948c6aa9b2a2d4b04d08a937802bc23ee0098",
+      "size_bytes": 885613
+    },
+    {
+      "package_file": "Preview/frames/block_impact/pov/frame_019.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/block_impact/pov/frame_019.png",
+      "sha256": "5f6126e8b0c889388507a63dd8ec82fee68aff71841163bd15f82b783741bb8b",
+      "size_bytes": 885013
+    },
+    {
+      "package_file": "Preview/frames/block_impact/pov/frame_020.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/block_impact/pov/frame_020.png",
+      "sha256": "33631520868abb9679fca3995355b0f7c910e432b60b14dcb1e1cb08329a22ae",
+      "size_bytes": 885874
+    },
+    {
+      "package_file": "Preview/frames/block_impact/pov/frame_021.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/block_impact/pov/frame_021.png",
+      "sha256": "556b2128271da610bd8add1c0ce365ea34c1ac36b4cc929572969e672af5ac77",
+      "size_bytes": 886226
+    },
+    {
+      "package_file": "Preview/frames/block_impact/pov/frame_022.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/block_impact/pov/frame_022.png",
+      "sha256": "dfebe6ca25dcf77f354bf4225fa8325c4d3413f9297883da7f62d82d3fc04e62",
+      "size_bytes": 885974
+    },
+    {
+      "package_file": "Preview/frames/block_impact/pov/frame_023.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/block_impact/pov/frame_023.png",
+      "sha256": "49f7b967443b43cc8b0836beb3206b105f77b91639aa8ac3e5b6fa80b08819f7",
+      "size_bytes": 885964
+    },
+    {
+      "package_file": "Preview/frames/block_impact/pov/frame_024.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/block_impact/pov/frame_024.png",
+      "sha256": "4cd77a18c74f41ad4146d1c06a3c7529104aef61c6350d651fe39063b21172d7",
+      "size_bytes": 885427
+    },
+    {
+      "package_file": "Preview/frames/block_impact/pov/frame_025.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/block_impact/pov/frame_025.png",
+      "sha256": "c8a0bce6401ed19c737a7efcf6b96b3d064e9956a421db01ad2e0a73dee11790",
+      "size_bytes": 885699
+    },
+    {
+      "package_file": "Preview/frames/block_impact/pov/frame_026.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/block_impact/pov/frame_026.png",
+      "sha256": "cffef360366203c3dc336a54a79343a40622b4f78dd0ec385b3efd290fcb6b57",
+      "size_bytes": 885872
+    },
+    {
+      "package_file": "Preview/frames/block_impact/pov/frame_027.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/block_impact/pov/frame_027.png",
+      "sha256": "67da281fc02d1c27a39e8cae5ea1892ce2b23e081f2d78a43bbad6938278c722",
+      "size_bytes": 886342
+    },
+    {
+      "package_file": "Preview/frames/block_impact/pov/frame_028.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/block_impact/pov/frame_028.png",
+      "sha256": "26b89f07ae0f27f27dafc53dd60251632d051a0ede07b7619e268743de644ad8",
+      "size_bytes": 886069
+    },
+    {
+      "package_file": "Preview/frames/block_impact/pov/frame_029.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/block_impact/pov/frame_029.png",
+      "sha256": "99438493f8ce6d9bfc3f2d78002a794a29d9547a7ae6d4af52bc9d9902a0f84f",
+      "size_bytes": 885934
+    },
+    {
+      "package_file": "Preview/frames/block_impact/pov/frame_030.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/block_impact/pov/frame_030.png",
+      "sha256": "da0c5669c13c8e640238e73b754fe87bd54f0cfa2536120806c2d96429cd4a2a",
+      "size_bytes": 886158
+    },
+    {
+      "package_file": "Preview/frames/block_impact/pov/frame_031.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/block_impact/pov/frame_031.png",
+      "sha256": "98a9ecf9302b5e6cdd8328b3fac6f8b72b64145145d3a4ac4d6277d564b3dc2e",
+      "size_bytes": 886035
+    },
+    {
+      "package_file": "Preview/frames/block_impact/pov/frame_032.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/block_impact/pov/frame_032.png",
+      "sha256": "82a539e8ead3b3ce0d1f745d146d4c033d314be95a0a902bcf686287d6692354",
+      "size_bytes": 886111
+    },
+    {
+      "package_file": "Preview/frames/block_impact/pov/frame_033.png",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/block_impact/pov/frame_033.png",
+      "sha256": "35b27d18cb3017a0a9edb3f01dc7527612b0abb00e64ff471e4f0e9cfa726baa",
+      "size_bytes": 885653
+    },
+    {
+      "package_file": "Preview/references/ready_pov.png",
+      "source_file": "asset-staging/sword_shield_single_pose/references/ready_pov.png",
+      "sha256": "3f4ed4139d4e12bcd7fdcfded4347f446e8ac84130698fd0a6bb6298e286d313",
+      "size_bytes": 1940389
+    },
+    {
+      "package_file": "Preview/references/ready_top.png",
+      "source_file": "asset-staging/sword_shield_single_pose/references/ready_top.png",
+      "sha256": "7ae824c93c3028a9917d80cdb87752c2fd1d89b53dadf6629e130d7308664ac2",
+      "size_bytes": 2544954
+    },
+    {
+      "package_file": "Preview/references/ready_bottom.png",
+      "source_file": "asset-staging/sword_shield_single_pose/references/ready_bottom.png",
+      "sha256": "db65cb83784e669e2434a4340ad1f1aa9da9603945e82dcb18c295cbd1c79ac3",
+      "size_bytes": 1975702
+    },
+    {
+      "package_file": "Preview/references/ready_right.png",
+      "source_file": "asset-staging/sword_shield_single_pose/references/ready_right.png",
+      "sha256": "84763be1163389b810eb4756f57ea423b6ade9ba1960c70b54e4fe9813c2ec9e",
+      "size_bytes": 2236163
+    },
+    {
+      "package_file": "Preview/references/right_diagonal_pov_windup.png",
+      "source_file": "asset-staging/sword_shield_single_pose/references/right_diagonal_pov_windup.png",
+      "sha256": "1e9d6e6a52c652f223ebbd71e37ce39469b966c457dcf1babc5ea4c5950586fb",
+      "size_bytes": 1908062
+    },
+    {
+      "package_file": "Preview/references/right_diagonal_pov_contact.png",
+      "source_file": "asset-staging/sword_shield_single_pose/references/right_diagonal_pov_contact.png",
+      "sha256": "066d86a94ce2c62bee6683d128305c79df29323534a5236b82fc7b0f5b0d89e2",
+      "size_bytes": 1838370
+    },
+    {
+      "package_file": "Preview/references/right_diagonal_pov_follow.png",
+      "source_file": "asset-staging/sword_shield_single_pose/references/right_diagonal_pov_follow.png",
+      "sha256": "6a8c4025b40c9c1252607a4b9eef4a1f52aee0ab91666d00b1a1b4ad9b97f6db",
+      "size_bytes": 1859412
+    },
+    {
+      "package_file": "Preview/references/left_reverse_pov_windup.png",
+      "source_file": "asset-staging/sword_shield_single_pose/references/left_reverse_pov_windup.png",
+      "sha256": "92484cf9b19fefdcfb179273af2d727127729f2a04d2d330a54079219f194773",
+      "size_bytes": 1872000
+    },
+    {
+      "package_file": "Preview/references/left_reverse_pov_contact.png",
+      "source_file": "asset-staging/sword_shield_single_pose/references/left_reverse_pov_contact.png",
+      "sha256": "274ce5f3143d79295fa5db36ff7e2886d1ca88b60f6ded302443cdd3d9ae5d7a",
+      "size_bytes": 1777208
+    },
+    {
+      "package_file": "Preview/references/left_reverse_pov_follow.png",
+      "source_file": "asset-staging/sword_shield_single_pose/references/left_reverse_pov_follow.png",
+      "sha256": "ec508bcff04a7cb2b4a315bcd37b4d0351e23e66c4d85a85744e34817c12c788",
+      "size_bytes": 1833419
+    },
+    {
+      "package_file": "Preview/references/overhead_pov_windup.png",
+      "source_file": "asset-staging/sword_shield_single_pose/references/overhead_pov_windup.png",
+      "sha256": "af2737ffa0a014de9c54c3f78090b5c715de30dcaec4cd7bd5c2b95769f43c55",
+      "size_bytes": 1982400
+    },
+    {
+      "package_file": "Preview/references/overhead_pov_contact.png",
+      "source_file": "asset-staging/sword_shield_single_pose/references/overhead_pov_contact.png",
+      "sha256": "2797e0f16b81afc46d7bcf1bcbe8621bb7a2953ce29fc700a41230b30442bcdf",
+      "size_bytes": 2525283
+    },
+    {
+      "package_file": "Preview/references/overhead_pov_follow.png",
+      "source_file": "asset-staging/sword_shield_single_pose/references/overhead_pov_follow.png",
+      "sha256": "fd5a6741941a2853725e3d93de7ef944ed320850efd4a056cb7b28b65bc67c08",
+      "size_bytes": 2070558
+    },
+    {
+      "package_file": "Preview/references/ready_left_v3.png",
+      "source_file": "asset-staging/sword_shield_single_pose/references/ready_left_v3.png",
+      "sha256": "908927e8c473cb7626a71ba8693a949354b6163e1481deb21d65ca29d254d22e",
+      "size_bytes": 2071646
+    },
+    {
+      "package_file": "Preview/references/right_diagonal_top_contact.png",
+      "source_file": "asset-staging/sword_shield_single_pose/references/right_diagonal_top_contact.png",
+      "sha256": "dfc5ee3f26d2a0daa3d55cbbe7d672f827db7447f28d5e1f8bbf5162c32f30f8",
+      "size_bytes": 2447450
+    },
+    {
+      "package_file": "Preview/references/right_diagonal_bottom_contact.png",
+      "source_file": "asset-staging/sword_shield_single_pose/references/right_diagonal_bottom_contact.png",
+      "sha256": "d7963a9d218332deadc59c8b38c5d7617a98d4dbaef35d0977550c44c3f12ac9",
+      "size_bytes": 1860435
+    },
+    {
+      "package_file": "Preview/references/right_diagonal_left_contact.png",
+      "source_file": "asset-staging/sword_shield_single_pose/references/right_diagonal_left_contact.png",
+      "sha256": "e12f40bfc11afb56f079d539aa683c44744ca423637638638d16ef5a4b73013c",
+      "size_bytes": 1885655
+    },
+    {
+      "package_file": "Preview/references/right_diagonal_right_contact.png",
+      "source_file": "asset-staging/sword_shield_single_pose/references/right_diagonal_right_contact.png",
+      "sha256": "e8a08fc96211b8ef4c266cb3d064c0a75cc022165e0a33f0625a425c699daf65",
+      "size_bytes": 1801945
+    },
+    {
+      "package_file": "Preview/references/left_reverse_top_contact.png",
+      "source_file": "asset-staging/sword_shield_single_pose/references/left_reverse_top_contact.png",
+      "sha256": "2588558c5c7c1388a953a622a01e903422acc7465614627ebb8ff1cbda0fa8b1",
+      "size_bytes": 2401034
+    },
+    {
+      "package_file": "Preview/references/left_reverse_bottom_contact.png",
+      "source_file": "asset-staging/sword_shield_single_pose/references/left_reverse_bottom_contact.png",
+      "sha256": "0bb615706a381b06866f171d557a0699a655fa39ba2449a1d7f241bb5da6da4b",
+      "size_bytes": 1906316
+    },
+    {
+      "package_file": "Preview/references/left_reverse_left_contact.png",
+      "source_file": "asset-staging/sword_shield_single_pose/references/left_reverse_left_contact.png",
+      "sha256": "7c27f8f786e8a59135df625ddf47145cc9aba6ed51f0fa5815bcb93b4bc3109b",
+      "size_bytes": 1963028
+    },
+    {
+      "package_file": "Preview/references/left_reverse_right_contact.png",
+      "source_file": "asset-staging/sword_shield_single_pose/references/left_reverse_right_contact.png",
+      "sha256": "52944b41b65fa1354cb9fcca8c65e00924b20b3f82e55796251fb4141cd59a43",
+      "size_bytes": 1926283
+    },
+    {
+      "package_file": "Preview/references/overhead_top_contact.png",
+      "source_file": "asset-staging/sword_shield_single_pose/references/overhead_top_contact.png",
+      "sha256": "14687209e5f416e3a08b60f9ec0c7a040ba6f2bd05fee9ecc275461ca370bb89",
+      "size_bytes": 2224163
+    },
+    {
+      "package_file": "Preview/references/overhead_bottom_contact.png",
+      "source_file": "asset-staging/sword_shield_single_pose/references/overhead_bottom_contact.png",
+      "sha256": "48073e2001f4430d8b3e9a6f99795bff1d77091deaa17765336423fe3cf18da4",
+      "size_bytes": 1783148
+    },
+    {
+      "package_file": "Preview/references/overhead_left_contact.png",
+      "source_file": "asset-staging/sword_shield_single_pose/references/overhead_left_contact.png",
+      "sha256": "ced721e65ffd240d45d91319618b1b31010f60d2fd4aee01edad702623268768",
+      "size_bytes": 1763151
+    },
+    {
+      "package_file": "Preview/references/overhead_right_contact.png",
+      "source_file": "asset-staging/sword_shield_single_pose/references/overhead_right_contact.png",
+      "sha256": "c2449660ed3a19c88b6b2557faed0509de7f84fa9d9035b8c357ce87347ef78c",
+      "size_bytes": 1841491
+    },
+    {
+      "package_file": "Preview/references.json",
+      "source_file": "asset-staging/sword_shield_single_pose/references.json",
+      "sha256": "6f6f4b4f5890f7c8eb8b5fb838a6e9f0240fed3f02660aad33da6304ec155958",
+      "size_bytes": 5890
+    },
+    {
+      "package_file": "Source/capture_manifest.json",
+      "source_file": "godot-game/artifacts/visual_qa/sword_shield_choreography/single_pose_motion_03/capture_manifest.json",
+      "sha256": "ba33936f6c501b57da164fea3860dbd0169baafedc268960e915ba8e0883854d",
+      "size_bytes": 20795744
+    },
+    {
+      "package_file": "Source/Godot/sword_shield_choreography.gd",
+      "source_file": "godot-game/scripts/sword_shield_choreography.gd",
+      "sha256": "43063d4fbc2a5363128f14a437d5c80c25a765fd62f0f8f55c9b33e38210842b",
+      "size_bytes": 8040
+    },
+    {
+      "package_file": "Source/Godot/sword_shield_arm_visual.gd",
+      "source_file": "godot-game/scripts/sword_shield_arm_visual.gd",
+      "sha256": "df42e634c5b53c686ec107014d079d838c56e212e10da82b63b6d9594588bfd1",
+      "size_bytes": 34992
+    },
+    {
+      "package_file": "Source/Godot/player_arm_visual.gd",
+      "source_file": "godot-game/scripts/player_arm_visual.gd",
+      "sha256": "5dae32f95c5a63b84ef475f9500a2952e947cf02ba545e4e2d509e6b7786ec52",
+      "size_bytes": 13877
+    },
+    {
+      "package_file": "Textures/concept_forged_steel.png",
+      "source_file": "godot-game/assets/ai/materials/concept_forged_steel.png",
+      "sha256": "40241170fa88e8991c53e35de9b543fdb3785590f8fb859196986a03f9ac1c3e",
+      "size_bytes": 3406336
+    }
+  ],
+  "portable_viewer_links_checked": 332,
+  "browser_ui_execution_verified": false
+}

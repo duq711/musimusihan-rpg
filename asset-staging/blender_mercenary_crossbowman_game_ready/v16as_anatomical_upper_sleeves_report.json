@@ -1,0 +1,88 @@
+{
+  "additional_torn_donor_faces_removed": 4238,
+  "anatomical_sleeve_triangles": 6500,
+  "anatomy_object": "GEO-body_male_realistic",
+  "anatomy_source": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/blender_mercenary_crossbowman_photoreal/resources/human-base-meshes-bundle-v1.4.1/human_base_meshes_bundle.blend",
+  "bounds": {
+    "max": [
+      0.6268860697746277,
+      0.17774423956871033,
+      1.4731475114822388
+    ],
+    "min": [
+      -0.6269234418869019,
+      -0.05819953605532646,
+      1.3361040353775024
+    ]
+  },
+  "candidate": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/blender_mercenary_crossbowman_game_ready/mercenary_crossbowman_game_ready_v16as_anatomical_upper_sleeves_candidate.blend",
+  "cc0_monk_robe_comparison": {
+    "candidate": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/blender_mercenary_crossbowman_game_ready/mercenary_crossbowman_game_ready_v16at_cc0_monk_sleeves_candidate.blend",
+    "verdict": "reject: smooth topology, but the robe extraction reads as broad square tubes and is less anatomical than V16AS"
+  },
+  "construction": "CC0 male upper-arm surface extracted in A-pose, fitted to current T-pose, padded and solidified",
+  "covered_transition_cleanup": {
+    "donor_face_center_predicate": "t 0..1.045, abs(x) .120..610, z 1.275..1.505, radial < .145",
+    "outer_cuff_overlap_t_shift": 0.06,
+    "shoulder_overlap_t_shift": 0.1
+  },
+  "deform_bones": 160,
+  "hunyuan_used": false,
+  "merge_contract": {
+    "aaj_note": "Append this sleeve object and its material/vertex groups after AAJ cowl replacement; no cowl dependency.",
+    "cleaned_donor_object_in_candidate": "Mercenary_Clothed_Donor_LOD0",
+    "cowl_independent": true,
+    "keep_objects": [
+      "Mercenary_Clothed_Donor_LOD0",
+      "Mercenary_Male_HeadNeck_LOD0",
+      "Mercenary_Rigify_Rig_v4"
+    ],
+    "preferred_aaj_merge": "Use this candidate's cleaned donor plus replacement sleeve, keep the V16AAJ cowl/head/rig.",
+    "remove_object_from_v16zo_or_v16zm": "Mercenary_GambesonUpperSleeves_v16zb_LOD0",
+    "replacement_object": "Mercenary_AnatomicalGambesonUpperSleeves_v16as_LOD0"
+  },
+  "mesh_count": 10,
+  "pre_solidify_boundary": {
+    "mid_arm_boundary_vertices": 0,
+    "projected_inner_t": 0.055,
+    "projected_outer_t": 1.005,
+    "t_range": [
+      0.9353631277165935,
+      0.9965580307530837
+    ],
+    "vertices": 136
+  },
+  "preserved_existing_removed_torn_donor_faces": 6824,
+  "previews": {
+    "back": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/blender_mercenary_crossbowman_game_ready/previews/diagnostic_v16as_anatomical_sleeves_back.png",
+    "front": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/blender_mercenary_crossbowman_game_ready/previews/diagnostic_v16as_anatomical_sleeves_front.png",
+    "high": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/blender_mercenary_crossbowman_game_ready/previews/diagnostic_v16as_anatomical_sleeves_high.png",
+    "three_quarter": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/blender_mercenary_crossbowman_game_ready/previews/diagnostic_v16as_anatomical_sleeves_three_quarter.png",
+    "top": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/blender_mercenary_crossbowman_game_ready/previews/diagnostic_v16as_anatomical_sleeves_top.png"
+  },
+  "production_modified": false,
+  "replaced_rectangular_sleeve_triangles": 4224,
+  "rigify_modifier": true,
+  "selected_source_faces": {
+    "left": 355,
+    "right": 354
+  },
+  "source": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/blender_mercenary_crossbowman_game_ready/mercenary_crossbowman_game_ready_v16zo_realistic_singlepiece_cowl.blend",
+  "source_license": "CC0",
+  "topology": {
+    "boundary_edges": 0,
+    "components": 2,
+    "nonmanifold_edges": 0,
+    "overconnected_edges": 0
+  },
+  "total_triangles": 142135,
+  "visual_qa": {
+    "full_v16zo_combination": "reject: V16ZO grey cowl is not final-quality",
+    "notes": "Large armpit fins and cuff gaps are removed/covered. A shallow hidden shoulder termination remains under the cowl; use the V16AU AAJ integration for the clean combined result.",
+    "sleeve_candidate": "conditional pass for AAJ integration"
+  },
+  "weight_sum_range": [
+    1.0,
+    1.0
+  ]
+}

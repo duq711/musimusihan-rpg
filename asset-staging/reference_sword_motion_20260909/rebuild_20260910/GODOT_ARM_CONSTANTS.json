@@ -1,0 +1,139 @@
+{
+  "status": "static_contract_not_authored_motion",
+  "coordinate_space": "godot_camera_local_x_right_y_up_minus_z_forward",
+  "units": "meters",
+  "source": {
+    "godot_glb_path": "godot-game/assets/3d/player/sword_hold_long_grip/SwordHold_Static.glb",
+    "sha256": "2b94cc385f837fe253552cd654cb1f665246f61cdee5227814d63049da9f22fb",
+    "meshes": 11,
+    "skins": 0,
+    "animations": 0
+  },
+  "source_ready": {
+    "basis_columns": [
+      [
+        0.6734562112,
+        -0.1673592395,
+        0.7200327879
+      ],
+      [
+        0.1384824613,
+        0.9853534854,
+        0.0995039315
+      ],
+      [
+        -0.7261403196,
+        0.0327005009,
+        0.6867691389
+      ]
+    ],
+    "position": [
+      0.3249563841,
+      -0.0035816696,
+      -0.5892537756
+    ]
+  },
+  "source_ready_matrix_rows": [
+    [
+      0.6734562112,
+      0.1384824613,
+      -0.7261403196,
+      0.3249563841
+    ],
+    [
+      -0.1673592395,
+      0.9853534854,
+      0.0327005009,
+      -0.0035816696
+    ],
+    [
+      0.7200327879,
+      0.0995039315,
+      0.6867691389,
+      -0.5892537756
+    ],
+    [
+      0,
+      0,
+      0,
+      1
+    ]
+  ],
+  "canonical_points": {
+    "hand_grip": [
+      0,
+      -0.108,
+      0.002
+    ],
+    "blade_tip": [
+      0,
+      1.035,
+      0
+    ],
+    "rest_wrist": [
+      0.0679751875,
+      -0.1080001335,
+      0.0524637313
+    ],
+    "rest_elbow": [
+      0.2366280243,
+      -0.1080001099,
+      0.2503430693
+    ],
+    "rest_shoulder": [
+      0.4571740416,
+      -0.1080000789,
+      0.5091083575
+    ]
+  },
+  "camera_points_at_source_ready": {
+    "hand_grip": [
+      0.3085479976404,
+      -0.10993444502140001,
+      -0.5986266619242
+    ],
+    "blade_tip": [
+      0.4682857315455,
+      1.016259187789,
+      -0.48626720649750005
+    ],
+    "rest_wrist": [
+      0.3176825414079605,
+      -0.1196606629601672,
+      -0.5150253781537426
+    ],
+    "rest_elbow": [
+      0.28757467941805004,
+      -0.14141549674183015,
+      -0.25769238097274016
+    ],
+    "rest_shoulder": [
+      0.24820285984217988,
+      -0.1698641253862811,
+      0.07881999996296685
+    ]
+  },
+  "current_fixed_shoulder_camera": [
+    0.24820285984217988,
+    -0.1698641253862811,
+    0.07881999996296685
+  ],
+  "current_pole_direction_camera": [
+    0.75,
+    -0.72,
+    0.28
+  ],
+  "computed_lengths_m": {
+    "forearm": 0.2600000226307802,
+    "upper_arm": 0.3400000295942957
+  },
+  "existing_endpoint_test_tolerance_m": 3e-05,
+  "proposed_rebuild_max_relative_length_error": 0.01,
+  "proposed_length_limit_is_implemented_in_game": false,
+  "source_code_sha256": {
+    "godot-game/scripts/sword_long_grip_visual.gd": "c5d5b573ae72083ad6cf2dead38bbd817c3084006667a162a363fe55649cfed1",
+    "godot-game/scripts/player.gd": "0a0241dfda1a612843c6b8f363246fff899a49b0c3ef36a79895a6b87c1a257e",
+    "godot-game/tests/sword_long_grip_test.gd": "82e4a545ac8e8217276cd8357f925f6e1d10484d410286ddb927144f68e12648",
+    "godot-game/scripts/first_person_renderer.gd": "411ee3b04abb798739204f547872f7cd49319776b5ed5ba6b20acb57cd9aa4f7"
+  }
+}

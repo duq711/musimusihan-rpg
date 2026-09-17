@@ -1,0 +1,14 @@
+00:00.974  blend            | Read blend: "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/player_fingers_detail_20260911/mac_output/iteration_10/bilateral_hands_finger_detail.blend"
+Traceback (most recent call last):
+  File "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/player_fingers_photoref_20260911/tools/build_photoref.py", line 13, in <module>
+    report={'source':str(src),'source_sha256':original,'reference':'User supplied 5 fingers x 4 views, retained as visual guide; each actual comparison is a separate one-finger PNG.','hands':{s:refine(h,a.cap_strength) for s,h in hands.items()}}
+                                                                                                                                                                                                  ~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/player_fingers_photoref_20260911/tools/refine_geometry.py", line 124, in refine
+    assert hit is not None,(digit,'Missing new nail bed')
+           ^^^^^^^^^^^^^^^
+AssertionError: ('thumb', 'Missing new nail bed')
+
+Error: script failed, file: 'asset-staging/player_fingers_photoref_20260911/tools/build_photoref.py', exiting.
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 01:35:57)
+
+Blender quit

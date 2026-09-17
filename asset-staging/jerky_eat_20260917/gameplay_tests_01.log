@@ -1,0 +1,35 @@
+[HEADLESS] jerky_item_use_test.gd
+WARNING: 'res://assets/3d/items/beef_jerky/beef_jerky_variants.glb': In external resource #0, invalid UID: 'uid://cob3gqboci82a' - using text path instead: 'res://assets/3d/items/beef_jerky/beef_jerky_variants_jerky_basecolor.png'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+WARNING: 'res://assets/3d/items/beef_jerky/beef_jerky_variants.glb': In external resource #1, invalid UID: 'uid://bbtsefkf5w23o' - using text path instead: 'res://assets/3d/items/beef_jerky/beef_jerky_variants_jerky_metallic-jerky_roughness.png'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+WARNING: 'res://assets/3d/items/beef_jerky/beef_jerky_variants.glb': In external resource #2, invalid UID: 'uid://b7acmhalfjcx' - using text path instead: 'res://assets/3d/items/beef_jerky/beef_jerky_variants_jerky_normal.png'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+ERROR: Jerky has a loadable inventory icon
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/jerky_item_use_test.gd:63)
+ERROR: Original expedition, bag identity, contents and cursor restore exactly
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/jerky_item_use_test.gd:63)
+육포 사용 검사 / JERKY ITEM USE FAIL: eight-second timer, atomic food effect, F/inventory cancellation, ownership and exact restoration
+[HEADLESS] jerky_test_room_test.gd
+WARNING: 'res://assets/3d/items/beef_jerky/beef_jerky_variants.glb': In external resource #0, invalid UID: 'uid://cob3gqboci82a' - using text path instead: 'res://assets/3d/items/beef_jerky/beef_jerky_variants_jerky_basecolor.png'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+WARNING: 'res://assets/3d/items/beef_jerky/beef_jerky_variants.glb': In external resource #1, invalid UID: 'uid://bbtsefkf5w23o' - using text path instead: 'res://assets/3d/items/beef_jerky/beef_jerky_variants_jerky_metallic-jerky_roughness.png'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+WARNING: 'res://assets/3d/items/beef_jerky/beef_jerky_variants.glb': In external resource #2, invalid UID: 'uid://b7acmhalfjcx' - using text path instead: 'res://assets/3d/items/beef_jerky/beef_jerky_variants_jerky_normal.png'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+육포 테스트룸 검사 / JERKY TEST ROOM PASS: auto catalog, real food use, weapon return, F/F2, repeat, recovery, reset and exact restoration
+[HEADLESS] timed_item_use_test.gd
+WARNING: 'res://assets/3d/items/beef_jerky/beef_jerky_variants.glb': In external resource #0, invalid UID: 'uid://cob3gqboci82a' - using text path instead: 'res://assets/3d/items/beef_jerky/beef_jerky_variants_jerky_basecolor.png'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+WARNING: 'res://assets/3d/items/beef_jerky/beef_jerky_variants.glb': In external resource #1, invalid UID: 'uid://bbtsefkf5w23o' - using text path instead: 'res://assets/3d/items/beef_jerky/beef_jerky_variants_jerky_metallic-jerky_roughness.png'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+WARNING: 'res://assets/3d/items/beef_jerky/beef_jerky_variants.glb': In external resource #2, invalid UID: 'uid://b7acmhalfjcx' - using text path instead: 'res://assets/3d/items/beef_jerky/beef_jerky_variants_jerky_normal.png'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+TIMED ITEM USE TEST PASS: countdown, F cancellation, atomic completion, surgery, interruption and restoration
+
+Headless validation: 2 passed, 1 failed.
+FAILED: jerky_item_use_test.gd (1)

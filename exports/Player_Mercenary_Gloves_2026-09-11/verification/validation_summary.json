@@ -1,0 +1,41 @@
+{
+  "status": "passed",
+  "candidate": "iteration_02",
+  "style": "Full-finger brown mercenary leather gloves",
+  "native_verification_sha256": "e442db23a089cdd1fed5818b9088aa7967fbd3d66203a06eda0b833604f42b7f",
+  "blender_visual_review_sha256": "1df1eaf6a9e0e1aa69ccd908dd0a87adc68a2a9fc3c28c800c1c61067b22b57d",
+  "game_visual_review_sha256": "c8bae49cb7690d1f2ffc95e92ce44465ba99b37d5a9c4d3164a23bc2857fa432",
+  "headless": {
+    "passed": 7,
+    "failed": 0,
+    "log_sha256": "6e22eb16a71eb86c344f925dfa542eee8bc39c774ea2b662f70fe8b725c9aad0"
+  },
+  "gpu": {
+    "player_finger_joints": {
+      "captures": 12,
+      "manifest_sha256": "b99b76713f72d63f9d6aef65294b95e57dfb9a8a301874a6ac05745bab1244ad",
+      "actual_renderer": "vulkan",
+      "display_driver": "embedded",
+      "passed": true
+    },
+    "player_hands_detailed": {
+      "captures": 6,
+      "manifest_sha256": "1e1d88d66ff3569a757b3f02a0a6443e86daf936d3308337260b9abb7e3082a9",
+      "actual_renderer": "vulkan",
+      "display_driver": "embedded",
+      "passed": true
+    }
+  },
+  "preserved_previous": {
+    "files_checked": 553,
+    "all_unchanged": true,
+    "manifest_source": "asset-staging/player_fingers_photoref_20260911/baseline/preserved_previous.json"
+  },
+  "game_integration_sha256": "fcddaab2c29a899f44a346294c39db80eb9c37f5a85ee70b99b8b8f30f67b368",
+  "glb_roughness_green_channel_and_all_used_pixels_verified": true,
+  "limitations": [
+    "Shallow inherited fingertip contours remain under the glove surface.",
+    "The current detailed profile is selected through the existing test-room entries; the default and dedicated sword/shield hand profiles retain their existing selection rules.",
+    "This is a simple game glove asset, not a scanned or historically researched reconstruction."
+  ]
+}

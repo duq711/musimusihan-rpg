@@ -1,0 +1,93 @@
+extends SceneTree
+const PREVIEW := preload("res://tests/player_arm_preview.gd")
+const REF := preload("res://scripts/reference_sword_motion.gd")
+var failures: Array[String] = []
+func _init() -> void: call_deferred("_run")
+func _check(ok: bool, message: String) -> void:
+	if not ok: failures.append(message)
+func _run() -> void:
+	var snapshot := ExpeditionSession.capture_snapshot()
+	var cursor := Input.mouse_mode
+	var viewport := PREVIEW.create_viewport()
+	root.add_child(viewport)
+	var fixture := PREVIEW.populate_viewport(viewport)
+	var p: DungeonPlayer = fixture.player
+	var bag: ExpeditionInventory = fixture.inventory
+	p.set_physics_process(false)
+	p.set_process_unhandled_input(false)
+	p.set_torch_enabled(false)
+	await process_frame
+	_check(REF.has_right_arm("equip") and REF.has_track("equip", "shield"), "draw must contain actual sword/shield and right-arm samples")
+	# Real inventory signal, not an assigned animation clock, starts the draw.
+	bag.unequip("weapon")
+	var slot := -1
+	for i in bag.slots.size():
+		if str(bag.slots[i].get("id", "")) == "rusted_sword": slot = i; break
+	_check(slot >= 0 and bool(bag.equip_from_slot(slot).get("accepted", false)), "inventory must equip the actual sword")
+	_check(p._equipment_draw_active() and p._sword_draw_elapsed == 0.0, "real equipment change must start draw exactly once")
+	p._update_viewmodel(.1)
+	bag.add_item("wooden_arrow", 1)
+	_check(is_equal_approx(p._sword_draw_elapsed, .1), "unrelated inventory events must not restart an advancing draw")
+	var stamina := p.stamina
+	var aim := p.camera.transform
+	var max_upper := 0.0
+	for i in 181:
+		p._update_viewmodel(1.0/120.0)
+		var state := p.get_first_person_motion_snapshot()
+		_check(state.hand_contacts.sword.error < .00001, "sword grip must remain rigid throughout draw")
+		if state.joint_landmarks.has("shield"):
+			max_upper = maxf(max_upper, state.joint_landmarks.shield.upper_length)
+			_check(state.hand_contacts.shield.error < .00001, "shield grip must remain on its handle")
+		var arm: Dictionary = state.joint_landmarks.sword
+		_check(absf(arm.upper_length-.34)<.004 and absf(arm.forearm_length-.26)<.004, "draw right arm must retain anatomical segment lengths")
+		if i == 15:
+			_check(p.right_relaxed_arm.visible and not p.weapon_arm.visible, "reaching phase must show one open right hand")
+			_check(not p._draw_reach_overrides.is_empty(), "reaching glove material must be isolated to the temporary right hand")
+			var time := p._sword_draw_elapsed
+			paused = true
+			p._update_viewmodel(.5)
+			_check(p._sword_draw_elapsed == time, "pause must freeze equip clock")
+			paused = false
+	_check(not p._equipment_draw_active() and not p.right_relaxed_arm.visible and p.weapon_arm.visible, "closed grip must replace the hidden reaching hand and settle")
+	_check(p._draw_reach_overrides.is_empty(), "temporary glove overrides must be restored after draw")
+	_check(p.weapon_pivot.basis.y.dot(Vector3.UP)>.97 and p.weapon_pivot.transform.origin.distance_to(REF.sample("idle",0).origin)<.005, "draw must return to the existing idle")
+	_check(p.stamina==stamina and p.camera.transform.is_equal_approx(aim), "presentation must not spend stamina or alter aim")
+	print("DRAW MAX SHIELD UPPER ",max_upper)
+	_check(max_upper < .50, "shield upper sleeve must not stretch during draw")
+	# Adding the shield uses its own draw track without replaying the sword.
+	bag.unequip("offhand")
+	var shield_slot := -1
+	for i in bag.slots.size():
+		if str(bag.slots[i].get("id", "")) == "round_shield": shield_slot = i; break
+	_check(shield_slot >= 0 and bool(bag.equip_from_slot(shield_slot).get("accepted",false)), "actual inventory must equip the shield")
+	_check(p._equipment_draw_active() and not p._draw_sword and p._draw_shield, "offhand-only equipment change must not replay sword draw")
+	p._update_viewmodel(.7)
+	_check(p.weapon_pivot.transform.origin.distance_to(REF.sample("idle",0).origin)<.005, "sword must stay in carry during shield-only draw")
+	p._update_viewmodel(1)
+	p.begin_equipment_draw();p._update_viewmodel(.75)
+	var single_step := p.weapon_pivot.transform
+	p.begin_equipment_draw()
+	for i in 90: p._update_viewmodel(1.0/120.0)
+	_check(p.weapon_pivot.transform.is_equal_approx(single_step), "draw sampling must be independent of render update rate")
+	p._update_viewmodel(1)
+	for t in [.12,.60,1.15]:
+		p.cancel_sword_attack(); p.blocking=false
+		p.begin_equipment_draw()
+		p._update_viewmodel(t)
+		var before := p.weapon_pivot.transform
+		_check(p.begin_sword_attack("right_diagonal").accepted, "draw must allow real attack interruption")
+		p._update_viewmodel(0.0)
+		_check(not p._equipment_draw_active() and p.weapon_pivot.transform.is_equal_approx(before), "attack handoff must begin at preceding draw pose")
+	p.cancel_sword_attack(); p.begin_equipment_draw(); p._update_viewmodel(.75)
+	var before_guard := p.weapon_pivot.transform
+	p.blocking = true
+	p._update_viewmodel(0)
+	_check(not p._equipment_draw_active() and p.weapon_pivot.transform.is_equal_approx(before_guard), "guard interrupt must preserve initial draw pose")
+	p.blocking=false;p.cancel_sword_attack();p.begin_equipment_draw();p._update_viewmodel(.5)
+	bag.unequip("weapon");p._update_viewmodel(.02)
+	_check(not p._equipment_draw_active() and not p.sword_visual_root.visible, "removing weapon cancels draw and hides weapon")
+	viewport.queue_free();await process_frame
+	_check(ExpeditionSession.capture_snapshot()==snapshot and Input.mouse_mode==cursor, "draw tests preserve session and cursor")
+	for f in failures:push_error(f)
+	print("REFERENCE EQUIPMENT DRAW %s" % ("PASS" if failures.is_empty() else "FAIL"))
+	quit(0 if failures.is_empty() else 1)

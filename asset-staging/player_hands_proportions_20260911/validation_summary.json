@@ -1,0 +1,66 @@
+{
+  "status": "passed",
+  "scope": "Original gloved realism04 model; proportions only, retaining authored material and detail content.",
+  "model_sha256": {
+    "bilateral_hands_proportions.blend": "773f0fc72f979a06c642f2e8c4d628357bb3a0a69d8f02862aa81894c3c729a5",
+    "left_hand_proportions.glb": "28bdda46650572041049e77f4f3023c93ba9cef864d98af6163bb40f8c0292aa",
+    "right_hand_proportions.glb": "cc4c1cd71f50f13f0986bcb71e1ab95fa96a1eab68a5de62bac6bd08d907327a"
+  },
+  "independent_report_sha256": "3bd5f81e7522247b06540cb782245d06ba751b9207a715537b13e8d2bef82eb1",
+  "headless": {
+    "passed": 7,
+    "failed": 0,
+    "log_sha256": "eba57ef7a98fe18bfa3a3c68debeb57d7c20c62591d4c40aa45a51099f64f8ef"
+  },
+  "previews": {
+    "player_finger_joints": {
+      "count": 12,
+      "all_directly_visually_reviewed": true,
+      "manifest_sha256": "6a82d0d3977d7645c77aa40a8fc76a58c797c5946d0e345e2303408f7060f3a9"
+    },
+    "player_hands_detailed": {
+      "count": 6,
+      "all_directly_visually_reviewed": true,
+      "manifest_sha256": "b08dbf96b5c990d86bece0799066d4d5aa4093d5cc11ba8706a63371d7fbc3e1"
+    }
+  },
+  "native_render_sha256": {
+    "preview_finger_dorsum.png": "ad75ebfa4dd278713e1ce18cffd496860092207702cc3ad31c768a3795f2c48e",
+    "hand_dorsum.png": "604674ac2df957090a5ebba7f211f13e343266414f8a86cee62b57235f92dfcb",
+    "hand_palm.png": "8951a4505e2bbc97399db0f77495df4b0d1ea55de27f8df05c9633eee38df6b9",
+    "hand_palm_upright.png": "f49da7950510544e947ac02eadda840cf31554a963e3a3d51e67cd7716060830"
+  },
+  "native_renders_directly_reviewed": true,
+  "preferred_palm_render": "hand_palm_upright.png",
+  "texture_sha256": {
+    "realistic_hands_basecolor.png": "2eb2e2492e8e90bd57d5d61bc9bc14e01ec371e7d01479280a328e8eefe4ba62",
+    "realistic_hands_roughness.png": "ff197ffba75d15654af57ef1eac65748da9036f8f29c2c90975f4d3bdd2da8ca",
+    "realistic_hands_normal.png": "2152cfac4c8b61b910b688b5211e4f7b994ae5c21a562c2598bba88f5020cf8d"
+  },
+  "reference_match": {
+    "source_render": "asset-staging/player_hands_realism_20260911/mac_output/iteration_04/preview_finger_dorsum.png",
+    "user_first_image": "asset-staging/player_hands_proportions_20260911/reference/original_gloved_model.png",
+    "image_size": [
+      1400,
+      1200
+    ],
+    "decoded_rgba_pixels_exact": true,
+    "rgba_sha256": "dc47cadc134ae4c0346095ef61a72e6b84a10ba6dc5ff71b3da8e2a7145f4961"
+  },
+  "preserved_prior_files": 620,
+  "all_prior_hashes_unchanged": true,
+  "limitations": [
+    "Ratios are artistic estimates from a single perspective reference, not calibrated anatomical measurements.",
+    "Original source detail is retained; no new skin or nail sculpting was requested.",
+    "The unrelated full project suite was not run."
+  ],
+  "tool_source_sha256": {
+    "build_proportions.py": "c20f21ef9ed5e132c0f416c18ca8756ecd21bacfc00511d4ab19cc424977619c",
+    "finalize_proportions.py": "0daa2519b8724028981b240e10d5c3155f2e9a4022ecafa8687e2f48d4149beb",
+    "proportion_math.py": "747a15d9b6b129c354f805e5a37101ba06ba9fda5545e6776fc4d50d984fe41e",
+    "reference_export.py": "4c7c3d7331f848c9786a0450415e2a382c2db8c000ffb636f9b3df16ed887bf7",
+    "render_palm_review.py": "8746ed012ae184363cc3fc976ea5a725534a19bea3c4f88974c9a3b26e4bb651",
+    "repair_export_tangents.py": "e8ea3708af26637d10cef66a831f7c67aa3c509998efd1bf5d29c916cf504b4c",
+    "verify_proportions.py": "eb9929698b6b6497e1be10aad63b0937ef6e8c64e91d57e653bc5d9e515399e9"
+  }
+}

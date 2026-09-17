@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>던전 모험가 · 신체 수정본 3D 뷰어</title>
+  <script type="module" src="https://unpkg.com/@google/model-viewer@4.3.1/dist/model-viewer.min.js"></script>
+  <style>
+    :root {
+      color-scheme: dark;
+      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", sans-serif;
+      background: #17191d;
+      color: #f2f4f7;
+    }
+    * { box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; }
+    main { position: relative; width: 100%; height: 100%; background: radial-gradient(circle at 50% 35%, #343941 0%, #20242a 48%, #14161a 100%); }
+    model-viewer { width: 100%; height: 100%; --poster-color: transparent; }
+    .topbar, .help {
+      position: absolute;
+      z-index: 3;
+      left: 14px;
+      right: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      pointer-events: none;
+    }
+    .topbar { top: 12px; justify-content: space-between; }
+    .help { bottom: 12px; justify-content: center; color: #d8dde5; font-size: 13px; text-shadow: 0 1px 3px #000; }
+    .title, .status, button {
+      background: rgba(18, 20, 24, 0.82);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 8px;
+      backdrop-filter: blur(8px);
+    }
+    .title { padding: 8px 10px; font-weight: 600; }
+    .controls { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 7px; pointer-events: auto; }
+    button {
+      min-height: 38px;
+      padding: 0 12px;
+      color: inherit;
+      font: inherit;
+      cursor: pointer;
+    }
+    button:hover { background: rgba(54, 59, 68, 0.94); }
+    button:disabled { cursor: default; opacity: 0.5; }
+    button:focus-visible { outline: 2px solid #91b7ff; outline-offset: 2px; }
+    .status {
+      position: absolute;
+      z-index: 4;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      padding: 10px 14px;
+      color: #eef1f5;
+      pointer-events: none;
+    }
+    .status[hidden] { display: none; }
+    @media (max-width: 560px) {
+      .topbar { align-items: flex-start; }
+      .title { max-width: 46%; }
+      .controls { flex-wrap: wrap; justify-content: flex-end; }
+      .help { font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <model-viewer
+      id="character-viewer"
+      data-src="/asset-staging/dungeon_adventurer_repaired/dungeon_adventurer_repaired.glb"
+      alt="던전 모험가 신체 수정본의 회전 가능한 3D 모델. 얼굴, 손, 발을 확대하여 확인할 수 있습니다."
+      camera-controls
+      touch-action="none"
+      interaction-prompt="auto"
+      environment-image="neutral"
+      tone-mapping="neutral"
+      exposure="1.05"
+      shadow-intensity="1"
+      shadow-softness="0.8"
+      camera-target="0m 0.95m 0m"
+      camera-orbit="0deg 75deg 3.65m"
+      min-camera-orbit="auto auto 0.2m"
+      max-camera-orbit="auto auto 5.5m">
+    </model-viewer>
+
+    <div class="topbar">
+      <div class="title">던전 모험가 · 신체 수정본</div>
+      <div class="controls" role="group" aria-label="캐릭터 보기 조작">
+        <button id="front-button" type="button" disabled>정면으로</button>
+        <button id="face-button" type="button" disabled>얼굴 보기</button>
+        <button id="hand-button" type="button" aria-label="한쪽 손을 가까이 보기" disabled>손 보기</button>
+        <button id="feet-button" type="button" disabled>발 보기</button>
+        <button id="rotate-button" type="button" aria-pressed="false" disabled>자동 회전</button>
+      </div>
+    </div>
+    <div id="viewer-status" class="status" role="status" aria-live="polite">모델 불러오는 중… 0%</div>
+    <div class="help">드래그: 회전 · 휠/핀치: 확대 · Shift+드래그: 이동</div>
+  </main>
+
+  <script>
+    const viewer = document.getElementById('character-viewer');
+    const status = document.getElementById('viewer-status');
+    const frontButton = document.getElementById('front-button');
+    const faceButton = document.getElementById('face-button');
+    const handButton = document.getElementById('hand-button');
+    const feetButton = document.getElementById('feet-button');
+    const rotateButton = document.getElementById('rotate-button');
+    const viewButtons = [frontButton, faceButton, handButton, feetButton, rotateButton];
+
+    viewer.addEventListener('progress', (event) => {
+      const percent = Math.round(event.detail.totalProgress * 100);
+      status.textContent = `모델 불러오는 중… ${percent}%`;
+    });
+    viewer.addEventListener('load', () => {
+      status.hidden = true;
+      viewButtons.forEach((button) => { button.disabled = false; });
+    });
+    viewer.addEventListener('error', () => {
+      status.hidden = false;
+      status.textContent = '모델을 불러오지 못했습니다.';
+      viewButtons.forEach((button) => { button.disabled = true; });
+    });
+
+    // Each export replaces the GLB at the same path. A local cache key makes
+    // reopening the right pane show the newest geometry immediately.
+    viewer.setAttribute('src', `${viewer.dataset.src}?updated=${Date.now()}`);
+
+    function focusView(target, orbit) {
+      viewer.autoRotate = false;
+      rotateButton.setAttribute('aria-pressed', 'false');
+      rotateButton.textContent = '자동 회전';
+      viewer.cameraTarget = target;
+      viewer.cameraOrbit = orbit;
+      viewer.jumpCameraToGoal();
+    }
+
+    frontButton.addEventListener('click', () => {
+      focusView('0m 0.95m 0m', '0deg 75deg 3.65m');
+    });
+    faceButton.addEventListener('click', () => {
+      focusView('0m 1.69m 0.035m', '0deg 85deg 0.75m');
+    });
+    handButton.addEventListener('click', () => {
+      focusView('0.77m 1.4m 0m', '25deg 60deg 0.6m');
+    });
+    feetButton.addEventListener('click', () => {
+      focusView('0m 0.11m 0.05m', '0deg 50deg 0.85m');
+    });
+    rotateButton.addEventListener('click', () => {
+      const enabled = rotateButton.getAttribute('aria-pressed') !== 'true';
+      rotateButton.setAttribute('aria-pressed', String(enabled));
+      rotateButton.textContent = enabled ? '회전 멈춤' : '자동 회전';
+      viewer.autoRotate = enabled;
+    });
+  </script>
+</body>
+</html>

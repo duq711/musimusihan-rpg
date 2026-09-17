@@ -1,0 +1,223 @@
+{
+  "status": "success",
+  "blender_version": "5.2.1 LTS",
+  "mpfb_profile": {
+    "gender": 1.0,
+    "age": 0.62,
+    "muscle": 0.62,
+    "weight": 0.55,
+    "proportions": 0.52,
+    "height": 0.553,
+    "cupsize": 0.0,
+    "firmness": 0.5,
+    "race": {
+      "asian": 0.0,
+      "caucasian": 1.0,
+      "african": 0.0
+    }
+  },
+  "face_targets": [
+    {
+      "target": "head-square",
+      "value": 0.48
+    },
+    {
+      "target": "head-scale-horiz-incr",
+      "value": 0.1
+    },
+    {
+      "target": "forehead-temple-incr",
+      "value": 0.08
+    },
+    {
+      "target": "chin-width-incr",
+      "value": 0.36
+    },
+    {
+      "target": "chin-bones-incr",
+      "value": 0.22
+    },
+    {
+      "target": "chin-prominent-incr",
+      "value": 0.22
+    },
+    {
+      "target": "chin-prognathism-incr",
+      "value": 0.06
+    },
+    {
+      "target": "nose-scale-depth-incr",
+      "value": 0.18
+    },
+    {
+      "target": "nose-width1-incr",
+      "value": 0.15
+    },
+    {
+      "target": "nose-width2-incr",
+      "value": 0.12
+    },
+    {
+      "target": "nose-hump-incr",
+      "value": 0.12
+    },
+    {
+      "target": "eyebrows-angle-down",
+      "value": 0.18
+    },
+    {
+      "target": "eyebrows-trans-forward",
+      "value": 0.1
+    },
+    {
+      "target": "l-cheek-bones-incr",
+      "value": 0.11
+    },
+    {
+      "target": "r-cheek-bones-incr",
+      "value": 0.11
+    },
+    {
+      "target": "l-eye-bag-incr",
+      "value": 0.08
+    },
+    {
+      "target": "r-eye-bag-incr",
+      "value": 0.08
+    },
+    {
+      "target": "mouth-scale-horiz-incr",
+      "value": 0.07
+    },
+    {
+      "target": "neck-scale-horiz-incr",
+      "value": 0.1
+    },
+    {
+      "target": "neck-scale-depth-incr",
+      "value": 0.08
+    },
+    {
+      "target": "measure-shoulder-dist-incr",
+      "value": 0.07
+    }
+  ],
+  "expression": "neutral",
+  "rest_pose": "T-pose",
+  "body": {
+    "base_vertices": 19158,
+    "base_polygons": 18486,
+    "uv_layers": [
+      "UVMap"
+    ],
+    "vertex_groups": 333,
+    "evaluated": {
+      "vertices": 53514,
+      "polygons": 53512,
+      "triangles": 107024,
+      "bbox_min": [
+        -0.9106427431106567,
+        -0.21862231194972992,
+        0.000809629331342876
+      ],
+      "bbox_max": [
+        0.9106425642967224,
+        0.09579544514417648,
+        1.7870675325393677
+      ]
+    }
+  },
+  "optional_cc0_preview_assets": {
+    "Mercenary_Male_Eyes": {
+      "vertices": 1064,
+      "polygons": 1020,
+      "triangles": 2040,
+      "bbox_min": [
+        -0.046921033412218094,
+        -0.14834202826023102,
+        1.6654250621795654
+      ],
+      "bbox_max": [
+        0.046921033412218094,
+        -0.12214192003011703,
+        1.6966179609298706
+      ]
+    },
+    "Mercenary_Male_Hair": {
+      "vertices": 1755,
+      "polygons": 1672,
+      "triangles": 3344,
+      "bbox_min": [
+        -0.0941363200545311,
+        -0.17242848873138428,
+        1.6025785207748413
+      ],
+      "bbox_max": [
+        0.08826864510774612,
+        0.05008240416646004,
+        1.8042820692062378
+      ]
+    },
+    "Mercenary_Male_Eyebrows": {
+      "vertices": 124,
+      "polygons": 96,
+      "triangles": 192,
+      "bbox_min": [
+        -0.061592284590005875,
+        -0.15916875004768372,
+        1.6818585395812988
+      ],
+      "bbox_max": [
+        0.061592284590005875,
+        -0.12539547681808472,
+        1.7006932497024536
+      ]
+    }
+  },
+  "total_evaluated_triangles": 112600,
+  "rig": {
+    "generated_name": "Mercenary_Male_Rig",
+    "generated_bones": 930,
+    "metarig_name": "Mercenary_Male_MetaRig",
+    "metarig_bones": 185,
+    "tpose": {
+      "L": {
+        "shoulder": [
+          0.19193309545516968,
+          -0.01860564574599266,
+          1.4398572444915771
+        ],
+        "wrist": [
+          0.8245128393173218,
+          -0.01860579289495945,
+          1.439857840538025
+        ],
+        "vertical_error_m": 5.960464477539062e-07,
+        "depth_error_m": 1.471489667892456e-07,
+        "arm_span_from_shoulder_m": 0.6325797371118279
+      },
+      "R": {
+        "shoulder": [
+          -0.19193309545516968,
+          -0.01860564574599266,
+          1.4398572444915771
+        ],
+        "wrist": [
+          -0.8245127201080322,
+          -0.018605798482894897,
+          1.439857840538025
+        ],
+        "vertical_error_m": 5.960464477539062e-07,
+        "depth_error_m": 1.5273690223693848e-07,
+        "arm_span_from_shoulder_m": 0.6325796193309259
+      }
+    }
+  },
+  "system_asset_zip": "/tmp/mpfb-audit.cGwktn/makehuman_system_assets_cc0.zip",
+  "outputs": {
+    "blend": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/blender_mercenary_crossbowman_game_ready/mpfb_base_test.blend",
+    "front_preview": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/blender_mercenary_crossbowman_game_ready/previews/mpfb_base_tpose_front.png",
+    "portrait_preview": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/blender_mercenary_crossbowman_game_ready/previews/mpfb_base_portrait.png"
+  },
+  "production_note": "CC0 preview skin is 2K. Replace it with authored 4K PBR skin; custom clothing and reference-specific hair/beard remain separate work."
+}

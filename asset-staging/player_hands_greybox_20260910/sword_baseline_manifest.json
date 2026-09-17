@@ -1,0 +1,34 @@
+{
+  "baseline_project": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/player_hands_greybox_20260910/baseline_without_greybox",
+  "method": "Copy current project, then reverse only every authored greybox addition in five existing scripts; remove new adapter. No pre-task Git baseline exists, so this is an explicit reverse-patch baseline, not a retrieved historical commit.",
+  "production_files_modified": false,
+  "large_resources": "Read-only usage of symlinked production assets/imported cache; independent scripts, test runner, test source, project settings, user cache files, shader cache and output folder.",
+  "reversed_scripts": [
+    {
+      "file": "player_arm_visual.gd",
+      "production_sha256": "24454a53bbbc7c9729b1299acff004464009aeb22a1345b4cea222d1b1334439",
+      "baseline_sha256": "5dae32f95c5a63b84ef475f9500a2952e947cf02ba545e4e2d509e6b7786ec52"
+    },
+    {
+      "file": "chest_hand_visuals.gd",
+      "production_sha256": "27a5a9b4e81bb894e2de26ffceea7f00065fdc7ae74ea1a40712755b857bcbae",
+      "baseline_sha256": "b2cb81eefb1253efdb37d8ecd219b97ff97b73700bed559a1c0ee95632a95332"
+    },
+    {
+      "file": "player.gd",
+      "production_sha256": "3a96c029e89c7cefb3501e30915e03c185f86c54e17020bee41e71fc5fb367f3",
+      "baseline_sha256": "574e87a063b2601c869f92631c8f2a2371e0dc3fb025ed15a0bf190c77118cd0"
+    },
+    {
+      "file": "test_room_catalog.gd",
+      "production_sha256": "1f3d1eba1115a5ba33db48b8efd7f9114086231d3c4f1926978c7ca0e29b736f",
+      "baseline_sha256": "4599755fe25cce8968aa554a6d62cb563f7e04db49ea002c70d4e45e82510fe1"
+    },
+    {
+      "file": "test_room.gd",
+      "production_sha256": "90eb67bc5fbd13d8af07e468c486a9ff8150482fbf9d06cdfd7c0d513369169f",
+      "baseline_sha256": "ab345abe66851cfa7b4680c4efaea11152aa56b8ccf05372ff2c6555e0d04640"
+    }
+  ],
+  "unchanged_test_sha256": "82e4a545ac8e8217276cd8357f925f6e1d10484d410286ddb927144f68e12648"
+}

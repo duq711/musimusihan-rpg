@@ -1,0 +1,23 @@
+[HEADLESS] torch_grip_test.gd
+TORCH WRIST angle_degrees=24.5689103811545
+TORCH WRIST angle_degrees=23.3612015983605
+TORCH WRIST angle_degrees=21.241785184449
+TORCH PAD thumb samples=15 min/max_m=0.00053952986857/0.00127520190504
+TORCH PAD index samples=12 min/max_m=0.00059821737355/0.00161473999089
+TORCH PAD middle samples=15 min/max_m=0.00064683781223/0.00114165106905
+TORCH PAD ring samples=17 min/max_m=0.00176950474272/0.00216428085178
+TORCH PAD little samples=12 min/max_m=0.00032447577831/0.00060909990593
+TORCH PAD palm samples=17 min/max_m=0.00129474811758/0.00154982192378
+TORCH PAD index_middle samples=12 min/max_m=0.00083570813137/0.00145288167218
+TORCH PAD middle_middle samples=22 min/max_m=0.00140517090296/0.0018811583583
+TORCH PAD ring_middle samples=22 min/max_m=0.00017506043118/0.00093478448132
+TORCH PAD little_middle samples=18 min/max_m=0.00337911535012/0.00396037938702
+TORCH SKIN vertices=30045 minimum_clearance_m=0.00017506043118
+ERROR: pad contact within3mm: little_middle 0.00337911535012..0.00396037938702
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] run (res://tests/torch_grip_test.gd:46)
+       [1] audit_testroom (res://tests/torch_grip_test.gd:121)
+
+Headless validation: 0 passed, 1 failed.
+FAILED: torch_grip_test.gd (1)

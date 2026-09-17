@@ -1,0 +1,35 @@
+[HEADLESS] sword_edge_alignment_test.gd
+SCRIPT ERROR: Parse Error: Function "_test_followthrough()" not found in base self.
+          at: GDScript::reload (res://tests/sword_edge_alignment_test.gd:55)
+SCRIPT ERROR: Parse Error: Function "_outside_blade()" not found in base self.
+          at: GDScript::reload (res://tests/sword_edge_alignment_test.gd:117)
+SCRIPT ERROR: Parse Error: Function "_outside_blade()" not found in base self.
+          at: GDScript::reload (res://tests/sword_edge_alignment_test.gd:117)
+ERROR: Failed to load script "res://tests/sword_edge_alignment_test.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+Script error detected in sword_edge_alignment_test.gd, regardless of engine exit status.
+[HEADLESS] sword_recovery_continuity_test.gd
+RECOVERY METRIC true right_diagonal peak_deg=15.3265893276718 boundary_m=0.00017173057131
+RECOVERY METRIC true left_reverse peak_deg=11.9420034901406 boundary_m=0.00013100702199
+RECOVERY METRIC true overhead peak_deg=14.1934276471945 boundary_m=0.00013590096205
+RECOVERY METRIC false right_diagonal peak_deg=15.3265893276718 boundary_m=0.00015989453823
+RECOVERY METRIC false left_reverse peak_deg=11.9420034901406 boundary_m=0.00032122660195
+RECOVERY METRIC false overhead peak_deg=14.1934276471945 boundary_m=0.00026330872788
+SWORD RECOVERY CONTINUITY PASS
+[HEADLESS] sword_forehand_grip_test.gd
+FOREHAND MIRROR shield/right_diagonal/hold=0.00 active_samples=5 grip_mm=0.00008940696716 axis_error=0.00000024575624 spends=1
+FOREHAND MIRROR shield/right_diagonal/hold=0.45 active_samples=5 grip_mm=0.00012644053982 axis_error=0.00000024575624 spends=1
+FOREHAND MIRROR shield/left_reverse/hold=0.00 active_samples=0 grip_mm=0.0 axis_error=0.0 spends=1
+FOREHAND MIRROR shield/overhead/hold=0.00 active_samples=0 grip_mm=0.0 axis_error=0.0 spends=1
+FOREHAND MIRROR two_hand/right_diagonal/hold=0.00 active_samples=5 grip_mm=0.00008940696716 axis_error=0.00000024575624 spends=1
+FOREHAND MIRROR two_hand/right_diagonal/hold=0.45 active_samples=5 grip_mm=0.00012644053982 axis_error=0.00000024575624 spends=1
+FOREHAND MIRROR two_hand/left_reverse/hold=0.00 active_samples=0 grip_mm=0.0 axis_error=0.0 spends=1
+FOREHAND MIRROR two_hand/overhead/hold=0.00 active_samples=0 grip_mm=0.0 axis_error=0.0 spends=1
+SWORD FOREHAND GRIP PASS: real clicks and held charge; shared 100ms entry; same-phase reverse camera-X reflection; original clips/assets and fitted two-hand contacts; clash/cancel/F2 isolation; aesthetic quality not evaluated
+[HEADLESS] reference_sword_motion_test_room_test.gd
+REFERENCE SWORD MOTION TEST ROOM PASS: five playable fixtures, two-hand basic/reverse target hits and grip, actual run/jump/landing/collision, repeated F2, reset and original expedition restoration
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2535)
+
+Headless validation: 3 passed, 1 failed.
+FAILED: sword_edge_alignment_test.gd (1)

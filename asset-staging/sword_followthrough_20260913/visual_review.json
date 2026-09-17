@@ -1,0 +1,33 @@
+{
+  "renderer": "Actual Godot embedded Vulkan; no OS desktop capture or hardware input",
+  "reviewed_stances": [
+    "two_hand",
+    "shield_equipped"
+  ],
+  "reviewed_full_size_frames": [
+    10,
+    12,
+    14,
+    16,
+    18,
+    30,
+    42,
+    45,
+    48
+  ],
+  "contact_sheets": [
+    "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/godot-game/artifacts/visual_qa/reference_sword_motion/forehand_followthrough_comparison/two_hand.jpg",
+    "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/godot-game/artifacts/visual_qa/reference_sword_motion/forehand_followthrough_comparison/shield.jpg"
+  ],
+  "observations": [
+    "The visible blade continues left through frames10/12/14/16; its tip clears the left edge instead of flipping down at frame11/12.",
+    "The blade is outside view by frame18 in the checked sequences.",
+    "The return appears from below with the same upright idle angle in frames42/45/48; no last-moment alternating tilt as in the prior capture.",
+    "Inspected visible grips remain connected; no new detached glove or protruding sleeve triangle was observed.",
+    "Shield-equipped capture uses the unchanged shield track."
+  ],
+  "limits": [
+    "Repositioning and rotation take place below/outside the camera. This is a first-person presentation; other-camera torso anatomy is not evaluated.",
+    "No subjective user approval is inferred from automated checks."
+  ]
+}

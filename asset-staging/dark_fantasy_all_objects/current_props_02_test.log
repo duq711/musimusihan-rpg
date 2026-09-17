@@ -1,0 +1,43 @@
+[HEADLESS] dark_fantasy_gallery_test.gd
+GALLERY FACTORY CHECK: sanctuary_warden
+GALLERY FACTORY CHECK: hunting_bow
+GALLERY FACTORY CHECK: reliquary_chest
+GALLERY FACTORY CHECK: hideout_crate
+SCRIPT ERROR: Parse Error: Cannot infer the type of "t" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://scripts/dark_fantasy_statue.gd:75)
+          GDScript backtrace (most recent call first):
+              [0] _hideout (res://scripts/dark_fantasy_object_catalog.gd:174)
+              [1] build_object (res://scripts/dark_fantasy_object_catalog.gd:62)
+              [2] select_object (res://scripts/dark_fantasy_gallery.gd:158)
+              [3] _run (res://tests/dark_fantasy_gallery_test.gd:39)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "angle" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://scripts/dark_fantasy_statue.gd:76)
+          GDScript backtrace (most recent call first):
+              [0] _hideout (res://scripts/dark_fantasy_object_catalog.gd:174)
+              [1] build_object (res://scripts/dark_fantasy_object_catalog.gd:62)
+              [2] select_object (res://scripts/dark_fantasy_gallery.gd:158)
+              [3] _run (res://tests/dark_fantasy_gallery_test.gd:39)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+          at: GDScript::reload (res://scripts/hideout.gd:0)
+          GDScript backtrace (most recent call first):
+              [0] _hideout (res://scripts/dark_fantasy_object_catalog.gd:174)
+              [1] build_object (res://scripts/dark_fantasy_object_catalog.gd:62)
+              [2] select_object (res://scripts/dark_fantasy_gallery.gd:158)
+              [3] _run (res://tests/dark_fantasy_gallery_test.gd:39)
+ERROR: Failed to load script "res://scripts/hideout.gd" with error "Compilation failed".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+   GDScript backtrace (most recent call first):
+       [0] _hideout (res://scripts/dark_fantasy_object_catalog.gd:174)
+       [1] build_object (res://scripts/dark_fantasy_object_catalog.gd:62)
+       [2] select_object (res://scripts/dark_fantasy_gallery.gd:158)
+       [3] _run (res://tests/dark_fantasy_gallery_test.gd:39)
+GALLERY FACTORY CHECK: hideout_barrel
+GALLERY FACTORY CHECK: rain_bucket
+GALLERY FACTORY CHECK: weathered_skull
+GALLERY FACTORY CHECK: campfire
+GALLERY FACTORY CHECK: camp_bedroll
+DARK FANTASY GALLERY PASS: 9 production factories, actual mesh bounds and six complete views, disabled simulation, repeated paused test-room controls, F2/close/reset cleanup and original expedition restoration
+Script error detected in dark_fantasy_gallery_test.gd, regardless of engine exit status.
+
+Headless validation: 0 passed, 1 failed.
+FAILED: dark_fantasy_gallery_test.gd (1)

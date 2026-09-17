@@ -1,0 +1,67 @@
+[HEADLESS] sword_basic_cut_test.gd
+BASIC CUT METRIC sword and shield short contact_tip=(-0.218253, -0.458109, -1.661802) contact_grip=(0.08, -0.306769, -0.568827) post_contact_deg=64.9971116071277 recovery_resumes_s=0.00833333333333 recovery_peak_deg=8.52931057040108
+REVERSE PRESERVATION METRIC sword and shield short samples=135 max_position_m=0.0 max_angle_deg=0.03956468118525
+BASIC CUT METRIC sword and shield charged contact_tip=(-0.218253, -0.459341, -1.661005) contact_grip=(0.08, -0.308, -0.56803) post_contact_deg=64.9971116071277 recovery_resumes_s=0.00833333333333 recovery_peak_deg=5.91393807587576
+REVERSE PRESERVATION METRIC sword and shield charged samples=282 max_position_m=0.0 max_angle_deg=0.03956468118525
+BASIC CUT METRIC two hands short contact_tip=(-0.218253, -0.458109, -1.661802) contact_grip=(0.08, -0.306769, -0.568827) post_contact_deg=64.9971116071277 recovery_resumes_s=0.00833333333333 recovery_peak_deg=8.52931057040108
+REVERSE PRESERVATION METRIC two hands short samples=135 max_position_m=0.0 max_angle_deg=0.03956468118525
+BASIC CUT METRIC two hands charged contact_tip=(-0.218253, -0.459341, -1.661005) contact_grip=(0.08, -0.308, -0.56803) post_contact_deg=64.9971116071277 recovery_resumes_s=0.00833333333333 recovery_peak_deg=5.91393807587576
+REVERSE PRESERVATION METRIC two hands charged samples=282 max_position_m=0.0 max_angle_deg=0.03956468118525
+SWORD BASIC CUT PASS: actual blade sweep, post-contact reversal, recovery and unchanged reverse cut; expedition and source preservation
+[HEADLESS] reference_sword_cut_preview_test.gd
+REFERENCE SWORD CUT PREVIEW PASS: two production cuts after real shield stow, both-hand capture records, input isolation and expedition/source preservation; no pixel claim
+[HEADLESS] reference_sword_motion_test_room_test.gd
+ERROR: cut review must retain stow and player aim: right_diagonal
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/reference_sword_motion_test_room_test.gd:107)
+ERROR: cut review must retain stow and player aim: right_diagonal
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/reference_sword_motion_test_room_test.gd:107)
+ERROR: cut review must retain stow and player aim: right_diagonal
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/reference_sword_motion_test_room_test.gd:107)
+ERROR: cut review must retain stow and player aim: left_reverse
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/reference_sword_motion_test_room_test.gd:107)
+ERROR: cut review must retain stow and player aim: left_reverse
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/reference_sword_motion_test_room_test.gd:107)
+ERROR: cut review must retain stow and player aim: left_reverse
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/reference_sword_motion_test_room_test.gd:107)
+ERROR: cut review must retain stow and player aim: right_diagonal
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/reference_sword_motion_test_room_test.gd:107)
+ERROR: cut review must retain stow and player aim: right_diagonal
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/reference_sword_motion_test_room_test.gd:107)
+ERROR: cut review must retain stow and player aim: right_diagonal
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/reference_sword_motion_test_room_test.gd:107)
+ERROR: cut review must retain stow and player aim: left_reverse
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/reference_sword_motion_test_room_test.gd:107)
+ERROR: cut review must retain stow and player aim: left_reverse
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/reference_sword_motion_test_room_test.gd:107)
+ERROR: cut review must retain stow and player aim: left_reverse
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/reference_sword_motion_test_room_test.gd:107)
+REFERENCE SWORD MOTION TEST ROOM FAIL: five playable fixtures, two-hand basic/reverse target hits and grip, actual run/jump/landing/collision, repeated F2, reset and original expedition restoration
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2535)
+
+Headless validation: 2 passed, 1 failed.
+FAILED: reference_sword_motion_test_room_test.gd (1)

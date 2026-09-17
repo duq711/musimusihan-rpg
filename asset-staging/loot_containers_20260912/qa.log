@@ -1,0 +1,68 @@
+15:34:24 | INFO: Data are loaded, start creating Blender stuff
+15:34:24 | INFO: Blender create Mesh node Plane.001
+15:34:24 | INFO: Blender create Mesh node Plane.002
+15:34:24 | INFO: glTF import finished in 0.06s
+/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/loot_containers_20260912/scripts/render_and_validate.py:13: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world=bpy.data.worlds.new('QA Studio');world.use_nodes=True;world.node_tree.nodes.get('Background').inputs['Color'].default_value=(.34,.38,.44,1);world.node_tree.nodes.get('Background').inputs['Strength'].default_value=.4;scene.world=world
+/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/loot_containers_20260912/scripts/render_and_validate.py:14: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  floor=bpy.data.materials.new('QA Neutral Floor');floor.diffuse_color=(.075,.086,.098,1);floor.use_nodes=True;floor.node_tree.nodes.get('Principled BSDF').inputs['Base Color'].default_value=(.075,.086,.098,1);floor.node_tree.nodes.get('Principled BSDF').inputs['Roughness'].default_value=.85
+00:17.492  render           | Saved: '/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/loot_containers_20260912/qa/wooden_barrel_01_runtime_closed.png'
+00:33.103  render           | Saved: '/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/loot_containers_20260912/qa/wooden_barrel_01_runtime_open.png'
+00:33.303  blend            | Read blend: "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/loot_containers_20260912/sources/wooden_barrels_01/wooden_barrels_01_4k.blend"
+00:45.945  render           | Saved: '/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/loot_containers_20260912/qa/wooden_barrel_01_source_closed.png'
+QA_DONE wooden_barrel_01
+15:35:06 | INFO: Data are loaded, start creating Blender stuff
+15:35:06 | INFO: Blender create Mesh node Plane.001
+15:35:06 | INFO: Blender create Mesh node Plane.002
+15:35:06 | INFO: Blender create Mesh node Plane.004
+15:35:06 | INFO: Blender create Mesh node Plane.003
+15:35:06 | INFO: Blender create Mesh node Plane.005
+15:35:06 | INFO: glTF import finished in 0.16s
+01:02.223  render           | Saved: '/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/loot_containers_20260912/qa/treasure_chest_runtime_closed.png'
+Traceback (most recent call last):
+  File "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/loot_containers_20260912/scripts/render_and_validate.py", line 33, in <module>
+    bpy.context.view_layer.update();assert body_before==[tuple(o.matrix_world@v.co) for o in body for v in o.data.vertices];assert lid_before!=[tuple(bpy.data.objects['Lid'].matrix_world@v.co) for v in bpy.data.objects['Lid'].data.vertices]
+                                                                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 01:35:57)
+
+Blender quit
+15:36:17 | INFO: Data are loaded, start creating Blender stuff
+15:36:17 | INFO: Blender create Mesh node Plane.001
+15:36:17 | INFO: Blender create Mesh node Plane.002
+15:36:17 | INFO: Blender create Mesh node Plane.004
+15:36:17 | INFO: Blender create Mesh node Plane.003
+15:36:17 | INFO: Blender create Mesh node Plane.005
+15:36:17 | INFO: glTF import finished in 0.10s
+/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/loot_containers_20260912/scripts/render_and_validate.py:13: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world=bpy.data.worlds.new('QA Studio');world.use_nodes=True;world.node_tree.nodes.get('Background').inputs['Color'].default_value=(.34,.38,.44,1);world.node_tree.nodes.get('Background').inputs['Strength'].default_value=.4;scene.world=world
+/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/loot_containers_20260912/scripts/render_and_validate.py:14: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  floor=bpy.data.materials.new('QA Neutral Floor');floor.diffuse_color=(.075,.086,.098,1);floor.use_nodes=True;floor.node_tree.nodes.get('Principled BSDF').inputs['Base Color'].default_value=(.075,.086,.098,1);floor.node_tree.nodes.get('Principled BSDF').inputs['Roughness'].default_value=.85
+00:16.451  render           | Saved: '/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/loot_containers_20260912/qa/treasure_chest_runtime_closed.png'
+00:42.099  render           | Saved: '/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/loot_containers_20260912/qa/treasure_chest_runtime_open.png'
+00:42.384  blend            | Read blend: "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/loot_containers_20260912/sources/treasure_chest/treasure_chest_4k.blend"
+00:54.785  render           | Saved: '/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/loot_containers_20260912/qa/treasure_chest_source_closed.png'
+QA_DONE treasure_chest
+15:37:10 | INFO: Data are loaded, start creating Blender stuff
+15:37:10 | INFO: Blender create Mesh node Cube.003
+15:37:10 | INFO: Blender create Mesh node Cube.002
+15:37:10 | INFO: Blender create Mesh node Cube.004
+15:37:10 | INFO: glTF import finished in 0.04s
+01:08.159  render           | Saved: '/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/loot_containers_20260912/qa/wooden_crate_01_runtime_closed.png'
+01:25.317  render           | Saved: '/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/loot_containers_20260912/qa/wooden_crate_01_runtime_open.png'
+01:25.525  blend            | Read blend: "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/loot_containers_20260912/sources/wooden_crate_01/wooden_crate_01_4k.blend"
+01:33.864  render           | Saved: '/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/loot_containers_20260912/qa/wooden_crate_01_source_closed.png'
+QA_DONE wooden_crate_01
+15:37:49 | INFO: Data are loaded, start creating Blender stuff
+15:37:49 | INFO: Blender create Mesh node Cube.001
+15:37:49 | INFO: Blender create Mesh node Cube.002
+15:37:49 | INFO: glTF import finished in 0.01s
+01:43.123  render           | Saved: '/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/loot_containers_20260912/qa/wooden_crate_02_runtime_closed.png'
+01:53.874  render           | Saved: '/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/loot_containers_20260912/qa/wooden_crate_02_runtime_open.png'
+01:53.976  blend            | Read blend: "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/loot_containers_20260912/sources/wooden_crate_02/wooden_crate_02_4k.blend"
+01:59.368  render           | Saved: '/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/loot_containers_20260912/qa/wooden_crate_02_source_closed.png'
+QA_DONE wooden_crate_02
+ALL_QA_COMPLETE
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 01:35:57)
+
+Blender quit

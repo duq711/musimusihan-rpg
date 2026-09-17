@@ -1,0 +1,53 @@
+{
+  "scope": "Direct inspection of actual Godot embedded Vulkan PNGs; no desktop input or subjective user approval claimed",
+  "reviewed_stances": [
+    "two_hand",
+    "shield_equipped"
+  ],
+  "reviewed_forehand_frames": [
+    0,
+    3,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    14,
+    19,
+    20,
+    24,
+    28,
+    30,
+    31,
+    32,
+    36,
+    39,
+    43,
+    47,
+    48,
+    51
+  ],
+  "reviewed_artifacts": [
+    "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/godot-game/artifacts/visual_qa/reference_sword_motion/forehand_mirror_reverse_comparison/forehand_mirror_reverse_two_hand.jpg",
+    "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/godot-game/artifacts/visual_qa/reference_sword_motion/forehand_mirror_reverse_comparison/forehand_mirror_reverse_shield.jpg",
+    "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/godot-game/artifacts/visual_qa/reference_sword_motion/forehand_mirror_reverse_comparison/matched_cuts.mp4"
+  ],
+  "observations": [
+    "At equal post-entry ACTIVE times the blade tip height, depth and blade-face orientation correspond under horizontal reflection; cut direction is right to left.",
+    "Visible right glove and left support hand retain grip contact. No new detached sleeve or exploded triangle was observed in inspected frames.",
+    "Forehand total weapon/arm disappearance begins at frame12; reverse begins at frame25, the same ACTIVE .183333 seconds. In two-hand captures forehand empty interval is frames12-30 (19 frames), reverse25-46 (22 frames).",
+    "Forehand reappears 50ms earlier during recovery as the mirrored cut joins the shared original right idle.",
+    "Recovery does not show the old 72cm endpoint jump. The last portion makes a small additional orientation alignment: near vertical at39, right tilted at43, original slight-left idle tilt at47. It is not a single-direction rotation throughout.",
+    "Shield-equipped selected poses and contact sheet retain shield behavior and the same mirrored sword path."
+  ],
+  "limits": [
+    "The original right-hand model remains unmirrored; sleeves are solved to the actual wrist and are not anatomical mirror images.",
+    "Authoring needs up to .46243m shoulder reach correction. Its maximum is below the viewport; this inspection does not validate unseen torso/shoulder anatomy from other cameras.",
+    "As in the accepted reverse, the weapon passes outside the viewport during follow-through; this is not claimed removed.",
+    "The user has not yet approved the aesthetic result."
+  ],
+  "independent_review": "review_guard inspected actual frames and preserved reverse SHA; shield_fixture independently reviewed source/baseline preservation."
+}

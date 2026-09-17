@@ -1,0 +1,39 @@
+00:00.672  blend            | Read blend: "C:\Users\duq71\Documents\Codex\2026-09-08\d\outputs\reference_sword_motion_rebuild_20260910\output\iteration_04\Overhead_Review.blend"
+01:38:01 | INFO: Data are loaded, start creating Blender stuff
+01:38:01 | INFO: Blender create Mesh node Sphere.142
+01:38:01 | INFO: glTF import finished in 0.10s
+INFO Draco is available, use library at C:\Users\duq71\Documents\Codex\2026-09-08\new-chat\work\tools\blender-5.2.1-windows-x64\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Users\duq71\Documents\Codex\2026-09-08\new-chat\work\tools\blender-5.2.1-windows-x64\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+01:38:01 | INFO: Starting glTF 2.0 export
+01:38:01 | INFO: Extracting primitive: Sphere.001
+01:38:01 | INFO: Primitives created: 6
+01:38:01 | INFO: Extracting primitive: ContinuousLeatherSleeve
+01:38:01 | INFO: Primitives created: 1
+01:38:01 | INFO: Extracting primitive: FittedLeather.002
+01:38:01 | INFO: Primitives created: 2
+01:38:01 | INFO: Extracting primitive: NarrowWristConnection.002
+01:38:01 | INFO: Primitives created: 2
+01:38:01 | INFO: Extracting primitive: ContinuousAnatomicalHandMesh.002
+01:38:01 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+01:38:01 | INFO: Primitives created: 1
+01:38:01 | INFO: Extracting primitive: FullerPolishedChannelMesh.002
+01:38:01 | INFO: Primitives created: 1
+01:38:01 | INFO: Extracting primitive: GripBindingMesh.003
+01:38:01 | INFO: Primitives created: 1
+01:38:01 | INFO: Extracting primitive: GripBindingMesh.004
+01:38:01 | INFO: Primitives created: 1
+01:38:01 | INFO: Extracting primitive: GripLeatherMesh.003
+01:38:01 | INFO: Primitives created: 1
+01:38:01 | INFO: Extracting primitive: GripLeatherMesh.004
+01:38:01 | INFO: Primitives created: 1
+01:38:01 | INFO: Extracting primitive: PittedBladeMesh.002
+01:38:01 | INFO: Primitives created: 2
+01:38:01 | INFO: Extracting primitive: FlushTangPeenMesh.002
+01:38:01 | INFO: Primitives created: 2
+01:38:01 | INFO: Finished glTF 2.0 export in 0.556891918182373 s
+
+Info: Saved as "Overhead_Review.blend"
+SURFACE_FINISH_DONE {"status": "surface_finish_candidate", "motion_source": "iteration_04", "motion_unchanged": true, "modifications": [{"mesh": "RightArm_Forearm_Surface", "boundary_edges_before": 408, "boundary_edges_after": 0, "finish": "sealed sleeve and strap ends; original exterior retained"}, {"mesh": "RightArm_UpperArm_Surface", "boundary_edges_before": 128, "boundary_edges_after": 0, "finish": "sealed sleeve and strap ends; original exterior retained"}, {"mesh": "RightArm_WristCuff_Surface", "boundary_edges_before": 108, "boundary_edges_after": 0, "finish": "sealed sleeve and strap ends; original exterior retained"}, {"mesh": "RightArm_Elbow_LeatherGusset", "radius_m": 0.07991516566343827, "finish": "closed leather insert enclosing both sleeve end apertures"}, {"mesh": "RightArm_Wrist_UnderCuff", "radius_m": 0.04740880199444834, "finish": "closed leather under-cuff enclosing wrist sleeve aperture"}], "shield_markers": [{"name": "RearGrip", "shield_pivot_local_matrix": [[-1.0, -8.74227694680485e-08, -1.1746021872976933e-14, 0.17999999225139618], [0.0, -1.343588280633412e-07, 0.9999998807907104, 0.014999980106949806], [-8.742277657347586e-08, 0.9999998807907104, 1.343588280633412e-07, 0.12873581051826477], [0.0, 0.0, 0.0, 1.0]]}, {"name": "RearGripTop", "shield_pivot_local_matrix": [[-1.0, -8.74227694680485e-08, -1.1746021872976933e-14, 0.18409818410873413], [0.0, -1.343588280633412e-07, 0.9999998807907104, 0.07360686361789703], [-8.742277657347586e-08, 0.9999998807907104, 1.343588280633412e-07, 0.10166928172111511], [0.0, 0.0, 0.0, 1.0]]}, {"name": "RearGripBottom", "shield_pivot_local_matrix": [[-1.0, -8.74227694680485e-08, -1.1746021872976933e-14, 0.17590178549289703], [0.0, -1.343588280633412e-07, 0.9999998807907104, -0.04360689967870712], [-8.742277657347586e-08, 0.9999998807907104, 1.343588280633412e-07, 0.10073050111532211], [0.0, 0.0, 0.0, 1.0]]}, {"name": "RearArmStrap", "shield_pivot_local_matrix": [[-1.0, -8.74227694680485e-08, -1.1746021872976933e-14, -0.1300000101327896], [0.0, -1.343588280633412e-07, 0.9999998807907104, -0.005000014323741198], [-8.742277657347586e-08, 0.9999998807907104, 1.343588280633412e-07, 0.11145678162574768], [0.0, 0.0, 0.0, 1.0]]}], "motion_validation": {"sample_count": 187, "sample_hz": 120, "max_matrix_delta_from_i4": 4.3213367462158203e-07}, "surface_coverage": {"status": "continuous_closed_skin_replaces_the_trial_spheres", "note": "Sphere aperture clearance does not apply to this skin; topology and rendered skin checked separately"}, "skin_finish": {"skin_count": 1, "bone_count": 7, "sleeve_vertices": 8256, "sleeve_faces": 8194, "weighting": "linear blend skin with three elbow intermediate rotations; canonical bind basis identity", "surface": "continuous closed sleeve with source leather straps, cuff and glove preserved"}, "source_preserved": true, "protected_source_sha256": {"C:\\Users\\duq71\\Documents\\Codex\\2026-09-08\\d\\outputs\\reference_sword_motion_rebuild_20260910\\output\\iteration_04\\Overhead_Review.blend": "3a94649c5363a362cb55513672ce6f4d91fc377ec32fe11ee0cc5bd145273df1", "C:\\Users\\duq71\\Documents\\Codex\\2026-09-08\\d\\outputs\\reference_sword_motion_rebuild_20260910\\output\\iteration_04\\Overhead_Review.glb": "4c8540f321dd8f8f864b5908782a2c98e32661be7a16a51a5d5106843680345f", "C:\\Users\\duq71\\Documents\\Codex\\2026-09-08\\d\\outputs\\reference_sword_motion_rebuild_20260910\\output\\iteration_04\\arm_pose_samples.json": "0a5828410435302fdbae9a549345c9637640d36cb5d73fff286f818d2e77d527"}, "artifacts": {"Overhead_Review.blend": {"bytes": 18224573, "sha256": "c2d42f15489ca6baa89038d8c0d1adb16e91e1f137d97324e2d34352184dba0c"}, "Overhead_Review.glb": {"bytes": 18986536, "sha256": "a0df768367d78a487573101e780b881869b52b17ddd6daeaaea9cbcf6b24f319"}, "arm_pose_samples.json": {"bytes": 356998, "sha256": "3c383aacbfb138a1c3ac19686f4a555d06ef2e311575aeefd7c2a529045254b0"}}}
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

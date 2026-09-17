@@ -1,0 +1,402 @@
+{
+  "status": "passed",
+  "utc": "2026-09-10T13:02:13.016687+00:00",
+  "host": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "blender_binary": "/Applications/Blender.app/Contents/MacOS/Blender",
+  "blender_version": "5.2.1 LTS",
+  "background": true,
+  "checks": {
+    "editable_blend": {
+      "left": {
+        "rig": "HandRig.001",
+        "bones": [
+          "index0",
+          "index1",
+          "index2",
+          "little0",
+          "little1",
+          "little2",
+          "middle0",
+          "middle1",
+          "middle2",
+          "ring0",
+          "ring1",
+          "ring2",
+          "thumb0",
+          "thumb1",
+          "thumb2",
+          "wrist"
+        ],
+        "meshes": {
+          "ContinuousAnatomicalHand.001": {
+            "vertices": 2842,
+            "weight_sum_min": 0.9999998435378075,
+            "weight_sum_max": 1.000000122364554,
+            "wrist_only_vertices": 91
+          }
+        },
+        "finger_pose_checks": {
+          "thumb": {
+            "local_x_rotation_radians": 0.4,
+            "moved_vertices": 851,
+            "max_displacement_m": 0.04494477155527942,
+            "wrist_bone_error_m": 0.0,
+            "wrist_only_mesh_error_m": 0.0
+          },
+          "index": {
+            "local_x_rotation_radians": 0.4,
+            "moved_vertices": 798,
+            "max_displacement_m": 0.03743391339106102,
+            "wrist_bone_error_m": 0.0,
+            "wrist_only_mesh_error_m": 0.0
+          },
+          "middle": {
+            "local_x_rotation_radians": 0.4,
+            "moved_vertices": 704,
+            "max_displacement_m": 0.03979674542299202,
+            "wrist_bone_error_m": 0.0,
+            "wrist_only_mesh_error_m": 0.0
+          },
+          "ring": {
+            "local_x_rotation_radians": 0.4,
+            "moved_vertices": 717,
+            "max_displacement_m": 0.037784891933916806,
+            "wrist_bone_error_m": 0.0,
+            "wrist_only_mesh_error_m": 0.0
+          },
+          "little": {
+            "local_x_rotation_radians": 0.4,
+            "moved_vertices": 651,
+            "max_displacement_m": 0.0334626770334051,
+            "wrist_bone_error_m": 0.0,
+            "wrist_only_mesh_error_m": 0.0
+          }
+        },
+        "wrist_world_m": [
+          -0.16343863308429718,
+          -0.05624999850988388,
+          0.0
+        ],
+        "thumb_minus_middle_x_m": 0.0325000137090683
+      },
+      "right": {
+        "rig": "HandRig.003",
+        "bones": [
+          "index0",
+          "index1",
+          "index2",
+          "little0",
+          "little1",
+          "little2",
+          "middle0",
+          "middle1",
+          "middle2",
+          "ring0",
+          "ring1",
+          "ring2",
+          "thumb0",
+          "thumb1",
+          "thumb2",
+          "wrist"
+        ],
+        "meshes": {
+          "ContinuousAnatomicalHand.003": {
+            "vertices": 2843,
+            "weight_sum_min": 0.9999998509883881,
+            "weight_sum_max": 1.000000118619937,
+            "wrist_only_vertices": 89
+          }
+        },
+        "finger_pose_checks": {
+          "thumb": {
+            "local_x_rotation_radians": 0.4,
+            "moved_vertices": 857,
+            "max_displacement_m": 0.0449826924018902,
+            "wrist_bone_error_m": 0.0,
+            "wrist_only_mesh_error_m": 9.613847658458307e-08
+          },
+          "index": {
+            "local_x_rotation_radians": 0.4,
+            "moved_vertices": 802,
+            "max_displacement_m": 0.037418532221486535,
+            "wrist_bone_error_m": 0.0,
+            "wrist_only_mesh_error_m": 0.0
+          },
+          "middle": {
+            "local_x_rotation_radians": 0.4,
+            "moved_vertices": 705,
+            "max_displacement_m": 0.03978223864614073,
+            "wrist_bone_error_m": 0.0,
+            "wrist_only_mesh_error_m": 0.0
+          },
+          "ring": {
+            "local_x_rotation_radians": 0.4,
+            "moved_vertices": 731,
+            "max_displacement_m": 0.037768568220287714,
+            "wrist_bone_error_m": 0.0,
+            "wrist_only_mesh_error_m": 0.0
+          },
+          "little": {
+            "local_x_rotation_radians": 0.4,
+            "moved_vertices": 656,
+            "max_displacement_m": 0.03342114403914936,
+            "wrist_bone_error_m": 0.0,
+            "wrist_only_mesh_error_m": 1.1375867936464004e-07
+          }
+        },
+        "wrist_world_m": [
+          0.16343863308429718,
+          -0.05624999850988388,
+          0.0
+        ],
+        "thumb_minus_middle_x_m": -0.0325000137090683
+      }
+    },
+    "editable_materials": {
+      "Greybox_Sleeve": {
+        "base_color": [
+          0.18000000715255737,
+          0.18000000715255737,
+          0.18000000715255737,
+          1.0
+        ],
+        "roughness": 0.8199999928474426
+      },
+      "Greybox_HandGlove": {
+        "base_color": [
+          0.41999998688697815,
+          0.41999998688697815,
+          0.41999998688697815,
+          1.0
+        ],
+        "roughness": 0.8199999928474426
+      },
+      "Greybox_WristCuff": {
+        "base_color": [
+          0.27000001072883606,
+          0.27000001072883606,
+          0.27000001072883606,
+          1.0
+        ],
+        "roughness": 0.8199999928474426
+      }
+    },
+    "left_glb_roundtrip": {
+      "rig": "HandRig.001",
+      "bones": [
+        "index0",
+        "index1",
+        "index2",
+        "little0",
+        "little1",
+        "little2",
+        "middle0",
+        "middle1",
+        "middle2",
+        "ring0",
+        "ring1",
+        "ring2",
+        "thumb0",
+        "thumb1",
+        "thumb2",
+        "wrist"
+      ],
+      "meshes": {
+        "ContinuousAnatomicalHand.001": {
+          "vertices": 2992,
+          "weight_sum_min": 0.9999998940620571,
+          "weight_sum_max": 1.000000111758709,
+          "wrist_only_vertices": 93
+        }
+      },
+      "finger_pose_checks": {
+        "thumb": {
+          "local_x_rotation_radians": 0.4,
+          "moved_vertices": 886,
+          "max_displacement_m": 0.044944774152273284,
+          "wrist_bone_error_m": 0.0,
+          "wrist_only_mesh_error_m": 0.0
+        },
+        "index": {
+          "local_x_rotation_radians": 0.4,
+          "moved_vertices": 850,
+          "max_displacement_m": 0.037433880708525054,
+          "wrist_bone_error_m": 0.0,
+          "wrist_only_mesh_error_m": 0.0
+        },
+        "middle": {
+          "local_x_rotation_radians": 0.4,
+          "moved_vertices": 769,
+          "max_displacement_m": 0.03979672045554147,
+          "wrist_bone_error_m": 0.0,
+          "wrist_only_mesh_error_m": 0.0
+        },
+        "ring": {
+          "local_x_rotation_radians": 0.4,
+          "moved_vertices": 773,
+          "max_displacement_m": 0.03778490427872515,
+          "wrist_bone_error_m": 0.0,
+          "wrist_only_mesh_error_m": 0.0
+        },
+        "little": {
+          "local_x_rotation_radians": 0.4,
+          "moved_vertices": 677,
+          "max_displacement_m": 0.03346267267790971,
+          "wrist_bone_error_m": 0.0,
+          "wrist_only_mesh_error_m": 0.0
+        }
+      },
+      "wrist_world_m": [
+        0.0,
+        -0.05624999850988388,
+        0.0
+      ],
+      "native_wrist_error_m": 0.0,
+      "thumb_minus_middle_x_m": 0.03250000346451998,
+      "materials": {
+        "Greybox_Sleeve": {
+          "base_color": [
+            0.18000000715255737,
+            0.18000000715255737,
+            0.18000000715255737,
+            1.0
+          ],
+          "roughness": 0.8199999928474426
+        },
+        "Greybox_HandGlove": {
+          "base_color": [
+            0.41999998688697815,
+            0.41999998688697815,
+            0.41999998688697815,
+            1.0
+          ],
+          "roughness": 0.8199999928474426
+        },
+        "Greybox_WristCuff": {
+          "base_color": [
+            0.27000001072883606,
+            0.27000001072883606,
+            0.27000001072883606,
+            1.0
+          ],
+          "roughness": 0.8199999928474426
+        }
+      },
+      "triangles": 9997
+    },
+    "right_glb_roundtrip": {
+      "rig": "HandRig.003",
+      "bones": [
+        "index0",
+        "index1",
+        "index2",
+        "little0",
+        "little1",
+        "little2",
+        "middle0",
+        "middle1",
+        "middle2",
+        "ring0",
+        "ring1",
+        "ring2",
+        "thumb0",
+        "thumb1",
+        "thumb2",
+        "wrist"
+      ],
+      "meshes": {
+        "ContinuousAnatomicalHand.003": {
+          "vertices": 2984,
+          "weight_sum_min": 0.9999999031424522,
+          "weight_sum_max": 1.00000010128133,
+          "wrist_only_vertices": 89
+        }
+      },
+      "finger_pose_checks": {
+        "thumb": {
+          "local_x_rotation_radians": 0.4,
+          "moved_vertices": 885,
+          "max_displacement_m": 0.04498269538605415,
+          "wrist_bone_error_m": 0.0,
+          "wrist_only_mesh_error_m": 0.0
+        },
+        "index": {
+          "local_x_rotation_radians": 0.4,
+          "moved_vertices": 854,
+          "max_displacement_m": 0.037418501958657605,
+          "wrist_bone_error_m": 0.0,
+          "wrist_only_mesh_error_m": 0.0
+        },
+        "middle": {
+          "local_x_rotation_radians": 0.4,
+          "moved_vertices": 768,
+          "max_displacement_m": 0.0397822209386295,
+          "wrist_bone_error_m": 0.0,
+          "wrist_only_mesh_error_m": 0.0
+        },
+        "ring": {
+          "local_x_rotation_radians": 0.4,
+          "moved_vertices": 786,
+          "max_displacement_m": 0.037768585704445884,
+          "wrist_bone_error_m": 0.0,
+          "wrist_only_mesh_error_m": 0.0
+        },
+        "little": {
+          "local_x_rotation_radians": 0.4,
+          "moved_vertices": 681,
+          "max_displacement_m": 0.03342114044361134,
+          "wrist_bone_error_m": 0.0,
+          "wrist_only_mesh_error_m": 0.0
+        }
+      },
+      "wrist_world_m": [
+        0.0,
+        -0.05624999850988388,
+        0.0
+      ],
+      "native_wrist_error_m": 0.0,
+      "thumb_minus_middle_x_m": -0.03250000346451998,
+      "materials": {
+        "Greybox_Sleeve": {
+          "base_color": [
+            0.18000000715255737,
+            0.18000000715255737,
+            0.18000000715255737,
+            1.0
+          ],
+          "roughness": 0.8199999928474426
+        },
+        "Greybox_WristCuff": {
+          "base_color": [
+            0.27000001072883606,
+            0.27000001072883606,
+            0.27000001072883606,
+            1.0
+          ],
+          "roughness": 0.8199999928474426
+        },
+        "Greybox_HandGlove": {
+          "base_color": [
+            0.41999998688697815,
+            0.41999998688697815,
+            0.41999998688697815,
+            1.0
+          ],
+          "roughness": 0.8199999928474426
+        }
+      },
+      "triangles": 9996
+    }
+  },
+  "errors": [],
+  "limitations": [
+    "Five isolated finger bends verify deformation, not an animation or game capture.",
+    "No visual quality, hand contact, renderer or Godot runtime claim.",
+    "Wrist is compared to the authored source offset, not forced to absolute zero."
+  ],
+  "verified_asset_sha256": {
+    "bilateral_hands_greybox.blend": "a5c4faa0d41d435afdea43e70c733cc3ea8fbb063115d3ec57022b0d61a977dc",
+    "left_hand_greybox.glb": "d0b0b0752c942984e9763d44917ec7d20676b3e99bce1a94b532396bc6827e16",
+    "right_hand_greybox.glb": "1edebacc2cbb8e39a7952338ed94a31fae327d05de15f92c30851dbb418f7c58"
+  }
+}

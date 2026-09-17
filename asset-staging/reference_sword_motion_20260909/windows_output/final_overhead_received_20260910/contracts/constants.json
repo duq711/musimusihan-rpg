@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "status": "received_static_contract_not_authored_motion",
+  "source": {
+    "type": "coordinator_message",
+    "thread_id": "01a0862b-cc10-7f53-aeac-0a7082ca3ea3",
+    "date": "2026-09-10",
+    "document": "GODOT_ARM_CONTRACT.md",
+    "source_glb_path_mac": "godot-game/assets/3d/player/sword_hold_long_grip/SwordHold_Static.glb",
+    "source_glb_sha256": "2b94cc385f837fe253552cd654cb1f665246f61cdee5227814d63049da9f22fb",
+    "source_blend_path_mac": "asset-staging/sword_hold_long_grip_integration/source/model/SwordHold_Static.blend",
+    "mesh_count": 11,
+    "skin_count": 0,
+    "animation_count": 0
+  },
+  "coordinate_space": "godot_camera_local_x_right_y_up_minus_z_forward",
+  "geometry_space": "canonical_source_ready_inverse",
+  "unit": "meter",
+  "matrix_storage": "row_major_rows",
+  "matrix_vector_convention": "left_multiplication_column_vectors",
+  "quaternion_order": "xyzw",
+  "SOURCE_READY_rows": [
+    [0.6734562112, 0.1384824613, -0.7261403196, 0.3249563841],
+    [-0.1673592395, 0.9853534854, 0.0327005009, -0.0035816696],
+    [0.7200327879, 0.0995039315, 0.6867691389, -0.5892537756],
+    [0, 0, 0, 1]
+  ],
+  "canonical_points": {
+    "G": [0, -0.108, 0.002],
+    "guard_G": [0, -0.009, 0],
+    "tip": [0, 1.035, 0],
+    "W0": [0.0679751875, -0.1080001335, 0.0524637313],
+    "E0": [0.2366280243, -0.1080001099, 0.2503430693],
+    "H0": [0.4571740416, -0.1080000789, 0.5091083575]
+  },
+  "camera_points_at_source_ready_quoted": {
+    "G": [0.308547997640, -0.109934445021, -0.598626661924],
+    "tip": [0.468285731546, 1.016259187789, -0.486267206498],
+    "W0": [0.317682541408, -0.119660662960, -0.515025378154],
+    "E0": [0.287574679418, -0.141415496742, -0.257692380973],
+    "H0": [0.248202859842, -0.169864125386, 0.078819999963]
+  },
+  "quoted_lengths_m": {"forearm": 0.260000022631, "upper_arm": 0.340000029594},
+  "supplemental_landmarks": {
+    "guard_G": {
+      "source_type": "root_agent_followup_message",
+      "date": "2026-09-10",
+      "meaning": "Source model blade-axis/crossguard intersection; distinct from hand grip center canonical_points.G",
+      "canonical_point": [0, -0.009, 0],
+      "authored_motion": false,
+      "note": "Supplement received after iteration_01 was authored; original quoted arm-contract G is preserved unchanged. This is a source-model landmark, not a 3D point recovered from reference video."
+    }
+  },
+  "baseline_elbow_pole_direction_camera": [0.75, -0.72, 0.28],
+  "game_camera": {"fov_deg": 76, "near_m": 0.025, "aspect_ratio": [16, 9]},
+  "reference_camera": {"fov_deg": null, "near_m": null, "note": "Not recovered from source video; game camera values are not claimed source camera calibration."},
+  "clip": {
+    "id": "overhead",
+    "source_url": "https://youtu.be/sU7jk2OQlgc",
+    "source_fps": 60,
+    "source_first_frame_zero_based": 1040,
+    "source_last_frame_zero_based": 1133,
+    "source_start_seconds_quoted": 17.333333,
+    "source_end_seconds_quoted": 18.883333,
+    "duration_seconds": 1.55,
+    "minimum_sample_rate_hz": 60,
+    "recommended_sample_rate_hz": 120,
+    "key_grid_seconds": 0.016666666666666666
+  },
+  "thresholds": {
+    "max_length_relative_deviation": 0.01,
+    "max_joint_endpoint_error_m": 0.00003,
+    "max_grip_error_m": 0.0001,
+    "shoulder_max_displacement_m": null,
+    "shoulder_note": "Report every frame and maximum; contract provides no numeric permitted maximum. A small displacement and attached silhouette require visual review."
+  },
+  "meshes": {
+    "glove": "RightHand_Glove",
+    "forearm": "RightArm_Forearm_Surface",
+    "upper_arm": "RightArm_UpperArm_Surface",
+    "cuff": "RightArm_WristCuff_Surface",
+    "sword": ["Sword_FullerPolishedChannel", "Sword_GripBinding", "Sword_GripBinding_Extension", "Sword_GripLeather", "Sword_GripLeather_Extension", "Sword_PittedBlade", "Sword_SwordsmanLongsword_Surface"]
+  },
+  "normalization": "v_canonical = inverse(S) * M_i * v_i; v_camera = T * v_canonical; apply once",
+  "parts_camera_contract": "Absolute T*F_part matrices with basis_columns; not raw Blender object-local matrices",
+  "limitations": [
+    "This file transcribes received static source values and policy; it contains no authored samples or execution provenance.",
+    "Quoted source camera points may differ by rounding from products using quoted SOURCE_READY_rows.",
+    "G is grip center; observation table guard_G is blade-axis/crossguard intersection and is a different landmark.",
+    "Arm endpoint and length checks do not prove sleeve surface closure or render quality."
+  ]
+}

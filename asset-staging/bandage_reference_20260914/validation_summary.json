@@ -1,0 +1,35 @@
+{
+  "reference": "https://www.youtube.com/watch?v=ctbwl1_u_yg&t=1s",
+  "changes": [
+    "4 second action with two close wrapping passes",
+    "receiving forearm rotates and lifts with the winding hand",
+    "closed receiving fingers and short final pressure",
+    "deposited dressing surface and original treatment effects preserved"
+  ],
+  "tests": {
+    "bandage_motion": "PASS after final finger adjustment",
+    "body_health_test_room": "PASS before final visual-only finger adjustment"
+  },
+  "actual_render": {
+    "renderer": "vulkan",
+    "display": "embedded",
+    "frames": 136,
+    "fps": 30,
+    "state_and_sources_preserved": true,
+    "reviewed_frames": [
+      25,
+      36,
+      96,
+      106
+    ]
+  },
+  "limitations": [
+    "Adapted to existing game hand rig; not a frame-exact retarget of the reference.",
+    "Focus-free embedded rendering; no OS input verification claimed."
+  ],
+  "source_hashes": {
+    "res://scripts/bandage_use_visuals.gd": "875e45b50fd8c2be3b324339e2f6ef10d5e4a3943552dc1e2cee502faf52ac41",
+    "res://scripts/player.gd": "ec937d4bd1136e2366c4cd3913b7c1078fc337c9a30d741433841be39d4c9926"
+  },
+  "video": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/godot-game/artifacts/visual_qa/bandage_forearm/reference_01/bandage_reference.mp4"
+}

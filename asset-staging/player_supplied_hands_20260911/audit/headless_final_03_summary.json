@@ -1,0 +1,78 @@
+{
+  "asset_iteration": "03",
+  "passed_count": 8,
+  "failed_count": 0,
+  "tests": {
+    "player_arm": {
+      "passed": true,
+      "log": "audit/headless_final_03.log"
+    },
+    "player_appearance": {
+      "passed": true,
+      "log": "audit/headless_final_03.log"
+    },
+    "chest_hands": {
+      "passed": true,
+      "log": "audit/headless_final_03.log"
+    },
+    "player_hands_detailed": {
+      "passed": true,
+      "log": "audit/headless_final_03_retest.log"
+    },
+    "player_finger_joints": {
+      "passed": true,
+      "log": "audit/headless_final_03.log"
+    },
+    "player_hands_greybox": {
+      "passed": true,
+      "log": "audit/headless_final_03.log"
+    },
+    "test_room_session": {
+      "passed": true,
+      "log": "audit/headless_final_03.log"
+    },
+    "test_room": {
+      "passed": true,
+      "log": "audit/headless_final_03.log"
+    }
+  },
+  "model_sha256": {
+    "res://assets/3d/player/gravebound_player.glb": "b25875dadb920303d7e8b0e58085973586b9cdf4cceb383159bcdb7e2c9fc92b",
+    "res://assets/3d/player/hands_detailed/left_hand_detailed.glb": "4894abcfadfb9723c7469e41fd314be59ef85bbdff33804e68f4154502db4e46",
+    "res://assets/3d/player/hands_detailed/right_hand_detailed.glb": "4b1fa3555177490af9c538f5f6bb7da17b422c4ecd9e3365af101343547fe614"
+  },
+  "models_unchanged_during_final_tests": true,
+  "fixed_wrist": {
+    "per_hand_vertices": 3290,
+    "all_15_joints_at_max": true,
+    "actual_skinning_plus_correctives": true,
+    "maximum_movement_m": 0.0,
+    "required_maximum_movement_m": 2e-06,
+    "nearby_finger_maximum_movement_m": [
+      0.12740451097488,
+      0.12740440666676
+    ]
+  },
+  "cuff_chest_bend": {
+    "actual_inner_depth_m": 0.05273929983377,
+    "retained_scale": 0.43967772487488,
+    "geometry_derived_minimum_scale": 0.41363867616492,
+    "minimum_jacobian": 0.00871625356376,
+    "invalid_compressions": 0,
+    "outside_width_preservation_and_triangle_foldover_checks_retained": true
+  },
+  "uid_fallback_warnings": 0,
+  "baseline_warning": "2 ObjectDB instances at exit, also present before supplied hands; see uid_warning_diagnosis.json",
+  "script_sha256": {
+    "godot-game/scripts/player_arm_visual.gd": "7b4bf01960fbaec490741afc815385de1ea9bba7909a324406a8516233907a44",
+    "godot-game/scripts/greybox_arm_visual.gd": "f0ab4b3d11f3ed45b8e25b7909b5aa6900885ce74bdcd2dbb8a54d6ea5d919d8",
+    "godot-game/tests/player_arm_test.gd": "2f3be740b494ab58c3225bdb67b992ea372cb6a1e91cb842148572ba95a36c6c",
+    "godot-game/tests/player_appearance_test.gd": "20350029b292416710560292d9142ed795a7fcf44e2cba1d14cbdcab5025675a",
+    "godot-game/tests/chest_hands_test.gd": "7afc713dfb569a35ca2aaa80e04b7d6cce7f3553ce575db77df39eac0c125472",
+    "godot-game/tests/player_hands_detailed_test.gd": "84626ad2a5dbed4463fe6eb112c597c272f42ff47ad2b0c828b832522c5ba2eb",
+    "godot-game/tests/player_finger_joints_test.gd": "83c4bae7db5d88729fed6cbd910c7fdb1f34bc9df76261b27d7ce87b20812e48",
+    "godot-game/tests/player_hands_greybox_test.gd": "fc336f34211f5c602d30071de2334c8d5d4365f340f89e04c7da4a7326af6050",
+    "godot-game/tests/test_room_session_test.gd": "c5a184757fd33e21fba4a3456761bf9b0d8530dd647b439c14c5e8ee232421c3",
+    "godot-game/tests/test_room_test.gd": "511f715bca0e6bb40559a7df466b4ed42736e1a1174fca6b8e2eaed5312c4d9b"
+  }
+}

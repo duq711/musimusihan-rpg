@@ -1,0 +1,36 @@
+[HEADLESS] supplied_fp_arms_test.gd
+SUPPLIED FP ARMS PASS
+[HEADLESS] unified_sword_motion_test.gd
+UNIFIED SWORD MOTION PASS [{"max_angle_rad":0.0009765625,"max_position_m":0.0,"profile":"quick_click","samples_per_stance":348},{"max_angle_rad":0.0009765625,"max_position_m":0.0,"profile":"hold_0_45s","samples_per_stance":348}]
+[HEADLESS] primary_shield_stow_test.gd
+PRIMARY SHIELD STOW PASS
+[HEADLESS] reference_sword_motion_test_room_test.gd
+REFERENCE SWORD MOTION TEST ROOM PASS: five playable fixtures, two-hand basic/reverse target hits and grip, actual run/jump/landing/collision, repeated F2, reset and original expedition restoration
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2535)
+[HEADLESS] bandage_motion_test.gd
+TIMEOUT after 180s: bandage_motion_test.gd
+SCRIPT ERROR: Invalid access of index '0' on a base object of type: 'Array[MeshInstance3D]'.
+          at: setup (res://scripts/bandage_use_visuals.gd:42)
+          GDScript backtrace (most recent call first):
+              [0] setup (res://scripts/bandage_use_visuals.gd:42)
+              [1] begin (res://scripts/bandage_use_visuals.gd:98)
+              [2] _play_consumable_motion (res://scripts/player.gd:3855)
+              [3] use_consumable (res://scripts/player.gd:2533)
+              [4] _run (res://tests/bandage_motion_test.gd:25)
+SCRIPT ERROR: Invalid access to property or key 'global_transform' on a base object of type 'Nil'.
+          at: set_time (res://scripts/bandage_use_visuals.gd:162)
+          GDScript backtrace (most recent call first):
+              [0] set_time (res://scripts/bandage_use_visuals.gd:162)
+              [1] begin (res://scripts/bandage_use_visuals.gd:105)
+              [2] _play_consumable_motion (res://scripts/player.gd:3855)
+              [3] use_consumable (res://scripts/player.gd:2533)
+              [4] _run (res://tests/bandage_motion_test.gd:25)
+SCRIPT ERROR: Invalid access to property or key 'position' on a base object of type 'Nil'.
+          at: _run (res://tests/bandage_motion_test.gd:30)
+          GDScript backtrace (most recent call first):
+              [0] _run (res://tests/bandage_motion_test.gd:30)
+Script error detected in bandage_motion_test.gd, regardless of engine exit status.
+
+Headless validation: 4 passed, 1 failed.
+FAILED: bandage_motion_test.gd (1)

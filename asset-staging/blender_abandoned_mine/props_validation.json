@@ -1,0 +1,3030 @@
+{
+  "props": {
+    "schema_version": 1,
+    "coordinate_system": "Godot x,y,z metres; Blender x,-z,y",
+    "assets": [
+      {
+        "name": "Mine_hoistroom_manual_hoist_01",
+        "kind": "manual_hoist",
+        "zone": "hoistroom",
+        "position_godot": [
+          46.31927700813145,
+          -0.02500000037252903,
+          3.1026122680115833
+        ],
+        "rotation_y": 2.6152985480438966,
+        "landmark_id": "ore_hoist",
+        "placement_adjustment": "Shifted to a clear edge of the same authored work area"
+      },
+      {
+        "name": "Mine_grand_quarry_overturned_ore_cart_01",
+        "kind": "overturned_ore_cart",
+        "zone": "grand_quarry",
+        "position_godot": [
+          8.558631144607673,
+          -0.02500000037252903,
+          -15.20208861251662
+        ],
+        "rotation_y": -1.639556090062213
+      },
+      {
+        "name": "Mine_north_workings_ore_cart_01",
+        "kind": "ore_cart",
+        "zone": "north_workings",
+        "position_godot": [
+          -44.229452944306004,
+          -0.02500000037252903,
+          -55.19069490415185
+        ],
+        "rotation_y": -1.239320434885239
+      },
+      {
+        "name": "Mine_workshops_workbench_01",
+        "kind": "workbench",
+        "zone": "workshops",
+        "position_godot": [
+          6.005849764386,
+          -0.02500000037252903,
+          38.400249157565824
+        ],
+        "rotation_y": -1.5461040646640691,
+        "landmark_id": "south_workbench_upper",
+        "placement_adjustment": "Shifted to a clear edge of the same authored work area"
+      },
+      {
+        "name": "Mine_workshops_workbench_02",
+        "kind": "workbench",
+        "zone": "workshops",
+        "position_godot": [
+          4.194079471471016,
+          -0.02500000037252903,
+          43.065549797074056
+        ],
+        "rotation_y": -0.7629377703400442,
+        "landmark_id": "south_workbench_lower",
+        "placement_adjustment": "Shifted to a clear edge of the same authored work area"
+      },
+      {
+        "name": "Mine_foreman_workroom_foreman_bench_01",
+        "kind": "foreman_bench",
+        "zone": "foreman_workroom",
+        "position_godot": [
+          -32.62730980474427,
+          -0.02500000037252903,
+          -48.636462337824646
+        ],
+        "rotation_y": 1.6212969009871394,
+        "landmark_id": "overseer_workshop",
+        "placement_adjustment": "Shifted to a clear edge of the same authored work area"
+      },
+      {
+        "name": "Mine_entrance_abandoned_crate_stack_01",
+        "kind": "abandoned_crate_stack",
+        "zone": "entrance",
+        "position_godot": [
+          -3.971326623578501,
+          -0.02500000037252903,
+          61.24332872422018
+        ],
+        "rotation_y": 1.0062463484363082
+      },
+      {
+        "name": "Mine_east_store_abandoned_crate_stack_02",
+        "kind": "abandoned_crate_stack",
+        "zone": "east_store",
+        "position_godot": [
+          52.75548964268549,
+          -0.02500000037252903,
+          -11.870959709092112
+        ],
+        "rotation_y": -0.5195142605271774,
+        "landmark_id": "warehouse_crates",
+        "placement_adjustment": "Shifted to a clear edge of the same authored work area"
+      },
+      {
+        "name": "Mine_east_store_abandoned_crate_stack_03",
+        "kind": "abandoned_crate_stack",
+        "zone": "east_store",
+        "position_godot": [
+          51.53534740829053,
+          -0.02500000037252903,
+          -21.3913243632265
+        ],
+        "rotation_y": -2.922760911338156
+      },
+      {
+        "name": "Mine_foreman_workroom_abandoned_crate_stack_04",
+        "kind": "abandoned_crate_stack",
+        "zone": "foreman_workroom",
+        "position_godot": [
+          -31.582829470185672,
+          -0.02500000037252903,
+          -52.60315280711073
+        ],
+        "rotation_y": 2.2733787056841295
+      },
+      {
+        "name": "Mine_north_workings_abandoned_crate_stack_05",
+        "kind": "abandoned_crate_stack",
+        "zone": "north_workings",
+        "position_godot": [
+          -52.64685734010057,
+          -0.02500000037252903,
+          -60.72277459815874
+        ],
+        "rotation_y": 2.429630806063576
+      },
+      {
+        "name": "Mine_east_store_barrels_and_rope_01",
+        "kind": "barrels_and_rope",
+        "zone": "east_store",
+        "position_godot": [
+          48.156848187898646,
+          -0.02500000037252903,
+          -20.35609123555602
+        ],
+        "rotation_y": 2.667928093362611
+      },
+      {
+        "name": "Mine_foreman_workroom_barrels_and_rope_02",
+        "kind": "barrels_and_rope",
+        "zone": "foreman_workroom",
+        "position_godot": [
+          -29.07421788475147,
+          -0.02500000037252903,
+          -43.53135275465183
+        ],
+        "rotation_y": 0.48694021257292247
+      },
+      {
+        "name": "Mine_southwest_adit_barrels_and_rope_03",
+        "kind": "barrels_and_rope",
+        "zone": "southwest_adit",
+        "position_godot": [
+          -54.78831707919451,
+          -0.02500000037252903,
+          58.91348914377923
+        ],
+        "rotation_y": 1.2810501128215517
+      },
+      {
+        "name": "Mine_north_workings_abandoned_hand_tools_01",
+        "kind": "abandoned_hand_tools",
+        "zone": "north_workings",
+        "position_godot": [
+          -48.45588808821463,
+          -0.02500000037252903,
+          -52.46045929088943
+        ],
+        "rotation_y": -0.20878722205487657
+      },
+      {
+        "name": "Mine_workshops_abandoned_hand_tools_02",
+        "kind": "abandoned_hand_tools",
+        "zone": "workshops",
+        "position_godot": [
+          4.134719822060362,
+          -0.02500000037252903,
+          31.554485686352297
+        ],
+        "rotation_y": -2.5438658426230583
+      },
+      {
+        "name": "Mine_entrance_abandoned_hand_tools_03",
+        "kind": "abandoned_hand_tools",
+        "zone": "entrance",
+        "position_godot": [
+          1.0402327487207632,
+          -0.02500000037252903,
+          55.67485070700208
+        ],
+        "rotation_y": -2.6749334336231265
+      },
+      {
+        "name": "Mine_rubble_passage_abandoned_hand_tools_04",
+        "kind": "abandoned_hand_tools",
+        "zone": "rubble_passage",
+        "position_godot": [
+          -28.077272591492843,
+          -0.02500000037252903,
+          9.518916139505663
+        ],
+        "rotation_y": 2.8779133856048116
+      },
+      {
+        "name": "Mine_east_store_torn_canvas_rack_01",
+        "kind": "torn_canvas_rack",
+        "zone": "east_store",
+        "position_godot": [
+          47.74474599692235,
+          -0.02500000037252903,
+          -11.960858322434547
+        ],
+        "rotation_y": 0.5652028723973405
+      },
+      {
+        "name": "Mine_entrance_timber_support_01",
+        "kind": "timber_support",
+        "zone": "entrance",
+        "position_godot": [
+          -1.3371679782867432,
+          -0.02500000037252903,
+          56.61979675292969
+        ],
+        "rotation_y": 0.23137979885094434
+      },
+      {
+        "name": "Mine_workshops_timber_support_02",
+        "kind": "timber_support",
+        "zone": "workshops",
+        "position_godot": [
+          -0.5996719598770142,
+          -0.02500000037252903,
+          42.934783935546875
+        ],
+        "rotation_y": 3.1028809658706957
+      },
+      {
+        "name": "Mine_grand_quarry_timber_support_03",
+        "kind": "timber_support",
+        "zone": "grand_quarry",
+        "position_godot": [
+          -5.981727600097656,
+          -0.02500000037252903,
+          -6.987674236297607
+        ],
+        "rotation_y": -3.1163537628333104
+      },
+      {
+        "name": "Mine_workshops_timber_support_04",
+        "kind": "timber_support",
+        "zone": "workshops",
+        "position_godot": [
+          -2.1143999099731445,
+          -0.02500000037252903,
+          33.54841613769531
+        ],
+        "rotation_y": 0.3468665151823609
+      },
+      {
+        "name": "Mine_rubble_passage_timber_support_05",
+        "kind": "timber_support",
+        "zone": "rubble_passage",
+        "position_godot": [
+          -24.84195327758789,
+          -0.02500000037252903,
+          12.525500297546387
+        ],
+        "rotation_y": -1.5707963267948966
+      },
+      {
+        "name": "Mine_western_altar_timber_support_06",
+        "kind": "timber_support",
+        "zone": "western_altar",
+        "position_godot": [
+          -32.202613830566406,
+          -0.02500000037252903,
+          -18.661914825439453
+        ],
+        "rotation_y": -1.7295977061776755
+      },
+      {
+        "name": "Mine_upper_pool_timber_support_07",
+        "kind": "timber_support",
+        "zone": "upper_pool",
+        "position_godot": [
+          -56.545196533203125,
+          -0.02500000037252903,
+          -37.91575622558594
+        ],
+        "rotation_y": -0.5121388537499738
+      },
+      {
+        "name": "Mine_upper_pool_timber_support_08",
+        "kind": "timber_support",
+        "zone": "upper_pool",
+        "position_godot": [
+          -54.363990783691406,
+          -0.02500000037252903,
+          -32.515377044677734
+        ],
+        "rotation_y": -1.9592654374599194
+      },
+      {
+        "name": "Mine_north_workings_timber_support_09",
+        "kind": "timber_support",
+        "zone": "north_workings",
+        "position_godot": [
+          -47.594581604003906,
+          -0.02500000037252903,
+          -58.26029968261719
+        ],
+        "rotation_y": -0.9551404677181745
+      },
+      {
+        "name": "Mine_foreman_workroom_timber_support_10",
+        "kind": "timber_support",
+        "zone": "foreman_workroom",
+        "position_godot": [
+          -25.383058547973633,
+          -0.02500000037252903,
+          -43.892486572265625
+        ],
+        "rotation_y": -2.8876726950935367
+      },
+      {
+        "name": "Mine_foreman_workroom_timber_support_11",
+        "kind": "timber_support",
+        "zone": "foreman_workroom",
+        "position_godot": [
+          -25.26189613342285,
+          -0.02500000037252903,
+          -51.80020523071289
+        ],
+        "rotation_y": -0.35130376197389
+      },
+      {
+        "name": "Mine_foreman_workroom_timber_support_12",
+        "kind": "timber_support",
+        "zone": "foreman_workroom",
+        "position_godot": [
+          -23.625947952270508,
+          -0.02500000037252903,
+          -44.72826385498047
+        ],
+        "rotation_y": -2.4620995555644987
+      },
+      {
+        "name": "Mine_upper_lake_timber_support_13",
+        "kind": "timber_support",
+        "zone": "upper_lake",
+        "position_godot": [
+          2.23347806930542,
+          -0.02500000037252903,
+          -38.290382385253906
+        ],
+        "rotation_y": -2.8283064380505025
+      },
+      {
+        "name": "Mine_pillar_shrine_timber_support_14",
+        "kind": "timber_support",
+        "zone": "pillar_shrine",
+        "position_godot": [
+          49.418556213378906,
+          -0.02500000037252903,
+          -43.094459533691406
+        ],
+        "rotation_y": -3.030233950727991
+      },
+      {
+        "name": "Mine_pillar_shrine_timber_support_15",
+        "kind": "timber_support",
+        "zone": "pillar_shrine",
+        "position_godot": [
+          51.41798782348633,
+          -0.02500000037252903,
+          -42.64443588256836
+        ],
+        "rotation_y": -2.6226378898683014
+      },
+      {
+        "name": "Mine_north_workings_short_disused_rail_01",
+        "kind": "short_disused_rail",
+        "zone": "north_workings",
+        "position_godot": [
+          -56.829349517822266,
+          -0.02500000037252903,
+          -37.410301208496094
+        ],
+        "rotation_y": -0.5121388537499738
+      },
+      {
+        "name": "Mine_grand_quarry_short_disused_rail_02",
+        "kind": "short_disused_rail",
+        "zone": "grand_quarry",
+        "position_godot": [
+          -6.006799697875977,
+          -0.02500000037252903,
+          -7.9808502197265625
+        ],
+        "rotation_y": -3.1163537628333104
+      },
+      {
+        "name": "Mine_workshops_short_disused_rail_03",
+        "kind": "short_disused_rail",
+        "zone": "workshops",
+        "position_godot": [
+          -0.522350013256073,
+          -0.02500000037252903,
+          42.176597595214844
+        ],
+        "rotation_y": -0.02653760986069975
+      },
+      {
+        "name": "Mine_west_pool_weathered_footbridge_01",
+        "kind": "weathered_footbridge",
+        "zone": "west_pool",
+        "position_godot": [
+          -54.6356,
+          -0.02500000037252903,
+          -26.7137
+        ],
+        "rotation_y": 0
+      },
+      {
+        "name": "Mine_east_store_weathered_footbridge_02",
+        "kind": "weathered_footbridge",
+        "zone": "east_store",
+        "position_godot": [
+          37.2943,
+          -0.02500000037252903,
+          -13.5231
+        ],
+        "rotation_y": 0.91
+      }
+    ],
+    "collision_proxies": [
+      {
+        "name": "collision_winch_post",
+        "asset": "Mine_hoistroom_manual_hoist_01",
+        "shape": "box",
+        "center_godot": [
+          47.743682861328125,
+          1.8250000476837158,
+          3.03961181640625
+        ],
+        "size_godot": [
+          0.4000000059604645,
+          3.8499999046325684,
+          0.4300000071525574
+        ],
+        "rotation_y": 2.6152985095977783
+      },
+      {
+        "name": "collision_winch_post.001",
+        "asset": "Mine_hoistroom_manual_hoist_01",
+        "shape": "box",
+        "center_godot": [
+          46.9700927734375,
+          1.8250000476837158,
+          4.37121057510376
+        ],
+        "size_godot": [
+          0.4000000059604645,
+          3.8499999046325684,
+          0.4300000071525574
+        ],
+        "rotation_y": 2.6152985095977783
+      },
+      {
+        "name": "collision_winch_post.002",
+        "asset": "Mine_hoistroom_manual_hoist_01",
+        "shape": "box",
+        "center_godot": [
+          45.66846466064453,
+          1.8250000476837158,
+          1.8340139389038086
+        ],
+        "size_godot": [
+          0.4000000059604645,
+          3.8499999046325684,
+          0.4300000071525574
+        ],
+        "rotation_y": 2.6152985095977783
+      },
+      {
+        "name": "collision_winch_post.003",
+        "asset": "Mine_hoistroom_manual_hoist_01",
+        "shape": "box",
+        "center_godot": [
+          44.894874572753906,
+          1.8250000476837158,
+          3.1656126976013184
+        ],
+        "size_godot": [
+          0.4000000059604645,
+          3.8499999046325684,
+          0.4300000071525574
+        ],
+        "rotation_y": 2.6152985095977783
+      },
+      {
+        "name": "collision_winch_drum",
+        "asset": "Mine_hoistroom_manual_hoist_01",
+        "shape": "box",
+        "center_godot": [
+          46.319278717041016,
+          1.7549999952316284,
+          3.102612257003784
+        ],
+        "size_godot": [
+          1.9199999570846558,
+          0.7599999904632568,
+          0.7599999904632568
+        ],
+        "rotation_y": 2.6152985095977783
+      },
+      {
+        "name": "collision_ore_cart",
+        "asset": "Mine_grand_quarry_overturned_ore_cart_01",
+        "shape": "box",
+        "center_godot": [
+          8.55176067352295,
+          0.675000011920929,
+          -15.102324485778809
+        ],
+        "size_godot": [
+          1.649999976158142,
+          1.4199999570846558,
+          2.25
+        ],
+        "rotation_y": -1.6395560503005981
+      },
+      {
+        "name": "collision_ore_cart.001",
+        "asset": "Mine_north_workings_ore_cart_01",
+        "shape": "box",
+        "center_godot": [
+          -44.1969108581543,
+          0.675000011920929,
+          -55.09614181518555
+        ],
+        "size_godot": [
+          1.649999976158142,
+          1.4199999570846558,
+          2.25
+        ],
+        "rotation_y": -1.2393203973770142
+      },
+      {
+        "name": "collision_workbench",
+        "asset": "Mine_workshops_workbench_01",
+        "shape": "box",
+        "center_godot": [
+          6.005849838256836,
+          0.42499998211860657,
+          38.40024948120117
+        ],
+        "size_godot": [
+          2.2300000190734863,
+          0.9200000166893005,
+          0.8899999856948853
+        ],
+        "rotation_y": -1.546104073524475
+      },
+      {
+        "name": "collision_workbench.001",
+        "asset": "Mine_workshops_workbench_02",
+        "shape": "box",
+        "center_godot": [
+          4.194079399108887,
+          0.42499998211860657,
+          43.065547943115234
+        ],
+        "size_godot": [
+          2.2300000190734863,
+          0.9200000166893005,
+          0.8899999856948853
+        ],
+        "rotation_y": -0.7629377841949463
+      },
+      {
+        "name": "collision_workbench.002",
+        "asset": "Mine_foreman_workroom_foreman_bench_01",
+        "shape": "box",
+        "center_godot": [
+          -32.62731170654297,
+          0.42499998211860657,
+          -48.6364631652832
+        ],
+        "size_godot": [
+          2.2300000190734863,
+          0.9200000166893005,
+          0.8899999856948853
+        ],
+        "rotation_y": 1.6212968826293945
+      },
+      {
+        "name": "collision_crate",
+        "asset": "Mine_entrance_abandoned_crate_stack_01",
+        "shape": "box",
+        "center_godot": [
+          -4.249545097351074,
+          0.35999998450279236,
+          61.682640075683594
+        ],
+        "size_godot": [
+          0.949999988079071,
+          0.7699999809265137,
+          0.7699999809265137
+        ],
+        "rotation_y": 1.0062463283538818
+      },
+      {
+        "name": "collision_crate.001",
+        "asset": "Mine_entrance_abandoned_crate_stack_01",
+        "shape": "box",
+        "center_godot": [
+          -3.8750271797180176,
+          0.29499998688697815,
+          60.73615264892578
+        ],
+        "size_godot": [
+          0.8500000238418579,
+          0.6399999856948853,
+          0.699999988079071
+        ],
+        "rotation_y": 1.0062463283538818
+      },
+      {
+        "name": "collision_crate.002",
+        "asset": "Mine_entrance_abandoned_crate_stack_01",
+        "shape": "box",
+        "center_godot": [
+          -4.249545097351074,
+          1.065000057220459,
+          61.682640075683594
+        ],
+        "size_godot": [
+          0.7799999713897705,
+          0.6000000238418579,
+          0.6499999761581421
+        ],
+        "rotation_y": 1.0062463283538818
+      },
+      {
+        "name": "collision_crate.003",
+        "asset": "Mine_east_store_abandoned_crate_stack_02",
+        "shape": "box",
+        "center_godot": [
+          52.30409622192383,
+          0.35999998450279236,
+          -12.129117965698242
+        ],
+        "size_godot": [
+          0.949999988079071,
+          0.7699999809265137,
+          0.7699999809265137
+        ],
+        "rotation_y": -0.519514262676239
+      },
+      {
+        "name": "collision_crate.004",
+        "asset": "Mine_east_store_abandoned_crate_stack_02",
+        "shape": "box",
+        "center_godot": [
+          53.26648712158203,
+          0.29499998688697815,
+          -11.797590255737305
+        ],
+        "size_godot": [
+          0.8500000238418579,
+          0.6399999856948853,
+          0.699999988079071
+        ],
+        "rotation_y": -0.519514262676239
+      },
+      {
+        "name": "collision_crate.005",
+        "asset": "Mine_east_store_abandoned_crate_stack_03",
+        "shape": "box",
+        "center_godot": [
+          52.042945861816406,
+          0.35999998450279236,
+          -21.50421142578125
+        ],
+        "size_godot": [
+          0.949999988079071,
+          0.7699999809265137,
+          0.7699999809265137
+        ],
+        "rotation_y": -2.9227609634399414
+      },
+      {
+        "name": "collision_crate.006",
+        "asset": "Mine_east_store_abandoned_crate_stack_03",
+        "shape": "box",
+        "center_godot": [
+          51.10803985595703,
+          0.29499998688697815,
+          -21.101654052734375
+        ],
+        "size_godot": [
+          0.8500000238418579,
+          0.6399999856948853,
+          0.699999988079071
+        ],
+        "rotation_y": -2.9227609634399414
+      },
+      {
+        "name": "collision_crate.007",
+        "asset": "Mine_east_store_abandoned_crate_stack_03",
+        "shape": "box",
+        "center_godot": [
+          52.042945861816406,
+          1.065000057220459,
+          -21.50421142578125
+        ],
+        "size_godot": [
+          0.7799999713897705,
+          0.6000000238418579,
+          0.6499999761581421
+        ],
+        "rotation_y": -2.9227609634399414
+      },
+      {
+        "name": "collision_crate.008",
+        "asset": "Mine_foreman_workroom_abandoned_crate_stack_04",
+        "shape": "box",
+        "center_godot": [
+          -31.246809005737305,
+          0.35999998450279236,
+          -52.206302642822266
+        ],
+        "size_godot": [
+          0.949999988079071,
+          0.7699999809265137,
+          0.7699999809265137
+        ],
+        "rotation_y": 2.273378610610962
+      },
+      {
+        "name": "collision_crate.009",
+        "asset": "Mine_foreman_workroom_abandoned_crate_stack_04",
+        "shape": "box",
+        "center_godot": [
+          -32.038002014160156,
+          0.29499998688697815,
+          -52.846702575683594
+        ],
+        "size_godot": [
+          0.8500000238418579,
+          0.6399999856948853,
+          0.699999988079071
+        ],
+        "rotation_y": 2.273378610610962
+      },
+      {
+        "name": "collision_crate.010",
+        "asset": "Mine_foreman_workroom_abandoned_crate_stack_04",
+        "shape": "box",
+        "center_godot": [
+          -31.246809005737305,
+          1.065000057220459,
+          -52.206302642822266
+        ],
+        "size_godot": [
+          0.7799999713897705,
+          0.6000000238418579,
+          0.6499999761581421
+        ],
+        "rotation_y": 2.273378610610962
+      },
+      {
+        "name": "collision_crate.011",
+        "asset": "Mine_north_workings_abandoned_crate_stack_05",
+        "shape": "box",
+        "center_godot": [
+          -52.253177642822266,
+          0.35999998450279236,
+          -60.38304901123047
+        ],
+        "size_godot": [
+          0.949999988079071,
+          0.7699999809265137,
+          0.7699999809265137
+        ],
+        "rotation_y": 2.429630756378174
+      },
+      {
+        "name": "collision_crate.012",
+        "asset": "Mine_north_workings_abandoned_crate_stack_05",
+        "shape": "box",
+        "center_godot": [
+          -53.1343879699707,
+          0.29499998688697815,
+          -60.892520904541016
+        ],
+        "size_godot": [
+          0.8500000238418579,
+          0.6399999856948853,
+          0.699999988079071
+        ],
+        "rotation_y": 2.429630756378174
+      },
+      {
+        "name": "collision_barrel",
+        "asset": "Mine_east_store_barrels_and_rope_01",
+        "shape": "box",
+        "center_godot": [
+          48.49501037597656,
+          0.51500004529953,
+          -20.18275260925293
+        ],
+        "size_godot": [
+          0.6934999823570251,
+          1.0800000429153442,
+          0.6934999823570251
+        ],
+        "rotation_y": 2.6679279804229736
+      },
+      {
+        "name": "collision_barrel.001",
+        "asset": "Mine_east_store_barrels_and_rope_01",
+        "shape": "box",
+        "center_godot": [
+          47.72334289550781,
+          0.4447999894618988,
+          -20.38726806640625
+        ],
+        "size_godot": [
+          0.6033449769020081,
+          0.9395999908447266,
+          0.6033449769020081
+        ],
+        "rotation_y": 2.6679279804229736
+      },
+      {
+        "name": "collision_barrel.002",
+        "asset": "Mine_foreman_workroom_barrels_and_rope_02",
+        "shape": "box",
+        "center_godot": [
+          -29.410051345825195,
+          0.51500004529953,
+          -43.35354232788086
+        ],
+        "size_godot": [
+          0.6934999823570251,
+          1.0800000429153442,
+          0.6934999823570251
+        ],
+        "rotation_y": 0.4869402050971985
+      },
+      {
+        "name": "collision_barrel.003",
+        "asset": "Mine_foreman_workroom_barrels_and_rope_02",
+        "shape": "box",
+        "center_godot": [
+          -28.80025863647461,
+          0.4447999894618988,
+          -43.8687629699707
+        ],
+        "size_godot": [
+          0.6033449769020081,
+          0.9395999908447266,
+          0.6033449769020081
+        ],
+        "rotation_y": 0.4869402050971985
+      },
+      {
+        "name": "collision_barrel.004",
+        "asset": "Mine_southwest_adit_barrels_and_rope_03",
+        "shape": "box",
+        "center_godot": [
+          -54.896888732910156,
+          0.51500004529953,
+          59.27764892578125
+        ],
+        "size_godot": [
+          0.6934999823570251,
+          1.0800000429153442,
+          0.6934999823570251
+        ],
+        "rotation_y": 1.2810500860214233
+      },
+      {
+        "name": "collision_barrel.005",
+        "asset": "Mine_southwest_adit_barrels_and_rope_03",
+        "shape": "box",
+        "center_godot": [
+          -54.83694839477539,
+          0.4447999894618988,
+          58.48159408569336
+        ],
+        "size_godot": [
+          0.6033449769020081,
+          0.9395999908447266,
+          0.6033449769020081
+        ],
+        "rotation_y": 1.2810500860214233
+      },
+      {
+        "name": "collision_support_foot",
+        "asset": "Mine_entrance_timber_support_01",
+        "shape": "box",
+        "center_godot": [
+          -3.2108683586120605,
+          1.9250000715255737,
+          57.06123733520508
+        ],
+        "size_godot": [
+          0.4399999976158142,
+          3.9000000953674316,
+          0.44999998807907104
+        ],
+        "rotation_y": 0.23137979209423065
+      },
+      {
+        "name": "collision_support_foot.001",
+        "asset": "Mine_entrance_timber_support_01",
+        "shape": "box",
+        "center_godot": [
+          0.5365324020385742,
+          1.9250000715255737,
+          56.1783561706543
+        ],
+        "size_godot": [
+          0.4399999976158142,
+          3.9000000953674316,
+          0.44999998807907104
+        ],
+        "rotation_y": 0.23137979209423065
+      },
+      {
+        "name": "collision_support_foot.002",
+        "asset": "Mine_workshops_timber_support_02",
+        "shape": "box",
+        "center_godot": [
+          0.9741480350494385,
+          1.9250000715255737,
+          42.9957389831543
+        ],
+        "size_godot": [
+          0.4399999976158142,
+          3.9000000953674316,
+          0.44999998807907104
+        ],
+        "rotation_y": 3.1028809547424316
+      },
+      {
+        "name": "collision_support_foot.003",
+        "asset": "Mine_workshops_timber_support_02",
+        "shape": "box",
+        "center_godot": [
+          -2.173491954803467,
+          1.9250000715255737,
+          42.87382888793945
+        ],
+        "size_godot": [
+          0.4399999976158142,
+          3.9000000953674316,
+          0.44999998807907104
+        ],
+        "rotation_y": 3.1028809547424316
+      },
+      {
+        "name": "collision_support_foot.004",
+        "asset": "Mine_grand_quarry_timber_support_03",
+        "shape": "box",
+        "center_godot": [
+          -3.7074520587921143,
+          1.9250000715255737,
+          -7.045086860656738
+        ],
+        "size_godot": [
+          0.4399999976158142,
+          3.9000000953674316,
+          0.44999998807907104
+        ],
+        "rotation_y": -3.116353750228882
+      },
+      {
+        "name": "collision_support_foot.005",
+        "asset": "Mine_grand_quarry_timber_support_03",
+        "shape": "box",
+        "center_godot": [
+          -8.256003379821777,
+          1.9250000715255737,
+          -6.930261611938477
+        ],
+        "size_godot": [
+          0.4399999976158142,
+          3.9000000953674316,
+          0.44999998807907104
+        ],
+        "rotation_y": -3.116353750228882
+      },
+      {
+        "name": "collision_support_foot.006",
+        "asset": "Mine_workshops_timber_support_04",
+        "shape": "box",
+        "center_godot": [
+          -3.689640998840332,
+          1.9250000715255737,
+          34.117835998535156
+        ],
+        "size_godot": [
+          0.4399999976158142,
+          3.9000000953674316,
+          0.44999998807907104
+        ],
+        "rotation_y": 0.34686651825904846
+      },
+      {
+        "name": "collision_support_foot.007",
+        "asset": "Mine_workshops_timber_support_04",
+        "shape": "box",
+        "center_godot": [
+          -0.5391587018966675,
+          1.9250000715255737,
+          32.97899627685547
+        ],
+        "size_godot": [
+          0.4399999976158142,
+          3.9000000953674316,
+          0.44999998807907104
+        ],
+        "rotation_y": 0.34686651825904846
+      },
+      {
+        "name": "collision_support_foot.008",
+        "asset": "Mine_rubble_passage_timber_support_05",
+        "shape": "box",
+        "center_godot": [
+          -24.84195327758789,
+          1.9250000715255737,
+          11.000500679016113
+        ],
+        "size_godot": [
+          0.4399999976158142,
+          3.9000000953674316,
+          0.44999998807907104
+        ],
+        "rotation_y": -1.5707963705062866
+      },
+      {
+        "name": "collision_support_foot.009",
+        "asset": "Mine_rubble_passage_timber_support_05",
+        "shape": "box",
+        "center_godot": [
+          -24.84195327758789,
+          1.9250000715255737,
+          14.05049991607666
+        ],
+        "size_godot": [
+          0.4399999976158142,
+          3.9000000953674316,
+          0.44999998807907104
+        ],
+        "rotation_y": -1.5707963705062866
+      },
+      {
+        "name": "collision_support_foot.010",
+        "asset": "Mine_western_altar_timber_support_06",
+        "shape": "box",
+        "center_godot": [
+          -31.898204803466797,
+          1.9250000715255737,
+          -20.562692642211914
+        ],
+        "size_godot": [
+          0.4399999976158142,
+          3.9000000953674316,
+          0.44999998807907104
+        ],
+        "rotation_y": -1.7295976877212524
+      },
+      {
+        "name": "collision_support_foot.011",
+        "asset": "Mine_western_altar_timber_support_06",
+        "shape": "box",
+        "center_godot": [
+          -32.507022857666016,
+          1.9250000715255737,
+          -16.761137008666992
+        ],
+        "size_godot": [
+          0.4399999976158142,
+          3.9000000953674316,
+          0.44999998807907104
+        ],
+        "rotation_y": -1.7295976877212524
+      },
+      {
+        "name": "collision_support_foot.012",
+        "asset": "Mine_upper_pool_timber_support_07",
+        "shape": "box",
+        "center_godot": [
+          -57.918121337890625,
+          1.9250000715255737,
+          -38.68757247924805
+        ],
+        "size_godot": [
+          0.4399999976158142,
+          3.9000000953674316,
+          0.44999998807907104
+        ],
+        "rotation_y": -0.512138843536377
+      },
+      {
+        "name": "collision_support_foot.013",
+        "asset": "Mine_upper_pool_timber_support_07",
+        "shape": "box",
+        "center_godot": [
+          -55.172271728515625,
+          1.9250000715255737,
+          -37.14393997192383
+        ],
+        "size_godot": [
+          0.4399999976158142,
+          3.9000000953674316,
+          0.44999998807907104
+        ],
+        "rotation_y": -0.512138843536377
+      },
+      {
+        "name": "collision_support_foot.014",
+        "asset": "Mine_upper_pool_timber_support_08",
+        "shape": "box",
+        "center_godot": [
+          -53.74848556518555,
+          1.9250000715255737,
+          -34.0192985534668
+        ],
+        "size_godot": [
+          0.4399999976158142,
+          3.9000000953674316,
+          0.44999998807907104
+        ],
+        "rotation_y": -1.9592654705047607
+      },
+      {
+        "name": "collision_support_foot.015",
+        "asset": "Mine_upper_pool_timber_support_08",
+        "shape": "box",
+        "center_godot": [
+          -54.979496002197266,
+          1.9250000715255737,
+          -31.011455535888672
+        ],
+        "size_godot": [
+          0.4399999976158142,
+          3.9000000953674316,
+          0.44999998807907104
+        ],
+        "rotation_y": -1.9592654705047607
+      },
+      {
+        "name": "collision_support_foot.016",
+        "asset": "Mine_north_workings_timber_support_09",
+        "shape": "box",
+        "center_godot": [
+          -48.619632720947266,
+          1.9250000715255737,
+          -59.70940017700195
+        ],
+        "size_godot": [
+          0.4399999976158142,
+          3.9000000953674316,
+          0.44999998807907104
+        ],
+        "rotation_y": -0.9551404714584351
+      },
+      {
+        "name": "collision_support_foot.017",
+        "asset": "Mine_north_workings_timber_support_09",
+        "shape": "box",
+        "center_godot": [
+          -46.56953048706055,
+          1.9250000715255737,
+          -56.81119918823242
+        ],
+        "size_godot": [
+          0.4399999976158142,
+          3.9000000953674316,
+          0.44999998807907104
+        ],
+        "rotation_y": -0.9551404714584351
+      },
+      {
+        "name": "collision_support_foot.018",
+        "asset": "Mine_foreman_workroom_timber_support_10",
+        "shape": "box",
+        "center_godot": [
+          -23.568180084228516,
+          1.9250000715255737,
+          -44.363487243652344
+        ],
+        "size_godot": [
+          0.4399999976158142,
+          3.9000000953674316,
+          0.44999998807907104
+        ],
+        "rotation_y": -2.8876726627349854
+      },
+      {
+        "name": "collision_support_foot.019",
+        "asset": "Mine_foreman_workroom_timber_support_10",
+        "shape": "box",
+        "center_godot": [
+          -27.19793701171875,
+          1.9250000715255737,
+          -43.421485900878906
+        ],
+        "size_godot": [
+          0.4399999976158142,
+          3.9000000953674316,
+          0.44999998807907104
+        ],
+        "rotation_y": -2.8876726627349854
+      },
+      {
+        "name": "collision_support_foot.020",
+        "asset": "Mine_foreman_workroom_timber_support_11",
+        "shape": "box",
+        "center_godot": [
+          -26.64681053161621,
+          1.9250000715255737,
+          -52.30778503417969
+        ],
+        "size_godot": [
+          0.4399999976158142,
+          3.9000000953674316,
+          0.44999998807907104
+        ],
+        "rotation_y": -0.35130375623703003
+      },
+      {
+        "name": "collision_support_foot.021",
+        "asset": "Mine_foreman_workroom_timber_support_11",
+        "shape": "box",
+        "center_godot": [
+          -23.876981735229492,
+          1.9250000715255737,
+          -51.292625427246094
+        ],
+        "size_godot": [
+          0.4399999976158142,
+          3.9000000953674316,
+          0.44999998807907104
+        ],
+        "rotation_y": -0.35130375623703003
+      },
+      {
+        "name": "collision_support_foot.022",
+        "asset": "Mine_foreman_workroom_timber_support_12",
+        "shape": "box",
+        "center_godot": [
+          -22.361873626708984,
+          1.9250000715255737,
+          -45.749412536621094
+        ],
+        "size_godot": [
+          0.4399999976158142,
+          3.9000000953674316,
+          0.44999998807907104
+        ],
+        "rotation_y": -2.462099552154541
+      },
+      {
+        "name": "collision_support_foot.023",
+        "asset": "Mine_foreman_workroom_timber_support_12",
+        "shape": "box",
+        "center_godot": [
+          -24.89002227783203,
+          1.9250000715255737,
+          -43.707115173339844
+        ],
+        "size_godot": [
+          0.4399999976158142,
+          3.9000000953674316,
+          0.44999998807907104
+        ],
+        "rotation_y": -2.462099552154541
+      },
+      {
+        "name": "collision_support_foot.024",
+        "asset": "Mine_upper_lake_timber_support_13",
+        "shape": "box",
+        "center_godot": [
+          4.2550458908081055,
+          1.9250000715255737,
+          -38.94527816772461
+        ],
+        "size_godot": [
+          0.4399999976158142,
+          3.9000000953674316,
+          0.44999998807907104
+        ],
+        "rotation_y": -2.8283064365386963
+      },
+      {
+        "name": "collision_support_foot.025",
+        "asset": "Mine_upper_lake_timber_support_13",
+        "shape": "box",
+        "center_godot": [
+          0.21191048622131348,
+          1.9250000715255737,
+          -37.6354866027832
+        ],
+        "size_godot": [
+          0.4399999976158142,
+          3.9000000953674316,
+          0.44999998807907104
+        ],
+        "rotation_y": -2.8283064365386963
+      },
+      {
+        "name": "collision_support_foot.026",
+        "asset": "Mine_pillar_shrine_timber_support_14",
+        "shape": "box",
+        "center_godot": [
+          51.13287353515625,
+          1.9250000715255737,
+          -43.286155700683594
+        ],
+        "size_godot": [
+          0.4399999976158142,
+          3.9000000953674316,
+          0.44999998807907104
+        ],
+        "rotation_y": -3.030233860015869
+      },
+      {
+        "name": "collision_support_foot.027",
+        "asset": "Mine_pillar_shrine_timber_support_14",
+        "shape": "box",
+        "center_godot": [
+          47.70423889160156,
+          1.9250000715255737,
+          -42.90276336669922
+        ],
+        "size_godot": [
+          0.4399999976158142,
+          3.9000000953674316,
+          0.44999998807907104
+        ],
+        "rotation_y": -3.030233860015869
+      },
+      {
+        "name": "collision_support_foot.028",
+        "asset": "Mine_pillar_shrine_timber_support_15",
+        "shape": "box",
+        "center_godot": [
+          52.65536880493164,
+          1.9250000715255737,
+          -43.3511962890625
+        ],
+        "size_godot": [
+          0.4399999976158142,
+          3.9000000953674316,
+          0.44999998807907104
+        ],
+        "rotation_y": -2.622637987136841
+      },
+      {
+        "name": "collision_support_foot.029",
+        "asset": "Mine_pillar_shrine_timber_support_15",
+        "shape": "box",
+        "center_godot": [
+          50.180606842041016,
+          1.9250000715255737,
+          -41.93767547607422
+        ],
+        "size_godot": [
+          0.4399999976158142,
+          3.9000000953674316,
+          0.44999998807907104
+        ],
+        "rotation_y": -2.622637987136841
+      },
+      {
+        "name": "collision_bridge_deck_board",
+        "asset": "Mine_west_pool_weathered_footbridge_01",
+        "shape": "box",
+        "center_godot": [
+          -54.6391487121582,
+          -0.026420917361974716,
+          -23.17456817626953
+        ],
+        "size_godot": [
+          3.1191306114196777,
+          0.10000000149011612,
+          0.30373913049697876
+        ],
+        "rotation_y": 0.0
+      },
+      {
+        "name": "collision_bridge_deck_board.001",
+        "asset": "Mine_west_pool_weathered_footbridge_01",
+        "shape": "box",
+        "center_godot": [
+          -54.60276412963867,
+          -0.05214725434780121,
+          -23.496307373046875
+        ],
+        "size_godot": [
+          3.016813039779663,
+          0.10000000149011612,
+          0.30373913049697876
+        ],
+        "rotation_y": 0.0
+      },
+      {
+        "name": "collision_bridge_deck_board.002",
+        "asset": "Mine_west_pool_weathered_footbridge_01",
+        "shape": "box",
+        "center_godot": [
+          -54.62673568725586,
+          -0.04101718217134476,
+          -23.81804656982422
+        ],
+        "size_godot": [
+          3.049424648284912,
+          0.10000000149011612,
+          0.30373913049697876
+        ],
+        "rotation_y": 0.0
+      },
+      {
+        "name": "collision_bridge_deck_board.003",
+        "asset": "Mine_west_pool_weathered_footbridge_01",
+        "shape": "box",
+        "center_godot": [
+          -54.47501754760742,
+          -0.03458130359649658,
+          -24.139785766601562
+        ],
+        "size_godot": [
+          2.67116641998291,
+          0.10000000149011612,
+          0.30373913049697876
+        ],
+        "rotation_y": 0.0
+      },
+      {
+        "name": "collision_bridge_deck_board.004",
+        "asset": "Mine_west_pool_weathered_footbridge_01",
+        "shape": "box",
+        "center_godot": [
+          -54.66405487060547,
+          -0.01770775578916073,
+          -24.461524963378906
+        ],
+        "size_godot": [
+          3.050011396408081,
+          0.10000000149011612,
+          0.30373913049697876
+        ],
+        "rotation_y": 0.0
+      },
+      {
+        "name": "collision_bridge_deck_board.005",
+        "asset": "Mine_west_pool_weathered_footbridge_01",
+        "shape": "box",
+        "center_godot": [
+          -54.63966751098633,
+          -0.019834067672491074,
+          -24.78326416015625
+        ],
+        "size_godot": [
+          3.043062210083008,
+          0.10000000149011612,
+          0.30373913049697876
+        ],
+        "rotation_y": 0.0
+      },
+      {
+        "name": "collision_bridge_deck_board.006",
+        "asset": "Mine_west_pool_weathered_footbridge_01",
+        "shape": "box",
+        "center_godot": [
+          -54.6082878112793,
+          -0.018974708393216133,
+          -25.105003356933594
+        ],
+        "size_godot": [
+          3.051584482192993,
+          0.10000000149011612,
+          0.30373913049697876
+        ],
+        "rotation_y": 0.0
+      },
+      {
+        "name": "collision_bridge_deck_board.007",
+        "asset": "Mine_west_pool_weathered_footbridge_01",
+        "shape": "box",
+        "center_godot": [
+          -54.63512420654297,
+          -0.036530446261167526,
+          -25.426742553710938
+        ],
+        "size_godot": [
+          2.9957237243652344,
+          0.10000000149011612,
+          0.30373913049697876
+        ],
+        "rotation_y": 0.0
+      },
+      {
+        "name": "collision_bridge_deck_board.008",
+        "asset": "Mine_west_pool_weathered_footbridge_01",
+        "shape": "box",
+        "center_godot": [
+          -54.619571685791016,
+          -0.02397167682647705,
+          -25.74848175048828
+        ],
+        "size_godot": [
+          3.030153512954712,
+          0.10000000149011612,
+          0.30373913049697876
+        ],
+        "rotation_y": 0.0
+      },
+      {
+        "name": "collision_bridge_deck_board.009",
+        "asset": "Mine_west_pool_weathered_footbridge_01",
+        "shape": "box",
+        "center_godot": [
+          -54.63458251953125,
+          -0.029826859012246132,
+          -26.070220947265625
+        ],
+        "size_godot": [
+          3.0133073329925537,
+          0.10000000149011612,
+          0.30373913049697876
+        ],
+        "rotation_y": 0.0
+      },
+      {
+        "name": "collision_bridge_deck_board.010",
+        "asset": "Mine_west_pool_weathered_footbridge_01",
+        "shape": "box",
+        "center_godot": [
+          -54.60336685180664,
+          -0.02449210360646248,
+          -26.39196014404297
+        ],
+        "size_godot": [
+          3.0270049571990967,
+          0.10000000149011612,
+          0.30373913049697876
+        ],
+        "rotation_y": 0.0
+      },
+      {
+        "name": "collision_bridge_deck_board.011",
+        "asset": "Mine_west_pool_weathered_footbridge_01",
+        "shape": "box",
+        "center_godot": [
+          -54.62640380859375,
+          -0.041390955448150635,
+          -26.713699340820312
+        ],
+        "size_godot": [
+          3.1186602115631104,
+          0.10000000149011612,
+          0.30373913049697876
+        ],
+        "rotation_y": 0.0
+      },
+      {
+        "name": "collision_bridge_deck_board.012",
+        "asset": "Mine_west_pool_weathered_footbridge_01",
+        "shape": "box",
+        "center_godot": [
+          -54.62564468383789,
+          -0.02700250782072544,
+          -27.035438537597656
+        ],
+        "size_godot": [
+          3.0104546546936035,
+          0.10000000149011612,
+          0.30373913049697876
+        ],
+        "rotation_y": 0.0
+      },
+      {
+        "name": "collision_bridge_deck_board.013",
+        "asset": "Mine_west_pool_weathered_footbridge_01",
+        "shape": "box",
+        "center_godot": [
+          -54.646297454833984,
+          -0.04061242938041687,
+          -27.357177734375
+        ],
+        "size_godot": [
+          3.109353542327881,
+          0.10000000149011612,
+          0.30373913049697876
+        ],
+        "rotation_y": 0.0
+      },
+      {
+        "name": "collision_bridge_deck_board.014",
+        "asset": "Mine_west_pool_weathered_footbridge_01",
+        "shape": "box",
+        "center_godot": [
+          -54.62862777709961,
+          -0.045195404440164566,
+          -27.678916931152344
+        ],
+        "size_godot": [
+          3.097198963165283,
+          0.10000000149011612,
+          0.30373913049697876
+        ],
+        "rotation_y": 0.0
+      },
+      {
+        "name": "collision_bridge_deck_board.015",
+        "asset": "Mine_west_pool_weathered_footbridge_01",
+        "shape": "box",
+        "center_godot": [
+          -54.613685607910156,
+          -0.052278123795986176,
+          -28.000656127929688
+        ],
+        "size_godot": [
+          3.0201470851898193,
+          0.10000000149011612,
+          0.30373913049697876
+        ],
+        "rotation_y": 0.0
+      },
+      {
+        "name": "collision_bridge_deck_board.016",
+        "asset": "Mine_west_pool_weathered_footbridge_01",
+        "shape": "box",
+        "center_godot": [
+          -54.62303924560547,
+          -0.03268949314951897,
+          -28.32239532470703
+        ],
+        "size_godot": [
+          3.1085550785064697,
+          0.10000000149011612,
+          0.30373913049697876
+        ],
+        "rotation_y": 0.0
+      },
+      {
+        "name": "collision_bridge_deck_board.017",
+        "asset": "Mine_west_pool_weathered_footbridge_01",
+        "shape": "box",
+        "center_godot": [
+          -54.645633697509766,
+          -0.0295969620347023,
+          -28.644134521484375
+        ],
+        "size_godot": [
+          3.037099599838257,
+          0.10000000149011612,
+          0.30373913049697876
+        ],
+        "rotation_y": 0.0
+      },
+      {
+        "name": "collision_bridge_deck_board.018",
+        "asset": "Mine_west_pool_weathered_footbridge_01",
+        "shape": "box",
+        "center_godot": [
+          -54.46919631958008,
+          -0.04044201597571373,
+          -28.96587371826172
+        ],
+        "size_godot": [
+          2.6828107833862305,
+          0.10000000149011612,
+          0.30373913049697876
+        ],
+        "rotation_y": 0.0
+      },
+      {
+        "name": "collision_bridge_deck_board.019",
+        "asset": "Mine_west_pool_weathered_footbridge_01",
+        "shape": "box",
+        "center_godot": [
+          -54.63602828979492,
+          -0.02539907768368721,
+          -29.287612915039062
+        ],
+        "size_godot": [
+          3.0835113525390625,
+          0.10000000149011612,
+          0.30373913049697876
+        ],
+        "rotation_y": 0.0
+      },
+      {
+        "name": "collision_bridge_deck_board.020",
+        "asset": "Mine_west_pool_weathered_footbridge_01",
+        "shape": "box",
+        "center_godot": [
+          -54.633705139160156,
+          -0.04691518098115921,
+          -29.609352111816406
+        ],
+        "size_godot": [
+          3.1108853816986084,
+          0.10000000149011612,
+          0.30373913049697876
+        ],
+        "rotation_y": 0.0
+      },
+      {
+        "name": "collision_bridge_deck_board.021",
+        "asset": "Mine_west_pool_weathered_footbridge_01",
+        "shape": "box",
+        "center_godot": [
+          -54.606849670410156,
+          -0.04697393625974655,
+          -29.93109130859375
+        ],
+        "size_godot": [
+          3.0306384563446045,
+          0.10000000149011612,
+          0.30373913049697876
+        ],
+        "rotation_y": 0.0
+      },
+      {
+        "name": "collision_bridge_deck_board.022",
+        "asset": "Mine_west_pool_weathered_footbridge_01",
+        "shape": "box",
+        "center_godot": [
+          -54.64808654785156,
+          -0.052280083298683167,
+          -30.252830505371094
+        ],
+        "size_godot": [
+          3.1029207706451416,
+          0.10000000149011612,
+          0.30373913049697876
+        ],
+        "rotation_y": 0.0
+      },
+      {
+        "name": "collision_bridge_deck_board.023",
+        "asset": "Mine_east_store_weathered_footbridge_02",
+        "shape": "box",
+        "center_godot": [
+          40.105770111083984,
+          -0.02545391209423542,
+          -11.373244285583496
+        ],
+        "size_godot": [
+          4.031280040740967,
+          0.10000000149011612,
+          0.30373913049697876
+        ],
+        "rotation_y": 0.9100000262260437
+      },
+      {
+        "name": "collision_bridge_deck_board.024",
+        "asset": "Mine_east_store_weathered_footbridge_02",
+        "shape": "box",
+        "center_godot": [
+          39.8333625793457,
+          -0.019400302320718765,
+          -11.547052383422852
+        ],
+        "size_godot": [
+          4.0543532371521,
+          0.10000000149011612,
+          0.30373913049697876
+        ],
+        "rotation_y": 0.9100000262260437
+      },
+      {
+        "name": "collision_bridge_deck_board.025",
+        "asset": "Mine_east_store_weathered_footbridge_02",
+        "shape": "box",
+        "center_godot": [
+          39.59116744995117,
+          -0.02786288410425186,
+          -11.759719848632812
+        ],
+        "size_godot": [
+          4.023906707763672,
+          0.10000000149011612,
+          0.30373913049697876
+        ],
+        "rotation_y": 0.9100000262260437
+      },
+      {
+        "name": "collision_bridge_deck_board.026",
+        "asset": "Mine_east_store_weathered_footbridge_02",
+        "shape": "box",
+        "center_godot": [
+          39.44123458862305,
+          -0.04545954614877701,
+          -12.091073036193848
+        ],
+        "size_godot": [
+          3.674161911010742,
+          0.10000000149011612,
+          0.30373913049697876
+        ],
+        "rotation_y": 0.9100000262260437
+      },
+      {
+        "name": "collision_bridge_deck_board.027",
+        "asset": "Mine_east_store_weathered_footbridge_02",
+        "shape": "box",
+        "center_godot": [
+          39.08120346069336,
+          -0.04613414406776428,
+          -12.152162551879883
+        ],
+        "size_godot": [
+          4.021795749664307,
+          0.10000000149011612,
+          0.30373913049697876
+        ],
+        "rotation_y": 0.9100000262260437
+      },
+      {
+        "name": "collision_bridge_deck_board.028",
+        "asset": "Mine_east_store_weathered_footbridge_02",
+        "shape": "box",
+        "center_godot": [
+          38.808597564697266,
+          -0.023118674755096436,
+          -12.325711250305176
+        ],
+        "size_godot": [
+          3.9810686111450195,
+          0.10000000149011612,
+          0.30373913049697876
+        ],
+        "rotation_y": 0.9100000262260437
+      },
+      {
+        "name": "collision_bridge_deck_board.029",
+        "asset": "Mine_east_store_weathered_footbridge_02",
+        "shape": "box",
+        "center_godot": [
+          38.57248306274414,
+          -0.05296141654253006,
+          -12.546202659606934
+        ],
+        "size_godot": [
+          3.9622340202331543,
+          0.10000000149011612,
+          0.30373913049697876
+        ],
+        "rotation_y": 0.9100000262260437
+      },
+      {
+        "name": "collision_bridge_deck_board.030",
+        "asset": "Mine_east_store_weathered_footbridge_02",
+        "shape": "box",
+        "center_godot": [
+          38.31142044067383,
+          -0.04987134039402008,
+          -12.734601974487305
+        ],
+        "size_godot": [
+          4.060007572174072,
+          0.10000000149011612,
+          0.30373913049697876
+        ],
+        "rotation_y": 0.9100000262260437
+      },
+      {
+        "name": "collision_bridge_deck_board.031",
+        "asset": "Mine_east_store_weathered_footbridge_02",
+        "shape": "box",
+        "center_godot": [
+          38.052303314208984,
+          -0.021139703691005707,
+          -12.925505638122559
+        ],
+        "size_godot": [
+          3.984236001968384,
+          0.10000000149011612,
+          0.30373913049697876
+        ],
+        "rotation_y": 0.9100000262260437
+      },
+      {
+        "name": "collision_bridge_deck_board.032",
+        "asset": "Mine_east_store_weathered_footbridge_02",
+        "shape": "box",
+        "center_godot": [
+          37.80742645263672,
+          -0.03413698077201843,
+          -13.134725570678711
+        ],
+        "size_godot": [
+          4.00253438949585,
+          0.10000000149011612,
+          0.30373913049697876
+        ],
+        "rotation_y": 0.9100000262260437
+      },
+      {
+        "name": "collision_bridge_deck_board.033",
+        "asset": "Mine_east_store_weathered_footbridge_02",
+        "shape": "box",
+        "center_godot": [
+          37.55488204956055,
+          -0.024826494976878166,
+          -13.334083557128906
+        ],
+        "size_godot": [
+          3.9253087043762207,
+          0.10000000149011612,
+          0.30373913049697876
+        ],
+        "rotation_y": 0.9100000262260437
+      },
+      {
+        "name": "collision_bridge_deck_board.034",
+        "asset": "Mine_east_store_weathered_footbridge_02",
+        "shape": "box",
+        "center_godot": [
+          37.31314468383789,
+          -0.04058379307389259,
+          -13.547342300415039
+        ],
+        "size_godot": [
+          4.0178608894348145,
+          0.10000000149011612,
+          0.30373913049697876
+        ],
+        "rotation_y": 0.9100000262260437
+      },
+      {
+        "name": "collision_bridge_deck_board.035",
+        "asset": "Mine_east_store_weathered_footbridge_02",
+        "shape": "box",
+        "center_godot": [
+          37.024147033691406,
+          -0.041827525943517685,
+          -13.699807167053223
+        ],
+        "size_godot": [
+          4.042142391204834,
+          0.10000000149011612,
+          0.30373913049697876
+        ],
+        "rotation_y": 0.9100000262260437
+      },
+      {
+        "name": "collision_bridge_deck_board.036",
+        "asset": "Mine_east_store_weathered_footbridge_02",
+        "shape": "box",
+        "center_godot": [
+          36.765689849853516,
+          -0.04231425002217293,
+          -13.891555786132812
+        ],
+        "size_godot": [
+          4.032075881958008,
+          0.10000000149011612,
+          0.30373913049697876
+        ],
+        "rotation_y": 0.9100000262260437
+      },
+      {
+        "name": "collision_bridge_deck_board.037",
+        "asset": "Mine_east_store_weathered_footbridge_02",
+        "shape": "box",
+        "center_godot": [
+          36.524559020996094,
+          -0.028475884348154068,
+          -14.105596542358398
+        ],
+        "size_godot": [
+          4.069121360778809,
+          0.10000000149011612,
+          0.30373913049697876
+        ],
+        "rotation_y": 0.9100000262260437
+      },
+      {
+        "name": "collision_bridge_deck_board.038",
+        "asset": "Mine_east_store_weathered_footbridge_02",
+        "shape": "box",
+        "center_godot": [
+          36.27464294433594,
+          -0.02843775413930416,
+          -14.308334350585938
+        ],
+        "size_godot": [
+          4.019408226013184,
+          0.10000000149011612,
+          0.30373913049697876
+        ],
+        "rotation_y": 0.9100000262260437
+      },
+      {
+        "name": "collision_bridge_deck_board.039",
+        "asset": "Mine_east_store_weathered_footbridge_02",
+        "shape": "box",
+        "center_godot": [
+          36.0361213684082,
+          -0.04458111524581909,
+          -14.52573013305664
+        ],
+        "size_godot": [
+          3.965808868408203,
+          0.10000000149011612,
+          0.30373913049697876
+        ],
+        "rotation_y": 0.9100000262260437
+      },
+      {
+        "name": "collision_bridge_deck_board.040",
+        "asset": "Mine_east_store_weathered_footbridge_02",
+        "shape": "box",
+        "center_godot": [
+          35.7851676940918,
+          -0.021483225747942924,
+          -14.727130889892578
+        ],
+        "size_godot": [
+          4.007293701171875,
+          0.10000000149011612,
+          0.30373913049697876
+        ],
+        "rotation_y": 0.9100000262260437
+      },
+      {
+        "name": "collision_bridge_deck_board.041",
+        "asset": "Mine_east_store_weathered_footbridge_02",
+        "shape": "box",
+        "center_godot": [
+          35.62621307373047,
+          -0.03733086958527565,
+          -15.04687786102295
+        ],
+        "size_godot": [
+          3.6584932804107666,
+          0.10000000149011612,
+          0.30373913049697876
+        ],
+        "rotation_y": 0.9100000262260437
+      },
+      {
+        "name": "collision_bridge_deck_board.042",
+        "asset": "Mine_east_store_weathered_footbridge_02",
+        "shape": "box",
+        "center_godot": [
+          35.27090072631836,
+          -0.02864859811961651,
+          -15.11404037475586
+        ],
+        "size_godot": [
+          4.020606994628906,
+          0.10000000149011612,
+          0.30373913049697876
+        ],
+        "rotation_y": 0.9100000262260437
+      },
+      {
+        "name": "collision_bridge_deck_board.043",
+        "asset": "Mine_east_store_weathered_footbridge_02",
+        "shape": "box",
+        "center_godot": [
+          35.01399230957031,
+          -0.04929346591234207,
+          -15.307784080505371
+        ],
+        "size_godot": [
+          3.927433967590332,
+          0.10000000149011612,
+          0.30373913049697876
+        ],
+        "rotation_y": 0.9100000262260437
+      },
+      {
+        "name": "collision_bridge_deck_board.044",
+        "asset": "Mine_east_store_weathered_footbridge_02",
+        "shape": "box",
+        "center_godot": [
+          34.75649642944336,
+          -0.025109903886914253,
+          -15.500770568847656
+        ],
+        "size_godot": [
+          4.060608863830566,
+          0.10000000149011612,
+          0.30373913049697876
+        ],
+        "rotation_y": 0.9100000262260437
+      },
+      {
+        "name": "collision_bridge_deck_board.045",
+        "asset": "Mine_east_store_weathered_footbridge_02",
+        "shape": "box",
+        "center_godot": [
+          34.510963439941406,
+          -0.03865122050046921,
+          -15.709146499633789
+        ],
+        "size_godot": [
+          3.9566097259521484,
+          0.10000000149011612,
+          0.30373913049697876
+        ],
+        "rotation_y": 0.9100000262260437
+      }
+    ],
+    "counts": {
+      "manual_hoist": 1,
+      "overturned_ore_cart": 1,
+      "ore_cart": 1,
+      "workbench": 2,
+      "foreman_bench": 1,
+      "abandoned_crate_stack": 5,
+      "barrels_and_rope": 3,
+      "abandoned_hand_tools": 4,
+      "torn_canvas_rack": 1,
+      "timber_support": 15,
+      "short_disused_rail": 3,
+      "weathered_footbridge": 2
+    },
+    "skipped": [
+      {
+        "kind": "barrels_and_rope",
+        "zone": "workshops",
+        "reason": "No collision-free edge placement remained"
+      }
+    ],
+    "uv_metres_per_unit": 1.0,
+    "notes": [
+      "Scan materials supplied by the parent shell builder.",
+      "collision_* meshes are hidden from renders and exported separately as box metadata.",
+      "Low rails are nonblocking dressing. Timber support feet stay outside the walk route."
+    ]
+  },
+  "fixtures": {
+    "assets": [
+      {
+        "name": "Mine_entrance_supported_oil_lantern_01",
+        "kind": "supported_oil_lantern",
+        "zone": "entrance",
+        "position_godot": [
+          -3.0,
+          -0.02500000037252903,
+          57
+        ],
+        "rotation_y": 0.0,
+        "light_marker_id": "fixture_0",
+        "wick_godot": [
+          -3.0,
+          2.2,
+          57.0
+        ]
+      },
+      {
+        "name": "Mine_entrance_supported_oil_lantern_02",
+        "kind": "supported_oil_lantern",
+        "zone": "entrance",
+        "position_godot": [
+          -1.7,
+          -0.02500000037252903,
+          57
+        ],
+        "rotation_y": 2.399963,
+        "light_marker_id": "fixture_1",
+        "wick_godot": [
+          -1.7,
+          2.2,
+          57.0
+        ]
+      },
+      {
+        "name": "Mine_entrance_supported_oil_lantern_03",
+        "kind": "supported_oil_lantern",
+        "zone": "entrance",
+        "position_godot": [
+          -0.3999999999999999,
+          -0.02500000037252903,
+          57
+        ],
+        "rotation_y": 4.799926,
+        "light_marker_id": "fixture_2",
+        "wick_godot": [
+          -0.3999999999999999,
+          2.2,
+          57.0
+        ]
+      },
+      {
+        "name": "Mine_entrance_supported_oil_lantern_04",
+        "kind": "supported_oil_lantern",
+        "zone": "entrance",
+        "position_godot": [
+          0.9000000000000004,
+          -0.02500000037252903,
+          57
+        ],
+        "rotation_y": 7.199889000000001,
+        "light_marker_id": "fixture_3",
+        "wick_godot": [
+          0.9000000000000004,
+          2.2,
+          57.0
+        ]
+      },
+      {
+        "name": "Mine_entrance_supported_oil_lantern_05",
+        "kind": "supported_oil_lantern",
+        "zone": "entrance",
+        "position_godot": [
+          2.2,
+          -0.02500000037252903,
+          57
+        ],
+        "rotation_y": 9.599852,
+        "light_marker_id": "fixture_4",
+        "wick_godot": [
+          2.2,
+          2.2,
+          57.0
+        ]
+      },
+      {
+        "name": "Mine_entrance_supported_oil_lantern_06",
+        "kind": "supported_oil_lantern",
+        "zone": "entrance",
+        "position_godot": [
+          3.5,
+          -0.02500000037252903,
+          57
+        ],
+        "rotation_y": 11.999815,
+        "light_marker_id": "fixture_5",
+        "wick_godot": [
+          3.5,
+          2.2,
+          57.0
+        ]
+      }
+    ],
+    "collision_proxies": [
+      {
+        "name": "collision_lantern_stake",
+        "asset": "Mine_entrance_supported_oil_lantern_01",
+        "shape": "box",
+        "center_godot": [
+          -2.7300000190734863,
+          1.284500002861023,
+          56.869998931884766
+        ],
+        "size_godot": [
+          0.15000000596046448,
+          2.739000082015991,
+          0.17000000178813934
+        ],
+        "rotation_y": 0.0
+      },
+      {
+        "name": "collision_lantern_stake.001",
+        "asset": "Mine_entrance_supported_oil_lantern_02",
+        "shape": "box",
+        "center_godot": [
+          -1.986903429031372,
+          1.284500002861023,
+          56.913475036621094
+        ],
+        "size_godot": [
+          0.15000000596046448,
+          2.739000082015991,
+          0.17000000178813934
+        ],
+        "rotation_y": 2.399962902069092
+      },
+      {
+        "name": "collision_lantern_stake.002",
+        "asset": "Mine_entrance_supported_oil_lantern_03",
+        "shape": "box",
+        "center_godot": [
+          -0.2468930035829544,
+          1.284500002861023,
+          57.25760269165039
+        ],
+        "size_godot": [
+          0.15000000596046448,
+          2.739000082015991,
+          0.17000000178813934
+        ],
+        "rotation_y": 4.799925804138184
+      },
+      {
+        "name": "collision_lantern_stake.003",
+        "asset": "Mine_entrance_supported_oil_lantern_04",
+        "shape": "box",
+        "center_godot": [
+          0.961110532283783,
+          1.284500002861023,
+          56.70663070678711
+        ],
+        "size_godot": [
+          0.15000000596046448,
+          2.739000082015991,
+          0.17000000178813934
+        ],
+        "rotation_y": 7.199889183044434
+      },
+      {
+        "name": "collision_lantern_stake.004",
+        "asset": "Mine_entrance_supported_oil_lantern_05",
+        "shape": "box",
+        "center_godot": [
+          1.9567707777023315,
+          1.284500002861023,
+          57.17504119873047
+        ],
+        "size_godot": [
+          0.15000000596046448,
+          2.739000082015991,
+          0.17000000178813934
+        ],
+        "rotation_y": 9.599851608276367
+      },
+      {
+        "name": "collision_lantern_stake.005",
+        "asset": "Mine_entrance_supported_oil_lantern_06",
+        "shape": "box",
+        "center_godot": [
+          3.797588586807251,
+          1.284500002861023,
+          57.03522872924805
+        ],
+        "size_godot": [
+          0.15000000596046448,
+          2.739000082015991,
+          0.17000000178813934
+        ],
+        "rotation_y": 11.999814987182617
+      }
+    ],
+    "counts": {
+      "supported_oil_lantern": 6
+    },
+    "notes": [
+      "Open-sided cages prevent the authored light from being occluded by opaque panes.",
+      "Each lamp wick is aligned to its supplied gameplay light marker."
+    ]
+  },
+  "architecture": {
+    "assets": [
+      {
+        "name": "Mine_pillar_shrine_ruined_shrine_01",
+        "kind": "ruined_shrine",
+        "zone": "pillar_shrine",
+        "position_godot": [
+          49.3078,
+          -0.02500000037252903,
+          -55.866
+        ],
+        "rotation_y": 0.0,
+        "landmark_id": "shrine_idol"
+      },
+      {
+        "name": "Mine_western_altar_ruined_altar_01",
+        "kind": "ruined_altar",
+        "zone": "western_altar",
+        "position_godot": [
+          -35.1005,
+          -0.02500000037252903,
+          -19.7305
+        ],
+        "rotation_y": 0.0,
+        "landmark_id": "abandoned_west_altar"
+      },
+      {
+        "name": "Mine_grand_quarry_stone_pillar_01",
+        "kind": "stone_pillar",
+        "zone": "grand_quarry",
+        "position_godot": [
+          -9.5064,
+          -0.02500000037252903,
+          -11.4171
+        ],
+        "rotation_y": 0.0,
+        "landmark_id": "quarry_support_00"
+      },
+      {
+        "name": "Mine_grand_quarry_stone_pillar_02",
+        "kind": "stone_pillar",
+        "zone": "grand_quarry",
+        "position_godot": [
+          -2.6116,
+          -0.02500000037252903,
+          -16.2943
+        ],
+        "rotation_y": 0.0,
+        "landmark_id": "quarry_support_01"
+      },
+      {
+        "name": "Mine_grand_quarry_stone_pillar_03",
+        "kind": "stone_pillar",
+        "zone": "grand_quarry",
+        "position_godot": [
+          6.2679,
+          -0.02500000037252903,
+          -19.1762
+        ],
+        "rotation_y": 0.0,
+        "landmark_id": "quarry_support_02"
+      },
+      {
+        "name": "Mine_grand_quarry_stone_pillar_04",
+        "kind": "stone_pillar",
+        "zone": "grand_quarry",
+        "position_godot": [
+          11.2823,
+          -0.02500000037252903,
+          -9.5327
+        ],
+        "rotation_y": 0.0,
+        "landmark_id": "quarry_support_03"
+      },
+      {
+        "name": "Mine_grand_quarry_stone_pillar_05",
+        "kind": "stone_pillar",
+        "zone": "grand_quarry",
+        "position_godot": [
+          10.6555,
+          -0.02500000037252903,
+          1.8844
+        ],
+        "rotation_y": 0.0,
+        "landmark_id": "quarry_support_04"
+      },
+      {
+        "name": "Mine_grand_quarry_stone_pillar_06",
+        "kind": "stone_pillar",
+        "zone": "grand_quarry",
+        "position_godot": [
+          0.8357,
+          -0.02500000037252903,
+          -1.8844
+        ],
+        "rotation_y": 0.0,
+        "landmark_id": "quarry_support_05"
+      },
+      {
+        "name": "Mine_grand_quarry_stone_pillar_07",
+        "kind": "stone_pillar",
+        "zone": "grand_quarry",
+        "position_godot": [
+          -8.4617,
+          -0.02500000037252903,
+          -4.5447
+        ],
+        "rotation_y": 0.0,
+        "landmark_id": "quarry_support_06"
+      },
+      {
+        "name": "Mine_pillar_shrine_stone_pillar_08",
+        "kind": "stone_pillar",
+        "zone": "pillar_shrine",
+        "position_godot": [
+          42.7265,
+          -0.02500000037252903,
+          -53.76
+        ],
+        "rotation_y": 0.0,
+        "landmark_id": "shrine_column_00"
+      },
+      {
+        "name": "Mine_pillar_shrine_stone_pillar_09",
+        "kind": "stone_pillar",
+        "zone": "pillar_shrine",
+        "position_godot": [
+          55.6802,
+          -0.02500000037252903,
+          -53.8708
+        ],
+        "rotation_y": 0.0,
+        "landmark_id": "shrine_column_01"
+      },
+      {
+        "name": "Mine_pillar_shrine_stone_pillar_10",
+        "kind": "stone_pillar",
+        "zone": "pillar_shrine",
+        "position_godot": [
+          44.6069,
+          -0.02500000037252903,
+          -48.9936
+        ],
+        "rotation_y": 0.0,
+        "landmark_id": "shrine_column_02"
+      },
+      {
+        "name": "Mine_pillar_shrine_stone_pillar_11",
+        "kind": "stone_pillar",
+        "zone": "pillar_shrine",
+        "position_godot": [
+          53.7998,
+          -0.02500000037252903,
+          -48.8828
+        ],
+        "rotation_y": 0.0,
+        "landmark_id": "shrine_column_03"
+      },
+      {
+        "name": "Mine_pillar_shrine_stone_pillar_12",
+        "kind": "stone_pillar",
+        "zone": "pillar_shrine",
+        "position_godot": [
+          43.3533,
+          -0.02500000037252903,
+          -44.0056
+        ],
+        "rotation_y": 0.0,
+        "landmark_id": "shrine_column_04"
+      },
+      {
+        "name": "Mine_pillar_shrine_stone_pillar_13",
+        "kind": "stone_pillar",
+        "zone": "pillar_shrine",
+        "position_godot": [
+          55.0534,
+          -0.02500000037252903,
+          -43.8947
+        ],
+        "rotation_y": 0.0,
+        "landmark_id": "shrine_column_05"
+      }
+    ],
+    "collision_proxies": [
+      {
+        "name": "collision_shrine_pedestal",
+        "asset": "Mine_pillar_shrine_ruined_shrine_01",
+        "shape": "box",
+        "center_godot": [
+          49.30780029296875,
+          0.33500000834465027,
+          -55.86600112915039
+        ],
+        "size_godot": [
+          1.7599999904632568,
+          0.7400000095367432,
+          1.3600000143051147
+        ],
+        "rotation_y": 0.0
+      },
+      {
+        "name": "collision_shrine_effigy",
+        "asset": "Mine_pillar_shrine_ruined_shrine_01",
+        "shape": "box",
+        "center_godot": [
+          49.30780029296875,
+          1.5950000286102295,
+          -55.86600112915039
+        ],
+        "size_godot": [
+          1.0299999713897705,
+          1.850000023841858,
+          0.9700000286102295
+        ],
+        "rotation_y": 0.0
+      },
+      {
+        "name": "collision_abandoned_stone_altar",
+        "asset": "Mine_western_altar_ruined_altar_01",
+        "shape": "box",
+        "center_godot": [
+          -35.10049819946289,
+          0.51500004529953,
+          -19.730499267578125
+        ],
+        "size_godot": [
+          2.0999999046325684,
+          1.0700000524520874,
+          1.3200000524520874
+        ],
+        "rotation_y": 0.0
+      },
+      {
+        "name": "collision_stone_pillar_core",
+        "asset": "Mine_grand_quarry_stone_pillar_01",
+        "shape": "box",
+        "center_godot": [
+          -9.506400108337402,
+          3.4749999046325684,
+          -11.417099952697754
+        ],
+        "size_godot": [
+          0.9700000286102295,
+          7.0,
+          0.9700000286102295
+        ],
+        "rotation_y": 0.0
+      },
+      {
+        "name": "collision_stone_pillar_foundation",
+        "asset": "Mine_grand_quarry_stone_pillar_01",
+        "shape": "box",
+        "center_godot": [
+          -9.506400108337402,
+          0.19499999284744263,
+          -11.417099952697754
+        ],
+        "size_godot": [
+          1.3200000524520874,
+          0.47999998927116394,
+          1.3200000524520874
+        ],
+        "rotation_y": 0.0
+      },
+      {
+        "name": "collision_stone_pillar_core.001",
+        "asset": "Mine_grand_quarry_stone_pillar_02",
+        "shape": "box",
+        "center_godot": [
+          -2.611599922180176,
+          3.4749999046325684,
+          -16.294300079345703
+        ],
+        "size_godot": [
+          0.9700000286102295,
+          7.0,
+          0.9700000286102295
+        ],
+        "rotation_y": 0.0
+      },
+      {
+        "name": "collision_stone_pillar_foundation.001",
+        "asset": "Mine_grand_quarry_stone_pillar_02",
+        "shape": "box",
+        "center_godot": [
+          -2.611599922180176,
+          0.19499999284744263,
+          -16.294300079345703
+        ],
+        "size_godot": [
+          1.3200000524520874,
+          0.47999998927116394,
+          1.3200000524520874
+        ],
+        "rotation_y": 0.0
+      },
+      {
+        "name": "collision_stone_pillar_core.002",
+        "asset": "Mine_grand_quarry_stone_pillar_03",
+        "shape": "box",
+        "center_godot": [
+          6.267899990081787,
+          3.4749999046325684,
+          -19.17620086669922
+        ],
+        "size_godot": [
+          0.9700000286102295,
+          7.0,
+          0.9700000286102295
+        ],
+        "rotation_y": 0.0
+      },
+      {
+        "name": "collision_stone_pillar_foundation.002",
+        "asset": "Mine_grand_quarry_stone_pillar_03",
+        "shape": "box",
+        "center_godot": [
+          6.267899990081787,
+          0.19499999284744263,
+          -19.17620086669922
+        ],
+        "size_godot": [
+          1.3200000524520874,
+          0.47999998927116394,
+          1.3200000524520874
+        ],
+        "rotation_y": 0.0
+      },
+      {
+        "name": "collision_stone_pillar_core.003",
+        "asset": "Mine_grand_quarry_stone_pillar_04",
+        "shape": "box",
+        "center_godot": [
+          11.282299995422363,
+          3.4749999046325684,
+          -9.532699584960938
+        ],
+        "size_godot": [
+          0.9700000286102295,
+          7.0,
+          0.9700000286102295
+        ],
+        "rotation_y": 0.0
+      },
+      {
+        "name": "collision_stone_pillar_foundation.003",
+        "asset": "Mine_grand_quarry_stone_pillar_04",
+        "shape": "box",
+        "center_godot": [
+          11.282299995422363,
+          0.19499999284744263,
+          -9.532699584960938
+        ],
+        "size_godot": [
+          1.3200000524520874,
+          0.47999998927116394,
+          1.3200000524520874
+        ],
+        "rotation_y": 0.0
+      },
+      {
+        "name": "collision_stone_pillar_core.004",
+        "asset": "Mine_grand_quarry_stone_pillar_05",
+        "shape": "box",
+        "center_godot": [
+          10.655500411987305,
+          3.4749999046325684,
+          1.8844000101089478
+        ],
+        "size_godot": [
+          0.9700000286102295,
+          7.0,
+          0.9700000286102295
+        ],
+        "rotation_y": 0.0
+      },
+      {
+        "name": "collision_stone_pillar_foundation.004",
+        "asset": "Mine_grand_quarry_stone_pillar_05",
+        "shape": "box",
+        "center_godot": [
+          10.655500411987305,
+          0.19499999284744263,
+          1.8844000101089478
+        ],
+        "size_godot": [
+          1.3200000524520874,
+          0.47999998927116394,
+          1.3200000524520874
+        ],
+        "rotation_y": 0.0
+      },
+      {
+        "name": "collision_stone_pillar_core.005",
+        "asset": "Mine_grand_quarry_stone_pillar_06",
+        "shape": "box",
+        "center_godot": [
+          0.8356999754905701,
+          3.4749999046325684,
+          -1.8844000101089478
+        ],
+        "size_godot": [
+          0.9700000286102295,
+          7.0,
+          0.9700000286102295
+        ],
+        "rotation_y": 0.0
+      },
+      {
+        "name": "collision_stone_pillar_foundation.005",
+        "asset": "Mine_grand_quarry_stone_pillar_06",
+        "shape": "box",
+        "center_godot": [
+          0.8356999754905701,
+          0.19499999284744263,
+          -1.8844000101089478
+        ],
+        "size_godot": [
+          1.3200000524520874,
+          0.47999998927116394,
+          1.3200000524520874
+        ],
+        "rotation_y": 0.0
+      },
+      {
+        "name": "collision_stone_pillar_core.006",
+        "asset": "Mine_grand_quarry_stone_pillar_07",
+        "shape": "box",
+        "center_godot": [
+          -8.461700439453125,
+          3.4749999046325684,
+          -4.5447001457214355
+        ],
+        "size_godot": [
+          0.9700000286102295,
+          7.0,
+          0.9700000286102295
+        ],
+        "rotation_y": 0.0
+      },
+      {
+        "name": "collision_stone_pillar_foundation.006",
+        "asset": "Mine_grand_quarry_stone_pillar_07",
+        "shape": "box",
+        "center_godot": [
+          -8.461700439453125,
+          0.19499999284744263,
+          -4.5447001457214355
+        ],
+        "size_godot": [
+          1.3200000524520874,
+          0.47999998927116394,
+          1.3200000524520874
+        ],
+        "rotation_y": 0.0
+      },
+      {
+        "name": "collision_stone_pillar_core.007",
+        "asset": "Mine_pillar_shrine_stone_pillar_08",
+        "shape": "box",
+        "center_godot": [
+          42.72650146484375,
+          3.174999952316284,
+          -53.7599983215332
+        ],
+        "size_godot": [
+          0.9700000286102295,
+          6.400000095367432,
+          0.9700000286102295
+        ],
+        "rotation_y": 0.0
+      },
+      {
+        "name": "collision_stone_pillar_foundation.007",
+        "asset": "Mine_pillar_shrine_stone_pillar_08",
+        "shape": "box",
+        "center_godot": [
+          42.72650146484375,
+          0.19499999284744263,
+          -53.7599983215332
+        ],
+        "size_godot": [
+          1.3200000524520874,
+          0.47999998927116394,
+          1.3200000524520874
+        ],
+        "rotation_y": 0.0
+      },
+      {
+        "name": "collision_stone_pillar_core.008",
+        "asset": "Mine_pillar_shrine_stone_pillar_09",
+        "shape": "box",
+        "center_godot": [
+          55.680198669433594,
+          3.174999952316284,
+          -53.87080001831055
+        ],
+        "size_godot": [
+          0.9700000286102295,
+          6.400000095367432,
+          0.9700000286102295
+        ],
+        "rotation_y": 0.0
+      },
+      {
+        "name": "collision_stone_pillar_foundation.008",
+        "asset": "Mine_pillar_shrine_stone_pillar_09",
+        "shape": "box",
+        "center_godot": [
+          55.680198669433594,
+          0.19499999284744263,
+          -53.87080001831055
+        ],
+        "size_godot": [
+          1.3200000524520874,
+          0.47999998927116394,
+          1.3200000524520874
+        ],
+        "rotation_y": 0.0
+      },
+      {
+        "name": "collision_stone_pillar_core.009",
+        "asset": "Mine_pillar_shrine_stone_pillar_10",
+        "shape": "box",
+        "center_godot": [
+          44.60689926147461,
+          3.174999952316284,
+          -48.99359893798828
+        ],
+        "size_godot": [
+          0.9700000286102295,
+          6.400000095367432,
+          0.9700000286102295
+        ],
+        "rotation_y": 0.0
+      },
+      {
+        "name": "collision_stone_pillar_foundation.009",
+        "asset": "Mine_pillar_shrine_stone_pillar_10",
+        "shape": "box",
+        "center_godot": [
+          44.60689926147461,
+          0.19499999284744263,
+          -48.99359893798828
+        ],
+        "size_godot": [
+          1.3200000524520874,
+          0.47999998927116394,
+          1.3200000524520874
+        ],
+        "rotation_y": 0.0
+      },
+      {
+        "name": "collision_stone_pillar_core.010",
+        "asset": "Mine_pillar_shrine_stone_pillar_11",
+        "shape": "box",
+        "center_godot": [
+          53.799800872802734,
+          3.174999952316284,
+          -48.8828010559082
+        ],
+        "size_godot": [
+          0.9700000286102295,
+          6.400000095367432,
+          0.9700000286102295
+        ],
+        "rotation_y": 0.0
+      },
+      {
+        "name": "collision_stone_pillar_foundation.010",
+        "asset": "Mine_pillar_shrine_stone_pillar_11",
+        "shape": "box",
+        "center_godot": [
+          53.799800872802734,
+          0.19499999284744263,
+          -48.8828010559082
+        ],
+        "size_godot": [
+          1.3200000524520874,
+          0.47999998927116394,
+          1.3200000524520874
+        ],
+        "rotation_y": 0.0
+      },
+      {
+        "name": "collision_stone_pillar_core.011",
+        "asset": "Mine_pillar_shrine_stone_pillar_12",
+        "shape": "box",
+        "center_godot": [
+          43.35329818725586,
+          3.174999952316284,
+          -44.00559997558594
+        ],
+        "size_godot": [
+          0.9700000286102295,
+          6.400000095367432,
+          0.9700000286102295
+        ],
+        "rotation_y": 0.0
+      },
+      {
+        "name": "collision_stone_pillar_foundation.011",
+        "asset": "Mine_pillar_shrine_stone_pillar_12",
+        "shape": "box",
+        "center_godot": [
+          43.35329818725586,
+          0.19499999284744263,
+          -44.00559997558594
+        ],
+        "size_godot": [
+          1.3200000524520874,
+          0.47999998927116394,
+          1.3200000524520874
+        ],
+        "rotation_y": 0.0
+      },
+      {
+        "name": "collision_stone_pillar_core.012",
+        "asset": "Mine_pillar_shrine_stone_pillar_13",
+        "shape": "box",
+        "center_godot": [
+          55.05339813232422,
+          3.174999952316284,
+          -43.89469909667969
+        ],
+        "size_godot": [
+          0.9700000286102295,
+          6.400000095367432,
+          0.9700000286102295
+        ],
+        "rotation_y": 0.0
+      },
+      {
+        "name": "collision_stone_pillar_foundation.012",
+        "asset": "Mine_pillar_shrine_stone_pillar_13",
+        "shape": "box",
+        "center_godot": [
+          55.05339813232422,
+          0.19499999284744263,
+          -43.89469909667969
+        ],
+        "size_godot": [
+          1.3200000524520874,
+          0.47999998927116394,
+          1.3200000524520874
+        ],
+        "rotation_y": 0.0
+      }
+    ],
+    "counts": {
+      "ruined_shrine": 1,
+      "ruined_altar": 1,
+      "stone_pillar": 13
+    },
+    "skipped": [],
+    "notes": [
+      "Masonry uses the same metre-mapped scanned stone as the cave.",
+      "Authored structural positions are preserved unless a reported local clearance adjustment is necessary."
+    ]
+  },
+  "visible_meshes": 173,
+  "vertices": 119127,
+  "polygons": 96062
+}

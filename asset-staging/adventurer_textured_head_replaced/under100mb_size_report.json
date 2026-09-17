@@ -1,0 +1,76 @@
+{
+  "source": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/adventurer_textured_head_replaced/adventurer_textured_head_replaced.glb",
+  "output": "adventurer_head_replaced_under100mb.glb",
+  "source_bytes": 201040636,
+  "output_bytes": 94176704,
+  "limit_bytes": 100000000,
+  "source_triangles": 4778498,
+  "output_triangles": 1145409,
+  "parts": {
+    "Original_Textured_Body": {
+      "triangles": 327259,
+      "vertices": 212841,
+      "uv_layers": 1
+    },
+    "Replacement_Head_Ultra4K": {
+      "triangles": 818150,
+      "vertices": 997092,
+      "uv_layers": 1
+    }
+  },
+  "reductions": [
+    {
+      "object": "Original_Textured_Body",
+      "ratio": 0.22868145702103526,
+      "triangles": 400000,
+      "seconds": 8.43
+    },
+    {
+      "object": "Replacement_Head_Ultra4K",
+      "ratio": 0.3301049073395525,
+      "triangles": 1000000,
+      "seconds": 17.44
+    },
+    {
+      "object": "Original_Textured_Body",
+      "ratio": 0.8181502114744323,
+      "triangles": 327259,
+      "seconds": 0.7
+    },
+    {
+      "object": "Replacement_Head_Ultra4K",
+      "ratio": 0.8181502114744323,
+      "triangles": 818150,
+      "seconds": 2.54
+    }
+  ],
+  "textures": {
+    "Body_base_color": [
+      4096,
+      4096
+    ],
+    "Body_metallic_roughness": [
+      2048,
+      2048
+    ],
+    "Body_normal": [
+      4096,
+      4096
+    ],
+    "Head_Head_base_color": [
+      4096,
+      4096
+    ],
+    "Head_metallic_roughness": [
+      2048,
+      2048
+    ],
+    "Head_normal": [
+      4096,
+      4096
+    ]
+  },
+  "geometry_compression": "none; standard glTF 2.0",
+  "rigged": false,
+  "scope": "Polygon reduction only; embedded textures kept. Original collar seam is not repaired by this operation."
+}

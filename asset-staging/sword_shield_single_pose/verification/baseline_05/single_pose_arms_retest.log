@@ -1,0 +1,15 @@
+[HEADLESS] player_arm_test.gd
+PLAYER ARM PASS: full-body GLB/atlas sharing, articulated grip and wrist-preserving arm fit, actual combat/bow/chest preview paths, trial hits and contacts, F2/repeat/reset and expedition restoration
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2535)
+[HEADLESS] player_appearance_test.gd
+SCRIPT ERROR: Parse Error: Cannot infer the type of "correct_rig" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/player_appearance_test.gd:146)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "correct_rig" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/player_appearance_test.gd:167)
+ERROR: Failed to load script "res://tests/player_appearance_test.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+Script error detected in player_appearance_test.gd, regardless of engine exit status.
+
+Headless validation: 1 passed, 1 failed.
+FAILED: player_appearance_test.gd (1)

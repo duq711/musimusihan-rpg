@@ -1,0 +1,174 @@
+{
+  "source": "C:\\Users\\duq71\\Documents\\Codex\\2026-09-08\\d\\outputs\\sword_hold_first_person_views\\model\\SwordHold_Static.blend",
+  "source_sha256": "276f1ac6df0e880137ac0d184c1acf1c7d0f53aab7f51e8f379d0651507dea93",
+  "source_file_unchanged": true,
+  "grip_original_length_m": 0.1446000635623932,
+  "grip_new_length_m": 0.2892001271247864,
+  "extension_below_fist_m": 0.1446000635623932,
+  "grip_upper_original_vertices_unchanged": true,
+  "hand_and_arm_local_vertex_hashes_unchanged": "Hand/wrist unchanged; forearm/upper-arm ornament removal is explicitly recorded in trim_only_exception.",
+  "blade_guard_geometry_unchanged": true,
+  "extensions": [
+    "Sword_GripLeather_Extension",
+    "Sword_GripBinding_Extension"
+  ],
+  "extension_method": "Duplicate original leather and spiral-binding segment translated one original grip length along the hilt, preserving thickness and UV/coil pitch. Original upper segment unchanged.",
+  "metal_pommel_vertices_rigidly_translated": 860,
+  "hand_stretched": false,
+  "camera_fixed": true,
+  "animations": 0,
+  "skinning": 0,
+  "pose_roll_about_blade_axis_degrees": -25.0,
+  "target_grip_camera_space_m": [
+    0.3100000023841858,
+    -0.10999999940395355,
+    -0.6000000238418579
+  ],
+  "master_camera_space_delta": [
+    [
+      0.8445357084274292,
+      0.38438645005226135,
+      -0.3728357255458832,
+      -0.17325754463672638
+    ],
+    [
+      -0.3802409768104553,
+      0.9206997156143188,
+      0.08791381120681763,
+      0.3719435930252075
+    ],
+    [
+      0.3770626187324524,
+      0.06752107292413712,
+      0.9237232804298401,
+      0.019486989825963974
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "master_world_delta": [
+    [
+      0.8445357084274292,
+      0.372835636138916,
+      0.38438645005226135,
+      -0.17325757443904877
+    ],
+    [
+      -0.3770626187324524,
+      0.9237232804298401,
+      -0.06752107292413712,
+      -0.019487034529447556
+    ],
+    [
+      -0.3802410960197449,
+      -0.08791381120681763,
+      0.9206997156143188,
+      0.3719436228275299
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "camera_matrix_world": [
+    [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      -1.3435885648505064e-07,
+      -1.0000001192092896,
+      5.960464477539063e-08
+    ],
+    [
+      0.0,
+      1.0000001192092896,
+      -1.3435885648505064e-07,
+      2.9802322387695312e-08
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "static_group_matrix_world": [
+    [
+      0.8445357084274292,
+      0.3728356957435608,
+      0.38438650965690613,
+      -0.17325757443904877
+    ],
+    [
+      -0.3770626187324524,
+      0.9237232208251953,
+      -0.06752108782529831,
+      -0.019487034529447556
+    ],
+    [
+      -0.3802410364151001,
+      -0.08791380375623703,
+      0.9206996560096741,
+      0.3719436228275299
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "camera_fov_y_degrees": 75.99999983816295,
+  "resolution": [
+    1280,
+    720
+  ],
+  "trim_only_exception": {
+    "source": "C:\\Users\\duq71\\Documents\\Codex\\2026-09-08\\d\\work\\new-motion\\long-grip-oblique\\v3\\model.blend",
+    "source_sha256": "61ffc7832bc9e67de28754360ac0d8f16642d7a267375462e4b904d2d425faf2",
+    "records": [
+      {
+        "object": "RightArm_Forearm_Surface",
+        "removed_materials": [
+          "Leather edge",
+          "Muted linen stitches"
+        ],
+        "before_vertices_faces": [
+          7485,
+          12504
+        ],
+        "after_vertices_faces": [
+          3033,
+          5520
+        ],
+        "kept": "leather body, leather full-band material, metal hardware; wrist cuff is separate and untouched"
+      },
+      {
+        "object": "RightArm_UpperArm_Surface",
+        "removed_component": "483-vertex narrow longitudinal ornamental seam strip only",
+        "before_vertices_faces": [
+          4578,
+          8752
+        ],
+        "after_vertices_faces": [
+          4095,
+          7936
+        ],
+        "kept": "4095-vertex connected leather body"
+      }
+    ],
+    "non_trim_mesh_hashes_unchanged": true,
+    "hand_wrist_cuff_blade_grip_unchanged": true,
+    "pose_unchanged_from_v3": true
+  }
+}

@@ -1,0 +1,391 @@
+--- exports/Two_Hand_Sword_20260913/baseline/TEST_ROOM.md
++++ godot-game/TEST_ROOM.md
+@@ -584,6 +584,6 @@
+ 
+ ## 주무장 1번 · 방패 수납
+ 
+-검과 방패를 든 상태에서 **1**을 누르면 약 0.55초 동안 왼손과 방패가 함께 왼쪽으로 빠져 수납되고 검만 남는다. 수납을 시작하면 방패 가드는 해제되며, 장착 물품은 가방에 보존한다. 재생 중 연타는 동작을 다시 시작하지 않고 F2는 시간을 멈춘다. 검만 든 상태의 추가 1 입력은 이번 단계에서 변화가 없다. 방패를 다시 장착하거나 시험을 재선택하면 복원한다.
++검과 방패를 든 상태에서 **1**을 누르면 약 0.55초 동안 왼손과 방패가 함께 왼쪽으로 빠져 수납된다. 이어 약 0.48초 동안 왼손이 돌아와 오른손 아래의 검 손잡이를 잡는다. 파지 후에는 공격·이동 중에도 두 손이 검을 함께 따른다. 수납을 시작하면 방패 가드는 해제되며, 장착 물품은 가방에 보존한다. 재생 중 연타는 동작을 다시 시작하지 않고 F2는 시간을 멈춘다. 검을 양손으로 든 상태의 추가 1 입력은 이번 단계에서 변화가 없다. 방패를 다시 장착하거나 시험을 재선택하면 복원한다.
+ 
+ F2 → 기본 → **주무장 1번 · 방패 수납**에서 1 / RMB / LMB와 재시험을 확인한다. 같은 플레이어 코드로 연결되며, 시험 메뉴 재선택·초기화·원정 복원을 유지한다. 자동 검사: primary_shield_stow, reference_sword_motion_test_room, shield_guard. 비무장에서 1로 주무장을 꺼내는 기능과 전체 주/부무장 슬롯 개편은 후속 구현 대상이다.
+--- exports/Two_Hand_Sword_20260913/baseline/README.md
++++ godot-game/README.md
+@@ -531,6 +531,6 @@
+ 
+ ## 주무장 1번 · 방패 수납
+ 
+-검과 방패를 든 상태에서 **1**을 누르면 약 0.55초 동안 왼손과 방패가 함께 왼쪽으로 빠져 수납되고 검만 남는다. 수납을 시작하면 방패 가드는 해제되며, 장착 물품은 가방에 보존한다. 재생 중 연타는 동작을 다시 시작하지 않고 F2는 시간을 멈춘다. 검만 든 상태의 추가 1 입력은 이번 단계에서 변화가 없다. 방패를 다시 장착하거나 시험을 재선택하면 복원한다.
++검과 방패를 든 상태에서 **1**을 누르면 약 0.55초 동안 왼손과 방패가 함께 왼쪽으로 빠져 수납된다. 이어 약 0.48초 동안 왼손이 돌아와 오른손 아래의 검 손잡이를 잡는다. 파지 후에는 공격·이동 중에도 두 손이 검을 함께 따른다. 수납을 시작하면 방패 가드는 해제되며, 장착 물품은 가방에 보존한다. 재생 중 연타는 동작을 다시 시작하지 않고 F2는 시간을 멈춘다. 검을 양손으로 든 상태의 추가 1 입력은 이번 단계에서 변화가 없다. 방패를 다시 장착하거나 시험을 재선택하면 복원한다.
+ 
+ F2 → 기본 → **주무장 1번 · 방패 수납**에서 1 / RMB / LMB와 재시험을 확인한다. 같은 플레이어 코드로 연결되며, 시험 메뉴 재선택·초기화·원정 복원을 유지한다. 자동 검사: primary_shield_stow, reference_sword_motion_test_room, shield_guard. 비무장에서 1로 주무장을 꺼내는 기능과 전체 주/부무장 슬롯 개편은 후속 구현 대상이다.
+--- exports/Two_Hand_Sword_20260913/baseline/design/GAME_DIRECTION.md
++++ godot-game/design/GAME_DIRECTION.md
+@@ -187,3 +187,5 @@
+ - 이번 우선 구현 범위는 사용자의 “일단 1번을 누르면 방패를 집어넣게” 지시다. 검·방패를 든 상태의 1 입력과 왼쪽으로 빠지는 방패 수납, 수납 후 검 유지 및 방패 방어 해제를 구현한다. 물품 자체를 장착 해제하거나 버리지 않는다.
+ - 전체 주/부무장 슬롯 개편과 비무장 → 주무장 꺼내기 입력 연결은 아직 미구현이다. 검만 든 뒤 추가 1 입력의 동작은 미정이며 이번에는 변화가 없다. 장비를 다시 장착하거나 테스트룸 시험을 재선택하면 방패 준비 상태로 복원한다.
+ - 1키는 검을 든 상태에서 주무장 입력이 우선한다. 지팡이의 기존 숫자 주문 선택은 유지하며 전체 입력 개편은 후속 범위다.
++
++- 2026-09-13 사용자 후속 확정: 방패 수납 후 왼손이 검을 잡아 양손 파지로 전환한다. 왼손 복귀·손가락 파지·검 추종을 이번에 확장하며, 공격력 등 전투 수치는 변경하지 않는다.
+--- exports/Two_Hand_Sword_20260913/baseline/tests/reference_sword_motion_preview.gd
++++ godot-game/tests/reference_sword_motion_preview.gd
+@@ -26,6 +26,7 @@
+ var partial_overhead := false
+ var motion_only := false
+ var shield_stow_only := false
++var two_hand_review := false
+ var draw_only := false
+ 
+ 
+@@ -44,6 +45,7 @@
+ 		return
+ 	var requested_scope := OS.get_environment("REFERENCE_SWORD_MOTION_QA_SCOPE")
+ 	shield_stow_only = requested_scope == "shield_stow"
++	two_hand_review = requested_scope == "two_hand"
+ 	draw_only = requested_scope == "draw"
+ 	motion_only = requested_scope == "overhead_motion_only"
+ 	partial_overhead = requested_scope in ["overhead", "overhead_motion_only"]
+@@ -91,7 +93,7 @@
+ 		if str(initial_sources[source_path]).length() != 64:
+ 			failures.append("Capture source could not be hashed: " + source_path)
+ 	sandbox.begin()
+-	for sequence_id: String in (["shield_stow"] if shield_stow_only else ["draw"] if draw_only else SEQUENCE_IDS):
++	for sequence_id: String in (["shield_stow", "run", "jump", "right_diagonal"] if two_hand_review else ["shield_stow"] if shield_stow_only else ["draw"] if draw_only else SEQUENCE_IDS):
+ 		await _capture_sequence(sequence_id)
+ 	_save_contact_sheet()
+ 	sandbox.finish()
+@@ -114,7 +116,7 @@
+ 		poses[pose_id] = entry
+ 	var manifest := {
+ 		"delivery_scope": REFERENCE_MOTION.get_delivery_scope(),
+-		"qa_scope": "primary_shield_stow" if shield_stow_only else "overhead_motion_on_existing_arm" if motion_only else ("overhead_integration_and_existing_motion_regressions" if partial_overhead else ("equipment_draw" if draw_only else "full_motion_delivery")),
++		"qa_scope": "two_hand_sword" if two_hand_review else "primary_shield_stow" if shield_stow_only else "overhead_motion_on_existing_arm" if motion_only else ("overhead_integration_and_existing_motion_regressions" if partial_overhead else ("equipment_draw" if draw_only else "full_motion_delivery")),
+ 		"finished_sleeve_required_for_this_capture": not motion_only,
+ 		"incomplete_delivery": not REFERENCE_MOTION.full_delivery_available(),
+ 		"display_driver": DisplayServer.get_name(),
+@@ -133,7 +135,7 @@
+ 		"original_inventory_sha256_after": inventory_hash,
+ 		"source_sha256": initial_sources, "sources_unchanged_during_capture": unchanged,
+ 		"clip_metadata": clip_metadata, "sequences": sequences, "selected_poses": poses,
+-		"contact_sheet": {"image": "contact_sheet.png", "columns": 4, "tile_size": [IMAGE_SIZE.x, IMAGE_SIZE.y], "row_major_pose_ids": (["shield_stow"] if shield_stow_only else ["draw"] if draw_only else CONTACT_IDS)},
++		"contact_sheet": {"image": "contact_sheet.png", "columns": 4, "tile_size": [IMAGE_SIZE.x, IMAGE_SIZE.y], "row_major_pose_ids": (["shield_stow", "run", "takeoff", "air", "land", "right_diagonal"] if two_hand_review else ["shield_stow"] if shield_stow_only else ["draw"] if draw_only else CONTACT_IDS)},
+ 		"failures": failures,
+ 	}
+ 	var file := FileAccess.open(output_path.path_join("capture_manifest.json"), FileAccess.WRITE)
+@@ -273,6 +275,11 @@
+ 			viewport.queue_free()
+ 			await process_frame
+ 			return
++	if two_hand_review and sequence_id != "shield_stow":
++		player.reset_shield_carry()
++		player._sword_draw_elapsed = player.SWORD_DRAW_DURATION
++		player.request_primary_weapon()
++		for step in 72: await _advance_physics(player, Vector2.ZERO, false)
+ 	var action_result := {}
+ 	var movement := Vector2(0, -1) if sequence_id in ["walk", "run"] else Vector2.ZERO
+ 	var sprinting := sequence_id == "run"
+@@ -292,7 +299,7 @@
+ 		action_result = player.begin_sword_attack(sequence_id)
+ 	if sequence_id not in ["idle", "walk", "run"] and not bool(action_result.get("accepted", false)):
+ 		failures.append("Production action rejected: " + sequence_id + " " + str(action_result))
+-	var duration := 1.8 if sequence_id == "draw" else 1.0
++	var duration := 1.8 if sequence_id in ["draw", "shield_stow"] else 1.0
+ 	if sequence_id in ["walk", "run"]:
+ 		duration = maxf(1.0, float(REFERENCE_MOTION.clip_metadata("run").get("duration_seconds", 1.0)))
+ 	elif sequence_id == "jump":
+@@ -330,6 +337,9 @@
+ 		var arm: Dictionary = record.right_arm
+ 		if not bool(arm.get("authored_arm_active", false)) or absf(float(arm.get("upper_length", 0.0)) / 0.34 - 1.0) > 0.011 or absf(float(arm.get("forearm_length", 0.0)) / 0.26 - 1.0) > 0.011:
+ 			failures.append("Authored right arm lost its connection or length: " + relative_image)
++		if (shield_stow_only or two_hand_review) and float(snapshot.sword_support_progress) >= 1.0:
++			if not player.sword_support_arm.is_visible_in_tree() or float(snapshot.hand_contacts.get("sword_support", {}).get("grip_error", 1)) > .00001:
++				failures.append("Left hand lost the lower sword grip: " + relative_image)
+ 		frames.append(record)
+ 		_consider_pose(sequence_id, player, snapshot, record, pixels)
+ 	var final_snapshot := player.get_first_person_motion_snapshot()
+@@ -340,7 +350,7 @@
+ 			if int(phase_counts.get(phase, 0)) == 0:
+ 				failures.append("Real jump did not render phase: " + phase)
+ 	elif sequence_id == "shield_stow":
+-		if player.shield_pivot.visible or player.shield_arm.visible or player._has_shield_equipped() or not player.weapon_arm.visible:
++		if player.shield_pivot.visible or player.shield_arm.visible or player._has_shield_equipped() or not player.weapon_arm.visible or not player.sword_support_arm.visible:
+ 			failures.append("Shield stow must end with sword only and no shield guard.")
+ 	elif sprinting and Vector2(player.velocity.x, player.velocity.z).length() <= player.WALK_SPEED:
+ 		failures.append("Run sequence never reached production sprint speed.")
+@@ -366,7 +376,7 @@
+ 		"velocity": [player.velocity.x, player.velocity.y, player.velocity.z],
+ 		"weapon_transform": _transform_record(player.weapon_pivot.transform),
+ 		"shield_transform": _transform_record(player.shield_pivot.transform),
+-		"shield_visible": snapshot.shield_visible, "shield_stowed": snapshot.shield_stowed, "shield_stow_progress": snapshot.shield_stow_progress,
++		"shield_visible": snapshot.shield_visible, "shield_stowed": snapshot.shield_stowed, "shield_stow_progress": snapshot.shield_stow_progress, "sword_support_progress": snapshot.sword_support_progress, "sword_support_contact": snapshot.hand_contacts.get("sword_support", {}),
+ 		"shield_grip_error": snapshot.hand_contacts.get("shield", {}).get("error", 0.0),
+ 		"automatic_physics_processing": player.is_physics_processing(),
+ 		"unhandled_input_processing": player.is_processing_unhandled_input(),
+@@ -403,7 +413,7 @@
+ 
+ func _consider_pose(sequence_id: String, player: DungeonPlayer, snapshot: Dictionary, record: Dictionary, pixels: Image) -> void:
+ 	var pose_id := sequence_id
+-	var score := absf(float(record.time_seconds) - (0.20 if sequence_id == "shield_stow" else 0.5))
++	var score := absf(float(record.time_seconds) - (1.5 if sequence_id == "shield_stow" else 0.5))
+ 	if sequence_id == "jump":
+ 		pose_id = str(snapshot.movement_phase)
+ 		if not pose_id in ["takeoff", "air", "land"]:
+@@ -422,7 +432,7 @@
+ func _save_contact_sheet() -> void:
+ 	var sheet := Image.create(IMAGE_SIZE.x * 4, IMAGE_SIZE.y * 2, false, Image.FORMAT_RGB8)
+ 	sheet.fill(Color(0.02, 0.02, 0.02))
+-	var ids: Array = ["shield_stow"] if shield_stow_only else ["draw"] if draw_only else CONTACT_IDS
++	var ids: Array = ["shield_stow", "run", "takeoff", "air", "land", "right_diagonal"] if two_hand_review else ["shield_stow"] if shield_stow_only else ["draw"] if draw_only else CONTACT_IDS
+ 	for index in ids.size():
+ 		var pose_id: String = ids[index]
+ 		if not selected.has(pose_id):
+--- exports/Two_Hand_Sword_20260913/baseline/tests/reference_sword_motion_test_room_test.gd
++++ godot-game/tests/reference_sword_motion_test_room_test.gd
+@@ -57,8 +57,8 @@
+ 				var primary := InputEventKey.new()
+ 				primary.keycode = KEY_1; primary.physical_keycode = KEY_1; primary.pressed = true
+ 				_check(player.handle_primary_weapon_input(primary) and player._shield_stowing(), "test-room 1 must start the production shield stow")
+-				await _drive_frames(player, 42)
+-				_check(not player.shield_pivot.visible and not player._has_shield_equipped() and player.weapon_arm.visible, "test-room stow must leave a functional sword and hide shield/left hand")
++				await _drive_frames(player, 72)
++				_check(not player.shield_pivot.visible and not player._has_shield_equipped() and player.weapon_arm.visible and player.sword_support_arm.visible and player._sword_support_progress() == 1.0, "test-room stow must leave a functional sword and hide shield/left hand")
+ 			elif family == "draw":
+ 				_check(player._equipment_draw_active(), "draw trial must still be playing the production equip clip after 0.5 seconds")
+ 				await _drive_frames(player, 72)
+--- exports/Two_Hand_Sword_20260913/baseline/tests/primary_shield_stow_test.gd
++++ godot-game/tests/primary_shield_stow_test.gd
+@@ -33,7 +33,7 @@
+ 	_check(not p.handle_primary_weapon_input(key), "key repeat must not trigger another transition")
+ 	key.echo = false
+ 	var previous_x := p.shield_pivot.position.x
+-	for i in 40:
++	for i in 65:
+ 		p._update_viewmodel(.02)
+ 		_check(p.shield_pivot.position.x <= previous_x + .00001, "shield must travel left continuously")
+ 		previous_x = p.shield_pivot.position.x
+@@ -48,14 +48,25 @@
+ 			_check(p._shield_stow_elapsed == time and not p.request_primary_weapon().accepted, "pause must freeze the transition and reject new requests")
+ 			paused = false
+ 	_check(not p.shield_pivot.visible and not p.shield_arm.visible and p.weapon_pivot.visible and p.weapon_arm.visible, "completed stow must leave the sword only")
+-	_check(p._left_hand_role() == "free", "stow must not automatically draw another item into the left hand")
++	_check(p._left_hand_role() == "sword_support" and p.sword_support_arm.visible, "left hand must take the lower sword grip")
+ 	_check(p.shield_pivot.position.x < from.origin.x - 1.0, "shield must end well beyond the left edge")
+-	_check(p.weapon_pivot.position.distance_to(sword_before.origin) < .02 and p.camera.transform.is_equal_approx(aim), "stow must preserve sword carry and camera aim")
++	_check(p.weapon_pivot.position.distance_to(sword_before.origin) < .30 and p.camera.transform.is_equal_approx(aim), "two hand carry must preserve camera aim and remain within reach")
+ 	bag.add_item("wooden_arrow", 1); p._update_viewmodel(.1)
+ 	_check(p._shield_stowed and not p.shield_pivot.visible, "unrelated inventory events must not restore a stowed shield")
+ 	_check(bag.equipment == equipment and bag.equipment_data == equipment_data, "stowing must not remove, duplicate or alter equipped items")
+ 	_check(p.begin_sword_attack("right_diagonal").accepted, "the remaining sword must still attack")
++	for i in 95:
++		if i == 27: p.attack_release_requested = true
++		p.advance_combat_state(1.0 / 60.0, false)
++		p._update_viewmodel(1.0 / 60.0)
++		var support: Dictionary = p.get_first_person_motion_snapshot().hand_contacts.get("sword_support", {})
++		_check(not support.is_empty() and float(support.get("grip_error", 1)) < .00001, "left hand must stay on the sword throughout attacks")
+ 	p.cancel_sword_attack()
++	_check(p.sword_support_arm.get_meta("anatomical_side") == -1, "support must use anatomical left geometry")
++	_check(p.sword_support_arm.get_meta("source_model") == p.shield_arm.get_meta("source_model"), "returning left hand must retain the shield hand model")
++	var joint: Dictionary = p.get_first_person_motion_snapshot().joint_landmarks.get("sword_support", {})
++	_check(absf(float(joint.get("forearm_length", 0)) - .26) < .0001 and absf(float(joint.get("upper_length", 0)) - .34) < .0001, "left arm lengths must remain stable")
++	_check(p.begin_sword_attack("overhead").get("reason") == "shield_required", "presentation change must preserve existing attack availability")
+ 	bag.unequip("offhand")
+ 	var slot := -1
+ 	for i in bag.slots.size():
+--- exports/Two_Hand_Sword_20260913/baseline/scripts/sword_shield_arm_visual.gd
++++ godot-game/scripts/sword_shield_arm_visual.gd
+@@ -27,6 +27,7 @@
+ var _pad_influences: Dictionary = {}
+ var _pad_sample_counts: Dictionary = {}
+ var _sword_surface_valid := false
++var long_grip_surface := false
+ var _sword_surface := Transform3D.IDENTITY
+ var _sword_surface_inverse := Transform3D.IDENTITY
+ var _sword_surface_input := Transform3D.IDENTITY
+@@ -395,12 +396,12 @@
+ func _project_sword_surface(nominal: Vector3, tension: float, pad_thickness := 0.0) -> Vector3:
+ 	if not _sword_surface_valid: return nominal
+ 	var point := _sword_surface * nominal
+-	point.y = clampf(point.y, -0.1634, -0.0332)
++	point.y = clampf(point.y, -0.310 if long_grip_surface else -0.1634, -0.0332)
+ 	# Exact authored GripLeather radii from sword_geometry.py, with the real
+ 	# 0.52–0.80 mm folded wrap represented by its 0.66 mm middle surface.
+ 	# The current one-hand model compresses only grip Y by .60 about y=-.026;
+ 	# evaluate the original radius curve in its uncompressed source space.
+-	var source_y := -0.026 + (point.y + 0.026) / 0.60
++	var source_y := -0.026 + (point.y + (0.144 if long_grip_surface and point.y < -0.17 else 0.0) + 0.026) / 0.60
+ 	var ratio := clampf((source_y + 0.267) / 0.241, 0.0, 1.0)
+ 	var radii := Vector2(1.28 * (0.0148 + 0.0020 * ratio + 0.0010 * sin(ratio * PI)), 1.22 * (0.0107 + 0.0013 * ratio + 0.0005 * sin(ratio * PI))) + Vector2.ONE * 0.00066
+ 	var direction := Vector2(point.x, point.z).normalized()
+--- exports/Two_Hand_Sword_20260913/baseline/scripts/player.gd
++++ godot-game/scripts/player.gd
+@@ -127,6 +127,9 @@
+ var _draw_reach_material: StandardMaterial3D
+ var _draw_reach_overrides: Dictionary = {}
+ const SHIELD_STOW_DURATION := 0.55
++const SWORD_SUPPORT_DURATION := 0.48
++const SWORD_SUPPORT_GRIP := Vector3(0.0, -0.235, 0.002)
++var sword_support_arm: Node3D
+ var _shield_stowed := false
+ var _suppress_automatic_torch_hand := false
+ var _shield_stow_elapsed := SHIELD_STOW_DURATION
+@@ -390,6 +393,10 @@
+ 	camera.add_child(support_arm_root)
+ 	left_support_arm = _add_character_arm(support_arm_root, Vector3(-0.36, -0.34, -0.44), -1)
+ 	left_support_arm.name = "LeftSupportArm"
++	sword_support_arm = _add_sword_shield_arm(support_arm_root, -1)
++	sword_support_arm.name = "LeftSwordGripArm"
++	sword_support_arm.set("long_grip_surface", true)
++	sword_support_arm.visible = false
+ 	right_relaxed_arm = _add_character_arm(support_arm_root, Vector3(0.38, -0.38, -0.42), 1)
+ 	right_relaxed_arm.name = "RightRelaxedArm"
+ 	right_relaxed_arm.visible = false
+@@ -2019,6 +2026,14 @@
+ 	return _shield_stowed and _shield_stow_elapsed < SHIELD_STOW_DURATION
+ 
+ 
++func _sword_support_requested() -> bool:
++	return _shield_stowed and _suppress_automatic_torch_hand and not safe_zone_mode and _equipped_weapon_type() == "melee"
++
++
++func _sword_support_progress() -> float:
++	return clampf((_shield_stow_elapsed - SHIELD_STOW_DURATION) / SWORD_SUPPORT_DURATION, 0.0, 1.0) if _sword_support_requested() else 0.0
++
++
+ func _shield_visible_in_hand() -> bool:
+ 	return inventory_model != null and str(inventory_model.equipment.get("offhand", "")) == "round_shield" and (not _shield_stowed or _shield_stowing())
+ 
+@@ -2339,7 +2354,7 @@
+ 		_apply_chest_equipment_pose()
+ 		_update_character_arms()
+ 		return
+-	_shield_stow_elapsed = minf(SHIELD_STOW_DURATION, _shield_stow_elapsed + delta)
++	_shield_stow_elapsed = minf(SHIELD_STOW_DURATION + SWORD_SUPPORT_DURATION, _shield_stow_elapsed + delta)
+ 	# Actions may interrupt presentation immediately; the existing pose handoff
+ 	# blends from the actual drawn position without delaying gameplay contact.
+ 	if combat_state != CombatState.READY or blocking or safe_zone_mode or camping:
+@@ -2471,6 +2486,9 @@
+ 		_compose_reference_arm(target)
+ 		target = _apply_reference_pose_handoff(target, "sword")
+ 	weapon_pivot.transform = target
++	if _sword_support_requested():
++		# Bring the lower grip into reach while preserving the authored blade motion.
++		weapon_pivot.position += Vector3(-0.16, 0.22, -0.08) * MOTION.smooth_phase(_sword_support_progress())
+ 	_update_flail_pose(delta)
+ 	_spell_visual_time += delta
+ 	if is_instance_valid(staff_crystal):
+@@ -2930,6 +2948,8 @@
+ 			_update_bow_hands()
+ 	if role == "shield" and is_instance_valid(shield_model):
+ 		_fit_shield_grip()
++	if role == "sword_support":
++		_fit_sword_support()
+ 	if role == "torch" and is_instance_valid(torch_arm):
+ 		if torch_arm.visual_profile == "greybox":
+ 			_position_character_hand(torch_arm, Vector3(0.0, 0.12, 0.0), -1)
+@@ -2960,7 +2980,7 @@
+ 			right_relaxed_arm.call("set_relaxed_pose", 1.0)
+ 			for digit: String in ["index", "middle", "ring", "little", "thumb"]:
+ 				right_relaxed_arm.call("set_digit_flexion", digit, _draw_reach_flexion(digit, t))
+-	for arm: Node3D in [weapon_arm, shield_arm, torch_arm, left_support_arm, right_relaxed_arm]:
++	for arm: Node3D in [weapon_arm, shield_arm, torch_arm, left_support_arm, right_relaxed_arm, sword_support_arm]:
+ 		if not is_instance_valid(arm) or not arm.is_visible_in_tree():
+ 			continue
+ 		var side := float(arm.get_meta("hand_side", 1))
+@@ -2969,7 +2989,7 @@
+ 		if arm == weapon_arm and _is_bow_equipped():
+ 			pole = camera.global_basis * Vector3(0.9, -0.24, 0.20)
+ 		var elbow := MOTION.elbow(shoulder, arm.global_position, pole)
+-		if arm == _sword_weapon_arm or (arm == shield_arm and role == "shield"):
++		if arm == _sword_weapon_arm or arm == sword_support_arm or (arm == shield_arm and role == "shield"):
+ 			continue # These two grips already fitted their anatomical wrist chain.
+ 		if arm == right_relaxed_arm and _equipment_draw_reaching():
+ 			elbow = arm.global_position + arm.global_basis.z * 0.26
+@@ -2980,6 +3000,36 @@
+ 			var wrist_axis := arm.global_basis.z.normalized()
+ 			var forearm_axis := (elbow - arm.global_position).normalized()
+ 			_joint_landmarks["torch"] = {"shoulder": shoulder, "elbow": elbow, "wrist": arm.global_position, "wrist_angle_degrees": rad_to_deg(acos(clampf(wrist_axis.dot(forearm_axis), -1.0, 1.0)))}
++
++
++func _fit_sword_support() -> void:
++	var progress := _sword_support_progress()
++	var blend := MOTION.smooth_phase(progress)
++	var target := weapon_pivot.to_global(SWORD_SUPPORT_GRIP)
++	var contact := camera.to_global(Vector3(-0.82, -0.30, -0.50)).lerp(target, blend)
++	# Left thumb/index point toward the crossguard; the wrist exits leftward.
++	var x := weapon_pivot.global_basis.y.normalized()
++	var shoulder := camera.to_global(Vector3(-0.29, -0.34, 0.10))
++	var hint := camera.to_global(Vector3(-0.55, -0.58, -0.05))
++	var wrist := contact
++	var orientation := Basis.IDENTITY
++	var fitted := {}
++	for iteration in 5:
++		fitted = REFERENCE_ARM.solve(shoulder, hint, wrist)
++		var z: Vector3 = fitted.elbow - wrist
++		z = (z - x * z.dot(x)).normalized()
++		if z.length_squared() < .5: z = -weapon_pivot.global_basis.x.normalized()
++		orientation = Basis(x, z.cross(x).normalized(), z)
++		wrist = contact - orientation * SWORD_SHIELD_ARM.GRIP_CENTER
++	_place_hand_contact(sword_support_arm, contact, orientation, "sword_support")
++	fitted = REFERENCE_ARM.solve(shoulder, hint, wrist)
++	var elbow: Vector3 = fitted.elbow
++	shoulder = fitted.shoulder
++	sword_support_arm.call("set_sword_grip_surface", weapon_pivot.global_transform.affine_inverse() * Transform3D(orientation, target - orientation * SWORD_SHIELD_ARM.GRIP_CENTER))
++	sword_support_arm.call("set_combat_grip", "sword", lerpf(0.12, 0.91, MOTION.smooth_phase((progress - 0.74) / 0.26)))
++	sword_support_arm.call("fit_arm", shoulder, elbow)
++	_hand_contacts["sword_support"]["grip_error"] = contact.distance_to(target)
++	_joint_landmarks["sword_support"] = {"shoulder": shoulder, "elbow": elbow, "wrist": wrist, "upper_length": shoulder.distance_to(elbow), "forearm_length": elbow.distance_to(wrist)}
+ 
+ 
+ func _fit_sword_grip(grip_local: Vector3) -> void:
+@@ -3189,6 +3239,8 @@
+ 		return "bow"
+ 	if not safe_zone_mode and _shield_visible_in_hand() and not _is_flail_equipped():
+ 		return "shield"
++	if _sword_support_requested():
++		return "sword_support"
+ 	if _suppress_automatic_torch_hand:
+ 		return "free"
+ 	var has_torch := inventory_model == null or str(inventory_model.equipment.get("utility", "")) == "field_torch"
+@@ -3199,10 +3251,10 @@
+ 
+ func get_first_person_motion_snapshot() -> Dictionary:
+ 	var arms := 0
+-	for arm: Node3D in [weapon_arm, shield_arm, torch_arm, left_support_arm, right_relaxed_arm]:
++	for arm: Node3D in [weapon_arm, shield_arm, torch_arm, left_support_arm, right_relaxed_arm, sword_support_arm]:
+ 		if is_instance_valid(arm) and arm.is_visible_in_tree():
+ 			arms += 1
+-	return {"weapon": _equipped_weapon_type(), "phase": str(CombatState.keys()[combat_state]).to_lower(), "phase_time": state_time, "sword_attack_variant": sword_attack_variant, "sword_attack_mode": sword_attack_mode, "sword_next_attack_variant": get_next_sword_attack_variant(), "motion_time": _motion_clock, "grounded": _movement_grounded, "movement_ground_known": _movement_ground_known, "movement_phase": _movement_phase, "movement_phase_time": _movement_phase_time, "landing_count": _movement_landing_count, "landing_strength": _movement_landing_strength, "reference_motion_available": REFERENCE_MOTION.is_available(), "shield_raise_progress": _shield_raise_progress, "shield_impact_remaining": _shield_impact, "joint_landmarks": _joint_landmarks.duplicate(true), "equip_progress": _motion_equip_elapsed / MOTION.EQUIP_DURATION, "sword_draw_progress": _sword_draw_elapsed / SWORD_DRAW_DURATION, "sword_draw_active": _equipment_draw_active(), "shield_stowed": _shield_stowed, "shield_stow_progress": _shield_stow_elapsed / SHIELD_STOW_DURATION, "sword_draw_reaching": _equipment_draw_reaching(), "flail_phase": flail_state, "draw_ratio": get_bow_draw_ratio(), "visible_arm_count": arms, "left_hand_role": _left_hand_role(), "hand_contacts": _hand_contacts.duplicate(true), "weapon_transform": weapon_pivot.transform if is_instance_valid(weapon_pivot) else Transform3D.IDENTITY, "shield_visible": is_instance_valid(shield_pivot) and shield_pivot.is_visible_in_tree(), "torch_enabled": torch_enabled, "torch_draw_progress": _torch_draw_elapsed / TORCH_GRIP.DRAW_DURATION}
++	return {"weapon": _equipped_weapon_type(), "phase": str(CombatState.keys()[combat_state]).to_lower(), "phase_time": state_time, "sword_attack_variant": sword_attack_variant, "sword_attack_mode": sword_attack_mode, "sword_next_attack_variant": get_next_sword_attack_variant(), "motion_time": _motion_clock, "grounded": _movement_grounded, "movement_ground_known": _movement_ground_known, "movement_phase": _movement_phase, "movement_phase_time": _movement_phase_time, "landing_count": _movement_landing_count, "landing_strength": _movement_landing_strength, "reference_motion_available": REFERENCE_MOTION.is_available(), "shield_raise_progress": _shield_raise_progress, "shield_impact_remaining": _shield_impact, "joint_landmarks": _joint_landmarks.duplicate(true), "equip_progress": _motion_equip_elapsed / MOTION.EQUIP_DURATION, "sword_draw_progress": _sword_draw_elapsed / SWORD_DRAW_DURATION, "sword_draw_active": _equipment_draw_active(), "shield_stowed": _shield_stowed, "shield_stow_progress": minf(1.0, _shield_stow_elapsed / SHIELD_STOW_DURATION), "sword_support_progress": _sword_support_progress(), "sword_draw_reaching": _equipment_draw_reaching(), "flail_phase": flail_state, "draw_ratio": get_bow_draw_ratio(), "visible_arm_count": arms, "left_hand_role": _left_hand_role(), "hand_contacts": _hand_contacts.duplicate(true), "weapon_transform": weapon_pivot.transform if is_instance_valid(weapon_pivot) else Transform3D.IDENTITY, "shield_visible": is_instance_valid(shield_pivot) and shield_pivot.is_visible_in_tree(), "torch_enabled": torch_enabled, "torch_draw_progress": _torch_draw_elapsed / TORCH_GRIP.DRAW_DURATION}
+ 
+ 
+ func _add_fire_sparks(parent: Node3D) -> void:
+@@ -3443,6 +3495,8 @@
+ 		right_relaxed_arm.visible = (safe_zone_mode or _equipped_weapon_type() == "unarmed" or _equipment_draw_reaching()) and not chest_equipment_stowed and not camping
+ 	if is_instance_valid(shield_arm):
+ 		shield_arm.visible = role == "shield" and not chest_equipment_stowed and not camping
++	if is_instance_valid(sword_support_arm):
++		sword_support_arm.visible = role == "sword_support" and not chest_equipment_stowed and not camping and not _equipment_draw_reaching()
+ 	if is_instance_valid(torch_arm):
+ 		torch_arm.visible = role == "torch" and not chest_equipment_stowed and not camping
+ 	if is_instance_valid(weapon_arm):
+--- exports/Two_Hand_Sword_20260913/baseline/scripts/test_room.gd
++++ godot-game/scripts/test_room.gd
+@@ -1011,7 +1011,7 @@
+ 	else:
+ 		player._sword_draw_elapsed = player.SWORD_DRAW_DURATION
+ 	var guide := str({
+-		"shield_stow": "1 · 방패를 왼쪽으로 수납하고 검만 들기 / RMB · 검 방어 / F2 재선택 · 방패 다시 준비",
++		"shield_stow": "1 · 방패 왼쪽 수납 → 왼손으로 검 아래쪽 잡기 / RMB · 검 방어 / F2 재선택 · 방패 다시 준비",
+ 		"draw": "아래로 손 뻗기 → 비스듬히 검 뽑기 → 검·방패 대기 · LMB/RMB 전환 · F2 재선택으로 다시 꺼내기",
+ 		"run": "W 걷기 / W+Shift 달리기 / 놓아 멈추기 · 세운 검의 보폭별 흔들림 / 낮은 방패 / 멈춤 연결",
+ 		"jump": "Space 도약·공중·착지 · W+Shift+Space 이동 점프 · 실제 바닥과 기력 소모",
+--- exports/Two_Hand_Sword_20260913/baseline/scripts/test_room_catalog.gd
++++ godot-game/scripts/test_room_catalog.gd
+@@ -29,7 +29,7 @@
+ 		_entry("player_hands_detailed", "기본", "캐릭터 그래픽 · 제공 모델 양손", "제공한 손 형상·손톱·소매 연결 · 기본 외형과 같은 양손 · 상자 E · I 활", "player_hands_detailed"),
+ 		_entry("player_finger_joints", "기본", "캐릭터 그래픽 · 손가락 마디별 관절", "제공 손의 15마디 굽힘 · 손등/손바닥/손목 옆면 · 펴기는 원본 자세로 복원 · F2 복귀", "player_finger_joints"),
+ 		_entry("motion_sword", "기본", "1인칭 모션 · 긴 손잡이 검 파지", "새 긴 손잡이·비스듬한 오른손 파지 · 실제 표적에 LMB 준비/타격/회수 · 길게 눌러 강공격 · F2 재시험", "first_person_motion", "sword"),
+-		_entry("motion_shield_stow", "기본", "주무장 1번 · 방패 수납", "1 · 방패 왼쪽으로 수납 → 검 유지 · F2 재시험", "reference_sword_motion", "shield_stow"),
++		_entry("motion_shield_stow", "기본", "주무장 1번 · 방패 수납", "1 · 방패 왼쪽 수납 → 검 양손 파지 · F2 재시험", "reference_sword_motion", "shield_stow"),
+ 		_entry("motion_sword_draw", "기본", "영상 참고 검·방패 꺼내기", "멈춤 없이 좌측 하단으로 손 뻗기·이동 중 손가락 감기 → 왼쪽 허리에서 발검 → 검·방패 들기 · F2 반복 · LMB/RMB 전환", "reference_sword_motion", "draw"),
+ 		_entry("motion_sword_run", "기본", "영상 참고 검 모션 · 걷기와 달리기", "Mac 제작 9클립 · W 걷기 / Shift 달리기 / 놓아 멈추기 · 세운 검과 낮은 방패의 보폭·반동 비교 · F2 재시험", "reference_sword_motion", "run"),
+ 		_entry("motion_sword_jump", "기본", "영상 참고 검 모션 · 점프와 착지", "실제 충돌 바닥 · Space 도약·공중·착지의 손목·팔꿈치 연결 비교 · W / Shift 이동 점프 · F2 재시험", "reference_sword_motion", "jump"),

@@ -1,0 +1,403 @@
+{
+  "animation_duration_seconds": 1.5499999523162842,
+  "animation_loop_mode": 0,
+  "animation_player_count": 1,
+  "animation_track_count": 45,
+  "animations": [
+    "overhead"
+  ],
+  "checkpoint_sample_91": {
+    "actual_vertex_error_m": 2.1241645299596712e-05,
+    "cpu_skin_probe_error_m": 2.563692760304548e-07,
+    "elbow_flexion_degrees": 127.74866011352518,
+    "endpoint_error_m": 6.828570064953965e-08,
+    "evaluated_grip_error_m": 7.450580596923828e-08,
+    "forearm_ratio_change": 7.794453549259117e-08,
+    "grip_error_m": 0.0,
+    "joint_error_m": 1.3328003944934608e-07,
+    "joint_insert_center_error_m": 0.0,
+    "matrix_error": 3.5762786865234375e-07,
+    "shield_marker_matrix_error": 3.8743019104003906e-07,
+    "skin_bind_matrix_error": 3.8743019104003906e-07,
+    "time_seconds": 0.7583333333333333,
+    "upper_arm_ratio_change": 1.0518466542208671e-08
+  },
+  "execution_os": "Windows",
+  "failures": [],
+  "glb_path": "C:\\Users\\duq71\\Documents\\Codex\\2026-09-08\\d\\outputs\\reference_sword_motion_rebuild_20260910\\output\\iteration_07\\Overhead_Review.glb",
+  "gltf_append_error": 0,
+  "godot_version": {
+    "build": "official",
+    "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+    "hex": 263938,
+    "major": 4,
+    "minor": 7,
+    "patch": 2,
+    "status": "stable",
+    "string": "4.7.2-stable (official)",
+    "timestamp": 0
+  },
+  "limitations": [
+    "Numeric playback verification does not establish visual silhouette, skin quality, closed seam topology, or game integration.",
+    "The editor's resource-import pipeline and the Mac production runtime were not executed.",
+    "The reference sidecar is Blender's authored evaluation; this script tests whether Godot reproduces that evaluation."
+  ],
+  "local_axis_conversion": "GLB object global M*C is compared as (M*C)*C^-1; independently imported original sword/glove vertex probes verify the paired exported-local geometry transform.",
+  "matrix_tolerance": 3e-05,
+  "maxima": {
+    "Forearm_R_matrix_error": 6.556510925292969e-07,
+    "ShieldGrip_matrix_error": 3.5762786865234375e-07,
+    "SwordGrip_matrix_error": 4.76837158203125e-07,
+    "UpperArm_R_matrix_error": 4.76837158203125e-07,
+    "WristCuff_R_matrix_error": 5.364418029785156e-07,
+    "cpu_skin_probe_error_m": 4.235705830524239e-07,
+    "evaluated_skin_bind_matrix_error": 8.344650268554688e-07,
+    "forearm_ratio_change": 1.9256885241958344e-07,
+    "glove_sword_grip_error_m": 0.0,
+    "grip_against_blender_evaluated_error_m": 2.07013542308232e-07,
+    "joint_insert_center_error_m": 0.0,
+    "joint_position_error_m": 1.884864389012364e-07,
+    "part_endpoint_error_m": 3.7608830893987033e-07,
+    "restored_shield_marker_matrix_error": 3.8743019104003906e-07,
+    "retained_actual_vertex_playback_error_m": 2.1649535483447835e-05,
+    "retained_actual_vertex_source_match_error_m": 2.143442543456331e-05,
+    "skeleton_bone_pose_change": 1.7939819693565369,
+    "upper_arm_ratio_change": 9.81723560222747e-08,
+    "wrist_attachment_error_m": 1.1944189282075968e-07
+  },
+  "maximum_elbow_flexion": {
+    "degrees": 127.74866011352518,
+    "sample_index": 91,
+    "time_seconds": 0.7583333333333333
+  },
+  "maximum_sword_position_change_m": 0.6931909322738647,
+  "mesh_instance_count": 12,
+  "original_shield_append_error": 0,
+  "original_sword_append_error": 0,
+  "restored_mesh_and_marker_parents": {
+    "RearArmStrap": "ShieldGrip",
+    "RearGrip": "ShieldGrip",
+    "RearGripBottom": "ShieldGrip",
+    "RearGripTop": "ShieldGrip"
+  },
+  "retained_actual_vertex_probes": [
+    {
+      "candidate_vertex_index": 0,
+      "mesh": "RightHand_Glove",
+      "source_match_error_m": 3.008518433489371e-06
+    },
+    {
+      "candidate_vertex_index": 7098,
+      "mesh": "RightHand_Glove",
+      "source_match_error_m": 1.995817910938058e-06
+    },
+    {
+      "candidate_vertex_index": 14195,
+      "mesh": "RightHand_Glove",
+      "source_match_error_m": 3.648218125817948e-06
+    },
+    {
+      "candidate_vertex_index": 0,
+      "mesh": "Sword_FullerPolishedChannel",
+      "source_match_error_m": 2.611551735753892e-06
+    },
+    {
+      "candidate_vertex_index": 95,
+      "mesh": "Sword_FullerPolishedChannel",
+      "source_match_error_m": 1.0854346328414977e-05
+    },
+    {
+      "candidate_vertex_index": 189,
+      "mesh": "Sword_FullerPolishedChannel",
+      "source_match_error_m": 3.0000549031683477e-06
+    },
+    {
+      "candidate_vertex_index": 0,
+      "mesh": "Sword_GripBinding",
+      "source_match_error_m": 2.7427784061728744e-06
+    },
+    {
+      "candidate_vertex_index": 4366,
+      "mesh": "Sword_GripBinding",
+      "source_match_error_m": 2.442317281747819e-06
+    },
+    {
+      "candidate_vertex_index": 8731,
+      "mesh": "Sword_GripBinding",
+      "source_match_error_m": 1.1898288221345865e-06
+    },
+    {
+      "candidate_vertex_index": 0,
+      "mesh": "Sword_GripBinding_Extension",
+      "source_match_error_m": 2.731302174652228e-06
+    },
+    {
+      "candidate_vertex_index": 4366,
+      "mesh": "Sword_GripBinding_Extension",
+      "source_match_error_m": 2.3701018108113203e-06
+    },
+    {
+      "candidate_vertex_index": 8731,
+      "mesh": "Sword_GripBinding_Extension",
+      "source_match_error_m": 1.2247634231243865e-06
+    },
+    {
+      "candidate_vertex_index": 0,
+      "mesh": "Sword_GripLeather",
+      "source_match_error_m": 3.690938910949626e-06
+    },
+    {
+      "candidate_vertex_index": 812,
+      "mesh": "Sword_GripLeather",
+      "source_match_error_m": 3.2490381727257045e-06
+    },
+    {
+      "candidate_vertex_index": 1624,
+      "mesh": "Sword_GripLeather",
+      "source_match_error_m": 2.2908325263415463e-06
+    },
+    {
+      "candidate_vertex_index": 0,
+      "mesh": "Sword_GripLeather_Extension",
+      "source_match_error_m": 1.5818426390978857e-06
+    },
+    {
+      "candidate_vertex_index": 812,
+      "mesh": "Sword_GripLeather_Extension",
+      "source_match_error_m": 3.2551827189308824e-06
+    },
+    {
+      "candidate_vertex_index": 1624,
+      "mesh": "Sword_GripLeather_Extension",
+      "source_match_error_m": 2.3658112695557065e-06
+    },
+    {
+      "candidate_vertex_index": 0,
+      "mesh": "Sword_PittedBlade",
+      "source_match_error_m": 1.5904835890978575e-05
+    },
+    {
+      "candidate_vertex_index": 370,
+      "mesh": "Sword_PittedBlade",
+      "source_match_error_m": 2.143442543456331e-05
+    },
+    {
+      "candidate_vertex_index": 740,
+      "mesh": "Sword_PittedBlade",
+      "source_match_error_m": 1.4913886843714863e-05
+    },
+    {
+      "candidate_vertex_index": 0,
+      "mesh": "Sword_SwordsmanLongsword_Surface",
+      "source_match_error_m": 9.79854212346254e-06
+    },
+    {
+      "candidate_vertex_index": 955,
+      "mesh": "Sword_SwordsmanLongsword_Surface",
+      "source_match_error_m": 1.033361695590429e-05
+    },
+    {
+      "candidate_vertex_index": 1910,
+      "mesh": "Sword_SwordsmanLongsword_Surface",
+      "source_match_error_m": 7.766769158479292e-06
+    }
+  ],
+  "samples_checked": 187,
+  "scope": "Standalone Godot runtime GLTFDocument import and actual AnimationPlayer evaluation; no production game project loaded or modified.",
+  "sidecar_path": "C:\\Users\\duq71\\Documents\\Codex\\2026-09-08\\d\\outputs\\reference_sword_motion_rebuild_20260910\\output\\iteration_07\\arm_pose_samples.json",
+  "skeleton_inventory": [
+    {
+      "bone_count": 7,
+      "bones": [
+        {
+          "index": 0,
+          "name": "SleeveElbow25",
+          "parent": -1
+        },
+        {
+          "index": 1,
+          "name": "SleeveElbow50",
+          "parent": -1
+        },
+        {
+          "index": 2,
+          "name": "SleeveElbow75",
+          "parent": -1
+        },
+        {
+          "index": 3,
+          "name": "SleeveForearm",
+          "parent": -1
+        },
+        {
+          "index": 4,
+          "name": "SleeveHand",
+          "parent": -1
+        },
+        {
+          "index": 5,
+          "name": "SleeveUpper",
+          "parent": -1
+        },
+        {
+          "index": 6,
+          "name": "SleeveWrist",
+          "parent": -1
+        }
+      ],
+      "node": "Skeleton3D"
+    }
+  ],
+  "skin_inventory": [
+    {
+      "bind_count": 7,
+      "binds": [
+        {
+          "bone": 0,
+          "index": 0,
+          "name": ""
+        },
+        {
+          "bone": 1,
+          "index": 1,
+          "name": ""
+        },
+        {
+          "bone": 2,
+          "index": 2,
+          "name": ""
+        },
+        {
+          "bone": 3,
+          "index": 3,
+          "name": ""
+        },
+        {
+          "bone": 4,
+          "index": 4,
+          "name": ""
+        },
+        {
+          "bone": 5,
+          "index": 5,
+          "name": ""
+        },
+        {
+          "bone": 6,
+          "index": 6,
+          "name": ""
+        }
+      ],
+      "invalid_weights": 0,
+      "max_weight_sum_error": 1.5288591384887695e-05,
+      "mesh": "RightArm_ContinuousSleeve_Surface",
+      "skeleton_path": "..",
+      "skeleton_resolved": true,
+      "weighted_vertices": 8384
+    },
+    {
+      "bind_count": 7,
+      "binds": [
+        {
+          "bone": 0,
+          "index": 0,
+          "name": ""
+        },
+        {
+          "bone": 1,
+          "index": 1,
+          "name": ""
+        },
+        {
+          "bone": 2,
+          "index": 2,
+          "name": ""
+        },
+        {
+          "bone": 3,
+          "index": 3,
+          "name": ""
+        },
+        {
+          "bone": 4,
+          "index": 4,
+          "name": ""
+        },
+        {
+          "bone": 5,
+          "index": 5,
+          "name": ""
+        },
+        {
+          "bone": 6,
+          "index": 6,
+          "name": ""
+        }
+      ],
+      "invalid_weights": 0,
+      "max_weight_sum_error": 1.5288591384887695e-05,
+      "mesh": "RightArm_Forearm_Surface",
+      "skeleton_path": "..",
+      "skeleton_resolved": true,
+      "weighted_vertices": 590
+    },
+    {
+      "bind_count": 7,
+      "binds": [
+        {
+          "bone": 0,
+          "index": 0,
+          "name": ""
+        },
+        {
+          "bone": 1,
+          "index": 1,
+          "name": ""
+        },
+        {
+          "bone": 2,
+          "index": 2,
+          "name": ""
+        },
+        {
+          "bone": 3,
+          "index": 3,
+          "name": ""
+        },
+        {
+          "bone": 4,
+          "index": 4,
+          "name": ""
+        },
+        {
+          "bone": 5,
+          "index": 5,
+          "name": ""
+        },
+        {
+          "bone": 6,
+          "index": 6,
+          "name": ""
+        }
+      ],
+      "invalid_weights": 0,
+      "max_weight_sum_error": 1.5273690223693848e-05,
+      "mesh": "RightArm_WristCuff_Surface",
+      "skeleton_path": "..",
+      "skeleton_resolved": true,
+      "weighted_vertices": 1170
+    }
+  ],
+  "skin_probe_count": 15,
+  "skin_validation_limit": "CPU evaluation of actual Godot skeleton/bind/weight data; GPU-deformed mesh readback and Mac production integration are not claimed.",
+  "skin_validation_method": "Actual Godot AnimationPlayer bone poses, skeleton global transforms, imported inverse binds and vertex weights are evaluated with linear blend CPU skinning at all 187 sample times. The imported skinned vertex buffers already use canonical coordinates; rigid-node C compensation is not applied to skin matrices. Seven expected sleeve transforms use the delivered sword/forearm/upper-arm poses and the documented intermediate shortest-slerp elbow/wrist frames.",
+  "skinned_mesh_instance_count": 3,
+  "status": "pass",
+  "unique_skin_resources": 1,
+  "full_report_sha256": "754ee1336f331a2a2c4b29407ff4bac9963c90b677c7efc41ad8a87912c96e8e",
+  "omitted_fields": [
+    "frame_audits",
+    "track_inventory",
+    "imported_node_names"
+  ]
+}

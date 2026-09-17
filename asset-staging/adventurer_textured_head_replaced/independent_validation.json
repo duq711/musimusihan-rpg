@@ -1,0 +1,114 @@
+{
+  "validation_scope": "Independent read-only GLB metadata, embedded-image byte hash comparison, and sampled retained-body POSITION/UV comparison. No Blender process launched.",
+  "candidate": {
+    "path": "/tmp/adventurer-textured-head-swap.vXhgBr/adventurer_textured_head_replaced.glb",
+    "byte_length": 201040636,
+    "size_mib": 191.72729110717773,
+    "mtime_ns": "1788525566787219410",
+    "sha256": "f798dfb0cdd47b420cdc840bed76edb6b30a2742d33a067636358074f69299c6",
+    "mesh_count": 2,
+    "triangle_count": 4778498,
+    "skins": 0,
+    "animations": 0,
+    "meshes": [
+      {
+        "node": "Original_Textured_Body",
+        "triangles": 1749158,
+        "vertices": 925568,
+        "attributes": [
+          "POSITION",
+          "NORMAL",
+          "TEXCOORD_0"
+        ]
+      },
+      {
+        "node": "Replacement_Head_Ultra4K",
+        "triangles": 3029340,
+        "vertices": 2261265,
+        "attributes": [
+          "POSITION",
+          "NORMAL",
+          "TEXCOORD_0"
+        ]
+      }
+    ]
+  },
+  "sources": {
+    "body": {
+      "path": "/Users/duq711gmail.com/Downloads/Meshy_AI_dungeon_adventurer_fu_0904120705_image-to-3d-texture.glb",
+      "sha256": "dacf9a6ed3fb524d32018410532f4a2afed067205a5d7d3131dfd32eb0d93ed0",
+      "triangles": 1946042
+    },
+    "head": {
+      "path": "/Users/duq711gmail.com/Downloads/adventurer-head-ultra-4k.glb",
+      "sha256": "95060d03132c717eead1cf0b36cad32c24b9979bc55bce3d637f576206044df3",
+      "triangles": 3029340
+    }
+  },
+  "embedded_image_comparison": {
+    "matched": 6,
+    "total": 6,
+    "all_byte_lengths_and_sha256_match": true,
+    "images": [
+      {
+        "candidate_name": "Body_normal",
+        "source": "body",
+        "source_name": "normal",
+        "byte_length": 9520644,
+        "sha256": "19bd070dd960bd99d52b81d98d47ebf5bb4fce454e6a5ccc6d4331c25406c2d8"
+      },
+      {
+        "candidate_name": "Body_base_color",
+        "source": "body",
+        "source_name": "base_color",
+        "byte_length": 12386271,
+        "sha256": "439cdccce61d1db7dba46b03473d899d80dfbdcd07079fb93f9d7ed46108c467"
+      },
+      {
+        "candidate_name": "Body_metallic_roughness",
+        "source": "body",
+        "source_name": "metallic_roughness",
+        "byte_length": 1774590,
+        "sha256": "441866bc4da231f84373983b96bff5d6d84e2a6357c37a5322666610308ec095"
+      },
+      {
+        "candidate_name": "Head_normal",
+        "source": "head",
+        "source_name": "normal",
+        "byte_length": 7064713,
+        "sha256": "557111bb63075da4a09908157cdd5e637e2e0067bb7319b6ba381bf7a1874044"
+      },
+      {
+        "candidate_name": "Head_Head_base_color",
+        "source": "head",
+        "source_name": "base_color",
+        "byte_length": 9218852,
+        "sha256": "1b6ae9ffc158a956cae0e23a85a6ec19d2303b5c9374beef962c795d47e0a088"
+      },
+      {
+        "candidate_name": "Head_metallic_roughness",
+        "source": "head",
+        "source_name": "metallic_roughness",
+        "byte_length": 1751490,
+        "sha256": "5d690f9204542574871dd659de51e3e46fd928d7cf7db0a3a92a36a80f600aa8"
+      }
+    ]
+  },
+  "retained_body_sample_comparison": {
+    "method": "4096 evenly distributed exported body vertices; match source positions rounded to 6 decimals, choose source UV-seam variant with smallest component error; tolerance 1e-6.",
+    "sample_count": 4096,
+    "matched_position_and_uv_count": 4096,
+    "maximum_position_component_error": 0,
+    "maximum_uv_component_error": 0,
+    "missing_position_indices": [],
+    "failed_samples": [],
+    "pass": true
+  },
+  "caveats": [
+    "The retained-body subset test is a deterministic sample, not an exhaustive topology or watertightness proof.",
+    "The rear collar has a visible surface boundary. This report does not claim seamless or perfect joining.",
+    "The exported assets are high-detail and unrigged. This is not game-ready optimization or animation validation.",
+    "Source tangents are omitted from the export. Runtime tangent generation and normal-map appearance require separate visual inspection.",
+    "Only embedded image bytes are proven unchanged for the donor. The neck/cowl geometry has been fitted and is not asserted identical to the source."
+  ]
+}

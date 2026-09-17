@@ -1,0 +1,296 @@
+{
+  "capture_iteration": "final_iteration_03",
+  "reviewer": "visual_harness",
+  "method": "All 54 original renderer PNG hashes and exact AABBs checked against the previously directly inspected final02. Six unchanged sheets inherit their byte-identical six-view review; the three changed fire/water/ice sheets were directly re-inspected across all six views. No image retouching or numerical similarity claims.",
+  "objects": [
+    {
+      "id": "sanctuary_warden",
+      "reviewed_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "sheet": "godot-game/artifacts/visual_qa/dark_fantasy_objects/final_iteration_03/sanctuary_warden_six_views.png",
+      "sheet_sha256": "a6d6a1fd49b1afe522e18e3637af32370d1cd56a4b47afcec3e98db268c7a3ca",
+      "concept": "concept-art/dark_fantasy_all_objects/sanctuary_warden.png",
+      "concept_sha256": "5699f3271b05e651839a99a640856245fbcfacb19f52ed67c38c32ab323cce5b",
+      "observed": "Hooded neutral-ivory skull, layered worn armor, ragged dark cloak, visible idle sword and physical closed boot soles are intact across all six views.",
+      "residual_difference": "Runtime armor panels and cloth folds are broader and simpler than the concept; layered engraving and fine cloth fraying remain approximate.",
+      "blocking_visual_issue": false,
+      "same_sheet_bytes_as_final01": false,
+      "individual_view_sha256": {
+        "front": "4cede0d96680387ce53d499c58b46b7f46995da69f5aba7e3072ad01cc28fa66",
+        "back": "f1da7f68fe29921fbab209c401d88bb25ad6d5a343a591fd218e3599351c0092",
+        "left": "d802e6b30622792ace84af1db07490039330b3214e255f3f60fecfb7ce4faca8",
+        "right": "3785fe2c23e311107245fae22718c826e4a934bec55aaa2b1d7f3b356306d005",
+        "top": "0c814e89d0af95677441fd42f0beff7a92c8e009fdd0ed7cfa17e92f0af93b4d",
+        "bottom": "6b42b0475a6e200c4bb76fc68ef3cbd55bbee071ead439265cb8080152f33da2"
+      },
+      "final_review_result": "All six current PNGs are byte-identical to the previously directly inspected final02 views; accepted review remains applicable.",
+      "same_sheet_bytes_as_final02": true,
+      "same_bounds_as_final02": true,
+      "same_factory_source_as_final02": true
+    },
+    {
+      "id": "ossuary_keeper",
+      "reviewed_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "sheet": "godot-game/artifacts/visual_qa/dark_fantasy_objects/final_iteration_03/ossuary_keeper_six_views.png",
+      "sheet_sha256": "e1982cba5a3375d403e993466e7a466b1671cd27b7a106c55fc0b167141addbe",
+      "concept": "concept-art/dark_fantasy_all_objects/ossuary_keeper.png",
+      "concept_sha256": "d1874234098a199ca6f9c427fe7a7d322a5dfb41aebfc5b202feea4723f8972d",
+      "observed": "The anatomical skeleton is intact in every view; the excessive mustard tint has been corrected to neutral aged gray ivory.",
+      "residual_difference": "Concept bone surface chips and crevice shading are richer; the exact production anatomy and animated rig remain authoritative.",
+      "blocking_visual_issue": false,
+      "same_sheet_bytes_as_final01": false,
+      "individual_view_sha256": {
+        "front": "a46501c8f969de44a025d88ae9154ff78a56f84181fac2478211575074e1436c",
+        "back": "13c977bed1cc29f67e8d366ff55298b4d5b3f5b72d0b09f335f7016492f40502",
+        "left": "c75b331ad0fd6f605b098cc37609ee1f741c5d4592b424700251513b04db9dd0",
+        "right": "aabffc703fddb96af78a69a94420b52ee45416434bc1be7f56fc5c987d93a67f",
+        "top": "d76240da9e964eb4a7955382cdfba3fb940157c1022604ccb50292eb881a181f",
+        "bottom": "e199b135c4d76a4c49507e34f1fc0b77248ef5e5275d16bdb7123f14f60c2004"
+      },
+      "final_review_result": "All six current PNGs are byte-identical to the previously directly inspected final02 views; accepted review remains applicable.",
+      "same_sheet_bytes_as_final02": true,
+      "same_bounds_as_final02": true,
+      "same_factory_source_as_final02": true
+    },
+    {
+      "id": "fire_bolt",
+      "reviewed_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "sheet": "godot-game/artifacts/visual_qa/dark_fantasy_objects/final_iteration_03/fire_bolt_six_views.png",
+      "sheet_sha256": "19238a3ce6f6411828f6a9f318d1daa1c9b4c6d37002f308c82def7397066172",
+      "concept": "concept-art/dark_fantasy_all_objects/fire_bolt.png",
+      "concept_sha256": "49a81b99b4f22df8443c88fcdb6d44e837543f21b8a5c60de630ac8604d638c4",
+      "observed": "The actual closed coal core uses the generated coal map with sparse irregular orange fissures; animated tongues and embers are visible.",
+      "residual_difference": "Concept has broader fractured coal lobes and more turbulent fine flame wisps; runtime uses bounded low-cost tongues and textured relief.",
+      "blocking_visual_issue": false,
+      "same_sheet_bytes_as_final01": false,
+      "individual_view_sha256": {
+        "front": "f808704ed389eff98eed0a454b8eb6c7d30cbdf5381fe886843d923716a5f19c",
+        "back": "ab5b3509ba1dba40cda86e639cb68dd2e2fb5d5f46ebbe4c294490f12a354c58",
+        "left": "b98251b19d9f8eac04ed1b047e282438f6a5db6fc104964c0825ce277a9b692f",
+        "right": "19746da058553159eb894c9463f9cebf7c600b1870e94cceb2d11c4cc61df2fc",
+        "top": "0b48f48b893f12a400695428f8e9c1f457ff4b30bd49ecc974c6e53e29d86b5c",
+        "bottom": "5f3bd2ac535fd28f47d56a4b9c25f9bbde4337e36f30c7b1fb73352ee803b1aa"
+      },
+      "final_review_result": "All six current real-renderer views directly re-inspected and accepted with previously stated concept fidelity limits.",
+      "same_sheet_bytes_as_final02": false,
+      "same_bounds_as_final02": true,
+      "same_factory_source_as_final02": true
+    },
+    {
+      "id": "water_bolt",
+      "reviewed_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "sheet": "godot-game/artifacts/visual_qa/dark_fantasy_objects/final_iteration_03/water_bolt_six_views.png",
+      "sheet_sha256": "6e1e09f9794ea0d1d41d9223b3f073174205e9c37118bd1d4b519d89d5d92bed",
+      "concept": "concept-art/dark_fantasy_all_objects/water_bolt.png",
+      "concept_sha256": "bad5ab029e33b059c469bbc30cee94038d7aee96b32f4ffa16d9d84bbebbdf2a",
+      "observed": "The dark fluid core, smooth ellipsoid normals, Fresnel edges and peripheral droplets are visible; prior horizontal facet banding is removed.",
+      "residual_difference": "Concept fluid wrinkles and turbulent reflections are finer and stronger; runtime retains a smoother fluid envelope.",
+      "blocking_visual_issue": false,
+      "same_sheet_bytes_as_final01": false,
+      "individual_view_sha256": {
+        "front": "0434fc148ab2639f5b21bc84cc1c0d5021d88ffa75d4863cf9141ba1c7080691",
+        "back": "ed801fc948a3bd4b5f2bbe1c072501f175ab13546e0709fa773af1d098ece837",
+        "left": "713810464fec054e8b755e3251ee871635dd85468adcf4ce51f8dfb3a64e036e",
+        "right": "ad99e1730b1ef9463b2a98eea7b119f152f2b753c478681ec859f20eec211f36",
+        "top": "09eb17ec16cb55f750cc943d40960812683f881f8d58f42bf1e34b0801d831f2",
+        "bottom": "5e9b5c5b9a4e8cad73927efa83e6959745f40797b2479a18a8acb53c27961748"
+      },
+      "final_review_result": "All six current real-renderer views directly re-inspected and accepted with previously stated concept fidelity limits.",
+      "same_sheet_bytes_as_final02": false,
+      "same_bounds_as_final02": true,
+      "same_factory_source_as_final02": true
+    },
+    {
+      "id": "ice_shard",
+      "reviewed_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "sheet": "godot-game/artifacts/visual_qa/dark_fantasy_objects/final_iteration_03/ice_shard_six_views.png",
+      "sheet_sha256": "5e6671467661800f8d5ceb303e6b0c1be6083e5c030c7f77f9410a3fe01eea34",
+      "concept": "concept-art/dark_fantasy_all_objects/ice_shard.png",
+      "concept_sha256": "01cdfcb7fdcac2f2143dd4edbfd26c6040380d114429ca554370ab12311d5e9a",
+      "observed": "Pointed blue frosted splinter has closed geometry in all directions, including the formerly culled shoulder facets.",
+      "residual_difference": "Concept has deeper crystalline fractures and chipped frost detail; the runtime silhouette preserves the production projectile axis rather than the concept sheet's inconsistent view orientation.",
+      "blocking_visual_issue": false,
+      "same_sheet_bytes_as_final01": false,
+      "individual_view_sha256": {
+        "front": "8bf829bd58f748c2b8fcf23855770a1225423c065994617a492660de39689b4c",
+        "back": "4c5a8dc666eea98344b7278012584720f837d1cd949316e6233df00e9741899f",
+        "left": "2ae25f8153c9302ad318416cf5126295fa045f713afa24bfcefeedcb66e29736",
+        "right": "4981917f828fecf27d859b17983e98bc31458792f8b62ed854a706d779acc7e8",
+        "top": "4f5bb761e1ec387a6e88337a65425a79fd8caf08874943aaee633cebc7e241a7",
+        "bottom": "41ba67226be45d04ba47512a099a108935679780bc546bab8d7cbbea4b90bd24"
+      },
+      "final_review_result": "All six current real-renderer views directly re-inspected and accepted with previously stated concept fidelity limits.",
+      "same_sheet_bytes_as_final02": false,
+      "same_bounds_as_final02": true,
+      "same_factory_source_as_final02": true
+    },
+    {
+      "id": "stone_shard",
+      "reviewed_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "sheet": "godot-game/artifacts/visual_qa/dark_fantasy_objects/final_iteration_03/stone_shard_six_views.png",
+      "sheet_sha256": "d79127ce73a97f400db40966be608b9d88bc9fd6aed20252ffefc7b13039eb81",
+      "concept": "concept-art/dark_fantasy_all_objects/stone_shard.png",
+      "concept_sha256": "9cdc8aa3687ded58a38159d3a004f4f655726fbe038a5350542b35030a358639",
+      "observed": "The non-emissive irregular stone is fully closed and visibly stone-textured in every direction.",
+      "residual_difference": "Concept cracks and fractured relief are sharper; the runtime uses a lower-polygon stone with broader facets.",
+      "blocking_visual_issue": false,
+      "same_sheet_bytes_as_final01": true,
+      "individual_view_sha256": {
+        "front": "740c01bab34dbf07b21a9da52dd5cc55c6bf7c2f5cda0ac6ee177da42f00db76",
+        "back": "309dc0e4e17e6d09d8b0716b1f8d1c5e235889cdab541cf932329c652ed2975e",
+        "left": "e0f9e5f726e6635db3059aa084533eace8c6f9c91cf317eb5fb0f00e0d7adb74",
+        "right": "2bb2b8178bd14447ef8c190533bf761c0c37a6c1f4564de70e79ff549debdeba",
+        "top": "cb788e546495fb4399f3eefe3577d444a6ccd978b8383e0654ece194ed6edff7",
+        "bottom": "cf62b3595ade933c852feca5d32fa5f5a5ad17a115c6eaf6cf8fb130fbe20aa6"
+      },
+      "final_review_result": "All six current PNGs are byte-identical to the previously directly inspected final02 views; accepted review remains applicable.",
+      "same_sheet_bytes_as_final02": true,
+      "same_bounds_as_final02": true,
+      "same_factory_source_as_final02": true
+    },
+    {
+      "id": "peripheral_afterimage",
+      "reviewed_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "sheet": "godot-game/artifacts/visual_qa/dark_fantasy_objects/final_iteration_03/peripheral_afterimage_six_views.png",
+      "sheet_sha256": "f9f001bac887a9eb69832feb99238efc994d45b07d4994906e468bdc3dfe387b",
+      "concept": "concept-art/dark_fantasy_all_objects/peripheral_afterimage.png",
+      "concept_sha256": "5cf2028bae2965230d1a374ea2eb799b81eaf1c70f88d50432c1a53ef205220a",
+      "observed": "A dim folded hood and ragged tapered shroud replace the primitive body; six views show a complete noncombat visual with the original fade envelope.",
+      "residual_difference": "The runtime shroud has broad bent folds and a much dimmer silhouette; fine smoky threads and the concept's more distinct hood cavity remain approximate.",
+      "blocking_visual_issue": false,
+      "same_sheet_bytes_as_final01": true,
+      "individual_view_sha256": {
+        "front": "94146fd9f58191e1f957714948077fa2785c459203eab170221daae1d4ca1cdd",
+        "back": "ff31a03e786daae7ab626e43d958bc7337dbdc7385baa58abc08d60e38cd508d",
+        "left": "65900406fe26ae8491e408e885b1b54d017fc81d8d463268e5802f12d931bbd5",
+        "right": "f3d02342ad8ebb4431c71ef08627c8ea5e5bf1479a91e0db23899cee05f6d3b9",
+        "top": "1f9142bc14ef12ee20486c0fac9093b17ed3b5975131052631c4030b032ffbf0",
+        "bottom": "18ad61de90d9b6cf57e01a31282e6d09383b7ad2528dc645201f222cfe809302"
+      },
+      "final_review_result": "All six current PNGs are byte-identical to the previously directly inspected final02 views; accepted review remains applicable.",
+      "same_sheet_bytes_as_final02": true,
+      "same_bounds_as_final02": true,
+      "same_factory_source_as_final02": true
+    },
+    {
+      "id": "archery_accuracy_target",
+      "reviewed_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "sheet": "godot-game/artifacts/visual_qa/dark_fantasy_objects/final_iteration_03/archery_accuracy_target_six_views.png",
+      "sheet_sha256": "41b55ec3da2ce9a6e112cd11bd5f1494385dc0ac4d621695aeed1be3d8840890",
+      "concept": "concept-art/dark_fantasy_all_objects/archery_accuracy_target.png",
+      "concept_sha256": "10de87a29e797be28a0bd6a15d6b3604d1a3fb1eed91d62f1d6e215b25802112",
+      "observed": "Nine real wood planks, muted painted rings, rear braces and attached fasteners are visible across all six views. Paint follows plank gaps without the previous barcode wear artifact.",
+      "residual_difference": "Concept wood splintering and paint flecks are finer; the runtime keeps exact original target footprint and ring hit layout.",
+      "blocking_visual_issue": false,
+      "same_sheet_bytes_as_final01": true,
+      "individual_view_sha256": {
+        "front": "896974f5078c33154c3dd5605b6fd37c55f7b305a9a6839eeb20f0148303875d",
+        "back": "e0cf937c52e918c0e2306732faff567277bc5febeb15c8edca412678ce9dbc5e",
+        "left": "941f3e9ac843a258935ec0cea9cb7cbfc32bb1be4fb9c114d3e8eeb418ad619e",
+        "right": "2083d1b8c1569af0bd970febec708ddfe4536978d05501418924faa2b9e9082c",
+        "top": "14756fd0716f4cb16530eca49bfa2cdbf19be732fc70177c8ceb31d4477a01c2",
+        "bottom": "5bb9fa3320711d958e960c48c765df5412ba28bdb2af47e15a0942de5a177dcd"
+      },
+      "final_review_result": "All six current PNGs are byte-identical to the previously directly inspected final02 views; accepted review remains applicable.",
+      "same_sheet_bytes_as_final02": true,
+      "same_bounds_as_final02": true,
+      "same_factory_source_as_final02": true
+    },
+    {
+      "id": "flail_station_markers",
+      "reviewed_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "sheet": "godot-game/artifacts/visual_qa/dark_fantasy_objects/final_iteration_03/flail_station_markers_six_views.png",
+      "sheet_sha256": "dc33e39c382b29eb807142efef103983c5d5fd0962db4c2274717580925a378b",
+      "concept": "concept-art/dark_fantasy_all_objects/flail_station_markers.png",
+      "concept_sha256": "4fc5bf15f7e7702fee31f726924f6fbb0f8d50201284bd656df3a98bc28cc883",
+      "observed": "Thin stone training pad has muted cornered inlay on its top and an unobstructed stone underside; original dimensions and positions remain unchanged.",
+      "residual_difference": "Concept stone chips and worn edging are richer; thin edge views are necessarily only a narrow line at the unchanged production thickness.",
+      "blocking_visual_issue": false,
+      "same_sheet_bytes_as_final01": true,
+      "individual_view_sha256": {
+        "front": "b1f2c4d303b0ca1d638c96a58400941c0e544b06f8392774012e4cc0e70169b3",
+        "back": "9e68ccab044b4fbde1c4d8de94fccf16bd16fb96f5291ec7200897107d2fa364",
+        "left": "1c79de8b0387be86dbd80d4f7300f3b309c8e12b7bde2538739aa394de60a713",
+        "right": "392dd34769b31db3520c7304ec49eda363b8bbc6aa2f535767d3f2c3944d3689",
+        "top": "ff3d2d2843309754a9643091a884be0026541937e02dd491410f9b2691747098",
+        "bottom": "d6481c4b164c973667662e91843e4678921837b966bfad49740a6f8e15b25b80"
+      },
+      "final_review_result": "All six current PNGs are byte-identical to the previously directly inspected final02 views; accepted review remains applicable.",
+      "same_sheet_bytes_as_final02": true,
+      "same_bounds_as_final02": true,
+      "same_factory_source_as_final02": true
+    }
+  ],
+  "capture_manifest": "godot-game/artifacts/visual_qa/dark_fantasy_objects/final_iteration_03/capture_manifest.json",
+  "source_files_unchanged": true,
+  "unresolved_blocking_visual_issues": [],
+  "byte_identical_sheets_to_final02": 6,
+  "directly_reinspected_changed_sheets": [
+    "fire_bolt",
+    "water_bolt",
+    "ice_shard"
+  ],
+  "comparison_report": "asset-staging/dark_fantasy_all_objects/review/vfx_final02_to03_comparison.json"
+}

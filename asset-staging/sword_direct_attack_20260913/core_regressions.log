@@ -1,0 +1,35 @@
+[HEADLESS] unified_sword_motion_test.gd
+UNIFIED SWORD MOTION PASS [{"max_angle_rad":0.0009765625,"max_position_m":0.0,"profile":"quick_click","samples_per_stance":348},{"max_angle_rad":0.0009765625,"max_position_m":0.0,"profile":"hold_0_45s","samples_per_stance":348}]
+[HEADLESS] reference_sword_motion_test.gd
+REFERENCE SWORD MOTION PASS: Mac/legacy motion delivery and production playback checks, physical run/air handoffs, guard ownership and composed solo/paired clash recovery
+[HEADLESS] sword_attack_variants_test.gd
+SWORD ATTACK VARIANTS PASS: three actual paired attacks, 145ms/300ms paired versus 55ms/160ms solo timing, unchanged one-hit/cost transactions, commit-only cycle, cancellation and menu/equipment reset
+[HEADLESS] sword_clash_test.gd
+ERROR: SWORD CLASH TEST FAIL: natural close-range attacks must overlap their rendered blade models
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_clash_test.gd:253)
+       [1] _run (res://tests/sword_clash_test.gd:137)
+ERROR: SWORD CLASH TEST FAIL: natural blade contact must occur before either body's damage deadline
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_clash_test.gd:253)
+       [1] _run (res://tests/sword_clash_test.gd:137)
+ERROR: SWORD CLASH TEST FAIL: natural swing animation must cancel the player strike into clash recovery
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_clash_test.gd:253)
+       [1] _run (res://tests/sword_clash_test.gd:137)
+ERROR: SWORD CLASH TEST FAIL: natural swing animation must stagger the armed enemy
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_clash_test.gd:253)
+       [1] _run (res://tests/sword_clash_test.gd:137)
+ERROR: SWORD CLASH TEST FAIL: natural swing clash must prevent enemy damage
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_clash_test.gd:253)
+       [1] _run (res://tests/sword_clash_test.gd:137)
+
+Headless validation: 3 passed, 1 failed.
+FAILED: sword_clash_test.gd (1)

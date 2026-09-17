@@ -1,0 +1,92 @@
+[HEADLESS] player_finger_joints_test.gd
+SCRIPT ERROR: Parse Error: Cannot infer the type of "passed" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/player_hands_detailed_preview.gd:305)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+          at: GDScript::reload (res://tests/player_finger_joints_test.gd:0)
+ERROR: Failed to load script "res://tests/player_finger_joints_test.gd" with error "Compilation failed".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Invalid call. Nonexistent function 'inventory_contents' in base 'GDScript'.
+          at: _test_independent_joints_and_correctives (res://tests/player_finger_joints_test.gd:33)
+          GDScript backtrace (most recent call first):
+              [0] _test_independent_joints_and_correctives (res://tests/player_finger_joints_test.gd:33)
+              [1] _run (res://tests/player_finger_joints_test.gd:19)
+SCRIPT ERROR: Invalid call. Nonexistent function 'inventory_contents' in base 'GDScript'.
+          at: _test_gameplay_and_review (res://tests/player_finger_joints_test.gd:206)
+          GDScript backtrace (most recent call first):
+              [0] _test_gameplay_and_review (res://tests/player_finger_joints_test.gd:206)
+              [1] _run (res://tests/player_finger_joints_test.gd:20)
+SCRIPT ERROR: Invalid call. Nonexistent function 'inventory_contents' in base 'GDScript'.
+          at: _test_room_lifecycle (res://tests/player_finger_joints_test.gd:265)
+          GDScript backtrace (most recent call first):
+              [0] _test_room_lifecycle (res://tests/player_finger_joints_test.gd:265)
+              [1] _run (res://tests/player_finger_joints_test.gd:21)
+PLAYER FINGER JOINTS PASS: thirty independent local joints, actual localized morph and weighted skin, rigid nails, limits/reset, bow/chest linkage, real controls and isolated F2/repeat/switch/reset/exit
+Script error detected in player_finger_joints_test.gd, regardless of engine exit status.
+[HEADLESS] player_hands_detailed_test.gd
+SCRIPT ERROR: Parse Error: Cannot infer the type of "passed" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/player_hands_detailed_preview.gd:305)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+          at: GDScript::reload (res://tests/player_hands_detailed_test.gd:0)
+ERROR: Failed to load script "res://tests/player_hands_detailed_test.gd" with error "Compilation failed".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+PBR CUFF SOURCE FRAME: WristCuff_Surface_001/0/Detailed_Skin; 4886 imported frames, 8704 UV-derivative comparisons, signed U/normal-map-Y min=(0.990037, 0.867563); no runtime tangent fallback
+SCRIPT ERROR: Invalid call. Nonexistent function 'inspect_hand_roles' in base 'GDScript'.
+          at: _test_imported_rigs_and_actual_skin (res://tests/player_hands_detailed_test.gd:90)
+          GDScript backtrace (most recent call first):
+              [0] _test_imported_rigs_and_actual_skin (res://tests/player_hands_detailed_test.gd:90)
+              [1] _run (res://tests/player_hands_detailed_test.gd:15)
+SCRIPT ERROR: Invalid call. Nonexistent function 'inventory_contents' in base 'GDScript'.
+          at: _test_player_runtime_and_preview (res://tests/player_hands_detailed_test.gd:341)
+          GDScript backtrace (most recent call first):
+              [0] _test_player_runtime_and_preview (res://tests/player_hands_detailed_test.gd:341)
+              [1] _run (res://tests/player_hands_detailed_test.gd:16)
+SCRIPT ERROR: Invalid call. Nonexistent function 'inventory_contents' in base 'GDScript'.
+          at: _test_room_lifecycle (res://tests/player_hands_detailed_test.gd:411)
+          GDScript backtrace (most recent call first):
+              [0] _test_room_lifecycle (res://tests/player_hands_detailed_test.gd:411)
+              [1] _run (res://tests/player_hands_detailed_test.gd:17)
+PLAYER HANDS DETAILED PASS: bilateral imported skin and handedness, real finger deformation, free/bow/chest gameplay, render layers, default fidelity and isolated F2/repeat/switch/reset/exit
+ERROR: Pages in use exist at exit in PagedAllocator: N20RasterizerSceneDummy21GeometryInstanceDummyE
+   at: ~PagedAllocator (./core/templates/paged_allocator.h:170)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: 39 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2535)
+ERROR: 20 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)
+ERROR: 4 RID allocations of type 'N13RendererDummy15MaterialStorage13DummyMaterialE' were leaked at exit.
+ERROR: 1 RID allocations of type 'N13RendererDummy15MaterialStorage11DummyShaderE' were leaked at exit.
+ERROR: 12 RID allocations of type 'N13RendererDummy9DummyMeshE' were leaked at exit.
+ERROR: 3 RID allocations of type 'PN13RendererDummy14TextureStorage12DummyTextureE' were leaked at exit.
+ERROR: 9 RID allocations of type 'N17RendererSceneCull8InstanceE' were leaked at exit.
+Script error detected in player_hands_detailed_test.gd, regardless of engine exit status.
+[HEADLESS] player_hands_greybox_test.gd
+PLAYER HANDS GREYBOX PASS: bilateral imported skin and handedness, real finger deformation, free/bow/chest gameplay, render layers, default fidelity and isolated F2/repeat/switch/reset/exit
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2535)
+[HEADLESS] player_arm_test.gd
+PLAYER ARM PASS: full-body GLB/atlas sharing, articulated grip and wrist-preserving arm fit, actual combat/bow/chest preview paths, trial hits and contacts, F2/repeat/reset and expedition restoration
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2535)
+[HEADLESS] weapon_hand_contacts_test.gd
+WEAPON HAND CONTACTS PASS: real bow grip/string/nock/rest, fixed cord length, draw cache, transformed contacts, slim arrow and forked nock, flail chain/ball continuity and state isolation
+[HEADLESS] chest_hands_test.gd
+CHEST HANDS PASS: real stow/reach/fidget/lift phases, articulated fingers, synced lid, container hold/restore, all loadouts/full bag, cancellation, pause/scaled timing and scene cleanup
+[HEADLESS] test_room_session_test.gd
+Validation interrupted by TERM. Stopping its current Godot process.

@@ -1,0 +1,158 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:gravebound:overhead-arm-review:1",
+  "title": "Incomplete Windows overhead and explicit right-arm review",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "status", "reference_video_url", "source", "coordinate_system", "camera", "provenance", "clips", "right_arm"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "reference_video_url": {"const": "https://youtu.be/sU7jk2OQlgc"},
+    "source": {
+      "type": "object", "additionalProperties": false,
+      "required": ["godot_model_path", "godot_model_sha256", "blender_input_path", "blender_input_sha256"],
+      "properties": {
+        "godot_model_path": {"const": "res://assets/3d/player/sword_hold_long_grip/SwordHold_Static.glb"},
+        "godot_model_sha256": {"const": "2b94cc385f837fe253552cd654cb1f665246f61cdee5227814d63049da9f22fb"},
+        "blender_input_path": {"type": "string", "minLength": 1},
+        "blender_input_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      }
+    },
+    "coordinate_system": {
+      "type": "object", "additionalProperties": false,
+      "required": ["space", "units", "position_order", "quaternion_order", "transform_semantics", "scale", "sword_normalization", "shield_normalization", "interpolation"],
+      "properties": {
+        "space": {"const": "godot_camera_local_x_right_y_up_minus_z_forward"},
+        "units": {"const": "meters"},
+        "position_order": {"const": "xyz"},
+        "quaternion_order": {"const": "xyzw"},
+        "transform_semantics": {"const": "absolute_pivot_local_to_camera"},
+        "scale": {"const": [1, 1, 1]},
+        "sword_normalization": {"const": "camera_motion_delta_times_source_ready"},
+        "shield_normalization": {"const": "camera_motion_delta_times_production_shield_idle"},
+        "interpolation": {"enum": ["linear_position_shortest_slerp_rotation", "time_aware_cubic_position_spherical_cubic_rotation"]}
+      }
+    },
+    "camera": {
+      "type": "object", "additionalProperties": false,
+      "required": ["vertical_fov_degrees", "aspect_ratio", "animated"],
+      "properties": {
+        "vertical_fov_degrees": {"const": 76.0},
+        "aspect_ratio": {"const": [16, 9]},
+        "animated": {"const": false}
+      }
+    },
+    "provenance": {
+      "type": "object", "additionalProperties": false,
+      "required": ["execution_os", "hostname", "blender_executable", "blender_version", "command_argv", "working_directory", "started_at_utc", "completed_at_utc", "exit_code", "source_preserved"],
+      "properties": {
+        "execution_os": {"const": "Windows"},
+        "hostname": {"type": "string", "minLength": 1},
+        "blender_executable": {"type": "string", "minLength": 1},
+        "blender_version": {"type": "string", "minLength": 1},
+        "command_argv": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+        "working_directory": {"type": "string", "minLength": 1},
+        "started_at_utc": {"type": "string", "format": "date-time"},
+        "completed_at_utc": {"type": "string", "format": "date-time"},
+        "exit_code": {"const": 0},
+        "source_preserved": {"const": true}
+      }
+    },
+    "status": {"const": "authored_windows_review_output"},
+    "clips": {
+      "type": "object", "additionalProperties": false, "required": ["overhead"],
+      "properties": {
+        "overhead": {
+          "allOf": [
+            {"$ref": "#/$defs/clip"},
+            {"required": ["timing"], "properties": {
+              "kind": {"const": "attack"},
+              "loop": {"const": false},
+              "duration_seconds": {"const": 1.55},
+              "tracks": {"required": ["sword", "shield"]}
+            }}
+          ]
+        }
+      }
+    },
+    "right_arm": {
+      "type": "array", "minItems": 94,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["time_seconds", "shoulder", "elbow", "wrist"],
+        "properties": {
+          "time_seconds": {"type": "number", "minimum": 0},
+          "shoulder": {"type": "array", "minItems": 3, "maxItems": 3, "items": {"type": "number"}},
+          "elbow": {"type": "array", "minItems": 3, "maxItems": 3, "items": {"type": "number"}},
+          "wrist": {"type": "array", "minItems": 3, "maxItems": 3, "items": {"type": "number"}}
+        }
+      }
+    },
+    "artifacts": {
+      "type": "array", "minItems": 3,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["kind", "relative_path", "sha256"],
+        "properties": {
+          "kind": {"enum": ["blend", "glb", "authoring_script", "preview_video", "preview_image", "execution_log", "validation_report", "reference_analysis"]},
+          "relative_path": {"type": "string", "minLength": 1},
+          "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+        }
+      }
+    },
+    "notes": {"type": "string"}
+  },
+  "$defs": {
+    "sample": {
+      "type": "object", "additionalProperties": false,
+      "required": ["time_seconds", "position", "rotation_xyzw"],
+      "properties": {
+        "time_seconds": {"type": "number", "minimum": 0},
+        "position": {"type": "array", "items": {"type": "number"}, "minItems": 3, "maxItems": 3},
+        "rotation_xyzw": {"type": "array", "items": {"type": "number"}, "minItems": 4, "maxItems": 4}
+      }
+    },
+    "track": {"type": "array", "minItems": 2, "items": {"$ref": "#/$defs/sample"}},
+    "clip": {
+      "type": "object", "additionalProperties": false,
+      "required": ["kind", "duration_seconds", "loop", "nominal_sample_hz", "tracks", "reference_segments"],
+      "properties": {
+        "kind": {"enum": ["locomotion", "attack"]},
+        "duration_seconds": {"type": "number", "exclusiveMinimum": 0},
+        "loop": {"type": "boolean"},
+        "nominal_sample_hz": {"type": "number", "minimum": 60},
+        "tracks": {
+          "type": "object", "additionalProperties": false, "required": ["sword"],
+          "properties": {"sword": {"$ref": "#/$defs/track"}, "shield": {"$ref": "#/$defs/track"}}
+        },
+        "timing": {"$ref": "#/$defs/attack_timing"},
+        "reference_segments": {
+          "type": "array", "items": {
+            "type": "object", "additionalProperties": false,
+            "required": ["start_seconds", "end_seconds", "observations"],
+            "properties": {
+              "start_seconds": {"type": "number", "minimum": 0},
+              "end_seconds": {"type": "number", "exclusiveMinimum": 0},
+              "observations": {"type": "string", "minLength": 1}
+            }
+          }
+        },
+        "notes": {"type": "string"}
+      }
+    },
+    "attack_timing": {
+      "type": "object", "additionalProperties": false,
+      "required": ["windup_seconds", "active_seconds", "hit_seconds", "recovery_seconds", "runtime_mapping", "reference_charge"],
+      "properties": {
+        "windup_seconds": {"type": "number", "exclusiveMinimum": 0},
+        "active_seconds": {"type": "number", "exclusiveMinimum": 0},
+        "hit_seconds": {"type": "number", "exclusiveMinimum": 0},
+        "recovery_seconds": {"type": "number", "exclusiveMinimum": 0},
+        "runtime_mapping": {"const": "phase_resample"},
+        "reference_charge": {"const": 0.0}
+      },
+      "description": "hit_seconds is relative to ACTIVE start. duration=windup+active+recovery; active contact and phase seams require exact samples. Cross-field checks are semantic."
+    }
+  },
+  "description": "Review only: exactly one 1.55-second overhead. Joint samples share sword/shield times; wrist must equal T_sword*REST_WRIST within 1 mm, upper arm .34 m and forearm .26 m within 3%. Semantic checks are performed by the isolated Godot review harness. Never install this as the production motion manifest."
+}

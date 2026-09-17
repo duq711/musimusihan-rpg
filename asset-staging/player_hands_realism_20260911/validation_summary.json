@@ -1,0 +1,305 @@
+{
+  "status": "passed",
+  "completed_at": "2026-09-10T17:13:08.348777+00:00",
+  "model_iteration": "iteration_04",
+  "preview_iteration": "realism_final_02",
+  "model_sha256": {
+    "left_hand_realistic.glb": "d5f5b5c548670192a722059bef3689fee923ffa23e218309506e650c007dac88",
+    "right_hand_realistic.glb": "1fc735a1cc8b1f42036c3cf1dc06230b849ecae44c71888402284e218c45081e",
+    "bilateral_hands_realistic.blend": "cbf03527f6471047848cd17ac8b972e0fd4f2caee2c704b4e2c53304d8c86e67"
+  },
+  "blender_independent_validation": "padding_verification_report.json",
+  "blender_independent_report_sha256": "4217c750cd97a42871a041d8d588c45352da821de18859e1defd775a8e8459b5",
+  "blender_review": {
+    "bilateral_dorsum": {
+      "file": "bilateral_dorsum.png",
+      "samples": 24,
+      "denoising": true,
+      "resolution": [
+        1600,
+        1300
+      ],
+      "camera_world": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.03500000014901161
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          1.2000000476837158
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "orthographic_scale": 0.68,
+      "pose": "neutral",
+      "actual_blender_render": true,
+      "sha256": "32ba2105d5d487f845a6d99112f10eb72ff3cf483991d0f3b64c3e76ad650d54",
+      "directly_visually_reviewed": true
+    },
+    "preview_finger_dorsum": {
+      "file": "preview_finger_dorsum.png",
+      "samples": 40,
+      "denoising": true,
+      "resolution": [
+        1400,
+        1200
+      ],
+      "camera_world": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.16343863308429718
+        ],
+        [
+          0.0,
+          0.9968153238296509,
+          -0.07974465191364288,
+          0.03930573910474777
+        ],
+        [
+          0.0,
+          0.07974465191364288,
+          0.9968153238296509,
+          1.2011783123016357
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "orthographic_scale": 0.205,
+      "pose": "neutral",
+      "actual_blender_render": true,
+      "sha256": "dcc9024e0f8dd5c23ceb8d22a6b9a3bf78200817c300e6365c8d18fc8c360a02",
+      "directly_visually_reviewed": true
+    },
+    "finger_palm_closeup": {
+      "file": "finger_palm_closeup.png",
+      "samples": 24,
+      "denoising": true,
+      "resolution": [
+        1400,
+        1200
+      ],
+      "camera_world": [
+        [
+          -1.0,
+          1.5538776665380283e-07,
+          -1.4640221479567117e-07,
+          -0.16343863308429718
+        ],
+        [
+          1.5092791727511212e-07,
+          0.9995503425598145,
+          0.029985742643475533,
+          0.17098382115364075
+        ],
+        [
+          1.5099580252808664e-07,
+          0.029985742643475533,
+          -0.9995503425598145,
+          -1.1994603872299194
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "orthographic_scale": 0.205,
+      "pose": "neutral",
+      "actual_blender_render": true,
+      "sha256": "271978f97a5569531dd113b08cbc625d4e252f4b7c8a587e1e120d7fda6f8368",
+      "directly_visually_reviewed": true
+    }
+  },
+  "blender_saved_presentation": {
+    "scene": "Bilateral_Realistic_Review",
+    "camera": "Review_Camera",
+    "camera_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        -0.03500000014901161
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        1.2000000476837158
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "ortho_scale": 0.6800000071525574,
+    "samples": 24,
+    "denoising": true,
+    "resolution": [
+      1600,
+      1300
+    ]
+  },
+  "headless": {
+    "passed": 7,
+    "failed": 0,
+    "tests": [
+      "player_finger_joints",
+      "player_hands_detailed",
+      "player_hands_greybox",
+      "player_arm",
+      "weapon_hand_contacts",
+      "chest_hands",
+      "test_room_session"
+    ]
+  },
+  "previews": {
+    "player_finger_joints": {
+      "captures": 12,
+      "all_images_visually_reviewed": true,
+      "all_inspections_passed": true,
+      "source_sha256": {
+        "res://assets/3d/player/hands_detailed/left_hand_detailed.glb": "d5f5b5c548670192a722059bef3689fee923ffa23e218309506e650c007dac88",
+        "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_basecolor.png": "2eb2e2492e8e90bd57d5d61bc9bc14e01ec371e7d01479280a328e8eefe4ba62",
+        "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_basecolor.png.import": "002add5825bef17b836d56b5766ba44c316cde5948d657cfdad388848a5f6b13",
+        "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_normal.png": "2152cfac4c8b61b910b688b5211e4f7b994ae5c21a562c2598bba88f5020cf8d",
+        "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_normal.png.import": "f44ea4fb9300306e3c85c62963ed543361c6845908e426f5b1e674bc2a7d5d83",
+        "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_roughness.png": "5d62614d102d84cf754eddbbfecbc6e5e39627682868633f68831262789967af",
+        "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_roughness.png.import": "3c131fa5ae9417b681a0f838f630b0410a6c39ff945588721a8ee7d24b91521a",
+        "res://assets/3d/player/hands_detailed/right_hand_detailed.glb": "1fc735a1cc8b1f42036c3cf1dc06230b849ecae44c71888402284e218c45081e",
+        "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_basecolor.png": "2eb2e2492e8e90bd57d5d61bc9bc14e01ec371e7d01479280a328e8eefe4ba62",
+        "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_basecolor.png.import": "34e813eaaadc7c11294f20e7fec101cdf76db486d5c20f0c0cb038fa1fe173ec",
+        "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_normal.png": "2152cfac4c8b61b910b688b5211e4f7b994ae5c21a562c2598bba88f5020cf8d",
+        "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_normal.png.import": "bb812d45c206dc35797ad0585f73fc31598e62ec8bd6dac28a8aa688ac4f6a0e",
+        "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_roughness.png": "5d62614d102d84cf754eddbbfecbc6e5e39627682868633f68831262789967af",
+        "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_roughness.png.import": "5cf4a064729069456f8df026e753d0d152d0dc85f5164ea13fa71a10fc3584a8",
+        "res://assets/fonts/NotoSansKR-Variable.ttf": "194018e6b2b293a7964f037b25c0249ce1418bc9ab3c971060a03aa57861e252",
+        "res://scripts/chest_hand_visuals.gd": "f4012bebd0fb03ab0fe76c57b7251dc56987fd35612ab1168d4fbe7498831bf3",
+        "res://scripts/finger_joint_controls.gd": "0b5231140e38f0859594474d6af24a8929403f68979eeb734ebb3937c31823dc",
+        "res://scripts/greybox_arm_visual.gd": "6554f2e78a81d658a38acd6695a06aa86bcb98315fb6dbf3b4c4ef9e77781a65",
+        "res://scripts/player.gd": "ebee7766ac7702eb92ea175adb2484c1d6659aa7f879a2add4c941bcb31c7f40",
+        "res://scripts/player_arm_visual.gd": "38fa62b41f7a5e6d672fcefe4c9ceb71e736687132972b93ce4a874fde8b928a",
+        "res://scripts/test_room.gd": "65e4e4df32be0f0a76c7c8fcb9f5a2e8439007c7fe2070b4290ff135acbae05e",
+        "res://scripts/wrist_cuff_deformer.gd": "ca9702206cf2485bf638047b7cddf66b404d86842a89b181295d4c1fc0203682",
+        "res://tests/player_arm_preview.gd": "2066f51f064a5b24cde5896c277d83602ae9784d26e10059bd4309b69b0c4d06",
+        "res://tests/player_finger_joints_preview.gd": "cae04d8bba75c90e7b656a6fa328c7a3e2e76893787c31e6cc4e1b29ea5d1677",
+        "res://tests/player_hands_detailed_preview.gd": "e22226180ff08f3e699745700986f4825204edede81cb0a19d3849a584fed8c8"
+      },
+      "manifest": "godot_preview/player_finger_joints/capture_manifest.json",
+      "world_inventory_cursor_preserved": true,
+      "renderer": "Godot 4.7 Forward+ Vulkan, embedded, 1280x720"
+    },
+    "player_hands_detailed": {
+      "captures": 6,
+      "all_images_visually_reviewed": true,
+      "all_inspections_passed": true,
+      "source_sha256": {
+        "res://assets/3d/player/hands_detailed/left_hand_detailed.glb": "d5f5b5c548670192a722059bef3689fee923ffa23e218309506e650c007dac88",
+        "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_basecolor.png": "2eb2e2492e8e90bd57d5d61bc9bc14e01ec371e7d01479280a328e8eefe4ba62",
+        "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_basecolor.png.import": "002add5825bef17b836d56b5766ba44c316cde5948d657cfdad388848a5f6b13",
+        "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_normal.png": "2152cfac4c8b61b910b688b5211e4f7b994ae5c21a562c2598bba88f5020cf8d",
+        "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_normal.png.import": "f44ea4fb9300306e3c85c62963ed543361c6845908e426f5b1e674bc2a7d5d83",
+        "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_roughness.png": "5d62614d102d84cf754eddbbfecbc6e5e39627682868633f68831262789967af",
+        "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_roughness.png.import": "3c131fa5ae9417b681a0f838f630b0410a6c39ff945588721a8ee7d24b91521a",
+        "res://assets/3d/player/hands_detailed/right_hand_detailed.glb": "1fc735a1cc8b1f42036c3cf1dc06230b849ecae44c71888402284e218c45081e",
+        "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_basecolor.png": "2eb2e2492e8e90bd57d5d61bc9bc14e01ec371e7d01479280a328e8eefe4ba62",
+        "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_basecolor.png.import": "34e813eaaadc7c11294f20e7fec101cdf76db486d5c20f0c0cb038fa1fe173ec",
+        "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_normal.png": "2152cfac4c8b61b910b688b5211e4f7b994ae5c21a562c2598bba88f5020cf8d",
+        "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_normal.png.import": "bb812d45c206dc35797ad0585f73fc31598e62ec8bd6dac28a8aa688ac4f6a0e",
+        "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_roughness.png": "5d62614d102d84cf754eddbbfecbc6e5e39627682868633f68831262789967af",
+        "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_roughness.png.import": "5cf4a064729069456f8df026e753d0d152d0dc85f5164ea13fa71a10fc3584a8",
+        "res://assets/3d/player/hands_greybox/left_hand_greybox.glb": "d0b0b0752c942984e9763d44917ec7d20676b3e99bce1a94b532396bc6827e16",
+        "res://assets/3d/player/hands_greybox/right_hand_greybox.glb": "1edebacc2cbb8e39a7952338ed94a31fae327d05de15f92c30851dbb418f7c58",
+        "res://scripts/chest_hand_visuals.gd": "f4012bebd0fb03ab0fe76c57b7251dc56987fd35612ab1168d4fbe7498831bf3",
+        "res://scripts/greybox_arm_visual.gd": "6554f2e78a81d658a38acd6695a06aa86bcb98315fb6dbf3b4c4ef9e77781a65",
+        "res://scripts/player.gd": "ebee7766ac7702eb92ea175adb2484c1d6659aa7f879a2add4c941bcb31c7f40",
+        "res://scripts/player_arm_visual.gd": "38fa62b41f7a5e6d672fcefe4c9ceb71e736687132972b93ce4a874fde8b928a",
+        "res://scripts/wrist_cuff_deformer.gd": "ca9702206cf2485bf638047b7cddf66b404d86842a89b181295d4c1fc0203682",
+        "res://tests/player_arm_preview.gd": "2066f51f064a5b24cde5896c277d83602ae9784d26e10059bd4309b69b0c4d06",
+        "res://tests/player_hands_detailed_preview.gd": "e22226180ff08f3e699745700986f4825204edede81cb0a19d3849a584fed8c8"
+      },
+      "manifest": "godot_preview/player_hands_detailed/capture_manifest.json",
+      "world_inventory_cursor_preserved": true,
+      "renderer": "Godot 4.7 Forward+ Vulkan, embedded, 1280x720"
+    }
+  },
+  "preserved_prior_files": 422,
+  "all_prior_hashes_unchanged": true,
+  "gpu_readback": {
+    "capture_count": 12,
+    "wrist_vertex_samples": 124104,
+    "max_position_error_m": 0.0,
+    "max_normal_error": 0.000126825500046834,
+    "minimum_jacobian": 0.0161104388535023,
+    "invalid_tangents": 0,
+    "invalid_vertices": 0,
+    "passed": true
+  },
+  "texture_review": {
+    "actual_pbr_maps": [
+      "basecolor",
+      "normal",
+      "roughness"
+    ],
+    "resolution": [
+      4096,
+      4096
+    ],
+    "prior_distant_atlas_seams_rejected_and_fixed": true,
+    "valid_texel_detail_preserved_in_padding_fix": true,
+    "authored_pixels_preserved_per_map": 8453226,
+    "blank_pixels_filled_per_atlas": 8323990,
+    "neutral_closeups_are_separate_review_lighting": true
+  },
+  "validation_logs": [
+    "godot_realism_final04.log",
+    "godot_import_02.log",
+    "godot_realism_preview_final02.log",
+    "godot_realism_gameplay_final02.log",
+    "padding_verification_iteration04_03.log",
+    "verification_iteration03_02.log",
+    "mac_output/iteration_03/verification_report.json",
+    "diagnostics/tangent_repair_report.json",
+    "diagnostics/tangent_zero_provenance.json",
+    "diagnostics/material_diagnostic_summary03.json",
+    "diagnostics/atlas_background_stats03.json",
+    "padding_04.log",
+    "package_04.log",
+    "review_04.log",
+    "review_setup_03.log"
+  ],
+  "limitations": [
+    "Game initial appearance selection is unchanged; the updated asset is the detailed hand profile.",
+    "Previous fixture ObjectDB exit warnings and non-failing debug script warnings remain.",
+    "The full unrelated project test suite was not run."
+  ]
+}

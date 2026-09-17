@@ -1,0 +1,57 @@
+{
+  "passed": true,
+  "headless": true,
+  "viewport": [
+    1440,
+    1000
+  ],
+  "data_audit": {
+    "coverage": {
+      "total": 126,
+      "concept": 126,
+      "baseline": 126,
+      "current": 126
+    },
+    "referenced_file_checks": 2182,
+    "same_camera_scene_checks": 10,
+    "current_object_iterations": [
+      "final_iteration_03"
+    ],
+    "current_scene_iterations": [
+      "final_iteration_02"
+    ],
+    "html_sha256": "32cbe27b4eedd2933718ea66c566b61e26d5e3197da4dbb15cddb69305e4dff8"
+  },
+  "checks": [
+    "126 object entries and initial three loaded image panels",
+    "Search by object ID and all seven direction controls",
+    "Keyboard Enter opens image; Escape and close button dismiss modal",
+    "Empty search, Korean search, and keyboard item navigation",
+    "Previous selects last filtered result when selection is outside results; category is localized",
+    "All ten scene comparisons and both image panels load",
+    "Objects tab restores and narrow layout has no horizontal overflow"
+  ],
+  "page_errors": [],
+  "visual_inspection": {
+    "passed": true,
+    "screenshots": [
+      "asset-staging/dark_fantasy_all_objects/review/viewer_objects_1440.png",
+      "asset-staging/dark_fantasy_all_objects/review/viewer_scenes_1440.png",
+      "asset-staging/dark_fantasy_all_objects/review/viewer_mobile_390.png",
+      "asset-staging/dark_fantasy_all_objects/review/viewer_modal_1440.png"
+    ],
+    "findings": "Directly inspected all four final screenshots: readable Korean controls and captions, intact image aspect ratios, working comparison panels and modal, and no narrow-layout clipping or horizontal overflow."
+  },
+  "final_capture_evidence": {
+    "objects_iteration": "final_iteration_03",
+    "objects_manifest_sha256": "a074c20fea680a051710c2d88c7d7151ba4ddb6afa7ac6cb7c1e73b7c1b95f12",
+    "scenes_iteration": "final_iteration_02",
+    "scenes_manifest_sha256": "760dded8f41168efbaa91731aa89009c7a69b94af48ddefd2fe28fdf0457449c",
+    "verified_object_source_hashes": 85,
+    "verified_object_direction_image_hashes": 756,
+    "verified_scene_source_hashes": 85,
+    "verified_scene_image_hashes": 10,
+    "baseline_scene_iteration": "baseline_torch_idle_04",
+    "identical_scene_camera_tuples": 10
+  }
+}

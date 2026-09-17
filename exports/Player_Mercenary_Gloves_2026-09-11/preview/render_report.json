@@ -1,0 +1,259 @@
+{
+  "status": "complete",
+  "source": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/player_mercenary_gloves_20260911/mac_output/iteration_02/bilateral_mercenary_gloves.blend",
+  "source_sha256": "7d883a0b3d997db5d1a760df1d6f0db31d698f5d615d94f2c821a00cb647d10b",
+  "renderer_sha256": "e84c3811f2379a5fce48143a18fe21acfd14660c62e4169448e5e455ea2f2449",
+  "actual_blender_geometry": true,
+  "diagnostic_clay_material_override": false,
+  "render": {
+    "width": 1200,
+    "height": 1000,
+    "samples": 16,
+    "threads": 2,
+    "engine": "CYCLES",
+    "device": "CPU"
+  },
+  "scope": "Two whole-glove images, each showing the actual left and right gloves at one angle. Only review display translations; no image compositing.",
+  "extractions": {
+    "left": {
+      "native_review_translation_m": [
+        -0.10335930141806603,
+        0,
+        0
+      ],
+      "meshes": [
+        {
+          "source_object": "Forearm_Surface.001",
+          "selected_faces": 13170,
+          "selected_vertices": 8229,
+          "source_face_ids_sha256": "9d57d8ecde7907ef7508c22bc101afaed024df1f7963e23c286174b8392f6da5",
+          "native_evaluated_geometry": true,
+          "UV_and_materials_copied": true
+        },
+        {
+          "source_object": "ContinuousAnatomicalHand.001",
+          "selected_faces": 25470,
+          "selected_vertices": 14988,
+          "source_face_ids_sha256": "622ea7b4d3a3aeedb08ced0fb9941c40fce8a22c686da565d9bbabaed5c59f71",
+          "native_evaluated_geometry": true,
+          "UV_and_materials_copied": true
+        },
+        {
+          "source_object": "UpperArm_Surface.001",
+          "selected_faces": 9118,
+          "selected_vertices": 4986,
+          "source_face_ids_sha256": "8525e798841a2c000a140329493760cdfcecb8fb70ab975fc992c001586a8d81",
+          "native_evaluated_geometry": true,
+          "UV_and_materials_copied": true
+        },
+        {
+          "source_object": "WristCuff_Surface.001",
+          "selected_faces": 4608,
+          "selected_vertices": 4608,
+          "source_face_ids_sha256": "8f758dc837df77d0e99ed3cad655982caa61787ab4b81fe1d438684313fa626a",
+          "native_evaluated_geometry": true,
+          "UV_and_materials_copied": true
+        }
+      ]
+    },
+    "right": {
+      "native_review_translation_m": [
+        0.10336913618445397,
+        0,
+        0
+      ],
+      "meshes": [
+        {
+          "source_object": "Forearm.001_Surface.001",
+          "selected_faces": 13170,
+          "selected_vertices": 8229,
+          "source_face_ids_sha256": "9d57d8ecde7907ef7508c22bc101afaed024df1f7963e23c286174b8392f6da5",
+          "native_evaluated_geometry": true,
+          "UV_and_materials_copied": true
+        },
+        {
+          "source_object": "ContinuousAnatomicalHand.003",
+          "selected_faces": 25470,
+          "selected_vertices": 14988,
+          "source_face_ids_sha256": "622ea7b4d3a3aeedb08ced0fb9941c40fce8a22c686da565d9bbabaed5c59f71",
+          "native_evaluated_geometry": true,
+          "UV_and_materials_copied": true
+        },
+        {
+          "source_object": "UpperArm.001_Surface.001",
+          "selected_faces": 9118,
+          "selected_vertices": 4986,
+          "source_face_ids_sha256": "8525e798841a2c000a140329493760cdfcecb8fb70ab975fc992c001586a8d81",
+          "native_evaluated_geometry": true,
+          "UV_and_materials_copied": true
+        },
+        {
+          "source_object": "WristCuff.001_Surface.001",
+          "selected_faces": 4608,
+          "selected_vertices": 4608,
+          "source_face_ids_sha256": "8f758dc837df77d0e99ed3cad655982caa61787ab4b81fe1d438684313fa626a",
+          "native_evaluated_geometry": true,
+          "UV_and_materials_copied": true
+        }
+      ]
+    }
+  },
+  "renders": {
+    "gloves_dorsal": {
+      "file": "gloves_dorsal.png",
+      "sha256": "47b9bc16f05f9d2ba5bc89e642cc2d31b987c86814e10305c58e439f2797b18c",
+      "frame": {
+        "center_native": [
+          1.195073127746582e-05,
+          0.07192999869585037,
+          -0.0023991912603378296
+        ],
+        "location_native": [
+          1.195073127746582e-05,
+          0.07192999869585037,
+          0.7976008057594299
+        ],
+        "rotation_native": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "ortho_scale_m": 0.39340163767337805,
+        "lights": [
+          {
+            "name": "Review_Key",
+            "location_native": [
+              -0.2399880439043045,
+              0.35192999243736267,
+              0.29760080575942993
+            ],
+            "target_native": [
+              1.195073127746582e-05,
+              0.07192999869585037,
+              -0.0023991912603378296
+            ],
+            "energy_w": 8.0,
+            "size_m": 0.32,
+            "color": [
+              1,
+              1,
+              1
+            ]
+          },
+          {
+            "name": "Review_Fill",
+            "location_native": [
+              0.3000119626522064,
+              0.10693000257015228,
+              0.21760080754756927
+            ],
+            "target_native": [
+              1.195073127746582e-05,
+              0.07192999869585037,
+              -0.0023991912603378296
+            ],
+            "energy_w": 3.0,
+            "size_m": 0.38,
+            "color": [
+              1,
+              1,
+              1
+            ]
+          }
+        ]
+      },
+      "actual_blender_geometry": true
+    },
+    "gloves_palmar": {
+      "file": "gloves_palmar.png",
+      "sha256": "0564e8fa92f092814083579fd2a69356944b26c120adc6ab09afa3aa9ff2335b",
+      "frame": {
+        "center_native": [
+          1.195073127746582e-05,
+          0.07192999869585037,
+          -0.0023991912603378296
+        ],
+        "location_native": [
+          1.195073127746582e-05,
+          0.07192999869585037,
+          -0.802399218082428
+        ],
+        "rotation_native": [
+          [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ]
+        ],
+        "ortho_scale_m": 0.39340163767337805,
+        "lights": [
+          {
+            "name": "Review_Key",
+            "location_native": [
+              0.24001194536685944,
+              0.35192999243736267,
+              -0.302399218082428
+            ],
+            "target_native": [
+              1.195073127746582e-05,
+              0.07192999869585037,
+              -0.0023991912603378296
+            ],
+            "energy_w": 8.0,
+            "size_m": 0.32,
+            "color": [
+              1,
+              1,
+              1
+            ]
+          },
+          {
+            "name": "Review_Fill",
+            "location_native": [
+              -0.2999880611896515,
+              0.10693000257015228,
+              -0.22239919006824493
+            ],
+            "target_native": [
+              1.195073127746582e-05,
+              0.07192999869585037,
+              -0.0023991912603378296
+            ],
+            "energy_w": 3.0,
+            "size_m": 0.38,
+            "color": [
+              1,
+              1,
+              1
+            ]
+          }
+        ]
+      },
+      "actual_blender_geometry": true
+    }
+  },
+  "source_file_unchanged": true,
+  "source_datablocks_unchanged": true
+}

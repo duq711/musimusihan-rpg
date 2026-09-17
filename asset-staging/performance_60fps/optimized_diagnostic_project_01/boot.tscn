@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource path="res://scripts/loading_screen.gd" type="Script" id="1_loading"]
+
+[node name="BootLoadingScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_loading")
+target_scene_path = "res://main_menu.tscn"
+loading_title = "성소를 밝히는 중"
+loading_detail = "기억과 길, 마지막 원정의 불씨를 불러오고 있습니다"
+status_message = "첫 화면을 준비하는 중"
+minimum_visible_time = 0.9

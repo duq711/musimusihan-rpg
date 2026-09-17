@@ -1,0 +1,93 @@
+{
+  "method": "Triangle-area-weighted actual UV dPdu, projected into unchanged authored normal plane; handedness from actual dPdv",
+  "input_sha256": "4b837905e85765ac1721b1eafad1837605939053441adffaf2da53a610186958",
+  "output_sha256": "1837c2309c6017ca87ffdd79b3ce6b671ac195d0ab6701592303855eda330134",
+  "changed_byte_count": 24,
+  "changed_tangent_records": [
+    {
+      "mesh": "FittedLeather.001",
+      "primitive": 1,
+      "vertex": 923,
+      "before": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "after": [
+        -0.1547761857509613,
+        -0.7222227454185486,
+        0.6741206645965576,
+        1.0
+      ],
+      "normal_dot_tangent": -2.737996510071561e-09,
+      "incident_triangles": [
+        {
+          "indices": [
+            923,
+            935,
+            937
+          ],
+          "uv_determinant": -2.1836596530988572e-07,
+          "triangle_area_m2": 6.407895689128989e-07,
+          "dPdu": [
+            0.03409146844876693,
+            -2.084853602820357,
+            1.4816633952690292
+          ]
+        },
+        {
+          "indices": [
+            923,
+            937,
+            926
+          ],
+          "uv_determinant": -2.1174327358153278e-07,
+          "triangle_area_m2": 6.4717934995236e-07,
+          "dPdu": [
+            0.037432520624472644,
+            -2.084358006048379,
+            1.501936319825059
+          ]
+        }
+      ],
+      "binary_offset": 16903932
+    },
+    {
+      "mesh": "TailoredClothSleeve.001",
+      "primitive": 0,
+      "vertex": 24124,
+      "before": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "after": [
+        -0.04878949746489525,
+        -0.0033945441246032715,
+        0.9988033175468445,
+        -1.0
+      ],
+      "normal_dot_tangent": -5.209142934711752e-10,
+      "incident_triangles": [
+        {
+          "indices": [
+            24088,
+            24124,
+            24086
+          ],
+          "uv_determinant": -9.489659582834209e-05,
+          "triangle_area_m2": 1.4469714848515427e-06,
+          "dPdu": [
+            -0.04946324740696494,
+            0.03640626865765819,
+            0.5537212924816205
+          ]
+        }
+      ],
+      "binary_offset": 20129960
+    }
+  ],
+  "all_other_glb_bytes_identical": true
+}

@@ -1,0 +1,607 @@
+{
+  "status": "passed",
+  "completed_at": "2026-09-10T21:46:50.809583+00:00",
+  "model_iteration": "final_04",
+  "preview_iteration": "reference_final_02",
+  "model_sha256": {
+    "bilateral_hands_reference.blend": "a85daeac255ccb49e0f71f039b9bf635c295d40971cf00d4180b746012c1d5a1",
+    "left_hand_reference.glb": "14dcb855d63ec80b93f15ee413cf01cf8fd52d7e7dc7c84f75d649ca35881bf2",
+    "right_hand_reference.glb": "226b6c2abec53bce8dc6047dfdabf0cb268ef24b13d900a0987cbc6f090591a4"
+  },
+  "reference_photo": {
+    "file": "reference/user_hand_photo.png",
+    "sha256": "67536edf1860cd47984cd6b00ff9935a00a6c8c15226b40ad1276e6bba3e4af7",
+    "unaltered_original": true,
+    "packed_in_editable_scene": true
+  },
+  "blender_independent_validation": "verification_report.json",
+  "blender_independent_report_sha256": "331cd66e3da987caeb7f41d464d9615e416f9d4fe173f6851906bf20fe775974",
+  "approved_geometry_input": {
+    "path": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/player_hands_reference_20260911/mac_output/geometry_06/bilateral_hands_reference_geometry.blend",
+    "sha256": "8494220d922d1f6c3138551f69ae1c84fc9cfbaa4192da1023777d93c9ed4bbf"
+  },
+  "material_report": "material_report.json",
+  "material_report_sha256": "9acd9ca8be38d0d675ba71eeb945221de9e0ad86d6ea23efa0c4781598ab976c",
+  "blender_review": {
+    "dorsum": {
+      "image": "dorsum.png",
+      "sha256": "7666ca6793fd1afdc97cae71948c7b33de2378660301e184cf34bdf71c88123c",
+      "center_native": [
+        0,
+        0.068,
+        0
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "ortho_scale": 0.31,
+      "clay_override": false,
+      "actual_blender_render": true,
+      "directly_visually_reviewed": true,
+      "rendered_model_iteration": "final_02",
+      "copied_after_metadata_only_change": false,
+      "copied_after_neutral_equivalent_wrist_weight_repair": true
+    },
+    "palm": {
+      "image": "palm.png",
+      "sha256": "e493c29fe26dd90358237a18d665ad8333d226f8c9294c2cf5f8ae4c7109197c",
+      "center_native": [
+        0,
+        0.068,
+        0
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "ortho_scale": 0.31,
+      "clay_override": false,
+      "actual_blender_render": true,
+      "directly_visually_reviewed": true,
+      "rendered_model_iteration": "final_02",
+      "copied_after_metadata_only_change": false,
+      "copied_after_neutral_equivalent_wrist_weight_repair": true
+    },
+    "side": {
+      "image": "side.png",
+      "sha256": "ef6282fbca3b805a6ad7dfad515bf63ed82143f84b31cd9590f66cd65edad33c",
+      "center_native": [
+        0,
+        0.064,
+        0
+      ],
+      "direction": [
+        0.9829938411712646,
+        0.04914969205856323,
+        0.17693889141082764
+      ],
+      "ortho_scale": 0.31,
+      "clay_override": false,
+      "actual_blender_render": true,
+      "directly_visually_reviewed": true,
+      "rendered_model_iteration": "final_02",
+      "copied_after_metadata_only_change": false,
+      "copied_after_neutral_equivalent_wrist_weight_repair": true
+    },
+    "dorsum_closeup": {
+      "image": "dorsum_closeup.png",
+      "sha256": "c03589099f29764db3bdc31530f938ca5279b2e00c998e09e4d30469cfd5c083",
+      "center_native": [
+        0,
+        0.095,
+        0.005
+      ],
+      "direction": [
+        0.0,
+        -0.09950371831655502,
+        0.9950371384620667
+      ],
+      "ortho_scale": 0.215,
+      "clay_override": false,
+      "actual_blender_render": true,
+      "directly_visually_reviewed": true,
+      "rendered_model_iteration": "final_02",
+      "copied_after_metadata_only_change": false,
+      "copied_after_neutral_equivalent_wrist_weight_repair": true
+    },
+    "palm_closeup": {
+      "image": "palm_closeup.png",
+      "sha256": "fceb7e1b20b41bcf5ae555bf729b8e49d0f33b76871a595c6763e4476faf2372",
+      "center_native": [
+        0,
+        0.077,
+        0
+      ],
+      "direction": [
+        0.0,
+        0.019996000453829765,
+        -0.9998000264167786
+      ],
+      "ortho_scale": 0.235,
+      "clay_override": false,
+      "actual_blender_render": true,
+      "directly_visually_reviewed": true,
+      "rendered_model_iteration": "final_02",
+      "copied_after_metadata_only_change": false,
+      "copied_after_neutral_equivalent_wrist_weight_repair": true
+    },
+    "reference_palm_and_dorsum": {
+      "image": "reference_palm_and_dorsum.png",
+      "sha256": "21f195b42cd8790026879841e00825deedc741a903b12a65340d9b11a9d7d9b4",
+      "actual_blender_render": true,
+      "source": "Same right-hand model shown from palm and dorsal sides, matching the photographic comparison; both game hand assets are supplied.",
+      "lighting": "Dedicated neutral white studio; not game lighting.",
+      "directly_visually_reviewed": true,
+      "rendered_model_iteration": "final_02",
+      "copied_after_metadata_only_change": false,
+      "copied_after_neutral_equivalent_wrist_weight_repair": true
+    }
+  },
+  "metadata_only_revision": {
+    "passed": true,
+    "model_iteration": "final_03",
+    "report": "metadata_update_report.json",
+    "report_sha256": "8eb61b01a2fc05f1a346b72d675bb258643264b1c5dc9b830d3cf9d1fb98df44",
+    "independent_preservation_report": "metadata_preservation_independent_report.json",
+    "independent_report_sha256": "6490ff7a11f63c1c97041a2d8b9981d47d96ae98a5dbc4cb94629a49dbc5b716",
+    "approved_geometry_sha256": "f85bf523929103dcda6faa46a9b1c4d1178634fc5e8f6ce8c7f2497f61d85d0c",
+    "start_before_m": 0.014,
+    "start_after_m": 0.028,
+    "end_unchanged_m": 0.075,
+    "version_unchanged": 1,
+    "glbs": {
+      "left": {
+        "whole_binary_chunk_sha256": "a42ccd2c60173eab266a97179372f72f01ec8ee8f21ae850ba356cc29082af20",
+        "whole_binary_chunk_exact": true,
+        "only_changed_json_nodes": [
+          {
+            "node": 27,
+            "name": "WristCuff_Surface.001"
+          },
+          {
+            "node": 28,
+            "name": "WristCuff.001"
+          }
+        ]
+      },
+      "right": {
+        "whole_binary_chunk_sha256": "9ef5b56b2f0b633148a6d40ef12ec543d031c61bfda7c7b4d13b9ab5c07805d6",
+        "whole_binary_chunk_exact": true,
+        "only_changed_json_nodes": [
+          {
+            "node": 27,
+            "name": "WristCuff.001_Surface.001"
+          },
+          {
+            "node": 28,
+            "name": "WristCuff.003"
+          }
+        ]
+      }
+    },
+    "native_render_source_iteration": "final_02",
+    "native_renders_copied_exact": {
+      "dorsum.png": "7666ca6793fd1afdc97cae71948c7b33de2378660301e184cf34bdf71c88123c",
+      "palm.png": "e493c29fe26dd90358237a18d665ad8333d226f8c9294c2cf5f8ae4c7109197c",
+      "side.png": "ef6282fbca3b805a6ad7dfad515bf63ed82143f84b31cd9590f66cd65edad33c",
+      "dorsum_closeup.png": "c03589099f29764db3bdc31530f938ca5279b2e00c998e09e4d30469cfd5c083",
+      "palm_closeup.png": "fceb7e1b20b41bcf5ae555bf729b8e49d0f33b76871a595c6763e4476faf2372",
+      "reference_palm_and_dorsum.png": "21f195b42cd8790026879841e00825deedc741a903b12a65340d9b11a9d7d9b4"
+    },
+    "render_provenance": "Six actual native renders are reused byte-for-byte from the prior final02. Geometry, materials, images, pose, cameras, lighting and visibility are independently unchanged. The runtime-only cuff metadata requires fresh Godot captures."
+  },
+  "wrist_weight_revision": {
+    "passed": true,
+    "model_iteration": "final_04",
+    "source_model_iteration": "final_03",
+    "report": "weight_update_report.json",
+    "report_sha256": "683507f0abd9742780986569133ac0e8d071775505a5a0ca07aa7d99be184b29",
+    "prior_metadata_revision": {
+      "passed": true,
+      "model_iteration": "final_03",
+      "report": "metadata_update_report.json",
+      "report_sha256": "8eb61b01a2fc05f1a346b72d675bb258643264b1c5dc9b830d3cf9d1fb98df44",
+      "independent_preservation_report": "metadata_preservation_independent_report.json",
+      "independent_report_sha256": "6490ff7a11f63c1c97041a2d8b9981d47d96ae98a5dbc4cb94629a49dbc5b716",
+      "approved_geometry_sha256": "f85bf523929103dcda6faa46a9b1c4d1178634fc5e8f6ce8c7f2497f61d85d0c",
+      "start_before_m": 0.014,
+      "start_after_m": 0.028,
+      "end_unchanged_m": 0.075,
+      "version_unchanged": 1,
+      "glbs": {
+        "left": {
+          "whole_binary_chunk_sha256": "a42ccd2c60173eab266a97179372f72f01ec8ee8f21ae850ba356cc29082af20",
+          "whole_binary_chunk_exact": true,
+          "only_changed_json_nodes": [
+            {
+              "node": 27,
+              "name": "WristCuff_Surface.001"
+            },
+            {
+              "node": 28,
+              "name": "WristCuff.001"
+            }
+          ]
+        },
+        "right": {
+          "whole_binary_chunk_sha256": "9ef5b56b2f0b633148a6d40ef12ec543d031c61bfda7c7b4d13b9ab5c07805d6",
+          "whole_binary_chunk_exact": true,
+          "only_changed_json_nodes": [
+            {
+              "node": 27,
+              "name": "WristCuff.001_Surface.001"
+            },
+            {
+              "node": 28,
+              "name": "WristCuff.003"
+            }
+          ]
+        }
+      },
+      "native_render_source_iteration": "final_02",
+      "native_renders_copied_exact": {
+        "dorsum.png": "7666ca6793fd1afdc97cae71948c7b33de2378660301e184cf34bdf71c88123c",
+        "palm.png": "e493c29fe26dd90358237a18d665ad8333d226f8c9294c2cf5f8ae4c7109197c",
+        "side.png": "ef6282fbca3b805a6ad7dfad515bf63ed82143f84b31cd9590f66cd65edad33c",
+        "dorsum_closeup.png": "c03589099f29764db3bdc31530f938ca5279b2e00c998e09e4d30469cfd5c083",
+        "palm_closeup.png": "fceb7e1b20b41bcf5ae555bf729b8e49d0f33b76871a595c6763e4476faf2372",
+        "reference_palm_and_dorsum.png": "21f195b42cd8790026879841e00825deedc741a903b12a65340d9b11a9d7d9b4"
+      },
+      "render_provenance": "Six actual native renders are reused byte-for-byte from the prior final02. Geometry, materials, images, pose, cameras, lighting and visibility are independently unchanged. The runtime-only cuff metadata requires fresh Godot captures."
+    },
+    "approved_geometry_sha256": "8494220d922d1f6c3138551f69ae1c84fc9cfbaa4192da1023777d93c9ed4bbf",
+    "flex_start_m": 0.026,
+    "flex_end_m": 0.075,
+    "weight_ramp_start_m": 0.01,
+    "pure_wrist_from_m": 0.018,
+    "changed_skin_vertices": {
+      "left": 441,
+      "right": 442
+    },
+    "protected_finger_palm_weights_exact": true,
+    "neutral_evaluated_maximum_position_error_m": 1.4901161193847656e-08,
+    "neutral_evaluated_maximum_unit_normal_error": 4.354308202891843e-06,
+    "glbs": {
+      "left": {
+        "only_eligible_wrist_weight_bytes_changed": true,
+        "joint_indices_unchanged": true,
+        "all_other_binary_bytes_exact": true,
+        "actual_changed_bytes": 3262,
+        "masked_binary_sha256": "a32e6cf44c8f8b1b81494e700ca3733b82cf40079ca910e4a91e97236e4aa2c0"
+      },
+      "right": {
+        "only_eligible_wrist_weight_bytes_changed": true,
+        "joint_indices_unchanged": true,
+        "all_other_binary_bytes_exact": true,
+        "actual_changed_bytes": 3034,
+        "masked_binary_sha256": "6ab41295c1dab54f6abacf44ba77f12309a1a8a1fdd6e9932e5c66e2957a7611"
+      }
+    },
+    "native_render_source_iteration": "final_02",
+    "render_provenance": "Native final02 renders are copied byte-for-byte through final03/04. Skin weights intentionally differ in the approved wrist band. Authored geometry, keys, UV, materials/images, cameras, pose, lights, worlds and visibility are unchanged; independently measured neutral surface errors are recorded above. Fresh Godot captures validate the changed posed behavior."
+  },
+  "headless": {
+    "passed": 7,
+    "failed": 0,
+    "tests": [
+      "player_finger_joints",
+      "player_hands_detailed",
+      "player_hands_greybox",
+      "player_arm",
+      "weapon_hand_contacts",
+      "chest_hands",
+      "test_room_session"
+    ],
+    "log_sha256": "c20129e23e10dab4144c85eb4d9ba1638a11fccd0bfbd4fc94bf1b36e059449b",
+    "warnings_recorded_in_log": [
+      "WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).",
+      "WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).",
+      "WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).",
+      "WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details)."
+    ]
+  },
+  "previews": {
+    "player_finger_joints": {
+      "captures": 12,
+      "images": [
+        {
+          "image": "open.png",
+          "sha256": "8f940301bb73c9af2df212bb1b055e8f29e8de55c3d8e996d9cef6533f2bcb77",
+          "directly_visually_reviewed": true
+        },
+        {
+          "image": "palm.png",
+          "sha256": "997b2d73062fdbdd1dcf883afb3e5e94f8fc5934892044d9d43309aa7274a88c",
+          "directly_visually_reviewed": true
+        },
+        {
+          "image": "wrist_side.png",
+          "sha256": "7d83f1404b4a573402a100fd11fbee7104d1abc9e4d6cfa7ae38941c559db864",
+          "directly_visually_reviewed": true
+        },
+        {
+          "image": "roots.png",
+          "sha256": "b481a49f3b22ada84110cd9a43043489897d46f8cb6dcc754b005bed9fff9a49",
+          "directly_visually_reviewed": true
+        },
+        {
+          "image": "middles.png",
+          "sha256": "35df347855b3cdc12750dbd917582f6ca3c66bc3e9c7e3a54dfa4610276641d4",
+          "directly_visually_reviewed": true
+        },
+        {
+          "image": "tips.png",
+          "sha256": "66d9160dd49c370aee9f10ee2763665be94b16462aee8c581ca6515148bb1719",
+          "directly_visually_reviewed": true
+        },
+        {
+          "image": "fist.png",
+          "sha256": "7eb6b9929d77355092bd32a3d96b4f15e533b6a17f2a6988bed83cd03356131a",
+          "directly_visually_reviewed": true
+        },
+        {
+          "image": "bow_draw.png",
+          "sha256": "0296dc297e7ac16c1a14018663d8401207817b5e89614b757bd8bf92b7d849c6",
+          "directly_visually_reviewed": true
+        },
+        {
+          "image": "chest_touch.png",
+          "sha256": "75675f49fd0046fcd5c116e1fb3b4e5a8df4b2fb64d818ecd5a1f363bd2f2672",
+          "directly_visually_reviewed": true
+        },
+        {
+          "image": "controls.png",
+          "sha256": "43ecdbfdb9e014a94f116a87bb2d2657a9df8d4af9cd45d0407329a9c1d6339c",
+          "directly_visually_reviewed": true
+        },
+        {
+          "image": "skin_dorsal_neutral.png",
+          "sha256": "94c7f7bf6554bae9d9e5bc35494399ed35b91b84bcef95fdbff0786d0d583eab",
+          "directly_visually_reviewed": true
+        },
+        {
+          "image": "skin_palm_neutral.png",
+          "sha256": "b41af42bef25be90a5a761d1a1e195a4e1b0bf53043bd92da9f502baa4a05be9",
+          "directly_visually_reviewed": true
+        }
+      ],
+      "all_images_visually_reviewed": true,
+      "all_inspections_passed": true,
+      "source_sha256": {
+        "res://assets/3d/player/hands_detailed/left_hand_detailed.glb": "14dcb855d63ec80b93f15ee413cf01cf8fd52d7e7dc7c84f75d649ca35881bf2",
+        "res://assets/3d/player/hands_detailed/left_hand_detailed_reference_hands_basecolor.png": "a4fe7ce4c34f81ba3e174ddc6a7e14474e7d7bce8d1e16804915a47fce034237",
+        "res://assets/3d/player/hands_detailed/left_hand_detailed_reference_hands_basecolor.png.import": "d7a25cff4d7a0896f3e4629cd7c98a569886d08b1f23cb5ed363011166698339",
+        "res://assets/3d/player/hands_detailed/left_hand_detailed_reference_hands_normal.png": "5de10fb5c9b36a42d2c7fcbcf0ec9e6082adc85a4c818727a9d3f774eddb3c18",
+        "res://assets/3d/player/hands_detailed/left_hand_detailed_reference_hands_normal.png.import": "a91b27f8b675d71ed1ec5a02050ec929f97e990c8b477fdcba7c793ad668ce8b",
+        "res://assets/3d/player/hands_detailed/left_hand_detailed_reference_hands_roughness.png": "36193d1c19957564e2faa967a04529125f009bd937effb67e1cd38795ad28bc7",
+        "res://assets/3d/player/hands_detailed/left_hand_detailed_reference_hands_roughness.png.import": "5b58fdce8053c606651f6af8608eec79fa17aa367fe0b95ea840f6e3592aff1d",
+        "res://assets/3d/player/hands_detailed/right_hand_detailed.glb": "226b6c2abec53bce8dc6047dfdabf0cb268ef24b13d900a0987cbc6f090591a4",
+        "res://assets/3d/player/hands_detailed/right_hand_detailed_reference_hands_basecolor.png": "a4fe7ce4c34f81ba3e174ddc6a7e14474e7d7bce8d1e16804915a47fce034237",
+        "res://assets/3d/player/hands_detailed/right_hand_detailed_reference_hands_basecolor.png.import": "3516d63d52c3494c9e7154175eb833e2c472799ef8f5968622dfcd54dd1689e6",
+        "res://assets/3d/player/hands_detailed/right_hand_detailed_reference_hands_normal.png": "5de10fb5c9b36a42d2c7fcbcf0ec9e6082adc85a4c818727a9d3f774eddb3c18",
+        "res://assets/3d/player/hands_detailed/right_hand_detailed_reference_hands_normal.png.import": "d6caf28ff6616b52ba7003939b0370e93a1b6d03047fab16ae7fd55404215b7b",
+        "res://assets/3d/player/hands_detailed/right_hand_detailed_reference_hands_roughness.png": "36193d1c19957564e2faa967a04529125f009bd937effb67e1cd38795ad28bc7",
+        "res://assets/3d/player/hands_detailed/right_hand_detailed_reference_hands_roughness.png.import": "1972b5841b38ac3fd5d86a88b6dcaa0acb3ac64e97704492e2c2bca257a5bc05",
+        "res://assets/fonts/NotoSansKR-Variable.ttf": "194018e6b2b293a7964f037b25c0249ce1418bc9ab3c971060a03aa57861e252",
+        "res://scripts/chest_hand_visuals.gd": "f4012bebd0fb03ab0fe76c57b7251dc56987fd35612ab1168d4fbe7498831bf3",
+        "res://scripts/finger_joint_controls.gd": "0b5231140e38f0859594474d6af24a8929403f68979eeb734ebb3937c31823dc",
+        "res://scripts/greybox_arm_visual.gd": "6554f2e78a81d658a38acd6695a06aa86bcb98315fb6dbf3b4c4ef9e77781a65",
+        "res://scripts/player.gd": "ebee7766ac7702eb92ea175adb2484c1d6659aa7f879a2add4c941bcb31c7f40",
+        "res://scripts/player_arm_visual.gd": "38fa62b41f7a5e6d672fcefe4c9ceb71e736687132972b93ce4a874fde8b928a",
+        "res://scripts/test_room.gd": "65e4e4df32be0f0a76c7c8fcb9f5a2e8439007c7fe2070b4290ff135acbae05e",
+        "res://scripts/wrist_cuff_deformer.gd": "ca9702206cf2485bf638047b7cddf66b404d86842a89b181295d4c1fc0203682",
+        "res://tests/player_arm_preview.gd": "2066f51f064a5b24cde5896c277d83602ae9784d26e10059bd4309b69b0c4d06",
+        "res://tests/player_finger_joints_preview.gd": "e58b85966457e2d2e9ba08db5de54d681dc7af5f747942ff70d591e73c9a4a5f",
+        "res://tests/player_hands_detailed_preview.gd": "b7f8692b671919d2e8fe29d6d1eb4b4e8dc2acfa4b29c5301e35765bfda9861e"
+      },
+      "manifest": "godot_preview/player_finger_joints/capture_manifest.json",
+      "manifest_sha256": "98f04afd02652bf746f7cb7f89f6706aeadfd823da424ac2ed457dbed6cda42d",
+      "world_inventory_cursor_preserved": true,
+      "renderer": "Vulkan",
+      "display_driver": "embedded",
+      "image_size": [
+        1280,
+        720
+      ]
+    },
+    "player_hands_detailed": {
+      "captures": 6,
+      "images": [
+        {
+          "image": "free_hands.png",
+          "sha256": "177cb046f03c3ca835d2f7c7089e65f78494fa65e973e0bbc7f1e70a9da29433",
+          "directly_visually_reviewed": true
+        },
+        {
+          "image": "free_hands_greybox.png",
+          "sha256": "bc5cd128bf0969b90d2adffc93798107c3992a9a18e52506551ad998d7d0ac35",
+          "directly_visually_reviewed": true
+        },
+        {
+          "image": "bow_draw.png",
+          "sha256": "7ff142c0e017ec13cb573cf78e120bfb20b2fa564cce1953dbb896f1792aa704",
+          "directly_visually_reviewed": true
+        },
+        {
+          "image": "bow_release.png",
+          "sha256": "1de128889451aad0aa3fbc73ae281d2a54c603169ae84070eafcc9fde578ce9c",
+          "directly_visually_reviewed": true
+        },
+        {
+          "image": "chest_touch.png",
+          "sha256": "5086175e70ca986975db12aa9e574b3754bdd8b3773efe406e4f915a6fea38cd",
+          "directly_visually_reviewed": true
+        },
+        {
+          "image": "chest_lift.png",
+          "sha256": "e6a2a72f218ccf554625c0712a7bf5e10e1e36dffed57966ae4437bdd23a1908",
+          "directly_visually_reviewed": true
+        }
+      ],
+      "all_images_visually_reviewed": true,
+      "all_inspections_passed": true,
+      "source_sha256": {
+        "res://assets/3d/player/hands_detailed/left_hand_detailed.glb": "14dcb855d63ec80b93f15ee413cf01cf8fd52d7e7dc7c84f75d649ca35881bf2",
+        "res://assets/3d/player/hands_detailed/left_hand_detailed_reference_hands_basecolor.png": "a4fe7ce4c34f81ba3e174ddc6a7e14474e7d7bce8d1e16804915a47fce034237",
+        "res://assets/3d/player/hands_detailed/left_hand_detailed_reference_hands_basecolor.png.import": "d7a25cff4d7a0896f3e4629cd7c98a569886d08b1f23cb5ed363011166698339",
+        "res://assets/3d/player/hands_detailed/left_hand_detailed_reference_hands_normal.png": "5de10fb5c9b36a42d2c7fcbcf0ec9e6082adc85a4c818727a9d3f774eddb3c18",
+        "res://assets/3d/player/hands_detailed/left_hand_detailed_reference_hands_normal.png.import": "a91b27f8b675d71ed1ec5a02050ec929f97e990c8b477fdcba7c793ad668ce8b",
+        "res://assets/3d/player/hands_detailed/left_hand_detailed_reference_hands_roughness.png": "36193d1c19957564e2faa967a04529125f009bd937effb67e1cd38795ad28bc7",
+        "res://assets/3d/player/hands_detailed/left_hand_detailed_reference_hands_roughness.png.import": "5b58fdce8053c606651f6af8608eec79fa17aa367fe0b95ea840f6e3592aff1d",
+        "res://assets/3d/player/hands_detailed/right_hand_detailed.glb": "226b6c2abec53bce8dc6047dfdabf0cb268ef24b13d900a0987cbc6f090591a4",
+        "res://assets/3d/player/hands_detailed/right_hand_detailed_reference_hands_basecolor.png": "a4fe7ce4c34f81ba3e174ddc6a7e14474e7d7bce8d1e16804915a47fce034237",
+        "res://assets/3d/player/hands_detailed/right_hand_detailed_reference_hands_basecolor.png.import": "3516d63d52c3494c9e7154175eb833e2c472799ef8f5968622dfcd54dd1689e6",
+        "res://assets/3d/player/hands_detailed/right_hand_detailed_reference_hands_normal.png": "5de10fb5c9b36a42d2c7fcbcf0ec9e6082adc85a4c818727a9d3f774eddb3c18",
+        "res://assets/3d/player/hands_detailed/right_hand_detailed_reference_hands_normal.png.import": "d6caf28ff6616b52ba7003939b0370e93a1b6d03047fab16ae7fd55404215b7b",
+        "res://assets/3d/player/hands_detailed/right_hand_detailed_reference_hands_roughness.png": "36193d1c19957564e2faa967a04529125f009bd937effb67e1cd38795ad28bc7",
+        "res://assets/3d/player/hands_detailed/right_hand_detailed_reference_hands_roughness.png.import": "1972b5841b38ac3fd5d86a88b6dcaa0acb3ac64e97704492e2c2bca257a5bc05",
+        "res://assets/3d/player/hands_greybox/left_hand_greybox.glb": "d0b0b0752c942984e9763d44917ec7d20676b3e99bce1a94b532396bc6827e16",
+        "res://assets/3d/player/hands_greybox/right_hand_greybox.glb": "1edebacc2cbb8e39a7952338ed94a31fae327d05de15f92c30851dbb418f7c58",
+        "res://scripts/chest_hand_visuals.gd": "f4012bebd0fb03ab0fe76c57b7251dc56987fd35612ab1168d4fbe7498831bf3",
+        "res://scripts/greybox_arm_visual.gd": "6554f2e78a81d658a38acd6695a06aa86bcb98315fb6dbf3b4c4ef9e77781a65",
+        "res://scripts/player.gd": "ebee7766ac7702eb92ea175adb2484c1d6659aa7f879a2add4c941bcb31c7f40",
+        "res://scripts/player_arm_visual.gd": "38fa62b41f7a5e6d672fcefe4c9ceb71e736687132972b93ce4a874fde8b928a",
+        "res://scripts/wrist_cuff_deformer.gd": "ca9702206cf2485bf638047b7cddf66b404d86842a89b181295d4c1fc0203682",
+        "res://tests/player_arm_preview.gd": "2066f51f064a5b24cde5896c277d83602ae9784d26e10059bd4309b69b0c4d06",
+        "res://tests/player_hands_detailed_preview.gd": "b7f8692b671919d2e8fe29d6d1eb4b4e8dc2acfa4b29c5301e35765bfda9861e"
+      },
+      "manifest": "godot_preview/player_hands_detailed/capture_manifest.json",
+      "manifest_sha256": "ba1fb3ad8a538c19fb83b548640e3012931cb8667907c1c140a40c929a30b89b",
+      "world_inventory_cursor_preserved": true,
+      "renderer": "Vulkan",
+      "display_driver": "embedded",
+      "image_size": [
+        1280,
+        720
+      ]
+    }
+  },
+  "preserved_prior_files": 1888,
+  "all_prior_hashes_unchanged": true,
+  "preservation_ledger_sha256": "87ff22fd1607068527cbf22af9c0ebe822c63d98aebc8f6398640d51c3e5ca5e",
+  "gpu_readback": {
+    "capture_count": 12,
+    "wrist_vertex_samples": 118056,
+    "max_position_error_m": 0.0,
+    "max_normal_error": 0.000124868369312026,
+    "minimum_jacobian": 0.0134394913911819,
+    "invalid_tangents": 0,
+    "invalid_vertices": 0,
+    "passed": true
+  },
+  "skin_cuff_join": {
+    "passed": true,
+    "capture_count": 17,
+    "actual_skin_samples": 3978,
+    "maximum_actual_nearest_outer_gap_m": 0.000404753528716415,
+    "maximum_fit_added_gap_m": 7.27595761418343e-09,
+    "maximum_cuff_surface_shift_m": 1.09008508886177e-08,
+    "support_triangles_outside_fixed_span": 0,
+    "greybox_comparison": "One preserved greybox comparison has no new detailed cuff and is excluded; its identical pose and camera are checked."
+  },
+  "texture_review": {
+    "actual_pbr_maps": [
+      "basecolor",
+      "normal",
+      "roughness"
+    ],
+    "resolution": [
+      4096,
+      4096
+    ],
+    "texture_sha256": {
+      "reference_hands_basecolor.png": "a4fe7ce4c34f81ba3e174ddc6a7e14474e7d7bce8d1e16804915a47fce034237",
+      "reference_hands_normal.png": "5de10fb5c9b36a42d2c7fcbcf0ec9e6082adc85a4c818727a9d3f774eddb3c18",
+      "reference_hands_roughness.png": "9c2db78a42635392902cec0f3d7e46255b2d72b24c57953c8844639cfe7acfa1"
+    },
+    "padding_report_sha256": "308253828ccb336572f6c547eeb015b9e447b28be34d75bb96a7594a4812bc21",
+    "authored_pixels_preserved_per_map": 10579141,
+    "blank_pixels_filled_per_atlas": 6198075,
+    "photo_comparison_is_a_native_model_render": true,
+    "native_review_lighting_is_separate_from_game_lighting": true
+  },
+  "validation_logs": [
+    "godot_reference_final03.log",
+    "verify_reference_final04.log",
+    "godot_reference_import03.log",
+    "godot_reference_joint_gpu02.log",
+    "godot_reference_detailed_gpu02.log",
+    "verify_reference_metadata_final03.log",
+    "wrist_weight_patch.log"
+  ],
+  "validation_log_sha256": {
+    "godot_reference_final03.log": "c20129e23e10dab4144c85eb4d9ba1638a11fccd0bfbd4fc94bf1b36e059449b",
+    "verify_reference_final04.log": "891bf28e4535c5b0ee870be9e782e5a98082f180d0591518be04c2685a246b84",
+    "godot_reference_import03.log": "6c13b0bc2f4bf1f3c0eb2d8e39b5380c45d58e7b2486d85ea970ed04226230d8",
+    "godot_reference_joint_gpu02.log": "77f3494e078677c94dd98af386c83bdbdee4d375efd4f6b5ec8dbb80d1aa9d23",
+    "godot_reference_detailed_gpu02.log": "3cb6e344b48fcc9b0fc03ce89fadc54521752f61c8792f7d1a0773688ad7ab11",
+    "verify_reference_metadata_final03.log": "a4f3dc31ae6cd522086dbd62d3de9706f97e7f620833570e8aaa36c936b27513",
+    "wrist_weight_patch.log": "7176900a1b5984ee67048b119572b136ea283f0fa521193f715c68f433fa1132"
+  },
+  "tool_source_sha256": {
+    "tools/atlas_nearest_seed.cpp": "68264f330a0e057a99c8a654bf282be0406e7536a5e4e1cd4d2763311070ac6f",
+    "tools/build_reference_hands.py": "e59009a49e8db6146179cd70b0d7eb4e713a778726a39743fb161c5fb26cd2d6",
+    "tools/inspect_reference_source.py": "6b3a4621c5691db602ce3ae2043b987e53586771c2968459af7f984fcdfc4b55",
+    "tools/inspect_reference_wrist_overlap.py": "bb3b87efb35f00ed054d9495222dea1e03b3c7038ad329b2743af48ced3b7c0f",
+    "tools/inspect_thumb_seam_source.py": "422a5fb572d6adb82d137ab959ad1a53e1c95066a9c95981ca68d652997743c2",
+    "tools/inspect_thumb_slit.py": "67ee81703e192c2da596de9d038effc90c53d58506d53b5681f64b00bb445b4a",
+    "tools/inspect_thumb_slit_front.py": "4e0d618be9bf6cf93bfc5cc92316158622f35c2df34334bd2944c92da86532b8",
+    "tools/inspect_wrist_metadata_grid.py": "754a310f33ebab12c89aacfcf9cfa62780174873aac667ff3c8e3c35abb98c8e",
+    "tools/inspect_wrist_metadata_start.py": "41cf3b06607057f8fefa18515d722660b0b51534a8620292e41988983ef4d80b",
+    "tools/package_reference_hands.py": "22f8f60d6acba5d1bca677c5f0e94a7b82aca2ddef087d3590d877045716aec8",
+    "tools/pad_reference_textures.py": "ddfeed8f40e78300d827180e6b79887d90d83aae8df33f1c7c1dc60838f96c92",
+    "tools/patch_wrist_flex_metadata.py": "46c3cea7acd58bb26a32ae4ac3b291671469c6335ff6260873ab7d9eb128f8d1",
+    "tools/reference_bake.py": "a992a08dc7c2a0bf78098491dfd4e8404f1c5cc8e784d6e981f0da1a9c857b9b",
+    "tools/reference_export.py": "4c7c3d7331f848c9786a0450415e2a382c2db8c000ffb636f9b3df16ed887bf7",
+    "tools/reference_geometry.py": "dc77822e83a380d950baedc0df6791d7bfaea820823966c5c3ea404e2637e013",
+    "tools/reference_materials.py": "60966a035e6e23670cb4730b3ed46b1ac66750822235865521730cee7291db3e",
+    "tools/reference_metadata_signatures.py": "fe81e55e6de096ca7e6ed7f798a9bbc644e0a98d13347f6074d3e3923ecd517c",
+    "tools/reference_photo_projection.py": "979c862c4bbc88a6a693e650ea83f58eb5cacefd9418b2a6a059badd394e9e26",
+    "tools/reference_weight_signatures.py": "ee86eb6e65b30bdfce653e58d68ddeb0caa60dd32561cec80a26e5a21de4986d",
+    "tools/repair_export_tangents.py": "e8ea3708af26637d10cef66a831f7c67aa3c509998efd1bf5d29c916cf504b4c",
+    "tools/repair_reference_nails.py": "4637441f19b1a119682117f3dde37bbd4e2cea93d50fe36b0a8f2eb43342b7fc",
+    "tools/repair_wrist_skin_weights.py": "bc9c2b5c893413737ad572af4010ce402be345739e48b11161de9f1e82df0dd8",
+    "tools/summarize_reference_validation.py": "56a6295a022c6d01540f5655fe13db055ecc7fc41aeae326b34795a69129c515",
+    "tools/verify_reference_hands.py": "f4e79e8f98bfd262a9b56abfbea111c2bb8b855c38e80b7fbe7b5343c0c58a35"
+  },
+  "portable_verifier_dependencies": [
+    "verify_hands_realistic.py",
+    "joint_verification_core.py",
+    "reference_weight_signatures.py"
+  ],
+  "visual_review_notes": {
+    "status": "direct_visual_review_completed_with_documented_limitation",
+    "model_iteration": "final_04",
+    "preview_iteration": "reference_final_02",
+    "native_renders": 6,
+    "godot_captures": 18,
+    "detached_wrist_notch_resolved": true,
+    "fist_gap_resolved": true,
+    "limitations": [
+      "Strong wrist bends retain a shallow collar-like transition at the fixed skin/cuff boundary. It is a connected surface, not the previous detached gap; it is not explained solely as lighting.",
+      "The result is a photo-referenced game model, not a photorealistic scan."
+    ],
+    "observed_examples": {
+      "player_finger_joints/open.png": {
+        "left_pixel": [
+          292,
+          444
+        ],
+        "right_pixel": [
+          689,
+          443
+        ]
+      },
+      "player_finger_joints/fist.png": "The shallow transition remains while the skin boundary stays joined."
+    }
+  },
+  "visual_review_notes_sha256": "413eb335f8ed1b5c9da2e2918be5a15942c5e569552b7a2cf7637ccce0f03b70",
+  "limitations": [
+    "Numeric validation establishes deformation and data integrity; visual resemblance is a separate direct review recorded above.",
+    "The full unrelated project test suite was not run.",
+    "Read-only reproduction of the independent audit also needs the exact prior04 and approved-geometry input files named in its SHA ledger."
+  ]
+}

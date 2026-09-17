@@ -1,0 +1,84 @@
+{
+  "status": "passed",
+  "candidate": "iteration_10",
+  "reference_count": 10,
+  "reference_strategy": "Each separate image shows only one digit and one face.",
+  "image_generation_mode": "built-in image_gen",
+  "independent_verification_chain": {
+    "approved_proportions_to_detail": {
+      "candidate": "iteration_08",
+      "report": "prior_detail_verification_report.json",
+      "report_sha256": "ab3827ad3bda90116863d9251470bfc6e5399bb91febab21c72d47300485b732"
+    },
+    "detail_to_final_thumb_orientation": {
+      "candidate": "iteration_10",
+      "report": "thumb_rotation_verification.json",
+      "report_sha256": "80131f9d68ccf2ebd08647be0f8045664d108a25d72eca03852824b7d280a030"
+    },
+    "all_recorded_input_sha256_rechecked": true
+  },
+  "thumb_orientation": {
+    "left": {
+      "authored_roll_degrees": 60.0,
+      "measured_normal_separation_from_four_nails_degrees": 81.74817375560367,
+      "measured_top_area_normal_native": [
+        0.974629068961452,
+        -0.04798109883419428,
+        0.21862294502178017
+      ],
+      "outward_radial_normal_dot": 0.926205593206795
+    },
+    "right": {
+      "authored_roll_degrees": -60.0,
+      "measured_normal_separation_from_four_nails_degrees": 81.66762427677884,
+      "measured_top_area_normal_native": [
+        -0.9748222258023123,
+        -0.047036794618522296,
+        0.21796597907435158
+      ],
+      "outward_radial_normal_dot": 0.9260446968081754
+    }
+  },
+  "native_before_after_renders": {
+    "before": 10,
+    "after": 10,
+    "all_final_faces_directly_visually_reviewed": true,
+    "same_camera_and_lighting_frames": "9989e79045d95fdbb5e3f8620e3ac7812c3468be8566d3959f726afa3d22c92b",
+    "fixed_hand_space_views_retained_for_honest_shape_comparison": true
+  },
+  "supplemental_thumb_renders": {
+    "intrinsic_dorsal_and_palmar": 2,
+    "oblique_and_profile": 2,
+    "all_directly_visually_reviewed": true,
+    "purpose": "Separate intrinsic faces follow the actual rolled thumb for comparison with the two single-face AI references; the original ten global camera frames remain intact.",
+    "local_frames_sha256": "2c3f788da9a9c2e13d2ac73c3e37e8b8649dc09de610f5e50513ea24ebe8bdf6",
+    "local_render_report_sha256": "20f65b06c3917d13cb5a21355e615dfe5a05d92ecb50811eefb6bf13893750cd",
+    "profile_report_sha256": "a390191cb797d79a6b3b0b652c70718df33d2c5d9cfad0eef0aac0bc528d0b15"
+  },
+  "headless": {
+    "passed": 7,
+    "failed": 0,
+    "log_sha256": "0305548a0dbec26f2852efe26bb1e2ef181f5b7e9192f5d4aa6e0a718b00fad4"
+  },
+  "gpu": {
+    "player_finger_joints": {
+      "images": 12,
+      "directly_visually_reviewed": true,
+      "manifest_sha256": "c166647e0e3d1add296b48cfe09e6d5029965b64480819adef15d3e1e6f059ec"
+    },
+    "player_hands_detailed": {
+      "images": 6,
+      "directly_visually_reviewed": true,
+      "manifest_sha256": "911dbb1ed72eaf17add165199d9adecb95e371d4b56ef778aa48dd99b899918e"
+    }
+  },
+  "preserved_previous_files": 111,
+  "limitations": [
+    "AI references guide surface detail; this is a rigged game model, not a photogrammetric reconstruction or an exact pixel match.",
+    "The thumb nail and its exposed skin bed are rolled together around the thumb axis. Approved bone rest axes are retained; this is not a newly authored anatomical opposition rig.",
+    "The glove and overall finger lengths are retained. The thumb silhouette changes with its corrected roll; the other four finger poses remain.",
+    "Fine relief uses baked 4K PBR maps; it is not all separate mesh geometry.",
+    "Nail seating is sampled on the actual distal nail bed in eight poses per hand; continuous surface penetration and whole-fist self collision are not exhaustively simulated.",
+    "Unrelated full-project tests were not run."
+  ]
+}

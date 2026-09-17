@@ -1,0 +1,24 @@
+[HEADLESS] sword_direct_entry_test.gd
+DIRECT ENTRY shield right_diagonal hold=0.00 windup_mm=0.0002384185791 entry_mm=0.0 authored_mm=0.0 authored_deg=0.05595290968074 charge=0.0 spends=1
+DIRECT ENTRY shield right_diagonal hold=0.45 windup_mm=0.0002384185791 entry_mm=0.0 authored_mm=0.0 authored_deg=0.05595290968074 charge=0.21833333333333 spends=1
+DIRECT ENTRY shield left_reverse hold=0.00 windup_mm=0.0002384185791 entry_mm=0.0 authored_mm=0.00002980232239 authored_deg=0.03956468118525 charge=0.0 spends=1
+DIRECT ENTRY shield left_reverse hold=0.45 windup_mm=0.0002384185791 entry_mm=0.0 authored_mm=0.00002980232239 authored_deg=0.03956468118525 charge=0.21833333333333 spends=1
+DIRECT ENTRY two_hand right_diagonal hold=0.00 windup_mm=0.00029802322388 entry_mm=0.0 authored_mm=0.0 authored_deg=0.05595290968074 charge=0.0 spends=1
+DIRECT ENTRY two_hand right_diagonal hold=0.45 windup_mm=0.00029802322388 entry_mm=0.0 authored_mm=0.0 authored_deg=0.05595290968074 charge=0.21833333333333 spends=1
+DIRECT ENTRY two_hand left_reverse hold=0.00 windup_mm=0.00029802322388 entry_mm=0.0 authored_mm=0.00002980232239 authored_deg=0.03956468118525 charge=0.0 spends=1
+DIRECT ENTRY two_hand left_reverse hold=0.45 windup_mm=0.00029802322388 entry_mm=0.0 authored_mm=0.00002980232239 authored_deg=0.03956468118525 charge=0.21833333333333 spends=1
+SWORD DIRECT ENTRY PASS: actual clicked pose, release/charge/cost clocks, unchanged contact/follow-through and expedition preservation; target damage is covered by sword_attack_variants
+[HEADLESS] reference_sword_arm_player_test.gd
+REFERENCE SWORD ARM PLAYER PASS: analytical fixture only; actual_delivery_evaluated=false; actual meshes, 30/60/120Hz clocks, handoffs, blade clash, F2 and reset
+[HEADLESS] unified_sword_motion_test.gd
+UNIFIED SWORD MOTION PASS [{"max_angle_rad":0.0009765625,"max_position_m":0.0,"profile":"quick_click","samples_per_stance":348},{"max_angle_rad":0.0009765625,"max_position_m":0.0,"profile":"hold_0_45s","samples_per_stance":348}]
+[HEADLESS] reference_sword_motion_test_room_test.gd
+REFERENCE SWORD MOTION TEST ROOM PASS: five playable fixtures, two-hand basic/reverse target hits and grip, actual run/jump/landing/collision, repeated F2, reset and original expedition restoration
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2535)
+[HEADLESS] sword_two_hand_grip_test.gd
+SWORD TWO HAND GRIP PASS: 48 support diagnostics, three real cuts, original source fidelity and unchanged expedition
+[HEADLESS] sword_long_grip_test.gd
+SWORD LONG GRIP PASS: original mesh/material fidelity, authored hand through six real attacks, canonical blade/clash, smithing isolation, other weapons/chest/safe-zone restoration
+
+Headless validation: 6 passed, 0 failed.

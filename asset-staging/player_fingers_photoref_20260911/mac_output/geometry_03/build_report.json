@@ -1,0 +1,351 @@
+{
+  "source": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/player_fingers_detail_20260911/mac_output/iteration_10/bilateral_hands_finger_detail.blend",
+  "source_sha256": "3db9d307c24bbe5b12b90fb6d4e8a30f38d28a4fd1db1e3d74bb1f3c2fe1137d",
+  "reference": "User supplied 5 fingers x 4 views, retained as visual guide; each actual comparison is a separate one-finger PNG.",
+  "hands": {
+    "left": {
+      "nails": {
+        "index": {
+          "cap_order": 2,
+          "cap_fit_maximum_m": 0.0006061333678023405,
+          "cap_fit_rms_m": 0.00020617456247285813,
+          "bed_vertices": 191,
+          "dorsal_native": [
+            0.07731626182794571,
+            0.1914948672056198,
+            0.9784436225891113
+          ],
+          "axis_native": [
+            0.12537291646003723,
+            0.971723735332489,
+            -0.20008662343025208
+          ],
+          "footprint_and_shell_vectors_preserved": true,
+          "uniform_seating_lift_m": 7.777297764888777e-06,
+          "minimum_sample_clearance_m": 9.037154945887914e-05
+        },
+        "little": {
+          "cap_order": 2,
+          "cap_fit_maximum_m": 0.0009765520788068182,
+          "cap_fit_rms_m": 0.00027651825219207843,
+          "bed_vertices": 206,
+          "dorsal_native": [
+            -0.18434900045394897,
+            0.09997788071632385,
+            0.9777626991271973
+          ],
+          "axis_native": [
+            -0.40352749824523926,
+            0.8994029760360718,
+            -0.1680472195148468
+          ],
+          "footprint_and_shell_vectors_preserved": true,
+          "uniform_seating_lift_m": 0.00021412590227166232,
+          "minimum_sample_clearance_m": 9.441342340844142e-05
+        },
+        "middle": {
+          "cap_order": 2,
+          "cap_fit_maximum_m": 0.0005901553780056454,
+          "cap_fit_rms_m": 0.0002230950482299518,
+          "bed_vertices": 208,
+          "dorsal_native": [
+            0.07263725250959396,
+            0.18622097373008728,
+            0.9798191785812378
+          ],
+          "axis_native": [
+            0.03837251663208008,
+            0.9811650514602661,
+            -0.18932144343852997
+          ],
+          "footprint_and_shell_vectors_preserved": true,
+          "uniform_seating_lift_m": 0.0001626672475273003,
+          "minimum_sample_clearance_m": 9.239274480895207e-05
+        },
+        "ring": {
+          "cap_order": 2,
+          "cap_fit_maximum_m": 0.0008133251654827089,
+          "cap_fit_rms_m": 0.00027064340220522647,
+          "bed_vertices": 145,
+          "dorsal_native": [
+            -0.07914593070745468,
+            0.19811373949050903,
+            0.9769783616065979
+          ],
+          "axis_native": [
+            -0.0515018105506897,
+            0.9779313206672668,
+            -0.20247918367385864
+          ],
+          "footprint_and_shell_vectors_preserved": true,
+          "uniform_seating_lift_m": 0.00010689791835128712,
+          "minimum_sample_clearance_m": 9.271801617794804e-05
+        },
+        "thumb": {
+          "cap_order": 3,
+          "cap_fit_maximum_m": 0.0016847679114848513,
+          "cap_fit_rms_m": 0.0003363741792207103,
+          "bed_vertices": 119,
+          "dorsal_native": [
+            0.9118344783782959,
+            -0.3107357323169708,
+            0.26833048462867737
+          ],
+          "axis_native": [
+            0.3572233319282532,
+            0.922619104385376,
+            -0.14548426866531372
+          ],
+          "footprint_and_shell_vectors_preserved": true,
+          "uniform_seating_lift_m": 0.00023710076264866621,
+          "minimum_sample_clearance_m": 9.870494095527284e-05
+        }
+      },
+      "maximum_skin_displacement_m": 0.0014195693620163358,
+      "moved_skin_vertices": 5732,
+      "new_normals": "Area weighted geometric normals shared at original UV seams on exposed fingers only.",
+      "correctives": "Same Basis displacement applied to all original relative keys.",
+      "export": {
+        "sha256": "f436c968353a63c3700306f43cdd2641957272c0c527ff7999de37046ebf51bd",
+        "bytes": 28081188,
+        "morph_meshes": [
+          {
+            "mesh": "ContinuousAnatomicalHandMesh.002",
+            "target_names": [
+              "Joint_thumb_0",
+              "Joint_thumb_1",
+              "Joint_thumb_2",
+              "Joint_index_0",
+              "Joint_index_1",
+              "Joint_index_2",
+              "Joint_middle_0",
+              "Joint_middle_1",
+              "Joint_middle_2",
+              "Joint_ring_0",
+              "Joint_ring_1",
+              "Joint_ring_2",
+              "Joint_little_0",
+              "Joint_little_1",
+              "Joint_little_2"
+            ],
+            "primitives": [
+              {
+                "vertices": 8191,
+                "target_count": 15,
+                "position_and_normal": true
+              },
+              {
+                "vertices": 9597,
+                "target_count": 15,
+                "position_and_normal": true
+              },
+              {
+                "vertices": 3570,
+                "target_count": 15,
+                "position_and_normal": true
+              }
+            ]
+          }
+        ],
+        "skin_joints": [
+          "wrist",
+          "index0",
+          "index1",
+          "index2",
+          "little0",
+          "little1",
+          "little2",
+          "middle0",
+          "middle1",
+          "middle2",
+          "ring0",
+          "ring1",
+          "ring2",
+          "thumb0",
+          "thumb1",
+          "thumb2"
+        ]
+      }
+    },
+    "right": {
+      "nails": {
+        "index": {
+          "cap_order": 2,
+          "cap_fit_maximum_m": 0.0006172828313586521,
+          "cap_fit_rms_m": 0.0002062282500021488,
+          "bed_vertices": 175,
+          "dorsal_native": [
+            -0.0783221572637558,
+            0.1913541555404663,
+            0.9783911108970642
+          ],
+          "axis_native": [
+            -0.12537284195423126,
+            0.971723735332489,
+            -0.20008645951747894
+          ],
+          "footprint_and_shell_vectors_preserved": true,
+          "uniform_seating_lift_m": 0.00012186675770756882,
+          "minimum_sample_clearance_m": 9.582479641615681e-05
+        },
+        "little": {
+          "cap_order": 2,
+          "cap_fit_maximum_m": 0.0009082985482158222,
+          "cap_fit_rms_m": 0.00027527533470842564,
+          "bed_vertices": 200,
+          "dorsal_native": [
+            0.17987532913684845,
+            0.10209986567497253,
+            0.9783764481544495
+          ],
+          "axis_native": [
+            0.4035269618034363,
+            0.8994031548500061,
+            -0.1680472493171692
+          ],
+          "footprint_and_shell_vectors_preserved": true,
+          "uniform_seating_lift_m": 0.00014520017345970182,
+          "minimum_sample_clearance_m": 9.298442280308728e-05
+        },
+        "middle": {
+          "cap_order": 2,
+          "cap_fit_maximum_m": 0.0005853710520398528,
+          "cap_fit_rms_m": 0.00021931737152579365,
+          "bed_vertices": 186,
+          "dorsal_native": [
+            -0.07479988783597946,
+            0.18610908091068268,
+            0.9796776175498962
+          ],
+          "axis_native": [
+            -0.03837252035737038,
+            0.9811650514602661,
+            -0.18932144343852997
+          ],
+          "footprint_and_shell_vectors_preserved": true,
+          "uniform_seating_lift_m": 0.00020073426734569375,
+          "minimum_sample_clearance_m": 9.295992806158802e-05
+        },
+        "ring": {
+          "cap_order": 2,
+          "cap_fit_maximum_m": 0.0008027203718622906,
+          "cap_fit_rms_m": 0.00026534900152730737,
+          "bed_vertices": 162,
+          "dorsal_native": [
+            0.08019297569990158,
+            0.1980438530445099,
+            0.9769072532653809
+          ],
+          "axis_native": [
+            0.051501888781785965,
+            0.9779313802719116,
+            -0.20247916877269745
+          ],
+          "footprint_and_shell_vectors_preserved": true,
+          "uniform_seating_lift_m": 0.0002378997663822125,
+          "minimum_sample_clearance_m": 9.59690613694298e-05
+        },
+        "thumb": {
+          "cap_order": 3,
+          "cap_fit_maximum_m": 0.0017329015444220441,
+          "cap_fit_rms_m": 0.0003422833443794625,
+          "bed_vertices": 115,
+          "dorsal_native": [
+            -0.9119287133216858,
+            -0.31084248423576355,
+            0.2678859829902649
+          ],
+          "axis_native": [
+            -0.3572234809398651,
+            0.9226189255714417,
+            -0.14548422396183014
+          ],
+          "footprint_and_shell_vectors_preserved": true,
+          "uniform_seating_lift_m": 0.0002360723615803447,
+          "minimum_sample_clearance_m": 9.868214953406027e-05
+        }
+      },
+      "maximum_skin_displacement_m": 0.0013773954037164164,
+      "moved_skin_vertices": 5709,
+      "new_normals": "Area weighted geometric normals shared at original UV seams on exposed fingers only.",
+      "correctives": "Same Basis displacement applied to all original relative keys.",
+      "export": {
+        "sha256": "e07d2ae415615f36886d7fd2e7eae254cfa02762e82260a3dccafb7a54d718f4",
+        "bytes": 28074992,
+        "morph_meshes": [
+          {
+            "mesh": "ContinuousAnatomicalHandMesh.003",
+            "target_names": [
+              "Joint_thumb_0",
+              "Joint_thumb_1",
+              "Joint_thumb_2",
+              "Joint_index_0",
+              "Joint_index_1",
+              "Joint_index_2",
+              "Joint_middle_0",
+              "Joint_middle_1",
+              "Joint_middle_2",
+              "Joint_ring_0",
+              "Joint_ring_1",
+              "Joint_ring_2",
+              "Joint_little_0",
+              "Joint_little_1",
+              "Joint_little_2"
+            ],
+            "primitives": [
+              {
+                "vertices": 8230,
+                "target_count": 15,
+                "position_and_normal": true
+              },
+              {
+                "vertices": 9660,
+                "target_count": 15,
+                "position_and_normal": true
+              },
+              {
+                "vertices": 3556,
+                "target_count": 15,
+                "position_and_normal": true
+              }
+            ]
+          }
+        ],
+        "skin_joints": [
+          "wrist",
+          "index0",
+          "index1",
+          "index2",
+          "little0",
+          "little1",
+          "little2",
+          "middle0",
+          "middle1",
+          "middle2",
+          "ring0",
+          "ring1",
+          "ring2",
+          "thumb0",
+          "thumb1",
+          "thumb2"
+        ]
+      }
+    }
+  },
+  "bake": "skipped geometry review only",
+  "blend_sha256": "cf69d91f6db71dab8b80e823cdfcf7fefaf65bfae6ed65a6797425211c3c4a8f",
+  "script_sha256": {
+    "finger_sculpt.py": "0aee3ca5dc588c36268ee6b6b8b442e8280d075e12567634b5faf29e87334f38",
+    "repair_export_tangents.py": "e8ea3708af26637d10cef66a831f7c67aa3c509998efd1bf5d29c916cf504b4c",
+    "detail_materials.py": "1ec085e15fa32a49f1b7aacf240f6674eebe7c3424d43e8726112145c2221b63",
+    "verify_photoref_fingers.py": "ddefc7d51919dff37f85f7b22c49f1308f56cd69db1cf249e0d9d9c1f1b17387",
+    "refine_geometry.py": "765e88855864e9ca06dfda78567a908e268949520548820417a3487123145c3f",
+    "probe_nails.py": "4f8e50110161e5b7d62fbdbd2a8a9bfabb08942ee503b8e076725eb06579f583",
+    "probe_nail_structure.py": "3a4f338d74925b291d53d9d559eae6d82beb1b348e8ef0550927c873718c4256",
+    "build_photoref.py": "540917b8801f63196303923863cff8310b01cbd44845ed896fa08804a6c1b6f8",
+    "probe_materials.py": "f4ee5e91615dffc1f0ccdedaf1fdb40126228e0f3cebf4e3a50cdc82d60fd45b",
+    "build_finger_detail.py": "0f5e842db2b1160f3ebeb44386a3b2ec6cbb92a9a292b4925a082e6e0c008577",
+    "render_finger_views.py": "d05a7e19a213240e1afe45ca6aa3effbc744a512f53e867b930cca132dc244b5",
+    "reference_export.py": "4c7c3d7331f848c9786a0450415e2a382c2db8c000ffb636f9b3df16ed887bf7"
+  }
+}

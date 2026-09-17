@@ -1,0 +1,70 @@
+{
+  "assets": [
+    {
+      "name": "Mine_bone_cavern_monster_skeleton",
+      "kind": "monster_skeleton",
+      "zone": "bone_cavern",
+      "position_godot": [
+        -51.9203,
+        -0.08103384077548981,
+        25.6053
+      ],
+      "rotation_y": -0.65,
+      "source_landmark": "monster_skeleton",
+      "landmark_offset_m": 7.0,
+      "anatomical_parts": {
+        "vertebral_body": 19,
+        "neural_arch": 19,
+        "spinous_process": 19,
+        "transverse_process": 38,
+        "intact_rib": 19,
+        "rib_articulation": 24,
+        "broken_rib": 5,
+        "caudal_vertebra": 7,
+        "caudal_process": 14,
+        "atlas_joint": 1,
+        "mandible": 2,
+        "jaw_condyle": 2,
+        "zygomatic_arch": 2,
+        "lower_tooth": 12,
+        "upper_canine": 2,
+        "upper_molar": 8,
+        "detached_rib_fragment": 2
+      },
+      "skull_eye_sockets": 2,
+      "length_m": 12.3,
+      "ribcage_length_m": 6.9,
+      "mesh_objects": 2,
+      "vertices": 28839,
+      "faces": 26098,
+      "bounds_blender": {
+        "min": [
+          -55.813697814941406,
+          -30.625459671020508,
+          -0.08486075699329376
+        ],
+        "max": [
+          -47.81884002685547,
+          -21.36530876159668,
+          2.4226744174957275
+        ]
+      }
+    }
+  ],
+  "collisions": [],
+  "counts": {
+    "monster_skeleton": 1
+  },
+  "skipped": [],
+  "placement_checks": "full footprint passed room polygon; lane clearance enforced when callback supplied",
+  "total_vertices": 28839,
+  "total_faces": 26098,
+  "qa_checks": [
+    "two perforated orbital sockets",
+    "19 intact and 5 fractured ribs",
+    "UVs and bone material present",
+    "finite mesh vertices",
+    "all footprint samples pass real terrain, corridor and reserved-gameplay clearance",
+    "blocked clearance returns explicit skipped asset"
+  ]
+}

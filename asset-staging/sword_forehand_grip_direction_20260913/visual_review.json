@@ -1,0 +1,14 @@
+{
+  "observed_in_actual_vulkan_embedded_captures": [
+    "Forehand contact at frame 023: blade points down/right instead of up/left; glove, guard and pommel turn together.",
+    "Frames 023-026 keep the existing right-to-left grip travel.",
+    "Sampled visible gloves/sleeves do not show new detached fragments, spikes or torn triangles.",
+    "Frames 054-060 and later settle back to the original upright idle direction."
+  ],
+  "limitations": [
+    "The retained grip trajectory still takes most of the weapon and hands out of frame during recovery (sampled frames 030-048); those hidden pixels do not demonstrate contact or motion quality.",
+    "Numerical contact and source-preservation checks do not constitute user approval of animation or finger aesthetics."
+  ],
+  "independent_review": "guard_tests inspected contact sheet and original PNG frames 023, 026, 054, 060; root inspected both stance sheets and contact frame 023.",
+  "reviewed_comparison": "godot-game/artifacts/visual_qa/reference_sword_motion/forehand_grip_direction_comparison/forehand_grip_comparison.mp4"
+}

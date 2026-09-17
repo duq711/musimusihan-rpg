@@ -1,0 +1,94 @@
+{
+  "status": "pass",
+  "execution_os": "Windows",
+  "blender_binary": "C:\\Users\\duq71\\Documents\\Codex\\2026-09-08\\new-chat\\work\\tools\\blender-5.2.1-windows-x64\\blender.exe",
+  "runs": [
+    {
+      "mode": "export",
+      "argv": [
+        "C:\\Users\\duq71\\Documents\\Codex\\2026-09-08\\new-chat\\work\\tools\\blender-5.2.1-windows-x64\\blender.exe",
+        "--background",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "C:\\Users\\duq71\\Documents\\Codex\\2026-09-08\\d\\outputs\\reference_sword_motion_20260909\\output\\controls_only_01\\controls_export.py",
+        "--",
+        "export"
+      ],
+      "start_utc": "2026-09-09T13:36:54.209023+00:00",
+      "end_utc": "2026-09-09T13:36:55.868882+00:00",
+      "elapsed_seconds": 1.672,
+      "exit_code": 0,
+      "log": "C:\\Users\\duq71\\Documents\\Codex\\2026-09-08\\d\\outputs\\reference_sword_motion_20260909\\output\\controls_only_01\\export.log"
+    },
+    {
+      "mode": "verify",
+      "argv": [
+        "C:\\Users\\duq71\\Documents\\Codex\\2026-09-08\\new-chat\\work\\tools\\blender-5.2.1-windows-x64\\blender.exe",
+        "--background",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "C:\\Users\\duq71\\Documents\\Codex\\2026-09-08\\d\\outputs\\reference_sword_motion_20260909\\output\\controls_only_01\\controls_export.py",
+        "--",
+        "verify"
+      ],
+      "start_utc": "2026-09-09T13:36:55.869885+00:00",
+      "end_utc": "2026-09-09T13:36:56.599090+00:00",
+      "elapsed_seconds": 0.719,
+      "exit_code": 0,
+      "log": "C:\\Users\\duq71\\Documents\\Codex\\2026-09-08\\d\\outputs\\reference_sword_motion_20260909\\output\\controls_only_01\\verify.log"
+    }
+  ],
+  "files_before_execution_report": [
+    {
+      "path": "C:\\Users\\duq71\\Documents\\Codex\\2026-09-08\\d\\outputs\\reference_sword_motion_20260909\\output\\controls_only_01\\attachment.json",
+      "bytes": 5130,
+      "sha256": "6101609cb610980ab49fd19004099edae60c6c488df10fa594650d358a782f3e"
+    },
+    {
+      "path": "C:\\Users\\duq71\\Documents\\Codex\\2026-09-08\\d\\outputs\\reference_sword_motion_20260909\\output\\controls_only_01\\controls_export.py",
+      "bytes": 9104,
+      "sha256": "810e03d12ae9fc0501501f5b4ce4cd217ce13246bd55dc7bc3ab016a1a6768b3"
+    },
+    {
+      "path": "C:\\Users\\duq71\\Documents\\Codex\\2026-09-08\\d\\outputs\\reference_sword_motion_20260909\\output\\controls_only_01\\export.log",
+      "bytes": 2711,
+      "sha256": "38c763f26bd2441637c15110700d2262cf34330177bfdd1e490562cdf1379f10"
+    },
+    {
+      "path": "C:\\Users\\duq71\\Documents\\Codex\\2026-09-08\\d\\outputs\\reference_sword_motion_20260909\\output\\controls_only_01\\export_check.json",
+      "bytes": 3594,
+      "sha256": "384031af506a91d82a70fb1d18d2b48aedd9f4610065434a5ab26b1b8e582094"
+    },
+    {
+      "path": "C:\\Users\\duq71\\Documents\\Codex\\2026-09-08\\d\\outputs\\reference_sword_motion_20260909\\output\\controls_only_01\\fresh_import_check.json",
+      "bytes": 1043,
+      "sha256": "d49507322633344b74cd2e6c71b56ed316457c5ab538297adeef27213afc0dac"
+    },
+    {
+      "path": "C:\\Users\\duq71\\Documents\\Codex\\2026-09-08\\d\\outputs\\reference_sword_motion_20260909\\output\\controls_only_01\\Reference_Sword_Controls.blend",
+      "bytes": 283278,
+      "sha256": "fdced37610a7ac9488f5c7db13f3da811aaa9ede14930cba8befa0336b9663db"
+    },
+    {
+      "path": "C:\\Users\\duq71\\Documents\\Codex\\2026-09-08\\d\\outputs\\reference_sword_motion_20260909\\output\\controls_only_01\\Reference_Sword_Controls.glb",
+      "bytes": 71332,
+      "sha256": "d450e6c4f9bda62833e1534b53903f2abf2b63ead891d1debbba6c4a5b25485f"
+    },
+    {
+      "path": "C:\\Users\\duq71\\Documents\\Codex\\2026-09-08\\d\\outputs\\reference_sword_motion_20260909\\output\\controls_only_01\\run_controls_export.py",
+      "bytes": 1563,
+      "sha256": "aec02390948127072d87a45591b99c8633fc5e8ad877f40349d48189b0de5a1a"
+    },
+    {
+      "path": "C:\\Users\\duq71\\Documents\\Codex\\2026-09-08\\d\\outputs\\reference_sword_motion_20260909\\output\\controls_only_01\\verify.log",
+      "bytes": 883,
+      "sha256": "31ca837795b7ee99d94b115703b7858c7ed35d5b70894f570283e7c6f3ef4a4a"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+[HEADLESS] unified_sword_motion_test.gd
+UNIFIED SWORD MOTION PASS [{"max_angle_rad":0.0009765625,"max_position_m":0.0,"profile":"quick_click","samples_per_stance":348},{"max_angle_rad":0.0009765625,"max_position_m":0.0,"profile":"hold_0_45s","samples_per_stance":348}]
+[HEADLESS] reference_sword_motion_test_room_test.gd
+REFERENCE SWORD MOTION TEST ROOM PASS: five playable fixtures, two-hand basic/reverse target hits and grip, actual run/jump/landing/collision, repeated F2, reset and original expedition restoration
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2535)
+[HEADLESS] sword_two_hand_grip_test.gd
+SWORD TWO HAND GRIP PASS: 48 support diagnostics, three real cuts, original source fidelity and unchanged expedition
+[HEADLESS] sword_recovery_continuity_test.gd
+RECOVERY METRIC true right_diagonal peak_deg=8.6514471593656 boundary_m=0.00017677052529
+RECOVERY METRIC true left_reverse peak_deg=7.14146991879421 boundary_m=0.00013074085291
+RECOVERY METRIC true overhead peak_deg=14.1934276471945 boundary_m=0.00013590096205
+RECOVERY METRIC false right_diagonal peak_deg=8.6514471593656 boundary_m=0.0001669475314
+RECOVERY METRIC false left_reverse peak_deg=7.14146991879421 boundary_m=0.00032137980452
+RECOVERY METRIC false overhead peak_deg=14.1934276471945 boundary_m=0.00026330872788
+SWORD RECOVERY CONTINUITY PASS
+[HEADLESS] sword_attack_variants_test.gd
+SWORD ATTACK VARIANTS PASS: three actual paired attacks, 145ms/300ms paired versus 55ms/160ms solo timing, unchanged one-hit/cost transactions, commit-only cycle, cancellation and menu/equipment reset
+
+Headless validation: 5 passed, 0 failed.

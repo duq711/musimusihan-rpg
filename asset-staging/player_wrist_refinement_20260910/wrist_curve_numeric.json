@@ -1,0 +1,276 @@
+{
+  "method": "Independent NumPy evaluation, exact pivot fit reconstructed from logged elbow; quintic Hermite endpoints and first derivatives, zero endpoint second derivatives; conservative actual cuff circumradius bound",
+  "formula": "C=A+D0*t+(10*delta-4*dd)*t^3+(-15*delta+7*dd)*t^4+(6*delta-3*dd)*t^5; radial compression along curvature normal only alpha=1/sqrt(1+(kappa*rmax/.70)^2)",
+  "limitations": [
+    "Positive local determinant is not by itself a global self-intersection proof.",
+    "Compression bound uses circumradius, more conservative than actual bend-plane section support.",
+    "No Godot or Blender execution and no model or runtime modifications."
+  ],
+  "poses": [
+    {
+      "context": "joint review/wrist_side/LeftSupportArm",
+      "pivot_fit_basis_columns": [
+        [
+          0.9491680140066395,
+          0.0,
+          -0.31476988608615625
+        ],
+        [
+          -0.17740352062050402,
+          0.8260495499057703,
+          -0.5349487190113877
+        ],
+        [
+          0.35101179111223324,
+          0.7608367592279172,
+          1.0584531093667566
+        ]
+      ],
+      "pivot_fit_origin": [
+        -0.019744413250063122,
+        -0.04279706770657034,
+        -0.003287987401880063
+      ],
+      "quintic_centerline": {
+        "endpoint_separation_mm": 64.0526216907396,
+        "arc_length_mm": 66.40841351099257,
+        "min_center_speed_per_rest_z": 0.998027365192902,
+        "max_curvature_per_m": 23.61277884842641,
+        "uncompressed_min_jacobian_bound": -0.10692564446453832,
+        "compressed_min_jacobian_bound": 0.23359073593063276,
+        "min_bend_width_scale": 0.5368742424631321,
+        "minimum_tubular_margin": 0.409436401890514,
+        "bend_degrees": 38.36619432124795,
+        "axial_scale": 1.3499647537696726,
+        "start_center": [
+          0.0,
+          0.0,
+          0.014
+        ],
+        "end_center": [
+          0.0065814710833543705,
+          0.014265689235523446,
+          0.07609599580062668
+        ],
+        "compression_endpoints": [
+          1.0,
+          1.0
+        ],
+        "maximum_normalized_curvature_r": 1.1000035974906002,
+        "minimum_center_distance_t_separation_gt_0_35_mm": 21.3810975193076
+      }
+    },
+    {
+      "context": "joint review/wrist_side/RightRelaxedArm",
+      "pivot_fit_basis_columns": [
+        [
+          0.9908998673851347,
+          0.0,
+          0.13460108772265664
+        ],
+        [
+          0.09695867403945999,
+          0.6936201628614681,
+          -0.7137857418024967
+        ],
+        [
+          -0.13400585666024628,
+          1.0339311002953653,
+          0.9865179237412524
+        ]
+      ],
+      "pivot_fit_origin": [
+        0.007537829437138853,
+        -0.058158624391614296,
+        0.000758366789554557
+      ],
+      "quintic_centerline": {
+        "endpoint_separation_mm": 63.81506034276688,
+        "arc_length_mm": 67.43312620074602,
+        "min_center_speed_per_rest_z": 0.9999164089416283,
+        "max_curvature_per_m": 29.584695594312727,
+        "uncompressed_min_jacobian_bound": -0.39592522617321146,
+        "compressed_min_jacobian_bound": 0.17988846702240316,
+        "min_bend_width_scale": 0.45414526715549447,
+        "minimum_tubular_margin": 0.3763506454770199,
+        "bend_degrees": 46.58260025359854,
+        "axial_scale": 1.4353357459632858,
+        "start_center": [
+          0.0,
+          0.0,
+          0.014
+        ],
+        "end_center": [
+          -0.0025126098123796183,
+          0.019386208130538103,
+          0.07474721107014848
+        ],
+        "compression_endpoints": [
+          1.0,
+          1.0
+        ],
+        "maximum_normalized_curvature_r": 1.373237595162363,
+        "minimum_center_distance_t_separation_gt_0_35_mm": 21.40921072503864
+      }
+    },
+    {
+      "context": "bow_draw/LeftSupportArm",
+      "pivot_fit_basis_columns": [
+        [
+          -0.30904837894955256,
+          0.0,
+          0.9510463182561898
+        ],
+        [
+          0.8285712052662456,
+          0.4908915908045075,
+          0.26924933404014423
+        ],
+        [
+          -0.9005874212534153,
+          1.6806093812720146,
+          -0.2926514485131012
+        ]
+      ],
+      "pivot_fit_origin": [
+        0.05065804244550461,
+        -0.09453427769655083,
+        0.07271164397886194
+      ],
+      "quintic_centerline": {
+        "endpoint_separation_mm": 51.279721352450196,
+        "arc_length_mm": 70.41363927999045,
+        "min_center_speed_per_rest_z": 0.8277150581931598,
+        "max_curvature_per_m": 104.48392523271156,
+        "uncompressed_min_jacobian_bound": -3.2075096432495402,
+        "compressed_min_jacobian_bound": 0.03686867709651916,
+        "min_bend_width_scale": 0.1436980313857673,
+        "minimum_tubular_margin": 0.307264892523723,
+        "bend_degrees": 98.72599312649096,
+        "axial_scale": 1.9290283735746856,
+        "start_center": [
+          0.0,
+          0.0,
+          0.014
+        ],
+        "end_center": [
+          -0.01688601414850153,
+          0.03151142589885027,
+          0.050762785340379354
+        ],
+        "compression_endpoints": [
+          1.0,
+          1.0
+        ],
+        "maximum_normalized_curvature_r": 4.820769643089832,
+        "minimum_center_distance_t_separation_gt_0_35_mm": 17.722219135869008
+      }
+    },
+    {
+      "context": "bow_release/LeftSupportArm",
+      "pivot_fit_basis_columns": [
+        [
+          -0.36075008434143785,
+          0.0,
+          0.9326625202331471
+        ],
+        [
+          0.7720045234548834,
+          0.5611079624133696,
+          0.2986082220594659
+        ],
+        [
+          -0.9915463324704787,
+          1.5683297350362755,
+          -0.383526104359539
+        ]
+      ],
+      "pivot_fit_origin": [
+        0.05577448120146443,
+        -0.0882185475957905,
+        0.07782334337022406
+      ],
+      "quintic_centerline": {
+        "endpoint_separation_mm": 49.39122053453657,
+        "arc_length_mm": 69.3819315287313,
+        "min_center_speed_per_rest_z": 0.8016760212476208,
+        "max_curvature_per_m": 113.48885687277809,
+        "uncompressed_min_jacobian_bound": -3.4432988248385126,
+        "compressed_min_jacobian_bound": 0.03272122523991655,
+        "min_bend_width_scale": 0.1323334101269971,
+        "minimum_tubular_margin": 0.3061563176071729,
+        "bend_degrees": 101.67849490484537,
+        "axial_scale": 1.8947069852512328,
+        "start_center": [
+          0.0,
+          0.0,
+          0.014
+        ],
+        "end_center": [
+          -0.018591493733821476,
+          0.029406182531930156,
+          0.04905888554325864
+        ],
+        "compression_endpoints": [
+          1.0,
+          1.0
+        ],
+        "maximum_normalized_curvature_r": 5.24314820971486,
+        "minimum_center_distance_t_separation_gt_0_35_mm": 17.16464678694361
+      }
+    },
+    {
+      "context": "chest_touch/CharacterArm",
+      "pivot_fit_basis_columns": [
+        [
+          -0.7400646543517961,
+          0.0,
+          -0.672535729444285
+        ],
+        [
+          -0.5573321255488362,
+          0.5596891605873215,
+          0.6132935229987969
+        ],
+        [
+          0.5746436089825778,
+          1.265129662730211,
+          -0.6323432425048447
+        ]
+      ],
+      "pivot_fit_origin": [
+        -0.03232370300527,
+        -0.07116354352857437,
+        0.09181930739089753
+      ],
+      "quintic_centerline": {
+        "endpoint_separation_mm": 40.03191838769526,
+        "arc_length_mm": 61.28139507574846,
+        "min_center_speed_per_rest_z": 0.648198920316284,
+        "max_curvature_per_m": 174.25306706112136,
+        "uncompressed_min_jacobian_bound": -4.647182378188087,
+        "compressed_min_jacobian_bound": 0.016854303280067196,
+        "min_bend_width_scale": 0.0857115263504793,
+        "minimum_tubular_margin": 0.3025760028628003,
+        "bend_degrees": 114.46933486818772,
+        "axial_scale": 1.5266388954844299,
+        "start_center": [
+          0.0,
+          0.0,
+          0.014
+        ],
+        "end_center": [
+          0.010774567668423336,
+          0.023721181176191458,
+          0.04439356420303417
+        ],
+        "compression_endpoints": [
+          1.0,
+          1.0
+        ],
+        "maximum_normalized_curvature_r": 8.136875246922957,
+        "minimum_center_distance_t_separation_gt_0_35_mm": 13.87857451705901
+      }
+    }
+  ]
+}

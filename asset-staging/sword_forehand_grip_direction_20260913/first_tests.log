@@ -1,0 +1,18 @@
+[HEADLESS] sword_direct_entry_test.gd
+DIRECT ENTRY shield right_diagonal hold=0.00 duration_ms=145.0 held_pose_mm=0.0002384185791 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.0004267692566 authored_mm=0.00004214684779 authored_deg=0.03956468118525 charge=0.0 spends=1
+DIRECT ENTRY shield right_diagonal hold=0.45 duration_ms=145.0 held_pose_mm=0.0002384185791 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00042080879209 authored_mm=0.00004214684779 authored_deg=0.03956468118525 charge=0.21833333333333 spends=1
+DIRECT ENTRY shield left_reverse hold=0.00 duration_ms=100.0 held_pose_mm=0.0002384185791 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00050306320193 authored_mm=0.00002980232239 authored_deg=0.03956468118525 charge=0.0 spends=1
+DIRECT ENTRY shield left_reverse hold=0.45 duration_ms=100.0 held_pose_mm=0.0002384185791 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00049710273742 authored_mm=0.00002980232239 authored_deg=0.03956468118525 charge=0.21833333333333 spends=1
+DIRECT ENTRY shield overhead hold=0.00 duration_ms=100.0 held_pose_mm=0.0002384185791 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00051617622376 authored_mm=0.00000023283064 authored_deg=0.05595290968074 charge=0.0 spends=1
+DIRECT ENTRY shield overhead hold=0.45 duration_ms=100.0 held_pose_mm=0.0002384185791 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00048041343687 authored_mm=0.0 authored_deg=0.03956468118525 charge=0.21833333333333 spends=1
+DIRECT ENTRY two_hand right_diagonal hold=0.00 duration_ms=145.0 held_pose_mm=0.00029802322388 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00043749809264 authored_mm=0.00004214684779 authored_deg=0.03956468118525 charge=0.0 spends=1
+DIRECT ENTRY two_hand right_diagonal hold=0.45 duration_ms=145.0 held_pose_mm=0.00029802322388 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00042080879209 authored_mm=0.00005960464478 authored_deg=0.03956468118525 charge=0.21833333333333 spends=1
+DIRECT ENTRY two_hand left_reverse hold=0.00 duration_ms=100.0 held_pose_mm=0.00029802322388 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00048637390138 authored_mm=0.00002980232239 authored_deg=0.03956468118525 charge=0.0 spends=1
+DIRECT ENTRY two_hand left_reverse hold=0.45 duration_ms=100.0 held_pose_mm=0.00029802322388 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00046730041503 authored_mm=0.00002980232239 authored_deg=0.03956468118525 charge=0.21833333333333 spends=1
+DIRECT ENTRY two_hand overhead hold=0.00 duration_ms=100.0 held_pose_mm=0.00029802322388 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00041365623477 authored_mm=0.00002980232239 authored_deg=0.05595290968074 charge=0.0 spends=1
+DIRECT ENTRY two_hand overhead hold=0.45 duration_ms=100.0 held_pose_mm=0.00029802322388 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00045061111448 authored_mm=0.00002980232239 authored_deg=0.03956468118525 charge=0.21833333333333 spends=1
+SWORD DIRECT ENTRY PASS: held WINDUP, forehand opposite contact axes at the original grip, unchanged reverse/overhead, actual wrist and arm lengths, release/charge/cost clocks and expedition preservation; target damage is covered by sword_attack_variants
+[HEADLESS] reference_sword_arm_player_test.gd
+REFERENCE SWORD ARM PLAYER PASS: analytical fixture only; actual_delivery_evaluated=false; actual meshes, 30/60/120Hz clocks, handoffs, blade clash, F2 and reset
+
+Headless validation: 2 passed, 0 failed.

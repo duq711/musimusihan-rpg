@@ -1,0 +1,22 @@
+{
+  "status": "diagnosed",
+  "bridge_config": {
+    "host": "localhost",
+    "port": 9876,
+    "enabled": true,
+    "blender_path": "/Applications/Blender.app/Contents/MacOS/Blender"
+  },
+  "interactive_server_listener": false,
+  "Blender_main_process_running_at_check": false,
+  "addon_enabled": true,
+  "addon_autostart": true,
+  "blender_online_access": false,
+  "causes": [
+    "No running Blender application/socket server at localhost:9876",
+    "Installed addon requires online access for its interactive or persistent socket server; current preference is disabled",
+    "Ordinary background Blender runs do not auto-start the socket server and exit after file work"
+  ],
+  "confirmed_working": "mcp__blender__execute_blender_code_for_cli opened source blend and returned actual Blender state",
+  "settings_changes": "None; no online-access preference changed",
+  "execution_policy": "User latest instruction: all Blender work defaults to MacBook until asked otherwise"
+}

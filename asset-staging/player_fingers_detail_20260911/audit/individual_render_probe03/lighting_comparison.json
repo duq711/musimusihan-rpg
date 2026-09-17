@@ -1,0 +1,69 @@
+{
+  "method": "Read-only pixel analysis; middle 30\u201382% of image height, warm-color skin mask R-G>.04 G-B>.025 R>.25 G>.15; median sRGB Euclidean error to reference. It is a lighting comparison, not a photorealism score.",
+  "views": {
+    "dorsal": {
+      "reference": {
+        "count": 192059,
+        "median_srgb": [
+          0.7058823529411765,
+          0.4980392156862745,
+          0.39215686274509803
+        ],
+        "median_chroma": 0.2941176470588235
+      },
+      "probe02": {
+        "count": 70729,
+        "median_srgb": [
+          0.8901960784313725,
+          0.7686274509803922,
+          0.7058823529411765
+        ],
+        "median_chroma": 0.1843137254901961
+      },
+      "probe03": {
+        "count": 70546,
+        "median_srgb": [
+          0.788235294117647,
+          0.6196078431372549,
+          0.5254901960784314
+        ],
+        "median_chroma": 0.2588235294117648
+      },
+      "median_srgb_error_before": 0.45344594571175717,
+      "median_srgb_error_after": 0.19833989986512612,
+      "error_reduction_fraction": 0.5625941708359541
+    },
+    "palmar": {
+      "reference": {
+        "count": 195149,
+        "median_srgb": [
+          0.7411764705882353,
+          0.5254901960784314,
+          0.4117647058823529
+        ],
+        "median_chroma": 0.3215686274509804
+      },
+      "probe02": {
+        "count": 70700,
+        "median_srgb": [
+          0.9058823529411765,
+          0.796078431372549,
+          0.7411764705882353
+        ],
+        "median_chroma": 0.16470588235294115
+      },
+      "probe03": {
+        "count": 70543,
+        "median_srgb": [
+          0.807843137254902,
+          0.6549019607843137,
+          0.5725490196078431
+        ],
+        "median_chroma": 0.2313725490196079
+      },
+      "median_srgb_error_before": 0.4570099905777654,
+      "median_srgb_error_after": 0.21689500876901696,
+      "error_reduction_fraction": 0.5254042291399101
+    }
+  }
+}

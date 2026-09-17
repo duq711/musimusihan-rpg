@@ -1,0 +1,28 @@
+{
+  "change": "Correct offscreen shoulder placement and fit the right forearm from the imported anatomical wrist pivot; keep bandage winding, treatment, and deposited cloth intact.",
+  "verification": {
+    "bandage_motion": "PASS",
+    "maximum_wrist_gap_m": 2.4620758e-07,
+    "maximum_right_upper_sleeve_length_m": 0.44052451848984,
+    "minimum_forearm_centreline_clearance_m": 0.11917238682508,
+    "actual_render": {
+      "display": "embedded",
+      "driver": "vulkan",
+      "frames": 136,
+      "fps": 30,
+      "preserved": true
+    },
+    "reviewed_frames": [
+      36,
+      46,
+      60,
+      96
+    ]
+  },
+  "scope": "Bandage viewmodel only. No original mesh or shared arm adapter edits. No OS input validation claimed.",
+  "source_hashes": {
+    "res://scripts/bandage_use_visuals.gd": "601910cbe221dc746cbd6ddc8c0a52d6c28693a44a137aad1516491e0b4ffd0b",
+    "res://scripts/player.gd": "ec937d4bd1136e2366c4cd3913b7c1078fc337c9a30d741433841be39d4c9926"
+  },
+  "video": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/godot-game/artifacts/visual_qa/bandage_forearm/alignment_02/bandage_alignment.mp4"
+}

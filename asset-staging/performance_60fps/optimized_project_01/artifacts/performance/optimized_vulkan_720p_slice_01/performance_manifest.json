@@ -1,0 +1,1594 @@
+{
+	"cases": [
+		{
+			"actual_game_elapsed_seconds": 7.76334333333333,
+			"camera_fov": 76.0,
+			"camera_policy": "Actual production forward (-Z) view at each listed position; local look_at is reset by the production recoil update. Retained for identical baseline framing.",
+			"camera_transform": "Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 1.5601172, 5.5)",
+			"completed_render_frames_during_window": 120,
+			"enemy_count": 0,
+			"game_physics_enabled": false,
+			"game_process_enabled": true,
+			"gpu_batch_submission_validation": {
+				"batches": 107,
+				"instances": 1026,
+				"mismatches": [],
+				"passed": true
+			},
+			"gpu_timestamps_available": true,
+			"host_load_after_measurement": {
+				"available": true,
+				"benchmark_cpu_percent": 41.2,
+				"benchmark_pid": 95504,
+				"other_godot_processes": [
+					{
+						"cpu_percent": 13.1,
+						"pid": 19979
+					},
+					{
+						"cpu_percent": 17.3,
+						"pid": 83468
+					}
+				],
+				"other_process_cpu_percent_sum": 539.1,
+				"timestamp_utc": "2026-09-06T11:22:59"
+			},
+			"host_load_before_warmup": {
+				"available": true,
+				"benchmark_cpu_percent": 50.8,
+				"benchmark_pid": 95504,
+				"other_godot_processes": [
+					{
+						"cpu_percent": 15.0,
+						"pid": 19979
+					},
+					{
+						"cpu_percent": 30.7,
+						"pid": 83468
+					}
+				],
+				"other_process_cpu_percent_sum": 545.6,
+				"timestamp_utc": "2026-09-06T11:22:40"
+			},
+			"id": "hideout_hearth",
+			"measured_frames": 120,
+			"msaa": 0,
+			"occlusion_enabled": true,
+			"physics_ticks_during_window": 466,
+			"player_health": 100.0,
+			"player_physics_enabled": true,
+			"resolution": [
+				1280,
+				720
+			],
+			"sample_json_file": "hideout_hearth_1280x720.json",
+			"sample_json_sha256": "bb6f7ce0c61b30ba5b4e534d01e992605555f9f93923e960777979a7ffc2e5e9",
+			"screenshot_file": "hideout_hearth_1280x720.png",
+			"screenshot_sha256": "f0918123353c940ac1afdfefb7177a611182b88ee1393ff0f2e93059048bc7d3",
+			"scripted_motion": false,
+			"summary": {
+				"buffer_memory_bytes": {
+					"count": 120,
+					"max": 113535088.0,
+					"mean": 113535088.0,
+					"min": 113535088.0,
+					"p50": 113535088.0,
+					"p95": 113535088.0,
+					"p99": 113535088.0
+				},
+				"draw_calls": {
+					"count": 120,
+					"max": 2748.0,
+					"mean": 2748.0,
+					"min": 2748.0,
+					"p50": 2748.0,
+					"p95": 2748.0,
+					"p99": 2748.0
+				},
+				"objects": {
+					"count": 120,
+					"max": 3495.0,
+					"mean": 3495.0,
+					"min": 3495.0,
+					"p50": 3495.0,
+					"p95": 3495.0,
+					"p99": 3495.0
+				},
+				"physics_ms": {
+					"count": 120,
+					"max": 27.026,
+					"mean": 13.2811166666667,
+					"min": 6.672,
+					"over_16_67ms_percent": 25.0,
+					"p50": 11.289,
+					"p95": 27.026,
+					"p99": 27.026
+				},
+				"primitives": {
+					"count": 120,
+					"max": 11126246.0,
+					"mean": 11126246.0,
+					"min": 11126246.0,
+					"p50": 11126246.0,
+					"p95": 11126246.0,
+					"p99": 11126246.0
+				},
+				"process_ms": {
+					"count": 120,
+					"max": 76.767,
+					"mean": 68.9572083333333,
+					"min": 64.14,
+					"over_16_67ms_percent": 100.0,
+					"p50": 66.56,
+					"p95": 76.767,
+					"p99": 76.767
+				},
+				"render_cpu_ms": {
+					"count": 120,
+					"max": 38.5909998752773,
+					"mean": 11.688441657745,
+					"min": 4.44199998168647,
+					"over_16_67ms_percent": 15.0,
+					"p50": 10.0300004088581,
+					"p95": 24.6489993424416,
+					"p99": 35.4970013667047
+				},
+				"render_gpu_ms": {
+					"count": 120,
+					"max": 81.768000125885,
+					"mean": 59.7480499706852,
+					"min": 39.5189984738827,
+					"over_16_67ms_percent": 100.0,
+					"p50": 59.1949985921383,
+					"p95": 72.7949964404106,
+					"p99": 75.4359991550446
+				},
+				"sampling_overhead_ms": {
+					"count": 120,
+					"max": 3.064,
+					"mean": 0.267691666666667,
+					"min": 0.069,
+					"over_16_67ms_percent": 0.0,
+					"p50": 0.175,
+					"p95": 0.827,
+					"p99": 2.344
+				},
+				"static_memory_bytes": {
+					"count": 120,
+					"max": 266814549.0,
+					"mean": 266066097.0,
+					"min": 265315605.0,
+					"p50": 266059557.0,
+					"p95": 266739237.0,
+					"p99": 266801997.0
+				},
+				"texture_memory_bytes": {
+					"count": 120,
+					"max": 381034368.0,
+					"mean": 381034368.0,
+					"min": 381034368.0,
+					"p50": 381034368.0,
+					"p95": 381034368.0,
+					"p99": 381034368.0
+				},
+				"video_memory_bytes": {
+					"count": 120,
+					"max": 668028784.0,
+					"mean": 668028784.0,
+					"min": 668028784.0,
+					"p50": 668028784.0,
+					"p95": 668028784.0,
+					"p99": 668028784.0
+				},
+				"viewports": {
+					"/root": {
+						"canvas_draw_calls": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"canvas_objects": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"canvas_primitives": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"cpu_ms": {
+							"count": 120,
+							"max": 0.194999992847443,
+							"mean": 0.0485250001928459,
+							"min": 0.0219999998807907,
+							"over_16_67ms_percent": 0.0,
+							"p50": 0.0359999984502792,
+							"p95": 0.105999998748302,
+							"p99": 0.165000006556511
+						},
+						"draw_calls": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"gpu_ms": {
+							"count": 120,
+							"max": 6.39200019836426,
+							"mean": 0.860349999585499,
+							"min": 0.0419999994337559,
+							"over_16_67ms_percent": 0.0,
+							"p50": 0.414000004529953,
+							"p95": 3.41700005531311,
+							"p99": 5.92399978637695
+						},
+						"height": 720.0,
+						"objects": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"primitives": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"shadow_draw_calls": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"shadow_objects": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"shadow_primitives": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"visible_draw_calls": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"visible_objects": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"visible_primitives": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"width": 1280.0
+					},
+					"/root/GameplayPerformanceViewport": {
+						"canvas_draw_calls": {
+							"count": 120,
+							"max": 43.0,
+							"mean": 43.0,
+							"min": 43.0,
+							"p50": 43.0,
+							"p95": 43.0,
+							"p99": 43.0
+						},
+						"canvas_objects": {
+							"count": 120,
+							"max": 323.0,
+							"mean": 323.0,
+							"min": 323.0,
+							"p50": 323.0,
+							"p95": 323.0,
+							"p99": 323.0
+						},
+						"canvas_primitives": {
+							"count": 120,
+							"max": 3526.0,
+							"mean": 3526.0,
+							"min": 3526.0,
+							"p50": 3526.0,
+							"p95": 3526.0,
+							"p99": 3526.0
+						},
+						"cpu_ms": {
+							"count": 120,
+							"max": 33.9420013427734,
+							"mean": 9.86390832066536,
+							"min": 3.18099999427795,
+							"over_16_67ms_percent": 10.0,
+							"p50": 8.52499961853027,
+							"p95": 18.7849998474121,
+							"p99": 30.0090007781982
+						},
+						"draw_calls": {
+							"count": 120,
+							"max": 2699.0,
+							"mean": 2699.0,
+							"min": 2699.0,
+							"p50": 2699.0,
+							"p95": 2699.0,
+							"p99": 2699.0
+						},
+						"gpu_ms": {
+							"count": 120,
+							"max": 72.4720001220703,
+							"mean": 52.4747416496277,
+							"min": 32.4959983825684,
+							"over_16_67ms_percent": 100.0,
+							"p50": 52.0369987487793,
+							"p95": 63.7630004882812,
+							"p99": 67.7770004272461
+						},
+						"height": 720.0,
+						"objects": {
+							"count": 120,
+							"max": 3446.0,
+							"mean": 3446.0,
+							"min": 3446.0,
+							"p50": 3446.0,
+							"p95": 3446.0,
+							"p99": 3446.0
+						},
+						"primitives": {
+							"count": 120,
+							"max": 11115536.0,
+							"mean": 11115536.0,
+							"min": 11115536.0,
+							"p50": 11115536.0,
+							"p95": 11115536.0,
+							"p99": 11115536.0
+						},
+						"shadow_draw_calls": {
+							"count": 120,
+							"max": 2106.0,
+							"mean": 2106.0,
+							"min": 2106.0,
+							"p50": 2106.0,
+							"p95": 2106.0,
+							"p99": 2106.0
+						},
+						"shadow_objects": {
+							"count": 120,
+							"max": 2414.0,
+							"mean": 2414.0,
+							"min": 2414.0,
+							"p50": 2414.0,
+							"p95": 2414.0,
+							"p99": 2414.0
+						},
+						"shadow_primitives": {
+							"count": 120,
+							"max": 9166072.0,
+							"mean": 9166072.0,
+							"min": 9166072.0,
+							"p50": 9166072.0,
+							"p95": 9166072.0,
+							"p99": 9166072.0
+						},
+						"visible_draw_calls": {
+							"count": 120,
+							"max": 550.0,
+							"mean": 550.0,
+							"min": 550.0,
+							"p50": 550.0,
+							"p95": 550.0,
+							"p99": 550.0
+						},
+						"visible_objects": {
+							"count": 120,
+							"max": 709.0,
+							"mean": 709.0,
+							"min": 709.0,
+							"p50": 709.0,
+							"p95": 709.0,
+							"p99": 709.0
+						},
+						"visible_primitives": {
+							"count": 120,
+							"max": 1945938.0,
+							"mean": 1945938.0,
+							"min": 1945938.0,
+							"p50": 1945938.0,
+							"p95": 1945938.0,
+							"p99": 1945938.0
+						},
+						"width": 1280.0
+					},
+					"/root/GameplayPerformanceViewport/@Control@4/HideoutInventoryOverlay/InventoryModalBackdrop/InventoryModal/EquipmentRoot/PlayerPortrait/CharacterViewport": {
+						"canvas_draw_calls": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"canvas_objects": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"canvas_primitives": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"cpu_ms": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"over_16_67ms_percent": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"draw_calls": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"gpu_ms": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"over_16_67ms_percent": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"height": 560.0,
+						"objects": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"primitives": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"shadow_draw_calls": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"shadow_objects": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"shadow_primitives": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"visible_draw_calls": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"visible_objects": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"visible_primitives": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"width": 472.0
+					},
+					"/root/GameplayPerformanceViewport/@Control@4/Player/FirstPersonRenderer/EquipmentViewport": {
+						"canvas_draw_calls": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"canvas_objects": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"canvas_primitives": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"cpu_ms": {
+							"count": 120,
+							"max": 6.2350001335144,
+							"mean": 0.820258336886764,
+							"min": 0.238000005483627,
+							"over_16_67ms_percent": 0.0,
+							"p50": 0.598999977111816,
+							"p95": 2.03699994087219,
+							"p99": 3.10800004005432
+						},
+						"draw_calls": {
+							"count": 120,
+							"max": 49.0,
+							"mean": 49.0,
+							"min": 49.0,
+							"p50": 49.0,
+							"p95": 49.0,
+							"p99": 49.0
+						},
+						"gpu_ms": {
+							"count": 120,
+							"max": 14.9200000762939,
+							"mean": 6.41295832147201,
+							"min": 0.842999994754791,
+							"over_16_67ms_percent": 0.0,
+							"p50": 6.08300018310547,
+							"p95": 11.8439998626709,
+							"p99": 14.5939998626709
+						},
+						"height": 720.0,
+						"objects": {
+							"count": 120,
+							"max": 49.0,
+							"mean": 49.0,
+							"min": 49.0,
+							"p50": 49.0,
+							"p95": 49.0,
+							"p99": 49.0
+						},
+						"primitives": {
+							"count": 120,
+							"max": 10710.0,
+							"mean": 10710.0,
+							"min": 10710.0,
+							"p50": 10710.0,
+							"p95": 10710.0,
+							"p99": 10710.0
+						},
+						"shadow_draw_calls": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"shadow_objects": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"shadow_primitives": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"visible_draw_calls": {
+							"count": 120,
+							"max": 49.0,
+							"mean": 49.0,
+							"min": 49.0,
+							"p50": 49.0,
+							"p95": 49.0,
+							"p99": 49.0
+						},
+						"visible_objects": {
+							"count": 120,
+							"max": 49.0,
+							"mean": 49.0,
+							"min": 49.0,
+							"p50": 49.0,
+							"p95": 49.0,
+							"p99": 49.0
+						},
+						"visible_primitives": {
+							"count": 120,
+							"max": 10710.0,
+							"mean": 10710.0,
+							"min": 10710.0,
+							"p50": 10710.0,
+							"p95": 10710.0,
+							"p99": 10710.0
+						},
+						"width": 1280.0
+					}
+				},
+				"wall_ms": {
+					"count": 120,
+					"max": 210.965,
+					"mean": 64.8048083333333,
+					"min": 32.673,
+					"over_16_67ms_percent": 100.0,
+					"p50": 65.27,
+					"p95": 80.789,
+					"p99": 100.265
+				}
+			},
+			"taa": true,
+			"warmup_frames": 90
+		},
+		{
+			"actual_game_elapsed_seconds": 8.30539766666667,
+			"camera_fov": 76.0,
+			"camera_policy": "Actual production forward (-Z) view at each listed position; local look_at is reset by the production recoil update. Retained for identical baseline framing.",
+			"camera_transform": "Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5601563, 13)",
+			"completed_render_frames_during_window": 120,
+			"enemy_count": 2,
+			"game_physics_enabled": true,
+			"game_process_enabled": true,
+			"gpu_batch_submission_validation": {
+				"batches": 10,
+				"instances": 58,
+				"mismatches": [],
+				"passed": true
+			},
+			"gpu_timestamps_available": true,
+			"host_load_after_measurement": {
+				"available": true,
+				"benchmark_cpu_percent": 49.2,
+				"benchmark_pid": 95504,
+				"other_godot_processes": [
+					{
+						"cpu_percent": 16.5,
+						"pid": 19979
+					},
+					{
+						"cpu_percent": 21.9,
+						"pid": 83468
+					}
+				],
+				"other_process_cpu_percent_sum": 584.6,
+				"timestamp_utc": "2026-09-06T11:23:40"
+			},
+			"host_load_before_warmup": {
+				"available": true,
+				"benchmark_cpu_percent": 53.6,
+				"benchmark_pid": 95504,
+				"other_godot_processes": [
+					{
+						"cpu_percent": 16.9,
+						"pid": 19979
+					},
+					{
+						"cpu_percent": 32.8,
+						"pid": 83468
+					}
+				],
+				"other_process_cpu_percent_sum": 612.0,
+				"timestamp_utc": "2026-09-06T11:23:25"
+			},
+			"id": "dungeon_entry",
+			"measured_frames": 120,
+			"msaa": 0,
+			"occlusion_enabled": true,
+			"physics_ticks_during_window": 498,
+			"player_health": 100.0,
+			"player_physics_enabled": true,
+			"resolution": [
+				1280,
+				720
+			],
+			"sample_json_file": "dungeon_entry_1280x720.json",
+			"sample_json_sha256": "de4eaa05c7dbd4f5bc6fdb0f557be0913d2967ea524d68e16c10387e6e38d7b4",
+			"screenshot_file": "dungeon_entry_1280x720.png",
+			"screenshot_sha256": "52d694e24883ecdb2e50c7eb4c7dc22e56d2633691d596cbb6b4b042d80a0f66",
+			"scripted_motion": false,
+			"summary": {
+				"buffer_memory_bytes": {
+					"count": 120,
+					"max": 157790748.0,
+					"mean": 157742833.6,
+					"min": 157733820.0,
+					"p50": 157733820.0,
+					"p95": 157762284.0,
+					"p99": 157762284.0
+				},
+				"draw_calls": {
+					"count": 120,
+					"max": 2940.0,
+					"mean": 2940.0,
+					"min": 2940.0,
+					"p50": 2940.0,
+					"p95": 2940.0,
+					"p99": 2940.0
+				},
+				"objects": {
+					"count": 120,
+					"max": 3111.0,
+					"mean": 3111.0,
+					"min": 3111.0,
+					"p50": 3111.0,
+					"p95": 3111.0,
+					"p99": 3111.0
+				},
+				"physics_ms": {
+					"count": 120,
+					"max": 103.357,
+					"mean": 32.842525,
+					"min": 10.295,
+					"over_16_67ms_percent": 77.5,
+					"p50": 24.702,
+					"p95": 103.357,
+					"p99": 103.357
+				},
+				"primitives": {
+					"count": 120,
+					"max": 6975720.0,
+					"mean": 6975720.0,
+					"min": 6975720.0,
+					"p50": 6975720.0,
+					"p95": 6975720.0,
+					"p99": 6975720.0
+				},
+				"process_ms": {
+					"count": 120,
+					"max": 121.604,
+					"mean": 86.9235666666665,
+					"min": 62.873,
+					"over_16_67ms_percent": 100.0,
+					"p50": 77.339,
+					"p95": 121.604,
+					"p99": 121.604
+				},
+				"render_cpu_ms": {
+					"count": 120,
+					"max": 50.3639991246462,
+					"mean": 14.0050500141278,
+					"min": 5.41499995331466,
+					"over_16_67ms_percent": 19.1666666666667,
+					"p50": 11.8239997573346,
+					"p95": 28.3940001729876,
+					"p99": 40.1900015729666
+				},
+				"render_gpu_ms": {
+					"count": 120,
+					"max": 74.6839981079102,
+					"mean": 54.4024749427258,
+					"min": 36.0360000878572,
+					"over_16_67ms_percent": 100.0,
+					"p50": 53.9699986875057,
+					"p95": 67.5230002403259,
+					"p99": 73.7450038194656
+				},
+				"sampling_overhead_ms": {
+					"count": 120,
+					"max": 2.053,
+					"mean": 0.276708333333333,
+					"min": 0.077,
+					"over_16_67ms_percent": 0.0,
+					"p50": 0.199,
+					"p95": 0.519,
+					"p99": 2.021
+				},
+				"static_memory_bytes": {
+					"count": 120,
+					"max": 266867914.0,
+					"mean": 266120268.133333,
+					"min": 265370510.0,
+					"p50": 266113642.0,
+					"p95": 266792674.0,
+					"p99": 266855374.0
+				},
+				"texture_memory_bytes": {
+					"count": 120,
+					"max": 382773376.0,
+					"mean": 382773376.0,
+					"min": 382773376.0,
+					"p50": 382773376.0,
+					"p95": 382773376.0,
+					"p99": 382773376.0
+				},
+				"video_memory_bytes": {
+					"count": 120,
+					"max": 716120608.0,
+					"mean": 716072666.666667,
+					"min": 716063648.0,
+					"p50": 716063648.0,
+					"p95": 716092128.0,
+					"p99": 716092128.0
+				},
+				"viewports": {
+					"/root": {
+						"canvas_draw_calls": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"canvas_objects": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"canvas_primitives": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"cpu_ms": {
+							"count": 120,
+							"max": 1.1139999628067,
+							"mean": 0.0538166666403413,
+							"min": 0.0230000000447035,
+							"over_16_67ms_percent": 0.0,
+							"p50": 0.034000001847744,
+							"p95": 0.0989999994635582,
+							"p99": 0.204999998211861
+						},
+						"draw_calls": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"gpu_ms": {
+							"count": 120,
+							"max": 11.5120000839233,
+							"mean": 1.35240833453524,
+							"min": 0.0130000002682209,
+							"over_16_67ms_percent": 0.0,
+							"p50": 0.578999996185303,
+							"p95": 4.78700017929077,
+							"p99": 10.0010004043579
+						},
+						"height": 720.0,
+						"objects": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"primitives": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"shadow_draw_calls": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"shadow_objects": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"shadow_primitives": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"visible_draw_calls": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"visible_objects": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"visible_primitives": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"width": 1280.0
+					},
+					"/root/GameplayPerformanceViewport": {
+						"canvas_draw_calls": {
+							"count": 120,
+							"max": 64.0,
+							"mean": 64.0,
+							"min": 64.0,
+							"p50": 64.0,
+							"p95": 64.0,
+							"p99": 64.0
+						},
+						"canvas_objects": {
+							"count": 120,
+							"max": 168.0,
+							"mean": 168.0,
+							"min": 168.0,
+							"p50": 168.0,
+							"p95": 168.0,
+							"p99": 168.0
+						},
+						"canvas_primitives": {
+							"count": 120,
+							"max": 4176.0,
+							"mean": 4176.0,
+							"min": 4176.0,
+							"p50": 4176.0,
+							"p95": 4176.0,
+							"p99": 4176.0
+						},
+						"cpu_ms": {
+							"count": 120,
+							"max": 48.5709991455078,
+							"mean": 10.8031000196934,
+							"min": 2.74699997901917,
+							"over_16_67ms_percent": 12.5,
+							"p50": 8.94600009918213,
+							"p95": 25.1189994812012,
+							"p99": 37.6290016174316
+						},
+						"draw_calls": {
+							"count": 120,
+							"max": 2841.0,
+							"mean": 2841.0,
+							"min": 2841.0,
+							"p50": 2841.0,
+							"p95": 2841.0,
+							"p99": 2841.0
+						},
+						"gpu_ms": {
+							"count": 120,
+							"max": 64.3820037841797,
+							"mean": 45.3519499460856,
+							"min": 30.0990009307861,
+							"over_16_67ms_percent": 100.0,
+							"p50": 44.4550018310547,
+							"p95": 57.8050003051758,
+							"p99": 62.6570014953613
+						},
+						"height": 720.0,
+						"objects": {
+							"count": 120,
+							"max": 3011.0,
+							"mean": 3011.0,
+							"min": 3011.0,
+							"p50": 3011.0,
+							"p95": 3011.0,
+							"p99": 3011.0
+						},
+						"primitives": {
+							"count": 120,
+							"max": 6950256.0,
+							"mean": 6950256.0,
+							"min": 6950256.0,
+							"p50": 6950256.0,
+							"p95": 6950256.0,
+							"p99": 6950256.0
+						},
+						"shadow_draw_calls": {
+							"count": 120,
+							"max": 1492.0,
+							"mean": 1492.0,
+							"min": 1492.0,
+							"p50": 1492.0,
+							"p95": 1492.0,
+							"p99": 1492.0
+						},
+						"shadow_objects": {
+							"count": 120,
+							"max": 1522.0,
+							"mean": 1522.0,
+							"min": 1522.0,
+							"p50": 1522.0,
+							"p95": 1522.0,
+							"p99": 1522.0
+						},
+						"shadow_primitives": {
+							"count": 120,
+							"max": 5035196.0,
+							"mean": 5035196.0,
+							"min": 5035196.0,
+							"p50": 5035196.0,
+							"p95": 5035196.0,
+							"p99": 5035196.0
+						},
+						"visible_draw_calls": {
+							"count": 120,
+							"max": 1285.0,
+							"mean": 1285.0,
+							"min": 1285.0,
+							"p50": 1285.0,
+							"p95": 1285.0,
+							"p99": 1285.0
+						},
+						"visible_objects": {
+							"count": 120,
+							"max": 1321.0,
+							"mean": 1321.0,
+							"min": 1321.0,
+							"p50": 1321.0,
+							"p95": 1321.0,
+							"p99": 1321.0
+						},
+						"visible_primitives": {
+							"count": 120,
+							"max": 1910884.0,
+							"mean": 1910884.0,
+							"min": 1910884.0,
+							"p50": 1910884.0,
+							"p95": 1910884.0,
+							"p99": 1910884.0
+						},
+						"width": 1280.0
+					},
+					"/root/GameplayPerformanceViewport/@Node3D@1681/InventoryOverlay/InventoryModalBackdrop/InventoryModal/EquipmentRoot/PlayerPortrait/CharacterViewport": {
+						"canvas_draw_calls": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"canvas_objects": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"canvas_primitives": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"cpu_ms": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"over_16_67ms_percent": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"draw_calls": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"gpu_ms": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"over_16_67ms_percent": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"height": 560.0,
+						"objects": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"primitives": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"shadow_draw_calls": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"shadow_objects": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"shadow_primitives": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"visible_draw_calls": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"visible_objects": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"visible_primitives": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"width": 472.0
+					},
+					"/root/GameplayPerformanceViewport/@Node3D@1681/Player/FirstPersonRenderer/EquipmentViewport": {
+						"canvas_draw_calls": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"canvas_objects": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"canvas_primitives": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"cpu_ms": {
+							"count": 120,
+							"max": 7.68300008773804,
+							"mean": 1.11289166112741,
+							"min": 0.409999996423721,
+							"over_16_67ms_percent": 0.0,
+							"p50": 0.811999976634979,
+							"p95": 2.54399991035461,
+							"p99": 5.6230001449585
+						},
+						"draw_calls": {
+							"count": 120,
+							"max": 99.0,
+							"mean": 99.0,
+							"min": 99.0,
+							"p50": 99.0,
+							"p95": 99.0,
+							"p99": 99.0
+						},
+						"gpu_ms": {
+							"count": 120,
+							"max": 18.2029991149902,
+							"mean": 7.69811666210492,
+							"min": 1.10300004482269,
+							"over_16_67ms_percent": 0.833333333333333,
+							"p50": 7.83599996566772,
+							"p95": 14.0869998931885,
+							"p99": 16.2029991149902
+						},
+						"height": 720.0,
+						"objects": {
+							"count": 120,
+							"max": 100.0,
+							"mean": 100.0,
+							"min": 100.0,
+							"p50": 100.0,
+							"p95": 100.0,
+							"p99": 100.0
+						},
+						"primitives": {
+							"count": 120,
+							"max": 25464.0,
+							"mean": 25464.0,
+							"min": 25464.0,
+							"p50": 25464.0,
+							"p95": 25464.0,
+							"p99": 25464.0
+						},
+						"shadow_draw_calls": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"shadow_objects": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"shadow_primitives": {
+							"count": 120,
+							"max": 0.0,
+							"mean": 0.0,
+							"min": 0.0,
+							"p50": 0.0,
+							"p95": 0.0,
+							"p99": 0.0
+						},
+						"visible_draw_calls": {
+							"count": 120,
+							"max": 99.0,
+							"mean": 99.0,
+							"min": 99.0,
+							"p50": 99.0,
+							"p95": 99.0,
+							"p99": 99.0
+						},
+						"visible_objects": {
+							"count": 120,
+							"max": 100.0,
+							"mean": 100.0,
+							"min": 100.0,
+							"p50": 100.0,
+							"p95": 100.0,
+							"p99": 100.0
+						},
+						"visible_primitives": {
+							"count": 120,
+							"max": 25464.0,
+							"mean": 25464.0,
+							"min": 25464.0,
+							"p50": 25464.0,
+							"p95": 25464.0,
+							"p99": 25464.0
+						},
+						"width": 1280.0
+					}
+				},
+				"wall_ms": {
+					"count": 120,
+					"max": 173.14,
+					"mean": 69.4249333333333,
+					"min": 28.553,
+					"over_16_67ms_percent": 100.0,
+					"p50": 64.275,
+					"p95": 115.814,
+					"p99": 147.288
+				}
+			},
+			"taa": true,
+			"warmup_frames": 90
+		}
+	],
+	"device": "Apple M4",
+	"display_driver": "embedded",
+	"engine_max_fps_during_measurement": 0,
+	"engine_version": {
+		"build": "official",
+		"hash": "5b4e0cb0fd279832bbdd69fed5354d4e5ad26f88",
+		"hex": 263936,
+		"major": 4,
+		"minor": 7,
+		"patch": 0,
+		"status": "stable",
+		"string": "4.7-stable (official)",
+		"timestamp": 0
+	},
+	"expedition_inventory_cursor_preserved": true,
+	"frame_budget_ms": 16.6666666666667,
+	"limitations": [
+		"Unhosted render throughput excludes native window composition, display presentation and input latency.",
+		"Other running desktop apps are preserved and may contend for this shared CPU/GPU; compare repeated paired runs. At baseline another game/editor and busy browser were reported active.",
+		"Native mouse capture is never enabled: production interaction raycasts and capture-gated stress presentation are skipped. Allow headroom for those costs in interactive gameplay.",
+		"Actual inherited gameplay/player/AI/physics/HUD/equipment continue; only native-input scene entry and OS window notifications are bypassed.",
+		"No image readback, force_draw, file writes or sorting occur inside the sample window. Cached renderer counter queries have separately recorded overhead.",
+		"GPU timestamps may lag the sampled engine frame; percentiles represent sustained workload, not matching per-frame CPU/GPU pairs."
+	],
+	"low_processor_usage_during_measurement": false,
+	"memory": {
+		"available": 3216211968,
+		"free": 2592309248,
+		"physical": 17179869184,
+		"stack": 8372224
+	},
+	"passed": true,
+	"pipeline_disk_cache_enabled": true,
+	"processor": "Apple M4",
+	"processor_count": 10,
+	"renderer": "vulkan",
+	"scheduling": "normal process priority; no native window or input activation",
+	"source_files_unchanged": true,
+	"source_sha256": {
+		"res://assets/3d/abandoned_mine/mine_water.gdshader": "deb3deb0bc394a378c0ee76cb826a21f555427f10f360f0c523e37caec1690ed",
+		"res://assets/3d/dark_fantasy/generated_lods/anatomical_skull_lod.provenance.json": "639e9b42f0a76fa2d13a768b0f8aaefea07c4e039a6478b0bb2689b244fde970",
+		"res://assets/3d/dark_fantasy/generated_lods/anatomical_skull_lod.res": "753ee23776b9b4626d08bf852480cf033437bdcb95a93b9eac3624c3e15d327e",
+		"res://assets/3d/dark_fantasy/generated_lods/stone_samples/dungeon_floor.res": "27632b05bddd1de06437e804af605a5b32c3657e1e781fc2dbf3114cffa6d5ec",
+		"res://assets/3d/dark_fantasy/generated_lods/stone_samples/dungeon_west_wall.res": "36a140463a5aeef3566feb211a37e35076a91820bbf5275aad6badc921964b0c",
+		"res://assets/3d/dark_fantasy/generated_lods/stone_samples/generation.json": "252794ba5c5c6a088619bba5bfb2131ae55582c8986178363ff0237756451a5c",
+		"res://assets/ai/materials/concept_black_leather.png": "03cce83bfd246ec4e895b7a0c0bdfcbfae501ca8a8d962747d3eff4c82c75b0f",
+		"res://assets/ai/materials/concept_black_leather.png.import": "537ea0ee40c676f6ed19a1253b00d5cbb38876e1ff2ced7451d4393251ae65bc",
+		"res://assets/ai/materials/concept_charcoal_linen.png": "d590cf0f9aa15b038cf3de65882f9a724a0270038dbc5da68ba3a74b3cf85f5b",
+		"res://assets/ai/materials/concept_charcoal_linen.png.import": "e948b79870a1657737cb4dc29048046fe503547fccfb9df772a172af34e7f91e",
+		"res://assets/ai/materials/concept_ember_coal.png": "495d9ebe23f4cd001802cf85a44bef39079fd1fa3da48e8f6540216c9b60b785",
+		"res://assets/ai/materials/concept_ember_coal.png.import": "5d352631e816023fb73587c6f321881f016230af89fdb73c2101ddc08b4f0941",
+		"res://assets/ai/materials/concept_forged_steel.png": "40241170fa88e8991c53e35de9b543fdb3785590f8fb859196986a03f9ac1c3e",
+		"res://assets/ai/materials/concept_forged_steel.png.import": "ef9d74be6e35f78e2fe3871ae55b724ad3f41bf743af9280d2000c6d7c7a46cc",
+		"res://assets/ai/materials/concept_frosted_ice.png": "b5254ffca1abe056368271c5f6fde69c7850a30ee3aae79316bad14ed87d0d4d",
+		"res://assets/ai/materials/concept_frosted_ice.png.import": "e07dfbd5a5fd85645fa7a857c11428f8b684df2072a43ec8b012c41a1241501a",
+		"res://assets/ai/materials/concept_limestone.png": "4bd738a572d34f909d1b4760e9e99284432c8e2251eecf5a87152939c2e11acf",
+		"res://assets/ai/materials/concept_limestone.png.import": "d97580c37037fca6ea8097454533eb2c99532e671c031e145c315d094c6ff344",
+		"res://assets/ai/materials/concept_weathered_oak.png": "d6304bbca5c1bebc42b14ade81e21cf895d73cfc4a126ac474aece1eeaffa384",
+		"res://assets/ai/materials/concept_weathered_oak.png.import": "b439957d41c77b8ab2ec8d5cc664b860d7cd02fc22d9b9b7b50843176674c1a4",
+		"res://assets/art_direction/mine_board_samples.json": "c3f51a889ee2bc916e4408a50c827bd6fbec6cc358262b1ad907534141fe40b0",
+		"res://assets/art_direction/object_inventory.json": "ebcd3a23072df65276df48fbcd1f83bf7103546be2e1b26fa35b675cf60744d7",
+		"res://assets/cave_rock.gdshader": "ae24f33c15848fd5b01cbb48dbc7a3a3093f16679234ad24ef3ce835d045202c",
+		"res://assets/cave_water.gdshader": "38c5c6f5a070f8bee7ad658e40f63e109a0f64bc4cb4e33a14892af16d90b321",
+		"res://override.cfg": "487f6c6dca0bd5e997dad0e69b334cba722a236708c13f97ba0ffa4dac37106b",
+		"res://project.godot": "e02dc8b021ab04cc05a1ee72225eee187f7694c190f9a1d396588fd198a9bc1d",
+		"res://scripts/archery_visuals.gd": "e645a8bd1cda967450e1a65f89ea7631a889f8d4afa81eea53ce45f8f1a05457",
+		"res://scripts/arrow_projectile.gd": "29774676ebf3e505a6cc21404a566f002d441787275f941413ef650f5a4a3100",
+		"res://scripts/bow_shot_profile.gd": "5ed81b6b50fdf0b85b9bb995d253be0924cd69c6a34b8caeaece91e9ebe33d89",
+		"res://scripts/camp_controller.gd": "0b88a2257be0ddfff9ca0959b42e6586c69dbf471223ba82b09ff569bebdbfc3",
+		"res://scripts/camp_cooking_catalog.gd": "8192ec76855e2ba9b5f6fdb131ec7b8d0eecab9b4758dc949bc81611fee76bb9",
+		"res://scripts/camp_overlay.gd": "78e41d34f8fbe53fe744206cf232af096c48fc1491d06f00b067fd55f7925b40",
+		"res://scripts/camp_visuals.gd": "2faa49e105b3ca03e497fe9fa089970b4dfe9715d721070a5018b793a7eb3441",
+		"res://scripts/cave_art_details.gd": "3b2215b83dda5d1c78d2223b023c27b4534975bd0ab25dcc6eeaaf2f66efe29d",
+		"res://scripts/cave_art_direction.gd": "fb5701ec800de145baa3c78ed35c01b4e99a093a437a52bce8c7af2a15dabc05",
+		"res://scripts/cave_art_lighting.gd": "3f4a9cfdd0369af3571bfe7ffeca2b1c39e164998b5107845d48864e0ea39a06",
+		"res://scripts/cave_dungeon.gd": "800e1f0ef0e1efc66fa537288a26c111f4c3604fc379348ca84b5a5fe0805127",
+		"res://scripts/cave_geometry.gd": "deadb3226dc92be3cc91620cf27e9e3c636b4621374f8e3e810ce490ce1570e3",
+		"res://scripts/cave_layout.gd": "c2b1073a8670ce992a4d52f71382d5cd41a24c821ba5079c8535c07caa8e48ed",
+		"res://scripts/cave_water.gd": "d46463729f26f98197eb708e027ca6e332e57d987f2af43824a9abbe9e71411f",
+		"res://scripts/chest_hand_visuals.gd": "2cf21615556ec518fe80bd0cab8a5eaeae832ca3a11d6ff8300cdf948de36bef",
+		"res://scripts/dark_fantasy_effect_visual.gd": "ac187a82b05898a458da2749f298a093087b3a0e6cb3cb4e6f1ee43f7dbda643",
+		"res://scripts/dark_fantasy_gallery.gd": "450a67a7fe1771af44134300f2559d82f6d10014b77877ee122318c2c2d45dd7",
+		"res://scripts/dark_fantasy_hearth_visual.gd": "24b4e0692a8d885ad1a6d3abfe23ab6f75e165d5d9ebea076f22f29be52a0f52",
+		"res://scripts/dark_fantasy_materials.gd": "f48764a210f67c7434ab589238422fa37dec066a7e2c671a7213148b74b1c85c",
+		"res://scripts/dark_fantasy_object_catalog.gd": "f3ab6915bcaa2be160acf21f80ecde3667d673339964433dea10636d54e739fb",
+		"res://scripts/dark_fantasy_skull.gd": "4af911d766e3b70a5bba507269eaed585a05e850b22151c74d2c8a258c582019",
+		"res://scripts/dark_fantasy_statue.gd": "539b424f48b668efaa3473bc4a8761fa62f493f8a38fe76a782039330c708e89",
+		"res://scripts/dark_fantasy_training_visual.gd": "2b6de3d172556d645a0e034e1bf2dd602248b501cc16a299e97920eff8817637",
+		"res://scripts/dungeon_concept_visual.gd": "1f031b78c55a1ff89543f7b461bae112bbde92b9c77f96cebbe89081f4d46dd0",
+		"res://scripts/enemy.gd": "df6dffc3cd359cf42841fb85e67a5a7832c993da69dda61d40675f38e4827554",
+		"res://scripts/equipment_concept_visual.gd": "394a8411bb75d8884148d724e3d3d707c3a42a96e877273346077a9a1b6dc77d",
+		"res://scripts/expedition_session.gd": "1e0a9963c30a68bfe0fe54e2b2f8ca9cdabd0b433038d953caee7ee17bb5f856",
+		"res://scripts/first_person_renderer.gd": "692481bde38f577b276565a43ebab797712e0255b4d328ec40881b76ba5ac943",
+		"res://scripts/flail_profile.gd": "11c7cf01204692fc0fbb673a3953743e4de07604ac0f01a0d5915c3b950d1220",
+		"res://scripts/flail_projectile.gd": "7e73f75ce89160cbd33f0f1719f110bd03f79fd786e183dd3823f9fd3daf7100",
+		"res://scripts/flail_visuals.gd": "2eb37d1e796eab5394070b7e4c5c98bf5a033424b2447134833888a142f62b6e",
+		"res://scripts/flame_visuals.gd": "c232561989a50418bdae46f510cc1bd87267e30646aca8229b1e423fdf736bc2",
+		"res://scripts/game.gd": "c1e7c04bd4d40ba06ec56b624ebcdc2a67e143a3af34f84b3d4146e40bff3a09",
+		"res://scripts/hideout.gd": "9a4e21ddee0ec4a48801fb0a91d3cffc271d3c0a17c0467676de157f021a561d",
+		"res://scripts/hideout_hud.gd": "5d8c664d03f7829e4a1ae7752e3693b0d965f21db9d74d8b4006aa3c0f81999c",
+		"res://scripts/hideout_interactable.gd": "32871dda0cfadc3450d2f35e80acf4505540aa9879876c574a81bf1c2bb40521",
+		"res://scripts/hud.gd": "8fd1eed87c988c73146dd960617f736fa33079cbb6bcc92fa57d9594153d2ea9",
+		"res://scripts/inventory_model.gd": "8451f7053cdc5eb0ba6e35a5a6ec1b9680afad17707d8f00ce527cdc3cf00104",
+		"res://scripts/inventory_overlay.gd": "58050ac5e16fec011530015ffde249ca6f7f7f205f45320b50aa11e22d2d31e7",
+		"res://scripts/loading_screen.gd": "9759788089232d95ec81852763b0a6be34667b0a92b17a366a0febaae1bc1e67",
+		"res://scripts/loot_chest.gd": "1be0f30bb5419b0f6d1a884137d0b664ee7baf5f2464299efba4ee6339c695fc",
+		"res://scripts/loot_container.gd": "4473cf05648ad7b155c456fbafbc626285943e538c0b403e937a19211ef2e03d",
+		"res://scripts/magic_projectile.gd": "7824edb3089932f8df8d62bcd03eca458c62cc832deed3c0e6db5df155866bce",
+		"res://scripts/main_menu.gd": "f00e74bc39cc934e6e7e55af5fb08e1180d55f489b3a5edc946f9c220750fd57",
+		"res://scripts/merchant.gd": "a396260eadb72349f377825c8a4d0f75500ceb9d7ded9dc0a71994ba452da5c8",
+		"res://scripts/mine_prop_concept_visual.gd": "420f9994f4992a1caefe18ae0c9dbbbc1c05e7877ebeea98bee662a8e663cfb2",
+		"res://scripts/performance_overlay.gd": "f61c441bc774ed0c4026aa64213eade40148df06a0418bb9233bf7460f76a55d",
+		"res://scripts/performance_sampler.gd": "e1ca82db5c29be3fa1f6dcf2265ee78587da9d4f25394101376c97ca022b8857",
+		"res://scripts/player.gd": "574caa4a34dfe629e41bffea9b4b86a7f90c342d57b8514e158a055319d37aa3",
+		"res://scripts/player_appearance.gd": "5746a2aa5da76eb88310d46416b23aba3ef0d5f20e8a792f7243db7d9a6710e2",
+		"res://scripts/player_arm_visual.gd": "995a6739323e761f7107044ba81e80384faaf42d140fd7ddefbfb99087eeedb3",
+		"res://scripts/player_portrait.gd": "6908d607f7e270f6d75103a0370fba1e4d9bb10b53ab83fadf8116649f7df2c1",
+		"res://scripts/render_resolution_budget.gd": "b803e9259ff5062c014546b1f0db07caecf90433219a2cf9fabb61f7c9d1582a",
+		"res://scripts/spell_catalog.gd": "a1cada7c4833c021df62b15199e8eee8e01c4027e7e7375b5bb8a3aeb7df3427",
+		"res://scripts/static_stone_batches.gd": "25fe24f633c9db7bd1cd66a25551b7960449427fa7c5a1b5e95319330fb7198e",
+		"res://scripts/stress_audio.gd": "a68cce48dca3e0d5ab07934c5cd5ea39f325104b622873dac44b230d778b8811",
+		"res://scripts/stress_perception.gd": "0a479565340a49c16cd3f88b7d01be61d1aa97ccf80eb7101f474fdcd26a5309",
+		"res://scripts/stress_profile.gd": "2b906dcf21a80aa9852503253d5a4f2a81d3ef3ad0a568036d2b16e2744766e6",
+		"res://scripts/sword_clash_geometry.gd": "778d86e43bf90e443f18a8c4b0c8a3ff09bceea0bac9ebdfc2ed53bf9e583782",
+		"res://scripts/test_room.gd": "89225139a3ff61d9d81cc47546291166ef75a67b8b24aed28f876509f9a7b406",
+		"res://scripts/test_room_catalog.gd": "b2968d92f1dff93ee5072d5e444684dd6ec75d8220b9eb37971ad83e72fe9e12",
+		"res://scripts/test_room_sandbox.gd": "2c7c77ab42526a79d0ff595dd529b5a4db65d6753166add7bc4a663b1ce33111",
+		"res://scripts/test_room_status_controls.gd": "81adec3c6d90502d90f901a39192bdb8f36ba605145824d374e825fade8da42a",
+		"res://scripts/trap.gd": "3338e05d47e41b602af03c87d91485b789eac2da91ca8572854d46f871f2e2d8",
+		"res://scripts/warden_concept_visual.gd": "7f453c8488a2f0048fbbafe6bd2440b8c73f2b74de3f03155ef6c2a6bac6c9bb",
+		"res://shaders/mine_geology.gdshader": "a07d3b628d094f2be5b855de77e24cd97b4faee01b6e503f6194c65a643a7455",
+		"res://shaders/mine_prop_surface.gdshader": "6a788c44455b3b3e6aba152361c5c48b3191dbd7dcdff1c0f430d3eaeae2f17d",
+		"res://tests/dark_fantasy_capture_evidence.gd": "0fc37f0287e2feb5633e1776c224a2a9e857bdf335aeb2b7c37764483a130722",
+		"res://tests/dark_fantasy_gallery_preview.gd": "294c863e1eeb1be1d0e45469d61efb90a91bf8332c01c33ac3455b888bf20bda",
+		"res://tests/dark_fantasy_scene_preview.gd": "06b7b26f779f773d835597f3d0bea9556f19a9603f66e0d602e02b89b895011b",
+		"res://tests/performance_mine_scene.gd": "b530c0453467b8523332fa556d168f86d59b37d90434713ddd635b3a9973c21b",
+		"res://tests/performance_preview.gd": "eeeb7f94f746549eb188e8d2eb34f0af11bb4c4853023ad8088fa111e82e78af",
+		"res://tests/performance_scene_factory.gd": "497a2c775e78603ab665bba54603ed41f2d2f53f94034e0fa4a2f2bdf36dab25",
+		"res://tests/run_embedded_preview.sh": "a67cfcd23f0a476ac3df3f80365f48d4bee9b13877fbccfee554f07f813bc510"
+	},
+	"user_data_directory": "/Users/duq711gmail.com/Library/Application Support/CodexPerformanceBaseline01",
+	"vsync": "disabled; unhosted viewport has no screen presentation wait"
+}

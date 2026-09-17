@@ -1,0 +1,93 @@
+{
+  "status": "implemented_and_reviewed; user aesthetic approval not asserted",
+  "candidate": "candidate_03",
+  "headless_passed_final": [
+    "sword_edge_alignment",
+    "sword_direct_entry",
+    "reference_sword_arm_player",
+    "sword_recovery_continuity",
+    "reference_sword_motion_test_room"
+  ],
+  "actual_renderer": "Vulkan/embedded",
+  "captures": {
+    "captures": {
+      "forehand_from_reverse_final_two_hand": {
+        "actual_frames": 182,
+        "unchanged_reverse_pngs": 91,
+        "current_source_hashes_match": true,
+        "expedition_and_cursor_preserved": true
+      },
+      "forehand_from_reverse_final_shield": {
+        "actual_frames": 182,
+        "unchanged_reverse_pngs": 91,
+        "current_source_hashes_match": true,
+        "expedition_and_cursor_preserved": true
+      }
+    },
+    "frames": 182,
+    "fps": 60,
+    "video": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/godot-game/artifacts/visual_qa/reference_sword_motion/forehand_from_reverse_final_comparison/opposite_cuts.mp4"
+  },
+  "source_preservation": {
+    "unchanged_clips": {
+      "idle": true,
+      "walk": true,
+      "run": true,
+      "takeoff": true,
+      "air": true,
+      "land": true,
+      "overhead": true,
+      "left_reverse": true,
+      "equip": true
+    },
+    "left_reverse_sha256": "886564b7cc728f09f96e787f57762dd1e6cbb354c292bb5405c5824c026a9780",
+    "right_diagonal_timing_unchanged": true,
+    "preserved_original_models": {
+      "godot-game/assets/3d/player/sword_hold_long_grip/SwordHold_Static.glb": "2b94cc385f837fe253552cd654cb1f665246f61cdee5227814d63049da9f22fb",
+      "godot-game/assets/3d/player/sword_shield/left_arm.glb": "e3f7d9415bd89e24deaa83d05b05021563d84a4f2c5aa28f37d81a97beecd5cf",
+      "godot-game/assets/3d/player/sword_shield/right_arm.glb": "4234e0d9a9f2ccdb7399e13b909e458e359230a22ce3c3e13df4f4ea158ad56d",
+      "godot-game/scripts/sword_long_grip_visual.gd": "a5a0b949543247a5151542a2b58e11b91bb4797ea60781a60a9d7728a566e462",
+      "godot-game/scripts/sword_shield_arm_visual.gd": "0a64f25a0bfa4f7ce44a05e164bad1c3a79a488068cd2881cc7ac603fa951042"
+    },
+    "shield_curve": "Resampled from the original same-time Godot curve; geometric preservation checked in sword_edge_alignment_test."
+  },
+  "visual_review": {
+    "review_scope": "Actual production embedded Vulkan captures; not video pixel mirroring or synthetic images",
+    "two_hand": [
+      "Right-to-left forehand movement verified across frames 22,24,27.",
+      "Reverse remains byte-identical to all 91 prior accepted PNG frames.",
+      "Forehand recovery empty frames 29-43 (15 frames), compared with preserved reverse 25-46 (22 frames).",
+      "Forehand entry fully empty frame 20 remains; reduced from candidate02 frames18-20.",
+      "Visible hands, sleeves and blade showed no new detached geometry or mesh tears."
+    ],
+    "limitation": "One brief full-screen absence of the forehand weapon remains during entry; do not claim uninterrupted weapon visibility or user aesthetic approval.",
+    "shield": "Actual shield sequence shows the same right-to-left forehand, return and original hand mesh; reverse is identical to all 91 prior shield PNGs."
+  },
+  "known_issue": {
+    "test": "sword_clash",
+    "status": "failed",
+    "same_five_assertions_as_candidate02_and_documented_baseline": true,
+    "assertions": [
+      "natural close-range attacks must overlap their rendered blade models",
+      "natural blade contact must occur before either body's damage deadline",
+      "natural swing animation must cancel the player strike into clash recovery",
+      "natural swing animation must stagger the armed enemy",
+      "natural swing clash must prevent enemy damage"
+    ],
+    "log": "final_clash.log",
+    "baseline_record": "../sword_edge_alignment_20260913/validation_summary.json"
+  },
+  "runtime_sources_sha256": {
+    "godot-game/scripts/player.gd": "77968442b91dcbed1f08127b5452b33aeb8643f86f72ce9c13686fea2bb7d0d5",
+    "godot-game/assets/animations/reference_sword_motion/motion_manifest.json": "f59bd4a6e3eac5bb338e52f09f27907c69d26e32fcfe6684302b687971f3d2a6",
+    "godot-game/scripts/test_room_catalog.gd": "af2f10f1a8799cbf1e289704f6dcb1888474585c81ccf83342999cd51630cb2b",
+    "godot-game/scripts/test_room.gd": "06537dd6c7789e84020e056e8823b9593e08fa0d54446deb1f03d15d9f92266a"
+  },
+  "logs": [
+    "final_regressions.log",
+    "final_two_hand_preview.log",
+    "final_shield_preview.log",
+    "final_clash.log"
+  ],
+  "validation_processes_remaining": false
+}

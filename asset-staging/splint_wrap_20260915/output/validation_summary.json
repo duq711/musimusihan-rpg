@@ -1,0 +1,49 @@
+{
+  "status": "splint_scope_verified",
+  "reference": "https://www.youtube.com/watch?v=sjPpfdlupx4&t=31s",
+  "reference_observed_seconds": [
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37
+  ],
+  "duration": 7.2,
+  "tests_passed": {
+    "splint_motion": "final_tests.log",
+    "splint_test_room": "final_tests.log",
+    "timed_item_use": "tests_02.log",
+    "bandage_motion": "tests_01.log",
+    "test_room_session": "tests_01.log"
+  },
+  "broader_test_failure": {
+    "body_health_test_room": "test_room_02.log: separate hideout transition exceeded 90s wait; outer test subsequently referenced freed room. Not claimed passed."
+  },
+  "render": {
+    "path": "godot-game/artifacts/visual_qa/splint_forearm/wood_wrap_final_03",
+    "frames": 235,
+    "display": "embedded",
+    "renderer": "vulkan",
+    "state_and_sources_preserved": true,
+    "timed_consumption_verified": true,
+    "visual_review": "Wood visibly seated under wrist, continuous winding cloth encloses sleeve and stick, no belt hardware. Inspected preparation, wraps, press and return."
+  },
+  "corrections": [
+    "removed buckle assembly",
+    "replaced projected wrist basis with stable direction and bounded pronation",
+    "raised pose and exposed underside so stick placement is visible",
+    "shortened stick fit to distal forearm",
+    "test fixture snapshot captured after inventory creation"
+  ],
+  "sha256": {
+    "godot-game/scripts/splint_use_visuals.gd": "33d9593516b4962b363169218df96684e5048b96833e8463c7e407f5bc9406b9",
+    "godot-game/scripts/bandage_use_visuals.gd": "0f90f288d3cc4a30412e04e53bd9f670f02fffb7897871c621466752c98df0b4",
+    "godot-game/assets/3d/items/splint/wood_support.glb": "a9b130a11564713551a1b0c7ed0c7fc6c4de6ca6dec7ff72a64372f90ee636e5",
+    "godot-game/scripts/test_room.gd": "69842c0d23770cf1654dd044dbbbf8416f1f803b76459c1ffeec8e6d9c623e3c",
+    "godot-game/scripts/test_room_catalog.gd": "2ed92d0aec66587433a76649bef25b88c87e5a449d8cbc9d88b160145e12d48e",
+    "godot-game/tests/splint_motion_test.gd": "bcba87213112b0ef36475b60cd0a64d6e7d2ba21d4f85a5903a47b74de2e30a2",
+    "godot-game/tests/splint_test_room_test.gd": "705ec9b6a0741c2c3fb86cc39fd8d4179c53643ef0983eec514631e76be55a16"
+  }
+}

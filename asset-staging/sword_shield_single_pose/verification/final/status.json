@@ -1,0 +1,161 @@
+{
+  "recorded_at": "2026-09-07T14:59:09.560594+00:00",
+  "delivered_capture": "single_pose_motion_03",
+  "production_revision_description": "13: wrist-tail fit and smooth charged recovery elbow tuck",
+  "headless_tests": {
+    "passed": 17,
+    "failed": 0,
+    "suites": [
+      "sword_shield_model",
+      "sword_shield_grip",
+      "dark_fantasy_equipment",
+      "player_appearance",
+      "sword_attack_variants",
+      "sword_shield_choreography",
+      "sword_shield_choreography_preview",
+      "sword_shield_gallery",
+      "sword_clash",
+      "first_person_motion",
+      "first_person_motion_preview",
+      "first_person_motion_test_room",
+      "first_person_renderer",
+      "weapon_hand_contacts",
+      "player_arm",
+      "test_room_session",
+      "contact_visual_preview"
+    ]
+  },
+  "renderer": {
+    "actual_renderer": "vulkan",
+    "display_driver": "embedded",
+    "desktop_capture": false,
+    "hardware_input": false,
+    "audio_muted": true
+  },
+  "source_files_matched_to_current": 78,
+  "capture_manifest_sha256": "ba33936f6c501b57da164fea3860dbd0169baafedc268960e915ba8e0883854d",
+  "review_build_sha256": "8955afd0ecb40a8cb95a88ea4286404c350e79d8308f941018604af0f552e2b6",
+  "model_sha256": {
+    "left_arm.glb": "e3f7d9415bd89e24deaa83d05b05021563d84a4f2c5aa28f37d81a97beecd5cf",
+    "right_arm.glb": "4234e0d9a9f2ccdb7399e13b909e458e359230a22ce3c3e13df4f4ea158ad56d",
+    "longsword.glb": "0991e685f4845d5401fe13dc4ab2cbab4de7fc0e8fb86dacaf9e980641c70ac8",
+    "round_shield.glb": "8ca7482ae498083b426200cc8257e90e00d51a81ef6f08749c893ad3c59bdfe0"
+  },
+  "original_capture_count": 300,
+  "reference_count": 26,
+  "all_originals_preserved": true,
+  "expedition_and_cursor_preserved": true,
+  "original_inventory_contents_preserved": true,
+  "videos": {
+    "ready": {
+      "video_sha256": "7e37742d257199780352ec4346e786616b430eda67bf8899025041a6a8937e6e",
+      "sample_count": 34,
+      "fps": 30,
+      "width": 1280,
+      "height": 720,
+      "duration_seconds": 1.1333333333333333,
+      "verification_frames": [
+        0,
+        11,
+        22,
+        33
+      ],
+      "maximum_checkpoint_mean_rgb_error_255": 1.3713064236111112
+    },
+    "right_diagonal": {
+      "video_sha256": "6f77b01075f3db46c75795913f83008f6cf821f73d4a60871cd051405159d7f7",
+      "sample_count": 34,
+      "fps": 30,
+      "width": 1280,
+      "height": 720,
+      "duration_seconds": 1.1333333333333333,
+      "verification_frames": [
+        0,
+        6,
+        11,
+        17,
+        33
+      ],
+      "maximum_checkpoint_mean_rgb_error_255": 1.3713064236111112
+    },
+    "left_reverse": {
+      "video_sha256": "0ce655e805ea078e0c91043bc6973114afdaa95eced726a9493eb26084205a11",
+      "sample_count": 34,
+      "fps": 30,
+      "width": 1280,
+      "height": 720,
+      "duration_seconds": 1.1333333333333333,
+      "verification_frames": [
+        0,
+        6,
+        11,
+        17,
+        33
+      ],
+      "maximum_checkpoint_mean_rgb_error_255": 1.3713064236111112
+    },
+    "overhead": {
+      "video_sha256": "cf65602a32f27b1e934dc0fb5a19863915013aa204b543a958d7b888ba4c384f",
+      "sample_count": 34,
+      "fps": 30,
+      "width": 1280,
+      "height": 720,
+      "duration_seconds": 1.1333333333333333,
+      "verification_frames": [
+        0,
+        6,
+        11,
+        17,
+        33
+      ],
+      "maximum_checkpoint_mean_rgb_error_255": 1.3713064236111112
+    },
+    "shield_raise": {
+      "video_sha256": "cc593432325b739f8442170f9e6d1237679db065b2973767ac350a99918509e4",
+      "sample_count": 34,
+      "fps": 30,
+      "width": 1280,
+      "height": 720,
+      "duration_seconds": 1.1333333333333333,
+      "verification_frames": [
+        0,
+        5,
+        12,
+        27,
+        33
+      ],
+      "maximum_checkpoint_mean_rgb_error_255": 1.3713064236111112
+    },
+    "block_impact": {
+      "video_sha256": "9953c2d8ada494d126eda1c99fafe47a27d782abc110fcefd9f43198845c4668",
+      "sample_count": 34,
+      "fps": 30,
+      "width": 1280,
+      "height": 720,
+      "duration_seconds": 1.1333333333333333,
+      "verification_frames": [
+        0,
+        10,
+        11,
+        18,
+        33
+      ],
+      "maximum_checkpoint_mean_rgb_error_255": 1.595855396412037
+    }
+  },
+  "decoded_checkpoint_count": 29,
+  "viewer_browser_interaction_verified": false,
+  "viewer_static_audit": "Syntax, 58 mock-element combinations, final path/provenance and one visible media rule checked",
+  "ai_generated_video": false,
+  "exact_reference_identity_claimed": false,
+  "residual_visual_differences": [
+    "Simplified finger forms and materials relative to generated references",
+    "Small remaining cuff lift in some poses"
+  ],
+  "log_sha256": {
+    "single_pose_wrist_tail_13_import.log": "73d41ec09b407dfe3c6a1fe36db546bbb576cbb06030c5dd39aa6819526fc842",
+    "single_pose_motion_13_final_tests.log": "e9d53befa78623aba0c6dc632dbf15dc9a1e848de8aab80591c4da373278f730",
+    "single_pose_motion_03_capture.log": "d078cccf59d5dcca72f6099b311ea6143cbbb2000624dc4d641471775234fa40",
+    "single_pose_motion_03_video.log": "55314138a95bcf9b492480279e00e5eb8ad1eea00e235fe13991b3ebd27d9ab7"
+  }
+}

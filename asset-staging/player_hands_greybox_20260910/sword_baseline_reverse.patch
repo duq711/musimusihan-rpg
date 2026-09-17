@@ -1,0 +1,325 @@
+--- production/scripts/player_arm_visual.gd
++++ baseline/scripts/player_arm_visual.gd
+@@ -34,9 +34,6 @@
+ var _forearm_segment: Node3D
+ var _shoulder_rest := Vector3.ZERO
+ var _elbow_rest := Vector3.ZERO
+-var greybox_visual: Node3D
+-var greybox_enabled := false
+-var _arm_visible := true
+ 
+ 
+ ## side -1 is the player's left; side +1 is the player's right.
+@@ -86,9 +83,6 @@
+ 
+ ## Negative local-X angles curl toward the palm (-Y). Angles are radians.
+ func set_finger_curl(index: int, proximal_radians: float, distal_radians: float) -> void:
+-	if greybox_enabled:
+-		greybox_visual.call("set_finger_curl", index, proximal_radians, distal_radians)
+-		return
+ 	if index < 0 or index >= finger_joints.size():
+ 		return
+ 	var proximal: Node3D = finger_joints[index][0]
+@@ -101,9 +95,6 @@
+ 
+ ## amount 0 opens the hand, 1 wraps the digits around a held handle.
+ func set_grip(amount: float, thumb_amount: float = -1.0) -> void:
+-	if greybox_enabled:
+-		greybox_visual.call("set_grip", amount, thumb_amount)
+-		return
+ 	var grip := clampf(amount, 0.0, 1.0)
+ 	for index in range(mini(4, finger_joints.size())):
+ 		set_finger_curl(index, -1.05 * grip, -1.40 * grip)
+@@ -119,9 +110,6 @@
+ ## Right-hand archery hook: three fingers hold the string while thumb/little
+ ## finger remain loose. Release opens the real joints without moving the nock.
+ func set_string_draw(grip_ratio: float, release_ratio: float = 0.0) -> void:
+-	if greybox_enabled:
+-		greybox_visual.call("set_string_draw", grip_ratio, release_ratio)
+-		return
+ 	var draw := clampf(grip_ratio, 0.0, 1.0)
+ 	var release := smoothstep(0.0, 1.0, clampf(release_ratio, 0.0, 1.0))
+ 	set_grip(0.0)
+@@ -137,9 +125,6 @@
+ ## A relaxed off hand counterbalances one-handed weapons and opens to assist
+ ## casting. It shares the same fingers and materials as the equipped hands.
+ func set_relaxed_pose(openness: float = 0.0) -> void:
+-	if greybox_enabled:
+-		greybox_visual.call("set_relaxed_pose", openness)
+-		return
+ 	var opening := clampf(openness, 0.0, 1.0)
+ 	set_grip(0.0)
+ 	for index in 4:
+@@ -150,9 +135,6 @@
+ ## Fit only the sleeve/bracer to world-space arm anchors. The wrist root, hand,
+ ## parent contact frame, weapon pivot and muzzle are never moved or clamped.
+ func fit_arm(shoulder_world: Vector3, elbow_world: Vector3) -> void:
+-	if greybox_enabled:
+-		greybox_visual.call("fit_arm", shoulder_world, elbow_world)
+-		return
+ 	if _upper_segment == null or _forearm_segment == null:
+ 		return
+ 	if not shoulder_world.is_finite() or not elbow_world.is_finite():
+@@ -166,19 +148,12 @@
+ 
+ ## Hides only the sleeve and bracer, leaving the hand/digits visible.
+ func set_arm_visible(enabled: bool) -> void:
+-	_arm_visible = enabled
+-	if greybox_enabled:
+-		greybox_visual.call("set_arm_visible", enabled)
+-		return
+ 	for part in arm_meshes:
+ 		part.visible = enabled
+ 
+ 
+ ## Restore open digits and the imported arm rest pose without moving the root.
+ func reset_pose() -> void:
+-	if greybox_enabled:
+-		greybox_visual.call("reset_pose")
+-		return
+ 	if _upper_segment != null:
+ 		_upper_segment.transform = Transform3D.IDENTITY
+ 	if _forearm_segment != null:
+@@ -188,46 +163,12 @@
+ 
+ ## Original GLB Mesh references, in arm_meshes then hand_meshes order (13 total).
+ func get_source_meshes() -> Array[Mesh]:
+-	if greybox_enabled:
+-		return greybox_visual.call("get_source_meshes")
+ 	var result: Array[Mesh] = []
+ 	for part in arm_meshes:
+ 		result.append(part.mesh)
+ 	for part in hand_meshes:
+ 		result.append(part.mesh)
+ 	return result
+-
+-
+-## Retain this exact wrist, parent contact and original source resources.
+-## The optional blockout only replaces visible geometry below the wrist.
+-func set_greybox_enabled(enabled: bool) -> bool:
+-	if enabled and not is_instance_valid(greybox_visual):
+-		var adapter_script := load("res://scripts/greybox_arm_visual.gd") as Script
+-		if adapter_script == null:
+-			return false
+-		var candidate := adapter_script.new() as Node3D
+-		candidate.name = "GreyboxArmVisual"
+-		add_child(candidate)
+-		if not bool(candidate.call("setup", _side)):
+-			candidate.free()
+-			return false
+-		# Align the skinned palm with the legacy 86 mm gameplay contact.
+-		# Imported geometry uses (0, -19, -82.5) mm in wrist space.
+-		candidate.position = Vector3(0.0, 0.019, -0.0035)
+-		greybox_visual = candidate
+-	greybox_enabled = enabled
+-	if is_instance_valid(greybox_visual):
+-		greybox_visual.visible = enabled
+-		# Carried arms may be enabled after the renderer's initial layer pass;
+-		# chest arms keep their own world layer for real chest occlusion.
+-		if not hand_meshes.is_empty():
+-			greybox_visual.call("set_render_layers", hand_meshes[0].layers)
+-		greybox_visual.call("set_arm_visible", _arm_visible)
+-	for part: MeshInstance3D in arm_meshes:
+-		part.visible = not enabled and _arm_visible
+-	for part: MeshInstance3D in hand_meshes:
+-		part.visible = not enabled
+-	return true
+ 
+ 
+ func _add_digit(index: int, first_pixel: Vector2, last_pixel: Vector2) -> void:
+@@ -283,11 +224,6 @@
+ 
+ 
+ func _clear_parts() -> void:
+-	if is_instance_valid(greybox_visual):
+-		greybox_visual.free()
+-	greybox_visual = null
+-	greybox_enabled = false
+-	_arm_visible = true
+ 	for part in arm_meshes:
+ 		if is_instance_valid(part):
+ 			part.free()
+--- production/scripts/chest_hand_visuals.gd
++++ baseline/scripts/chest_hand_visuals.gd
+@@ -15,7 +15,6 @@
+ var _camera: Camera3D
+ var _arms: Dictionary = {}
+ var _built := false
+-var greybox_enabled := false
+ 
+ 
+ func setup(player_ref: Node3D) -> void:
+@@ -76,19 +75,6 @@
+ 		left_hand.visible = false
+ 	if is_instance_valid(right_hand):
+ 		right_hand.visible = false
+-
+-
+-func set_greybox_enabled(enabled: bool) -> bool:
+-	_ensure_built()
+-	for side in [-1, 1]:
+-		if not bool((_arms[side] as Node3D).call("set_greybox_enabled", enabled)):
+-			for restore_side in [-1, 1]:
+-				(_arms[restore_side] as Node3D).call("set_greybox_enabled", greybox_enabled)
+-			return false
+-	greybox_enabled = enabled
+-	if active:
+-		set_progress(progress)
+-	return true
+ 
+ 
+ func _ensure_built() -> void:
+--- production/scripts/player.gd
++++ baseline/scripts/player.gd
+@@ -155,7 +155,6 @@
+ var _bow_release_anchor := Vector3.ZERO
+ var _bow_release_draw := 0.0
+ var _hand_contacts: Dictionary = {}
+-var hands_greybox_enabled := false
+ var weapon_pivot: Node3D
+ var sword_visual_root: Node3D
+ var sword_blade: MeshInstance3D
+@@ -2502,47 +2501,6 @@
+ 	return arm
+ 
+ 
+-## An opt-in art review mode, owned by this player instance only. Gameplay
+-## contacts and the authored sword/shield adapters remain exactly the same.
+-func set_hands_greybox_enabled(enabled: bool) -> bool:
+-	if enabled == hands_greybox_enabled:
+-		return true
+-	var generic_arms: Array[Node3D] = [_legacy_weapon_arm, torch_arm, left_support_arm, right_relaxed_arm]
+-	for arm: Node3D in generic_arms:
+-		if not is_instance_valid(arm):
+-			return false
+-	var changed: Array[Node3D] = []
+-	for arm: Node3D in generic_arms:
+-		if not bool(arm.call("set_greybox_enabled", enabled)):
+-			for previous: Node3D in changed:
+-				previous.call("set_greybox_enabled", hands_greybox_enabled)
+-			return false
+-		changed.append(arm)
+-	if is_instance_valid(chest_hands) and not bool(chest_hands.call("set_greybox_enabled", enabled)):
+-		for previous: Node3D in changed:
+-			previous.call("set_greybox_enabled", hands_greybox_enabled)
+-		return false
+-	hands_greybox_enabled = enabled
+-	_update_character_arms()
+-	return true
+-
+-
+-func get_hands_greybox_snapshot() -> Dictionary:
+-	var generic_count := 0
+-	var enabled_count := 0
+-	var chest_count := 0
+-	for arm: Node3D in [_legacy_weapon_arm, torch_arm, left_support_arm, right_relaxed_arm]:
+-		if is_instance_valid(arm):
+-			generic_count += 1
+-			if bool(arm.get("greybox_enabled")):
+-				enabled_count += 1
+-	if is_instance_valid(chest_hands):
+-		for arm: Node3D in chest_hands.get("_arms").values():
+-			if bool(arm.get("greybox_enabled")):
+-				chest_count += 1
+-	return {"enabled": hands_greybox_enabled, "generic_arm_count": generic_count, "greybox_arm_count": enabled_count, "chest_greybox_count": chest_count, "sources_available": ResourceLoader.exists("res://assets/3d/player/hands_greybox/left_hand_greybox.glb") and ResourceLoader.exists("res://assets/3d/player/hands_greybox/right_hand_greybox.glb")}
+-
+-
+ func _add_sword_shield_arm(parent: Node3D, side: int) -> Node3D:
+ 	var arm := SWORD_SHIELD_ARM.new()
+ 	arm.name = "SwordShieldArm"
+--- production/scripts/test_room_catalog.gd
++++ baseline/scripts/test_room_catalog.gd
+@@ -24,7 +24,6 @@
+ 		_entry("dark_fantasy_gallery", "기본", "어둠의 오브젝트 도감 · 6방향", "현재 검·방패 모델과 실제 게임 오브젝트 · 정면·후면·좌·우·위·아래 비교 · F2 복귀", "dark_fantasy_gallery"),
+ 		_entry("player_appearance", "기본", "플레이어 외형 · 3D 캐릭터", "실제 인벤토리 3D 초상 · 회전하여 두건·누비옷·가죽 장비 확인 · F2 재시험", "player_appearance"),
+ 		_entry("player_arm_motion", "기본", "1인칭 팔 · 전신 외형 · 동작", "현재 장비 유지 · 정면 표적 LMB / RMB 가드 · 왼쪽 상자 E · I 외형 비교", "player_arm_motion"),
+-		_entry("player_hands_greybox", "기본", "캐릭터 그래픽 · 양손 그레이박스", "검·방패 보관과 횃불 소등 · 실제 양손·소매 비교 · 왼쪽 상자 E · I에서 활 장착 후 당기기", "player_hands_greybox"),
+ 		_entry("motion_sword", "기본", "1인칭 모션 · 긴 손잡이 검 파지", "새 긴 손잡이·비스듬한 오른손 파지 · 실제 표적에 LMB 준비/타격/회수 · 길게 눌러 강공격 · F2 재시험", "first_person_motion", "sword"),
+ 		_entry("motion_sword_run", "기본", "영상 참고 검 모션 · 달리기", "검·방패와 중앙 통로 · W / Shift 걷기·달리기·멈추기의 검 궤적과 팔 연결 비교 · F2 재시험", "reference_sword_motion", "run"),
+ 		_entry("motion_sword_jump", "기본", "영상 참고 검 모션 · 점프와 착지", "실제 충돌 바닥 · Space 도약·공중·착지의 손목·팔꿈치 연결 비교 · W / Shift 이동 점프 · F2 재시험", "reference_sword_motion", "jump"),
+--- production/scripts/test_room.gd
++++ baseline/scripts/test_room.gd
+@@ -411,8 +411,6 @@
+ 	suspend_stress_effects()
+ 	player.cancel_timed_interaction()
+ 	player.set_chest_container_open(false)
+-	if feature_id != "player_hands_greybox":
+-		player.set_hands_greybox_enabled(false)
+ 	var payload := str(entry.payload)
+ 	match str(entry.action):
+ 		"performance":
+@@ -473,9 +471,6 @@
+ 		"player_arm_motion":
+ 			_prepare_player_arm_motion()
+ 			_hide_test_panel()
+-		"player_hands_greybox":
+-			if _prepare_player_hands_greybox():
+-				_hide_test_panel()
+ 		"first_person_motion":
+ 			_prepare_first_person_motion(payload)
+ 			_hide_test_panel()
+@@ -818,39 +813,6 @@
+ 	hud.show_event("LMB 공격 / RMB 가드 · F 횃불\n왼쪽 상자 E · I 전신 외형 비교 · F2 재시험", 6.0)
+ 
+ 
+-func _prepare_player_hands_greybox() -> bool:
+-	if not player.set_hands_greybox_enabled(true):
+-		_status("양손 그레이박스 모델을 불러오지 못했습니다. 기존 플레이어 외형을 유지합니다.")
+-		return false
+-	_prepare_player_arm_motion()
+-	var reserved_slots := 0
+-	for slot_name in ["weapon", "offhand"]:
+-		if not str(inventory.equipment.get(slot_name, "")).is_empty():
+-			reserved_slots += 1
+-	var replaced := _restock_trial_supplies({}, reserved_slots)
+-	# Use normal inventory transactions so authored weapon instance metadata
+-	# survives the review. The sandbox owns any capacity preparation above.
+-	for slot_name in ["offhand", "weapon"]:
+-		if not str(inventory.equipment.get(slot_name, "")).is_empty():
+-			inventory.unequip(slot_name)
+-	player.cancel_sword_attack()
+-	player.set_sword_attack_mode("cycle")
+-	player.set_torch_enabled(false)
+-	player._refresh_magic_hud()
+-	# The menu still pauses simulation here. Update presentation directly so
+-	# both free hands are ready before resuming; _update_viewmodel respects
+-	# pause and would otherwise retain the just-stowed torch hand for a frame.
+-	player._refresh_carried_visibility()
+-	player._update_character_arms()
+-	var guide := "양손 그레이박스 · WASD 손·소매 비교 · 왼쪽 상자 E로 실제 손가락·뚜껑 접촉 · I에서 활 장착 / LMB 당기고 놓기"
+-	if replaced > 0:
+-		guide += " · 장비 보관을 위해 마지막 시험용 스택 %d개 교체" % replaced
+-	hud.objective_label.text = "양손 그레이박스 · 왼쪽 상자 E · I 활 장착 · F2 재시험"
+-	_status(guide + " · 다른 시험 선택·초기화·종료 시 원래 외형으로 복구")
+-	hud.show_event("양손 그레이박스 · 왼쪽 상자 E\nI 활 장착 → LMB 당기고 놓기 · F2 재시험", 7.0)
+-	return true
+-
+-
+ func _restock_camping_supplies() -> int:
+ 	return _restock_trial_supplies({"camp_kit": 2, "pilgrim_ration": 2, "boiled_rainwater": 2, "linen_bandage": 2})
+ 
+@@ -1328,7 +1290,6 @@
+ 		return
+ 	_commit_test_status_edits()
+ 	suspend_stress_effects()
+-	player.set_hands_greybox_enabled(false)
+ 	TestRoomSandbox.reset_loadout()
+ 	inventory = ExpeditionSession.get_inventory()
+ 	player.bind_inventory(inventory)
+@@ -1345,16 +1306,7 @@
+ 
+ 
+ func leave_room() -> void:
+-	player.set_hands_greybox_enabled(false)
+ 	_begin_scene_loading("res://main_menu.tscn", "테스트룸 나가기", "원래 원정 상태를 복원합니다", "메인 메뉴로 돌아가는 중", "메인 메뉴로 돌아갈 수 없습니다")
+-
+-
+-func _begin_scene_loading(scene_path: String, title_text: String, detail_text: String, status_text: String, failure_text: String) -> void:
+-	if is_instance_valid(loading_screen):
+-		return
+-	if is_instance_valid(player):
+-		player.set_hands_greybox_enabled(false)
+-	super._begin_scene_loading(scene_path, title_text, detail_text, status_text, failure_text)
+ 
+ 
+ func _status(message: String) -> void:

@@ -1,0 +1,25 @@
+{
+  "recorded_at": "2026-09-05T23:31:10.988333",
+  "korean_editor": {
+    "log": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/UE_Agent_Test/Evidence/smoke_diagnostic_20260905_231927_console.log",
+    "observed_process_exit_code": 0,
+    "test_lines": [
+      "[2026.09.05-14.21.05:611][  0]LogAutomationTest: FUnifiedErrorTest_CreateErrorMessage: 실패 (0.47ms)",
+      "[2026.09.05-14.21.05:611][  0]LogAutomationTest: FUnifiedErrorTest_CreateErrorMessageWithContext: 실패 (0.08ms)",
+      "[2026.09.05-14.21.05:611][  0]LogAutomationTest: FStructuredLogFormatTest: 실패 (2.54ms)"
+    ],
+    "automation_error_count": 15
+  },
+  "english_editor": {
+    "log": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/UE_Agent_Test/Evidence/smoke_diagnostic_en_20260905_232711_console.log",
+    "observed_process_exit_code": 0,
+    "test_lines": [
+      "[2026.09.05-14.29.13:921][  0]LogAutomationTest: FUnifiedErrorTest_CreateErrorMessage: Success (0.59ms)",
+      "[2026.09.05-14.29.13:921][  0]LogAutomationTest: FUnifiedErrorTest_CreateErrorMessageWithContext: Success (0.20ms)",
+      "[2026.09.05-14.29.13:922][  0]LogAutomationTest: FStructuredLogFormatTest: Success (2.13ms)"
+    ],
+    "automation_error_count": 0
+  },
+  "comparison": "Same editor/rendering startup context; diagnostic English run added -culture=en for its process only. Three engine text-format smoke tests fail 15 conditions with Korean translations and pass in English. Game project code/settings and installed engine files were not modified for this comparison.",
+  "scope": "Engine startup diagnostic, separate from actual PIE gameplay validation."
+}

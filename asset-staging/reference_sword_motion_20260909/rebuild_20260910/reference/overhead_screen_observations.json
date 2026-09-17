@@ -1,0 +1,1006 @@
+{
+  "source": {
+    "source_video": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/reference_sword_motion_20260909/reference/sU7jk2OQlgc.mp4",
+    "source_sha256": "a23456a22133ed456d7aa6956b59e0940c509f9b6147f7a3a442f0d19d64ddfd",
+    "frame_number_convention": "zero-based decoded video frame index",
+    "fps": 60,
+    "width": 1280,
+    "height": 720,
+    "frames": [
+      {
+        "frame_index": 1040,
+        "time_seconds": 17.333333333333332,
+        "image": "overhead_f1040_17.333333s.png"
+      },
+      {
+        "frame_index": 1042,
+        "time_seconds": 17.366666666666667,
+        "image": "overhead_f1042_17.366667s.png"
+      },
+      {
+        "frame_index": 1044,
+        "time_seconds": 17.4,
+        "image": "overhead_f1044_17.400000s.png"
+      },
+      {
+        "frame_index": 1047,
+        "time_seconds": 17.45,
+        "image": "overhead_f1047_17.450000s.png"
+      },
+      {
+        "frame_index": 1074,
+        "time_seconds": 17.9,
+        "image": "overhead_f1074_17.900000s.png"
+      },
+      {
+        "frame_index": 1078,
+        "time_seconds": 17.966666666666665,
+        "image": "overhead_f1078_17.966667s.png"
+      },
+      {
+        "frame_index": 1080,
+        "time_seconds": 18.0,
+        "image": "overhead_f1080_18.000000s.png"
+      },
+      {
+        "frame_index": 1082,
+        "time_seconds": 18.033333333333335,
+        "image": "overhead_f1082_18.033333s.png"
+      },
+      {
+        "frame_index": 1083,
+        "time_seconds": 18.05,
+        "image": "overhead_f1083_18.050000s.png"
+      },
+      {
+        "frame_index": 1084,
+        "time_seconds": 18.066666666666666,
+        "image": "overhead_f1084_18.066667s.png"
+      },
+      {
+        "frame_index": 1086,
+        "time_seconds": 18.1,
+        "image": "overhead_f1086_18.100000s.png"
+      },
+      {
+        "frame_index": 1089,
+        "time_seconds": 18.15,
+        "image": "overhead_f1089_18.150000s.png"
+      },
+      {
+        "frame_index": 1110,
+        "time_seconds": 18.5,
+        "image": "overhead_f1110_18.500000s.png"
+      },
+      {
+        "frame_index": 1118,
+        "time_seconds": 18.633333333333333,
+        "image": "overhead_f1118_18.633333s.png"
+      },
+      {
+        "frame_index": 1125,
+        "time_seconds": 18.75,
+        "image": "overhead_f1125_18.750000s.png"
+      },
+      {
+        "frame_index": 1133,
+        "time_seconds": 18.883333333333333,
+        "image": "overhead_f1133_18.883333s.png"
+      }
+    ]
+  },
+  "measurement_method": "Manual 2D landmark observations from full-resolution decoded PNGs. Not motion capture, tracking, inferred 3D or exact rig recovery.",
+  "screen_coordinate_convention": "normalized x=pixel_x/1280, y=pixel_y/720; origin upper left. Both ranges 0..1 for visible landmarks. Null means offscreen/not confidently localizable; do not extrapolate null coordinates.",
+  "expected_manual_uncertainty": "Typically ±12 original pixels (±0.0094W, ±0.0167H), ±20 px at partial edge crops. These are recommended observation tolerances, not statistical confidence intervals.",
+  "guard_definition": "Approximate intersection of visible blade longitudinal axis and crossguard; not centroid of the complete guard mesh.",
+  "wrist_definition": "Approximate center of the visible dark armored glove/forearm joint; not grip/finger center.",
+  "blade_angle_definition": "Image-plane axis angle computed from manually marked visible blade endpoints in pixel coordinates; 0=up, positive=right lean, negative=left lean. This is not a 3D Euler rotation.",
+  "frames": [
+    {
+      "frame_index": 1040,
+      "time_seconds": 17.333333333333332,
+      "image": "overhead_f1040_17.333333s.png",
+      "wrist_center": {
+        "normalized": null,
+        "pixel": null,
+        "visibility": "offscreen_or_not_localizable",
+        "confidence": "high_no_coordinate_claim"
+      },
+      "guard_center": {
+        "normalized": [
+          0.8125,
+          0.8472
+        ],
+        "pixel": [
+          1040,
+          610
+        ],
+        "visibility": "visible",
+        "confidence": "medium"
+      },
+      "blade_axis_visible_endpoints": {
+        "normalized": [
+          [
+            0.8063,
+            0.8
+          ],
+          [
+            0.7539,
+            0.0
+          ]
+        ],
+        "pixel": [
+          [
+            1032,
+            576
+          ],
+          [
+            965,
+            0
+          ]
+        ],
+        "angle_degrees_from_screen_up_positive_right": -6.6,
+        "confidence": "medium_image_axis_only"
+      },
+      "sword_tip": {
+        "normalized": null,
+        "pixel": null,
+        "visibility": "offscreen_top",
+        "confidence": "high_no_coordinate_claim"
+      },
+      "shield_rim_topmost_visible_point": {
+        "normalized": [
+          0.1211,
+          0.7847
+        ],
+        "pixel": [
+          155,
+          565
+        ],
+        "visibility": "visible",
+        "confidence": "medium"
+      },
+      "arm_entry_observation": "wrist below lower border; partial glove at lower right; forearm root not visible"
+    },
+    {
+      "frame_index": 1042,
+      "time_seconds": 17.366666666666667,
+      "image": "overhead_f1042_17.366667s.png",
+      "wrist_center": {
+        "normalized": [
+          0.9867,
+          0.8097
+        ],
+        "pixel": [
+          1263,
+          583
+        ],
+        "visibility": "partially_visible",
+        "confidence": "medium_partial_crop"
+      },
+      "guard_center": {
+        "normalized": [
+          0.8117,
+          0.625
+        ],
+        "pixel": [
+          1039,
+          450
+        ],
+        "visibility": "visible",
+        "confidence": "medium"
+      },
+      "blade_axis_visible_endpoints": {
+        "normalized": [
+          [
+            0.7922,
+            0.5583
+          ],
+          [
+            0.7078,
+            0.0
+          ]
+        ],
+        "pixel": [
+          [
+            1014,
+            402
+          ],
+          [
+            906,
+            0
+          ]
+        ],
+        "angle_degrees_from_screen_up_positive_right": -15.0,
+        "confidence": "medium_image_axis_only"
+      },
+      "sword_tip": {
+        "normalized": null,
+        "pixel": null,
+        "visibility": "offscreen_top",
+        "confidence": "high_no_coordinate_claim"
+      },
+      "shield_rim_topmost_visible_point": {
+        "normalized": [
+          0.1328,
+          0.8125
+        ],
+        "pixel": [
+          170,
+          585
+        ],
+        "visibility": "visible",
+        "confidence": "medium"
+      },
+      "arm_entry_observation": "forearm enters right boundary; wrist joint partially clipped at right edge"
+    },
+    {
+      "frame_index": 1044,
+      "time_seconds": 17.4,
+      "image": "overhead_f1044_17.400000s.png",
+      "wrist_center": {
+        "normalized": [
+          0.9922,
+          0.3764
+        ],
+        "pixel": [
+          1270,
+          271
+        ],
+        "visibility": "partially_visible",
+        "confidence": "medium_partial_crop"
+      },
+      "guard_center": {
+        "normalized": [
+          0.8141,
+          0.3028
+        ],
+        "pixel": [
+          1042,
+          218
+        ],
+        "visibility": "visible",
+        "confidence": "medium"
+      },
+      "blade_axis_visible_endpoints": {
+        "normalized": [
+          [
+            0.8039,
+            0.2819
+          ],
+          [
+            0.7562,
+            0.0
+          ]
+        ],
+        "pixel": [
+          [
+            1029,
+            203
+          ],
+          [
+            968,
+            0
+          ]
+        ],
+        "angle_degrees_from_screen_up_positive_right": -16.7,
+        "confidence": "medium_image_axis_only"
+      },
+      "sword_tip": {
+        "normalized": null,
+        "pixel": null,
+        "visibility": "offscreen_top",
+        "confidence": "high_no_coordinate_claim"
+      },
+      "shield_rim_topmost_visible_point": {
+        "normalized": [
+          0.1672,
+          0.8611
+        ],
+        "pixel": [
+          214,
+          620
+        ],
+        "visibility": "visible",
+        "confidence": "medium"
+      },
+      "arm_entry_observation": "forearm enters right boundary around y=.30-.55; wrist joint partially clipped at right edge"
+    },
+    {
+      "frame_index": 1047,
+      "time_seconds": 17.45,
+      "image": "overhead_f1047_17.450000s.png",
+      "wrist_center": {
+        "normalized": null,
+        "pixel": null,
+        "visibility": "offscreen_or_not_localizable",
+        "confidence": "high_no_coordinate_claim"
+      },
+      "guard_center": {
+        "normalized": null,
+        "pixel": null,
+        "visibility": "offscreen",
+        "confidence": "high_no_coordinate_claim"
+      },
+      "blade_axis_visible_endpoints": {
+        "normalized": null,
+        "pixel": null,
+        "angle_degrees_from_screen_up_positive_right": null,
+        "confidence": "offscreen"
+      },
+      "sword_tip": {
+        "normalized": null,
+        "pixel": null,
+        "visibility": "offscreen",
+        "confidence": "high_no_coordinate_claim"
+      },
+      "shield_rim_topmost_visible_point": {
+        "normalized": [
+          0.2188,
+          0.9292
+        ],
+        "pixel": [
+          280,
+          669
+        ],
+        "visibility": "visible",
+        "confidence": "medium"
+      },
+      "arm_entry_observation": "sword and right arm offscreen; shield sliver still at bottom"
+    },
+    {
+      "frame_index": 1074,
+      "time_seconds": 17.9,
+      "image": "overhead_f1074_17.900000s.png",
+      "wrist_center": {
+        "normalized": null,
+        "pixel": null,
+        "visibility": "offscreen_or_not_localizable",
+        "confidence": "high_no_coordinate_claim"
+      },
+      "guard_center": {
+        "normalized": null,
+        "pixel": null,
+        "visibility": "offscreen",
+        "confidence": "high_no_coordinate_claim"
+      },
+      "blade_axis_visible_endpoints": {
+        "normalized": null,
+        "pixel": null,
+        "angle_degrees_from_screen_up_positive_right": null,
+        "confidence": "offscreen"
+      },
+      "sword_tip": {
+        "normalized": null,
+        "pixel": null,
+        "visibility": "offscreen",
+        "confidence": "high_no_coordinate_claim"
+      },
+      "shield_rim_topmost_visible_point": {
+        "normalized": null,
+        "pixel": null,
+        "visibility": "offscreen",
+        "confidence": "high_no_coordinate_claim"
+      },
+      "arm_entry_observation": "sword, both arms, shield offscreen"
+    },
+    {
+      "frame_index": 1078,
+      "time_seconds": 17.966666666666665,
+      "image": "overhead_f1078_17.966667s.png",
+      "wrist_center": {
+        "normalized": null,
+        "pixel": null,
+        "visibility": "offscreen_or_not_localizable",
+        "confidence": "high_no_coordinate_claim"
+      },
+      "guard_center": {
+        "normalized": null,
+        "pixel": null,
+        "visibility": "offscreen",
+        "confidence": "high_no_coordinate_claim"
+      },
+      "blade_axis_visible_endpoints": {
+        "normalized": null,
+        "pixel": null,
+        "angle_degrees_from_screen_up_positive_right": null,
+        "confidence": "offscreen"
+      },
+      "sword_tip": {
+        "normalized": null,
+        "pixel": null,
+        "visibility": "offscreen",
+        "confidence": "high_no_coordinate_claim"
+      },
+      "shield_rim_topmost_visible_point": {
+        "normalized": null,
+        "pixel": null,
+        "visibility": "offscreen",
+        "confidence": "high_no_coordinate_claim"
+      },
+      "arm_entry_observation": "sword, both arms, shield offscreen"
+    },
+    {
+      "frame_index": 1080,
+      "time_seconds": 18.0,
+      "image": "overhead_f1080_18.000000s.png",
+      "wrist_center": {
+        "normalized": [
+          0.8125,
+          0.2639
+        ],
+        "pixel": [
+          1040,
+          190
+        ],
+        "visibility": "visible",
+        "confidence": "medium"
+      },
+      "guard_center": {
+        "normalized": null,
+        "pixel": null,
+        "visibility": "offscreen",
+        "confidence": "high_no_coordinate_claim"
+      },
+      "blade_axis_visible_endpoints": {
+        "normalized": null,
+        "pixel": null,
+        "angle_degrees_from_screen_up_positive_right": null,
+        "confidence": "offscreen"
+      },
+      "sword_tip": {
+        "normalized": null,
+        "pixel": null,
+        "visibility": "offscreen_top",
+        "confidence": "high_no_coordinate_claim"
+      },
+      "shield_rim_topmost_visible_point": {
+        "normalized": null,
+        "pixel": null,
+        "visibility": "offscreen",
+        "confidence": "high_no_coordinate_claim"
+      },
+      "arm_entry_observation": "continuous right forearm enters right boundary, y~.30-.75; hand reaches above top; no exposed shoulder cut face"
+    },
+    {
+      "frame_index": 1082,
+      "time_seconds": 18.033333333333335,
+      "image": "overhead_f1082_18.033333s.png",
+      "wrist_center": {
+        "normalized": [
+          0.6352,
+          0.7222
+        ],
+        "pixel": [
+          813,
+          520
+        ],
+        "visibility": "visible",
+        "confidence": "medium"
+      },
+      "guard_center": {
+        "normalized": [
+          0.6023,
+          0.4639
+        ],
+        "pixel": [
+          771,
+          334
+        ],
+        "visibility": "visible",
+        "confidence": "medium"
+      },
+      "blade_axis_visible_endpoints": {
+        "normalized": [
+          [
+            0.6078,
+            0.4181
+          ],
+          [
+            0.6414,
+            0.0
+          ]
+        ],
+        "pixel": [
+          [
+            778,
+            301
+          ],
+          [
+            821,
+            0
+          ]
+        ],
+        "angle_degrees_from_screen_up_positive_right": 8.1,
+        "confidence": "medium_image_axis_only"
+      },
+      "sword_tip": {
+        "normalized": null,
+        "pixel": null,
+        "visibility": "offscreen_top",
+        "confidence": "high_no_coordinate_claim"
+      },
+      "shield_rim_topmost_visible_point": {
+        "normalized": null,
+        "pixel": null,
+        "visibility": "offscreen",
+        "confidence": "high_no_coordinate_claim"
+      },
+      "arm_entry_observation": "continuous forearm enters bottom edge toward right (x~.66-.83); wrist-to-hand points up-left"
+    },
+    {
+      "frame_index": 1083,
+      "time_seconds": 18.05,
+      "image": "overhead_f1083_18.050000s.png",
+      "wrist_center": {
+        "normalized": [
+          0.5508,
+          0.9181
+        ],
+        "pixel": [
+          705,
+          661
+        ],
+        "visibility": "visible",
+        "confidence": "medium"
+      },
+      "guard_center": {
+        "normalized": [
+          0.5258,
+          0.6708
+        ],
+        "pixel": [
+          673,
+          483
+        ],
+        "visibility": "visible",
+        "confidence": "medium"
+      },
+      "blade_axis_visible_endpoints": {
+        "normalized": [
+          [
+            0.5297,
+            0.6319
+          ],
+          [
+            0.5859,
+            0.0
+          ]
+        ],
+        "pixel": [
+          [
+            678,
+            455
+          ],
+          [
+            750,
+            0
+          ]
+        ],
+        "angle_degrees_from_screen_up_positive_right": 9.0,
+        "confidence": "medium_image_axis_only"
+      },
+      "sword_tip": {
+        "normalized": null,
+        "pixel": null,
+        "visibility": "offscreen_top",
+        "confidence": "high_no_coordinate_claim"
+      },
+      "shield_rim_topmost_visible_point": {
+        "normalized": null,
+        "pixel": null,
+        "visibility": "offscreen",
+        "confidence": "high_no_coordinate_claim"
+      },
+      "arm_entry_observation": "continuous forearm enters bottom edge around x~.53-.63; wrist-to-hand points up-left"
+    },
+    {
+      "frame_index": 1084,
+      "time_seconds": 18.066666666666666,
+      "image": "overhead_f1084_18.066667s.png",
+      "wrist_center": {
+        "normalized": null,
+        "pixel": null,
+        "visibility": "offscreen_or_not_localizable",
+        "confidence": "high_no_coordinate_claim"
+      },
+      "guard_center": {
+        "normalized": [
+          0.4609,
+          0.8694
+        ],
+        "pixel": [
+          590,
+          626
+        ],
+        "visibility": "visible",
+        "confidence": "medium"
+      },
+      "blade_axis_visible_endpoints": {
+        "normalized": [
+          [
+            0.4672,
+            0.8194
+          ],
+          [
+            0.5492,
+            0.1625
+          ]
+        ],
+        "pixel": [
+          [
+            598,
+            590
+          ],
+          [
+            703,
+            117
+          ]
+        ],
+        "angle_degrees_from_screen_up_positive_right": 12.5,
+        "confidence": "medium_image_axis_only"
+      },
+      "sword_tip": {
+        "normalized": [
+          0.5492,
+          0.1625
+        ],
+        "pixel": [
+          703,
+          117
+        ],
+        "visibility": "visible",
+        "confidence": "medium"
+      },
+      "shield_rim_topmost_visible_point": {
+        "normalized": null,
+        "pixel": null,
+        "visibility": "offscreen",
+        "confidence": "high_no_coordinate_claim"
+      },
+      "arm_entry_observation": "hand clipped by lower edge; wrist and forearm offscreen_bottom"
+    },
+    {
+      "frame_index": 1086,
+      "time_seconds": 18.1,
+      "image": "overhead_f1086_18.100000s.png",
+      "wrist_center": {
+        "normalized": null,
+        "pixel": null,
+        "visibility": "offscreen_or_not_localizable",
+        "confidence": "high_no_coordinate_claim"
+      },
+      "guard_center": {
+        "normalized": null,
+        "pixel": null,
+        "visibility": "offscreen",
+        "confidence": "high_no_coordinate_claim"
+      },
+      "blade_axis_visible_endpoints": {
+        "normalized": [
+          [
+            0.443,
+            1.0
+          ],
+          [
+            0.4875,
+            0.625
+          ]
+        ],
+        "pixel": [
+          [
+            567,
+            720
+          ],
+          [
+            624,
+            450
+          ]
+        ],
+        "angle_degrees_from_screen_up_positive_right": 11.9,
+        "confidence": "medium_image_axis_only"
+      },
+      "sword_tip": {
+        "normalized": [
+          0.4875,
+          0.625
+        ],
+        "pixel": [
+          624,
+          450
+        ],
+        "visibility": "visible",
+        "confidence": "medium"
+      },
+      "shield_rim_topmost_visible_point": {
+        "normalized": null,
+        "pixel": null,
+        "visibility": "offscreen",
+        "confidence": "high_no_coordinate_claim"
+      },
+      "arm_entry_observation": "hand, guard and forearm below lower edge; only blade remains visible"
+    },
+    {
+      "frame_index": 1089,
+      "time_seconds": 18.15,
+      "image": "overhead_f1089_18.150000s.png",
+      "wrist_center": {
+        "normalized": null,
+        "pixel": null,
+        "visibility": "offscreen_or_not_localizable",
+        "confidence": "high_no_coordinate_claim"
+      },
+      "guard_center": {
+        "normalized": null,
+        "pixel": null,
+        "visibility": "offscreen",
+        "confidence": "high_no_coordinate_claim"
+      },
+      "blade_axis_visible_endpoints": {
+        "normalized": null,
+        "pixel": null,
+        "angle_degrees_from_screen_up_positive_right": null,
+        "confidence": "offscreen"
+      },
+      "sword_tip": {
+        "normalized": null,
+        "pixel": null,
+        "visibility": "offscreen",
+        "confidence": "high_no_coordinate_claim"
+      },
+      "shield_rim_topmost_visible_point": {
+        "normalized": null,
+        "pixel": null,
+        "visibility": "offscreen",
+        "confidence": "high_no_coordinate_claim"
+      },
+      "arm_entry_observation": "sword, both arms, shield offscreen"
+    },
+    {
+      "frame_index": 1110,
+      "time_seconds": 18.5,
+      "image": "overhead_f1110_18.500000s.png",
+      "wrist_center": {
+        "normalized": null,
+        "pixel": null,
+        "visibility": "offscreen_or_not_localizable",
+        "confidence": "high_no_coordinate_claim"
+      },
+      "guard_center": {
+        "normalized": null,
+        "pixel": null,
+        "visibility": "offscreen",
+        "confidence": "high_no_coordinate_claim"
+      },
+      "blade_axis_visible_endpoints": {
+        "normalized": null,
+        "pixel": null,
+        "angle_degrees_from_screen_up_positive_right": null,
+        "confidence": "offscreen"
+      },
+      "sword_tip": {
+        "normalized": null,
+        "pixel": null,
+        "visibility": "offscreen",
+        "confidence": "high_no_coordinate_claim"
+      },
+      "shield_rim_topmost_visible_point": {
+        "normalized": [
+          0.1031,
+          0.8236
+        ],
+        "pixel": [
+          132,
+          593
+        ],
+        "visibility": "visible",
+        "confidence": "medium"
+      },
+      "arm_entry_observation": "sword/right arm still offscreen; shield returns first from bottom-left"
+    },
+    {
+      "frame_index": 1118,
+      "time_seconds": 18.633333333333333,
+      "image": "overhead_f1118_18.633333s.png",
+      "wrist_center": {
+        "normalized": null,
+        "pixel": null,
+        "visibility": "offscreen_or_not_localizable",
+        "confidence": "high_no_coordinate_claim"
+      },
+      "guard_center": {
+        "normalized": [
+          0.793,
+          0.9736
+        ],
+        "pixel": [
+          1015,
+          701
+        ],
+        "visibility": "partially_visible",
+        "confidence": "medium"
+      },
+      "blade_axis_visible_endpoints": {
+        "normalized": [
+          [
+            0.7711,
+            0.9069
+          ],
+          [
+            0.6305,
+            0.3486
+          ]
+        ],
+        "pixel": [
+          [
+            987,
+            653
+          ],
+          [
+            807,
+            251
+          ]
+        ],
+        "angle_degrees_from_screen_up_positive_right": -24.1,
+        "confidence": "medium_image_axis_only"
+      },
+      "sword_tip": {
+        "normalized": [
+          0.6305,
+          0.3486
+        ],
+        "pixel": [
+          807,
+          251
+        ],
+        "visibility": "visible",
+        "confidence": "medium"
+      },
+      "shield_rim_topmost_visible_point": {
+        "normalized": [
+          0.1313,
+          0.7667
+        ],
+        "pixel": [
+          168,
+          552
+        ],
+        "visibility": "visible",
+        "confidence": "medium"
+      },
+      "arm_entry_observation": "guard partially clipped at bottom-right; wrist/forearm below border; sword returns diagonally up-left"
+    },
+    {
+      "frame_index": 1125,
+      "time_seconds": 18.75,
+      "image": "overhead_f1125_18.750000s.png",
+      "wrist_center": {
+        "normalized": null,
+        "pixel": null,
+        "visibility": "offscreen_or_not_localizable",
+        "confidence": "high_no_coordinate_claim"
+      },
+      "guard_center": {
+        "normalized": [
+          0.8156,
+          0.7833
+        ],
+        "pixel": [
+          1044,
+          564
+        ],
+        "visibility": "visible",
+        "confidence": "medium"
+      },
+      "blade_axis_visible_endpoints": {
+        "normalized": [
+          [
+            0.8031,
+            0.7306
+          ],
+          [
+            0.7578,
+            0.0
+          ]
+        ],
+        "pixel": [
+          [
+            1028,
+            526
+          ],
+          [
+            970,
+            0
+          ]
+        ],
+        "angle_degrees_from_screen_up_positive_right": -6.3,
+        "confidence": "medium_image_axis_only"
+      },
+      "sword_tip": {
+        "normalized": null,
+        "pixel": null,
+        "visibility": "offscreen_top",
+        "confidence": "high_no_coordinate_claim"
+      },
+      "shield_rim_topmost_visible_point": {
+        "normalized": [
+          0.1453,
+          0.8014
+        ],
+        "pixel": [
+          186,
+          577
+        ],
+        "visibility": "visible",
+        "confidence": "medium"
+      },
+      "arm_entry_observation": "glove enters lower right; wrist at/beyond bottom-right crop cannot be localized reliably"
+    },
+    {
+      "frame_index": 1133,
+      "time_seconds": 18.883333333333333,
+      "image": "overhead_f1133_18.883333s.png",
+      "wrist_center": {
+        "normalized": null,
+        "pixel": null,
+        "visibility": "offscreen_or_not_localizable",
+        "confidence": "high_no_coordinate_claim"
+      },
+      "guard_center": {
+        "normalized": [
+          0.8164,
+          0.825
+        ],
+        "pixel": [
+          1045,
+          594
+        ],
+        "visibility": "visible",
+        "confidence": "medium"
+      },
+      "blade_axis_visible_endpoints": {
+        "normalized": [
+          [
+            0.8063,
+            0.7833
+          ],
+          [
+            0.782,
+            0.0
+          ]
+        ],
+        "pixel": [
+          [
+            1032,
+            564
+          ],
+          [
+            1001,
+            0
+          ]
+        ],
+        "angle_degrees_from_screen_up_positive_right": -3.1,
+        "confidence": "medium_image_axis_only"
+      },
+      "sword_tip": {
+        "normalized": null,
+        "pixel": null,
+        "visibility": "offscreen_top",
+        "confidence": "high_no_coordinate_claim"
+      },
+      "shield_rim_topmost_visible_point": {
+        "normalized": [
+          0.1406,
+          0.7847
+        ],
+        "pixel": [
+          180,
+          565
+        ],
+        "visibility": "visible",
+        "confidence": "medium"
+      },
+      "arm_entry_observation": "settled glove at lower right; wrist/forearm remain below frame"
+    }
+  ]
+}

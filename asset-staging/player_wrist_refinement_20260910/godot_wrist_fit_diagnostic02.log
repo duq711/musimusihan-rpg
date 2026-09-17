@@ -1,0 +1,19 @@
+[HEADLESS] player_hands_detailed_test.gd
+ERROR: fitted cuff surfaces must retain finite normals and avoid collapse or foldover: bow_draw/LeftSupportArm invalid_normals=0 reversed=757 min_area_ratio=0.04728241699704 min_jacobian=-0.94811654090881 invalid_vertices=380 side=-1 bend_degrees=90.4981463260897 axial_scale=1.49424946308136
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/player_hands_detailed_test.gd:22)
+ERROR: fitted cuff surfaces must retain finite normals and avoid collapse or foldover: bow_release/LeftSupportArm invalid_normals=0 reversed=833 min_area_ratio=0.02118952802493 min_jacobian=-1.08292675018311 invalid_vertices=418 side=-1 bend_degrees=93.3143395678094 axial_scale=1.45649361610413
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/player_hands_detailed_test.gd:22)
+ERROR: fitted cuff surfaces must retain finite normals and avoid collapse or foldover: chest_touch/CharacterArm invalid_normals=0 reversed=1279 min_area_ratio=0.03433038404755 min_jacobian=-1.82278966903687 invalid_vertices=639 side=1 bend_degrees=104.380705693484 axial_scale=1.12412583827972
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/player_hands_detailed_test.gd:22)
+PLAYER HANDS DETAILED FAIL: bilateral imported skin and handedness, real finger deformation, free/bow/chest gameplay, render layers, default fidelity and isolated F2/repeat/switch/reset/exit
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2535)
+
+Headless validation: 0 passed, 1 failed.
+FAILED: player_hands_detailed_test.gd (1)

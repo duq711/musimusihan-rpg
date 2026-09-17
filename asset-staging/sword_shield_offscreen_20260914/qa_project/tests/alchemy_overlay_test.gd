@@ -1,0 +1,75 @@
+extends SceneTree
+const OVERLAY := preload("res://scripts/alchemy_overlay.gd")
+const SYSTEM := preload("res://scripts/alchemy_system.gd")
+const PREVIEW := preload("res://tests/alchemy_preview.gd")
+var failures: Array[String] = []
+
+func _init() -> void:
+	call_deferred("_run")
+
+func _run() -> void:
+	var original := ExpeditionSession.capture_snapshot()
+	var cursor := Input.mouse_mode
+	var bag := ExpeditionInventory.new()
+	for id: String in SYSTEM.trial_supplies(): bag.add_item(id, int(SYSTEM.trial_supplies()[id]))
+	var canvas := SubViewport.new()
+	canvas.size = Vector2i(1280, 720)
+	root.add_child(canvas)
+	var ui := OVERLAY.new()
+	canvas.add_child(ui)
+	ui.open_for_inventory(bag)
+	ui.set_process(false)
+	_check(ui.is_open() and ui.scene_viewport.own_world_3d, "real independent 3D workbench opens")
+	_check(ui.visual.get_meta("alchemy_real_geometry", false), "production tool meshes used")
+	_check(ui.select_recipe("pilgrim_tonic").accepted, "recipe selection connected")
+	var water_before := bag.count_item("alchemy_water")
+	var click := InputEventMouseButton.new()
+	click.pressed = true
+	click.button_index = MOUSE_BUTTON_LEFT
+	click.position = ui.camera.unproject_position(ui.visual.get_tool_position("pour_water"))
+	ui._work_surface_input(click)
+	_check(bag.count_item("alchemy_water") == water_before - 1, "clicking the actual water vessel pours inventory water")
+	_check(ui.perform_action("add_to_mortar", "dawnleaf").accepted, "real herb added to mortar")
+	for stroke in 3: ui.perform_action("grind")
+	_check(ui.mortar_label.text.contains("가루"), "mortar UI accurately shows ground form")
+	ui.perform_action("pour_mortar")
+	ui.perform_action("add_whole", "bittermint")
+	ui.perform_action("add_whole", "bittermint")
+	ui.perform_action("stir")
+	ui.perform_action("stir")
+	var key := InputEventKey.new()
+	key.physical_keycode = KEY_T
+	key.pressed = true
+	ui._input(key)
+	_check(ui.system.snapshot().hourglass_running, "keyboard hourglass uses actual timer")
+	ui.close()
+	var stopped: Dictionary = ui.system.snapshot()
+	ui._process(30)
+	_check(ui.system.snapshot() == stopped, "closed UI pauses batch and hourglass")
+	_check(ui.scene_viewport.render_target_update_mode == SubViewport.UPDATE_DISABLED, "closed UI releases rendering work")
+	ui.open_for_inventory(bag)
+	_check(ui.system.snapshot().ingredients.size() == 3, "same inventory resumes unchanged batch")
+	ui._process(8.1)
+	var bottled: Dictionary = ui.perform_action("bottle")
+	_check(bottled.accepted and bottled.get("quality", "") == "strong", "complete manual UI path creates strong cold infusion")
+	_check(bag.count_item(str(bottled.get("item_id", ""))) > 0, "crafted output really enters inventory")
+	_check(not ui.perform_action("bottle").accepted, "UI cannot duplicate finished batch")
+	_check(ui.action_buttons.discard.text.contains("다시 만들기"), "finished batch offers an explicit same-recipe retry")
+	var crafted_count := bag.count_item(str(bottled.get("item_id", "")))
+	ui.action_buttons.discard.pressed.emit()
+	_check(ui.system.snapshot().stage == "empty" and ui.system.snapshot().recipe_id == "pilgrim_tonic", "real retry button starts same recipe without a destructive prompt")
+	_check(bag.count_item(str(bottled.get("item_id", ""))) == crafted_count, "retry preserves already crafted potions")
+	_check(ui.recipe_text.text.contains("빈 약병 2개"), "recipe supplies state strong-output bottle requirements before brewing")
+	ui._toggle_book()
+	_check(ui.journal_label.visible and ui.journal_label.text.contains("35°C"), "expanded recipe includes final step")
+	ui.cancel_work()
+	_check(not ui.is_open() and ui.system.snapshot().stage == "empty", "sandbox cleanup discards pending state")
+	canvas.queue_free()
+	await process_frame
+	_check(ExpeditionSession.capture_snapshot() == original and Input.mouse_mode == cursor, "UI leaves original journey and cursor untouched")
+	for failure in failures: push_error(failure)
+	print("ALCHEMY OVERLAY %s: physical tool picking, real manual recipe, keyboard timer, close/resume, output and isolation" % ("PASS" if failures.is_empty() else "FAIL"))
+	quit(0 if failures.is_empty() else 1)
+
+func _check(condition: bool, message: String) -> void:
+	if not condition: failures.append(message)

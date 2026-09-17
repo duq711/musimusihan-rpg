@@ -1,0 +1,64 @@
+{
+  "status": "passed",
+  "source": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/player_supplied_hands_20260911/mac_output/iteration_05/bilateral_supplied_hands.blend",
+  "source_sha256": "38a413ae0c75701e9f0376a4bef9fb28ea638e315c5f9b90bb670f68ddfc64d9",
+  "baseline": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/player_supplied_hands_20260911/mac_output/iteration_03/bilateral_supplied_hands.blend",
+  "baseline_sha256": "cd5ae8d7ab57d34dc01f4f19e11740dedb9a9d53bfda6bae63e5ab6a237d84a2",
+  "method": "Direct independent no-save Blender expression compared actual topology, positions, triangle areas, corner normals and dense exact skin cross-sections against actual cuff inner-wall BVH rays. Values copied from completed tool output.",
+  "native_clearance_y_band_m": [
+    -0.012999,
+    -0.010001
+  ],
+  "clearance_section_count": 48,
+  "visible_geometry_threshold_original_native_y_m": -0.01,
+  "hands": {
+    "left": {
+      "vertices": 22502,
+      "triangles": 45000,
+      "minimum_triangle_area_m2": 8.283392167294109e-09,
+      "triangles_area_below_1e_minus_12_m2": 0,
+      "duplicate_coordinates_exact": 0,
+      "duplicate_coordinates_at_1nm_rounding": 0,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "topology_exact_vs_iteration03": true,
+      "visible_vertices_exact_vs_iteration03": true,
+      "visible_vertex_count": 19914,
+      "normal_vectors_finite": true,
+      "minimum_normal_length": 0.9999998900999769,
+      "maximum_normal_length": 1.0000001303192994,
+      "minimum_native_y_m": -0.013000000268220901,
+      "tested_skin_cross_section_points": 17518,
+      "missing_cuff_rays": 0,
+      "penetrating_samples": 0,
+      "minimum_hidden_triangle_area_ratio_vs_iteration03": 0.014309003640314752,
+      "minimum_inner_cuff_clearance_m": 0.0006775541668139276
+    },
+    "right": {
+      "vertices": 22502,
+      "triangles": 45000,
+      "minimum_triangle_area_m2": 8.283392167294109e-09,
+      "triangles_area_below_1e_minus_12_m2": 0,
+      "duplicate_coordinates_exact": 0,
+      "duplicate_coordinates_at_1nm_rounding": 0,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "topology_exact_vs_iteration03": true,
+      "visible_vertices_exact_vs_iteration03": true,
+      "visible_vertex_count": 19914,
+      "normal_vectors_finite": true,
+      "minimum_normal_length": 0.9999998900999769,
+      "maximum_normal_length": 1.0000001303192994,
+      "minimum_native_y_m": -0.013000000268220901,
+      "tested_skin_cross_section_points": 17518,
+      "missing_cuff_rays": 0,
+      "penetrating_samples": 0,
+      "minimum_hidden_triangle_area_ratio_vs_iteration03": 0.014353814706065466,
+      "minimum_inner_cuff_clearance_m": 0.0006785027978862268
+    }
+  },
+  "limitations": [
+    "Neutral native containment is sampled, not a proof of all transformed runtime poses. Actual arm fitting must be inspected in GPU captures.",
+    "Positive triangle areas and manifold edge incidence do not alone prove global absence of self-intersection; no collapsed faces were observed in this actual candidate."
+  ]
+}

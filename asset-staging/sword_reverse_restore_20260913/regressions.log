@@ -1,0 +1,24 @@
+[HEADLESS] sword_direct_entry_test.gd
+DIRECT ENTRY shield right_diagonal hold=0.00 grip_mm=0.00012287812012 grip_rise_mm=0.00011920928955 windup_deg=74.6041550586225 entry_mm=0.0 arm_length_mm=0.00045061111448 authored_mm=0.0 authored_deg=0.03956468118525 charge=0.0 spends=1
+DIRECT ENTRY shield right_diagonal hold=0.45 grip_mm=0.00012287812012 grip_rise_mm=0.00011920928955 windup_deg=74.6041550586225 entry_mm=0.0 arm_length_mm=0.00045061111448 authored_mm=0.0 authored_deg=0.03956468118525 charge=0.21833333333333 spends=1
+DIRECT ENTRY shield left_reverse hold=0.00 grip_mm=0.0 grip_rise_mm=0.0 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00051021575925 authored_mm=0.00003332000986 authored_deg=0.03956468118525 charge=0.0 spends=1
+DIRECT ENTRY shield left_reverse hold=0.45 grip_mm=0.0 grip_rise_mm=0.0 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00048637390138 authored_mm=0.00002980232239 authored_deg=0.03956468118525 charge=0.21833333333333 spends=1
+DIRECT ENTRY shield overhead hold=0.00 grip_mm=0.0 grip_rise_mm=0.0 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00048041343687 authored_mm=0.00002980232239 authored_deg=0.05595290968074 charge=0.0 spends=1
+DIRECT ENTRY shield overhead hold=0.45 grip_mm=0.0 grip_rise_mm=0.0 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00042080879209 authored_mm=0.00005960464478 authored_deg=0.03956468118525 charge=0.21833333333333 spends=1
+DIRECT ENTRY two_hand right_diagonal hold=0.00 grip_mm=0.00012287812012 grip_rise_mm=0.00011920928955 windup_deg=74.6041550586225 entry_mm=0.0 arm_length_mm=0.00042080879209 authored_mm=0.0 authored_deg=0.03956468118525 charge=0.0 spends=1
+DIRECT ENTRY two_hand right_diagonal hold=0.45 grip_mm=0.00012287812012 grip_rise_mm=0.00011920928955 windup_deg=74.6041550586225 entry_mm=0.0 arm_length_mm=0.00042080879209 authored_mm=0.00002980232239 authored_deg=0.03956468118525 charge=0.21833333333333 spends=1
+DIRECT ENTRY two_hand left_reverse hold=0.00 grip_mm=0.0 grip_rise_mm=0.0 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00043749809264 authored_mm=0.00002980232239 authored_deg=0.03956468118525 charge=0.0 spends=1
+DIRECT ENTRY two_hand left_reverse hold=0.45 grip_mm=0.0 grip_rise_mm=0.0 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.0003910064697 authored_mm=0.00002980232239 authored_deg=0.03956468118525 charge=0.21833333333333 spends=1
+DIRECT ENTRY two_hand overhead hold=0.00 grip_mm=0.0 grip_rise_mm=0.0 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00045657157899 authored_mm=0.00002980232239 authored_deg=0.05595290968074 charge=0.0 spends=1
+DIRECT ENTRY two_hand overhead hold=0.45 grip_mm=0.0 grip_rise_mm=0.0 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00042080879209 authored_mm=0.00002980232239 authored_deg=0.03956468118525 charge=0.21833333333333 spends=1
+SWORD DIRECT ENTRY PASS: pinned-grip wrist turn, retained reverse/overhead holds, release/charge/cost clocks, unchanged authored rejoin and expedition preservation; target damage is covered by sword_attack_variants
+[HEADLESS] reference_sword_arm_player_test.gd
+REFERENCE SWORD ARM PLAYER PASS: analytical fixture only; actual_delivery_evaluated=false; actual meshes, 30/60/120Hz clocks, handoffs, blade clash, F2 and reset
+[HEADLESS] sword_edge_alignment_test.gd
+SWORD EDGE ALIGNMENT PASS {"baseline":"all_other_clips_and_shield_preserved","orientation":{"minimum_neighbor_dot":0.99999988079071,"minimum_start_dot":1.0,"projected_angles_degrees":{"0.62":19.2306691684425,"0.71":19.2306691684425,"0.8":19.2306691684425}},"sweep":{"blade_65cm":{"after_contact":56,"before_contact":28,"contact":{"edge_error_degrees":0.000336302840502359,"normal_speed":0.0000177621841430664,"transverse_speed":3.02613592147827},"max_edge_error_degrees":0.0745971775153766,"moving_samples":85,"worst_authored_seconds":0.74125},"center":{"after_contact":56,"before_contact":28,"contact":{"edge_error_degrees":0.000273110047864865,"normal_speed":0.0000144243240356445,"transverse_speed":3.02608013153076},"max_edge_error_degrees":0.0603210153871508,"moving_samples":85,"worst_authored_seconds":0.74125},"tip":{"after_contact":56,"before_contact":28,"contact":{"edge_error_degrees":0.000788857074615156,"normal_speed":0.000041663646697998,"transverse_speed":3.02608823776245},"max_edge_error_degrees":0.114623417990639,"moving_samples":85,"worst_authored_seconds":0.74125}}}
+[HEADLESS] reference_sword_motion_test_room_test.gd
+REFERENCE SWORD MOTION TEST ROOM PASS: five playable fixtures, two-hand basic/reverse target hits and grip, actual run/jump/landing/collision, repeated F2, reset and original expedition restoration
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2535)
+
+Headless validation: 4 passed, 0 failed.

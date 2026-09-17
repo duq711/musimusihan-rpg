@@ -1,0 +1,276 @@
+{
+  "status": "planning_only_no_authored_samples",
+  "schema_version": 1,
+  "reference_video_url": "https://youtu.be/sU7jk2OQlgc",
+  "source": {
+    "godot_model_path": "res://assets/3d/player/sword_hold_long_grip/SwordHold_Static.glb",
+    "sha256": "2b94cc385f837fe253552cd654cb1f665246f61cdee5227814d63049da9f22fb",
+    "preserved_blender_path": "asset-staging/sword_hold_long_grip_integration/source/model/SwordHold_Static.blend",
+    "static_meshes": 11,
+    "skins": 0,
+    "animations": 0
+  },
+  "canonical_sword": {
+    "source_ready": {
+      "basis_columns": [
+        [
+          0.6734562112,
+          -0.1673592395,
+          0.7200327879
+        ],
+        [
+          0.1384824613,
+          0.9853534854,
+          0.0995039315
+        ],
+        [
+          -0.7261403196,
+          0.0327005009,
+          0.6867691389
+        ]
+      ],
+      "position": [
+        0.3249563841,
+        -0.0035816696,
+        -0.5892537756
+      ]
+    },
+    "hand_grip": [
+      0,
+      -0.108,
+      0.002
+    ],
+    "blade_tip": [
+      0,
+      1.035,
+      0
+    ],
+    "rest_wrist": [
+      0.0679751875,
+      -0.1080001335,
+      0.0524637313
+    ],
+    "rest_elbow": [
+      0.2366280243,
+      -0.1080001099,
+      0.2503430693
+    ],
+    "rest_shoulder": [
+      0.4571740416,
+      -0.1080000789,
+      0.5091083575
+    ],
+    "source_code": "godot-game/scripts/sword_long_grip_visual.gd",
+    "runtime_mesh_normalization": "v_canonical = inverse(SOURCE_READY) * v_authored_camera",
+    "authored_sample": "T_sword(t) = camera_relative_motion_delta(t) * SOURCE_READY"
+  },
+  "canonical_shield": {
+    "position": [
+      -0.34,
+      -0.3,
+      -0.6
+    ],
+    "euler_xyz_degrees": [
+      -19.28,
+      83.44,
+      20
+    ],
+    "euler_rotation_order": "Godot Basis.from_euler default YXZ; do not interpret as Blender XYZ",
+    "source_code": "godot-game/scripts/sword_shield_choreography.gd:shield",
+    "authoritative_expression": "CHOREOGRAPHY.shield(0,0,\"ready\",0,0,\"right_diagonal\")",
+    "normalization": "T_shield(t) = camera_relative_motion_delta(t) * authoritative_expression"
+  },
+  "coordinates": {
+    "space": "camera_local",
+    "axis": {
+      "right": "+X",
+      "up": "+Y",
+      "forward": "-Z"
+    },
+    "position_order": "xyz",
+    "quaternion_order": "xyzw",
+    "units": "meters",
+    "blender_world_to_godot_world": "(x,y,z) -> (x,z,-y)",
+    "blender_camera_local_to_godot_camera_local": "identity for relative motion delta; never apply world conversion a second time",
+    "camera_vertical_fov_degrees": 76,
+    "preview_aspect_ratio": [
+      16,
+      9
+    ]
+  },
+  "required_clips": [
+    {
+      "id": "run",
+      "kind": "locomotion",
+      "loop": true,
+      "required_tracks": [
+        "sword"
+      ],
+      "optional_tracks": [
+        "shield"
+      ],
+      "timing_required": false
+    },
+    {
+      "id": "takeoff",
+      "kind": "locomotion",
+      "loop": false,
+      "required_tracks": [
+        "sword"
+      ],
+      "optional_tracks": [
+        "shield"
+      ],
+      "timing_required": false
+    },
+    {
+      "id": "air",
+      "kind": "locomotion",
+      "loop": true,
+      "required_tracks": [
+        "sword"
+      ],
+      "optional_tracks": [
+        "shield"
+      ],
+      "timing_required": false
+    },
+    {
+      "id": "land",
+      "kind": "locomotion",
+      "loop": false,
+      "required_tracks": [
+        "sword"
+      ],
+      "optional_tracks": [
+        "shield"
+      ],
+      "timing_required": false
+    },
+    {
+      "id": "right_diagonal",
+      "kind": "attack",
+      "loop": false,
+      "required_tracks": [
+        "sword"
+      ],
+      "optional_tracks": [
+        "shield"
+      ],
+      "timing_required": true
+    },
+    {
+      "id": "left_reverse",
+      "kind": "attack",
+      "loop": false,
+      "required_tracks": [
+        "sword"
+      ],
+      "optional_tracks": [
+        "shield"
+      ],
+      "timing_required": true
+    },
+    {
+      "id": "overhead",
+      "kind": "attack",
+      "loop": false,
+      "required_tracks": [
+        "sword"
+      ],
+      "optional_tracks": [
+        "shield"
+      ],
+      "timing_required": true
+    }
+  ],
+  "current_runtime_baseline": {
+    "timing_is_reference_not_authoring_decision": true,
+    "paired_sword": {
+      "windup_seconds": 0.22,
+      "active_seconds": 0.3,
+      "hit_seconds": 0.145,
+      "recovery_seconds": 0.47,
+      "full_charge_recovery_seconds": 0.68
+    },
+    "solo_sword": {
+      "windup_seconds": 0.22,
+      "active_seconds": 0.16,
+      "hit_seconds": 0.055,
+      "recovery_seconds": 0.47,
+      "full_charge_recovery_seconds": 0.68
+    },
+    "charge_begin_seconds": 0.24,
+    "auto_commit_seconds": 1.24,
+    "walk_speed_meters_per_second": 4.2,
+    "sprint_speed_meters_per_second": 6.2,
+    "jump_velocity_meters_per_second": 5.2,
+    "jump_stamina_cost": 12,
+    "sprint_stamina_per_second": 17
+  },
+  "production_owner": "Windows Blender for all motion authoring/baking/rendering; Mac prepares files and reviews/integrates results",
+  "output_directory_pattern": "windows_output/<unique_iteration>/",
+  "sample_requirements": {
+    "minimum_nominal_hz": 60,
+    "time_unit": "seconds",
+    "first_time_seconds": 0,
+    "last_time": "duration_seconds",
+    "time_order": "strictly increasing",
+    "rotation_length": 1,
+    "quaternion_signs": "continuous hemisphere per track",
+    "scale": [
+      1,
+      1,
+      1
+    ],
+    "attack_explicit_samples": [
+      "0",
+      "windup_seconds",
+      "windup_seconds + hit_seconds",
+      "windup_seconds + active_seconds",
+      "duration_seconds"
+    ],
+    "loop_requirement": "matching endpoints and finite-difference velocity across seam"
+  },
+  "semantic_validation": [
+    "Windows execution evidence and successful log are present",
+    "Source and artifact SHA-256 values match actual bytes",
+    "No game or original Blender/GLB overwrite",
+    "Every required clip is present; metadata describes actual video analysis",
+    "All numeric values finite; transforms have no scale/shear",
+    "Attack duration equals windup + active + recovery; 0 < hit < active",
+    "Track first/last times and contact seam samples match metadata",
+    "Reference segment end exceeds start",
+    "Camera/world/canonical conversion passes rest overlay and axis probes",
+    "Preview contains actual Blender output and is labeled accurately",
+    "No fabricated production state, damage or stamina in animation data"
+  ],
+  "integration_tests": [
+    "actual_ground_run_speed_and_blending",
+    "actual_takeoff_and_rejected_jump_cost",
+    "actual_air_without_ground_bob",
+    "actual_ledge_fall_and_low_ceiling",
+    "actual_land_once_and_rejump",
+    "all_attack_variants_and_charge_timings",
+    "actual_blade_clash_and_composed_pose_recovery",
+    "static_glove_sword_fidelity_and_sleeve_connection",
+    "hand_screen_coverage_and_camera_aim_isolation",
+    "30_60_120hz_playback_and_pause_freeze",
+    "equipment_chest_guard_death_cancel_and_reset",
+    "test_room_actions_repeat_reset_and_original_session_restore"
+  ],
+  "optional_clips": [
+    {
+      "id": "idle",
+      "kind": "locomotion",
+      "loop": "authored choice; endpoints must match if true",
+      "required_tracks": [
+        "sword"
+      ],
+      "optional_tracks": [
+        "shield"
+      ],
+      "purpose": "Reference neutral framing; geometry normalization remains immutable SOURCE_READY"
+    }
+  ]
+}

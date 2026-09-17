@@ -1,0 +1,12 @@
+[HEADLESS] player_arm_test.gd
+PLAYER ARM PASS: full-body GLB/atlas sharing, articulated grip and wrist-preserving arm fit, actual combat/bow/chest preview paths, trial hits and contacts, F2/repeat/reset and expedition restoration
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2535)
+[HEADLESS] weapon_hand_contacts_test.gd
+WEAPON HAND CONTACTS PASS: real bow grip/string/nock/rest, fixed cord length, draw cache, transformed contacts, slim arrow and forked nock, flail chain/ball continuity and state isolation
+[HEADLESS] chest_hands_test.gd
+CHEST HANDS PASS: real stow/reach/fidget/lift phases, articulated fingers, synced lid, container hold/restore, all loadouts/full bag, cancellation, pause/scaled timing and scene cleanup
+[HEADLESS] test_room_session_test.gd
+TEST ROOM SESSION TEST PASS: inventory identity, stress accumulation/recovery isolation, camping supplies, bow and arrows, chain flail, wallet, deep stock copies, needs, ailments, magic, and unstarted-session restoration
+
+Headless validation: 4 passed, 0 failed.

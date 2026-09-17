@@ -1,0 +1,26 @@
+00:02.424  blend            | Read blend: "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/player_fingers_detail_20260911/mac_output/iteration_08/bilateral_hands_finger_detail.blend"
+20:29:45 | INFO: Data are loaded, start creating Blender stuff
+20:29:45 | INFO: Blender create Mesh node FittedLeather.001
+20:29:45 | INFO: Blender create Mesh node ContinuousAnatomicalHandMesh.002
+20:29:45 | INFO: Blender create Mesh node Nail_indexMesh
+20:29:45 | INFO: Blender create Mesh node Nail_littleMesh
+20:29:45 | INFO: Blender create Mesh node Nail_middleMesh
+20:29:45 | INFO: Blender create Mesh node Nail_ringMesh
+20:29:45 | INFO: Blender create Mesh node Nail_thumbMesh
+20:29:45 | INFO: Blender create Mesh node TailoredClothSleeve.001
+20:29:45 | INFO: Blender create Mesh node WristTransitionMesh_v1
+20:29:45 | INFO: glTF import finished in 0.11s
+20:29:45 | INFO: Data are loaded, start creating Blender stuff
+20:29:45 | INFO: Blender create Mesh node FittedLeather.003
+20:29:45 | INFO: Blender create Mesh node ContinuousAnatomicalHandMesh.003
+20:29:46 | INFO: Blender create Mesh node Nail_indexMesh.001
+20:29:46 | INFO: Blender create Mesh node Nail_littleMesh.001
+20:29:46 | INFO: Blender create Mesh node Nail_middleMesh.001
+20:29:46 | INFO: Blender create Mesh node Nail_ringMesh.001
+20:29:46 | INFO: Blender create Mesh node Nail_thumbMesh.001
+20:29:46 | INFO: Blender create Mesh node TailoredClothSleeve.003
+20:29:46 | INFO: Blender create Mesh node WristTransitionMesh_v1.001
+20:29:46 | INFO: glTF import finished in 0.13s
+00:05.585  blend            | Read blend: "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/player_fingers_detail_20260911/mac_output/iteration_10/bilateral_hands_finger_detail.blend"
+THUMB_ROTATION_VERIFICATION failed [{"error": "Nail top still crosses its actual skin surface (neutral/thumb): {\"witnesses\": 1474, \"source_maximum_gap_m\": 0.0006684949621558189, \"maximum_gap_m\": 0.0006684933905489743, \"maximum_added_gap_m\": 1.5876139514148235e-08, \"maximum_added_top_intrusion_m\": 1.53126909481216e-05, \"source_minimum_signed_top_m\": 3.669651209747826e-05, \"minimum_signed_top_m\": 3.6697525956697064e-05, \"source_minimum_ray_clearance_m\": 6.872052244943916e-05, \"source_ray_miss_count\": 0, \"minimum_ray_clearance_m\": 6.872397698032273e-05}", "traceback": "Traceback (most recent call last):\n  File \"/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/player_fingers_detail_20260911/tools/verify_thumb_rotation.py\", line 341, in main\n    row['actual_nail_seating'] = detail.compare_nails(measurements, old_nails[side])\n                                 ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/player_fingers_detail_20260911/tools/verify_finger_detail.py\", line 356, in compare_nails\n    assert float(new[\"ray_top\"].min()) >= required_clearance, f\"Nail top still crosses its actual skin surface ({pose}/{digit}): \"+json.dumps(row)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Nail top still crosses its actual skin surface (neutral/thumb): {\"witnesses\": 1474, \"source_maximum_gap_m\": 0.0006684949621558189, \"maximum_gap_m\": 0.0006684933905489743, \"maximum_added_gap_m\": 1.5876139514148235e-08, \"maximum_added_top_intrusion_m\": 1.53126909481216e-05, \"source_minimum_signed_top_m\": 3.669651209747826e-05, \"minimum_signed_top_m\": 3.6697525956697064e-05, \"source_minimum_ray_clearance_m\": 6.872052244943916e-05, \"source_ray_miss_count\": 0, \"minimum_ray_clearance_m\": 6.872397698032273e-05}\n"}]
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 01:35:57)

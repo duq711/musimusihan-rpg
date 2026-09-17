@@ -26,3 +26,76 @@
 *.ttf filter=lfs diff=lfs merge=lfs -text
 *.otf filter=lfs diff=lfs merge=lfs -text
 *.zip filter=lfs diff=lfs merge=lfs -text
+
+# Historical production archive / 과거 제작 자료
+*.OBJ filter=lfs diff=lfs merge=lfs -text
+*.ZTL filter=lfs diff=lfs merge=lfs -text
+*.exr filter=lfs diff=lfs merge=lfs -text
+*.obj filter=lfs diff=lfs merge=lfs -text
+*.tga filter=lfs diff=lfs merge=lfs -text
+*.thumb filter=lfs diff=lfs merge=lfs -text
+*.translation filter=lfs diff=lfs merge=lfs -text
+*.umap filter=lfs diff=lfs merge=lfs -text
+"exports/Orc_20260917/inspect.log" filter=lfs diff=lfs merge=lfs -text
+
+# Preserve original archive line endings / 원본 줄바꿈 보존
+"asset-staging/reference_sword_motion_20260909/windows_output/saved_results_v2_received_for_review/motion_verification.json" -text
+"asset-staging/reference_sword_motion_20260909/windows_output/saved_results_v2_received_for_review/motion_keyposes.json" -text
+"asset-staging/reference_sword_motion_20260909/windows_output/saved_results_v2_received_for_review/HANDOFF_README.txt" -text
+"asset-staging/reference_sword_motion_20260909/windows_output/saved_results_v2_received_for_review/authoring_report.json" -text
+"asset-staging/reference_sword_motion_20260909/windows_output/saved_results_v2_received_for_review/preview_report.json" -text
+"asset-staging/reference_sword_motion_20260909/windows_output/saved_results_v2_received_for_review/controls_only/fresh_import_check.json" -text
+"asset-staging/reference_sword_motion_20260909/windows_output/saved_results_v2_received_for_review/controls_only/attachment.json" -text
+"asset-staging/reference_sword_motion_20260909/windows_output/saved_results_v2_received_for_review/controls_only/execution.json" -text
+"asset-staging/reference_sword_motion_20260909/windows_output/saved_results_v2_received_for_review/contracts/conversion_readiness.json" -text
+"asset-staging/reference_sword_motion_20260909/windows_output/final_overhead_received_20260910/delivery_completion.json" -text
+"asset-staging/reference_sword_motion_20260909/windows_output/final_overhead_received_20260910/FILE_HASHES.json" -text
+"asset-staging/reference_sword_motion_20260909/windows_output/final_overhead_received_20260910/release_README_KO.md" -text
+"asset-staging/reference_sword_motion_20260909/windows_output/final_overhead_received_20260910/LATEST_RELEASE.json" -text
+"asset-staging/reference_sword_motion_20260909/windows_output/final_overhead_received_20260910/TRANSFER_README.txt" -text
+"asset-staging/reference_sword_motion_20260909/windows_output/final_overhead_received_20260910/overhead_review_validation_compact.json" -text
+"asset-staging/reference_sword_motion_20260909/windows_output/final_overhead_received_20260910/overhead_review.json" -text
+"asset-staging/reference_sword_motion_20260909/windows_output/final_overhead_received_20260910/review_conversion/provenance/execution.log" -text
+"asset-staging/reference_sword_motion_20260909/windows_output/final_overhead_received_20260910/review_conversion/provenance/execution.json" -text
+"asset-staging/reference_sword_motion_20260909/windows_output/final_overhead_received_20260910/review_conversion/provenance/surface_finish_report.json" -text
+"asset-staging/reference_sword_motion_20260909/windows_output/final_overhead_received_20260910/execution/godot_preview.json" -text
+"asset-staging/reference_sword_motion_20260909/windows_output/final_overhead_received_20260910/execution/opposite_glb_render.json" -text
+"asset-staging/reference_sword_motion_20260909/windows_output/final_overhead_received_20260910/execution/blender_skin_reimport.json" -text
+"asset-staging/reference_sword_motion_20260909/windows_output/final_overhead_received_20260910/execution/final_pov_render.json" -text
+"asset-staging/reference_sword_motion_20260909/windows_output/final_overhead_received_20260910/execution/i7_authoring.log" -text
+"asset-staging/reference_sword_motion_20260909/windows_output/final_overhead_received_20260910/execution/i7_authoring.json" -text
+"asset-staging/reference_sword_motion_20260909/windows_output/final_overhead_received_20260910/execution/godot_runtime.json" -text
+"asset-staging/reference_sword_motion_20260909/windows_output/final_overhead_received_20260910/scripts/pose_fit_proposal.json" -text
+"asset-staging/reference_sword_motion_20260909/windows_output/final_overhead_received_20260910/reports/godot_runtime_summary.json" -text
+"asset-staging/reference_sword_motion_20260909/windows_output/final_overhead_received_20260910/reports/final_media_verification.json" -text
+"asset-staging/reference_sword_motion_20260909/windows_output/final_overhead_received_20260910/reports/blender_skin_reimport.json" -text
+"asset-staging/reference_sword_motion_20260909/windows_output/final_overhead_received_20260910/reports/visual_final_review.json" -text
+"asset-staging/reference_sword_motion_20260909/windows_output/final_overhead_received_20260910/reports/surface_finish_report.json" -text
+"asset-staging/reference_sword_motion_20260909/windows_output/iteration_02_received_for_review/motion_verification.json" -text
+"asset-staging/reference_sword_motion_20260909/windows_output/iteration_02_received_for_review/motion_keyposes.json" -text
+"asset-staging/reference_sword_motion_20260909/windows_output/iteration_02_received_for_review/HANDOFF_README.txt" -text
+"asset-staging/reference_sword_motion_20260909/windows_output/iteration_02_received_for_review/authoring_report.json" -text
+"asset-staging/open_skeleton_candidates/bodyparts3d_cc_by_sa/README_e.html" -text
+"asset-staging/open_skeleton_candidates/bodyparts3d_cc_by_sa/bodyparts3d_node_mapping.csv" -text
+"asset-staging/sword_hold_long_grip_integration/source/compare.html" -text
+"asset-staging/sword_hold_long_grip_integration/source/files.json" -text
+"asset-staging/sword_hold_long_grip_integration/source/inspection_poses.json" -text
+"asset-staging/sword_hold_long_grip_integration/source/verification/blender_roundtrip_verification.json" -text
+"asset-staging/sword_hold_long_grip_integration/source/verification/geometry_change_independent.json" -text
+"asset-staging/sword_hold_long_grip_integration/source/verification/godot_import_verification.json" -text
+"asset-staging/sword_hold_long_grip_integration/source/verification/geometry_change_audit.json" -text
+"asset-staging/sword_hold_long_grip_integration/source/model/export_verification.json" -text
+"asset-staging/blender_mercenary_crossbowman_game_ready/cc0_makehuman_suits02_candidate/clothes/donitz_monk_robe_hood/monks_robe_brown.mhmat" -text
+"asset-staging/blender_mercenary_crossbowman_game_ready/cc0_makehuman_suits02_candidate/clothes/donitz_monk_robe_hood/donitz_monk_robe_hood.mhclo" -text
+"asset-staging/blender_mercenary_crossbowman_game_ready/cc0_makehuman_suits02_candidate/clothes/donitz_monk_robe_hood_down/donitz_monk_robe_hood_down.mhclo" -text
+"asset-staging/blender_mercenary_crossbowman_game_ready/cc0_makehuman_suits02_candidate/clothes/donitz_monk_robe_hood_down/monks_robe_brown.mhmat" -text
+"asset-staging/blender_mercenary_crossbowman_game_ready/cc0_makehuman_suits02_candidate/clothes/donitz_monk_robe_hood_off/monks_robe_brown.mhmat" -text
+"asset-staging/blender_mercenary_crossbowman_game_ready/cc0_makehuman_suits02_candidate/clothes/donitz_monk_robe_hood_off/donitz_monk_robe_hood_off.mhclo" -text
+"asset-staging/blender_mercenary_crossbowman_game_ready/cc0_makehuman_suits02_candidate/clothes/donitz_monk_robe/monks_robe_brown.mhmat" -text
+"asset-staging/blender_mercenary_crossbowman_game_ready/cc0_makehuman_suits02_candidate/clothes/donitz_monk_robe/donitz_monk_robe.mhclo" -text
+"exports/Sword_Shield_FirstPerson_Windows_2026-09-08/START_HERE_KO.txt" -text
+"exports/Sword_Shield_FirstPerson_Windows_2026-09-08/Source/motion_timing.csv" -text
+"UE_Agent_Test/Evidence/pie-capture_20260905_224701_engine.log" -text
+"UE_Agent_Test/Evidence/pie-capture_20260905_230126_console.log" -text
+"UE_Agent_Test/Evidence/pie-capture_20260905_224701_console.log" -text
+"UE_Agent_Test/Evidence/pie-capture_20260905_230126_engine.log" -text

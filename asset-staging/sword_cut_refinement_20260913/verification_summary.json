@@ -1,0 +1,50 @@
+{
+  "date": "2026-09-13",
+  "completed": false,
+  "automated_checks_passed": [
+    "reference_motion_shape",
+    "reference_sword_motion_data",
+    "sword_recovery_continuity",
+    "unified_sword_motion",
+    "sword_basic_cut",
+    "reference_sword_cut_preview",
+    "reference_sword_motion_test_room",
+    "sword_attack_variants",
+    "sword_clash",
+    "sword_two_hand_grip",
+    "sword_long_grip",
+    "primary_shield_stow",
+    "reference_sword_motion",
+    "sword_shield_choreography",
+    "reference_sword_arm_player",
+    "first_person_motion_test_room",
+    "first_person_motion_preview"
+  ],
+  "check_count": 17,
+  "visual_review": "Both basic cut and reverse cut actual frames inspected; right thumb triangle corruption resolved, left grasp tightened. Second independent hand review accepted.",
+  "actual_renderer": "vulkan",
+  "display_driver": "embedded",
+  "actual_frames": 182,
+  "reverse_preserved": true,
+  "original_sources_preserved": true,
+  "sources_unchanged_since_final_render": false,
+  "video": "godot-game/artifacts/visual_qa/reference_sword_motion/cut_refinement_v4_hands/two_hand_cut_review.mp4",
+  "notes": [
+    "Stale attack-start and analytical walk test fixtures corrected without weakening geometric assertions.",
+    "Natural clash fixture now advances actual enemy windup and player input; prior simultaneous-active scenario failed in both baseline and updated data.",
+    "Generic 24-state preview exceeded 180s; unchanged test passed with a 600s limit.",
+    "Existing teardown ObjectDB warnings are retained in original fixture logs."
+  ],
+  "user_visual_acceptance": "rejected: 더 최악이 되었네요",
+  "current_status": "v4 motion and hand modifications reverted to exact pre-change baseline; original visual request unresolved",
+  "previous_v4_evidence_only": true,
+  "rollback_source_verification": "rollback_source_verification.json",
+  "unapplied_candidate": "motion_v5_candidate/review_status.json",
+  "rollback_checks_passed": [
+    "sword_long_grip",
+    "primary_shield_stow",
+    "reference_sword_cut_preview",
+    "sword_two_hand_grip"
+  ],
+  "rollback_check_log": "rollback_guard_hands_validation.log"
+}

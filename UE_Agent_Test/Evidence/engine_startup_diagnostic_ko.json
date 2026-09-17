@@ -1,0 +1,21 @@
+{
+  "recorded_at": "2026-09-05T23:28:28.071815",
+  "log": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/UE_Agent_Test/Evidence/smoke_diagnostic_20260905_231927_console.log",
+  "process_exit_code": 0,
+  "failing_engine_smoke_tests": [
+    {
+      "test": "FUnifiedErrorTest_CreateErrorMessage",
+      "condition_errors": 7
+    },
+    {
+      "test": "FUnifiedErrorTest_CreateErrorMessageWithContext",
+      "condition_errors": 4
+    },
+    {
+      "test": "FStructuredLogFormatTest",
+      "condition_errors": 4
+    }
+  ],
+  "total_condition_errors": 15,
+  "relation_to_game_tests": "Separate engine startup tests before PIE; no AgentAutoTest requested in this diagnostic."
+}

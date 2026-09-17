@@ -1,0 +1,306 @@
+{
+  "asset": "mercenary_crossbowman_game_ready_v11",
+  "height_m": 1.78,
+  "rest_pose": "T_POSE",
+  "neutral_expression": true,
+  "front_axis": "-Y",
+  "raw_to_world": "x=-raw_x, y=-raw_y, z=raw_z (180deg Z)",
+  "rig": "Fresh Rigify full rig",
+  "deform_bones": 160,
+  "arm_rest_max_vertical_delta_m": 0.0,
+  "triangles": 126311,
+  "triangle_breakdown": {
+    "Mercenary_Clothed_Donor_LOD0": 67531,
+    "Mercenary_Eyes_GameReady": 2040,
+    "Mercenary_Male_HeadNeck_LOD0": 35366,
+    "Mercenary_Iris_L": 124,
+    "Mercenary_Pupil_L": 124,
+    "Mercenary_Iris_R": 124,
+    "Mercenary_Pupil_R": 124,
+    "Mercenary_Cowl_LayeredClean_LOD0": 17790,
+    "Mercenary_UnderCowl_Yoke_LOD0": 1152,
+    "Mercenary_ShoulderCowl_Gussets_LOD0": 16,
+    "Mercenary_InnerCowl_Liner_LOD0": 1920
+  },
+  "mesh_count": 11,
+  "donor_connected_island_face_counts": [
+    58319,
+    71,
+    60,
+    28,
+    16,
+    16
+  ],
+  "donor_front_face_triangles_removed": 6032,
+  "donor_head_cut": {
+    "method": "single smooth capsule boolean; legacy front cut removed",
+    "z_range": [
+      1.445,
+      1.82
+    ],
+    "maximum_radius_x": 0.17,
+    "maximum_radius_y": 0.19,
+    "mpfb_head_z_gt": 1.49
+  },
+  "donor_headneck_bvh_overlap_pairs": 0,
+  "donor_headneck_geometry_overlap": "ZERO_CONFIRMED_BVH",
+  "clean_cowl_head_bvh_overlap_pairs": 0,
+  "clean_cowl_donor_bvh_overlap_pairs": 0,
+  "eyes": {
+    "geometry": "curved MPFB eyeballs with resized recessed iris/pupil discs",
+    "iris_horizontal_scale": 0.72,
+    "iris_vertical_scale": 0.55,
+    "pupil_horizontal_scale": 0.6,
+    "pupil_vertical_scale": 0.5
+  },
+  "limb_material_cleanup": {
+    "mode": "continuous 4K PBR with dominant-axis box UVs",
+    "uv_scale": 6.0,
+    "face_counts": {
+      "sleeves": 2296,
+      "bracers": 4517,
+      "hands": 2572,
+      "boots": 10315
+    },
+    "front_back_projection_faces_remaining": 0,
+    "geometry_shells_added_or_deleted": false
+  },
+  "blender_presentation": {
+    "rig_hidden_in_saved_blend": true,
+    "metarig_hidden_in_saved_blend": true
+  },
+  "donor_cowl_triangles_removed": 0,
+  "donor_cowl_shard_triangles_removed": 1308,
+  "donor_cowl_collision_pairs_before_cleanup": 544,
+  "donor_cowl_collision_triangles_removed": 172,
+  "donor_postcut_fragment_triangles_removed": 297,
+  "donor_postcut_component_face_counts": [
+    67531,
+    128,
+    95,
+    32,
+    21,
+    8,
+    5,
+    3,
+    2,
+    1,
+    1,
+    1
+  ],
+  "clean_cowl_drape": {
+    "components": 3,
+    "projection": "reference front/back by actual world z; side cowl PBR",
+    "normal_y_threshold": 0.24,
+    "uniform_clearance_iterations": [
+      0,
+      10,
+      0
+    ]
+  },
+  "v2_source_preserved": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/blender_mercenary_crossbowman_game_ready/mercenary_crossbowman_game_ready_v2.blend",
+  "donor_refine": "Catmull-Clark level 1 then dynamic collapse decimation",
+  "donor_arm_width_scale": 1.0841035753251593,
+  "mpfb_head_face_shift_y_m": 0.008910825252532959,
+  "projection": {
+    "front_bbox_4096": [
+      417,
+      3677,
+      241,
+      3860
+    ],
+    "back_bbox_4096": [
+      358,
+      3740,
+      239,
+      3854
+    ],
+    "u_mapping": "1-normalized_world_x",
+    "side_normal_threshold": 0.42,
+    "counts": {
+      "Mercenary_Clothed_Donor_LOD0": {
+        "front": 16177,
+        "back": 17325,
+        "side": 34029
+      },
+      "Mercenary_Male_HeadNeck_LOD0": {
+        "front": 26654,
+        "back": 3238,
+        "side": 5474
+      },
+      "Mercenary_Cowl_LayeredClean_LOD0": {
+        "front": 6205,
+        "back": 6141,
+        "side": 5444
+      }
+    },
+    "side_faces": "spatial 4K PBR UV tiling; no front/back projection"
+  },
+  "textures": {
+    "front_projection": 4096,
+    "back_projection": 4096,
+    "skin": 4096,
+    "gambeson": 4096,
+    "outer_wool": 4096,
+    "cowl_wool": 4096,
+    "leather": 4096
+  },
+  "excluded": [
+    "crossbow",
+    "sword",
+    "dagger",
+    "quiver",
+    "arrows",
+    "pouches",
+    "scabbards",
+    "MPFB clean hair",
+    "MPFB source rig",
+    "MPFB source metarig"
+  ],
+  "gltf_export": {
+    "export_armature_object_remove": false,
+    "export_skins": true,
+    "export_def_bones": true,
+    "export_rest_position_armature": true,
+    "export_all_influences": false,
+    "export_influence_nb": 4
+  },
+  "previews": {
+    "top": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/blender_mercenary_crossbowman_game_ready/previews/mercenary_game_ready_v11_top.png",
+    "failure_view": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/blender_mercenary_crossbowman_game_ready/previews/mercenary_game_ready_v11_failure_view.png",
+    "front": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/blender_mercenary_crossbowman_game_ready/previews/mercenary_game_ready_v11_front.png",
+    "back": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/blender_mercenary_crossbowman_game_ready/previews/mercenary_game_ready_v11_back.png",
+    "three_quarter": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/blender_mercenary_crossbowman_game_ready/previews/mercenary_game_ready_v11_three_quarter.png"
+  },
+  "blend": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/blender_mercenary_crossbowman_game_ready/mercenary_crossbowman_game_ready_v11.blend",
+  "glb": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/godot-game/assets/3d/dark_fantasy/mercenary_crossbowman_game_ready_v11.glb",
+  "upper_arm_hole_repair": {
+    "method": "preserve original v4 topology; remap only exposed shoulder-top surfaces",
+    "v8_faces_restored": 333,
+    "major_original_components": [
+      160,
+      144
+    ],
+    "small_original_faces": 29,
+    "gambeson_faces_remapped": 1375,
+    "cowl_faces_remapped": 13,
+    "top_exposed_by_original_material": {
+      "1": 348,
+      "4": 328,
+      "0": 112
+    },
+    "under_cowl_yoke_faces_remapped": 592,
+    "closed_under_cowl_yoke": {
+      "object": "Mercenary_UnderCowl_Yoke_LOD0",
+      "vertices": 580,
+      "triangles": 1152,
+      "material": "MAT_Gambeson_Side_PBR_4K",
+      "closed_manifold": true,
+      "nonmanifold_edges": 0,
+      "intentional_underlayer": true,
+      "rigged_to_existing_rigify": true,
+      "vertex_weight_sum_range": [
+        0.9999999701976776,
+        1.0000000298023224
+      ]
+    },
+    "floating_or_duplicate_shell_added": false,
+    "donor_new_vertices": 0,
+    "donor_new_faces": 0,
+    "remaining_shoulder_boundary_edges": 7,
+    "shoulder_boundary_group_sizes": [
+      4,
+      3
+    ],
+    "rigging": "all original Rigify vertex groups and weights preserved"
+  },
+  "high_angle_qa": [
+    "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/blender_mercenary_crossbowman_game_ready/previews/diagnostic_v11_high_000.png",
+    "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/blender_mercenary_crossbowman_game_ready/previews/diagnostic_v11_high_045.png",
+    "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/blender_mercenary_crossbowman_game_ready/previews/diagnostic_v11_high_090.png",
+    "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/blender_mercenary_crossbowman_game_ready/previews/diagnostic_v11_high_135.png",
+    "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/blender_mercenary_crossbowman_game_ready/previews/diagnostic_v11_high_180.png",
+    "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/blender_mercenary_crossbowman_game_ready/previews/diagnostic_v11_high_225.png",
+    "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/blender_mercenary_crossbowman_game_ready/previews/diagnostic_v11_high_270.png",
+    "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/blender_mercenary_crossbowman_game_ready/previews/diagnostic_v11_high_315.png"
+  ],
+  "selective_cowl_repair": {
+    "source": "v9 closed topology",
+    "original_front_projection_faces_preserved": 6205,
+    "original_back_projection_faces_preserved": 6141,
+    "first_hit_top_dark_faces_remapped": 1005,
+    "selector": "original mat5, normal.z > 0.50, cowl-only vertical BVH first hit",
+    "safe_material": "MAT_CowlTop_SelectiveCharcoal_PBR_4K",
+    "safe_texture": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/blender_mercenary_crossbowman_game_ready/textures/cowl_wool_basecolor_4k_charcoal_v11.jpg",
+    "safe_texture_size": [
+      4096,
+      4096
+    ],
+    "safe_uv": "planar XY 4x tile on selected loops only",
+    "head_repair": {
+      "geometry_changed": false,
+      "weights_changed": false,
+      "misclassified_mat5_faces": 5442,
+      "scalp_faces_to_opaque_hair_2k": 1944,
+      "ear_neck_side_faces_restored_to_skin_4k": 3498,
+      "split_height_m": 1.66,
+      "hair_material": "MAT_ScalpHair_DarkBrown_PBR_2K_v11",
+      "hair_source_texture": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/blender_mercenary_crossbowman_game_ready/textures/hair_cards_2k.png",
+      "hair_texture": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/blender_mercenary_crossbowman_game_ready/textures/hair_scalp_darkbrown_2k_v11.png",
+      "hair_texture_size": [
+        2048,
+        2048
+      ],
+      "alpha_transparency_used": false,
+      "source_side_uv_preserved": true
+    },
+    "liner": {
+      "object": "Mercenary_InnerCowl_Liner_LOD0",
+      "triangles": 1920,
+      "closed_manifold": true,
+      "inner_center_y": 0.05,
+      "outer_center_y": 0.008,
+      "inner_radii": [
+        0.1,
+        0.055
+      ],
+      "outer_radii": [
+        0.19,
+        0.13
+      ],
+      "height_range": [
+        1.447,
+        1.488
+      ],
+      "rig_bone": "DEF-spine.006",
+      "weight_sum_range": [
+        1.0,
+        1.0
+      ]
+    },
+    "yoke": {
+      "object": "Mercenary_UnderCowl_Yoke_LOD0",
+      "triangles": 1152,
+      "closed_manifold": true,
+      "outer_tip_extension_m": 0.015,
+      "rise_m": 0.002,
+      "weight_sum_range": [
+        0.9999999701976776,
+        1.0000000298023224
+      ]
+    },
+    "gussets": {
+      "object": "Mercenary_ShoulderCowl_Gussets_LOD0",
+      "triangles": 16,
+      "closed_manifold": true,
+      "weight_sum_range": [
+        1.0,
+        1.0
+      ],
+      "purpose": "two seam-sized closed cloth gussets at measured shoulder-cowl notches"
+    },
+    "cowl_nonmanifold_edges": 0,
+    "floating_panel_or_duplicate_limb_added": false,
+    "front_back_three_quarter_silhouette_changed": false
+  }
+}

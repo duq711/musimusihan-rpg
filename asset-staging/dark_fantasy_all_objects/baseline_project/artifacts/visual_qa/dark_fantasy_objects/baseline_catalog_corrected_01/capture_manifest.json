@@ -1,0 +1,298 @@
+{
+	"actual_renderer": "vulkan",
+	"capture_kind": "Actual production geometry in the same isolated six-view viewport as the in-game test-room gallery",
+	"captured_count": 4,
+	"catalog_count": 126,
+	"complete_catalog": false,
+	"desktop_capture": false,
+	"display_driver": "embedded",
+	"expedition_and_cursor_preserved": true,
+	"external_input": false,
+	"gallery_ui": "gallery_ui.png",
+	"lighting": {
+		"ambient_energy": 0.48,
+		"background": "#171a1a",
+		"fill_energy": 0.48,
+		"key_energy": 1.15,
+		"rim_energy": 0.32,
+		"tonemap": "filmic"
+	},
+	"objects": [
+		{
+			"bounds": {
+				"position": [
+					-45.7001953125,
+					0.00399965047836304,
+					-56.2808227539062
+				],
+				"size": [
+					2.75432968139648,
+					1.52932024002075,
+					2.25607681274414
+				]
+			},
+			"factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_north_workings_ore_cart_01",
+			"id": "mine_ore_cart",
+			"images": [
+				{
+					"file": "mine_ore_cart_front.png",
+					"sha256": "6541c4c12faf00aecdb916b3adaf38a3c3653cb3c37c51451faa682215311b14",
+					"view": "front"
+				},
+				{
+					"file": "mine_ore_cart_back.png",
+					"sha256": "38250d21d74223d85eaf177dc7930d7dc0e76da677b1be990406d2ec44e6d401",
+					"view": "back"
+				},
+				{
+					"file": "mine_ore_cart_left.png",
+					"sha256": "d76bf3c5d49e5f32015ed50ec6d81dd0c67738a245f874233e5c89fbf9751984",
+					"view": "left"
+				},
+				{
+					"file": "mine_ore_cart_right.png",
+					"sha256": "6a6ec2529b134f38fa67e162b282c47ecdd75dfd0881d6f338cbfc9b1f483c78",
+					"view": "right"
+				},
+				{
+					"file": "mine_ore_cart_top.png",
+					"sha256": "37852bbd3f9f6be8f5dc9cacafa4f0381f1896453c795a04dc84a62c6de9d435",
+					"view": "top"
+				},
+				{
+					"file": "mine_ore_cart_bottom.png",
+					"sha256": "56c5ee5ad3e8e2efb4c4a90d2bc5783db8b0db02de186dd6eb8015d9abc44ddd",
+					"view": "bottom"
+				}
+			],
+			"sheet": "mine_ore_cart_six_views.png",
+			"source_path": "res://scripts/cave_geometry.gd",
+			"source_sha256": "deadb3226dc92be3cc91620cf27e9e3c636b4621374f8e3e810ce490ce1570e3",
+			"title": "폐광 광차"
+		},
+		{
+			"bounds": {
+				"position": [
+					-6.71509504318237,
+					-0.00627891859039664,
+					61.1249885559082
+				],
+				"size": [
+					0.91335916519165,
+					0.0464600101113319,
+					0.374248504638672
+				]
+			},
+			"factory": "cave_art_details.gd::_fragment_mesh",
+			"id": "aged_board_00",
+			"images": [
+				{
+					"file": "aged_board_00_front.png",
+					"sha256": "968a7acc99a5bb2d91f782c1bd113b4d5aec1368b3ec8d913b6f86e3e0cbf29a",
+					"view": "front"
+				},
+				{
+					"file": "aged_board_00_back.png",
+					"sha256": "da3295004314326d032adee1a03c5c8237cf6adaaf583de53733317ca474a6d8",
+					"view": "back"
+				},
+				{
+					"file": "aged_board_00_left.png",
+					"sha256": "0c15a9f89da3fb410ba264984d7364dca4d974e755e1c06ba36124259e8c7451",
+					"view": "left"
+				},
+				{
+					"file": "aged_board_00_right.png",
+					"sha256": "50948c63b0ddeb998d75c3e2b26215d1e9a419d349a660f6cae02057ab2ed732",
+					"view": "right"
+				},
+				{
+					"file": "aged_board_00_top.png",
+					"sha256": "ad5cb98914f8d1d6bcb85a7240d1b23b75335af385a0b801c89597af87aa9b09",
+					"view": "top"
+				},
+				{
+					"file": "aged_board_00_bottom.png",
+					"sha256": "7adfe85db5b8a6c1c3ba6fdc7e3f124e234af12841802eacdfb556a96c8f284a",
+					"view": "bottom"
+				}
+			],
+			"sheet": "aged_board_00_six_views.png",
+			"source_path": "res://scripts/cave_art_details.gd",
+			"source_sha256": "5448559a97be2d0ace1674c780eec3c7313590775f4dc1d364bb4dd860064fda",
+			"title": "부러진 폐광 판자 00"
+		},
+		{
+			"bounds": {
+				"position": [
+					4.70639514923096,
+					0.0285611897706985,
+					23.6305675506592
+				],
+				"size": [
+					0.546952724456787,
+					0.045613557100296,
+					1.30938148498535
+				]
+			},
+			"factory": "cave_art_details.gd::_fragment_mesh",
+			"id": "aged_board_01",
+			"images": [
+				{
+					"file": "aged_board_01_front.png",
+					"sha256": "a0fcc7848fee46054cb1fc0898aab4464c535c41f0b340c07a54d83c2d36318a",
+					"view": "front"
+				},
+				{
+					"file": "aged_board_01_back.png",
+					"sha256": "97e1e8b085b38224b7a21a9a8a767771b558a1fcaabdedc645f6c45d231722c9",
+					"view": "back"
+				},
+				{
+					"file": "aged_board_01_left.png",
+					"sha256": "1912fc53f0f95faa2fc20505a97de77539e312e01a81afee486cfe4c044cc43a",
+					"view": "left"
+				},
+				{
+					"file": "aged_board_01_right.png",
+					"sha256": "a8f5192ac5c76614bbafd3df1faa2afdb23c95b4344665fb11921c61bf2af1ab",
+					"view": "right"
+				},
+				{
+					"file": "aged_board_01_top.png",
+					"sha256": "2eff974733482cc71a57df265baf92f86e43708f0a53626d0d37350286db1905",
+					"view": "top"
+				},
+				{
+					"file": "aged_board_01_bottom.png",
+					"sha256": "2fbfd0b4b2957b82bb4078c217b4b924d3276d30489e2a4f2a393ca8aea863d9",
+					"view": "bottom"
+				}
+			],
+			"sheet": "aged_board_01_six_views.png",
+			"source_path": "res://scripts/cave_art_details.gd",
+			"source_sha256": "5448559a97be2d0ace1674c780eec3c7313590775f4dc1d364bb4dd860064fda",
+			"title": "부러진 폐광 판자 01"
+		},
+		{
+			"bounds": {
+				"position": [
+					4.56323766708374,
+					-0.0258181933313608,
+					60.5637130737305
+				],
+				"size": [
+					0.805343151092529,
+					0.0432931296527386,
+					0.698535919189453
+				]
+			},
+			"factory": "cave_art_details.gd::_fragment_mesh",
+			"id": "aged_board_02",
+			"images": [
+				{
+					"file": "aged_board_02_front.png",
+					"sha256": "b3043ad6d25ff73c4fe054d042c30422f733d3799b102d060d32591dfa156635",
+					"view": "front"
+				},
+				{
+					"file": "aged_board_02_back.png",
+					"sha256": "e1b2ace53a252d6854c5d9eebd0b50ebad4a58d34495e3b548a516fdb42df90b",
+					"view": "back"
+				},
+				{
+					"file": "aged_board_02_left.png",
+					"sha256": "f9853a55f5b5382b104a022e562e8027d7e6b910175285c1c4faa352ba08b337",
+					"view": "left"
+				},
+				{
+					"file": "aged_board_02_right.png",
+					"sha256": "3df21c1595db0faac330d79f79c4bcbe08f6d903cb4044b1ce651d61c5646570",
+					"view": "right"
+				},
+				{
+					"file": "aged_board_02_top.png",
+					"sha256": "c671ba750d4470319f404205b2cdb72342508e10833c323e48ad9998b9138ee3",
+					"view": "top"
+				},
+				{
+					"file": "aged_board_02_bottom.png",
+					"sha256": "530dbac7dbbd19ef51c1ebff5cf21f6c3cef65cf4a108337c6c05275aa574081",
+					"view": "bottom"
+				}
+			],
+			"sheet": "aged_board_02_six_views.png",
+			"source_path": "res://scripts/cave_art_details.gd",
+			"source_sha256": "5448559a97be2d0ace1674c780eec3c7313590775f4dc1d364bb4dd860064fda",
+			"title": "부러진 폐광 판자 02"
+		}
+	],
+	"sources": {
+		"res://scripts/archery_visuals.gd": "f46af171047c519cb257b9d2e5d450b53b48d6ce0769ca874e5f2fcd026c20e9",
+		"res://scripts/arrow_projectile.gd": "29774676ebf3e505a6cc21404a566f002d441787275f941413ef650f5a4a3100",
+		"res://scripts/bow_shot_profile.gd": "5ed81b6b50fdf0b85b9bb995d253be0924cd69c6a34b8caeaece91e9ebe33d89",
+		"res://scripts/camp_controller.gd": "0b88a2257be0ddfff9ca0959b42e6586c69dbf471223ba82b09ff569bebdbfc3",
+		"res://scripts/camp_cooking_catalog.gd": "8192ec76855e2ba9b5f6fdb131ec7b8d0eecab9b4758dc949bc81611fee76bb9",
+		"res://scripts/camp_overlay.gd": "78e41d34f8fbe53fe744206cf232af096c48fc1491d06f00b067fd55f7925b40",
+		"res://scripts/camp_visuals.gd": "50897e56fe1a7b6aea1add0ce4246ce2145fb852f12c3b6e095665a39764d0d2",
+		"res://scripts/cave_art_details.gd": "5448559a97be2d0ace1674c780eec3c7313590775f4dc1d364bb4dd860064fda",
+		"res://scripts/cave_art_direction.gd": "aa1103c860f697090fa8f18ddd5e1738f32301461ac5680e5fe4b6fde4c1cef7",
+		"res://scripts/cave_art_lighting.gd": "3f4a9cfdd0369af3571bfe7ffeca2b1c39e164998b5107845d48864e0ea39a06",
+		"res://scripts/cave_dungeon.gd": "800e1f0ef0e1efc66fa537288a26c111f4c3604fc379348ca84b5a5fe0805127",
+		"res://scripts/cave_geometry.gd": "deadb3226dc92be3cc91620cf27e9e3c636b4621374f8e3e810ce490ce1570e3",
+		"res://scripts/cave_layout.gd": "c2b1073a8670ce992a4d52f71382d5cd41a24c821ba5079c8535c07caa8e48ed",
+		"res://scripts/cave_water.gd": "bcfce3b248e89be749bc38ab60d7c0e5bc73375302d290cc82457158809ecfed",
+		"res://scripts/chest_hand_visuals.gd": "5ed1fd478b3ebd7208b5e4a6bd66ee63dff902e8470fe291469d2253baa191c2",
+		"res://scripts/dark_fantasy_gallery.gd": "450a67a7fe1771af44134300f2559d82f6d10014b77877ee122318c2c2d45dd7",
+		"res://scripts/dark_fantasy_object_catalog.gd": "d85ee69eb6f6ff1af63708ec1ea7bf73887d2c6bd9a1b7eacf767f5d44be6da3",
+		"res://scripts/enemy.gd": "f7731bfb7753013a6625876911c4426e45a7bf43d60797544456a9943a4bf99e",
+		"res://scripts/expedition_session.gd": "1e0a9963c30a68bfe0fe54e2b2f8ca9cdabd0b433038d953caee7ee17bb5f856",
+		"res://scripts/first_person_renderer.gd": "9458b32a7ddfffa9a8f67c37c2bdff93e08c5b096eb5b49e543b12ed3d0eaf25",
+		"res://scripts/flail_profile.gd": "11c7cf01204692fc0fbb673a3953743e4de07604ac0f01a0d5915c3b950d1220",
+		"res://scripts/flail_projectile.gd": "7e73f75ce89160cbd33f0f1719f110bd03f79fd786e183dd3823f9fd3daf7100",
+		"res://scripts/flail_visuals.gd": "661ca8652494131b81dcf038270c6616e4bddedc253b74c69f5e9d2af9462428",
+		"res://scripts/game.gd": "448a9caa49cb06e0918bce1d792a5c431006699f3d2bc5cb59bcb15784c8f261",
+		"res://scripts/hideout.gd": "b72a5340f442c8d15f132537adbf9ddc630829eca0aaed27fc9827f089527504",
+		"res://scripts/hideout_hud.gd": "5d8c664d03f7829e4a1ae7752e3693b0d965f21db9d74d8b4006aa3c0f81999c",
+		"res://scripts/hideout_interactable.gd": "32871dda0cfadc3450d2f35e80acf4505540aa9879876c574a81bf1c2bb40521",
+		"res://scripts/hud.gd": "8fd1eed87c988c73146dd960617f736fa33079cbb6bcc92fa57d9594153d2ea9",
+		"res://scripts/inventory_model.gd": "8451f7053cdc5eb0ba6e35a5a6ec1b9680afad17707d8f00ce527cdc3cf00104",
+		"res://scripts/inventory_overlay.gd": "58050ac5e16fec011530015ffde249ca6f7f7f205f45320b50aa11e22d2d31e7",
+		"res://scripts/loading_screen.gd": "9759788089232d95ec81852763b0a6be34667b0a92b17a366a0febaae1bc1e67",
+		"res://scripts/loot_chest.gd": "cd3ea00d8546555960df8ca835bc22dc364482d17eaad7606a1429b40152f9b6",
+		"res://scripts/loot_container.gd": "4473cf05648ad7b155c456fbafbc626285943e538c0b403e937a19211ef2e03d",
+		"res://scripts/magic_projectile.gd": "fbb24380efb8649f2238871f29e9fda2ca125e243a55c17d0a9be2d29cbd8463",
+		"res://scripts/main_menu.gd": "f00e74bc39cc934e6e7e55af5fb08e1180d55f489b3a5edc946f9c220750fd57",
+		"res://scripts/merchant.gd": "a396260eadb72349f377825c8a4d0f75500ceb9d7ded9dc0a71994ba452da5c8",
+		"res://scripts/player.gd": "e6d48a4d9d20ab7ab7df47ffafee386af0bf3900adf9b6d728fc17fee790065c",
+		"res://scripts/player_appearance.gd": "5746a2aa5da76eb88310d46416b23aba3ef0d5f20e8a792f7243db7d9a6710e2",
+		"res://scripts/player_portrait.gd": "6908d607f7e270f6d75103a0370fba1e4d9bb10b53ab83fadf8116649f7df2c1",
+		"res://scripts/spell_catalog.gd": "a1cada7c4833c021df62b15199e8eee8e01c4027e7e7375b5bb8a3aeb7df3427",
+		"res://scripts/stress_audio.gd": "a68cce48dca3e0d5ab07934c5cd5ea39f325104b622873dac44b230d778b8811",
+		"res://scripts/stress_perception.gd": "43513b7d7206bc3d377e1b64af7ff5ccf408d60b02be9ae1d4f3460cea6a1c3f",
+		"res://scripts/stress_profile.gd": "2b906dcf21a80aa9852503253d5a4f2a81d3ef3ad0a568036d2b16e2744766e6",
+		"res://scripts/sword_clash_geometry.gd": "778d86e43bf90e443f18a8c4b0c8a3ff09bceea0bac9ebdfc2ed53bf9e583782",
+		"res://scripts/test_room.gd": "7a68b7aefd92c88be8216a7e7898d3bad8513343fff90a3dcf8d106067c484fc",
+		"res://scripts/test_room_catalog.gd": "cf25f6cb6bef4eb92b2ffe08b96b0c64d979f76e3c0c5b85ec128986b8c51ca5",
+		"res://scripts/test_room_sandbox.gd": "b731b7a0d0ecc8693fe4a10e7a932f2f17c3786b31e9bb5cb1d349d11f53643e",
+		"res://scripts/test_room_status_controls.gd": "81adec3c6d90502d90f901a39192bdb8f36ba605145824d374e825fade8da42a",
+		"res://scripts/trap.gd": "e29d1e7bff75a9ae6635f7be89387d98dc91007b0eecb14b12174a09325f50f2",
+		"res://tests/dark_fantasy_gallery_preview.gd": "2bb9b10d58b42aaaaa6ae53149793ad7d089f6078ccdcbcbb4d9e98d05b8ad10"
+	},
+	"view_axes": {
+		"back": "+Z",
+		"bottom": "-Y",
+		"front": "-Z",
+		"left": "-X",
+		"right": "+X",
+		"top": "+Y"
+	},
+	"view_order": [
+		"front",
+		"back",
+		"left",
+		"right",
+		"top",
+		"bottom"
+	]
+}

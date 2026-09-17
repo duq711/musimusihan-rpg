@@ -1,0 +1,60 @@
+{
+  "headless_passed": [
+    "reference_sword_motion",
+    "reference_sword_cut_preview",
+    "sword_attack_variants",
+    "sword_edge_alignment",
+    "sword_direct_entry",
+    "reference_sword_arm_player",
+    "unified_sword_motion",
+    "reference_sword_motion_test_room",
+    "sword_two_hand_grip",
+    "sword_recovery_continuity"
+  ],
+  "headless_failed": {
+    "sword_clash": {
+      "fixture": "natural close-range rendered blade overlap",
+      "same_assertions_failed_in_pre_change_baseline": true,
+      "assertions": [
+        "natural close-range attacks must overlap their rendered blade models",
+        "natural blade contact must occur before either body's damage deadline",
+        "natural swing animation must cancel the player strike into clash recovery",
+        "natural swing animation must stagger the armed enemy",
+        "natural swing clash must prevent enemy damage"
+      ],
+      "previous_baseline_log": "../sword_direct_attack_20260913/clash_diagnostic/baseline_same_fixture.log"
+    }
+  },
+  "captures": [
+    {
+      "directory": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/godot-game/artifacts/visual_qa/reference_sword_motion/edge_aligned_final_shield",
+      "actual_frames": 182,
+      "renderer": "vulkan",
+      "display": "embedded",
+      "current_source_hashes_match": true,
+      "preserved": true
+    },
+    {
+      "directory": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/godot-game/artifacts/visual_qa/reference_sword_motion/edge_aligned_final_two_hand",
+      "actual_frames": 182,
+      "renderer": "vulkan",
+      "display": "embedded",
+      "current_source_hashes_match": true,
+      "preserved": true
+    }
+  ],
+  "visual_findings": [
+    "Forehand wrist rotates the blade at a pinned grip without extra raised preparation.",
+    "Blade is shallower and shows the back of the hand; the guard lies diagonally.",
+    "Blade retains upper-right orientation relative to grip through the left/down cut and does not flip after contact.",
+    "Recovery rejoins existing idle.",
+    "Original hand models retained; thumb/left-hand mesh refinements are not claimed complete."
+  ],
+  "logs": [
+    "preflight.log",
+    "edge_alignment.log",
+    "final_regressions.log",
+    "final_two_hand_preview.log",
+    "final_shield_preview.log"
+  ]
+}

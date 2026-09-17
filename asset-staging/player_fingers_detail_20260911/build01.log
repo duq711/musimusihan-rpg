@@ -1,0 +1,20 @@
+00:00.500  blend            | Read blend: "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/player_hands_proportions_20260911/mac_output/iteration_01/bilateral_hands_proportions.blend"
+Info: Baking map saved to internal image, save it externally or pack it
+FINGER_DETAIL_ATLAS_BAKED basecolor 52799
+Traceback (most recent call last):
+  File "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/player_fingers_detail_20260911/tools/build_finger_detail.py", line 72, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/player_fingers_detail_20260911/tools/build_finger_detail.py", line 52, in main
+    report['bake']=bake_finger_detail(scene,hands,out,resolution=4096,samples=a.bake_samples,strength=a.material_strength)
+                   ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/player_fingers_detail_20260911/tools/detail_materials.py", line 369, in bake_finger_detail
+    assert max_protected_delta<1e-6, ('Non-skin texture changed',mode,max_protected_delta)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('Non-skin texture changed', 'roughness', 0.003921568393707275)
+Info: Baking map saved to internal image, save it externally or pack it
+
+Error: script failed, file: 'asset-staging/player_fingers_detail_20260911/tools/build_finger_detail.py', exiting.
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 01:35:57)
+
+Blender quit

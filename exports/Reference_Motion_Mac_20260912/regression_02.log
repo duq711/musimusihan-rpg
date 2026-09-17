@@ -1,0 +1,38 @@
+[HEADLESS] sword_shield_choreography_test.gd
+CHOREOGRAPHY ACTUAL ANATOMY shield {"max_contact":0.000000266976257989882,"max_contact_pose":"actual shield impact frame 28","max_forearm":0.340000152587891,"max_forearm_pose":"left_reverse charge 0 windup frame 1","max_joint_error":0.00000054056516773926,"max_joint_error_pose":"right_diagonal charge 0 windup frame 22","max_upper":0.793408215045929,"max_upper_pose":"right_diagonal charge 1 recovery frame 265","min_alignment":0.980570018291473,"min_alignment_pose":"guard lowering frame 2"}
+ERROR: The actual sweep must carry continuous linear/angular velocity through its contact knot: right_diagonal charge 0 at 0.145000s
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/sword_shield_choreography_test.gd:45)
+ERROR: The actual sweep must carry continuous linear/angular velocity through its contact knot: right_diagonal charge 1 at 0.145000s
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/sword_shield_choreography_test.gd:45)
+ERROR: The actual sweep must carry continuous linear/angular velocity through its contact knot: left_reverse charge 0 at 0.145000s
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/sword_shield_choreography_test.gd:45)
+ERROR: The actual sweep must carry continuous linear/angular velocity through its contact knot: left_reverse charge 1 at 0.145000s
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/sword_shield_choreography_test.gd:45)
+ERROR: The actual sweep must carry continuous linear/angular velocity through its contact knot: overhead charge 0 at 0.145000s
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/sword_shield_choreography_test.gd:45)
+ERROR: The actual sweep must carry continuous linear/angular velocity through its contact knot: overhead charge 1 at 0.145000s
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/sword_shield_choreography_test.gd:45)
+ERROR: shield max_upper physical limit 0.5000 failed at 0.793408 (right_diagonal charge 1 recovery frame 265)
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/sword_shield_choreography_test.gd:45)
+SWORD SHIELD CHOREOGRAPHY FAIL: continuous phase/knot velocity, three actual 120 Hz blade paths, modeled clash recovery without snapping, real wrist/limb/marker contacts, reversible shield raising, recoil and pause/aim isolation
+[HEADLESS] first_person_motion_test_room_test.gd
+FIRST PERSON MOTION TEST ROOM PASS: seven motion families plus five sword/shield trials, real cuts/guard/enemy impact, repeated F2, reset and complete original session restoration
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2535)
+
+Headless validation: 1 passed, 1 failed.
+FAILED: sword_shield_choreography_test.gd (1)

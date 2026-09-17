@@ -1,0 +1,129 @@
+{
+  "status": "completed_and_verified",
+  "production_iteration": "iteration_03",
+  "host": {
+    "os": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "system": "Darwin",
+    "machine": "gimjin-yeob-ui-MacBookAir.local",
+    "blender_binary": "/Applications/Blender.app/Contents/MacOS/Blender",
+    "blender_version": "5.2.1 LTS",
+    "background": true
+  },
+  "assets": {
+    "left": {
+      "bytes": 1985488,
+      "sha256": "6afe2b131ad47760b43bf9067aa686e3f48978d31c22a382f217aa2f3470e029",
+      "referenced_mesh_instances": 9,
+      "triangles": 57346,
+      "skins": [
+        [
+          "wrist",
+          "index0",
+          "index1",
+          "index2",
+          "little0",
+          "little1",
+          "little2",
+          "middle0",
+          "middle1",
+          "middle2",
+          "ring0",
+          "ring1",
+          "ring2",
+          "thumb0",
+          "thumb1",
+          "thumb2"
+        ]
+      ],
+      "materials": [
+        "Detailed_Sleeve",
+        "Detailed_Trim",
+        "Detailed_Skin",
+        "Detailed_Glove",
+        "Detailed_Nail"
+      ],
+      "textures": 0
+    },
+    "right": {
+      "bytes": 1985828,
+      "sha256": "b3331cff415b0f10c4f204e48004a523ed2e8bad669ffa38a4df5639eed5494b",
+      "referenced_mesh_instances": 9,
+      "triangles": 57346,
+      "skins": [
+        [
+          "wrist",
+          "index0",
+          "index1",
+          "index2",
+          "little0",
+          "little1",
+          "little2",
+          "middle0",
+          "middle1",
+          "middle2",
+          "ring0",
+          "ring1",
+          "ring2",
+          "thumb0",
+          "thumb1",
+          "thumb2"
+        ]
+      ],
+      "materials": [
+        "Detailed_Sleeve",
+        "Detailed_Trim",
+        "Detailed_Skin",
+        "Detailed_Glove",
+        "Detailed_Nail"
+      ],
+      "textures": 0
+    }
+  },
+  "blender_verification": "passed: editable file, portable packed resources, GLB roundtrip, original wrist and 16 rest matrices, five real finger deformations, rigid distal nails with outward exposed faces, sculpted hand surface",
+  "automated_tests": {
+    "passed": [
+      "player_hands_detailed",
+      "player_hands_greybox",
+      "player_arm",
+      "weapon_hand_contacts",
+      "chest_hands",
+      "test_room_session"
+    ],
+    "failed": []
+  },
+  "visual_review": {
+    "blender_images": [
+      "both_hands_dorsum.png",
+      "both_hands_closeup_palm.png",
+      "both_hands_closeup_dorsum.png",
+      "both_hands_side.png",
+      "both_hands_palm.png"
+    ],
+    "comparison": "Comparison/greybox_to_detailed.png",
+    "game_images": [
+      "free_hands.png",
+      "free_hands_greybox.png",
+      "bow_draw.png",
+      "bow_release.png",
+      "chest_touch.png",
+      "chest_lift.png"
+    ],
+    "renderer": "vulkan",
+    "display_driver": "embedded",
+    "reviewed": true,
+    "desktop_capture": false,
+    "external_input": false
+  },
+  "preservation": {
+    "existing_asset_files_unchanged": 40,
+    "changed": [],
+    "expedition_inventory_and_cursor_preserved": true
+  },
+  "test_room": "기본 → 캐릭터 그래픽 · 양손 디테일 모델",
+  "limits": [
+    "Neutral clay geometry refinement; no color texture or normal-map bake.",
+    "Optional generic hands/free/bow/chest profile; separately authored default sword/shield hands and full-body model unchanged.",
+    "Real gameplay-driven GPU capture, not manual OS input testing.",
+    "Existing ObjectDB exit warnings remain in relevant shared-fixture tests. Known prior sword_long_grip baseline shoulder mismatch was not rerun or changed."
+  ]
+}

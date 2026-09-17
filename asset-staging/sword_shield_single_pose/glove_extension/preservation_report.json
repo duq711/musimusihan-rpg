@@ -1,0 +1,559 @@
+{
+  "method": "Append fitted leather only; no original binary edits",
+  "coordinate_system": "GLB Y up; actual transformed proximal bone axes",
+  "arms": [
+    {
+      "file": "left_arm.glb",
+      "source_sha256": "f7e82afdcd98c85e2bcf64ae0aa95df5108bf0af815d19945f155b705e879995",
+      "output_sha256": "dc655e8c44664e678781632f6f0b35a9b5496d72308aaf527260ae1e8265ccb9",
+      "source_binary_sha256": "315c018f05ca8c9c652e8e2a33739437e91dbb6c570e05ea0bd6a39a996ef73f",
+      "preserved_binary_prefix_sha256": "315c018f05ca8c9c652e8e2a33739437e91dbb6c570e05ea0bd6a39a996ef73f",
+      "original_binary_bytes_preserved": 6889932,
+      "appended_binary_bytes": 675832,
+      "original_nodes_unchanged_except_one_appended_child": true,
+      "all_original_meshes_and_accessors_unchanged": true,
+      "all_skin_geometry_normals_uv_weights_unchanged": true,
+      "all_original_glove_geometry_unchanged": true,
+      "joint_transforms_and_inverse_bind_matrices_unchanged": true,
+      "all_rigid_sleeves_unchanged": true,
+      "materials_textures_images_unchanged": true,
+      "existing_skin_index_reused": 0,
+      "new_mesh_nodes": 1,
+      "new_surfaces": 2,
+      "digits": [
+        {
+          "digit": "little",
+          "actual_proximal_bone": "little0",
+          "actual_proximal_root_y_up": [
+            -0.05375000089406967,
+            0.010122789070010213,
+            -0.07499999552965161
+          ],
+          "actual_next_joint_root_y_up": [
+            -0.07375000376276047,
+            0.014041649620013684,
+            -0.11624999546141254
+          ],
+          "actual_proximal_axis_y_up": [
+            -0.4346881759776832,
+            0.08517410500268689,
+            -0.896544232875426
+          ],
+          "proximal_length_m": 0.04600999975144849,
+          "opening_fraction": 0.8,
+          "overlap_start_fraction": 0.2,
+          "bare_distance_before_middle_joint_m": 0.009201999950289697,
+          "outer_skin_offset_m": [
+            0.00175,
+            0.00275
+          ],
+          "leather_thickness_m": 0.0015,
+          "source_skin_surface_triangles": 730,
+          "added_triangles": 1744,
+          "bound_edge_counts": {
+            "overlap_start": 56,
+            "finger_opening": 64,
+            "other": 22
+          },
+          "other_boundary_fraction_bounds": [
+            0.21404907115602556,
+            0.5848555242419867
+          ],
+          "outer_bounds_y_up": {
+            "min": [
+              -0.0750160371446901,
+              -0.006087189495035195,
+              -0.11838956396228252
+            ],
+            "max": [
+              -0.039912652757423776,
+              0.028429181869630234,
+              -0.08076690291266643
+            ]
+          }
+        },
+        {
+          "digit": "ring",
+          "actual_proximal_bone": "ring0",
+          "actual_proximal_root_y_up": [
+            -0.028750000521540642,
+            0.01645631901919845,
+            -0.09374999254941938
+          ],
+          "actual_next_joint_root_y_up": [
+            -0.03249999887971661,
+            0.02500943440613686,
+            -0.149999979386914
+          ],
+          "actual_proximal_axis_y_up": [
+            -0.06576638019056039,
+            0.15000204923415822,
+            -0.9864959039256999
+          ],
+          "proximal_length_m": 0.05701999026417774,
+          "opening_fraction": 0.8,
+          "overlap_start_fraction": 0.2,
+          "bare_distance_before_middle_joint_m": 0.011403998052835545,
+          "outer_skin_offset_m": [
+            0.00175,
+            0.00275
+          ],
+          "leather_thickness_m": 0.0015,
+          "source_skin_surface_triangles": 798,
+          "added_triangles": 1876,
+          "bound_edge_counts": {
+            "overlap_start": 54,
+            "finger_opening": 66,
+            "other": 20
+          },
+          "other_boundary_fraction_bounds": [
+            0.20626271005175661,
+            0.44399791474020184
+          ],
+          "outer_bounds_y_up": {
+            "min": [
+              -0.04507923501238522,
+              0.0043136851969899585,
+              -0.14099462253882272
+            ],
+            "max": [
+              -0.009988907054712372,
+              0.04184137565318189,
+              -0.10230679489452904
+            ]
+          }
+        },
+        {
+          "digit": "middle",
+          "actual_proximal_bone": "middle0",
+          "actual_proximal_root_y_up": [
+            0.005000000353902578,
+            0.023313136771321328,
+            -0.1012500002980232
+          ],
+          "actual_next_joint_root_y_up": [
+            0.006249999605837372,
+            0.029090129822491942,
+            -0.1600000128155719
+          ],
+          "actual_proximal_axis_y_up": [
+            0.02116971011045692,
+            0.09783787311401176,
+            -0.9949771826320268
+          ],
+          "proximal_length_m": 0.05904659276922964,
+          "opening_fraction": 0.8,
+          "overlap_start_fraction": 0.2,
+          "bare_distance_before_middle_joint_m": 0.011809318553845925,
+          "outer_skin_offset_m": [
+            0.00175,
+            0.00275
+          ],
+          "leather_thickness_m": 0.0015,
+          "source_skin_surface_triangles": 891,
+          "added_triangles": 2064,
+          "bound_edge_counts": {
+            "overlap_start": 55,
+            "finger_opening": 66,
+            "other": 20
+          },
+          "other_boundary_fraction_bounds": [
+            0.20211841255099622,
+            0.3215755508250662
+          ],
+          "outer_bounds_y_up": {
+            "min": [
+              -0.012438591724739746,
+              0.005740169938672574,
+              -0.14977027729706974
+            ],
+            "max": [
+              0.023092312711112097,
+              0.045391454495013694,
+              -0.11133997708494227
+            ]
+          }
+        },
+        {
+          "digit": "index",
+          "actual_proximal_bone": "index0",
+          "actual_proximal_root_y_up": [
+            0.03749999776482582,
+            0.018623864278197316,
+            -0.08999998122453687
+          ],
+          "actual_next_joint_root_y_up": [
+            0.04124999645553754,
+            0.02229192575269508,
+            -0.14374998377733797
+          ],
+          "actual_proximal_axis_y_up": [
+            0.06943751560952548,
+            0.06792031061850777,
+            -0.9952714518318418
+          ],
+          "proximal_length_m": 0.05400536954402922,
+          "opening_fraction": 0.8,
+          "overlap_start_fraction": 0.2,
+          "bare_distance_before_middle_joint_m": 0.010801073908805843,
+          "outer_skin_offset_m": [
+            0.00175,
+            0.00275
+          ],
+          "leather_thickness_m": 0.0015,
+          "source_skin_surface_triangles": 921,
+          "added_triangles": 2152,
+          "bound_edge_counts": {
+            "overlap_start": 65,
+            "finger_opening": 68,
+            "other": 22
+          },
+          "other_boundary_fraction_bounds": [
+            0.2023852624246147,
+            0.5408175843339451
+          ],
+          "outer_bounds_y_up": {
+            "min": [
+              0.016605143573644066,
+              0.0009927725178927706,
+              -0.13465527607526806
+            ],
+            "max": [
+              0.058827470721769845,
+              0.03964339556469414,
+              -0.09927341779848975
+            ]
+          }
+        },
+        {
+          "digit": "thumb",
+          "actual_proximal_bone": "thumb1",
+          "actual_proximal_root_y_up": [
+            0.07500000229865947,
+            -0.015254763065967732,
+            -0.043749986966511716
+          ],
+          "actual_next_joint_root_y_up": [
+            0.08999999715832703,
+            -0.024093091079713316,
+            -0.07874998498106023
+          ],
+          "actual_proximal_axis_y_up": [
+            0.38371871763764226,
+            -0.22609553691343517,
+            -0.8953439305218686
+          ],
+          "proximal_length_m": 0.03909112110041119,
+          "opening_fraction": 0.65,
+          "overlap_start_fraction": 0.0,
+          "bare_distance_before_middle_joint_m": 0.013681892385143916,
+          "outer_skin_offset_m": [
+            0.00175,
+            0.00275
+          ],
+          "leather_thickness_m": 0.0015,
+          "source_skin_surface_triangles": 1003,
+          "added_triangles": 2368,
+          "bound_edge_counts": {
+            "overlap_start": 97,
+            "finger_opening": 64,
+            "other": 20
+          },
+          "other_boundary_fraction_bounds": [
+            0.010485834420375196,
+            0.320090895570149
+          ],
+          "outer_bounds_y_up": {
+            "min": [
+              0.02870874591558761,
+              -0.035911510775959485,
+              -0.0763374643937767
+            ],
+            "max": [
+              0.0926188351699477,
+              0.013786740870643554,
+              -0.03863664554972205
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "file": "right_arm.glb",
+      "source_sha256": "f413710a3caaf00303ced1d54db5fc626a11e4c72d5a5106928e4e5e63f2d322",
+      "output_sha256": "47cea9d4d239d6afcf5e6af5538fbb733c3f7565168b065301531b3282458aae",
+      "source_binary_sha256": "74e5feccb99d7b3920ffcb929b0a1e9eb8df104722997e63a3247764603fed20",
+      "preserved_binary_prefix_sha256": "74e5feccb99d7b3920ffcb929b0a1e9eb8df104722997e63a3247764603fed20",
+      "original_binary_bytes_preserved": 6889932,
+      "appended_binary_bytes": 687320,
+      "original_nodes_unchanged_except_one_appended_child": true,
+      "all_original_meshes_and_accessors_unchanged": true,
+      "all_skin_geometry_normals_uv_weights_unchanged": true,
+      "all_original_glove_geometry_unchanged": true,
+      "joint_transforms_and_inverse_bind_matrices_unchanged": true,
+      "all_rigid_sleeves_unchanged": true,
+      "materials_textures_images_unchanged": true,
+      "existing_skin_index_reused": 0,
+      "new_mesh_nodes": 1,
+      "new_surfaces": 2,
+      "digits": [
+        {
+          "digit": "little",
+          "actual_proximal_bone": "little0",
+          "actual_proximal_root_y_up": [
+            0.05375000089406967,
+            0.010122789070010213,
+            -0.07499999552965161
+          ],
+          "actual_next_joint_root_y_up": [
+            0.07375000376276047,
+            0.014041649620013684,
+            -0.11624999546141254
+          ],
+          "actual_proximal_axis_y_up": [
+            0.4346881759776832,
+            0.08517410500268689,
+            -0.896544232875426
+          ],
+          "proximal_length_m": 0.04600999975144849,
+          "opening_fraction": 0.8,
+          "overlap_start_fraction": 0.2,
+          "bare_distance_before_middle_joint_m": 0.009201999950289697,
+          "outer_skin_offset_m": [
+            0.00175,
+            0.00275
+          ],
+          "leather_thickness_m": 0.0015,
+          "source_skin_surface_triangles": 727,
+          "added_triangles": 1732,
+          "bound_edge_counts": {
+            "overlap_start": 52,
+            "finger_opening": 64,
+            "other": 23
+          },
+          "other_boundary_fraction_bounds": [
+            0.20668114713773714,
+            0.5862853580593373
+          ],
+          "outer_bounds_y_up": {
+            "min": [
+              0.03991224586974899,
+              -0.005624424751787769,
+              -0.11799615983579448
+            ],
+            "max": [
+              0.07508355233412642,
+              0.027725818810053534,
+              -0.08091984353934772
+            ]
+          }
+        },
+        {
+          "digit": "ring",
+          "actual_proximal_bone": "ring0",
+          "actual_proximal_root_y_up": [
+            0.028750000521540642,
+            0.01645631901919845,
+            -0.09374999254941938
+          ],
+          "actual_next_joint_root_y_up": [
+            0.03249999887971661,
+            0.02500943440613686,
+            -0.149999979386914
+          ],
+          "actual_proximal_axis_y_up": [
+            0.06576638019056039,
+            0.15000204923415822,
+            -0.9864959039256999
+          ],
+          "proximal_length_m": 0.05701999026417774,
+          "opening_fraction": 0.8,
+          "overlap_start_fraction": 0.2,
+          "bare_distance_before_middle_joint_m": 0.011403998052835545,
+          "outer_skin_offset_m": [
+            0.00175,
+            0.00275
+          ],
+          "leather_thickness_m": 0.0015,
+          "source_skin_surface_triangles": 811,
+          "added_triangles": 1932,
+          "bound_edge_counts": {
+            "overlap_start": 63,
+            "finger_opening": 70,
+            "other": 22
+          },
+          "other_boundary_fraction_bounds": [
+            0.20626271005175667,
+            0.44399791474020184
+          ],
+          "outer_bounds_y_up": {
+            "min": [
+              0.009986781370178985,
+              0.0042975087956568115,
+              -0.14117244002559645
+            ],
+            "max": [
+              0.04499913231871323,
+              0.042012806746898834,
+              -0.10237272860503847
+            ]
+          }
+        },
+        {
+          "digit": "middle",
+          "actual_proximal_bone": "middle0",
+          "actual_proximal_root_y_up": [
+            -0.005000000353902578,
+            0.023313136771321328,
+            -0.1012500002980232
+          ],
+          "actual_next_joint_root_y_up": [
+            -0.006249999605837372,
+            0.029090129822491942,
+            -0.1600000128155719
+          ],
+          "actual_proximal_axis_y_up": [
+            -0.02116971011045692,
+            0.09783787311401176,
+            -0.9949771826320268
+          ],
+          "proximal_length_m": 0.05904659276922964,
+          "opening_fraction": 0.8,
+          "overlap_start_fraction": 0.2,
+          "bare_distance_before_middle_joint_m": 0.011809318553845925,
+          "outer_skin_offset_m": [
+            0.00175,
+            0.00275
+          ],
+          "leather_thickness_m": 0.0015,
+          "source_skin_surface_triangles": 895,
+          "added_triangles": 2080,
+          "bound_edge_counts": {
+            "overlap_start": 58,
+            "finger_opening": 66,
+            "other": 21
+          },
+          "other_boundary_fraction_bounds": [
+            0.20211841255099622,
+            0.3215755508250662
+          ],
+          "outer_bounds_y_up": {
+            "min": [
+              -0.023077252782783803,
+              0.006523748668311312,
+              -0.14976667194551196
+            ],
+            "max": [
+              0.012362180250332807,
+              0.045217225723893875,
+              -0.11133716194695585
+            ]
+          }
+        },
+        {
+          "digit": "index",
+          "actual_proximal_bone": "index0",
+          "actual_proximal_root_y_up": [
+            -0.03749999776482582,
+            0.018623864278197316,
+            -0.08999998122453687
+          ],
+          "actual_next_joint_root_y_up": [
+            -0.04124999645553754,
+            0.02229192575269508,
+            -0.14374998377733797
+          ],
+          "actual_proximal_axis_y_up": [
+            -0.06943751560952548,
+            0.06792031061850777,
+            -0.9952714518318418
+          ],
+          "proximal_length_m": 0.05400536954402922,
+          "opening_fraction": 0.8,
+          "overlap_start_fraction": 0.2,
+          "bare_distance_before_middle_joint_m": 0.010801073908805843,
+          "outer_skin_offset_m": [
+            0.00175,
+            0.00275
+          ],
+          "leather_thickness_m": 0.0015,
+          "source_skin_surface_triangles": 916,
+          "added_triangles": 2136,
+          "bound_edge_counts": {
+            "overlap_start": 63,
+            "finger_opening": 64,
+            "other": 25
+          },
+          "other_boundary_fraction_bounds": [
+            0.2023852624246147,
+            0.5408175843339451
+          ],
+          "outer_bounds_y_up": {
+            "min": [
+              -0.05811563352376779,
+              0.00030197142833408895,
+              -0.13470248103017163
+            ],
+            "max": [
+              -0.016406740491970967,
+              0.03999275585724672,
+              -0.09929137201501578
+            ]
+          }
+        },
+        {
+          "digit": "thumb",
+          "actual_proximal_bone": "thumb1",
+          "actual_proximal_root_y_up": [
+            -0.07500000229865947,
+            -0.015254763065967732,
+            -0.043749986966511716
+          ],
+          "actual_next_joint_root_y_up": [
+            -0.08999999715832703,
+            -0.024093091079713316,
+            -0.07874998498106023
+          ],
+          "actual_proximal_axis_y_up": [
+            -0.38371871763764226,
+            -0.22609553691343517,
+            -0.8953439305218686
+          ],
+          "proximal_length_m": 0.03909112110041119,
+          "opening_fraction": 0.65,
+          "overlap_start_fraction": 0.0,
+          "bare_distance_before_middle_joint_m": 0.013681892385143916,
+          "outer_skin_offset_m": [
+            0.00175,
+            0.00275
+          ],
+          "leather_thickness_m": 0.0015,
+          "source_skin_surface_triangles": 1016,
+          "added_triangles": 2420,
+          "bound_edge_counts": {
+            "overlap_start": 109,
+            "finger_opening": 64,
+            "other": 21
+          },
+          "other_boundary_fraction_bounds": [
+            0.010485834420375196,
+            0.3227971320879396
+          ],
+          "outer_bounds_y_up": {
+            "min": [
+              -0.09270421794198333,
+              -0.03529457395142759,
+              -0.07612452200337778
+            ],
+            "max": [
+              -0.02867746690599222,
+              0.013865173835942025,
+              -0.038622798453392074
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "gpu_and_engine_validation": "Not run; root performs production import and gameplay captures"
+}

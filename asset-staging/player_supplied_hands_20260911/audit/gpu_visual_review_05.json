@@ -1,0 +1,550 @@
+{
+  "status": "passed_with_limits",
+  "scope": "Independent direct visual inspection of all 18 final iteration05 actual game captures: 12 joint/control/closeup views and 6 gameplay/profile views.",
+  "renderer": "Vulkan in embedded SubViewport, from capture manifests",
+  "renders_or_assets_modified_by_review": false,
+  "capture_sets": {
+    "player_finger_joints": {
+      "manifest": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/godot-game/artifacts/visual_qa/player_finger_joints/supplied_hands_05/capture_manifest.json",
+      "manifest_sha256": "a6cc2c698fe06cf0a83482edaab7d079ee7ea6843ca8bb7dce061cfdba8b3dd3",
+      "manifest_failures": [],
+      "sources_unchanged_during_capture": true,
+      "current_source_hashes_match_capture": true,
+      "source_hashes": [
+        {
+          "resource": "res://assets/3d/player/hands_detailed/left_hand_detailed.glb",
+          "sha256": "2e9a95b11654862125c2d082017ef18bbc7de75be6685f0e3831f8281b2f74db",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_basecolor.png",
+          "sha256": "b6c1eadbbbf4bf305afa1c51d286fc2bd8584b56217ffff1eeb7cfb6858630d8",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_basecolor.png.import",
+          "sha256": "ed260457af57cc9bd1ce3f377cb3a3df584c506b6b14d54399b2c8388258c894",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_normal.png",
+          "sha256": "24d9699b7e78dd7da94911175e9a4dd6719951eb639e2cdb67f186391546cfb3",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_normal.png.import",
+          "sha256": "d03053c7cbe290231a87340eb0a3fbb9b0bc169b79e8868671791aa8c76d5412",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_roughness.png",
+          "sha256": "6d6dd5c76f4b30e7da77973fdebc66f9cbbca179f667853695b8add33accfa32",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_roughness.png.import",
+          "sha256": "04a9c0ff65b8ed72fe683e6bb8e55de42ad08febf0b3495aebb6ed6fc3a1a9b8",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://assets/3d/player/hands_detailed/left_hand_detailed_supplied_hand_basecolor.png",
+          "sha256": "772537d7afe7831260f00c2e71f17a2e2fc1cec80146c06934b9cacc1f1626f3",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://assets/3d/player/hands_detailed/left_hand_detailed_supplied_hand_basecolor.png.import",
+          "sha256": "6a07ee9a3c970f94057b0d2fbeff2a7d1ceeac1593e5f2ed30f5570caf298fb5",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://assets/3d/player/hands_detailed/left_hand_detailed_supplied_hand_normal.png",
+          "sha256": "8f241a09a8459ac1015fc344804b346b66e7f441367056ee082c0ef156927c9e",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://assets/3d/player/hands_detailed/left_hand_detailed_supplied_hand_normal.png.import",
+          "sha256": "bac011badd509dee3a045007d44d6cfd1c9293a8406cd04d7923276455e1ea14",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://assets/3d/player/hands_detailed/left_hand_detailed_supplied_hand_roughness.png",
+          "sha256": "bfb57d9f7c770785cd4b38c6f7a9a0ea80baf81fd30af87b17a57afb9d3306c7",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://assets/3d/player/hands_detailed/left_hand_detailed_supplied_hand_roughness.png.import",
+          "sha256": "b4230f0088b34ae1b08f65c834aae5b19290f94f40df2b21d44ac4bda3bc88a6",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://assets/3d/player/hands_detailed/right_hand_detailed.glb",
+          "sha256": "8b57c758f46838b045a9e91f34352112801360e126b013d3f5ba54624f775402",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_basecolor.png",
+          "sha256": "b6c1eadbbbf4bf305afa1c51d286fc2bd8584b56217ffff1eeb7cfb6858630d8",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_basecolor.png.import",
+          "sha256": "456af8bf97b45b160285846f70b17e0de1cc92c21bb8aaf4538a0fbc002114bc",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_normal.png",
+          "sha256": "24d9699b7e78dd7da94911175e9a4dd6719951eb639e2cdb67f186391546cfb3",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_normal.png.import",
+          "sha256": "8540f62d70ce3b4b5a74ff951be35eb688b88baa0771fe5a7db0e7c9d2484687",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_roughness.png",
+          "sha256": "6d6dd5c76f4b30e7da77973fdebc66f9cbbca179f667853695b8add33accfa32",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_roughness.png.import",
+          "sha256": "3a3458103fe2c62ed6869af86b1e85d14fd519554edb6c737ba67fe87bf58ee5",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://assets/3d/player/hands_detailed/right_hand_detailed_supplied_hand_basecolor.png",
+          "sha256": "772537d7afe7831260f00c2e71f17a2e2fc1cec80146c06934b9cacc1f1626f3",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://assets/3d/player/hands_detailed/right_hand_detailed_supplied_hand_basecolor.png.import",
+          "sha256": "542e7ca8dd031914f9bb39e551f3f51dce0e095b266d3247342047ee6648d7af",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://assets/3d/player/hands_detailed/right_hand_detailed_supplied_hand_normal.png",
+          "sha256": "8f241a09a8459ac1015fc344804b346b66e7f441367056ee082c0ef156927c9e",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://assets/3d/player/hands_detailed/right_hand_detailed_supplied_hand_normal.png.import",
+          "sha256": "db04d758c1a62434d3a137f1687747d94fe582cad052fd4bc84a7dfea3ab5b67",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://assets/3d/player/hands_detailed/right_hand_detailed_supplied_hand_roughness.png",
+          "sha256": "bfb57d9f7c770785cd4b38c6f7a9a0ea80baf81fd30af87b17a57afb9d3306c7",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://assets/3d/player/hands_detailed/right_hand_detailed_supplied_hand_roughness.png.import",
+          "sha256": "6496502a0db3e62e21d6c232edc10a53fa9468a7cd42a684cf283a825f91f9c5",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://assets/fonts/NotoSansKR-Variable.ttf",
+          "sha256": "194018e6b2b293a7964f037b25c0249ce1418bc9ab3c971060a03aa57861e252",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://scripts/chest_hand_visuals.gd",
+          "sha256": "f4012bebd0fb03ab0fe76c57b7251dc56987fd35612ab1168d4fbe7498831bf3",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://scripts/finger_joint_controls.gd",
+          "sha256": "0b5231140e38f0859594474d6af24a8929403f68979eeb734ebb3937c31823dc",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://scripts/greybox_arm_visual.gd",
+          "sha256": "f0ab4b3d11f3ed45b8e25b7909b5aa6900885ce74bdcd2dbb8a54d6ea5d919d8",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://scripts/player.gd",
+          "sha256": "ebee7766ac7702eb92ea175adb2484c1d6659aa7f879a2add4c941bcb31c7f40",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://scripts/player_arm_visual.gd",
+          "sha256": "7b4bf01960fbaec490741afc815385de1ea9bba7909a324406a8516233907a44",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://scripts/test_room.gd",
+          "sha256": "65e4e4df32be0f0a76c7c8fcb9f5a2e8439007c7fe2070b4290ff135acbae05e",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://scripts/wrist_cuff_deformer.gd",
+          "sha256": "ca9702206cf2485bf638047b7cddf66b404d86842a89b181295d4c1fc0203682",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://tests/player_arm_preview.gd",
+          "sha256": "2066f51f064a5b24cde5896c277d83602ae9784d26e10059bd4309b69b0c4d06",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://tests/player_finger_joints_preview.gd",
+          "sha256": "38662bc6fe44dbaacbfcf450f4ea8fcef77f2dbc0b6b24dbf31e5593dc29eed8",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://tests/player_hands_detailed_preview.gd",
+          "sha256": "8183d13ff5e7133be59922180723d05828db1e4a6fe0878681e51eb59ed118cf",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://tests/player_hands_detailed_test.gd",
+          "sha256": "e55d347abb0e672966d143c9e6d483b17dc9726d8eb0435d7f6e50b8dc9ed3b6",
+          "matches_capture_manifest_and_current_file": true
+        }
+      ],
+      "images": [
+        {
+          "file": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/godot-game/artifacts/visual_qa/player_finger_joints/supplied_hands_05/open.png",
+          "sha256": "fe98c00f42dd1a71d75d3f01b084a64f32cadf6508b57fdb8a68058087ef37c5",
+          "matches_capture_manifest": true,
+          "directly_viewed": true,
+          "finding": "Previous bilateral skin patches across the bent cuff are absent. Both hand-to-cuff openings remain continuous."
+        },
+        {
+          "file": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/godot-game/artifacts/visual_qa/player_finger_joints/supplied_hands_05/wrist_side.png",
+          "sha256": "99655e8e5081b6414dc195460a2d2ae2d0efd8c5518b60c5420ef6f9be0f555c",
+          "matches_capture_manifest": true,
+          "directly_viewed": true,
+          "finding": "Both bent cuffs contain the wrist stump. Lateral thumb nail orientation is distinct from the long fingers and no floating nail is apparent."
+        },
+        {
+          "file": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/godot-game/artifacts/visual_qa/player_finger_joints/supplied_hands_05/bow_draw.png",
+          "sha256": "96f5061d9bba8f88bbad8b8303b29c3d54b2f9a41155093615bfb5ed9f519dee",
+          "matches_capture_manifest": true,
+          "directly_viewed": true,
+          "finding": "Visible wrist attachments remain contained during actual bow draw. Fingernails remain seated; bow hand and string hand retain their displayed contact positions."
+        },
+        {
+          "file": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/godot-game/artifacts/visual_qa/player_finger_joints/supplied_hands_05/chest_touch.png",
+          "sha256": "0002d34de8f27157b3f739271e0cf5f7d8b906b644ac048a337eea673d2fa0bc",
+          "matches_capture_manifest": true,
+          "directly_viewed": true,
+          "finding": "No detached hand or skin patch through the visible cuff regions. Contact detail is limited by distance and chest occlusion."
+        },
+        {
+          "file": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/godot-game/artifacts/visual_qa/player_finger_joints/supplied_hands_05/roots.png",
+          "sha256": "a0cd34fd2635968095248a938ba8071ae73fdca8a492af71cc12588756e59d34",
+          "matches_capture_manifest": true,
+          "directly_viewed": true,
+          "finding": "Root-joint bending is visible with stable cuff attachment."
+        },
+        {
+          "file": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/godot-game/artifacts/visual_qa/player_finger_joints/supplied_hands_05/middles.png",
+          "sha256": "6c309261dd03e1d6e68c61980f1e622a0af458003c290efbcd2e377b7de665db",
+          "matches_capture_manifest": true,
+          "directly_viewed": true,
+          "finding": "Middle-joint bending retains intact visible finger surfaces and stable cuff attachment."
+        },
+        {
+          "file": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/godot-game/artifacts/visual_qa/player_finger_joints/supplied_hands_05/tips.png",
+          "sha256": "836ea9ab49f213964dc0a3c213a397f1dbc453bf23f287313d6950717b438ec8",
+          "matches_capture_manifest": true,
+          "directly_viewed": true,
+          "finding": "Distal-joint bending retains attached digits and the visible wrist connection."
+        },
+        {
+          "file": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/godot-game/artifacts/visual_qa/player_finger_joints/supplied_hands_05/fist.png",
+          "sha256": "09bbbb3f47d0fa9355d4b65c012eefc4dcdfcfc0c21d2b7a55c75c28686f7001",
+          "matches_capture_manifest": true,
+          "directly_viewed": true,
+          "finding": "Combined flex retains intact visible hands and no skin islands across either bent cuff."
+        },
+        {
+          "file": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/godot-game/artifacts/visual_qa/player_finger_joints/supplied_hands_05/palm.png",
+          "sha256": "8e9840725b235d3ff41165c93142f5082c0664c1c2ffb12b35101915084e88bc",
+          "matches_capture_manifest": true,
+          "directly_viewed": true,
+          "finding": "Palmar source creases remain visible; cuff attachment remains continuous on both sides."
+        },
+        {
+          "file": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/godot-game/artifacts/visual_qa/player_finger_joints/supplied_hands_05/controls.png",
+          "sha256": "a6698454269693b8e75ff6d7519d2e2fe34ef480db3a84dec4b65927e04bc3e0",
+          "matches_capture_manifest": true,
+          "directly_viewed": true,
+          "finding": "Production control panel and asymmetric index control are visible; no attachment regression appears."
+        },
+        {
+          "file": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/godot-game/artifacts/visual_qa/player_finger_joints/supplied_hands_05/supplied_dorsal_neutral.png",
+          "sha256": "6084d12a35ecdbac8249913c78a191e2feca099c16df0a83d514133f86c53ede",
+          "matches_capture_manifest": true,
+          "directly_viewed": true,
+          "finding": "Bright actual-source closeup retains supplied dorsal shape, joint creases and lateral thumb nail. Secondary hand is partially cropped."
+        },
+        {
+          "file": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/godot-game/artifacts/visual_qa/player_finger_joints/supplied_hands_05/supplied_palmar_neutral.png",
+          "sha256": "404109ba9aef20fe45e82752d91dc8f2d48cd6f69e528fb7a63283a7c4aa5ff6",
+          "matches_capture_manifest": true,
+          "directly_viewed": true,
+          "finding": "Bright actual-source closeup retains supplied palmar creases and fingertips. Secondary hand is partially cropped."
+        }
+      ]
+    },
+    "player_hands_detailed": {
+      "manifest": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/godot-game/artifacts/visual_qa/player_hands_detailed/supplied_hands_05/capture_manifest.json",
+      "manifest_sha256": "8a0c183a8277159de97ffb9637f7221425fe2c5da43e7348a1ec32525fa15c17",
+      "manifest_failures": [],
+      "sources_unchanged_during_capture": true,
+      "current_source_hashes_match_capture": true,
+      "source_hashes": [
+        {
+          "resource": "res://assets/3d/player/hands_detailed/left_hand_detailed.glb",
+          "sha256": "2e9a95b11654862125c2d082017ef18bbc7de75be6685f0e3831f8281b2f74db",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_basecolor.png",
+          "sha256": "b6c1eadbbbf4bf305afa1c51d286fc2bd8584b56217ffff1eeb7cfb6858630d8",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_basecolor.png.import",
+          "sha256": "ed260457af57cc9bd1ce3f377cb3a3df584c506b6b14d54399b2c8388258c894",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_normal.png",
+          "sha256": "24d9699b7e78dd7da94911175e9a4dd6719951eb639e2cdb67f186391546cfb3",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_normal.png.import",
+          "sha256": "d03053c7cbe290231a87340eb0a3fbb9b0bc169b79e8868671791aa8c76d5412",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_roughness.png",
+          "sha256": "6d6dd5c76f4b30e7da77973fdebc66f9cbbca179f667853695b8add33accfa32",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_roughness.png.import",
+          "sha256": "04a9c0ff65b8ed72fe683e6bb8e55de42ad08febf0b3495aebb6ed6fc3a1a9b8",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://assets/3d/player/hands_detailed/left_hand_detailed_supplied_hand_basecolor.png",
+          "sha256": "772537d7afe7831260f00c2e71f17a2e2fc1cec80146c06934b9cacc1f1626f3",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://assets/3d/player/hands_detailed/left_hand_detailed_supplied_hand_basecolor.png.import",
+          "sha256": "6a07ee9a3c970f94057b0d2fbeff2a7d1ceeac1593e5f2ed30f5570caf298fb5",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://assets/3d/player/hands_detailed/left_hand_detailed_supplied_hand_normal.png",
+          "sha256": "8f241a09a8459ac1015fc344804b346b66e7f441367056ee082c0ef156927c9e",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://assets/3d/player/hands_detailed/left_hand_detailed_supplied_hand_normal.png.import",
+          "sha256": "bac011badd509dee3a045007d44d6cfd1c9293a8406cd04d7923276455e1ea14",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://assets/3d/player/hands_detailed/left_hand_detailed_supplied_hand_roughness.png",
+          "sha256": "bfb57d9f7c770785cd4b38c6f7a9a0ea80baf81fd30af87b17a57afb9d3306c7",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://assets/3d/player/hands_detailed/left_hand_detailed_supplied_hand_roughness.png.import",
+          "sha256": "b4230f0088b34ae1b08f65c834aae5b19290f94f40df2b21d44ac4bda3bc88a6",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://assets/3d/player/hands_detailed/right_hand_detailed.glb",
+          "sha256": "8b57c758f46838b045a9e91f34352112801360e126b013d3f5ba54624f775402",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_basecolor.png",
+          "sha256": "b6c1eadbbbf4bf305afa1c51d286fc2bd8584b56217ffff1eeb7cfb6858630d8",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_basecolor.png.import",
+          "sha256": "456af8bf97b45b160285846f70b17e0de1cc92c21bb8aaf4538a0fbc002114bc",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_normal.png",
+          "sha256": "24d9699b7e78dd7da94911175e9a4dd6719951eb639e2cdb67f186391546cfb3",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_normal.png.import",
+          "sha256": "8540f62d70ce3b4b5a74ff951be35eb688b88baa0771fe5a7db0e7c9d2484687",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_roughness.png",
+          "sha256": "6d6dd5c76f4b30e7da77973fdebc66f9cbbca179f667853695b8add33accfa32",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_roughness.png.import",
+          "sha256": "3a3458103fe2c62ed6869af86b1e85d14fd519554edb6c737ba67fe87bf58ee5",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://assets/3d/player/hands_detailed/right_hand_detailed_supplied_hand_basecolor.png",
+          "sha256": "772537d7afe7831260f00c2e71f17a2e2fc1cec80146c06934b9cacc1f1626f3",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://assets/3d/player/hands_detailed/right_hand_detailed_supplied_hand_basecolor.png.import",
+          "sha256": "542e7ca8dd031914f9bb39e551f3f51dce0e095b266d3247342047ee6648d7af",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://assets/3d/player/hands_detailed/right_hand_detailed_supplied_hand_normal.png",
+          "sha256": "8f241a09a8459ac1015fc344804b346b66e7f441367056ee082c0ef156927c9e",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://assets/3d/player/hands_detailed/right_hand_detailed_supplied_hand_normal.png.import",
+          "sha256": "db04d758c1a62434d3a137f1687747d94fe582cad052fd4bc84a7dfea3ab5b67",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://assets/3d/player/hands_detailed/right_hand_detailed_supplied_hand_roughness.png",
+          "sha256": "bfb57d9f7c770785cd4b38c6f7a9a0ea80baf81fd30af87b17a57afb9d3306c7",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://assets/3d/player/hands_detailed/right_hand_detailed_supplied_hand_roughness.png.import",
+          "sha256": "6496502a0db3e62e21d6c232edc10a53fa9468a7cd42a684cf283a825f91f9c5",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://assets/3d/player/hands_greybox/left_hand_greybox.glb",
+          "sha256": "d0b0b0752c942984e9763d44917ec7d20676b3e99bce1a94b532396bc6827e16",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://assets/3d/player/hands_greybox/right_hand_greybox.glb",
+          "sha256": "1edebacc2cbb8e39a7952338ed94a31fae327d05de15f92c30851dbb418f7c58",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://scripts/chest_hand_visuals.gd",
+          "sha256": "f4012bebd0fb03ab0fe76c57b7251dc56987fd35612ab1168d4fbe7498831bf3",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://scripts/greybox_arm_visual.gd",
+          "sha256": "f0ab4b3d11f3ed45b8e25b7909b5aa6900885ce74bdcd2dbb8a54d6ea5d919d8",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://scripts/player.gd",
+          "sha256": "ebee7766ac7702eb92ea175adb2484c1d6659aa7f879a2add4c941bcb31c7f40",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://scripts/player_arm_visual.gd",
+          "sha256": "7b4bf01960fbaec490741afc815385de1ea9bba7909a324406a8516233907a44",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://scripts/wrist_cuff_deformer.gd",
+          "sha256": "ca9702206cf2485bf638047b7cddf66b404d86842a89b181295d4c1fc0203682",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://tests/player_arm_preview.gd",
+          "sha256": "2066f51f064a5b24cde5896c277d83602ae9784d26e10059bd4309b69b0c4d06",
+          "matches_capture_manifest_and_current_file": true
+        },
+        {
+          "resource": "res://tests/player_hands_detailed_preview.gd",
+          "sha256": "8183d13ff5e7133be59922180723d05828db1e4a6fe0878681e51eb59ed118cf",
+          "matches_capture_manifest_and_current_file": true
+        }
+      ],
+      "images": [
+        {
+          "file": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/godot-game/artifacts/visual_qa/player_hands_detailed/supplied_hands_05/free_hands.png",
+          "sha256": "4db43456c87a563c5c3da63547605d2c7dd3e56ef32aef546a96632544141d70",
+          "matches_capture_manifest": true,
+          "directly_viewed": true,
+          "finding": "Both final supplied hands remain seated inside the bent cuffs in the ordinary free-hand pose."
+        },
+        {
+          "file": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/godot-game/artifacts/visual_qa/player_hands_detailed/supplied_hands_05/free_hands_greybox.png",
+          "sha256": "bc5cd128bf0969b90d2adffc93798107c3992a9a18e52506551ad998d7d0ac35",
+          "matches_capture_manifest": true,
+          "directly_viewed": true,
+          "finding": "Preserved greybox profile is intentionally shown for comparison and is not the final supplied-hand material or geometry."
+        },
+        {
+          "file": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/godot-game/artifacts/visual_qa/player_hands_detailed/supplied_hands_05/bow_draw.png",
+          "sha256": "9a8bf832a0677279cafbed81b03a4587aca02a02a084ccf2e988f0f42d4ef51c",
+          "matches_capture_manifest": true,
+          "directly_viewed": true,
+          "finding": "Visible wrist attachments remain contained during actual bow draw. Fingernails remain seated; bow hand and string hand retain their displayed contact positions."
+        },
+        {
+          "file": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/godot-game/artifacts/visual_qa/player_hands_detailed/supplied_hands_05/bow_release.png",
+          "sha256": "e6981657372984689523b6be0e5da666eb0e664e846fd3f9f62d9b36a4f9fd5d",
+          "matches_capture_manifest": true,
+          "directly_viewed": true,
+          "finding": "Actual release pose retains the bow support hand and opens the string hand without visible wrist detachment or a loose nail."
+        },
+        {
+          "file": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/godot-game/artifacts/visual_qa/player_hands_detailed/supplied_hands_05/chest_touch.png",
+          "sha256": "14e8f2e83a712b4a4362412567f0352eddbd6b2cd67ae444c6566a0de9df1b3a",
+          "matches_capture_manifest": true,
+          "directly_viewed": true,
+          "finding": "No detached hand or skin patch through the visible cuff regions. Contact detail is limited by distance and chest occlusion."
+        },
+        {
+          "file": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/godot-game/artifacts/visual_qa/player_hands_detailed/supplied_hands_05/chest_lift.png",
+          "sha256": "c6a20210177a30243d970b870e36c9e7e296acffce4272ccc149f224959fc789",
+          "matches_capture_manifest": true,
+          "directly_viewed": true,
+          "finding": "Both hands remain attached during actual chest-lid lift; visible cuffs show no old skin-patch regression."
+        }
+      ]
+    }
+  },
+  "blocking_visual_findings": [],
+  "limitations": [
+    "Most gameplay frames use dark illumination; they are useful for silhouettes and major clipping, but do not independently establish precise skin color or subtle surface quality.",
+    "Fine creases and the initial finger curl originate in the supplied sculpt and its detail bake. This is a source-model integration review, not a new sculpting or detail-authoring pass.",
+    "Small localized dorsal dark crease-like marks remain; this review did not isolate whether they arise from source surface detail, reduced geometry or normal baking.",
+    "Finite still views do not prove continuous collision-free motion for all intermediate poses. Chest contact regions are partly occluded.",
+    "The two bright neutral closeups each crop part of the secondary hand; the complete bilateral game/native views provide the complementary evidence."
+  ],
+  "final_glb_matches_game": {
+    "left": {
+      "stage_file": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/player_supplied_hands_20260911/mac_output/iteration_05/left_hand_supplied.glb",
+      "game_file": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/godot-game/assets/3d/player/hands_detailed/left_hand_detailed.glb",
+      "sha256": "2e9a95b11654862125c2d082017ef18bbc7de75be6685f0e3831f8281b2f74db",
+      "match": true
+    },
+    "right": {
+      "stage_file": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/player_supplied_hands_20260911/mac_output/iteration_05/right_hand_supplied.glb",
+      "game_file": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/godot-game/assets/3d/player/hands_detailed/right_hand_detailed.glb",
+      "sha256": "8b57c758f46838b045a9e91f34352112801360e126b013d3f5ba54624f775402",
+      "match": true
+    }
+  },
+  "unchanged_character_evidence": {
+    "character_glb_sha256": "b25875dadb920303d7e8b0e58085973586b9cdf4cceb383159bcdb7e2c9fc92b",
+    "iteration05_matches_iteration02": true,
+    "prior_direct_native_character_review": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/player_supplied_hands_20260911/review/final_03/native_visual_review.json",
+    "no_new_character_gpu_inspection_claimed_here": true
+  },
+  "attachment_result": "The large skin islands seen in iteration03 open-pose cuffs are absent in final05. Open, side, joint-flex, bow draw/release and chest touch/lift views reveal no comparable attachment regression."
+}

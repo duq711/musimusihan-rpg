@@ -1,0 +1,13 @@
+/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/player_supplied_hands_20260911/tools/inspect_supplied_hand.py:29: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  material=bpy.data.materials.new('Source_Inspection_Constant_Grey');material.use_nodes=True
+/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/player_supplied_hands_20260911/tools/inspect_supplied_hand.py:42: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world=bpy.data.worlds.new('Inspection_Charcoal');world.use_nodes=True;world.node_tree.nodes['Background'].inputs['Color'].default_value=(.035,.035,.035,1);world.node_tree.nodes['Background'].inputs['Strength'].default_value=.5;scene.world=world
+00:10.321  render           | Saved: '/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/player_supplied_hands_20260911/review/source_positive_normal.png'
+00:18.696  render           | Saved: '/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/player_supplied_hands_20260911/review/source_negative_normal.png'
+00:25.393  render           | Saved: '/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/player_supplied_hands_20260911/review/source_side.png'
+Info: Saved as "source_inspection.blend"
+SUPPLIED_HAND_INSPECTION_COMPLETE {"objects": [{"object": "hand1", "vertices": 596759, "edges": 1200065, "polygons": 603318, "triangles": 1193494, "uv_layers": [], "color_attributes": [], "source_materials": [], "world_bounds_min": [45.39966583251953, 172.58795166015625, 49.18124008178711], "world_bounds_max": [84.96772003173828, 227.67630004882812, 78.57649230957031], "matrix_world": [[1.0, 0.0, 0.0, 0.0], [0.0, 1.0, 0.0, 0.0], [0.0, 0.0, 1.0, 0.0], [0.0, 0.0, 0.0, 1.0]]}], "pca_extent": {"width": 37.62023151416688, "length": 54.695457623625245, "depth": 22.008023687375857}, "pca_up_axis": [-0.5103888559706444, 0.8150657406447096, 0.2741734015696422], "pca_positive_normal_axis": [0.38368832005151454, -0.06949225067309413, 0.9208442322957964]}
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 01:35:57)
+OBJ import of 'hand1.OBJ' took 251.59 ms
+
+Blender quit

@@ -1,0 +1,32 @@
+[HEADLESS] torch_grip_test.gd
+TORCH PAD thumb samples=20 min/max_m=0.0005239470797/0.00235410617854
+TORCH PAD index samples=12 min/max_m=0.00043167455404/0.00203669184091
+TORCH PAD middle samples=14 min/max_m=0.00025285958092/0.0020488622626
+TORCH PAD ring samples=12 min/max_m=0.00040865558354/0.00078115160867
+TORCH PAD little samples=12 min/max_m=0.00062863669134/0.00094016679091
+TORCH PAD palm samples=16 min/max_m=0.00037697207041/0.00076975403736
+TORCH SKIN vertices=30045 minimum_clearance_m=-0.00025061354732
+ERROR: actual skin must stay outside shaft: -0.00025061354732
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] run (res://tests/torch_grip_test.gd:41)
+       [1] audit_testroom (res://tests/torch_grip_test.gd:116)
+[HEADLESS] player_arm_test.gd
+PLAYER ARM PASS: supplied default hand GLB/texture fidelity, real skinned grip and wrist-preserving arm fit, actual combat/bow/chest preview paths, trial hits and contacts, F2/repeat/reset and expedition restoration
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2535)
+[HEADLESS] first_person_motion_test.gd
+FIRST PERSON MOTION PASS: phase-continuous sword curves, impact clock, actual two-hand bow/string and shield contacts, release, interruption, two-arm ownership, frame-rate consistency, pause and aim isolation
+[HEADLESS] player_finger_joints_test.gd
+PLAYER FINGER JOINTS PASS: thirty independent local joints, source-localized morphs and weighted supplied anatomy, original nail attachment, limits/reset, bow/chest linkage, real controls and isolated F2/repeat/switch/reset/exit
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2535)
+[HEADLESS] test_room_session_test.gd
+TEST ROOM SESSION TEST PASS: inventory identity, stress accumulation/recovery isolation, camping supplies, bow and arrows, chain flail, wallet, deep stock copies, needs, ailments, magic, and unstarted-session restoration
+[HEADLESS] test_room_test.gd
+TEST ROOM PASS: catalog, actors, chest hands/equipment/repeat/cancellation, stress accumulation/recovery/perception/isolation, pause, camping, flail, archery, fixtures, results, reset, scene roundtrip and original session restoration
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2535)
+
+Headless validation: 5 passed, 1 failed.
+FAILED: torch_grip_test.gd (1)

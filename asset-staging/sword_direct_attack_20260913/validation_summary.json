@@ -1,0 +1,38 @@
+{
+  "request": "Remove the extra preparatory sword raise; use the current grip and same attack presentation with shield or two hands",
+  "implemented": true,
+  "automated_checks_passed": [
+    "sword_direct_entry",
+    "unified_sword_motion",
+    "reference_sword_arm_player",
+    "reference_sword_motion",
+    "sword_attack_variants",
+    "reference_sword_motion_test_room",
+    "reference_sword_cut_preview",
+    "sword_two_hand_grip",
+    "sword_long_grip"
+  ],
+  "automated_pass_count": 9,
+  "actual_renderer": "vulkan",
+  "display_driver": "embedded",
+  "actual_frame_count": 364,
+  "capture_inputs": "short click released at t=0 for both stances",
+  "source_hashes_match_final_captures": true,
+  "visual_review": "Start/0.1/0.2 second samples keep the clicked grip; attacks proceed without holding a separately raised pose. Both stances compared. No claim about previously rejected overall cut/hand aesthetics.",
+  "video": "godot-game/artifacts/visual_qa/reference_sword_motion/direct_entry_comparison/short_click_comparison.mp4",
+  "unchanged": [
+    "original full motion manifest",
+    "original sword and hand meshes",
+    "minimum input preparation/charge rules",
+    "body hit and active clocks",
+    "damage and stamina costs"
+  ],
+  "known_preexisting_failures": [
+    {
+      "test": "sword_clash",
+      "case": "natural close-range fixture",
+      "result": "Rendered swords do not overlap at the existing placement; the same fixture fails after disabling direct entry to restore the prior preparation motion. Existing test kept intact.",
+      "evidence": "clash_diagnostic/baseline_same_fixture.log"
+    }
+  ]
+}

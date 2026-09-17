@@ -1,0 +1,100 @@
+{
+  "task": "Official Blender MCP setup on Windows",
+  "setup_status": "pass",
+  "execution_host": "DESKTOP-M9TL6BT",
+  "execution_os": "Windows",
+  "versions": {
+    "blender": "5.2.1 LTS",
+    "python": "3.11.16",
+    "uv": "0.12.11",
+    "blender_mcp_package": "1.0.2",
+    "mcp_sdk": "1.30.0",
+    "blender_addon": "1.0.0"
+  },
+  "official_source": {
+    "repository": "https://projects.blender.org/lab/blender_mcp.git",
+    "announcement_and_documentation": "https://www.blender.org/lab/mcp-server/",
+    "checkout": "C:/Users/duq71/.codex/tools/blender-mcp-official",
+    "commit": "5181fa06d5c601e910eb680a0012d20d1203b8d5",
+    "tracked_files_unchanged": true
+  },
+  "config": {
+    "path": "C:/Users/duq71/.codex/config.toml",
+    "baseline_backup": "C:/Users/duq71/.codex/config.toml.before-blmcp-20260909_215426.bak",
+    "before_adapter_backup": "C:/Users/duq71/.codex/config.toml.before-blmcp-stdin-fix-20260909_220244.bak",
+    "baseline_equals_current_toml_without_blmcp": true,
+    "unrelated_settings_preserved": true,
+    "model_and_reasoning_effort_preserved": true,
+    "current_sha256": "07ae885b3532804a43a96e8a9c241af6cbf2a8b4555e124d1f4d54c38f6363ed",
+    "server_name": "blmcp",
+    "command": "C:/Users/duq71/.codex/tools/blender-mcp-runtime/.venv/Scripts/python.exe",
+    "args": ["C:/Users/duq71/.codex/tools/blender-mcp-runtime/run_blmcp_windows.py", "--transport", "stdio"],
+    "cwd": "C:/Users/duq71/.codex/tools/blender-mcp-official/mcp",
+    "blender_path": "C:/Users/duq71/Documents/Codex/2026-09-08/new-chat/work/tools/blender-5.2.1-windows-x64/blender.exe",
+    "startup_timeout_seconds": 60,
+    "tool_timeout_seconds": 180
+  },
+  "bridge": {
+    "pid_at_successful_validation": 29124,
+    "host": "127.0.0.1",
+    "port": 9876,
+    "loopback_binding_verified": true,
+    "background": true,
+    "isolated_user_resources": "C:/Users/duq71/.codex/tools/blender-mcp-runtime/blender-user",
+    "addon_module": "bl_ext.user_default.mcp",
+    "identity_and_scene_counts_unchanged_by_validation": true
+  },
+  "windows_adapter": {
+    "path": "C:/Users/duq71/.codex/tools/blender-mcp-runtime/run_blmcp_windows.py",
+    "scope": "Only the official Blender CLI helper subprocess receives stdin DEVNULL and CREATE_NO_WINDOW. MCP STDIO remains connected.",
+    "reason": "Inherited MCP stdin caused an independent Blender child to hang on Windows.",
+    "official_source_and_package_files_modified": false,
+    "prior_failure_reports_preserved": ["sdk_validation.json", "retry_01/sdk_validation.json"]
+  },
+  "sdk_validation": {
+    "status": "pass",
+    "report": "C:/Users/duq71/Documents/Codex/2026-09-08/d/outputs/windows_blender_mcp_20260909_214441/retry_02/sdk_validation.json",
+    "independent_review": "C:/Users/duq71/Documents/Codex/2026-09-08/d/outputs/windows_blender_mcp_20260909_214441/retry_02/independent_review.json",
+    "elapsed_seconds": 2.783810499997344,
+    "tool_count": 26,
+    "calls": {"bridge_identity_before": "pass", "cli_save_export": "pass", "cli_fresh_reopen": "pass", "bridge_identity_after": "pass"},
+    "cli_pids": [13200, 36704],
+    "frames": [1, 12, 24],
+    "fps": 30,
+    "maximum_position_error_m": 0,
+    "glb_meshes": 1,
+    "glb_animations": 1,
+    "source_sha256_unchanged": true,
+    "artifact_hash_mismatches": 0,
+    "new_motion_created": false,
+    "gpu_render_repeated": false
+  },
+  "codex_session": {
+    "current_tool_catalog_availability_verified": false,
+    "restart_required_to_load_new_mcp_configuration": true,
+    "documentation": "https://learn.chatgpt.com/docs/extend/mcp?surface=cli"
+  },
+  "existing_authoring_sources": {
+    "latest_static_blend": "C:/Users/duq71/Documents/Codex/2026-09-08/d/outputs/sword_hold_long_grip/model/SwordHold_Static.blend",
+    "latest_static_glb": "C:/Users/duq71/Documents/Codex/2026-09-08/d/outputs/sword_hold_long_grip/model/SwordHold_Static.glb",
+    "latest_static_mesh_count": 11,
+    "latest_static_has_rig_or_animation": false,
+    "earlier_hand_rig": "C:/Users/duq71/Documents/Codex/2026-09-08/d/work/new-motion/references/game_sword_only_ready.blend",
+    "godot_source_directory": "C:/Users/duq71/Documents/Codex/2026-09-08/d/work/game-project/RPG_Workspace/godot-game/assets/3d/player/sword_shield"
+  },
+  "transfer": {
+    "directory": "C:/Users/duq71/OneDrive/CodexTransfer/reference_sword_motion_20260909",
+    "input_directory_present_at_setup_completion": false,
+    "mac_reference_inputs_received": false,
+    "local_write_read_verified": true,
+    "summary_destination": "C:/Users/duq71/OneDrive/CodexTransfer/reference_sword_motion_20260909/output/windows_mcp_setup",
+    "copied_summary_files": ["README.md", "report.json"],
+    "config_backups_copied": false,
+    "mac_receipt_or_sync_completion_verified": false
+  },
+  "limitations": [
+    "SDK verification covers the small tested workflow, not all MCP tools or the current Codex task tool catalog.",
+    "Official CLI tool results do not expose Blender child exit codes; verifier exit code was zero.",
+    "Windows local OneDrive access does not prove delivery to the Mac."
+  ]
+}

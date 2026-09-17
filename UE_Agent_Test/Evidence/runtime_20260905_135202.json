@@ -1,0 +1,2405 @@
+{
+	"verification_mode": "Unreal running game world; simulated keyboard/mouse events injected into actual PlayerController InputKey path. No door Toggle call or state write in test runner.",
+	"visual_verification": "Not performed by this runtime runner. These results do not prove displayed pixels or OS-level input delivery.",
+	"setup_disclosure": "Test setup teleports and view aiming are logged separately; movement and interaction outcomes use runtime input, collision and ticking.",
+	"utc_time": "2026-09-05T13:52:02.909Z",
+	"engine_version": "5.8.2-56702186+++UE5+Release-5.8",
+	"command_line": "/Game/Maps/TestRoom -basedir=/var/folders/7r/486gfldn6f57tqk3gxh1rmfh0000gn/T/ue_agent_test_t2hup6uy/RuntimeHost/Engine/Binaries/Mac -nosplash -AgentPIE -AgentAutoTest -AgentCapture -RenderOffscreen -MetalOffscreenOnly -windowed -ResX=1280 -ResY=800 -unattended -skipminspeccheck -nosound -NoCrashDialog -stdout -FullStdOutLogOutput -ExecCmds=\"t.MaxFPS 60,Slate.bAllowThrottling 0,t.IdleWhenNotForeground 0\" -abslog=\"/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/UE_Agent_Test/Evidence/pie-capture_20260905_224701_engine.log\"",
+	"world_type": 3,
+	"is_play_in_editor": true,
+	"null_rhi": false,
+	"can_ever_render": true,
+	"capture_requested": true,
+	"screenshot_requests": [
+		{
+			"path": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/UE_Agent_Test/Evidence/screenshots/initial_spawn_and_closed_door.png",
+			"file_exists_at_report_time": true
+		},
+		{
+			"path": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/UE_Agent_Test/Evidence/screenshots/closed_door_blocks_actual_W_movement.png",
+			"file_exists_at_report_time": true
+		},
+		{
+			"path": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/UE_Agent_Test/Evidence/screenshots/near_E_opens_door.png",
+			"file_exists_at_report_time": true
+		},
+		{
+			"path": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/UE_Agent_Test/Evidence/screenshots/open_door_allows_actual_W_passage.png",
+			"file_exists_at_report_time": true
+		},
+		{
+			"path": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/UE_Agent_Test/Evidence/screenshots/open_door_close_prompt.png",
+			"file_exists_at_report_time": true
+		},
+		{
+			"path": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/UE_Agent_Test/Evidence/screenshots/outside_E_closes_door.png",
+			"file_exists_at_report_time": true
+		},
+		{
+			"path": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/UE_Agent_Test/Evidence/screenshots/far_E_does_not_open_door.png",
+			"file_exists_at_report_time": true
+		},
+		{
+			"path": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/UE_Agent_Test/Evidence/screenshots/ten_rapid_E_inputs_leave_consistent_closed_door.png",
+			"file_exists_at_report_time": true
+		},
+		{
+			"path": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/UE_Agent_Test/Evidence/screenshots/door_still_passable_after_repetition.png",
+			"file_exists_at_report_time": true
+		}
+	],
+	"duration_game_seconds": 68.171257019042969,
+	"assertions": 47,
+	"failures": 1,
+	"all_passed": false,
+	"results": [
+		{
+			"name": "initial_spawn_and_closed_door",
+			"pass": true,
+			"detail": "start=V(X=-150.00, Z=98.00); end=V(X=-150.00, Z=98.00); displacement=V(0); view_delta=R(0); door_angle=0.00; target_open=0; grounded=1",
+			"time_seconds": 2.0672426223754883,
+			"position":
+			{
+				"x": -150,
+				"y": 0,
+				"z": 98
+			},
+			"start_position":
+			{
+				"x": -150,
+				"y": 0,
+				"z": 98
+			},
+			"door_angle": 0,
+			"target_open": false
+		},
+		{
+			"name": "W_key_forward",
+			"pass": true,
+			"detail": "start=V(X=-150.00, Z=98.00); end=V(X=-23.32, Z=98.00); displacement=V(X=126.68); view_delta=R(0); door_angle=0.00; target_open=0; grounded=1",
+			"time_seconds": 2.9783029556274414,
+			"position":
+			{
+				"x": -23.31817469465949,
+				"y": 0,
+				"z": 98
+			},
+			"start_position":
+			{
+				"x": -150,
+				"y": 0,
+				"z": 98
+			},
+			"door_angle": 0,
+			"target_open": false
+		},
+		{
+			"name": "S_key_backward",
+			"pass": true,
+			"detail": "start=V(X=-21.08, Z=98.00); end=V(X=-152.94, Z=98.00); displacement=V(X=-131.86); view_delta=R(0); door_angle=0.00; target_open=0; grounded=1",
+			"time_seconds": 3.7035000324249268,
+			"position":
+			{
+				"x": -152.94213208923742,
+				"y": 0,
+				"z": 98
+			},
+			"start_position":
+			{
+				"x": -21.082293839402112,
+				"y": 0,
+				"z": 98
+			},
+			"door_angle": 0,
+			"target_open": false
+		},
+		{
+			"name": "D_key_right",
+			"pass": true,
+			"detail": "start=V(X=-155.65, Z=98.00); end=V(X=-155.65, Y=128.33, Z=98.00); displacement=V(Y=128.33); view_delta=R(0); door_angle=0.00; target_open=0; grounded=1",
+			"time_seconds": 4.4770107269287109,
+			"position":
+			{
+				"x": -155.65009268066211,
+				"y": 128.3278729349986,
+				"z": 98
+			},
+			"start_position":
+			{
+				"x": -155.65009268066211,
+				"y": 0,
+				"z": 98
+			},
+			"door_angle": 0,
+			"target_open": false
+		},
+		{
+			"name": "A_key_left",
+			"pass": true,
+			"detail": "start=V(X=-155.65, Y=129.27, Z=98.00); end=V(X=-155.65, Y=-3.19, Z=98.00); displacement=V(Y=-132.47); view_delta=R(0); door_angle=0.00; target_open=0; grounded=1",
+			"time_seconds": 5.3987054824829102,
+			"position":
+			{
+				"x": -155.65009268066211,
+				"y": -3.1947284485470249,
+				"z": 98
+			},
+			"start_position":
+			{
+				"x": -155.65009268066211,
+				"y": 129.27187280315312,
+				"z": 98
+			},
+			"door_angle": 0,
+			"target_open": false
+		},
+		{
+			"name": "MouseX_changes_view_yaw",
+			"pass": true,
+			"detail": "start=V(X=-155.65, Y=-5.68, Z=98.00); end=V(X=-155.65, Y=-5.68, Z=98.00); displacement=V(0); view_delta=R(Y=11.33); door_angle=0.00; target_open=0; grounded=1",
+			"time_seconds": 5.9794340133666992,
+			"position":
+			{
+				"x": -155.65009268066211,
+				"y": -5.6828548426789336,
+				"z": 98
+			},
+			"start_position":
+			{
+				"x": -155.65009268066211,
+				"y": -5.6828548426789336,
+				"z": 98
+			},
+			"door_angle": 0,
+			"target_open": false
+		},
+		{
+			"name": "MouseY_changes_view_pitch",
+			"pass": false,
+			"detail": "start=V(X=-155.65, Y=-5.68, Z=98.00); end=V(X=-155.65, Y=-5.68, Z=98.00); displacement=V(0); view_delta=R(P=4.25, Y=1.42); door_angle=0.00; target_open=0; grounded=1",
+			"time_seconds": 6.2496128082275391,
+			"position":
+			{
+				"x": -155.65009268066211,
+				"y": -5.6828548426789336,
+				"z": 98
+			},
+			"start_position":
+			{
+				"x": -155.65009268066211,
+				"y": -5.6828548426789336,
+				"z": 98
+			},
+			"door_angle": 0,
+			"target_open": false
+		},
+		{
+			"name": "W_into_wall_stops_and_floor_supports",
+			"pass": true,
+			"detail": "start=V(X=-150.00, Y=250.00, Z=98.00); end=V(X=365.70, Y=250.00, Z=98.15); displacement=V(X=515.70, Z=0.15); view_delta=R(0); door_angle=0.00; target_open=0; grounded=1",
+			"time_seconds": 9.2131671905517578,
+			"position":
+			{
+				"x": 365.69798738812244,
+				"y": 250,
+				"z": 98.150003272755839
+			},
+			"start_position":
+			{
+				"x": -150,
+				"y": 250,
+				"z": 98
+			},
+			"door_angle": 0,
+			"target_open": false
+		},
+		{
+			"name": "D_into_side_wall_stops",
+			"pass": true,
+			"detail": "start=V(Z=98.00); end=V(Y=315.90, Z=98.15); displacement=V(Y=315.90, Z=0.15); view_delta=R(0); door_angle=0.00; target_open=0; grounded=1",
+			"time_seconds": 11.181060791015625,
+			"position":
+			{
+				"x": 0,
+				"y": 315.8991556919579,
+				"z": 98.1500024447123
+			},
+			"start_position":
+			{
+				"x": 0,
+				"y": 0,
+				"z": 98
+			},
+			"door_angle": 0,
+			"target_open": false
+		},
+		{
+			"name": "closed_door_blocks_actual_W_movement",
+			"pass": true,
+			"detail": "start=V(X=180.00, Z=98.00); end=V(X=359.88, Z=98.15); displacement=V(X=179.88, Z=0.15); view_delta=R(0); door_angle=0.00; target_open=0; grounded=1",
+			"time_seconds": 12.744275093078613,
+			"position":
+			{
+				"x": 359.87720672744041,
+				"y": 0,
+				"z": 98.150002698262369
+			},
+			"start_position":
+			{
+				"x": 180,
+				"y": 0,
+				"z": 98
+			},
+			"door_angle": 0,
+			"target_open": false
+		},
+		{
+			"name": "near_looking_away_E_rejected",
+			"pass": true,
+			"detail": "start=V(X=280.00, Z=98.00); end=V(X=280.00, Z=98.00); displacement=V(0); view_delta=R(0); door_angle=0.00; target_open=0; grounded=1",
+			"time_seconds": 14.237534523010254,
+			"position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"start_position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"door_angle": 0,
+			"target_open": false
+		},
+		{
+			"name": "near_E_opens_door",
+			"pass": true,
+			"detail": "start=V(X=280.00, Z=98.00); end=V(X=280.00, Z=98.00); displacement=V(0); view_delta=R(0); door_angle=-100.00; target_open=1; grounded=1",
+			"time_seconds": 15.594386100769043,
+			"position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"start_position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"door_angle": -100,
+			"target_open": true
+		},
+		{
+			"name": "open_door_allows_actual_W_passage",
+			"pass": true,
+			"detail": "start=V(X=280.00, Z=98.00); end=V(X=675.85, Z=98.00); displacement=V(X=395.85); view_delta=R(0); door_angle=-100.00; target_open=1; grounded=1",
+			"time_seconds": 17.749702453613281,
+			"position":
+			{
+				"x": 675.85148485090826,
+				"y": 0,
+				"z": 98
+			},
+			"start_position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"door_angle": -100,
+			"target_open": true
+		},
+		{
+			"name": "outside_E_closes_door",
+			"pass": true,
+			"detail": "start=V(X=600.00, Z=98.00); end=V(X=600.00, Z=98.00); displacement=V(0); view_delta=R(0); door_angle=0.00; target_open=0; grounded=1",
+			"time_seconds": 19.873281478881836,
+			"position":
+			{
+				"x": 600,
+				"y": 0,
+				"z": 98
+			},
+			"start_position":
+			{
+				"x": 600,
+				"y": 0,
+				"z": 98
+			},
+			"door_angle": 0,
+			"target_open": false
+		},
+		{
+			"name": "reclosed_door_blocks_actual_W_movement",
+			"pass": true,
+			"detail": "start=V(X=620.00, Z=98.00); end=V(X=440.17, Z=98.15); displacement=V(X=-179.83, Z=0.15); view_delta=R(0); door_angle=0.00; target_open=0; grounded=1",
+			"time_seconds": 21.727642059326172,
+			"position":
+			{
+				"x": 440.17408671752122,
+				"y": 2.202232291051371e-14,
+				"z": 98.15000535526292
+			},
+			"start_position":
+			{
+				"x": 620,
+				"y": 0,
+				"z": 98
+			},
+			"door_angle": 0,
+			"target_open": false
+		},
+		{
+			"name": "far_E_does_not_open_door",
+			"pass": true,
+			"detail": "start=V(X=-150.00, Z=98.00); end=V(X=-150.00, Z=98.00); displacement=V(0); view_delta=R(0); door_angle=0.00; target_open=0; grounded=1",
+			"time_seconds": 22.985893249511719,
+			"position":
+			{
+				"x": -150.00000000000006,
+				"y": 0,
+				"z": 98
+			},
+			"start_position":
+			{
+				"x": -150.00000000000006,
+				"y": 0,
+				"z": 98
+			},
+			"door_angle": 0,
+			"target_open": false
+		},
+		{
+			"name": "E_opens_for_occlusion_setup",
+			"pass": true,
+			"detail": "start=V(X=280.00, Z=98.00); end=V(X=280.00, Z=98.00); displacement=V(0); view_delta=R(0); door_angle=-100.00; target_open=1; grounded=1",
+			"time_seconds": 24.797761917114258,
+			"position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"start_position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"door_angle": -100,
+			"target_open": true
+		},
+		{
+			"name": "wall_occluded_E_does_not_close_door",
+			"pass": true,
+			"detail": "start=V(X=330.00, Y=-230.00, Z=98.00); end=V(X=330.00, Y=-230.00, Z=98.00); displacement=V(0); view_delta=R(0); door_angle=-100.00; target_open=1; grounded=1",
+			"time_seconds": 26.049831390380859,
+			"position":
+			{
+				"x": 330,
+				"y": -230,
+				"z": 98
+			},
+			"start_position":
+			{
+				"x": 330,
+				"y": -230,
+				"z": 98
+			},
+			"door_angle": -100,
+			"target_open": true
+		},
+		{
+			"name": "E_closes_after_occlusion_test",
+			"pass": true,
+			"detail": "start=V(X=280.00, Z=98.00); end=V(X=280.00, Z=98.00); displacement=V(0); view_delta=R(0); door_angle=0.00; target_open=0; grounded=1",
+			"time_seconds": 27.393924713134766,
+			"position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"start_position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"door_angle": 0,
+			"target_open": false
+		},
+		{
+			"name": "E_opens_for_player_clearance_setup",
+			"pass": true,
+			"detail": "start=V(X=280.00, Z=98.00); end=V(X=280.00, Z=98.00); displacement=V(0); view_delta=R(0); door_angle=-100.00; target_open=1; grounded=1",
+			"time_seconds": 28.820646286010742,
+			"position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"start_position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"door_angle": -100,
+			"target_open": true
+		},
+		{
+			"name": "E_close_pauses_before_hitting_stationary_player",
+			"pass": true,
+			"detail": "start=V(X=450.00, Y=-10.00, Z=98.00); end=V(X=450.00, Y=-10.00, Z=98.00); displacement=V(0); view_delta=R(0); door_angle=-63.87; target_open=0; grounded=1",
+			"time_seconds": 29.956497192382812,
+			"position":
+			{
+				"x": 450,
+				"y": -10,
+				"z": 98
+			},
+			"start_position":
+			{
+				"x": 450,
+				"y": -10,
+				"z": 98
+			},
+			"door_angle": -63.873428344726562,
+			"target_open": false
+		},
+		{
+			"name": "W_walks_clear_and_door_resumes_closing",
+			"pass": true,
+			"detail": "start=V(X=450.00, Y=-10.00, Z=98.00); end=V(X=801.70, Y=36.98, Z=98.15); displacement=V(X=351.70, Y=46.98, Z=0.15); view_delta=R(0); door_angle=0.00; target_open=0; grounded=1",
+			"time_seconds": 31.564550399780273,
+			"position":
+			{
+				"x": 801.70071569699417,
+				"y": 36.975608641726659,
+				"z": 98.149998718516372
+			},
+			"start_position":
+			{
+				"x": 450,
+				"y": -10,
+				"z": 98
+			},
+			"door_angle": 0,
+			"target_open": false
+		},
+		{
+			"name": "cycle_01_E_open",
+			"pass": true,
+			"detail": "start=V(X=280.00, Z=98.00); end=V(X=280.00, Z=98.00); displacement=V(0); view_delta=R(0); door_angle=-100.00; target_open=1; grounded=1",
+			"time_seconds": 32.916900634765625,
+			"position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"start_position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"door_angle": -100,
+			"target_open": true
+		},
+		{
+			"name": "cycle_01_E_close",
+			"pass": true,
+			"detail": "start=V(X=280.00, Z=98.00); end=V(X=280.00, Z=98.00); displacement=V(0); view_delta=R(0); door_angle=0.00; target_open=0; grounded=1",
+			"time_seconds": 34.274311065673828,
+			"position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"start_position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"door_angle": 0,
+			"target_open": false
+		},
+		{
+			"name": "cycle_02_E_open",
+			"pass": true,
+			"detail": "start=V(X=280.00, Z=98.00); end=V(X=280.00, Z=98.00); displacement=V(0); view_delta=R(0); door_angle=-100.00; target_open=1; grounded=1",
+			"time_seconds": 35.8428955078125,
+			"position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"start_position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"door_angle": -100,
+			"target_open": true
+		},
+		{
+			"name": "cycle_02_E_close",
+			"pass": true,
+			"detail": "start=V(X=280.00, Z=98.00); end=V(X=280.00, Z=98.00); displacement=V(0); view_delta=R(0); door_angle=0.00; target_open=0; grounded=1",
+			"time_seconds": 37.167243957519531,
+			"position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"start_position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"door_angle": 0,
+			"target_open": false
+		},
+		{
+			"name": "cycle_03_E_open",
+			"pass": true,
+			"detail": "start=V(X=280.00, Z=98.00); end=V(X=280.00, Z=98.00); displacement=V(0); view_delta=R(0); door_angle=-100.00; target_open=1; grounded=1",
+			"time_seconds": 38.514472961425781,
+			"position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"start_position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"door_angle": -100,
+			"target_open": true
+		},
+		{
+			"name": "cycle_03_E_close",
+			"pass": true,
+			"detail": "start=V(X=280.00, Z=98.00); end=V(X=280.00, Z=98.00); displacement=V(0); view_delta=R(0); door_angle=0.00; target_open=0; grounded=1",
+			"time_seconds": 39.840431213378906,
+			"position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"start_position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"door_angle": 0,
+			"target_open": false
+		},
+		{
+			"name": "cycle_04_E_open",
+			"pass": true,
+			"detail": "start=V(X=280.00, Z=98.00); end=V(X=280.00, Z=98.00); displacement=V(0); view_delta=R(0); door_angle=-100.00; target_open=1; grounded=1",
+			"time_seconds": 41.218891143798828,
+			"position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"start_position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"door_angle": -100,
+			"target_open": true
+		},
+		{
+			"name": "cycle_04_E_close",
+			"pass": true,
+			"detail": "start=V(X=280.00, Z=98.00); end=V(X=280.00, Z=98.00); displacement=V(0); view_delta=R(0); door_angle=0.00; target_open=0; grounded=1",
+			"time_seconds": 42.545429229736328,
+			"position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"start_position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"door_angle": 0,
+			"target_open": false
+		},
+		{
+			"name": "cycle_05_E_open",
+			"pass": true,
+			"detail": "start=V(X=280.00, Z=98.00); end=V(X=280.00, Z=98.00); displacement=V(0); view_delta=R(0); door_angle=-100.00; target_open=1; grounded=1",
+			"time_seconds": 43.872970581054688,
+			"position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"start_position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"door_angle": -100,
+			"target_open": true
+		},
+		{
+			"name": "cycle_05_E_close",
+			"pass": true,
+			"detail": "start=V(X=280.00, Z=98.00); end=V(X=280.00, Z=98.00); displacement=V(0); view_delta=R(0); door_angle=0.00; target_open=0; grounded=1",
+			"time_seconds": 45.180038452148438,
+			"position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"start_position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"door_angle": 0,
+			"target_open": false
+		},
+		{
+			"name": "cycle_06_E_open",
+			"pass": true,
+			"detail": "start=V(X=280.00, Z=98.00); end=V(X=280.00, Z=98.00); displacement=V(0); view_delta=R(0); door_angle=-100.00; target_open=1; grounded=1",
+			"time_seconds": 46.523880004882812,
+			"position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"start_position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"door_angle": -100,
+			"target_open": true
+		},
+		{
+			"name": "cycle_06_E_close",
+			"pass": true,
+			"detail": "start=V(X=280.00, Z=98.00); end=V(X=280.00, Z=98.00); displacement=V(0); view_delta=R(0); door_angle=0.00; target_open=0; grounded=1",
+			"time_seconds": 47.851284027099609,
+			"position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"start_position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"door_angle": 0,
+			"target_open": false
+		},
+		{
+			"name": "cycle_07_E_open",
+			"pass": true,
+			"detail": "start=V(X=280.00, Z=98.00); end=V(X=280.00, Z=98.00); displacement=V(0); view_delta=R(0); door_angle=-100.00; target_open=1; grounded=1",
+			"time_seconds": 49.206455230712891,
+			"position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"start_position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"door_angle": -100,
+			"target_open": true
+		},
+		{
+			"name": "cycle_07_E_close",
+			"pass": true,
+			"detail": "start=V(X=280.00, Z=98.00); end=V(X=280.00, Z=98.00); displacement=V(0); view_delta=R(0); door_angle=0.00; target_open=0; grounded=1",
+			"time_seconds": 50.563423156738281,
+			"position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"start_position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"door_angle": 0,
+			"target_open": false
+		},
+		{
+			"name": "cycle_08_E_open",
+			"pass": true,
+			"detail": "start=V(X=280.00, Z=98.00); end=V(X=280.00, Z=98.00); displacement=V(0); view_delta=R(0); door_angle=-100.00; target_open=1; grounded=1",
+			"time_seconds": 51.948467254638672,
+			"position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"start_position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"door_angle": -100,
+			"target_open": true
+		},
+		{
+			"name": "cycle_08_E_close",
+			"pass": true,
+			"detail": "start=V(X=280.00, Z=98.00); end=V(X=280.00, Z=98.00); displacement=V(0); view_delta=R(0); door_angle=0.00; target_open=0; grounded=1",
+			"time_seconds": 53.280750274658203,
+			"position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"start_position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"door_angle": 0,
+			"target_open": false
+		},
+		{
+			"name": "cycle_09_E_open",
+			"pass": true,
+			"detail": "start=V(X=280.00, Z=98.00); end=V(X=280.00, Z=98.00); displacement=V(0); view_delta=R(0); door_angle=-100.00; target_open=1; grounded=1",
+			"time_seconds": 54.8056640625,
+			"position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"start_position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"door_angle": -100,
+			"target_open": true
+		},
+		{
+			"name": "cycle_09_E_close",
+			"pass": true,
+			"detail": "start=V(X=280.00, Z=98.00); end=V(X=280.00, Z=98.00); displacement=V(0); view_delta=R(0); door_angle=0.00; target_open=0; grounded=1",
+			"time_seconds": 56.17242431640625,
+			"position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"start_position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"door_angle": 0,
+			"target_open": false
+		},
+		{
+			"name": "cycle_10_E_open",
+			"pass": true,
+			"detail": "start=V(X=280.00, Z=98.00); end=V(X=280.00, Z=98.00); displacement=V(0); view_delta=R(0); door_angle=-100.00; target_open=1; grounded=1",
+			"time_seconds": 57.618732452392578,
+			"position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"start_position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"door_angle": -100,
+			"target_open": true
+		},
+		{
+			"name": "cycle_10_E_close",
+			"pass": true,
+			"detail": "start=V(X=280.00, Z=98.00); end=V(X=280.00, Z=98.00); displacement=V(0); view_delta=R(0); door_angle=0.00; target_open=0; grounded=1",
+			"time_seconds": 58.950752258300781,
+			"position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"start_position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"door_angle": 0,
+			"target_open": false
+		},
+		{
+			"name": "ten_rapid_E_inputs_leave_consistent_closed_door",
+			"pass": true,
+			"detail": "start=V(X=280.00, Z=98.00); end=V(X=280.00, Z=98.00); displacement=V(0); view_delta=R(P=3.16, Y=-1.61); door_angle=0.00; target_open=0; grounded=1",
+			"time_seconds": 61.590534210205078,
+			"position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"start_position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"door_angle": 0,
+			"target_open": false
+		},
+		{
+			"name": "door_still_blocks_after_rapid_E",
+			"pass": true,
+			"detail": "start=V(X=180.00, Z=98.00); end=V(X=359.90, Z=98.15); displacement=V(X=179.90, Z=0.15); view_delta=R(0); door_angle=0.00; target_open=0; grounded=1",
+			"time_seconds": 63.399612426757812,
+			"position":
+			{
+				"x": 359.89935000399419,
+				"y": 0,
+				"z": 98.149995389811238
+			},
+			"start_position":
+			{
+				"x": 180,
+				"y": 0,
+				"z": 98
+			},
+			"door_angle": 0,
+			"target_open": false
+		},
+		{
+			"name": "E_still_opens_after_repetition",
+			"pass": true,
+			"detail": "start=V(X=280.00, Z=98.00); end=V(X=280.00, Z=98.00); displacement=V(0); view_delta=R(0); door_angle=-100.00; target_open=1; grounded=1",
+			"time_seconds": 64.745155334472656,
+			"position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"start_position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"door_angle": -100,
+			"target_open": true
+		},
+		{
+			"name": "door_still_passable_after_repetition",
+			"pass": true,
+			"detail": "start=V(X=280.00, Z=98.00); end=V(X=700.17, Z=98.00); displacement=V(X=420.17); view_delta=R(0); door_angle=-100.00; target_open=1; grounded=1",
+			"time_seconds": 66.566322326660156,
+			"position":
+			{
+				"x": 700.1662139132535,
+				"y": 0,
+				"z": 98
+			},
+			"start_position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"door_angle": -100,
+			"target_open": true
+		},
+		{
+			"name": "never_fell_below_floor_during_runtime",
+			"pass": true,
+			"detail": "Every runner tick monitored player center Z; threshold 85 cm for 96 cm capsule half height.",
+			"time_seconds": 68.171257019042969,
+			"position":
+			{
+				"x": 701.11021378140799,
+				"y": 0,
+				"z": 98
+			},
+			"start_position":
+			{
+				"x": 701.11021378140799,
+				"y": 0,
+				"z": 98
+			},
+			"door_angle": -100,
+			"target_open": true
+		}
+	],
+	"input_events": [
+		{
+			"time_seconds": 2.4672427177429199,
+			"key": "W",
+			"event": "pressed",
+			"amount": 1,
+			"controller_returned_handled": false,
+			"step": "W_key_forward"
+		},
+		{
+			"time_seconds": 2.9783029556274414,
+			"key": "W",
+			"event": "released",
+			"amount": 0,
+			"controller_returned_handled": true,
+			"step": "W_key_forward"
+		},
+		{
+			"time_seconds": 3.1825640201568604,
+			"key": "S",
+			"event": "pressed",
+			"amount": 1,
+			"controller_returned_handled": false,
+			"step": "S_key_backward"
+		},
+		{
+			"time_seconds": 3.7035000324249268,
+			"key": "S",
+			"event": "released",
+			"amount": 0,
+			"controller_returned_handled": true,
+			"step": "S_key_backward"
+		},
+		{
+			"time_seconds": 3.9688308238983154,
+			"key": "D",
+			"event": "pressed",
+			"amount": 1,
+			"controller_returned_handled": false,
+			"step": "D_key_right"
+		},
+		{
+			"time_seconds": 4.4770107269287109,
+			"key": "D",
+			"event": "released",
+			"amount": 0,
+			"controller_returned_handled": true,
+			"step": "D_key_right"
+		},
+		{
+			"time_seconds": 4.8770108222961426,
+			"key": "A",
+			"event": "pressed",
+			"amount": 1,
+			"controller_returned_handled": false,
+			"step": "A_key_left"
+		},
+		{
+			"time_seconds": 5.3987054824829102,
+			"key": "A",
+			"event": "released",
+			"amount": 0,
+			"controller_returned_handled": true,
+			"step": "A_key_left"
+		},
+		{
+			"time_seconds": 5.6478838920593262,
+			"key": "MouseX",
+			"event": "axis",
+			"amount": 4,
+			"controller_returned_handled": false,
+			"step": "MouseX_changes_view_yaw"
+		},
+		{
+			"time_seconds": 5.6717596054077148,
+			"key": "MouseX",
+			"event": "axis",
+			"amount": 4,
+			"controller_returned_handled": false,
+			"step": "MouseX_changes_view_yaw"
+		},
+		{
+			"time_seconds": 5.6885232925415039,
+			"key": "MouseX",
+			"event": "axis",
+			"amount": 4,
+			"controller_returned_handled": false,
+			"step": "MouseX_changes_view_yaw"
+		},
+		{
+			"time_seconds": 5.7096924781799316,
+			"key": "MouseX",
+			"event": "axis",
+			"amount": 4,
+			"controller_returned_handled": false,
+			"step": "MouseX_changes_view_yaw"
+		},
+		{
+			"time_seconds": 5.7346067428588867,
+			"key": "MouseX",
+			"event": "axis",
+			"amount": 4,
+			"controller_returned_handled": false,
+			"step": "MouseX_changes_view_yaw"
+		},
+		{
+			"time_seconds": 5.7620730400085449,
+			"key": "MouseX",
+			"event": "axis",
+			"amount": 4,
+			"controller_returned_handled": false,
+			"step": "MouseX_changes_view_yaw"
+		},
+		{
+			"time_seconds": 5.7981805801391602,
+			"key": "MouseX",
+			"event": "axis",
+			"amount": 4,
+			"controller_returned_handled": false,
+			"step": "MouseX_changes_view_yaw"
+		},
+		{
+			"time_seconds": 5.8553619384765625,
+			"key": "MouseX",
+			"event": "axis",
+			"amount": 4,
+			"controller_returned_handled": false,
+			"step": "MouseX_changes_view_yaw"
+		},
+		{
+			"time_seconds": 5.9794340133666992,
+			"key": "MouseX",
+			"event": "axis",
+			"amount": 4,
+			"controller_returned_handled": false,
+			"step": "MouseX_changes_view_yaw"
+		},
+		{
+			"time_seconds": 6.146491527557373,
+			"key": "MouseY",
+			"event": "axis",
+			"amount": 4,
+			"controller_returned_handled": false,
+			"step": "MouseY_changes_view_pitch"
+		},
+		{
+			"time_seconds": 6.1829023361206055,
+			"key": "MouseY",
+			"event": "axis",
+			"amount": 4,
+			"controller_returned_handled": false,
+			"step": "MouseY_changes_view_pitch"
+		},
+		{
+			"time_seconds": 6.2096505165100098,
+			"key": "MouseY",
+			"event": "axis",
+			"amount": 4,
+			"controller_returned_handled": false,
+			"step": "MouseY_changes_view_pitch"
+		},
+		{
+			"time_seconds": 6.2496128082275391,
+			"key": "MouseY",
+			"event": "axis",
+			"amount": 4,
+			"controller_returned_handled": false,
+			"step": "MouseY_changes_view_pitch"
+		},
+		{
+			"time_seconds": 6.6840729713439941,
+			"key": "W",
+			"event": "pressed",
+			"amount": 1,
+			"controller_returned_handled": false,
+			"step": "W_into_wall_stops_and_floor_supports"
+		},
+		{
+			"time_seconds": 9.2131671905517578,
+			"key": "W",
+			"event": "released",
+			"amount": 0,
+			"controller_returned_handled": true,
+			"step": "W_into_wall_stops_and_floor_supports"
+		},
+		{
+			"time_seconds": 9.5065727233886719,
+			"key": "D",
+			"event": "pressed",
+			"amount": 1,
+			"controller_returned_handled": false,
+			"step": "D_into_side_wall_stops"
+		},
+		{
+			"time_seconds": 11.181060791015625,
+			"key": "D",
+			"event": "released",
+			"amount": 0,
+			"controller_returned_handled": true,
+			"step": "D_into_side_wall_stops"
+		},
+		{
+			"time_seconds": 11.519065856933594,
+			"key": "W",
+			"event": "pressed",
+			"amount": 1,
+			"controller_returned_handled": false,
+			"step": "closed_door_blocks_actual_W_movement"
+		},
+		{
+			"time_seconds": 12.744275093078613,
+			"key": "W",
+			"event": "released",
+			"amount": 0,
+			"controller_returned_handled": true,
+			"step": "closed_door_blocks_actual_W_movement"
+		},
+		{
+			"time_seconds": 13.636765480041504,
+			"key": "E",
+			"event": "pressed",
+			"amount": 1,
+			"controller_returned_handled": true,
+			"step": "near_looking_away_E_rejected"
+		},
+		{
+			"time_seconds": 13.741270065307617,
+			"key": "E",
+			"event": "released",
+			"amount": 0,
+			"controller_returned_handled": true,
+			"step": "near_looking_away_E_rejected"
+		},
+		{
+			"time_seconds": 14.505244255065918,
+			"key": "E",
+			"event": "pressed",
+			"amount": 1,
+			"controller_returned_handled": true,
+			"step": "near_E_opens_door"
+		},
+		{
+			"time_seconds": 14.814044952392578,
+			"key": "E",
+			"event": "released",
+			"amount": 0,
+			"controller_returned_handled": true,
+			"step": "near_E_opens_door"
+		},
+		{
+			"time_seconds": 16.282293319702148,
+			"key": "W",
+			"event": "pressed",
+			"amount": 1,
+			"controller_returned_handled": false,
+			"step": "open_door_allows_actual_W_passage"
+		},
+		{
+			"time_seconds": 17.749702453613281,
+			"key": "W",
+			"event": "released",
+			"amount": 0,
+			"controller_returned_handled": true,
+			"step": "open_door_allows_actual_W_passage"
+		},
+		{
+			"time_seconds": 18.797756195068359,
+			"key": "E",
+			"event": "pressed",
+			"amount": 1,
+			"controller_returned_handled": true,
+			"step": "outside_E_closes_door"
+		},
+		{
+			"time_seconds": 18.855550765991211,
+			"key": "E",
+			"event": "released",
+			"amount": 0,
+			"controller_returned_handled": true,
+			"step": "outside_E_closes_door"
+		},
+		{
+			"time_seconds": 20.529226303100586,
+			"key": "W",
+			"event": "pressed",
+			"amount": 1,
+			"controller_returned_handled": false,
+			"step": "reclosed_door_blocks_actual_W_movement"
+		},
+		{
+			"time_seconds": 21.727642059326172,
+			"key": "W",
+			"event": "released",
+			"amount": 0,
+			"controller_returned_handled": true,
+			"step": "reclosed_door_blocks_actual_W_movement"
+		},
+		{
+			"time_seconds": 22.001502990722656,
+			"key": "E",
+			"event": "pressed",
+			"amount": 1,
+			"controller_returned_handled": true,
+			"step": "far_E_does_not_open_door"
+		},
+		{
+			"time_seconds": 22.049903869628906,
+			"key": "E",
+			"event": "released",
+			"amount": 0,
+			"controller_returned_handled": true,
+			"step": "far_E_does_not_open_door"
+		},
+		{
+			"time_seconds": 23.650087356567383,
+			"key": "E",
+			"event": "pressed",
+			"amount": 1,
+			"controller_returned_handled": true,
+			"step": "E_opens_for_occlusion_setup"
+		},
+		{
+			"time_seconds": 23.705837249755859,
+			"key": "E",
+			"event": "released",
+			"amount": 0,
+			"controller_returned_handled": true,
+			"step": "E_opens_for_occlusion_setup"
+		},
+		{
+			"time_seconds": 25.142156600952148,
+			"key": "E",
+			"event": "pressed",
+			"amount": 1,
+			"controller_returned_handled": true,
+			"step": "wall_occluded_E_does_not_close_door"
+		},
+		{
+			"time_seconds": 25.206417083740234,
+			"key": "E",
+			"event": "released",
+			"amount": 0,
+			"controller_returned_handled": true,
+			"step": "wall_occluded_E_does_not_close_door"
+		},
+		{
+			"time_seconds": 26.343034744262695,
+			"key": "E",
+			"event": "pressed",
+			"amount": 1,
+			"controller_returned_handled": true,
+			"step": "E_closes_after_occlusion_test"
+		},
+		{
+			"time_seconds": 26.453998565673828,
+			"key": "E",
+			"event": "released",
+			"amount": 0,
+			"controller_returned_handled": true,
+			"step": "E_closes_after_occlusion_test"
+		},
+		{
+			"time_seconds": 27.704473495483398,
+			"key": "E",
+			"event": "pressed",
+			"amount": 1,
+			"controller_returned_handled": true,
+			"step": "E_opens_for_player_clearance_setup"
+		},
+		{
+			"time_seconds": 27.793792724609375,
+			"key": "E",
+			"event": "released",
+			"amount": 0,
+			"controller_returned_handled": true,
+			"step": "E_opens_for_player_clearance_setup"
+		},
+		{
+			"time_seconds": 29.098649978637695,
+			"key": "E",
+			"event": "pressed",
+			"amount": 1,
+			"controller_returned_handled": true,
+			"step": "E_close_pauses_before_hitting_stationary_player"
+		},
+		{
+			"time_seconds": 29.172948837280273,
+			"key": "E",
+			"event": "released",
+			"amount": 0,
+			"controller_returned_handled": true,
+			"step": "E_close_pauses_before_hitting_stationary_player"
+		},
+		{
+			"time_seconds": 30.212604522705078,
+			"key": "W",
+			"event": "pressed",
+			"amount": 1,
+			"controller_returned_handled": false,
+			"step": "W_walks_clear_and_door_resumes_closing"
+		},
+		{
+			"time_seconds": 31.564550399780273,
+			"key": "W",
+			"event": "released",
+			"amount": 0,
+			"controller_returned_handled": true,
+			"step": "W_walks_clear_and_door_resumes_closing"
+		},
+		{
+			"time_seconds": 31.858760833740234,
+			"key": "E",
+			"event": "pressed",
+			"amount": 1,
+			"controller_returned_handled": true,
+			"step": "cycle_01_E_open"
+		},
+		{
+			"time_seconds": 31.922512054443359,
+			"key": "E",
+			"event": "released",
+			"amount": 0,
+			"controller_returned_handled": true,
+			"step": "cycle_01_E_open"
+		},
+		{
+			"time_seconds": 33.171638488769531,
+			"key": "E",
+			"event": "pressed",
+			"amount": 1,
+			"controller_returned_handled": true,
+			"step": "cycle_01_E_close"
+		},
+		{
+			"time_seconds": 33.272975921630859,
+			"key": "E",
+			"event": "released",
+			"amount": 0,
+			"controller_returned_handled": true,
+			"step": "cycle_01_E_close"
+		},
+		{
+			"time_seconds": 34.778388977050781,
+			"key": "E",
+			"event": "pressed",
+			"amount": 1,
+			"controller_returned_handled": true,
+			"step": "cycle_02_E_open"
+		},
+		{
+			"time_seconds": 34.838451385498047,
+			"key": "E",
+			"event": "released",
+			"amount": 0,
+			"controller_returned_handled": true,
+			"step": "cycle_02_E_open"
+		},
+		{
+			"time_seconds": 36.096294403076172,
+			"key": "E",
+			"event": "pressed",
+			"amount": 1,
+			"controller_returned_handled": true,
+			"step": "cycle_02_E_close"
+		},
+		{
+			"time_seconds": 36.178428649902344,
+			"key": "E",
+			"event": "released",
+			"amount": 0,
+			"controller_returned_handled": true,
+			"step": "cycle_02_E_close"
+		},
+		{
+			"time_seconds": 37.45635986328125,
+			"key": "E",
+			"event": "pressed",
+			"amount": 1,
+			"controller_returned_handled": true,
+			"step": "cycle_03_E_open"
+		},
+		{
+			"time_seconds": 37.562671661376953,
+			"key": "E",
+			"event": "released",
+			"amount": 0,
+			"controller_returned_handled": true,
+			"step": "cycle_03_E_open"
+		},
+		{
+			"time_seconds": 38.790008544921875,
+			"key": "E",
+			"event": "pressed",
+			"amount": 1,
+			"controller_returned_handled": true,
+			"step": "cycle_03_E_close"
+		},
+		{
+			"time_seconds": 38.865085601806641,
+			"key": "E",
+			"event": "released",
+			"amount": 0,
+			"controller_returned_handled": true,
+			"step": "cycle_03_E_close"
+		},
+		{
+			"time_seconds": 40.162296295166016,
+			"key": "E",
+			"event": "pressed",
+			"amount": 1,
+			"controller_returned_handled": true,
+			"step": "cycle_04_E_open"
+		},
+		{
+			"time_seconds": 40.221015930175781,
+			"key": "E",
+			"event": "released",
+			"amount": 0,
+			"controller_returned_handled": true,
+			"step": "cycle_04_E_open"
+		},
+		{
+			"time_seconds": 41.494911193847656,
+			"key": "E",
+			"event": "pressed",
+			"amount": 1,
+			"controller_returned_handled": true,
+			"step": "cycle_04_E_close"
+		},
+		{
+			"time_seconds": 41.560615539550781,
+			"key": "E",
+			"event": "released",
+			"amount": 0,
+			"controller_returned_handled": true,
+			"step": "cycle_04_E_close"
+		},
+		{
+			"time_seconds": 42.802684783935547,
+			"key": "E",
+			"event": "pressed",
+			"amount": 1,
+			"controller_returned_handled": true,
+			"step": "cycle_05_E_open"
+		},
+		{
+			"time_seconds": 42.864532470703125,
+			"key": "E",
+			"event": "released",
+			"amount": 0,
+			"controller_returned_handled": true,
+			"step": "cycle_05_E_open"
+		},
+		{
+			"time_seconds": 44.127872467041016,
+			"key": "E",
+			"event": "pressed",
+			"amount": 1,
+			"controller_returned_handled": true,
+			"step": "cycle_05_E_close"
+		},
+		{
+			"time_seconds": 44.192268371582031,
+			"key": "E",
+			"event": "released",
+			"amount": 0,
+			"controller_returned_handled": true,
+			"step": "cycle_05_E_close"
+		},
+		{
+			"time_seconds": 45.449222564697266,
+			"key": "E",
+			"event": "pressed",
+			"amount": 1,
+			"controller_returned_handled": true,
+			"step": "cycle_06_E_open"
+		},
+		{
+			"time_seconds": 45.497238159179688,
+			"key": "E",
+			"event": "released",
+			"amount": 0,
+			"controller_returned_handled": true,
+			"step": "cycle_06_E_open"
+		},
+		{
+			"time_seconds": 46.787628173828125,
+			"key": "E",
+			"event": "pressed",
+			"amount": 1,
+			"controller_returned_handled": true,
+			"step": "cycle_06_E_close"
+		},
+		{
+			"time_seconds": 46.833751678466797,
+			"key": "E",
+			"event": "released",
+			"amount": 0,
+			"controller_returned_handled": true,
+			"step": "cycle_06_E_close"
+		},
+		{
+			"time_seconds": 48.128726959228516,
+			"key": "E",
+			"event": "pressed",
+			"amount": 1,
+			"controller_returned_handled": true,
+			"step": "cycle_07_E_open"
+		},
+		{
+			"time_seconds": 48.182319641113281,
+			"key": "E",
+			"event": "released",
+			"amount": 0,
+			"controller_returned_handled": true,
+			"step": "cycle_07_E_open"
+		},
+		{
+			"time_seconds": 49.493938446044922,
+			"key": "E",
+			"event": "pressed",
+			"amount": 1,
+			"controller_returned_handled": true,
+			"step": "cycle_07_E_close"
+		},
+		{
+			"time_seconds": 49.582550048828125,
+			"key": "E",
+			"event": "released",
+			"amount": 0,
+			"controller_returned_handled": true,
+			"step": "cycle_07_E_close"
+		},
+		{
+			"time_seconds": 50.820407867431641,
+			"key": "E",
+			"event": "pressed",
+			"amount": 1,
+			"controller_returned_handled": true,
+			"step": "cycle_08_E_open"
+		},
+		{
+			"time_seconds": 50.89404296875,
+			"key": "E",
+			"event": "released",
+			"amount": 0,
+			"controller_returned_handled": true,
+			"step": "cycle_08_E_open"
+		},
+		{
+			"time_seconds": 52.214118957519531,
+			"key": "E",
+			"event": "pressed",
+			"amount": 1,
+			"controller_returned_handled": true,
+			"step": "cycle_08_E_close"
+		},
+		{
+			"time_seconds": 52.266578674316406,
+			"key": "E",
+			"event": "released",
+			"amount": 0,
+			"controller_returned_handled": true,
+			"step": "cycle_08_E_close"
+		},
+		{
+			"time_seconds": 53.731880187988281,
+			"key": "E",
+			"event": "pressed",
+			"amount": 1,
+			"controller_returned_handled": true,
+			"step": "cycle_09_E_open"
+		},
+		{
+			"time_seconds": 53.7811279296875,
+			"key": "E",
+			"event": "released",
+			"amount": 0,
+			"controller_returned_handled": true,
+			"step": "cycle_09_E_open"
+		},
+		{
+			"time_seconds": 55.113567352294922,
+			"key": "E",
+			"event": "pressed",
+			"amount": 1,
+			"controller_returned_handled": true,
+			"step": "cycle_09_E_close"
+		},
+		{
+			"time_seconds": 55.346321105957031,
+			"key": "E",
+			"event": "released",
+			"amount": 0,
+			"controller_returned_handled": true,
+			"step": "cycle_09_E_close"
+		},
+		{
+			"time_seconds": 56.512702941894531,
+			"key": "E",
+			"event": "pressed",
+			"amount": 1,
+			"controller_returned_handled": true,
+			"step": "cycle_10_E_open"
+		},
+		{
+			"time_seconds": 56.565361022949219,
+			"key": "E",
+			"event": "released",
+			"amount": 0,
+			"controller_returned_handled": true,
+			"step": "cycle_10_E_open"
+		},
+		{
+			"time_seconds": 57.885047912597656,
+			"key": "E",
+			"event": "pressed",
+			"amount": 1,
+			"controller_returned_handled": true,
+			"step": "cycle_10_E_close"
+		},
+		{
+			"time_seconds": 58.122085571289062,
+			"key": "E",
+			"event": "released",
+			"amount": 0,
+			"controller_returned_handled": true,
+			"step": "cycle_10_E_close"
+		},
+		{
+			"time_seconds": 59.329128265380859,
+			"key": "E",
+			"event": "pressed",
+			"amount": 1,
+			"controller_returned_handled": true,
+			"step": "ten_rapid_E_inputs_leave_consistent_closed_door"
+		},
+		{
+			"time_seconds": 59.391975402832031,
+			"key": "E",
+			"event": "released",
+			"amount": 0,
+			"controller_returned_handled": true,
+			"step": "ten_rapid_E_inputs_leave_consistent_closed_door"
+		},
+		{
+			"time_seconds": 59.442447662353516,
+			"key": "E",
+			"event": "pressed",
+			"amount": 1,
+			"controller_returned_handled": true,
+			"step": "ten_rapid_E_inputs_leave_consistent_closed_door"
+		},
+		{
+			"time_seconds": 59.488433837890625,
+			"key": "E",
+			"event": "released",
+			"amount": 0,
+			"controller_returned_handled": true,
+			"step": "ten_rapid_E_inputs_leave_consistent_closed_door"
+		},
+		{
+			"time_seconds": 59.552104949951172,
+			"key": "E",
+			"event": "pressed",
+			"amount": 1,
+			"controller_returned_handled": true,
+			"step": "ten_rapid_E_inputs_leave_consistent_closed_door"
+		},
+		{
+			"time_seconds": 59.601612091064453,
+			"key": "E",
+			"event": "released",
+			"amount": 0,
+			"controller_returned_handled": true,
+			"step": "ten_rapid_E_inputs_leave_consistent_closed_door"
+		},
+		{
+			"time_seconds": 59.658950805664062,
+			"key": "E",
+			"event": "pressed",
+			"amount": 1,
+			"controller_returned_handled": true,
+			"step": "ten_rapid_E_inputs_leave_consistent_closed_door"
+		},
+		{
+			"time_seconds": 59.729095458984375,
+			"key": "E",
+			"event": "released",
+			"amount": 0,
+			"controller_returned_handled": true,
+			"step": "ten_rapid_E_inputs_leave_consistent_closed_door"
+		},
+		{
+			"time_seconds": 59.759212493896484,
+			"key": "E",
+			"event": "pressed",
+			"amount": 1,
+			"controller_returned_handled": true,
+			"step": "ten_rapid_E_inputs_leave_consistent_closed_door"
+		},
+		{
+			"time_seconds": 59.826385498046875,
+			"key": "E",
+			"event": "released",
+			"amount": 0,
+			"controller_returned_handled": true,
+			"step": "ten_rapid_E_inputs_leave_consistent_closed_door"
+		},
+		{
+			"time_seconds": 59.865917205810547,
+			"key": "E",
+			"event": "pressed",
+			"amount": 1,
+			"controller_returned_handled": true,
+			"step": "ten_rapid_E_inputs_leave_consistent_closed_door"
+		},
+		{
+			"time_seconds": 59.913837432861328,
+			"key": "E",
+			"event": "released",
+			"amount": 0,
+			"controller_returned_handled": true,
+			"step": "ten_rapid_E_inputs_leave_consistent_closed_door"
+		},
+		{
+			"time_seconds": 60.005550384521484,
+			"key": "E",
+			"event": "pressed",
+			"amount": 1,
+			"controller_returned_handled": true,
+			"step": "ten_rapid_E_inputs_leave_consistent_closed_door"
+		},
+		{
+			"time_seconds": 60.144607543945312,
+			"key": "E",
+			"event": "released",
+			"amount": 0,
+			"controller_returned_handled": true,
+			"step": "ten_rapid_E_inputs_leave_consistent_closed_door"
+		},
+		{
+			"time_seconds": 60.144607543945312,
+			"key": "E",
+			"event": "pressed",
+			"amount": 1,
+			"controller_returned_handled": true,
+			"step": "ten_rapid_E_inputs_leave_consistent_closed_door"
+		},
+		{
+			"time_seconds": 60.211940765380859,
+			"key": "E",
+			"event": "released",
+			"amount": 0,
+			"controller_returned_handled": true,
+			"step": "ten_rapid_E_inputs_leave_consistent_closed_door"
+		},
+		{
+			"time_seconds": 60.264106750488281,
+			"key": "E",
+			"event": "pressed",
+			"amount": 1,
+			"controller_returned_handled": true,
+			"step": "ten_rapid_E_inputs_leave_consistent_closed_door"
+		},
+		{
+			"time_seconds": 60.311031341552734,
+			"key": "E",
+			"event": "released",
+			"amount": 0,
+			"controller_returned_handled": true,
+			"step": "ten_rapid_E_inputs_leave_consistent_closed_door"
+		},
+		{
+			"time_seconds": 60.375770568847656,
+			"key": "E",
+			"event": "pressed",
+			"amount": 1,
+			"controller_returned_handled": true,
+			"step": "ten_rapid_E_inputs_leave_consistent_closed_door"
+		},
+		{
+			"time_seconds": 60.437915802001953,
+			"key": "E",
+			"event": "released",
+			"amount": 0,
+			"controller_returned_handled": true,
+			"step": "ten_rapid_E_inputs_leave_consistent_closed_door"
+		},
+		{
+			"time_seconds": 62.241111755371094,
+			"key": "W",
+			"event": "pressed",
+			"amount": 1,
+			"controller_returned_handled": false,
+			"step": "door_still_blocks_after_rapid_E"
+		},
+		{
+			"time_seconds": 63.399612426757812,
+			"key": "W",
+			"event": "released",
+			"amount": 0,
+			"controller_returned_handled": true,
+			"step": "door_still_blocks_after_rapid_E"
+		},
+		{
+			"time_seconds": 63.683612823486328,
+			"key": "E",
+			"event": "pressed",
+			"amount": 1,
+			"controller_returned_handled": true,
+			"step": "E_still_opens_after_repetition"
+		},
+		{
+			"time_seconds": 63.744148254394531,
+			"key": "E",
+			"event": "released",
+			"amount": 0,
+			"controller_returned_handled": true,
+			"step": "E_still_opens_after_repetition"
+		},
+		{
+			"time_seconds": 65.009689331054688,
+			"key": "W",
+			"event": "pressed",
+			"amount": 1,
+			"controller_returned_handled": false,
+			"step": "door_still_passable_after_repetition"
+		},
+		{
+			"time_seconds": 66.566322326660156,
+			"key": "W",
+			"event": "released",
+			"amount": 0,
+			"controller_returned_handled": true,
+			"step": "door_still_passable_after_repetition"
+		}
+	],
+	"setup_events": [
+		{
+			"name": "setup_for_solid_wall",
+			"method": "test setup teleport and view aim; not counted as movement or interaction evidence",
+			"position":
+			{
+				"x": -150,
+				"y": 250,
+				"z": 98
+			},
+			"aim_at_panel": false,
+			"time_seconds": 6.2496128082275391
+		},
+		{
+			"name": "setup_for_side_wall",
+			"method": "test setup teleport and view aim; not counted as movement or interaction evidence",
+			"position":
+			{
+				"x": 0,
+				"y": 0,
+				"z": 98
+			},
+			"aim_at_panel": false,
+			"time_seconds": 9.2131671905517578
+		},
+		{
+			"name": "setup_for_closed_door",
+			"method": "test setup teleport and view aim; not counted as movement or interaction evidence",
+			"position":
+			{
+				"x": 180,
+				"y": 0,
+				"z": 98
+			},
+			"aim_at_panel": false,
+			"time_seconds": 11.181060791015625
+		},
+		{
+			"name": "setup_near_door_but_looking_away",
+			"method": "test setup teleport and view aim; not counted as movement or interaction evidence",
+			"position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"aim_at_panel": false,
+			"time_seconds": 13.144274711608887
+		},
+		{
+			"name": "setup_near_closed_door",
+			"method": "test setup teleport and view aim; not counted as movement or interaction evidence",
+			"position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"aim_at_panel": true,
+			"time_seconds": 14.237534523010254
+		},
+		{
+			"name": "setup_to_walk_through_open_door",
+			"method": "test setup teleport and view aim; not counted as movement or interaction evidence",
+			"position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"aim_at_panel": false,
+			"time_seconds": 15.994385719299316
+		},
+		{
+			"name": "setup_outside_to_close",
+			"method": "test setup teleport and view aim; not counted as movement or interaction evidence",
+			"position":
+			{
+				"x": 600,
+				"y": 0,
+				"z": 98
+			},
+			"aim_at_panel": true,
+			"time_seconds": 18.13380241394043
+		},
+		{
+			"name": "setup_outside_closed_door",
+			"method": "test setup teleport and view aim; not counted as movement or interaction evidence",
+			"position":
+			{
+				"x": 620,
+				"y": 0,
+				"z": 98
+			},
+			"aim_at_panel": false,
+			"time_seconds": 20.273281097412109
+		},
+		{
+			"name": "setup_far_from_door",
+			"method": "test setup teleport and view aim; not counted as movement or interaction evidence",
+			"position":
+			{
+				"x": -150,
+				"y": 0,
+				"z": 98
+			},
+			"aim_at_panel": true,
+			"time_seconds": 21.727642059326172
+		},
+		{
+			"name": "setup_open_for_wall_occlusion",
+			"method": "test setup teleport and view aim; not counted as movement or interaction evidence",
+			"position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"aim_at_panel": true,
+			"time_seconds": 23.385892868041992
+		},
+		{
+			"name": "setup_close_but_behind_jamb_wall",
+			"method": "test setup teleport and view aim; not counted as movement or interaction evidence",
+			"position":
+			{
+				"x": 330,
+				"y": -230,
+				"z": 98
+			},
+			"aim_at_panel": true,
+			"time_seconds": 24.797761917114258
+		},
+		{
+			"name": "setup_close_after_occlusion",
+			"method": "test setup teleport and view aim; not counted as movement or interaction evidence",
+			"position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"aim_at_panel": true,
+			"time_seconds": 26.049831390380859
+		},
+		{
+			"name": "setup_open_for_player_clearance",
+			"method": "test setup teleport and view aim; not counted as movement or interaction evidence",
+			"position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"aim_at_panel": true,
+			"time_seconds": 27.393924713134766
+		},
+		{
+			"name": "setup_player_in_closing_arc",
+			"method": "test setup teleport and view aim; not counted as movement or interaction evidence",
+			"position":
+			{
+				"x": 450,
+				"y": -10,
+				"z": 98
+			},
+			"aim_at_panel": true,
+			"time_seconds": 28.820646286010742
+		},
+		{
+			"name": "setup_same_position_aim_away_from_closing_door",
+			"method": "test setup teleport and view aim; not counted as movement or interaction evidence",
+			"position":
+			{
+				"x": 450,
+				"y": -10,
+				"z": 98
+			},
+			"aim_at_panel": false,
+			"time_seconds": 29.956497192382812
+		},
+		{
+			"name": "cycle_01_prepare_open",
+			"method": "test setup teleport and view aim; not counted as movement or interaction evidence",
+			"position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"aim_at_panel": true,
+			"time_seconds": 31.564550399780273
+		},
+		{
+			"name": "cycle_01_prepare_close",
+			"method": "test setup teleport and view aim; not counted as movement or interaction evidence",
+			"position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"aim_at_panel": true,
+			"time_seconds": 32.916900634765625
+		},
+		{
+			"name": "cycle_02_prepare_open",
+			"method": "test setup teleport and view aim; not counted as movement or interaction evidence",
+			"position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"aim_at_panel": true,
+			"time_seconds": 34.274311065673828
+		},
+		{
+			"name": "cycle_02_prepare_close",
+			"method": "test setup teleport and view aim; not counted as movement or interaction evidence",
+			"position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"aim_at_panel": true,
+			"time_seconds": 35.8428955078125
+		},
+		{
+			"name": "cycle_03_prepare_open",
+			"method": "test setup teleport and view aim; not counted as movement or interaction evidence",
+			"position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"aim_at_panel": true,
+			"time_seconds": 37.167243957519531
+		},
+		{
+			"name": "cycle_03_prepare_close",
+			"method": "test setup teleport and view aim; not counted as movement or interaction evidence",
+			"position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"aim_at_panel": true,
+			"time_seconds": 38.514472961425781
+		},
+		{
+			"name": "cycle_04_prepare_open",
+			"method": "test setup teleport and view aim; not counted as movement or interaction evidence",
+			"position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"aim_at_panel": true,
+			"time_seconds": 39.840431213378906
+		},
+		{
+			"name": "cycle_04_prepare_close",
+			"method": "test setup teleport and view aim; not counted as movement or interaction evidence",
+			"position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"aim_at_panel": true,
+			"time_seconds": 41.218891143798828
+		},
+		{
+			"name": "cycle_05_prepare_open",
+			"method": "test setup teleport and view aim; not counted as movement or interaction evidence",
+			"position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"aim_at_panel": true,
+			"time_seconds": 42.545429229736328
+		},
+		{
+			"name": "cycle_05_prepare_close",
+			"method": "test setup teleport and view aim; not counted as movement or interaction evidence",
+			"position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"aim_at_panel": true,
+			"time_seconds": 43.872970581054688
+		},
+		{
+			"name": "cycle_06_prepare_open",
+			"method": "test setup teleport and view aim; not counted as movement or interaction evidence",
+			"position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"aim_at_panel": true,
+			"time_seconds": 45.180038452148438
+		},
+		{
+			"name": "cycle_06_prepare_close",
+			"method": "test setup teleport and view aim; not counted as movement or interaction evidence",
+			"position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"aim_at_panel": true,
+			"time_seconds": 46.523880004882812
+		},
+		{
+			"name": "cycle_07_prepare_open",
+			"method": "test setup teleport and view aim; not counted as movement or interaction evidence",
+			"position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"aim_at_panel": true,
+			"time_seconds": 47.851284027099609
+		},
+		{
+			"name": "cycle_07_prepare_close",
+			"method": "test setup teleport and view aim; not counted as movement or interaction evidence",
+			"position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"aim_at_panel": true,
+			"time_seconds": 49.206455230712891
+		},
+		{
+			"name": "cycle_08_prepare_open",
+			"method": "test setup teleport and view aim; not counted as movement or interaction evidence",
+			"position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"aim_at_panel": true,
+			"time_seconds": 50.563423156738281
+		},
+		{
+			"name": "cycle_08_prepare_close",
+			"method": "test setup teleport and view aim; not counted as movement or interaction evidence",
+			"position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"aim_at_panel": true,
+			"time_seconds": 51.948467254638672
+		},
+		{
+			"name": "cycle_09_prepare_open",
+			"method": "test setup teleport and view aim; not counted as movement or interaction evidence",
+			"position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"aim_at_panel": true,
+			"time_seconds": 53.280750274658203
+		},
+		{
+			"name": "cycle_09_prepare_close",
+			"method": "test setup teleport and view aim; not counted as movement or interaction evidence",
+			"position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"aim_at_panel": true,
+			"time_seconds": 54.8056640625
+		},
+		{
+			"name": "cycle_10_prepare_open",
+			"method": "test setup teleport and view aim; not counted as movement or interaction evidence",
+			"position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"aim_at_panel": true,
+			"time_seconds": 56.17242431640625
+		},
+		{
+			"name": "cycle_10_prepare_close",
+			"method": "test setup teleport and view aim; not counted as movement or interaction evidence",
+			"position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"aim_at_panel": true,
+			"time_seconds": 57.618732452392578
+		},
+		{
+			"name": "setup_for_ten_rapid_E_inputs",
+			"method": "test setup teleport and view aim; not counted as movement or interaction evidence",
+			"position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"aim_at_panel": true,
+			"time_seconds": 58.950752258300781
+		},
+		{
+			"name": "setup_for_final_closed_collision",
+			"method": "test setup teleport and view aim; not counted as movement or interaction evidence",
+			"position":
+			{
+				"x": 180,
+				"y": 0,
+				"z": 98
+			},
+			"aim_at_panel": false,
+			"time_seconds": 61.990535736083984
+		},
+		{
+			"name": "setup_for_final_open",
+			"method": "test setup teleport and view aim; not counted as movement or interaction evidence",
+			"position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"aim_at_panel": true,
+			"time_seconds": 63.399612426757812
+		},
+		{
+			"name": "setup_for_final_passage",
+			"method": "test setup teleport and view aim; not counted as movement or interaction evidence",
+			"position":
+			{
+				"x": 280,
+				"y": 0,
+				"z": 98
+			},
+			"aim_at_panel": false,
+			"time_seconds": 64.745155334472656
+		}
+	]
+}

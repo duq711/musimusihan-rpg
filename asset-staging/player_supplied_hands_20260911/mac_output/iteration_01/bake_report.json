@@ -1,0 +1,66 @@
+{
+  "resolution": 4096,
+  "high_to_low_normal_bake": true,
+  "samples": 2,
+  "maps": {
+    "basecolor": {
+      "file": "supplied_hand_basecolor.png",
+      "sha256": "772537d7afe7831260f00c2e71f17a2e2fc1cec80146c06934b9cacc1f1626f3",
+      "packed_bytes_match": true
+    },
+    "roughness": {
+      "file": "supplied_hand_roughness.png",
+      "sha256": "e299507c59339b9ee2d7d3d61ddb731ecf07c939682bec0fc1b88293431d4b16",
+      "packed_bytes_match": true
+    },
+    "normal": {
+      "file": "supplied_hand_normal.png",
+      "sha256": "8f241a09a8459ac1015fc344804b346b66e7f441367056ee082c0ef156927c9e",
+      "packed_bytes_match": true
+    }
+  },
+  "pairs": [
+    {
+      "role": "Supplied_Skin",
+      "low": "Supplied_AnatomicalHand",
+      "high": "HighRes_Supplied_AnatomicalHand",
+      "low_vertices": 22502,
+      "high_vertices": 450989
+    },
+    {
+      "role": "Supplied_Nail",
+      "low": "Nail_thumb",
+      "high": "HighRes_Nail_thumb",
+      "low_vertices": 302,
+      "high_vertices": 29154
+    },
+    {
+      "role": "Supplied_Nail",
+      "low": "Nail_index",
+      "high": "HighRes_Nail_index",
+      "low_vertices": 302,
+      "high_vertices": 29154
+    },
+    {
+      "role": "Supplied_Nail",
+      "low": "Nail_middle",
+      "high": "HighRes_Nail_middle",
+      "low_vertices": 302,
+      "high_vertices": 29154
+    },
+    {
+      "role": "Supplied_Nail",
+      "low": "Nail_ring",
+      "high": "HighRes_Nail_ring",
+      "low_vertices": 302,
+      "high_vertices": 29154
+    },
+    {
+      "role": "Supplied_Nail",
+      "low": "Nail_little",
+      "high": "HighRes_Nail_little",
+      "low_vertices": 302,
+      "high_vertices": 29154
+    }
+  ]
+}

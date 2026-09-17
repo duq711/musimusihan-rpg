@@ -1,0 +1,13 @@
+extends RefCounted
+## Authored against the actual 74%-scale torch shaft and supplied left hand.
+## Signed additions account for the source hand already being curled.
+const ARM_TRANSFORM := Transform3D(Basis(Vector3(0.358960891651, 0.89887247847, -0.251347076472), Vector3(0.573576450348, -4.37113882867e-08, 0.819152057171), Vector3(0.736313228886, -0.438210300483, -0.515572101207)), Vector3(0.0545143589927, 0.0932015083524, -0.017982721953))
+const CONTACT_CENTER := Vector3(0, -0.0165375693996, -0.0611544066745)
+const THUMB_OPPOSITION := -0.1097031622195078
+const JOINT_ANGLES := {
+	"thumb": Vector3(0.286146854948, -0.148240948704, -0.20689020577),
+	"index": Vector3(-0.456130187368, -0.710555935832, -0.12499780909),
+	"middle": Vector3(-0.578201879462, -0.392900491669, -0.206125495317),
+	"ring": Vector3(-0.613900775044, -0.129063449449, -0.136062833491),
+	"little": Vector3(-0.319399254955, -0.313825263307, -0.199913362602),
+}

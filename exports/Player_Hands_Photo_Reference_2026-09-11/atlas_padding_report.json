@@ -1,0 +1,30 @@
+{
+  "status": "passed",
+  "width": 4096,
+  "height": 4096,
+  "surface_seed_pixels": 10579141,
+  "filled_background_pixels": 6198075,
+  "maps": {
+    "basecolor": {
+      "source_sha256": "fd3332ec69da342e4ead9a297eef7b69b136094b49c350c9519f7c0400ed6fdc",
+      "output_sha256": "a4fe7ce4c34f81ba3e174ddc6a7e14474e7d7bce8d1e16804915a47fce034237",
+      "all_existing_surface_pixels_exact": true,
+      "changed_existing_surface_pixels": 0
+    },
+    "normal": {
+      "source_sha256": "7d18d5a4427ffb686022078936c5e7d34f2e3a49b518dcf9c94a962036b5d8bf",
+      "output_sha256": "5de10fb5c9b36a42d2c7fcbcf0ec9e6082adc85a4c818727a9d3f774eddb3c18",
+      "all_existing_surface_pixels_exact": true,
+      "changed_existing_surface_pixels": 0
+    },
+    "roughness": {
+      "source_sha256": "6eb158ac9a1e882a45a64b10717db97c6be308362c84e113b309a94bbdca5353",
+      "output_sha256": "9c2db78a42635392902cec0f3d7e46255b2d72b24c57953c8844639cfe7acfa1",
+      "all_existing_surface_pixels_exact": true,
+      "changed_existing_surface_pixels": 0
+    }
+  },
+  "nearest_source_seed_pixels": 10570974,
+  "quantized_edge_mask_disagreement": 28,
+  "method": "Preserve all nonzero base or roughness pixels exactly; fill only unused pixels from nearest jointly nonzero (>8/255) source. No surface smoothing."
+}

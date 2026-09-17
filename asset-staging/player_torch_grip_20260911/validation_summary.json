@@ -1,0 +1,50 @@
+{
+  "status": "complete",
+  "iteration": "revision_04_final",
+  "completed_date": "2026-09-12",
+  "supersedes": "final_03 (rejected wrist direction and open finger grip)",
+  "execution": "MacBook Blender and Godot embedded Vulkan",
+  "headless": {
+    "passed": 6,
+    "failed": 0,
+    "logs": [
+      "audit/headless_04_contact.log",
+      "audit/headless_04_regression.log"
+    ]
+  },
+  "wrist_axis_degrees_stand_walk_sprint": [
+    21.563669,
+    20.882275,
+    17.066936
+  ],
+  "gpu_capture_count": 18,
+  "gpu_manifests": [
+    "godot-game/artifacts/visual_qa/torch_grip/revision_04_final/capture_manifest.json",
+    "godot-game/artifacts/visual_qa/player_arms/torch_grip_revision_04/capture_manifest.json"
+  ],
+  "source_sha256": {
+    "res://assets/3d/dark_fantasy/iron_cage_torch.glb": "f027270e3e993dc7b23f034356786620ee533d79c3de06e6dec3566b9c18855a",
+    "res://assets/3d/player/hands_detailed/left_hand_detailed.glb": "2e9a95b11654862125c2d082017ef18bbc7de75be6685f0e3831f8281b2f74db",
+    "res://scripts/greybox_arm_visual.gd": "eefca1eafc82a53ca3b46ff42f4be5e0fa489a04c8856f6d7d951c9fe9c1ab94",
+    "res://scripts/player.gd": "c823cd54c0512e7c4b8c1ba4b17cf88810f4471b1ccb3e45b947059a200f926f",
+    "res://scripts/player_arm_visual.gd": "d73d6ba71a3cbc6f42708903b8f41f3f8714fafa40cd61cb7b3fb0fcc1c7ac72",
+    "res://scripts/torch_grip_pose.gd": "20d3387db287784ef0f4ba1a3579980a477dac1fa973720248027f85c0292a6e",
+    "res://tests/torch_grip_preview.gd": "912624dad4310ab36cae2963a4bf8e8cfa39029f1ff63a65a65aafcd60c66801"
+  },
+  "native_surface": {
+    "iteration": "revision_04_final",
+    "samples": 202502,
+    "minimum_shaft_clearance_m": 0.0004861557996929458,
+    "penetrations": 0,
+    "method": "Actual fitted skin vertices, triangle centers and edge midpoints against measured tapered shaft"
+  },
+  "runtime_minimum_clearance_m": 0.00048454397595,
+  "contact_regions": 10,
+  "maximum_audited_pad_gap_m": 0.00283435662342,
+  "native_pose_match_error_m": 5.974879509886534e-08,
+  "visual_review": "audit/visual_review_04.json",
+  "native_file": "mac_output/torch_grip_final.blend",
+  "test_room_entry": "motion_torch",
+  "original_hand_geometry_preserved": true,
+  "shaft_geometry_scale_preserved": true
+}

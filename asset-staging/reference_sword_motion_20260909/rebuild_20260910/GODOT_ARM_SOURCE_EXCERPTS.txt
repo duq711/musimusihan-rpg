@@ -1,0 +1,210 @@
+Current Godot arm implementation — verbatim read-only excerpts
+Captured 2026-09-10; these are source code references, not authored animation samples.
+Line numbers refer to the current source at capture. Source SHA256 detects later changes.
+
+FILE: godot-game/scripts/sword_long_grip_visual.gd
+SHA256: c5d5b573ae72083ad6cf2dead38bbd817c3084006667a162a363fe55649cfed1
+LINES: 6-22
+    6 | const SOURCE := preload("res://assets/3d/player/sword_hold_long_grip/SwordHold_Static.glb")
+    7 | const SOURCE_SHA256 := "2b94cc385f837fe253552cd654cb1f665246f61cdee5227814d63049da9f22fb"
+    8 | const GRIP_CENTER := Vector3(0.0, -0.108, 0.002)
+    9 | # Original sleeve vertex correspondence recovers its authored joint axis.
+   10 | # The supplied export holds both segments straight; these coordinates are
+   11 | # independently normalized into the same sword frame as the imported mesh.
+   12 | const REST_WRIST := Vector3(0.0679751875, -0.1080001335, 0.0524637313)
+   13 | const REST_ELBOW := Vector3(0.2366280243, -0.1080001099, 0.2503430693)
+   14 | const REST_SHOULDER := Vector3(0.4571740416, -0.1080000789, 0.5091083575)
+   15 | const REST_FOREARM_LENGTH := 0.26
+   16 | const REST_UPPER_LENGTH := 0.34
+   17 | const SOURCE_READY := Transform3D(Basis(
+   18 | 	Vector3(0.6734562112, -0.1673592395, 0.7200327879),
+   19 | 	Vector3(0.1384824613, 0.9853534854, 0.0995039315),
+   20 | 	Vector3(-0.7261403196, 0.0327005009, 0.6867691389)
+   21 | ), Vector3(0.3249563841, -0.0035816696, -0.5892537756))
+   22 | const ARM_PARTS := ["RightArm_Forearm_Surface", "RightArm_UpperArm_Surface", "RightArm_WristCuff_Surface", "RightHand_Glove"]
+LINES: 78-135
+   78 | func set_grip(amount: float, _thumb_amount: float = -1.0) -> void:
+   79 | 	# There are no fingers or bones to animate in this export. Keep the exact
+   80 | 	# authored contact instead of stretching or reopening the supplied fist.
+   81 | 	grip_amount = clampf(amount, 0.0, 1.0)
+   82 | 
+   83 | 
+   84 | func fit_arm(shoulder_world: Vector3, elbow_world: Vector3) -> void:
+   85 | 	if not is_instance_valid(_forearm) or not is_instance_valid(_upper_arm):
+   86 | 		return
+   87 | 	var shoulder := to_local(shoulder_world)
+   88 | 	var elbow := to_local(elbow_world)
+   89 | 	if not shoulder.is_finite() or not elbow.is_finite():
+   90 | 		return
+   91 | 	# A two-bone solver adds a small bend at full extension to avoid a singular
+   92 | 	# elbow. At the exact source rest shoulder, retain the authored straight
+   93 | 	# sleeves instead. This also makes returning to the source pose exact.
+   94 | 	if shoulder.distance_to(REST_SHOULDER) < 0.00001:
+   95 | 		shoulder = REST_SHOULDER
+   96 | 		elbow = REST_ELBOW
+   97 | 	_forearm.transform = _fit_segment(REST_WRIST, REST_ELBOW, REST_WRIST, elbow)
+   98 | 	_upper_arm.transform = _fit_segment(REST_ELBOW, REST_SHOULDER, elbow, shoulder)
+   99 | 	# This short leather joint turns with the sleeve around the fixed wrist.
+  100 | 	# Leaving its open rear rim in the sword frame exposes a hollow cuff beside
+  101 | 	# the arm in reverse/overhead cuts. Its original geometry is never stretched.
+  102 | 	var cuff_basis := _forearm.basis.orthonormalized()
+  103 | 	_cuff.transform = Transform3D(cuff_basis, REST_WRIST - cuff_basis * REST_WRIST)
+  104 | 	_fitted_elbow = elbow
+  105 | 	_fitted_shoulder = shoulder
+  106 | 	# The authored glove stays locked to the sword; the leather sleeve articulates.
+  107 | 
+  108 | 
+  109 | static func _fit_segment(rest_start: Vector3, rest_end: Vector3, target_start: Vector3, target_end: Vector3) -> Transform3D:
+  110 | 	var rest_delta := rest_end - rest_start
+  111 | 	var target_delta := target_end - target_start
+  112 | 	if minf(rest_delta.length(), target_delta.length()) < 0.00001:
+  113 | 		return Transform3D.IDENTITY
+  114 | 	var axis := rest_delta.normalized()
+  115 | 	var axial_change := target_delta.length() / rest_delta.length() - 1.0
+  116 | 	var axial_scale := Basis(
+  117 | 		Vector3.RIGHT + axis * axis.x * axial_change,
+  118 | 		Vector3.UP + axis * axis.y * axial_change,
+  119 | 		Vector3.BACK + axis * axis.z * axial_change
+  120 | 	)
+  121 | 	# The shortest rotation avoids the reference-axis roll changes of a look-at
+  122 | 	# frame, while axial scaling keeps the two actual sleeve endpoints joined.
+  123 | 	var target_axis := target_delta.normalized()
+  124 | 	var cross := axis.cross(target_axis)
+  125 | 	var dot := clampf(axis.dot(target_axis), -1.0, 1.0)
+  126 | 	var rotation := Quaternion.IDENTITY
+  127 | 	# Quaternion(from, to) treats tiny angles as identity. That leaves visible
+  128 | 	# segments short of their shared endpoint while the guard starts to rise.
+  129 | 	if cross.length() > 0.000000001:
+  130 | 		rotation = Quaternion(cross.normalized(), atan2(cross.length(), dot))
+  131 | 	elif dot < 0.0:
+  132 | 		var perpendicular := axis.cross(Vector3.RIGHT if absf(axis.x) < 0.9 else Vector3.UP).normalized()
+  133 | 		rotation = Quaternion(perpendicular, PI)
+  134 | 	var orientation := Basis(rotation) * axial_scale
+  135 | 	return Transform3D(orientation, target_start - orientation * rest_start)
+LINES: 168-176
+  168 | static func _cache_node(node: Node, parent_transform: Transform3D) -> void:
+  169 | 	var source_transform := parent_transform
+  170 | 	if node is Node3D:
+  171 | 		source_transform = parent_transform * (node as Node3D).transform
+  172 | 	if node is MeshInstance3D:
+  173 | 		var part := node as MeshInstance3D
+  174 | 		_normalized_meshes[str(part.name)] = _bake_mesh(part, SOURCE_READY.affine_inverse() * source_transform)
+  175 | 	for child in node.get_children():
+  176 | 		_cache_node(child, source_transform)
+LINES: 188-197
+  188 | static func _bake_mesh(source: MeshInstance3D, normalization: Transform3D) -> ArrayMesh:
+  189 | 	var result := ArrayMesh.new()
+  190 | 	result.resource_name = str(source.name) + "_CanonicalSwordFrame"
+  191 | 	var normal_basis := normalization.basis.inverse().transposed()
+  192 | 	for surface in source.mesh.get_surface_count():
+  193 | 		var arrays := source.mesh.surface_get_arrays(surface).duplicate(true)
+  194 | 		var vertices: PackedVector3Array = arrays[Mesh.ARRAY_VERTEX]
+  195 | 		for index in vertices.size():
+  196 | 			vertices[index] = normalization * vertices[index]
+  197 | 		arrays[Mesh.ARRAY_VERTEX] = vertices
+LINES: 213-215
+  213 | 		# Embedded texture and material resources remain the supplied export.
+  214 | 		result.surface_set_material(surface, source.get_active_material(surface))
+  215 | 	return result
+
+FILE: godot-game/scripts/player.gd
+SHA256: 0a0241dfda1a612843c6b8f363246fff899a49b0c3ef36a79895a6b87c1a257e
+LINES: 320-331
+  320 | 	camera.name = "PlayerCamera"
+  321 | 	camera.current = true
+  322 | 	camera.fov = 76.0
+  323 | 	camera.near = 0.05
+  324 | 	camera.cull_mask &= ~PLAYER_APPEARANCE.BODY_LAYER
+  325 | 	head.add_child(camera)
+  326 | 
+  327 | func _build_viewmodel() -> void:
+  328 | 	weapon_pivot = Node3D.new()
+  329 | 	weapon_pivot.name = "WeaponPivot"
+  330 | 	weapon_pivot.position = Vector3(0.46, -0.42, -0.78)
+  331 | 	weapon_pivot.rotation = Vector3(deg_to_rad(-9), deg_to_rad(-15), deg_to_rad(-8))
+LINES: 349-354
+  349 | 	_legacy_weapon_arm = _add_character_arm(weapon_pivot, Vector3(0.0, -0.17, 0.015), 1)
+  350 | 	_sword_weapon_arm = SWORD_LONG_GRIP.new()
+  351 | 	_sword_weapon_arm.name = "LongGripSwordArm"
+  352 | 	weapon_pivot.add_child(_sword_weapon_arm)
+  353 | 	_sword_weapon_arm.setup(1)
+  354 | 	weapon_arm = _sword_weapon_arm
+LINES: 377-381
+  377 | func _build_sword_visual(dark_steel: StandardMaterial3D, blade_steel: StandardMaterial3D, rusted_steel: StandardMaterial3D) -> void:
+  378 | 	sword_visual_root = SWORD_LONG_GRIP.create_sword()
+  379 | 	sword_visual_root.name = "RustedLongswordVisual"
+  380 | 	weapon_pivot.add_child(sword_visual_root)
+  381 | 	sword_blade = sword_visual_root.find_child("PittedBlade", true, false) as MeshInstance3D
+LINES: 2251-2253
+ 2251 | 	if reference_enabled:
+ 2252 | 		target = _apply_reference_pose_handoff(target, "sword")
+ 2253 | 	weapon_pivot.transform = target
+LINES: 2485-2509
+ 2485 | func _fit_sword_grip(grip_local: Vector3) -> void:
+ 2486 | 	# The supplied hand is already closed around this exact grip. Its baked
+ 2487 | 	# vertices share sword space; never re-curl or stretch the imported fingers.
+ 2488 | 	if weapon_arm.get_meta("imported_static_grip", false):
+ 2489 | 		weapon_arm.transform = Transform3D.IDENTITY
+ 2490 | 		var target := weapon_pivot.to_global(grip_local)
+ 2491 | 		var actual := weapon_arm.to_global(SWORD_LONG_GRIP.GRIP_CENTER)
+ 2492 | 		_hand_contacts["sword"] = {"target": target, "actual": actual, "error": actual.distance_to(target)}
+ 2493 | 		# The authored glove stays on the sword. Sleeve segments follow the
+ 2494 | 		# shoulder, with the leather cuff rotating around the fixed wrist.
+ 2495 | 		var wrist := weapon_arm.to_global(SWORD_LONG_GRIP.REST_WRIST)
+ 2496 | 		var shoulder := camera.to_global(SWORD_LONG_GRIP.SOURCE_READY * SWORD_LONG_GRIP.REST_SHOULDER)
+ 2497 | 		var offset := wrist - shoulder
+ 2498 | 		var reach := offset.length()
+ 2499 | 		var axis := offset / maxf(reach, 0.00001)
+ 2500 | 		var upper := SWORD_LONG_GRIP.REST_ELBOW.distance_to(SWORD_LONG_GRIP.REST_SHOULDER)
+ 2501 | 		var forearm := SWORD_LONG_GRIP.REST_WRIST.distance_to(SWORD_LONG_GRIP.REST_ELBOW)
+ 2502 | 		var elbow := shoulder + offset * (upper / (upper + forearm))
+ 2503 | 		if reach < upper + forearm and reach > absf(upper - forearm):
+ 2504 | 			var along := (upper * upper - forearm * forearm + reach * reach) / (2.0 * reach)
+ 2505 | 			var pole := camera.global_basis * Vector3(0.75, -0.72, 0.28)
+ 2506 | 			var bend := (pole - axis * pole.dot(axis)).normalized()
+ 2507 | 			elbow = shoulder + axis * along + bend * sqrt(maxf(0.0, upper * upper - along * along))
+ 2508 | 		weapon_arm.call("fit_arm", shoulder, elbow)
+ 2509 | 		return
+
+FILE: godot-game/tests/sword_long_grip_test.gd
+SHA256: 82e4a545ac8e8217276cd8357f925f6e1d10484d410286ddb927144f68e12648
+LINES: 151-175
+  151 | 
+  152 | static func audit_sleeve_connections(player: DungeonPlayer, context: String = "") -> Array[String]:
+  153 | 	var errors: Array[String] = []
+  154 | 	var arm := player._sword_weapon_arm
+  155 | 	var forearm := arm.get("_forearm") as Node3D
+  156 | 	var upper := arm.get("_upper_arm") as Node3D
+  157 | 	var cuff := arm.get("_cuff") as Node3D
+  158 | 	if forearm == null or upper == null or cuff == null:
+  159 | 		errors.append("Imported sleeve needs both real source segments and its original wrist cuff")
+  160 | 		return errors
+  161 | 	var wrist := arm.to_global(GRIP.REST_WRIST)
+  162 | 	var shoulder := player.camera.to_global(GRIP.SOURCE_READY * GRIP.REST_SHOULDER)
+  163 | 	var cuff_pivot_error := cuff.to_global(GRIP.REST_WRIST).distance_to(wrist)
+  164 | 	var cuff_alignment := cuff.basis.is_equal_approx(forearm.basis.orthonormalized())
+  165 | 	var cuff_scale_preserved := cuff.basis.get_scale().is_equal_approx(Vector3.ONE)
+  166 | 	if cuff_pivot_error > 0.00003 or not cuff_alignment or not cuff_scale_preserved:
+  167 | 		errors.append("Original cuff must rotate with the fitted forearm about the authored wrist without scaling: %s pivot %.6fmm rotation aligned %s scale %s" % [context, cuff_pivot_error * 1000.0, str(cuff_alignment), str(cuff.basis.get_scale())])
+  168 | 	var wrist_error := forearm.to_global(GRIP.REST_WRIST).distance_to(wrist)
+  169 | 	var elbow_error := forearm.to_global(GRIP.REST_ELBOW).distance_to(upper.to_global(GRIP.REST_ELBOW))
+  170 | 	var shoulder_error := upper.to_global(GRIP.REST_SHOULDER).distance_to(shoulder)
+  171 | 	if wrist_error > 0.00003 or elbow_error > 0.00003 or shoulder_error > 0.00003:
+  172 | 		var fitted: Dictionary = arm.call("get_snapshot")
+  173 | 		errors.append("Actual imported sleeve endpoints must join the authored wrist, each other and the camera-relative shoulder through combat: %s wrist %.6fmm elbow %.6fmm shoulder %.6fmm; fitted elbow %s fitted shoulder %s" % [context, wrist_error * 1000.0, elbow_error * 1000.0, shoulder_error * 1000.0, str(fitted.fitted_elbow), str(fitted.fitted_shoulder)])
+  174 | 	return errors
+  175 | 
+
+FILE: godot-game/scripts/first_person_renderer.gd
+SHA256: 411ee3b04abb798739204f547872f7cd49319776b5ed5ba6b20acb57cd9aa4f7
+LINES: 106-115
+  106 | 	camera.global_transform = source_camera.global_transform
+  107 | 	camera.projection = source_camera.projection
+  108 | 	camera.fov = source_camera.fov
+  109 | 	camera.size = source_camera.size
+  110 | 	camera.keep_aspect = source_camera.keep_aspect
+  111 | 	camera.frustum_offset = source_camera.frustum_offset
+  112 | 	camera.h_offset = source_camera.h_offset
+  113 | 	camera.v_offset = source_camera.v_offset
+  114 | 	camera.near = minf(source_camera.near, 0.025)
+  115 | 	camera.far = source_camera.far

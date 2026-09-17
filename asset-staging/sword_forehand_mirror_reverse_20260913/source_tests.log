@@ -1,0 +1,15 @@
+[HEADLESS] sword_edge_alignment_test.gd
+SWORD EDGE SHIELD RESAMPLE {"max_angle_degrees":0.0395646811852521,"max_position_m":0.000182841555215418,"samples":1736}
+SWORD EDGE ALIGNMENT PASS {"aesthetic_quality_evaluated":false,"baseline":"all_other_clips_preserved; original_shield_curve_within_1mm_0.1deg","contract":"same_time_spatial_mirror_of_reverse; shared_right_idle_endpoints","correspondence":{"max_axis_error":0.000000614390614828153,"max_grip_m":0.0000000988431239079546,"samples":181},"left_reverse_wrist":{"exact_keys":174,"max_segment_length_m":0.0000000798702239901417,"max_wrist_m":0.0000000682857006495396},"recovery":{"idle_and_arm_endpoints_checked":true,"max_1ms_grip_step_m":0.00401608925312757,"samples":621},"right_diagonal_wrist":{"exact_keys":174,"max_segment_length_m":0.0000000929832458251845,"max_wrist_m":0.0000000682857006495396},"sweep":{"max_reflected_velocity_error_m_per_s":{"blade_65cm":0.000215827691135928,"center":0.000160806564963423,"tip":0.000301361083984375},"moving_samples":139}}
+[HEADLESS] sword_recovery_continuity_test.gd
+RECOVERY METRIC true right_diagonal peak_deg=11.5132580017869 boundary_m=0.00017703427875
+RECOVERY METRIC true left_reverse peak_deg=11.9420034901406 boundary_m=0.00013100702199
+RECOVERY METRIC true overhead peak_deg=14.1934276471945 boundary_m=0.00013590096205
+RECOVERY METRIC false right_diagonal peak_deg=11.5132580017869 boundary_m=0.00016677065287
+RECOVERY METRIC false left_reverse peak_deg=11.9420034901406 boundary_m=0.00032122660195
+RECOVERY METRIC false overhead peak_deg=14.1934276471945 boundary_m=0.00026330872788
+SWORD RECOVERY CONTINUITY PASS
+[HEADLESS] sword_two_hand_grip_test.gd
+SWORD TWO HAND GRIP PASS: 48 support diagnostics, three real cuts, original source fidelity and unchanged expedition
+
+Headless validation: 3 passed, 0 failed.

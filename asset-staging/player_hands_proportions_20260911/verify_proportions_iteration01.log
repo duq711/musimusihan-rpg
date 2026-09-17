@@ -1,0 +1,28 @@
+00:01.884  blend            | Read blend: "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/player_hands_realism_20260911/mac_output/iteration_04/bilateral_hands_realistic.blend"
+/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/player_hands_proportions_20260911/tools/verify_proportions.py:64: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  assert material.use_nodes
+07:03:19 | INFO: Data are loaded, start creating Blender stuff
+07:03:19 | INFO: Blender create Mesh node FittedLeather.001
+07:03:19 | INFO: Blender create Mesh node ContinuousAnatomicalHandMesh.002
+07:03:19 | INFO: Blender create Mesh node Nail_indexMesh
+07:03:19 | INFO: Blender create Mesh node Nail_littleMesh
+07:03:19 | INFO: Blender create Mesh node Nail_middleMesh
+07:03:19 | INFO: Blender create Mesh node Nail_ringMesh
+07:03:19 | INFO: Blender create Mesh node Nail_thumbMesh
+07:03:19 | INFO: Blender create Mesh node TailoredClothSleeve.001
+07:03:19 | INFO: Blender create Mesh node WristTransitionMesh_v1
+07:03:19 | INFO: glTF import finished in 0.11s
+07:03:19 | INFO: Data are loaded, start creating Blender stuff
+07:03:19 | INFO: Blender create Mesh node FittedLeather.003
+07:03:19 | INFO: Blender create Mesh node ContinuousAnatomicalHandMesh.003
+07:03:20 | INFO: Blender create Mesh node Nail_indexMesh.001
+07:03:20 | INFO: Blender create Mesh node Nail_littleMesh.001
+07:03:20 | INFO: Blender create Mesh node Nail_middleMesh.001
+07:03:20 | INFO: Blender create Mesh node Nail_ringMesh.001
+07:03:20 | INFO: Blender create Mesh node Nail_thumbMesh.001
+07:03:20 | INFO: Blender create Mesh node TailoredClothSleeve.003
+07:03:20 | INFO: Blender create Mesh node WristTransitionMesh_v1.001
+07:03:20 | INFO: glTF import finished in 0.11s
+00:04.736  blend            | Read blend: "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/player_hands_proportions_20260911/mac_output/iteration_01/bilateral_hands_proportions.blend"
+PROPORTION_HANDS_VERIFICATION failed [{"error": "An embedded original texture was re-encoded or changed", "traceback": "Traceback (most recent call last):\n  File \"/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/player_hands_proportions_20260911/tools/verify_proportions.py\", line 313, in main\n    row = inspect_glb_unchanged_materials(path, source / f\"{side}_hand_realistic.glb\")\n  File \"/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/player_hands_proportions_20260911/tools/verify_proportions.py\", line 231, in inspect_glb_unchanged_materials\n    assert images(current, binary) == images(old, old_binary), \"An embedded original texture was re-encoded or changed\"\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: An embedded original texture was re-encoded or changed\n"}]
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 01:35:57)

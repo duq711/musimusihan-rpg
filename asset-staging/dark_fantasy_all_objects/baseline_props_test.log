@@ -1,0 +1,67 @@
+[HEADLESS] dark_fantasy_gallery_test.gd
+GALLERY FACTORY CHECK: reliquary_chest
+GALLERY FACTORY CHECK: blood_rune_trap
+GALLERY FACTORY CHECK: dungeon_archway
+GALLERY FACTORY CHECK: dungeon_pillar
+GALLERY FACTORY CHECK: dungeon_stairs
+GALLERY FACTORY CHECK: extraction_portal
+GALLERY FACTORY CHECK: headless_saint
+GALLERY FACTORY CHECK: hideout_hearth
+GALLERY FACTORY CHECK: wooden_stool
+GALLERY FACTORY CHECK: storage_shelf
+GALLERY FACTORY CHECK: weapon_rack
+GALLERY FACTORY CHECK: hideout_crate
+GALLERY FACTORY CHECK: hideout_barrel
+GALLERY FACTORY CHECK: rain_bucket
+GALLERY FACTORY CHECK: hanging_cloak
+GALLERY FACTORY CHECK: drying_herbs
+GALLERY FACTORY CHECK: used_candles
+GALLERY FACTORY CHECK: ossuary_gate
+GALLERY FACTORY CHECK: drain_gate
+GALLERY FACTORY CHECK: ossuary_niches
+GALLERY FACTORY CHECK: weathered_skull
+GALLERY FACTORY CHECK: cold_seal_rune
+GALLERY FACTORY CHECK: hideout_rubble
+GALLERY FACTORY CHECK: shallow_water
+GALLERY FACTORY CHECK: moss_patch
+GALLERY FACTORY CHECK: wall_torch
+GALLERY FACTORY CHECK: flame_and_sparks
+GALLERY FACTORY CHECK: water_drips
+GALLERY FACTORY CHECK: straw_bed
+GALLERY FACTORY CHECK: mud_mat
+GALLERY FACTORY CHECK: hidden_hatch
+GALLERY FACTORY CHECK: empty_sack
+GALLERY FACTORY CHECK: broken_workbench
+GALLERY FACTORY CHECK: whetstone
+GALLERY FACTORY CHECK: rusty_vice
+GALLERY FACTORY CHECK: gothic_voussoir_arch
+GALLERY FACTORY CHECK: hanging_chain
+GALLERY FACTORY CHECK: dungeon_rubble
+GALLERY FACTORY CHECK: wet_floor_patch
+GALLERY FACTORY CHECK: ossuary_wall
+GALLERY FACTORY CHECK: wet_flagstone_floor
+GALLERY FACTORY CHECK: crypt_ceiling
+GALLERY FACTORY CHECK: broken_altar
+GALLERY FACTORY CHECK: campfire
+GALLERY FACTORY CHECK: camp_bedroll
+GALLERY FACTORY CHECK: roasting_spit
+GALLERY FACTORY CHECK: mushroom_soup_pot
+GALLERY FACTORY CHECK: trail_stew_pot
+GALLERY FACTORY CHECK: cooking_steam
+GALLERY FACTORY CHECK: fire_bolt
+GALLERY FACTORY CHECK: water_bolt
+GALLERY FACTORY CHECK: ice_shard
+GALLERY FACTORY CHECK: stone_shard
+GALLERY FACTORY CHECK: peripheral_afterimage
+ERROR: Condition "!is_inside_tree()" is true. Returning: Transform3D()
+   at: get_global_transform (scene/3d/node_3d.cpp:649)
+   GDScript backtrace (most recent call first):
+       [0] _build_ghost (res://scripts/stress_perception.gd:262)
+       [1] build_object (res://scripts/dark_fantasy_object_catalog.gd:74)
+       [2] select_object (res://scripts/dark_fantasy_gallery.gd:158)
+       [3] _run (res://tests/dark_fantasy_gallery_test.gd:38)
+GALLERY FACTORY CHECK: archery_accuracy_target
+GALLERY FACTORY CHECK: flail_station_markers
+DARK FANTASY GALLERY PASS: 56 production factories, actual mesh bounds and six complete views, disabled simulation, repeated paused test-room controls, F2/close/reset cleanup and original expedition restoration
+
+Headless validation: 1 passed, 0 failed.

@@ -28,3 +28,8 @@
 - 2026-09-11 사용자 지시에 따라 **모든 Blender 작업은 MacBook이 기본**입니다. 모델링·리깅·모션·베이크·렌더링·검증에 적용하며 이전 Windows 기본 원칙과 양손 작업 한정 예외를 대체합니다. Windows는 사용자가 별도로 지정한 작업에만 사용합니다.
 - 시작 시 실제 실행 위치와 연결 상태를 확인합니다. Mac 백그라운드 실행을 우선하고, 실시간 MCP가 없으면 파일 기반 MCP 또는 Blender CLI로 진행합니다. 일반 작업을 Windows 연결·인증 때문에 멈추지 않습니다.
 - 원본은 보존하고 결과를 별도 산출물로 저장·검증한 뒤 게임에 통합합니다. 게임 기능을 추가·확장하면 Godot 지침의 테스트룸 완료 조건도 적용합니다.
+
+# Chat On Steroids 작업 연속성 / Work continuity
+
+- 같은 프로젝트를 Chat On Steroids에서 이어갈 때 [연결·인계 안내](docs/CHAT_ON_STEROIDS.md)를 따릅니다. 완료한 중요한 결정과 산출물 위치를 관련 프로젝트 문서에 남깁니다. 설치·터널·Core·Chrome 연결과 실제 파일 읽기의 확인 상태를 구분합니다.
+  Use the [connection and handoff guide](docs/CHAT_ON_STEROIDS.md) when continuing this project in Chat On Steroids. Keep important completed decisions and artifact locations in project documents. Distinguish installation, tunnel, Core, Chrome pairing, and a verified file read.

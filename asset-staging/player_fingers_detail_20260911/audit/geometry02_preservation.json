@@ -1,0 +1,352 @@
+{
+  "left": {
+    "hand": {
+      "vertices": 14988,
+      "eligible_vertices": 5346,
+      "changed_vertices": 4177,
+      "maximum_displacement_m": 0.0006165594431438777,
+      "changed_by_digit": {
+        "thumb": 499,
+        "index": 861,
+        "middle": 705,
+        "ring": 812,
+        "little": 763
+      },
+      "protected_nail_bed_vertices": 831,
+      "minimum_changed_nail_surface_distance_m": 0.0013038965407758951,
+      "corrective_vectors": {
+        "Joint_thumb_0": {
+          "maximum_delta_preservation_error_m": 0.0,
+          "untouched_delta_exact": true
+        },
+        "Joint_thumb_1": {
+          "maximum_delta_preservation_error_m": 0.0,
+          "untouched_delta_exact": true
+        },
+        "Joint_thumb_2": {
+          "maximum_delta_preservation_error_m": 0.0,
+          "untouched_delta_exact": true
+        },
+        "Joint_index_0": {
+          "maximum_delta_preservation_error_m": 0.0,
+          "untouched_delta_exact": true
+        },
+        "Joint_index_1": {
+          "maximum_delta_preservation_error_m": 0.0,
+          "untouched_delta_exact": true
+        },
+        "Joint_index_2": {
+          "maximum_delta_preservation_error_m": 9.313225746154785e-10,
+          "untouched_delta_exact": true
+        },
+        "Joint_middle_0": {
+          "maximum_delta_preservation_error_m": 0.0,
+          "untouched_delta_exact": true
+        },
+        "Joint_middle_1": {
+          "maximum_delta_preservation_error_m": 1.862645149230957e-09,
+          "untouched_delta_exact": true
+        },
+        "Joint_middle_2": {
+          "maximum_delta_preservation_error_m": 1.1641532182693481e-10,
+          "untouched_delta_exact": true
+        },
+        "Joint_ring_0": {
+          "maximum_delta_preservation_error_m": 0.0,
+          "untouched_delta_exact": true
+        },
+        "Joint_ring_1": {
+          "maximum_delta_preservation_error_m": 0.0,
+          "untouched_delta_exact": true
+        },
+        "Joint_ring_2": {
+          "maximum_delta_preservation_error_m": 9.313225746154785e-10,
+          "untouched_delta_exact": true
+        },
+        "Joint_little_0": {
+          "maximum_delta_preservation_error_m": 0.0,
+          "untouched_delta_exact": true
+        },
+        "Joint_little_1": {
+          "maximum_delta_preservation_error_m": 9.313225746154785e-10,
+          "untouched_delta_exact": true
+        },
+        "Joint_little_2": {
+          "maximum_delta_preservation_error_m": 5.820766091346741e-11,
+          "untouched_delta_exact": true
+        }
+      },
+      "surface": {
+        "changed_physical_triangles": 8212,
+        "minimum_source_normal_alignment": 0.9885407980788604,
+        "minimum_changed_area_ratio": 0.9503584901885338,
+        "bvh_candidates": 36,
+        "actual_triangle_pairs_tested": 4,
+        "inherited_intersections": 0,
+        "new_intersections": []
+      }
+    },
+    "nail_index": {
+      "vertices": 322,
+      "top_count": 161,
+      "paired_bottom_offset": 161,
+      "outward_direction_native": [
+        0.025603180360404876,
+        0.1984417454239138,
+        0.9797782151224547
+      ],
+      "maximum_lift_m": 5.359986831949864e-05,
+      "minimum_lift_m": 0.0,
+      "maximum_tangential_error_m": 6.449061642413569e-09,
+      "maximum_top_bottom_offset_error_m": 0.0,
+      "topology_uv_rigid_weights_exact": true
+    },
+    "nail_little": {
+      "vertices": 322,
+      "top_count": 161,
+      "paired_bottom_offset": 161,
+      "outward_direction_native": [
+        -0.06878994464770588,
+        0.15332258816307637,
+        0.9857789445277989
+      ],
+      "maximum_lift_m": 0.00010673330375058662,
+      "minimum_lift_m": 0.0,
+      "maximum_tangential_error_m": 7.296609389857166e-09,
+      "maximum_top_bottom_offset_error_m": 4.656612873077393e-10,
+      "topology_uv_rigid_weights_exact": true
+    },
+    "nail_middle": {
+      "vertices": 322,
+      "top_count": 161,
+      "paired_bottom_offset": 161,
+      "outward_direction_native": [
+        0.007398541758433296,
+        0.1891768365982466,
+        0.981915162361051
+      ],
+      "maximum_lift_m": 0.000344600573982073,
+      "minimum_lift_m": 0.0,
+      "maximum_tangential_error_m": 5.0901500021083695e-09,
+      "maximum_top_bottom_offset_error_m": 1.862645149230957e-09,
+      "topology_uv_rigid_weights_exact": true
+    },
+    "nail_ring": {
+      "vertices": 322,
+      "top_count": 161,
+      "paired_bottom_offset": 161,
+      "outward_direction_native": [
+        -0.010648615941310906,
+        0.2021989964399471,
+        0.979286563176077
+      ],
+      "maximum_lift_m": 4.033834061366223e-05,
+      "minimum_lift_m": 0.0,
+      "maximum_tangential_error_m": 6.505240970288403e-09,
+      "maximum_top_bottom_offset_error_m": 0.0,
+      "topology_uv_rigid_weights_exact": true
+    },
+    "nail_thumb": {
+      "vertices": 322,
+      "top_count": 161,
+      "paired_bottom_offset": 161,
+      "outward_direction_native": [
+        0.052529241902806834,
+        0.13566999629236604,
+        0.9893605666546175
+      ],
+      "maximum_lift_m": 0.00034411346830997804,
+      "minimum_lift_m": 0.0,
+      "maximum_tangential_error_m": 4.7964796107552805e-09,
+      "maximum_top_bottom_offset_error_m": 0.0,
+      "topology_uv_rigid_weights_exact": true
+    },
+    "WristCuff": {
+      "vertices": 4608,
+      "geometry_and_contract_exact": true
+    },
+    "Forearm": {
+      "vertices": 8229,
+      "geometry_and_contract_exact": true
+    },
+    "UpperArm": {
+      "vertices": 4986,
+      "geometry_and_contract_exact": true
+    }
+  },
+  "right": {
+    "hand": {
+      "vertices": 14988,
+      "eligible_vertices": 5346,
+      "changed_vertices": 4171,
+      "maximum_displacement_m": 0.0006178065551151669,
+      "changed_by_digit": {
+        "thumb": 498,
+        "index": 860,
+        "middle": 706,
+        "ring": 813,
+        "little": 766
+      },
+      "protected_nail_bed_vertices": 831,
+      "minimum_changed_nail_surface_distance_m": 0.0013074183370918036,
+      "corrective_vectors": {
+        "Joint_thumb_0": {
+          "maximum_delta_preservation_error_m": 0.0,
+          "untouched_delta_exact": true
+        },
+        "Joint_thumb_1": {
+          "maximum_delta_preservation_error_m": 0.0,
+          "untouched_delta_exact": true
+        },
+        "Joint_thumb_2": {
+          "maximum_delta_preservation_error_m": 0.0,
+          "untouched_delta_exact": true
+        },
+        "Joint_index_0": {
+          "maximum_delta_preservation_error_m": 0.0,
+          "untouched_delta_exact": true
+        },
+        "Joint_index_1": {
+          "maximum_delta_preservation_error_m": 4.656612873077393e-10,
+          "untouched_delta_exact": true
+        },
+        "Joint_index_2": {
+          "maximum_delta_preservation_error_m": 1.862645149230957e-09,
+          "untouched_delta_exact": true
+        },
+        "Joint_middle_0": {
+          "maximum_delta_preservation_error_m": 0.0,
+          "untouched_delta_exact": true
+        },
+        "Joint_middle_1": {
+          "maximum_delta_preservation_error_m": 1.862645149230957e-09,
+          "untouched_delta_exact": true
+        },
+        "Joint_middle_2": {
+          "maximum_delta_preservation_error_m": 0.0,
+          "untouched_delta_exact": true
+        },
+        "Joint_ring_0": {
+          "maximum_delta_preservation_error_m": 0.0,
+          "untouched_delta_exact": true
+        },
+        "Joint_ring_1": {
+          "maximum_delta_preservation_error_m": 0.0,
+          "untouched_delta_exact": true
+        },
+        "Joint_ring_2": {
+          "maximum_delta_preservation_error_m": 9.313225746154785e-10,
+          "untouched_delta_exact": true
+        },
+        "Joint_little_0": {
+          "maximum_delta_preservation_error_m": 0.0,
+          "untouched_delta_exact": true
+        },
+        "Joint_little_1": {
+          "maximum_delta_preservation_error_m": 9.313225746154785e-10,
+          "untouched_delta_exact": true
+        },
+        "Joint_little_2": {
+          "maximum_delta_preservation_error_m": 3.725290298461914e-09,
+          "untouched_delta_exact": true
+        }
+      },
+      "surface": {
+        "changed_physical_triangles": 8215,
+        "minimum_source_normal_alignment": 0.9884072272509581,
+        "minimum_changed_area_ratio": 0.949606418394791,
+        "bvh_candidates": 46,
+        "actual_triangle_pairs_tested": 5,
+        "inherited_intersections": 0,
+        "new_intersections": []
+      }
+    },
+    "nail_index": {
+      "vertices": 322,
+      "top_count": 161,
+      "paired_bottom_offset": 161,
+      "outward_direction_native": [
+        -0.025603149116232606,
+        0.19844161237988384,
+        0.9797782428852989
+      ],
+      "maximum_lift_m": 5.6087968871456866e-05,
+      "minimum_lift_m": 0.0,
+      "maximum_tangential_error_m": 3.5602569398587154e-09,
+      "maximum_top_bottom_offset_error_m": 0.0,
+      "topology_uv_rigid_weights_exact": true
+    },
+    "nail_little": {
+      "vertices": 322,
+      "top_count": 161,
+      "paired_bottom_offset": 161,
+      "outward_direction_native": [
+        0.06878987136124962,
+        0.15332263717100242,
+        0.9857789420194732
+      ],
+      "maximum_lift_m": 8.630005222413292e-05,
+      "minimum_lift_m": 0.0,
+      "maximum_tangential_error_m": 6.839579415145359e-09,
+      "maximum_top_bottom_offset_error_m": 0.0,
+      "topology_uv_rigid_weights_exact": true
+    },
+    "nail_middle": {
+      "vertices": 322,
+      "top_count": 161,
+      "paired_bottom_offset": 161,
+      "outward_direction_native": [
+        -0.007398542651502172,
+        0.18917683927276643,
+        0.9819151618390459
+      ],
+      "maximum_lift_m": 0.000337977607909935,
+      "minimum_lift_m": 0.0,
+      "maximum_tangential_error_m": 7.1330265362612715e-09,
+      "maximum_top_bottom_offset_error_m": 9.313225746154785e-10,
+      "topology_uv_rigid_weights_exact": true
+    },
+    "nail_ring": {
+      "vertices": 322,
+      "top_count": 161,
+      "paired_bottom_offset": 161,
+      "outward_direction_native": [
+        0.010648626393668325,
+        0.20219893051290624,
+        0.9792865766747572
+      ],
+      "maximum_lift_m": 8.941414298096883e-05,
+      "minimum_lift_m": 0.0,
+      "maximum_tangential_error_m": 6.165687919127623e-09,
+      "maximum_top_bottom_offset_error_m": 0.0,
+      "topology_uv_rigid_weights_exact": true
+    },
+    "nail_thumb": {
+      "vertices": 322,
+      "top_count": 161,
+      "paired_bottom_offset": 161,
+      "outward_direction_native": [
+        -0.052529267460398946,
+        0.13566997334331715,
+        0.9893605684446382
+      ],
+      "maximum_lift_m": 0.0003364994350770762,
+      "minimum_lift_m": 0.0,
+      "maximum_tangential_error_m": 4.937037052835865e-09,
+      "maximum_top_bottom_offset_error_m": 1.862645149230957e-09,
+      "topology_uv_rigid_weights_exact": true
+    },
+    "WristCuff": {
+      "vertices": 4608,
+      "geometry_and_contract_exact": true
+    },
+    "Forearm": {
+      "vertices": 8229,
+      "geometry_and_contract_exact": true
+    },
+    "UpperArm": {
+      "vertices": 4986,
+      "geometry_and_contract_exact": true
+    }
+  }
+}

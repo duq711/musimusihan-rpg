@@ -1,0 +1,467 @@
+{
+  "schema_version": 1,
+  "source_library": "Poly Haven",
+  "acquisition_date": "2026-09-05",
+  "api_credit": "Powered by Poly Haven — https://polyhaven.com",
+  "api_terms_url": "https://github.com/Poly-Haven/Public-API/blob/master/ToS.md",
+  "total_runtime_texture_bytes": 39929024,
+  "materials": [
+    {
+      "id": "rock_boulder_dry",
+      "name": "Rock Boulder Dry",
+      "role": "pale_fractured_rock",
+      "source_url": "https://polyhaven.com/a/rock_boulder_dry",
+      "source_api_url": "https://api.polyhaven.com/files/rock_boulder_dry",
+      "license": "CC0-1.0",
+      "license_url": "https://polyhaven.com/license",
+      "legal_code_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "authors": {
+        "Dimitrios Savva": "Photography",
+        "Rico Cilliers": "Processing"
+      },
+      "physical_size_m": [
+        1.8,
+        1.8
+      ],
+      "physical_size_provenance": "Official API dimensions in millimetres, converted to metres; corroborated by the asset page's tile dimensions",
+      "normal_convention": "OpenGL tangent-space +Y (green up); do not invert green for Blender or Godot",
+      "channels": {
+        "albedo": "res://assets/3d/abandoned_mine/textures/rock_boulder_dry_albedo_2k.jpg",
+        "normal_gl": "res://assets/3d/abandoned_mine/textures/rock_boulder_dry_normal_gl_2k.jpg",
+        "roughness": "res://assets/3d/abandoned_mine/textures/rock_boulder_dry_roughness_2k.jpg",
+        "height": "res://assets/3d/abandoned_mine/textures/rock_boulder_dry_height_2k.jpg"
+      },
+      "channel_details": {
+        "albedo": {
+          "path": "res://assets/3d/abandoned_mine/textures/rock_boulder_dry_albedo_2k.jpg",
+          "relative_path": "textures/rock_boulder_dry_albedo_2k.jpg",
+          "source_url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/rock_boulder_dry/rock_boulder_dry_diff_2k.jpg",
+          "source_md5": "fbc9cf377db427f54381f463c0639e1f",
+          "source_bytes": 3437626,
+          "runtime_sha256": "de2c87a22e42f099f4aa97237fbcec3c6546f8c6cf46cc2fc09edb5eed623c18",
+          "runtime_bytes": 1987341,
+          "size_pixels": [
+            2048,
+            2048
+          ],
+          "colorspace": "sRGB",
+          "processing": "JPEG storage optimization at quality 88; 2048x2048 retained; no color or pattern edits"
+        },
+        "normal_gl": {
+          "path": "res://assets/3d/abandoned_mine/textures/rock_boulder_dry_normal_gl_2k.jpg",
+          "relative_path": "textures/rock_boulder_dry_normal_gl_2k.jpg",
+          "source_url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/rock_boulder_dry/rock_boulder_dry_nor_gl_2k.jpg",
+          "source_md5": "513ef3fdaadd106c38a9c40919918cc0",
+          "source_bytes": 3307320,
+          "runtime_sha256": "72a3c96d563fc17ac36c568802e106222e6480512d98e07318e1f431cea33dd6",
+          "runtime_bytes": 3307320,
+          "size_pixels": [
+            2048,
+            2048
+          ],
+          "colorspace": "linear / Non-Color",
+          "processing": "Original official 2K JPEG, byte-for-byte unchanged"
+        },
+        "roughness": {
+          "path": "res://assets/3d/abandoned_mine/textures/rock_boulder_dry_roughness_2k.jpg",
+          "relative_path": "textures/rock_boulder_dry_roughness_2k.jpg",
+          "source_url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/rock_boulder_dry/rock_boulder_dry_rough_2k.jpg",
+          "source_md5": "f69a2caafb58d427cb17cab31c202e0e",
+          "source_bytes": 2706723,
+          "runtime_sha256": "da83e89f9c5eda2dadb9f3fefec2db2ba868b5e64f78917b946f41f141221256",
+          "runtime_bytes": 1665142,
+          "size_pixels": [
+            2048,
+            2048
+          ],
+          "colorspace": "linear / Non-Color",
+          "processing": "JPEG storage optimization at quality 90; 2048x2048 retained; no color or pattern edits"
+        },
+        "height": {
+          "path": "res://assets/3d/abandoned_mine/textures/rock_boulder_dry_height_2k.jpg",
+          "relative_path": "textures/rock_boulder_dry_height_2k.jpg",
+          "source_url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/rock_boulder_dry/rock_boulder_dry_disp_2k.jpg",
+          "source_md5": "bea116eb30df0faed0748c69d57b460d",
+          "source_bytes": 785931,
+          "runtime_sha256": "e8ef6d94411f6b8396425426c08d9848feb0c81ac29c4a6acae28342786f17a1",
+          "runtime_bytes": 785931,
+          "size_pixels": [
+            2048,
+            2048
+          ],
+          "colorspace": "linear / Non-Color",
+          "processing": "Original official 2K JPEG, byte-for-byte unchanged"
+        }
+      },
+      "suggested_displacement_m": 0.06,
+      "displacement_note": "Art-direction starting value, not a measured source scan height. Height midlevel 0.5. Use mesh geometry for large silhouette changes.",
+      "suggested_metallic": 0.0,
+      "metallic_note": "Non-metallic scanned surface"
+    },
+    {
+      "id": "dark_rock_02",
+      "name": "Dark Rock 02",
+      "role": "dark_layered_rock",
+      "source_url": "https://polyhaven.com/a/dark_rock_02",
+      "source_api_url": "https://api.polyhaven.com/files/dark_rock_02",
+      "license": "CC0-1.0",
+      "license_url": "https://polyhaven.com/license",
+      "legal_code_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "authors": {
+        "Amal Kumar": "All"
+      },
+      "physical_size_m": [
+        2.000917,
+        2.000918
+      ],
+      "physical_size_provenance": "Official API dimensions in millimetres, converted to metres; corroborated by the asset page's tile dimensions",
+      "normal_convention": "OpenGL tangent-space +Y (green up); do not invert green for Blender or Godot",
+      "channels": {
+        "albedo": "res://assets/3d/abandoned_mine/textures/dark_rock_02_albedo_2k.jpg",
+        "normal_gl": "res://assets/3d/abandoned_mine/textures/dark_rock_02_normal_gl_2k.jpg",
+        "roughness": "res://assets/3d/abandoned_mine/textures/dark_rock_02_roughness_2k.jpg",
+        "height": "res://assets/3d/abandoned_mine/textures/dark_rock_02_height_2k.jpg"
+      },
+      "channel_details": {
+        "albedo": {
+          "path": "res://assets/3d/abandoned_mine/textures/dark_rock_02_albedo_2k.jpg",
+          "relative_path": "textures/dark_rock_02_albedo_2k.jpg",
+          "source_url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/dark_rock_02/dark_rock_02_diff_2k.jpg",
+          "source_md5": "492ae574844fa49cba63aee89ef226d1",
+          "source_bytes": 2441558,
+          "runtime_sha256": "bcd528c8733ba2dfbc28dfee2fd3822564ac9e9b486822e539be90dafb1cad53",
+          "runtime_bytes": 1158344,
+          "size_pixels": [
+            2048,
+            2048
+          ],
+          "colorspace": "sRGB",
+          "processing": "JPEG storage optimization at quality 88; 2048x2048 retained; no color or pattern edits"
+        },
+        "normal_gl": {
+          "path": "res://assets/3d/abandoned_mine/textures/dark_rock_02_normal_gl_2k.jpg",
+          "relative_path": "textures/dark_rock_02_normal_gl_2k.jpg",
+          "source_url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/dark_rock_02/dark_rock_02_nor_gl_2k.jpg",
+          "source_md5": "bfde991c327e33704686fb7ede0561a7",
+          "source_bytes": 3870014,
+          "runtime_sha256": "37710c782598f158e07310dcbd3a8a89247d31255e6f21136707f66c3653bdec",
+          "runtime_bytes": 3870014,
+          "size_pixels": [
+            2048,
+            2048
+          ],
+          "colorspace": "linear / Non-Color",
+          "processing": "Original official 2K JPEG, byte-for-byte unchanged"
+        },
+        "roughness": {
+          "path": "res://assets/3d/abandoned_mine/textures/dark_rock_02_roughness_2k.jpg",
+          "relative_path": "textures/dark_rock_02_roughness_2k.jpg",
+          "source_url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/dark_rock_02/dark_rock_02_rough_2k.jpg",
+          "source_md5": "b21b552d0b78eb3824ac159b51ddba14",
+          "source_bytes": 2022528,
+          "runtime_sha256": "5ac09be6d05382d0c0f61e84babbabda113cbfb32072479c37499e0231824d10",
+          "runtime_bytes": 1043563,
+          "size_pixels": [
+            2048,
+            2048
+          ],
+          "colorspace": "linear / Non-Color",
+          "processing": "JPEG storage optimization at quality 90; 2048x2048 retained; no color or pattern edits"
+        },
+        "height": {
+          "path": "res://assets/3d/abandoned_mine/textures/dark_rock_02_height_2k.jpg",
+          "relative_path": "textures/dark_rock_02_height_2k.jpg",
+          "source_url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/dark_rock_02/dark_rock_02_disp_2k.jpg",
+          "source_md5": "c99ac5efd7bf25184a024f92cb4cccb2",
+          "source_bytes": 609957,
+          "runtime_sha256": "65cf6d7072bfabab4736d165e986c4ae6e0cb2789be1babbb55618bf010779ea",
+          "runtime_bytes": 609957,
+          "size_pixels": [
+            2048,
+            2048
+          ],
+          "colorspace": "linear / Non-Color",
+          "processing": "Original official 2K JPEG, byte-for-byte unchanged"
+        }
+      },
+      "suggested_displacement_m": 0.09,
+      "displacement_note": "Art-direction starting value, not a measured source scan height. Height midlevel 0.5. Use mesh geometry for large silhouette changes.",
+      "suggested_metallic": 0.0,
+      "metallic_note": "Non-metallic scanned surface"
+    },
+    {
+      "id": "brown_mud_rocks_01",
+      "name": "Brown Mud Rocks 01",
+      "role": "damp_gravel_mud",
+      "source_url": "https://polyhaven.com/a/brown_mud_rocks_01",
+      "source_api_url": "https://api.polyhaven.com/files/brown_mud_rocks_01",
+      "license": "CC0-1.0",
+      "license_url": "https://polyhaven.com/license",
+      "legal_code_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "authors": {
+        "Rob Tuytel": "All"
+      },
+      "physical_size_m": [
+        1.299996,
+        1.299996
+      ],
+      "physical_size_provenance": "Official API dimensions in millimetres, converted to metres; corroborated by the asset page's tile dimensions",
+      "normal_convention": "OpenGL tangent-space +Y (green up); do not invert green for Blender or Godot",
+      "channels": {
+        "albedo": "res://assets/3d/abandoned_mine/textures/brown_mud_rocks_01_albedo_2k.jpg",
+        "normal_gl": "res://assets/3d/abandoned_mine/textures/brown_mud_rocks_01_normal_gl_2k.jpg",
+        "roughness": "res://assets/3d/abandoned_mine/textures/brown_mud_rocks_01_roughness_2k.jpg",
+        "height": "res://assets/3d/abandoned_mine/textures/brown_mud_rocks_01_height_2k.jpg"
+      },
+      "channel_details": {
+        "albedo": {
+          "path": "res://assets/3d/abandoned_mine/textures/brown_mud_rocks_01_albedo_2k.jpg",
+          "relative_path": "textures/brown_mud_rocks_01_albedo_2k.jpg",
+          "source_url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/brown_mud_rocks_01/brown_mud_rocks_01_diff_2k.jpg",
+          "source_md5": "3c7428ffc65d46762cb0975d6cf7bdfc",
+          "source_bytes": 3144138,
+          "runtime_sha256": "48322764d4cf23a2a6ebadc8513ba7fcaf6733d8139c059e887cd394bb116911",
+          "runtime_bytes": 3183180,
+          "size_pixels": [
+            2048,
+            2048
+          ],
+          "colorspace": "sRGB",
+          "processing": "JPEG storage optimization at quality 88; 2048x2048 retained; no color or pattern edits"
+        },
+        "normal_gl": {
+          "path": "res://assets/3d/abandoned_mine/textures/brown_mud_rocks_01_normal_gl_2k.jpg",
+          "relative_path": "textures/brown_mud_rocks_01_normal_gl_2k.jpg",
+          "source_url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/brown_mud_rocks_01/brown_mud_rocks_01_nor_gl_2k.jpg",
+          "source_md5": "13a3265c7953e93cd964dd7c3215505e",
+          "source_bytes": 4213708,
+          "runtime_sha256": "23bdf3ea51a396379183e01e5899e62cedcda151c5eb1cd9af95330330feca82",
+          "runtime_bytes": 4213708,
+          "size_pixels": [
+            2048,
+            2048
+          ],
+          "colorspace": "linear / Non-Color",
+          "processing": "Original official 2K JPEG, byte-for-byte unchanged"
+        },
+        "roughness": {
+          "path": "res://assets/3d/abandoned_mine/textures/brown_mud_rocks_01_roughness_2k.jpg",
+          "relative_path": "textures/brown_mud_rocks_01_roughness_2k.jpg",
+          "source_url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/brown_mud_rocks_01/brown_mud_rocks_01_rough_2k.jpg",
+          "source_md5": "2e1bfe1081a570dd4ac94174deb2a1c6",
+          "source_bytes": 2676813,
+          "runtime_sha256": "5781c99bddacd65e31a63e0b9be8166b8f6dc1161effbb5d9a96f93f458df015",
+          "runtime_bytes": 2826979,
+          "size_pixels": [
+            2048,
+            2048
+          ],
+          "colorspace": "linear / Non-Color",
+          "processing": "JPEG storage optimization at quality 90; 2048x2048 retained; no color or pattern edits"
+        },
+        "height": {
+          "path": "res://assets/3d/abandoned_mine/textures/brown_mud_rocks_01_height_2k.jpg",
+          "relative_path": "textures/brown_mud_rocks_01_height_2k.jpg",
+          "source_url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/brown_mud_rocks_01/brown_mud_rocks_01_disp_2k.jpg",
+          "source_md5": "af3ede48d2e68e5e692c1e8313359668",
+          "source_bytes": 635930,
+          "runtime_sha256": "d0fa5d1baeeb62c54eb99a05947336b9fd91e19d7ce9a58c8dcc2c6c807622d4",
+          "runtime_bytes": 635930,
+          "size_pixels": [
+            2048,
+            2048
+          ],
+          "colorspace": "linear / Non-Color",
+          "processing": "Original official 2K JPEG, byte-for-byte unchanged"
+        }
+      },
+      "suggested_displacement_m": 0.035,
+      "displacement_note": "Art-direction starting value, not a measured source scan height. Height midlevel 0.5. Use mesh geometry for large silhouette changes.",
+      "suggested_metallic": 0.0,
+      "metallic_note": "Non-metallic scanned surface"
+    },
+    {
+      "id": "rough_wood",
+      "name": "Rough Wood",
+      "role": "weathered_timber",
+      "source_url": "https://polyhaven.com/a/rough_wood",
+      "source_api_url": "https://api.polyhaven.com/files/rough_wood",
+      "license": "CC0-1.0",
+      "license_url": "https://polyhaven.com/license",
+      "legal_code_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "authors": {
+        "Rob Tuytel": "All"
+      },
+      "physical_size_m": [
+        0.5,
+        0.5
+      ],
+      "physical_size_provenance": "Official API dimensions in millimetres, converted to metres; corroborated by the asset page's tile dimensions",
+      "normal_convention": "OpenGL tangent-space +Y (green up); do not invert green for Blender or Godot",
+      "channels": {
+        "albedo": "res://assets/3d/abandoned_mine/textures/rough_wood_albedo_2k.jpg",
+        "normal_gl": "res://assets/3d/abandoned_mine/textures/rough_wood_normal_gl_2k.jpg",
+        "roughness": "res://assets/3d/abandoned_mine/textures/rough_wood_roughness_2k.jpg",
+        "height": "res://assets/3d/abandoned_mine/textures/rough_wood_height_2k.jpg"
+      },
+      "channel_details": {
+        "albedo": {
+          "path": "res://assets/3d/abandoned_mine/textures/rough_wood_albedo_2k.jpg",
+          "relative_path": "textures/rough_wood_albedo_2k.jpg",
+          "source_url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/rough_wood/rough_wood_diff_2k.jpg",
+          "source_md5": "f5f9c55696f047ceaa49dc97c5aa5526",
+          "source_bytes": 2223327,
+          "runtime_sha256": "0585c0ae861511da1dd32e08c1635c55b70f5b288cb480043260a94acc20c964",
+          "runtime_bytes": 2191197,
+          "size_pixels": [
+            2048,
+            2048
+          ],
+          "colorspace": "sRGB",
+          "processing": "JPEG storage optimization at quality 88; 2048x2048 retained; no color or pattern edits"
+        },
+        "normal_gl": {
+          "path": "res://assets/3d/abandoned_mine/textures/rough_wood_normal_gl_2k.jpg",
+          "relative_path": "textures/rough_wood_normal_gl_2k.jpg",
+          "source_url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/rough_wood/rough_wood_nor_gl_2k.jpg",
+          "source_md5": "62594f2d00eb246581b9d4fde30209f1",
+          "source_bytes": 2520021,
+          "runtime_sha256": "b75cb1e989407e442c3255f3e05ea8c40162c0e5dc2efc9ef2515fce61319194",
+          "runtime_bytes": 2520021,
+          "size_pixels": [
+            2048,
+            2048
+          ],
+          "colorspace": "linear / Non-Color",
+          "processing": "Original official 2K JPEG, byte-for-byte unchanged"
+        },
+        "roughness": {
+          "path": "res://assets/3d/abandoned_mine/textures/rough_wood_roughness_2k.jpg",
+          "relative_path": "textures/rough_wood_roughness_2k.jpg",
+          "source_url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/rough_wood/rough_wood_rough_2k.jpg",
+          "source_md5": "832d6d549a8e76c16b9af2586f429d6c",
+          "source_bytes": 810338,
+          "runtime_sha256": "db80bb0c59b0d8abb0041301124bc4401c6ae8ff5c66e4ef7f85ad02a44b9fbf",
+          "runtime_bytes": 794141,
+          "size_pixels": [
+            2048,
+            2048
+          ],
+          "colorspace": "linear / Non-Color",
+          "processing": "JPEG storage optimization at quality 90; 2048x2048 retained; no color or pattern edits"
+        },
+        "height": {
+          "path": "res://assets/3d/abandoned_mine/textures/rough_wood_height_2k.jpg",
+          "relative_path": "textures/rough_wood_height_2k.jpg",
+          "source_url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/rough_wood/rough_wood_disp_2k.jpg",
+          "source_md5": "4e04c41245146e21ca500ff72eac74d9",
+          "source_bytes": 418227,
+          "runtime_sha256": "f41a9053cd5404e439edc6b2f901b322e9d6e43c1d775abfc7ae70439a96f522",
+          "runtime_bytes": 418227,
+          "size_pixels": [
+            2048,
+            2048
+          ],
+          "colorspace": "linear / Non-Color",
+          "processing": "Original official 2K JPEG, byte-for-byte unchanged"
+        }
+      },
+      "suggested_displacement_m": 0.007,
+      "displacement_note": "Art-direction starting value, not a measured source scan height. Height midlevel 0.5. Use mesh geometry for large silhouette changes.",
+      "suggested_metallic": 0.0,
+      "metallic_note": "Non-metallic scanned surface"
+    },
+    {
+      "id": "rust_coarse_01",
+      "name": "Rust Coarse 01",
+      "role": "rusted_iron",
+      "source_url": "https://polyhaven.com/a/rust_coarse_01",
+      "source_api_url": "https://api.polyhaven.com/files/rust_coarse_01",
+      "license": "CC0-1.0",
+      "license_url": "https://polyhaven.com/license",
+      "legal_code_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "authors": {
+        "Dimitrios Savva": "Photography",
+        "Rico Cilliers": "Processing"
+      },
+      "physical_size_m": [
+        2.2,
+        2.2
+      ],
+      "physical_size_provenance": "Official API dimensions in millimetres, converted to metres; corroborated by the asset page's tile dimensions",
+      "normal_convention": "OpenGL tangent-space +Y (green up); do not invert green for Blender or Godot",
+      "channels": {
+        "albedo": "res://assets/3d/abandoned_mine/textures/rust_coarse_01_albedo_2k.jpg",
+        "normal_gl": "res://assets/3d/abandoned_mine/textures/rust_coarse_01_normal_gl_2k.jpg",
+        "roughness": "res://assets/3d/abandoned_mine/textures/rust_coarse_01_roughness_2k.jpg",
+        "height": "res://assets/3d/abandoned_mine/textures/rust_coarse_01_height_2k.jpg"
+      },
+      "channel_details": {
+        "albedo": {
+          "path": "res://assets/3d/abandoned_mine/textures/rust_coarse_01_albedo_2k.jpg",
+          "relative_path": "textures/rust_coarse_01_albedo_2k.jpg",
+          "source_url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/rust_coarse_01/rust_coarse_01_diff_2k.jpg",
+          "source_md5": "c1f3d0f3e8ea08bfed17bd27a5bb4a45",
+          "source_bytes": 3519719,
+          "runtime_sha256": "d9189f4ec0187c331b085a0d08049dc26641b1c0322a138128c89ae0bd291eef",
+          "runtime_bytes": 1792795,
+          "size_pixels": [
+            2048,
+            2048
+          ],
+          "colorspace": "sRGB",
+          "processing": "JPEG storage optimization at quality 88; 2048x2048 retained; no color or pattern edits"
+        },
+        "normal_gl": {
+          "path": "res://assets/3d/abandoned_mine/textures/rust_coarse_01_normal_gl_2k.jpg",
+          "relative_path": "textures/rust_coarse_01_normal_gl_2k.jpg",
+          "source_url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/rust_coarse_01/rust_coarse_01_nor_gl_2k.jpg",
+          "source_md5": "70e8ba5a8244cffb052b9ba194610867",
+          "source_bytes": 3685688,
+          "runtime_sha256": "495d3c87da059827ffaf49dae59f967cb3e0b187f4426ab0a47088c3fa83e50b",
+          "runtime_bytes": 3685688,
+          "size_pixels": [
+            2048,
+            2048
+          ],
+          "colorspace": "linear / Non-Color",
+          "processing": "Original official 2K JPEG, byte-for-byte unchanged"
+        },
+        "roughness": {
+          "path": "res://assets/3d/abandoned_mine/textures/rust_coarse_01_roughness_2k.jpg",
+          "relative_path": "textures/rust_coarse_01_roughness_2k.jpg",
+          "source_url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/rust_coarse_01/rust_coarse_01_rough_2k.jpg",
+          "source_md5": "10a240a8a6e841e9667497377df90f72",
+          "source_bytes": 2845362,
+          "runtime_sha256": "1aebebd8f4fa0da6dbf5b217f23792f61c6b7cf925702a40965c535ee1702b39",
+          "runtime_bytes": 1762332,
+          "size_pixels": [
+            2048,
+            2048
+          ],
+          "colorspace": "linear / Non-Color",
+          "processing": "JPEG storage optimization at quality 90; 2048x2048 retained; no color or pattern edits"
+        },
+        "height": {
+          "path": "res://assets/3d/abandoned_mine/textures/rust_coarse_01_height_2k.jpg",
+          "relative_path": "textures/rust_coarse_01_height_2k.jpg",
+          "source_url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/rust_coarse_01/rust_coarse_01_disp_2k.jpg",
+          "source_md5": "155d9c9170c394a3fdc87014f12860d4",
+          "source_bytes": 1477214,
+          "runtime_sha256": "50aa9c1c01cad6d5b445da5ba9b733058cfee07b173ee4dc0d1ab16dce7264b7",
+          "runtime_bytes": 1477214,
+          "size_pixels": [
+            2048,
+            2048
+          ],
+          "colorspace": "linear / Non-Color",
+          "processing": "Original official 2K JPEG, byte-for-byte unchanged"
+        }
+      },
+      "suggested_displacement_m": 0.004,
+      "displacement_note": "Art-direction starting value, not a measured source scan height. Height midlevel 0.5. Use mesh geometry for large silhouette changes.",
+      "suggested_metallic": 0.05,
+      "metallic_note": "Heavy rust is mostly dielectric; use separate worn bare-metal parts for brighter metallic response"
+    }
+  ]
+}

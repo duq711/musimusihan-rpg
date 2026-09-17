@@ -1,0 +1,88 @@
+--- a/godot-game/scripts/cave_water.gd
++++ b/godot-game/scripts/cave_water.gd
+@@ -23,6 +23,10 @@
+ var _travel_since_step := 0.0
+ var _time_since_step := 0.0
+ var _step_side := 1.0
++var _surface_material: ShaderMaterial
++var _uploaded_active_ripples := PackedVector4Array()
++var _ripple_upload_pending := true
++var _shader_clock32 := PackedFloat32Array([0.0])
+ 
+ 
+ func build(geometry: Node3D) -> void:
+@@ -32,6 +36,10 @@
+ 	_ripples.resize(MAX_RIPPLES)
+ 	for index in MAX_RIPPLES:
+ 		_ripples[index] = Vector4(0, 0, -100, 0)
++	# Every pool uses the same world-space wave clock and foot-contact history.
++	# Share only within this water system, so independent scenes remain isolated.
++	_surface_material = ShaderMaterial.new()
++	_surface_material.shader = WATER_SHADER
+ 	for source: Dictionary in LAYOUT.pools():
+ 		var pool := source.duplicate(true)
+ 		pool.shore = smooth_shore(source.polygon)
+@@ -48,10 +56,7 @@
+ 		surface.name = "LivingWater_" + str(pool.id)
+ 		surface.mesh = _build_surface(pool)
+ 		surface.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+-		var material := ShaderMaterial.new()
+-		material.shader = WATER_SHADER
+-		material.set_shader_parameter("ripple_events", _ripples)
+-		surface.material_override = material
++		surface.material_override = _surface_material
+ 		add_child(surface)
+ 		surfaces.append(surface)
+ 	_publish_shader_state()
+@@ -202,10 +207,28 @@
+ 
+ 
+ func _publish_shader_state() -> void:
+-	for surface: MeshInstance3D in surfaces:
+-		var material := surface.material_override as ShaderMaterial
+-		material.set_shader_parameter("water_clock", _clock)
+-		material.set_shader_parameter("ripple_events", _ripples)
++	if _surface_material == null:
++		return
++	_surface_material.set_shader_parameter("water_clock", _clock)
++	# The public ring remains intact. Compact only the rendering submission,
++	# retaining ring order so each live wave sums exactly as before.
++	_shader_clock32[0] = _clock
++	var shader_clock := float(_shader_clock32[0])
++	var active := PackedVector4Array()
++	for ripple: Vector4 in _ripples:
++		var age := shader_clock - ripple.z
++		# A small conservative boundary includes float32 expiry ties; the shader
++		# retains its original exact age test and therefore the original image.
++		if ripple.w > 0.0 and age >= -0.00001 and age < RIPPLE_LIFETIME + 0.00001:
++			active.append(ripple)
++	if not _ripple_upload_pending and active == _uploaded_active_ripples:
++		return
++	_ripple_upload_pending = false
++	_uploaded_active_ripples = active
++	var upload := active.duplicate()
++	upload.resize(MAX_RIPPLES)
++	_surface_material.set_shader_parameter("ripple_events", upload)
++	_surface_material.set_shader_parameter("active_ripple_count", active.size())
+ 
+ 
+ func get_state_snapshot() -> Dictionary:
+--- a/godot-game/assets/3d/abandoned_mine/mine_water.gdshader
++++ b/godot-game/assets/3d/abandoned_mine/mine_water.gdshader
+@@ -4,6 +4,7 @@
+ uniform sampler2D scene_color : hint_screen_texture, repeat_disable, filter_linear_mipmap;
+ uniform float water_clock = 0.0;
+ uniform vec4 ripple_events[24];
++uniform int active_ripple_count = 0;
+ uniform float detail_normal_strength = 1.8;
+ uniform float reflection_roughness = 0.20;
+ varying vec3 water_world;
+@@ -23,7 +24,7 @@
+     wave.yz += (vec2(0.0172, 0.0116) * cos(fine_a)
+         + vec2(-0.0153, 0.0106) * cos(fine_b)
+         + vec2(0.0127, 0.0016) * cos(fine_c)) * detail_normal_strength;
+-    for (int i = 0; i < 24; i++) {
++    for (int i = 0; i < active_ripple_count; i++) {
+         float age = t - ripple_events[i].z;
+         if (age >= 0.0 && age < 4.2 && ripple_events[i].w > 0.0) {
+             vec2 offset = p - ripple_events[i].xy;

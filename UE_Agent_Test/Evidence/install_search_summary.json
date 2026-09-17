@@ -1,0 +1,38 @@
+{
+  "date": "2026-09-05",
+  "source": "Read-only independent subagent environment audit; summary of observed results, not an Unreal runtime log",
+  "scope": [
+    "/Applications",
+    "/Users/Shared",
+    "/Library",
+    "~/Applications",
+    "~/Library/Preferences",
+    "~/Library/Application Support",
+    "~/Documents",
+    "~/Desktop",
+    "~/Downloads",
+    "/opt",
+    "/usr/local",
+    "Spotlight filename index",
+    "/Volumes"
+  ],
+  "targets": [
+    "UnrealEditor.app",
+    "UE4Editor.app",
+    "UnrealEditor",
+    "UE4Editor",
+    "Engine/Build/Build.version",
+    "Epic Games Launcher.app",
+    "LauncherInstalled.dat",
+    "Epic-related Install.ini",
+    "*.uproject"
+  ],
+  "result": "No existing Unreal installation or project found within accessible searched scope before this task created its preparation descriptor.",
+  "missingDirectories": [
+    "~/Developer",
+    "~/Projects"
+  ],
+  "mountedExternalVolumes": "None found; /Volumes contained Macintosh HD symlink to /",
+  "limitations": "Some Apple privacy and system-service subdirectories denied access. This audit does not establish absence in every protected or unmounted location.",
+  "mutations": "None"
+}

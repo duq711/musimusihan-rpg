@@ -1,0 +1,215 @@
+{
+  "status": "complete",
+  "renderer_sha256": "ebaa1824ebc41765b7115d301d3dde5f950fb46bdbf4d489ecde3fd81b9e7f0e",
+  "engine": "CYCLES",
+  "samples": 16,
+  "threads": 2,
+  "width": 1000,
+  "height": 1100,
+  "actual_materials": true,
+  "source_geometry_sha256": {
+    "Gravebound_AnatomicalHead": "a1a9ef0bcc309d0a651e39f8a6d0fded82485d8f2fa97fd69579e88420c55bf7",
+    "Gravebound_BeltBuckle": "8a476dbf99396a2943a01d23f8c77c19fca81eed453aceddcdc8c974045910db",
+    "Gravebound_BeltTongue": "3178bb9147c95195f6b25565a024e77c43fe6546e1a98abe89a2ed4036fdd856",
+    "Gravebound_Boot_L": "e23169be68e5d42f35831582e0cefb6f473816e8476426cc4982ece28dfa004c",
+    "Gravebound_Boot_R": "4cc0131adf591afb9b121190a6f4cda8badcd4c7f8dfcd793d9ec76ebdb951bd",
+    "Gravebound_BootCuff_L": "70a8fb4b292824e0d4ae03d8cb8d677885775be430f300a9b7b1932a614a9aa3",
+    "Gravebound_BootCuff_R": "606baf96d55fb1109f02121a0aecd84b34cf4739829d3bae327eeed0e857f284",
+    "Gravebound_Bracer_L": "0d63caba86fe0e1f07f3ca1f6dc0d8689bd5cd286fb501980b49d5c18805ed89",
+    "Gravebound_Bracer_R": "5751e61dd94609e318d5c37a5f7ba8b739dd09fedb25d4175e7bb7b4dd116ad0",
+    "Gravebound_CoatBackAndSides": "4aa5985bb1014d9ee6543355d80d6812486eb4039f35810d47e270841b955830",
+    "Gravebound_CoatSkirt_L": "23a76147cda797f2c0d7d94fa0d006d9293f05f15a2b723867507752f3187cd0",
+    "Gravebound_CoatSkirt_R": "61db693e6b841a9f9ce34acd86bba69dfb05c94ecba68b468e75f51fc7490db5",
+    "Gravebound_Eyes": "9adcb53dcf620046e980bf2384812c09480c7c6729c817d0f3f3aea216b58268",
+    "Gravebound_InnerNeckCowl": "f002e71dd5fdcb5113266eca9649630fb0833a54d7278f7da52943ec04555fcb",
+    "Gravebound_LeatherBelt": "702eb49f28fc09a22cbc5eaf86d03572835e3708e0f85802b5c4d2735f827cc2",
+    "Gravebound_Mantle_L": "4b4358f488f8c92c49f909a3844b079bea872d49cbe9be9250d84b70338cb522",
+    "Gravebound_Mantle_R": "600f13e7234f7bc3f4bde6d3b99934febdda0a3f57a6dae4b2803521da42a461",
+    "Gravebound_MantleBack": "0781bdbb9b3579cc84b3d6765663dbdcad5fc9a327dbcb123666de72c467001d",
+    "Gravebound_PointHood": "981e93ffdfa66a180eedc5dc75a10fb460506311a68ef9322a3abb607775ef2b",
+    "Gravebound_Pouch_L": "b3f9581a0f8d1fdca69f32bcf2b8405d7ab7e3458cbe45e46a0effc2400907f5",
+    "Gravebound_Pouch_R": "6810508cef914c8d066f63b2b5d31fdcef7338477e1bef30fbbf6969319545fc",
+    "Gravebound_PouchFlap_L": "9150dfb20457778c6650094ee520b066d1478085e86bfdbef0bbe9df92fec1c3",
+    "Gravebound_PouchFlap_R": "d46e6066a2c952b8385991c0c74e3d784dbf29ff8176378a1402c89d8c5a1a5e",
+    "Gravebound_QuiltedTorso": "0766c51d221529f6035c8c792d5af27bf9fa5651c921017dbbcfc77a2741191a",
+    "Gravebound_Sleeve_L": "aafe1b697ee8ad99c2d561d38b972f14b0abdb25005bce954e4220a94e25a685",
+    "Gravebound_Sleeve_R": "31fef1ad609bcfcfcec717fb7876b1f491941e680ef05e23fca186a878353842",
+    "Gravebound_SuppliedHand_L": "ce1d7bc24e67ee052fb7e63d4bbd0cea6aa01416fae625fec6447ce656c2e047",
+    "Gravebound_SuppliedHand_R": "1835d17fea7dfd0979ad159a4d18b9c58bbf87781104083f608ff36506c52a68",
+    "Gravebound_SuppliedNail_L_index": "ef998e0ef94df66d0a6b3c9bc4f5b90bb2a014b43fa60665bb413138458a936e",
+    "Gravebound_SuppliedNail_L_little": "fb8c295bac7cae6bd148b23989307dde473d8084b9fab720b989a3071c33ed5c",
+    "Gravebound_SuppliedNail_L_middle": "93cbb085990648cc7a411144690709a87ec133718832ba1e841b7f2fbb138427",
+    "Gravebound_SuppliedNail_L_ring": "26998cbdaea4f582496ef391200123367de74d87a36d22ac987f9439faedc478",
+    "Gravebound_SuppliedNail_L_thumb": "54cccd5fced08740221f306845909dbe2f2b40c2dcfad421378cb438babb1d32",
+    "Gravebound_SuppliedNail_R_index": "6d22d574e15e8dcd2a6e8c6e7c77a16bf8ac7ef282880ace6d839bdf67b014dc",
+    "Gravebound_SuppliedNail_R_little": "00a01507cde83b8be1b92ca24d4a4d5a838e5e1bbb1f38e798060e91093f64cb",
+    "Gravebound_SuppliedNail_R_middle": "adae2227c8b94d99098332f589cd2e076610aabfbbbad647121f7b827fe39b86",
+    "Gravebound_SuppliedNail_R_ring": "44dbcc1a1cdf62efadc9227c99f9b77843c85f9899e8622546b149cf402e8fa9",
+    "Gravebound_SuppliedNail_R_thumb": "47754ea3e10e57b1edc7e7ffb6f8c2118ba8356f96d0fd1c6cca85052a45817f",
+    "Gravebound_Trousers_L": "8f62ffb74213c059fa9a37804c6b52f83d32c144c46c59088e3f39ecc935cd60",
+    "Gravebound_Trousers_R": "9232ee9909f5bf55232bb662309b2c782b2455fe482ee8225f4262b10eb4c756"
+  },
+  "renders": {
+    "character_front": {
+      "file": "character_front.png",
+      "sha256": "31061cfd175c3e6a72775f0cab1665178c86ef7ce5a31e0cd57e398d6400359c",
+      "actual_blender_geometry": true,
+      "camera_center": [
+        -0.016953110694885254,
+        -0.03236377239227295,
+        0.8951600193977356
+      ],
+      "camera_outward": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "camera_up": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "ortho_scale_m": 1.9879722195118668,
+      "lighting": [
+        {
+          "name": "Key",
+          "location": [
+            -1.4569530487060547,
+            -1.8323637247085571,
+            2.33516001701355
+          ],
+          "watts": 324.0,
+          "size_m": 1.8899999856948853
+        },
+        {
+          "name": "Fill",
+          "location": [
+            1.783046841621399,
+            -1.4723637104034424,
+            0.9851599931716919
+          ],
+          "watts": 144.0,
+          "size_m": 2.25
+        },
+        {
+          "name": "Rim",
+          "location": [
+            1.063046932220459,
+            0.8676362037658691,
+            2.1551599502563477
+          ],
+          "watts": 216.0,
+          "size_m": 1.440000057220459
+        }
+      ]
+    },
+    "character_wrist_left": {
+      "file": "character_wrist_left.png",
+      "sha256": "ef9bff8a76a375c4005df0dbe6c6accc23f2c4d2f66b39582c687a3f5abfec07",
+      "actual_blender_geometry": true,
+      "camera_center": [
+        0.2580489218235016,
+        -0.0865754783153534,
+        0.9158860445022583
+      ],
+      "camera_outward": [
+        -0.3332386612892151,
+        -0.8431161642074585,
+        0.4220276176929474
+      ],
+      "camera_up": [
+        -0.0430457778275013,
+        -0.43354031443595886,
+        -0.9001054167747498
+      ],
+      "ortho_scale_m": 0.1532296787481755,
+      "lighting": [
+        {
+          "name": "Key",
+          "location": [
+            0.3737925887107849,
+            -0.5199079513549805,
+            0.8524321913719177
+          ],
+          "watts": 9.0,
+          "size_m": 0.3149999976158142
+        },
+        {
+          "name": "Fill",
+          "location": [
+            -0.10513189435005188,
+            -0.19999155402183533,
+            0.971217155456543
+          ],
+          "watts": 4.0,
+          "size_m": 0.375
+        },
+        {
+          "name": "Rim",
+          "location": [
+            0.1294603943824768,
+            0.006109446287155151,
+            0.6440873742103577
+          ],
+          "watts": 6.0,
+          "size_m": 0.23999999463558197
+        }
+      ]
+    },
+    "character_wrist_right": {
+      "file": "character_wrist_right.png",
+      "sha256": "ca3b841ae2ba5251799b5c6490401d78ba5abc9db424236d3e62589d55d2edad",
+      "actual_blender_geometry": true,
+      "camera_center": [
+        -0.2860066890716553,
+        -0.0829782634973526,
+        0.9305077195167542
+      ],
+      "camera_outward": [
+        0.3821474015712738,
+        -0.8242258429527283,
+        0.4178696870803833
+      ],
+      "camera_up": [
+        -0.053561195731163025,
+        -0.4711856245994568,
+        -0.8804063200950623
+      ],
+      "ortho_scale_m": 0.15322967362590134,
+      "lighting": [
+        {
+          "name": "Key",
+          "location": [
+            0.03719437122344971,
+            -0.36795538663864136,
+            0.7907609939575195
+          ],
+          "watts": 9.0,
+          "size_m": 0.3149999976158142
+        },
+        {
+          "name": "Fill",
+          "location": [
+            -0.4718590974807739,
+            -0.38207924365997314,
+            1.0848530530929565
+          ],
+          "watts": 4.0,
+          "size_m": 0.375
+        },
+        {
+          "name": "Rim",
+          "location": [
+            -0.5206353068351746,
+            -0.11482478678226471,
+            0.723299503326416
+          ],
+          "watts": 6.0,
+          "size_m": 0.23999999463558197
+        }
+      ]
+    }
+  },
+  "source_geometry_unchanged": true,
+  "source_camera_and_render_settings_untouched": true
+}

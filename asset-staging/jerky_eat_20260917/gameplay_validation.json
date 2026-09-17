@@ -1,0 +1,36 @@
+{
+  "recorded_at": "2026-09-17T00:23:10.819587+09:00",
+  "summary_ko": "육포 먹기 게임 연결 완료: 8초 뒤 1개 소비·포만감 32, F/F2 취소·무기 복귀·반복 시험·원정 보존 검사 통과. 모션 미감은 별도 실제 렌더로 확인한다.",
+  "summary_en": "Jerky gameplay integration is complete: consume one portion after eight seconds and restore 32 hunger. F/F2 cancellation, equipment return, repeated trials, and exact expedition restoration pass. Motion appearance is reviewed separately in real renders.",
+  "tests": [
+    {
+      "name": "jerky_item_use",
+      "result": "PASS",
+      "log": "asset-staging/jerky_eat_20260917/gameplay_tests_02.log"
+    },
+    {
+      "name": "jerky_test_room",
+      "result": "PASS",
+      "log": "asset-staging/jerky_eat_20260917/gameplay_tests_01.log"
+    },
+    {
+      "name": "timed_item_use",
+      "result": "PASS",
+      "log": "asset-staging/jerky_eat_20260917/gameplay_tests_01.log"
+    }
+  ],
+  "initial_failures_resolved": [
+    "Imported new SVG inventory icon with headless resource import",
+    "Captured unit-test snapshot after ensuring original inventory exists; production restoration was unchanged"
+  ],
+  "production_scope": "A new food item and motion route reuse existing consumption rules. No merchant stock, loot table, default loadout, hunger balance, potion or splint motion changes.",
+  "sha256": {
+    "godot-game/scripts/player.gd": "13b17a07e0408148b909b3a0b0789991cb14646db8684bfdd52ac54726e24db9",
+    "godot-game/scripts/inventory_model.gd": "0c849341c8496bc58758b139e4b4dc9bcb349bb88946623a2a42f46be938816c",
+    "godot-game/scripts/test_room.gd": "6bbc2e940c1491fa3bc928c61fbb1fedc13038a119a11360e71184544f2760dd",
+    "godot-game/scripts/test_room_catalog.gd": "f22811f5e137116ff5d9da49866576ae0e7aaad4d0658ebdbda18a536bc9c2a4",
+    "godot-game/assets/ui/beef_jerky.svg": "5465273ceea04d92e77ea5ae41ecd883863c4ba75f111f37bd72791000eaef2c",
+    "godot-game/tests/jerky_item_use_test.gd": "a37fc8d16c455943ce652e4c6dc9d5f7d09dba4e96fc2060d193164fadddbc94",
+    "godot-game/tests/jerky_test_room_test.gd": "ae1a5a2abcc8dd1063898a54031ac2ec11e40658e73a57cedf7a9263a72eef87"
+  }
+}

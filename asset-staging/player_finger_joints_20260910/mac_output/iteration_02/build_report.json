@@ -1,0 +1,2017 @@
+{
+  "status": "built_pending_independent_pose_and_runtime_verification",
+  "created_utc": "2026-09-10T14:24:25.856960+00:00",
+  "host": {
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "blender_binary": "/Applications/Blender.app/Contents/MacOS/Blender",
+    "blender_version": "5.2.1 LTS",
+    "background": true
+  },
+  "source_sha256": {
+    "bilateral_hands_detailed.blend": "8255d8a23182b8f9333e2b48b311a271d12f734d8f5ae517c3271268f204513f",
+    "left_hand_detailed.glb": "6afe2b131ad47760b43bf9067aa686e3f48978d31c22a382f217aa2f3470e029",
+    "right_hand_detailed.glb": "b3331cff415b0f10c4f204e48004a523ed2e8bad669ffa38a4df5639eed5494b",
+    "build_report.json": "b7792255bd34026bc6a3b4d73e334b0a5751d917d429824aace5c9e648ef0549"
+  },
+  "shape_names": [
+    "Joint_thumb_0",
+    "Joint_thumb_1",
+    "Joint_thumb_2",
+    "Joint_index_0",
+    "Joint_index_1",
+    "Joint_index_2",
+    "Joint_middle_0",
+    "Joint_middle_1",
+    "Joint_middle_2",
+    "Joint_ring_0",
+    "Joint_ring_1",
+    "Joint_ring_2",
+    "Joint_little_0",
+    "Joint_little_1",
+    "Joint_little_2"
+  ],
+  "full_flex_degrees": {
+    "thumb": [
+      60,
+      70,
+      80
+    ],
+    "index": [
+      90,
+      110,
+      80
+    ],
+    "middle": [
+      90,
+      110,
+      80
+    ],
+    "ring": [
+      90,
+      110,
+      80
+    ],
+    "little": [
+      90,
+      110,
+      80
+    ]
+  },
+  "morph_export": "relative POSITION and NORMAL deltas; default weights zero",
+  "hands": {
+    "left": {
+      "correctives": {
+        "basis_geometry_weights_sha256": "b5fa64fbd6d2c2f9bc3e5c6f57573f73bbec8f5242e3b771a7fb1d5084701aa8",
+        "key_count": 15,
+        "keys": {
+          "Joint_thumb_0": {
+            "digit": "thumb",
+            "joint": 0,
+            "full_flex_degrees": 60,
+            "deformed_vertices": 220,
+            "physical_skin_vertices": 208,
+            "maximum_displacement_m": 0.000185825919362767,
+            "maximum_influence_radius_m": 0.03557860735914992,
+            "skin_section_center_world_m": [
+              -0.13022351264953613,
+              0.009767433628439903,
+              -0.00821218267083168
+            ],
+            "bone_anchor_world_m": [
+              -0.12593862414360046,
+              0.0062499940395355225,
+              -0.005316391587257385
+            ],
+            "axial_section_adjustment_m": 0.0,
+            "section_samples": 62,
+            "foreign_digit_and_wrist_displacement_m": 0.0,
+            "default_value": 0.0
+          },
+          "Joint_thumb_1": {
+            "digit": "thumb",
+            "joint": 1,
+            "full_flex_degrees": 70,
+            "deformed_vertices": 499,
+            "physical_skin_vertices": 464,
+            "maximum_displacement_m": 0.0005958307703900149,
+            "maximum_influence_radius_m": 0.03031343949606905,
+            "skin_section_center_world_m": [
+              -0.1056247353553772,
+              0.05166153237223625,
+              -0.013092370703816414
+            ],
+            "bone_anchor_world_m": [
+              -0.08843861520290375,
+              0.04374999552965164,
+              -0.015254772268235683
+            ],
+            "axial_section_adjustment_m": 0.0,
+            "section_samples": 136,
+            "foreign_digit_and_wrist_displacement_m": 0.0,
+            "default_value": 0.0
+          },
+          "Joint_thumb_2": {
+            "digit": "thumb",
+            "joint": 2,
+            "full_flex_degrees": 80,
+            "deformed_vertices": 259,
+            "physical_skin_vertices": 259,
+            "maximum_displacement_m": 0.00039956054041339847,
+            "maximum_influence_radius_m": 0.01849444631762222,
+            "skin_section_center_world_m": [
+              -0.08305954188108444,
+              0.07435791939496994,
+              -0.021361559629440308
+            ],
+            "bone_anchor_world_m": [
+              -0.07643862813711166,
+              0.07175000011920929,
+              -0.022325435653328896
+            ],
+            "axial_section_adjustment_m": 0.0,
+            "section_samples": 113,
+            "foreign_digit_and_wrist_displacement_m": 0.0,
+            "default_value": 0.0
+          },
+          "Joint_index_0": {
+            "digit": "index",
+            "joint": 0,
+            "full_flex_degrees": 90,
+            "deformed_vertices": 368,
+            "physical_skin_vertices": 368,
+            "maximum_displacement_m": 0.00025106137846543614,
+            "maximum_influence_radius_m": 0.028685419588968242,
+            "skin_section_center_world_m": [
+              -0.12800076603889465,
+              0.09001278877258301,
+              0.020544452592730522
+            ],
+            "bone_anchor_world_m": [
+              -0.12593862414360046,
+              0.0899999812245369,
+              0.018623866140842438
+            ],
+            "axial_section_adjustment_m": 0.0,
+            "section_samples": 121,
+            "foreign_digit_and_wrist_displacement_m": 0.0,
+            "default_value": 0.0
+          },
+          "Joint_index_1": {
+            "digit": "index",
+            "joint": 1,
+            "full_flex_degrees": 110,
+            "deformed_vertices": 405,
+            "physical_skin_vertices": 405,
+            "maximum_displacement_m": 0.0005862707721672248,
+            "maximum_influence_radius_m": 0.02253617823043936,
+            "skin_section_center_world_m": [
+              -0.11972012370824814,
+              0.13276439905166626,
+              0.02153966575860977
+            ],
+            "bone_anchor_world_m": [
+              -0.1229386255145073,
+              0.132999986410141,
+              0.02155831642448902
+            ],
+            "axial_section_adjustment_m": 0.0,
+            "section_samples": 138,
+            "foreign_digit_and_wrist_displacement_m": 0.0,
+            "default_value": 0.0
+          },
+          "Joint_index_2": {
+            "digit": "index",
+            "joint": 2,
+            "full_flex_degrees": 80,
+            "deformed_vertices": 235,
+            "physical_skin_vertices": 235,
+            "maximum_displacement_m": 0.0003113758781167119,
+            "maximum_influence_radius_m": 0.016698121301147794,
+            "skin_section_center_world_m": [
+              -0.11689780652523041,
+              0.16065531969070435,
+              0.01388141606003046
+            ],
+            "bone_anchor_world_m": [
+              -0.12093862891197205,
+              0.16099996864795685,
+              0.013018411584198475
+            ],
+            "axial_section_adjustment_m": 0.0,
+            "section_samples": 110,
+            "foreign_digit_and_wrist_displacement_m": 0.0,
+            "default_value": 0.0
+          },
+          "Joint_middle_0": {
+            "digit": "middle",
+            "joint": 0,
+            "full_flex_degrees": 90,
+            "deformed_vertices": 248,
+            "physical_skin_vertices": 230,
+            "maximum_displacement_m": 0.00023526039032017141,
+            "maximum_influence_radius_m": 0.024903640993773943,
+            "skin_section_center_world_m": [
+              -0.1595524549484253,
+              0.10124743729829788,
+              0.02358018234372139
+            ],
+            "bone_anchor_world_m": [
+              -0.15843863785266876,
+              0.10125000029802322,
+              0.023313142359256744
+            ],
+            "axial_section_adjustment_m": 0.0,
+            "section_samples": 76,
+            "foreign_digit_and_wrist_displacement_m": 0.0,
+            "default_value": 0.0
+          },
+          "Joint_middle_1": {
+            "digit": "middle",
+            "joint": 1,
+            "full_flex_degrees": 110,
+            "deformed_vertices": 303,
+            "physical_skin_vertices": 303,
+            "maximum_displacement_m": 0.000589553808538168,
+            "maximum_influence_radius_m": 0.020974267885510146,
+            "skin_section_center_world_m": [
+              -0.15763407945632935,
+              0.1479310244321823,
+              0.02703123539686203
+            ],
+            "bone_anchor_world_m": [
+              -0.15743863582611084,
+              0.148250013589859,
+              0.0279347263276577
+            ],
+            "axial_section_adjustment_m": 0.0,
+            "section_samples": 105,
+            "foreign_digit_and_wrist_displacement_m": 0.0,
+            "default_value": 0.0
+          },
+          "Joint_middle_2": {
+            "digit": "middle",
+            "joint": 2,
+            "full_flex_degrees": 80,
+            "deformed_vertices": 197,
+            "physical_skin_vertices": 197,
+            "maximum_displacement_m": 0.00027022493670631907,
+            "maximum_influence_radius_m": 0.016568784401494382,
+            "skin_section_center_world_m": [
+              -0.15807963907718658,
+              0.1764666587114334,
+              0.01905084401369095
+            ],
+            "bone_anchor_world_m": [
+              -0.15843863785266876,
+              0.17624999582767487,
+              0.01826535351574421
+            ],
+            "axial_section_adjustment_m": 0.0,
+            "section_samples": 102,
+            "foreign_digit_and_wrist_displacement_m": 0.0,
+            "default_value": 0.0
+          },
+          "Joint_ring_0": {
+            "digit": "ring",
+            "joint": 0,
+            "full_flex_degrees": 90,
+            "deformed_vertices": 293,
+            "physical_skin_vertices": 222,
+            "maximum_displacement_m": 0.00023951438211295437,
+            "maximum_influence_radius_m": 0.02828204358437086,
+            "skin_section_center_world_m": [
+              -0.18932659924030304,
+              0.09367329627275467,
+              0.018215632066130638
+            ],
+            "bone_anchor_world_m": [
+              -0.19218863546848297,
+              0.0937500074505806,
+              0.016456320881843567
+            ],
+            "axial_section_adjustment_m": 0.0,
+            "section_samples": 72,
+            "foreign_digit_and_wrist_displacement_m": 0.0,
+            "default_value": 0.0
+          },
+          "Joint_ring_1": {
+            "digit": "ring",
+            "joint": 1,
+            "full_flex_degrees": 110,
+            "deformed_vertices": 329,
+            "physical_skin_vertices": 329,
+            "maximum_displacement_m": 0.000594228519817088,
+            "maximum_influence_radius_m": 0.02179914818766223,
+            "skin_section_center_world_m": [
+              -0.19344516098499298,
+              0.1383814960718155,
+              0.0224396251142025
+            ],
+            "bone_anchor_world_m": [
+              -0.19518864154815674,
+              0.13874998688697815,
+              0.023298822343349457
+            ],
+            "axial_section_adjustment_m": 0.0,
+            "section_samples": 109,
+            "foreign_digit_and_wrist_displacement_m": 0.0,
+            "default_value": 0.0
+          },
+          "Joint_ring_2": {
+            "digit": "ring",
+            "joint": 2,
+            "full_flex_degrees": 80,
+            "deformed_vertices": 245,
+            "physical_skin_vertices": 245,
+            "maximum_displacement_m": 0.000347709968957075,
+            "maximum_influence_radius_m": 0.01601438194959285,
+            "skin_section_center_world_m": [
+              -0.1967582404613495,
+              0.16516929864883423,
+              0.011445417068898678
+            ],
+            "bone_anchor_world_m": [
+              -0.19618862867355347,
+              0.16475002467632294,
+              0.010118547827005386
+            ],
+            "axial_section_adjustment_m": 0.0,
+            "section_samples": 102,
+            "foreign_digit_and_wrist_displacement_m": 0.0,
+            "default_value": 0.0
+          },
+          "Joint_little_0": {
+            "digit": "little",
+            "joint": 0,
+            "full_flex_degrees": 90,
+            "deformed_vertices": 320,
+            "physical_skin_vertices": 320,
+            "maximum_displacement_m": 0.00023654864562019316,
+            "maximum_influence_radius_m": 0.028743138145539037,
+            "skin_section_center_world_m": [
+              -0.21282783150672913,
+              0.07701046764850616,
+              0.011215947568416595
+            ],
+            "bone_anchor_world_m": [
+              -0.21718862652778625,
+              0.07499999552965164,
+              0.010122790932655334
+            ],
+            "axial_section_adjustment_m": 0.0,
+            "section_samples": 97,
+            "foreign_digit_and_wrist_displacement_m": 0.0,
+            "default_value": 0.0
+          },
+          "Joint_little_1": {
+            "digit": "little",
+            "joint": 1,
+            "full_flex_degrees": 110,
+            "deformed_vertices": 399,
+            "physical_skin_vertices": 378,
+            "maximum_displacement_m": 0.000582396825690818,
+            "maximum_influence_radius_m": 0.021371661929764488,
+            "skin_section_center_world_m": [
+              -0.22637967765331268,
+              0.11068639904260635,
+              0.013085423968732357
+            ],
+            "bone_anchor_world_m": [
+              -0.23318864405155182,
+              0.1080000102519989,
+              0.01325787603855133
+            ],
+            "axial_section_adjustment_m": 0.0,
+            "section_samples": 119,
+            "foreign_digit_and_wrist_displacement_m": 0.0,
+            "default_value": 0.0
+          },
+          "Joint_little_2": {
+            "digit": "little",
+            "joint": 2,
+            "full_flex_degrees": 80,
+            "deformed_vertices": 244,
+            "physical_skin_vertices": 244,
+            "maximum_displacement_m": 0.0003749453493447455,
+            "maximum_influence_radius_m": 0.015815491554847214,
+            "skin_section_center_world_m": [
+              -0.23820839822292328,
+              0.1294196993112564,
+              0.009366591461002827
+            ],
+            "bone_anchor_world_m": [
+              -0.241188645362854,
+              0.12799999117851257,
+              0.008943431079387665
+            ],
+            "axial_section_adjustment_m": 0.0,
+            "section_samples": 124,
+            "foreign_digit_and_wrist_displacement_m": 0.0,
+            "default_value": 0.0
+          }
+        },
+        "ownership_mask": "maximum individual bone weight must belong to this digit; wrist and other digits remain exact"
+      },
+      "export": {
+        "sha256": "4443b02c6c962fc1f8d625e26448029c2c2828ef4a5d7adcd7c714585df81a70",
+        "bytes": 2791004,
+        "morph_meshes": [
+          {
+            "mesh": "ContinuousAnatomicalHandMesh.002",
+            "target_names": [
+              "Joint_thumb_0",
+              "Joint_thumb_1",
+              "Joint_thumb_2",
+              "Joint_index_0",
+              "Joint_index_1",
+              "Joint_index_2",
+              "Joint_middle_0",
+              "Joint_middle_1",
+              "Joint_middle_2",
+              "Joint_ring_0",
+              "Joint_ring_1",
+              "Joint_ring_2",
+              "Joint_little_0",
+              "Joint_little_1",
+              "Joint_little_2"
+            ],
+            "primitives": [
+              {
+                "vertices": 6406,
+                "target_count": 15,
+                "position_and_normal": true
+              },
+              {
+                "vertices": 7299,
+                "target_count": 15,
+                "position_and_normal": true
+              },
+              {
+                "vertices": 1512,
+                "target_count": 15,
+                "position_and_normal": true
+              }
+            ]
+          }
+        ],
+        "skin_joints": [
+          "wrist",
+          "index0",
+          "index1",
+          "index2",
+          "little0",
+          "little1",
+          "little2",
+          "middle0",
+          "middle1",
+          "middle2",
+          "ring0",
+          "ring1",
+          "ring2",
+          "thumb0",
+          "thumb1",
+          "thumb2"
+        ]
+      },
+      "source_skin_geometry_weights_sha256": "4689a128c3ea2a228e2900b13c14cb51a29000d7645e4cbff5a4bb29fe50f627",
+      "nailbed_attachment_weights": {
+        "thumb": {
+          "changed_weight_vertices": 279,
+          "rigid_distal_vertices": 696,
+          "target_bone": "thumb2",
+          "transition_length_m": 0.004,
+          "nail_proximal_axis_m": 0.003901143092662096,
+          "rigid_section_start_axis_m": 0.002401143092662096,
+          "maximum_weight_l1_change": 0.8350564416737505,
+          "neutral_coordinates_unchanged": true
+        },
+        "index": {
+          "changed_weight_vertices": 242,
+          "rigid_distal_vertices": 642,
+          "target_bone": "index2",
+          "transition_length_m": 0.004,
+          "nail_proximal_axis_m": 0.0028133856831118464,
+          "rigid_section_start_axis_m": 0.0013133856831118464,
+          "maximum_weight_l1_change": 0.9152211231006727,
+          "neutral_coordinates_unchanged": true
+        },
+        "middle": {
+          "changed_weight_vertices": 191,
+          "rigid_distal_vertices": 600,
+          "target_bone": "middle2",
+          "transition_length_m": 0.004,
+          "nail_proximal_axis_m": 0.003026168668839091,
+          "rigid_section_start_axis_m": 0.001526168668839091,
+          "maximum_weight_l1_change": 0.9017879793522976,
+          "neutral_coordinates_unchanged": true
+        },
+        "ring": {
+          "changed_weight_vertices": 218,
+          "rigid_distal_vertices": 614,
+          "target_bone": "ring2",
+          "transition_length_m": 0.004,
+          "nail_proximal_axis_m": 0.0029138798818166833,
+          "rigid_section_start_axis_m": 0.0014138798818166833,
+          "maximum_weight_l1_change": 1.163088993896571,
+          "neutral_coordinates_unchanged": true
+        },
+        "little": {
+          "changed_weight_vertices": 204,
+          "rigid_distal_vertices": 670,
+          "target_bone": "little2",
+          "transition_length_m": 0.004,
+          "nail_proximal_axis_m": 0.003171756019582972,
+          "rigid_section_start_axis_m": 0.001671756019582972,
+          "maximum_weight_l1_change": 0.7220773742149551,
+          "neutral_coordinates_unchanged": true
+        }
+      },
+      "rest_bones": {
+        "wrist": {
+          "parent": null,
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              -0.05624999850988388
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        "index0": {
+          "parent": "wrist",
+          "matrix": [
+            [
+              0.9975751042366028,
+              0.06943749636411667,
+              -0.004727132618427277,
+              0.03750000149011612
+            ],
+            [
+              -0.06959821283817291,
+              0.9952714443206787,
+              -0.06775558739900589,
+              0.0899999812245369
+            ],
+            [
+              1.862645149230957e-09,
+              0.0679202750325203,
+              0.997690737247467,
+              0.018623866140842438
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        "index1": {
+          "parent": "index0",
+          "matrix": [
+            [
+              0.9974586963653564,
+              0.06816265732049942,
+              0.020736517384648323,
+              0.040500007569789886
+            ],
+            [
+              -0.07124710083007812,
+              0.9542763233184814,
+              0.29031115770339966,
+              0.132999986410141
+            ],
+            [
+              1.2478267308324575e-08,
+              -0.29105085134506226,
+              0.9567075967788696,
+              0.02155831642448902
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        "index2": {
+          "parent": "index1",
+          "matrix": [
+            [
+              0.9889363050460815,
+              0.14209920167922974,
+              0.04257587715983391,
+              0.042500000447034836
+            ],
+            [
+              -0.14834043383598328,
+              0.9473280906677246,
+              0.2838391661643982,
+              0.16099996864795685
+            ],
+            [
+              -1.862645149230957e-09,
+              -0.2870146632194519,
+              0.9579262137413025,
+              0.013018411584198475
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        "little0": {
+          "parent": "wrist",
+          "matrix": [
+            [
+              0.8998140692710876,
+              -0.4346882402896881,
+              0.03715920448303223,
+              -0.05375000089406967
+            ],
+            [
+              0.43627363443374634,
+              0.8965442776679993,
+              -0.0766407698392868,
+              0.07499999552965164
+            ],
+            [
+              -2.60770320892334e-08,
+              0.08517403155565262,
+              0.996366024017334,
+              0.010122790932655334
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        "little1": {
+          "parent": "little0",
+          "matrix": [
+            [
+              0.9284767508506775,
+              -0.3641577959060669,
+              -0.07293841242790222,
+              -0.06975001096725464
+            ],
+            [
+              0.3713904917240143,
+              0.910395085811615,
+              0.18234598636627197,
+              0.1080000102519989
+            ],
+            [
+              5.960464477539063e-08,
+              -0.19639259576797485,
+              0.9805253148078918,
+              0.01325787603855133
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        "little2": {
+          "parent": "little1",
+          "matrix": [
+            [
+              0.9161573052406311,
+              -0.3887760639190674,
+              -0.09751427918672562,
+              -0.07775000482797623
+            ],
+            [
+              0.40081894397735596,
+              0.888630747795105,
+              0.2228897213935852,
+              0.12799999117851257
+            ],
+            [
+              -3.259629011154175e-09,
+              -0.2432875633239746,
+              0.9699541330337524,
+              0.008943431079387665
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        "middle0": {
+          "parent": "wrist",
+          "matrix": [
+            [
+              0.9997737407684326,
+              0.02116970904171467,
+              -0.0020811844151467085,
+              0.005000001285225153
+            ],
+            [
+              -0.021271763369441032,
+              0.9949772357940674,
+              -0.09781576693058014,
+              0.10125000029802322
+            ],
+            [
+              -2.3283064365386963e-10,
+              0.0978379026055336,
+              0.995202362537384,
+              0.023313142359256744
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        "middle1": {
+          "parent": "middle0",
+          "matrix": [
+            [
+              0.9993628859519958,
+              -0.03373880684375763,
+              -0.011643774807453156,
+              0.005999998655170202
+            ],
+            [
+              0.0356915183365345,
+              0.9446868300437927,
+              0.3260257840156555,
+              0.148250013589859
+            ],
+            [
+              -2.7939677238464355e-09,
+              -0.3262336850166321,
+              0.9452891945838928,
+              0.0279347263276577
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        "middle2": {
+          "parent": "middle1",
+          "matrix": [
+            [
+              0.9989684820175171,
+              0.043536726385354996,
+              0.01289988774806261,
+              0.004999999888241291
+            ],
+            [
+              -0.04540763050317764,
+              0.9578084349632263,
+              0.2837977409362793,
+              0.17624999582767487
+            ],
+            [
+              0.0,
+              -0.2840907573699951,
+              0.9587975144386292,
+              0.01826535351574421
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        "ring0": {
+          "parent": "wrist",
+          "matrix": [
+            [
+              0.9977851510047913,
+              -0.0657663568854332,
+              0.009977992624044418,
+              -0.028750000521540642
+            ],
+            [
+              0.06651896983385086,
+              0.9864959120750427,
+              -0.14966991543769836,
+              0.0937500074505806
+            ],
+            [
+              -4.190951585769653e-09,
+              0.15000216662883759,
+              0.988685667514801,
+              0.016456320881843567
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        "ring1": {
+          "parent": "ring0",
+          "matrix": [
+            [
+              0.9992611408233643,
+              -0.034285228699445724,
+              -0.01736750453710556,
+              -0.03175000101327896
+            ],
+            [
+              0.038433149456977844,
+              0.8914154767990112,
+              0.45155423879623413,
+              0.13874998688697815
+            ],
+            [
+              1.955777406692505e-08,
+              -0.45188814401626587,
+              0.8920746445655823,
+              0.023298822343349457
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        "ring2": {
+          "parent": "ring1",
+          "matrix": [
+            [
+              0.9988681077957153,
+              -0.04508732259273529,
+              -0.015151677653193474,
+              -0.032750003039836884
+            ],
+            [
+              0.04756511375308037,
+              0.94683438539505,
+              0.3181854486465454,
+              0.16475002467632294
+            ],
+            [
+              -3.4924596548080444e-09,
+              -0.31854602694511414,
+              0.9479074478149414,
+              0.010118547827005386
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        "thumb0": {
+          "parent": "wrist",
+          "matrix": [
+            [
+              0.7071067094802856,
+              0.6950082778930664,
+              0.1302443891763687,
+              0.03750000521540642
+            ],
+            [
+              -0.7071068286895752,
+              0.6950080990791321,
+              0.1302444338798523,
+              0.0062499940395355225
+            ],
+            [
+              3.725290298461914e-08,
+              -0.1841934323310852,
+              0.9828900098800659,
+              -0.005316391587257385
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        "thumb1": {
+          "parent": "thumb0",
+          "matrix": [
+            [
+              0.9191449880599976,
+              0.3837188184261322,
+              0.08906346559524536,
+              0.07500001788139343
+            ],
+            [
+              -0.39391934871673584,
+              0.8953438401222229,
+              0.20781463384628296,
+              0.04374999552965164
+            ],
+            [
+              -4.470348358154297e-08,
+              -0.22609561681747437,
+              0.9741051197052002,
+              -0.015254772268235683
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        "thumb2": {
+          "parent": "thumb1",
+          "matrix": [
+            [
+              0.9363291263580322,
+              0.34856000542640686,
+              0.0423518568277359,
+              0.08700000494718552
+            ],
+            [
+              -0.3511236310005188,
+              0.9294928908348083,
+              0.11293817311525345,
+              0.07175000011920929
+            ],
+            [
+              -3.166496753692627e-08,
+              -0.1206180527806282,
+              0.9926989078521729,
+              -0.022325435653328896
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        }
+      },
+      "nail_geometry_weights_sha256": {
+        "Nail_index": "e2095353e7657261ec1b193aa2a6e25873a494796a9af9c9f5d45c3159bc67b3",
+        "Nail_little": "0fcacac5d5e318813f62693b976b34e936858fe7c8d0415d1290f029120eb17e",
+        "Nail_middle": "8f91ce2f65c5fab075667f5c6c931b6466083759a41156a078cd7066455ce87a",
+        "Nail_ring": "8d8d23391852151e64164be7ddbaa86d259b97fba01abf18e9bbc6209af1dfa3",
+        "Nail_thumb": "0d9539a60c78a6edf48299af1f0fd0f279724c15afa7e1e48782c6673f4857a4"
+      },
+      "native_wrist_m": [
+        0.0,
+        -0.05624999850988388,
+        0.0
+      ]
+    },
+    "right": {
+      "correctives": {
+        "basis_geometry_weights_sha256": "431234f0d85ae429f7338be786b6d8878fcf6eee73160443fc3b940ce2b0c9e3",
+        "key_count": 15,
+        "keys": {
+          "Joint_thumb_0": {
+            "digit": "thumb",
+            "joint": 0,
+            "full_flex_degrees": 60,
+            "deformed_vertices": 209,
+            "physical_skin_vertices": 209,
+            "maximum_displacement_m": 0.0001860942156166108,
+            "maximum_influence_radius_m": 0.035578617175327204,
+            "skin_section_center_world_m": [
+              0.13022351264953613,
+              0.009767436422407627,
+              -0.008212161250412464
+            ],
+            "bone_anchor_world_m": [
+              0.12593862414360046,
+              0.0062499940395355225,
+              -0.005316391587257385
+            ],
+            "axial_section_adjustment_m": 0.0,
+            "section_samples": 62,
+            "foreign_digit_and_wrist_displacement_m": 0.0,
+            "default_value": 0.0
+          },
+          "Joint_thumb_1": {
+            "digit": "thumb",
+            "joint": 1,
+            "full_flex_degrees": 70,
+            "deformed_vertices": 489,
+            "physical_skin_vertices": 463,
+            "maximum_displacement_m": 0.0005962850741029785,
+            "maximum_influence_radius_m": 0.030314253407042347,
+            "skin_section_center_world_m": [
+              0.10562456399202347,
+              0.05166194960474968,
+              -0.013090422376990318
+            ],
+            "bone_anchor_world_m": [
+              0.08843861520290375,
+              0.04374999552965164,
+              -0.015254772268235683
+            ],
+            "axial_section_adjustment_m": 0.0,
+            "section_samples": 135,
+            "foreign_digit_and_wrist_displacement_m": 0.0,
+            "default_value": 0.0
+          },
+          "Joint_thumb_2": {
+            "digit": "thumb",
+            "joint": 2,
+            "full_flex_degrees": 80,
+            "deformed_vertices": 259,
+            "physical_skin_vertices": 259,
+            "maximum_displacement_m": 0.0003992536071555887,
+            "maximum_influence_radius_m": 0.018497066638270655,
+            "skin_section_center_world_m": [
+              0.08305980265140533,
+              0.07435844838619232,
+              -0.02135825715959072
+            ],
+            "bone_anchor_world_m": [
+              0.07643862813711166,
+              0.07175000011920929,
+              -0.022325435653328896
+            ],
+            "axial_section_adjustment_m": 0.0,
+            "section_samples": 113,
+            "foreign_digit_and_wrist_displacement_m": 0.0,
+            "default_value": 0.0
+          },
+          "Joint_index_0": {
+            "digit": "index",
+            "joint": 0,
+            "full_flex_degrees": 90,
+            "deformed_vertices": 369,
+            "physical_skin_vertices": 369,
+            "maximum_displacement_m": 0.00025099161857744447,
+            "maximum_influence_radius_m": 0.028676864590779737,
+            "skin_section_center_world_m": [
+              0.1280011087656021,
+              0.0900127962231636,
+              0.02054467238485813
+            ],
+            "bone_anchor_world_m": [
+              0.12593862414360046,
+              0.0899999812245369,
+              0.018623866140842438
+            ],
+            "axial_section_adjustment_m": 0.0,
+            "section_samples": 121,
+            "foreign_digit_and_wrist_displacement_m": 0.0,
+            "default_value": 0.0
+          },
+          "Joint_index_1": {
+            "digit": "index",
+            "joint": 1,
+            "full_flex_degrees": 110,
+            "deformed_vertices": 405,
+            "physical_skin_vertices": 405,
+            "maximum_displacement_m": 0.0005855910225828656,
+            "maximum_influence_radius_m": 0.022537242744768392,
+            "skin_section_center_world_m": [
+              0.11972005665302277,
+              0.13276563584804535,
+              0.021543746814131737
+            ],
+            "bone_anchor_world_m": [
+              0.1229386255145073,
+              0.132999986410141,
+              0.02155831642448902
+            ],
+            "axial_section_adjustment_m": 0.0,
+            "section_samples": 138,
+            "foreign_digit_and_wrist_displacement_m": 0.0,
+            "default_value": 0.0
+          },
+          "Joint_index_2": {
+            "digit": "index",
+            "joint": 2,
+            "full_flex_degrees": 80,
+            "deformed_vertices": 235,
+            "physical_skin_vertices": 235,
+            "maximum_displacement_m": 0.0003104439772663072,
+            "maximum_influence_radius_m": 0.01669836411276885,
+            "skin_section_center_world_m": [
+              0.1168980598449707,
+              0.1606534719467163,
+              0.013875174336135387
+            ],
+            "bone_anchor_world_m": [
+              0.12093862891197205,
+              0.16099996864795685,
+              0.013018411584198475
+            ],
+            "axial_section_adjustment_m": 0.0,
+            "section_samples": 110,
+            "foreign_digit_and_wrist_displacement_m": 0.0,
+            "default_value": 0.0
+          },
+          "Joint_middle_0": {
+            "digit": "middle",
+            "joint": 0,
+            "full_flex_degrees": 90,
+            "deformed_vertices": 247,
+            "physical_skin_vertices": 230,
+            "maximum_displacement_m": 0.00023536481898859589,
+            "maximum_influence_radius_m": 0.02490397727274111,
+            "skin_section_center_world_m": [
+              0.1595519781112671,
+              0.10124761611223221,
+              0.023578334599733353
+            ],
+            "bone_anchor_world_m": [
+              0.15843863785266876,
+              0.10125000029802322,
+              0.023313142359256744
+            ],
+            "axial_section_adjustment_m": 0.0,
+            "section_samples": 76,
+            "foreign_digit_and_wrist_displacement_m": 0.0,
+            "default_value": 0.0
+          },
+          "Joint_middle_1": {
+            "digit": "middle",
+            "joint": 1,
+            "full_flex_degrees": 110,
+            "deformed_vertices": 303,
+            "physical_skin_vertices": 303,
+            "maximum_displacement_m": 0.0005899737205114704,
+            "maximum_influence_radius_m": 0.020972562632969705,
+            "skin_section_center_world_m": [
+              0.1576337218284607,
+              0.14792993664741516,
+              0.027028026059269905
+            ],
+            "bone_anchor_world_m": [
+              0.15743863582611084,
+              0.148250013589859,
+              0.0279347263276577
+            ],
+            "axial_section_adjustment_m": 0.0,
+            "section_samples": 105,
+            "foreign_digit_and_wrist_displacement_m": 0.0,
+            "default_value": 0.0
+          },
+          "Joint_middle_2": {
+            "digit": "middle",
+            "joint": 2,
+            "full_flex_degrees": 80,
+            "deformed_vertices": 197,
+            "physical_skin_vertices": 197,
+            "maximum_displacement_m": 0.0002704573640928128,
+            "maximum_influence_radius_m": 0.016568836219517668,
+            "skin_section_center_world_m": [
+              0.158079594373703,
+              0.1764666587114334,
+              0.01905086077749729
+            ],
+            "bone_anchor_world_m": [
+              0.15843863785266876,
+              0.17624999582767487,
+              0.01826535351574421
+            ],
+            "axial_section_adjustment_m": 0.0,
+            "section_samples": 102,
+            "foreign_digit_and_wrist_displacement_m": 0.0,
+            "default_value": 0.0
+          },
+          "Joint_ring_0": {
+            "digit": "ring",
+            "joint": 0,
+            "full_flex_degrees": 90,
+            "deformed_vertices": 303,
+            "physical_skin_vertices": 224,
+            "maximum_displacement_m": 0.00024031438834983324,
+            "maximum_influence_radius_m": 0.028202657488084485,
+            "skin_section_center_world_m": [
+              0.18913425505161285,
+              0.09368634968996048,
+              0.018214112147688866
+            ],
+            "bone_anchor_world_m": [
+              0.19218863546848297,
+              0.0937500074505806,
+              0.016456320881843567
+            ],
+            "axial_section_adjustment_m": 0.0,
+            "section_samples": 73,
+            "foreign_digit_and_wrist_displacement_m": 0.0,
+            "default_value": 0.0
+          },
+          "Joint_ring_1": {
+            "digit": "ring",
+            "joint": 1,
+            "full_flex_degrees": 110,
+            "deformed_vertices": 329,
+            "physical_skin_vertices": 329,
+            "maximum_displacement_m": 0.0005941414354444805,
+            "maximum_influence_radius_m": 0.021802411738399908,
+            "skin_section_center_world_m": [
+              0.19344547390937805,
+              0.13838385045528412,
+              0.02244432270526886
+            ],
+            "bone_anchor_world_m": [
+              0.19518864154815674,
+              0.13874998688697815,
+              0.023298822343349457
+            ],
+            "axial_section_adjustment_m": 0.0,
+            "section_samples": 109,
+            "foreign_digit_and_wrist_displacement_m": 0.0,
+            "default_value": 0.0
+          },
+          "Joint_ring_2": {
+            "digit": "ring",
+            "joint": 2,
+            "full_flex_degrees": 80,
+            "deformed_vertices": 245,
+            "physical_skin_vertices": 245,
+            "maximum_displacement_m": 0.0003477535820324752,
+            "maximum_influence_radius_m": 0.016015347788300802,
+            "skin_section_center_world_m": [
+              0.19675830006599426,
+              0.16516979038715363,
+              0.011446872726082802
+            ],
+            "bone_anchor_world_m": [
+              0.19618862867355347,
+              0.16475002467632294,
+              0.010118547827005386
+            ],
+            "axial_section_adjustment_m": 0.0,
+            "section_samples": 102,
+            "foreign_digit_and_wrist_displacement_m": 0.0,
+            "default_value": 0.0
+          },
+          "Joint_little_0": {
+            "digit": "little",
+            "joint": 0,
+            "full_flex_degrees": 90,
+            "deformed_vertices": 319,
+            "physical_skin_vertices": 319,
+            "maximum_displacement_m": 0.00023508973167468873,
+            "maximum_influence_radius_m": 0.028816389349007928,
+            "skin_section_center_world_m": [
+              0.2128308117389679,
+              0.07701748609542847,
+              0.01112692803144455
+            ],
+            "bone_anchor_world_m": [
+              0.21718862652778625,
+              0.07499999552965164,
+              0.010122790932655334
+            ],
+            "axial_section_adjustment_m": 0.0,
+            "section_samples": 96,
+            "foreign_digit_and_wrist_displacement_m": 0.0,
+            "default_value": 0.0
+          },
+          "Joint_little_1": {
+            "digit": "little",
+            "joint": 1,
+            "full_flex_degrees": 110,
+            "deformed_vertices": 400,
+            "physical_skin_vertices": 378,
+            "maximum_displacement_m": 0.0005831227648228614,
+            "maximum_influence_radius_m": 0.02183633811311078,
+            "skin_section_center_world_m": [
+              0.22637982666492462,
+              0.11068528890609741,
+              0.013080562464892864
+            ],
+            "bone_anchor_world_m": [
+              0.23318864405155182,
+              0.1080000102519989,
+              0.01325787603855133
+            ],
+            "axial_section_adjustment_m": 0.0,
+            "section_samples": 119,
+            "foreign_digit_and_wrist_displacement_m": 0.0,
+            "default_value": 0.0
+          },
+          "Joint_little_2": {
+            "digit": "little",
+            "joint": 2,
+            "full_flex_degrees": 80,
+            "deformed_vertices": 244,
+            "physical_skin_vertices": 244,
+            "maximum_displacement_m": 0.0003740404300151668,
+            "maximum_influence_radius_m": 0.015814913948291796,
+            "skin_section_center_world_m": [
+              0.23820824921131134,
+              0.1294192522764206,
+              0.009364726953208447
+            ],
+            "bone_anchor_world_m": [
+              0.241188645362854,
+              0.12799999117851257,
+              0.008943431079387665
+            ],
+            "axial_section_adjustment_m": 0.0,
+            "section_samples": 124,
+            "foreign_digit_and_wrist_displacement_m": 0.0,
+            "default_value": 0.0
+          }
+        },
+        "ownership_mask": "maximum individual bone weight must belong to this digit; wrist and other digits remain exact"
+      },
+      "export": {
+        "sha256": "771841b7262e81bcaff7fddcd975868a218cff876ea22c71b18138823d397e05",
+        "bytes": 2777548,
+        "morph_meshes": [
+          {
+            "mesh": "ContinuousAnatomicalHandMesh.003",
+            "target_names": [
+              "Joint_thumb_0",
+              "Joint_thumb_1",
+              "Joint_thumb_2",
+              "Joint_index_0",
+              "Joint_index_1",
+              "Joint_index_2",
+              "Joint_middle_0",
+              "Joint_middle_1",
+              "Joint_middle_2",
+              "Joint_ring_0",
+              "Joint_ring_1",
+              "Joint_ring_2",
+              "Joint_little_0",
+              "Joint_little_1",
+              "Joint_little_2"
+            ],
+            "primitives": [
+              {
+                "vertices": 6410,
+                "target_count": 15,
+                "position_and_normal": true
+              },
+              {
+                "vertices": 7299,
+                "target_count": 15,
+                "position_and_normal": true
+              },
+              {
+                "vertices": 1512,
+                "target_count": 15,
+                "position_and_normal": true
+              }
+            ]
+          }
+        ],
+        "skin_joints": [
+          "wrist",
+          "index0",
+          "index1",
+          "index2",
+          "little0",
+          "little1",
+          "little2",
+          "middle0",
+          "middle1",
+          "middle2",
+          "ring0",
+          "ring1",
+          "ring2",
+          "thumb0",
+          "thumb1",
+          "thumb2"
+        ]
+      },
+      "source_skin_geometry_weights_sha256": "6010b5c35de5301d69f07f7082b3fdad30f559425b4f83d476f17a057ed41cb2",
+      "nailbed_attachment_weights": {
+        "thumb": {
+          "changed_weight_vertices": 275,
+          "rigid_distal_vertices": 696,
+          "target_bone": "thumb2",
+          "transition_length_m": 0.004,
+          "nail_proximal_axis_m": 0.0039010057225823402,
+          "rigid_section_start_axis_m": 0.00240100572258234,
+          "maximum_weight_l1_change": 0.7766713176912738,
+          "neutral_coordinates_unchanged": true
+        },
+        "index": {
+          "changed_weight_vertices": 241,
+          "rigid_distal_vertices": 642,
+          "target_bone": "index2",
+          "transition_length_m": 0.004,
+          "nail_proximal_axis_m": 0.0028133965970482677,
+          "rigid_section_start_axis_m": 0.0013133965970482677,
+          "maximum_weight_l1_change": 0.9117478797901424,
+          "neutral_coordinates_unchanged": true
+        },
+        "middle": {
+          "changed_weight_vertices": 191,
+          "rigid_distal_vertices": 600,
+          "target_bone": "middle2",
+          "transition_length_m": 0.004,
+          "nail_proximal_axis_m": 0.0030262872478488134,
+          "rigid_section_start_axis_m": 0.0015262872478488134,
+          "maximum_weight_l1_change": 0.8990029876692323,
+          "neutral_coordinates_unchanged": true
+        },
+        "ring": {
+          "changed_weight_vertices": 222,
+          "rigid_distal_vertices": 614,
+          "target_bone": "ring2",
+          "transition_length_m": 0.004,
+          "nail_proximal_axis_m": 0.002913891526986845,
+          "rigid_section_start_axis_m": 0.0014138915269868448,
+          "maximum_weight_l1_change": 1.168682489508483,
+          "neutral_coordinates_unchanged": true
+        },
+        "little": {
+          "changed_weight_vertices": 204,
+          "rigid_distal_vertices": 670,
+          "target_bone": "little2",
+          "transition_length_m": 0.004,
+          "nail_proximal_axis_m": 0.0031716691446490586,
+          "rigid_section_start_axis_m": 0.0016716691446490585,
+          "maximum_weight_l1_change": 0.7224589769378236,
+          "neutral_coordinates_unchanged": true
+        }
+      },
+      "rest_bones": {
+        "wrist": {
+          "parent": null,
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              -0.05624999850988388
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        "index0": {
+          "parent": "wrist",
+          "matrix": [
+            [
+              0.9975751042366028,
+              -0.06943749636411667,
+              0.004727132618427277,
+              -0.03750000149011612
+            ],
+            [
+              0.06959821283817291,
+              0.9952714443206787,
+              -0.06775558739900589,
+              0.0899999812245369
+            ],
+            [
+              -1.862645149230957e-09,
+              0.0679202750325203,
+              0.997690737247467,
+              0.018623866140842438
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        "index1": {
+          "parent": "index0",
+          "matrix": [
+            [
+              0.9974586963653564,
+              -0.06816265732049942,
+              -0.020736517384648323,
+              -0.040500007569789886
+            ],
+            [
+              0.07124710083007812,
+              0.9542763233184814,
+              0.29031115770339966,
+              0.132999986410141
+            ],
+            [
+              -1.2478267308324575e-08,
+              -0.29105085134506226,
+              0.9567075967788696,
+              0.02155831642448902
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        "index2": {
+          "parent": "index1",
+          "matrix": [
+            [
+              0.9889363050460815,
+              -0.14209920167922974,
+              -0.04257587715983391,
+              -0.042500000447034836
+            ],
+            [
+              0.14834043383598328,
+              0.9473280906677246,
+              0.2838391661643982,
+              0.16099996864795685
+            ],
+            [
+              1.862645149230957e-09,
+              -0.2870146632194519,
+              0.9579262137413025,
+              0.013018411584198475
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        "little0": {
+          "parent": "wrist",
+          "matrix": [
+            [
+              0.8998140692710876,
+              0.4346882402896881,
+              -0.03715920448303223,
+              0.05375000089406967
+            ],
+            [
+              -0.43627363443374634,
+              0.8965442776679993,
+              -0.0766407698392868,
+              0.07499999552965164
+            ],
+            [
+              2.60770320892334e-08,
+              0.08517403155565262,
+              0.996366024017334,
+              0.010122790932655334
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        "little1": {
+          "parent": "little0",
+          "matrix": [
+            [
+              0.9284767508506775,
+              0.3641577959060669,
+              0.07293841242790222,
+              0.06975001096725464
+            ],
+            [
+              -0.3713904917240143,
+              0.910395085811615,
+              0.18234598636627197,
+              0.1080000102519989
+            ],
+            [
+              -5.960464477539063e-08,
+              -0.19639259576797485,
+              0.9805253148078918,
+              0.01325787603855133
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        "little2": {
+          "parent": "little1",
+          "matrix": [
+            [
+              0.9161573052406311,
+              0.3887760639190674,
+              0.09751427918672562,
+              0.07775000482797623
+            ],
+            [
+              -0.40081894397735596,
+              0.888630747795105,
+              0.2228897213935852,
+              0.12799999117851257
+            ],
+            [
+              3.259629011154175e-09,
+              -0.2432875633239746,
+              0.9699541330337524,
+              0.008943431079387665
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        "middle0": {
+          "parent": "wrist",
+          "matrix": [
+            [
+              0.9997737407684326,
+              -0.02116970904171467,
+              0.0020811844151467085,
+              -0.005000001285225153
+            ],
+            [
+              0.021271763369441032,
+              0.9949772357940674,
+              -0.09781576693058014,
+              0.10125000029802322
+            ],
+            [
+              2.3283064365386963e-10,
+              0.0978379026055336,
+              0.995202362537384,
+              0.023313142359256744
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        "middle1": {
+          "parent": "middle0",
+          "matrix": [
+            [
+              0.9993628859519958,
+              0.03373880684375763,
+              0.011643774807453156,
+              -0.005999998655170202
+            ],
+            [
+              -0.0356915183365345,
+              0.9446868300437927,
+              0.3260257840156555,
+              0.148250013589859
+            ],
+            [
+              2.7939677238464355e-09,
+              -0.3262336850166321,
+              0.9452891945838928,
+              0.0279347263276577
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        "middle2": {
+          "parent": "middle1",
+          "matrix": [
+            [
+              0.9989684820175171,
+              -0.043536726385354996,
+              -0.01289988774806261,
+              -0.004999999888241291
+            ],
+            [
+              0.04540763050317764,
+              0.9578084349632263,
+              0.2837977409362793,
+              0.17624999582767487
+            ],
+            [
+              0.0,
+              -0.2840907573699951,
+              0.9587975144386292,
+              0.01826535351574421
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        "ring0": {
+          "parent": "wrist",
+          "matrix": [
+            [
+              0.9977851510047913,
+              0.0657663568854332,
+              -0.009977992624044418,
+              0.028750000521540642
+            ],
+            [
+              -0.06651896983385086,
+              0.9864959120750427,
+              -0.14966991543769836,
+              0.0937500074505806
+            ],
+            [
+              4.190951585769653e-09,
+              0.15000216662883759,
+              0.988685667514801,
+              0.016456320881843567
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        "ring1": {
+          "parent": "ring0",
+          "matrix": [
+            [
+              0.9992611408233643,
+              0.034285228699445724,
+              0.01736750453710556,
+              0.03175000101327896
+            ],
+            [
+              -0.038433149456977844,
+              0.8914154767990112,
+              0.45155423879623413,
+              0.13874998688697815
+            ],
+            [
+              -1.955777406692505e-08,
+              -0.45188814401626587,
+              0.8920746445655823,
+              0.023298822343349457
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        "ring2": {
+          "parent": "ring1",
+          "matrix": [
+            [
+              0.9988681077957153,
+              0.04508732259273529,
+              0.015151677653193474,
+              0.032750003039836884
+            ],
+            [
+              -0.04756511375308037,
+              0.94683438539505,
+              0.3181854486465454,
+              0.16475002467632294
+            ],
+            [
+              3.4924596548080444e-09,
+              -0.31854602694511414,
+              0.9479074478149414,
+              0.010118547827005386
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        "thumb0": {
+          "parent": "wrist",
+          "matrix": [
+            [
+              0.7071067094802856,
+              -0.6950082778930664,
+              -0.1302443891763687,
+              -0.03750000521540642
+            ],
+            [
+              0.7071068286895752,
+              0.6950080990791321,
+              0.1302444338798523,
+              0.0062499940395355225
+            ],
+            [
+              -3.725290298461914e-08,
+              -0.1841934323310852,
+              0.9828900098800659,
+              -0.005316391587257385
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        "thumb1": {
+          "parent": "thumb0",
+          "matrix": [
+            [
+              0.9191449880599976,
+              -0.3837188184261322,
+              -0.08906346559524536,
+              -0.07500001788139343
+            ],
+            [
+              0.39391934871673584,
+              0.8953438401222229,
+              0.20781463384628296,
+              0.04374999552965164
+            ],
+            [
+              4.470348358154297e-08,
+              -0.22609561681747437,
+              0.9741051197052002,
+              -0.015254772268235683
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        "thumb2": {
+          "parent": "thumb1",
+          "matrix": [
+            [
+              0.9363291263580322,
+              -0.34856000542640686,
+              -0.0423518568277359,
+              -0.08700000494718552
+            ],
+            [
+              0.3511236310005188,
+              0.9294928908348083,
+              0.11293817311525345,
+              0.07175000011920929
+            ],
+            [
+              3.166496753692627e-08,
+              -0.1206180527806282,
+              0.9926989078521729,
+              -0.022325435653328896
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        }
+      },
+      "nail_geometry_weights_sha256": {
+        "Nail_index.001": "4fcd0ff686c92b15c306fb663deffbff8e9051def5b81374fa4e6e08787bcd0f",
+        "Nail_little.001": "dcd7a7ed0d34d7015e634a0e539b5370e5d39ccfe9d0ec9661eadc9e4d61a821",
+        "Nail_middle.001": "36dccdf6ac529c53bb080c0adb420284a4fcb6655ce7f9375d2fafd1064d7691",
+        "Nail_ring.001": "f973f96cc11d773e75001c5d15c8c86f5b58bacb4d2102a549021b61e06d8610",
+        "Nail_thumb.001": "9feca9514fcaf0fc218ade978794ac55bc975bc3b13803f0a76ec7ca7145c9a0"
+      },
+      "native_wrist_m": [
+        0.0,
+        -0.05624999850988388,
+        0.0
+      ]
+    }
+  },
+  "renders": {
+    "open_dorsum": {
+      "file": "joints_open_dorsum.png",
+      "pose": "open_dorsum",
+      "requires_visual_review": true
+    },
+    "open_palm": {
+      "file": "joints_open_palm.png",
+      "pose": "open_palm",
+      "requires_visual_review": true
+    },
+    "flex_dorsum": {
+      "file": "joints_flex_dorsum.png",
+      "pose": "flex_dorsum",
+      "requires_visual_review": true
+    },
+    "flex_palm": {
+      "file": "joints_flex_palm.png",
+      "pose": "flex_palm",
+      "requires_visual_review": true
+    },
+    "independent_index_1": {
+      "file": "joints_independent_index_1.png",
+      "pose": "independent_index_1",
+      "requires_visual_review": true
+    }
+  },
+  "limits": "Submillimeter pose corrections support the unchanged 16-bone rig; no nail morphs or topology edits.",
+  "outputs": {
+    "left_hand_articulated.glb": {
+      "bytes": 2791004,
+      "sha256": "4443b02c6c962fc1f8d625e26448029c2c2828ef4a5d7adcd7c714585df81a70"
+    },
+    "joints_flex_dorsum.png": {
+      "bytes": 1059104,
+      "sha256": "56c05ed702fedb8861a9530c10bd66e142c1dceec80cac46ddd367b1d68e754b"
+    },
+    "joints_open_palm.png": {
+      "bytes": 1140146,
+      "sha256": "b7b9e859d0b9b1522d6e9aeb346664cd8e816fa301a1625e72971999b28c531b"
+    },
+    "joints_independent_index_1.png": {
+      "bytes": 1084211,
+      "sha256": "a2a8b25104c017a8ac4ef220888a57ef174634e06d4113b047a57e2eaac9eaf4"
+    },
+    "joints_open_dorsum.png": {
+      "bytes": 1154780,
+      "sha256": "41343f61a30b45c2b60f9e76c67bc44d94a079e0fce191f1010509695494eee5"
+    },
+    "right_hand_articulated.glb": {
+      "bytes": 2777548,
+      "sha256": "771841b7262e81bcaff7fddcd975868a218cff876ea22c71b18138823d397e05"
+    },
+    "bilateral_hands_articulated.blend": {
+      "bytes": 13734645,
+      "sha256": "7dd08999cb6a4a41268470bce5efb2e885684f8db22b9993a21d0e05dc5040b5"
+    },
+    "joints_flex_palm.png": {
+      "bytes": 1100380,
+      "sha256": "5ce6ecf721b2e851da6eb82d3fb99171ebdb3a3207872b75ea10cdabc28fce45"
+    }
+  }
+}

@@ -1,0 +1,40 @@
+[HEADLESS] reference_sword_arm_player_test.gd
+ERROR: authored elbow at exact source rest shoulder / actual surfaces/shoulder (error 0.500271678 m)
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/reference_sword_arm_player_test.gd:72)
+       [1] _test_actual_f2 (res://tests/reference_sword_arm_player_test.gd:382)
+ERROR: authored elbow at exact source rest shoulder / actual surfaces/elbow (error 0.518056631 m)
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/reference_sword_arm_player_test.gd:72)
+       [1] _test_actual_f2 (res://tests/reference_sword_arm_player_test.gd:382)
+ERROR: authored elbow at exact source rest shoulder / actual surfaces/wrist (error 0.500271857 m)
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/reference_sword_arm_player_test.gd:72)
+       [1] _test_actual_f2 (res://tests/reference_sword_arm_player_test.gd:382)
+ERROR: The exact accepted key must retain its authored flag and original sword/glove contact.
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/reference_sword_arm_player_test.gd:72)
+       [1] _test_actual_f2 (res://tests/reference_sword_arm_player_test.gd:382)
+REFERENCE SWORD ARM PLAYER FAIL: analytical fixture only; actual_delivery_evaluated=false; actual meshes, 30/60/120Hz clocks, handoffs, blade clash, F2 and reset
+[HEADLESS] first_person_motion_test_room_test.gd
+FIRST PERSON MOTION TEST ROOM PASS: seven motion families plus five sword/shield trials, real cuts/guard/enemy impact, repeated F2, reset and complete original session restoration
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2535)
+[HEADLESS] first_person_motion_preview_test.gd
+TIMEOUT after 180s: first_person_motion_preview_test.gd
+
+Headless validation: 1 passed, 2 failed.
+FAILED: reference_sword_arm_player_test.gd (1)
+FAILED: first_person_motion_preview_test.gd (124)
+[HEADLESS] reference_sword_arm_player_test.gd
+REFERENCE SWORD ARM PLAYER PASS: analytical fixture only; actual_delivery_evaluated=false; actual meshes, 30/60/120Hz clocks, handoffs, blade clash, F2 and reset
+
+Headless validation: 1 passed, 0 failed.
+[HEADLESS] first_person_motion_preview_test.gd
+FIRST PERSON MOTION PREVIEW PASS: 24 production action states, real resources/contact, isolated input and complete original session preservation
+
+Headless validation: 1 passed, 0 failed.

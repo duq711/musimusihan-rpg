@@ -1,0 +1,1514 @@
+{
+	"actual_renderer": "vulkan",
+	"capture_kind": "Actual DungeonPlayer independent joints, corrective blend shapes, production bow/chest and production controls in isolated SubViewport",
+	"captures": [
+		{
+			"actual_pbr_bindings": {
+				"binding_source": "Live MeshInstance3D active materials; source hashes cover GLBs, extracted PNGs and texture import settings",
+				"material_count": 10,
+				"minimum_bound_texture_size": [
+					4096,
+					4096
+				],
+				"passed": true,
+				"rendered_surface_count": 26
+			},
+			"controls_canvas_layer": 70,
+			"controls_visible": false,
+			"image": "open.png",
+			"image_sha256": "61299f264001038f0231e0af57fdc6024584ed12aad2d2e10a58e6d255bac97f",
+			"passed": true,
+			"pose": "open",
+			"review": {
+				"active": true,
+				"hands": {
+					"-1": {
+						"angles_radians": {
+							"index": "(0.0, 0.0, 0.0)",
+							"little": "(0.0, 0.0, 0.0)",
+							"middle": "(0.0, 0.0, 0.0)",
+							"ring": "(0.0, 0.0, 0.0)",
+							"thumb": "(0.0, 0.0, 0.0)"
+						},
+						"corrective_available": true,
+						"flexion": {
+							"index": "(0.0, 0.0, 0.0)",
+							"little": "(0.0, 0.0, 0.0)",
+							"middle": "(0.0, 0.0, 0.0)",
+							"ring": "(0.0, 0.0, 0.0)",
+							"thumb": "(0.0, 0.0, 0.0)"
+						},
+						"limits_radians": {
+							"index": "(1.570796, 1.919862, 1.396263)",
+							"little": "(1.570796, 1.919862, 1.396263)",
+							"middle": "(1.570796, 1.919862, 1.396263)",
+							"ring": "(1.570796, 1.919862, 1.396263)",
+							"thumb": "(1.047198, 1.22173, 1.396263)"
+						},
+						"morph_count": 15,
+						"morph_values": {
+							"Joint_index_0": 0.0,
+							"Joint_index_1": 0.0,
+							"Joint_index_2": 0.0,
+							"Joint_little_0": 0.0,
+							"Joint_little_1": 0.0,
+							"Joint_little_2": 0.0,
+							"Joint_middle_0": 0.0,
+							"Joint_middle_1": 0.0,
+							"Joint_middle_2": 0.0,
+							"Joint_ring_0": 0.0,
+							"Joint_ring_1": 0.0,
+							"Joint_ring_2": 0.0,
+							"Joint_thumb_0": 0.0,
+							"Joint_thumb_1": 0.0,
+							"Joint_thumb_2": 0.0
+						},
+						"ready": true
+					},
+					"1": {
+						"angles_radians": {
+							"index": "(0.0, 0.0, 0.0)",
+							"little": "(0.0, 0.0, 0.0)",
+							"middle": "(0.0, 0.0, 0.0)",
+							"ring": "(0.0, 0.0, 0.0)",
+							"thumb": "(0.0, 0.0, 0.0)"
+						},
+						"corrective_available": true,
+						"flexion": {
+							"index": "(0.0, 0.0, 0.0)",
+							"little": "(0.0, 0.0, 0.0)",
+							"middle": "(0.0, 0.0, 0.0)",
+							"ring": "(0.0, 0.0, 0.0)",
+							"thumb": "(0.0, 0.0, 0.0)"
+						},
+						"limits_radians": {
+							"index": "(1.570796, 1.919862, 1.396263)",
+							"little": "(1.570796, 1.919862, 1.396263)",
+							"middle": "(1.570796, 1.919862, 1.396263)",
+							"ring": "(1.570796, 1.919862, 1.396263)",
+							"thumb": "(1.047198, 1.22173, 1.396263)"
+						},
+						"morph_count": 15,
+						"morph_values": {
+							"Joint_index_0": 0.0,
+							"Joint_index_1": 0.0,
+							"Joint_index_2": 0.0,
+							"Joint_little_0": 0.0,
+							"Joint_little_1": 0.0,
+							"Joint_little_2": 0.0,
+							"Joint_middle_0": 0.0,
+							"Joint_middle_1": 0.0,
+							"Joint_middle_2": 0.0,
+							"Joint_ring_0": 0.0,
+							"Joint_ring_1": 0.0,
+							"Joint_ring_2": 0.0,
+							"Joint_thumb_0": 0.0,
+							"Joint_thumb_1": 0.0,
+							"Joint_thumb_2": 0.0
+						},
+						"ready": true
+					}
+				},
+				"previous_profile": "detailed",
+				"profile": "detailed",
+				"values": {
+					"-1": {
+						"index": "(0.0, 0.0, 0.0)",
+						"little": "(0.0, 0.0, 0.0)",
+						"middle": "(0.0, 0.0, 0.0)",
+						"ring": "(0.0, 0.0, 0.0)",
+						"thumb": "(0.0, 0.0, 0.0)"
+					},
+					"1": {
+						"index": "(0.0, 0.0, 0.0)",
+						"little": "(0.0, 0.0, 0.0)",
+						"middle": "(0.0, 0.0, 0.0)",
+						"ring": "(0.0, 0.0, 0.0)",
+						"thumb": "(0.0, 0.0, 0.0)"
+					}
+				},
+				"view": "dorsal"
+			},
+			"view_selector_index": 0,
+			"wrist_gpu_buffers": {
+				"passed": true,
+				"readback": "ArrayMesh.surface_get_arrays after RenderingServer.force_draw",
+				"wrists": [
+					{
+						"arm": "LeftSupportArm",
+						"invalid_tangents": 0,
+						"invalid_vertex_count": 0,
+						"max_normal_error": 0.000129269668832421,
+						"max_position_error_m": 0.0,
+						"minimum_jacobian_determinant": 0.476077735424042,
+						"passed": true,
+						"vertex_count": 5170
+					},
+					{
+						"arm": "RightRelaxedArm",
+						"invalid_tangents": 0,
+						"invalid_vertex_count": 0,
+						"max_normal_error": 0.000129265157738701,
+						"max_position_error_m": 0.0,
+						"minimum_jacobian_determinant": 0.366736024618149,
+						"passed": true,
+						"vertex_count": 5172
+					}
+				]
+			}
+		},
+		{
+			"actual_pbr_bindings": {
+				"binding_source": "Live MeshInstance3D active materials; source hashes cover GLBs, extracted PNGs and texture import settings",
+				"material_count": 10,
+				"minimum_bound_texture_size": [
+					4096,
+					4096
+				],
+				"passed": true,
+				"rendered_surface_count": 26
+			},
+			"controls_canvas_layer": 70,
+			"controls_visible": true,
+			"image": "palm.png",
+			"image_sha256": "aba6f4c922bf94e1ad2d03955f9ca668c6acd7c04d11795136213aa158247814",
+			"passed": true,
+			"pose": "palm",
+			"review": {
+				"active": true,
+				"hands": {
+					"-1": {
+						"angles_radians": {
+							"index": "(0.0, 0.0, 0.0)",
+							"little": "(0.0, 0.0, 0.0)",
+							"middle": "(0.0, 0.0, 0.0)",
+							"ring": "(0.0, 0.0, 0.0)",
+							"thumb": "(0.0, 0.0, 0.0)"
+						},
+						"corrective_available": true,
+						"flexion": {
+							"index": "(0.0, 0.0, 0.0)",
+							"little": "(0.0, 0.0, 0.0)",
+							"middle": "(0.0, 0.0, 0.0)",
+							"ring": "(0.0, 0.0, 0.0)",
+							"thumb": "(0.0, 0.0, 0.0)"
+						},
+						"limits_radians": {
+							"index": "(1.570796, 1.919862, 1.396263)",
+							"little": "(1.570796, 1.919862, 1.396263)",
+							"middle": "(1.570796, 1.919862, 1.396263)",
+							"ring": "(1.570796, 1.919862, 1.396263)",
+							"thumb": "(1.047198, 1.22173, 1.396263)"
+						},
+						"morph_count": 15,
+						"morph_values": {
+							"Joint_index_0": 0.0,
+							"Joint_index_1": 0.0,
+							"Joint_index_2": 0.0,
+							"Joint_little_0": 0.0,
+							"Joint_little_1": 0.0,
+							"Joint_little_2": 0.0,
+							"Joint_middle_0": 0.0,
+							"Joint_middle_1": 0.0,
+							"Joint_middle_2": 0.0,
+							"Joint_ring_0": 0.0,
+							"Joint_ring_1": 0.0,
+							"Joint_ring_2": 0.0,
+							"Joint_thumb_0": 0.0,
+							"Joint_thumb_1": 0.0,
+							"Joint_thumb_2": 0.0
+						},
+						"ready": true
+					},
+					"1": {
+						"angles_radians": {
+							"index": "(0.0, 0.0, 0.0)",
+							"little": "(0.0, 0.0, 0.0)",
+							"middle": "(0.0, 0.0, 0.0)",
+							"ring": "(0.0, 0.0, 0.0)",
+							"thumb": "(0.0, 0.0, 0.0)"
+						},
+						"corrective_available": true,
+						"flexion": {
+							"index": "(0.0, 0.0, 0.0)",
+							"little": "(0.0, 0.0, 0.0)",
+							"middle": "(0.0, 0.0, 0.0)",
+							"ring": "(0.0, 0.0, 0.0)",
+							"thumb": "(0.0, 0.0, 0.0)"
+						},
+						"limits_radians": {
+							"index": "(1.570796, 1.919862, 1.396263)",
+							"little": "(1.570796, 1.919862, 1.396263)",
+							"middle": "(1.570796, 1.919862, 1.396263)",
+							"ring": "(1.570796, 1.919862, 1.396263)",
+							"thumb": "(1.047198, 1.22173, 1.396263)"
+						},
+						"morph_count": 15,
+						"morph_values": {
+							"Joint_index_0": 0.0,
+							"Joint_index_1": 0.0,
+							"Joint_index_2": 0.0,
+							"Joint_little_0": 0.0,
+							"Joint_little_1": 0.0,
+							"Joint_little_2": 0.0,
+							"Joint_middle_0": 0.0,
+							"Joint_middle_1": 0.0,
+							"Joint_middle_2": 0.0,
+							"Joint_ring_0": 0.0,
+							"Joint_ring_1": 0.0,
+							"Joint_ring_2": 0.0,
+							"Joint_thumb_0": 0.0,
+							"Joint_thumb_1": 0.0,
+							"Joint_thumb_2": 0.0
+						},
+						"ready": true
+					}
+				},
+				"previous_profile": "detailed",
+				"profile": "detailed",
+				"values": {
+					"-1": {
+						"index": "(0.0, 0.0, 0.0)",
+						"little": "(0.0, 0.0, 0.0)",
+						"middle": "(0.0, 0.0, 0.0)",
+						"ring": "(0.0, 0.0, 0.0)",
+						"thumb": "(0.0, 0.0, 0.0)"
+					},
+					"1": {
+						"index": "(0.0, 0.0, 0.0)",
+						"little": "(0.0, 0.0, 0.0)",
+						"middle": "(0.0, 0.0, 0.0)",
+						"ring": "(0.0, 0.0, 0.0)",
+						"thumb": "(0.0, 0.0, 0.0)"
+					}
+				},
+				"view": "palm"
+			},
+			"view_selector_index": 1,
+			"wrist_gpu_buffers": {
+				"passed": true,
+				"readback": "ArrayMesh.surface_get_arrays after RenderingServer.force_draw",
+				"wrists": [
+					{
+						"arm": "LeftSupportArm",
+						"invalid_tangents": 0,
+						"invalid_vertex_count": 0,
+						"max_normal_error": 0.000129269668832421,
+						"max_position_error_m": 0.0,
+						"minimum_jacobian_determinant": 0.481512159109116,
+						"passed": true,
+						"vertex_count": 5170
+					},
+					{
+						"arm": "RightRelaxedArm",
+						"invalid_tangents": 0,
+						"invalid_vertex_count": 0,
+						"max_normal_error": 0.000129265157738701,
+						"max_position_error_m": 0.0,
+						"minimum_jacobian_determinant": 0.387638539075851,
+						"passed": true,
+						"vertex_count": 5172
+					}
+				]
+			}
+		},
+		{
+			"actual_pbr_bindings": {
+				"binding_source": "Live MeshInstance3D active materials; source hashes cover GLBs, extracted PNGs and texture import settings",
+				"material_count": 10,
+				"minimum_bound_texture_size": [
+					4096,
+					4096
+				],
+				"passed": true,
+				"rendered_surface_count": 26
+			},
+			"controls_canvas_layer": 70,
+			"controls_visible": true,
+			"image": "wrist_side.png",
+			"image_sha256": "109eae4b8498bc3bbe3f64731e8883866b47fc28aa1b8c0211883e02fa7fbe80",
+			"passed": true,
+			"pose": "wrist_side",
+			"review": {
+				"active": true,
+				"hands": {
+					"-1": {
+						"angles_radians": {
+							"index": "(0.0, 0.0, 0.0)",
+							"little": "(0.0, 0.0, 0.0)",
+							"middle": "(0.0, 0.0, 0.0)",
+							"ring": "(0.0, 0.0, 0.0)",
+							"thumb": "(0.0, 0.0, 0.0)"
+						},
+						"corrective_available": true,
+						"flexion": {
+							"index": "(0.0, 0.0, 0.0)",
+							"little": "(0.0, 0.0, 0.0)",
+							"middle": "(0.0, 0.0, 0.0)",
+							"ring": "(0.0, 0.0, 0.0)",
+							"thumb": "(0.0, 0.0, 0.0)"
+						},
+						"limits_radians": {
+							"index": "(1.570796, 1.919862, 1.396263)",
+							"little": "(1.570796, 1.919862, 1.396263)",
+							"middle": "(1.570796, 1.919862, 1.396263)",
+							"ring": "(1.570796, 1.919862, 1.396263)",
+							"thumb": "(1.047198, 1.22173, 1.396263)"
+						},
+						"morph_count": 15,
+						"morph_values": {
+							"Joint_index_0": 0.0,
+							"Joint_index_1": 0.0,
+							"Joint_index_2": 0.0,
+							"Joint_little_0": 0.0,
+							"Joint_little_1": 0.0,
+							"Joint_little_2": 0.0,
+							"Joint_middle_0": 0.0,
+							"Joint_middle_1": 0.0,
+							"Joint_middle_2": 0.0,
+							"Joint_ring_0": 0.0,
+							"Joint_ring_1": 0.0,
+							"Joint_ring_2": 0.0,
+							"Joint_thumb_0": 0.0,
+							"Joint_thumb_1": 0.0,
+							"Joint_thumb_2": 0.0
+						},
+						"ready": true
+					},
+					"1": {
+						"angles_radians": {
+							"index": "(0.0, 0.0, 0.0)",
+							"little": "(0.0, 0.0, 0.0)",
+							"middle": "(0.0, 0.0, 0.0)",
+							"ring": "(0.0, 0.0, 0.0)",
+							"thumb": "(0.0, 0.0, 0.0)"
+						},
+						"corrective_available": true,
+						"flexion": {
+							"index": "(0.0, 0.0, 0.0)",
+							"little": "(0.0, 0.0, 0.0)",
+							"middle": "(0.0, 0.0, 0.0)",
+							"ring": "(0.0, 0.0, 0.0)",
+							"thumb": "(0.0, 0.0, 0.0)"
+						},
+						"limits_radians": {
+							"index": "(1.570796, 1.919862, 1.396263)",
+							"little": "(1.570796, 1.919862, 1.396263)",
+							"middle": "(1.570796, 1.919862, 1.396263)",
+							"ring": "(1.570796, 1.919862, 1.396263)",
+							"thumb": "(1.047198, 1.22173, 1.396263)"
+						},
+						"morph_count": 15,
+						"morph_values": {
+							"Joint_index_0": 0.0,
+							"Joint_index_1": 0.0,
+							"Joint_index_2": 0.0,
+							"Joint_little_0": 0.0,
+							"Joint_little_1": 0.0,
+							"Joint_little_2": 0.0,
+							"Joint_middle_0": 0.0,
+							"Joint_middle_1": 0.0,
+							"Joint_middle_2": 0.0,
+							"Joint_ring_0": 0.0,
+							"Joint_ring_1": 0.0,
+							"Joint_ring_2": 0.0,
+							"Joint_thumb_0": 0.0,
+							"Joint_thumb_1": 0.0,
+							"Joint_thumb_2": 0.0
+						},
+						"ready": true
+					}
+				},
+				"previous_profile": "detailed",
+				"profile": "detailed",
+				"values": {
+					"-1": {
+						"index": "(0.0, 0.0, 0.0)",
+						"little": "(0.0, 0.0, 0.0)",
+						"middle": "(0.0, 0.0, 0.0)",
+						"ring": "(0.0, 0.0, 0.0)",
+						"thumb": "(0.0, 0.0, 0.0)"
+					},
+					"1": {
+						"index": "(0.0, 0.0, 0.0)",
+						"little": "(0.0, 0.0, 0.0)",
+						"middle": "(0.0, 0.0, 0.0)",
+						"ring": "(0.0, 0.0, 0.0)",
+						"thumb": "(0.0, 0.0, 0.0)"
+					}
+				},
+				"view": "wrist_side"
+			},
+			"view_selector_index": 2,
+			"wrist_gpu_buffers": {
+				"passed": true,
+				"readback": "ArrayMesh.surface_get_arrays after RenderingServer.force_draw",
+				"wrists": [
+					{
+						"arm": "LeftSupportArm",
+						"invalid_tangents": 0,
+						"invalid_vertex_count": 0,
+						"max_normal_error": 0.000129269668832421,
+						"max_position_error_m": 0.0,
+						"minimum_jacobian_determinant": 0.549644708633423,
+						"passed": true,
+						"vertex_count": 5170
+					},
+					{
+						"arm": "RightRelaxedArm",
+						"invalid_tangents": 0,
+						"invalid_vertex_count": 0,
+						"max_normal_error": 0.000129265157738701,
+						"max_position_error_m": 0.0,
+						"minimum_jacobian_determinant": 0.473523646593094,
+						"passed": true,
+						"vertex_count": 5172
+					}
+				]
+			}
+		},
+		{
+			"actual_pbr_bindings": {
+				"binding_source": "Live MeshInstance3D active materials; source hashes cover GLBs, extracted PNGs and texture import settings",
+				"material_count": 10,
+				"minimum_bound_texture_size": [
+					4096,
+					4096
+				],
+				"passed": true,
+				"rendered_surface_count": 26
+			},
+			"controls_canvas_layer": 70,
+			"controls_visible": false,
+			"image": "roots.png",
+			"image_sha256": "80d742c5c43dca4c97f86414a0abf5063d5a3572866181bedce7887b21bed320",
+			"passed": true,
+			"pose": "roots",
+			"review": {
+				"active": true,
+				"hands": {
+					"-1": {
+						"angles_radians": {
+							"index": "(-1.335177, 0.0, 0.0)",
+							"little": "(-1.335177, 0.0, 0.0)",
+							"middle": "(-1.335177, 0.0, 0.0)",
+							"ring": "(-1.335177, 0.0, 0.0)",
+							"thumb": "(-0.890118, 0.0, 0.0)"
+						},
+						"corrective_available": true,
+						"flexion": {
+							"index": "(0.85, 0.0, 0.0)",
+							"little": "(0.85, 0.0, 0.0)",
+							"middle": "(0.85, 0.0, 0.0)",
+							"ring": "(0.85, 0.0, 0.0)",
+							"thumb": "(0.85, 0.0, 0.0)"
+						},
+						"limits_radians": {
+							"index": "(1.570796, 1.919862, 1.396263)",
+							"little": "(1.570796, 1.919862, 1.396263)",
+							"middle": "(1.570796, 1.919862, 1.396263)",
+							"ring": "(1.570796, 1.919862, 1.396263)",
+							"thumb": "(1.047198, 1.22173, 1.396263)"
+						},
+						"morph_count": 15,
+						"morph_values": {
+							"Joint_index_0": 0.850000023841858,
+							"Joint_index_1": 0.0,
+							"Joint_index_2": 0.0,
+							"Joint_little_0": 0.850000023841858,
+							"Joint_little_1": 0.0,
+							"Joint_little_2": 0.0,
+							"Joint_middle_0": 0.850000023841858,
+							"Joint_middle_1": 0.0,
+							"Joint_middle_2": 0.0,
+							"Joint_ring_0": 0.850000023841858,
+							"Joint_ring_1": 0.0,
+							"Joint_ring_2": 0.0,
+							"Joint_thumb_0": 0.850000023841858,
+							"Joint_thumb_1": 0.0,
+							"Joint_thumb_2": 0.0
+						},
+						"ready": true
+					},
+					"1": {
+						"angles_radians": {
+							"index": "(-1.335177, 0.0, 0.0)",
+							"little": "(-1.335177, 0.0, 0.0)",
+							"middle": "(-1.335177, 0.0, 0.0)",
+							"ring": "(-1.335177, 0.0, 0.0)",
+							"thumb": "(-0.890118, 0.0, 0.0)"
+						},
+						"corrective_available": true,
+						"flexion": {
+							"index": "(0.85, 0.0, 0.0)",
+							"little": "(0.85, 0.0, 0.0)",
+							"middle": "(0.85, 0.0, 0.0)",
+							"ring": "(0.85, 0.0, 0.0)",
+							"thumb": "(0.85, 0.0, 0.0)"
+						},
+						"limits_radians": {
+							"index": "(1.570796, 1.919862, 1.396263)",
+							"little": "(1.570796, 1.919862, 1.396263)",
+							"middle": "(1.570796, 1.919862, 1.396263)",
+							"ring": "(1.570796, 1.919862, 1.396263)",
+							"thumb": "(1.047198, 1.22173, 1.396263)"
+						},
+						"morph_count": 15,
+						"morph_values": {
+							"Joint_index_0": 0.850000023841858,
+							"Joint_index_1": 0.0,
+							"Joint_index_2": 0.0,
+							"Joint_little_0": 0.850000023841858,
+							"Joint_little_1": 0.0,
+							"Joint_little_2": 0.0,
+							"Joint_middle_0": 0.850000023841858,
+							"Joint_middle_1": 0.0,
+							"Joint_middle_2": 0.0,
+							"Joint_ring_0": 0.850000023841858,
+							"Joint_ring_1": 0.0,
+							"Joint_ring_2": 0.0,
+							"Joint_thumb_0": 0.850000023841858,
+							"Joint_thumb_1": 0.0,
+							"Joint_thumb_2": 0.0
+						},
+						"ready": true
+					}
+				},
+				"previous_profile": "detailed",
+				"profile": "detailed",
+				"values": {
+					"-1": {
+						"index": "(0.85, 0.0, 0.0)",
+						"little": "(0.85, 0.0, 0.0)",
+						"middle": "(0.85, 0.0, 0.0)",
+						"ring": "(0.85, 0.0, 0.0)",
+						"thumb": "(0.85, 0.0, 0.0)"
+					},
+					"1": {
+						"index": "(0.85, 0.0, 0.0)",
+						"little": "(0.85, 0.0, 0.0)",
+						"middle": "(0.85, 0.0, 0.0)",
+						"ring": "(0.85, 0.0, 0.0)",
+						"thumb": "(0.85, 0.0, 0.0)"
+					}
+				},
+				"view": "dorsal"
+			},
+			"view_selector_index": 0,
+			"wrist_gpu_buffers": {
+				"passed": true,
+				"readback": "ArrayMesh.surface_get_arrays after RenderingServer.force_draw",
+				"wrists": [
+					{
+						"arm": "LeftSupportArm",
+						"invalid_tangents": 0,
+						"invalid_vertex_count": 0,
+						"max_normal_error": 0.000129269668832421,
+						"max_position_error_m": 0.0,
+						"minimum_jacobian_determinant": 0.476077735424042,
+						"passed": true,
+						"vertex_count": 5170
+					},
+					{
+						"arm": "RightRelaxedArm",
+						"invalid_tangents": 0,
+						"invalid_vertex_count": 0,
+						"max_normal_error": 0.000129265157738701,
+						"max_position_error_m": 0.0,
+						"minimum_jacobian_determinant": 0.366736024618149,
+						"passed": true,
+						"vertex_count": 5172
+					}
+				]
+			}
+		},
+		{
+			"actual_pbr_bindings": {
+				"binding_source": "Live MeshInstance3D active materials; source hashes cover GLBs, extracted PNGs and texture import settings",
+				"material_count": 10,
+				"minimum_bound_texture_size": [
+					4096,
+					4096
+				],
+				"passed": true,
+				"rendered_surface_count": 26
+			},
+			"controls_canvas_layer": 70,
+			"controls_visible": false,
+			"image": "middles.png",
+			"image_sha256": "d037610ebe56568d7c3b2cf96a208e831923f11e98b6f786fb58f081f93572f0",
+			"passed": true,
+			"pose": "middles",
+			"review": {
+				"active": true,
+				"hands": {
+					"-1": {
+						"angles_radians": {
+							"index": "(0.0, -1.631883, 0.0)",
+							"little": "(0.0, -1.631883, 0.0)",
+							"middle": "(0.0, -1.631883, 0.0)",
+							"ring": "(0.0, -1.631883, 0.0)",
+							"thumb": "(0.0, -1.038471, 0.0)"
+						},
+						"corrective_available": true,
+						"flexion": {
+							"index": "(0.0, 0.85, 0.0)",
+							"little": "(0.0, 0.85, 0.0)",
+							"middle": "(0.0, 0.85, 0.0)",
+							"ring": "(0.0, 0.85, 0.0)",
+							"thumb": "(0.0, 0.85, 0.0)"
+						},
+						"limits_radians": {
+							"index": "(1.570796, 1.919862, 1.396263)",
+							"little": "(1.570796, 1.919862, 1.396263)",
+							"middle": "(1.570796, 1.919862, 1.396263)",
+							"ring": "(1.570796, 1.919862, 1.396263)",
+							"thumb": "(1.047198, 1.22173, 1.396263)"
+						},
+						"morph_count": 15,
+						"morph_values": {
+							"Joint_index_0": 0.0,
+							"Joint_index_1": 0.850000023841858,
+							"Joint_index_2": 0.0,
+							"Joint_little_0": 0.0,
+							"Joint_little_1": 0.850000023841858,
+							"Joint_little_2": 0.0,
+							"Joint_middle_0": 0.0,
+							"Joint_middle_1": 0.850000023841858,
+							"Joint_middle_2": 0.0,
+							"Joint_ring_0": 0.0,
+							"Joint_ring_1": 0.850000023841858,
+							"Joint_ring_2": 0.0,
+							"Joint_thumb_0": 0.0,
+							"Joint_thumb_1": 0.850000023841858,
+							"Joint_thumb_2": 0.0
+						},
+						"ready": true
+					},
+					"1": {
+						"angles_radians": {
+							"index": "(0.0, -1.631883, 0.0)",
+							"little": "(0.0, -1.631883, 0.0)",
+							"middle": "(0.0, -1.631883, 0.0)",
+							"ring": "(0.0, -1.631883, 0.0)",
+							"thumb": "(0.0, -1.038471, 0.0)"
+						},
+						"corrective_available": true,
+						"flexion": {
+							"index": "(0.0, 0.85, 0.0)",
+							"little": "(0.0, 0.85, 0.0)",
+							"middle": "(0.0, 0.85, 0.0)",
+							"ring": "(0.0, 0.85, 0.0)",
+							"thumb": "(0.0, 0.85, 0.0)"
+						},
+						"limits_radians": {
+							"index": "(1.570796, 1.919862, 1.396263)",
+							"little": "(1.570796, 1.919862, 1.396263)",
+							"middle": "(1.570796, 1.919862, 1.396263)",
+							"ring": "(1.570796, 1.919862, 1.396263)",
+							"thumb": "(1.047198, 1.22173, 1.396263)"
+						},
+						"morph_count": 15,
+						"morph_values": {
+							"Joint_index_0": 0.0,
+							"Joint_index_1": 0.850000023841858,
+							"Joint_index_2": 0.0,
+							"Joint_little_0": 0.0,
+							"Joint_little_1": 0.850000023841858,
+							"Joint_little_2": 0.0,
+							"Joint_middle_0": 0.0,
+							"Joint_middle_1": 0.850000023841858,
+							"Joint_middle_2": 0.0,
+							"Joint_ring_0": 0.0,
+							"Joint_ring_1": 0.850000023841858,
+							"Joint_ring_2": 0.0,
+							"Joint_thumb_0": 0.0,
+							"Joint_thumb_1": 0.850000023841858,
+							"Joint_thumb_2": 0.0
+						},
+						"ready": true
+					}
+				},
+				"previous_profile": "detailed",
+				"profile": "detailed",
+				"values": {
+					"-1": {
+						"index": "(0.0, 0.85, 0.0)",
+						"little": "(0.0, 0.85, 0.0)",
+						"middle": "(0.0, 0.85, 0.0)",
+						"ring": "(0.0, 0.85, 0.0)",
+						"thumb": "(0.0, 0.85, 0.0)"
+					},
+					"1": {
+						"index": "(0.0, 0.85, 0.0)",
+						"little": "(0.0, 0.85, 0.0)",
+						"middle": "(0.0, 0.85, 0.0)",
+						"ring": "(0.0, 0.85, 0.0)",
+						"thumb": "(0.0, 0.85, 0.0)"
+					}
+				},
+				"view": "dorsal"
+			},
+			"view_selector_index": 0,
+			"wrist_gpu_buffers": {
+				"passed": true,
+				"readback": "ArrayMesh.surface_get_arrays after RenderingServer.force_draw",
+				"wrists": [
+					{
+						"arm": "LeftSupportArm",
+						"invalid_tangents": 0,
+						"invalid_vertex_count": 0,
+						"max_normal_error": 0.000129269668832421,
+						"max_position_error_m": 0.0,
+						"minimum_jacobian_determinant": 0.476077735424042,
+						"passed": true,
+						"vertex_count": 5170
+					},
+					{
+						"arm": "RightRelaxedArm",
+						"invalid_tangents": 0,
+						"invalid_vertex_count": 0,
+						"max_normal_error": 0.000129265157738701,
+						"max_position_error_m": 0.0,
+						"minimum_jacobian_determinant": 0.366736024618149,
+						"passed": true,
+						"vertex_count": 5172
+					}
+				]
+			}
+		},
+		{
+			"actual_pbr_bindings": {
+				"binding_source": "Live MeshInstance3D active materials; source hashes cover GLBs, extracted PNGs and texture import settings",
+				"material_count": 10,
+				"minimum_bound_texture_size": [
+					4096,
+					4096
+				],
+				"passed": true,
+				"rendered_surface_count": 26
+			},
+			"controls_canvas_layer": 70,
+			"controls_visible": false,
+			"image": "tips.png",
+			"image_sha256": "35c2f5e5a03a9f152c50f05d341066507f1a499a3d0d85ac152b5e38b96bd71d",
+			"passed": true,
+			"pose": "tips",
+			"review": {
+				"active": true,
+				"hands": {
+					"-1": {
+						"angles_radians": {
+							"index": "(0.0, 0.0, -1.186824)",
+							"little": "(0.0, 0.0, -1.186824)",
+							"middle": "(0.0, 0.0, -1.186824)",
+							"ring": "(0.0, 0.0, -1.186824)",
+							"thumb": "(0.0, 0.0, -1.186824)"
+						},
+						"corrective_available": true,
+						"flexion": {
+							"index": "(0.0, 0.0, 0.85)",
+							"little": "(0.0, 0.0, 0.85)",
+							"middle": "(0.0, 0.0, 0.85)",
+							"ring": "(0.0, 0.0, 0.85)",
+							"thumb": "(0.0, 0.0, 0.85)"
+						},
+						"limits_radians": {
+							"index": "(1.570796, 1.919862, 1.396263)",
+							"little": "(1.570796, 1.919862, 1.396263)",
+							"middle": "(1.570796, 1.919862, 1.396263)",
+							"ring": "(1.570796, 1.919862, 1.396263)",
+							"thumb": "(1.047198, 1.22173, 1.396263)"
+						},
+						"morph_count": 15,
+						"morph_values": {
+							"Joint_index_0": 0.0,
+							"Joint_index_1": 0.0,
+							"Joint_index_2": 0.850000023841858,
+							"Joint_little_0": 0.0,
+							"Joint_little_1": 0.0,
+							"Joint_little_2": 0.850000023841858,
+							"Joint_middle_0": 0.0,
+							"Joint_middle_1": 0.0,
+							"Joint_middle_2": 0.850000023841858,
+							"Joint_ring_0": 0.0,
+							"Joint_ring_1": 0.0,
+							"Joint_ring_2": 0.850000023841858,
+							"Joint_thumb_0": 0.0,
+							"Joint_thumb_1": 0.0,
+							"Joint_thumb_2": 0.850000023841858
+						},
+						"ready": true
+					},
+					"1": {
+						"angles_radians": {
+							"index": "(0.0, 0.0, -1.186824)",
+							"little": "(0.0, 0.0, -1.186824)",
+							"middle": "(0.0, 0.0, -1.186824)",
+							"ring": "(0.0, 0.0, -1.186824)",
+							"thumb": "(0.0, 0.0, -1.186824)"
+						},
+						"corrective_available": true,
+						"flexion": {
+							"index": "(0.0, 0.0, 0.85)",
+							"little": "(0.0, 0.0, 0.85)",
+							"middle": "(0.0, 0.0, 0.85)",
+							"ring": "(0.0, 0.0, 0.85)",
+							"thumb": "(0.0, 0.0, 0.85)"
+						},
+						"limits_radians": {
+							"index": "(1.570796, 1.919862, 1.396263)",
+							"little": "(1.570796, 1.919862, 1.396263)",
+							"middle": "(1.570796, 1.919862, 1.396263)",
+							"ring": "(1.570796, 1.919862, 1.396263)",
+							"thumb": "(1.047198, 1.22173, 1.396263)"
+						},
+						"morph_count": 15,
+						"morph_values": {
+							"Joint_index_0": 0.0,
+							"Joint_index_1": 0.0,
+							"Joint_index_2": 0.850000023841858,
+							"Joint_little_0": 0.0,
+							"Joint_little_1": 0.0,
+							"Joint_little_2": 0.850000023841858,
+							"Joint_middle_0": 0.0,
+							"Joint_middle_1": 0.0,
+							"Joint_middle_2": 0.850000023841858,
+							"Joint_ring_0": 0.0,
+							"Joint_ring_1": 0.0,
+							"Joint_ring_2": 0.850000023841858,
+							"Joint_thumb_0": 0.0,
+							"Joint_thumb_1": 0.0,
+							"Joint_thumb_2": 0.850000023841858
+						},
+						"ready": true
+					}
+				},
+				"previous_profile": "detailed",
+				"profile": "detailed",
+				"values": {
+					"-1": {
+						"index": "(0.0, 0.0, 0.85)",
+						"little": "(0.0, 0.0, 0.85)",
+						"middle": "(0.0, 0.0, 0.85)",
+						"ring": "(0.0, 0.0, 0.85)",
+						"thumb": "(0.0, 0.0, 0.85)"
+					},
+					"1": {
+						"index": "(0.0, 0.0, 0.85)",
+						"little": "(0.0, 0.0, 0.85)",
+						"middle": "(0.0, 0.0, 0.85)",
+						"ring": "(0.0, 0.0, 0.85)",
+						"thumb": "(0.0, 0.0, 0.85)"
+					}
+				},
+				"view": "dorsal"
+			},
+			"view_selector_index": 0,
+			"wrist_gpu_buffers": {
+				"passed": true,
+				"readback": "ArrayMesh.surface_get_arrays after RenderingServer.force_draw",
+				"wrists": [
+					{
+						"arm": "LeftSupportArm",
+						"invalid_tangents": 0,
+						"invalid_vertex_count": 0,
+						"max_normal_error": 0.000129269668832421,
+						"max_position_error_m": 0.0,
+						"minimum_jacobian_determinant": 0.476077735424042,
+						"passed": true,
+						"vertex_count": 5170
+					},
+					{
+						"arm": "RightRelaxedArm",
+						"invalid_tangents": 0,
+						"invalid_vertex_count": 0,
+						"max_normal_error": 0.000129265157738701,
+						"max_position_error_m": 0.0,
+						"minimum_jacobian_determinant": 0.366736024618149,
+						"passed": true,
+						"vertex_count": 5172
+					}
+				]
+			}
+		},
+		{
+			"actual_pbr_bindings": {
+				"binding_source": "Live MeshInstance3D active materials; source hashes cover GLBs, extracted PNGs and texture import settings",
+				"material_count": 10,
+				"minimum_bound_texture_size": [
+					4096,
+					4096
+				],
+				"passed": true,
+				"rendered_surface_count": 26
+			},
+			"controls_canvas_layer": 70,
+			"controls_visible": false,
+			"image": "fist.png",
+			"image_sha256": "16405dcb5766ea39556cd50ddf5cf2320de8ba8d75bb40f03a419690fbb48f3a",
+			"passed": true,
+			"pose": "fist",
+			"review": {
+				"active": true,
+				"hands": {
+					"-1": {
+						"angles_radians": {
+							"index": "(-1.570796, -1.919862, -1.396263)",
+							"little": "(-1.570796, -1.919862, -1.396263)",
+							"middle": "(-1.570796, -1.919862, -1.396263)",
+							"ring": "(-1.570796, -1.919862, -1.396263)",
+							"thumb": "(-1.047198, -1.22173, -1.396263)"
+						},
+						"corrective_available": true,
+						"flexion": {
+							"index": "(1.0, 1.0, 1.0)",
+							"little": "(1.0, 1.0, 1.0)",
+							"middle": "(1.0, 1.0, 1.0)",
+							"ring": "(1.0, 1.0, 1.0)",
+							"thumb": "(1.0, 1.0, 1.0)"
+						},
+						"limits_radians": {
+							"index": "(1.570796, 1.919862, 1.396263)",
+							"little": "(1.570796, 1.919862, 1.396263)",
+							"middle": "(1.570796, 1.919862, 1.396263)",
+							"ring": "(1.570796, 1.919862, 1.396263)",
+							"thumb": "(1.047198, 1.22173, 1.396263)"
+						},
+						"morph_count": 15,
+						"morph_values": {
+							"Joint_index_0": 1.0,
+							"Joint_index_1": 1.0,
+							"Joint_index_2": 1.0,
+							"Joint_little_0": 1.0,
+							"Joint_little_1": 1.0,
+							"Joint_little_2": 1.0,
+							"Joint_middle_0": 1.0,
+							"Joint_middle_1": 1.0,
+							"Joint_middle_2": 1.0,
+							"Joint_ring_0": 1.0,
+							"Joint_ring_1": 1.0,
+							"Joint_ring_2": 1.0,
+							"Joint_thumb_0": 1.0,
+							"Joint_thumb_1": 1.0,
+							"Joint_thumb_2": 1.0
+						},
+						"ready": true
+					},
+					"1": {
+						"angles_radians": {
+							"index": "(-1.570796, -1.919862, -1.396263)",
+							"little": "(-1.570796, -1.919862, -1.396263)",
+							"middle": "(-1.570796, -1.919862, -1.396263)",
+							"ring": "(-1.570796, -1.919862, -1.396263)",
+							"thumb": "(-1.047198, -1.22173, -1.396263)"
+						},
+						"corrective_available": true,
+						"flexion": {
+							"index": "(1.0, 1.0, 1.0)",
+							"little": "(1.0, 1.0, 1.0)",
+							"middle": "(1.0, 1.0, 1.0)",
+							"ring": "(1.0, 1.0, 1.0)",
+							"thumb": "(1.0, 1.0, 1.0)"
+						},
+						"limits_radians": {
+							"index": "(1.570796, 1.919862, 1.396263)",
+							"little": "(1.570796, 1.919862, 1.396263)",
+							"middle": "(1.570796, 1.919862, 1.396263)",
+							"ring": "(1.570796, 1.919862, 1.396263)",
+							"thumb": "(1.047198, 1.22173, 1.396263)"
+						},
+						"morph_count": 15,
+						"morph_values": {
+							"Joint_index_0": 1.0,
+							"Joint_index_1": 1.0,
+							"Joint_index_2": 1.0,
+							"Joint_little_0": 1.0,
+							"Joint_little_1": 1.0,
+							"Joint_little_2": 1.0,
+							"Joint_middle_0": 1.0,
+							"Joint_middle_1": 1.0,
+							"Joint_middle_2": 1.0,
+							"Joint_ring_0": 1.0,
+							"Joint_ring_1": 1.0,
+							"Joint_ring_2": 1.0,
+							"Joint_thumb_0": 1.0,
+							"Joint_thumb_1": 1.0,
+							"Joint_thumb_2": 1.0
+						},
+						"ready": true
+					}
+				},
+				"previous_profile": "detailed",
+				"profile": "detailed",
+				"values": {
+					"-1": {
+						"index": "(1.0, 1.0, 1.0)",
+						"little": "(1.0, 1.0, 1.0)",
+						"middle": "(1.0, 1.0, 1.0)",
+						"ring": "(1.0, 1.0, 1.0)",
+						"thumb": "(1.0, 1.0, 1.0)"
+					},
+					"1": {
+						"index": "(1.0, 1.0, 1.0)",
+						"little": "(1.0, 1.0, 1.0)",
+						"middle": "(1.0, 1.0, 1.0)",
+						"ring": "(1.0, 1.0, 1.0)",
+						"thumb": "(1.0, 1.0, 1.0)"
+					}
+				},
+				"view": "dorsal"
+			},
+			"view_selector_index": 0,
+			"wrist_gpu_buffers": {
+				"passed": true,
+				"readback": "ArrayMesh.surface_get_arrays after RenderingServer.force_draw",
+				"wrists": [
+					{
+						"arm": "LeftSupportArm",
+						"invalid_tangents": 0,
+						"invalid_vertex_count": 0,
+						"max_normal_error": 0.000129269668832421,
+						"max_position_error_m": 0.0,
+						"minimum_jacobian_determinant": 0.476077735424042,
+						"passed": true,
+						"vertex_count": 5170
+					},
+					{
+						"arm": "RightRelaxedArm",
+						"invalid_tangents": 0,
+						"invalid_vertex_count": 0,
+						"max_normal_error": 0.000129265157738701,
+						"max_position_error_m": 0.0,
+						"minimum_jacobian_determinant": 0.366736024618149,
+						"passed": true,
+						"vertex_count": 5172
+					}
+				]
+			}
+		},
+		{
+			"actual_pbr_bindings": {
+				"binding_source": "Live MeshInstance3D active materials; source hashes cover GLBs, extracted PNGs and texture import settings",
+				"material_count": 10,
+				"minimum_bound_texture_size": [
+					4096,
+					4096
+				],
+				"passed": true,
+				"rendered_surface_count": 26
+			},
+			"arrow_count": 12,
+			"bow_draw_ratio": 1.0,
+			"bow_drawing": true,
+			"chest_phase": "idle",
+			"controls_canvas_layer": 70,
+			"detailed": {
+				"chest_detailed_count": 2,
+				"detailed_arm_count": 4,
+				"enabled": true,
+				"generic_arm_count": 4,
+				"profile": "detailed",
+				"sources_available": true
+			},
+			"image": "bow_draw.png",
+			"image_sha256": "e4138cb05b6bcc9ff7c60a96af2a2d3fc9774a87260b04ce4ae45e2f1d94bbec",
+			"independent_review_inactive": true,
+			"offhand": "",
+			"passed": true,
+			"pose": "bow_draw",
+			"weapon": "hunting_bow",
+			"wrist_gpu_buffers": {
+				"passed": true,
+				"readback": "ArrayMesh.surface_get_arrays after RenderingServer.force_draw",
+				"wrists": [
+					{
+						"arm": "LeftSupportArm",
+						"invalid_tangents": 0,
+						"invalid_vertex_count": 0,
+						"max_normal_error": 0.000129269668832421,
+						"max_position_error_m": 0.0,
+						"minimum_jacobian_determinant": 0.0926427394151688,
+						"passed": true,
+						"vertex_count": 5170
+					},
+					{
+						"arm": "CharacterArm",
+						"invalid_tangents": 0,
+						"invalid_vertex_count": 0,
+						"max_normal_error": 0.000129265157738701,
+						"max_position_error_m": 0.0,
+						"minimum_jacobian_determinant": 0.811370849609375,
+						"passed": true,
+						"vertex_count": 5172
+					}
+				]
+			}
+		},
+		{
+			"actual_pbr_bindings": {
+				"binding_source": "Live MeshInstance3D active materials; source hashes cover GLBs, extracted PNGs and texture import settings",
+				"material_count": 10,
+				"minimum_bound_texture_size": [
+					4096,
+					4096
+				],
+				"passed": true,
+				"rendered_surface_count": 26
+			},
+			"arrow_count": 12,
+			"bow_draw_ratio": 0.0,
+			"bow_drawing": false,
+			"chest_phase": "fidget",
+			"controls_canvas_layer": 70,
+			"detailed": {
+				"chest_detailed_count": 2,
+				"detailed_arm_count": 4,
+				"enabled": true,
+				"generic_arm_count": 4,
+				"profile": "detailed",
+				"sources_available": true
+			},
+			"hand_contact_distances": [
+				0.00429856684058905,
+				0.00917764287441969
+			],
+			"image": "chest_touch.png",
+			"image_sha256": "59c5cd6ee5c70bd42963075a8feba766a2f36df7c78ba1c104ebd7437ba6c1df",
+			"independent_review_inactive": true,
+			"offhand": "",
+			"passed": true,
+			"pose": "chest_touch",
+			"weapon": "rusted_sword",
+			"wrist_gpu_buffers": {
+				"passed": true,
+				"readback": "ArrayMesh.surface_get_arrays after RenderingServer.force_draw",
+				"wrists": [
+					{
+						"arm": "CharacterArm",
+						"invalid_tangents": 0,
+						"invalid_vertex_count": 0,
+						"max_normal_error": 0.000129269668832421,
+						"max_position_error_m": 0.0,
+						"minimum_jacobian_determinant": 0.705101191997528,
+						"passed": true,
+						"vertex_count": 5170
+					},
+					{
+						"arm": "CharacterArm",
+						"invalid_tangents": 0,
+						"invalid_vertex_count": 0,
+						"max_normal_error": 0.000129265157738701,
+						"max_position_error_m": 0.0,
+						"minimum_jacobian_determinant": 0.0322463810443878,
+						"passed": true,
+						"vertex_count": 5172
+					}
+				]
+			}
+		},
+		{
+			"actual_pbr_bindings": {
+				"binding_source": "Live MeshInstance3D active materials; source hashes cover GLBs, extracted PNGs and texture import settings",
+				"material_count": 10,
+				"minimum_bound_texture_size": [
+					4096,
+					4096
+				],
+				"passed": true,
+				"rendered_surface_count": 26
+			},
+			"controls_canvas_layer": 70,
+			"controls_visible": true,
+			"image": "controls.png",
+			"image_sha256": "1aea2c3fdc85e079e8cf1376ebbe93ac290a7dd9f4e5b628e9bec4aca038dfbb",
+			"passed": true,
+			"pose": "controls",
+			"review": {
+				"active": true,
+				"hands": {
+					"-1": {
+						"angles_radians": {
+							"index": "(0.0, -1.24791, 0.0)",
+							"little": "(0.0, 0.0, 0.0)",
+							"middle": "(0.0, 0.0, 0.0)",
+							"ring": "(0.0, 0.0, 0.0)",
+							"thumb": "(0.0, 0.0, 0.0)"
+						},
+						"corrective_available": true,
+						"flexion": {
+							"index": "(0.0, 0.65, 0.0)",
+							"little": "(0.0, 0.0, 0.0)",
+							"middle": "(0.0, 0.0, 0.0)",
+							"ring": "(0.0, 0.0, 0.0)",
+							"thumb": "(0.0, 0.0, 0.0)"
+						},
+						"limits_radians": {
+							"index": "(1.570796, 1.919862, 1.396263)",
+							"little": "(1.570796, 1.919862, 1.396263)",
+							"middle": "(1.570796, 1.919862, 1.396263)",
+							"ring": "(1.570796, 1.919862, 1.396263)",
+							"thumb": "(1.047198, 1.22173, 1.396263)"
+						},
+						"morph_count": 15,
+						"morph_values": {
+							"Joint_index_0": 0.0,
+							"Joint_index_1": 0.649999976158142,
+							"Joint_index_2": 0.0,
+							"Joint_little_0": 0.0,
+							"Joint_little_1": 0.0,
+							"Joint_little_2": 0.0,
+							"Joint_middle_0": 0.0,
+							"Joint_middle_1": 0.0,
+							"Joint_middle_2": 0.0,
+							"Joint_ring_0": 0.0,
+							"Joint_ring_1": 0.0,
+							"Joint_ring_2": 0.0,
+							"Joint_thumb_0": 0.0,
+							"Joint_thumb_1": 0.0,
+							"Joint_thumb_2": 0.0
+						},
+						"ready": true
+					},
+					"1": {
+						"angles_radians": {
+							"index": "(0.0, 0.0, 0.0)",
+							"little": "(0.0, 0.0, 0.0)",
+							"middle": "(0.0, 0.0, 0.0)",
+							"ring": "(0.0, 0.0, 0.0)",
+							"thumb": "(0.0, 0.0, 0.0)"
+						},
+						"corrective_available": true,
+						"flexion": {
+							"index": "(0.0, 0.0, 0.0)",
+							"little": "(0.0, 0.0, 0.0)",
+							"middle": "(0.0, 0.0, 0.0)",
+							"ring": "(0.0, 0.0, 0.0)",
+							"thumb": "(0.0, 0.0, 0.0)"
+						},
+						"limits_radians": {
+							"index": "(1.570796, 1.919862, 1.396263)",
+							"little": "(1.570796, 1.919862, 1.396263)",
+							"middle": "(1.570796, 1.919862, 1.396263)",
+							"ring": "(1.570796, 1.919862, 1.396263)",
+							"thumb": "(1.047198, 1.22173, 1.396263)"
+						},
+						"morph_count": 15,
+						"morph_values": {
+							"Joint_index_0": 0.0,
+							"Joint_index_1": 0.0,
+							"Joint_index_2": 0.0,
+							"Joint_little_0": 0.0,
+							"Joint_little_1": 0.0,
+							"Joint_little_2": 0.0,
+							"Joint_middle_0": 0.0,
+							"Joint_middle_1": 0.0,
+							"Joint_middle_2": 0.0,
+							"Joint_ring_0": 0.0,
+							"Joint_ring_1": 0.0,
+							"Joint_ring_2": 0.0,
+							"Joint_thumb_0": 0.0,
+							"Joint_thumb_1": 0.0,
+							"Joint_thumb_2": 0.0
+						},
+						"ready": true
+					}
+				},
+				"previous_profile": "detailed",
+				"profile": "detailed",
+				"values": {
+					"-1": {
+						"index": "(0.0, 0.65, 0.0)",
+						"little": "(0.0, 0.0, 0.0)",
+						"middle": "(0.0, 0.0, 0.0)",
+						"ring": "(0.0, 0.0, 0.0)",
+						"thumb": "(0.0, 0.0, 0.0)"
+					},
+					"1": {
+						"index": "(0.0, 0.0, 0.0)",
+						"little": "(0.0, 0.0, 0.0)",
+						"middle": "(0.0, 0.0, 0.0)",
+						"ring": "(0.0, 0.0, 0.0)",
+						"thumb": "(0.0, 0.0, 0.0)"
+					}
+				},
+				"view": "dorsal"
+			},
+			"view_selector_index": 0,
+			"wrist_gpu_buffers": {
+				"passed": true,
+				"readback": "ArrayMesh.surface_get_arrays after RenderingServer.force_draw",
+				"wrists": [
+					{
+						"arm": "LeftSupportArm",
+						"invalid_tangents": 0,
+						"invalid_vertex_count": 0,
+						"max_normal_error": 0.000129269668832421,
+						"max_position_error_m": 0.0,
+						"minimum_jacobian_determinant": 0.476077735424042,
+						"passed": true,
+						"vertex_count": 5170
+					},
+					{
+						"arm": "RightRelaxedArm",
+						"invalid_tangents": 0,
+						"invalid_vertex_count": 0,
+						"max_normal_error": 0.000129265157738701,
+						"max_position_error_m": 0.0,
+						"minimum_jacobian_determinant": 0.366736024618149,
+						"passed": true,
+						"vertex_count": 5172
+					}
+				]
+			}
+		},
+		{
+			"actual_pbr_bindings": {
+				"binding_source": "Live MeshInstance3D active materials; source hashes cover GLBs, extracted PNGs and texture import settings",
+				"material_count": 10,
+				"minimum_bound_texture_size": [
+					4096,
+					4096
+				],
+				"passed": true,
+				"rendered_surface_count": 26
+			},
+			"camera": "Separate private orthographic Camera3D; production camera is preserved",
+			"controls_visible": false,
+			"image": "skin_dorsal_neutral.png",
+			"image_sha256": "f4d951721fd63f31505184be6a080ba759f329396c2d73e2aee96975abe938bf",
+			"lighting": {
+				"ambient_white": 0.55,
+				"fill_white": 0.45,
+				"key_white": 1.2
+			},
+			"orthographic_vertical_size_m": 0.234999999403954,
+			"passed": true,
+			"pose": "skin_dorsal_neutral",
+			"production_camera_hand_and_joint_values_preserved": true,
+			"purpose": "Neutral character material inspection; separate from unchanged gameplay lighting",
+			"subject": "Actual posed left ContinuousAnatomicalHand, same live skeleton, materials and world",
+			"wrist_buffer_scope": "All scene-visible real hands, including the right hand outside this closeup",
+			"wrist_gpu_buffers": {
+				"passed": true,
+				"readback": "ArrayMesh.surface_get_arrays after RenderingServer.force_draw",
+				"wrists": [
+					{
+						"arm": "LeftSupportArm",
+						"invalid_tangents": 0,
+						"invalid_vertex_count": 0,
+						"max_normal_error": 0.000129269668832421,
+						"max_position_error_m": 0.0,
+						"minimum_jacobian_determinant": 0.476077735424042,
+						"passed": true,
+						"vertex_count": 5170
+					},
+					{
+						"arm": "RightRelaxedArm",
+						"invalid_tangents": 0,
+						"invalid_vertex_count": 0,
+						"max_normal_error": 0.000129265157738701,
+						"max_position_error_m": 0.0,
+						"minimum_jacobian_determinant": 0.366736024618149,
+						"passed": true,
+						"vertex_count": 5172
+					}
+				]
+			}
+		},
+		{
+			"actual_pbr_bindings": {
+				"binding_source": "Live MeshInstance3D active materials; source hashes cover GLBs, extracted PNGs and texture import settings",
+				"material_count": 10,
+				"minimum_bound_texture_size": [
+					4096,
+					4096
+				],
+				"passed": true,
+				"rendered_surface_count": 26
+			},
+			"camera": "Separate private orthographic Camera3D; production camera is preserved",
+			"controls_visible": false,
+			"image": "skin_palm_neutral.png",
+			"image_sha256": "e8d75c84d8db97b6e4f172fdfb14b8742a94ae888f10043bce537f2f6782be7f",
+			"lighting": {
+				"ambient_white": 0.55,
+				"fill_white": 0.45,
+				"key_white": 1.2
+			},
+			"orthographic_vertical_size_m": 0.234999999403954,
+			"passed": true,
+			"pose": "skin_palm_neutral",
+			"production_camera_hand_and_joint_values_preserved": true,
+			"purpose": "Neutral character material inspection; separate from unchanged gameplay lighting",
+			"subject": "Actual posed left ContinuousAnatomicalHand, same live skeleton, materials and world",
+			"wrist_buffer_scope": "All scene-visible real hands, including the right hand outside this closeup",
+			"wrist_gpu_buffers": {
+				"passed": true,
+				"readback": "ArrayMesh.surface_get_arrays after RenderingServer.force_draw",
+				"wrists": [
+					{
+						"arm": "LeftSupportArm",
+						"invalid_tangents": 0,
+						"invalid_vertex_count": 0,
+						"max_normal_error": 0.000129269668832421,
+						"max_position_error_m": 0.0,
+						"minimum_jacobian_determinant": 0.476077735424042,
+						"passed": true,
+						"vertex_count": 5170
+					},
+					{
+						"arm": "RightRelaxedArm",
+						"invalid_tangents": 0,
+						"invalid_vertex_count": 0,
+						"max_normal_error": 0.000129265157738701,
+						"max_position_error_m": 0.0,
+						"minimum_jacobian_determinant": 0.366736024618149,
+						"passed": true,
+						"vertex_count": 5172
+					}
+				]
+			}
+		}
+	],
+	"desktop_capture": false,
+	"display_driver": "embedded",
+	"expedition_inventory_and_cursor_preserved": true,
+	"external_input": false,
+	"failures": [],
+	"gameplay_static_count": 10,
+	"image_size": [
+		1280,
+		720
+	],
+	"neutral_skin_closeup_count": 2,
+	"neutral_skin_closeups_enabled": true,
+	"source_sha256": {
+		"res://assets/3d/player/hands_detailed/left_hand_detailed.glb": "28bdda46650572041049e77f4f3023c93ba9cef864d98af6163bb40f8c0292aa",
+		"res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_basecolor.png": "2eb2e2492e8e90bd57d5d61bc9bc14e01ec371e7d01479280a328e8eefe4ba62",
+		"res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_basecolor.png.import": "002add5825bef17b836d56b5766ba44c316cde5948d657cfdad388848a5f6b13",
+		"res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_normal.png": "2152cfac4c8b61b910b688b5211e4f7b994ae5c21a562c2598bba88f5020cf8d",
+		"res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_normal.png.import": "f44ea4fb9300306e3c85c62963ed543361c6845908e426f5b1e674bc2a7d5d83",
+		"res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_roughness.png": "5d62614d102d84cf754eddbbfecbc6e5e39627682868633f68831262789967af",
+		"res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_roughness.png.import": "3c131fa5ae9417b681a0f838f630b0410a6c39ff945588721a8ee7d24b91521a",
+		"res://assets/3d/player/hands_detailed/right_hand_detailed.glb": "cc4c1cd71f50f13f0986bcb71e1ab95fa96a1eab68a5de62bac6bd08d907327a",
+		"res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_basecolor.png": "2eb2e2492e8e90bd57d5d61bc9bc14e01ec371e7d01479280a328e8eefe4ba62",
+		"res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_basecolor.png.import": "34e813eaaadc7c11294f20e7fec101cdf76db486d5c20f0c0cb038fa1fe173ec",
+		"res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_normal.png": "2152cfac4c8b61b910b688b5211e4f7b994ae5c21a562c2598bba88f5020cf8d",
+		"res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_normal.png.import": "bb812d45c206dc35797ad0585f73fc31598e62ec8bd6dac28a8aa688ac4f6a0e",
+		"res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_roughness.png": "5d62614d102d84cf754eddbbfecbc6e5e39627682868633f68831262789967af",
+		"res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_roughness.png.import": "5cf4a064729069456f8df026e753d0d152d0dc85f5164ea13fa71a10fc3584a8",
+		"res://assets/fonts/NotoSansKR-Variable.ttf": "194018e6b2b293a7964f037b25c0249ce1418bc9ab3c971060a03aa57861e252",
+		"res://scripts/chest_hand_visuals.gd": "f4012bebd0fb03ab0fe76c57b7251dc56987fd35612ab1168d4fbe7498831bf3",
+		"res://scripts/finger_joint_controls.gd": "0b5231140e38f0859594474d6af24a8929403f68979eeb734ebb3937c31823dc",
+		"res://scripts/greybox_arm_visual.gd": "6554f2e78a81d658a38acd6695a06aa86bcb98315fb6dbf3b4c4ef9e77781a65",
+		"res://scripts/player.gd": "ebee7766ac7702eb92ea175adb2484c1d6659aa7f879a2add4c941bcb31c7f40",
+		"res://scripts/player_arm_visual.gd": "38fa62b41f7a5e6d672fcefe4c9ceb71e736687132972b93ce4a874fde8b928a",
+		"res://scripts/test_room.gd": "65e4e4df32be0f0a76c7c8fcb9f5a2e8439007c7fe2070b4290ff135acbae05e",
+		"res://scripts/wrist_cuff_deformer.gd": "ca9702206cf2485bf638047b7cddf66b404d86842a89b181295d4c1fc0203682",
+		"res://tests/player_arm_preview.gd": "2066f51f064a5b24cde5896c277d83602ae9784d26e10059bd4309b69b0c4d06",
+		"res://tests/player_finger_joints_preview.gd": "cae04d8bba75c90e7b656a6fa328c7a3e2e76893787c31e6cc4e1b29ea5d1677",
+		"res://tests/player_hands_detailed_preview.gd": "e22226180ff08f3e699745700986f4825204edede81cb0a19d3849a584fed8c8"
+	},
+	"sources_unchanged_during_capture": true
+}

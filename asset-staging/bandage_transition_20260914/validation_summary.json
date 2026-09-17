@@ -1,0 +1,41 @@
+{
+  "result": "passed",
+  "tests": [
+    "bandage_motion_test.gd",
+    "body_health_test_room_test.gd"
+  ],
+  "test_summary": "2 passed, 0 failed",
+  "render": {
+    "display": "embedded",
+    "renderer": "vulkan",
+    "frames": 176,
+    "fps": 30,
+    "video": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/godot-game/artifacts/visual_qa/bandage_forearm/transition_05/bandage_transition.mp4",
+    "reviewed_frames": [
+      0,
+      6,
+      11,
+      18,
+      21,
+      24,
+      30,
+      155,
+      161
+    ]
+  },
+  "state_and_sources_preserved": true,
+  "source_hashes": {
+    "res://scripts/bandage_use_visuals.gd": "d801a37411e5ba6b90852d3759efe6932acf5fc7fe9613e71d594d76b586a291",
+    "res://scripts/player.gd": "f0622754a4b850e99ed35041f055b2a44189d7d83c80c37dd45abf4eba16f376"
+  },
+  "timing_seconds": {
+    "stow": 0.4,
+    "raise_hands": 0.4,
+    "treatment_end": 4.95,
+    "complete": 5.35
+  },
+  "process_cleanup": "Only preexisting Godot editor PID 1313 remains",
+  "limitations": [
+    "Embedded GPU rendering and script-driven tests; no OS-input test performed."
+  ]
+}

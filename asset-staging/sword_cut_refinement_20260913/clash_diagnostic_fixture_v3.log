@@ -1,0 +1,24 @@
+[HEADLESS] sword_cut_clash_diagnostic_test.gd
+SCRIPT ERROR: Assertion failed: The static thumb must map exactly onto the actual imported vertices.
+          at: _apply_thumb_corrective (res://scripts/sword_long_grip_visual.gd:295)
+          GDScript backtrace (most recent call first):
+              [0] _apply_thumb_corrective (res://scripts/sword_long_grip_visual.gd:295)
+              [1] _bake_mesh (res://scripts/sword_long_grip_visual.gd:241)
+              [2] _cache_node (res://scripts/sword_long_grip_visual.gd:220)
+              [3] _cache_node (res://scripts/sword_long_grip_visual.gd:222)
+              [4] _cache_node (res://scripts/sword_long_grip_visual.gd:222)
+              [5] _ensure_source_cache (res://scripts/sword_long_grip_visual.gd:210)
+              [6] create_sword (res://scripts/sword_long_grip_visual.gd:96)
+              [7] _build_sword_visual (res://scripts/player.gd:416)
+              [8] _build_viewmodel (res://scripts/player.gd:373)
+              [9] _ready (res://scripts/player.gd:326)
+              [10] _spawn_player (res://scripts/game.gd:533)
+              [11] _ready (res://scripts/game.gd:86)
+              [12] _run (res://tests/sword_cut_clash_diagnostic_test.gd:19)
+CLASH DIAGNOSTIC current_fixed_lead true player_health=100.0 enemy_health=82.0
+CLASH DIAGNOSTIC current_natural_windup true player_health=100.0 enemy_health=82.0
+CLASH DIAGNOSTIC SAVED /Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/godot-game/../asset-staging/sword_cut_refinement_20260913/clash_diagnostic_fixture_v3.json
+Script error detected in sword_cut_clash_diagnostic_test.gd, regardless of engine exit status.
+
+Headless validation: 0 passed, 1 failed.
+FAILED: sword_cut_clash_diagnostic_test.gd (1)

@@ -1,0 +1,1 @@
+Performance baseline: frozen original production source files; original authored assets/imported resources are linked read-only by intent. Do not run the editor/import in this folder. Shader and pipeline caches belong only to this isolated project. Runtime optimizations are made only in godot-game.

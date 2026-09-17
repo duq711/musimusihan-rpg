@@ -1,0 +1,239 @@
+BodyParts3D skeleton node summary
+=================================
+
+Node names in the GLB are official BodyParts3D element IDs (`FJ…`).
+Canonical English and FMA names come from `isa_element_parts.txt` plus
+`isa_inclusion_relation_list.txt`; every selected node had one unique
+deepest IS-A concept.
+
+Native metre/Y-up bounds: min=[-0.323914, -0.0704799, -0.018001000000000003], max=[0.32393500000000003, 1.6362700000000001, 0.236044]
+Anatomical forward/front: +Z; left: +X; right: -X; up: +Y.
+Rotate the GLB root 180° around Y for Godot's conventional -Z forward.
+
+Segments:
+- foot_l: 26 nodes
+- foot_r: 26 nodes
+- forearm_l: 2 nodes
+- forearm_r: 2 nodes
+- hand_l: 27 nodes
+- hand_r: 27 nodes
+- knee_l: 1 nodes
+- knee_r: 1 nodes
+- lower_leg_l: 2 nodes
+- lower_leg_r: 2 nodes
+- pelvis: 3 nodes
+- rib_cage: 27 nodes
+- shoulder_l: 2 nodes
+- shoulder_r: 2 nodes
+- skull: 24 nodes
+- spine_cervical: 7 nodes
+- spine_lumbar: 5 nodes
+- spine_thoracic: 12 nodes
+- thigh_l: 1 nodes
+- thigh_r: 1 nodes
+- upper_arm_l: 1 nodes
+- upper_arm_r: 1 nodes
+
+Nodes:
+FJ2772	FMA52749	hyoid bone	midline	skull	skull
+FJ3152	FMA16586	right hip bone	right	pelvis	pelvis
+FJ3153	FMA7488	xiphoid process	midline	rib_cage	rib_cage
+FJ3154	FMA10037	tenth thoracic vertebra	midline	spine	spine_thoracic
+FJ3155	FMA10059	eleventh thoracic vertebra	midline	spine	spine_thoracic
+FJ3156	FMA10081	twelfth thoracic vertebra	midline	spine	spine_thoracic
+FJ3157	FMA13072	first lumbar vertebra	midline	spine	spine_lumbar
+FJ3158	FMA9165	first thoracic vertebra	midline	spine	spine_thoracic
+FJ3159	FMA13073	second lumbar vertebra	midline	spine	spine_lumbar
+FJ3160	FMA9187	second thoracic vertebra	midline	spine	spine_thoracic
+FJ3161	FMA12521	third cervical vertebra	midline	spine	spine_cervical
+FJ3162	FMA13074	third lumbar vertebra	midline	spine	spine_lumbar
+FJ3163	FMA9209	third thoracic vertebra	midline	spine	spine_thoracic
+FJ3164	FMA12522	fourth cervical vertebra	midline	spine	spine_cervical
+FJ3165	FMA13075	fourth lumbar vertebra	midline	spine	spine_lumbar
+FJ3166	FMA9248	fourth thoracic vertebra	midline	spine	spine_thoracic
+FJ3167	FMA12523	fifth cervical vertebra	midline	spine	spine_cervical
+FJ3168	FMA13076	fifth lumbar vertebra	midline	spine	spine_lumbar
+FJ3169	FMA9922	fifth thoracic vertebra	midline	spine	spine_thoracic
+FJ3170	FMA12524	sixth cervical vertebra	midline	spine	spine_cervical
+FJ3171	FMA9945	sixth thoracic vertebra	midline	spine	spine_thoracic
+FJ3172	FMA12525	seventh cervical vertebra	midline	spine	spine_cervical
+FJ3173	FMA9968	seventh thoracic vertebra	midline	spine	spine_thoracic
+FJ3174	FMA9991	eighth thoracic vertebra	midline	spine	spine_thoracic
+FJ3175	FMA10014	ninth thoracic vertebra	midline	spine	spine_thoracic
+FJ3176	FMA12519	atlas	midline	spine	spine_cervical
+FJ3177	FMA12520	axis	midline	spine	spine_cervical
+FJ3178	FMA7487	body of sternum	midline	rib_cage	rib_cage
+FJ3179	FMA32653	distal phalanx of left second toe	left	foot	foot_l
+FJ3180	FMA32655	distal phalanx of left third toe	left	foot	foot_l
+FJ3181	FMA32657	distal phalanx of left fourth toe	left	foot	foot_l
+FJ3182	FMA32651	distal phalanx of left big toe	left	foot	foot_l
+FJ3183	FMA23953	distal phalanx of left index finger	left	hand	hand_l
+FJ3184	FMA23959	distal phalanx of left little finger	left	hand	hand_l
+FJ3185	FMA32659	distal phalanx of left little toe	left	foot	foot_l
+FJ3186	FMA23955	distal phalanx of left middle finger	left	hand	hand_l
+FJ3187	FMA23957	distal phalanx of left ring finger	left	hand	hand_l
+FJ3188	FMA23951	distal phalanx of left thumb	left	hand	hand_l
+FJ3189	FMA32652	distal phalanx of right second toe	right	foot	foot_r
+FJ3190	FMA32654	distal phalanx of right third toe	right	foot	foot_r
+FJ3191	FMA32656	distal phalanx of right fourth toe	right	foot	foot_r
+FJ3192	FMA32650	distal phalanx of right big toe	right	foot	foot_r
+FJ3193	FMA24460	distal phalanx of right index finger	right	hand	hand_r
+FJ3194	FMA24463	distal phalanx of right little finger	right	hand	hand_r
+FJ3195	FMA32658	distal phalanx of right little toe	right	foot	foot_r
+FJ3196	FMA24461	distal phalanx of right middle finger	right	hand	hand_r
+FJ3197	FMA24462	distal phalanx of right ring finger	right	hand	hand_r
+FJ3198	FMA24459	distal phalanx of right thumb	right	hand	hand_r
+FJ3199	FMA52740	ethmoid	midline	skull	skull
+FJ3200	FMA52734	frontal bone	midline	skull	skull
+FJ3201	FMA52749	hyoid bone	midline	skull	skull
+FJ3225	FMA8472	left tenth rib	left	rib_cage	rib_cage
+FJ3226	FMA8532	left eleventh rib	left	rib_cage	rib_cage
+FJ3227	FMA8534	left twelfth rib	left	rib_cage	rib_cage
+FJ3228	FMA7987	left first rib	left	rib_cage	rib_cage
+FJ3229	FMA8012	left second rib	left	rib_cage	rib_cage
+FJ3230	FMA8039	left third rib	left	rib_cage	rib_cage
+FJ3231	FMA8148	left fourth rib	left	rib_cage	rib_cage
+FJ3232	FMA8093	left fifth rib	left	rib_cage	rib_cage
+FJ3233	FMA8202	left sixth rib	left	rib_cage	rib_cage
+FJ3234	FMA8256	left seventh rib	left	rib_cage	rib_cage
+FJ3235	FMA8310	left eighth rib	left	rib_cage	rib_cage
+FJ3236	FMA8391	left ninth rib	left	rib_cage	rib_cage
+FJ3237	FMA13323	left clavicle	left	arm	shoulder_l
+FJ3240	FMA24465	left first metacarpal bone	left	hand	hand_l
+FJ3241	FMA24508	left first metatarsal bone	left	foot	foot_l
+FJ3243	FMA24467	left second metacarpal bone	left	hand	hand_l
+FJ3244	FMA24510	left second metatarsal bone	left	foot	foot_l
+FJ3246	FMA24469	left third metacarpal bone	left	hand	hand_l
+FJ3247	FMA24512	left third metatarsal bone	left	foot	foot_l
+FJ3249	FMA24471	left fourth metacarpal bone	left	hand	hand_l
+FJ3250	FMA24514	left fourth metatarsal bone	left	foot	foot_l
+FJ3252	FMA24473	left fifth metacarpal bone	left	hand	hand_l
+FJ3253	FMA24516	left fifth metatarsal bone	left	foot	foot_l
+FJ3256	FMA24498	left calcaneus	left	foot	foot_l
+FJ3257	FMA24447	left capitate	left	hand	hand_l
+FJ3258	FMA24529	left cuboid bone	left	foot	foot_l
+FJ3259	FMA24475	left femur	left	leg	thigh_l
+FJ3260	FMA24481	left fibula	left	leg	lower_leg_l
+FJ3261	FMA24449	left hamate	left	hand	hand_l
+FJ3262	FMA23131	left humerus	left	arm	upper_arm_l
+FJ3263	FMA54738	left inferior nasal concha	left	skull	skull
+FJ3264	FMA24524	left intermediate cuneiform bone	left	foot	foot_l
+FJ3265	FMA53646	left lacrimal bone	left	skull	skull
+FJ3267	FMA24526	left lateral cuneiform bone	left	foot	foot_l
+FJ3268	FMA24438	left lunate	left	hand	hand_l
+FJ3269	FMA53650	left maxilla	left	skull	skull
+FJ3271	FMA24522	left medial cuneiform bone	left	foot	foot_l
+FJ3272	FMA53648	left nasal bone	left	skull	skull
+FJ3273	FMA53656	left palatine bone	left	skull	skull
+FJ3274	FMA52789	left parietal bone	left	skull	skull
+FJ3275	FMA24487	left patella	left	leg	knee_l
+FJ3276	FMA24442	left pisiform	left	hand	hand_l
+FJ3277	FMA23465	left radius	left	arm	forearm_l
+FJ3278	FMA24436	left scaphoid	left	hand	hand_l
+FJ3279	FMA13396	left scapula	left	arm	shoulder_l
+FJ3280	FMA24483	left talus	left	foot	foot_l
+FJ3281	FMA52739	left temporal bone	left	skull	skull
+FJ3282	FMA24478	left tibia	left	leg	lower_leg_l
+FJ3283	FMA24444	left trapezium	left	hand	hand_l
+FJ3284	FMA24445	left trapezoid	left	hand	hand_l
+FJ3285	FMA24440	left triquetral	left	hand	hand_l
+FJ3286	FMA23468	left ulna	left	arm	forearm_l
+FJ3287	FMA52893	left zygomatic bone	left	skull	skull
+FJ3288	FMA16587	left hip bone	left	pelvis	pelvis
+FJ3289	FMA52748	mandible	midline	skull	skull
+FJ3290	FMA7486	manubrium	midline	rib_cage	rib_cage
+FJ3291	FMA23942	middle phalanx of left ring finger	left	hand	hand_l
+FJ3292	FMA24457	middle phalanx of right ring finger	right	hand	hand_r
+FJ3293	FMA32643	middle phalanx of left second toe	left	foot	foot_l
+FJ3294	FMA32645	middle phalanx of left third toe	left	foot	foot_l
+FJ3295	FMA32647	middle phalanx of left fourth toe	left	foot	foot_l
+FJ3296	FMA23938	middle phalanx of left index finger	left	hand	hand_l
+FJ3297	FMA23944	middle phalanx of left little finger	left	hand	hand_l
+FJ3298	FMA230988	middle phalanx of left little toe	left	foot	foot_l
+FJ3299	FMA23940	middle phalanx of left middle finger	left	hand	hand_l
+FJ3300	FMA32642	middle phalanx of right second toe	right	foot	foot_r
+FJ3301	FMA32644	middle phalanx of right third toe	right	foot	foot_r
+FJ3302	FMA32646	middle phalanx of right fourth toe	right	foot	foot_r
+FJ3303	FMA24455	middle phalanx of right index finger	right	hand	hand_r
+FJ3304	FMA24458	middle phalanx of right little finger	right	hand	hand_r
+FJ3305	FMA230986	middle phalanx of right little toe	right	foot	foot_r
+FJ3306	FMA24456	middle phalanx of right middle finger	right	hand	hand_r
+FJ3307	FMA24501	navicular bone of left foot	left	foot	foot_l
+FJ3308	FMA24500	navicular bone of right foot	right	foot	foot_r
+FJ3309	FMA52735	occipital bone	midline	skull	skull
+FJ3310	FMA43253	proximal phalanx of right big toe	right	foot	foot_r
+FJ3311	FMA32637	proximal phalanx of left third toe	left	foot	foot_l
+FJ3312	FMA32639	proximal phalanx of left fourth toe	left	foot	foot_l
+FJ3313	FMA71915	proximal phalanx of left index finger	left	hand	hand_l
+FJ3314	FMA66791	proximal phalanx of left little finger	left	hand	hand_l
+FJ3315	FMA32641	proximal phalanx of left little toe	left	foot	foot_l
+FJ3316	FMA71908	proximal phalanx of left middle finger	left	hand	hand_l
+FJ3317	FMA71916	proximal phalanx of left ring finger	left	hand	hand_l
+FJ3318	FMA65470	proximal phalanx of left thumb	left	hand	hand_l
+FJ3319	FMA32634	proximal phalanx of right second toe	right	foot	foot_r
+FJ3320	FMA32636	proximal phalanx of right third toe	right	foot	foot_r
+FJ3321	FMA32638	proximal phalanx of right fourth toe	right	foot	foot_r
+FJ3322	FMA24451	proximal phalanx of right index finger	right	hand	hand_r
+FJ3323	FMA24454	proximal phalanx of right little finger	right	hand	hand_r
+FJ3324	FMA32640	proximal phalanx of right little toe	right	foot	foot_r
+FJ3325	FMA24452	proximal phalanx of right middle finger	right	hand	hand_r
+FJ3326	FMA24453	proximal phalanx of right ring finger	right	hand	hand_r
+FJ3327	FMA24450	proximal phalanx of right thumb	right	hand	hand_r
+FJ3328	FMA32635	proximal phalanx of left second toe	left	foot	foot_l
+FJ3329	FMA43254	proximal phalanx of left big toe	left	foot	foot_l
+FJ3330	FMA8445	right tenth rib	right	rib_cage	rib_cage
+FJ3331	FMA8531	right eleventh rib	right	rib_cage	rib_cage
+FJ3332	FMA8533	right twelfth rib	right	rib_cage	rib_cage
+FJ3334	FMA7857	right first rib	right	rib_cage	rib_cage
+FJ3336	FMA7882	right second rib	right	rib_cage	rib_cage
+FJ3338	FMA7909	right third rib	right	rib_cage	rib_cage
+FJ3340	FMA7957	right fourth rib	right	rib_cage	rib_cage
+FJ3342	FMA8066	right fifth rib	right	rib_cage	rib_cage
+FJ3344	FMA8175	right sixth rib	right	rib_cage	rib_cage
+FJ3346	FMA8229	right seventh rib	right	rib_cage	rib_cage
+FJ3347	FMA8283	right eighth rib	right	rib_cage	rib_cage
+FJ3348	FMA8364	right ninth rib	right	rib_cage	rib_cage
+FJ3349	FMA23464	right radius	right	arm	forearm_r
+FJ3350	FMA24464	right first metacarpal bone	right	hand	hand_r
+FJ3351	FMA24507	right first metatarsal bone	right	foot	foot_r
+FJ3352	FMA24466	right second metacarpal bone	right	hand	hand_r
+FJ3353	FMA24509	right second metatarsal bone	right	foot	foot_r
+FJ3354	FMA24468	right third metacarpal bone	right	hand	hand_r
+FJ3355	FMA24511	right third metatarsal bone	right	foot	foot_r
+FJ3356	FMA24470	right fourth metacarpal bone	right	hand	hand_r
+FJ3357	FMA24513	right fourth metatarsal bone	right	foot	foot_r
+FJ3358	FMA24472	right fifth metacarpal bone	right	hand	hand_r
+FJ3359	FMA24515	right fifth metatarsal bone	right	foot	foot_r
+FJ3360	FMA24497	right calcaneus	right	foot	foot_r
+FJ3361	FMA24446	right capitate	right	hand	hand_r
+FJ3362	FMA13322	right clavicle	right	arm	shoulder_r
+FJ3364	FMA24528	right cuboid bone	right	foot	foot_r
+FJ3365	FMA24474	right femur	right	leg	thigh_r
+FJ3366	FMA24480	right fibula	right	leg	lower_leg_r
+FJ3367	FMA24448	right hamate	right	hand	hand_r
+FJ3368	FMA23130	right humerus	right	arm	upper_arm_r
+FJ3369	FMA54737	right inferior nasal concha	right	skull	skull
+FJ3370	FMA24523	right intermediate cuneiform bone	right	foot	foot_r
+FJ3371	FMA53645	right lacrimal bone	right	skull	skull
+FJ3373	FMA24525	right lateral cuneiform bone	right	foot	foot_r
+FJ3374	FMA24437	right lunate	right	hand	hand_r
+FJ3375	FMA53649	right maxilla	right	skull	skull
+FJ3377	FMA24521	right medial cuneiform bone	right	foot	foot_r
+FJ3378	FMA53647	right nasal bone	right	skull	skull
+FJ3379	FMA53655	right palatine bone	right	skull	skull
+FJ3380	FMA52788	right parietal bone	right	skull	skull
+FJ3381	FMA24486	right patella	right	leg	knee_r
+FJ3382	FMA24441	right pisiform	right	hand	hand_r
+FJ3383	FMA24435	right scaphoid	right	hand	hand_r
+FJ3384	FMA13395	right scapula	right	arm	shoulder_r
+FJ3385	FMA24482	right talus	right	foot	foot_r
+FJ3386	FMA52738	right temporal bone	right	skull	skull
+FJ3387	FMA24477	right tibia	right	leg	lower_leg_r
+FJ3388	FMA24443	right trapezium	right	hand	hand_r
+FJ3389	FMA23725	right trapezoid	right	hand	hand_r
+FJ3390	FMA24439	right triquetral	right	hand	hand_r
+FJ3391	FMA23467	right ulna	right	arm	forearm_r
+FJ3392	FMA52892	right zygomatic bone	right	skull	skull
+FJ3393	FMA16202	sacrum	midline	pelvis	pelvis
+FJ3394	FMA52736	sphenoid bone	midline	skull	skull
+FJ3395	FMA9710	vomer	midline	skull	skull

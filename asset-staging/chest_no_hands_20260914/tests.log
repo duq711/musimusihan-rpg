@@ -1,0 +1,76 @@
+[HEADLESS] chest_hands_test.gd
+ERROR: CHEST HANDS FAIL: loadout cancellation hunting_bow must restore allowed current equipment visibility
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/chest_hands_test.gd:343)
+       [1] _run (res://tests/chest_hands_test.gd:51)
+       [2] _test_scene_cleanup (res://tests/chest_hands_test.gd:279)
+[HEADLESS] inventory_chest_test.gd
+INVENTORY CHEST TEST PASS: deliberate interaction, concealed search, mouse transfers, quantity modal, reopen, and sync
+[HEADLESS] loot_container_models_test.gd
+LOOT CONTAINER MODELS TEST PASS: four supplied models, real lids, contact surfaces, cancellation and loot persistence
+[HEADLESS] test_room_test.gd
+TEST ROOM PASS: catalog, actors, chest hands/equipment/repeat/cancellation, stress accumulation/recovery/perception/isolation, pause, camping, flail, archery, fixtures, results, reset, scene roundtrip and original session restoration
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2535)
+[HEADLESS] player_arm_test.gd
+ERROR: actual weapon poses must carry the shared arm with the real grip: sword_windup
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/player_arm_test.gd:29)
+ERROR: actual weapon poses must carry the shared arm with the real grip: sword_active
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/player_arm_test.gd:29)
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2535)
+[HEADLESS] player_hands_greybox_test.gd
+ERROR: capture must inspect actual gameplay state: free_hands
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/player_hands_greybox_test.gd:21)
+ERROR: unarmed gameplay must show both real greybox hands
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/player_hands_greybox_test.gd:21)
+ERROR: trial must really unequip carried weapons and expose both actual free hands: iteration 0 weapon= offhand= left=false right=true support_root=true stowed=false torch=false role=free
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/player_hands_greybox_test.gd:21)
+ERROR: trial must really unequip carried weapons and expose both actual free hands: iteration 1 weapon= offhand= left=false right=true support_root=true stowed=false torch=false role=free
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/player_hands_greybox_test.gd:21)
+PLAYER HANDS GREYBOX FAIL: bilateral imported skin and handedness, real finger deformation, free/bow/chest gameplay, render layers, default fidelity and isolated F2/repeat/switch/reset/exit
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2535)
+[HEADLESS] player_hands_detailed_test.gd
+PBR CUFF SOURCE FRAME: WristCuff_Surface_left/0/Detailed_Glove; 5170 imported frames, 9101 UV-derivative comparisons, signed U/normal-map-Y min=(0.862633, 0.618852); no runtime tangent fallback
+SUPPLIED FIXED WRIST: supplied wrist/-1; actual proximal vertices=3290, finger vertices=26274, full-flex wrist movement_m=0.0, finger movement_m=0.12740451097488, source_max_z_m=0.0129999993369, posed_stump_max_z_m=0.01299999374896
+PBR CUFF SOURCE FRAME: WristCuff_Surface_right/0/Detailed_Glove; 5172 imported frames, 9102 UV-derivative comparisons, signed U/normal-map-Y min=(0.87721, 0.540393); no runtime tangent fallback
+SUPPLIED FIXED WRIST: supplied wrist/1; actual proximal vertices=3290, finger vertices=26274, full-flex wrist movement_m=0.0, finger movement_m=0.12740440666676, source_max_z_m=0.0129999993369, posed_stump_max_z_m=0.01299999374896
+ERROR: capture must inspect actual gameplay state: free_hands
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/player_hands_detailed_test.gd:23)
+ERROR: unarmed gameplay must show both real detailed hands
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/player_hands_detailed_test.gd:23)
+ERROR: trial must really unequip carried weapons and expose both actual free hands: iteration 0 weapon= offhand= left=false right=true support_root=true stowed=false torch=false role=free
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/player_hands_detailed_test.gd:23)
+ERROR: trial must really unequip carried weapons and expose both actual free hands: iteration 1 weapon= offhand= left=false right=true support_root=true stowed=false torch=false role=free
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/player_hands_detailed_test.gd:23)
+PLAYER HANDS DETAILED FAIL: bilateral supplied anatomy and handedness, skinned fingers and rigid nail attachment, free/bow/chest gameplay, render layers, default fidelity and isolated F2/repeat/switch/reset/exit
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2535)
+
+Headless validation: 3 passed, 4 failed.
+FAILED: chest_hands_test.gd (1)
+FAILED: player_arm_test.gd (1)
+FAILED: player_hands_greybox_test.gd (1)
+FAILED: player_hands_detailed_test.gd (1)

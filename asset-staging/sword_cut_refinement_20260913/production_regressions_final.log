@@ -1,0 +1,23 @@
+[HEADLESS] sword_basic_cut_test.gd
+BASIC CUT METRIC sword and shield short contact_tip=(-0.917692, -0.050634, -1.087065) contact_grip=(0.08, -0.256769, -0.568827) post_contact_deg=24.8890554961876 recovery_resumes_s=0.00833333333333 recovery_peak_deg=7.76212579357868
+REVERSE PRESERVATION METRIC sword and shield short samples=135 max_position_m=0.0 max_angle_deg=0.03956468118525
+BASIC CUT METRIC sword and shield charged contact_tip=(-0.917692, -0.051865, -1.086269) contact_grip=(0.08, -0.258, -0.56803) post_contact_deg=24.8890554961876 recovery_resumes_s=0.00833333333333 recovery_peak_deg=5.38597854029894
+REVERSE PRESERVATION METRIC sword and shield charged samples=282 max_position_m=0.0 max_angle_deg=0.03956468118525
+BASIC CUT METRIC two hands short contact_tip=(-0.917692, -0.050634, -1.087065) contact_grip=(0.08, -0.256769, -0.568827) post_contact_deg=24.8890554961876 recovery_resumes_s=0.00833333333333 recovery_peak_deg=7.76212579357868
+REVERSE PRESERVATION METRIC two hands short samples=135 max_position_m=0.0 max_angle_deg=0.03956468118525
+BASIC CUT METRIC two hands charged contact_tip=(-0.917692, -0.051865, -1.086269) contact_grip=(0.08, -0.258, -0.56803) post_contact_deg=24.8890554961876 recovery_resumes_s=0.00833333333333 recovery_peak_deg=5.38597854029894
+REVERSE PRESERVATION METRIC two hands charged samples=282 max_position_m=0.0 max_angle_deg=0.03956468118525
+SWORD BASIC CUT PASS: actual blade sweep, post-contact reversal, recovery and unchanged reverse cut; expedition and source preservation
+[HEADLESS] unified_sword_motion_test.gd
+UNIFIED SWORD MOTION PASS max_position_m=0.0 max_angle_rad=0.0009765625
+[HEADLESS] reference_sword_motion_test.gd
+REFERENCE SWORD MOTION PASS: Mac/legacy motion delivery and production playback checks, physical run/air handoffs, guard ownership and composed solo/paired clash recovery
+[HEADLESS] sword_shield_choreography_test.gd
+CHOREOGRAPHY ACTUAL ANATOMY shield {"max_contact":0.000000448089082283332,"max_contact_pose":"right_diagonal charge 1 windup frame 124","max_forearm":0.340000212192535,"max_forearm_pose":"right_diagonal charge 1 clash 0.075s recovery frame 70","max_joint_error":0.000000476837158203125,"max_joint_error_pose":"left_reverse charge 0 windup frame 4","max_upper":0.486951917409897,"max_upper_pose":"guard raising frame 21","min_alignment":0.980570018291473,"min_alignment_pose":"guard lowering frame 21"}
+SWORD SHIELD CHOREOGRAPHY PASS: continuous phase/knot velocity, three actual 120 Hz blade paths, modeled clash recovery without snapping, real wrist/limb/marker contacts, reversible shield raising, recoil and pause/aim isolation
+[HEADLESS] sword_clash_test.gd
+SWORD CLASH TEST PASS: modeled blade overlap, attack timing, damage cancellation, and unarmed exclusion
+[HEADLESS] reference_sword_cut_preview_test.gd
+REFERENCE SWORD CUT PREVIEW PASS: two production cuts after real shield stow, both-hand capture records, input isolation and expedition/source preservation; no pixel claim
+
+Headless validation: 6 passed, 0 failed.

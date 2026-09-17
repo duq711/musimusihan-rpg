@@ -1,0 +1,34 @@
+{
+  "status": "coverage_diagnostic_complete",
+  "source_blend_sha256": "491e53d2705cc70e069f867c00e4b23f6e5a42869a3d816ca4672647afb9cb97",
+  "source_blend_unchanged": true,
+  "settings": {
+    "engine": "CYCLES",
+    "samples": 4,
+    "resolution": [
+      4096,
+      4096
+    ],
+    "margin": 2,
+    "use_clear": true,
+    "shader": "constant white emission 1",
+    "normal_not_used": true,
+    "float_buffer": true,
+    "array_row_order": "Blender bottom-to-top"
+  },
+  "copied_mesh_count": 18,
+  "combined_vertices": 68842,
+  "coverage": {
+    "minimum": 0.0,
+    "maximum": 1.0,
+    "zero_pixels": 8323990,
+    "partial_pixels": 170950,
+    "full_pixels": 8282276
+  },
+  "roughness_low_fringe": {
+    "below_70_count": 49147,
+    "in_partial_coverage": 49147,
+    "in_full_coverage": 0,
+    "in_zero_coverage": 0
+  }
+}

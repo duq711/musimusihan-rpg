@@ -1,0 +1,130 @@
+{
+	"actual_renderer": "vulkan",
+	"capture_kind": "Actual DungeonPlayer opt-in greybox arms and timed DungeonLootChest contact in an isolated SubViewport",
+	"captures": [
+		{
+			"arrow_count": 12,
+			"bow_draw_ratio": 0.0,
+			"bow_drawing": false,
+			"chest_phase": "idle",
+			"greybox": {
+				"chest_greybox_count": 2,
+				"enabled": true,
+				"generic_arm_count": 4,
+				"greybox_arm_count": 4,
+				"sources_available": true
+			},
+			"image": "free_hands.png",
+			"image_sha256": "c0055730d23aef788fce68d52d59e57c77e1de3d8d50a63d02fdb4145af567bd",
+			"offhand": "",
+			"passed": true,
+			"pose": "free_hands",
+			"weapon": ""
+		},
+		{
+			"arrow_count": 12,
+			"bow_draw_ratio": 1.0,
+			"bow_drawing": true,
+			"chest_phase": "idle",
+			"greybox": {
+				"chest_greybox_count": 2,
+				"enabled": true,
+				"generic_arm_count": 4,
+				"greybox_arm_count": 4,
+				"sources_available": true
+			},
+			"image": "bow_draw.png",
+			"image_sha256": "909414716e2fb55f7a0e6256a0d44c5903c265374269acf4540d09e42e3ba6c0",
+			"offhand": "",
+			"passed": true,
+			"pose": "bow_draw",
+			"weapon": "hunting_bow"
+		},
+		{
+			"arrow_count": 11,
+			"bow_draw_ratio": 0.0,
+			"bow_drawing": false,
+			"chest_phase": "idle",
+			"greybox": {
+				"chest_greybox_count": 2,
+				"enabled": true,
+				"generic_arm_count": 4,
+				"greybox_arm_count": 4,
+				"sources_available": true
+			},
+			"image": "bow_release.png",
+			"image_sha256": "e951832836273588b09bd5ca0adb66d67647228517d9707f20c71f0a95bf34f0",
+			"offhand": "",
+			"passed": true,
+			"pose": "bow_release",
+			"string_hook_amount": 0.228890936387263,
+			"weapon": "hunting_bow"
+		},
+		{
+			"arrow_count": 11,
+			"bow_draw_ratio": 0.0,
+			"bow_drawing": false,
+			"chest_phase": "fidget",
+			"greybox": {
+				"chest_greybox_count": 2,
+				"enabled": true,
+				"generic_arm_count": 4,
+				"greybox_arm_count": 4,
+				"sources_available": true
+			},
+			"hand_contact_distances": [
+				0.00429856684058905,
+				0.00917764287441969
+			],
+			"image": "chest_touch.png",
+			"image_sha256": "f16e77b558ad9966b9f9ab6e9b1c2580b0c79a21e934f1e3c70d338a858e872e",
+			"offhand": "",
+			"passed": true,
+			"pose": "chest_touch",
+			"weapon": "rusted_sword"
+		},
+		{
+			"arrow_count": 11,
+			"bow_draw_ratio": 0.0,
+			"bow_drawing": false,
+			"chest_phase": "lift",
+			"greybox": {
+				"chest_greybox_count": 2,
+				"enabled": true,
+				"generic_arm_count": 4,
+				"greybox_arm_count": 4,
+				"sources_available": true
+			},
+			"hand_contact_distances": [
+				0.0000000842936955791629,
+				0.000000188486438901236
+			],
+			"image": "chest_lift.png",
+			"image_sha256": "326b74b35bcbc0bc62a33550f64e3188978ed82be77a373761e36dc385f67881",
+			"offhand": "",
+			"passed": true,
+			"pose": "chest_lift",
+			"weapon": "rusted_sword"
+		}
+	],
+	"desktop_capture": false,
+	"display_driver": "embedded",
+	"expedition_inventory_and_cursor_preserved": true,
+	"external_input": false,
+	"failures": [],
+	"image_size": [
+		1280,
+		720
+	],
+	"source_sha256": {
+		"res://assets/3d/player/hands_greybox/left_hand_greybox.glb": "d0b0b0752c942984e9763d44917ec7d20676b3e99bce1a94b532396bc6827e16",
+		"res://assets/3d/player/hands_greybox/right_hand_greybox.glb": "1edebacc2cbb8e39a7952338ed94a31fae327d05de15f92c30851dbb418f7c58",
+		"res://scripts/chest_hand_visuals.gd": "27a5a9b4e81bb894e2de26ffceea7f00065fdc7ae74ea1a40712755b857bcbae",
+		"res://scripts/greybox_arm_visual.gd": "c7230421e7a16861e471f09e8fbd2cc4db27869167ccfa6f85309d0223eff4d1",
+		"res://scripts/player.gd": "3a96c029e89c7cefb3501e30915e03c185f86c54e17020bee41e71fc5fb367f3",
+		"res://scripts/player_arm_visual.gd": "24454a53bbbc7c9729b1299acff004464009aeb22a1345b4cea222d1b1334439",
+		"res://tests/player_arm_preview.gd": "2066f51f064a5b24cde5896c277d83602ae9784d26e10059bd4309b69b0c4d06",
+		"res://tests/player_hands_greybox_preview.gd": "4853fcd282c17282f52da7361a2aa244f4f58df5e1d4189d6004d5cf199c11f1"
+	},
+	"sources_unchanged_during_capture": true
+}

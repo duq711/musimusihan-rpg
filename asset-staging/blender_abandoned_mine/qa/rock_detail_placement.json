@@ -1,0 +1,2150 @@
+{
+  "added_fragments": 88,
+  "existing_scan_instances": 44,
+  "linked_template_meshes": 2,
+  "counts": {
+    "grand_quarry_rock_island": 17,
+    "grand_quarry": 16,
+    "rubble_passage": 7,
+    "north_workings": 6,
+    "entrance": 5,
+    "north_vents": 5,
+    "western_altar": 5,
+    "pillar_shrine": 5,
+    "hoistroom": 5,
+    "foreman_workroom": 4,
+    "east_store": 4,
+    "bone_cavern": 3,
+    "workshops": 3,
+    "southwest_adit": 3
+  },
+  "assets": [
+    {
+      "name": "RockScan_Detail_000_grand_quarry_rock_island",
+      "area": "grand_quarry_rock_island",
+      "room_id": "grand_quarry",
+      "template": "ScanTemplate_rock_face_02.001",
+      "position_godot": [
+        -0.4692926451340341,
+        -0.23015037812292577,
+        -4.925561692312854
+      ],
+      "dimensions_m": [
+        2.053773471846074,
+        2.8167953817737166,
+        0.8765329989295952
+      ],
+      "rotation_y": -0.5455032212126821,
+      "elevated": false,
+      "clearance_radius_m": 1.1965007357667958,
+      "clearance_anchor_xz": [
+        -0.4692926451340341,
+        -4.925561692312854
+      ],
+      "attachment": "sunken_ground_contact"
+    },
+    {
+      "name": "RockScan_Detail_001_grand_quarry_rock_island",
+      "area": "grand_quarry_rock_island",
+      "room_id": "grand_quarry",
+      "template": "ScanTemplate_rock_face_01.001",
+      "position_godot": [
+        4.149122985224285,
+        -0.1874476082623005,
+        -7.176988966945341
+      ],
+      "dimensions_m": [
+        2.1902794190142036,
+        3.1620822106965085,
+        1.2845243246789557
+      ],
+      "rotation_y": 0.8393053435527167,
+      "elevated": false,
+      "clearance_radius_m": 1.3495793273806411,
+      "clearance_anchor_xz": [
+        4.149122985224285,
+        -7.176988966945341
+      ],
+      "attachment": "sunken_ground_contact"
+    },
+    {
+      "name": "RockScan_Detail_002_grand_quarry_rock_island",
+      "area": "grand_quarry_rock_island",
+      "room_id": "grand_quarry",
+      "template": "ScanTemplate_rock_face_02.001",
+      "position_godot": [
+        3.140076654465228,
+        4.124716167167059,
+        -10.132147711299657
+      ],
+      "dimensions_m": [
+        2.7108841887303936,
+        2.5582579297553565,
+        0.8491766607845855
+      ],
+      "rotation_y": 2.2202082910289183,
+      "elevated": true,
+      "clearance_radius_m": 0.16,
+      "clearance_anchor_xz": [
+        4.372256196781011,
+        -10.777325152282634
+      ],
+      "attachment": "terrain_surface_raycast"
+    },
+    {
+      "name": "RockScan_Detail_003_grand_quarry_rock_island",
+      "area": "grand_quarry_rock_island",
+      "room_id": "grand_quarry",
+      "template": "ScanTemplate_rock_face_01.001",
+      "position_godot": [
+        0.7500320948537929,
+        -0.2122690321877599,
+        -4.565909938369521
+      ],
+      "dimensions_m": [
+        2.33927406616974,
+        4.138272395610281,
+        1.0066278372794253
+      ],
+      "rotation_y": 0.16804846228455753,
+      "elevated": false,
+      "clearance_radius_m": 1.3533325134700835,
+      "clearance_anchor_xz": [
+        0.7500320948537929,
+        -4.565909938369521
+      ],
+      "attachment": "sunken_ground_contact"
+    },
+    {
+      "name": "RockScan_Detail_004_grand_quarry_rock_island",
+      "area": "grand_quarry_rock_island",
+      "room_id": "grand_quarry",
+      "template": "ScanTemplate_rock_face_01.001",
+      "position_godot": [
+        0.9000215530447877,
+        3.8970992632467696,
+        -12.875287492373985
+      ],
+      "dimensions_m": [
+        1.9208639664414182,
+        3.0955701879167163,
+        1.2081599696368732
+      ],
+      "rotation_y": 2.571700970294942,
+      "elevated": true,
+      "clearance_radius_m": 0.16,
+      "clearance_anchor_xz": [
+        2.0814458244751313,
+        -14.147767814299042
+      ],
+      "attachment": "terrain_surface_raycast"
+    },
+    {
+      "name": "RockScan_Detail_005_grand_quarry_rock_island",
+      "area": "grand_quarry_rock_island",
+      "room_id": "grand_quarry",
+      "template": "ScanTemplate_rock_face_01.001",
+      "position_godot": [
+        -1.5100719723679665,
+        -0.227761971578002,
+        -13.905928695212769
+      ],
+      "dimensions_m": [
+        2.0891405920666495,
+        2.900251776009728,
+        1.0377653037970234
+      ],
+      "rotation_y": 4.140564057542236,
+      "elevated": false,
+      "clearance_radius_m": 1.246347422424545,
+      "clearance_anchor_xz": [
+        -1.5100719723679665,
+        -13.905928695212769
+      ],
+      "attachment": "sunken_ground_contact"
+    },
+    {
+      "name": "RockScan_Detail_006_grand_quarry_rock_island",
+      "area": "grand_quarry_rock_island",
+      "room_id": "grand_quarry",
+      "template": "ScanTemplate_rock_face_01.001",
+      "position_godot": [
+        1.6302927431661063,
+        3.069243588439262,
+        -5.807588968801566
+      ],
+      "dimensions_m": [
+        2.8729603999329925,
+        2.3089575954113895,
+        1.1729765256950369
+      ],
+      "rotation_y": 0.3176201044086098,
+      "elevated": true,
+      "clearance_radius_m": 0.16,
+      "clearance_anchor_xz": [
+        1.84630303776119,
+        -4.789749542723913
+      ],
+      "attachment": "terrain_surface_raycast"
+    },
+    {
+      "name": "RockScan_Detail_007_grand_quarry_rock_island",
+      "area": "grand_quarry_rock_island",
+      "room_id": "grand_quarry",
+      "template": "ScanTemplate_rock_face_02.001",
+      "position_godot": [
+        2.7009810026520853,
+        4.290609727607714,
+        -7.920018603498404
+      ],
+      "dimensions_m": [
+        3.0253863505474357,
+        2.575803673200546,
+        0.8559487785293991
+      ],
+      "rotation_y": 0.8314702039578097,
+      "elevated": true,
+      "clearance_radius_m": 0.16,
+      "clearance_anchor_xz": [
+        3.925968480256833,
+        -7.130096060887408
+      ],
+      "attachment": "terrain_surface_raycast"
+    },
+    {
+      "name": "RockScan_Detail_008_grand_quarry_rock_island",
+      "area": "grand_quarry_rock_island",
+      "room_id": "grand_quarry",
+      "template": "ScanTemplate_rock_face_02.001",
+      "position_godot": [
+        -0.984931086022556,
+        3.5014805338524346,
+        -12.052782177448487
+      ],
+      "dimensions_m": [
+        2.800190339281576,
+        1.799344078675377,
+        0.7404881481823128
+      ],
+      "rotation_y": 4.179551191382214,
+      "elevated": true,
+      "clearance_radius_m": 0.16,
+      "clearance_anchor_xz": [
+        -2.1282291836367353,
+        -12.686620429676946
+      ],
+      "attachment": "terrain_surface_raycast"
+    },
+    {
+      "name": "RockScan_Detail_009_grand_quarry_rock_island",
+      "area": "grand_quarry_rock_island",
+      "room_id": "grand_quarry",
+      "template": "ScanTemplate_rock_face_01.001",
+      "position_godot": [
+        2.9020738238046193,
+        -0.15310265570878984,
+        -13.106688659418106
+      ],
+      "dimensions_m": [
+        3.0771126058818554,
+        4.86245846468548,
+        0.9730436680410081
+      ],
+      "rotation_y": 2.5145857099206537,
+      "elevated": false,
+      "clearance_radius_m": 1.693647728687377,
+      "clearance_anchor_xz": [
+        2.9020738238046193,
+        -13.106688659418106
+      ],
+      "attachment": "sunken_ground_contact"
+    },
+    {
+      "name": "RockScan_Detail_010_grand_quarry_rock_island",
+      "area": "grand_quarry_rock_island",
+      "room_id": "grand_quarry",
+      "template": "ScanTemplate_rock_face_01.001",
+      "position_godot": [
+        2.4419393842320045,
+        4.3972801186360195,
+        -11.368859352798848
+      ],
+      "dimensions_m": [
+        2.2376893580282684,
+        2.594916738757429,
+        1.0774090141828538
+      ],
+      "rotation_y": 1.9648997478784562,
+      "elevated": true,
+      "clearance_radius_m": 0.16,
+      "clearance_anchor_xz": [
+        3.8482112620630415,
+        -12.105191871263589
+      ],
+      "attachment": "terrain_surface_raycast"
+    },
+    {
+      "name": "RockScan_Detail_011_grand_quarry_rock_island",
+      "area": "grand_quarry_rock_island",
+      "room_id": "grand_quarry",
+      "template": "ScanTemplate_rock_face_01.001",
+      "position_godot": [
+        0.16073429380875218,
+        -0.20196242262609304,
+        -14.499566786880516
+      ],
+      "dimensions_m": [
+        2.5709159254703,
+        4.240448398816691,
+        1.0704490665489923
+      ],
+      "rotation_y": 3.1293842934824236,
+      "elevated": false,
+      "clearance_radius_m": 1.472432215577514,
+      "clearance_anchor_xz": [
+        0.16073429380875218,
+        -14.499566786880516
+      ],
+      "attachment": "sunken_ground_contact"
+    },
+    {
+      "name": "RockScan_Detail_012_grand_quarry_rock_island",
+      "area": "grand_quarry_rock_island",
+      "room_id": "grand_quarry",
+      "template": "ScanTemplate_rock_face_01.001",
+      "position_godot": [
+        -0.41776333164073054,
+        3.832613021345071,
+        -6.462376365258364
+      ],
+      "dimensions_m": [
+        2.87051113462679,
+        2.8998704521131287,
+        1.3191009778569716
+      ],
+      "rotation_y": -0.5165088477860293,
+      "elevated": true,
+      "clearance_radius_m": 0.16,
+      "clearance_anchor_xz": [
+        -1.2273586437035102,
+        -5.2298928889682585
+      ],
+      "attachment": "terrain_surface_raycast"
+    },
+    {
+      "name": "RockScan_Detail_013_grand_quarry_rock_island",
+      "area": "grand_quarry_rock_island",
+      "room_id": "grand_quarry",
+      "template": "ScanTemplate_rock_face_01.001",
+      "position_godot": [
+        4.420744397807004,
+        -0.2175998341292143,
+        -9.142589088163088
+      ],
+      "dimensions_m": [
+        2.7450748368310247,
+        4.2657516660759915,
+        0.763774350074446
+      ],
+      "rotation_y": 1.2975221069385343,
+      "elevated": false,
+      "clearance_radius_m": 1.5046742713366554,
+      "clearance_anchor_xz": [
+        4.420744397807004,
+        -9.142589088163088
+      ],
+      "attachment": "sunken_ground_contact"
+    },
+    {
+      "name": "RockScan_Detail_014_grand_quarry_rock_island",
+      "area": "grand_quarry_rock_island",
+      "room_id": "grand_quarry",
+      "template": "ScanTemplate_rock_face_01.001",
+      "position_godot": [
+        -1.8115630800654803,
+        4.515349695496566,
+        -8.351409646529548
+      ],
+      "dimensions_m": [
+        2.6290068463402148,
+        2.5458697468393114,
+        1.0871118400862094
+      ],
+      "rotation_y": -1.0979249542883198,
+      "elevated": true,
+      "clearance_radius_m": 0.16,
+      "clearance_anchor_xz": [
+        -3.3952810602475183,
+        -7.439216284342384
+      ],
+      "attachment": "terrain_surface_raycast"
+    },
+    {
+      "name": "RockScan_Detail_015_grand_quarry_rock_island",
+      "area": "grand_quarry_rock_island",
+      "room_id": "grand_quarry",
+      "template": "ScanTemplate_rock_face_01.001",
+      "position_godot": [
+        3.236448745963953,
+        -0.15669422671198846,
+        -5.834512162109027
+      ],
+      "dimensions_m": [
+        1.9187033613066902,
+        2.9455157570599364,
+        0.9221414343024354
+      ],
+      "rotation_y": 1.1575688649415263,
+      "elevated": false,
+      "clearance_radius_m": 1.1443974132751058,
+      "clearance_anchor_xz": [
+        3.236448745963953,
+        -5.834512162109027
+      ],
+      "attachment": "sunken_ground_contact"
+    },
+    {
+      "name": "RockScan_Detail_016_grand_quarry_rock_island",
+      "area": "grand_quarry_rock_island",
+      "room_id": "grand_quarry",
+      "template": "ScanTemplate_rock_face_01.001",
+      "position_godot": [
+        -1.8818920904043752,
+        3.4780505128874144,
+        -10.641484692001761
+      ],
+      "dimensions_m": [
+        1.9216106892087055,
+        3.2125227167658004,
+        1.1561672006893404
+      ],
+      "rotation_y": 3.937708906468958,
+      "elevated": true,
+      "clearance_radius_m": 0.16,
+      "clearance_anchor_xz": [
+        -3.0618676077125695,
+        -11.642292199812506
+      ],
+      "attachment": "terrain_surface_raycast"
+    },
+    {
+      "name": "RockScan_Detail_017_grand_quarry",
+      "area": "grand_quarry",
+      "room_id": "grand_quarry",
+      "template": "ScanTemplate_rock_face_01.001",
+      "position_godot": [
+        3.3106097676584803,
+        4.073031029513325,
+        8.49731547302983
+      ],
+      "dimensions_m": [
+        4.397770015651771,
+        1.267881699123791,
+        0.94127976753582
+      ],
+      "rotation_y": 3.7514479349213192,
+      "elevated": true,
+      "clearance_radius_m": 0.16,
+      "clearance_anchor_xz": [
+        3.272001745626212,
+        8.458655250622778
+      ],
+      "attachment": "terrain_surface_raycast"
+    },
+    {
+      "name": "RockScan_Detail_018_grand_quarry",
+      "area": "grand_quarry",
+      "room_id": "grand_quarry",
+      "template": "ScanTemplate_rock_face_02.001",
+      "position_godot": [
+        -1.7442124908516818,
+        4.1835234337377445,
+        -34.76858773582468
+      ],
+      "dimensions_m": [
+        2.931788218624951,
+        1.6493654283029855,
+        1.0185133132008515
+      ],
+      "rotation_y": 0.6078627265994658,
+      "elevated": true,
+      "clearance_radius_m": 0.16,
+      "clearance_anchor_xz": [
+        -1.4003216276925277,
+        -34.41039356697625
+      ],
+      "attachment": "terrain_surface_raycast"
+    },
+    {
+      "name": "RockScan_Detail_019_grand_quarry",
+      "area": "grand_quarry",
+      "room_id": "grand_quarry",
+      "template": "ScanTemplate_rock_face_01.001",
+      "position_godot": [
+        -9.506785375393846,
+        -0.20531992316246034,
+        -25.249161381392806
+      ],
+      "dimensions_m": [
+        2.9593731802281424,
+        3.6187677421830013,
+        1.0087266197409452
+      ],
+      "rotation_y": 0.5837633733827754,
+      "elevated": false,
+      "clearance_radius_m": 1.6432833247069791,
+      "clearance_anchor_xz": [
+        -9.506785375393846,
+        -25.249161381392806
+      ],
+      "attachment": "sunken_ground_contact"
+    },
+    {
+      "name": "RockScan_Detail_020_grand_quarry",
+      "area": "grand_quarry",
+      "room_id": "grand_quarry",
+      "template": "ScanTemplate_rock_face_02.001",
+      "position_godot": [
+        -4.264656079732011,
+        3.365297899451395,
+        9.221661650157605
+      ],
+      "dimensions_m": [
+        3.676858896745151,
+        2.1587739676517876,
+        0.9931844368523673
+      ],
+      "rotation_y": 2.2545694749565226,
+      "elevated": true,
+      "clearance_radius_m": 0.16,
+      "clearance_anchor_xz": [
+        -4.021254935479009,
+        8.941295856204654
+      ],
+      "attachment": "terrain_surface_raycast"
+    },
+    {
+      "name": "RockScan_Detail_021_grand_quarry",
+      "area": "grand_quarry",
+      "room_id": "grand_quarry",
+      "template": "ScanTemplate_rock_face_01.001",
+      "position_godot": [
+        9.931922020150477,
+        -0.1789679367095232,
+        5.881834464174838
+      ],
+      "dimensions_m": [
+        3.896295540616194,
+        4.627463797335926,
+        1.4372086325596518
+      ],
+      "rotation_y": 3.298076942927281,
+      "elevated": false,
+      "clearance_radius_m": 2.1564565727056286,
+      "clearance_anchor_xz": [
+        9.931922020150477,
+        5.881834464174838
+      ],
+      "attachment": "sunken_ground_contact"
+    },
+    {
+      "name": "RockScan_Detail_022_grand_quarry",
+      "area": "grand_quarry",
+      "room_id": "grand_quarry",
+      "template": "ScanTemplate_rock_face_02.001",
+      "position_godot": [
+        15.339034059087778,
+        3.7991418023157357,
+        -0.6393383547091983
+      ],
+      "dimensions_m": [
+        2.3897599420522595,
+        2.229212266824909,
+        0.8462514419638419
+      ],
+      "rotation_y": 3.739747329257061,
+      "elevated": true,
+      "clearance_radius_m": 0.16,
+      "clearance_anchor_xz": [
+        15.201329278146464,
+        -0.8489825910802972
+      ],
+      "attachment": "terrain_surface_raycast"
+    },
+    {
+      "name": "RockScan_Detail_023_grand_quarry",
+      "area": "grand_quarry",
+      "room_id": "grand_quarry",
+      "template": "ScanTemplate_rock_face_02.001",
+      "position_godot": [
+        14.29842683092349,
+        3.849998042679044,
+        -22.385913743984016
+      ],
+      "dimensions_m": [
+        2.226658661989174,
+        2.135889011096363,
+        1.5289475441645894
+      ],
+      "rotation_y": -0.15284667193739657,
+      "elevated": true,
+      "clearance_radius_m": 0.16,
+      "clearance_anchor_xz": [
+        14.420810380790998,
+        -23.539258803019553
+      ],
+      "attachment": "terrain_surface_raycast"
+    },
+    {
+      "name": "RockScan_Detail_024_grand_quarry",
+      "area": "grand_quarry",
+      "room_id": "grand_quarry",
+      "template": "ScanTemplate_rock_face_02.001",
+      "position_godot": [
+        9.734561769889664,
+        4.157882013896189,
+        5.563924443019959
+      ],
+      "dimensions_m": [
+        3.914027701270532,
+        1.2472822023226016,
+        1.294380580891931
+      ],
+      "rotation_y": 3.3950477706033593,
+      "elevated": true,
+      "clearance_radius_m": 0.16,
+      "clearance_anchor_xz": [
+        9.786339332574899,
+        5.970609126965752
+      ],
+      "attachment": "terrain_surface_raycast"
+    },
+    {
+      "name": "RockScan_Detail_025_grand_quarry",
+      "area": "grand_quarry",
+      "room_id": "grand_quarry",
+      "template": "ScanTemplate_rock_face_01.001",
+      "position_godot": [
+        -8.058660033326374,
+        -0.22979723736643792,
+        6.3733662167497
+      ],
+      "dimensions_m": [
+        3.202488488598429,
+        4.109719249636084,
+        0.9328821464110061
+      ],
+      "rotation_y": 2.0856217708073705,
+      "elevated": false,
+      "clearance_radius_m": 1.7477980707131378,
+      "clearance_anchor_xz": [
+        -8.058660033326374,
+        6.3733662167497
+      ],
+      "attachment": "sunken_ground_contact"
+    },
+    {
+      "name": "RockScan_Detail_026_grand_quarry",
+      "area": "grand_quarry",
+      "room_id": "grand_quarry",
+      "template": "ScanTemplate_rock_face_01.001",
+      "position_godot": [
+        7.443157198895741,
+        -0.18207258433103563,
+        -25.886944430059796
+      ],
+      "dimensions_m": [
+        2.182611740089016,
+        3.1553390898738747,
+        0.8454459052634227
+      ],
+      "rotation_y": 0.16586506477704177,
+      "elevated": false,
+      "clearance_radius_m": 1.2503175623202758,
+      "clearance_anchor_xz": [
+        7.443157198895741,
+        -25.886944430059796
+      ],
+      "attachment": "sunken_ground_contact"
+    },
+    {
+      "name": "RockScan_Detail_027_grand_quarry",
+      "area": "grand_quarry",
+      "room_id": "grand_quarry",
+      "template": "ScanTemplate_rock_face_02.001",
+      "position_godot": [
+        10.970823442684278,
+        3.072111512956549,
+        -26.222586905237566
+      ],
+      "dimensions_m": [
+        2.2497959280732025,
+        2.546296352952284,
+        0.8838975045491956
+      ],
+      "rotation_y": -1.2438965108740945,
+      "elevated": true,
+      "clearance_radius_m": 0.16,
+      "clearance_anchor_xz": [
+        11.377500669439248,
+        -26.414229206341744
+      ],
+      "attachment": "terrain_surface_raycast"
+    },
+    {
+      "name": "RockScan_Detail_028_grand_quarry",
+      "area": "grand_quarry",
+      "room_id": "grand_quarry",
+      "template": "ScanTemplate_rock_face_01.001",
+      "position_godot": [
+        -16.115262460413195,
+        3.8824393262822063,
+        -17.01649354112775
+      ],
+      "dimensions_m": [
+        3.5528757079936546,
+        1.1589291275479336,
+        1.2378331927355581
+      ],
+      "rotation_y": 0.333453307383803,
+      "elevated": true,
+      "clearance_radius_m": 0.16,
+      "clearance_anchor_xz": [
+        -16.199269015307188,
+        -17.206514416132546
+      ],
+      "attachment": "terrain_surface_raycast"
+    },
+    {
+      "name": "RockScan_Detail_029_grand_quarry",
+      "area": "grand_quarry",
+      "room_id": "grand_quarry",
+      "template": "ScanTemplate_rock_face_01.001",
+      "position_godot": [
+        4.886886314538157,
+        -0.20228968006558717,
+        -27.698336631550326
+      ],
+      "dimensions_m": [
+        2.645548900513626,
+        2.962060751166367,
+        1.102288024154384
+      ],
+      "rotation_y": -0.9833039563626521,
+      "elevated": false,
+      "clearance_radius_m": 1.5130010356942378,
+      "clearance_anchor_xz": [
+        4.886886314538157,
+        -27.698336631550326
+      ],
+      "attachment": "sunken_ground_contact"
+    },
+    {
+      "name": "RockScan_Detail_030_grand_quarry",
+      "area": "grand_quarry",
+      "room_id": "grand_quarry",
+      "template": "ScanTemplate_rock_face_02.001",
+      "position_godot": [
+        -5.9802778116976105,
+        3.9242152476061927,
+        8.236943600781085
+      ],
+      "dimensions_m": [
+        3.2384006780579764,
+        2.3967910892288558,
+        1.038329357877698
+      ],
+      "rotation_y": 2.868800379462427,
+      "elevated": true,
+      "clearance_radius_m": 0.16,
+      "clearance_anchor_xz": [
+        -5.95373776903374,
+        7.96181051920681
+      ],
+      "attachment": "terrain_surface_raycast"
+    },
+    {
+      "name": "RockScan_Detail_031_grand_quarry",
+      "area": "grand_quarry",
+      "room_id": "grand_quarry",
+      "template": "ScanTemplate_rock_face_02.001",
+      "position_godot": [
+        0.07376841597736475,
+        3.7296959429616137,
+        9.87738303121919
+      ],
+      "dimensions_m": [
+        3.577610025274676,
+        1.6762669633630998,
+        1.0790671306173798
+      ],
+      "rotation_y": 2.810515475594424,
+      "elevated": true,
+      "clearance_radius_m": 0.16,
+      "clearance_anchor_xz": [
+        0.17248950906622937,
+        9.319233651887112
+      ],
+      "attachment": "terrain_surface_raycast"
+    },
+    {
+      "name": "RockScan_Detail_032_grand_quarry",
+      "area": "grand_quarry",
+      "room_id": "grand_quarry",
+      "template": "ScanTemplate_rock_face_01.001",
+      "position_godot": [
+        -21.3610116417405,
+        -0.17940619848668576,
+        -9.255192402401766
+      ],
+      "dimensions_m": [
+        2.5302819279999063,
+        3.210927519248464,
+        0.8530491520107526
+      ],
+      "rotation_y": 2.3966453881263985,
+      "elevated": false,
+      "clearance_radius_m": 1.4151048171313356,
+      "clearance_anchor_xz": [
+        -21.3610116417405,
+        -9.255192402401766
+      ],
+      "attachment": "sunken_ground_contact"
+    },
+    {
+      "name": "RockScan_Detail_033_rubble_passage",
+      "area": "rubble_passage",
+      "room_id": "rubble_passage",
+      "template": "ScanTemplate_rock_face_02.001",
+      "position_godot": [
+        -31.2659743530854,
+        3.403407644177085,
+        13.902299666981582
+      ],
+      "dimensions_m": [
+        2.8052758689331836,
+        1.1430083030486462,
+        1.4623616351979227
+      ],
+      "rotation_y": 2.434396610045903,
+      "elevated": true,
+      "clearance_radius_m": 0.16,
+      "clearance_anchor_xz": [
+        -30.85035674294174,
+        13.484507696140465
+      ],
+      "attachment": "terrain_surface_raycast"
+    },
+    {
+      "name": "RockScan_Detail_034_rubble_passage",
+      "area": "rubble_passage",
+      "room_id": "rubble_passage",
+      "template": "ScanTemplate_rock_face_02.001",
+      "position_godot": [
+        -28.349880780272468,
+        4.26472179838076,
+        9.04971129204032
+      ],
+      "dimensions_m": [
+        2.313983938572595,
+        1.3267885931000398,
+        1.708355822942261
+      ],
+      "rotation_y": -0.4557978049528925,
+      "elevated": true,
+      "clearance_radius_m": 0.16,
+      "clearance_anchor_xz": [
+        -28.529132668641147,
+        9.6409636307077
+      ],
+      "attachment": "terrain_surface_raycast"
+    },
+    {
+      "name": "RockScan_Detail_035_rubble_passage",
+      "area": "rubble_passage",
+      "room_id": "rubble_passage",
+      "template": "ScanTemplate_rock_face_02.001",
+      "position_godot": [
+        -25.081033946433067,
+        3.447480668711101,
+        8.495777511554788
+      ],
+      "dimensions_m": [
+        2.6793500731072837,
+        1.6116445084805506,
+        1.4792710770755666
+      ],
+      "rotation_y": -0.7613465379234282,
+      "elevated": true,
+      "clearance_radius_m": 0.16,
+      "clearance_anchor_xz": [
+        -25.604004090338243,
+        9.029678085991685
+      ],
+      "attachment": "terrain_surface_raycast"
+    },
+    {
+      "name": "RockScan_Detail_036_rubble_passage",
+      "area": "rubble_passage",
+      "room_id": "rubble_passage",
+      "template": "ScanTemplate_rock_face_01.001",
+      "position_godot": [
+        -27.489509359045414,
+        3.3320136865512744,
+        9.20853755804633
+      ],
+      "dimensions_m": [
+        4.117516660468686,
+        2.2622882808353015,
+        1.2493246288780742
+      ],
+      "rotation_y": -0.12377381944924226,
+      "elevated": true,
+      "clearance_radius_m": 0.16,
+      "clearance_anchor_xz": [
+        -27.599115382222184,
+        9.570067556638397
+      ],
+      "attachment": "terrain_surface_raycast"
+    },
+    {
+      "name": "RockScan_Detail_037_rubble_passage",
+      "area": "rubble_passage",
+      "room_id": "rubble_passage",
+      "template": "ScanTemplate_rock_face_02.001",
+      "position_godot": [
+        -30.354722884724335,
+        3.7203294792359674,
+        8.887102121003494
+      ],
+      "dimensions_m": [
+        3.420344711949803,
+        1.3601486714232531,
+        0.967252300662509
+      ],
+      "rotation_y": 0.30477138078406946,
+      "elevated": true,
+      "clearance_radius_m": 0.16,
+      "clearance_anchor_xz": [
+        -30.218448711999375,
+        9.315183972418998
+      ],
+      "attachment": "terrain_surface_raycast"
+    },
+    {
+      "name": "RockScan_Detail_038_rubble_passage",
+      "area": "rubble_passage",
+      "room_id": "rubble_passage",
+      "template": "ScanTemplate_rock_face_01.001",
+      "position_godot": [
+        -31.40390416893485,
+        3.366098123825557,
+        10.417705926145528
+      ],
+      "dimensions_m": [
+        2.876608126236567,
+        1.6196574533071306,
+        1.093362164152985
+      ],
+      "rotation_y": 1.3380650941766625,
+      "elevated": true,
+      "clearance_radius_m": 0.16,
+      "clearance_anchor_xz": [
+        -30.687790802265035,
+        10.514123744781346
+      ],
+      "attachment": "terrain_surface_raycast"
+    },
+    {
+      "name": "RockScan_Detail_039_rubble_passage",
+      "area": "rubble_passage",
+      "room_id": "rubble_passage",
+      "template": "ScanTemplate_rock_face_01.001",
+      "position_godot": [
+        -23.6042803217131,
+        3.374893085434954,
+        16.075855895999872
+      ],
+      "dimensions_m": [
+        4.319102022798221,
+        1.1834344622201374,
+        1.1913765324373389
+      ],
+      "rotation_y": 3.3848792603438955,
+      "elevated": true,
+      "clearance_radius_m": 0.16,
+      "clearance_anchor_xz": [
+        -23.587220451856457,
+        16.152225992714715
+      ],
+      "attachment": "terrain_surface_raycast"
+    },
+    {
+      "name": "RockScan_Detail_040_north_workings",
+      "area": "north_workings",
+      "room_id": "north_workings",
+      "template": "ScanTemplate_rock_face_02.001",
+      "position_godot": [
+        -53.84902572631836,
+        3.6916103691976456,
+        -62.83107899034715
+      ],
+      "dimensions_m": [
+        3.337152787535184,
+        1.1320399069638007,
+        1.105618564911675
+      ],
+      "rotation_y": -0.05336348589901577,
+      "elevated": true,
+      "clearance_radius_m": 0.16,
+      "clearance_anchor_xz": [
+        -53.849027072963246,
+        -62.48696680671875
+      ],
+      "attachment": "terrain_surface_raycast"
+    },
+    {
+      "name": "RockScan_Detail_041_north_workings",
+      "area": "north_workings",
+      "room_id": "north_workings",
+      "template": "ScanTemplate_rock_face_01.001",
+      "position_godot": [
+        -46.36326322754454,
+        -0.15180954784154893,
+        -49.77541025320372
+      ],
+      "dimensions_m": [
+        3.626136030605975,
+        4.549131311492384,
+        1.2737040917631854
+      ],
+      "rotation_y": 3.8048162175297913,
+      "elevated": false,
+      "clearance_radius_m": 2.0016649438594345,
+      "clearance_anchor_xz": [
+        -46.36326322754454,
+        -49.77541025320372
+      ],
+      "attachment": "sunken_ground_contact"
+    },
+    {
+      "name": "RockScan_Detail_042_north_workings",
+      "area": "north_workings",
+      "room_id": "north_workings",
+      "template": "ScanTemplate_rock_face_02.001",
+      "position_godot": [
+        -51.18927542471787,
+        -0.17487014904618264,
+        -63.276540167448246
+      ],
+      "dimensions_m": [
+        2.1557887572345176,
+        3.0623315626522123,
+        1.6122026233903646
+      ],
+      "rotation_y": -0.6428905997321457,
+      "elevated": false,
+      "clearance_radius_m": 1.4259775689703673,
+      "clearance_anchor_xz": [
+        -51.18927542471787,
+        -63.276540167448246
+      ],
+      "attachment": "sunken_ground_contact"
+    },
+    {
+      "name": "RockScan_Detail_043_north_workings",
+      "area": "north_workings",
+      "room_id": "north_workings",
+      "template": "ScanTemplate_rock_face_01.001",
+      "position_godot": [
+        -47.88087442389215,
+        3.869633313765044,
+        -62.44859198402908
+      ],
+      "dimensions_m": [
+        2.845777054126823,
+        1.880296239983514,
+        1.6522619723839864
+      ],
+      "rotation_y": 0.3695904823550628,
+      "elevated": true,
+      "clearance_radius_m": 0.16,
+      "clearance_anchor_xz": [
+        -47.92245589094901,
+        -62.53187024048202
+      ],
+      "attachment": "terrain_surface_raycast"
+    },
+    {
+      "name": "RockScan_Detail_044_north_workings",
+      "area": "north_workings",
+      "room_id": "north_workings",
+      "template": "ScanTemplate_rock_face_02.001",
+      "position_godot": [
+        -42.7770928998878,
+        3.270003327701285,
+        -56.099182190947595
+      ],
+      "dimensions_m": [
+        2.9105697603408434,
+        1.6558442819871748,
+        1.6154101085706176
+      ],
+      "rotation_y": 4.749969070381416,
+      "elevated": true,
+      "clearance_radius_m": 0.16,
+      "clearance_anchor_xz": [
+        -43.3885812017749,
+        -56.184564906876375
+      ],
+      "attachment": "terrain_surface_raycast"
+    },
+    {
+      "name": "RockScan_Detail_045_north_workings",
+      "area": "north_workings",
+      "room_id": "north_workings",
+      "template": "ScanTemplate_rock_face_01.001",
+      "position_godot": [
+        -58.00330035720846,
+        -0.19810778663959355,
+        -55.357450120708826
+      ],
+      "dimensions_m": [
+        4.145098987686526,
+        3.0284079223139653,
+        1.4535439117092879
+      ],
+      "rotation_y": 3.431078580982857,
+      "elevated": false,
+      "clearance_radius_m": 2.2762829690745114,
+      "clearance_anchor_xz": [
+        -58.00330035720846,
+        -55.357450120708826
+      ],
+      "attachment": "sunken_ground_contact"
+    },
+    {
+      "name": "RockScan_Detail_046_entrance",
+      "area": "entrance",
+      "room_id": "entrance",
+      "template": "ScanTemplate_rock_face_01.001",
+      "position_godot": [
+        -3.310939015034054,
+        -0.20591048784554006,
+        64.21524955968528
+      ],
+      "dimensions_m": [
+        2.1685133934401075,
+        4.335006017973778,
+        1.1402767676906762
+      ],
+      "rotation_y": 2.887900419438958,
+      "elevated": false,
+      "clearance_radius_m": 1.3050185146013333,
+      "clearance_anchor_xz": [
+        -3.310939015034054,
+        64.21524955968528
+      ],
+      "attachment": "sunken_ground_contact"
+    },
+    {
+      "name": "RockScan_Detail_047_entrance",
+      "area": "entrance",
+      "room_id": "entrance",
+      "template": "ScanTemplate_rock_face_01.001",
+      "position_godot": [
+        -3.7192426419438043,
+        3.4134790725397512,
+        64.69775582520779
+      ],
+      "dimensions_m": [
+        3.1147480832989602,
+        1.1638287540933514,
+        1.6282420408611908
+      ],
+      "rotation_y": 2.844349274779381,
+      "elevated": true,
+      "clearance_radius_m": 0.16,
+      "clearance_anchor_xz": [
+        -3.5753991944339463,
+        64.09739029031721
+      ],
+      "attachment": "terrain_surface_raycast"
+    },
+    {
+      "name": "RockScan_Detail_048_entrance",
+      "area": "entrance",
+      "room_id": "entrance",
+      "template": "ScanTemplate_rock_face_02.001",
+      "position_godot": [
+        7.302392038202286,
+        3.2238017966529826,
+        60.93301498912503
+      ],
+      "dimensions_m": [
+        2.63981274008192,
+        2.170162245865969,
+        1.4149843545622434
+      ],
+      "rotation_y": 4.459403552410892,
+      "elevated": true,
+      "clearance_radius_m": 0.16,
+      "clearance_anchor_xz": [
+        5.035589631317846,
+        60.69563800121606
+      ],
+      "attachment": "terrain_surface_raycast"
+    },
+    {
+      "name": "RockScan_Detail_049_entrance",
+      "area": "entrance",
+      "room_id": "entrance",
+      "template": "ScanTemplate_rock_face_02.001",
+      "position_godot": [
+        -2.075310490805492,
+        3.268441098769765,
+        65.03939823656675
+      ],
+      "dimensions_m": [
+        2.245271385656357,
+        1.7290829599358997,
+        1.7136795965760867
+      ],
+      "rotation_y": 2.8670113253836487,
+      "elevated": true,
+      "clearance_radius_m": 0.16,
+      "clearance_anchor_xz": [
+        -1.8918795748800425,
+        64.27380358267764
+      ],
+      "attachment": "terrain_surface_raycast"
+    },
+    {
+      "name": "RockScan_Detail_050_entrance",
+      "area": "entrance",
+      "room_id": "entrance",
+      "template": "ScanTemplate_rock_face_02.001",
+      "position_godot": [
+        1.3380765019383822,
+        3.205865694055508,
+        64.45437475872028
+      ],
+      "dimensions_m": [
+        4.47181941890074,
+        2.0534414151313585,
+        1.3274412292698936
+      ],
+      "rotation_y": 3.460920741290108,
+      "elevated": true,
+      "clearance_radius_m": 0.16,
+      "clearance_anchor_xz": [
+        1.1587524396182356,
+        63.86287826902229
+      ],
+      "attachment": "terrain_surface_raycast"
+    },
+    {
+      "name": "RockScan_Detail_051_north_vents",
+      "area": "north_vents",
+      "room_id": "north_vents",
+      "template": "ScanTemplate_rock_face_02.001",
+      "position_godot": [
+        -6.686190612229691,
+        -0.20396343879401685,
+        -55.92026811476278
+      ],
+      "dimensions_m": [
+        2.468812887339744,
+        3.92331791566994,
+        0.9849875641517813
+      ],
+      "rotation_y": 4.548704733770829,
+      "elevated": false,
+      "clearance_radius_m": 1.4090257309612617,
+      "clearance_anchor_xz": [
+        -6.686190612229691,
+        -55.92026811476278
+      ],
+      "attachment": "sunken_ground_contact"
+    },
+    {
+      "name": "RockScan_Detail_052_north_vents",
+      "area": "north_vents",
+      "room_id": "north_vents",
+      "template": "ScanTemplate_rock_face_01.001",
+      "position_godot": [
+        -13.081262530128773,
+        3.671096160639258,
+        -62.21298440014942
+      ],
+      "dimensions_m": [
+        3.788391977670341,
+        1.3436020331009706,
+        0.8625251775416135
+      ],
+      "rotation_y": 1.9359569839202297,
+      "elevated": true,
+      "clearance_radius_m": 0.16,
+      "clearance_anchor_xz": [
+        -12.861613661009148,
+        -62.310396019193114
+      ],
+      "attachment": "terrain_surface_raycast"
+    },
+    {
+      "name": "RockScan_Detail_053_north_vents",
+      "area": "north_vents",
+      "room_id": "north_vents",
+      "template": "ScanTemplate_rock_face_02.001",
+      "position_godot": [
+        -4.970650030142878,
+        3.4296844514567453,
+        -61.93573458145823
+      ],
+      "dimensions_m": [
+        2.5683755124832777,
+        1.5035212265821936,
+        1.3058422031165609
+      ],
+      "rotation_y": 0.08534565059576832,
+      "elevated": true,
+      "clearance_radius_m": 0.16,
+      "clearance_anchor_xz": [
+        -4.967308908354549,
+        -61.85075753529655
+      ],
+      "attachment": "terrain_surface_raycast"
+    },
+    {
+      "name": "RockScan_Detail_054_north_vents",
+      "area": "north_vents",
+      "room_id": "north_vents",
+      "template": "ScanTemplate_rock_face_02.001",
+      "position_godot": [
+        -8.170152915868675,
+        3.000398770092002,
+        -64.87649740350685
+      ],
+      "dimensions_m": [
+        2.497382642367608,
+        1.8576157004821492,
+        1.337597217051948
+      ],
+      "rotation_y": -1.3045095810325908,
+      "elevated": true,
+      "clearance_radius_m": 0.16,
+      "clearance_anchor_xz": [
+        -8.94608291439181,
+        -64.55474706278878
+      ],
+      "attachment": "terrain_surface_raycast"
+    },
+    {
+      "name": "RockScan_Detail_055_north_vents",
+      "area": "north_vents",
+      "room_id": "north_vents",
+      "template": "ScanTemplate_rock_face_01.001",
+      "position_godot": [
+        -10.85073768970922,
+        3.2693480264765604,
+        -65.40821900402345
+      ],
+      "dimensions_m": [
+        2.9768635161956083,
+        2.32026492070071,
+        1.262531177330372
+      ],
+      "rotation_y": 0.4288394159951309,
+      "elevated": true,
+      "clearance_radius_m": 0.16,
+      "clearance_anchor_xz": [
+        -10.68975526594823,
+        -65.13979568775677
+      ],
+      "attachment": "terrain_surface_raycast"
+    },
+    {
+      "name": "RockScan_Detail_056_western_altar",
+      "area": "western_altar",
+      "room_id": "western_altar",
+      "template": "ScanTemplate_rock_face_02.001",
+      "position_godot": [
+        -41.852602863280005,
+        4.12753706601613,
+        -15.899086173339219
+      ],
+      "dimensions_m": [
+        3.825589363741921,
+        1.1638552168983693,
+        1.093685032395495
+      ],
+      "rotation_y": 2.056978507307232,
+      "elevated": true,
+      "clearance_radius_m": 0.16,
+      "clearance_anchor_xz": [
+        -42.11420677253671,
+        -15.725053568627704
+      ],
+      "attachment": "terrain_surface_raycast"
+    },
+    {
+      "name": "RockScan_Detail_057_western_altar",
+      "area": "western_altar",
+      "room_id": "western_altar",
+      "template": "ScanTemplate_rock_face_02.001",
+      "position_godot": [
+        -34.46172499549269,
+        3.71359915358276,
+        -13.202301347896766
+      ],
+      "dimensions_m": [
+        2.942616348527712,
+        1.410395704381222,
+        1.562344833346386
+      ],
+      "rotation_y": 4.354152482268161,
+      "elevated": true,
+      "clearance_radius_m": 0.16,
+      "clearance_anchor_xz": [
+        -34.8104918536129,
+        -13.4077473407254
+      ],
+      "attachment": "terrain_surface_raycast"
+    },
+    {
+      "name": "RockScan_Detail_058_western_altar",
+      "area": "western_altar",
+      "room_id": "western_altar",
+      "template": "ScanTemplate_rock_face_01.001",
+      "position_godot": [
+        -33.87747779002441,
+        -0.20447174115106465,
+        -24.239359614875102
+      ],
+      "dimensions_m": [
+        3.6316290759335033,
+        3.084472403495269,
+        1.1681779502696683
+      ],
+      "rotation_y": -0.16521930962107928,
+      "elevated": false,
+      "clearance_radius_m": 1.9874439355235238,
+      "clearance_anchor_xz": [
+        -33.87747779002441,
+        -24.239359614875102
+      ],
+      "attachment": "sunken_ground_contact"
+    },
+    {
+      "name": "RockScan_Detail_059_western_altar",
+      "area": "western_altar",
+      "room_id": "western_altar",
+      "template": "ScanTemplate_rock_face_01.001",
+      "position_godot": [
+        -32.165310530626634,
+        3.100821683970943,
+        -13.883248754743413
+      ],
+      "dimensions_m": [
+        2.2521354166449368,
+        2.2177473269629333,
+        1.4512013257369598
+      ],
+      "rotation_y": 3.251069978950669,
+      "elevated": true,
+      "clearance_radius_m": 0.16,
+      "clearance_anchor_xz": [
+        -32.26992545182028,
+        -14.967709274731739
+      ],
+      "attachment": "terrain_surface_raycast"
+    },
+    {
+      "name": "RockScan_Detail_060_western_altar",
+      "area": "western_altar",
+      "room_id": "western_altar",
+      "template": "ScanTemplate_rock_face_01.001",
+      "position_godot": [
+        -39.63340496388466,
+        3.507706530724644,
+        -14.062223637953647
+      ],
+      "dimensions_m": [
+        4.176040463108258,
+        1.349698529157504,
+        1.1303784099394756
+      ],
+      "rotation_y": 3.1400429777735286,
+      "elevated": true,
+      "clearance_radius_m": 0.16,
+      "clearance_anchor_xz": [
+        -39.62039957772047,
+        -13.951920352303109
+      ],
+      "attachment": "terrain_surface_raycast"
+    },
+    {
+      "name": "RockScan_Detail_061_pillar_shrine",
+      "area": "pillar_shrine",
+      "room_id": "pillar_shrine",
+      "template": "ScanTemplate_rock_face_02.001",
+      "position_godot": [
+        52.820422180986945,
+        3.103163482463823,
+        -59.034677899486915
+      ],
+      "dimensions_m": [
+        4.637308021725595,
+        2.5397185828688773,
+        1.3437749887152632
+      ],
+      "rotation_y": -0.11101831153936452,
+      "elevated": true,
+      "clearance_radius_m": 0.16,
+      "clearance_anchor_xz": [
+        52.83895197900607,
+        -59.40124620226002
+      ],
+      "attachment": "terrain_surface_raycast"
+    },
+    {
+      "name": "RockScan_Detail_062_pillar_shrine",
+      "area": "pillar_shrine",
+      "room_id": "pillar_shrine",
+      "template": "ScanTemplate_rock_face_01.001",
+      "position_godot": [
+        59.03345741167904,
+        3.0888381822139737,
+        -46.43430887124205
+      ],
+      "dimensions_m": [
+        3.4661802845969616,
+        2.0133683419887736,
+        1.6774077914274201
+      ],
+      "rotation_y": 4.312130446309882,
+      "elevated": true,
+      "clearance_radius_m": 0.16,
+      "clearance_anchor_xz": [
+        59.39219077470208,
+        -46.24498262628855
+      ],
+      "attachment": "terrain_surface_raycast"
+    },
+    {
+      "name": "RockScan_Detail_063_pillar_shrine",
+      "area": "pillar_shrine",
+      "room_id": "pillar_shrine",
+      "template": "ScanTemplate_rock_face_01.001",
+      "position_godot": [
+        45.16372463905428,
+        -0.2091223381459713,
+        -61.42663847082898
+      ],
+      "dimensions_m": [
+        2.820429954205985,
+        4.842970610792996,
+        0.987342596154352
+      ],
+      "rotation_y": 0.4617940946961431,
+      "elevated": false,
+      "clearance_radius_m": 1.574127716157758,
+      "clearance_anchor_xz": [
+        45.16372463905428,
+        -61.42663847082898
+      ],
+      "attachment": "sunken_ground_contact"
+    },
+    {
+      "name": "RockScan_Detail_064_pillar_shrine",
+      "area": "pillar_shrine",
+      "room_id": "pillar_shrine",
+      "template": "ScanTemplate_rock_face_01.001",
+      "position_godot": [
+        39.941519837718815,
+        -0.18150909692049028,
+        -41.685187636137634
+      ],
+      "dimensions_m": [
+        3.263609558729558,
+        4.677744292693173,
+        1.3651523379669106
+      ],
+      "rotation_y": 3.132293801243107,
+      "elevated": false,
+      "clearance_radius_m": 1.8488123316004628,
+      "clearance_anchor_xz": [
+        39.941519837718815,
+        -41.685187636137634
+      ],
+      "attachment": "sunken_ground_contact"
+    },
+    {
+      "name": "RockScan_Detail_065_pillar_shrine",
+      "area": "pillar_shrine",
+      "room_id": "pillar_shrine",
+      "template": "ScanTemplate_rock_face_02.001",
+      "position_godot": [
+        42.48186277680713,
+        -0.2185751635581255,
+        -59.83176939400157
+      ],
+      "dimensions_m": [
+        2.7214926645261905,
+        4.2145567708708676,
+        1.2434636131009087
+      ],
+      "rotation_y": 0.5409246653874783,
+      "elevated": false,
+      "clearance_radius_m": 1.5760551527413547,
+      "clearance_anchor_xz": [
+        42.48186277680713,
+        -59.83176939400157
+      ],
+      "attachment": "sunken_ground_contact"
+    },
+    {
+      "name": "RockScan_Detail_066_hoistroom",
+      "area": "hoistroom",
+      "room_id": "hoistroom",
+      "template": "ScanTemplate_rock_face_01.001",
+      "position_godot": [
+        57.31139904684116,
+        -0.18757139313966037,
+        12.626023047687823
+      ],
+      "dimensions_m": [
+        2.252583615754697,
+        4.602098517506514,
+        1.1821723726632787
+      ],
+      "rotation_y": 3.3994164040447243,
+      "elevated": false,
+      "clearance_radius_m": 1.3519733158221943,
+      "clearance_anchor_xz": [
+        57.31139904684116,
+        12.626023047687823
+      ],
+      "attachment": "sunken_ground_contact"
+    },
+    {
+      "name": "RockScan_Detail_067_hoistroom",
+      "area": "hoistroom",
+      "room_id": "hoistroom",
+      "template": "ScanTemplate_rock_face_02.001",
+      "position_godot": [
+        35.49750886438659,
+        -0.24794302955269815,
+        4.617722012461832
+      ],
+      "dimensions_m": [
+        3.383233615255873,
+        2.936128200277054,
+        1.2524232762654233
+      ],
+      "rotation_y": -1.022308791708334,
+      "elevated": false,
+      "clearance_radius_m": 1.8838038805763186,
+      "clearance_anchor_xz": [
+        35.49750886438659,
+        4.617722012461832
+      ],
+      "attachment": "sunken_ground_contact"
+    },
+    {
+      "name": "RockScan_Detail_068_hoistroom",
+      "area": "hoistroom",
+      "room_id": "hoistroom",
+      "template": "ScanTemplate_rock_face_02.001",
+      "position_godot": [
+        57.155357326648684,
+        3.961770665287864,
+        -3.5602561048728174
+      ],
+      "dimensions_m": [
+        3.8572055963548317,
+        1.3493149148301709,
+        1.623662331288093
+      ],
+      "rotation_y": -0.03639925001521155,
+      "elevated": true,
+      "clearance_radius_m": 0.16,
+      "clearance_anchor_xz": [
+        57.190437045836205,
+        -3.2407542349368654
+      ],
+      "attachment": "terrain_surface_raycast"
+    },
+    {
+      "name": "RockScan_Detail_069_hoistroom",
+      "area": "hoistroom",
+      "room_id": "hoistroom",
+      "template": "ScanTemplate_rock_face_01.001",
+      "position_godot": [
+        60.30746273583689,
+        -0.22167447283864022,
+        3.269352882968919
+      ],
+      "dimensions_m": [
+        2.9124232163700583,
+        2.6694196657029763,
+        1.1596334912822315
+      ],
+      "rotation_y": -1.3606864180019957,
+      "elevated": false,
+      "clearance_radius_m": 1.6473990258829063,
+      "clearance_anchor_xz": [
+        60.30746273583689,
+        3.269352882968919
+      ],
+      "attachment": "sunken_ground_contact"
+    },
+    {
+      "name": "RockScan_Detail_070_hoistroom",
+      "area": "hoistroom",
+      "room_id": "hoistroom",
+      "template": "ScanTemplate_rock_face_02.001",
+      "position_godot": [
+        49.0678481216678,
+        3.8896804893674064,
+        -3.4740002298576353
+      ],
+      "dimensions_m": [
+        2.5643412768378724,
+        1.8922177044435111,
+        1.023221688766557
+      ],
+      "rotation_y": -0.07808147425832124,
+      "elevated": true,
+      "clearance_radius_m": 0.16,
+      "clearance_anchor_xz": [
+        48.97376980763267,
+        -2.977466867516492
+      ],
+      "attachment": "terrain_surface_raycast"
+    },
+    {
+      "name": "RockScan_Detail_071_foreman_workroom",
+      "area": "foreman_workroom",
+      "room_id": "foreman_workroom",
+      "template": "ScanTemplate_rock_face_02.001",
+      "position_godot": [
+        -36.6048507806743,
+        -0.21315125171095134,
+        -45.18246776100164
+      ],
+      "dimensions_m": [
+        2.985064379057022,
+        3.5766193351381332,
+        1.430853367919246
+      ],
+      "rotation_y": 3.0544891548563555,
+      "elevated": false,
+      "clearance_radius_m": 1.73513977563837,
+      "clearance_anchor_xz": [
+        -36.6048507806743,
+        -45.18246776100164
+      ],
+      "attachment": "sunken_ground_contact"
+    },
+    {
+      "name": "RockScan_Detail_072_foreman_workroom",
+      "area": "foreman_workroom",
+      "room_id": "foreman_workroom",
+      "template": "ScanTemplate_rock_face_02.001",
+      "position_godot": [
+        -23.40555856257939,
+        3.8915970296497764,
+        -40.400710154319654
+      ],
+      "dimensions_m": [
+        4.5198513422225135,
+        1.304381380759701,
+        1.1375871756064306
+      ],
+      "rotation_y": 4.519636231555857,
+      "elevated": true,
+      "clearance_radius_m": 0.16,
+      "clearance_anchor_xz": [
+        -22.925359845624545,
+        -40.26296153601613
+      ],
+      "attachment": "terrain_surface_raycast"
+    },
+    {
+      "name": "RockScan_Detail_073_foreman_workroom",
+      "area": "foreman_workroom",
+      "room_id": "foreman_workroom",
+      "template": "ScanTemplate_rock_face_02.001",
+      "position_godot": [
+        -38.62515525093683,
+        -0.20637119775637985,
+        -54.1393291639026
+      ],
+      "dimensions_m": [
+        3.287751679118932,
+        4.571791368818204,
+        1.1592781268366867
+      ],
+      "rotation_y": 1.3398172095305498,
+      "elevated": false,
+      "clearance_radius_m": 1.823074645483616,
+      "clearance_anchor_xz": [
+        -38.62515525093683,
+        -54.1393291639026
+      ],
+      "attachment": "sunken_ground_contact"
+    },
+    {
+      "name": "RockScan_Detail_074_foreman_workroom",
+      "area": "foreman_workroom",
+      "room_id": "foreman_workroom",
+      "template": "ScanTemplate_rock_face_02.001",
+      "position_godot": [
+        -39.90473665203375,
+        -0.16596163138747216,
+        -48.601929370022496
+      ],
+      "dimensions_m": [
+        2.5314635338714524,
+        2.9886465242250435,
+        1.5667229428026683
+      ],
+      "rotation_y": 1.2888093734788901,
+      "elevated": false,
+      "clearance_radius_m": 1.5685335403363603,
+      "clearance_anchor_xz": [
+        -39.90473665203375,
+        -48.601929370022496
+      ],
+      "attachment": "sunken_ground_contact"
+    },
+    {
+      "name": "RockScan_Detail_075_east_store",
+      "area": "east_store",
+      "room_id": "east_store",
+      "template": "ScanTemplate_rock_face_02.001",
+      "position_godot": [
+        59.812965197964104,
+        -0.19129858892410995,
+        -16.7032880000842
+      ],
+      "dimensions_m": [
+        4.429903274979514,
+        3.4153898025711764,
+        1.3604318764079686
+      ],
+      "rotation_y": 4.561998528962553,
+      "elevated": false,
+      "clearance_radius_m": 2.39704649910296,
+      "clearance_anchor_xz": [
+        59.812965197964104,
+        -16.7032880000842
+      ],
+      "attachment": "sunken_ground_contact"
+    },
+    {
+      "name": "RockScan_Detail_076_east_store",
+      "area": "east_store",
+      "room_id": "east_store",
+      "template": "ScanTemplate_rock_face_02.001",
+      "position_godot": [
+        49.287042390353214,
+        3.522020526652229,
+        -23.943038979762633
+      ],
+      "dimensions_m": [
+        4.297045681863363,
+        1.188131320124402,
+        1.141613992994534
+      ],
+      "rotation_y": 0.5994390837118225,
+      "elevated": true,
+      "clearance_radius_m": 0.16,
+      "clearance_anchor_xz": [
+        49.55380141887076,
+        -23.565946116972697
+      ],
+      "attachment": "terrain_surface_raycast"
+    },
+    {
+      "name": "RockScan_Detail_077_east_store",
+      "area": "east_store",
+      "room_id": "east_store",
+      "template": "ScanTemplate_rock_face_01.001",
+      "position_godot": [
+        60.66548419952418,
+        3.1314925130821463,
+        -15.295291551421645
+      ],
+      "dimensions_m": [
+        2.67995002107926,
+        1.5763369336128132,
+        1.1360106835462183
+      ],
+      "rotation_y": 4.085212348163279,
+      "elevated": true,
+      "clearance_radius_m": 0.16,
+      "clearance_anchor_xz": [
+        59.59624787001422,
+        -16.225398776263873
+      ],
+      "attachment": "terrain_surface_raycast"
+    },
+    {
+      "name": "RockScan_Detail_078_east_store",
+      "area": "east_store",
+      "room_id": "east_store",
+      "template": "ScanTemplate_rock_face_01.001",
+      "position_godot": [
+        60.081300786726324,
+        3.9396240823263535,
+        -18.191881379435234
+      ],
+      "dimensions_m": [
+        3.20281471521128,
+        1.157895946760433,
+        1.726893654590933
+      ],
+      "rotation_y": -0.4645168084905642,
+      "elevated": true,
+      "clearance_radius_m": 0.16,
+      "clearance_anchor_xz": [
+        59.839593043785946,
+        -17.86918607102353
+      ],
+      "attachment": "terrain_surface_raycast"
+    },
+    {
+      "name": "RockScan_Detail_079_bone_cavern",
+      "area": "bone_cavern",
+      "room_id": "bone_cavern",
+      "template": "ScanTemplate_rock_face_02.001",
+      "position_godot": [
+        -41.07173990017447,
+        -0.2626245439052582,
+        20.508894467018994
+      ],
+      "dimensions_m": [
+        3.156228063833712,
+        2.8820010095071615,
+        1.3856870007768827
+      ],
+      "rotation_y": -0.49417486079312434,
+      "elevated": false,
+      "clearance_radius_m": 1.803506894028389,
+      "clearance_anchor_xz": [
+        -41.07173990017447,
+        20.508894467018994
+      ],
+      "attachment": "sunken_ground_contact"
+    },
+    {
+      "name": "RockScan_Detail_080_bone_cavern",
+      "area": "bone_cavern",
+      "room_id": "bone_cavern",
+      "template": "ScanTemplate_rock_face_02.001",
+      "position_godot": [
+        -55.6127637233594,
+        3.834162878735336,
+        13.921904301543883
+      ],
+      "dimensions_m": [
+        3.3668883908273637,
+        1.4088323174359916,
+        1.0122961296160833
+      ],
+      "rotation_y": -0.20846269239355975,
+      "elevated": true,
+      "clearance_radius_m": 0.16,
+      "clearance_anchor_xz": [
+        -55.74920946273072,
+        14.33981369232406
+      ],
+      "attachment": "terrain_surface_raycast"
+    },
+    {
+      "name": "RockScan_Detail_081_bone_cavern",
+      "area": "bone_cavern",
+      "room_id": "bone_cavern",
+      "template": "ScanTemplate_rock_face_01.001",
+      "position_godot": [
+        -58.94041266396128,
+        -0.1504350945353508,
+        17.462852783678866
+      ],
+      "dimensions_m": [
+        3.445157780497492,
+        3.7186104355542904,
+        1.7280726233193984
+      ],
+      "rotation_y": 1.2320767005189357,
+      "elevated": false,
+      "clearance_radius_m": 2.00713174977662,
+      "clearance_anchor_xz": [
+        -58.94041266396128,
+        17.462852783678866
+      ],
+      "attachment": "sunken_ground_contact"
+    },
+    {
+      "name": "RockScan_Detail_082_workshops",
+      "area": "workshops",
+      "room_id": "workshops",
+      "template": "ScanTemplate_rock_face_01.001",
+      "position_godot": [
+        5.730496013320996,
+        3.482523704832809,
+        44.18984023382936
+      ],
+      "dimensions_m": [
+        2.8008448134275277,
+        1.4615472663714608,
+        0.9099417993690307
+      ],
+      "rotation_y": 3.684830347668814,
+      "elevated": true,
+      "clearance_radius_m": 0.16,
+      "clearance_anchor_xz": [
+        5.704044782615894,
+        44.13001269924638
+      ],
+      "attachment": "terrain_surface_raycast"
+    },
+    {
+      "name": "RockScan_Detail_083_workshops",
+      "area": "workshops",
+      "room_id": "workshops",
+      "template": "ScanTemplate_rock_face_02.001",
+      "position_godot": [
+        -7.311927471058197,
+        -0.23114518336951734,
+        21.26583036802736
+      ],
+      "dimensions_m": [
+        3.2027793767661477,
+        3.1882235659775233,
+        1.3795341433610586
+      ],
+      "rotation_y": 0.2300416172551406,
+      "elevated": false,
+      "clearance_radius_m": 1.8236248298399433,
+      "clearance_anchor_xz": [
+        -7.311927471058197,
+        21.26583036802736
+      ],
+      "attachment": "sunken_ground_contact"
+    },
+    {
+      "name": "RockScan_Detail_084_workshops",
+      "area": "workshops",
+      "room_id": "workshops",
+      "template": "ScanTemplate_rock_face_02.001",
+      "position_godot": [
+        4.799477611697766,
+        -0.18991974443197251,
+        26.931268453983925
+      ],
+      "dimensions_m": [
+        2.287595896935973,
+        4.224340152684674,
+        1.3952039216747636
+      ],
+      "rotation_y": 4.418793094886532,
+      "elevated": false,
+      "clearance_radius_m": 1.4197470816104565,
+      "clearance_anchor_xz": [
+        4.799477611697766,
+        26.931268453983925
+      ],
+      "attachment": "sunken_ground_contact"
+    },
+    {
+      "name": "RockScan_Detail_085_southwest_adit",
+      "area": "southwest_adit",
+      "room_id": "southwest_adit",
+      "template": "ScanTemplate_rock_face_01.001",
+      "position_godot": [
+        -52.55447711748,
+        -0.18421541787683965,
+        63.30456576411542
+      ],
+      "dimensions_m": [
+        2.5846127525586966,
+        4.360384605667841,
+        1.5222498311863513
+      ],
+      "rotation_y": 3.4789073372152806,
+      "elevated": false,
+      "clearance_radius_m": 1.5797889542562245,
+      "clearance_anchor_xz": [
+        -52.55447711748,
+        63.30456576411542
+      ],
+      "attachment": "sunken_ground_contact"
+    },
+    {
+      "name": "RockScan_Detail_086_southwest_adit",
+      "area": "southwest_adit",
+      "room_id": "southwest_adit",
+      "template": "ScanTemplate_rock_face_02.001",
+      "position_godot": [
+        -59.1794848465501,
+        -0.20925746839493514,
+        62.539351051068415
+      ],
+      "dimensions_m": [
+        3.457802782230959,
+        4.6817905049491575,
+        1.6327146892805713
+      ],
+      "rotation_y": 0.7273716017140474,
+      "elevated": false,
+      "clearance_radius_m": 1.9919464778986828,
+      "clearance_anchor_xz": [
+        -59.1794848465501,
+        62.539351051068415
+      ],
+      "attachment": "sunken_ground_contact"
+    },
+    {
+      "name": "RockScan_Detail_087_southwest_adit",
+      "area": "southwest_adit",
+      "room_id": "southwest_adit",
+      "template": "ScanTemplate_rock_face_02.001",
+      "position_godot": [
+        -57.20384454670933,
+        -0.20341332494281233,
+        63.83956911490585
+      ],
+      "dimensions_m": [
+        4.479756727652896,
+        4.334738861378831,
+        1.1058867639947285
+      ],
+      "rotation_y": 2.9931213854975836,
+      "elevated": false,
+      "clearance_radius_m": 2.3871197343078077,
+      "clearance_anchor_xz": [
+        -57.20384454670933,
+        63.83956911490585
+      ],
+      "attachment": "sunken_ground_contact"
+    }
+  ],
+  "rejected_candidates": {
+    "prop_volume": 67,
+    "duplicate_cluster": 59,
+    "route_or_wall": 125,
+    "ceiling": 76,
+    "no_wall_attachment": 1
+  },
+  "seed": 4813139,
+  "max_fragments": 88,
+  "notes": [
+    "Existing scan topology, physical UVs and photographic materials are reused unchanged.",
+    "Low fragments clear a protected 1.35m route plus their full horizontal bounding radius.",
+    "High wall shelves start at least3m above local floor, outside prop volumes.",
+    "Post-build helper is idempotent and only replaces its own marked scan instances."
+  ]
+}

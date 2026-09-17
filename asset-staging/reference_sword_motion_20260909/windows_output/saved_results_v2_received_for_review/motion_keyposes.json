@@ -1,0 +1,1862 @@
+{
+  "schema_version": "1.0",
+  "status": "initial_authored_camera_projection_proposal",
+  "purpose": "Eight static-grip motion timing proposals for sword-and-shield first-person assemblies; no Blender edits or motion generation performed.",
+  "evidence": {
+    "timing_source": "Reported event times supplied by the coordinating task; this subtask did not inspect the video.",
+    "video_inspected_by_this_subtask": false,
+    "reference_video_local_path": null,
+    "source_blend_or_glb_path": null,
+    "rig_controller_identifiers": null,
+    "source_inputs_missing_for_this_subtask": [
+      "Local reference-video file or frames",
+      "Explicit current Blender/GLB source paths and controller/pivot identifiers"
+    ],
+    "limitation": "All translations, rotations, run cadence and jump phase boundaries below are inferred proposals, not measurements from the video."
+  },
+  "coordinate_system": {
+    "space": "fixed camera-local",
+    "units": {
+      "translation": "meters",
+      "rotation": "degrees",
+      "time": "seconds"
+    },
+    "axes": {
+      "x": "+right",
+      "y": "+up",
+      "forward": "-Z"
+    },
+    "rotation_convention": "Active right-handed extrinsic XYZ rotations around fixed camera-local axes; with column vectors use R = Rz(z) * Ry(y) * Rx(x). These are deltas from the approved ready pose, not absolute model Euler angles.",
+    "application": "The parent task chooses the actual controller pivot. Apply the rotation delta about that pivot, then camera-local translation. Move each complete hand/weapon assembly together; do not scale, bend, or change grip geometry.",
+    "camera_motion": "No camera motion or character root locomotion is defined."
+  },
+  "constraints": {
+    "preserve_model_shape": true,
+    "preserve_rigid_grip": true,
+    "allow_offscreen_preparation_and_followthrough": true,
+    "no_new_rig": true,
+    "no_bone_pose_edits": true,
+    "sword_and_shield_present_in_all_clips": true,
+    "shield_motion_is_guard_followthrough_only": true
+  },
+  "interpolation": {
+    "default": "Clamped cubic, no automatic overshoot.",
+    "fast_crossings": "Keep keys within the reported crossing windows. Prefer near-linear velocity through the central crossing; soften only entry/exit. Do not stretch attack contact windows to fit recovery.",
+    "angles": "Unwrap each Euler component to the shortest intended continuous track before interpolation; adapt to actual controller orientation.",
+    "root_adaptation": "These values are a bounded starting proposal. Parent must inspect actual projected silhouette, resolve sword/shield overlap, and adjust pivot/amplitudes before delivery."
+  },
+  "jump_split": {
+    "reported_window_s": [
+      14.83,
+      16.33
+    ],
+    "proposed_boundaries_s": [
+      14.83,
+      15.13,
+      15.93,
+      16.33
+    ],
+    "duration_total_s": 1.5,
+    "basis": "Only the overall lower\u2192raise\u2192land-compress\u2192recover sequence and full window were supplied. Internal takeoff/air/land divisions are inferred."
+  },
+  "clips": [
+    {
+      "name": "idle",
+      "duration_s": 1,
+      "loop": true,
+      "source_window_s": null,
+      "source_window_basis": "no measured source window",
+      "phase_intent": {
+        "sword": "Almost vertical video-style base with subtle 2.5 mm authored breathing.",
+        "shield": "Retain shield guard independently on the left; no idle sway requested."
+      },
+      "source_events": [],
+      "keyposes": [
+        {
+          "time_s": 0,
+          "normalized_t": 0.0,
+          "timing_basis": "authored interpolation key",
+          "sword": {
+            "position_delta_m": [
+              0,
+              0,
+              0
+            ],
+            "rotation_delta_xyz_deg": [
+              0,
+              0,
+              0
+            ]
+          },
+          "shield": {
+            "position_delta_m": [
+              0,
+              0,
+              0
+            ],
+            "rotation_delta_xyz_deg": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "time_s": 0.25,
+          "normalized_t": 0.25,
+          "timing_basis": "authored interpolation key",
+          "sword": {
+            "position_delta_m": [
+              0,
+              0.0025,
+              0
+            ],
+            "rotation_delta_xyz_deg": [
+              0.25,
+              0,
+              0.12
+            ]
+          },
+          "shield": {
+            "position_delta_m": [
+              0,
+              0.002,
+              0
+            ],
+            "rotation_delta_xyz_deg": [
+              0.15,
+              0,
+              -0.1
+            ]
+          }
+        },
+        {
+          "time_s": 0.5,
+          "normalized_t": 0.5,
+          "timing_basis": "authored interpolation key",
+          "sword": {
+            "position_delta_m": [
+              0,
+              0,
+              0
+            ],
+            "rotation_delta_xyz_deg": [
+              0,
+              0,
+              0
+            ]
+          },
+          "shield": {
+            "position_delta_m": [
+              0,
+              0,
+              0
+            ],
+            "rotation_delta_xyz_deg": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "time_s": 0.75,
+          "normalized_t": 0.75,
+          "timing_basis": "authored interpolation key",
+          "sword": {
+            "position_delta_m": [
+              0,
+              -0.0025,
+              0
+            ],
+            "rotation_delta_xyz_deg": [
+              -0.25,
+              0,
+              -0.12
+            ]
+          },
+          "shield": {
+            "position_delta_m": [
+              0,
+              -0.002,
+              0
+            ],
+            "rotation_delta_xyz_deg": [
+              -0.15,
+              0,
+              0.1
+            ]
+          }
+        },
+        {
+          "time_s": 1,
+          "normalized_t": 1.0,
+          "timing_basis": "authored interpolation key",
+          "sword": {
+            "position_delta_m": [
+              0,
+              0,
+              0
+            ],
+            "rotation_delta_xyz_deg": [
+              0,
+              0,
+              0
+            ]
+          },
+          "shield": {
+            "position_delta_m": [
+              0,
+              0,
+              0
+            ],
+            "rotation_delta_xyz_deg": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "run",
+      "duration_s": 1,
+      "loop": true,
+      "source_window_s": null,
+      "source_window_basis": "no measured source window",
+      "phase_intent": {
+        "sword": "Inferred 1-second period with modest sway; no measured gait or locomotion root motion.",
+        "shield": "Lower amplitude counterphase so the shield does not obscure the blade."
+      },
+      "source_events": [],
+      "keyposes": [
+        {
+          "time_s": 0,
+          "timing_basis": "proposed",
+          "sword": {
+            "position_delta_m": [
+              0,
+              -0.008,
+              0
+            ],
+            "rotation_delta_xyz_deg": [
+              0.7,
+              0,
+              -0.8
+            ]
+          },
+          "shield": {
+            "position_delta_m": [
+              0,
+              -0.005,
+              0
+            ],
+            "rotation_delta_xyz_deg": [
+              0.5,
+              0,
+              0.5
+            ]
+          },
+          "intent": "Small camera-relative arm inertia.",
+          "t": 0,
+          "source_time_s": null,
+          "interpolation_to_next": "clamped_cubic_no_overshoot",
+          "normalized_t": 0.0
+        },
+        {
+          "time_s": 0.25,
+          "timing_basis": "proposed",
+          "sword": {
+            "position_delta_m": [
+              0.012,
+              0.012,
+              -0.008
+            ],
+            "rotation_delta_xyz_deg": [
+              -1.2,
+              0.7,
+              1.5
+            ]
+          },
+          "shield": {
+            "position_delta_m": [
+              -0.007,
+              0.008,
+              -0.005
+            ],
+            "rotation_delta_xyz_deg": [
+              -0.8,
+              -0.5,
+              -1
+            ]
+          },
+          "intent": "Alternating sway, shield counterphase.",
+          "t": 0.25,
+          "source_time_s": null,
+          "interpolation_to_next": "clamped_cubic_no_overshoot",
+          "normalized_t": 0.25
+        },
+        {
+          "time_s": 0.5,
+          "timing_basis": "proposed",
+          "sword": {
+            "position_delta_m": [
+              0,
+              -0.008,
+              0
+            ],
+            "rotation_delta_xyz_deg": [
+              0.7,
+              0,
+              -0.8
+            ]
+          },
+          "shield": {
+            "position_delta_m": [
+              0,
+              -0.005,
+              0
+            ],
+            "rotation_delta_xyz_deg": [
+              0.5,
+              0,
+              0.5
+            ]
+          },
+          "intent": "Return through lower stride position.",
+          "t": 0.5,
+          "source_time_s": null,
+          "interpolation_to_next": "clamped_cubic_no_overshoot",
+          "normalized_t": 0.5
+        },
+        {
+          "time_s": 0.75,
+          "timing_basis": "proposed",
+          "sword": {
+            "position_delta_m": [
+              -0.012,
+              0.012,
+              -0.008
+            ],
+            "rotation_delta_xyz_deg": [
+              -1.2,
+              -0.7,
+              -1.5
+            ]
+          },
+          "shield": {
+            "position_delta_m": [
+              0.007,
+              0.008,
+              -0.005
+            ],
+            "rotation_delta_xyz_deg": [
+              -0.8,
+              0.5,
+              1
+            ]
+          },
+          "intent": "Opposite stride; retain grip.",
+          "t": 0.75,
+          "source_time_s": null,
+          "interpolation_to_next": "clamped_cubic_no_overshoot",
+          "normalized_t": 0.75
+        },
+        {
+          "time_s": 1,
+          "timing_basis": "proposed",
+          "sword": {
+            "position_delta_m": [
+              0,
+              -0.008,
+              0
+            ],
+            "rotation_delta_xyz_deg": [
+              0.7,
+              0,
+              -0.8
+            ]
+          },
+          "shield": {
+            "position_delta_m": [
+              0,
+              -0.005,
+              0
+            ],
+            "rotation_delta_xyz_deg": [
+              0.5,
+              0,
+              0.5
+            ]
+          },
+          "intent": "Exact periodic endpoint.",
+          "t": 1,
+          "source_time_s": null,
+          "interpolation_to_next": "clamped_cubic_no_overshoot",
+          "normalized_t": 1.0
+        }
+      ]
+    },
+    {
+      "name": "takeoff",
+      "duration_s": 0.3,
+      "loop": false,
+      "source_window_s": [
+        14.83,
+        15.13
+      ],
+      "source_window_basis": "reported window; subdivision only inferred where explicitly marked",
+      "phase_intent": {
+        "sword": "Lower then raise with takeoff; no grip change.",
+        "shield": "Follow the same vertical phase at slightly reduced amplitude."
+      },
+      "source_events": [
+        {
+          "time_s": 14.83,
+          "event": "start of reported jump window",
+          "basis": "Reported event times supplied by the coordinating task; this subtask did not inspect the video."
+        },
+        {
+          "time_s": 15.13,
+          "event": "takeoff/air split",
+          "basis": "proposed subdivision, not measured"
+        }
+      ],
+      "keyposes": [
+        {
+          "time_s": 0,
+          "timing_basis": "proposed",
+          "sword": {
+            "position_delta_m": [
+              0,
+              0,
+              0
+            ],
+            "rotation_delta_xyz_deg": [
+              0,
+              0,
+              0
+            ]
+          },
+          "shield": {
+            "position_delta_m": [
+              0,
+              0,
+              0
+            ],
+            "rotation_delta_xyz_deg": [
+              0,
+              0,
+              0
+            ]
+          },
+          "intent": "Ready hold at start of reported jump window.",
+          "t": 0,
+          "source_time_s": 14.83,
+          "interpolation_to_next": "clamped_cubic_no_overshoot",
+          "normalized_t": 0.0
+        },
+        {
+          "time_s": 0.12,
+          "timing_basis": "proposed",
+          "sword": {
+            "position_delta_m": [
+              0,
+              -0.05,
+              0.015
+            ],
+            "rotation_delta_xyz_deg": [
+              5,
+              0,
+              2
+            ]
+          },
+          "shield": {
+            "position_delta_m": [
+              0,
+              -0.04,
+              0.01
+            ],
+            "rotation_delta_xyz_deg": [
+              3,
+              0,
+              -1
+            ]
+          },
+          "intent": "Proposed pre-jump lowering/compression.",
+          "t": 0.4,
+          "source_time_s": 14.95,
+          "interpolation_to_next": "clamped_cubic_no_overshoot",
+          "normalized_t": 0.4
+        },
+        {
+          "time_s": 0.3,
+          "timing_basis": "proposed",
+          "sword": {
+            "position_delta_m": [
+              0,
+              0.05,
+              -0.02
+            ],
+            "rotation_delta_xyz_deg": [
+              -5,
+              0,
+              -2
+            ]
+          },
+          "shield": {
+            "position_delta_m": [
+              0,
+              0.035,
+              -0.015
+            ],
+            "rotation_delta_xyz_deg": [
+              -3,
+              0,
+              1
+            ]
+          },
+          "intent": "Raise into airborne hold.",
+          "t": 1,
+          "source_time_s": 15.13,
+          "interpolation_to_next": "clamped_cubic_no_overshoot",
+          "normalized_t": 1.0
+        }
+      ]
+    },
+    {
+      "name": "air",
+      "duration_s": 0.8,
+      "loop": true,
+      "source_window_s": [
+        15.13,
+        15.93
+      ],
+      "source_window_basis": "reported window; subdivision only inferred where explicitly marked",
+      "phase_intent": {
+        "sword": "Loopable airborne ready pose, returning to takeoff endpoint.",
+        "shield": "Loopable airborne guard."
+      },
+      "source_events": [
+        {
+          "time_s": 15.13,
+          "event": "start of proposed airborne subdivision",
+          "basis": "inferred"
+        },
+        {
+          "time_s": 15.93,
+          "event": "air/land split",
+          "basis": "proposed subdivision, not measured"
+        }
+      ],
+      "keyposes": [
+        {
+          "time_s": 0,
+          "timing_basis": "proposed",
+          "sword": {
+            "position_delta_m": [
+              0,
+              0.05,
+              -0.02
+            ],
+            "rotation_delta_xyz_deg": [
+              -5,
+              0,
+              -2
+            ]
+          },
+          "shield": {
+            "position_delta_m": [
+              0,
+              0.035,
+              -0.015
+            ],
+            "rotation_delta_xyz_deg": [
+              -3,
+              0,
+              1
+            ]
+          },
+          "intent": "Raise into airborne hold.",
+          "t": 1,
+          "source_time_s": 15.13,
+          "interpolation_to_next": "clamped_cubic_no_overshoot",
+          "normalized_t": 0.0
+        },
+        {
+          "time_s": 0.4,
+          "normalized_t": 0.5,
+          "timing_basis": "authored interpolation key",
+          "sword": {
+            "position_delta_m": [
+              0.002,
+              0.055,
+              -0.024
+            ],
+            "rotation_delta_xyz_deg": [
+              -5.5,
+              0.4,
+              -2
+            ]
+          },
+          "shield": {
+            "position_delta_m": [
+              0,
+              0.041,
+              -0.014
+            ],
+            "rotation_delta_xyz_deg": [
+              -3.5,
+              0,
+              1
+            ]
+          }
+        },
+        {
+          "time_s": 0.8,
+          "timing_basis": "proposed",
+          "sword": {
+            "position_delta_m": [
+              0,
+              0.05,
+              -0.02
+            ],
+            "rotation_delta_xyz_deg": [
+              -5,
+              0,
+              -2
+            ]
+          },
+          "shield": {
+            "position_delta_m": [
+              0,
+              0.035,
+              -0.015
+            ],
+            "rotation_delta_xyz_deg": [
+              -3,
+              0,
+              1
+            ]
+          },
+          "intent": "Raise into airborne hold.",
+          "t": 1,
+          "source_time_s": 15.13,
+          "interpolation_to_next": "clamped_cubic_no_overshoot",
+          "normalized_t": 1.0
+        }
+      ]
+    },
+    {
+      "name": "land",
+      "duration_s": 0.4,
+      "loop": false,
+      "source_window_s": [
+        15.93,
+        16.33
+      ],
+      "source_window_basis": "reported window; subdivision only inferred where explicitly marked",
+      "phase_intent": {
+        "sword": "Landing compression followed by controlled recovery.",
+        "shield": "Match compression timing with lower amplitude; avoid covering the whole view."
+      },
+      "source_events": [
+        {
+          "time_s": 15.93,
+          "event": "start of proposed landing subdivision",
+          "basis": "inferred"
+        },
+        {
+          "time_s": 16.33,
+          "event": "end of reported jump window",
+          "basis": "Reported event times supplied by the coordinating task; this subtask did not inspect the video."
+        }
+      ],
+      "keyposes": [
+        {
+          "time_s": 0,
+          "timing_basis": "proposed",
+          "sword": {
+            "position_delta_m": [
+              0,
+              0.05,
+              -0.02
+            ],
+            "rotation_delta_xyz_deg": [
+              -5,
+              0,
+              -2
+            ]
+          },
+          "shield": {
+            "position_delta_m": [
+              0,
+              0.035,
+              -0.015
+            ],
+            "rotation_delta_xyz_deg": [
+              -3,
+              0,
+              1
+            ]
+          },
+          "intent": "Exact continuation of air end.",
+          "t": 0,
+          "source_time_s": 15.93,
+          "interpolation_to_next": "clamped_cubic_no_overshoot",
+          "normalized_t": 0.0
+        },
+        {
+          "time_s": 0.1,
+          "timing_basis": "proposed",
+          "sword": {
+            "position_delta_m": [
+              0,
+              -0.07,
+              0.035
+            ],
+            "rotation_delta_xyz_deg": [
+              9,
+              0,
+              3
+            ]
+          },
+          "shield": {
+            "position_delta_m": [
+              0,
+              -0.055,
+              0.025
+            ],
+            "rotation_delta_xyz_deg": [
+              6,
+              0,
+              -2
+            ]
+          },
+          "intent": "Proposed landing compression.",
+          "t": 0.25,
+          "source_time_s": 16.03,
+          "interpolation_to_next": "clamped_cubic_no_overshoot",
+          "normalized_t": 0.25
+        },
+        {
+          "time_s": 0.23,
+          "timing_basis": "proposed",
+          "sword": {
+            "position_delta_m": [
+              0,
+              0.012,
+              -0.006
+            ],
+            "rotation_delta_xyz_deg": [
+              -2,
+              0,
+              -1
+            ]
+          },
+          "shield": {
+            "position_delta_m": [
+              0,
+              0.008,
+              -0.004
+            ],
+            "rotation_delta_xyz_deg": [
+              -1,
+              0,
+              1
+            ]
+          },
+          "intent": "Small recovery rebound.",
+          "t": 0.575,
+          "source_time_s": 16.16,
+          "interpolation_to_next": "clamped_cubic_no_overshoot",
+          "normalized_t": 0.575
+        },
+        {
+          "time_s": 0.4,
+          "timing_basis": "proposed",
+          "sword": {
+            "position_delta_m": [
+              0,
+              0,
+              0
+            ],
+            "rotation_delta_xyz_deg": [
+              0,
+              0,
+              0
+            ]
+          },
+          "shield": {
+            "position_delta_m": [
+              0,
+              0,
+              0
+            ],
+            "rotation_delta_xyz_deg": [
+              0,
+              0,
+              0
+            ]
+          },
+          "intent": "Return to the unchanged ready hold.",
+          "t": 1,
+          "source_time_s": 16.33,
+          "interpolation_to_next": "clamped_cubic_no_overshoot",
+          "normalized_t": 1.0
+        }
+      ]
+    },
+    {
+      "name": "right_diagonal",
+      "duration_s": 1.59,
+      "loop": false,
+      "source_window_s": [
+        21.16,
+        22.75
+      ],
+      "source_window_basis": "reported window; subdivision only inferred where explicitly marked",
+      "phase_intent": {
+        "sword": "Prepare upper right, cut diagonally across toward left/lower side, then recover.",
+        "shield": "Ease lower/left to clear the sword arc; modest counterrotation; return to guard."
+      },
+      "source_events": [
+        {
+          "time_s": 21.16,
+          "event": "clip start",
+          "basis": "Reported event times supplied by the coordinating task; this subtask did not inspect the video."
+        },
+        {
+          "time_s": 21.25,
+          "event": "right preparation starts",
+          "basis": "Reported event times supplied by the coordinating task; this subtask did not inspect the video."
+        },
+        {
+          "time_s": 21.85,
+          "event": "right preparation ends",
+          "basis": "Reported event times supplied by the coordinating task; this subtask did not inspect the video."
+        },
+        {
+          "time_s": 21.875,
+          "event": "crossing starts",
+          "basis": "Reported event times supplied by the coordinating task; this subtask did not inspect the video."
+        },
+        {
+          "time_s": 22.05,
+          "event": "crossing ends",
+          "basis": "Reported event times supplied by the coordinating task; this subtask did not inspect the video."
+        },
+        {
+          "time_s": 22.75,
+          "event": "clip ends",
+          "basis": "Reported event times supplied by the coordinating task; this subtask did not inspect the video."
+        }
+      ],
+      "keyposes": [
+        {
+          "time_s": 0,
+          "timing_basis": "proposed",
+          "sword": {
+            "position_delta_m": [
+              0,
+              0,
+              0
+            ],
+            "rotation_delta_xyz_deg": [
+              0,
+              0,
+              0
+            ]
+          },
+          "shield": {
+            "position_delta_m": [
+              0,
+              0,
+              0
+            ],
+            "rotation_delta_xyz_deg": [
+              0,
+              0,
+              0
+            ]
+          },
+          "intent": "Ready hold at reference-window start.",
+          "t": 0,
+          "source_time_s": 21.16,
+          "interpolation_to_next": "clamped_cubic_no_overshoot",
+          "normalized_t": 0.0
+        },
+        {
+          "time_s": 0.09,
+          "timing_basis": "reported prep-start time",
+          "sword": {
+            "position_delta_m": [
+              0.1,
+              0.14,
+              0.02
+            ],
+            "rotation_delta_xyz_deg": [
+              -5,
+              0,
+              -15
+            ]
+          },
+          "shield": {
+            "position_delta_m": [
+              -0.01,
+              -0.01,
+              0
+            ],
+            "rotation_delta_xyz_deg": [
+              0,
+              0,
+              2
+            ]
+          },
+          "intent": "Begin right-side preparation.",
+          "t": 0.056604,
+          "source_time_s": 21.25,
+          "interpolation_to_next": "clamped_cubic_no_overshoot",
+          "normalized_t": 0.056603774
+        },
+        {
+          "time_s": 0.43,
+          "timing_basis": "proposed",
+          "sword": {
+            "position_delta_m": [
+              0.58,
+              0.72,
+              0.025
+            ],
+            "rotation_delta_xyz_deg": [
+              20,
+              -10,
+              -55
+            ]
+          },
+          "shield": {
+            "position_delta_m": [
+              -0.035,
+              -0.045,
+              0.01
+            ],
+            "rotation_delta_xyz_deg": [
+              3,
+              -3,
+              5
+            ]
+          },
+          "intent": "Proposed raised right-side anticipation; blade may leave frame.",
+          "t": 0.27044,
+          "source_time_s": 21.59,
+          "interpolation_to_next": "clamped_cubic_no_overshoot",
+          "normalized_t": 0.270440252
+        },
+        {
+          "time_s": 0.69,
+          "timing_basis": "reported prep-end time",
+          "sword": {
+            "position_delta_m": [
+              0.63,
+              0.76,
+              0.02
+            ],
+            "rotation_delta_xyz_deg": [
+              25,
+              -10,
+              -58
+            ]
+          },
+          "shield": {
+            "position_delta_m": [
+              -0.035,
+              -0.045,
+              0.01
+            ],
+            "rotation_delta_xyz_deg": [
+              3,
+              -3,
+              5
+            ]
+          },
+          "intent": "End of reported right-side preparation.",
+          "t": 0.433962,
+          "source_time_s": 21.85,
+          "interpolation_to_next": "clamped_cubic_no_overshoot",
+          "normalized_t": 0.433962264
+        },
+        {
+          "time_s": 0.715,
+          "timing_basis": "reported crossing-start time",
+          "sword": {
+            "position_delta_m": [
+              0.58,
+              0.7,
+              -0.02
+            ],
+            "rotation_delta_xyz_deg": [
+              5,
+              -5,
+              -50
+            ]
+          },
+          "shield": {
+            "position_delta_m": [
+              -0.03,
+              -0.04,
+              0.005
+            ],
+            "rotation_delta_xyz_deg": [
+              2,
+              -2,
+              4
+            ]
+          },
+          "intent": "Start fast diagonal crossing.",
+          "t": 0.449686,
+          "source_time_s": 21.875,
+          "interpolation_to_next": "clamped_cubic_no_overshoot",
+          "normalized_t": 0.449685535
+        },
+        {
+          "time_s": 0.815,
+          "timing_basis": "proposed",
+          "sword": {
+            "position_delta_m": [
+              -0.45,
+              0.45,
+              -0.18
+            ],
+            "rotation_delta_xyz_deg": [
+              -30,
+              0,
+              20
+            ]
+          },
+          "shield": {
+            "position_delta_m": [
+              -0.015,
+              -0.025,
+              -0.008
+            ],
+            "rotation_delta_xyz_deg": [
+              1,
+              1,
+              2
+            ]
+          },
+          "intent": "Proposed strike midpoint through upper-right to lower-left path.",
+          "t": 0.512579,
+          "source_time_s": 21.975,
+          "interpolation_to_next": "clamped_cubic_no_overshoot",
+          "normalized_t": 0.512578616
+        },
+        {
+          "time_s": 0.89,
+          "timing_basis": "reported crossing-end time",
+          "sword": {
+            "position_delta_m": [
+              -1.42,
+              -0.22,
+              -0.1
+            ],
+            "rotation_delta_xyz_deg": [
+              -45,
+              5,
+              120
+            ]
+          },
+          "shield": {
+            "position_delta_m": [
+              -0.005,
+              -0.025,
+              -0.01
+            ],
+            "rotation_delta_xyz_deg": [
+              0,
+              3,
+              -2
+            ]
+          },
+          "intent": "End fast diagonal crossing; follow-through may leave left/bottom edge.",
+          "t": 0.559748,
+          "source_time_s": 22.05,
+          "interpolation_to_next": "clamped_cubic_no_overshoot",
+          "normalized_t": 0.559748428
+        },
+        {
+          "time_s": 1.12,
+          "timing_basis": "proposed",
+          "sword": {
+            "position_delta_m": [
+              -1.12,
+              -0.24,
+              -0.025
+            ],
+            "rotation_delta_xyz_deg": [
+              -30,
+              5,
+              100
+            ]
+          },
+          "shield": {
+            "position_delta_m": [
+              -0.015,
+              -0.015,
+              0
+            ],
+            "rotation_delta_xyz_deg": [
+              0,
+              1,
+              -1
+            ]
+          },
+          "intent": "Proposed early recovery.",
+          "t": 0.704403,
+          "source_time_s": 22.28,
+          "interpolation_to_next": "clamped_cubic_no_overshoot",
+          "normalized_t": 0.704402516
+        },
+        {
+          "time_s": 1.59,
+          "timing_basis": "proposed",
+          "sword": {
+            "position_delta_m": [
+              0,
+              0,
+              0
+            ],
+            "rotation_delta_xyz_deg": [
+              0,
+              0,
+              0
+            ]
+          },
+          "shield": {
+            "position_delta_m": [
+              0,
+              0,
+              0
+            ],
+            "rotation_delta_xyz_deg": [
+              0,
+              0,
+              0
+            ]
+          },
+          "intent": "Return to ready hold.",
+          "t": 1,
+          "source_time_s": 22.75,
+          "interpolation_to_next": "clamped_cubic_no_overshoot",
+          "normalized_t": 1.0
+        }
+      ],
+      "pose_amplitude_basis": "Authored from known camera FOV and screen-exit intent; visual validation required."
+    },
+    {
+      "name": "left_reverse",
+      "duration_s": 1.47,
+      "loop": false,
+      "source_window_s": [
+        19.28,
+        20.75
+      ],
+      "source_window_basis": "reported window; subdivision only inferred where explicitly marked",
+      "phase_intent": {
+        "sword": "Prepare left, reverse the preceding diagonal direction toward the right, then recover.",
+        "shield": "Lower farther during left preparation to leave space for the right hand across the body; no grip change."
+      },
+      "source_events": [
+        {
+          "time_s": 19.28,
+          "event": "clip start",
+          "basis": "Reported event times supplied by the coordinating task; this subtask did not inspect the video."
+        },
+        {
+          "time_s": 19.4,
+          "event": "left preparation starts",
+          "basis": "Reported event times supplied by the coordinating task; this subtask did not inspect the video."
+        },
+        {
+          "time_s": 19.85,
+          "event": "left preparation ends",
+          "basis": "Reported event times supplied by the coordinating task; this subtask did not inspect the video."
+        },
+        {
+          "time_s": 19.9,
+          "event": "crossing starts",
+          "basis": "Reported event times supplied by the coordinating task; this subtask did not inspect the video."
+        },
+        {
+          "time_s": 20.05,
+          "event": "crossing ends",
+          "basis": "Reported event times supplied by the coordinating task; this subtask did not inspect the video."
+        },
+        {
+          "time_s": 20.75,
+          "event": "clip ends",
+          "basis": "Reported event times supplied by the coordinating task; this subtask did not inspect the video."
+        }
+      ],
+      "keyposes": [
+        {
+          "time_s": 0,
+          "timing_basis": "proposed",
+          "sword": {
+            "position_delta_m": [
+              0,
+              0,
+              0
+            ],
+            "rotation_delta_xyz_deg": [
+              0,
+              0,
+              0
+            ]
+          },
+          "shield": {
+            "position_delta_m": [
+              0,
+              0,
+              0
+            ],
+            "rotation_delta_xyz_deg": [
+              0,
+              0,
+              0
+            ]
+          },
+          "intent": "Ready hold at reference-window start.",
+          "t": 0,
+          "source_time_s": 19.28,
+          "interpolation_to_next": "clamped_cubic_no_overshoot",
+          "normalized_t": 0.0
+        },
+        {
+          "time_s": 0.12,
+          "timing_basis": "reported prep-start time",
+          "sword": {
+            "position_delta_m": [
+              -0.2,
+              0.1,
+              0.015
+            ],
+            "rotation_delta_xyz_deg": [
+              -5,
+              0,
+              20
+            ]
+          },
+          "shield": {
+            "position_delta_m": [
+              -0.01,
+              -0.015,
+              0.005
+            ],
+            "rotation_delta_xyz_deg": [
+              2,
+              1,
+              2
+            ]
+          },
+          "intent": "Begin left-side preparation.",
+          "t": 0.081633,
+          "source_time_s": 19.4,
+          "interpolation_to_next": "clamped_cubic_no_overshoot",
+          "normalized_t": 0.081632653
+        },
+        {
+          "time_s": 0.4,
+          "timing_basis": "proposed",
+          "sword": {
+            "position_delta_m": [
+              -1.44,
+              0.32,
+              0.035
+            ],
+            "rotation_delta_xyz_deg": [
+              -15,
+              8,
+              105
+            ]
+          },
+          "shield": {
+            "position_delta_m": [
+              -0.045,
+              -0.07,
+              0.02
+            ],
+            "rotation_delta_xyz_deg": [
+              5,
+              -2,
+              8
+            ]
+          },
+          "intent": "Proposed left anticipation; sword/hand may leave left edge.",
+          "t": 0.272109,
+          "source_time_s": 19.68,
+          "interpolation_to_next": "clamped_cubic_no_overshoot",
+          "normalized_t": 0.272108844
+        },
+        {
+          "time_s": 0.57,
+          "timing_basis": "reported prep-end time",
+          "sword": {
+            "position_delta_m": [
+              -1.5,
+              0.34,
+              0.025
+            ],
+            "rotation_delta_xyz_deg": [
+              -18,
+              8,
+              110
+            ]
+          },
+          "shield": {
+            "position_delta_m": [
+              -0.045,
+              -0.07,
+              0.02
+            ],
+            "rotation_delta_xyz_deg": [
+              5,
+              -2,
+              8
+            ]
+          },
+          "intent": "End left-side preparation.",
+          "t": 0.387755,
+          "source_time_s": 19.85,
+          "interpolation_to_next": "clamped_cubic_no_overshoot",
+          "normalized_t": 0.387755102
+        },
+        {
+          "time_s": 0.62,
+          "timing_basis": "reported crossing-start time",
+          "sword": {
+            "position_delta_m": [
+              -1.44,
+              0.35,
+              -0.02
+            ],
+            "rotation_delta_xyz_deg": [
+              -15,
+              5,
+              105
+            ]
+          },
+          "shield": {
+            "position_delta_m": [
+              -0.04,
+              -0.06,
+              0.015
+            ],
+            "rotation_delta_xyz_deg": [
+              4,
+              -1,
+              6
+            ]
+          },
+          "intent": "Start fast reverse crossing.",
+          "t": 0.421769,
+          "source_time_s": 19.9,
+          "interpolation_to_next": "clamped_cubic_no_overshoot",
+          "normalized_t": 0.421768707
+        },
+        {
+          "time_s": 0.7,
+          "timing_basis": "proposed",
+          "sword": {
+            "position_delta_m": [
+              -0.5,
+              0.46,
+              -0.18
+            ],
+            "rotation_delta_xyz_deg": [
+              -25,
+              0,
+              0
+            ]
+          },
+          "shield": {
+            "position_delta_m": [
+              -0.028,
+              -0.04,
+              0
+            ],
+            "rotation_delta_xyz_deg": [
+              2,
+              0,
+              3
+            ]
+          },
+          "intent": "Proposed crossing midpoint moving from left toward right.",
+          "t": 0.47619,
+          "source_time_s": 19.98,
+          "interpolation_to_next": "clamped_cubic_no_overshoot",
+          "normalized_t": 0.476190476
+        },
+        {
+          "time_s": 0.77,
+          "timing_basis": "reported crossing-end time",
+          "sword": {
+            "position_delta_m": [
+              0.63,
+              0.45,
+              -0.08
+            ],
+            "rotation_delta_xyz_deg": [
+              -30,
+              -8,
+              -105
+            ]
+          },
+          "shield": {
+            "position_delta_m": [
+              -0.01,
+              -0.02,
+              0
+            ],
+            "rotation_delta_xyz_deg": [
+              0,
+              2,
+              -2
+            ]
+          },
+          "intent": "End reverse crossing; right-side follow-through may leave frame.",
+          "t": 0.52381,
+          "source_time_s": 20.05,
+          "interpolation_to_next": "clamped_cubic_no_overshoot",
+          "normalized_t": 0.523809524
+        },
+        {
+          "time_s": 1.02,
+          "timing_basis": "proposed",
+          "sword": {
+            "position_delta_m": [
+              0.51,
+              0.29,
+              0.005
+            ],
+            "rotation_delta_xyz_deg": [
+              -18,
+              -5,
+              -85
+            ]
+          },
+          "shield": {
+            "position_delta_m": [
+              -0.01,
+              -0.01,
+              0
+            ],
+            "rotation_delta_xyz_deg": [
+              0,
+              1,
+              -1
+            ]
+          },
+          "intent": "Proposed controlled recovery.",
+          "t": 0.693878,
+          "source_time_s": 20.3,
+          "interpolation_to_next": "clamped_cubic_no_overshoot",
+          "normalized_t": 0.693877551
+        },
+        {
+          "time_s": 1.47,
+          "timing_basis": "proposed",
+          "sword": {
+            "position_delta_m": [
+              0,
+              0,
+              0
+            ],
+            "rotation_delta_xyz_deg": [
+              0,
+              0,
+              0
+            ]
+          },
+          "shield": {
+            "position_delta_m": [
+              0,
+              0,
+              0
+            ],
+            "rotation_delta_xyz_deg": [
+              0,
+              0,
+              0
+            ]
+          },
+          "intent": "Return to ready hold.",
+          "t": 1,
+          "source_time_s": 20.75,
+          "interpolation_to_next": "clamped_cubic_no_overshoot",
+          "normalized_t": 1.0
+        }
+      ],
+      "pose_amplitude_basis": "Authored from known camera FOV and screen-exit intent; visual validation required."
+    },
+    {
+      "name": "overhead",
+      "duration_s": 1.55,
+      "loop": false,
+      "source_window_s": [
+        17.33,
+        18.88
+      ],
+      "source_window_basis": "reported window; subdivision only inferred where explicitly marked",
+      "phase_intent": {
+        "sword": "Lift above the camera, retain offscreen anticipation, strike downward and recover.",
+        "shield": "Stay in a lowered left guard with small counter-movement and no block animation."
+      },
+      "source_events": [
+        {
+          "time_s": 17.33,
+          "event": "clip start",
+          "basis": "Reported event times supplied by the coordinating task; this subtask did not inspect the video."
+        },
+        {
+          "time_s": 17.4,
+          "event": "lift",
+          "basis": "Reported event times supplied by the coordinating task; this subtask did not inspect the video."
+        },
+        {
+          "time_s": 17.45,
+          "event": "offscreen interval starts",
+          "basis": "Reported event times supplied by the coordinating task; this subtask did not inspect the video."
+        },
+        {
+          "time_s": 17.95,
+          "event": "offscreen interval ends",
+          "basis": "Reported event times supplied by the coordinating task; this subtask did not inspect the video."
+        },
+        {
+          "time_s": 18,
+          "event": "downstroke starts",
+          "basis": "Reported event times supplied by the coordinating task; this subtask did not inspect the video."
+        },
+        {
+          "time_s": 18.15,
+          "event": "downstroke ends",
+          "basis": "Reported event times supplied by the coordinating task; this subtask did not inspect the video."
+        },
+        {
+          "time_s": 18.88,
+          "event": "clip ends",
+          "basis": "Reported event times supplied by the coordinating task; this subtask did not inspect the video."
+        }
+      ],
+      "keyposes": [
+        {
+          "time_s": 0,
+          "timing_basis": "proposed",
+          "sword": {
+            "position_delta_m": [
+              0,
+              0,
+              0
+            ],
+            "rotation_delta_xyz_deg": [
+              0,
+              0,
+              0
+            ]
+          },
+          "shield": {
+            "position_delta_m": [
+              0,
+              0,
+              0
+            ],
+            "rotation_delta_xyz_deg": [
+              0,
+              0,
+              0
+            ]
+          },
+          "intent": "Ready hold at reference-window start.",
+          "t": 0,
+          "source_time_s": 17.33,
+          "interpolation_to_next": "clamped_cubic_no_overshoot",
+          "normalized_t": 0.0
+        },
+        {
+          "time_s": 0.07,
+          "timing_basis": "reported lift time",
+          "sword": {
+            "position_delta_m": [
+              0,
+              0.48,
+              0.015
+            ],
+            "rotation_delta_xyz_deg": [
+              30,
+              0,
+              0
+            ]
+          },
+          "shield": {
+            "position_delta_m": [
+              -0.01,
+              -0.02,
+              0.005
+            ],
+            "rotation_delta_xyz_deg": [
+              2,
+              0,
+              1
+            ]
+          },
+          "intent": "Lift begins near the reported time.",
+          "t": 0.045161,
+          "source_time_s": 17.4,
+          "interpolation_to_next": "clamped_cubic_no_overshoot",
+          "normalized_t": 0.04516129
+        },
+        {
+          "time_s": 0.12,
+          "timing_basis": "reported offscreen-start time",
+          "sword": {
+            "position_delta_m": [
+              -0.18,
+              1.22,
+              0.02
+            ],
+            "rotation_delta_xyz_deg": [
+              65,
+              0,
+              -5
+            ]
+          },
+          "shield": {
+            "position_delta_m": [
+              -0.025,
+              -0.045,
+              0.015
+            ],
+            "rotation_delta_xyz_deg": [
+              4,
+              0,
+              3
+            ]
+          },
+          "intent": "Hand/blade may pass above screen; do not clamp into view.",
+          "t": 0.077419,
+          "source_time_s": 17.45,
+          "interpolation_to_next": "clamped_cubic_no_overshoot",
+          "normalized_t": 0.077419355
+        },
+        {
+          "time_s": 0.62,
+          "timing_basis": "reported offscreen-end time",
+          "sword": {
+            "position_delta_m": [
+              -0.18,
+              1.25,
+              0.015
+            ],
+            "rotation_delta_xyz_deg": [
+              70,
+              0,
+              -4
+            ]
+          },
+          "shield": {
+            "position_delta_m": [
+              -0.025,
+              -0.045,
+              0.015
+            ],
+            "rotation_delta_xyz_deg": [
+              4,
+              0,
+              3
+            ]
+          },
+          "intent": "Hold raised anticipation through the reported offscreen interval.",
+          "t": 0.4,
+          "source_time_s": 17.95,
+          "interpolation_to_next": "clamped_cubic_no_overshoot",
+          "normalized_t": 0.4
+        },
+        {
+          "time_s": 0.67,
+          "timing_basis": "reported downstroke-start time",
+          "sword": {
+            "position_delta_m": [
+              -0.22,
+              0.95,
+              -0.04
+            ],
+            "rotation_delta_xyz_deg": [
+              30,
+              0,
+              -3
+            ]
+          },
+          "shield": {
+            "position_delta_m": [
+              -0.02,
+              -0.035,
+              0.005
+            ],
+            "rotation_delta_xyz_deg": [
+              3,
+              0,
+              2
+            ]
+          },
+          "intent": "Start downward strike.",
+          "t": 0.432258,
+          "source_time_s": 18,
+          "interpolation_to_next": "clamped_cubic_no_overshoot",
+          "normalized_t": 0.432258065
+        },
+        {
+          "time_s": 0.745,
+          "timing_basis": "proposed",
+          "sword": {
+            "position_delta_m": [
+              -0.39,
+              0.46,
+              -0.18
+            ],
+            "rotation_delta_xyz_deg": [
+              -45,
+              0,
+              0
+            ]
+          },
+          "shield": {
+            "position_delta_m": [
+              -0.012,
+              -0.025,
+              -0.008
+            ],
+            "rotation_delta_xyz_deg": [
+              1,
+              0,
+              1
+            ]
+          },
+          "intent": "Proposed fast downstroke midpoint.",
+          "t": 0.480645,
+          "source_time_s": 18.075,
+          "interpolation_to_next": "clamped_cubic_no_overshoot",
+          "normalized_t": 0.480645161
+        },
+        {
+          "time_s": 0.82,
+          "timing_basis": "reported downstroke-end time",
+          "sword": {
+            "position_delta_m": [
+              -0.38,
+              -0.24,
+              -0.13
+            ],
+            "rotation_delta_xyz_deg": [
+              -130,
+              0,
+              3
+            ]
+          },
+          "shield": {
+            "position_delta_m": [
+              -0.005,
+              -0.02,
+              -0.01
+            ],
+            "rotation_delta_xyz_deg": [
+              0,
+              0,
+              -1
+            ]
+          },
+          "intent": "Finish downward crossing; sword/hand may pass below frame.",
+          "t": 0.529032,
+          "source_time_s": 18.15,
+          "interpolation_to_next": "clamped_cubic_no_overshoot",
+          "normalized_t": 0.529032258
+        },
+        {
+          "time_s": 1.1,
+          "timing_basis": "proposed",
+          "sword": {
+            "position_delta_m": [
+              -0.23,
+              -0.15,
+              -0.025
+            ],
+            "rotation_delta_xyz_deg": [
+              -105,
+              0,
+              2
+            ]
+          },
+          "shield": {
+            "position_delta_m": [
+              -0.01,
+              -0.01,
+              0
+            ],
+            "rotation_delta_xyz_deg": [
+              0,
+              0,
+              0
+            ]
+          },
+          "intent": "Proposed recovery from low follow-through.",
+          "t": 0.709677,
+          "source_time_s": 18.43,
+          "interpolation_to_next": "clamped_cubic_no_overshoot",
+          "normalized_t": 0.709677419
+        },
+        {
+          "time_s": 1.55,
+          "timing_basis": "proposed",
+          "sword": {
+            "position_delta_m": [
+              0,
+              0,
+              0
+            ],
+            "rotation_delta_xyz_deg": [
+              0,
+              0,
+              0
+            ]
+          },
+          "shield": {
+            "position_delta_m": [
+              0,
+              0,
+              0
+            ],
+            "rotation_delta_xyz_deg": [
+              0,
+              0,
+              0
+            ]
+          },
+          "intent": "Return to ready hold.",
+          "t": 1,
+          "source_time_s": 18.88,
+          "interpolation_to_next": "clamped_cubic_no_overshoot",
+          "normalized_t": 1.0
+        }
+      ],
+      "pose_amplitude_basis": "Authored from known camera FOV and screen-exit intent; visual validation required."
+    }
+  ],
+  "root_refinement": {
+    "air_loop_contract": "Coordinator explicitly requires idle/run/air looping; all other clips one-shot.",
+    "idle_base": "Separate from source rest: grip screen(.8,.96), almost vertical blade. Data here is delta from that base.",
+    "overhead_pitch": "Positive X windup can point behind camera offscreen; negative X downstroke points forward and down.",
+    "amplitudes": "Inferred initial proposal. Not tracked from original video.",
+    "canonical_contract_received": false
+  }
+}

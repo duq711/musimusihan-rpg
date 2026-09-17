@@ -1,0 +1,53 @@
+{
+  "status": "passed",
+  "method": "Read both actual saved Blender files; audited shared full-payload signatures plus independent world/light/visibility signatures and exact object property comparison. No saves or renders.",
+  "verified_sha256": {
+    "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/player_hands_reference_20260911/mac_output/geometry_04/bilateral_hands_reference_geometry.blend": "202ea95761cc89faffc788cd89e5737fda3d22f11db017a4d247e19893d163ca",
+    "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/player_hands_reference_20260911/mac_output/geometry_05/bilateral_hands_reference_geometry.blend": "f85bf523929103dcda6faa46a9b1c4d1178634fc5e8f6ce8c7f2497f61d85d0c",
+    "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/player_hands_reference_20260911/mac_output/final_02/bilateral_hands_reference.blend": "1320ea506ee416267d7dffbe45f85b44edfae017e4985788f4f5827313407bfa",
+    "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/player_hands_reference_20260911/mac_output/final_03/bilateral_hands_reference.blend": "a70b3a108ae69c4c42d6206fec237091ee1aaa8d5700332180f83a5da2f9fbd6",
+    "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/player_hands_reference_20260911/mac_output/final_03/metadata_update_report.json": "8eb61b01a2fc05f1a346b72d675bb258643264b1c5dc9b830d3cf9d1fb98df44",
+    "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/player_hands_reference_20260911/tools/reference_metadata_signatures.py": "fe81e55e6de096ca7e6ed7f798a9bbc644e0a98d13347f6074d3e3923ecd517c"
+  },
+  "pairs": {
+    "geometry_blend": {
+      "source": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/player_hands_reference_20260911/mac_output/geometry_04/bilateral_hands_reference_geometry.blend",
+      "output": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/player_hands_reference_20260911/mac_output/geometry_05/bilateral_hands_reference_geometry.blend",
+      "source_sha256": "202ea95761cc89faffc788cd89e5737fda3d22f11db017a4d247e19893d163ca",
+      "output_sha256": "f85bf523929103dcda6faa46a9b1c4d1178634fc5e8f6ce8c7f2497f61d85d0c",
+      "shared_payload_signature": "20d72ab85739eff4a3a4e95933de40774905f5006386e52398c63837c3392902",
+      "additional_lighting_visibility_signature": "dff934d0cacc0264f7818fdcb4f5af2b2ba1119090a38ac65cb8ac9ca60e2301",
+      "changed_start_property_objects": [
+        "WristCuff.001",
+        "WristCuff.001_Surface.001",
+        "WristCuff.003",
+        "WristCuff_Surface.001"
+      ],
+      "all_other_properties_exact": true,
+      "mesh_keys_weights_uv_materials_images_rest_pose_cameras_viewports_exact": true,
+      "lights_worlds_visibility_scene_members_exact": true
+    },
+    "final_blend": {
+      "source": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/player_hands_reference_20260911/mac_output/final_02/bilateral_hands_reference.blend",
+      "output": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/player_hands_reference_20260911/mac_output/final_03/bilateral_hands_reference.blend",
+      "source_sha256": "1320ea506ee416267d7dffbe45f85b44edfae017e4985788f4f5827313407bfa",
+      "output_sha256": "a70b3a108ae69c4c42d6206fec237091ee1aaa8d5700332180f83a5da2f9fbd6",
+      "shared_payload_signature": "980f1ce011be3dbb4f6189a855233d16657b3677ad80d7991b4f0e4b4770da67",
+      "additional_lighting_visibility_signature": "c5a001e40df3132f00a3b57ee0f046fac68890c7cc7aeb4969ea55b1bd0a4ebe",
+      "changed_start_property_objects": [
+        "Dorsum_WristCuff.001_Surface.001",
+        "Dorsum_WristCuff.003",
+        "Palm_WristCuff.001_Surface.001",
+        "Palm_WristCuff.003",
+        "WristCuff.001",
+        "WristCuff.001_Surface.001",
+        "WristCuff.003",
+        "WristCuff_Surface.001"
+      ],
+      "all_other_properties_exact": true,
+      "mesh_keys_weights_uv_materials_images_rest_pose_cameras_viewports_exact": true,
+      "lights_worlds_visibility_scene_members_exact": true
+    }
+  },
+  "inputs_unchanged": true
+}

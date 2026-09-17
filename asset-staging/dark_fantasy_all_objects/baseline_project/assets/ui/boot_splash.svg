@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <defs>
+    <radialGradient id="sanctuary-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#5fc2b2" stop-opacity="0.13"/>
+      <stop offset="0.48" stop-color="#277c75" stop-opacity="0.055"/>
+      <stop offset="1" stop-color="#071012" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="rune-stroke" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#9adbd0"/>
+      <stop offset="0.52" stop-color="#63b9ad"/>
+      <stop offset="1" stop-color="#2d716c"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1280" height="720" fill="#030708"/>
+  <ellipse cx="640" cy="360" rx="310" ry="280" fill="url(#sanctuary-glow)"/>
+
+  <g transform="translate(640 360)" fill="none" stroke="url(#rune-stroke)" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M-122 128V-18L0-150 122-18V128" stroke-width="2" opacity="0.24"/>
+    <path d="M-94 102V-4L0-112 94-4V102" stroke-width="2" opacity="0.48"/>
+    <path d="M0-138 108 0 0 138-108 0Z" stroke-width="2.5" opacity="0.68"/>
+    <path d="M0-78 62 0 0 78-62 0Z" stroke-width="3" opacity="0.92"/>
+    <path d="M0-174V-112M0 112V174M-142 0H-62M62 0H142" stroke-width="2" opacity="0.5"/>
+    <path d="M-32-94 0-126 32-94M-32 94 0 126 32 94" stroke-width="2" opacity="0.44"/>
+    <path d="M-79-42-104 0-79 42M79-42 104 0 79 42" stroke-width="2" opacity="0.36"/>
+    <circle r="24" stroke-width="2" opacity="0.72"/>
+    <path d="M0-15 15 0 0 15-15 0Z" fill="#82d3c5" stroke="#a8e1d7" stroke-width="1.5"/>
+  </g>
+
+  <circle cx="640" cy="360" r="3" fill="#d0f0ea" opacity="0.92"/>
+</svg>

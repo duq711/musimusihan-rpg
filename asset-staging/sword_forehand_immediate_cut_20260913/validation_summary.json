@@ -1,0 +1,83 @@
+{
+  "date": "2026-09-13",
+  "request": "Remove hesitation and flipping before the forehand; proceed directly into the cut.",
+  "changes": [
+    "Coordinated forehand release commits on the next combat tick; removed 0.22s minimum delay. Held input retains 0.24s charge threshold and 1.24s auto-commit.",
+    "Entry takes one shortest basis path and direct grip path from the actual held pose to the corrected contact. The separate animated local-Z half-turn and outward preparation waypoint are removed.",
+    "The contact target receives the same locomotion/look/equip overlays as the live sweep.",
+    "Shield starts from its captured actual pose and joins the authored motion continuously.",
+    "Post-contact cut/recovery, damage, active hit clock, stamina costs, original assets and reverse remain preserved."
+  ],
+  "passed_suites": [
+    "sword_direct_entry",
+    "sword_attack_variants",
+    "reference_sword_arm_player",
+    "sword_forehand_grip",
+    "sword_recovery_continuity",
+    "sword_two_hand_grip",
+    "reference_sword_motion_test_room",
+    "reference_sword_cut_preview"
+  ],
+  "logs": [
+    "first_tests.log",
+    "regressions.log",
+    "final_tests.log",
+    "forehand_grip_final.log"
+  ],
+  "new_test_initial_failure": {
+    "log": "final_tests.log",
+    "reason": "The raw held-to-contact line included ordinary breathing, producing 0.138mm / 0.091mm deviations against a 0.05mm pure-line limit. The test now separates only independently measured breathing using actual angular progress, while retaining strict actual monotonicity/endpoints and geometry checks. Production was not changed for this test correction.",
+    "final_result": "PASS"
+  },
+  "final_metrics": {
+    "entry_shortest_degrees": 115.382548925498,
+    "actual_entry_degrees": 115.382538822441,
+    "max_post_contact_grip_difference_mm": 0.00026822090149,
+    "max_breathing_removed_entry_line_error_mm": 0.00012287812012,
+    "captured_before_after_onset": {
+      "before": {
+        "active_seconds": 0.233333333333333,
+        "first_moved_frame": 15
+      },
+      "after": {
+        "active_seconds": 0.0166666666666667,
+        "first_moved_frame": 2
+      }
+    }
+  },
+  "actual_captures": {
+    "captures": {
+      "forehand_immediate_cut_two_hand": {
+        "actual_frames": 182,
+        "unchanged_reverse_pngs": 91,
+        "current_source_hashes_match": true,
+        "expedition_and_cursor_preserved": true
+      },
+      "forehand_immediate_cut_shield": {
+        "actual_frames": 182,
+        "unchanged_reverse_pngs": 91,
+        "current_source_hashes_match": true,
+        "expedition_and_cursor_preserved": true
+      }
+    },
+    "frames": 182,
+    "fps": 60,
+    "video": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/godot-game/artifacts/visual_qa/reference_sword_motion/forehand_immediate_cut_comparison/immediate_cut_comparison.mp4"
+  },
+  "source_preservation": "source_preservation.json",
+  "visual_review": "visual_review.json",
+  "known_failure": {
+    "suite": "sword_clash",
+    "log": "clash_check.log",
+    "remaining_natural_contact_assertions": [
+      "natural close-range attacks must overlap their rendered blade models",
+      "natural blade contact must occur before either body's damage deadline",
+      "natural swing animation must cancel the player strike into clash recovery",
+      "natural swing animation must stagger the armed enemy"
+    ],
+    "previous_failed_assertions": 5,
+    "current_failed_assertions": 4,
+    "not_counted_as_pass": true
+  },
+  "user_aesthetic_approval": false
+}

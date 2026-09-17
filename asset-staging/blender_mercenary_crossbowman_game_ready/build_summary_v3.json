@@ -1,0 +1,175 @@
+{
+  "asset": "mercenary_crossbowman_game_ready_v3",
+  "height_m": 1.78,
+  "rest_pose": "T_POSE",
+  "neutral_expression": true,
+  "front_axis": "-Y",
+  "raw_to_world": "x=-raw_x, y=-raw_y, z=raw_z (180deg Z)",
+  "rig": "Fresh Rigify full rig",
+  "deform_bones": 160,
+  "arm_rest_max_vertical_delta_m": 0.0,
+  "triangles": 124731,
+  "triangle_breakdown": {
+    "Mercenary_Clothed_Donor_LOD0": 69039,
+    "Mercenary_Male_HeadNeck_LOD0": 35366,
+    "Mercenary_Eyes_GameReady": 2040,
+    "Mercenary_Cowl_LayeredClean_LOD0": 17790,
+    "Mercenary_Iris_L": 124,
+    "Mercenary_Pupil_L": 124,
+    "Mercenary_Iris_R": 124,
+    "Mercenary_Pupil_R": 124
+  },
+  "mesh_count": 8,
+  "donor_connected_island_face_counts": [
+    58319,
+    71,
+    60,
+    28,
+    16,
+    16
+  ],
+  "donor_front_face_triangles_removed": 7231,
+  "donor_head_cut": {
+    "method": "single smooth capsule boolean; legacy front cut removed",
+    "z_range": [
+      1.445,
+      1.82
+    ],
+    "maximum_radius_x": 0.17,
+    "maximum_radius_y": 0.19,
+    "mpfb_head_z_gt": 1.49
+  },
+  "donor_headneck_bvh_overlap_pairs": 0,
+  "donor_headneck_geometry_overlap": "ZERO_CONFIRMED_BVH",
+  "clean_cowl_head_bvh_overlap_pairs": 0,
+  "clean_cowl_donor_bvh_overlap_pairs": 0,
+  "eyes": {
+    "geometry": "curved MPFB eyeballs with resized recessed iris/pupil discs",
+    "iris_horizontal_scale": 0.72,
+    "iris_vertical_scale": 0.55,
+    "pupil_horizontal_scale": 0.6,
+    "pupil_vertical_scale": 0.5
+  },
+  "limb_material_cleanup": {
+    "mode": "continuous 4K PBR with dominant-axis box UVs",
+    "uv_scale": 6.0,
+    "face_counts": {
+      "sleeves": 7380,
+      "bracers": 4743,
+      "hands": 2702,
+      "boots": 10847
+    },
+    "front_back_projection_faces_remaining": 0,
+    "geometry_shells_added_or_deleted": false
+  },
+  "blender_presentation": {
+    "rig_hidden_in_saved_blend": true,
+    "metarig_hidden_in_saved_blend": true
+  },
+  "donor_cowl_triangles_removed": 2707,
+  "donor_cowl_shard_triangles_removed": 266,
+  "donor_postcut_fragment_triangles_removed": 3,
+  "donor_postcut_component_face_counts": [
+    69039,
+    3
+  ],
+  "clean_cowl_drape": {
+    "components": 3,
+    "projection": "reference front/back by actual world z; side cowl PBR",
+    "normal_y_threshold": 0.24,
+    "uniform_clearance_iterations": [
+      0,
+      10,
+      0
+    ]
+  },
+  "v2_source_preserved": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/blender_mercenary_crossbowman_game_ready/mercenary_crossbowman_game_ready_v2.blend",
+  "donor_refine": "Catmull-Clark level 1 then dynamic collapse decimation",
+  "donor_arm_width_scale": 1.0841035753251593,
+  "mpfb_head_face_shift_y_m": 0.008910825252532959,
+  "projection": {
+    "front_bbox_4096": [
+      417,
+      3677,
+      241,
+      3860
+    ],
+    "back_bbox_4096": [
+      358,
+      3740,
+      239,
+      3854
+    ],
+    "u_mapping": "1-normalized_world_x",
+    "side_normal_threshold": 0.42,
+    "counts": {
+      "Mercenary_Clothed_Donor_LOD0": {
+        "front": 14606,
+        "back": 16149,
+        "side": 38284
+      },
+      "Mercenary_Male_HeadNeck_LOD0": {
+        "front": 26654,
+        "back": 3238,
+        "side": 5474
+      },
+      "Mercenary_Cowl_LayeredClean_LOD0": {
+        "front": 6205,
+        "back": 6141,
+        "side": 5444
+      }
+    },
+    "side_faces": "spatial 4K PBR UV tiling; no front/back projection"
+  },
+  "textures": {
+    "front_projection": 4096,
+    "back_projection": 4096,
+    "skin": 4096,
+    "gambeson": 4096,
+    "outer_wool": 4096,
+    "cowl_wool": 4096,
+    "leather": 4096
+  },
+  "excluded": [
+    "crossbow",
+    "sword",
+    "dagger",
+    "quiver",
+    "arrows",
+    "pouches",
+    "scabbards",
+    "MPFB clean hair",
+    "MPFB source rig",
+    "MPFB source metarig"
+  ],
+  "gltf_export": {
+    "export_armature_object_remove": false,
+    "export_skins": true,
+    "export_def_bones": true,
+    "export_rest_position_armature": true,
+    "export_all_influences": false,
+    "export_influence_nb": 4
+  },
+  "glb_self_check": {
+    "skins": 1,
+    "skin_joint_counts": [
+      160
+    ],
+    "joint_nodes_total": 160,
+    "mesh_primitives": 18,
+    "joint_primitives": 18,
+    "weight_primitives": 18,
+    "triangles": 124731,
+    "images": 17,
+    "textures": 19,
+    "materials": 10
+  },
+  "previews": {
+    "front": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/blender_mercenary_crossbowman_game_ready/previews/mercenary_game_ready_v3_front.png",
+    "back": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/blender_mercenary_crossbowman_game_ready/previews/mercenary_game_ready_v3_back.png",
+    "three_quarter": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/blender_mercenary_crossbowman_game_ready/previews/mercenary_game_ready_v3_three_quarter.png",
+    "portrait": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/blender_mercenary_crossbowman_game_ready/previews/mercenary_game_ready_v3_portrait.png"
+  },
+  "blend": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/blender_mercenary_crossbowman_game_ready/mercenary_crossbowman_game_ready_v3.blend",
+  "glb": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/godot-game/assets/3d/dark_fantasy/mercenary_crossbowman_game_ready_v3.glb"
+}

@@ -1,0 +1,682 @@
+{
+  "status": "static_source_contract_not_authored_motion",
+  "source": {
+    "path": "godot-game/assets/3d/player/sword_shield/round_shield.glb",
+    "windows_relative_path": "work/game-project/RPG_Workspace/godot-game/assets/3d/player/sword_shield/round_shield.glb",
+    "sha256": "8ca7482ae498083b426200cc8257e90e00d51a81ef6f08749c893ad3c59bdfe0",
+    "bytes": 2799680,
+    "mesh_count": 1,
+    "node_count": 6,
+    "skins": 0,
+    "animations": 0
+  },
+  "coordinate_space": "godot_camera_local_x_right_y_up_minus_z_forward",
+  "units": "meters",
+  "root_node": "SwordsmanRoundShield",
+  "mesh_node": "SwordsmanRoundShield_Surface",
+  "mesh_resource_name": "Sphere.142",
+  "root_and_mesh_transform": "identity",
+  "source_nodes": [
+    {
+      "name": "RearArmStrap",
+      "translation": [
+        0.12999999523162842,
+        -0.004999999888241291,
+        -0.11145681142807007
+      ]
+    },
+    {
+      "name": "RearGrip",
+      "translation": [
+        -0.18000000715255737,
+        0.014999999664723873,
+        -0.12873581051826477
+      ]
+    },
+    {
+      "name": "RearGripBottom",
+      "translation": [
+        -0.17590180039405823,
+        -0.04360688850283623,
+        -0.10073050856590271
+      ]
+    },
+    {
+      "name": "RearGripTop",
+      "translation": [
+        -0.18409819900989532,
+        0.07360688596963882,
+        -0.10166927427053452
+      ]
+    },
+    {
+      "mesh": 0,
+      "name": "SwordsmanRoundShield_Surface"
+    },
+    {
+      "children": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "extras": {
+        "reference": "shield_views_v1.png",
+        "construction": "seven solid oak boards, rolled iron U rim, fixed leather enarmes"
+      },
+      "name": "SwordsmanRoundShield"
+    }
+  ],
+  "surfaces": [
+    {
+      "primitive": 0,
+      "POSITION_accessor": 0,
+      "material": "FP_ShieldLeatherEdge",
+      "position_count": 1027,
+      "bounds_model_local": {
+        "min": [
+          -0.21027179062366486,
+          -0.1877100169658661,
+          -0.13064588606357574
+        ],
+        "max": [
+          0.23697632551193237,
+          0.17770889401435852,
+          0.017320580780506134
+        ]
+      }
+    },
+    {
+      "primitive": 1,
+      "POSITION_accessor": 6,
+      "material": "FP_ShieldOak",
+      "position_count": 11331,
+      "bounds_model_local": {
+        "min": [
+          -0.41440898180007935,
+          -0.4149987995624542,
+          -0.0022945404052734375
+        ],
+        "max": [
+          0.41417914628982544,
+          0.4149987995624542,
+          0.04325345903635025
+        ]
+      }
+    },
+    {
+      "primitive": 2,
+      "POSITION_accessor": 12,
+      "material": "FP_ShieldIron",
+      "position_count": 11452,
+      "bounds_model_local": {
+        "min": [
+          -0.42713552713394165,
+          -0.4268699884414673,
+          -0.10925338417291641
+        ],
+        "max": [
+          0.42713552713394165,
+          0.4271300137042999,
+          0.08399999886751175
+        ]
+      }
+    },
+    {
+      "primitive": 3,
+      "POSITION_accessor": 18,
+      "material": "FP_ShieldEdge",
+      "position_count": 14112,
+      "bounds_model_local": {
+        "min": [
+          -0.42713552713394165,
+          -0.4268699884414673,
+          -0.1095471978187561
+        ],
+        "max": [
+          0.42713552713394165,
+          0.4271300137042999,
+          0.05449999123811722
+        ]
+      }
+    },
+    {
+      "primitive": 4,
+      "POSITION_accessor": 24,
+      "material": "FP_ShieldEnarmes",
+      "position_count": 2804,
+      "bounds_model_local": {
+        "min": [
+          -0.22325749695301056,
+          -0.23289832472801208,
+          -0.13973546028137207
+        ],
+        "max": [
+          0.2638853192329407,
+          0.22289833426475525,
+          0.017320580780506134
+        ]
+      }
+    },
+    {
+      "primitive": 5,
+      "POSITION_accessor": 30,
+      "material": "FP_ShieldStitch",
+      "position_count": 2160,
+      "bounds_model_local": {
+        "min": [
+          -0.20558591187000275,
+          -0.17471979558467865,
+          -0.13390418887138367
+        ],
+        "max": [
+          0.2237701117992401,
+          0.15401992201805115,
+          -0.015624739229679108
+        ]
+      }
+    }
+  ],
+  "bounds_model_local": {
+    "min": [
+      -0.42713552713394165,
+      -0.4268699884414673,
+      -0.13973546028137207
+    ],
+    "max": [
+      0.42713552713394165,
+      0.4271300137042999,
+      0.08399999886751175
+    ]
+  },
+  "outer_rim_measurement": {
+    "selection": "sqrt(model_x^2+model_y^2)>0.42m; actual source vertices only",
+    "bounds_model_local": {
+      "min": [
+        -0.42713552713394165,
+        -0.4268699884414673,
+        -0.010999999940395355
+      ],
+      "max": [
+        0.42713552713394165,
+        0.4271300137042999,
+        0.02499999850988388
+      ]
+    },
+    "max_radius_m": 0.4275557498867132,
+    "planar_xy_width_m": [
+      0.8542710542678833,
+      0.8540000021457672
+    ],
+    "record_count_including_seam_duplicates": 2316
+  },
+  "model_to_shield_pivot_matrix_rows": [
+    [
+      -1,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      1,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      -1,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      1
+    ]
+  ],
+  "baseline_idle_shield_pivot": {
+    "position": [
+      -0.34,
+      -0.3,
+      -0.6
+    ],
+    "euler_xyz_degrees": [
+      -19.28,
+      83.44,
+      20
+    ],
+    "godot_euler_order": "YXZ",
+    "matrix_composition": "Ry(y) * Rx(x) * Rz(z)",
+    "basis_rows": [
+      [
+        -0.004836632054724607,
+        -0.3473145289560112,
+        0.9377362235545939
+      ],
+      [
+        0.32283837636886914,
+        0.8869911492068607,
+        0.33018492390205373
+      ],
+      [
+        -0.9464417518970091,
+        0.3043342228615714,
+        0.10783640879296633
+      ]
+    ],
+    "basis_columns": [
+      [
+        -0.004836632054724607,
+        0.32283837636886914,
+        -0.9464417518970091
+      ],
+      [
+        -0.3473145289560112,
+        0.8869911492068607,
+        0.3043342228615714
+      ],
+      [
+        0.9377362235545939,
+        0.33018492390205373,
+        0.10783640879296633
+      ]
+    ],
+    "rotation_xyzw": [
+      -0.009162558941807397,
+      0.6678306994419728,
+      0.2375299410815562,
+      0.7053351908747185
+    ],
+    "matrix_rows": [
+      [
+        -0.004836632054724607,
+        -0.3473145289560112,
+        0.9377362235545939,
+        -0.34
+      ],
+      [
+        0.32283837636886914,
+        0.8869911492068607,
+        0.33018492390205373,
+        -0.3
+      ],
+      [
+        -0.9464417518970091,
+        0.3043342228615714,
+        0.10783640879296633,
+        -0.6
+      ],
+      [
+        0,
+        0,
+        0,
+        1
+      ]
+    ]
+  },
+  "model_root_to_camera_at_baseline_idle_matrix_rows": [
+    [
+      0.004836632054724607,
+      -0.3473145289560112,
+      -0.9377362235545939,
+      -0.34
+    ],
+    [
+      -0.32283837636886914,
+      0.8869911492068607,
+      -0.33018492390205373,
+      -0.3
+    ],
+    [
+      0.9464417518970091,
+      0.3043342228615714,
+      -0.10783640879296633,
+      -0.6
+    ],
+    [
+      0,
+      0,
+      0,
+      1
+    ]
+  ],
+  "landmarks": {
+    "model_origin": {
+      "model_local": [
+        0,
+        0,
+        0
+      ],
+      "meaning": "Source model root and ShieldPivot translation origin; not RearGrip and not outer-rim AABB centroid.",
+      "shield_pivot_local": [
+        0,
+        0,
+        0
+      ],
+      "fallback_idle_camera": [
+        -0.34,
+        -0.3,
+        -0.6
+      ]
+    },
+    "RearArmStrap": {
+      "model_local": [
+        0.12999999523162842,
+        -0.004999999888241291,
+        -0.11145681142807007
+      ],
+      "meaning": "Named source GLB empty marker; node translation in unchanged identity root.",
+      "shield_pivot_local": [
+        -0.12999999523162842,
+        -0.004999999888241291,
+        0.11145681142807007
+      ],
+      "fallback_idle_camera": [
+        -0.2331175758119891,
+        -0.3096025842357021,
+        -0.46646514556675267
+      ]
+    },
+    "RearGrip": {
+      "model_local": [
+        -0.18000000715255737,
+        0.014999999664723873,
+        -0.12873581051826477
+      ],
+      "meaning": "Named source GLB empty marker; node translation in unchanged identity root.",
+      "shield_pivot_local": [
+        0.18000000715255737,
+        0.014999999664723873,
+        0.12873581051826477
+      ],
+      "fallback_idle_camera": [
+        -0.22536007883070128,
+        -0.18607759920432512,
+        -0.7519121013807115
+      ]
+    },
+    "RearGripBottom": {
+      "model_local": [
+        -0.17590180039405823,
+        -0.04360688850283623,
+        -0.10073050856590271
+      ],
+      "meaning": "Named source GLB empty marker; node translation in unchanged identity root.",
+      "shield_pivot_local": [
+        0.17590180039405823,
+        -0.04360688850283623,
+        0.10073050856590271
+      ],
+      "fallback_idle_camera": [
+        -0.23124681964734656,
+        -0.2486313772014397,
+        -0.7688894603510762
+      ]
+    },
+    "RearGripTop": {
+      "model_local": [
+        -0.18409819900989532,
+        0.07360688596963882,
+        -0.10166927427053452
+      ],
+      "meaning": "Named source GLB empty marker; node translation in unchanged identity root.",
+      "shield_pivot_local": [
+        0.18409819900989532,
+        0.07360688596963882,
+        0.10166927427053452
+      ],
+      "fallback_idle_camera": [
+        -0.271116194873025,
+        -0.14170771837527069,
+        -0.7408734781312576
+      ]
+    },
+    "rim_x_min_section_center": {
+      "model_local": [
+        -0.42713552713394165,
+        0.013982969336211681,
+        0.007500000298023224
+      ],
+      "meaning": "Center of actual extreme rim section; may not remain screen-extreme after perspective projection.",
+      "support": [
+        {
+          "primitive": 2,
+          "POSITION_accessor": 12,
+          "vertex_index": 576,
+          "position": [
+            -0.42713552713394165,
+            0.013982969336211681,
+            0.016999997198581696
+          ]
+        },
+        {
+          "primitive": 2,
+          "POSITION_accessor": 12,
+          "vertex_index": 577,
+          "position": [
+            -0.42713552713394165,
+            0.013982969336211681,
+            -0.001999996602535248
+          ]
+        },
+        {
+          "primitive": 3,
+          "POSITION_accessor": 18,
+          "vertex_index": 963,
+          "position": [
+            -0.42713552713394165,
+            0.013982969336211681,
+            0.016999997198581696
+          ]
+        },
+        {
+          "primitive": 3,
+          "POSITION_accessor": 18,
+          "vertex_index": 1348,
+          "position": [
+            -0.42713552713394165,
+            0.013982969336211681,
+            -0.001999996602535248
+          ]
+        }
+      ],
+      "shield_pivot_local": [
+        0.42713552713394165,
+        0.013982969336211681,
+        -0.007500000298023224
+      ],
+      "fallback_idle_camera": [
+        -0.3539554077467871,
+        -0.1521778769174347,
+        -1.000812173589952
+      ]
+    },
+    "rim_x_max_section_center": {
+      "model_local": [
+        0.42713552713394165,
+        0.013982969336211681,
+        0.007500000298023224
+      ],
+      "meaning": "Center of actual extreme rim section; may not remain screen-extreme after perspective projection.",
+      "support": [
+        {
+          "primitive": 2,
+          "POSITION_accessor": 12,
+          "vertex_index": 388,
+          "position": [
+            0.42713552713394165,
+            0.013982969336211681,
+            0.016999997198581696
+          ]
+        },
+        {
+          "primitive": 2,
+          "POSITION_accessor": 12,
+          "vertex_index": 389,
+          "position": [
+            0.42713552713394165,
+            0.013982969336211681,
+            -0.001999996602535248
+          ]
+        },
+        {
+          "primitive": 3,
+          "POSITION_accessor": 18,
+          "vertex_index": 775,
+          "position": [
+            0.42713552713394165,
+            0.013982969336211681,
+            0.016999997198581696
+          ]
+        },
+        {
+          "primitive": 3,
+          "POSITION_accessor": 18,
+          "vertex_index": 1160,
+          "position": [
+            0.42713552713394165,
+            0.013982969336211681,
+            -0.001999996602535248
+          ]
+        }
+      ],
+      "shield_pivot_local": [
+        -0.42713552713394165,
+        0.013982969336211681,
+        -0.007500000298023224
+      ],
+      "fallback_idle_camera": [
+        -0.34982361298229164,
+        -0.4279693570562002,
+        -0.19229438039375163
+      ]
+    },
+    "rim_y_min_section_center": {
+      "model_local": [
+        0.0,
+        -0.4268699884414673,
+        0.007500000298023224
+      ],
+      "meaning": "Center of actual extreme rim section; may not remain screen-extreme after perspective projection.",
+      "support": [
+        {
+          "primitive": 2,
+          "POSITION_accessor": 12,
+          "vertex_index": 674,
+          "position": [
+            0.0,
+            -0.4268699884414673,
+            0.016999997198581696
+          ]
+        },
+        {
+          "primitive": 2,
+          "POSITION_accessor": 12,
+          "vertex_index": 675,
+          "position": [
+            0.0,
+            -0.4268699884414673,
+            -0.001999996602535248
+          ]
+        },
+        {
+          "primitive": 3,
+          "POSITION_accessor": 18,
+          "vertex_index": 1061,
+          "position": [
+            0.0,
+            -0.4268699884414673,
+            0.016999997198581696
+          ]
+        },
+        {
+          "primitive": 3,
+          "POSITION_accessor": 18,
+          "vertex_index": 1446,
+          "position": [
+            0.0,
+            -0.4268699884414673,
+            -0.001999996602535248
+          ]
+        }
+      ],
+      "shield_pivot_local": [
+        0.0,
+        -0.4268699884414673,
+        -0.007500000298023224
+      ],
+      "fallback_idle_camera": [
+        -0.19877487299512048,
+        -0.6811062886372845,
+        -0.7307199192933469
+      ]
+    },
+    "rim_y_max_section_center": {
+      "model_local": [
+        0.0,
+        0.4271300137042999,
+        0.007500000298023224
+      ],
+      "meaning": "Center of actual extreme rim section; may not remain screen-extreme after perspective projection.",
+      "support": [
+        {
+          "primitive": 2,
+          "POSITION_accessor": 12,
+          "vertex_index": 482,
+          "position": [
+            0.0,
+            0.4271300137042999,
+            0.016999997198581696
+          ]
+        },
+        {
+          "primitive": 2,
+          "POSITION_accessor": 12,
+          "vertex_index": 483,
+          "position": [
+            0.0,
+            0.4271300137042999,
+            -0.001999996602535248
+          ]
+        },
+        {
+          "primitive": 3,
+          "POSITION_accessor": 18,
+          "vertex_index": 869,
+          "position": [
+            0.0,
+            0.4271300137042999,
+            0.016999997198581696
+          ]
+        },
+        {
+          "primitive": 3,
+          "POSITION_accessor": 18,
+          "vertex_index": 1254,
+          "position": [
+            0.0,
+            0.4271300137042999,
+            -0.001999996602535248
+          ]
+        }
+      ],
+      "shield_pivot_local": [
+        0.0,
+        0.4271300137042999,
+        -0.007500000298023224
+      ],
+      "fallback_idle_camera": [
+        -0.4953814814688102,
+        0.07638415468865101,
+        -0.4708184923165345
+      ]
+    }
+  },
+  "required_sample_semantics": "absolute_ShieldPivot_local_to_camera; excludes child model Ry(PI); scale=1",
+  "source_vertex_evaluation": "v_camera = T_ShieldPivot * model_to_shield_pivot * v_model",
+  "proxy_compatibility": "radius .32 disk or pure-translation proxy transforms cannot be relabeled as production ShieldPivot samples",
+  "basis_order_verified_source": "https://github.com/godotengine/godot/blob/master/core/math/basis.cpp#L613-L636"
+}

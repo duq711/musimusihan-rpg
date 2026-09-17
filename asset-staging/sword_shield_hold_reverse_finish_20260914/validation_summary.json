@@ -1,0 +1,59 @@
+{
+  "date": "2026-09-14",
+  "request": "Keep the shield held throughout sword attacks; let the reverse cut leave the screen without terminal twisting.",
+  "changes": [
+    "Capture the actual carried shield at begin_sword_attack and use it for WINDUP, ACTIVE and RECOVERY in all three sword variants.",
+    "Retain normal cancellation/READY handoffs and existing RMB guard/stamina logic.",
+    "Author only left_reverse after source .710s contact on Mac Blender, using the same horizontal continuation and offscreen reset approach as the finished forehand.",
+    "Preserve forehand, overhead, other nine clips, original models, all authored shield tracks and combat timing/costs.",
+    "Update the existing playable shield-stow fixture description and project documentation."
+  ],
+  "passed_suites": [
+    "sword_edge_alignment",
+    "sword_recovery_continuity",
+    "sword_forehand_grip",
+    "shield_guard",
+    "reference_sword_motion_test_room"
+  ],
+  "test_log": "tests.log",
+  "test_scope": "All three variants with short click and held charge in both equipment stances; exact shield retention and no implicit blocking; real guard/exhaustion/just-guard; F2/reset/session and target effects; both cutting directions and hidden reset geometry.",
+  "authoring": "candidate_01/Reverse_Followthrough.blend",
+  "authoring_log": "author_retry.log",
+  "source_preservation": "source_preservation.json",
+  "actual_capture": {
+    "captures": {
+      "shield": {
+        "actual_frames": 273,
+        "source_hashes_current": true,
+        "preserved_expedition_and_cursor": true,
+        "exact_held_shield_frame_counts": {
+          "right_diagonal": 48,
+          "left_reverse": 61,
+          "overhead": 61
+        },
+        "unchanged_two_hand_forehand_and_overhead": false
+      },
+      "two_hand": {
+        "actual_frames": 273,
+        "source_hashes_current": true,
+        "preserved_expedition_and_cursor": true,
+        "exact_held_shield_frame_counts": {},
+        "unchanged_two_hand_forehand_and_overhead": true
+      }
+    },
+    "video": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/godot-game/artifacts/visual_qa/reference_sword_motion/shield_hold_reverse_finish_comparison/shield_and_reverse.mp4",
+    "fps": 60,
+    "encoded_frames": 1092,
+    "duration_seconds": 18.2,
+    "presentation": "Actual before/after gameplay frames; normal then labelled half speed. No pose retouching or image mirroring."
+  },
+  "visual_review": "visual_review.json",
+  "initial_tooling_retry": "The first Blender author invocation referenced a renamed helper path and wrote no candidate. The corrected helper path completed in author_retry.log before installation.",
+  "unrelated_known_status": "Earlier work documented four natural sword_clash assertions failing. That unrelated suite was not rerun or claimed repaired in this presentation change.",
+  "process_cleanup": {
+    "owned_godot_or_blender_processes_remaining": false,
+    "preexisting_user_editor_pid": 1313,
+    "preexisting_thumbnail_service_pid": 1868
+  },
+  "user_aesthetic_approval": false
+}

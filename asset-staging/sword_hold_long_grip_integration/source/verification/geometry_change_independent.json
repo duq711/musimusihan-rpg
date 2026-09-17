@@ -1,0 +1,182 @@
+{
+  "status": "pass",
+  "source_hashes": {
+    "C:\\Users\\duq71\\Documents\\Codex\\2026-09-08\\d\\outputs\\sword_hold_first_person_views\\model\\SwordHold_Static.blend": "276f1ac6df0e880137ac0d184c1acf1c7d0f53aab7f51e8f379d0651507dea93",
+    "C:\\Users\\duq71\\Documents\\Codex\\2026-09-08\\d\\work\\new-motion\\long-grip-oblique\\v3\\model.blend": "61ffc7832bc9e67de28754360ac0d8f16642d7a267375462e4b904d2d425faf2",
+    "C:\\Users\\duq71\\Documents\\Codex\\2026-09-08\\d\\work\\new-motion\\long-grip-oblique\\v3_clean\\model.blend": "fb2967876184024f9f0be9e5e653e415ac7f403b0d690282b39285b4d6453c24",
+    "C:\\Users\\duq71\\Documents\\Codex\\2026-09-08\\d\\outputs\\sword_hold_long_grip\\model\\SwordHold_Static.blend": "9555a83ca473801cc23e239360013cc9ec656a8235d679cbd9c8309c3de6a1f0"
+  },
+  "protected_meshes": [
+    {
+      "mesh": "RightHand_Glove",
+      "vertices": 11396,
+      "local_vertices_and_topology_exact": true
+    },
+    {
+      "mesh": "RightArm_WristCuff_Surface",
+      "vertices": 1043,
+      "local_vertices_and_topology_exact": true
+    },
+    {
+      "mesh": "Sword_PittedBlade",
+      "vertices": 726,
+      "local_vertices_and_topology_exact": true
+    },
+    {
+      "mesh": "Sword_FullerPolishedChannel",
+      "vertices": 190,
+      "local_vertices_and_topology_exact": true
+    },
+    {
+      "mesh": "Sword_GripLeather",
+      "vertices": 1625,
+      "local_vertices_and_topology_exact": true
+    },
+    {
+      "mesh": "Sword_GripBinding",
+      "vertices": 8732,
+      "local_vertices_and_topology_exact": true
+    }
+  ],
+  "hand_scaled": false,
+  "hand_transform_singular_values": [
+    1.0000000157702993,
+    0.9999999694604915,
+    0.9999999404268239
+  ],
+  "hand_transform_determinant": 0.9999999256576152,
+  "hand_transform_orthonormality_max_error": 1.1839685232217789e-07,
+  "grip_original_length_m": 0.14460003798403254,
+  "grip_new_length_m": 0.2892001047346028,
+  "grip_length_ratio": 2.0000001989386593,
+  "extensions": [
+    {
+      "mesh": "Sword_GripLeather",
+      "extension": "Sword_GripLeather_Extension",
+      "corresponding_vertex_translation_m": [
+        -0.020024561459373418,
+        0.014388288077952801,
+        -0.14248218012217814
+      ],
+      "translation_length_m": 0.1446000606771076,
+      "translation_uniformity_max_error_m": 3.002239720208063e-08,
+      "topology_exact": true,
+      "original_axial_span_m": 0.14460003798403254,
+      "combined_axial_span_m": 0.2892001047346028,
+      "cross_section_and_coil_pitch_preserved_by_rigid_translation": true
+    },
+    {
+      "mesh": "Sword_GripBinding",
+      "extension": "Sword_GripBinding_Extension",
+      "corresponding_vertex_translation_m": [
+        -0.020024561517730986,
+        0.014388288088205537,
+        -0.14248218026195789
+      ],
+      "translation_length_m": 0.14460006082394172,
+      "translation_uniformity_max_error_m": 1.4969417131242915e-08,
+      "topology_exact": true,
+      "original_axial_span_m": 0.14819999736227096,
+      "combined_axial_span_m": 0.29280005825222777,
+      "cross_section_and_coil_pitch_preserved_by_rigid_translation": true
+    }
+  ],
+  "blade_original_axial_length_m": 1.0449999352649697,
+  "blade_new_axial_length_m": 1.044999901627528,
+  "blade_axial_length_error_m": 3.3637441720912875e-08,
+  "cleanup": [
+    {
+      "mesh": "RightArm_Forearm_Surface",
+      "before_vertices_faces": [
+        7485,
+        12504
+      ],
+      "after_vertices_faces": [
+        3033,
+        5520
+      ],
+      "surviving_vertex_positions_exact": true,
+      "surviving_faces_are_source_subset": true,
+      "only_edge_and_stitch_faces_removed": true
+    },
+    {
+      "mesh": "RightArm_UpperArm_Surface",
+      "before_vertices_faces": [
+        4578,
+        8752
+      ],
+      "after_vertices_faces": [
+        4095,
+        7936
+      ],
+      "surviving_vertex_positions_exact": true,
+      "surviving_faces_are_source_subset": true,
+      "removed_vertices": 483
+    }
+  ],
+  "cleanup_other_meshes_exact": true,
+  "delivery_matches_authoritative_source": [
+    {
+      "mesh": "Sword_FullerPolishedChannel",
+      "max_authoring_to_delivery_world_vertex_error_m": 6.853155761696685e-08,
+      "topology_exact": true
+    },
+    {
+      "mesh": "Sword_GripBinding",
+      "max_authoring_to_delivery_world_vertex_error_m": 4.8546434386445954e-08,
+      "topology_exact": true
+    },
+    {
+      "mesh": "Sword_GripLeather",
+      "max_authoring_to_delivery_world_vertex_error_m": 4.879729547800741e-08,
+      "topology_exact": true
+    },
+    {
+      "mesh": "Sword_PittedBlade",
+      "max_authoring_to_delivery_world_vertex_error_m": 7.079274471487221e-08,
+      "topology_exact": true
+    },
+    {
+      "mesh": "Sword_SwordsmanLongsword_Surface",
+      "max_authoring_to_delivery_world_vertex_error_m": 5.5144334653184634e-08,
+      "topology_exact": true
+    },
+    {
+      "mesh": "RightArm_Forearm_Surface",
+      "max_authoring_to_delivery_world_vertex_error_m": 4.068506925999496e-08,
+      "topology_exact": true
+    },
+    {
+      "mesh": "RightHand_Glove",
+      "max_authoring_to_delivery_world_vertex_error_m": 5.021968823902414e-08,
+      "topology_exact": true
+    },
+    {
+      "mesh": "RightArm_UpperArm_Surface",
+      "max_authoring_to_delivery_world_vertex_error_m": 3.132799621797401e-08,
+      "topology_exact": true
+    },
+    {
+      "mesh": "RightArm_WristCuff_Surface",
+      "max_authoring_to_delivery_world_vertex_error_m": 4.273421003786937e-08,
+      "topology_exact": true
+    },
+    {
+      "mesh": "Sword_GripLeather_Extension",
+      "max_authoring_to_delivery_world_vertex_error_m": 5.3361009107538975e-08,
+      "topology_exact": true
+    },
+    {
+      "mesh": "Sword_GripBinding_Extension",
+      "max_authoring_to_delivery_world_vertex_error_m": 5.3008127559123846e-08,
+      "topology_exact": true
+    }
+  ],
+  "final_static_structure": {
+    "actions": 0,
+    "armatures": 0,
+    "modifiers": 0
+  },
+  "failures": [],
+  "original_files_unchanged": true
+}

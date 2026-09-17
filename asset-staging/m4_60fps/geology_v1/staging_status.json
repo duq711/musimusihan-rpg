@@ -1,0 +1,23 @@
+{
+  "status": "Prepared only; production shader unchanged; no Godot process launched.",
+  "source_sha256": "566085037f7a2c091fd7c29ba68dbffb06f2909933ec0e165bddcb0fad7c9bce",
+  "preserved": [
+    "Original projected coordinates, true triangle cap normal, weights, photographic sample helper and relief-normal helper",
+    "All macro/vein/silt noise evaluations",
+    "All nonzero fracture contributions, including negative nonzero uniform values",
+    "AO/roughness/specular/normal and color output formulas",
+    "No textureGrad or varying-branch change; uniform-only conditionals",
+    "No axis epsilon truncation"
+  ],
+  "potential_saved_fetches": {
+    "ground_with_zero_fracture_mix": 12,
+    "ground_prior_source_fetches": 21,
+    "ground_candidate_source_fetches": 9,
+    "rock_nonzero_fracture_mix_change": 0
+  },
+  "limits": [
+    "Source-level fetch counts; compiler optimization and measured speedup unknown until native profiling.",
+    "No two-noise bypass: macro remains used by final color brightness and rock tint even when fracture_mix is zero.",
+    "Actual image parity still requires native A/B validation before acceptance."
+  ]
+}

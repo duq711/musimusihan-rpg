@@ -1,0 +1,3308 @@
+{
+  "tool": "Codex built-in imagegen",
+  "active_archetypes": 126,
+  "excluded_ids": [
+    "gravebound_player",
+    "chest_hands"
+  ],
+  "concepts": [
+    {
+      "id": "sanctuary_warden",
+      "name": "성소 감시자",
+      "concept_file": "concept-art/dark_fantasy_all_objects/sanctuary_warden.png",
+      "sha256": "5699f3271b05e651839a99a640856245fbcfacb19f52ed67c38c32ab323cce5b",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-b33b9788-1031-42a3-948c-a46473060f53.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/sanctuary_warden.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "enemy.gd::_build_body",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "ossuary_keeper",
+      "name": "굶주린 납골당지기",
+      "concept_file": "concept-art/dark_fantasy_all_objects/ossuary_keeper.png",
+      "sha256": "d1874234098a199ca6f9c427fe7a7d322a5dfb41aebfc5b202feea4723f8972d",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-4a2ba166-0a0c-4a57-a684-24bbac088e9b.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/ossuary_keeper.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "enemy.gd::_build_body",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "rusted_longsword",
+      "name": "녹슨 장검",
+      "concept_file": "concept-art/dark_fantasy_all_objects/rusted_longsword.png",
+      "sha256": "a2366df3fde071f1137376136980140b4eabe57f5bb9451367059de1dd0d3b1d",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-714cbb8e-246d-46ac-abbe-a14d052cc17f.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/rusted_longsword.txt",
+        "concept-art/dark_fantasy_all_objects/prompts/rusted_longsword_camera_v2.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "player.gd::_build_viewmodel",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "weathered_round_shield",
+      "name": "낡은 원형 방패",
+      "concept_file": "concept-art/dark_fantasy_all_objects/weathered_round_shield.png",
+      "sha256": "49558bf699466f7391b791f5aa3b90ff94745e2ccd0c9791cf8da5bb24bdfb15",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-d6a31812-76e6-4c79-90de-b36f0d8f24d6.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/weathered_round_shield.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "player.gd::_build_viewmodel",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "iron_cage_torch",
+      "name": "철제 우리 횃불",
+      "concept_file": "concept-art/dark_fantasy_all_objects/iron_cage_torch.png",
+      "sha256": "a8fc465967a6cb161800ed97f28d770aaabf7f82b3eb737b57ff18d3077d6482",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-ff0b3fd8-7a05-40f9-96a1-a0f5a8a3f858.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/iron_cage_torch.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "player.gd::_build_viewmodel",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "weathered_staff",
+      "name": "낡은 수정 지팡이",
+      "concept_file": "concept-art/dark_fantasy_all_objects/weathered_staff.png",
+      "sha256": "1f21e32692b1f8c18af08d19975c33bb2465b4d7ca276a0b16ff0f491a5e74f6",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-e4dbda17-aa5c-4506-960d-54206ad667d5.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/weathered_staff.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "player.gd::_build_staff_visual",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "hunting_bow",
+      "name": "사냥용 장궁",
+      "concept_file": "concept-art/dark_fantasy_all_objects/hunting_bow.png",
+      "sha256": "eea116c0d73dfa3d066d318fd3a754028dd043b530d225a0ae3ed89d34b816a9",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-8e7b097c-be3b-408f-a8b8-972e5d77b75b.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/hunting_bow.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "archery_visuals.gd::create_bow",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "hunting_arrow",
+      "name": "사냥용 화살",
+      "concept_file": "concept-art/dark_fantasy_all_objects/hunting_arrow.png",
+      "sha256": "123f80ec6b5e715899076de89fb05e2d29b0d687c71e29654d25f5e0161eb84e",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-14f2f101-2290-4ad3-a5c2-4cfc6efe2917.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/hunting_arrow.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "archery_visuals.gd::create_arrow",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "chain_flail",
+      "name": "쇠사슬 철퇴",
+      "concept_file": "concept-art/dark_fantasy_all_objects/chain_flail.png",
+      "sha256": "031555e60e581a429732ed259993f5330430035e5d501c85a3cc9d7c3921acc6",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-64abb878-631d-4e2a-a0c5-231aae51de02.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/chain_flail.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "flail_visuals.gd::create_flail",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "flail_head",
+      "name": "가시 철퇴 머리",
+      "concept_file": "concept-art/dark_fantasy_all_objects/flail_head.png",
+      "sha256": "d083939620a5c22d0773a7e98cccf1764927091a65313e78c6c489657705af52",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-5051924c-61b2-426b-a253-28ddb7c407cd.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/flail_head.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "flail_visuals.gd::create_head",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "flail_chain",
+      "name": "철퇴 사슬",
+      "concept_file": "concept-art/dark_fantasy_all_objects/flail_chain.png",
+      "sha256": "fce9d253dfc0b4524457334fcd0c9e53e7dec9ddd7aa69152ff5d6fca453b65f",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-a6debf6f-33f4-41c1-9c15-421bd1d04159.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/flail_chain.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "flail_visuals.gd::create_chain",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "reliquary_chest",
+      "name": "성유물 보급 상자",
+      "concept_file": "concept-art/dark_fantasy_all_objects/reliquary_chest.png",
+      "sha256": "154752edc9c729d304556d3fa21bc798190796b707be152491e215b3a9e99351",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-dcc14d32-0b84-43c1-9e5f-55e682156fee.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/reliquary_chest.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "loot_chest.gd::_build_visuals",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "blood_rune_trap",
+      "name": "피의 룬 가시 함정",
+      "concept_file": "concept-art/dark_fantasy_all_objects/blood_rune_trap.png",
+      "sha256": "5fbf0e34ce20ebca64d150e2c7e01ce4befba27a6e720d8196b9804c1680e795",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-b55e7d7f-b6e3-44a7-a2dd-c1e42d780b72.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/blood_rune_trap.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "trap.gd::_build_visuals",
+      "variant_coverage": [
+        "retracted spikes",
+        "extended spikes"
+      ]
+    },
+    {
+      "id": "dungeon_archway",
+      "name": "납골당 아치문",
+      "concept_file": "concept-art/dark_fantasy_all_objects/dungeon_archway.png",
+      "sha256": "0f0225a2b4d9a82a88e873c35c0431e8d63ea6a343d9b464075780529fbf9f1f",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-51c22d63-1e6b-4fc4-ba2e-12e18cda296b.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/dungeon_archway.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "hideout.gd::_add_arch",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "dungeon_pillar",
+      "name": "고딕 석조 기둥",
+      "concept_file": "concept-art/dark_fantasy_all_objects/dungeon_pillar.png",
+      "sha256": "d2ef7d44256db6c5331a4f35c9a330b9603198643dde7610415e1ebe05a49d9f",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-e4d0a391-3340-4b38-b527-863933910a27.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/dungeon_pillar.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "hideout.gd::_add_pillar",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "dungeon_stairs",
+      "name": "폐허 예배당 계단",
+      "concept_file": "concept-art/dark_fantasy_all_objects/dungeon_stairs.png",
+      "sha256": "b4e75b4e939054bdb584fa425255c79fadcb19dc1639867bb1446a9716a6c382",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-ebc5be0e-88a3-469c-ae51-07c3b7d6a90b.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/dungeon_stairs.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "hideout.gd::_build_entry_and_stairs",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "extraction_portal",
+      "name": "탈출 성소 차원문",
+      "concept_file": "concept-art/dark_fantasy_all_objects/extraction_portal.png",
+      "sha256": "79e0f2406ed819fee1e65b16a59d40c28051a64842e859a89c2a26226dcb1786",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-3db54133-41eb-44db-a9a8-b4b836fd2e68.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/extraction_portal.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "game.gd::_build_extraction_gate",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "headless_saint",
+      "name": "머리 없는 성인 석상",
+      "concept_file": "concept-art/dark_fantasy_all_objects/headless_saint.png",
+      "sha256": "cec4db482f17cc32e99bf436f51e608a2e6154f63720cdbe3c7c78810f57bd99",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-d5a74ec4-6e29-43c6-96bf-ea6c8da7cfc0.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/headless_saint.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "hideout.gd::_build_broken_saint",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "hideout_hearth",
+      "name": "은신처 잿불 화로",
+      "concept_file": "concept-art/dark_fantasy_all_objects/hideout_hearth.png",
+      "sha256": "19dc5c24bb1b45e23b044e747707229b406a618febf10e7768dc47588eb7a1e6",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-cad37a71-ec18-4f31-91b9-ac5af177ccd6.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/hideout_hearth.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "hideout.gd::_build_hearth",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "wooden_stool",
+      "name": "세발 나무 의자",
+      "concept_file": "concept-art/dark_fantasy_all_objects/wooden_stool.png",
+      "sha256": "bb051620d2b808b441d881a7ffb4978941f918e4315bc6fc3e6759bee4e0fc3e",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-f426ecc9-fb71-4bdb-995b-bea797b7dc33.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/wooden_stool.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "hideout.gd::_build_small_stool",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "storage_shelf",
+      "name": "낡은 보관 선반",
+      "concept_file": "concept-art/dark_fantasy_all_objects/storage_shelf.png",
+      "sha256": "2bd56b8d33bf9258d9f4406d26c012b00caa5bcde1b8421bcbe65b4d825b5ede",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-d6e784c7-168d-4368-8b5a-5e8515282ad5.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/storage_shelf.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "hideout.gd::_build_shelf",
+      "variant_coverage": [
+        "width 2.8 m",
+        "width 3.2 m",
+        "width 3.8 m"
+      ]
+    },
+    {
+      "id": "weapon_rack",
+      "name": "버려진 무기 거치대",
+      "concept_file": "concept-art/dark_fantasy_all_objects/weapon_rack.png",
+      "sha256": "492ebecd7fceef5d4deefb1ec9000d81620080bc83e9572ccc987dd5bab6a471",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-f434b1ae-02a4-48b9-8382-a187a4f802ce.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/weapon_rack.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "hideout.gd::_build_weapon_rack",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "hideout_crate",
+      "name": "은신처 나무 상자",
+      "concept_file": "concept-art/dark_fantasy_all_objects/hideout_crate.png",
+      "sha256": "1ae067b5025958c194009225b50d581403bd8e5cd934665ae618bca85ff6c1d0",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-219f4ff1-3c49-4714-99ac-562b96a75667.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/hideout_crate.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "hideout.gd::_add_crate",
+      "variant_coverage": [
+        "large 1.25x0.92x1.08",
+        "small 0.86x0.62x0.78"
+      ]
+    },
+    {
+      "id": "hideout_barrel",
+      "name": "은신처 참나무 통",
+      "concept_file": "concept-art/dark_fantasy_all_objects/hideout_barrel.png",
+      "sha256": "0fb86047dceef0c94e0d04a28dde482c88abbb3d78adad43a93d66dc5cf41a29",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-a92bf1fe-7a22-4a53-8fa6-fdc48f7c8d50.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/hideout_barrel.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "hideout.gd::_add_barrel",
+      "variant_coverage": [
+        "large radius0.52 height1.22",
+        "small radius0.42 height0.92",
+        "flooded radius0.48 height1.1",
+        "flooded small radius0.38 height0.82"
+      ]
+    },
+    {
+      "id": "rain_bucket",
+      "name": "빗물 양동이",
+      "concept_file": "concept-art/dark_fantasy_all_objects/rain_bucket.png",
+      "sha256": "fc820a493d6f0596d2b75a3f77ea0199bb11b09ed9fc77c8ee86ab5da3be3575",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-f6a5035f-9a94-439b-9644-217b2ec8354a.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/rain_bucket.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "hideout.gd::_add_bucket",
+      "variant_coverage": [
+        "scale0.52",
+        "scale0.62"
+      ]
+    },
+    {
+      "id": "hanging_cloak",
+      "name": "축축한 벽 망토",
+      "concept_file": "concept-art/dark_fantasy_all_objects/hanging_cloak.png",
+      "sha256": "b2c71c2ade280d3c21e558f11ec9241c9ea9176d6a7076ce43fadb823a348ffd",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-76c04c19-a7fb-4484-b43f-1127181b44da.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/hanging_cloak.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "hideout.gd::_add_hanging_cloth",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "drying_herbs",
+      "name": "말리는 약초 다발",
+      "concept_file": "concept-art/dark_fantasy_all_objects/drying_herbs.png",
+      "sha256": "c18226422b4c7f937ff3956f634b05025ef6c05e8856a46043f7940ab2dd6f2a",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-b3d2ab1a-a95e-4bf0-9007-aaff4a40c70b.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/drying_herbs.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "hideout.gd::_add_hanging_herbs",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "used_candles",
+      "name": "다 탄 밀랍 양초",
+      "concept_file": "concept-art/dark_fantasy_all_objects/used_candles.png",
+      "sha256": "b2b3f70a9bfdfda15c2f9b3e5363ba74bf84af0367b4688ab14c0dde6aa7e51a",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-3de7c54b-f3ec-489e-871e-601fcf5d95d2.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/used_candles.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "hideout.gd::_add_candle_cluster",
+      "variant_coverage": [
+        "heights .24 .32 .40 m"
+      ]
+    },
+    {
+      "id": "ossuary_gate",
+      "name": "봉인된 납골실 철문",
+      "concept_file": "concept-art/dark_fantasy_all_objects/ossuary_gate.png",
+      "sha256": "934e906b6991a44e08dddbac1616c58a11e3be9502eca944c5f074d66048df93",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-a7a56acc-9a35-4a34-ac42-d4abe797edb5.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/ossuary_gate.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "hideout.gd::_add_iron_gate",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "drain_gate",
+      "name": "좁은 배수 철문",
+      "concept_file": "concept-art/dark_fantasy_all_objects/drain_gate.png",
+      "sha256": "f18850bad4c6da667d9432028c93fdb3b7cc1cba65b5ab5e193269e42c195ec9",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-8836fb4c-94e2-4244-a600-a50df9e2301d.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/drain_gate.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "hideout.gd::_add_iron_gate",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "ossuary_niches",
+      "name": "해골 납골 벽감",
+      "concept_file": "concept-art/dark_fantasy_all_objects/ossuary_niches.png",
+      "sha256": "8266465ef11739eab31783275d78094a35d3825a8138d3151c25d7d54c0f517e",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-2107cc9d-b4ff-4f6e-b00d-5cd4bf5922e8.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/ossuary_niches.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "hideout.gd::_add_niche_wall",
+      "variant_coverage": [
+        "5 columns x3 rows",
+        "4 columns x3 rows"
+      ]
+    },
+    {
+      "id": "weathered_skull",
+      "name": "풍화된 해골",
+      "concept_file": "concept-art/dark_fantasy_all_objects/weathered_skull.png",
+      "sha256": "066afdbd171947f36209c1717224c54da985faf0443d4ee25118b3e472954ff1",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-3aff1924-98f9-48f8-8fdf-8d365d3d0b9d.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/weathered_skull.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "hideout.gd::_add_skull",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "cold_seal_rune",
+      "name": "납골실 냉기 룬",
+      "concept_file": "concept-art/dark_fantasy_all_objects/cold_seal_rune.png",
+      "sha256": "903036da96a1661a68a1ca6571214a0e6de556dc034ce51292dda45abb113636",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-cbb20063-3035-4420-bcaf-bf07dd8240fb.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/cold_seal_rune.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "hideout.gd::_add_cold_rune",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "hideout_rubble",
+      "name": "납골당 깨진 석재",
+      "concept_file": "concept-art/dark_fantasy_all_objects/hideout_rubble.png",
+      "sha256": "cc31ab91b5b8968a17558ed8f696137d36b3eef8b2de4fd2216b92d6f4c7b2b5",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-339f4434-133a-4396-a984-675353ac5336.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/hideout_rubble.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "hideout.gd::_add_rubble_cluster",
+      "variant_coverage": [
+        "6 shard shapes"
+      ]
+    },
+    {
+      "id": "shallow_water",
+      "name": "은신처 얕은 고인 물",
+      "concept_file": "concept-art/dark_fantasy_all_objects/shallow_water.png",
+      "sha256": "d3652442e53001876f4cb66118a240b94e115288a2c6ca53d1d886f09c848c98",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-97f16f3b-ab4f-456e-8263-d7ba14fbabe2.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/shallow_water.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "hideout.gd::_add_water_surface",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "moss_patch",
+      "name": "젖은 벽 이끼",
+      "concept_file": "concept-art/dark_fantasy_all_objects/moss_patch.png",
+      "sha256": "a488bf40e96a21b4e6d2766c68e18b8b43325386b990c0ac7efa08a50ae174cf",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-29d9bbba-9472-4e7b-8e48-ed3649e2da59.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/moss_patch.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "hideout.gd::_add_moss_patch",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "wall_torch",
+      "name": "벽걸이 철제 횃불",
+      "concept_file": "concept-art/dark_fantasy_all_objects/wall_torch.png",
+      "sha256": "5d363df0ee770d4f0677481ba742927275d688ae6e24999c40fabc9603250cf0",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-b4271e82-4a42-4cbd-8163-cf55d71cadb1.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/wall_torch.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "hideout.gd::_add_wall_torch",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "flame_and_sparks",
+      "name": "불꽃과 불티",
+      "concept_file": "concept-art/dark_fantasy_all_objects/flame_and_sparks.png",
+      "sha256": "a22ba592c7004f28d835d9f190b9dd78663473b7b175d15ac7aff2437a2d3f4c",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-0297da81-b5c5-4d62-a2b9-de0fd880de1f.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/flame_and_sparks.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "hideout.gd::_add_flame",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "water_drips",
+      "name": "천장 물방울",
+      "concept_file": "concept-art/dark_fantasy_all_objects/water_drips.png",
+      "sha256": "affca7d8cbdbe3b8adcf10e854d46108ad20a0097afa085c4a9136a242a642f3",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-09de2457-f858-4878-991d-5ad3fa32bdcd.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/water_drips.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "hideout.gd::_add_water_drips",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "straw_bed",
+      "name": "짚 침상",
+      "concept_file": "concept-art/dark_fantasy_all_objects/straw_bed.png",
+      "sha256": "7da03f792bfb781889772b0d2b697067b62a33d0d30acf87262e8be568e9a392",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-699b7343-f157-4022-9987-c73e8624ef41.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/straw_bed.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "hideout.gd::_build_sleeping_cell",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "mud_mat",
+      "name": "진흙 묻은 깔개",
+      "concept_file": "concept-art/dark_fantasy_all_objects/mud_mat.png",
+      "sha256": "c700099d58733e1f28486a3df5df2a99b86fb98456b04aa9f7a316050715ed70",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-d1834638-4579-4c4c-b8ee-29130feed9e1.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/mud_mat.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "hideout.gd::_build_entry_and_stairs",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "hidden_hatch",
+      "name": "철제 버팀 입구 판자문",
+      "concept_file": "concept-art/dark_fantasy_all_objects/hidden_hatch.png",
+      "sha256": "09babf280a2fb2758248902575bf70052ff2abe77480af323e7fde15d82c9ea7",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-533c3bc4-ec72-4a79-988b-beefbc44bdda.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/hidden_hatch.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "hideout.gd::_build_entry_and_stairs",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "empty_sack",
+      "name": "빈 삼베 자루",
+      "concept_file": "concept-art/dark_fantasy_all_objects/empty_sack.png",
+      "sha256": "190f99da90b7afbd4c96a13952a7620c4111a97b028ec411c966353f16466dc5",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-fec57bb7-f06e-413a-a30e-fc6aa0d46e5f.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/empty_sack.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "hideout.gd::_build_storage_room",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "broken_workbench",
+      "name": "부서진 작업대",
+      "concept_file": "concept-art/dark_fantasy_all_objects/broken_workbench.png",
+      "sha256": "7bd7178090439d00892e13998c6c6fb42ad992d5ca3a8642f35d065c61d417c7",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-8a26eeba-5ce7-4194-a8dd-2f79453435a6.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/broken_workbench.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "hideout.gd::_build_workshop",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "whetstone",
+      "name": "낡은 숫돌",
+      "concept_file": "concept-art/dark_fantasy_all_objects/whetstone.png",
+      "sha256": "85ea19cdf82f555da8b12ec313d5da4e062e2e2a7243cb4a771181a5fb58f0fc",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-96d58224-cb7e-4bc3-b4fe-aa846cac0e14.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/whetstone.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "hideout.gd::_build_workshop",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "rusty_vice",
+      "name": "녹슨 바이스",
+      "concept_file": "concept-art/dark_fantasy_all_objects/rusty_vice.png",
+      "sha256": "4eeac3a463337e9105e329e70756e5ffe6bb979101b8e961808bb0a182e264d3",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-510b2ead-f1ac-4d6e-b5b6-c90a6ed0430c.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/rusty_vice.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "hideout.gd::_build_workshop",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "gothic_voussoir_arch",
+      "name": "납골당 천장 석조 아치",
+      "concept_file": "concept-art/dark_fantasy_all_objects/gothic_voussoir_arch.png",
+      "sha256": "196bb18fd6720f5fb17972df033f5beb661c75f4b33e20d82a0ae41b9ea0471a",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-a3ea3329-955a-4579-b7b5-eca881ffa04e.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/gothic_voussoir_arch.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "game.gd::_add_gothic_arch",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "hanging_chain",
+      "name": "천장 녹슨 사슬",
+      "concept_file": "concept-art/dark_fantasy_all_objects/hanging_chain.png",
+      "sha256": "217d5772546eef10336ebd4e252c2769cded467fc036ee3395e4e7ad3725af09",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-40b10ca5-df44-43c4-a3ab-75b1c84ea166.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/hanging_chain.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "game.gd::_add_hanging_chain",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "dungeon_rubble",
+      "name": "던전 폐석 더미",
+      "concept_file": "concept-art/dark_fantasy_all_objects/dungeon_rubble.png",
+      "sha256": "e37d47bb6f1747c528ed26136335afb92aa3a4e075c3216b1b7110297a8c8541",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-ff7c205d-b2a9-414a-9e0d-42086784ef78.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/dungeon_rubble.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "game.gd::_add_rubble_cluster",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "wet_floor_patch",
+      "name": "바닥 물 반사 자국",
+      "concept_file": "concept-art/dark_fantasy_all_objects/wet_floor_patch.png",
+      "sha256": "2c97c4c76bcdc0476c27d212ac40a102e11fef2c55ab125ccdc4131be98bd8ee",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-b046f3cb-0291-4d35-82b1-28166287f865.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/wet_floor_patch.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "game.gd::_add_wet_patch",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "ossuary_wall",
+      "name": "축축한 납골당 벽",
+      "concept_file": "concept-art/dark_fantasy_all_objects/ossuary_wall.png",
+      "sha256": "c76e14570347e1c9f9860dcc176534a5d6eef25e5233fb7ea30434e2a2394957",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-20586ce3-c34c-4747-b043-b61fa3c6e645.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/ossuary_wall.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "game.gd::_add_visual_box",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "wet_flagstone_floor",
+      "name": "젖은 판석 바닥",
+      "concept_file": "concept-art/dark_fantasy_all_objects/wet_flagstone_floor.png",
+      "sha256": "f7336fb0cb3444b262daff843ee347c16698d1e6005b99b3335de08147661ed6",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-11f81745-b399-4d64-8c32-5d16b7da7d55.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/wet_flagstone_floor.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "game.gd::_add_visual_box",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "crypt_ceiling",
+      "name": "납골당 석조 천장",
+      "concept_file": "concept-art/dark_fantasy_all_objects/crypt_ceiling.png",
+      "sha256": "ec15740b92be5d15ca2ed0e7fef48053ecfdde9638749ec7b7916f89ade777a9",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-b02cbba5-0b84-4531-b56c-f7091f2ac9ba.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/crypt_ceiling.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "game.gd::_add_visual_box",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "broken_altar",
+      "name": "부서진 제단",
+      "concept_file": "concept-art/dark_fantasy_all_objects/broken_altar.png",
+      "sha256": "5b49482015d2ce611ba0b56afd88f927ac56429bb585844fad9dbc169e19a7db",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-7080660b-e036-4e94-aba8-7dc62292a018.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/broken_altar.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "game.gd::_add_visual_box",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "campfire",
+      "name": "원정 야영 모닥불",
+      "concept_file": "concept-art/dark_fantasy_all_objects/campfire.png",
+      "sha256": "ee5fed1244f34e6b7ec7af18a79179c530ed298408a6deb0abe7ef83bb52bb9b",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-62f32518-bdac-4e07-8131-761bfbc4c342.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/campfire.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "camp_visuals.gd::create_camp",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "camp_bedroll",
+      "name": "야영 침낭",
+      "concept_file": "concept-art/dark_fantasy_all_objects/camp_bedroll.png",
+      "sha256": "65a5586be8a06a18d5a7258d1bc004639d470505b4c6aa827b09b98b0767fd12",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-590769f0-0491-486f-8a34-7d1c6c58750b.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/camp_bedroll.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "camp_visuals.gd::create_camp",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "roasting_spit",
+      "name": "고기 굽는 꼬챙이",
+      "concept_file": "concept-art/dark_fantasy_all_objects/roasting_spit.png",
+      "sha256": "0b6ebc12d22af65aa3f03762a7007f2006e361557adc36c84f2f20c6daf75f10",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-5cc0c726-0c8b-4d1a-b85a-1e9d7b3505c6.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/roasting_spit.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "camp_visuals.gd::create_camp + set_cooking",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "mushroom_soup_pot",
+      "name": "버섯 수프 냄비",
+      "concept_file": "concept-art/dark_fantasy_all_objects/mushroom_soup_pot.png",
+      "sha256": "566af91589b20a28a10c31fc7e06790c89c293fb038fe84441b9e465014abaff",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-c5f37d15-6847-4215-9864-3f719562dca6.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/mushroom_soup_pot.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "camp_visuals.gd::create_camp + set_cooking",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "trail_stew_pot",
+      "name": "행군 스튜 냄비",
+      "concept_file": "concept-art/dark_fantasy_all_objects/trail_stew_pot.png",
+      "sha256": "7653ec61b43108433ac7f55ff1aff94bd06c4ad2bc9f4791b0161e8819c3e17a",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-5b54bbf3-bc19-4af5-a941-04577897089b.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/trail_stew_pot.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "camp_visuals.gd::create_camp + set_cooking",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "cooking_steam",
+      "name": "요리 수증기",
+      "concept_file": "concept-art/dark_fantasy_all_objects/cooking_steam.png",
+      "sha256": "af6b1edf6cec37b81c929a0ae789b1a7a179974463a0759b2b39465fd12424ac",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-7d5ed1a8-818e-4b6a-8dc0-6ce60f6c1388.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/cooking_steam.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "camp_visuals.gd::create_camp + set_cooking",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "fire_bolt",
+      "name": "응축한 화염탄",
+      "concept_file": "concept-art/dark_fantasy_all_objects/fire_bolt.png",
+      "sha256": "49a81b99b4f22df8443c88fcdb6d44e837543f21b8a5c60de630ac8604d638c4",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-ba5f89ad-9fc2-492e-b9fa-f62a3fb98750.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/fire_bolt.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "magic_projectile.gd::_build_visual",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "water_bolt",
+      "name": "물의 화살",
+      "concept_file": "concept-art/dark_fantasy_all_objects/water_bolt.png",
+      "sha256": "bad5ab029e33b059c469bbc30cee94038d7aee96b32f4ffa16d9d84bbebbdf2a",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-339fc991-8fa4-4f7f-819c-cf926c412310.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/water_bolt.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "magic_projectile.gd::_build_visual",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "ice_shard",
+      "name": "서리 결정 파편",
+      "concept_file": "concept-art/dark_fantasy_all_objects/ice_shard.png",
+      "sha256": "01cdfcb7fdcac2f2143dd4edbfd26c6040380d114429ca554370ab12311d5e9a",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-8fecf500-a2bd-4038-8924-e548f968b5bd.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/ice_shard.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "magic_projectile.gd::_build_visual",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "stone_shard",
+      "name": "돌 탄환",
+      "concept_file": "concept-art/dark_fantasy_all_objects/stone_shard.png",
+      "sha256": "9cdc8aa3687ded58a38159d3a004f4f655726fbe038a5350542b35030a358639",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-adf6e0be-257e-44a0-a69a-0a4fd0c44206.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/stone_shard.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "magic_projectile.gd::_build_visual",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "mine_monster_skeleton",
+      "name": "거대 짐승 유골",
+      "concept_file": "concept-art/dark_fantasy_all_objects/mine_monster_skeleton.png",
+      "sha256": "01dba398cfd27b50d473232b6a1e83f54e615ca3ca499c57b5fbd4f8c364f21b",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07267-9952-7d53-8b71-a1a098148db0/exec-6eb9b2b6-41ed-499e-812e-d4c74b24e735.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/mine_monster_skeleton.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_bone_cavern_monster_skeleton",
+      "variant_coverage": [
+        "Mine_bone_cavern_monster_skeleton"
+      ]
+    },
+    {
+      "id": "mine_abandoned_crate_stack_01",
+      "name": "폐광 보급 상자 더미 01",
+      "concept_file": "concept-art/dark_fantasy_all_objects/mine_abandoned_crate_stack_01.png",
+      "sha256": "6092e01287a194efe9bac04c3140c3e3d8c58298465c866c794edab749493ffb",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07267-9952-7d53-8b71-a1a098148db0/exec-eda7297f-722a-4230-a23e-f10f650e0ec2.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/mine_abandoned_crate_stack_01.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_east_store_abandoned_crate_stack_02",
+      "variant_coverage": [
+        "Mine_east_store_abandoned_crate_stack_02"
+      ]
+    },
+    {
+      "id": "mine_abandoned_crate_stack_02",
+      "name": "폐광 보급 상자 더미 02",
+      "concept_file": "concept-art/dark_fantasy_all_objects/mine_abandoned_crate_stack_02.png",
+      "sha256": "83817d2ec360658f48b69e7d656e4494c756acd24e12c67fa548f94adca8e368",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07267-9952-7d53-8b71-a1a098148db0/exec-ecc0c9a5-559a-4af3-b828-e2a28bd21a18.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/mine_abandoned_crate_stack_02.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_east_store_abandoned_crate_stack_03",
+      "variant_coverage": [
+        "Mine_east_store_abandoned_crate_stack_03"
+      ]
+    },
+    {
+      "id": "mine_abandoned_crate_stack_03",
+      "name": "폐광 보급 상자 더미 03",
+      "concept_file": "concept-art/dark_fantasy_all_objects/mine_abandoned_crate_stack_03.png",
+      "sha256": "4fb870c8cb3c0bf2a04c53c32eb0c3c4b048321daeae2d9b12f84002126f2736",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07267-9952-7d53-8b71-a1a098148db0/exec-9eb67965-e831-4b21-8085-eb2f8ddceb08.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/mine_abandoned_crate_stack_03.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_entrance_abandoned_crate_stack_01",
+      "variant_coverage": [
+        "Mine_entrance_abandoned_crate_stack_01"
+      ]
+    },
+    {
+      "id": "mine_abandoned_crate_stack_04",
+      "name": "폐광 보급 상자 더미 04",
+      "concept_file": "concept-art/dark_fantasy_all_objects/mine_abandoned_crate_stack_04.png",
+      "sha256": "1ce39d07d12578c75a27814b46db624ea1a1b6e718a3a9fac62ff43ce4e5ad73",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07267-9952-7d53-8b71-a1a098148db0/exec-4620a5bc-7d23-43ff-85b0-9215e19b2530.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/mine_abandoned_crate_stack_04.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_foreman_workroom_abandoned_crate_stack_04",
+      "variant_coverage": [
+        "Mine_foreman_workroom_abandoned_crate_stack_04"
+      ]
+    },
+    {
+      "id": "mine_abandoned_crate_stack_05",
+      "name": "폐광 보급 상자 더미 05",
+      "concept_file": "concept-art/dark_fantasy_all_objects/mine_abandoned_crate_stack_05.png",
+      "sha256": "b50b41baecb38d0c5faa3e5ec099ab0c0bd108055e878f5eb14f85e8d153d77d",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07267-9952-7d53-8b71-a1a098148db0/exec-74d06d81-3db0-409a-95ab-64ce06b447bb.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/mine_abandoned_crate_stack_05.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_north_workings_abandoned_crate_stack_05",
+      "variant_coverage": [
+        "Mine_north_workings_abandoned_crate_stack_05"
+      ]
+    },
+    {
+      "id": "mine_barrels_and_rope",
+      "name": "폐광 통과 밧줄",
+      "concept_file": "concept-art/dark_fantasy_all_objects/mine_barrels_and_rope.png",
+      "sha256": "e2e56f3742b54fd9c747f7b5a18a3d086ea58651a021f0bc8d57829680228ec0",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07267-9952-7d53-8b71-a1a098148db0/exec-ef394ab5-43ab-416e-b234-c1939033f72b.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/mine_barrels_and_rope.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_east_store_barrels_and_rope_01",
+      "variant_coverage": [
+        "Mine_east_store_barrels_and_rope_01",
+        "Mine_foreman_workroom_barrels_and_rope_02",
+        "Mine_southwest_adit_barrels_and_rope_03"
+      ]
+    },
+    {
+      "id": "mine_torn_canvas_rack",
+      "name": "찢어진 천 거치대",
+      "concept_file": "concept-art/dark_fantasy_all_objects/mine_torn_canvas_rack.png",
+      "sha256": "e9b276d42d80cfc8f807b2a07091c382462c94eaeae3c9962e4d072026e6af04",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07267-9952-7d53-8b71-a1a098148db0/exec-7bf17ce6-1620-492f-82d1-1849a241ba2a.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/mine_torn_canvas_rack.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_east_store_torn_canvas_rack_01",
+      "variant_coverage": [
+        "Mine_east_store_torn_canvas_rack_01"
+      ]
+    },
+    {
+      "id": "mine_weathered_footbridge_01",
+      "name": "폐광 판자 다리 01",
+      "concept_file": "concept-art/dark_fantasy_all_objects/mine_weathered_footbridge_01.png",
+      "sha256": "195bef5c06264374b6c2c1c26ce700177051a5e127983ae6afb402c48d4d606d",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07267-9952-7d53-8b71-a1a098148db0/exec-9a5635c2-260f-42a2-895f-6fc9eec6dc89.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/mine_weathered_footbridge_01.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_east_store_weathered_footbridge_02",
+      "variant_coverage": [
+        "Mine_east_store_weathered_footbridge_02"
+      ]
+    },
+    {
+      "id": "mine_weathered_footbridge_02",
+      "name": "폐광 판자 다리 02",
+      "concept_file": "concept-art/dark_fantasy_all_objects/mine_weathered_footbridge_02.png",
+      "sha256": "511e958d1d2f7e3fd20fa174d1fa67fac5cdc7f6fd20de4bfee125284654eb2b",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07267-9952-7d53-8b71-a1a098148db0/exec-b4cdc178-f988-42da-b279-ff26e90dbbe2.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/mine_weathered_footbridge_02.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_west_pool_weathered_footbridge_01",
+      "variant_coverage": [
+        "Mine_west_pool_weathered_footbridge_01"
+      ]
+    },
+    {
+      "id": "mine_abandoned_hand_tools",
+      "name": "폐광 곡괭이와 도구",
+      "concept_file": "concept-art/dark_fantasy_all_objects/mine_abandoned_hand_tools.png",
+      "sha256": "5470d4a700ad57dd8c64c69a2c92f366cd5a6e19556f77da3716fc75721f34b3",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07267-9952-7d53-8b71-a1a098148db0/exec-70bb0f4b-7162-4938-8131-56c341f8bea4.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/mine_abandoned_hand_tools.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_entrance_abandoned_hand_tools_03",
+      "variant_coverage": [
+        "Mine_entrance_abandoned_hand_tools_03",
+        "Mine_north_workings_abandoned_hand_tools_01",
+        "Mine_rubble_passage_abandoned_hand_tools_04",
+        "Mine_workshops_abandoned_hand_tools_02"
+      ]
+    },
+    {
+      "id": "mine_timber_support_01",
+      "name": "폐광 목조 버팀대 01",
+      "concept_file": "concept-art/dark_fantasy_all_objects/mine_timber_support_01.png",
+      "sha256": "a612208e063cc25bf26a31ab75d761838486ca9f55ef957acd1949efc589b490",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07267-9952-7d53-8b71-a1a098148db0/exec-3fae415a-f326-4338-8fdb-a8190a3ce4ab.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/mine_timber_support_01.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_entrance_timber_support_01",
+      "variant_coverage": [
+        "Mine_entrance_timber_support_01"
+      ]
+    },
+    {
+      "id": "mine_timber_support_02",
+      "name": "폐광 목조 버팀대 02",
+      "concept_file": "concept-art/dark_fantasy_all_objects/mine_timber_support_02.png",
+      "sha256": "dff3fd28685482d3a5f093b8a1be0f4787503114b61afbd9f793f2533ca5346b",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07267-9952-7d53-8b71-a1a098148db0/exec-1ae5978b-2410-49b1-8fa2-8439946b3f18.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/mine_timber_support_02.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_grand_quarry_timber_support_02",
+      "variant_coverage": [
+        "Mine_grand_quarry_timber_support_02"
+      ]
+    },
+    {
+      "id": "mine_timber_support_03",
+      "name": "폐광 목조 버팀대 03",
+      "concept_file": "concept-art/dark_fantasy_all_objects/mine_timber_support_03.png",
+      "sha256": "8ef54e62fedb18ffa363d7a0fb25efc2b953b3099916ec20dcc569b465b849c8",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07267-9952-7d53-8b71-a1a098148db0/exec-bab9a8e2-00d6-43e1-96ef-c33bba55d8ab.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/mine_timber_support_03.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_north_workings_timber_support_04",
+      "variant_coverage": [
+        "Mine_north_workings_timber_support_04"
+      ]
+    },
+    {
+      "id": "mine_timber_support_04",
+      "name": "폐광 목조 버팀대 04",
+      "concept_file": "concept-art/dark_fantasy_all_objects/mine_timber_support_04.png",
+      "sha256": "b26515bdc46486e22dcfa3e152f5a11c75c1ce8d23e2e4986659199eff09a130",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07267-9952-7d53-8b71-a1a098148db0/exec-38717e7a-777c-44e7-8edf-bd732cefe3b4.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/mine_timber_support_04.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_upper_lake_timber_support_05",
+      "variant_coverage": [
+        "Mine_upper_lake_timber_support_05"
+      ]
+    },
+    {
+      "id": "mine_timber_support_05",
+      "name": "폐광 목조 버팀대 05",
+      "concept_file": "concept-art/dark_fantasy_all_objects/mine_timber_support_05.png",
+      "sha256": "1d6b7db41b01a4ddc32826833a37d348e14fb6a7adf45022c4940144441a0bd6",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07267-9952-7d53-8b71-a1a098148db0/exec-24199fb5-8e55-4746-bc7d-5fcb2135c625.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/mine_timber_support_05.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_western_altar_timber_support_03",
+      "variant_coverage": [
+        "Mine_western_altar_timber_support_03"
+      ]
+    },
+    {
+      "id": "mine_foreman_bench",
+      "name": "감독관 작업대",
+      "concept_file": "concept-art/dark_fantasy_all_objects/mine_foreman_bench.png",
+      "sha256": "62854b34b697b2358729e97044712d915d0cb24c7536113f678aadb773681aec",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07267-9952-7d53-8b71-a1a098148db0/exec-c55e6489-3c3a-4ad9-b84d-f08a849ea64e.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/mine_foreman_bench.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_foreman_workroom_foreman_bench_01",
+      "variant_coverage": [
+        "Mine_foreman_workroom_foreman_bench_01"
+      ]
+    },
+    {
+      "id": "mine_supported_oil_lantern",
+      "name": "폐광 벽걸이 등잔",
+      "concept_file": "concept-art/dark_fantasy_all_objects/mine_supported_oil_lantern.png",
+      "sha256": "8f800508be62949675fb6a7a54709008a7ad55a676498040008ade900a1a5941",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07267-9952-7d53-8b71-a1a098148db0/exec-3f96109c-c0ee-4d31-b9a6-d7d2fba09b84.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/mine_supported_oil_lantern.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_gallery_supported_oil_lantern_01",
+      "variant_coverage": [
+        "Mine_gallery_supported_oil_lantern_01",
+        "Mine_gallery_supported_oil_lantern_02",
+        "Mine_gallery_supported_oil_lantern_03",
+        "Mine_gallery_supported_oil_lantern_04",
+        "Mine_gallery_supported_oil_lantern_05",
+        "Mine_gallery_supported_oil_lantern_06",
+        "Mine_gallery_supported_oil_lantern_07",
+        "Mine_gallery_supported_oil_lantern_08",
+        "Mine_gallery_supported_oil_lantern_09",
+        "Mine_gallery_supported_oil_lantern_10",
+        "Mine_gallery_supported_oil_lantern_11",
+        "Mine_gallery_supported_oil_lantern_12",
+        "Mine_gallery_supported_oil_lantern_13",
+        "Mine_gallery_supported_oil_lantern_14",
+        "Mine_gallery_supported_oil_lantern_15",
+        "Mine_gallery_supported_oil_lantern_16",
+        "Mine_gallery_supported_oil_lantern_17",
+        "Mine_gallery_supported_oil_lantern_18",
+        "Mine_gallery_supported_oil_lantern_19",
+        "Mine_gallery_supported_oil_lantern_20",
+        "Mine_gallery_supported_oil_lantern_21",
+        "Mine_gallery_supported_oil_lantern_22",
+        "Mine_gallery_supported_oil_lantern_23",
+        "Mine_gallery_supported_oil_lantern_24",
+        "Mine_gallery_supported_oil_lantern_25",
+        "Mine_gallery_supported_oil_lantern_26",
+        "Mine_gallery_supported_oil_lantern_27",
+        "Mine_gallery_supported_oil_lantern_28",
+        "Mine_gallery_supported_oil_lantern_29",
+        "Mine_gallery_supported_oil_lantern_30",
+        "Mine_gallery_supported_oil_lantern_31",
+        "Mine_gallery_supported_oil_lantern_32",
+        "Mine_gallery_supported_oil_lantern_33",
+        "Mine_gallery_supported_oil_lantern_34",
+        "Mine_gallery_supported_oil_lantern_35",
+        "Mine_gallery_supported_oil_lantern_36",
+        "Mine_gallery_supported_oil_lantern_37",
+        "Mine_gallery_supported_oil_lantern_38",
+        "Mine_gallery_supported_oil_lantern_39",
+        "Mine_gallery_supported_oil_lantern_40",
+        "Mine_gallery_supported_oil_lantern_41",
+        "Mine_gallery_supported_oil_lantern_42",
+        "Mine_gallery_supported_oil_lantern_43",
+        "Mine_gallery_supported_oil_lantern_44",
+        "Mine_gallery_supported_oil_lantern_45",
+        "Mine_gallery_supported_oil_lantern_46",
+        "Mine_gallery_supported_oil_lantern_47",
+        "Mine_gallery_supported_oil_lantern_48",
+        "Mine_gallery_supported_oil_lantern_49",
+        "Mine_gallery_supported_oil_lantern_50",
+        "Mine_gallery_supported_oil_lantern_51",
+        "Mine_gallery_supported_oil_lantern_52"
+      ]
+    },
+    {
+      "id": "mine_overturned_ore_cart",
+      "name": "전복된 광차",
+      "concept_file": "concept-art/dark_fantasy_all_objects/mine_overturned_ore_cart.png",
+      "sha256": "0e4e7d0b32ce0da0538bb0b0f90ad73616bf46acf7f003c9fa01a154abd4be68",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07267-9952-7d53-8b71-a1a098148db0/exec-2d68e4e2-12c2-4827-b3bd-2db8077b9f62.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/mine_overturned_ore_cart.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_grand_quarry_overturned_ore_cart_01",
+      "variant_coverage": [
+        "Mine_grand_quarry_overturned_ore_cart_01"
+      ]
+    },
+    {
+      "id": "mine_short_disused_rail",
+      "name": "폐광 녹슨 철길",
+      "concept_file": "concept-art/dark_fantasy_all_objects/mine_short_disused_rail.png",
+      "sha256": "0793c8909a1859aa6fd0aac5ab8861c8cb6227dcb71f255b83e353f197760839",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07267-9952-7d53-8b71-a1a098148db0/exec-efc8a9b0-ba11-4ff7-aa7b-5a088727eae1.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/mine_short_disused_rail.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_grand_quarry_short_disused_rail_02",
+      "variant_coverage": [
+        "Mine_grand_quarry_short_disused_rail_02",
+        "Mine_north_workings_short_disused_rail_01",
+        "Mine_workshops_short_disused_rail_03"
+      ]
+    },
+    {
+      "id": "mine_stone_pillar_01",
+      "name": "폐광 석조 기둥 01",
+      "concept_file": "concept-art/dark_fantasy_all_objects/mine_stone_pillar_01.png",
+      "sha256": "646e1f42c2b8f4c87dabc376301ddd489aab9c5e0a76c3ed4f37eb17a226af16",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07267-9952-7d53-8b71-a1a098148db0/exec-142b4205-8a22-4070-8d22-13f7e30f3ec7.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/mine_stone_pillar_01.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_grand_quarry_stone_pillar_01",
+      "variant_coverage": [
+        "Mine_grand_quarry_stone_pillar_01"
+      ]
+    },
+    {
+      "id": "mine_stone_pillar_02",
+      "name": "폐광 석조 기둥 02",
+      "concept_file": "concept-art/dark_fantasy_all_objects/mine_stone_pillar_02.png",
+      "sha256": "a2159ce875d770f4e58609d773ed2d8edb911547aa021fd961d77fde262d9747",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07267-9952-7d53-8b71-a1a098148db0/exec-a5401aec-bc74-4c51-9e16-48154736de48.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/mine_stone_pillar_02.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_grand_quarry_stone_pillar_02",
+      "variant_coverage": [
+        "Mine_grand_quarry_stone_pillar_02"
+      ]
+    },
+    {
+      "id": "mine_stone_pillar_03",
+      "name": "폐광 석조 기둥 03",
+      "concept_file": "concept-art/dark_fantasy_all_objects/mine_stone_pillar_03.png",
+      "sha256": "7602333ecfde507957636dcb3216777d9794541bcc3d6bdfaeb4762a136369ea",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07267-9952-7d53-8b71-a1a098148db0/exec-1a56f6d6-4463-47d9-8412-ab0ebbece92b.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/mine_stone_pillar_03.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_grand_quarry_stone_pillar_03",
+      "variant_coverage": [
+        "Mine_grand_quarry_stone_pillar_03"
+      ]
+    },
+    {
+      "id": "mine_stone_pillar_04",
+      "name": "폐광 석조 기둥 04",
+      "concept_file": "concept-art/dark_fantasy_all_objects/mine_stone_pillar_04.png",
+      "sha256": "9ea2cb0c72aba730b353fc67c90caee0d14706ba4be41a9f043c9a18cb6f37cf",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07267-9952-7d53-8b71-a1a098148db0/exec-780acc95-7563-4311-8dc7-5b2181ffb258.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/mine_stone_pillar_04.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_grand_quarry_stone_pillar_04",
+      "variant_coverage": [
+        "Mine_grand_quarry_stone_pillar_04"
+      ]
+    },
+    {
+      "id": "mine_stone_pillar_05",
+      "name": "폐광 석조 기둥 05",
+      "concept_file": "concept-art/dark_fantasy_all_objects/mine_stone_pillar_05.png",
+      "sha256": "3c5ea3850306b94ed6e0cfff60999760c1e8202cec7c48a065efa1203abd0c5c",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07267-9952-7d53-8b71-a1a098148db0/exec-e458ec86-c7aa-4e5d-9a12-4b5dcf88ea7b.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/mine_stone_pillar_05.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_grand_quarry_stone_pillar_05",
+      "variant_coverage": [
+        "Mine_grand_quarry_stone_pillar_05"
+      ]
+    },
+    {
+      "id": "mine_stone_pillar_06",
+      "name": "폐광 석조 기둥 06",
+      "concept_file": "concept-art/dark_fantasy_all_objects/mine_stone_pillar_06.png",
+      "sha256": "32c9bed56b0dcf81fd3ef43684fa04f67bdf444c992006440738aa20486027fd",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07267-9952-7d53-8b71-a1a098148db0/exec-f07883a7-6f0a-4eb9-b2de-9d558f0ee991.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/mine_stone_pillar_06.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_grand_quarry_stone_pillar_06",
+      "variant_coverage": [
+        "Mine_grand_quarry_stone_pillar_06"
+      ]
+    },
+    {
+      "id": "mine_stone_pillar_07",
+      "name": "폐광 석조 기둥 07",
+      "concept_file": "concept-art/dark_fantasy_all_objects/mine_stone_pillar_07.png",
+      "sha256": "d475d7ac65bd9a97b5f4c860f040dc3f2a7ec5a7b4fc298fe5ee022ee158ca6b",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07267-9952-7d53-8b71-a1a098148db0/exec-2af9e8ac-cd1a-4787-bbe6-7615d5c09e34.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/mine_stone_pillar_07.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_pillar_shrine_stone_pillar_07",
+      "variant_coverage": [
+        "Mine_pillar_shrine_stone_pillar_07"
+      ]
+    },
+    {
+      "id": "mine_stone_pillar_08",
+      "name": "폐광 석조 기둥 08",
+      "concept_file": "concept-art/dark_fantasy_all_objects/mine_stone_pillar_08.png",
+      "sha256": "75c60d4444d1d543db2dd127e6a94fd0125181abcc42417fa19584c695caa1cb",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07267-9952-7d53-8b71-a1a098148db0/exec-35302534-2e66-4b7f-b5d2-4fa79a74fde1.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/mine_stone_pillar_08.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_pillar_shrine_stone_pillar_08",
+      "variant_coverage": [
+        "Mine_pillar_shrine_stone_pillar_08"
+      ]
+    },
+    {
+      "id": "mine_stone_pillar_09",
+      "name": "폐광 석조 기둥 09",
+      "concept_file": "concept-art/dark_fantasy_all_objects/mine_stone_pillar_09.png",
+      "sha256": "5711da1916a7e80479441423b20d6a8630d0f5f17ee44b7a9f35ba4d16e9aefa",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07267-9952-7d53-8b71-a1a098148db0/exec-8de87a6d-0d84-43ab-bc71-3e3eeccca90c.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/mine_stone_pillar_09.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_pillar_shrine_stone_pillar_09",
+      "variant_coverage": [
+        "Mine_pillar_shrine_stone_pillar_09"
+      ]
+    },
+    {
+      "id": "mine_stone_pillar_10",
+      "name": "폐광 석조 기둥 10",
+      "concept_file": "concept-art/dark_fantasy_all_objects/mine_stone_pillar_10.png",
+      "sha256": "c6533654990abc4c03e9508869941389832d8edc24c36c2e0b56a397082bb199",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07267-9952-7d53-8b71-a1a098148db0/exec-1b6384f7-ff89-4f7d-b831-9b38ce35c14c.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/mine_stone_pillar_10.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_pillar_shrine_stone_pillar_10",
+      "variant_coverage": [
+        "Mine_pillar_shrine_stone_pillar_10"
+      ]
+    },
+    {
+      "id": "mine_stone_pillar_11",
+      "name": "폐광 석조 기둥 11",
+      "concept_file": "concept-art/dark_fantasy_all_objects/mine_stone_pillar_11.png",
+      "sha256": "b23583075e57fcbf91b29d5ff836a80a7c0b43a97d31772c8655b7549e673529",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07267-9952-7d53-8b71-a1a098148db0/exec-18c23e87-1676-417d-a7c2-61697456ef8b.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/mine_stone_pillar_11.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_pillar_shrine_stone_pillar_11",
+      "variant_coverage": [
+        "Mine_pillar_shrine_stone_pillar_11"
+      ]
+    },
+    {
+      "id": "mine_stone_pillar_12",
+      "name": "폐광 석조 기둥 12",
+      "concept_file": "concept-art/dark_fantasy_all_objects/mine_stone_pillar_12.png",
+      "sha256": "b75d5b3a9c64fabcd7b6f63800c136d566864f55172f22c0b2cc7d4c4b12768f",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07267-9952-7d53-8b71-a1a098148db0/exec-7c923834-8c2d-4f54-809b-0896cd9782ae.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/mine_stone_pillar_12.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_pillar_shrine_stone_pillar_12",
+      "variant_coverage": [
+        "Mine_pillar_shrine_stone_pillar_12"
+      ]
+    },
+    {
+      "id": "mine_manual_hoist",
+      "name": "수동 권양기",
+      "concept_file": "concept-art/dark_fantasy_all_objects/mine_manual_hoist.png",
+      "sha256": "012ad3f88496a0fb80d105fad8e5a1632c138fdedff88f5efed7d0781de31c8a",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07267-9952-7d53-8b71-a1a098148db0/exec-1834f2f5-61e3-4372-b2b7-918a0492e273.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/mine_manual_hoist.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_hoistroom_manual_hoist_01",
+      "variant_coverage": [
+        "Mine_hoistroom_manual_hoist_01"
+      ]
+    },
+    {
+      "id": "mine_ore_cart",
+      "name": "폐광 광차",
+      "concept_file": "concept-art/dark_fantasy_all_objects/mine_ore_cart.png",
+      "sha256": "1935bc18c76b53e71c9574170ad7baef507c1b87e33cc4330dda31f87b0a682f",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07267-9952-7d53-8b71-a1a098148db0/exec-e94dd3b5-8307-424a-94b5-db19a6946aa2.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/mine_ore_cart.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_north_workings_ore_cart_01",
+      "variant_coverage": [
+        "Mine_north_workings_ore_cart_01"
+      ]
+    },
+    {
+      "id": "mine_ruined_shrine",
+      "name": "폐광 폐허 신단",
+      "concept_file": "concept-art/dark_fantasy_all_objects/mine_ruined_shrine.png",
+      "sha256": "7bc3feeb3cbf713706b81864b7aef9f616b9e4b571beac2c6e0d4f3a2f9288d2",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07267-9952-7d53-8b71-a1a098148db0/exec-f839f6bf-10f5-4f3a-8b52-8575b2352b3d.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/mine_ruined_shrine.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_pillar_shrine_ruined_shrine_01",
+      "variant_coverage": [
+        "Mine_pillar_shrine_ruined_shrine_01"
+      ]
+    },
+    {
+      "id": "mine_workbench",
+      "name": "광부 작업대",
+      "concept_file": "concept-art/dark_fantasy_all_objects/mine_workbench.png",
+      "sha256": "10b81d223c20e23beba3e44e28861c59470b371e008d09b718a48ae91a36302b",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07267-9952-7d53-8b71-a1a098148db0/exec-817d2f93-f4af-49ca-bee3-0f8b7cd8bb43.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/mine_workbench.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_workshops_workbench_01",
+      "variant_coverage": [
+        "Mine_workshops_workbench_01",
+        "Mine_workshops_workbench_02"
+      ]
+    },
+    {
+      "id": "eroded_bedrock_00",
+      "name": "침식 암반 00",
+      "concept_file": "concept-art/dark_fantasy_all_objects/eroded_bedrock_00.png",
+      "sha256": "76a6d3bccf290be23cfcdf21791a4a1a1d63faa1e3a2b97600048110d90335c5",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-bf59c160-826e-4ace-8143-aff6af6857b0.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/eroded_bedrock_00.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "cave_art_details.gd::_load_rock_meshes",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "eroded_bedrock_01",
+      "name": "침식 암반 01",
+      "concept_file": "concept-art/dark_fantasy_all_objects/eroded_bedrock_01.png",
+      "sha256": "383bda791374ef9d79981038b08d2de957ee06fd3c83b6ce8160b53f5f7ed6e0",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-2dabf35a-7698-44a2-a339-3684673b992d.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/eroded_bedrock_01.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "cave_art_details.gd::_load_rock_meshes",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "eroded_bedrock_02",
+      "name": "침식 암반 02",
+      "concept_file": "concept-art/dark_fantasy_all_objects/eroded_bedrock_02.png",
+      "sha256": "3bbc4e939d7dc2fdff808eab0703b96fc21e854c187cb78dbe52a509c80cfae4",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-4b4a77d3-ebdf-461b-bc6e-14e4ff58386e.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/eroded_bedrock_02.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "cave_art_details.gd::_load_rock_meshes",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "eroded_bedrock_03",
+      "name": "침식 암반 03",
+      "concept_file": "concept-art/dark_fantasy_all_objects/eroded_bedrock_03.png",
+      "sha256": "9b2cf2dc92e2cdcd102c19c04fc16a0da498fc74c2e0ce9aac21fe33880eda0d",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-b70a751b-06f7-4567-b220-7ca7bbe8d846.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/eroded_bedrock_03.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "cave_art_details.gd::_load_rock_meshes",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "eroded_bedrock_04",
+      "name": "침식 암반 04",
+      "concept_file": "concept-art/dark_fantasy_all_objects/eroded_bedrock_04.png",
+      "sha256": "63bd710536c3d7bc980cd26ba90a8973da3723bc03fd2cc50cc505e011221bbc",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-287fd7af-e43e-4e4d-ae2d-cefea7ae763a.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/eroded_bedrock_04.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "cave_art_details.gd::_load_rock_meshes",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "eroded_bedrock_05",
+      "name": "침식 암반 05",
+      "concept_file": "concept-art/dark_fantasy_all_objects/eroded_bedrock_05.png",
+      "sha256": "f76dc2316b5e2620daf6d6ba3457453c97b5e793d29f21737f3ec02d26b1e029",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-6b4ab166-b925-44f0-865a-383ba8e25d1e.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/eroded_bedrock_05.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "cave_art_details.gd::_load_rock_meshes",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "eroded_bedrock_06",
+      "name": "침식 암반 06",
+      "concept_file": "concept-art/dark_fantasy_all_objects/eroded_bedrock_06.png",
+      "sha256": "6866b9120104b4f7b86443a3408a55282797505571d82ca98660cb0f0d7607be",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-5f773c2e-14d1-4d8f-8cfe-2253d8e55d26.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/eroded_bedrock_06.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "cave_art_details.gd::_load_rock_meshes",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "eroded_bedrock_07",
+      "name": "침식 암반 07",
+      "concept_file": "concept-art/dark_fantasy_all_objects/eroded_bedrock_07.png",
+      "sha256": "4f56dc4b251b9dd06c43cd8f832dbf1af34299de5dc14cf79c7eed54af9cf477",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-55a20b83-7853-41d2-98b8-35b197cbd0e2.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/eroded_bedrock_07.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "cave_art_details.gd::_load_rock_meshes",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "eroded_bedrock_08",
+      "name": "침식 암반 08",
+      "concept_file": "concept-art/dark_fantasy_all_objects/eroded_bedrock_08.png",
+      "sha256": "9a0f8c93fad4e22d92a104a6f816a0365ba8deb828b22ac622f3eb46c5d6ad08",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-1a52873d-1c0d-42d4-aa14-a19dba54201f.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/eroded_bedrock_08.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "cave_art_details.gd::_load_rock_meshes",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "eroded_bedrock_09",
+      "name": "침식 암반 09",
+      "concept_file": "concept-art/dark_fantasy_all_objects/eroded_bedrock_09.png",
+      "sha256": "dce86b8aa6fddb2e6ac6817cbe72413bc6ee6819797005e13487cb4234bd5824",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-376d2bf4-429a-4119-b9bb-99ad2d86739a.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/eroded_bedrock_09.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "cave_art_details.gd::_load_rock_meshes",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "eroded_bedrock_10",
+      "name": "침식 암반 10",
+      "concept_file": "concept-art/dark_fantasy_all_objects/eroded_bedrock_10.png",
+      "sha256": "9dd0c0c219e96831ecf3950cd32f000f6a08c3ab02646d1e29a9cf52118b7c68",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-1582f10a-65a2-4e8e-a52c-a80661db0394.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/eroded_bedrock_10.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "cave_art_details.gd::_load_rock_meshes",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "eroded_bedrock_11",
+      "name": "침식 암반 11",
+      "concept_file": "concept-art/dark_fantasy_all_objects/eroded_bedrock_11.png",
+      "sha256": "335d6588af4832b4eb8b5fe81061596814a26202fca0d0e5d2cc60f1c9a04bba",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-909345b9-4ad5-43fa-84cc-39f3d048ccba.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/eroded_bedrock_11.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "cave_art_details.gd::_load_rock_meshes",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "aged_board_00",
+      "name": "부러진 폐광 판자 00",
+      "concept_file": "concept-art/dark_fantasy_all_objects/aged_board_00.png",
+      "sha256": "4a3618ebff1e26a94f58fda1b124fe312010264d00994fdacc0a3f5b4379e8b1",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07267-9952-7d53-8b71-a1a098148db0/exec-f8d54205-bbb5-4f81-8134-2f9610095de9.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/aged_board_00.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "cave_art_details.gd::_fragment_mesh",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "aged_board_01",
+      "name": "부러진 폐광 판자 01",
+      "concept_file": "concept-art/dark_fantasy_all_objects/aged_board_01.png",
+      "sha256": "2125a83c00dff49a389895c699265ba01d753fcc8fbfd0695011b87757a57720",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07267-9952-7d53-8b71-a1a098148db0/exec-63405448-6c3f-45bd-b7d6-cfc70d1cdcd2.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/aged_board_01.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "cave_art_details.gd::_fragment_mesh",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "aged_board_02",
+      "name": "부러진 폐광 판자 02",
+      "concept_file": "concept-art/dark_fantasy_all_objects/aged_board_02.png",
+      "sha256": "31ba06636250187a908fc73bb0e5e48de2c33b9907e6e6e48ea74620e9096bfc",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07267-9952-7d53-8b71-a1a098148db0/exec-34e28f55-ee4a-4a59-8092-df197eef3007.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/aged_board_02.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "cave_art_details.gd::_fragment_mesh",
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "mine_terrain",
+      "name": "폐광 자연 암반 지형",
+      "concept_file": "concept-art/dark_fantasy_all_objects/mine_terrain.png",
+      "sha256": "176eb152210724319eccbdc137d2ac1d6792a90db98b8013a94b02f3b3895988",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-ba249501-2dee-4d8b-b0d3-3248e1aa7fe9.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/mine_terrain.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb",
+      "variant_coverage": [
+        "Terrain_00_00",
+        "Terrain_00_01",
+        "Terrain_00_02",
+        "Terrain_00_03",
+        "Terrain_00_04",
+        "Terrain_00_05",
+        "Terrain_00_06",
+        "Terrain_00_07",
+        "Terrain_00_08",
+        "Terrain_00_09",
+        "Terrain_00_10",
+        "Terrain_00_11",
+        "Terrain_01_00",
+        "Terrain_01_01",
+        "Terrain_01_02",
+        "Terrain_01_03",
+        "Terrain_01_04",
+        "Terrain_01_05",
+        "Terrain_01_06",
+        "Terrain_01_07",
+        "Terrain_01_08",
+        "Terrain_01_09",
+        "Terrain_01_10",
+        "Terrain_01_11",
+        "Terrain_02_00",
+        "Terrain_02_01",
+        "Terrain_02_02",
+        "Terrain_02_03",
+        "Terrain_02_04",
+        "Terrain_02_05",
+        "Terrain_02_06",
+        "Terrain_02_07",
+        "Terrain_02_08",
+        "Terrain_02_09",
+        "Terrain_02_10",
+        "Terrain_02_11",
+        "Terrain_03_01",
+        "Terrain_03_02",
+        "Terrain_03_03",
+        "Terrain_03_04",
+        "Terrain_03_05",
+        "Terrain_03_06",
+        "Terrain_03_07",
+        "Terrain_03_08",
+        "Terrain_03_09",
+        "Terrain_03_10",
+        "Terrain_03_11",
+        "Terrain_04_00",
+        "Terrain_04_01",
+        "Terrain_04_02",
+        "Terrain_04_03",
+        "Terrain_04_04",
+        "Terrain_04_05",
+        "Terrain_04_06",
+        "Terrain_04_07",
+        "Terrain_04_08",
+        "Terrain_04_09",
+        "Terrain_04_10",
+        "Terrain_04_11",
+        "Terrain_05_00",
+        "Terrain_05_01",
+        "Terrain_05_02",
+        "Terrain_05_03",
+        "Terrain_05_04",
+        "Terrain_05_05",
+        "Terrain_05_06",
+        "Terrain_05_07",
+        "Terrain_05_08",
+        "Terrain_05_09",
+        "Terrain_05_10",
+        "Terrain_05_11",
+        "Terrain_06_00",
+        "Terrain_06_01",
+        "Terrain_06_02",
+        "Terrain_06_03",
+        "Terrain_06_05",
+        "Terrain_06_06",
+        "Terrain_06_07",
+        "Terrain_06_08",
+        "Terrain_06_09",
+        "Terrain_06_10",
+        "Terrain_06_11",
+        "Terrain_07_00",
+        "Terrain_07_01",
+        "Terrain_07_02",
+        "Terrain_07_03",
+        "Terrain_07_04",
+        "Terrain_07_05",
+        "Terrain_07_06",
+        "Terrain_07_07",
+        "Terrain_07_08",
+        "Terrain_07_09",
+        "Terrain_07_10",
+        "Terrain_07_11",
+        "Terrain_08_00",
+        "Terrain_08_01",
+        "Terrain_08_02",
+        "Terrain_08_03",
+        "Terrain_08_04",
+        "Terrain_08_05",
+        "Terrain_08_06",
+        "Terrain_08_07",
+        "Terrain_08_08",
+        "Terrain_08_09",
+        "Terrain_08_10",
+        "Terrain_08_11",
+        "Terrain_09_01",
+        "Terrain_09_02",
+        "Terrain_09_03",
+        "Terrain_09_04",
+        "Terrain_09_05",
+        "Terrain_09_06",
+        "Terrain_09_07",
+        "Terrain_09_08",
+        "Terrain_09_09",
+        "Terrain_09_10",
+        "Terrain_09_11",
+        "Terrain_10_01",
+        "Terrain_10_02",
+        "Terrain_10_03",
+        "Terrain_10_04",
+        "Terrain_10_05",
+        "Terrain_10_06",
+        "Terrain_10_07",
+        "Terrain_10_08",
+        "Terrain_10_09",
+        "Terrain_10_10"
+      ]
+    },
+    {
+      "id": "mine_calcite",
+      "name": "폐광 방해석 천장",
+      "concept_file": "concept-art/dark_fantasy_all_objects/mine_calcite.png",
+      "sha256": "0938bca5607ea8160eb4a0c3b09ed65780198e4ca2fa149812d8b1160d3d1469",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-d2883fdd-9d71-4e92-a2ab-60889114b5d3.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/mine_calcite.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb",
+      "variant_coverage": [
+        "CalciteCeiling_0041",
+        "CalciteCeiling_0262",
+        "CalciteCeiling_0272",
+        "CalciteCeiling_0273",
+        "CalciteCeiling_0280"
+      ]
+    },
+    {
+      "id": "mine_rock_formation",
+      "name": "폐광 자연 석순 암석",
+      "concept_file": "concept-art/dark_fantasy_all_objects/mine_rock_formation.png",
+      "sha256": "b48ea3693e5f863f811039e340814c43d8f4aca15f558e7362207dcfad55f658",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-3940c0c3-c300-4a34-aef1-e931328f38d2.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/mine_rock_formation.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb",
+      "variant_coverage": [
+        "RockFormation_0006",
+        "RockFormation_0018",
+        "RockFormation_0064",
+        "RockFormation_0069",
+        "RockFormation_0152",
+        "RockFormation_0159",
+        "RockFormation_0164",
+        "RockFormation_0170",
+        "RockFormation_0182",
+        "RockFormation_0197",
+        "RockFormation_0205",
+        "RockFormation_0227",
+        "RockFormation_0244",
+        "RockFormation_0247",
+        "RockFormation_0264",
+        "RockFormation_0276",
+        "RockFormation_0283",
+        "RockFormation_0309",
+        "RockFormation_0317",
+        "RockFormation_0326",
+        "RockFormation_0334",
+        "RockFormation_0351",
+        "RockFormation_0365",
+        "RockFormation_0370",
+        "RockFormation_0380",
+        "RockFormation_0388",
+        "RockFormation_0400",
+        "RockFormation_0428"
+      ]
+    },
+    {
+      "id": "mine_surface_rock",
+      "name": "폐광 표면 암석",
+      "concept_file": "concept-art/dark_fantasy_all_objects/mine_surface_rock.png",
+      "sha256": "dad51695cd3870b7c79d15c61322b72b45b6ec387aecb82500009641f33f5fa1",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-16089a4e-b077-441b-ae9a-446a37938dec.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/mine_surface_rock.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb",
+      "variant_coverage": [
+        "RockScan_000",
+        "RockScan_001",
+        "RockScan_002",
+        "RockScan_003",
+        "RockScan_004",
+        "RockScan_005",
+        "RockScan_006",
+        "RockScan_007",
+        "RockScan_008",
+        "RockScan_009",
+        "RockScan_010",
+        "RockScan_011",
+        "RockScan_012",
+        "RockScan_013",
+        "RockScan_014",
+        "RockScan_015",
+        "RockScan_016",
+        "RockScan_017",
+        "RockScan_018",
+        "RockScan_019",
+        "RockScan_020",
+        "RockScan_021",
+        "RockScan_022",
+        "RockScan_023",
+        "RockScan_024",
+        "RockScan_025",
+        "RockScan_026",
+        "RockScan_027",
+        "RockScan_028",
+        "RockScan_029",
+        "RockScan_030",
+        "RockScan_031",
+        "RockScan_032",
+        "RockScan_033",
+        "RockScan_034",
+        "RockScan_035",
+        "RockScan_036",
+        "RockScan_037",
+        "RockScan_038",
+        "RockScan_039",
+        "RockScan_040",
+        "RockScan_041",
+        "RockScan_042",
+        "RockScan_043"
+      ]
+    },
+    {
+      "id": "mine_detail_rock",
+      "name": "폐광 미세 암석",
+      "concept_file": "concept-art/dark_fantasy_all_objects/mine_detail_rock.png",
+      "sha256": "84abb7dad60d3ef18b64b36230a32dc289f12418ce08448e4ded837e03a368fb",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-2a8a49f0-f8c5-490e-b1ca-cdba82d51aca.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/mine_detail_rock.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb",
+      "variant_coverage": [
+        "RockScan_Detail_000_grand_quarry_rock_island",
+        "RockScan_Detail_001_grand_quarry_rock_island",
+        "RockScan_Detail_002_grand_quarry_rock_island",
+        "RockScan_Detail_003_grand_quarry_rock_island",
+        "RockScan_Detail_004_grand_quarry_rock_island",
+        "RockScan_Detail_005_grand_quarry_rock_island",
+        "RockScan_Detail_006_grand_quarry_rock_island",
+        "RockScan_Detail_007_grand_quarry_rock_island",
+        "RockScan_Detail_008_grand_quarry_rock_island",
+        "RockScan_Detail_009_grand_quarry_rock_island",
+        "RockScan_Detail_010_grand_quarry_rock_island",
+        "RockScan_Detail_011_grand_quarry_rock_island",
+        "RockScan_Detail_012_grand_quarry_rock_island",
+        "RockScan_Detail_013_grand_quarry_rock_island",
+        "RockScan_Detail_014_grand_quarry_rock_island",
+        "RockScan_Detail_015_grand_quarry_rock_island",
+        "RockScan_Detail_016_grand_quarry_rock_island",
+        "RockScan_Detail_017_grand_quarry",
+        "RockScan_Detail_018_grand_quarry",
+        "RockScan_Detail_019_grand_quarry",
+        "RockScan_Detail_020_grand_quarry",
+        "RockScan_Detail_021_grand_quarry",
+        "RockScan_Detail_022_grand_quarry",
+        "RockScan_Detail_023_grand_quarry",
+        "RockScan_Detail_024_grand_quarry",
+        "RockScan_Detail_025_grand_quarry",
+        "RockScan_Detail_026_grand_quarry",
+        "RockScan_Detail_027_grand_quarry",
+        "RockScan_Detail_028_grand_quarry",
+        "RockScan_Detail_029_grand_quarry",
+        "RockScan_Detail_030_grand_quarry",
+        "RockScan_Detail_031_grand_quarry",
+        "RockScan_Detail_032_grand_quarry",
+        "RockScan_Detail_033_rubble_passage",
+        "RockScan_Detail_034_rubble_passage",
+        "RockScan_Detail_035_rubble_passage",
+        "RockScan_Detail_036_rubble_passage",
+        "RockScan_Detail_037_rubble_passage",
+        "RockScan_Detail_038_rubble_passage",
+        "RockScan_Detail_039_rubble_passage",
+        "RockScan_Detail_040_north_workings",
+        "RockScan_Detail_041_north_workings",
+        "RockScan_Detail_042_north_workings",
+        "RockScan_Detail_043_north_workings",
+        "RockScan_Detail_044_north_workings",
+        "RockScan_Detail_045_north_workings",
+        "RockScan_Detail_046_entrance",
+        "RockScan_Detail_047_entrance",
+        "RockScan_Detail_048_entrance",
+        "RockScan_Detail_049_entrance",
+        "RockScan_Detail_050_entrance",
+        "RockScan_Detail_051_north_vents",
+        "RockScan_Detail_052_north_vents",
+        "RockScan_Detail_053_north_vents",
+        "RockScan_Detail_054_north_vents",
+        "RockScan_Detail_055_north_vents",
+        "RockScan_Detail_056_western_altar",
+        "RockScan_Detail_057_western_altar",
+        "RockScan_Detail_058_western_altar",
+        "RockScan_Detail_059_western_altar",
+        "RockScan_Detail_060_western_altar",
+        "RockScan_Detail_061_pillar_shrine",
+        "RockScan_Detail_062_pillar_shrine",
+        "RockScan_Detail_063_pillar_shrine",
+        "RockScan_Detail_064_pillar_shrine",
+        "RockScan_Detail_065_pillar_shrine",
+        "RockScan_Detail_066_hoistroom",
+        "RockScan_Detail_067_hoistroom",
+        "RockScan_Detail_068_hoistroom",
+        "RockScan_Detail_069_hoistroom",
+        "RockScan_Detail_070_hoistroom",
+        "RockScan_Detail_071_foreman_workroom",
+        "RockScan_Detail_072_foreman_workroom",
+        "RockScan_Detail_073_foreman_workroom",
+        "RockScan_Detail_074_foreman_workroom",
+        "RockScan_Detail_075_east_store",
+        "RockScan_Detail_076_east_store",
+        "RockScan_Detail_077_east_store",
+        "RockScan_Detail_078_east_store",
+        "RockScan_Detail_079_bone_cavern",
+        "RockScan_Detail_080_bone_cavern",
+        "RockScan_Detail_081_bone_cavern",
+        "RockScan_Detail_082_workshops",
+        "RockScan_Detail_083_workshops",
+        "RockScan_Detail_084_workshops",
+        "RockScan_Detail_085_southwest_adit",
+        "RockScan_Detail_086_southwest_adit",
+        "RockScan_Detail_087_southwest_adit"
+      ]
+    },
+    {
+      "id": "mine_icosphere_rock",
+      "name": "폐광 둥근 자연 암석",
+      "concept_file": "concept-art/dark_fantasy_all_objects/mine_icosphere_rock.png",
+      "sha256": "411be610602b758a6bb8703e04d9944d3e37412d2e88cc4884cb2d7705338ab1",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-3d598bf3-671e-462d-8cd3-646cb4833c34.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/mine_icosphere_rock.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb",
+      "variant_coverage": [
+        "MineralCluster_033",
+        "MineralCluster_034",
+        "MineralCluster_036",
+        "MineralCluster_037",
+        "MineralCluster_038",
+        "MineralCluster_040",
+        "MineralCluster_041",
+        "MineralCluster_042",
+        "MineralCluster_043",
+        "MineralCluster_044",
+        "MineralCluster_045",
+        "MineralCluster_046",
+        "MineralCluster_047",
+        "MineralCluster_048",
+        "MineralCluster_049",
+        "MineralCluster_050",
+        "MineralCluster_051",
+        "MineralCluster_052",
+        "MineralCluster_054",
+        "MineralCluster_055",
+        "MineralCluster_056",
+        "MineralCluster_057",
+        "MineralCluster_058",
+        "MineralCluster_059",
+        "MineralCluster_060",
+        "MineralCluster_061",
+        "MineralCluster_062",
+        "MineralCluster_063",
+        "MineralCluster_064",
+        "MineralCluster_065",
+        "MineralCluster_066",
+        "MineralCluster_067",
+        "MineralCluster_068",
+        "MineralCluster_069",
+        "MineralCluster_071",
+        "MineralCluster_072",
+        "MineralCluster_073",
+        "MineralCluster_074",
+        "MineralCluster_077",
+        "MineralCluster_078",
+        "MineralCluster_079",
+        "MineralCluster_080",
+        "MineralCluster_081",
+        "MineralCluster_082",
+        "MineralCluster_084",
+        "MineralCluster_085",
+        "Scree_bone_cavern.008",
+        "Scree_east_store.012",
+        "Scree_entrance.009",
+        "Scree_longlake.005",
+        "Scree_longlake.006",
+        "Scree_upper_lake.009"
+      ]
+    },
+    {
+      "id": "mine_water",
+      "name": "폐광 지하수",
+      "concept_file": "concept-art/dark_fantasy_all_objects/mine_water.png",
+      "sha256": "8db5c84ce472bbc6a5d4db842b6d765dc16c988c8bbba542daa03bbd6fc2512e",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-c8d240d3-6469-41cf-8ffc-dfeab65ae9e8.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/mine_water.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "cave_water.gd::_build_surface",
+      "variant_coverage": [
+        "all six authored pool shapes"
+      ]
+    },
+    {
+      "id": "mine_mineral_cluster",
+      "name": "폐광 광물 군집",
+      "concept_file": "concept-art/dark_fantasy_all_objects/mine_mineral_cluster.png",
+      "sha256": "abe235fbde01f9984e995f33263b7775ed6f216c997ec78bd5566e6168302ca2",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-db52bd42-2cd3-4956-821b-0dffa97b6a71.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/mine_mineral_cluster.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb",
+      "variant_coverage": [
+        "MineralCluster_000",
+        "MineralCluster_001",
+        "MineralCluster_002",
+        "MineralCluster_003",
+        "MineralCluster_004",
+        "MineralCluster_006",
+        "MineralCluster_007",
+        "MineralCluster_008",
+        "MineralCluster_009",
+        "MineralCluster_010",
+        "MineralCluster_011",
+        "MineralCluster_012",
+        "MineralCluster_013",
+        "MineralCluster_014",
+        "MineralCluster_015",
+        "MineralCluster_017",
+        "MineralCluster_018",
+        "MineralCluster_019",
+        "MineralCluster_022",
+        "MineralCluster_024",
+        "MineralCluster_025",
+        "MineralCluster_026",
+        "MineralCluster_027",
+        "MineralCluster_028",
+        "MineralCluster_029",
+        "MineralCluster_030",
+        "MineralCluster_031",
+        "MineralCluster_032",
+        "MineralCluster_033",
+        "MineralCluster_034",
+        "MineralCluster_036",
+        "MineralCluster_037",
+        "MineralCluster_038",
+        "MineralCluster_040",
+        "MineralCluster_041",
+        "MineralCluster_042",
+        "MineralCluster_043",
+        "MineralCluster_044",
+        "MineralCluster_045",
+        "MineralCluster_046",
+        "MineralCluster_047",
+        "MineralCluster_048",
+        "MineralCluster_049",
+        "MineralCluster_050",
+        "MineralCluster_051",
+        "MineralCluster_052",
+        "MineralCluster_054",
+        "MineralCluster_055",
+        "MineralCluster_056",
+        "MineralCluster_057",
+        "MineralCluster_058",
+        "MineralCluster_059",
+        "MineralCluster_060",
+        "MineralCluster_061",
+        "MineralCluster_062",
+        "MineralCluster_063",
+        "MineralCluster_064",
+        "MineralCluster_065",
+        "MineralCluster_066",
+        "MineralCluster_067",
+        "MineralCluster_068",
+        "MineralCluster_069",
+        "MineralCluster_071",
+        "MineralCluster_072",
+        "MineralCluster_073",
+        "MineralCluster_074",
+        "MineralCluster_077",
+        "MineralCluster_078",
+        "MineralCluster_079",
+        "MineralCluster_080",
+        "MineralCluster_081",
+        "MineralCluster_082",
+        "MineralCluster_084",
+        "MineralCluster_085"
+      ]
+    },
+    {
+      "id": "peripheral_afterimage",
+      "name": "주변시야의 환영",
+      "concept_file": "concept-art/dark_fantasy_all_objects/peripheral_afterimage.png",
+      "sha256": "5cf2028bae2965230d1a374ea2eb799b81eaf1c70f88d50432c1a53ef205220a",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-4a932cea-e8ad-4079-87e6-79acb8df1fc4.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/peripheral_afterimage.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "stress_perception.gd::_build_ghost",
+      "variant_coverage": [
+        "canonical production visual"
+      ]
+    },
+    {
+      "id": "archery_accuracy_target",
+      "name": "궁술 원형 과녁",
+      "concept_file": "concept-art/dark_fantasy_all_objects/archery_accuracy_target.png",
+      "sha256": "10de87a29e797be28a0bd6a15d6b3604d1a3fb1eed91d62f1d6e215b25802112",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-eabd3ca8-ab6d-4350-a59d-c3567e007bdf.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/archery_accuracy_target.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "test_room.gd::_spawn_archery_accuracy_target",
+      "variant_coverage": [
+        "canonical production visual"
+      ]
+    },
+    {
+      "id": "flail_station_markers",
+      "name": "철퇴 시험 발판",
+      "concept_file": "concept-art/dark_fantasy_all_objects/flail_station_markers.png",
+      "sha256": "4fc5bf15f7e7702fee31f726924f6fbb0f8d50201284bd656df3a98bc28cc883",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-f75aaac3-2a53-43a4-91bd-bd3b7d508769.png",
+      "prompt_files": [
+        "concept-art/dark_fantasy_all_objects/prompts/flail_station_markers.txt"
+      ],
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "factory": "test_room.gd::_build_flail_station_markers",
+      "variant_coverage": [
+        "green near melee station",
+        "blue far throw station"
+      ]
+    }
+  ],
+  "runtime_surface_textures": [
+    {
+      "file": "godot-game/assets/ai/materials/concept_black_leather.png",
+      "sha256": "03cce83bfd246ec4e895b7a0c0bdfcbfae501ca8a8d962747d3eff4c82c75b0f",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-c1c03f6f-eaaf-4924-8e40-b02027c1e035.png",
+      "prompt_file": "concept-art/dark_fantasy_all_objects/prompts/concept_black_leather.txt"
+    },
+    {
+      "file": "godot-game/assets/ai/materials/concept_charcoal_linen.png",
+      "sha256": "d590cf0f9aa15b038cf3de65882f9a724a0270038dbc5da68ba3a74b3cf85f5b",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-70cfdc6d-7f24-44d2-9c63-9833720c1c43.png",
+      "prompt_file": "concept-art/dark_fantasy_all_objects/prompts/concept_charcoal_linen.txt"
+    },
+    {
+      "file": "godot-game/assets/ai/materials/concept_ember_coal.png",
+      "sha256": "495d9ebe23f4cd001802cf85a44bef39079fd1fa3da48e8f6540216c9b60b785",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-4e3bcbcb-1293-4cab-b318-d0467bb78f84.png",
+      "prompt_file": "concept-art/dark_fantasy_all_objects/prompts/concept_ember_coal.txt"
+    },
+    {
+      "file": "godot-game/assets/ai/materials/concept_forged_steel.png",
+      "sha256": "40241170fa88e8991c53e35de9b543fdb3785590f8fb859196986a03f9ac1c3e",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-70174c15-10c0-462c-910f-478b55c47659.png",
+      "prompt_file": "concept-art/dark_fantasy_all_objects/prompts/concept_forged_steel.txt"
+    },
+    {
+      "file": "godot-game/assets/ai/materials/concept_frosted_ice.png",
+      "sha256": "b5254ffca1abe056368271c5f6fde69c7850a30ee3aae79316bad14ed87d0d4d",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-037754fc-58c4-4bfd-b66d-d5b4d0436870.png",
+      "prompt_file": "concept-art/dark_fantasy_all_objects/prompts/concept_frosted_ice.txt"
+    },
+    {
+      "file": "godot-game/assets/ai/materials/concept_limestone.png",
+      "sha256": "4bd738a572d34f909d1b4760e9e99284432c8e2251eecf5a87152939c2e11acf",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-7791440b-2d75-4eb8-b3ad-cf6f0e2c90e5.png",
+      "prompt_file": "concept-art/dark_fantasy_all_objects/prompts/concept_limestone.txt"
+    },
+    {
+      "file": "godot-game/assets/ai/materials/concept_weathered_oak.png",
+      "sha256": "d6304bbca5c1bebc42b14ade81e21cf895d73cfc4a126ac474aece1eeaffa384",
+      "builtin_original": "/Users/duq711gmail.com/.codex/generated_images/01a07265-2d3a-7d73-8f38-8c0f3ba02f79/exec-948d0f4f-1c7d-4c9f-84b8-3cc53064c2e6.png",
+      "prompt_file": "concept-art/dark_fantasy_all_objects/prompts/concept_weathered_oak.txt"
+    }
+  ],
+  "direction_note": "Generated drawings are art references; exact six-axis projection is validated from actual Godot renderer images. Repeated placements are grouped by type, with all covered names preserved in variant_coverage."
+}

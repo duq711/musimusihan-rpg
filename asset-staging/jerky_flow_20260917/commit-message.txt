@@ -1,0 +1,7 @@
+fix: 육포 입 접촉의 멈칫함 제거 / Smooth jerky bite transitions
+
+한국어: 입 앞 고정 자세와 별도 당기기를 하나의 연속 동작으로 연결했습니다. 실제 손목과 육포의 정지를 검출하는 회귀 검사를 추가하고 수정한 전체 영상을 보존합니다.
+검증: jerky_motion, jerky_grip, jerky_test_room PASS. 기존 13/14프레임 정지를 검출했고 수정 후 모두 0프레임입니다. Vulkan 262프레임, 음식 완료·장비 복귀·원정·커서·소스 보존 확인.
+
+English: Replace the mouth hold and separate tug with continuous approach, contact and withdrawal. Add a regression for frozen wrist/food transforms and save the updated full capture.
+Validation: Motion, grip and test-room suites pass. The old 13/14-frame stalls drop to zero. Verified 262 Vulkan frames, food completion, equipment return and preservation of session, cursor and sources.

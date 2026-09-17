@@ -1,0 +1,29 @@
+{
+  "request": "Show all current sword attacks",
+  "gameplay_or_animation_changed": false,
+  "attacks": [
+    "right_diagonal",
+    "left_reverse",
+    "overhead"
+  ],
+  "equipment": [
+    "two_hand",
+    "shield_equipped"
+  ],
+  "input": "short click",
+  "existing_cut_frames_identical": {
+    "two_hand/right_diagonal": 91,
+    "two_hand/left_reverse": 91,
+    "shield/right_diagonal": 91,
+    "shield/left_reverse": 91
+  },
+  "headless_test": "preview_test.log",
+  "actual_capture_logs": [
+    "two_hand_capture.log",
+    "shield_capture.log"
+  ],
+  "video": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/godot-game/artifacts/visual_qa/reference_sword_motion/all_sword_attacks_showcase/all_attacks.mp4",
+  "video_sha256": "2e9f3e0ffd6537d4a2030addc0ac58539e5a88b146b3b3425f17adf462f8c964",
+  "visual_review": "Actual contact sheet inspected for all six captures; full-size overhead selected frames inspected. No animation retouching or concealment of existing sleeve appearance.",
+  "owned_engine_processes_remaining": false
+}

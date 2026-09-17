@@ -1,0 +1,46 @@
+{
+  "status": "greybox_complete",
+  "verified_utc": "2026-09-10T13:06:43.126838+00:00",
+  "production": "macOS Blender 5.2.1 background; user explicitly authorized Mac",
+  "final_iteration": "iteration_05",
+  "new_greybox_test": "passed (godot_greybox_final05.log)",
+  "existing_regressions_passed": [
+    "player_arm",
+    "weapon_hand_contacts",
+    "chest_hands",
+    "test_room_session"
+  ],
+  "blender_roundtrip": "passed:16bones per side,3grey materials,10actual finger bends,stable wrists",
+  "actual_game_capture": {
+    "renderer": "vulkan",
+    "display": "embedded",
+    "poses": [
+      "free_hands",
+      "bow_draw",
+      "bow_release",
+      "chest_touch",
+      "chest_lift"
+    ],
+    "all_passed": true,
+    "images_visually_reviewed": true,
+    "no_desktop_capture": true,
+    "session_inventory_cursor_restored": true
+  },
+  "known_existing_failure": {
+    "production_sword_error_count": 1161,
+    "baseline_sword_error_count": 1161,
+    "exact_error_sequence_equal": true,
+    "production_error_sha256": "006688616dfa6c898209ad9c2ee8454566c62ef9b879ff240323a59fba5285bf",
+    "baseline_error_sha256": "006688616dfa6c898209ad9c2ee8454566c62ef9b879ff240323a59fba5285bf",
+    "production_only": [],
+    "baseline_only": [],
+    "first_baseline_error": "ERROR: Actual imported sleeve endpoints must join the authored wrist, each other and the camera-relative shoulder through combat: right_diagonal charge false frame 0 wrist 0.000030mm elbow 0.000268mm shoulder 5.834103mm; fitted elbow (0.237622, -0.108906, 0.24949) fitted shoulder (0.457127, -0.108058, 0.509137)",
+    "last_baseline_error": "ERROR: Actual imported sleeve endpoints must join the authored wrist, each other and the camera-relative shoulder through combat: overhead charge true frame 266 wrist 0.000119mm elbow 0.000240mm shoulder 4.073274mm; fitted elbow (0.30699, -0.067384, 0.14639) fitted shoulder (0.35288, 0.232193, 0.300494)",
+    "baseline_exit_code": 1
+  },
+  "notes": [
+    "sword_long_grip shoulder alignment remains an existing failure; reversed-addition isolated baseline reproduced exact error sequence",
+    "Existing original player_arm and new greybox test both reported2ObjectDB instances at process exit; all task processes completed",
+    "This is a neutral blockout with actual production pose hookups; default final-textured sword/shield assets are preserved"
+  ]
+}

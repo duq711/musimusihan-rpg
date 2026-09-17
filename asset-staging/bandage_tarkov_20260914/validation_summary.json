@@ -1,0 +1,47 @@
+{
+  "reference": "https://www.youtube.com/watch?v=Q9hG7zeQ3xM&t=50s",
+  "observed_reference_seconds": [
+    50,
+    52,
+    53,
+    53.5,
+    54,
+    54.5,
+    55.5,
+    56.5
+  ],
+  "implementation": [
+    "unfold/pull preparation before application",
+    "receiving wrist at lower edge; forearm diagonally across lower frame",
+    "three one-second winding passes",
+    "downward final pull and return",
+    "deposited cloth and existing treatment/consumption preserved"
+  ],
+  "limitations": [
+    "Reconstructed with the existing game hands, not identical source motion or mocap.",
+    "Does not add the Grizzly bag or branded packaging.",
+    "Embedded GPU rendering; no OS input testing claimed."
+  ],
+  "verification": {
+    "bandage_motion": "PASS: preparation, lower-edge framing, continuous pose, three turns, wrist seam, sleeve length, clearance, actual healing/consumption, pause/cancel/completion and original-session restore",
+    "maximum_wrist_gap_m": 2.4211522e-07,
+    "minimum_forearm_centreline_clearance_m": 0.12109437584877,
+    "maximum_right_upper_sleeve_m": 0.37768265604973,
+    "rendered_frames": 202,
+    "fps": 30,
+    "display": "embedded",
+    "renderer": "vulkan",
+    "preserved": true,
+    "reviewed_frames": [
+      15,
+      72,
+      132,
+      165
+    ]
+  },
+  "source_hashes": {
+    "res://scripts/bandage_use_visuals.gd": "f4b51fdaae372832f89003394217e6d6ec92a3941cbfbb0eb521ed4660235d0f",
+    "res://scripts/player.gd": "ec937d4bd1136e2366c4cd3913b7c1078fc337c9a30d741433841be39d4c9926"
+  },
+  "video": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/godot-game/artifacts/visual_qa/bandage_forearm/tarkov_03/bandage_tarkov.mp4"
+}

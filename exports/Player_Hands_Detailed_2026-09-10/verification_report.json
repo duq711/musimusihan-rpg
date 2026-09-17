@@ -1,0 +1,754 @@
+{
+  "status": "passed",
+  "utc": "2026-09-10T13:58:06.361845+00:00",
+  "host": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "blender_binary": "/Applications/Blender.app/Contents/MacOS/Blender",
+  "blender_version": "5.2.1 LTS",
+  "background": true,
+  "checks": {
+    "portable_blend": {
+      "external_images": [],
+      "linked_libraries": 0
+    },
+    "editable_blend": {
+      "left": {
+        "rig": "HandRig.001",
+        "bones": [
+          "index0",
+          "index1",
+          "index2",
+          "little0",
+          "little1",
+          "little2",
+          "middle0",
+          "middle1",
+          "middle2",
+          "ring0",
+          "ring1",
+          "ring2",
+          "thumb0",
+          "thumb1",
+          "thumb2",
+          "wrist"
+        ],
+        "meshes": {
+          "ContinuousAnatomicalHand.001": {
+            "vertices": 14988,
+            "weight_sum_min": 0.9999998901039362,
+            "weight_sum_max": 1.0000001122243702,
+            "wrist_only_vertices": 536
+          },
+          "Nail_thumb": {
+            "vertices": 322,
+            "weight_sum_min": 1.0,
+            "weight_sum_max": 1.0,
+            "wrist_only_vertices": 0
+          },
+          "Nail_index": {
+            "vertices": 322,
+            "weight_sum_min": 1.0,
+            "weight_sum_max": 1.0,
+            "wrist_only_vertices": 0
+          },
+          "Nail_middle": {
+            "vertices": 322,
+            "weight_sum_min": 1.0,
+            "weight_sum_max": 1.0,
+            "wrist_only_vertices": 0
+          },
+          "Nail_ring": {
+            "vertices": 322,
+            "weight_sum_min": 1.0,
+            "weight_sum_max": 1.0,
+            "wrist_only_vertices": 0
+          },
+          "Nail_little": {
+            "vertices": 322,
+            "weight_sum_min": 1.0,
+            "weight_sum_max": 1.0,
+            "wrist_only_vertices": 0
+          }
+        },
+        "finger_pose_checks": {
+          "thumb": {
+            "local_x_rotation_radians": 0.4,
+            "moved_vertices": 4639,
+            "max_displacement_m": 0.04495459485169198,
+            "wrist_bone_error_m": 0.0,
+            "wrist_only_mesh_error_m": 0.0
+          },
+          "index": {
+            "local_x_rotation_radians": 0.4,
+            "moved_vertices": 4634,
+            "max_displacement_m": 0.03739506535840833,
+            "wrist_bone_error_m": 0.0,
+            "wrist_only_mesh_error_m": 0.0
+          },
+          "middle": {
+            "local_x_rotation_radians": 0.4,
+            "moved_vertices": 4475,
+            "max_displacement_m": 0.03974375731967587,
+            "wrist_bone_error_m": 0.0,
+            "wrist_only_mesh_error_m": 0.0
+          },
+          "ring": {
+            "local_x_rotation_radians": 0.4,
+            "moved_vertices": 4484,
+            "max_displacement_m": 0.037776509841956275,
+            "wrist_bone_error_m": 0.0,
+            "wrist_only_mesh_error_m": 0.0
+          },
+          "little": {
+            "local_x_rotation_radians": 0.4,
+            "moved_vertices": 4028,
+            "max_displacement_m": 0.03339028167706218,
+            "wrist_bone_error_m": 0.0,
+            "wrist_only_mesh_error_m": 0.0
+          }
+        },
+        "wrist_world_m": [
+          -0.16343863308429718,
+          -0.05624999850988388,
+          0.0
+        ],
+        "thumb_minus_middle_x_m": 0.0325000137090683
+      },
+      "right": {
+        "rig": "HandRig.003",
+        "bones": [
+          "index0",
+          "index1",
+          "index2",
+          "little0",
+          "little1",
+          "little2",
+          "middle0",
+          "middle1",
+          "middle2",
+          "ring0",
+          "ring1",
+          "ring2",
+          "thumb0",
+          "thumb1",
+          "thumb2",
+          "wrist"
+        ],
+        "meshes": {
+          "ContinuousAnatomicalHand.003": {
+            "vertices": 14988,
+            "weight_sum_min": 0.9999998807907104,
+            "weight_sum_max": 1.0000001080334187,
+            "wrist_only_vertices": 535
+          },
+          "Nail_thumb.001": {
+            "vertices": 322,
+            "weight_sum_min": 1.0,
+            "weight_sum_max": 1.0,
+            "wrist_only_vertices": 0
+          },
+          "Nail_index.001": {
+            "vertices": 322,
+            "weight_sum_min": 1.0,
+            "weight_sum_max": 1.0,
+            "wrist_only_vertices": 0
+          },
+          "Nail_middle.001": {
+            "vertices": 322,
+            "weight_sum_min": 1.0,
+            "weight_sum_max": 1.0,
+            "wrist_only_vertices": 0
+          },
+          "Nail_ring.001": {
+            "vertices": 322,
+            "weight_sum_min": 1.0,
+            "weight_sum_max": 1.0,
+            "wrist_only_vertices": 0
+          },
+          "Nail_little.001": {
+            "vertices": 322,
+            "weight_sum_min": 1.0,
+            "weight_sum_max": 1.0,
+            "wrist_only_vertices": 0
+          }
+        },
+        "finger_pose_checks": {
+          "thumb": {
+            "local_x_rotation_radians": 0.4,
+            "moved_vertices": 4640,
+            "max_displacement_m": 0.04495459485169198,
+            "wrist_bone_error_m": 0.0,
+            "wrist_only_mesh_error_m": 0.0
+          },
+          "index": {
+            "local_x_rotation_radians": 0.4,
+            "moved_vertices": 4633,
+            "max_displacement_m": 0.03739506535840833,
+            "wrist_bone_error_m": 0.0,
+            "wrist_only_mesh_error_m": 0.0
+          },
+          "middle": {
+            "local_x_rotation_radians": 0.4,
+            "moved_vertices": 4485,
+            "max_displacement_m": 0.03974375731967587,
+            "wrist_bone_error_m": 0.0,
+            "wrist_only_mesh_error_m": 0.0
+          },
+          "ring": {
+            "local_x_rotation_radians": 0.4,
+            "moved_vertices": 4501,
+            "max_displacement_m": 0.037776509841956275,
+            "wrist_bone_error_m": 0.0,
+            "wrist_only_mesh_error_m": 0.0
+          },
+          "little": {
+            "local_x_rotation_radians": 0.4,
+            "moved_vertices": 4028,
+            "max_displacement_m": 0.03339028167706218,
+            "wrist_bone_error_m": 0.0,
+            "wrist_only_mesh_error_m": 0.0
+          }
+        },
+        "wrist_world_m": [
+          0.16343863308429718,
+          -0.05624999850988388,
+          0.0
+        ],
+        "thumb_minus_middle_x_m": -0.0325000137090683
+      }
+    },
+    "editable_nails": {
+      "left": {
+        "thumb": {
+          "mesh": "Nail_thumb",
+          "vertices": 322,
+          "max_movement_m": 0.05788882542525403,
+          "bone_local_error_m": 3.454692101290712e-08,
+          "exposed_face_dorsal_dot": 0.9600845193490386
+        },
+        "index": {
+          "mesh": "Nail_index",
+          "vertices": 322,
+          "max_movement_m": 0.05010286366387621,
+          "bone_local_error_m": 6.44852619778419e-08,
+          "exposed_face_dorsal_dot": 0.9767572577111423
+        },
+        "middle": {
+          "mesh": "Nail_middle",
+          "vertices": 322,
+          "max_movement_m": 0.05333334024744368,
+          "bone_local_error_m": 5.6172081683054335e-08,
+          "exposed_face_dorsal_dot": 0.9945461753522977
+        },
+        "ring": {
+          "mesh": "Nail_ring",
+          "vertices": 322,
+          "max_movement_m": 0.05075392066340212,
+          "bone_local_error_m": 5.9141847968952086e-08,
+          "exposed_face_dorsal_dot": 0.9937425361713395
+        },
+        "little": {
+          "mesh": "Nail_little",
+          "vertices": 322,
+          "max_movement_m": 0.044486567935606756,
+          "bone_local_error_m": 7.001198484407484e-08,
+          "exposed_face_dorsal_dot": 0.9367566239088774
+        }
+      },
+      "right": {
+        "thumb": {
+          "mesh": "Nail_thumb.001",
+          "vertices": 322,
+          "max_movement_m": 0.05789058748787303,
+          "bone_local_error_m": 3.384944395234109e-08,
+          "exposed_face_dorsal_dot": 0.9572508055716753
+        },
+        "index": {
+          "mesh": "Nail_index.001",
+          "vertices": 322,
+          "max_movement_m": 0.05010335876285174,
+          "bone_local_error_m": 6.068086533822067e-08,
+          "exposed_face_dorsal_dot": 0.9758960260078311
+        },
+        "middle": {
+          "mesh": "Nail_middle.001",
+          "vertices": 322,
+          "max_movement_m": 0.053328222882472354,
+          "bone_local_error_m": 4.869125633110332e-08,
+          "exposed_face_dorsal_dot": 0.9900127031141892
+        },
+        "ring": {
+          "mesh": "Nail_ring.001",
+          "vertices": 322,
+          "max_movement_m": 0.05075427667998394,
+          "bone_local_error_m": 5.926397495661397e-08,
+          "exposed_face_dorsal_dot": 0.9935305168619379
+        },
+        "little": {
+          "mesh": "Nail_little.001",
+          "vertices": 322,
+          "max_movement_m": 0.044492459375107186,
+          "bone_local_error_m": 6.164342441921276e-08,
+          "exposed_face_dorsal_dot": 0.9350085910409689
+        }
+      }
+    },
+    "editable_rest": {
+      "left": {
+        "all_16_bone_rest_matrices_max_error": 0.0
+      },
+      "right": {
+        "all_16_bone_rest_matrices_max_error": 0.0
+      }
+    },
+    "editable_materials": {
+      "Detailed_Sleeve": {
+        "base_color": [
+          0.11500000208616257,
+          0.11500000208616257,
+          0.11500000208616257,
+          1.0
+        ],
+        "roughness": 0.8199999928474426
+      },
+      "Detailed_Trim": {
+        "base_color": [
+          0.07500000298023224,
+          0.07500000298023224,
+          0.07500000298023224,
+          1.0
+        ],
+        "roughness": 0.8199999928474426
+      },
+      "Detailed_Glove": {
+        "base_color": [
+          0.1550000011920929,
+          0.1550000011920929,
+          0.1550000011920929,
+          1.0
+        ],
+        "roughness": 0.8199999928474426
+      },
+      "Detailed_Nail": {
+        "base_color": [
+          0.46000000834465027,
+          0.46000000834465027,
+          0.46000000834465027,
+          1.0
+        ],
+        "roughness": 0.36000001430511475
+      },
+      "Detailed_Skin": {
+        "base_color": [
+          0.4000000059604645,
+          0.4000000059604645,
+          0.4000000059604645,
+          1.0
+        ],
+        "roughness": 0.8199999928474426
+      }
+    },
+    "left_glb_roundtrip": {
+      "rig": "HandRig.001",
+      "bones": [
+        "index0",
+        "index1",
+        "index2",
+        "little0",
+        "little1",
+        "little2",
+        "middle0",
+        "middle1",
+        "middle2",
+        "ring0",
+        "ring1",
+        "ring2",
+        "thumb0",
+        "thumb1",
+        "thumb2",
+        "wrist"
+      ],
+      "meshes": {
+        "ContinuousAnatomicalHand.001": {
+          "vertices": 15217,
+          "weight_sum_min": 0.9999998733401299,
+          "weight_sum_max": 1.0000001210719347,
+          "wrist_only_vertices": 536
+        },
+        "Nail_index": {
+          "vertices": 322,
+          "weight_sum_min": 1.0,
+          "weight_sum_max": 1.0,
+          "wrist_only_vertices": 0
+        },
+        "Nail_little": {
+          "vertices": 322,
+          "weight_sum_min": 1.0,
+          "weight_sum_max": 1.0,
+          "wrist_only_vertices": 0
+        },
+        "Nail_middle": {
+          "vertices": 322,
+          "weight_sum_min": 1.0,
+          "weight_sum_max": 1.0,
+          "wrist_only_vertices": 0
+        },
+        "Nail_ring": {
+          "vertices": 322,
+          "weight_sum_min": 1.0,
+          "weight_sum_max": 1.0,
+          "wrist_only_vertices": 0
+        },
+        "Nail_thumb": {
+          "vertices": 322,
+          "weight_sum_min": 1.0,
+          "weight_sum_max": 1.0,
+          "wrist_only_vertices": 0
+        }
+      },
+      "finger_pose_checks": {
+        "thumb": {
+          "local_x_rotation_radians": 0.4,
+          "moved_vertices": 4683,
+          "max_displacement_m": 0.04495459762213018,
+          "wrist_bone_error_m": 0.0,
+          "wrist_only_mesh_error_m": 0.0
+        },
+        "index": {
+          "local_x_rotation_radians": 0.4,
+          "moved_vertices": 4706,
+          "max_displacement_m": 0.037395031849792294,
+          "wrist_bone_error_m": 0.0,
+          "wrist_only_mesh_error_m": 0.0
+        },
+        "middle": {
+          "local_x_rotation_radians": 0.4,
+          "moved_vertices": 4568,
+          "max_displacement_m": 0.039743752735564006,
+          "wrist_bone_error_m": 0.0,
+          "wrist_only_mesh_error_m": 0.0
+        },
+        "ring": {
+          "local_x_rotation_radians": 0.4,
+          "moved_vertices": 4569,
+          "max_displacement_m": 0.03777652529091416,
+          "wrist_bone_error_m": 0.0,
+          "wrist_only_mesh_error_m": 0.0
+        },
+        "little": {
+          "local_x_rotation_radians": 0.4,
+          "moved_vertices": 4070,
+          "max_displacement_m": 0.033390282436329945,
+          "wrist_bone_error_m": 0.0,
+          "wrist_only_mesh_error_m": 0.0
+        }
+      },
+      "wrist_world_m": [
+        0.0,
+        -0.05624999850988388,
+        0.0
+      ],
+      "native_wrist_error_m": 0.0,
+      "thumb_minus_middle_x_m": 0.03250000346451998,
+      "materials": {
+        "Detailed_Nail": {
+          "base_color": [
+            0.46000000834465027,
+            0.46000000834465027,
+            0.46000000834465027,
+            1.0
+          ],
+          "roughness": 0.36000001430511475
+        },
+        "Detailed_Sleeve": {
+          "base_color": [
+            0.11500000208616257,
+            0.11500000208616257,
+            0.11500000208616257,
+            1.0
+          ],
+          "roughness": 0.8199999928474426
+        },
+        "Detailed_Trim": {
+          "base_color": [
+            0.07500000298023224,
+            0.07500000298023224,
+            0.07500000298023224,
+            1.0
+          ],
+          "roughness": 0.8199999928474426
+        },
+        "Detailed_Skin": {
+          "base_color": [
+            0.4000000059604645,
+            0.4000000059604645,
+            0.4000000059604645,
+            1.0
+          ],
+          "roughness": 0.8199999928474426
+        },
+        "Detailed_Glove": {
+          "base_color": [
+            0.1550000011920929,
+            0.1550000011920929,
+            0.1550000011920929,
+            1.0
+          ],
+          "roughness": 0.8199999928474426
+        }
+      },
+      "nails": {
+        "thumb": {
+          "mesh": "Nail_thumb",
+          "vertices": 322,
+          "max_movement_m": 0.05788882567663096,
+          "bone_local_error_m": 3.4053819810565976e-08,
+          "exposed_face_dorsal_dot": 0.9600844886153936
+        },
+        "index": {
+          "mesh": "Nail_index",
+          "vertices": 322,
+          "max_movement_m": 0.05010283682305584,
+          "bone_local_error_m": 3.204954193452329e-08,
+          "exposed_face_dorsal_dot": 0.9767572870478034
+        },
+        "middle": {
+          "mesh": "Nail_middle",
+          "vertices": 322,
+          "max_movement_m": 0.05333334993356011,
+          "bone_local_error_m": 4.768198774906624e-08,
+          "exposed_face_dorsal_dot": 0.9945461928728037
+        },
+        "ring": {
+          "mesh": "Nail_ring",
+          "vertices": 322,
+          "max_movement_m": 0.05075394632439671,
+          "bone_local_error_m": 4.8308290863643936e-08,
+          "exposed_face_dorsal_dot": 0.9937427820404992
+        },
+        "little": {
+          "mesh": "Nail_little",
+          "vertices": 322,
+          "max_movement_m": 0.04448654307538675,
+          "bone_local_error_m": 4.364813922140929e-08,
+          "exposed_face_dorsal_dot": 0.9367570132017136
+        }
+      },
+      "rest": {
+        "all_16_bone_rest_matrices_max_error": 1.4901161193847656e-07
+      },
+      "sculpted_surface": {
+        "sampled_surface_vertices": 4569,
+        "changed_over_0_02_mm": 1078,
+        "max_distance_from_original_surface_m": 0.0006604166119359434
+      },
+      "triangles": 57346
+    },
+    "right_glb_roundtrip": {
+      "rig": "HandRig.003",
+      "bones": [
+        "index0",
+        "index1",
+        "index2",
+        "little0",
+        "little1",
+        "little2",
+        "middle0",
+        "middle1",
+        "middle2",
+        "ring0",
+        "ring1",
+        "ring2",
+        "thumb0",
+        "thumb1",
+        "thumb2",
+        "wrist"
+      ],
+      "meshes": {
+        "ContinuousAnatomicalHand.003": {
+          "vertices": 15221,
+          "weight_sum_min": 0.9999998733401299,
+          "weight_sum_max": 1.0000001275911927,
+          "wrist_only_vertices": 535
+        },
+        "Nail_index.001": {
+          "vertices": 322,
+          "weight_sum_min": 1.0,
+          "weight_sum_max": 1.0,
+          "wrist_only_vertices": 0
+        },
+        "Nail_little.001": {
+          "vertices": 322,
+          "weight_sum_min": 1.0,
+          "weight_sum_max": 1.0,
+          "wrist_only_vertices": 0
+        },
+        "Nail_middle.001": {
+          "vertices": 322,
+          "weight_sum_min": 1.0,
+          "weight_sum_max": 1.0,
+          "wrist_only_vertices": 0
+        },
+        "Nail_ring.001": {
+          "vertices": 322,
+          "weight_sum_min": 1.0,
+          "weight_sum_max": 1.0,
+          "wrist_only_vertices": 0
+        },
+        "Nail_thumb.001": {
+          "vertices": 322,
+          "weight_sum_min": 1.0,
+          "weight_sum_max": 1.0,
+          "wrist_only_vertices": 0
+        }
+      },
+      "finger_pose_checks": {
+        "thumb": {
+          "local_x_rotation_radians": 0.4,
+          "moved_vertices": 4686,
+          "max_displacement_m": 0.04495459762213018,
+          "wrist_bone_error_m": 0.0,
+          "wrist_only_mesh_error_m": 0.0
+        },
+        "index": {
+          "local_x_rotation_radians": 0.4,
+          "moved_vertices": 4710,
+          "max_displacement_m": 0.037395031849792294,
+          "wrist_bone_error_m": 0.0,
+          "wrist_only_mesh_error_m": 0.0
+        },
+        "middle": {
+          "local_x_rotation_radians": 0.4,
+          "moved_vertices": 4581,
+          "max_displacement_m": 0.039743752735564006,
+          "wrist_bone_error_m": 0.0,
+          "wrist_only_mesh_error_m": 0.0
+        },
+        "ring": {
+          "local_x_rotation_radians": 0.4,
+          "moved_vertices": 4584,
+          "max_displacement_m": 0.03777652529091416,
+          "wrist_bone_error_m": 0.0,
+          "wrist_only_mesh_error_m": 0.0
+        },
+        "little": {
+          "local_x_rotation_radians": 0.4,
+          "moved_vertices": 4070,
+          "max_displacement_m": 0.033390282436329945,
+          "wrist_bone_error_m": 0.0,
+          "wrist_only_mesh_error_m": 0.0
+        }
+      },
+      "wrist_world_m": [
+        0.0,
+        -0.05624999850988388,
+        0.0
+      ],
+      "native_wrist_error_m": 0.0,
+      "thumb_minus_middle_x_m": -0.03250000346451998,
+      "materials": {
+        "Detailed_Nail": {
+          "base_color": [
+            0.46000000834465027,
+            0.46000000834465027,
+            0.46000000834465027,
+            1.0
+          ],
+          "roughness": 0.36000001430511475
+        },
+        "Detailed_Trim": {
+          "base_color": [
+            0.07500000298023224,
+            0.07500000298023224,
+            0.07500000298023224,
+            1.0
+          ],
+          "roughness": 0.8199999928474426
+        },
+        "Detailed_Skin": {
+          "base_color": [
+            0.4000000059604645,
+            0.4000000059604645,
+            0.4000000059604645,
+            1.0
+          ],
+          "roughness": 0.8199999928474426
+        },
+        "Detailed_Glove": {
+          "base_color": [
+            0.1550000011920929,
+            0.1550000011920929,
+            0.1550000011920929,
+            1.0
+          ],
+          "roughness": 0.8199999928474426
+        },
+        "Detailed_Sleeve": {
+          "base_color": [
+            0.11500000208616257,
+            0.11500000208616257,
+            0.11500000208616257,
+            1.0
+          ],
+          "roughness": 0.8199999928474426
+        }
+      },
+      "nails": {
+        "thumb": {
+          "mesh": "Nail_thumb.001",
+          "vertices": 322,
+          "max_movement_m": 0.057890586608080545,
+          "bone_local_error_m": 3.337203127736024e-08,
+          "exposed_face_dorsal_dot": 0.9572507729753852
+        },
+        "index": {
+          "mesh": "Nail_index.001",
+          "vertices": 322,
+          "max_movement_m": 0.05010332163556891,
+          "bone_local_error_m": 3.015404039187731e-08,
+          "exposed_face_dorsal_dot": 0.9758960702456534
+        },
+        "middle": {
+          "mesh": "Nail_middle.001",
+          "vertices": 322,
+          "max_movement_m": 0.053328229110354106,
+          "bone_local_error_m": 4.4998399719700346e-08,
+          "exposed_face_dorsal_dot": 0.9900127586442977
+        },
+        "ring": {
+          "mesh": "Nail_ring.001",
+          "vertices": 322,
+          "max_movement_m": 0.050754302567032956,
+          "bone_local_error_m": 4.593377447766965e-08,
+          "exposed_face_dorsal_dot": 0.9935304779792204
+        },
+        "little": {
+          "mesh": "Nail_little.001",
+          "vertices": 322,
+          "max_movement_m": 0.04449244833667041,
+          "bone_local_error_m": 5.218108216566705e-08,
+          "exposed_face_dorsal_dot": 0.9350083600729704
+        }
+      },
+      "rest": {
+        "all_16_bone_rest_matrices_max_error": 1.4901161193847656e-07
+      },
+      "sculpted_surface": {
+        "sampled_surface_vertices": 4570,
+        "changed_over_0_02_mm": 1057,
+        "max_distance_from_original_surface_m": 0.0006943367188796401
+      },
+      "triangles": 57346
+    }
+  },
+  "errors": [],
+  "limitations": [
+    "Five isolated finger bends verify deformation, not an animation or game capture.",
+    "No visual quality, hand contact, renderer or Godot runtime claim.",
+    "Wrist is compared to the authored source offset, not forced to absolute zero."
+  ],
+  "verified_asset_sha256": {
+    "bilateral_hands_detailed.blend": "8255d8a23182b8f9333e2b48b311a271d12f734d8f5ae517c3271268f204513f",
+    "left_hand_detailed.glb": "6afe2b131ad47760b43bf9067aa686e3f48978d31c22a382f217aa2f3470e029",
+    "right_hand_detailed.glb": "b3331cff415b0f10c4f204e48004a523ed2e8bad669ffa38a4df5639eed5494b"
+  }
+}

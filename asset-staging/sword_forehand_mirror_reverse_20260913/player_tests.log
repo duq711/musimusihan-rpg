@@ -1,0 +1,204 @@
+[HEADLESS] sword_direct_entry_test.gd
+DIRECT ENTRY shield right_diagonal hold=0.00 duration_ms=100.0 held_pose_mm=0.0 windup_deg=0.0 entry_mm=0.0 arm_length_mm=0.00293016433717 authored_mm=0.0 authored_deg=0.03956468118525 charge=0.0 spends=1
+DIRECT ENTRY shield right_diagonal hold=0.45 duration_ms=100.0 held_pose_mm=0.0002384185791 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00455021858214 authored_mm=0.0 authored_deg=0.03956468118525 charge=0.21833333333333 spends=1
+DIRECT ENTRY shield left_reverse hold=0.00 duration_ms=100.0 held_pose_mm=0.0002384185791 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00045657157899 authored_mm=0.00002980232239 authored_deg=0.03956468118525 charge=0.0 spends=1
+DIRECT ENTRY shield left_reverse hold=0.45 duration_ms=100.0 held_pose_mm=0.0002384185791 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00046730041503 authored_mm=0.00002980232239 authored_deg=0.03956468118525 charge=0.21833333333333 spends=1
+DIRECT ENTRY shield overhead hold=0.00 duration_ms=100.0 held_pose_mm=0.0002384185791 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00043749809264 authored_mm=0.00002980232239 authored_deg=0.05595290968074 charge=0.0 spends=1
+DIRECT ENTRY shield overhead hold=0.45 duration_ms=100.0 held_pose_mm=0.0002384185791 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00048637390138 authored_mm=0.0 authored_deg=0.03956468118525 charge=0.21833333333333 spends=1
+DIRECT ENTRY two_hand right_diagonal hold=0.00 duration_ms=100.0 held_pose_mm=0.0 windup_deg=0.0 entry_mm=0.0 arm_length_mm=0.00118255615233 authored_mm=0.0 authored_deg=0.03956468118525 charge=0.0 spends=1
+DIRECT ENTRY two_hand right_diagonal hold=0.45 duration_ms=100.0 held_pose_mm=0.00029802322388 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00717282295226 authored_mm=0.0 authored_deg=0.03956468118525 charge=0.21833333333333 spends=1
+DIRECT ENTRY two_hand left_reverse hold=0.00 duration_ms=100.0 held_pose_mm=0.00029802322388 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00051617622376 authored_mm=0.00002980232239 authored_deg=0.03956468118525 charge=0.0 spends=1
+DIRECT ENTRY two_hand left_reverse hold=0.45 duration_ms=100.0 held_pose_mm=0.00029802322388 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00043749809264 authored_mm=0.00002980232239 authored_deg=0.03956468118525 charge=0.21833333333333 spends=1
+DIRECT ENTRY two_hand overhead hold=0.00 duration_ms=100.0 held_pose_mm=0.00029802322388 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00040769577025 authored_mm=0.0 authored_deg=0.05595290968074 charge=0.0 spends=1
+DIRECT ENTRY two_hand overhead hold=0.45 duration_ms=100.0 held_pose_mm=0.00029802322388 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00048041343687 authored_mm=0.00002980232239 authored_deg=0.03956468118525 charge=0.21833333333333 spends=1
+ERROR: shield right_diagonal hold=0.00: every cut must finish its entry at the exact 100ms checkpoint
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_direct_entry_test.gd:230)
+       [1] _run (res://tests/sword_direct_entry_test.gd:39)
+       [2] _exercise_stance (res://tests/sword_direct_entry_test.gd:66)
+ERROR: shield right_diagonal hold=0.45: every cut must finish its entry at the exact 100ms checkpoint
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_direct_entry_test.gd:230)
+       [1] _run (res://tests/sword_direct_entry_test.gd:39)
+       [2] _exercise_stance (res://tests/sword_direct_entry_test.gd:66)
+ERROR: shield left_reverse hold=0.00: every cut must finish its entry at the exact 100ms checkpoint
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_direct_entry_test.gd:230)
+       [1] _run (res://tests/sword_direct_entry_test.gd:39)
+       [2] _exercise_stance (res://tests/sword_direct_entry_test.gd:66)
+ERROR: shield left_reverse hold=0.45: every cut must finish its entry at the exact 100ms checkpoint
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_direct_entry_test.gd:230)
+       [1] _run (res://tests/sword_direct_entry_test.gd:39)
+       [2] _exercise_stance (res://tests/sword_direct_entry_test.gd:66)
+ERROR: shield overhead hold=0.00: every cut must finish its entry at the exact 100ms checkpoint
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_direct_entry_test.gd:230)
+       [1] _run (res://tests/sword_direct_entry_test.gd:39)
+       [2] _exercise_stance (res://tests/sword_direct_entry_test.gd:66)
+ERROR: shield overhead hold=0.45: every cut must finish its entry at the exact 100ms checkpoint
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_direct_entry_test.gd:230)
+       [1] _run (res://tests/sword_direct_entry_test.gd:39)
+       [2] _exercise_stance (res://tests/sword_direct_entry_test.gd:66)
+ERROR: two_hand right_diagonal hold=0.00: every cut must finish its entry at the exact 100ms checkpoint
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_direct_entry_test.gd:230)
+       [1] _run (res://tests/sword_direct_entry_test.gd:39)
+       [2] _exercise_stance (res://tests/sword_direct_entry_test.gd:66)
+ERROR: two_hand right_diagonal hold=0.45: every cut must finish its entry at the exact 100ms checkpoint
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_direct_entry_test.gd:230)
+       [1] _run (res://tests/sword_direct_entry_test.gd:39)
+       [2] _exercise_stance (res://tests/sword_direct_entry_test.gd:66)
+ERROR: two_hand left_reverse hold=0.00: every cut must finish its entry at the exact 100ms checkpoint
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_direct_entry_test.gd:230)
+       [1] _run (res://tests/sword_direct_entry_test.gd:39)
+       [2] _exercise_stance (res://tests/sword_direct_entry_test.gd:66)
+ERROR: two_hand left_reverse hold=0.45: every cut must finish its entry at the exact 100ms checkpoint
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_direct_entry_test.gd:230)
+       [1] _run (res://tests/sword_direct_entry_test.gd:39)
+       [2] _exercise_stance (res://tests/sword_direct_entry_test.gd:66)
+ERROR: two_hand overhead hold=0.00: every cut must finish its entry at the exact 100ms checkpoint
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_direct_entry_test.gd:230)
+       [1] _run (res://tests/sword_direct_entry_test.gd:39)
+       [2] _exercise_stance (res://tests/sword_direct_entry_test.gd:66)
+ERROR: two_hand overhead hold=0.45: every cut must finish its entry at the exact 100ms checkpoint
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_direct_entry_test.gd:230)
+       [1] _run (res://tests/sword_direct_entry_test.gd:39)
+       [2] _exercise_stance (res://tests/sword_direct_entry_test.gd:66)
+SWORD DIRECT ENTRY FAIL: immediate forehand release, held charge, shared 100ms entry, exact authored contact/recovery, actual wrist and arm lengths, cost clocks and expedition preservation; target damage is covered by sword_attack_variants
+[HEADLESS] reference_sword_arm_player_test.gd
+REFERENCE SWORD ARM PLAYER PASS: analytical fixture only; actual_delivery_evaluated=false; actual meshes, 30/60/120Hz clocks, handoffs, blade clash, F2 and reset
+[HEADLESS] sword_forehand_grip_test.gd
+FOREHAND MIRROR shield/right_diagonal/hold=0.00 active_samples=13 grip_mm=0.00016118070789 axis_error=0.00000026151432 spends=1
+FOREHAND MIRROR shield/right_diagonal/hold=0.45 active_samples=13 grip_mm=0.00012287812012 axis_error=0.00000026151432 spends=1
+FOREHAND MIRROR shield/left_reverse/hold=0.00 active_samples=0 grip_mm=0.0 axis_error=0.0 spends=1
+FOREHAND MIRROR shield/overhead/hold=0.00 active_samples=0 grip_mm=0.0 axis_error=0.0 spends=1
+FOREHAND MIRROR two_hand/right_diagonal/hold=0.00 active_samples=13 grip_mm=0.00016118070789 axis_error=0.00000026151432 spends=1
+FOREHAND MIRROR two_hand/right_diagonal/hold=0.45 active_samples=13 grip_mm=0.00012287812012 axis_error=0.00000026151432 spends=1
+FOREHAND MIRROR two_hand/left_reverse/hold=0.00 active_samples=0 grip_mm=0.0 axis_error=0.0 spends=1
+FOREHAND MIRROR two_hand/overhead/hold=0.00 active_samples=0 grip_mm=0.0 axis_error=0.0 spends=1
+ERROR: shield/right_diagonal/hold=0.00: from 100ms through recovery the displayed sword must use its raw authored pose.
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_forehand_grip_test.gd:363)
+       [1] _run (res://tests/sword_forehand_grip_test.gd:65)
+       [2] _test_f2 (res://tests/sword_forehand_grip_test.gd:308)
+ERROR: shield/right_diagonal/hold=0.00: completed recovery and READY handoff must return to the original idle pose.
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_forehand_grip_test.gd:363)
+       [1] _run (res://tests/sword_forehand_grip_test.gd:65)
+       [2] _test_f2 (res://tests/sword_forehand_grip_test.gd:308)
+ERROR: shield/right_diagonal/hold=0.45: from 100ms through recovery the displayed sword must use its raw authored pose.
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_forehand_grip_test.gd:363)
+       [1] _run (res://tests/sword_forehand_grip_test.gd:65)
+       [2] _test_f2 (res://tests/sword_forehand_grip_test.gd:308)
+ERROR: shield/right_diagonal/hold=0.45: completed recovery and READY handoff must return to the original idle pose.
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_forehand_grip_test.gd:363)
+       [1] _run (res://tests/sword_forehand_grip_test.gd:65)
+       [2] _test_f2 (res://tests/sword_forehand_grip_test.gd:308)
+ERROR: shield/left_reverse/hold=0.00: from 100ms through recovery the displayed sword must use its raw authored pose.
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_forehand_grip_test.gd:363)
+       [1] _run (res://tests/sword_forehand_grip_test.gd:65)
+       [2] _test_f2 (res://tests/sword_forehand_grip_test.gd:308)
+ERROR: shield/left_reverse/hold=0.00: completed recovery and READY handoff must return to the original idle pose.
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_forehand_grip_test.gd:363)
+       [1] _run (res://tests/sword_forehand_grip_test.gd:65)
+       [2] _test_f2 (res://tests/sword_forehand_grip_test.gd:308)
+ERROR: shield/overhead/hold=0.00: from 100ms through recovery the displayed sword must use its raw authored pose.
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_forehand_grip_test.gd:363)
+       [1] _run (res://tests/sword_forehand_grip_test.gd:65)
+       [2] _test_f2 (res://tests/sword_forehand_grip_test.gd:308)
+ERROR: shield/overhead/hold=0.00: completed recovery and READY handoff must return to the original idle pose.
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_forehand_grip_test.gd:363)
+       [1] _run (res://tests/sword_forehand_grip_test.gd:65)
+       [2] _test_f2 (res://tests/sword_forehand_grip_test.gd:308)
+ERROR: two_hand/right_diagonal/hold=0.00: from 100ms through recovery the displayed sword must use its raw authored pose.
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_forehand_grip_test.gd:363)
+       [1] _run (res://tests/sword_forehand_grip_test.gd:65)
+       [2] _test_f2 (res://tests/sword_forehand_grip_test.gd:308)
+ERROR: two_hand/right_diagonal/hold=0.00: completed recovery and READY handoff must return to the original idle pose.
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_forehand_grip_test.gd:363)
+       [1] _run (res://tests/sword_forehand_grip_test.gd:65)
+       [2] _test_f2 (res://tests/sword_forehand_grip_test.gd:308)
+ERROR: two_hand/right_diagonal/hold=0.45: from 100ms through recovery the displayed sword must use its raw authored pose.
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_forehand_grip_test.gd:363)
+       [1] _run (res://tests/sword_forehand_grip_test.gd:65)
+       [2] _test_f2 (res://tests/sword_forehand_grip_test.gd:308)
+ERROR: two_hand/right_diagonal/hold=0.45: completed recovery and READY handoff must return to the original idle pose.
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_forehand_grip_test.gd:363)
+       [1] _run (res://tests/sword_forehand_grip_test.gd:65)
+       [2] _test_f2 (res://tests/sword_forehand_grip_test.gd:308)
+ERROR: two_hand/left_reverse/hold=0.00: from 100ms through recovery the displayed sword must use its raw authored pose.
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_forehand_grip_test.gd:363)
+       [1] _run (res://tests/sword_forehand_grip_test.gd:65)
+       [2] _test_f2 (res://tests/sword_forehand_grip_test.gd:308)
+ERROR: two_hand/left_reverse/hold=0.00: completed recovery and READY handoff must return to the original idle pose.
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_forehand_grip_test.gd:363)
+       [1] _run (res://tests/sword_forehand_grip_test.gd:65)
+       [2] _test_f2 (res://tests/sword_forehand_grip_test.gd:308)
+ERROR: two_hand/overhead/hold=0.00: from 100ms through recovery the displayed sword must use its raw authored pose.
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_forehand_grip_test.gd:363)
+       [1] _run (res://tests/sword_forehand_grip_test.gd:65)
+       [2] _test_f2 (res://tests/sword_forehand_grip_test.gd:308)
+ERROR: two_hand/overhead/hold=0.00: completed recovery and READY handoff must return to the original idle pose.
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_forehand_grip_test.gd:363)
+       [1] _run (res://tests/sword_forehand_grip_test.gd:65)
+       [2] _test_f2 (res://tests/sword_forehand_grip_test.gd:308)
+SWORD FOREHAND GRIP FAIL: real clicks and held charge; shared 100ms entry; same-phase reverse camera-X reflection; original clips/assets and fitted two-hand contacts; clash/cancel/F2 isolation; aesthetic quality not evaluated
+[HEADLESS] reference_sword_motion_test_room_test.gd
+REFERENCE SWORD MOTION TEST ROOM PASS: five playable fixtures, two-hand basic/reverse target hits and grip, actual run/jump/landing/collision, repeated F2, reset and original expedition restoration
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2535)
+[HEADLESS] reference_sword_cut_preview_test.gd
+REFERENCE SWORD CUT PREVIEW PASS: two production cuts after real shield stow, both-hand capture records, input isolation and expedition/source preservation; no pixel claim
+
+Headless validation: 3 passed, 2 failed.
+FAILED: sword_direct_entry_test.gd (1)
+FAILED: sword_forehand_grip_test.gd (1)

@@ -1,0 +1,110 @@
+def _procedural(original,strength):
+    material=original.copy();material.name='FingerDetail_Bake_'+original.name
+    n=_Nodes(material);o=n.op
+    bsdf=next(x for x in n.nodes if x.type=='BSDF_PRINCIPLED')
+    output=next(x for x in n.nodes if x.type=='OUTPUT_MATERIAL')
+    base=n.nodes['Baked_basecolor'].outputs['Color']
+    rough=n.nodes['Baked_roughness'].outputs['Color']
+    oldnormal=next(x for x in n.nodes if x.type=='NORMAL_MAP').outputs['Normal']
+    geometry=n.node('ShaderNodeNewGeometry')
+    position=geometry.outputs['Position']
+    variation=n.noise(position,145.0,1.2)
+    gentle=n.noise(position,72.0,1.0)
+    gate,seed,has_pip=n.attr('FDMask')
+    def smooth(a,b,value):
+        t=o('MINIMUM',1.0,o('MAXIMUM',0.0,o('DIVIDE',o('SUBTRACT',value,a),b-a)))
+        return o('MULTIPLY',o('MULTIPLY',t,t),o('SUBTRACT',3.0,o('MULTIPLY',2.0,t)))
+    if original.name=='Detailed_Skin':
+        dorsal=n.node('ShaderNodeAttribute');dorsal.attribute_name='FDDorsal'
+        dot=n.node('ShaderNodeVectorMath');dot.operation='DOT_PRODUCT'
+        n.link(dorsal.outputs['Vector'],dot.inputs[0]);n.link(geometry.outputs['Normal'],dot.inputs[1])
+        front=o('POWER',o('MAXIMUM',dot.outputs['Value'],0.0),1.8)
+        back=o('POWER',o('MAXIMUM',o('MULTIPLY',dot.outputs['Value'],-1.0),0.0),1.8)
+        # Reference-guided v04: thin oblique skin furrows, not sub-texel pebble noise.
+        # Coordinates follow the actual distal phalanx. 1.1--1.5 mm repeat with
+        # approximately 0.12 mm grooves remains resolvable in this existing atlas.
+        u0,v0,r0=n.attr('FDJoint2')
+        warp=o('MULTIPLY',o('SUBTRACT',gentle,.5),.00016)
+        height=0.0
+        for cu,cv,period,power,depth in ((.73,.68,.00112,10.0,.000011),(-.66,.75,.00153,12.0,.000008)):
+            coord=o('ADD',o('ADD',o('MULTIPLY',u0,cu),o('MULTIPLY',v0,cv)),warp)
+            phase=o('MULTIPLY',coord,2*math.pi/period)
+            line=o('POWER',o('MULTIPLY',o('ADD',o('COSINE',phase),1.0),.5),power)
+            uneven=o('ADD',.20,o('MULTIPLY',variation,.80))
+            height=o('ADD',height,o('MULTIPLY',o('MULTIPLY',line,uneven),-depth))
+        crease=0.0;redness=0.0
+        jitter=o('MULTIPLY',o('SUBTRACT',gentle,.5),.00014)
+        for joint in (1,2):
+            u,v,r=n.attr('FDJoint'+str(joint))
+            jgate=has_pip if joint==1 else 1.0
+            # Unequal transverse arcs, each with its own extent, slant and curve.
+            # No radial/concentric-ring term: knuckles must not become targets.
+            arcs=(
+                (-.0067,-.0014,-.045,-.15,.88,.00013,.000025),
+                (-.0050,-.0010,.025,.14,.94,.00012,.000032),
+                (-.0033,-.0006,-.035,-.24,.70,.00010,.000024),
+                (-.0015,.00045,.065,.20,.88,.00014,.000033),
+                (.0007,.0011,-.055,-.12,.97,.00013,.000030),
+                (.0026,.0015,.035,.25,.76,.00011,.000026),
+                (.0046,.0018,-.040,-.20,.88,.00012,.000024),
+                (.0065,.0020,.050,.08,.72,.00010,.000019),
+            )
+            joint_scale=.85 if joint==2 else 1.0
+            for offset,curve,slant,shift,extent,width,depth in arcs:
+                shifted=o('SUBTRACT',u,o('MULTIPLY',r,shift))
+                bend=o('MULTIPLY',o('POWER',o('DIVIDE',shifted,r),2.0),curve*joint_scale)
+                arc=o('ADD',o('ADD',o('SUBTRACT',v,offset*joint_scale),bend),o('ADD',jitter,o('MULTIPLY',u,slant)))
+                lateral=n.gauss(shifted,o('MULTIPLY',r,extent),6)
+                line=n.gauss(arc,width)
+                local=o('MULTIPLY',o('MULTIPLY',o('MULTIPLY',line,lateral),front),jgate)
+                height=o('ADD',height,o('MULTIPLY',local,-depth))
+            # Palmar flexion creases retain the broader authored primary folds;
+            # these small nonparallel branches enrich the folds instead of drawing rings.
+            for offset,curve,slant,width,depth in ((-.0024,.00095,-.035,.00019,.000044),(.0003,.0013,.030,.00023,.000057),(.0021,.00075,-.020,.00017,.000035)):
+                arc=o('ADD',o('ADD',o('SUBTRACT',v,offset),o('MULTIPLY',o('POWER',o('DIVIDE',u,r),2.0),curve)),o('ADD',jitter,o('MULTIPLY',u,slant)))
+                line=n.gauss(arc,width)
+                lateral=n.gauss(u,o('MULTIPLY',r,.98),6)
+                facing=o('ADD',back,o('MULTIPLY',front,.22))
+                fold=o('MULTIPLY',o('MULTIPLY',o('MULTIPLY',line,lateral),facing),jgate)
+                height=o('ADD',height,o('MULTIPLY',fold,-depth))
+                crease=o('MAXIMUM',crease,fold)
+            redness=o('MAXIMUM',redness,o('MULTIPLY',n.gauss(v,.0060),jgate))
+        # A tilted, elongated open loop. Lower ridges flow down one side rather
+        # than closing into a bullseye. The core and mask scale with actual pad length.
+        u,v,pad_length=n.attr('FDPad')
+        lower=o('MINIMUM',v,0.0)
+        xx=o('SUBTRACT',o('SUBTRACT',u,o('MULTIPLY',r0,.10)),o('MULTIPLY',lower,.30))
+        yy=o('MULTIPLY',o('MAXIMUM',v,0.0),.72)
+        loop=o('SQRT',o('ADD',o('ADD',o('POWER',xx,2.0),o('POWER',yy,2.0)),.0000000009))
+        loop=o('ADD',loop,o('MULTIPLY',lower,-.085))
+        phase=o('ADD',o('MULTIPLY',loop,2*math.pi/.00043),o('ADD',o('MULTIPLY',gentle,.20),o('MULTIPLY',seed,.27)))
+        ridges=o('POWER',o('MULTIPLY',o('ADD',o('COSINE',phase),1.0),.5),2.0)
+        pad=o('MULTIPLY',o('MULTIPLY',n.gauss(u,o('MULTIPLY',r0,.94),6),n.gauss(v,o('MULTIPLY',pad_length,.70),6)),back)
+        pad=o('MULTIPLY',pad,smooth(.001,.004,v0))
+        height=o('ADD',height,o('MULTIPLY',o('MULTIPLY',ridges,pad),.000024))
+        height=o('MULTIPLY',o('MULTIPLY',height,gate),strength)
+        rosiness=o('MULTIPLY',o('MULTIPLY',redness,gate),.050*strength)
+        base=n.mix(base,n.mix(base,(1.025,.91,.885,1.0),1.0,'MULTIPLY'),rosiness)
+        pigment=o('MULTIPLY',o('SUBTRACT',variation,.5),.018*strength)
+        base=n.mix(base,o('ADD',1.0,o('MULTIPLY',pigment,gate)),1.0,'MULTIPLY')
+        base=n.mix(base,(.95,.935,.925,1.0),o('MULTIPLY',o('MULTIPLY',crease,gate),.20*strength),'MULTIPLY')
+        rough=o('MINIMUM',.78,o('MAXIMUM',.40,o('ADD',rough,o('MULTIPLY',o('MULTIPLY',o('SUBTRACT',gentle,.5),gate),.025*strength))))
+    else:
+        u,t,seed=n.attr('FDNail')
+        # v04: stable longitudinal keratin grain. No 3D noise modulates phase,
+        # and no sub-texel/high-frequency harmonic causes stamped chatter.
+        phase=o('ADD',o('MULTIPLY',u,2*math.pi*14.0),o('MULTIPLY',seed,.33))
+        ridge=o('ADD',o('MULTIPLY',o('SINE',phase),.0000017),o('MULTIPLY',o('SINE',o('ADD',o('MULTIPLY',u,2*math.pi*9.0),.7)),.00000065))
+        edge=n.gauss(o('SUBTRACT',t,.045),.040)
+        height=o('MULTIPLY',o('ADD',ridge,o('MULTIPLY',edge,-.0000025)),strength)
+        base=n.mix(base,o('ADD',1.0,o('MULTIPLY',o('SUBTRACT',gentle,.5),.010*strength)),1.0,'MULTIPLY')
+        rough=o('MINIMUM',.48,o('MAXIMUM',.26,o('ADD',rough,o('MULTIPLY',o('SUBTRACT',gentle,.5),.010*strength))))
+    bump=n.node('ShaderNodeBump','FingerDetail_Microrelief')
+    bump.inputs['Strength'].default_value=1.0;bump.inputs['Distance'].default_value=1.0
+    n.link(height,bump.inputs['Height']);n.link(oldnormal,bump.inputs['Normal'])
+    n.link(bump.outputs['Normal'],bsdf.inputs['Normal'])
+    n.link(base,bsdf.inputs['Base Color']);n.link(rough,bsdf.inputs['Roughness'])
+    target=n.node('ShaderNodeTexImage','FingerDetail_BakeTarget')
+    emission=n.node('ShaderNodeEmission','FingerDetail_BakeEmission')
+    return {'material':material,'bsdf':bsdf,'output':output,'target':target,'emission':emission,'basecolor':base,'roughness':rough}
+

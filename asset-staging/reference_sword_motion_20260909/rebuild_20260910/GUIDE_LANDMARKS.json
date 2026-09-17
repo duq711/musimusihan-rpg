@@ -1,0 +1,1211 @@
+{
+  "status": "static_glb_vertex_measurements_not_authored_motion",
+  "source": {
+    "path": "godot-game/assets/3d/player/sword_hold_long_grip/SwordHold_Static.glb",
+    "sha256": "2b94cc385f837fe253552cd654cb1f665246f61cdee5227814d63049da9f22fb",
+    "meshes": 11,
+    "skins": 0,
+    "animations": 0
+  },
+  "units": "meters",
+  "coordinate_space": "godot_camera_local_x_right_y_up_minus_z_forward",
+  "source_camera_meaning": "Cumulative original GLB node transforms; this GLB is authored in the source camera arrangement. Not the new clip frame and not Blender world space.",
+  "normalization": "canonical = inverse(SOURCE_READY) * source_camera; sample pose projects T(t) * canonical",
+  "source_ready_matrix_rows": [
+    [
+      0.6734562112,
+      0.1384824613,
+      -0.7261403196,
+      0.3249563841
+    ],
+    [
+      -0.1673592395,
+      0.9853534854,
+      0.0327005009,
+      -0.0035816696
+    ],
+    [
+      0.7200327879,
+      0.0995039315,
+      0.6867691389,
+      -0.5892537756
+    ],
+    [
+      0,
+      0,
+      0,
+      1
+    ]
+  ],
+  "precision_note": "Input POSITION accessors are float32. Extra decimal places expose the calculation, not submicron source accuracy.",
+  "landmarks": {
+    "blade_tip_geometry": {
+      "label": "B",
+      "definition": "Bounding center of actual terminal blade section, not nearest single split vertex.",
+      "canonical": [
+        -2.037611991634325e-08,
+        1.0349999323050758,
+        3.124975667123664e-08
+      ],
+      "source_camera": [
+        0.46828568575680746,
+        1.0162591255175852,
+        -0.48626720644351706
+      ],
+      "geometry_confidence": "high_geometry_medium_reference_2d_correspondence",
+      "support_bounds_canonical": {
+        "min": [
+          -0.00010002903042341527,
+          1.0349998950327868,
+          -9.999042067199149e-05
+        ],
+        "max": [
+          9.998827818358258e-05,
+          1.0349999695773646,
+          0.00010005292018533396
+        ]
+      },
+      "support_record_count_including_seam_duplicates": 43,
+      "evidence": [
+        {
+          "node_index": 9,
+          "primitive": 0,
+          "POSITION_accessor": 63,
+          "vertex_index_ranges_inclusive": [
+            [
+              430,
+              443
+            ]
+          ]
+        },
+        {
+          "node_index": 9,
+          "primitive": 1,
+          "POSITION_accessor": 69,
+          "vertex_index_ranges_inclusive": [
+            [
+              252,
+              280
+            ]
+          ]
+        }
+      ]
+    },
+    "crossguard_axis_intersection": {
+      "label": "G",
+      "definition": "Midpoint of crossguard root section on blade axis. Crossguard has thickness, so this is an explicit center convention, not a uniquely named GLB vertex.",
+      "canonical": [
+        -3.720458482958655e-09,
+        -0.009000003221886436,
+        -1.70527347242988e-08
+      ],
+      "source_camera": [
+        0.3237100513792376,
+        -0.012449854078276893,
+        -0.5901493256942344
+      ],
+      "geometry_confidence": "high_geometry_medium_reference_2d_correspondence",
+      "support_bounds_canonical": {
+        "min": [
+          -2.161620807350495e-08,
+          -0.017400006530297114,
+          -0.005600025509130857
+        ],
+        "max": [
+          1.417529110758764e-08,
+          -0.0005999999134757572,
+          0.0055999914036614085
+        ]
+      },
+      "support_record_count_including_seam_duplicates": 32,
+      "evidence": [
+        {
+          "node_index": 10,
+          "primitive": 0,
+          "POSITION_accessor": 75,
+          "vertex_index_ranges_inclusive": [
+            [
+              275,
+              290
+            ]
+          ]
+        },
+        {
+          "node_index": 10,
+          "primitive": 1,
+          "POSITION_accessor": 81,
+          "vertex_index_ranges_inclusive": [
+            [
+              92,
+              107
+            ]
+          ]
+        }
+      ]
+    },
+    "crossguard_left_end": {
+      "label": "GL",
+      "definition": "Bounding center of outermost negative-X quillon terminal section.",
+      "canonical": [
+        -0.15200002916498678,
+        0.015999988635730347,
+        -1.3301865497972187e-08
+      ],
+      "source_camera": [
+        0.22480674782232732,
+        0.037622583818629624,
+        -0.697106727722647
+      ],
+      "geometry_confidence": "high_geometry_medium_reference_2d_correspondence",
+      "support_bounds_canonical": {
+        "min": [
+          -0.15200004218235275,
+          0.009349984108815816,
+          -0.003150031038771428
+        ],
+        "max": [
+          -0.15200001614762082,
+          0.022649993162644877,
+          0.003150004435040432
+        ]
+      },
+      "support_record_count_including_seam_duplicates": 24,
+      "evidence": [
+        {
+          "node_index": 10,
+          "primitive": 0,
+          "POSITION_accessor": 75,
+          "vertex_index_ranges_inclusive": [
+            [
+              171,
+              178
+            ]
+          ]
+        },
+        {
+          "node_index": 10,
+          "primitive": 1,
+          "POSITION_accessor": 81,
+          "vertex_index_ranges_inclusive": [
+            [
+              0,
+              15
+            ]
+          ]
+        }
+      ]
+    },
+    "crossguard_right_end": {
+      "label": "GR",
+      "definition": "Bounding center of outermost positive-X quillon terminal section.",
+      "canonical": [
+        0.1520000228183772,
+        0.016000004632459517,
+        5.270279546110146e-09
+      ],
+      "source_camera": [
+        0.4295374597649298,
+        -0.013254617319515348,
+        -0.47821670842480696
+      ],
+      "geometry_confidence": "high_geometry_medium_reference_2d_correspondence",
+      "support_bounds_canonical": {
+        "min": [
+          0.15200000178426076,
+          0.009350001863377956,
+          -0.0031499838966413396
+        ],
+        "max": [
+          0.15200004385249366,
+          0.022650007401541078,
+          0.003149994437200432
+        ]
+      },
+      "support_record_count_including_seam_duplicates": 24,
+      "evidence": [
+        {
+          "node_index": 10,
+          "primitive": 0,
+          "POSITION_accessor": 75,
+          "vertex_index_ranges_inclusive": [
+            [
+              387,
+              402
+            ]
+          ]
+        },
+        {
+          "node_index": 10,
+          "primitive": 1,
+          "POSITION_accessor": 81,
+          "vertex_index_ranges_inclusive": [
+            [
+              184,
+              191
+            ]
+          ]
+        }
+      ]
+    },
+    "pommel_widest_section_center": {
+      "label": "P",
+      "definition": "Center of maximum-width pommel body section. Preferred repeatable body landmark; not an inferred object origin.",
+      "canonical": [
+        -1.4376254020564971e-08,
+        -0.34420008960018,
+        -1.5741812464664662e-08
+      ],
+      "source_camera": [
+        0.2772907102614737,
+        -0.34274042567129587,
+        -0.6235030589002355
+      ],
+      "geometry_confidence": "high_geometry_medium_reference_2d_correspondence",
+      "support_bounds_canonical": {
+        "min": [
+          -0.03274229192606576,
+          -0.34420012128702493,
+          -0.021313067551177012
+        ],
+        "max": [
+          0.03274226317355772,
+          -0.3442000579133351,
+          0.021313036067552082
+        ]
+      },
+      "support_record_count_including_seam_duplicates": 66,
+      "evidence": [
+        {
+          "node_index": 10,
+          "primitive": 0,
+          "POSITION_accessor": 75,
+          "vertex_index_ranges_inclusive": [
+            [
+              502,
+              534
+            ]
+          ]
+        },
+        {
+          "node_index": 10,
+          "primitive": 1,
+          "POSITION_accessor": 81,
+          "vertex_index_ranges_inclusive": [
+            [
+              1095,
+              1127
+            ]
+          ]
+        }
+      ]
+    },
+    "pommel_body_bounds_center": {
+      "label": "P_bounds",
+      "definition": "AABB center of the connected pommel body component; differs from its widest-section center.",
+      "canonical": [
+        -1.4376254020564971e-08,
+        -0.3412750734130844,
+        -1.5741812464664662e-08
+      ],
+      "source_camera": [
+        0.27769577370240506,
+        -0.3398582507764898,
+        -0.6232120082899183
+      ],
+      "geometry_confidence": "high_geometry_medium_reference_2d_correspondence",
+      "support_bounds_canonical": {
+        "min": [
+          -0.03274229192606576,
+          -0.36695010659171023,
+          -0.021313067551177012
+        ],
+        "max": [
+          0.03274226317355772,
+          -0.31560004023445853,
+          0.021313036067552082
+        ]
+      },
+      "support_record_count_including_seam_duplicates": 493,
+      "evidence": [
+        {
+          "node_index": 10,
+          "primitive": 0,
+          "POSITION_accessor": 75,
+          "vertex_index_ranges_inclusive": [
+            [
+              403,
+              600
+            ]
+          ]
+        },
+        {
+          "node_index": 10,
+          "primitive": 1,
+          "POSITION_accessor": 81,
+          "vertex_index_ranges_inclusive": [
+            [
+              964,
+              1258
+            ]
+          ]
+        }
+      ]
+    },
+    "hilt_terminal_peen_center": {
+      "label": "P_end",
+      "definition": "Center of actual lowest terminal peen section, separate from pommel body center.",
+      "canonical": [
+        6.427182328017089e-09,
+        -0.3676000738459592,
+        4.664100106133162e-09
+      ],
+      "source_camera": [
+        0.2740502220413845,
+        -0.3657976845205433,
+        -0.6258314203364213
+      ],
+      "geometry_confidence": "high_geometry_medium_reference_2d_correspondence",
+      "support_bounds_canonical": {
+        "min": [
+          -0.0015999987683738004,
+          -0.36760010316101543,
+          -0.00127999675098045
+        ],
+        "max": [
+          0.0016000116227384564,
+          -0.367600044530903,
+          0.0012800060791806622
+        ]
+      },
+      "support_record_count_including_seam_duplicates": 48,
+      "evidence": [
+        {
+          "node_index": 10,
+          "primitive": 0,
+          "POSITION_accessor": 75,
+          "vertex_index_ranges_inclusive": [
+            [
+              0,
+              47
+            ]
+          ]
+        }
+      ]
+    },
+    "hand_grip_marker": {
+      "label": "H",
+      "canonical": [
+        0,
+        -0.108,
+        0.002
+      ],
+      "source_camera": [
+        0.3085479976404,
+        -0.10993444502140001,
+        -0.5986266619242
+      ],
+      "geometry_confidence": "code_anchor_not_unique_surface_vertex",
+      "definition": "Production grip contact anchor, not crossguard or wrist.",
+      "code_source": "godot-game/scripts/sword_long_grip_visual.gd:8"
+    },
+    "wrist_anchor_code": {
+      "label": "W",
+      "canonical": [
+        0.0679751875,
+        -0.1080001335,
+        0.0524637313
+      ],
+      "source_camera": [
+        0.3176825414079605,
+        -0.1196606629601672,
+        -0.5150253781537426
+      ],
+      "geometry_confidence": "code_anchor_not_unique_surface_vertex",
+      "definition": "Production sleeve wrist anchor, not grip center or a supplied bone; GLB has no skin/joint metadata.",
+      "code_source": "godot-game/scripts/sword_long_grip_visual.gd:12"
+    }
+  },
+  "blade_axis": {
+    "canonical_origin": [
+      0,
+      0,
+      0
+    ],
+    "canonical_direction": [
+      0,
+      1,
+      0
+    ],
+    "source_camera_origin": [
+      0.3249563841,
+      -0.0035816696,
+      -0.5892537756
+    ],
+    "source_camera_direction_unit": [
+      0.13848246713969561,
+      0.9853535269515754,
+      0.09950393569600192
+    ],
+    "max_sampled_section_center_distance_to_ideal_axis_m": 3.730594530174378e-08,
+    "section_measurements": [
+      {
+        "nominal_y": -0.01,
+        "center_canonical": [
+          -2.8639261517859893e-09,
+          -0.01000000081889672,
+          4.8615790282369176e-09
+        ],
+        "bounds_canonical": {
+          "min": [
+            -0.031000017760861143,
+            -0.010000010875705505,
+            -0.00450001467017902
+          ],
+          "max": [
+            0.03100001203300884,
+            -0.009999990762087935,
+            0.0045000243933370765
+          ]
+        },
+        "evidence": [
+          {
+            "node_index": 9,
+            "primitive": 0,
+            "POSITION_accessor": 63,
+            "vertex_index_ranges_inclusive": [
+              [
+                0,
+                29
+              ],
+              [
+                444,
+                444
+              ]
+            ]
+          },
+          {
+            "node_index": 9,
+            "primitive": 1,
+            "POSITION_accessor": 69,
+            "vertex_index_ranges_inclusive": [
+              [
+                0,
+                11
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "nominal_y": 0.024,
+        "center_canonical": [
+          5.738178071590383e-09,
+          0.024000000591367334,
+          -8.237306947656009e-10
+        ],
+        "bounds_canonical": {
+          "min": [
+            -0.03070000033933648,
+            0.02399999169315866,
+            -0.004500024063786134
+          ],
+          "max": [
+            0.030700011815692624,
+            0.024000009489576007,
+            0.004500022416324745
+          ]
+        },
+        "evidence": [
+          {
+            "node_index": 9,
+            "primitive": 0,
+            "POSITION_accessor": 63,
+            "vertex_index_ranges_inclusive": [
+              [
+                30,
+                59
+              ]
+            ]
+          },
+          {
+            "node_index": 9,
+            "primitive": 1,
+            "POSITION_accessor": 69,
+            "vertex_index_ranges_inclusive": [
+              [
+                12,
+                35
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "nominal_y": 0.046,
+        "center_canonical": [
+          -5.68863649241802e-09,
+          0.046000000034015,
+          5.841575945186861e-09
+        ],
+        "bounds_canonical": {
+          "min": [
+            -0.030400002946730675,
+            0.04599999247248746,
+            -0.004400008684234624
+          ],
+          "max": [
+            0.03039999156945769,
+            0.046000007595542534,
+            0.004400020367386515
+          ]
+        },
+        "evidence": [
+          {
+            "node_index": 9,
+            "primitive": 0,
+            "POSITION_accessor": 63,
+            "vertex_index_ranges_inclusive": [
+              [
+                60,
+                95
+              ]
+            ]
+          },
+          {
+            "node_index": 9,
+            "primitive": 1,
+            "POSITION_accessor": 69,
+            "vertex_index_ranges_inclusive": [
+              [
+                36,
+                59
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "nominal_y": 0.077,
+        "center_canonical": [
+          4.0693116237777716e-09,
+          0.07699999638382743,
+          9.661203725919165e-09
+        ],
+        "bounds_canonical": {
+          "min": [
+            -0.029999994472809183,
+            0.0769999900589988,
+            -0.004300011185583985
+          ],
+          "max": [
+            0.03000000261143243,
+            0.07700000270865605,
+            0.004300030507991437
+          ]
+        },
+        "evidence": [
+          {
+            "node_index": 9,
+            "primitive": 0,
+            "POSITION_accessor": 63,
+            "vertex_index_ranges_inclusive": [
+              [
+                96,
+                135
+              ]
+            ]
+          },
+          {
+            "node_index": 9,
+            "primitive": 1,
+            "POSITION_accessor": 69,
+            "vertex_index_ranges_inclusive": [
+              [
+                60,
+                83
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "nominal_y": 0.16,
+        "center_canonical": [
+          -6.863361962095027e-10,
+          0.15999999674557125,
+          -3.640096502000034e-09
+        ],
+        "bounds_canonical": {
+          "min": [
+            -0.02910002579479612,
+            0.15999998692961662,
+            -0.004100029158417118
+          ],
+          "max": [
+            0.029100024422123727,
+            0.16000000656152588,
+            0.004100021878224114
+          ]
+        },
+        "evidence": [
+          {
+            "node_index": 9,
+            "primitive": 0,
+            "POSITION_accessor": 63,
+            "vertex_index_ranges_inclusive": [
+              [
+                136,
+                175
+              ]
+            ]
+          },
+          {
+            "node_index": 9,
+            "primitive": 1,
+            "POSITION_accessor": 69,
+            "vertex_index_ranges_inclusive": [
+              [
+                84,
+                107
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "nominal_y": 0.44,
+        "center_canonical": [
+          -5.195331762020139e-09,
+          0.44000000481692275,
+          -3.2724076781676104e-09
+        ],
+        "bounds_canonical": {
+          "min": [
+            -0.026300012914155957,
+            0.43999998846901966,
+            -0.0037000110463139
+          ],
+          "max": [
+            0.026300002523492433,
+            0.44000002116482584,
+            0.003700004501498544
+          ]
+        },
+        "evidence": [
+          {
+            "node_index": 9,
+            "primitive": 0,
+            "POSITION_accessor": 63,
+            "vertex_index_ranges_inclusive": [
+              [
+                176,
+                215
+              ]
+            ]
+          },
+          {
+            "node_index": 9,
+            "primitive": 1,
+            "POSITION_accessor": 69,
+            "vertex_index_ranges_inclusive": [
+              [
+                108,
+                131
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "nominal_y": 0.71,
+        "center_canonical": [
+          -7.898277712414803e-09,
+          0.7099999960766062,
+          9.987368154718013e-09
+        ],
+        "bounds_canonical": {
+          "min": [
+            -0.022300018977290476,
+            0.7099999758828486,
+            -0.003200010004873799
+          ],
+          "max": [
+            0.02230000318073505,
+            0.7100000162703639,
+            0.0032000299796101084
+          ]
+        },
+        "evidence": [
+          {
+            "node_index": 9,
+            "primitive": 0,
+            "POSITION_accessor": 63,
+            "vertex_index_ranges_inclusive": [
+              [
+                216,
+                255
+              ]
+            ]
+          },
+          {
+            "node_index": 9,
+            "primitive": 1,
+            "POSITION_accessor": 69,
+            "vertex_index_ranges_inclusive": [
+              [
+                132,
+                155
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "nominal_y": 0.88,
+        "center_canonical": [
+          -1.149090364527261e-09,
+          0.880000025392814,
+          -1.3344257809855264e-08
+        ],
+        "bounds_canonical": {
+          "min": [
+            -0.017400008784934667,
+            0.8799999953550363,
+            -0.0027000215146624207
+          ],
+          "max": [
+            0.01740000648675394,
+            0.8800000554305917,
+            0.002699994826146801
+          ]
+        },
+        "evidence": [
+          {
+            "node_index": 9,
+            "primitive": 0,
+            "POSITION_accessor": 63,
+            "vertex_index_ranges_inclusive": [
+              [
+                256,
+                295
+              ]
+            ]
+          },
+          {
+            "node_index": 9,
+            "primitive": 1,
+            "POSITION_accessor": 69,
+            "vertex_index_ranges_inclusive": [
+              [
+                156,
+                179
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "nominal_y": 0.947,
+        "center_canonical": [
+          -2.92990039174601e-09,
+          0.9470000039312341,
+          1.5498614724940296e-08
+        ],
+        "bounds_canonical": {
+          "min": [
+            -0.012200008589249828,
+            0.946999975236476,
+            -0.0020999925203453174
+          ],
+          "max": [
+            0.012200002729449044,
+            0.947000032625992,
+            0.0021000235175747672
+          ]
+        },
+        "evidence": [
+          {
+            "node_index": 9,
+            "primitive": 0,
+            "POSITION_accessor": 63,
+            "vertex_index_ranges_inclusive": [
+              [
+                296,
+                335
+              ]
+            ]
+          },
+          {
+            "node_index": 9,
+            "primitive": 1,
+            "POSITION_accessor": 69,
+            "vertex_index_ranges_inclusive": [
+              [
+                180,
+                203
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "nominal_y": 0.988,
+        "center_canonical": [
+          -1.1875746344647276e-08,
+          0.9879999929727574,
+          -6.320314271945904e-09
+        ],
+        "bounds_canonical": {
+          "min": [
+            -0.007400001702681458,
+            0.9879999621266259,
+            -0.0015000251416688037
+          ],
+          "max": [
+            0.007399977951188769,
+            0.9880000238188891,
+            0.0015000125010402598
+          ]
+        },
+        "evidence": [
+          {
+            "node_index": 9,
+            "primitive": 0,
+            "POSITION_accessor": 63,
+            "vertex_index_ranges_inclusive": [
+              [
+                336,
+                385
+              ]
+            ]
+          },
+          {
+            "node_index": 9,
+            "primitive": 1,
+            "POSITION_accessor": 69,
+            "vertex_index_ranges_inclusive": [
+              [
+                204,
+                227
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "nominal_y": 1.014,
+        "center_canonical": [
+          4.4324842546350496e-09,
+          1.0140000401171296,
+          1.841005203839785e-08
+        ],
+        "bounds_canonical": {
+          "min": [
+            -0.003799993185109568,
+            1.0140000201589983,
+            -0.0009000152678160234
+          ],
+          "max": [
+            0.0038000020500780773,
+            1.014000060075261,
+            0.0009000520879201002
+          ]
+        },
+        "evidence": [
+          {
+            "node_index": 9,
+            "primitive": 0,
+            "POSITION_accessor": 63,
+            "vertex_index_ranges_inclusive": [
+              [
+                386,
+                429
+              ]
+            ]
+          },
+          {
+            "node_index": 9,
+            "primitive": 1,
+            "POSITION_accessor": 69,
+            "vertex_index_ranges_inclusive": [
+              [
+                228,
+                251
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "nominal_y": 1.035,
+        "center_canonical": [
+          -2.037611991634325e-08,
+          1.0349999323050758,
+          3.124975667123664e-08
+        ],
+        "bounds_canonical": {
+          "min": [
+            -0.00010002903042341527,
+            1.0349998950327868,
+            -9.999042067199149e-05
+          ],
+          "max": [
+            9.998827818358258e-05,
+            1.0349999695773646,
+            0.00010005292018533396
+          ]
+        },
+        "evidence": [
+          {
+            "node_index": 9,
+            "primitive": 0,
+            "POSITION_accessor": 63,
+            "vertex_index_ranges_inclusive": [
+              [
+                430,
+                443
+              ]
+            ]
+          },
+          {
+            "node_index": 9,
+            "primitive": 1,
+            "POSITION_accessor": 69,
+            "vertex_index_ranges_inclusive": [
+              [
+                252,
+                280
+              ]
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "measurements_m": {
+    "crossguard_total_x_width": 0.3040000860348464,
+    "crossguard_end_center_distance": 0.304000051983365,
+    "crossguard_root_y_extent": [
+      -0.017400006530297114,
+      -0.0005999999134757572
+    ],
+    "pommel_body_max_x_width": 0.06548455509962348,
+    "pommel_body_max_z_depth": 0.042626103618729094,
+    "blade_total_axial_extent": 1.04499998045307,
+    "blade_root_x_width": 0.06200002979386998,
+    "guard_G_to_tip_B_axial": 1.0439999355269622,
+    "guard_G_to_hand_H_distance": 0.09902019708260401,
+    "guard_G_to_wrist_W_distance": 0.13104998018985134,
+    "hand_H_to_wrist_W_distance": 0.08465940167752534,
+    "blade_tip_code_marker_to_terminal_section_center": 7.729383096480252e-08,
+    "entire_metal_tip_to_peen_axial_extent": 1.40260007273838
+  },
+  "hand_grip_geometry_check": {
+    "node": "Sword_GripLeather",
+    "plane_canonical_y": -0.108,
+    "triangle_plane_intersection_bounds": {
+      "min": [
+        -0.02130142124113652,
+        -0.108,
+        -0.01433584144959273
+      ],
+      "max": [
+        0.02130139233823563,
+        -0.108,
+        0.014335960887687644
+      ]
+    },
+    "marker_z_from_blade_center_plane": 0.002,
+    "claim": "Marker lies within the leather section X/Z bounds. It is an interior contact/axis reference, not an observed surface vertex or full extended-hilt midpoint.",
+    "triangle_support": [
+      {
+        "node_index": 7,
+        "primitive": 0,
+        "POSITION_accessor": 52,
+        "vertex_index_ranges_inclusive": [
+          [
+            650,
+            779
+          ]
+        ]
+      }
+    ]
+  },
+  "metal_component_evidence": [
+    {
+      "interpretation": "terminal peen",
+      "record_count_including_seam_duplicates": 171,
+      "bounds_canonical": {
+        "min": [
+          -0.0026400201650984,
+          -0.36760010316101543,
+          -0.0020800007802203035
+        ],
+        "max": [
+          0.002639995345873558,
+          -0.3650000302457105,
+          0.0020799625803495925
+        ]
+      },
+      "evidence": [
+        {
+          "node_index": 10,
+          "primitive": 0,
+          "POSITION_accessor": 75,
+          "vertex_index_ranges_inclusive": [
+            [
+              0,
+              170
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "interpretation": "pommel body",
+      "record_count_including_seam_duplicates": 493,
+      "bounds_canonical": {
+        "min": [
+          -0.03274229192606576,
+          -0.36695010659171023,
+          -0.021313067551177012
+        ],
+        "max": [
+          0.03274226317355772,
+          -0.31560004023445853,
+          0.021313036067552082
+        ]
+      },
+      "evidence": [
+        {
+          "node_index": 10,
+          "primitive": 0,
+          "POSITION_accessor": 75,
+          "vertex_index_ranges_inclusive": [
+            [
+              403,
+              600
+            ]
+          ]
+        },
+        {
+          "node_index": 10,
+          "primitive": 1,
+          "POSITION_accessor": 81,
+          "vertex_index_ranges_inclusive": [
+            [
+              964,
+              1258
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "interpretation": "lower hilt ferrule",
+      "record_count_including_seam_duplicates": 196,
+      "bounds_canonical": {
+        "min": [
+          -0.02060001315920071,
+          -0.3211000940640113,
+          -0.014600030491680238
+        ],
+        "max": [
+          0.020600014243009335,
+          -0.3101000399601136,
+          0.014599992048392685
+        ]
+      },
+      "evidence": [
+        {
+          "node_index": 10,
+          "primitive": 1,
+          "POSITION_accessor": 81,
+          "vertex_index_ranges_inclusive": [
+            [
+              768,
+              963
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "interpretation": "upper hilt ferrule/collar",
+      "record_count_including_seam_duplicates": 576,
+      "bounds_canonical": {
+        "min": [
+          -0.022700027876021295,
+          -0.02700001413634353,
+          -0.014000012488103675
+        ],
+        "max": [
+          0.02270001322886145,
+          0.0010000065955559703,
+          0.014000013864986727
+        ]
+      },
+      "evidence": [
+        {
+          "node_index": 10,
+          "primitive": 1,
+          "POSITION_accessor": 81,
+          "vertex_index_ranges_inclusive": [
+            [
+              192,
+              767
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "interpretation": "crossguard quillons",
+      "record_count_including_seam_duplicates": 424,
+      "bounds_canonical": {
+        "min": [
+          -0.15200004218235275,
+          -0.017400006530297114,
+          -0.005600025509130857
+        ],
+        "max": [
+          0.15200004385249366,
+          0.023033562341250077,
+          0.0055999914036614085
+        ]
+      },
+      "evidence": [
+        {
+          "node_index": 10,
+          "primitive": 0,
+          "POSITION_accessor": 75,
+          "vertex_index_ranges_inclusive": [
+            [
+              171,
+              402
+            ]
+          ]
+        },
+        {
+          "node_index": 10,
+          "primitive": 1,
+          "POSITION_accessor": 81,
+          "vertex_index_ranges_inclusive": [
+            [
+              0,
+              191
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "component_method": "Triangle connectivity after welding canonical POSITION coordinates rounded to 1e-6m across primitives. No original mesh modification.",
+  "ambiguities": [
+    "No supplied GLB marker explicitly names a crossguard center or pommel center. Definitions are geometry-based conventions with evidence.",
+    "The guard is curved. The midpoint of its end centers has y about +0.016 and is not the root G at -0.009 (25mm difference).",
+    "Visible blade/guard junction may refer to a front edge, center, or occluded outline. Match the same explicit G convention in model overlay and reference annotation.",
+    "The wrist is a production code anchor, not a bone location independently stored in this static GLB.",
+    "Reference video 3D depths and correspondence are not established by these static GLB measurements."
+  ]
+}

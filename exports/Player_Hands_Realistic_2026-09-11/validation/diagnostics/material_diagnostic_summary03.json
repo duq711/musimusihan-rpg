@@ -1,0 +1,67 @@
+{
+  "status": "diagnostic complete; production and tests unchanged",
+  "conclusion": "Disabling normal maps leaves the polygonal dark/bright artifacts; replacing color and roughness textures with constants removes them while original normal maps remain enabled. This isolates the defect to color/roughness sampling, consistent with black atlas gutters and only two pixels of bake margin.",
+  "comparisons": [
+    {
+      "folder": "normal_off_open_01",
+      "harness": "normal_disabled_preview.gd",
+      "harness_sha256": "a539413b530134b6fa78666ba9ed6a0a92249c1a6885b58bbfea90c776c64ecf",
+      "image": "open_normal_disabled.png",
+      "image_sha256": "91b0c520f9ace6ff6d13bb278cc07dd2489091f3b8ebb7afe1fa58352cdd153e",
+      "same_camera_pose_lighting": true,
+      "source_hashes_unchanged": true,
+      "gpu_wrist_buffers_passed": true
+    },
+    {
+      "folder": "color_roughness_constant_open_01",
+      "harness": "constant_color_roughness_preview.gd",
+      "harness_sha256": "078f59ab0a75e4c206cc789cfe2eee36d1e9c2596bc8a90d1a811b07bf572a05",
+      "image": "open_color_roughness_constant.png",
+      "image_sha256": "6f828533f340c55a4e364a6ac9c4573b0406e27f5dae6449c976c4f601b8ae94",
+      "same_camera_pose_lighting": true,
+      "source_hashes_unchanged": true,
+      "gpu_wrist_buffers_passed": true
+    }
+  ],
+  "atlas_background_statistics": {
+    "basecolor": {
+      "size": [
+        4096,
+        4096
+      ],
+      "exact_black_fraction": 0.4961484670639038,
+      "neutral_normal_fraction": 0.0,
+      "corner_rgb": [
+        0,
+        0,
+        0
+      ]
+    },
+    "normal": {
+      "size": [
+        4096,
+        4096
+      ],
+      "exact_black_fraction": 0.0,
+      "neutral_normal_fraction": 0.6077319383621216,
+      "corner_rgb": [
+        128,
+        128,
+        255
+      ]
+    },
+    "roughness": {
+      "size": [
+        4096,
+        4096
+      ],
+      "exact_black_fraction": 0.4961484670639038,
+      "neutral_normal_fraction": 0.0,
+      "corner_rgb": [
+        0,
+        0,
+        0
+      ]
+    }
+  }
+}

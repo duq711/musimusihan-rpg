@@ -1,0 +1,59 @@
+{
+  "status": "native_views_passed",
+  "scope": "Actual native Blender rendered anatomy, static cuff enclosure and all-joint flex; runtime arm-fit validation is separate.",
+  "source_integrity": {
+    "source": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/player_supplied_hands_20260911/mac_output/iteration_05/bilateral_supplied_hands.blend",
+    "sha256_before_and_after": "38a413ae0c75701e9f0376a4bef9fb28ea638e315c5f9b90bb670f68ddfc64d9",
+    "source_file_unchanged": true,
+    "renderer_sha256": "0123bfa4766fc0576e9e152f01ee6849ecea09c1346bb829e63b607749cb652e"
+  },
+  "images": [
+    {
+      "file": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/player_supplied_hands_20260911/review/final_05/hands_three_quarter_fist.png",
+      "sha256": "8e43ddbaf63be4655b2334e766318f87f90409e989c838545458a9b9e93d0af1",
+      "directly_viewed": true
+    },
+    {
+      "file": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/player_supplied_hands_20260911/review/final_05/hands_palmar_fist.png",
+      "sha256": "62b302d3fcbf56aa6a909515024c7026b068848ca9abf3d6fd4d30de80a6421d",
+      "directly_viewed": true
+    },
+    {
+      "file": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/player_supplied_hands_20260911/review/final_05/hands_dorsal_neutral.png",
+      "sha256": "d66c9bd66a160574a83733bc233e3bf63bae3ce3f652143dd0766db121e88391",
+      "directly_viewed": true
+    },
+    {
+      "file": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/player_supplied_hands_20260911/review/final_05/hands_palmar_neutral.png",
+      "sha256": "8206e17328bc5dc2bdf796baf0c49ff11502558723914ddd3514bec78b6659b6",
+      "directly_viewed": true
+    },
+    {
+      "file": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/player_supplied_hands_20260911/review/final_05/hands_three_quarter_relaxed.png",
+      "sha256": "00cb7b77e1a0b6015195c4e7168ec609f335fcf6a69407360169a69f13669599",
+      "directly_viewed": true
+    },
+    {
+      "file": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/player_supplied_hands_20260911/review/final_05/wrist_left_dorsal.png",
+      "sha256": "95d00afc132f81a984ea7d89c277073ca917393fb1bed296ab72aba532fe09bf",
+      "directly_viewed": true
+    },
+    {
+      "file": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/player_supplied_hands_20260911/review/final_05/wrist_right_dorsal.png",
+      "sha256": "f241913d077c8745a9a1983e5733cef8db42754e6f0ba4b78cfd63e1d6d983e5",
+      "directly_viewed": true
+    }
+  ],
+  "findings": [
+    "Both source hands and all five nails remain present.",
+    "No exposed hidden stump, cuff skin islands, or visible wrist gaps in the seven native camera views.",
+    "Neutral, relaxed and maximum added-finger-flex retain a coherent attachment.",
+    "Original supplied curl remains; maximum added flex reads as a curved grasp."
+  ],
+  "remaining_notes": [
+    "Small localized dorsal dark detail marks remain as in the preceding candidate.",
+    "Runtime03 previously failed actual arm/cuff fitting despite passing native poses; final05 must therefore pass independent actual GPU-fit inspection."
+  ],
+  "preflight_report": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/player_supplied_hands_20260911/review/final_05/mesh_preflight.json",
+  "runtime_gpu_review": "pending final05 captures"
+}

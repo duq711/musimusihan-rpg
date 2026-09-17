@@ -1,0 +1,46 @@
+{
+  "status": "last_mirrored_reverse_rejected_and_exact_prior_version_restored",
+  "preservation": {
+    "right_diagonal": "57b8ec6068eb985402ff70b2a1f34e561c9a1868b64fb39e72050f51d2642a65",
+    "left_reverse": "886564b7cc728f09f96e787f57762dd1e6cbb354c292bb5405c5824c026a9780"
+  },
+  "headless_passed": [
+    "sword_direct_entry",
+    "reference_sword_arm_player",
+    "sword_edge_alignment",
+    "reference_sword_motion_test_room"
+  ],
+  "actual_capture": {
+    "frames": 182,
+    "fps": 60,
+    "video": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/godot-game/artifacts/visual_qa/reference_sword_motion/reverse_restore_video/restored_cuts.mp4",
+    "exact_baseline_png_matches": {
+      "right_diagonal": 91,
+      "left_reverse": 91
+    },
+    "capture": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/godot-game/artifacts/visual_qa/reference_sword_motion/reverse_restore_two_hand",
+    "previous_capture": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/godot-game/artifacts/visual_qa/reference_sword_motion/edge_aligned_final_two_hand",
+    "current_source_hashes_match": true,
+    "expedition_and_cursor_preserved": true,
+    "scope": "Restoration equality; not a new animation quality claim."
+  },
+  "prior_capture_sources": {
+    "edge_aligned_final_two_hand": {
+      "source_file_count": 78,
+      "current_mismatch": []
+    },
+    "edge_aligned_final_shield": {
+      "source_file_count": 78,
+      "current_mismatch": []
+    }
+  },
+  "limits": [
+    "Exact restoration to the previous version, not a newly improved motion.",
+    "Previous thumb/support-hand issues are not separately corrected.",
+    "Existing sword_clash natural fixture failure was not changed or rerun. See ../sword_edge_alignment_20260913/validation_summary.json."
+  ],
+  "logs": [
+    "regressions.log",
+    "two_hand_preview.log"
+  ]
+}

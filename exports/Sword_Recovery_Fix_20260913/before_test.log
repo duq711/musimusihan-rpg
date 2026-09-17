@@ -1,0 +1,17 @@
+[HEADLESS] sword_recovery_continuity_test.gd
+RECOVERY METRIC true right_diagonal peak_deg=0.0 boundary_m=0.0
+RECOVERY METRIC true left_reverse peak_deg=0.0 boundary_m=0.0
+RECOVERY METRIC true overhead peak_deg=0.0 boundary_m=0.0
+RECOVERY METRIC false right_diagonal peak_deg=0.0 boundary_m=0.0
+ERROR: recovery must take the short arc, without an extra revolution: right_diagonal travel=348.916203201759
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/sword_recovery_continuity_test.gd:53)
+ERROR: recovery must take the short arc, without an extra revolution: left_reverse travel=371.090891042417
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/sword_recovery_continuity_test.gd:53)
+SWORD RECOVERY CONTINUITY FAIL
+
+Headless validation: 0 passed, 1 failed.
+FAILED: sword_recovery_continuity_test.gd (1)

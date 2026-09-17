@@ -1,0 +1,39 @@
+{
+  "renderer": "Actual Godot embedded Vulkan with production combat clocks",
+  "full_size_reviewed_frames": {
+    "shield/right_diagonal": [
+      12
+    ],
+    "shield/left_reverse": [
+      25,
+      27
+    ],
+    "shield/overhead": [
+      23
+    ],
+    "two_hand/left_reverse": [
+      25,
+      29,
+      31,
+      55,
+      59
+    ]
+  },
+  "contact_sheets": [
+    "shield_right_diagonal.jpg",
+    "shield_left_reverse.jpg",
+    "shield_overhead.jpg",
+    "two_hand_left_reverse.jpg"
+  ],
+  "observations": [
+    "The shield remains at its initial lower-left carried position while all three cuts play, including when the sword passes beyond the viewport.",
+    "Reverse blade tip moves continuously right through frames25/27/29 and is fully outside at frame31 in the inspected two-hand capture. Its height and cutting plane remain consistent instead of the previous short terminal twist.",
+    "The reverse returns upright from below in frames55/59 with no visible last-moment reversal.",
+    "Inspected right grip and two-hand support remain connected. Existing models and sleeve appearance were not retouched."
+  ],
+  "limits": [
+    "Holding the carried shield changes presentation. The existing blocking input and stamina rules still control defensive effects.",
+    "Offscreen reset is a first-person presentation; other-camera whole-body anatomy is not verified.",
+    "No user aesthetic approval is inferred."
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "resource": "godot-game/assets/3d/dark_fantasy/generated_lods/anatomical_skull_lod.res",
+  "resource_bytes": 2347541,
+  "resource_sha256": "753ee23776b9b4626d08bf852480cf033437bdcb95a93b9eac3624c3e15d327e",
+  "source": "godot-game/assets/3d/dark_fantasy/anatomical_skeleton_cc_by_4.glb",
+  "source_sha256": "3ff9ee03c42defe122027cba2887a9728924ca3764b52b3d91d46bd42ab33151",
+  "license": "BodyParts3D, © The Database Center for Life Science licensed under CC Attribution 4.0 International.",
+  "license_notice": "../licenses/ANATOMICAL_SKELETON.md",
+  "adaptation": "Same normalized cranial bone geometry as dark_fantasy_skull.gd, with six additional engine LOD index buffers. Original packed vertex, normal, UV and base index buffers are preserved.",
+  "base_triangles": 127094,
+  "lod_triangles": [
+    63546,
+    31772,
+    15886,
+    7942,
+    3968,
+    1984
+  ],
+  "headless_validation": "tests/prop_mesh_lod_test.gd; artifacts/performance_prop_lod_bake_02.log",
+  "production_integration": "dark_fantasy_skull.gd creates all production/gallery/warden skulls from this shared runtime ArrayMesh; offline source reconstruction remains independently testable."
+}

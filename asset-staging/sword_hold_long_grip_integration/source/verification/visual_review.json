@@ -1,0 +1,38 @@
+{
+  "status": "reviewed",
+  "revision": "long hilt and oblique first-person grip",
+  "changes": {
+    "usable_grip_m": {
+      "before": 0.1446000636,
+      "after": 0.2892001271
+    },
+    "extension_location": "below the gripping hand toward the pommel",
+    "original_upper_grip_contact_preserved": true,
+    "hand_stretched": false,
+    "chosen_axial_rotation_degrees": -25,
+    "screen_plane_lean_degrees": 8,
+    "animations": 0
+  },
+  "iterations": [
+    {
+      "version": "v1",
+      "decision": "rejected",
+      "reason": "guard slope / hand-facing direction did not match the user's screenshot"
+    },
+    {
+      "version": "v2",
+      "decision": "refined",
+      "reason": "oblique orientation correct but forearm too dominant in perspective"
+    },
+    {
+      "version": "v3_clean",
+      "decision": "selected",
+      "reason": "more visible clenched fingers; long free grip and oblique blade retained; loose foreground trim removed"
+    }
+  ],
+  "image_review": "Four separately generated own-eye reference PNGs; extended lower hilt and pommel visible in each. Static model render comparison is provided without image warping.",
+  "limits": [
+    "AI leather folds and stitch detail are finer than the 3D material.",
+    "The four references have small framing/proportion variation; exact pixel matching is not claimed."
+  ]
+}

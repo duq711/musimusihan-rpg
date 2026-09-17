@@ -1,0 +1,58 @@
+{
+  "method": "Triangle-area-weighted actual UV dPdu, projected into unchanged authored normal plane; handedness from actual dPdv",
+  "input_sha256": "f1b9f6c1373f05c707cafc8dbc9b67bf443af621a2a6598d5a826f933bbe7ca3",
+  "output_sha256": "5da84f05ae6c8585291ee842dcc41c1cd0160cf89fdcf8499123e9549885d3a8",
+  "changed_byte_count": 12,
+  "changed_tangent_records": [
+    {
+      "mesh": "FittedLeather.001",
+      "primitive": 1,
+      "vertex": 920,
+      "before": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "after": [
+        -0.19961385428905487,
+        -0.755412757396698,
+        0.6241040825843811,
+        1.0
+      ],
+      "normal_dot_tangent": 1.68459887706085e-08,
+      "incident_triangles": [
+        {
+          "indices": [
+            920,
+            933,
+            937
+          ],
+          "uv_determinant": -2.089061483800947e-07,
+          "triangle_area_m2": 6.407895689128989e-07,
+          "dPdu": [
+            -1.9642474549686069,
+            0.24008538476633814,
+            1.388032181196602
+          ]
+        },
+        {
+          "indices": [
+            920,
+            937,
+            924
+          ],
+          "uv_determinant": -2.0262825439765209e-07,
+          "triangle_area_m2": 6.4717934995236e-07,
+          "dPdu": [
+            -1.9215852738223405,
+            0.24439971927613108,
+            1.6432844706691383
+          ]
+        }
+      ],
+      "binary_offset": 20372484
+    }
+  ],
+  "all_other_glb_bytes_identical": true
+}

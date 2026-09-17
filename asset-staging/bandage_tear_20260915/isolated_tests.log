@@ -1,0 +1,22 @@
+[HEADLESS] bandage_motion_test.gd
+Bandage forearm centreline clearance: 0.121094442904
+Bandage wrist gap / upper sleeve length: 0.00000024211522 / 0.37768277525902
+BANDAGE MOTION TEST PASS: stow/lift/tear/redraw, real consumption, 3 low wraps, continuous pose, pause, completion, interruption, isolation
+[HEADLESS] body_health_routes_test.gd
+BODY HEALTH ROUTES TEST PASS: production dungeon/hideout health actions, exact selected part, ordinary recovery barrier, approach-based melee and trap leg damage
+[HEADLESS] body_health_test_room_test.gd
+SCRIPT ERROR: Invalid access to property or key 'splint_hands' on a base object of type 'CharacterBody3D (DungeonPlayer)'.
+          at: _check_splint_trial (res://tests/body_health_test_room_test.gd:318)
+          GDScript backtrace (most recent call first):
+              [0] _check_splint_trial (res://tests/body_health_test_room_test.gd:318)
+              [1] _run (res://tests/body_health_test_room_test.gd:40)
+ERROR: splint must have one executable trial
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/body_health_test_room_test.gd:108)
+WARNING: 17 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2535)
+Script error detected in body_health_test_room_test.gd, regardless of engine exit status.
+
+Headless validation: 2 passed, 1 failed.
+FAILED: body_health_test_room_test.gd (1)

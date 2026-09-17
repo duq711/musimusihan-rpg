@@ -1,0 +1,61 @@
+[HEADLESS] sword_direct_entry_test.gd
+DIRECT ENTRY shield right_diagonal hold=0.00 grip_mm=0.00012287812012 grip_rise_mm=0.00011920928955 windup_deg=74.6041550586225 entry_mm=0.0 arm_length_mm=0.00045061111448 authored_mm=0.0 authored_deg=0.03956468118525 charge=0.0 spends=1
+DIRECT ENTRY shield right_diagonal hold=0.45 grip_mm=0.00012287812012 grip_rise_mm=0.00011920928955 windup_deg=74.6041550586225 entry_mm=0.0 arm_length_mm=0.00045061111448 authored_mm=0.0 authored_deg=0.03956468118525 charge=0.21833333333333 spends=1
+DIRECT ENTRY shield left_reverse hold=0.00 grip_mm=0.0 grip_rise_mm=0.0 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00051021575925 authored_mm=0.00003332000986 authored_deg=0.03956468118525 charge=0.0 spends=1
+DIRECT ENTRY shield left_reverse hold=0.45 grip_mm=0.0 grip_rise_mm=0.0 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00048637390138 authored_mm=0.00002980232239 authored_deg=0.03956468118525 charge=0.21833333333333 spends=1
+DIRECT ENTRY shield overhead hold=0.00 grip_mm=0.0 grip_rise_mm=0.0 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00048041343687 authored_mm=0.00002980232239 authored_deg=0.05595290968074 charge=0.0 spends=1
+DIRECT ENTRY shield overhead hold=0.45 grip_mm=0.0 grip_rise_mm=0.0 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00042080879209 authored_mm=0.00005960464478 authored_deg=0.03956468118525 charge=0.21833333333333 spends=1
+DIRECT ENTRY two_hand right_diagonal hold=0.00 grip_mm=0.00012287812012 grip_rise_mm=0.00011920928955 windup_deg=74.6041550586225 entry_mm=0.0 arm_length_mm=0.00042080879209 authored_mm=0.0 authored_deg=0.03956468118525 charge=0.0 spends=1
+DIRECT ENTRY two_hand right_diagonal hold=0.45 grip_mm=0.00012287812012 grip_rise_mm=0.00011920928955 windup_deg=74.6041550586225 entry_mm=0.0 arm_length_mm=0.00042080879209 authored_mm=0.00002980232239 authored_deg=0.03956468118525 charge=0.21833333333333 spends=1
+DIRECT ENTRY two_hand left_reverse hold=0.00 grip_mm=0.0 grip_rise_mm=0.0 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00043749809264 authored_mm=0.00002980232239 authored_deg=0.03956468118525 charge=0.0 spends=1
+DIRECT ENTRY two_hand left_reverse hold=0.45 grip_mm=0.0 grip_rise_mm=0.0 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.0003910064697 authored_mm=0.00002980232239 authored_deg=0.03956468118525 charge=0.21833333333333 spends=1
+DIRECT ENTRY two_hand overhead hold=0.00 grip_mm=0.0 grip_rise_mm=0.0 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00045657157899 authored_mm=0.00002980232239 authored_deg=0.05595290968074 charge=0.0 spends=1
+DIRECT ENTRY two_hand overhead hold=0.45 grip_mm=0.0 grip_rise_mm=0.0 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00042080879209 authored_mm=0.00002980232239 authored_deg=0.03956468118525 charge=0.21833333333333 spends=1
+SWORD DIRECT ENTRY PASS: pinned-grip wrist turn, retained reverse/overhead holds, release/charge/cost clocks, unchanged authored rejoin and expedition preservation; target damage is covered by sword_attack_variants
+[HEADLESS] reference_sword_arm_player_test.gd
+REFERENCE SWORD ARM PLAYER PASS: analytical fixture only; actual_delivery_evaluated=false; actual meshes, 30/60/120Hz clocks, handoffs, blade clash, F2 and reset
+[HEADLESS] unified_sword_motion_test.gd
+UNIFIED SWORD MOTION PASS [{"max_angle_rad":0.0009765625,"max_position_m":0.0,"profile":"quick_click","samples_per_stance":348},{"max_angle_rad":0.0009765625,"max_position_m":0.0,"profile":"hold_0_45s","samples_per_stance":348}]
+[HEADLESS] reference_sword_motion_test_room_test.gd
+REFERENCE SWORD MOTION TEST ROOM PASS: five playable fixtures, two-hand basic/reverse target hits and grip, actual run/jump/landing/collision, repeated F2, reset and original expedition restoration
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2535)
+[HEADLESS] sword_two_hand_grip_test.gd
+SWORD TWO HAND GRIP PASS: 48 support diagnostics, three real cuts, original source fidelity and unchanged expedition
+[HEADLESS] sword_recovery_continuity_test.gd
+RECOVERY METRIC true right_diagonal peak_deg=8.6514471593656 boundary_m=0.00017677052529
+RECOVERY METRIC true left_reverse peak_deg=11.9420034901406 boundary_m=0.00013100702199
+RECOVERY METRIC true overhead peak_deg=14.1934276471945 boundary_m=0.00013590096205
+RECOVERY METRIC false right_diagonal peak_deg=8.6514471593656 boundary_m=0.0001669475314
+RECOVERY METRIC false left_reverse peak_deg=11.9420034901406 boundary_m=0.00032122660195
+RECOVERY METRIC false overhead peak_deg=14.1934276471945 boundary_m=0.00026330872788
+SWORD RECOVERY CONTINUITY PASS
+[HEADLESS] sword_clash_test.gd
+ERROR: SWORD CLASH TEST FAIL: natural close-range attacks must overlap their rendered blade models
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_clash_test.gd:253)
+       [1] _run (res://tests/sword_clash_test.gd:137)
+ERROR: SWORD CLASH TEST FAIL: natural blade contact must occur before either body's damage deadline
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_clash_test.gd:253)
+       [1] _run (res://tests/sword_clash_test.gd:137)
+ERROR: SWORD CLASH TEST FAIL: natural swing animation must cancel the player strike into clash recovery
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_clash_test.gd:253)
+       [1] _run (res://tests/sword_clash_test.gd:137)
+ERROR: SWORD CLASH TEST FAIL: natural swing animation must stagger the armed enemy
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_clash_test.gd:253)
+       [1] _run (res://tests/sword_clash_test.gd:137)
+ERROR: SWORD CLASH TEST FAIL: natural swing clash must prevent enemy damage
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_clash_test.gd:253)
+       [1] _run (res://tests/sword_clash_test.gd:137)
+
+Headless validation: 6 passed, 1 failed.
+FAILED: sword_clash_test.gd (1)

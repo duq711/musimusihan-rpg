@@ -1,0 +1,73 @@
+[HEADLESS] player_arm_test.gd
+PLAYER ARM PASS: supplied default hand GLB/texture fidelity, real skinned grip and wrist-preserving arm fit, actual combat/bow/chest preview paths, trial hits and contacts, F2/repeat/reset and expedition restoration
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2535)
+[HEADLESS] player_appearance_test.gd
+PLAYER APPEARANCE PASS: actual imported 3D body and shared inventory portrait, camera layers, paused rotation controls, repeated F2/dungeon roundtrips, reset, cleanup and full expedition restoration
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2535)
+[HEADLESS] chest_hands_test.gd
+SCRIPT ERROR: Invalid access to property or key '_shoulder_rest' on a base object of type 'Node3D (player_arm_visual.gd)'.
+          at: _test_front_lift_framing (res://tests/chest_hands_test.gd:237)
+          GDScript backtrace (most recent call first):
+              [0] _test_front_lift_framing (res://tests/chest_hands_test.gd:237)
+              [1] _run (res://tests/chest_hands_test.gd:35)
+              [2] _test_phases_and_completion (res://tests/chest_hands_test.gd:120)
+CHEST HANDS PASS: real stow/reach/fidget/lift phases, articulated fingers, synced lid, container hold/restore, all loadouts/full bag, cancellation, pause/scaled timing and scene cleanup
+Script error detected in chest_hands_test.gd, regardless of engine exit status.
+[HEADLESS] player_hands_detailed_test.gd
+PBR CUFF SOURCE FRAME: WristCuff_Surface_left/0/Detailed_Glove; 5170 imported frames, 9216 UV-derivative comparisons, signed U/normal-map-Y min=(0.979325, 0.925216); no runtime tangent fallback
+PBR CUFF SOURCE FRAME: WristCuff_Surface_right/0/Detailed_Glove; 5172 imported frames, 9216 UV-derivative comparisons, signed U/normal-map-Y min=(0.978201, 0.899378); no runtime tangent fallback
+PLAYER HANDS DETAILED PASS: bilateral supplied anatomy and handedness, skinned fingers and rigid nail attachment, free/bow/chest gameplay, render layers, default fidelity and isolated F2/repeat/switch/reset/exit
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2535)
+[HEADLESS] player_finger_joints_test.gd
+ERROR: corrective geometry must stay near its actual source joint and preserve vertices with no target-digit weight: -1/ring1 radius=0.03061233833432 axial=0.0135709233582 axial_limit=0.01402 unrelated=1 unrelated_max=0.00000001825012
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/player_finger_joints_test.gd:28)
+ERROR: corrective geometry must stay near its actual source joint and preserve vertices with no target-digit weight: 1/ring1 radius=0.03061234019697 axial=0.0135709233582 axial_limit=0.01402 unrelated=1 unrelated_max=0.00000001825012
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/player_finger_joints_test.gd:28)
+PLAYER FINGER JOINTS FAIL: thirty independent local joints, source-localized morphs and weighted supplied anatomy, original nail attachment, limits/reset, bow/chest linkage, real controls and isolated F2/repeat/switch/reset/exit
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2535)
+[HEADLESS] player_hands_greybox_test.gd
+PLAYER HANDS GREYBOX PASS: bilateral imported skin and handedness, real finger deformation, free/bow/chest gameplay, render layers, default fidelity and isolated F2/repeat/switch/reset/exit
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2535)
+[HEADLESS] test_room_session_test.gd
+TEST ROOM SESSION TEST PASS: inventory identity, stress accumulation/recovery isolation, camping supplies, bow and arrows, chain flail, wallet, deep stock copies, needs, ailments, magic, and unstarted-session restoration
+[HEADLESS] test_room_test.gd
+ERROR: every entry must have an executable action
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/test_room_test.gd:82)
+ERROR: every entry must have an executable action
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/test_room_test.gd:82)
+ERROR: every entry must have an executable action
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/test_room_test.gd:82)
+ERROR: every entry must have an executable action
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/test_room_test.gd:82)
+ERROR: every entry must have an executable action
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/test_room_test.gd:82)
+ERROR: every entry must have an executable action
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/test_room_test.gd:82)
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2535)
+
+Headless validation: 5 passed, 3 failed.
+FAILED: chest_hands_test.gd (1)
+FAILED: player_finger_joints_test.gd (1)
+FAILED: test_room_test.gd (1)

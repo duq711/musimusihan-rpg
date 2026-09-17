@@ -1,0 +1,3531 @@
+{
+	"actual_renderer": "vulkan",
+	"capture_kind": "Actual DungeonPlayer independent joints, corrective blend shapes, production bow/chest and production controls in isolated SubViewport",
+	"captures": [
+		{
+			"actual_pbr_bindings": {
+				"actual_full_glove_coverage": {
+					"/root/PlayerFingerJointsPreviewViewport/PlayerArmPreviewStage/Player/Head/PlayerCamera/FreeHandPresentation/LeftSupportArm": {
+						"digits": {
+							"index": {
+								"actual_distal_cap_vertices": 381,
+								"cap_depth_m": 0.0118636153638363,
+								"cap_width_m": 0.0148471053689718,
+								"forward_cap_normals": 282,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0224045664072037
+							},
+							"little": {
+								"actual_distal_cap_vertices": 415,
+								"cap_depth_m": 0.0106381736695766,
+								"cap_width_m": 0.0120019428431988,
+								"forward_cap_normals": 269,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0235975682735443
+							},
+							"middle": {
+								"actual_distal_cap_vertices": 337,
+								"cap_depth_m": 0.0124066025018692,
+								"cap_width_m": 0.0151730878278613,
+								"forward_cap_normals": 244,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0248235315084457
+							},
+							"ring": {
+								"actual_distal_cap_vertices": 369,
+								"cap_depth_m": 0.012065015733242,
+								"cap_width_m": 0.0144979255273938,
+								"forward_cap_normals": 262,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0233172476291656
+							},
+							"thumb": {
+								"actual_distal_cap_vertices": 265,
+								"cap_depth_m": 0.0164820440113544,
+								"cap_width_m": 0.0159133970737457,
+								"forward_cap_normals": 225,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0334809273481369
+							}
+						},
+						"material_roles": [
+							"Detailed_Sleeve",
+							"Detailed_Trim",
+							"Detailed_Glove_Fingers",
+							"Detailed_Glove"
+						],
+						"passed": true,
+						"problems": [],
+						"scope": "Actual imported finger leather cap vertices, bone weights and normals; no exposed skin or standalone nails"
+					},
+					"/root/PlayerFingerJointsPreviewViewport/PlayerArmPreviewStage/Player/Head/PlayerCamera/FreeHandPresentation/RightRelaxedArm": {
+						"digits": {
+							"index": {
+								"actual_distal_cap_vertices": 396,
+								"cap_depth_m": 0.012250792235136,
+								"cap_width_m": 0.0148884635418653,
+								"forward_cap_normals": 291,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0223920047283173
+							},
+							"little": {
+								"actual_distal_cap_vertices": 412,
+								"cap_depth_m": 0.010686706751585,
+								"cap_width_m": 0.0119741335511208,
+								"forward_cap_normals": 271,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0235840082168579
+							},
+							"middle": {
+								"actual_distal_cap_vertices": 330,
+								"cap_depth_m": 0.0124177150428295,
+								"cap_width_m": 0.0152377029880881,
+								"forward_cap_normals": 244,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0248158276081085
+							},
+							"ring": {
+								"actual_distal_cap_vertices": 352,
+								"cap_depth_m": 0.0118535123765469,
+								"cap_width_m": 0.0145852956920862,
+								"forward_cap_normals": 278,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0233237445354462
+							},
+							"thumb": {
+								"actual_distal_cap_vertices": 261,
+								"cap_depth_m": 0.0164019018411636,
+								"cap_width_m": 0.015961516648531,
+								"forward_cap_normals": 220,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0334876701235771
+							}
+						},
+						"material_roles": [
+							"Detailed_Sleeve",
+							"Detailed_Trim",
+							"Detailed_Glove_Fingers",
+							"Detailed_Glove"
+						],
+						"passed": true,
+						"problems": [],
+						"scope": "Actual imported finger leather cap vertices, bone weights and normals; no exposed skin or standalone nails"
+					}
+				},
+				"binding_source": "Live MeshInstance3D active glove materials and actual cap geometry; bound 4K pixels equal extracted PNGs covered by source hashes",
+				"bound_texture_pixels": {
+					"res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_basecolor.png": {
+						"actual_pixel_sha256": "4371528f25c10f2ff6133dafed2e8b2e0f3497e0b94ee8b9263eb17ba2d29a72",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_basecolor.png",
+						"png_sha256": "b6c1eadbbbf4bf305afa1c51d286fc2bd8584b56217ffff1eeb7cfb6858630d8",
+						"source_pixel_sha256": "4371528f25c10f2ff6133dafed2e8b2e0f3497e0b94ee8b9263eb17ba2d29a72"
+					},
+					"res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_normal.png": {
+						"actual_pixel_sha256": "381259ad40e9903e6d43a61ff532159a613b71c65291e6a50cded6363afe0022",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_normal.png",
+						"png_sha256": "24d9699b7e78dd7da94911175e9a4dd6719951eb639e2cdb67f186391546cfb3",
+						"source_pixel_sha256": "381259ad40e9903e6d43a61ff532159a613b71c65291e6a50cded6363afe0022"
+					},
+					"res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_roughness.png": {
+						"actual_pixel_sha256": "54fb29c783e6be731633aaf02369d57ef5e22c3307e288e58ada33312e7a72fe",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_roughness.png",
+						"png_sha256": "6d6dd5c76f4b30e7da77973fdebc66f9cbbca179f667853695b8add33accfa32",
+						"source_pixel_sha256": "54fb29c783e6be731633aaf02369d57ef5e22c3307e288e58ada33312e7a72fe"
+					},
+					"res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_basecolor.png": {
+						"actual_pixel_sha256": "4371528f25c10f2ff6133dafed2e8b2e0f3497e0b94ee8b9263eb17ba2d29a72",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_basecolor.png",
+						"png_sha256": "b6c1eadbbbf4bf305afa1c51d286fc2bd8584b56217ffff1eeb7cfb6858630d8",
+						"source_pixel_sha256": "4371528f25c10f2ff6133dafed2e8b2e0f3497e0b94ee8b9263eb17ba2d29a72"
+					},
+					"res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_normal.png": {
+						"actual_pixel_sha256": "381259ad40e9903e6d43a61ff532159a613b71c65291e6a50cded6363afe0022",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_normal.png",
+						"png_sha256": "24d9699b7e78dd7da94911175e9a4dd6719951eb639e2cdb67f186391546cfb3",
+						"source_pixel_sha256": "381259ad40e9903e6d43a61ff532159a613b71c65291e6a50cded6363afe0022"
+					},
+					"res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_roughness.png": {
+						"actual_pixel_sha256": "54fb29c783e6be731633aaf02369d57ef5e22c3307e288e58ada33312e7a72fe",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_roughness.png",
+						"png_sha256": "6d6dd5c76f4b30e7da77973fdebc66f9cbbca179f667853695b8add33accfa32",
+						"source_pixel_sha256": "54fb29c783e6be731633aaf02369d57ef5e22c3307e288e58ada33312e7a72fe"
+					}
+				},
+				"material_count": 8,
+				"material_roles": [
+					"Detailed_Sleeve",
+					"Detailed_Trim",
+					"Detailed_Glove",
+					"Detailed_Glove_Fingers"
+				],
+				"minimum_bound_texture_size": [
+					4096,
+					4096
+				],
+				"passed": true,
+				"rendered_surface_count": 16
+			},
+			"controls_canvas_layer": 70,
+			"controls_visible": false,
+			"image": "open.png",
+			"image_sha256": "104daf94e7a1fe4413c23f0b4b40baaf355f41c6f03076db6750954fb6adec02",
+			"passed": true,
+			"pose": "open",
+			"review": {
+				"active": true,
+				"hands": {
+					"-1": {
+						"angles_radians": {
+							"index": "(0.0, 0.0, 0.0)",
+							"little": "(0.0, 0.0, 0.0)",
+							"middle": "(0.0, 0.0, 0.0)",
+							"ring": "(0.0, 0.0, 0.0)",
+							"thumb": "(0.0, 0.0, 0.0)"
+						},
+						"corrective_available": true,
+						"flexion": {
+							"index": "(0.0, 0.0, 0.0)",
+							"little": "(0.0, 0.0, 0.0)",
+							"middle": "(0.0, 0.0, 0.0)",
+							"ring": "(0.0, 0.0, 0.0)",
+							"thumb": "(0.0, 0.0, 0.0)"
+						},
+						"limits_radians": {
+							"index": "(1.570796, 1.919862, 1.396263)",
+							"little": "(1.570796, 1.919862, 1.396263)",
+							"middle": "(1.570796, 1.919862, 1.396263)",
+							"ring": "(1.570796, 1.919862, 1.396263)",
+							"thumb": "(1.047198, 1.22173, 1.396263)"
+						},
+						"morph_count": 15,
+						"morph_values": {
+							"Joint_index_0": 0.0,
+							"Joint_index_1": 0.0,
+							"Joint_index_2": 0.0,
+							"Joint_little_0": 0.0,
+							"Joint_little_1": 0.0,
+							"Joint_little_2": 0.0,
+							"Joint_middle_0": 0.0,
+							"Joint_middle_1": 0.0,
+							"Joint_middle_2": 0.0,
+							"Joint_ring_0": 0.0,
+							"Joint_ring_1": 0.0,
+							"Joint_ring_2": 0.0,
+							"Joint_thumb_0": 0.0,
+							"Joint_thumb_1": 0.0,
+							"Joint_thumb_2": 0.0
+						},
+						"ready": true
+					},
+					"1": {
+						"angles_radians": {
+							"index": "(0.0, 0.0, 0.0)",
+							"little": "(0.0, 0.0, 0.0)",
+							"middle": "(0.0, 0.0, 0.0)",
+							"ring": "(0.0, 0.0, 0.0)",
+							"thumb": "(0.0, 0.0, 0.0)"
+						},
+						"corrective_available": true,
+						"flexion": {
+							"index": "(0.0, 0.0, 0.0)",
+							"little": "(0.0, 0.0, 0.0)",
+							"middle": "(0.0, 0.0, 0.0)",
+							"ring": "(0.0, 0.0, 0.0)",
+							"thumb": "(0.0, 0.0, 0.0)"
+						},
+						"limits_radians": {
+							"index": "(1.570796, 1.919862, 1.396263)",
+							"little": "(1.570796, 1.919862, 1.396263)",
+							"middle": "(1.570796, 1.919862, 1.396263)",
+							"ring": "(1.570796, 1.919862, 1.396263)",
+							"thumb": "(1.047198, 1.22173, 1.396263)"
+						},
+						"morph_count": 15,
+						"morph_values": {
+							"Joint_index_0": 0.0,
+							"Joint_index_1": 0.0,
+							"Joint_index_2": 0.0,
+							"Joint_little_0": 0.0,
+							"Joint_little_1": 0.0,
+							"Joint_little_2": 0.0,
+							"Joint_middle_0": 0.0,
+							"Joint_middle_1": 0.0,
+							"Joint_middle_2": 0.0,
+							"Joint_ring_0": 0.0,
+							"Joint_ring_1": 0.0,
+							"Joint_ring_2": 0.0,
+							"Joint_thumb_0": 0.0,
+							"Joint_thumb_1": 0.0,
+							"Joint_thumb_2": 0.0
+						},
+						"ready": true
+					}
+				},
+				"previous_profile": "detailed",
+				"profile": "detailed",
+				"values": {
+					"-1": {
+						"index": "(0.0, 0.0, 0.0)",
+						"little": "(0.0, 0.0, 0.0)",
+						"middle": "(0.0, 0.0, 0.0)",
+						"ring": "(0.0, 0.0, 0.0)",
+						"thumb": "(0.0, 0.0, 0.0)"
+					},
+					"1": {
+						"index": "(0.0, 0.0, 0.0)",
+						"little": "(0.0, 0.0, 0.0)",
+						"middle": "(0.0, 0.0, 0.0)",
+						"ring": "(0.0, 0.0, 0.0)",
+						"thumb": "(0.0, 0.0, 0.0)"
+					}
+				},
+				"view": "dorsal"
+			},
+			"view_selector_index": 0,
+			"wrist_gpu_buffers": {
+				"passed": true,
+				"readback": "ArrayMesh.surface_get_arrays after RenderingServer.force_draw",
+				"wrists": [
+					{
+						"arm": "LeftSupportArm",
+						"invalid_tangents": 0,
+						"invalid_vertex_count": 0,
+						"max_normal_error": 0.000129269668832421,
+						"max_position_error_m": 0.0,
+						"minimum_jacobian_determinant": 0.476077735424042,
+						"passed": true,
+						"vertex_count": 5170
+					},
+					{
+						"arm": "RightRelaxedArm",
+						"invalid_tangents": 0,
+						"invalid_vertex_count": 0,
+						"max_normal_error": 0.000129265157738701,
+						"max_position_error_m": 0.0,
+						"minimum_jacobian_determinant": 0.366736024618149,
+						"passed": true,
+						"vertex_count": 5172
+					}
+				]
+			}
+		},
+		{
+			"actual_pbr_bindings": {
+				"actual_full_glove_coverage": {
+					"/root/PlayerFingerJointsPreviewViewport/PlayerArmPreviewStage/Player/Head/PlayerCamera/FreeHandPresentation/LeftSupportArm": {
+						"digits": {
+							"index": {
+								"actual_distal_cap_vertices": 381,
+								"cap_depth_m": 0.0118636153638363,
+								"cap_width_m": 0.0148471053689718,
+								"forward_cap_normals": 282,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0224045664072037
+							},
+							"little": {
+								"actual_distal_cap_vertices": 415,
+								"cap_depth_m": 0.0106381736695766,
+								"cap_width_m": 0.0120019428431988,
+								"forward_cap_normals": 269,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0235975682735443
+							},
+							"middle": {
+								"actual_distal_cap_vertices": 337,
+								"cap_depth_m": 0.0124066025018692,
+								"cap_width_m": 0.0151730878278613,
+								"forward_cap_normals": 244,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0248235315084457
+							},
+							"ring": {
+								"actual_distal_cap_vertices": 369,
+								"cap_depth_m": 0.012065015733242,
+								"cap_width_m": 0.0144979255273938,
+								"forward_cap_normals": 262,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0233172476291656
+							},
+							"thumb": {
+								"actual_distal_cap_vertices": 265,
+								"cap_depth_m": 0.0164820440113544,
+								"cap_width_m": 0.0159133970737457,
+								"forward_cap_normals": 225,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0334809273481369
+							}
+						},
+						"material_roles": [
+							"Detailed_Sleeve",
+							"Detailed_Trim",
+							"Detailed_Glove_Fingers",
+							"Detailed_Glove"
+						],
+						"passed": true,
+						"problems": [],
+						"scope": "Actual imported finger leather cap vertices, bone weights and normals; no exposed skin or standalone nails"
+					},
+					"/root/PlayerFingerJointsPreviewViewport/PlayerArmPreviewStage/Player/Head/PlayerCamera/FreeHandPresentation/RightRelaxedArm": {
+						"digits": {
+							"index": {
+								"actual_distal_cap_vertices": 396,
+								"cap_depth_m": 0.012250792235136,
+								"cap_width_m": 0.0148884635418653,
+								"forward_cap_normals": 291,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0223920047283173
+							},
+							"little": {
+								"actual_distal_cap_vertices": 412,
+								"cap_depth_m": 0.010686706751585,
+								"cap_width_m": 0.0119741335511208,
+								"forward_cap_normals": 271,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0235840082168579
+							},
+							"middle": {
+								"actual_distal_cap_vertices": 330,
+								"cap_depth_m": 0.0124177150428295,
+								"cap_width_m": 0.0152377029880881,
+								"forward_cap_normals": 244,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0248158276081085
+							},
+							"ring": {
+								"actual_distal_cap_vertices": 352,
+								"cap_depth_m": 0.0118535123765469,
+								"cap_width_m": 0.0145852956920862,
+								"forward_cap_normals": 278,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0233237445354462
+							},
+							"thumb": {
+								"actual_distal_cap_vertices": 261,
+								"cap_depth_m": 0.0164019018411636,
+								"cap_width_m": 0.015961516648531,
+								"forward_cap_normals": 220,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0334876701235771
+							}
+						},
+						"material_roles": [
+							"Detailed_Sleeve",
+							"Detailed_Trim",
+							"Detailed_Glove_Fingers",
+							"Detailed_Glove"
+						],
+						"passed": true,
+						"problems": [],
+						"scope": "Actual imported finger leather cap vertices, bone weights and normals; no exposed skin or standalone nails"
+					}
+				},
+				"binding_source": "Live MeshInstance3D active glove materials and actual cap geometry; bound 4K pixels equal extracted PNGs covered by source hashes",
+				"bound_texture_pixels": {
+					"res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_basecolor.png": {
+						"actual_pixel_sha256": "4371528f25c10f2ff6133dafed2e8b2e0f3497e0b94ee8b9263eb17ba2d29a72",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_basecolor.png",
+						"png_sha256": "b6c1eadbbbf4bf305afa1c51d286fc2bd8584b56217ffff1eeb7cfb6858630d8",
+						"source_pixel_sha256": "4371528f25c10f2ff6133dafed2e8b2e0f3497e0b94ee8b9263eb17ba2d29a72"
+					},
+					"res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_normal.png": {
+						"actual_pixel_sha256": "381259ad40e9903e6d43a61ff532159a613b71c65291e6a50cded6363afe0022",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_normal.png",
+						"png_sha256": "24d9699b7e78dd7da94911175e9a4dd6719951eb639e2cdb67f186391546cfb3",
+						"source_pixel_sha256": "381259ad40e9903e6d43a61ff532159a613b71c65291e6a50cded6363afe0022"
+					},
+					"res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_roughness.png": {
+						"actual_pixel_sha256": "54fb29c783e6be731633aaf02369d57ef5e22c3307e288e58ada33312e7a72fe",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_roughness.png",
+						"png_sha256": "6d6dd5c76f4b30e7da77973fdebc66f9cbbca179f667853695b8add33accfa32",
+						"source_pixel_sha256": "54fb29c783e6be731633aaf02369d57ef5e22c3307e288e58ada33312e7a72fe"
+					},
+					"res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_basecolor.png": {
+						"actual_pixel_sha256": "4371528f25c10f2ff6133dafed2e8b2e0f3497e0b94ee8b9263eb17ba2d29a72",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_basecolor.png",
+						"png_sha256": "b6c1eadbbbf4bf305afa1c51d286fc2bd8584b56217ffff1eeb7cfb6858630d8",
+						"source_pixel_sha256": "4371528f25c10f2ff6133dafed2e8b2e0f3497e0b94ee8b9263eb17ba2d29a72"
+					},
+					"res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_normal.png": {
+						"actual_pixel_sha256": "381259ad40e9903e6d43a61ff532159a613b71c65291e6a50cded6363afe0022",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_normal.png",
+						"png_sha256": "24d9699b7e78dd7da94911175e9a4dd6719951eb639e2cdb67f186391546cfb3",
+						"source_pixel_sha256": "381259ad40e9903e6d43a61ff532159a613b71c65291e6a50cded6363afe0022"
+					},
+					"res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_roughness.png": {
+						"actual_pixel_sha256": "54fb29c783e6be731633aaf02369d57ef5e22c3307e288e58ada33312e7a72fe",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_roughness.png",
+						"png_sha256": "6d6dd5c76f4b30e7da77973fdebc66f9cbbca179f667853695b8add33accfa32",
+						"source_pixel_sha256": "54fb29c783e6be731633aaf02369d57ef5e22c3307e288e58ada33312e7a72fe"
+					}
+				},
+				"material_count": 8,
+				"material_roles": [
+					"Detailed_Sleeve",
+					"Detailed_Trim",
+					"Detailed_Glove",
+					"Detailed_Glove_Fingers"
+				],
+				"minimum_bound_texture_size": [
+					4096,
+					4096
+				],
+				"passed": true,
+				"rendered_surface_count": 16
+			},
+			"controls_canvas_layer": 70,
+			"controls_visible": true,
+			"image": "palm.png",
+			"image_sha256": "3beb4c153b48cd854841d03491a201a4ab2c2052df3628bc6bed1b9d777fee55",
+			"passed": true,
+			"pose": "palm",
+			"review": {
+				"active": true,
+				"hands": {
+					"-1": {
+						"angles_radians": {
+							"index": "(0.0, 0.0, 0.0)",
+							"little": "(0.0, 0.0, 0.0)",
+							"middle": "(0.0, 0.0, 0.0)",
+							"ring": "(0.0, 0.0, 0.0)",
+							"thumb": "(0.0, 0.0, 0.0)"
+						},
+						"corrective_available": true,
+						"flexion": {
+							"index": "(0.0, 0.0, 0.0)",
+							"little": "(0.0, 0.0, 0.0)",
+							"middle": "(0.0, 0.0, 0.0)",
+							"ring": "(0.0, 0.0, 0.0)",
+							"thumb": "(0.0, 0.0, 0.0)"
+						},
+						"limits_radians": {
+							"index": "(1.570796, 1.919862, 1.396263)",
+							"little": "(1.570796, 1.919862, 1.396263)",
+							"middle": "(1.570796, 1.919862, 1.396263)",
+							"ring": "(1.570796, 1.919862, 1.396263)",
+							"thumb": "(1.047198, 1.22173, 1.396263)"
+						},
+						"morph_count": 15,
+						"morph_values": {
+							"Joint_index_0": 0.0,
+							"Joint_index_1": 0.0,
+							"Joint_index_2": 0.0,
+							"Joint_little_0": 0.0,
+							"Joint_little_1": 0.0,
+							"Joint_little_2": 0.0,
+							"Joint_middle_0": 0.0,
+							"Joint_middle_1": 0.0,
+							"Joint_middle_2": 0.0,
+							"Joint_ring_0": 0.0,
+							"Joint_ring_1": 0.0,
+							"Joint_ring_2": 0.0,
+							"Joint_thumb_0": 0.0,
+							"Joint_thumb_1": 0.0,
+							"Joint_thumb_2": 0.0
+						},
+						"ready": true
+					},
+					"1": {
+						"angles_radians": {
+							"index": "(0.0, 0.0, 0.0)",
+							"little": "(0.0, 0.0, 0.0)",
+							"middle": "(0.0, 0.0, 0.0)",
+							"ring": "(0.0, 0.0, 0.0)",
+							"thumb": "(0.0, 0.0, 0.0)"
+						},
+						"corrective_available": true,
+						"flexion": {
+							"index": "(0.0, 0.0, 0.0)",
+							"little": "(0.0, 0.0, 0.0)",
+							"middle": "(0.0, 0.0, 0.0)",
+							"ring": "(0.0, 0.0, 0.0)",
+							"thumb": "(0.0, 0.0, 0.0)"
+						},
+						"limits_radians": {
+							"index": "(1.570796, 1.919862, 1.396263)",
+							"little": "(1.570796, 1.919862, 1.396263)",
+							"middle": "(1.570796, 1.919862, 1.396263)",
+							"ring": "(1.570796, 1.919862, 1.396263)",
+							"thumb": "(1.047198, 1.22173, 1.396263)"
+						},
+						"morph_count": 15,
+						"morph_values": {
+							"Joint_index_0": 0.0,
+							"Joint_index_1": 0.0,
+							"Joint_index_2": 0.0,
+							"Joint_little_0": 0.0,
+							"Joint_little_1": 0.0,
+							"Joint_little_2": 0.0,
+							"Joint_middle_0": 0.0,
+							"Joint_middle_1": 0.0,
+							"Joint_middle_2": 0.0,
+							"Joint_ring_0": 0.0,
+							"Joint_ring_1": 0.0,
+							"Joint_ring_2": 0.0,
+							"Joint_thumb_0": 0.0,
+							"Joint_thumb_1": 0.0,
+							"Joint_thumb_2": 0.0
+						},
+						"ready": true
+					}
+				},
+				"previous_profile": "detailed",
+				"profile": "detailed",
+				"values": {
+					"-1": {
+						"index": "(0.0, 0.0, 0.0)",
+						"little": "(0.0, 0.0, 0.0)",
+						"middle": "(0.0, 0.0, 0.0)",
+						"ring": "(0.0, 0.0, 0.0)",
+						"thumb": "(0.0, 0.0, 0.0)"
+					},
+					"1": {
+						"index": "(0.0, 0.0, 0.0)",
+						"little": "(0.0, 0.0, 0.0)",
+						"middle": "(0.0, 0.0, 0.0)",
+						"ring": "(0.0, 0.0, 0.0)",
+						"thumb": "(0.0, 0.0, 0.0)"
+					}
+				},
+				"view": "palm"
+			},
+			"view_selector_index": 1,
+			"wrist_gpu_buffers": {
+				"passed": true,
+				"readback": "ArrayMesh.surface_get_arrays after RenderingServer.force_draw",
+				"wrists": [
+					{
+						"arm": "LeftSupportArm",
+						"invalid_tangents": 0,
+						"invalid_vertex_count": 0,
+						"max_normal_error": 0.000129269668832421,
+						"max_position_error_m": 0.0,
+						"minimum_jacobian_determinant": 0.481512159109116,
+						"passed": true,
+						"vertex_count": 5170
+					},
+					{
+						"arm": "RightRelaxedArm",
+						"invalid_tangents": 0,
+						"invalid_vertex_count": 0,
+						"max_normal_error": 0.000129265157738701,
+						"max_position_error_m": 0.0,
+						"minimum_jacobian_determinant": 0.387638539075851,
+						"passed": true,
+						"vertex_count": 5172
+					}
+				]
+			}
+		},
+		{
+			"actual_pbr_bindings": {
+				"actual_full_glove_coverage": {
+					"/root/PlayerFingerJointsPreviewViewport/PlayerArmPreviewStage/Player/Head/PlayerCamera/FreeHandPresentation/LeftSupportArm": {
+						"digits": {
+							"index": {
+								"actual_distal_cap_vertices": 381,
+								"cap_depth_m": 0.0118636153638363,
+								"cap_width_m": 0.0148471053689718,
+								"forward_cap_normals": 282,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0224045664072037
+							},
+							"little": {
+								"actual_distal_cap_vertices": 415,
+								"cap_depth_m": 0.0106381736695766,
+								"cap_width_m": 0.0120019428431988,
+								"forward_cap_normals": 269,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0235975682735443
+							},
+							"middle": {
+								"actual_distal_cap_vertices": 337,
+								"cap_depth_m": 0.0124066025018692,
+								"cap_width_m": 0.0151730878278613,
+								"forward_cap_normals": 244,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0248235315084457
+							},
+							"ring": {
+								"actual_distal_cap_vertices": 369,
+								"cap_depth_m": 0.012065015733242,
+								"cap_width_m": 0.0144979255273938,
+								"forward_cap_normals": 262,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0233172476291656
+							},
+							"thumb": {
+								"actual_distal_cap_vertices": 265,
+								"cap_depth_m": 0.0164820440113544,
+								"cap_width_m": 0.0159133970737457,
+								"forward_cap_normals": 225,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0334809273481369
+							}
+						},
+						"material_roles": [
+							"Detailed_Sleeve",
+							"Detailed_Trim",
+							"Detailed_Glove_Fingers",
+							"Detailed_Glove"
+						],
+						"passed": true,
+						"problems": [],
+						"scope": "Actual imported finger leather cap vertices, bone weights and normals; no exposed skin or standalone nails"
+					},
+					"/root/PlayerFingerJointsPreviewViewport/PlayerArmPreviewStage/Player/Head/PlayerCamera/FreeHandPresentation/RightRelaxedArm": {
+						"digits": {
+							"index": {
+								"actual_distal_cap_vertices": 396,
+								"cap_depth_m": 0.012250792235136,
+								"cap_width_m": 0.0148884635418653,
+								"forward_cap_normals": 291,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0223920047283173
+							},
+							"little": {
+								"actual_distal_cap_vertices": 412,
+								"cap_depth_m": 0.010686706751585,
+								"cap_width_m": 0.0119741335511208,
+								"forward_cap_normals": 271,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0235840082168579
+							},
+							"middle": {
+								"actual_distal_cap_vertices": 330,
+								"cap_depth_m": 0.0124177150428295,
+								"cap_width_m": 0.0152377029880881,
+								"forward_cap_normals": 244,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0248158276081085
+							},
+							"ring": {
+								"actual_distal_cap_vertices": 352,
+								"cap_depth_m": 0.0118535123765469,
+								"cap_width_m": 0.0145852956920862,
+								"forward_cap_normals": 278,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0233237445354462
+							},
+							"thumb": {
+								"actual_distal_cap_vertices": 261,
+								"cap_depth_m": 0.0164019018411636,
+								"cap_width_m": 0.015961516648531,
+								"forward_cap_normals": 220,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0334876701235771
+							}
+						},
+						"material_roles": [
+							"Detailed_Sleeve",
+							"Detailed_Trim",
+							"Detailed_Glove_Fingers",
+							"Detailed_Glove"
+						],
+						"passed": true,
+						"problems": [],
+						"scope": "Actual imported finger leather cap vertices, bone weights and normals; no exposed skin or standalone nails"
+					}
+				},
+				"binding_source": "Live MeshInstance3D active glove materials and actual cap geometry; bound 4K pixels equal extracted PNGs covered by source hashes",
+				"bound_texture_pixels": {
+					"res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_basecolor.png": {
+						"actual_pixel_sha256": "4371528f25c10f2ff6133dafed2e8b2e0f3497e0b94ee8b9263eb17ba2d29a72",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_basecolor.png",
+						"png_sha256": "b6c1eadbbbf4bf305afa1c51d286fc2bd8584b56217ffff1eeb7cfb6858630d8",
+						"source_pixel_sha256": "4371528f25c10f2ff6133dafed2e8b2e0f3497e0b94ee8b9263eb17ba2d29a72"
+					},
+					"res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_normal.png": {
+						"actual_pixel_sha256": "381259ad40e9903e6d43a61ff532159a613b71c65291e6a50cded6363afe0022",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_normal.png",
+						"png_sha256": "24d9699b7e78dd7da94911175e9a4dd6719951eb639e2cdb67f186391546cfb3",
+						"source_pixel_sha256": "381259ad40e9903e6d43a61ff532159a613b71c65291e6a50cded6363afe0022"
+					},
+					"res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_roughness.png": {
+						"actual_pixel_sha256": "54fb29c783e6be731633aaf02369d57ef5e22c3307e288e58ada33312e7a72fe",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_roughness.png",
+						"png_sha256": "6d6dd5c76f4b30e7da77973fdebc66f9cbbca179f667853695b8add33accfa32",
+						"source_pixel_sha256": "54fb29c783e6be731633aaf02369d57ef5e22c3307e288e58ada33312e7a72fe"
+					},
+					"res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_basecolor.png": {
+						"actual_pixel_sha256": "4371528f25c10f2ff6133dafed2e8b2e0f3497e0b94ee8b9263eb17ba2d29a72",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_basecolor.png",
+						"png_sha256": "b6c1eadbbbf4bf305afa1c51d286fc2bd8584b56217ffff1eeb7cfb6858630d8",
+						"source_pixel_sha256": "4371528f25c10f2ff6133dafed2e8b2e0f3497e0b94ee8b9263eb17ba2d29a72"
+					},
+					"res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_normal.png": {
+						"actual_pixel_sha256": "381259ad40e9903e6d43a61ff532159a613b71c65291e6a50cded6363afe0022",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_normal.png",
+						"png_sha256": "24d9699b7e78dd7da94911175e9a4dd6719951eb639e2cdb67f186391546cfb3",
+						"source_pixel_sha256": "381259ad40e9903e6d43a61ff532159a613b71c65291e6a50cded6363afe0022"
+					},
+					"res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_roughness.png": {
+						"actual_pixel_sha256": "54fb29c783e6be731633aaf02369d57ef5e22c3307e288e58ada33312e7a72fe",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_roughness.png",
+						"png_sha256": "6d6dd5c76f4b30e7da77973fdebc66f9cbbca179f667853695b8add33accfa32",
+						"source_pixel_sha256": "54fb29c783e6be731633aaf02369d57ef5e22c3307e288e58ada33312e7a72fe"
+					}
+				},
+				"material_count": 8,
+				"material_roles": [
+					"Detailed_Sleeve",
+					"Detailed_Trim",
+					"Detailed_Glove",
+					"Detailed_Glove_Fingers"
+				],
+				"minimum_bound_texture_size": [
+					4096,
+					4096
+				],
+				"passed": true,
+				"rendered_surface_count": 16
+			},
+			"controls_canvas_layer": 70,
+			"controls_visible": true,
+			"image": "wrist_side.png",
+			"image_sha256": "3dc28b51028598eed4fe4d46d7e12b16da8d98d448a92cdf6e8dd2187a00c79c",
+			"passed": true,
+			"pose": "wrist_side",
+			"review": {
+				"active": true,
+				"hands": {
+					"-1": {
+						"angles_radians": {
+							"index": "(0.0, 0.0, 0.0)",
+							"little": "(0.0, 0.0, 0.0)",
+							"middle": "(0.0, 0.0, 0.0)",
+							"ring": "(0.0, 0.0, 0.0)",
+							"thumb": "(0.0, 0.0, 0.0)"
+						},
+						"corrective_available": true,
+						"flexion": {
+							"index": "(0.0, 0.0, 0.0)",
+							"little": "(0.0, 0.0, 0.0)",
+							"middle": "(0.0, 0.0, 0.0)",
+							"ring": "(0.0, 0.0, 0.0)",
+							"thumb": "(0.0, 0.0, 0.0)"
+						},
+						"limits_radians": {
+							"index": "(1.570796, 1.919862, 1.396263)",
+							"little": "(1.570796, 1.919862, 1.396263)",
+							"middle": "(1.570796, 1.919862, 1.396263)",
+							"ring": "(1.570796, 1.919862, 1.396263)",
+							"thumb": "(1.047198, 1.22173, 1.396263)"
+						},
+						"morph_count": 15,
+						"morph_values": {
+							"Joint_index_0": 0.0,
+							"Joint_index_1": 0.0,
+							"Joint_index_2": 0.0,
+							"Joint_little_0": 0.0,
+							"Joint_little_1": 0.0,
+							"Joint_little_2": 0.0,
+							"Joint_middle_0": 0.0,
+							"Joint_middle_1": 0.0,
+							"Joint_middle_2": 0.0,
+							"Joint_ring_0": 0.0,
+							"Joint_ring_1": 0.0,
+							"Joint_ring_2": 0.0,
+							"Joint_thumb_0": 0.0,
+							"Joint_thumb_1": 0.0,
+							"Joint_thumb_2": 0.0
+						},
+						"ready": true
+					},
+					"1": {
+						"angles_radians": {
+							"index": "(0.0, 0.0, 0.0)",
+							"little": "(0.0, 0.0, 0.0)",
+							"middle": "(0.0, 0.0, 0.0)",
+							"ring": "(0.0, 0.0, 0.0)",
+							"thumb": "(0.0, 0.0, 0.0)"
+						},
+						"corrective_available": true,
+						"flexion": {
+							"index": "(0.0, 0.0, 0.0)",
+							"little": "(0.0, 0.0, 0.0)",
+							"middle": "(0.0, 0.0, 0.0)",
+							"ring": "(0.0, 0.0, 0.0)",
+							"thumb": "(0.0, 0.0, 0.0)"
+						},
+						"limits_radians": {
+							"index": "(1.570796, 1.919862, 1.396263)",
+							"little": "(1.570796, 1.919862, 1.396263)",
+							"middle": "(1.570796, 1.919862, 1.396263)",
+							"ring": "(1.570796, 1.919862, 1.396263)",
+							"thumb": "(1.047198, 1.22173, 1.396263)"
+						},
+						"morph_count": 15,
+						"morph_values": {
+							"Joint_index_0": 0.0,
+							"Joint_index_1": 0.0,
+							"Joint_index_2": 0.0,
+							"Joint_little_0": 0.0,
+							"Joint_little_1": 0.0,
+							"Joint_little_2": 0.0,
+							"Joint_middle_0": 0.0,
+							"Joint_middle_1": 0.0,
+							"Joint_middle_2": 0.0,
+							"Joint_ring_0": 0.0,
+							"Joint_ring_1": 0.0,
+							"Joint_ring_2": 0.0,
+							"Joint_thumb_0": 0.0,
+							"Joint_thumb_1": 0.0,
+							"Joint_thumb_2": 0.0
+						},
+						"ready": true
+					}
+				},
+				"previous_profile": "detailed",
+				"profile": "detailed",
+				"values": {
+					"-1": {
+						"index": "(0.0, 0.0, 0.0)",
+						"little": "(0.0, 0.0, 0.0)",
+						"middle": "(0.0, 0.0, 0.0)",
+						"ring": "(0.0, 0.0, 0.0)",
+						"thumb": "(0.0, 0.0, 0.0)"
+					},
+					"1": {
+						"index": "(0.0, 0.0, 0.0)",
+						"little": "(0.0, 0.0, 0.0)",
+						"middle": "(0.0, 0.0, 0.0)",
+						"ring": "(0.0, 0.0, 0.0)",
+						"thumb": "(0.0, 0.0, 0.0)"
+					}
+				},
+				"view": "wrist_side"
+			},
+			"view_selector_index": 2,
+			"wrist_gpu_buffers": {
+				"passed": true,
+				"readback": "ArrayMesh.surface_get_arrays after RenderingServer.force_draw",
+				"wrists": [
+					{
+						"arm": "LeftSupportArm",
+						"invalid_tangents": 0,
+						"invalid_vertex_count": 0,
+						"max_normal_error": 0.000129269668832421,
+						"max_position_error_m": 0.0,
+						"minimum_jacobian_determinant": 0.549644708633423,
+						"passed": true,
+						"vertex_count": 5170
+					},
+					{
+						"arm": "RightRelaxedArm",
+						"invalid_tangents": 0,
+						"invalid_vertex_count": 0,
+						"max_normal_error": 0.000129265157738701,
+						"max_position_error_m": 0.0,
+						"minimum_jacobian_determinant": 0.473523646593094,
+						"passed": true,
+						"vertex_count": 5172
+					}
+				]
+			}
+		},
+		{
+			"actual_pbr_bindings": {
+				"actual_full_glove_coverage": {
+					"/root/PlayerFingerJointsPreviewViewport/PlayerArmPreviewStage/Player/Head/PlayerCamera/FreeHandPresentation/LeftSupportArm": {
+						"digits": {
+							"index": {
+								"actual_distal_cap_vertices": 381,
+								"cap_depth_m": 0.0118636153638363,
+								"cap_width_m": 0.0148471053689718,
+								"forward_cap_normals": 282,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0224045664072037
+							},
+							"little": {
+								"actual_distal_cap_vertices": 415,
+								"cap_depth_m": 0.0106381736695766,
+								"cap_width_m": 0.0120019428431988,
+								"forward_cap_normals": 269,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0235975682735443
+							},
+							"middle": {
+								"actual_distal_cap_vertices": 337,
+								"cap_depth_m": 0.0124066025018692,
+								"cap_width_m": 0.0151730878278613,
+								"forward_cap_normals": 244,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0248235315084457
+							},
+							"ring": {
+								"actual_distal_cap_vertices": 369,
+								"cap_depth_m": 0.012065015733242,
+								"cap_width_m": 0.0144979255273938,
+								"forward_cap_normals": 262,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0233172476291656
+							},
+							"thumb": {
+								"actual_distal_cap_vertices": 265,
+								"cap_depth_m": 0.0164820440113544,
+								"cap_width_m": 0.0159133970737457,
+								"forward_cap_normals": 225,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0334809273481369
+							}
+						},
+						"material_roles": [
+							"Detailed_Sleeve",
+							"Detailed_Trim",
+							"Detailed_Glove_Fingers",
+							"Detailed_Glove"
+						],
+						"passed": true,
+						"problems": [],
+						"scope": "Actual imported finger leather cap vertices, bone weights and normals; no exposed skin or standalone nails"
+					},
+					"/root/PlayerFingerJointsPreviewViewport/PlayerArmPreviewStage/Player/Head/PlayerCamera/FreeHandPresentation/RightRelaxedArm": {
+						"digits": {
+							"index": {
+								"actual_distal_cap_vertices": 396,
+								"cap_depth_m": 0.012250792235136,
+								"cap_width_m": 0.0148884635418653,
+								"forward_cap_normals": 291,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0223920047283173
+							},
+							"little": {
+								"actual_distal_cap_vertices": 412,
+								"cap_depth_m": 0.010686706751585,
+								"cap_width_m": 0.0119741335511208,
+								"forward_cap_normals": 271,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0235840082168579
+							},
+							"middle": {
+								"actual_distal_cap_vertices": 330,
+								"cap_depth_m": 0.0124177150428295,
+								"cap_width_m": 0.0152377029880881,
+								"forward_cap_normals": 244,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0248158276081085
+							},
+							"ring": {
+								"actual_distal_cap_vertices": 352,
+								"cap_depth_m": 0.0118535123765469,
+								"cap_width_m": 0.0145852956920862,
+								"forward_cap_normals": 278,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0233237445354462
+							},
+							"thumb": {
+								"actual_distal_cap_vertices": 261,
+								"cap_depth_m": 0.0164019018411636,
+								"cap_width_m": 0.015961516648531,
+								"forward_cap_normals": 220,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0334876701235771
+							}
+						},
+						"material_roles": [
+							"Detailed_Sleeve",
+							"Detailed_Trim",
+							"Detailed_Glove_Fingers",
+							"Detailed_Glove"
+						],
+						"passed": true,
+						"problems": [],
+						"scope": "Actual imported finger leather cap vertices, bone weights and normals; no exposed skin or standalone nails"
+					}
+				},
+				"binding_source": "Live MeshInstance3D active glove materials and actual cap geometry; bound 4K pixels equal extracted PNGs covered by source hashes",
+				"bound_texture_pixels": {
+					"res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_basecolor.png": {
+						"actual_pixel_sha256": "4371528f25c10f2ff6133dafed2e8b2e0f3497e0b94ee8b9263eb17ba2d29a72",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_basecolor.png",
+						"png_sha256": "b6c1eadbbbf4bf305afa1c51d286fc2bd8584b56217ffff1eeb7cfb6858630d8",
+						"source_pixel_sha256": "4371528f25c10f2ff6133dafed2e8b2e0f3497e0b94ee8b9263eb17ba2d29a72"
+					},
+					"res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_normal.png": {
+						"actual_pixel_sha256": "381259ad40e9903e6d43a61ff532159a613b71c65291e6a50cded6363afe0022",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_normal.png",
+						"png_sha256": "24d9699b7e78dd7da94911175e9a4dd6719951eb639e2cdb67f186391546cfb3",
+						"source_pixel_sha256": "381259ad40e9903e6d43a61ff532159a613b71c65291e6a50cded6363afe0022"
+					},
+					"res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_roughness.png": {
+						"actual_pixel_sha256": "54fb29c783e6be731633aaf02369d57ef5e22c3307e288e58ada33312e7a72fe",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_roughness.png",
+						"png_sha256": "6d6dd5c76f4b30e7da77973fdebc66f9cbbca179f667853695b8add33accfa32",
+						"source_pixel_sha256": "54fb29c783e6be731633aaf02369d57ef5e22c3307e288e58ada33312e7a72fe"
+					},
+					"res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_basecolor.png": {
+						"actual_pixel_sha256": "4371528f25c10f2ff6133dafed2e8b2e0f3497e0b94ee8b9263eb17ba2d29a72",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_basecolor.png",
+						"png_sha256": "b6c1eadbbbf4bf305afa1c51d286fc2bd8584b56217ffff1eeb7cfb6858630d8",
+						"source_pixel_sha256": "4371528f25c10f2ff6133dafed2e8b2e0f3497e0b94ee8b9263eb17ba2d29a72"
+					},
+					"res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_normal.png": {
+						"actual_pixel_sha256": "381259ad40e9903e6d43a61ff532159a613b71c65291e6a50cded6363afe0022",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_normal.png",
+						"png_sha256": "24d9699b7e78dd7da94911175e9a4dd6719951eb639e2cdb67f186391546cfb3",
+						"source_pixel_sha256": "381259ad40e9903e6d43a61ff532159a613b71c65291e6a50cded6363afe0022"
+					},
+					"res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_roughness.png": {
+						"actual_pixel_sha256": "54fb29c783e6be731633aaf02369d57ef5e22c3307e288e58ada33312e7a72fe",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_roughness.png",
+						"png_sha256": "6d6dd5c76f4b30e7da77973fdebc66f9cbbca179f667853695b8add33accfa32",
+						"source_pixel_sha256": "54fb29c783e6be731633aaf02369d57ef5e22c3307e288e58ada33312e7a72fe"
+					}
+				},
+				"material_count": 8,
+				"material_roles": [
+					"Detailed_Sleeve",
+					"Detailed_Trim",
+					"Detailed_Glove",
+					"Detailed_Glove_Fingers"
+				],
+				"minimum_bound_texture_size": [
+					4096,
+					4096
+				],
+				"passed": true,
+				"rendered_surface_count": 16
+			},
+			"controls_canvas_layer": 70,
+			"controls_visible": false,
+			"image": "roots.png",
+			"image_sha256": "e6b75e1f094d4ab3fd97306ebddeb21580700b50f0da0ed629e5ac04bb804711",
+			"passed": true,
+			"pose": "roots",
+			"review": {
+				"active": true,
+				"hands": {
+					"-1": {
+						"angles_radians": {
+							"index": "(-1.335177, 0.0, 0.0)",
+							"little": "(-1.335177, 0.0, 0.0)",
+							"middle": "(-1.335177, 0.0, 0.0)",
+							"ring": "(-1.335177, 0.0, 0.0)",
+							"thumb": "(-0.890118, 0.0, 0.0)"
+						},
+						"corrective_available": true,
+						"flexion": {
+							"index": "(0.85, 0.0, 0.0)",
+							"little": "(0.85, 0.0, 0.0)",
+							"middle": "(0.85, 0.0, 0.0)",
+							"ring": "(0.85, 0.0, 0.0)",
+							"thumb": "(0.85, 0.0, 0.0)"
+						},
+						"limits_radians": {
+							"index": "(1.570796, 1.919862, 1.396263)",
+							"little": "(1.570796, 1.919862, 1.396263)",
+							"middle": "(1.570796, 1.919862, 1.396263)",
+							"ring": "(1.570796, 1.919862, 1.396263)",
+							"thumb": "(1.047198, 1.22173, 1.396263)"
+						},
+						"morph_count": 15,
+						"morph_values": {
+							"Joint_index_0": 0.850000023841858,
+							"Joint_index_1": 0.0,
+							"Joint_index_2": 0.0,
+							"Joint_little_0": 0.850000023841858,
+							"Joint_little_1": 0.0,
+							"Joint_little_2": 0.0,
+							"Joint_middle_0": 0.850000023841858,
+							"Joint_middle_1": 0.0,
+							"Joint_middle_2": 0.0,
+							"Joint_ring_0": 0.850000023841858,
+							"Joint_ring_1": 0.0,
+							"Joint_ring_2": 0.0,
+							"Joint_thumb_0": 0.850000023841858,
+							"Joint_thumb_1": 0.0,
+							"Joint_thumb_2": 0.0
+						},
+						"ready": true
+					},
+					"1": {
+						"angles_radians": {
+							"index": "(-1.335177, 0.0, 0.0)",
+							"little": "(-1.335177, 0.0, 0.0)",
+							"middle": "(-1.335177, 0.0, 0.0)",
+							"ring": "(-1.335177, 0.0, 0.0)",
+							"thumb": "(-0.890118, 0.0, 0.0)"
+						},
+						"corrective_available": true,
+						"flexion": {
+							"index": "(0.85, 0.0, 0.0)",
+							"little": "(0.85, 0.0, 0.0)",
+							"middle": "(0.85, 0.0, 0.0)",
+							"ring": "(0.85, 0.0, 0.0)",
+							"thumb": "(0.85, 0.0, 0.0)"
+						},
+						"limits_radians": {
+							"index": "(1.570796, 1.919862, 1.396263)",
+							"little": "(1.570796, 1.919862, 1.396263)",
+							"middle": "(1.570796, 1.919862, 1.396263)",
+							"ring": "(1.570796, 1.919862, 1.396263)",
+							"thumb": "(1.047198, 1.22173, 1.396263)"
+						},
+						"morph_count": 15,
+						"morph_values": {
+							"Joint_index_0": 0.850000023841858,
+							"Joint_index_1": 0.0,
+							"Joint_index_2": 0.0,
+							"Joint_little_0": 0.850000023841858,
+							"Joint_little_1": 0.0,
+							"Joint_little_2": 0.0,
+							"Joint_middle_0": 0.850000023841858,
+							"Joint_middle_1": 0.0,
+							"Joint_middle_2": 0.0,
+							"Joint_ring_0": 0.850000023841858,
+							"Joint_ring_1": 0.0,
+							"Joint_ring_2": 0.0,
+							"Joint_thumb_0": 0.850000023841858,
+							"Joint_thumb_1": 0.0,
+							"Joint_thumb_2": 0.0
+						},
+						"ready": true
+					}
+				},
+				"previous_profile": "detailed",
+				"profile": "detailed",
+				"values": {
+					"-1": {
+						"index": "(0.85, 0.0, 0.0)",
+						"little": "(0.85, 0.0, 0.0)",
+						"middle": "(0.85, 0.0, 0.0)",
+						"ring": "(0.85, 0.0, 0.0)",
+						"thumb": "(0.85, 0.0, 0.0)"
+					},
+					"1": {
+						"index": "(0.85, 0.0, 0.0)",
+						"little": "(0.85, 0.0, 0.0)",
+						"middle": "(0.85, 0.0, 0.0)",
+						"ring": "(0.85, 0.0, 0.0)",
+						"thumb": "(0.85, 0.0, 0.0)"
+					}
+				},
+				"view": "dorsal"
+			},
+			"view_selector_index": 0,
+			"wrist_gpu_buffers": {
+				"passed": true,
+				"readback": "ArrayMesh.surface_get_arrays after RenderingServer.force_draw",
+				"wrists": [
+					{
+						"arm": "LeftSupportArm",
+						"invalid_tangents": 0,
+						"invalid_vertex_count": 0,
+						"max_normal_error": 0.000129269668832421,
+						"max_position_error_m": 0.0,
+						"minimum_jacobian_determinant": 0.476077735424042,
+						"passed": true,
+						"vertex_count": 5170
+					},
+					{
+						"arm": "RightRelaxedArm",
+						"invalid_tangents": 0,
+						"invalid_vertex_count": 0,
+						"max_normal_error": 0.000129265157738701,
+						"max_position_error_m": 0.0,
+						"minimum_jacobian_determinant": 0.366736024618149,
+						"passed": true,
+						"vertex_count": 5172
+					}
+				]
+			}
+		},
+		{
+			"actual_pbr_bindings": {
+				"actual_full_glove_coverage": {
+					"/root/PlayerFingerJointsPreviewViewport/PlayerArmPreviewStage/Player/Head/PlayerCamera/FreeHandPresentation/LeftSupportArm": {
+						"digits": {
+							"index": {
+								"actual_distal_cap_vertices": 381,
+								"cap_depth_m": 0.0118636153638363,
+								"cap_width_m": 0.0148471053689718,
+								"forward_cap_normals": 282,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0224045664072037
+							},
+							"little": {
+								"actual_distal_cap_vertices": 415,
+								"cap_depth_m": 0.0106381736695766,
+								"cap_width_m": 0.0120019428431988,
+								"forward_cap_normals": 269,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0235975682735443
+							},
+							"middle": {
+								"actual_distal_cap_vertices": 337,
+								"cap_depth_m": 0.0124066025018692,
+								"cap_width_m": 0.0151730878278613,
+								"forward_cap_normals": 244,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0248235315084457
+							},
+							"ring": {
+								"actual_distal_cap_vertices": 369,
+								"cap_depth_m": 0.012065015733242,
+								"cap_width_m": 0.0144979255273938,
+								"forward_cap_normals": 262,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0233172476291656
+							},
+							"thumb": {
+								"actual_distal_cap_vertices": 265,
+								"cap_depth_m": 0.0164820440113544,
+								"cap_width_m": 0.0159133970737457,
+								"forward_cap_normals": 225,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0334809273481369
+							}
+						},
+						"material_roles": [
+							"Detailed_Sleeve",
+							"Detailed_Trim",
+							"Detailed_Glove_Fingers",
+							"Detailed_Glove"
+						],
+						"passed": true,
+						"problems": [],
+						"scope": "Actual imported finger leather cap vertices, bone weights and normals; no exposed skin or standalone nails"
+					},
+					"/root/PlayerFingerJointsPreviewViewport/PlayerArmPreviewStage/Player/Head/PlayerCamera/FreeHandPresentation/RightRelaxedArm": {
+						"digits": {
+							"index": {
+								"actual_distal_cap_vertices": 396,
+								"cap_depth_m": 0.012250792235136,
+								"cap_width_m": 0.0148884635418653,
+								"forward_cap_normals": 291,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0223920047283173
+							},
+							"little": {
+								"actual_distal_cap_vertices": 412,
+								"cap_depth_m": 0.010686706751585,
+								"cap_width_m": 0.0119741335511208,
+								"forward_cap_normals": 271,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0235840082168579
+							},
+							"middle": {
+								"actual_distal_cap_vertices": 330,
+								"cap_depth_m": 0.0124177150428295,
+								"cap_width_m": 0.0152377029880881,
+								"forward_cap_normals": 244,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0248158276081085
+							},
+							"ring": {
+								"actual_distal_cap_vertices": 352,
+								"cap_depth_m": 0.0118535123765469,
+								"cap_width_m": 0.0145852956920862,
+								"forward_cap_normals": 278,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0233237445354462
+							},
+							"thumb": {
+								"actual_distal_cap_vertices": 261,
+								"cap_depth_m": 0.0164019018411636,
+								"cap_width_m": 0.015961516648531,
+								"forward_cap_normals": 220,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0334876701235771
+							}
+						},
+						"material_roles": [
+							"Detailed_Sleeve",
+							"Detailed_Trim",
+							"Detailed_Glove_Fingers",
+							"Detailed_Glove"
+						],
+						"passed": true,
+						"problems": [],
+						"scope": "Actual imported finger leather cap vertices, bone weights and normals; no exposed skin or standalone nails"
+					}
+				},
+				"binding_source": "Live MeshInstance3D active glove materials and actual cap geometry; bound 4K pixels equal extracted PNGs covered by source hashes",
+				"bound_texture_pixels": {
+					"res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_basecolor.png": {
+						"actual_pixel_sha256": "4371528f25c10f2ff6133dafed2e8b2e0f3497e0b94ee8b9263eb17ba2d29a72",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_basecolor.png",
+						"png_sha256": "b6c1eadbbbf4bf305afa1c51d286fc2bd8584b56217ffff1eeb7cfb6858630d8",
+						"source_pixel_sha256": "4371528f25c10f2ff6133dafed2e8b2e0f3497e0b94ee8b9263eb17ba2d29a72"
+					},
+					"res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_normal.png": {
+						"actual_pixel_sha256": "381259ad40e9903e6d43a61ff532159a613b71c65291e6a50cded6363afe0022",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_normal.png",
+						"png_sha256": "24d9699b7e78dd7da94911175e9a4dd6719951eb639e2cdb67f186391546cfb3",
+						"source_pixel_sha256": "381259ad40e9903e6d43a61ff532159a613b71c65291e6a50cded6363afe0022"
+					},
+					"res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_roughness.png": {
+						"actual_pixel_sha256": "54fb29c783e6be731633aaf02369d57ef5e22c3307e288e58ada33312e7a72fe",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_roughness.png",
+						"png_sha256": "6d6dd5c76f4b30e7da77973fdebc66f9cbbca179f667853695b8add33accfa32",
+						"source_pixel_sha256": "54fb29c783e6be731633aaf02369d57ef5e22c3307e288e58ada33312e7a72fe"
+					},
+					"res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_basecolor.png": {
+						"actual_pixel_sha256": "4371528f25c10f2ff6133dafed2e8b2e0f3497e0b94ee8b9263eb17ba2d29a72",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_basecolor.png",
+						"png_sha256": "b6c1eadbbbf4bf305afa1c51d286fc2bd8584b56217ffff1eeb7cfb6858630d8",
+						"source_pixel_sha256": "4371528f25c10f2ff6133dafed2e8b2e0f3497e0b94ee8b9263eb17ba2d29a72"
+					},
+					"res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_normal.png": {
+						"actual_pixel_sha256": "381259ad40e9903e6d43a61ff532159a613b71c65291e6a50cded6363afe0022",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_normal.png",
+						"png_sha256": "24d9699b7e78dd7da94911175e9a4dd6719951eb639e2cdb67f186391546cfb3",
+						"source_pixel_sha256": "381259ad40e9903e6d43a61ff532159a613b71c65291e6a50cded6363afe0022"
+					},
+					"res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_roughness.png": {
+						"actual_pixel_sha256": "54fb29c783e6be731633aaf02369d57ef5e22c3307e288e58ada33312e7a72fe",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_roughness.png",
+						"png_sha256": "6d6dd5c76f4b30e7da77973fdebc66f9cbbca179f667853695b8add33accfa32",
+						"source_pixel_sha256": "54fb29c783e6be731633aaf02369d57ef5e22c3307e288e58ada33312e7a72fe"
+					}
+				},
+				"material_count": 8,
+				"material_roles": [
+					"Detailed_Sleeve",
+					"Detailed_Trim",
+					"Detailed_Glove",
+					"Detailed_Glove_Fingers"
+				],
+				"minimum_bound_texture_size": [
+					4096,
+					4096
+				],
+				"passed": true,
+				"rendered_surface_count": 16
+			},
+			"controls_canvas_layer": 70,
+			"controls_visible": false,
+			"image": "middles.png",
+			"image_sha256": "53be43451633c6badc139e2fee05d5bc787a33f1d53b852f80761c1effa2ad38",
+			"passed": true,
+			"pose": "middles",
+			"review": {
+				"active": true,
+				"hands": {
+					"-1": {
+						"angles_radians": {
+							"index": "(0.0, -1.631883, 0.0)",
+							"little": "(0.0, -1.631883, 0.0)",
+							"middle": "(0.0, -1.631883, 0.0)",
+							"ring": "(0.0, -1.631883, 0.0)",
+							"thumb": "(0.0, -1.038471, 0.0)"
+						},
+						"corrective_available": true,
+						"flexion": {
+							"index": "(0.0, 0.85, 0.0)",
+							"little": "(0.0, 0.85, 0.0)",
+							"middle": "(0.0, 0.85, 0.0)",
+							"ring": "(0.0, 0.85, 0.0)",
+							"thumb": "(0.0, 0.85, 0.0)"
+						},
+						"limits_radians": {
+							"index": "(1.570796, 1.919862, 1.396263)",
+							"little": "(1.570796, 1.919862, 1.396263)",
+							"middle": "(1.570796, 1.919862, 1.396263)",
+							"ring": "(1.570796, 1.919862, 1.396263)",
+							"thumb": "(1.047198, 1.22173, 1.396263)"
+						},
+						"morph_count": 15,
+						"morph_values": {
+							"Joint_index_0": 0.0,
+							"Joint_index_1": 0.850000023841858,
+							"Joint_index_2": 0.0,
+							"Joint_little_0": 0.0,
+							"Joint_little_1": 0.850000023841858,
+							"Joint_little_2": 0.0,
+							"Joint_middle_0": 0.0,
+							"Joint_middle_1": 0.850000023841858,
+							"Joint_middle_2": 0.0,
+							"Joint_ring_0": 0.0,
+							"Joint_ring_1": 0.850000023841858,
+							"Joint_ring_2": 0.0,
+							"Joint_thumb_0": 0.0,
+							"Joint_thumb_1": 0.850000023841858,
+							"Joint_thumb_2": 0.0
+						},
+						"ready": true
+					},
+					"1": {
+						"angles_radians": {
+							"index": "(0.0, -1.631883, 0.0)",
+							"little": "(0.0, -1.631883, 0.0)",
+							"middle": "(0.0, -1.631883, 0.0)",
+							"ring": "(0.0, -1.631883, 0.0)",
+							"thumb": "(0.0, -1.038471, 0.0)"
+						},
+						"corrective_available": true,
+						"flexion": {
+							"index": "(0.0, 0.85, 0.0)",
+							"little": "(0.0, 0.85, 0.0)",
+							"middle": "(0.0, 0.85, 0.0)",
+							"ring": "(0.0, 0.85, 0.0)",
+							"thumb": "(0.0, 0.85, 0.0)"
+						},
+						"limits_radians": {
+							"index": "(1.570796, 1.919862, 1.396263)",
+							"little": "(1.570796, 1.919862, 1.396263)",
+							"middle": "(1.570796, 1.919862, 1.396263)",
+							"ring": "(1.570796, 1.919862, 1.396263)",
+							"thumb": "(1.047198, 1.22173, 1.396263)"
+						},
+						"morph_count": 15,
+						"morph_values": {
+							"Joint_index_0": 0.0,
+							"Joint_index_1": 0.850000023841858,
+							"Joint_index_2": 0.0,
+							"Joint_little_0": 0.0,
+							"Joint_little_1": 0.850000023841858,
+							"Joint_little_2": 0.0,
+							"Joint_middle_0": 0.0,
+							"Joint_middle_1": 0.850000023841858,
+							"Joint_middle_2": 0.0,
+							"Joint_ring_0": 0.0,
+							"Joint_ring_1": 0.850000023841858,
+							"Joint_ring_2": 0.0,
+							"Joint_thumb_0": 0.0,
+							"Joint_thumb_1": 0.850000023841858,
+							"Joint_thumb_2": 0.0
+						},
+						"ready": true
+					}
+				},
+				"previous_profile": "detailed",
+				"profile": "detailed",
+				"values": {
+					"-1": {
+						"index": "(0.0, 0.85, 0.0)",
+						"little": "(0.0, 0.85, 0.0)",
+						"middle": "(0.0, 0.85, 0.0)",
+						"ring": "(0.0, 0.85, 0.0)",
+						"thumb": "(0.0, 0.85, 0.0)"
+					},
+					"1": {
+						"index": "(0.0, 0.85, 0.0)",
+						"little": "(0.0, 0.85, 0.0)",
+						"middle": "(0.0, 0.85, 0.0)",
+						"ring": "(0.0, 0.85, 0.0)",
+						"thumb": "(0.0, 0.85, 0.0)"
+					}
+				},
+				"view": "dorsal"
+			},
+			"view_selector_index": 0,
+			"wrist_gpu_buffers": {
+				"passed": true,
+				"readback": "ArrayMesh.surface_get_arrays after RenderingServer.force_draw",
+				"wrists": [
+					{
+						"arm": "LeftSupportArm",
+						"invalid_tangents": 0,
+						"invalid_vertex_count": 0,
+						"max_normal_error": 0.000129269668832421,
+						"max_position_error_m": 0.0,
+						"minimum_jacobian_determinant": 0.476077735424042,
+						"passed": true,
+						"vertex_count": 5170
+					},
+					{
+						"arm": "RightRelaxedArm",
+						"invalid_tangents": 0,
+						"invalid_vertex_count": 0,
+						"max_normal_error": 0.000129265157738701,
+						"max_position_error_m": 0.0,
+						"minimum_jacobian_determinant": 0.366736024618149,
+						"passed": true,
+						"vertex_count": 5172
+					}
+				]
+			}
+		},
+		{
+			"actual_pbr_bindings": {
+				"actual_full_glove_coverage": {
+					"/root/PlayerFingerJointsPreviewViewport/PlayerArmPreviewStage/Player/Head/PlayerCamera/FreeHandPresentation/LeftSupportArm": {
+						"digits": {
+							"index": {
+								"actual_distal_cap_vertices": 381,
+								"cap_depth_m": 0.0118636153638363,
+								"cap_width_m": 0.0148471053689718,
+								"forward_cap_normals": 282,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0224045664072037
+							},
+							"little": {
+								"actual_distal_cap_vertices": 415,
+								"cap_depth_m": 0.0106381736695766,
+								"cap_width_m": 0.0120019428431988,
+								"forward_cap_normals": 269,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0235975682735443
+							},
+							"middle": {
+								"actual_distal_cap_vertices": 337,
+								"cap_depth_m": 0.0124066025018692,
+								"cap_width_m": 0.0151730878278613,
+								"forward_cap_normals": 244,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0248235315084457
+							},
+							"ring": {
+								"actual_distal_cap_vertices": 369,
+								"cap_depth_m": 0.012065015733242,
+								"cap_width_m": 0.0144979255273938,
+								"forward_cap_normals": 262,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0233172476291656
+							},
+							"thumb": {
+								"actual_distal_cap_vertices": 265,
+								"cap_depth_m": 0.0164820440113544,
+								"cap_width_m": 0.0159133970737457,
+								"forward_cap_normals": 225,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0334809273481369
+							}
+						},
+						"material_roles": [
+							"Detailed_Sleeve",
+							"Detailed_Trim",
+							"Detailed_Glove_Fingers",
+							"Detailed_Glove"
+						],
+						"passed": true,
+						"problems": [],
+						"scope": "Actual imported finger leather cap vertices, bone weights and normals; no exposed skin or standalone nails"
+					},
+					"/root/PlayerFingerJointsPreviewViewport/PlayerArmPreviewStage/Player/Head/PlayerCamera/FreeHandPresentation/RightRelaxedArm": {
+						"digits": {
+							"index": {
+								"actual_distal_cap_vertices": 396,
+								"cap_depth_m": 0.012250792235136,
+								"cap_width_m": 0.0148884635418653,
+								"forward_cap_normals": 291,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0223920047283173
+							},
+							"little": {
+								"actual_distal_cap_vertices": 412,
+								"cap_depth_m": 0.010686706751585,
+								"cap_width_m": 0.0119741335511208,
+								"forward_cap_normals": 271,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0235840082168579
+							},
+							"middle": {
+								"actual_distal_cap_vertices": 330,
+								"cap_depth_m": 0.0124177150428295,
+								"cap_width_m": 0.0152377029880881,
+								"forward_cap_normals": 244,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0248158276081085
+							},
+							"ring": {
+								"actual_distal_cap_vertices": 352,
+								"cap_depth_m": 0.0118535123765469,
+								"cap_width_m": 0.0145852956920862,
+								"forward_cap_normals": 278,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0233237445354462
+							},
+							"thumb": {
+								"actual_distal_cap_vertices": 261,
+								"cap_depth_m": 0.0164019018411636,
+								"cap_width_m": 0.015961516648531,
+								"forward_cap_normals": 220,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0334876701235771
+							}
+						},
+						"material_roles": [
+							"Detailed_Sleeve",
+							"Detailed_Trim",
+							"Detailed_Glove_Fingers",
+							"Detailed_Glove"
+						],
+						"passed": true,
+						"problems": [],
+						"scope": "Actual imported finger leather cap vertices, bone weights and normals; no exposed skin or standalone nails"
+					}
+				},
+				"binding_source": "Live MeshInstance3D active glove materials and actual cap geometry; bound 4K pixels equal extracted PNGs covered by source hashes",
+				"bound_texture_pixels": {
+					"res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_basecolor.png": {
+						"actual_pixel_sha256": "4371528f25c10f2ff6133dafed2e8b2e0f3497e0b94ee8b9263eb17ba2d29a72",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_basecolor.png",
+						"png_sha256": "b6c1eadbbbf4bf305afa1c51d286fc2bd8584b56217ffff1eeb7cfb6858630d8",
+						"source_pixel_sha256": "4371528f25c10f2ff6133dafed2e8b2e0f3497e0b94ee8b9263eb17ba2d29a72"
+					},
+					"res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_normal.png": {
+						"actual_pixel_sha256": "381259ad40e9903e6d43a61ff532159a613b71c65291e6a50cded6363afe0022",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_normal.png",
+						"png_sha256": "24d9699b7e78dd7da94911175e9a4dd6719951eb639e2cdb67f186391546cfb3",
+						"source_pixel_sha256": "381259ad40e9903e6d43a61ff532159a613b71c65291e6a50cded6363afe0022"
+					},
+					"res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_roughness.png": {
+						"actual_pixel_sha256": "54fb29c783e6be731633aaf02369d57ef5e22c3307e288e58ada33312e7a72fe",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_roughness.png",
+						"png_sha256": "6d6dd5c76f4b30e7da77973fdebc66f9cbbca179f667853695b8add33accfa32",
+						"source_pixel_sha256": "54fb29c783e6be731633aaf02369d57ef5e22c3307e288e58ada33312e7a72fe"
+					},
+					"res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_basecolor.png": {
+						"actual_pixel_sha256": "4371528f25c10f2ff6133dafed2e8b2e0f3497e0b94ee8b9263eb17ba2d29a72",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_basecolor.png",
+						"png_sha256": "b6c1eadbbbf4bf305afa1c51d286fc2bd8584b56217ffff1eeb7cfb6858630d8",
+						"source_pixel_sha256": "4371528f25c10f2ff6133dafed2e8b2e0f3497e0b94ee8b9263eb17ba2d29a72"
+					},
+					"res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_normal.png": {
+						"actual_pixel_sha256": "381259ad40e9903e6d43a61ff532159a613b71c65291e6a50cded6363afe0022",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_normal.png",
+						"png_sha256": "24d9699b7e78dd7da94911175e9a4dd6719951eb639e2cdb67f186391546cfb3",
+						"source_pixel_sha256": "381259ad40e9903e6d43a61ff532159a613b71c65291e6a50cded6363afe0022"
+					},
+					"res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_roughness.png": {
+						"actual_pixel_sha256": "54fb29c783e6be731633aaf02369d57ef5e22c3307e288e58ada33312e7a72fe",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_roughness.png",
+						"png_sha256": "6d6dd5c76f4b30e7da77973fdebc66f9cbbca179f667853695b8add33accfa32",
+						"source_pixel_sha256": "54fb29c783e6be731633aaf02369d57ef5e22c3307e288e58ada33312e7a72fe"
+					}
+				},
+				"material_count": 8,
+				"material_roles": [
+					"Detailed_Sleeve",
+					"Detailed_Trim",
+					"Detailed_Glove",
+					"Detailed_Glove_Fingers"
+				],
+				"minimum_bound_texture_size": [
+					4096,
+					4096
+				],
+				"passed": true,
+				"rendered_surface_count": 16
+			},
+			"controls_canvas_layer": 70,
+			"controls_visible": false,
+			"image": "tips.png",
+			"image_sha256": "f0c3dd258c1adcb9b9bcccf15b2925df9eec556d8310d0bec730e9fcc5da712f",
+			"passed": true,
+			"pose": "tips",
+			"review": {
+				"active": true,
+				"hands": {
+					"-1": {
+						"angles_radians": {
+							"index": "(0.0, 0.0, -1.186824)",
+							"little": "(0.0, 0.0, -1.186824)",
+							"middle": "(0.0, 0.0, -1.186824)",
+							"ring": "(0.0, 0.0, -1.186824)",
+							"thumb": "(0.0, 0.0, -1.186824)"
+						},
+						"corrective_available": true,
+						"flexion": {
+							"index": "(0.0, 0.0, 0.85)",
+							"little": "(0.0, 0.0, 0.85)",
+							"middle": "(0.0, 0.0, 0.85)",
+							"ring": "(0.0, 0.0, 0.85)",
+							"thumb": "(0.0, 0.0, 0.85)"
+						},
+						"limits_radians": {
+							"index": "(1.570796, 1.919862, 1.396263)",
+							"little": "(1.570796, 1.919862, 1.396263)",
+							"middle": "(1.570796, 1.919862, 1.396263)",
+							"ring": "(1.570796, 1.919862, 1.396263)",
+							"thumb": "(1.047198, 1.22173, 1.396263)"
+						},
+						"morph_count": 15,
+						"morph_values": {
+							"Joint_index_0": 0.0,
+							"Joint_index_1": 0.0,
+							"Joint_index_2": 0.850000023841858,
+							"Joint_little_0": 0.0,
+							"Joint_little_1": 0.0,
+							"Joint_little_2": 0.850000023841858,
+							"Joint_middle_0": 0.0,
+							"Joint_middle_1": 0.0,
+							"Joint_middle_2": 0.850000023841858,
+							"Joint_ring_0": 0.0,
+							"Joint_ring_1": 0.0,
+							"Joint_ring_2": 0.850000023841858,
+							"Joint_thumb_0": 0.0,
+							"Joint_thumb_1": 0.0,
+							"Joint_thumb_2": 0.850000023841858
+						},
+						"ready": true
+					},
+					"1": {
+						"angles_radians": {
+							"index": "(0.0, 0.0, -1.186824)",
+							"little": "(0.0, 0.0, -1.186824)",
+							"middle": "(0.0, 0.0, -1.186824)",
+							"ring": "(0.0, 0.0, -1.186824)",
+							"thumb": "(0.0, 0.0, -1.186824)"
+						},
+						"corrective_available": true,
+						"flexion": {
+							"index": "(0.0, 0.0, 0.85)",
+							"little": "(0.0, 0.0, 0.85)",
+							"middle": "(0.0, 0.0, 0.85)",
+							"ring": "(0.0, 0.0, 0.85)",
+							"thumb": "(0.0, 0.0, 0.85)"
+						},
+						"limits_radians": {
+							"index": "(1.570796, 1.919862, 1.396263)",
+							"little": "(1.570796, 1.919862, 1.396263)",
+							"middle": "(1.570796, 1.919862, 1.396263)",
+							"ring": "(1.570796, 1.919862, 1.396263)",
+							"thumb": "(1.047198, 1.22173, 1.396263)"
+						},
+						"morph_count": 15,
+						"morph_values": {
+							"Joint_index_0": 0.0,
+							"Joint_index_1": 0.0,
+							"Joint_index_2": 0.850000023841858,
+							"Joint_little_0": 0.0,
+							"Joint_little_1": 0.0,
+							"Joint_little_2": 0.850000023841858,
+							"Joint_middle_0": 0.0,
+							"Joint_middle_1": 0.0,
+							"Joint_middle_2": 0.850000023841858,
+							"Joint_ring_0": 0.0,
+							"Joint_ring_1": 0.0,
+							"Joint_ring_2": 0.850000023841858,
+							"Joint_thumb_0": 0.0,
+							"Joint_thumb_1": 0.0,
+							"Joint_thumb_2": 0.850000023841858
+						},
+						"ready": true
+					}
+				},
+				"previous_profile": "detailed",
+				"profile": "detailed",
+				"values": {
+					"-1": {
+						"index": "(0.0, 0.0, 0.85)",
+						"little": "(0.0, 0.0, 0.85)",
+						"middle": "(0.0, 0.0, 0.85)",
+						"ring": "(0.0, 0.0, 0.85)",
+						"thumb": "(0.0, 0.0, 0.85)"
+					},
+					"1": {
+						"index": "(0.0, 0.0, 0.85)",
+						"little": "(0.0, 0.0, 0.85)",
+						"middle": "(0.0, 0.0, 0.85)",
+						"ring": "(0.0, 0.0, 0.85)",
+						"thumb": "(0.0, 0.0, 0.85)"
+					}
+				},
+				"view": "dorsal"
+			},
+			"view_selector_index": 0,
+			"wrist_gpu_buffers": {
+				"passed": true,
+				"readback": "ArrayMesh.surface_get_arrays after RenderingServer.force_draw",
+				"wrists": [
+					{
+						"arm": "LeftSupportArm",
+						"invalid_tangents": 0,
+						"invalid_vertex_count": 0,
+						"max_normal_error": 0.000129269668832421,
+						"max_position_error_m": 0.0,
+						"minimum_jacobian_determinant": 0.476077735424042,
+						"passed": true,
+						"vertex_count": 5170
+					},
+					{
+						"arm": "RightRelaxedArm",
+						"invalid_tangents": 0,
+						"invalid_vertex_count": 0,
+						"max_normal_error": 0.000129265157738701,
+						"max_position_error_m": 0.0,
+						"minimum_jacobian_determinant": 0.366736024618149,
+						"passed": true,
+						"vertex_count": 5172
+					}
+				]
+			}
+		},
+		{
+			"actual_pbr_bindings": {
+				"actual_full_glove_coverage": {
+					"/root/PlayerFingerJointsPreviewViewport/PlayerArmPreviewStage/Player/Head/PlayerCamera/FreeHandPresentation/LeftSupportArm": {
+						"digits": {
+							"index": {
+								"actual_distal_cap_vertices": 381,
+								"cap_depth_m": 0.0118636153638363,
+								"cap_width_m": 0.0148471053689718,
+								"forward_cap_normals": 282,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0224045664072037
+							},
+							"little": {
+								"actual_distal_cap_vertices": 415,
+								"cap_depth_m": 0.0106381736695766,
+								"cap_width_m": 0.0120019428431988,
+								"forward_cap_normals": 269,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0235975682735443
+							},
+							"middle": {
+								"actual_distal_cap_vertices": 337,
+								"cap_depth_m": 0.0124066025018692,
+								"cap_width_m": 0.0151730878278613,
+								"forward_cap_normals": 244,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0248235315084457
+							},
+							"ring": {
+								"actual_distal_cap_vertices": 369,
+								"cap_depth_m": 0.012065015733242,
+								"cap_width_m": 0.0144979255273938,
+								"forward_cap_normals": 262,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0233172476291656
+							},
+							"thumb": {
+								"actual_distal_cap_vertices": 265,
+								"cap_depth_m": 0.0164820440113544,
+								"cap_width_m": 0.0159133970737457,
+								"forward_cap_normals": 225,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0334809273481369
+							}
+						},
+						"material_roles": [
+							"Detailed_Sleeve",
+							"Detailed_Trim",
+							"Detailed_Glove_Fingers",
+							"Detailed_Glove"
+						],
+						"passed": true,
+						"problems": [],
+						"scope": "Actual imported finger leather cap vertices, bone weights and normals; no exposed skin or standalone nails"
+					},
+					"/root/PlayerFingerJointsPreviewViewport/PlayerArmPreviewStage/Player/Head/PlayerCamera/FreeHandPresentation/RightRelaxedArm": {
+						"digits": {
+							"index": {
+								"actual_distal_cap_vertices": 396,
+								"cap_depth_m": 0.012250792235136,
+								"cap_width_m": 0.0148884635418653,
+								"forward_cap_normals": 291,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0223920047283173
+							},
+							"little": {
+								"actual_distal_cap_vertices": 412,
+								"cap_depth_m": 0.010686706751585,
+								"cap_width_m": 0.0119741335511208,
+								"forward_cap_normals": 271,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0235840082168579
+							},
+							"middle": {
+								"actual_distal_cap_vertices": 330,
+								"cap_depth_m": 0.0124177150428295,
+								"cap_width_m": 0.0152377029880881,
+								"forward_cap_normals": 244,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0248158276081085
+							},
+							"ring": {
+								"actual_distal_cap_vertices": 352,
+								"cap_depth_m": 0.0118535123765469,
+								"cap_width_m": 0.0145852956920862,
+								"forward_cap_normals": 278,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0233237445354462
+							},
+							"thumb": {
+								"actual_distal_cap_vertices": 261,
+								"cap_depth_m": 0.0164019018411636,
+								"cap_width_m": 0.015961516648531,
+								"forward_cap_normals": 220,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0334876701235771
+							}
+						},
+						"material_roles": [
+							"Detailed_Sleeve",
+							"Detailed_Trim",
+							"Detailed_Glove_Fingers",
+							"Detailed_Glove"
+						],
+						"passed": true,
+						"problems": [],
+						"scope": "Actual imported finger leather cap vertices, bone weights and normals; no exposed skin or standalone nails"
+					}
+				},
+				"binding_source": "Live MeshInstance3D active glove materials and actual cap geometry; bound 4K pixels equal extracted PNGs covered by source hashes",
+				"bound_texture_pixels": {
+					"res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_basecolor.png": {
+						"actual_pixel_sha256": "4371528f25c10f2ff6133dafed2e8b2e0f3497e0b94ee8b9263eb17ba2d29a72",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_basecolor.png",
+						"png_sha256": "b6c1eadbbbf4bf305afa1c51d286fc2bd8584b56217ffff1eeb7cfb6858630d8",
+						"source_pixel_sha256": "4371528f25c10f2ff6133dafed2e8b2e0f3497e0b94ee8b9263eb17ba2d29a72"
+					},
+					"res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_normal.png": {
+						"actual_pixel_sha256": "381259ad40e9903e6d43a61ff532159a613b71c65291e6a50cded6363afe0022",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_normal.png",
+						"png_sha256": "24d9699b7e78dd7da94911175e9a4dd6719951eb639e2cdb67f186391546cfb3",
+						"source_pixel_sha256": "381259ad40e9903e6d43a61ff532159a613b71c65291e6a50cded6363afe0022"
+					},
+					"res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_roughness.png": {
+						"actual_pixel_sha256": "54fb29c783e6be731633aaf02369d57ef5e22c3307e288e58ada33312e7a72fe",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_roughness.png",
+						"png_sha256": "6d6dd5c76f4b30e7da77973fdebc66f9cbbca179f667853695b8add33accfa32",
+						"source_pixel_sha256": "54fb29c783e6be731633aaf02369d57ef5e22c3307e288e58ada33312e7a72fe"
+					},
+					"res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_basecolor.png": {
+						"actual_pixel_sha256": "4371528f25c10f2ff6133dafed2e8b2e0f3497e0b94ee8b9263eb17ba2d29a72",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_basecolor.png",
+						"png_sha256": "b6c1eadbbbf4bf305afa1c51d286fc2bd8584b56217ffff1eeb7cfb6858630d8",
+						"source_pixel_sha256": "4371528f25c10f2ff6133dafed2e8b2e0f3497e0b94ee8b9263eb17ba2d29a72"
+					},
+					"res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_normal.png": {
+						"actual_pixel_sha256": "381259ad40e9903e6d43a61ff532159a613b71c65291e6a50cded6363afe0022",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_normal.png",
+						"png_sha256": "24d9699b7e78dd7da94911175e9a4dd6719951eb639e2cdb67f186391546cfb3",
+						"source_pixel_sha256": "381259ad40e9903e6d43a61ff532159a613b71c65291e6a50cded6363afe0022"
+					},
+					"res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_roughness.png": {
+						"actual_pixel_sha256": "54fb29c783e6be731633aaf02369d57ef5e22c3307e288e58ada33312e7a72fe",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_roughness.png",
+						"png_sha256": "6d6dd5c76f4b30e7da77973fdebc66f9cbbca179f667853695b8add33accfa32",
+						"source_pixel_sha256": "54fb29c783e6be731633aaf02369d57ef5e22c3307e288e58ada33312e7a72fe"
+					}
+				},
+				"material_count": 8,
+				"material_roles": [
+					"Detailed_Sleeve",
+					"Detailed_Trim",
+					"Detailed_Glove",
+					"Detailed_Glove_Fingers"
+				],
+				"minimum_bound_texture_size": [
+					4096,
+					4096
+				],
+				"passed": true,
+				"rendered_surface_count": 16
+			},
+			"controls_canvas_layer": 70,
+			"controls_visible": false,
+			"image": "fist.png",
+			"image_sha256": "ab0eef80f8f1148404a80cb6e7b0fb83c23b62719c26ca7420333ed518168bd3",
+			"passed": true,
+			"pose": "fist",
+			"review": {
+				"active": true,
+				"hands": {
+					"-1": {
+						"angles_radians": {
+							"index": "(-1.570796, -1.919862, -1.396263)",
+							"little": "(-1.570796, -1.919862, -1.396263)",
+							"middle": "(-1.570796, -1.919862, -1.396263)",
+							"ring": "(-1.570796, -1.919862, -1.396263)",
+							"thumb": "(-1.047198, -1.22173, -1.396263)"
+						},
+						"corrective_available": true,
+						"flexion": {
+							"index": "(1.0, 1.0, 1.0)",
+							"little": "(1.0, 1.0, 1.0)",
+							"middle": "(1.0, 1.0, 1.0)",
+							"ring": "(1.0, 1.0, 1.0)",
+							"thumb": "(1.0, 1.0, 1.0)"
+						},
+						"limits_radians": {
+							"index": "(1.570796, 1.919862, 1.396263)",
+							"little": "(1.570796, 1.919862, 1.396263)",
+							"middle": "(1.570796, 1.919862, 1.396263)",
+							"ring": "(1.570796, 1.919862, 1.396263)",
+							"thumb": "(1.047198, 1.22173, 1.396263)"
+						},
+						"morph_count": 15,
+						"morph_values": {
+							"Joint_index_0": 1.0,
+							"Joint_index_1": 1.0,
+							"Joint_index_2": 1.0,
+							"Joint_little_0": 1.0,
+							"Joint_little_1": 1.0,
+							"Joint_little_2": 1.0,
+							"Joint_middle_0": 1.0,
+							"Joint_middle_1": 1.0,
+							"Joint_middle_2": 1.0,
+							"Joint_ring_0": 1.0,
+							"Joint_ring_1": 1.0,
+							"Joint_ring_2": 1.0,
+							"Joint_thumb_0": 1.0,
+							"Joint_thumb_1": 1.0,
+							"Joint_thumb_2": 1.0
+						},
+						"ready": true
+					},
+					"1": {
+						"angles_radians": {
+							"index": "(-1.570796, -1.919862, -1.396263)",
+							"little": "(-1.570796, -1.919862, -1.396263)",
+							"middle": "(-1.570796, -1.919862, -1.396263)",
+							"ring": "(-1.570796, -1.919862, -1.396263)",
+							"thumb": "(-1.047198, -1.22173, -1.396263)"
+						},
+						"corrective_available": true,
+						"flexion": {
+							"index": "(1.0, 1.0, 1.0)",
+							"little": "(1.0, 1.0, 1.0)",
+							"middle": "(1.0, 1.0, 1.0)",
+							"ring": "(1.0, 1.0, 1.0)",
+							"thumb": "(1.0, 1.0, 1.0)"
+						},
+						"limits_radians": {
+							"index": "(1.570796, 1.919862, 1.396263)",
+							"little": "(1.570796, 1.919862, 1.396263)",
+							"middle": "(1.570796, 1.919862, 1.396263)",
+							"ring": "(1.570796, 1.919862, 1.396263)",
+							"thumb": "(1.047198, 1.22173, 1.396263)"
+						},
+						"morph_count": 15,
+						"morph_values": {
+							"Joint_index_0": 1.0,
+							"Joint_index_1": 1.0,
+							"Joint_index_2": 1.0,
+							"Joint_little_0": 1.0,
+							"Joint_little_1": 1.0,
+							"Joint_little_2": 1.0,
+							"Joint_middle_0": 1.0,
+							"Joint_middle_1": 1.0,
+							"Joint_middle_2": 1.0,
+							"Joint_ring_0": 1.0,
+							"Joint_ring_1": 1.0,
+							"Joint_ring_2": 1.0,
+							"Joint_thumb_0": 1.0,
+							"Joint_thumb_1": 1.0,
+							"Joint_thumb_2": 1.0
+						},
+						"ready": true
+					}
+				},
+				"previous_profile": "detailed",
+				"profile": "detailed",
+				"values": {
+					"-1": {
+						"index": "(1.0, 1.0, 1.0)",
+						"little": "(1.0, 1.0, 1.0)",
+						"middle": "(1.0, 1.0, 1.0)",
+						"ring": "(1.0, 1.0, 1.0)",
+						"thumb": "(1.0, 1.0, 1.0)"
+					},
+					"1": {
+						"index": "(1.0, 1.0, 1.0)",
+						"little": "(1.0, 1.0, 1.0)",
+						"middle": "(1.0, 1.0, 1.0)",
+						"ring": "(1.0, 1.0, 1.0)",
+						"thumb": "(1.0, 1.0, 1.0)"
+					}
+				},
+				"view": "dorsal"
+			},
+			"view_selector_index": 0,
+			"wrist_gpu_buffers": {
+				"passed": true,
+				"readback": "ArrayMesh.surface_get_arrays after RenderingServer.force_draw",
+				"wrists": [
+					{
+						"arm": "LeftSupportArm",
+						"invalid_tangents": 0,
+						"invalid_vertex_count": 0,
+						"max_normal_error": 0.000129269668832421,
+						"max_position_error_m": 0.0,
+						"minimum_jacobian_determinant": 0.476077735424042,
+						"passed": true,
+						"vertex_count": 5170
+					},
+					{
+						"arm": "RightRelaxedArm",
+						"invalid_tangents": 0,
+						"invalid_vertex_count": 0,
+						"max_normal_error": 0.000129265157738701,
+						"max_position_error_m": 0.0,
+						"minimum_jacobian_determinant": 0.366736024618149,
+						"passed": true,
+						"vertex_count": 5172
+					}
+				]
+			}
+		},
+		{
+			"actual_pbr_bindings": {
+				"actual_full_glove_coverage": {
+					"/root/PlayerFingerJointsPreviewViewport/PlayerArmPreviewStage/Player/Head/PlayerCamera/FreeHandPresentation/LeftSupportArm": {
+						"digits": {
+							"index": {
+								"actual_distal_cap_vertices": 381,
+								"cap_depth_m": 0.0118636153638363,
+								"cap_width_m": 0.0148471053689718,
+								"forward_cap_normals": 282,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0224045664072037
+							},
+							"little": {
+								"actual_distal_cap_vertices": 415,
+								"cap_depth_m": 0.0106381736695766,
+								"cap_width_m": 0.0120019428431988,
+								"forward_cap_normals": 269,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0235975682735443
+							},
+							"middle": {
+								"actual_distal_cap_vertices": 337,
+								"cap_depth_m": 0.0124066025018692,
+								"cap_width_m": 0.0151730878278613,
+								"forward_cap_normals": 244,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0248235315084457
+							},
+							"ring": {
+								"actual_distal_cap_vertices": 369,
+								"cap_depth_m": 0.012065015733242,
+								"cap_width_m": 0.0144979255273938,
+								"forward_cap_normals": 262,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0233172476291656
+							},
+							"thumb": {
+								"actual_distal_cap_vertices": 265,
+								"cap_depth_m": 0.0164820440113544,
+								"cap_width_m": 0.0159133970737457,
+								"forward_cap_normals": 225,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0334809273481369
+							}
+						},
+						"material_roles": [
+							"Detailed_Sleeve",
+							"Detailed_Trim",
+							"Detailed_Glove_Fingers",
+							"Detailed_Glove"
+						],
+						"passed": true,
+						"problems": [],
+						"scope": "Actual imported finger leather cap vertices, bone weights and normals; no exposed skin or standalone nails"
+					},
+					"/root/PlayerFingerJointsPreviewViewport/PlayerArmPreviewStage/Player/Head/PlayerCamera/WeaponPivot/CharacterArm": {
+						"digits": {
+							"index": {
+								"actual_distal_cap_vertices": 396,
+								"cap_depth_m": 0.012250792235136,
+								"cap_width_m": 0.0148884635418653,
+								"forward_cap_normals": 291,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0223920047283173
+							},
+							"little": {
+								"actual_distal_cap_vertices": 412,
+								"cap_depth_m": 0.010686706751585,
+								"cap_width_m": 0.0119741335511208,
+								"forward_cap_normals": 271,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0235840082168579
+							},
+							"middle": {
+								"actual_distal_cap_vertices": 330,
+								"cap_depth_m": 0.0124177150428295,
+								"cap_width_m": 0.0152377029880881,
+								"forward_cap_normals": 244,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0248158276081085
+							},
+							"ring": {
+								"actual_distal_cap_vertices": 352,
+								"cap_depth_m": 0.0118535123765469,
+								"cap_width_m": 0.0145852956920862,
+								"forward_cap_normals": 278,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0233237445354462
+							},
+							"thumb": {
+								"actual_distal_cap_vertices": 261,
+								"cap_depth_m": 0.0164019018411636,
+								"cap_width_m": 0.015961516648531,
+								"forward_cap_normals": 220,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0334876701235771
+							}
+						},
+						"material_roles": [
+							"Detailed_Sleeve",
+							"Detailed_Trim",
+							"Detailed_Glove_Fingers",
+							"Detailed_Glove"
+						],
+						"passed": true,
+						"problems": [],
+						"scope": "Actual imported finger leather cap vertices, bone weights and normals; no exposed skin or standalone nails"
+					}
+				},
+				"binding_source": "Live MeshInstance3D active glove materials and actual cap geometry; bound 4K pixels equal extracted PNGs covered by source hashes",
+				"bound_texture_pixels": {
+					"res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_basecolor.png": {
+						"actual_pixel_sha256": "4371528f25c10f2ff6133dafed2e8b2e0f3497e0b94ee8b9263eb17ba2d29a72",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_basecolor.png",
+						"png_sha256": "b6c1eadbbbf4bf305afa1c51d286fc2bd8584b56217ffff1eeb7cfb6858630d8",
+						"source_pixel_sha256": "4371528f25c10f2ff6133dafed2e8b2e0f3497e0b94ee8b9263eb17ba2d29a72"
+					},
+					"res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_normal.png": {
+						"actual_pixel_sha256": "381259ad40e9903e6d43a61ff532159a613b71c65291e6a50cded6363afe0022",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_normal.png",
+						"png_sha256": "24d9699b7e78dd7da94911175e9a4dd6719951eb639e2cdb67f186391546cfb3",
+						"source_pixel_sha256": "381259ad40e9903e6d43a61ff532159a613b71c65291e6a50cded6363afe0022"
+					},
+					"res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_roughness.png": {
+						"actual_pixel_sha256": "54fb29c783e6be731633aaf02369d57ef5e22c3307e288e58ada33312e7a72fe",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_roughness.png",
+						"png_sha256": "6d6dd5c76f4b30e7da77973fdebc66f9cbbca179f667853695b8add33accfa32",
+						"source_pixel_sha256": "54fb29c783e6be731633aaf02369d57ef5e22c3307e288e58ada33312e7a72fe"
+					},
+					"res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_basecolor.png": {
+						"actual_pixel_sha256": "4371528f25c10f2ff6133dafed2e8b2e0f3497e0b94ee8b9263eb17ba2d29a72",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_basecolor.png",
+						"png_sha256": "b6c1eadbbbf4bf305afa1c51d286fc2bd8584b56217ffff1eeb7cfb6858630d8",
+						"source_pixel_sha256": "4371528f25c10f2ff6133dafed2e8b2e0f3497e0b94ee8b9263eb17ba2d29a72"
+					},
+					"res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_normal.png": {
+						"actual_pixel_sha256": "381259ad40e9903e6d43a61ff532159a613b71c65291e6a50cded6363afe0022",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_normal.png",
+						"png_sha256": "24d9699b7e78dd7da94911175e9a4dd6719951eb639e2cdb67f186391546cfb3",
+						"source_pixel_sha256": "381259ad40e9903e6d43a61ff532159a613b71c65291e6a50cded6363afe0022"
+					},
+					"res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_roughness.png": {
+						"actual_pixel_sha256": "54fb29c783e6be731633aaf02369d57ef5e22c3307e288e58ada33312e7a72fe",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_roughness.png",
+						"png_sha256": "6d6dd5c76f4b30e7da77973fdebc66f9cbbca179f667853695b8add33accfa32",
+						"source_pixel_sha256": "54fb29c783e6be731633aaf02369d57ef5e22c3307e288e58ada33312e7a72fe"
+					}
+				},
+				"material_count": 8,
+				"material_roles": [
+					"Detailed_Sleeve",
+					"Detailed_Trim",
+					"Detailed_Glove",
+					"Detailed_Glove_Fingers"
+				],
+				"minimum_bound_texture_size": [
+					4096,
+					4096
+				],
+				"passed": true,
+				"rendered_surface_count": 16
+			},
+			"arrow_count": 12,
+			"bow_draw_ratio": 1.0,
+			"bow_drawing": true,
+			"chest_phase": "idle",
+			"controls_canvas_layer": 70,
+			"detailed": {
+				"chest_detailed_count": 2,
+				"detailed_arm_count": 4,
+				"enabled": true,
+				"generic_arm_count": 4,
+				"profile": "detailed",
+				"sources_available": true
+			},
+			"image": "bow_draw.png",
+			"image_sha256": "ba906e9460f037496f40627f7f37fdffc3b7dd2142871f82ac0fcac2483c3d81",
+			"independent_review_inactive": true,
+			"offhand": "",
+			"passed": true,
+			"pose": "bow_draw",
+			"weapon": "hunting_bow",
+			"wrist_gpu_buffers": {
+				"passed": true,
+				"readback": "ArrayMesh.surface_get_arrays after RenderingServer.force_draw",
+				"wrists": [
+					{
+						"arm": "LeftSupportArm",
+						"invalid_tangents": 0,
+						"invalid_vertex_count": 0,
+						"max_normal_error": 0.000129269668832421,
+						"max_position_error_m": 0.0,
+						"minimum_jacobian_determinant": 0.0926427394151688,
+						"passed": true,
+						"vertex_count": 5170
+					},
+					{
+						"arm": "CharacterArm",
+						"invalid_tangents": 0,
+						"invalid_vertex_count": 0,
+						"max_normal_error": 0.000129265157738701,
+						"max_position_error_m": 0.0,
+						"minimum_jacobian_determinant": 0.811370849609375,
+						"passed": true,
+						"vertex_count": 5172
+					}
+				]
+			}
+		},
+		{
+			"actual_pbr_bindings": {
+				"actual_full_glove_coverage": {
+					"/root/PlayerFingerJointsPreviewViewport/PlayerArmPreviewStage/Player/ChestHands/LeftBareHand/CharacterArm": {
+						"digits": {
+							"index": {
+								"actual_distal_cap_vertices": 381,
+								"cap_depth_m": 0.0118636153638363,
+								"cap_width_m": 0.0148471053689718,
+								"forward_cap_normals": 282,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0224045664072037
+							},
+							"little": {
+								"actual_distal_cap_vertices": 415,
+								"cap_depth_m": 0.0106381736695766,
+								"cap_width_m": 0.0120019428431988,
+								"forward_cap_normals": 269,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0235975682735443
+							},
+							"middle": {
+								"actual_distal_cap_vertices": 337,
+								"cap_depth_m": 0.0124066025018692,
+								"cap_width_m": 0.0151730878278613,
+								"forward_cap_normals": 244,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0248235315084457
+							},
+							"ring": {
+								"actual_distal_cap_vertices": 369,
+								"cap_depth_m": 0.012065015733242,
+								"cap_width_m": 0.0144979255273938,
+								"forward_cap_normals": 262,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0233172476291656
+							},
+							"thumb": {
+								"actual_distal_cap_vertices": 265,
+								"cap_depth_m": 0.0164820440113544,
+								"cap_width_m": 0.0159133970737457,
+								"forward_cap_normals": 225,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0334809273481369
+							}
+						},
+						"material_roles": [
+							"Detailed_Sleeve",
+							"Detailed_Trim",
+							"Detailed_Glove_Fingers",
+							"Detailed_Glove"
+						],
+						"passed": true,
+						"problems": [],
+						"scope": "Actual imported finger leather cap vertices, bone weights and normals; no exposed skin or standalone nails"
+					},
+					"/root/PlayerFingerJointsPreviewViewport/PlayerArmPreviewStage/Player/ChestHands/RightBareHand/CharacterArm": {
+						"digits": {
+							"index": {
+								"actual_distal_cap_vertices": 396,
+								"cap_depth_m": 0.012250792235136,
+								"cap_width_m": 0.0148884635418653,
+								"forward_cap_normals": 291,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0223920047283173
+							},
+							"little": {
+								"actual_distal_cap_vertices": 412,
+								"cap_depth_m": 0.010686706751585,
+								"cap_width_m": 0.0119741335511208,
+								"forward_cap_normals": 271,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0235840082168579
+							},
+							"middle": {
+								"actual_distal_cap_vertices": 330,
+								"cap_depth_m": 0.0124177150428295,
+								"cap_width_m": 0.0152377029880881,
+								"forward_cap_normals": 244,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0248158276081085
+							},
+							"ring": {
+								"actual_distal_cap_vertices": 352,
+								"cap_depth_m": 0.0118535123765469,
+								"cap_width_m": 0.0145852956920862,
+								"forward_cap_normals": 278,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0233237445354462
+							},
+							"thumb": {
+								"actual_distal_cap_vertices": 261,
+								"cap_depth_m": 0.0164019018411636,
+								"cap_width_m": 0.015961516648531,
+								"forward_cap_normals": 220,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0334876701235771
+							}
+						},
+						"material_roles": [
+							"Detailed_Sleeve",
+							"Detailed_Trim",
+							"Detailed_Glove_Fingers",
+							"Detailed_Glove"
+						],
+						"passed": true,
+						"problems": [],
+						"scope": "Actual imported finger leather cap vertices, bone weights and normals; no exposed skin or standalone nails"
+					}
+				},
+				"binding_source": "Live MeshInstance3D active glove materials and actual cap geometry; bound 4K pixels equal extracted PNGs covered by source hashes",
+				"bound_texture_pixels": {
+					"res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_basecolor.png": {
+						"actual_pixel_sha256": "4371528f25c10f2ff6133dafed2e8b2e0f3497e0b94ee8b9263eb17ba2d29a72",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_basecolor.png",
+						"png_sha256": "b6c1eadbbbf4bf305afa1c51d286fc2bd8584b56217ffff1eeb7cfb6858630d8",
+						"source_pixel_sha256": "4371528f25c10f2ff6133dafed2e8b2e0f3497e0b94ee8b9263eb17ba2d29a72"
+					},
+					"res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_normal.png": {
+						"actual_pixel_sha256": "381259ad40e9903e6d43a61ff532159a613b71c65291e6a50cded6363afe0022",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_normal.png",
+						"png_sha256": "24d9699b7e78dd7da94911175e9a4dd6719951eb639e2cdb67f186391546cfb3",
+						"source_pixel_sha256": "381259ad40e9903e6d43a61ff532159a613b71c65291e6a50cded6363afe0022"
+					},
+					"res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_roughness.png": {
+						"actual_pixel_sha256": "54fb29c783e6be731633aaf02369d57ef5e22c3307e288e58ada33312e7a72fe",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_roughness.png",
+						"png_sha256": "6d6dd5c76f4b30e7da77973fdebc66f9cbbca179f667853695b8add33accfa32",
+						"source_pixel_sha256": "54fb29c783e6be731633aaf02369d57ef5e22c3307e288e58ada33312e7a72fe"
+					},
+					"res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_basecolor.png": {
+						"actual_pixel_sha256": "4371528f25c10f2ff6133dafed2e8b2e0f3497e0b94ee8b9263eb17ba2d29a72",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_basecolor.png",
+						"png_sha256": "b6c1eadbbbf4bf305afa1c51d286fc2bd8584b56217ffff1eeb7cfb6858630d8",
+						"source_pixel_sha256": "4371528f25c10f2ff6133dafed2e8b2e0f3497e0b94ee8b9263eb17ba2d29a72"
+					},
+					"res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_normal.png": {
+						"actual_pixel_sha256": "381259ad40e9903e6d43a61ff532159a613b71c65291e6a50cded6363afe0022",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_normal.png",
+						"png_sha256": "24d9699b7e78dd7da94911175e9a4dd6719951eb639e2cdb67f186391546cfb3",
+						"source_pixel_sha256": "381259ad40e9903e6d43a61ff532159a613b71c65291e6a50cded6363afe0022"
+					},
+					"res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_roughness.png": {
+						"actual_pixel_sha256": "54fb29c783e6be731633aaf02369d57ef5e22c3307e288e58ada33312e7a72fe",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_roughness.png",
+						"png_sha256": "6d6dd5c76f4b30e7da77973fdebc66f9cbbca179f667853695b8add33accfa32",
+						"source_pixel_sha256": "54fb29c783e6be731633aaf02369d57ef5e22c3307e288e58ada33312e7a72fe"
+					}
+				},
+				"material_count": 8,
+				"material_roles": [
+					"Detailed_Sleeve",
+					"Detailed_Trim",
+					"Detailed_Glove",
+					"Detailed_Glove_Fingers"
+				],
+				"minimum_bound_texture_size": [
+					4096,
+					4096
+				],
+				"passed": true,
+				"rendered_surface_count": 16
+			},
+			"arrow_count": 12,
+			"bow_draw_ratio": 0.0,
+			"bow_drawing": false,
+			"chest_phase": "fidget",
+			"controls_canvas_layer": 70,
+			"detailed": {
+				"chest_detailed_count": 2,
+				"detailed_arm_count": 4,
+				"enabled": true,
+				"generic_arm_count": 4,
+				"profile": "detailed",
+				"sources_available": true
+			},
+			"hand_contact_distances": [
+				0.00429856684058905,
+				0.00917764287441969
+			],
+			"image": "chest_touch.png",
+			"image_sha256": "419bbd047e361c7fc331dbed69b07093a8a9244bc32ebb360f4f2a19e13191a0",
+			"independent_review_inactive": true,
+			"offhand": "",
+			"passed": true,
+			"pose": "chest_touch",
+			"weapon": "rusted_sword",
+			"wrist_gpu_buffers": {
+				"passed": true,
+				"readback": "ArrayMesh.surface_get_arrays after RenderingServer.force_draw",
+				"wrists": [
+					{
+						"arm": "CharacterArm",
+						"invalid_tangents": 0,
+						"invalid_vertex_count": 0,
+						"max_normal_error": 0.000129269668832421,
+						"max_position_error_m": 0.0,
+						"minimum_jacobian_determinant": 0.705101191997528,
+						"passed": true,
+						"vertex_count": 5170
+					},
+					{
+						"arm": "CharacterArm",
+						"invalid_tangents": 0,
+						"invalid_vertex_count": 0,
+						"max_normal_error": 0.000129265157738701,
+						"max_position_error_m": 0.0,
+						"minimum_jacobian_determinant": 0.0322463810443878,
+						"passed": true,
+						"vertex_count": 5172
+					}
+				]
+			}
+		},
+		{
+			"actual_pbr_bindings": {
+				"actual_full_glove_coverage": {
+					"/root/PlayerFingerJointsPreviewViewport/PlayerArmPreviewStage/Player/Head/PlayerCamera/FreeHandPresentation/LeftSupportArm": {
+						"digits": {
+							"index": {
+								"actual_distal_cap_vertices": 381,
+								"cap_depth_m": 0.0118636153638363,
+								"cap_width_m": 0.0148471053689718,
+								"forward_cap_normals": 282,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0224045664072037
+							},
+							"little": {
+								"actual_distal_cap_vertices": 415,
+								"cap_depth_m": 0.0106381736695766,
+								"cap_width_m": 0.0120019428431988,
+								"forward_cap_normals": 269,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0235975682735443
+							},
+							"middle": {
+								"actual_distal_cap_vertices": 337,
+								"cap_depth_m": 0.0124066025018692,
+								"cap_width_m": 0.0151730878278613,
+								"forward_cap_normals": 244,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0248235315084457
+							},
+							"ring": {
+								"actual_distal_cap_vertices": 369,
+								"cap_depth_m": 0.012065015733242,
+								"cap_width_m": 0.0144979255273938,
+								"forward_cap_normals": 262,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0233172476291656
+							},
+							"thumb": {
+								"actual_distal_cap_vertices": 265,
+								"cap_depth_m": 0.0164820440113544,
+								"cap_width_m": 0.0159133970737457,
+								"forward_cap_normals": 225,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0334809273481369
+							}
+						},
+						"material_roles": [
+							"Detailed_Sleeve",
+							"Detailed_Trim",
+							"Detailed_Glove_Fingers",
+							"Detailed_Glove"
+						],
+						"passed": true,
+						"problems": [],
+						"scope": "Actual imported finger leather cap vertices, bone weights and normals; no exposed skin or standalone nails"
+					},
+					"/root/PlayerFingerJointsPreviewViewport/PlayerArmPreviewStage/Player/Head/PlayerCamera/FreeHandPresentation/RightRelaxedArm": {
+						"digits": {
+							"index": {
+								"actual_distal_cap_vertices": 396,
+								"cap_depth_m": 0.012250792235136,
+								"cap_width_m": 0.0148884635418653,
+								"forward_cap_normals": 291,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0223920047283173
+							},
+							"little": {
+								"actual_distal_cap_vertices": 412,
+								"cap_depth_m": 0.010686706751585,
+								"cap_width_m": 0.0119741335511208,
+								"forward_cap_normals": 271,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0235840082168579
+							},
+							"middle": {
+								"actual_distal_cap_vertices": 330,
+								"cap_depth_m": 0.0124177150428295,
+								"cap_width_m": 0.0152377029880881,
+								"forward_cap_normals": 244,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0248158276081085
+							},
+							"ring": {
+								"actual_distal_cap_vertices": 352,
+								"cap_depth_m": 0.0118535123765469,
+								"cap_width_m": 0.0145852956920862,
+								"forward_cap_normals": 278,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0233237445354462
+							},
+							"thumb": {
+								"actual_distal_cap_vertices": 261,
+								"cap_depth_m": 0.0164019018411636,
+								"cap_width_m": 0.015961516648531,
+								"forward_cap_normals": 220,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0334876701235771
+							}
+						},
+						"material_roles": [
+							"Detailed_Sleeve",
+							"Detailed_Trim",
+							"Detailed_Glove_Fingers",
+							"Detailed_Glove"
+						],
+						"passed": true,
+						"problems": [],
+						"scope": "Actual imported finger leather cap vertices, bone weights and normals; no exposed skin or standalone nails"
+					}
+				},
+				"binding_source": "Live MeshInstance3D active glove materials and actual cap geometry; bound 4K pixels equal extracted PNGs covered by source hashes",
+				"bound_texture_pixels": {
+					"res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_basecolor.png": {
+						"actual_pixel_sha256": "4371528f25c10f2ff6133dafed2e8b2e0f3497e0b94ee8b9263eb17ba2d29a72",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_basecolor.png",
+						"png_sha256": "b6c1eadbbbf4bf305afa1c51d286fc2bd8584b56217ffff1eeb7cfb6858630d8",
+						"source_pixel_sha256": "4371528f25c10f2ff6133dafed2e8b2e0f3497e0b94ee8b9263eb17ba2d29a72"
+					},
+					"res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_normal.png": {
+						"actual_pixel_sha256": "381259ad40e9903e6d43a61ff532159a613b71c65291e6a50cded6363afe0022",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_normal.png",
+						"png_sha256": "24d9699b7e78dd7da94911175e9a4dd6719951eb639e2cdb67f186391546cfb3",
+						"source_pixel_sha256": "381259ad40e9903e6d43a61ff532159a613b71c65291e6a50cded6363afe0022"
+					},
+					"res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_roughness.png": {
+						"actual_pixel_sha256": "54fb29c783e6be731633aaf02369d57ef5e22c3307e288e58ada33312e7a72fe",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_roughness.png",
+						"png_sha256": "6d6dd5c76f4b30e7da77973fdebc66f9cbbca179f667853695b8add33accfa32",
+						"source_pixel_sha256": "54fb29c783e6be731633aaf02369d57ef5e22c3307e288e58ada33312e7a72fe"
+					},
+					"res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_basecolor.png": {
+						"actual_pixel_sha256": "4371528f25c10f2ff6133dafed2e8b2e0f3497e0b94ee8b9263eb17ba2d29a72",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_basecolor.png",
+						"png_sha256": "b6c1eadbbbf4bf305afa1c51d286fc2bd8584b56217ffff1eeb7cfb6858630d8",
+						"source_pixel_sha256": "4371528f25c10f2ff6133dafed2e8b2e0f3497e0b94ee8b9263eb17ba2d29a72"
+					},
+					"res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_normal.png": {
+						"actual_pixel_sha256": "381259ad40e9903e6d43a61ff532159a613b71c65291e6a50cded6363afe0022",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_normal.png",
+						"png_sha256": "24d9699b7e78dd7da94911175e9a4dd6719951eb639e2cdb67f186391546cfb3",
+						"source_pixel_sha256": "381259ad40e9903e6d43a61ff532159a613b71c65291e6a50cded6363afe0022"
+					},
+					"res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_roughness.png": {
+						"actual_pixel_sha256": "54fb29c783e6be731633aaf02369d57ef5e22c3307e288e58ada33312e7a72fe",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_roughness.png",
+						"png_sha256": "6d6dd5c76f4b30e7da77973fdebc66f9cbbca179f667853695b8add33accfa32",
+						"source_pixel_sha256": "54fb29c783e6be731633aaf02369d57ef5e22c3307e288e58ada33312e7a72fe"
+					}
+				},
+				"material_count": 8,
+				"material_roles": [
+					"Detailed_Sleeve",
+					"Detailed_Trim",
+					"Detailed_Glove",
+					"Detailed_Glove_Fingers"
+				],
+				"minimum_bound_texture_size": [
+					4096,
+					4096
+				],
+				"passed": true,
+				"rendered_surface_count": 16
+			},
+			"controls_canvas_layer": 70,
+			"controls_visible": true,
+			"image": "controls.png",
+			"image_sha256": "54209d7292eb676abc224021dfb1c1d65275e9bdd78048a4fe6a99e64b61250a",
+			"passed": true,
+			"pose": "controls",
+			"review": {
+				"active": true,
+				"hands": {
+					"-1": {
+						"angles_radians": {
+							"index": "(0.0, -1.24791, 0.0)",
+							"little": "(0.0, 0.0, 0.0)",
+							"middle": "(0.0, 0.0, 0.0)",
+							"ring": "(0.0, 0.0, 0.0)",
+							"thumb": "(0.0, 0.0, 0.0)"
+						},
+						"corrective_available": true,
+						"flexion": {
+							"index": "(0.0, 0.65, 0.0)",
+							"little": "(0.0, 0.0, 0.0)",
+							"middle": "(0.0, 0.0, 0.0)",
+							"ring": "(0.0, 0.0, 0.0)",
+							"thumb": "(0.0, 0.0, 0.0)"
+						},
+						"limits_radians": {
+							"index": "(1.570796, 1.919862, 1.396263)",
+							"little": "(1.570796, 1.919862, 1.396263)",
+							"middle": "(1.570796, 1.919862, 1.396263)",
+							"ring": "(1.570796, 1.919862, 1.396263)",
+							"thumb": "(1.047198, 1.22173, 1.396263)"
+						},
+						"morph_count": 15,
+						"morph_values": {
+							"Joint_index_0": 0.0,
+							"Joint_index_1": 0.649999976158142,
+							"Joint_index_2": 0.0,
+							"Joint_little_0": 0.0,
+							"Joint_little_1": 0.0,
+							"Joint_little_2": 0.0,
+							"Joint_middle_0": 0.0,
+							"Joint_middle_1": 0.0,
+							"Joint_middle_2": 0.0,
+							"Joint_ring_0": 0.0,
+							"Joint_ring_1": 0.0,
+							"Joint_ring_2": 0.0,
+							"Joint_thumb_0": 0.0,
+							"Joint_thumb_1": 0.0,
+							"Joint_thumb_2": 0.0
+						},
+						"ready": true
+					},
+					"1": {
+						"angles_radians": {
+							"index": "(0.0, 0.0, 0.0)",
+							"little": "(0.0, 0.0, 0.0)",
+							"middle": "(0.0, 0.0, 0.0)",
+							"ring": "(0.0, 0.0, 0.0)",
+							"thumb": "(0.0, 0.0, 0.0)"
+						},
+						"corrective_available": true,
+						"flexion": {
+							"index": "(0.0, 0.0, 0.0)",
+							"little": "(0.0, 0.0, 0.0)",
+							"middle": "(0.0, 0.0, 0.0)",
+							"ring": "(0.0, 0.0, 0.0)",
+							"thumb": "(0.0, 0.0, 0.0)"
+						},
+						"limits_radians": {
+							"index": "(1.570796, 1.919862, 1.396263)",
+							"little": "(1.570796, 1.919862, 1.396263)",
+							"middle": "(1.570796, 1.919862, 1.396263)",
+							"ring": "(1.570796, 1.919862, 1.396263)",
+							"thumb": "(1.047198, 1.22173, 1.396263)"
+						},
+						"morph_count": 15,
+						"morph_values": {
+							"Joint_index_0": 0.0,
+							"Joint_index_1": 0.0,
+							"Joint_index_2": 0.0,
+							"Joint_little_0": 0.0,
+							"Joint_little_1": 0.0,
+							"Joint_little_2": 0.0,
+							"Joint_middle_0": 0.0,
+							"Joint_middle_1": 0.0,
+							"Joint_middle_2": 0.0,
+							"Joint_ring_0": 0.0,
+							"Joint_ring_1": 0.0,
+							"Joint_ring_2": 0.0,
+							"Joint_thumb_0": 0.0,
+							"Joint_thumb_1": 0.0,
+							"Joint_thumb_2": 0.0
+						},
+						"ready": true
+					}
+				},
+				"previous_profile": "detailed",
+				"profile": "detailed",
+				"values": {
+					"-1": {
+						"index": "(0.0, 0.65, 0.0)",
+						"little": "(0.0, 0.0, 0.0)",
+						"middle": "(0.0, 0.0, 0.0)",
+						"ring": "(0.0, 0.0, 0.0)",
+						"thumb": "(0.0, 0.0, 0.0)"
+					},
+					"1": {
+						"index": "(0.0, 0.0, 0.0)",
+						"little": "(0.0, 0.0, 0.0)",
+						"middle": "(0.0, 0.0, 0.0)",
+						"ring": "(0.0, 0.0, 0.0)",
+						"thumb": "(0.0, 0.0, 0.0)"
+					}
+				},
+				"view": "dorsal"
+			},
+			"view_selector_index": 0,
+			"wrist_gpu_buffers": {
+				"passed": true,
+				"readback": "ArrayMesh.surface_get_arrays after RenderingServer.force_draw",
+				"wrists": [
+					{
+						"arm": "LeftSupportArm",
+						"invalid_tangents": 0,
+						"invalid_vertex_count": 0,
+						"max_normal_error": 0.000129269668832421,
+						"max_position_error_m": 0.0,
+						"minimum_jacobian_determinant": 0.476077735424042,
+						"passed": true,
+						"vertex_count": 5170
+					},
+					{
+						"arm": "RightRelaxedArm",
+						"invalid_tangents": 0,
+						"invalid_vertex_count": 0,
+						"max_normal_error": 0.000129265157738701,
+						"max_position_error_m": 0.0,
+						"minimum_jacobian_determinant": 0.366736024618149,
+						"passed": true,
+						"vertex_count": 5172
+					}
+				]
+			}
+		},
+		{
+			"actual_pbr_bindings": {
+				"actual_full_glove_coverage": {
+					"/root/PlayerFingerJointsPreviewViewport/PlayerArmPreviewStage/Player/Head/PlayerCamera/FreeHandPresentation/LeftSupportArm": {
+						"digits": {
+							"index": {
+								"actual_distal_cap_vertices": 381,
+								"cap_depth_m": 0.0118636153638363,
+								"cap_width_m": 0.0148471053689718,
+								"forward_cap_normals": 282,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0224045664072037
+							},
+							"little": {
+								"actual_distal_cap_vertices": 415,
+								"cap_depth_m": 0.0106381736695766,
+								"cap_width_m": 0.0120019428431988,
+								"forward_cap_normals": 269,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0235975682735443
+							},
+							"middle": {
+								"actual_distal_cap_vertices": 337,
+								"cap_depth_m": 0.0124066025018692,
+								"cap_width_m": 0.0151730878278613,
+								"forward_cap_normals": 244,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0248235315084457
+							},
+							"ring": {
+								"actual_distal_cap_vertices": 369,
+								"cap_depth_m": 0.012065015733242,
+								"cap_width_m": 0.0144979255273938,
+								"forward_cap_normals": 262,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0233172476291656
+							},
+							"thumb": {
+								"actual_distal_cap_vertices": 265,
+								"cap_depth_m": 0.0164820440113544,
+								"cap_width_m": 0.0159133970737457,
+								"forward_cap_normals": 225,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0334809273481369
+							}
+						},
+						"material_roles": [
+							"Detailed_Sleeve",
+							"Detailed_Trim",
+							"Detailed_Glove_Fingers",
+							"Detailed_Glove"
+						],
+						"passed": true,
+						"problems": [],
+						"scope": "Actual imported finger leather cap vertices, bone weights and normals; no exposed skin or standalone nails"
+					},
+					"/root/PlayerFingerJointsPreviewViewport/PlayerArmPreviewStage/Player/Head/PlayerCamera/FreeHandPresentation/RightRelaxedArm": {
+						"digits": {
+							"index": {
+								"actual_distal_cap_vertices": 396,
+								"cap_depth_m": 0.012250792235136,
+								"cap_width_m": 0.0148884635418653,
+								"forward_cap_normals": 291,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0223920047283173
+							},
+							"little": {
+								"actual_distal_cap_vertices": 412,
+								"cap_depth_m": 0.010686706751585,
+								"cap_width_m": 0.0119741335511208,
+								"forward_cap_normals": 271,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0235840082168579
+							},
+							"middle": {
+								"actual_distal_cap_vertices": 330,
+								"cap_depth_m": 0.0124177150428295,
+								"cap_width_m": 0.0152377029880881,
+								"forward_cap_normals": 244,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0248158276081085
+							},
+							"ring": {
+								"actual_distal_cap_vertices": 352,
+								"cap_depth_m": 0.0118535123765469,
+								"cap_width_m": 0.0145852956920862,
+								"forward_cap_normals": 278,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0233237445354462
+							},
+							"thumb": {
+								"actual_distal_cap_vertices": 261,
+								"cap_depth_m": 0.0164019018411636,
+								"cap_width_m": 0.015961516648531,
+								"forward_cap_normals": 220,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0334876701235771
+							}
+						},
+						"material_roles": [
+							"Detailed_Sleeve",
+							"Detailed_Trim",
+							"Detailed_Glove_Fingers",
+							"Detailed_Glove"
+						],
+						"passed": true,
+						"problems": [],
+						"scope": "Actual imported finger leather cap vertices, bone weights and normals; no exposed skin or standalone nails"
+					}
+				},
+				"binding_source": "Live MeshInstance3D active glove materials and actual cap geometry; bound 4K pixels equal extracted PNGs covered by source hashes",
+				"bound_texture_pixels": {
+					"res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_basecolor.png": {
+						"actual_pixel_sha256": "4371528f25c10f2ff6133dafed2e8b2e0f3497e0b94ee8b9263eb17ba2d29a72",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_basecolor.png",
+						"png_sha256": "b6c1eadbbbf4bf305afa1c51d286fc2bd8584b56217ffff1eeb7cfb6858630d8",
+						"source_pixel_sha256": "4371528f25c10f2ff6133dafed2e8b2e0f3497e0b94ee8b9263eb17ba2d29a72"
+					},
+					"res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_normal.png": {
+						"actual_pixel_sha256": "381259ad40e9903e6d43a61ff532159a613b71c65291e6a50cded6363afe0022",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_normal.png",
+						"png_sha256": "24d9699b7e78dd7da94911175e9a4dd6719951eb639e2cdb67f186391546cfb3",
+						"source_pixel_sha256": "381259ad40e9903e6d43a61ff532159a613b71c65291e6a50cded6363afe0022"
+					},
+					"res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_roughness.png": {
+						"actual_pixel_sha256": "54fb29c783e6be731633aaf02369d57ef5e22c3307e288e58ada33312e7a72fe",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_roughness.png",
+						"png_sha256": "6d6dd5c76f4b30e7da77973fdebc66f9cbbca179f667853695b8add33accfa32",
+						"source_pixel_sha256": "54fb29c783e6be731633aaf02369d57ef5e22c3307e288e58ada33312e7a72fe"
+					},
+					"res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_basecolor.png": {
+						"actual_pixel_sha256": "4371528f25c10f2ff6133dafed2e8b2e0f3497e0b94ee8b9263eb17ba2d29a72",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_basecolor.png",
+						"png_sha256": "b6c1eadbbbf4bf305afa1c51d286fc2bd8584b56217ffff1eeb7cfb6858630d8",
+						"source_pixel_sha256": "4371528f25c10f2ff6133dafed2e8b2e0f3497e0b94ee8b9263eb17ba2d29a72"
+					},
+					"res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_normal.png": {
+						"actual_pixel_sha256": "381259ad40e9903e6d43a61ff532159a613b71c65291e6a50cded6363afe0022",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_normal.png",
+						"png_sha256": "24d9699b7e78dd7da94911175e9a4dd6719951eb639e2cdb67f186391546cfb3",
+						"source_pixel_sha256": "381259ad40e9903e6d43a61ff532159a613b71c65291e6a50cded6363afe0022"
+					},
+					"res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_roughness.png": {
+						"actual_pixel_sha256": "54fb29c783e6be731633aaf02369d57ef5e22c3307e288e58ada33312e7a72fe",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_roughness.png",
+						"png_sha256": "6d6dd5c76f4b30e7da77973fdebc66f9cbbca179f667853695b8add33accfa32",
+						"source_pixel_sha256": "54fb29c783e6be731633aaf02369d57ef5e22c3307e288e58ada33312e7a72fe"
+					}
+				},
+				"material_count": 8,
+				"material_roles": [
+					"Detailed_Sleeve",
+					"Detailed_Trim",
+					"Detailed_Glove",
+					"Detailed_Glove_Fingers"
+				],
+				"minimum_bound_texture_size": [
+					4096,
+					4096
+				],
+				"passed": true,
+				"rendered_surface_count": 16
+			},
+			"camera": "Separate private orthographic Camera3D; production camera is preserved",
+			"controls_visible": false,
+			"image": "glove_dorsal_neutral.png",
+			"image_sha256": "e441671853b38d51a506fd96f7caad2dbb9c131668377793612fa8162861bf86",
+			"lighting": {
+				"ambient_white": 0.55,
+				"fill_white": 0.45,
+				"key_white": 1.2
+			},
+			"orthographic_vertical_size_m": 0.234999999403954,
+			"passed": true,
+			"pose": "glove_dorsal_neutral",
+			"production_camera_hand_and_joint_values_preserved": true,
+			"purpose": "Neutral character material inspection; separate from unchanged gameplay lighting",
+			"subject": "Actual posed left full glove, including all covered fingertips; same live skeleton, materials and world",
+			"wrist_buffer_scope": "All scene-visible real hands, including the right hand outside this closeup",
+			"wrist_gpu_buffers": {
+				"passed": true,
+				"readback": "ArrayMesh.surface_get_arrays after RenderingServer.force_draw",
+				"wrists": [
+					{
+						"arm": "LeftSupportArm",
+						"invalid_tangents": 0,
+						"invalid_vertex_count": 0,
+						"max_normal_error": 0.000129269668832421,
+						"max_position_error_m": 0.0,
+						"minimum_jacobian_determinant": 0.476077735424042,
+						"passed": true,
+						"vertex_count": 5170
+					},
+					{
+						"arm": "RightRelaxedArm",
+						"invalid_tangents": 0,
+						"invalid_vertex_count": 0,
+						"max_normal_error": 0.000129265157738701,
+						"max_position_error_m": 0.0,
+						"minimum_jacobian_determinant": 0.366736024618149,
+						"passed": true,
+						"vertex_count": 5172
+					}
+				]
+			}
+		},
+		{
+			"actual_pbr_bindings": {
+				"actual_full_glove_coverage": {
+					"/root/PlayerFingerJointsPreviewViewport/PlayerArmPreviewStage/Player/Head/PlayerCamera/FreeHandPresentation/LeftSupportArm": {
+						"digits": {
+							"index": {
+								"actual_distal_cap_vertices": 381,
+								"cap_depth_m": 0.0118636153638363,
+								"cap_width_m": 0.0148471053689718,
+								"forward_cap_normals": 282,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0224045664072037
+							},
+							"little": {
+								"actual_distal_cap_vertices": 415,
+								"cap_depth_m": 0.0106381736695766,
+								"cap_width_m": 0.0120019428431988,
+								"forward_cap_normals": 269,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0235975682735443
+							},
+							"middle": {
+								"actual_distal_cap_vertices": 337,
+								"cap_depth_m": 0.0124066025018692,
+								"cap_width_m": 0.0151730878278613,
+								"forward_cap_normals": 244,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0248235315084457
+							},
+							"ring": {
+								"actual_distal_cap_vertices": 369,
+								"cap_depth_m": 0.012065015733242,
+								"cap_width_m": 0.0144979255273938,
+								"forward_cap_normals": 262,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0233172476291656
+							},
+							"thumb": {
+								"actual_distal_cap_vertices": 265,
+								"cap_depth_m": 0.0164820440113544,
+								"cap_width_m": 0.0159133970737457,
+								"forward_cap_normals": 225,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0334809273481369
+							}
+						},
+						"material_roles": [
+							"Detailed_Sleeve",
+							"Detailed_Trim",
+							"Detailed_Glove_Fingers",
+							"Detailed_Glove"
+						],
+						"passed": true,
+						"problems": [],
+						"scope": "Actual imported finger leather cap vertices, bone weights and normals; no exposed skin or standalone nails"
+					},
+					"/root/PlayerFingerJointsPreviewViewport/PlayerArmPreviewStage/Player/Head/PlayerCamera/FreeHandPresentation/RightRelaxedArm": {
+						"digits": {
+							"index": {
+								"actual_distal_cap_vertices": 396,
+								"cap_depth_m": 0.012250792235136,
+								"cap_width_m": 0.0148884635418653,
+								"forward_cap_normals": 291,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0223920047283173
+							},
+							"little": {
+								"actual_distal_cap_vertices": 412,
+								"cap_depth_m": 0.010686706751585,
+								"cap_width_m": 0.0119741335511208,
+								"forward_cap_normals": 271,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0235840082168579
+							},
+							"middle": {
+								"actual_distal_cap_vertices": 330,
+								"cap_depth_m": 0.0124177150428295,
+								"cap_width_m": 0.0152377029880881,
+								"forward_cap_normals": 244,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0248158276081085
+							},
+							"ring": {
+								"actual_distal_cap_vertices": 352,
+								"cap_depth_m": 0.0118535123765469,
+								"cap_width_m": 0.0145852956920862,
+								"forward_cap_normals": 278,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0233237445354462
+							},
+							"thumb": {
+								"actual_distal_cap_vertices": 261,
+								"cap_depth_m": 0.0164019018411636,
+								"cap_width_m": 0.015961516648531,
+								"forward_cap_normals": 220,
+								"passed": true,
+								"surface_material": "Detailed_Glove_Fingers",
+								"tip_from_distal_joint_m": 0.0334876701235771
+							}
+						},
+						"material_roles": [
+							"Detailed_Sleeve",
+							"Detailed_Trim",
+							"Detailed_Glove_Fingers",
+							"Detailed_Glove"
+						],
+						"passed": true,
+						"problems": [],
+						"scope": "Actual imported finger leather cap vertices, bone weights and normals; no exposed skin or standalone nails"
+					}
+				},
+				"binding_source": "Live MeshInstance3D active glove materials and actual cap geometry; bound 4K pixels equal extracted PNGs covered by source hashes",
+				"bound_texture_pixels": {
+					"res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_basecolor.png": {
+						"actual_pixel_sha256": "4371528f25c10f2ff6133dafed2e8b2e0f3497e0b94ee8b9263eb17ba2d29a72",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_basecolor.png",
+						"png_sha256": "b6c1eadbbbf4bf305afa1c51d286fc2bd8584b56217ffff1eeb7cfb6858630d8",
+						"source_pixel_sha256": "4371528f25c10f2ff6133dafed2e8b2e0f3497e0b94ee8b9263eb17ba2d29a72"
+					},
+					"res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_normal.png": {
+						"actual_pixel_sha256": "381259ad40e9903e6d43a61ff532159a613b71c65291e6a50cded6363afe0022",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_normal.png",
+						"png_sha256": "24d9699b7e78dd7da94911175e9a4dd6719951eb639e2cdb67f186391546cfb3",
+						"source_pixel_sha256": "381259ad40e9903e6d43a61ff532159a613b71c65291e6a50cded6363afe0022"
+					},
+					"res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_roughness.png": {
+						"actual_pixel_sha256": "54fb29c783e6be731633aaf02369d57ef5e22c3307e288e58ada33312e7a72fe",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_roughness.png",
+						"png_sha256": "6d6dd5c76f4b30e7da77973fdebc66f9cbbca179f667853695b8add33accfa32",
+						"source_pixel_sha256": "54fb29c783e6be731633aaf02369d57ef5e22c3307e288e58ada33312e7a72fe"
+					},
+					"res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_basecolor.png": {
+						"actual_pixel_sha256": "4371528f25c10f2ff6133dafed2e8b2e0f3497e0b94ee8b9263eb17ba2d29a72",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_basecolor.png",
+						"png_sha256": "b6c1eadbbbf4bf305afa1c51d286fc2bd8584b56217ffff1eeb7cfb6858630d8",
+						"source_pixel_sha256": "4371528f25c10f2ff6133dafed2e8b2e0f3497e0b94ee8b9263eb17ba2d29a72"
+					},
+					"res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_normal.png": {
+						"actual_pixel_sha256": "381259ad40e9903e6d43a61ff532159a613b71c65291e6a50cded6363afe0022",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_normal.png",
+						"png_sha256": "24d9699b7e78dd7da94911175e9a4dd6719951eb639e2cdb67f186391546cfb3",
+						"source_pixel_sha256": "381259ad40e9903e6d43a61ff532159a613b71c65291e6a50cded6363afe0022"
+					},
+					"res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_roughness.png": {
+						"actual_pixel_sha256": "54fb29c783e6be731633aaf02369d57ef5e22c3307e288e58ada33312e7a72fe",
+						"passed": true,
+						"path": "res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_roughness.png",
+						"png_sha256": "6d6dd5c76f4b30e7da77973fdebc66f9cbbca179f667853695b8add33accfa32",
+						"source_pixel_sha256": "54fb29c783e6be731633aaf02369d57ef5e22c3307e288e58ada33312e7a72fe"
+					}
+				},
+				"material_count": 8,
+				"material_roles": [
+					"Detailed_Sleeve",
+					"Detailed_Trim",
+					"Detailed_Glove",
+					"Detailed_Glove_Fingers"
+				],
+				"minimum_bound_texture_size": [
+					4096,
+					4096
+				],
+				"passed": true,
+				"rendered_surface_count": 16
+			},
+			"camera": "Separate private orthographic Camera3D; production camera is preserved",
+			"controls_visible": false,
+			"image": "glove_palm_neutral.png",
+			"image_sha256": "a802c28210ab2b43546ea41ffeb6a49b60f3d1084e89a0dd1c7fb4fce19df71a",
+			"lighting": {
+				"ambient_white": 0.55,
+				"fill_white": 0.45,
+				"key_white": 1.2
+			},
+			"orthographic_vertical_size_m": 0.234999999403954,
+			"passed": true,
+			"pose": "glove_palm_neutral",
+			"production_camera_hand_and_joint_values_preserved": true,
+			"purpose": "Neutral character material inspection; separate from unchanged gameplay lighting",
+			"subject": "Actual posed left full glove, including all covered fingertips; same live skeleton, materials and world",
+			"wrist_buffer_scope": "All scene-visible real hands, including the right hand outside this closeup",
+			"wrist_gpu_buffers": {
+				"passed": true,
+				"readback": "ArrayMesh.surface_get_arrays after RenderingServer.force_draw",
+				"wrists": [
+					{
+						"arm": "LeftSupportArm",
+						"invalid_tangents": 0,
+						"invalid_vertex_count": 0,
+						"max_normal_error": 0.000129269668832421,
+						"max_position_error_m": 0.0,
+						"minimum_jacobian_determinant": 0.476077735424042,
+						"passed": true,
+						"vertex_count": 5170
+					},
+					{
+						"arm": "RightRelaxedArm",
+						"invalid_tangents": 0,
+						"invalid_vertex_count": 0,
+						"max_normal_error": 0.000129265157738701,
+						"max_position_error_m": 0.0,
+						"minimum_jacobian_determinant": 0.366736024618149,
+						"passed": true,
+						"vertex_count": 5172
+					}
+				]
+			}
+		}
+	],
+	"desktop_capture": false,
+	"display_driver": "embedded",
+	"expedition_inventory_and_cursor_preserved": true,
+	"external_input": false,
+	"failures": [],
+	"gameplay_static_count": 10,
+	"image_size": [
+		1280,
+		720
+	],
+	"neutral_glove_closeup_count": 2,
+	"neutral_glove_closeups_enabled": true,
+	"source_sha256": {
+		"res://assets/3d/player/hands_detailed/left_hand_detailed.glb": "b8b5be7dd45461f760c2d558dd6bfdeb5593ee28b4675dac140baf36ce1d6126",
+		"res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_basecolor.png": "b6c1eadbbbf4bf305afa1c51d286fc2bd8584b56217ffff1eeb7cfb6858630d8",
+		"res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_basecolor.png.import": "ed260457af57cc9bd1ce3f377cb3a3df584c506b6b14d54399b2c8388258c894",
+		"res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_normal.png": "24d9699b7e78dd7da94911175e9a4dd6719951eb639e2cdb67f186391546cfb3",
+		"res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_normal.png.import": "d03053c7cbe290231a87340eb0a3fbb9b0bc169b79e8868671791aa8c76d5412",
+		"res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_roughness.png": "6d6dd5c76f4b30e7da77973fdebc66f9cbbca179f667853695b8add33accfa32",
+		"res://assets/3d/player/hands_detailed/left_hand_detailed_realistic_hands_roughness.png.import": "04a9c0ff65b8ed72fe683e6bb8e55de42ad08febf0b3495aebb6ed6fc3a1a9b8",
+		"res://assets/3d/player/hands_detailed/right_hand_detailed.glb": "d3eab832601d802273b261faf0668747753b2ffec12c790b9c321e6a7a232bb0",
+		"res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_basecolor.png": "b6c1eadbbbf4bf305afa1c51d286fc2bd8584b56217ffff1eeb7cfb6858630d8",
+		"res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_basecolor.png.import": "456af8bf97b45b160285846f70b17e0de1cc92c21bb8aaf4538a0fbc002114bc",
+		"res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_normal.png": "24d9699b7e78dd7da94911175e9a4dd6719951eb639e2cdb67f186391546cfb3",
+		"res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_normal.png.import": "8540f62d70ce3b4b5a74ff951be35eb688b88baa0771fe5a7db0e7c9d2484687",
+		"res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_roughness.png": "6d6dd5c76f4b30e7da77973fdebc66f9cbbca179f667853695b8add33accfa32",
+		"res://assets/3d/player/hands_detailed/right_hand_detailed_realistic_hands_roughness.png.import": "3a3458103fe2c62ed6869af86b1e85d14fd519554edb6c737ba67fe87bf58ee5",
+		"res://assets/fonts/NotoSansKR-Variable.ttf": "194018e6b2b293a7964f037b25c0249ce1418bc9ab3c971060a03aa57861e252",
+		"res://scripts/chest_hand_visuals.gd": "f4012bebd0fb03ab0fe76c57b7251dc56987fd35612ab1168d4fbe7498831bf3",
+		"res://scripts/finger_joint_controls.gd": "0b5231140e38f0859594474d6af24a8929403f68979eeb734ebb3937c31823dc",
+		"res://scripts/greybox_arm_visual.gd": "6554f2e78a81d658a38acd6695a06aa86bcb98315fb6dbf3b4c4ef9e77781a65",
+		"res://scripts/player.gd": "ebee7766ac7702eb92ea175adb2484c1d6659aa7f879a2add4c941bcb31c7f40",
+		"res://scripts/player_arm_visual.gd": "38fa62b41f7a5e6d672fcefe4c9ceb71e736687132972b93ce4a874fde8b928a",
+		"res://scripts/test_room.gd": "65e4e4df32be0f0a76c7c8fcb9f5a2e8439007c7fe2070b4290ff135acbae05e",
+		"res://scripts/wrist_cuff_deformer.gd": "ca9702206cf2485bf638047b7cddf66b404d86842a89b181295d4c1fc0203682",
+		"res://tests/player_arm_preview.gd": "2066f51f064a5b24cde5896c277d83602ae9784d26e10059bd4309b69b0c4d06",
+		"res://tests/player_finger_joints_preview.gd": "7d8dcdcc248cc0bcd557b973d2cd36f5294d0ce8abd07cdd56cd6516a387b216",
+		"res://tests/player_hands_detailed_preview.gd": "e22226180ff08f3e699745700986f4825204edede81cb0a19d3849a584fed8c8",
+		"res://tests/player_hands_detailed_test.gd": "57dc0d16874fc1671f3be11419f591846ac3d5b816bb059f4417d48d3e60fbeb"
+	},
+	"sources_unchanged_during_capture": true
+}

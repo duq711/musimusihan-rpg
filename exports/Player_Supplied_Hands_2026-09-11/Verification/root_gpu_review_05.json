@@ -1,0 +1,50 @@
+{
+  "status": "passed",
+  "gpu": {
+    "player_finger_joints": {
+      "iteration": "supplied_hands_05",
+      "captures": 12,
+      "manifest": "godot-game/artifacts/visual_qa/player_finger_joints/supplied_hands_05/capture_manifest.json",
+      "manifest_sha256": "a6cc2c698fe06cf0a83482edaab7d079ee7ea6843ca8bb7dce061cfdba8b3dd3",
+      "reused_unchanged_fullbody": false
+    },
+    "player_hands_detailed": {
+      "iteration": "supplied_hands_05",
+      "captures": 6,
+      "manifest": "godot-game/artifacts/visual_qa/player_hands_detailed/supplied_hands_05/capture_manifest.json",
+      "manifest_sha256": "8a0c183a8277159de97ffb9637f7221425fe2c5da43e7348a1ec32525fa15c17",
+      "reused_unchanged_fullbody": false
+    },
+    "player_appearance": {
+      "iteration": "supplied_hands_03",
+      "captures": 5,
+      "manifest": "godot-game/artifacts/visual_qa/player_appearance/supplied_hands_03/capture_manifest.json",
+      "manifest_sha256": "5858f3b82c166f9e0b8bf959c8eda38c3e2d22827c9be7a7d6f77f9b69ff7bac",
+      "reused_unchanged_fullbody": true
+    }
+  },
+  "inspected_by_root": [
+    "player_finger_joints/open",
+    "player_finger_joints/wrist_side",
+    "player_finger_joints/bow_draw",
+    "player_finger_joints/chest_touch",
+    "player_hands_detailed/free_hands",
+    "player_hands_detailed/chest_lift",
+    "player_appearance/player_three_quarter"
+  ],
+  "findings": [
+    "No skin patches protrude through either cuff in reviewed final wrist-tilt, bow, or chest poses.",
+    "Provided source hands and nails are visible in the fullbody and generic first-person meshes.",
+    "Fullbody images use the unchanged final GLB; their body SHA matches candidate05 exactly."
+  ],
+  "model_sha256": {
+    "res://assets/3d/player/gravebound_player.glb": "b25875dadb920303d7e8b0e58085973586b9cdf4cceb383159bcdb7e2c9fc92b",
+    "res://assets/3d/player/hands_detailed/left_hand_detailed.glb": "2e9a95b11654862125c2d082017ef18bbc7de75be6685f0e3831f8281b2f74db",
+    "res://assets/3d/player/hands_detailed/right_hand_detailed.glb": "8b57c758f46838b045a9e91f34352112801360e126b013d3f5ba54624f775402"
+  },
+  "scope_limits": [
+    "Independent sword right-hand and shield left-hand grip models remain existing specialized assets.",
+    "Source hand is curled in its neutral pose; reset restores this authored rest pose.",
+    "Images establish the inspected poses, not proof of every possible pose."
+  ]
+}

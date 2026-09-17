@@ -1,0 +1,237 @@
+[HEADLESS] sword_direct_entry_test.gd
+DIRECT ENTRY shield right_diagonal hold=0.00 held_pose_mm=1253.94523143768 windup_deg=91.440537211758 entry_mm=0.69990288466215 arm_length_mm=162.872884273529 authored_mm=1001.57415866852 authored_deg=131.417210952114 charge=0.0 spends=1
+DIRECT ENTRY shield right_diagonal hold=0.45 held_pose_mm=1254.53269481659 windup_deg=91.5029173294478 entry_mm=0.26925734709948 arm_length_mm=162.912163734436 authored_mm=1001.26647949219 authored_deg=131.417210952114 charge=0.21833333333333 spends=1
+DIRECT ENTRY shield left_reverse hold=0.00 held_pose_mm=1263.41366767883 windup_deg=38.1834007435801 entry_mm=0.97642297623679 arm_length_mm=162.318203449249 authored_mm=1002.16507911682 authored_deg=70.3832689062838 charge=0.0 spends=1
+DIRECT ENTRY shield left_reverse hold=0.45 held_pose_mm=1267.04359054565 windup_deg=38.2094579152637 entry_mm=0.22827368229628 arm_length_mm=162.696573734283 authored_mm=1001.39200687408 authored_deg=70.3832689062838 charge=0.21833333333333 spends=1
+DIRECT ENTRY shield overhead hold=0.00 held_pose_mm=1395.24233341217 windup_deg=86.8919863943664 entry_mm=0.81005931133404 arm_length_mm=161.811921596527 authored_mm=1002.58016586304 authored_deg=179.853292545584 charge=0.0 spends=1
+DIRECT ENTRY shield overhead hold=0.45 held_pose_mm=1398.18263053894 windup_deg=86.9512656061729 entry_mm=0.25154135073535 arm_length_mm=162.754867076874 authored_mm=1001.59323215485 authored_deg=179.853292545584 charge=0.21833333333333 spends=1
+DIRECT ENTRY two_hand right_diagonal hold=0.00 held_pose_mm=1217.0557975769 windup_deg=91.440537211758 entry_mm=0.88617531582713 arm_length_mm=96.7417991161346 authored_mm=779.843986034393 authored_deg=131.417210952114 charge=0.0 spends=1
+DIRECT ENTRY two_hand right_diagonal hold=0.45 held_pose_mm=1217.05996990204 windup_deg=91.5029173294478 entry_mm=0.28595633921213 arm_length_mm=98.0602836608886 authored_mm=780.238270759583 authored_deg=131.417210952114 charge=0.21833333333333 spends=1
+DIRECT ENTRY two_hand left_reverse hold=0.00 held_pose_mm=1022.60887622833 windup_deg=38.1834007435801 entry_mm=0.71639264933765 arm_length_mm=40.6303739547729 authored_mm=799.130439758301 authored_deg=70.3832689062838 charge=0.0 spends=1
+DIRECT ENTRY two_hand left_reverse hold=0.45 held_pose_mm=1023.9006280899 windup_deg=38.2094579152637 entry_mm=0.28409864171408 arm_length_mm=39.7028958797455 authored_mm=799.321055412292 authored_deg=70.3832689062838 charge=0.21833333333333 spends=1
+DIRECT ENTRY two_hand overhead hold=0.00 held_pose_mm=1209.83552932739 windup_deg=86.8919863943664 entry_mm=0.83344883751124 arm_length_mm=42.3059201240539 authored_mm=829.400479793549 authored_deg=179.853292545584 charge=0.0 spends=1
+DIRECT ENTRY two_hand overhead hold=0.45 held_pose_mm=1211.34972572327 windup_deg=86.9512656061729 entry_mm=0.21241222566459 arm_length_mm=43.8591277599335 authored_mm=829.416573047638 authored_deg=179.853292545584 charge=0.21833333333333 spends=1
+ERROR: shield right_diagonal hold=0.00: every cut must keep its captured blade, grip and arm pose throughout WINDUP without lifting or turning before release
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_direct_entry_test.gd:208)
+       [1] _run (res://tests/sword_direct_entry_test.gd:39)
+       [2] _exercise_stance (res://tests/sword_direct_entry_test.gd:66)
+ERROR: shield right_diagonal hold=0.00: actual arm segments must retain their fixed lengths
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_direct_entry_test.gd:208)
+       [1] _run (res://tests/sword_direct_entry_test.gd:39)
+       [2] _exercise_stance (res://tests/sword_direct_entry_test.gd:66)
+ERROR: shield right_diagonal hold=0.00: the authored track must be restored at 100ms, including exact 145ms contact and all following active/recovery poses
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_direct_entry_test.gd:208)
+       [1] _run (res://tests/sword_direct_entry_test.gd:39)
+       [2] _exercise_stance (res://tests/sword_direct_entry_test.gd:66)
+ERROR: shield right_diagonal hold=0.45: every cut must keep its captured blade, grip and arm pose throughout WINDUP without lifting or turning before release
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_direct_entry_test.gd:208)
+       [1] _run (res://tests/sword_direct_entry_test.gd:39)
+       [2] _exercise_stance (res://tests/sword_direct_entry_test.gd:66)
+ERROR: shield right_diagonal hold=0.45: actual arm segments must retain their fixed lengths
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_direct_entry_test.gd:208)
+       [1] _run (res://tests/sword_direct_entry_test.gd:39)
+       [2] _exercise_stance (res://tests/sword_direct_entry_test.gd:66)
+ERROR: shield right_diagonal hold=0.45: the authored track must be restored at 100ms, including exact 145ms contact and all following active/recovery poses
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_direct_entry_test.gd:208)
+       [1] _run (res://tests/sword_direct_entry_test.gd:39)
+       [2] _exercise_stance (res://tests/sword_direct_entry_test.gd:66)
+ERROR: shield left_reverse hold=0.00: every cut must keep its captured blade, grip and arm pose throughout WINDUP without lifting or turning before release
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_direct_entry_test.gd:208)
+       [1] _run (res://tests/sword_direct_entry_test.gd:39)
+       [2] _exercise_stance (res://tests/sword_direct_entry_test.gd:66)
+ERROR: shield left_reverse hold=0.00: actual arm segments must retain their fixed lengths
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_direct_entry_test.gd:208)
+       [1] _run (res://tests/sword_direct_entry_test.gd:39)
+       [2] _exercise_stance (res://tests/sword_direct_entry_test.gd:66)
+ERROR: shield left_reverse hold=0.00: the authored track must be restored at 100ms, including exact 145ms contact and all following active/recovery poses
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_direct_entry_test.gd:208)
+       [1] _run (res://tests/sword_direct_entry_test.gd:39)
+       [2] _exercise_stance (res://tests/sword_direct_entry_test.gd:66)
+ERROR: shield left_reverse hold=0.45: every cut must keep its captured blade, grip and arm pose throughout WINDUP without lifting or turning before release
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_direct_entry_test.gd:208)
+       [1] _run (res://tests/sword_direct_entry_test.gd:39)
+       [2] _exercise_stance (res://tests/sword_direct_entry_test.gd:66)
+ERROR: shield left_reverse hold=0.45: actual arm segments must retain their fixed lengths
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_direct_entry_test.gd:208)
+       [1] _run (res://tests/sword_direct_entry_test.gd:39)
+       [2] _exercise_stance (res://tests/sword_direct_entry_test.gd:66)
+ERROR: shield left_reverse hold=0.45: the authored track must be restored at 100ms, including exact 145ms contact and all following active/recovery poses
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_direct_entry_test.gd:208)
+       [1] _run (res://tests/sword_direct_entry_test.gd:39)
+       [2] _exercise_stance (res://tests/sword_direct_entry_test.gd:66)
+ERROR: shield overhead hold=0.00: every cut must keep its captured blade, grip and arm pose throughout WINDUP without lifting or turning before release
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_direct_entry_test.gd:208)
+       [1] _run (res://tests/sword_direct_entry_test.gd:39)
+       [2] _exercise_stance (res://tests/sword_direct_entry_test.gd:66)
+ERROR: shield overhead hold=0.00: actual arm segments must retain their fixed lengths
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_direct_entry_test.gd:208)
+       [1] _run (res://tests/sword_direct_entry_test.gd:39)
+       [2] _exercise_stance (res://tests/sword_direct_entry_test.gd:66)
+ERROR: shield overhead hold=0.00: the authored track must be restored at 100ms, including exact 145ms contact and all following active/recovery poses
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_direct_entry_test.gd:208)
+       [1] _run (res://tests/sword_direct_entry_test.gd:39)
+       [2] _exercise_stance (res://tests/sword_direct_entry_test.gd:66)
+ERROR: shield overhead hold=0.45: every cut must keep its captured blade, grip and arm pose throughout WINDUP without lifting or turning before release
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_direct_entry_test.gd:208)
+       [1] _run (res://tests/sword_direct_entry_test.gd:39)
+       [2] _exercise_stance (res://tests/sword_direct_entry_test.gd:66)
+ERROR: shield overhead hold=0.45: actual arm segments must retain their fixed lengths
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_direct_entry_test.gd:208)
+       [1] _run (res://tests/sword_direct_entry_test.gd:39)
+       [2] _exercise_stance (res://tests/sword_direct_entry_test.gd:66)
+ERROR: shield overhead hold=0.45: the authored track must be restored at 100ms, including exact 145ms contact and all following active/recovery poses
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_direct_entry_test.gd:208)
+       [1] _run (res://tests/sword_direct_entry_test.gd:39)
+       [2] _exercise_stance (res://tests/sword_direct_entry_test.gd:66)
+ERROR: two_hand right_diagonal hold=0.00: every cut must keep its captured blade, grip and arm pose throughout WINDUP without lifting or turning before release
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_direct_entry_test.gd:208)
+       [1] _run (res://tests/sword_direct_entry_test.gd:39)
+       [2] _exercise_stance (res://tests/sword_direct_entry_test.gd:66)
+ERROR: two_hand right_diagonal hold=0.00: actual arm segments must retain their fixed lengths
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_direct_entry_test.gd:208)
+       [1] _run (res://tests/sword_direct_entry_test.gd:39)
+       [2] _exercise_stance (res://tests/sword_direct_entry_test.gd:66)
+ERROR: two_hand right_diagonal hold=0.00: the authored track must be restored at 100ms, including exact 145ms contact and all following active/recovery poses
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_direct_entry_test.gd:208)
+       [1] _run (res://tests/sword_direct_entry_test.gd:39)
+       [2] _exercise_stance (res://tests/sword_direct_entry_test.gd:66)
+ERROR: two_hand right_diagonal hold=0.45: every cut must keep its captured blade, grip and arm pose throughout WINDUP without lifting or turning before release
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_direct_entry_test.gd:208)
+       [1] _run (res://tests/sword_direct_entry_test.gd:39)
+       [2] _exercise_stance (res://tests/sword_direct_entry_test.gd:66)
+ERROR: two_hand right_diagonal hold=0.45: actual arm segments must retain their fixed lengths
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_direct_entry_test.gd:208)
+       [1] _run (res://tests/sword_direct_entry_test.gd:39)
+       [2] _exercise_stance (res://tests/sword_direct_entry_test.gd:66)
+ERROR: two_hand right_diagonal hold=0.45: the authored track must be restored at 100ms, including exact 145ms contact and all following active/recovery poses
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_direct_entry_test.gd:208)
+       [1] _run (res://tests/sword_direct_entry_test.gd:39)
+       [2] _exercise_stance (res://tests/sword_direct_entry_test.gd:66)
+ERROR: two_hand left_reverse hold=0.00: every cut must keep its captured blade, grip and arm pose throughout WINDUP without lifting or turning before release
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_direct_entry_test.gd:208)
+       [1] _run (res://tests/sword_direct_entry_test.gd:39)
+       [2] _exercise_stance (res://tests/sword_direct_entry_test.gd:66)
+ERROR: two_hand left_reverse hold=0.00: actual arm segments must retain their fixed lengths
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_direct_entry_test.gd:208)
+       [1] _run (res://tests/sword_direct_entry_test.gd:39)
+       [2] _exercise_stance (res://tests/sword_direct_entry_test.gd:66)
+ERROR: two_hand left_reverse hold=0.00: the authored track must be restored at 100ms, including exact 145ms contact and all following active/recovery poses
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_direct_entry_test.gd:208)
+       [1] _run (res://tests/sword_direct_entry_test.gd:39)
+       [2] _exercise_stance (res://tests/sword_direct_entry_test.gd:66)
+ERROR: two_hand left_reverse hold=0.45: every cut must keep its captured blade, grip and arm pose throughout WINDUP without lifting or turning before release
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_direct_entry_test.gd:208)
+       [1] _run (res://tests/sword_direct_entry_test.gd:39)
+       [2] _exercise_stance (res://tests/sword_direct_entry_test.gd:66)
+ERROR: two_hand left_reverse hold=0.45: actual arm segments must retain their fixed lengths
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_direct_entry_test.gd:208)
+       [1] _run (res://tests/sword_direct_entry_test.gd:39)
+       [2] _exercise_stance (res://tests/sword_direct_entry_test.gd:66)
+ERROR: two_hand left_reverse hold=0.45: the authored track must be restored at 100ms, including exact 145ms contact and all following active/recovery poses
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_direct_entry_test.gd:208)
+       [1] _run (res://tests/sword_direct_entry_test.gd:39)
+       [2] _exercise_stance (res://tests/sword_direct_entry_test.gd:66)
+ERROR: two_hand overhead hold=0.00: every cut must keep its captured blade, grip and arm pose throughout WINDUP without lifting or turning before release
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_direct_entry_test.gd:208)
+       [1] _run (res://tests/sword_direct_entry_test.gd:39)
+       [2] _exercise_stance (res://tests/sword_direct_entry_test.gd:66)
+ERROR: two_hand overhead hold=0.00: actual arm segments must retain their fixed lengths
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_direct_entry_test.gd:208)
+       [1] _run (res://tests/sword_direct_entry_test.gd:39)
+       [2] _exercise_stance (res://tests/sword_direct_entry_test.gd:66)
+ERROR: two_hand overhead hold=0.00: the authored track must be restored at 100ms, including exact 145ms contact and all following active/recovery poses
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_direct_entry_test.gd:208)
+       [1] _run (res://tests/sword_direct_entry_test.gd:39)
+       [2] _exercise_stance (res://tests/sword_direct_entry_test.gd:66)
+ERROR: two_hand overhead hold=0.45: every cut must keep its captured blade, grip and arm pose throughout WINDUP without lifting or turning before release
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_direct_entry_test.gd:208)
+       [1] _run (res://tests/sword_direct_entry_test.gd:39)
+       [2] _exercise_stance (res://tests/sword_direct_entry_test.gd:66)
+ERROR: two_hand overhead hold=0.45: actual arm segments must retain their fixed lengths
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_direct_entry_test.gd:208)
+       [1] _run (res://tests/sword_direct_entry_test.gd:39)
+       [2] _exercise_stance (res://tests/sword_direct_entry_test.gd:66)
+ERROR: two_hand overhead hold=0.45: the authored track must be restored at 100ms, including exact 145ms contact and all following active/recovery poses
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_direct_entry_test.gd:208)
+       [1] _run (res://tests/sword_direct_entry_test.gd:39)
+       [2] _exercise_stance (res://tests/sword_direct_entry_test.gd:66)
+SWORD DIRECT ENTRY FAIL: all cuts retain the held blade and arm through WINDUP, release/charge/cost clocks, 100ms authored rejoin and expedition preservation; target damage is covered by sword_attack_variants
+[HEADLESS] reference_sword_arm_player_test.gd
+REFERENCE SWORD ARM PLAYER PASS: analytical fixture only; actual_delivery_evaluated=false; actual meshes, 30/60/120Hz clocks, handoffs, blade clash, F2 and reset
+[HEADLESS] reference_sword_cut_preview_test.gd
+REFERENCE SWORD CUT PREVIEW PASS: two production cuts after real shield stow, both-hand capture records, input isolation and expedition/source preservation; no pixel claim
+
+Headless validation: 2 passed, 1 failed.
+FAILED: sword_direct_entry_test.gd (1)

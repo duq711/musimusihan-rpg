@@ -1,0 +1,56 @@
+[HEADLESS] sword_forehand_grip_test.gd
+FOREHAND GRIP shield/right_diagonal/hold=0.00 grip_mm=0.00026822090149 plane_error=0.00000005963374 total_turn_degrees=359.974965324604
+FOREHAND GRIP shield/right_diagonal/hold=0.45 grip_mm=0.0002665600789 plane_error=0.000000059866 total_turn_degrees=359.99836513019
+FOREHAND GRIP shield/left_reverse/hold=0.00 grip_mm=0.0 plane_error=0.0 total_turn_degrees=0.0
+FOREHAND GRIP shield/overhead/hold=0.00 grip_mm=0.0 plane_error=0.0 total_turn_degrees=0.0
+FOREHAND GRIP two_hand/right_diagonal/hold=0.00 grip_mm=0.00026822090149 plane_error=0.00000005963374 total_turn_degrees=359.974965324604
+FOREHAND GRIP two_hand/right_diagonal/hold=0.45 grip_mm=0.0002665600789 plane_error=0.000000059866 total_turn_degrees=359.99836513019
+FOREHAND GRIP two_hand/left_reverse/hold=0.00 grip_mm=0.0 plane_error=0.0 total_turn_degrees=0.0
+FOREHAND GRIP two_hand/overhead/hold=0.00 grip_mm=0.0 plane_error=0.0 total_turn_degrees=0.0
+ERROR: shield/right_diagonal/hold=0.00: full recovery must finish at the same original idle direction.
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_forehand_grip_test.gd:329)
+       [1] _run (res://tests/sword_forehand_grip_test.gd:77)
+       [2] _test_f2 (res://tests/sword_forehand_grip_test.gd:274)
+ERROR: shield/right_diagonal/hold=0.45: full recovery must finish at the same original idle direction.
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_forehand_grip_test.gd:329)
+       [1] _run (res://tests/sword_forehand_grip_test.gd:77)
+       [2] _test_f2 (res://tests/sword_forehand_grip_test.gd:274)
+ERROR: two_hand/right_diagonal/hold=0.00: full recovery must finish at the same original idle direction.
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_forehand_grip_test.gd:329)
+       [1] _run (res://tests/sword_forehand_grip_test.gd:77)
+       [2] _test_f2 (res://tests/sword_forehand_grip_test.gd:274)
+ERROR: two_hand/right_diagonal/hold=0.45: full recovery must finish at the same original idle direction.
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_forehand_grip_test.gd:329)
+       [1] _run (res://tests/sword_forehand_grip_test.gd:77)
+       [2] _test_f2 (res://tests/sword_forehand_grip_test.gd:274)
+SWORD FOREHAND GRIP FAIL: paired actual players; unchanged grip/clocks/assets; reversed contact axes; fitted two-hand contacts; clash/cancel/F2 isolation; aesthetic quality not evaluated
+[HEADLESS] sword_recovery_continuity_test.gd
+RECOVERY METRIC true right_diagonal peak_deg=6.72578289835994 boundary_m=0.00017735877191
+RECOVERY METRIC true left_reverse peak_deg=11.9420034901406 boundary_m=0.00013100702199
+RECOVERY METRIC true overhead peak_deg=14.1934276471945 boundary_m=0.00013590096205
+RECOVERY METRIC false right_diagonal peak_deg=6.72578289835994 boundary_m=0.00016714376397
+RECOVERY METRIC false left_reverse peak_deg=11.9420034901406 boundary_m=0.00032122660195
+RECOVERY METRIC false overhead peak_deg=14.1934276471945 boundary_m=0.00026330872788
+SWORD RECOVERY CONTINUITY PASS
+[HEADLESS] sword_two_hand_grip_test.gd
+SWORD TWO HAND GRIP PASS: 48 support diagnostics, three real cuts, original source fidelity and unchanged expedition
+[HEADLESS] reference_sword_motion_test_room_test.gd
+REFERENCE SWORD MOTION TEST ROOM PASS: five playable fixtures, two-hand basic/reverse target hits and grip, actual run/jump/landing/collision, repeated F2, reset and original expedition restoration
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2535)
+[HEADLESS] reference_sword_cut_preview_test.gd
+REFERENCE SWORD CUT PREVIEW PASS: two production cuts after real shield stow, both-hand capture records, input isolation and expedition/source preservation; no pixel claim
+[HEADLESS] sword_edge_alignment_test.gd
+SWORD EDGE SHIELD RESAMPLE {"max_angle_degrees":0.0395646811852521,"max_position_m":0.000182841555215418,"samples":1736}
+SWORD EDGE ALIGNMENT PASS {"aesthetic_quality_evaluated":false,"baseline":"all_other_clips_preserved; original_shield_curve_within_1mm_0.1deg","contract":"inverse_preparation_and_cut; existing_pose_recovery_without_source_hold","correspondence":{"max_axis_error":0.00000038165595128703,"max_joint_m":0.0000000298023223876953,"max_position_m":0.0000000298023223876953,"samples":161},"left_reverse_wrist":{"exact_keys":174,"max_segment_length_m":0.0000000798702239901417,"max_wrist_m":0.0000000682857006495396},"recovery":{"idle_endpoint_checked":true,"matched_existing_pose_keys":141,"total_keys":141},"right_diagonal_wrist":{"exact_keys":141,"max_segment_length_m":0.0000000631809234374892,"max_wrist_m":0.0000000682857006495396},"sweep":{"blade_65cm":{"after_contact":89,"before_contact":48,"least_opposite_dot":-0.999999821186066,"max_velocity_sum_m_per_s":0.000188612611964345,"moving_samples":139},"center":{"after_contact":89,"before_contact":48,"least_opposite_dot":-0.999999761581421,"max_velocity_sum_m_per_s":0.000163501608767547,"moving_samples":139},"contact_grip_x_m_per_s":{"left_reverse":16.7436447143555,"right_diagonal":-16.7436294555664},"tip":{"after_contact":89,"before_contact":48,"least_opposite_dot":-0.99999988079071,"max_velocity_sum_m_per_s":0.000253413716563955,"moving_samples":139}}}
+
+Headless validation: 5 passed, 1 failed.
+FAILED: sword_forehand_grip_test.gd (1)

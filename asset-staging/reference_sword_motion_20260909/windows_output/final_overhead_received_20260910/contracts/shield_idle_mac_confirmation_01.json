@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "status": "subsequent_coordinator_confirmation",
+  "baseline_contract_sha256": "3923952025f1cb7180e1578aaa4d58357f895435a5581381caa78312ed723e06",
+  "baseline_contract_file": "shield_idle_local_contract.json",
+  "reported_by": "/root coordinating Windows agent, iteration_04 review conversion delegation",
+  "evidence_scope": "The coordinating root received the latest Mac shield contract and reported numerical equality of its S_shield with this preserved local baseline. This subagent did not independently receive or compare the full Mac payload.",
+  "mac_idle_matrix_match_reported": true,
+  "reported_max_matrix_difference": 1e-12,
+  "mac_source_hash_match_independently_verified": false,
+  "mac_runtime_tested": false,
+  "notes": "Preserved separately after authoring; the raw sidecar continues to reference the original immutable local baseline hash. This records a supplied-matrix match and does not claim production runtime integration."
+}

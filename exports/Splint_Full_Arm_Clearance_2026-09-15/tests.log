@@ -1,0 +1,11 @@
+[HEADLESS] splint_motion_test.gd
+SPLINT_DIAGNOSTIC 5.49999999999999 roll_step=0.25707459449768 contact_step=0.0 sleeve_angle=0.0 hand_angle=0.0 scale_before=(1.999985, 1.999996, 1.975823) scale_after=(1.999985, 1.999996, 1.975823)
+Wood support maximum surface contact error: 0.00100003457069
+ERROR: hand transfers must be continuous
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/splint_motion_test.gd:117)
+SPLINT MOTION TEST FAIL: wrist gap 0.000000, maximum hand step 0.2568 at 5.500s
+
+Headless validation: 0 passed, 1 failed.
+FAILED: splint_motion_test.gd (1)

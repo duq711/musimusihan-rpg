@@ -1,0 +1,111 @@
+{
+  "status": "complete",
+  "final_iteration": "iteration_05",
+  "execution_host": "MacBook",
+  "blender": "5.2.1 LTS; background; 2 threads",
+  "godot": "4.7; headless and windowless embedded Vulkan",
+  "request": "Replace the character hands with the supplied OBJ source and naturally attach them. Use MacBook for all Blender work until separately instructed.",
+  "sources": {
+    "hand1.OBJ": {
+      "source": "/Users/duq711gmail.com/Downloads/hand1.OBJ",
+      "preserved_copy": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/player_supplied_hands_20260911/input/hand1.OBJ",
+      "sha256": "0b4e513a2ba1384e2405119d6edc59c1b3a775044df49c8637872acc93648213",
+      "bytes": 40638352
+    },
+    "left_hand.ZTL": {
+      "source": "/Users/duq711gmail.com/Downloads/left_hand.ZTL",
+      "preserved_copy": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/player_supplied_hands_20260911/input/left_hand.ZTL",
+      "sha256": "d444720d40ac5a9d0e9b388ee3a7338bd646579d86902536ca409e4682b827e3",
+      "bytes": 15517195
+    }
+  },
+  "delivered_scope": [
+    "Full-body and inventory character: 22 original hand parts replaced by 2 source hand bodies and 10 source nails; other28 meshes retained.",
+    "Default and detailed generic first-person hands: provided source geometry, mirrored right hand, 16-bone rig, 15 independent joint correctives, source high-poly detail baked to4K maps.",
+    "Existing testroom entries and actual empty-hand, bow and chest paths use the supplied hands."
+  ],
+  "attachment_adjustments": [
+    "Visible palm/finger vertices at native y>=-0.010m remain unchanged by final attachment tailoring.",
+    "FPV buried stump ends at y=-0.013m, entirely in the fixed cuff band; hidden radial points fit inside the actual inner cuff wall.",
+    "Fullbody hidden stump is tapered and inserted inside each existing bracer."
+  ],
+  "native": {
+    "passed": true,
+    "audit": "audit/final_native_audit_iteration_05.json",
+    "mesh_preflight": "review/final_05/mesh_preflight.json",
+    "hand_renders": 7,
+    "visual_review": "review/final_05/native_visual_review.json",
+    "character_renders": 3,
+    "unchanged_character_render_folder": "review/final_02",
+    "blend_sha256": "38a413ae0c75701e9f0376a4bef9fb28ea638e315c5f9b90bb670f68ddfc64d9",
+    "visible_surface_max_error_m": 0.00018431426724418998,
+    "minimum_sampled_inner_cuff_clearance_m": 0.0006775541668139276
+  },
+  "headless": {
+    "passed": 8,
+    "failed": 0,
+    "accepted_logs": [
+      "audit/headless_final_05.log"
+    ],
+    "summary": "audit/headless_final_05_summary.json",
+    "tests": [
+      "player_arm",
+      "player_appearance",
+      "chest_hands",
+      "player_hands_detailed",
+      "player_finger_joints",
+      "player_hands_greybox",
+      "test_room_session",
+      "test_room"
+    ],
+    "uid_load_warnings": 0
+  },
+  "gpu": {
+    "player_finger_joints": {
+      "iteration": "supplied_hands_05",
+      "captures": 12,
+      "manifest": "godot-game/artifacts/visual_qa/player_finger_joints/supplied_hands_05/capture_manifest.json",
+      "manifest_sha256": "a6cc2c698fe06cf0a83482edaab7d079ee7ea6843ca8bb7dce061cfdba8b3dd3",
+      "reused_unchanged_fullbody": false
+    },
+    "player_hands_detailed": {
+      "iteration": "supplied_hands_05",
+      "captures": 6,
+      "manifest": "godot-game/artifacts/visual_qa/player_hands_detailed/supplied_hands_05/capture_manifest.json",
+      "manifest_sha256": "8a0c183a8277159de97ffb9637f7221425fe2c5da43e7348a1ec32525fa15c17",
+      "reused_unchanged_fullbody": false
+    },
+    "player_appearance": {
+      "iteration": "supplied_hands_03",
+      "captures": 5,
+      "manifest": "godot-game/artifacts/visual_qa/player_appearance/supplied_hands_03/capture_manifest.json",
+      "manifest_sha256": "5858f3b82c166f9e0b8bf959c8eda38c3e2d22827c9be7a7d6f77f9b69ff7bac",
+      "reused_unchanged_fullbody": true
+    }
+  },
+  "gpu_review": "audit/root_gpu_review_05.json",
+  "gpu_total_captures": 23,
+  "model_sha256": {
+    "res://assets/3d/player/gravebound_player.glb": "b25875dadb920303d7e8b0e58085973586b9cdf4cceb383159bcdb7e2c9fc92b",
+    "res://assets/3d/player/hands_detailed/left_hand_detailed.glb": "2e9a95b11654862125c2d082017ef18bbc7de75be6685f0e3831f8281b2f74db",
+    "res://assets/3d/player/hands_detailed/right_hand_detailed.glb": "8b57c758f46838b045a9e91f34352112801360e126b013d3f5ba54624f775402"
+  },
+  "limitations": [
+    "Independent sword right-hand and shield left-hand grip models remain existing specialized assets.",
+    "Source hand is curled in its neutral pose; reset restores this authored rest pose.",
+    "Images establish the inspected poses, not proof of every possible pose."
+  ],
+  "mcp_diagnosis": {
+    "report": "audit/mcp_connection_diagnosis.json",
+    "cause": "No realtime Blender listener; online access disabled prevented addon autostart.",
+    "working_route": "File-based MCP and explicit Mac background Blender CLI verified; online preferences unchanged."
+  },
+  "testroom": "기본 → 캐릭터 그래픽 · 제공 모델 양손 / 손가락 마디별 관절; 플레이어 외형에서 전신 확인",
+  "source_originals_preserved": true,
+  "previous_glove_delivery_preserved": true,
+  "independent_gpu_review": "audit/gpu_visual_review_05.json",
+  "cleanup": {
+    "task_blender_and_godot_processes_remaining": 0,
+    "existing_user_godot_editor_pid_preserved": 6600
+  }
+}

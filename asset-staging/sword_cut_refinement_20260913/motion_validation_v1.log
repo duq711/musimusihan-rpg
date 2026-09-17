@@ -1,0 +1,19 @@
+[HEADLESS] reference_motion_shape_test.gd
+right_diagonal contact linear difference=0.0 angular difference=0.04301300644875 speeds=(-2.018595, 0.00298, 14.49157) / (-2.053939, -0.008941, 14.51299)
+left_reverse contact linear difference=0.00614390600617 angular difference=0.02771776169538 speeds=(3.379583, -1.165271, 4.430115) / (3.403425, -1.1608, 4.416704)
+overhead contact linear difference=0.00149011611938 angular difference=0.0421406365931 speeds=(-4.070252, -3.004167, -0.698864) / (-4.098565, -3.031176, -0.683218)
+REFERENCE MOTION SHAPE PASS
+[HEADLESS] reference_sword_motion_data_test.gd
+REFERENCE SWORD MOTION DATA PASS: parser and shared clock only; actual_delivery_evaluated=false; production_arm_available=true
+[HEADLESS] sword_recovery_continuity_test.gd
+RECOVERY METRIC true right_diagonal peak_deg=15.2625289834462 boundary_m=0.00017684110207
+RECOVERY METRIC true left_reverse peak_deg=11.9420034901406 boundary_m=0.00013100702199
+RECOVERY METRIC true overhead peak_deg=14.1934276471945 boundary_m=0.00013590096205
+RECOVERY METRIC false right_diagonal peak_deg=15.2625289834462 boundary_m=0.00016704329755
+RECOVERY METRIC false left_reverse peak_deg=11.9420034901406 boundary_m=0.00032122660195
+RECOVERY METRIC false overhead peak_deg=14.1934276471945 boundary_m=0.00026330872788
+SWORD RECOVERY CONTINUITY PASS
+[HEADLESS] unified_sword_motion_test.gd
+UNIFIED SWORD MOTION PASS max_position_m=0.0 max_angle_rad=0.0009765625
+
+Headless validation: 4 passed, 0 failed.

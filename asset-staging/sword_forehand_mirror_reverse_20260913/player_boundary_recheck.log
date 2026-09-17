@@ -1,0 +1,26 @@
+[HEADLESS] sword_direct_entry_test.gd
+DIRECT ENTRY shield right_diagonal hold=0.00 duration_ms=100.0 held_pose_mm=0.0 windup_deg=0.0 entry_mm=0.0 arm_length_mm=0.00293016433717 authored_mm=0.0 authored_deg=0.03956468118525 charge=0.0 spends=1
+DIRECT ENTRY shield right_diagonal hold=0.45 duration_ms=100.0 held_pose_mm=0.0002384185791 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00455021858214 authored_mm=0.0 authored_deg=0.03956468118525 charge=0.21833333333333 spends=1
+DIRECT ENTRY shield left_reverse hold=0.00 duration_ms=100.0 held_pose_mm=0.0002384185791 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00045657157899 authored_mm=0.00002980232239 authored_deg=0.03956468118525 charge=0.0 spends=1
+DIRECT ENTRY shield left_reverse hold=0.45 duration_ms=100.0 held_pose_mm=0.0002384185791 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00046730041503 authored_mm=0.0 authored_deg=0.03956468118525 charge=0.21833333333333 spends=1
+DIRECT ENTRY shield overhead hold=0.00 duration_ms=100.0 held_pose_mm=0.0002384185791 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00043749809264 authored_mm=0.00000023283064 authored_deg=0.05595290968074 charge=0.0 spends=1
+DIRECT ENTRY shield overhead hold=0.45 duration_ms=100.0 held_pose_mm=0.0002384185791 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00048637390138 authored_mm=0.0 authored_deg=0.03956468118525 charge=0.21833333333333 spends=1
+DIRECT ENTRY two_hand right_diagonal hold=0.00 duration_ms=100.0 held_pose_mm=0.0 windup_deg=0.0 entry_mm=0.0 arm_length_mm=0.00161886215211 authored_mm=0.0 authored_deg=0.03956468118525 charge=0.0 spends=1
+DIRECT ENTRY two_hand right_diagonal hold=0.45 duration_ms=100.0 held_pose_mm=0.00029802322388 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00717282295226 authored_mm=0.0 authored_deg=0.03956468118525 charge=0.21833333333333 spends=1
+DIRECT ENTRY two_hand left_reverse hold=0.00 duration_ms=100.0 held_pose_mm=0.00029802322388 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00051617622376 authored_mm=0.0 authored_deg=0.03956468118525 charge=0.0 spends=1
+DIRECT ENTRY two_hand left_reverse hold=0.45 duration_ms=100.0 held_pose_mm=0.00029802322388 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00043749809264 authored_mm=0.0 authored_deg=0.03956468118525 charge=0.21833333333333 spends=1
+DIRECT ENTRY two_hand overhead hold=0.00 duration_ms=100.0 held_pose_mm=0.00029802322388 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00040769577025 authored_mm=0.0 authored_deg=0.05595290968074 charge=0.0 spends=1
+DIRECT ENTRY two_hand overhead hold=0.45 duration_ms=100.0 held_pose_mm=0.00029802322388 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00048041343687 authored_mm=0.00000023283064 authored_deg=0.03956468118525 charge=0.21833333333333 spends=1
+SWORD DIRECT ENTRY PASS: immediate forehand release, held charge, shared 100ms entry, exact authored contact/recovery, actual wrist and arm lengths, cost clocks and expedition preservation; target damage is covered by sword_attack_variants
+[HEADLESS] sword_forehand_grip_test.gd
+FOREHAND MIRROR shield/right_diagonal/hold=0.00 active_samples=14 grip_mm=0.00016118070789 axis_error=0.00000026151432 spends=1
+FOREHAND MIRROR shield/right_diagonal/hold=0.45 active_samples=14 grip_mm=0.00012644053982 axis_error=0.00000026151432 spends=1
+FOREHAND MIRROR shield/left_reverse/hold=0.00 active_samples=0 grip_mm=0.0 axis_error=0.0 spends=1
+FOREHAND MIRROR shield/overhead/hold=0.00 active_samples=0 grip_mm=0.0 axis_error=0.0 spends=1
+FOREHAND MIRROR two_hand/right_diagonal/hold=0.00 active_samples=14 grip_mm=0.00016118070789 axis_error=0.00000026151432 spends=1
+FOREHAND MIRROR two_hand/right_diagonal/hold=0.45 active_samples=14 grip_mm=0.00012644053982 axis_error=0.00000026151432 spends=1
+FOREHAND MIRROR two_hand/left_reverse/hold=0.00 active_samples=0 grip_mm=0.0 axis_error=0.0 spends=1
+FOREHAND MIRROR two_hand/overhead/hold=0.00 active_samples=0 grip_mm=0.0 axis_error=0.0 spends=1
+SWORD FOREHAND GRIP PASS: real clicks and held charge; shared 100ms entry; same-phase reverse camera-X reflection; original clips/assets and fitted two-hand contacts; clash/cancel/F2 isolation; aesthetic quality not evaluated
+
+Headless validation: 2 passed, 0 failed.

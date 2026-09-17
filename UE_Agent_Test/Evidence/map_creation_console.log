@@ -1,0 +1,113 @@
+Opening shared memory
+Shared memory doesn't exist, checking legacy lock file
+Checking for a '/tmp/UnrealTraceServer.pid' lock file
+Forking process
+Wait until we know the daemon has started.
+Parent received signal 30
+Daemon signalled successful start
+Forked complete (ret=0)
+LogInit: Running DelayedAutoRegister Phase StartOfEnginePreInit
+LogInit: Display: Running engine for game: UE_Agent_Test
+LogCore: UTS: Unreal Trace Server launched successfully
+LogTrace: Initializing trace...
+LogCore: Display: Requested channels: 'cpu,gpu,frame,log,bookmark,screenshot,region'
+LogCore: No trace connection. Tracing to in-memory cache.
+LogTrace: Display: Control listening on port 1985
+LogTrace: Finished trace initialization.
+LogCsvProfiler: Display: Metadata set : platform="Mac"
+LogCsvProfiler: Display: Metadata set : config="Development"
+LogCsvProfiler: Display: Metadata set : buildversion="++UE5+Release-5.8-CL-56702186"
+LogCsvProfiler: Display: Metadata set : engineversion="5.8.2-56702186+++UE5+Release-5.8"
+LogCsvProfiler: Display: Metadata set : enginereleaseversion="5.8.2"
+LogCsvProfiler: Display: Metadata set : os="macOS 26.6.2 25G83"
+LogCsvProfiler: Display: Metadata set : cpu="Apple|Apple M4"
+LogCsvProfiler: Display: Metadata set : pgoenabled="0"
+LogCsvProfiler: Display: Metadata set : pgoprofilingenabled="0"
+LogCsvProfiler: Display: Metadata set : ltoenabled="0"
+LogCsvProfiler: Display: Metadata set : asan="0"
+LogCsvProfiler: Display: Metadata set : mergedmodules="0"
+LogCsvProfiler: Display: Metadata set : compacttset="0"
+LogCsvProfiler: Display: Metadata set : commandline="" "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/UE_Agent_Test/UE_Agent_Test.uproject" -run=AgentBuildMap -nullrhi -nosplash -unattended -skipminspeccheck -nosound -NoCrashDialog -stdout -FullStdOutLogOutput -abslog="/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/UE_Agent_Test/Evidence/map_creation_engine.log"""
+LogCsvProfiler: Display: Metadata set : loginid="b613e6359b42400a24022a975284a4ef"
+LogCsvProfiler: Display: Metadata set : llm="0"
+LogModuleManager: InternalLoadLibrary: 'StorageServerClient' ('/Volumes/T7/UE 58/UE_5.8/Engine/Binaries/Mac/libUnrealEditor-StorageServerClient.dylib')
+LogModuleManager: InternalLoadLibrary: 'CookOnTheFly' ('/Volumes/T7/UE 58/UE_5.8/Engine/Binaries/Mac/libUnrealEditor-CookOnTheFly.dylib')
+LogModuleManager: InternalLoadLibrary: 'StreamingFile' ('/Volumes/T7/UE 58/UE_5.8/Engine/Binaries/Mac/libUnrealEditor-StreamingFile.dylib')
+LogModuleManager: InternalLoadLibrary: 'NetworkFile' ('/Volumes/T7/UE 58/UE_5.8/Engine/Binaries/Mac/libUnrealEditor-NetworkFile.dylib')
+LogModuleManager: InternalLoadLibrary: 'PakFile' ('/Volumes/T7/UE 58/UE_5.8/Engine/Binaries/Mac/libUnrealEditor-PakFile.dylib')
+LogModuleManager: InternalLoadLibrary: 'RSA' ('/Volumes/T7/UE 58/UE_5.8/Engine/Binaries/Mac/libUnrealEditor-RSA.dylib')
+LogModuleManager: InternalLoadLibrary: 'SandboxFile' ('/Volumes/T7/UE 58/UE_5.8/Engine/Binaries/Mac/libUnrealEditor-SandboxFile.dylib')
+LogCsvProfiler: Display: Metadata set : zenstreaming="0"
+LogInit: Running DelayedAutoRegister Phase FileSystemReady
+LogModuleManager: InternalLoadLibrary: 'DesktopPlatform' ('/Volumes/T7/UE 58/UE_5.8/Engine/Binaries/Mac/libUnrealEditor-DesktopPlatform.dylib')
+Launching UnrealBuildTool... [/Volumes/T7/UE 58/UE_5.8/Engine/Build/BatchFiles/Mac/Build.sh -Mode=ValidatePlatforms -OutputSDKs  -AllPlatforms  -project="/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/UE_Agent_Test/UE_Agent_Test.uproject" -log="/Users/duq711gmail.com/Library/Logs/Unreal Engine/UE_Agent_TestEditor/AutoSDKInfo.txt" -verbose -timestamps]
+LogInit: Running DelayedAutoRegister Phase TaskGraphSystemReady
+LogStats: Stats thread started at 7.561075
+LogInit: Running DelayedAutoRegister Phase StatSystemReady
+LogModuleManager: InternalLoadLibrary: 'CoreUObject' ('/Volumes/T7/UE 58/UE_5.8/Engine/Binaries/Mac/libUnrealEditor-CoreUObject.dylib')
+Setting up bundled DotNet SDK
+/Volumes/T7/UE 58/UE_5.8/Engine/Binaries/ThirdParty/DotNet/10.0/mac-arm64
+Running dotnet Engine/Binaries/DotNET/UnrealBuildTool/UnrealBuildTool.dll -Mode=ValidatePlatforms -OutputSDKs -AllPlatforms -project=/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/UE_Agent_Test/UE_Agent_Test.uproject -log=/Users/duq711gmail.com/Library/Logs/Unreal Engine/UE_Agent_TestEditor/AutoSDKInfo.txt -verbose -timestamps
+LogCsvProfiler: Display: Metadata set : systemresolution.resx="1280"
+LogCsvProfiler: Display: Metadata set : systemresolution.resy="720"
+LogModuleManager: InternalLoadLibrary: 'Engine' ('/Volumes/T7/UE 58/UE_5.8/Engine/Binaries/Mac/libUnrealEditor-Engine.dylib')
+LogModuleManager: InternalLoadLibrary: 'UniversalObjectLocator' ('/Volumes/T7/UE 58/UE_5.8/Engine/Binaries/Mac/libUnrealEditor-UniversalObjectLocator.dylib')
+LogModuleManager: InternalLoadLibrary: 'Renderer' ('/Volumes/T7/UE 58/UE_5.8/Engine/Binaries/Mac/libUnrealEditor-Renderer.dylib')
+LogModuleManager: InternalLoadLibrary: 'AnimGraphRuntime' ('/Volumes/T7/UE 58/UE_5.8/Engine/Binaries/Mac/libUnrealEditor-AnimGraphRuntime.dylib')
+LogModuleManager: InternalLoadLibrary: 'AudioMixerCoreAudio' ('/Volumes/T7/UE 58/UE_5.8/Engine/Binaries/Mac/libUnrealEditor-AudioMixerCoreAudio.dylib')
+Log file: /Users/duq711gmail.com/Library/Logs/Unreal Engine/UE_Agent_TestEditor/AutoSDKInfo.txt
+.zshrc is missing. Falling back to .bash_profile.
+LogModuleManager: InternalLoadLibrary: 'AudioMixerCore' ('/Volumes/T7/UE 58/UE_5.8/Engine/Binaries/Mac/libUnrealEditor-AudioMixerCore.dylib')
+LogModuleManager: InternalLoadLibrary: 'SignalProcessing' ('/Volumes/T7/UE 58/UE_5.8/Engine/Binaries/Mac/libUnrealEditor-SignalProcessing.dylib')
+LogModuleManager: InternalLoadLibrary: 'SlateRHIRenderer' ('/Volumes/T7/UE 58/UE_5.8/Engine/Binaries/Mac/libUnrealEditor-SlateRHIRenderer.dylib')
+LogModuleManager: InternalLoadLibrary: 'Landscape' ('/Volumes/T7/UE 58/UE_5.8/Engine/Binaries/Mac/libUnrealEditor-Landscape.dylib')
+LogModuleManager: InternalLoadLibrary: 'RHICore' ('/Volumes/T7/UE 58/UE_5.8/Engine/Binaries/Mac/libUnrealEditor-RHICore.dylib')
+##PlatformValidate: Win64 INVALID <UNKNOWN>
+##PlatformValidate: Mac VALID 26.1.1
+##PlatformValidate: IOS VALID 26.1.1
+##PlatformValidate: Android INVALID r27c
+##PlatformValidate: Linux INVALID <UNKNOWN>
+##PlatformValidate: LinuxArm64 INVALID <UNKNOWN>
+##PlatformValidate: TVOS VALID 26.1.1
+##PlatformValidate: VisionOS VALID 26.1.1
+Unable to find required SDK version 'MainVersion' for platform Win64. Check your SDK.json files
+Unable to find required SDK version 'MainVersion' for platform Linux. Check your SDK.json files
+Unable to find required SDK version 'MainVersion' for platform LinuxArm64. Check your SDK.json files
+Trace written to file /Users/duq711gmail.com/Library/Application Support/Epic/UnrealBuildTool/Trace.uba with size 436b
+LogModuleManager: InternalLoadLibrary: 'RenderCore' ('/Volumes/T7/UE 58/UE_5.8/Engine/Binaries/Mac/libUnrealEditor-RenderCore.dylib')
+LogModuleManager: InternalLoadLibrary: 'TextureCompressor' ('/Volumes/T7/UE 58/UE_5.8/Engine/Binaries/Mac/libUnrealEditor-TextureCompressor.dylib')
+LogModuleManager: InternalLoadLibrary: 'OpenColorIOWrapper' ('/Volumes/T7/UE 58/UE_5.8/Engine/Binaries/Mac/libUnrealEditor-OpenColorIOWrapper.dylib')
+LogModuleManager: InternalLoadLibrary: 'Virtualization' ('/Volumes/T7/UE 58/UE_5.8/Engine/Binaries/Mac/libUnrealEditor-Virtualization.dylib')
+LogModuleManager: InternalLoadLibrary: 'MessageLog' ('/Volumes/T7/UE 58/UE_5.8/Engine/Binaries/Mac/libUnrealEditor-MessageLog.dylib')
+LogModuleManager: InternalLoadLibrary: 'AudioEditor' ('/Volumes/T7/UE 58/UE_5.8/Engine/Binaries/Mac/libUnrealEditor-AudioEditor.dylib')
+LogModuleManager: InternalLoadLibrary: 'PropertyEditor' ('/Volumes/T7/UE 58/UE_5.8/Engine/Binaries/Mac/libUnrealEditor-PropertyEditor.dylib')
+LogModuleManager: InternalLoadLibrary: 'AudioExtensions' ('/Volumes/T7/UE 58/UE_5.8/Engine/Binaries/Mac/libUnrealEditor-AudioExtensions.dylib')
+LogModuleManager: InternalLoadLibrary: 'AnimationModifiers' ('/Volumes/T7/UE 58/UE_5.8/Engine/Binaries/Mac/libUnrealEditor-AnimationModifiers.dylib')
+LogICUInternationalization: ICU TimeZone Detection - Raw Offset: +9:00, Platform Override: ''
+LogInit: Session CrashGUID >====================================================
+         Session CrashGUID >   UECC-Mac-CBDB6190144FF85CD45AC8BC6A03777F
+         Session CrashGUID >====================================================
+LogCore: Engine exit requested (reason: Mac GracefulTerminationHandler)
+Opening shared memory
+Shared memory doesn't exist, checking legacy lock file
+Checking for a '/tmp/UnrealTraceServer.pid' lock file
+Forking process
+Opening shared memory
+Starting the store
+Reading settings from '/Users/duq711gmail.com/UnrealEngine/UnrealTrace/Settings.ini'
+
+Unable to open settings file /Users/duq711gmail.com/UnrealEngine/UnrealTrace/Settings.ini.
+
+Store settings (/Users/duq711gmail.com/UnrealEngine/UnrealTrace/Settings.ini):
+ - Store port: 1989
+ - Recorder port: 1981
+ - Thread count: 0
+ - Sponsored mode: 1
+ - Directory: '/Users/duq711gmail.com/UnrealEngine/UnrealTrace/Store/001'
+Watcher enabled on /Users/duq711gmail.com/UnrealEngine/UnrealTrace/Store/001
+Signalling parent 94969
+Terminating server, no sponsors or connections active.
+Listening cancelled, closing port...
+Listening cancelled, closing port...
+Received signal 15
+Daemon is exiting without errors.

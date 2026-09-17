@@ -1,0 +1,23 @@
+[HEADLESS] torch_grip_test.gd
+TORCH WRIST angle_degrees=25.0608478948884
+TORCH WRIST angle_degrees=24.3784515249315
+TORCH WRIST angle_degrees=20.5951658939086
+TORCH PAD thumb samples=15 min/max_m=0.0007174165972/0.00136694702803
+TORCH PAD index samples=12 min/max_m=0.00071674021455/0.00181903322348
+TORCH PAD middle samples=12 min/max_m=0.0006240811401/0.00103040178122
+TORCH PAD ring samples=12 min/max_m=0.00066179581947/0.00100750226572
+TORCH PAD little samples=12 min/max_m=0.00068246924438/0.00106037873175
+TORCH PAD palm samples=24 min/max_m=0.00076231336995/0.00125912577364
+TORCH PAD index_middle samples=12 min/max_m=0.0008714982409/0.0014683747106
+TORCH PAD middle_middle samples=22 min/max_m=0.00143502322781/0.00202669195572
+TORCH PAD ring_middle samples=17 min/max_m=0.00127362389702/0.00188625288755
+TORCH PAD little_middle samples=12 min/max_m=0.00083426079503/0.00131613047158
+TORCH SKIN vertices=30045 minimum_clearance_m=0.0005795549898
+ERROR: forearm and hand longitudinal axes stay within 25 degrees during locomotion
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] run (res://tests/torch_grip_test.gd:44)
+       [1] audit_testroom (res://tests/torch_grip_test.gd:119)
+
+Headless validation: 0 passed, 1 failed.
+FAILED: torch_grip_test.gd (1)

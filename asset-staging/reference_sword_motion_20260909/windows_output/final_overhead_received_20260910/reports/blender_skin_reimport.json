@@ -1,0 +1,312 @@
+{
+  "status": "pass",
+  "iteration": "iteration_07",
+  "blender_version": "5.2.1 LTS",
+  "method": "Separate actual dependency-graph skin evaluations of saved blend and freshly imported GLB at all 187 original 120Hz sample times. Compare every evaluated vertex in both directions using bind-position correspondence, and compare bind-corrected bone deformation matrices.",
+  "sample_count": 187,
+  "skin_count": 1,
+  "joint_count": 7,
+  "skin_mesh_nodes": {
+    "RightArm_ContinuousSleeve_Surface": 0,
+    "RightArm_Forearm_Surface": 0,
+    "RightArm_WristCuff_Surface": 0
+  },
+  "bone_animation_channels": {
+    "SleeveHand": [
+      "translation",
+      "rotation",
+      "scale"
+    ],
+    "SleeveWrist": [
+      "translation",
+      "rotation",
+      "scale"
+    ],
+    "SleeveForearm": [
+      "translation",
+      "rotation",
+      "scale"
+    ],
+    "SleeveElbow25": [
+      "translation",
+      "rotation",
+      "scale"
+    ],
+    "SleeveElbow50": [
+      "translation",
+      "rotation",
+      "scale"
+    ],
+    "SleeveElbow75": [
+      "translation",
+      "rotation",
+      "scale"
+    ],
+    "SleeveUpper": [
+      "translation",
+      "rotation",
+      "scale"
+    ]
+  },
+  "source_bone_bind_data": {
+    "SleeveHand": {
+      "parent": null,
+      "bind_matrix_rows": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    "SleeveWrist": {
+      "parent": null,
+      "bind_matrix_rows": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    "SleeveForearm": {
+      "parent": null,
+      "bind_matrix_rows": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    "SleeveElbow25": {
+      "parent": null,
+      "bind_matrix_rows": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    "SleeveElbow50": {
+      "parent": null,
+      "bind_matrix_rows": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    "SleeveElbow75": {
+      "parent": null,
+      "bind_matrix_rows": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    "SleeveUpper": {
+      "parent": null,
+      "bind_matrix_rows": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    }
+  },
+  "mesh_mapping": {
+    "RightArm_ContinuousSleeve_Surface": {
+      "source_vertices": 8256,
+      "imported_vertices": 8384,
+      "bind_geometry_bidirectional_max_error_m": 2.5463114639023843e-07,
+      "correspondence": "Bidirectional nearest source/import bind positions; UV seam duplicates allowed. Both directions are compared after actual skin evaluation at every frame."
+    },
+    "RightArm_Forearm_Surface": {
+      "source_vertices": 556,
+      "imported_vertices": 590,
+      "bind_geometry_bidirectional_max_error_m": 1.2731557319511921e-07,
+      "correspondence": "Bidirectional nearest source/import bind positions; UV seam duplicates allowed. Both directions are compared after actual skin evaluation at every frame."
+    },
+    "RightArm_WristCuff_Surface": {
+      "source_vertices": 964,
+      "imported_vertices": 1170,
+      "bind_geometry_bidirectional_max_error_m": 8.05903539458086e-08,
+      "correspondence": "Bidirectional nearest source/import bind positions; UV seam duplicates allowed. Both directions are compared after actual skin evaluation at every frame."
+    }
+  },
+  "max_surface_error_m": {
+    "RightArm_ContinuousSleeve_Surface": 4.5579569775020385e-07,
+    "RightArm_Forearm_Surface": 4.1560174042176735e-07,
+    "RightArm_WristCuff_Surface": 4.4709989036709963e-07
+  },
+  "max_bone_deformation_matrix_error": {
+    "SleeveHand": 5.364418029785156e-07,
+    "SleeveWrist": 5.364418029785156e-07,
+    "SleeveForearm": 4.76837158203125e-07,
+    "SleeveElbow25": 4.76837158203125e-07,
+    "SleeveElbow50": 5.364418029785156e-07,
+    "SleeveElbow75": 5.364418029785156e-07,
+    "SleeveUpper": 4.76837158203125e-07
+  },
+  "max_shield_marker_matrix_error": 4.76837158203125e-07,
+  "checks": {
+    "single_skin_seven_animated_bones": true,
+    "all_three_meshes_reimport_as_skinned": true,
+    "bone_hierarchy_unparented": true,
+    "all_187_evaluated_surface_samples_match": true,
+    "all_187_bone_deformations_match": true,
+    "all_shield_marker_matrices_match": true,
+    "all_inputs_unchanged": true
+  },
+  "input_sha256": {
+    "C:\\Users\\duq71\\Documents\\Codex\\2026-09-08\\d\\outputs\\reference_sword_motion_rebuild_20260910\\output\\iteration_07\\Overhead_Review.blend": "c2d42f15489ca6baa89038d8c0d1adb16e91e1f137d97324e2d34352184dba0c",
+    "C:\\Users\\duq71\\Documents\\Codex\\2026-09-08\\d\\outputs\\reference_sword_motion_rebuild_20260910\\output\\iteration_07\\Overhead_Review.glb": "a0df768367d78a487573101e780b881869b52b17ddd6daeaaea9cbcf6b24f319",
+    "C:\\Users\\duq71\\Documents\\Codex\\2026-09-08\\d\\outputs\\reference_sword_motion_rebuild_20260910\\output\\iteration_07\\arm_pose_samples.json": "3c383aacbfb138a1c3ac19686f4a555d06ef2e311575aeefd7c2a529045254b0",
+    "C:\\Users\\duq71\\Documents\\Codex\\2026-09-08\\d\\work\\game-project\\RPG_Workspace\\godot-game\\assets\\3d\\player\\sword_shield\\round_shield.glb": "8ca7482ae498083b426200cc8257e90e00d51a81ef6f08749c893ad3c59bdfe0"
+  },
+  "limits": [
+    "Numerical skin/export preservation only; does not approve visible skin folds, silhouette, wrist junction, or artistic anatomy.",
+    "These surfaces require the delivered skin/bind/action. Applying only right_arm.parts_camera discards sleeve deformation.",
+    "No Godot runtime/shader execution."
+  ],
+  "full_report_sha256": "69d8b3b0baafdcf3d7001e09fd15bba377d678c304029d1d2e00fe651b056273"
+}

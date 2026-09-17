@@ -1,0 +1,4020 @@
+{
+  "schema_version": 1,
+  "scope": "All current Godot runtime visual object archetypes; repeated placement instances grouped; distinct authored mesh nodes preserved in variant_coverage. UI-only inventory items and unused historical assets excluded.",
+  "direction_convention": "Godot front -Z, back +Z, left -X, right +X, top +Y, bottom -Y",
+  "entries": [
+    {
+      "id": "gravebound_player",
+      "title": "무덤길 방랑자",
+      "name_ko": "무덤길 방랑자",
+      "category": "character",
+      "source_path": "godot-game/scripts/player_appearance.gd",
+      "runtime_constructor": "create_body",
+      "factory": "player_appearance.gd::create_body",
+      "factory_type": "player",
+      "description_en": "A weary hooded medieval human wanderer wearing filthy brown layered wool and leather, ragged cloak, practical worn boots, realistic dark fantasy survivor.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "asset_path": "res://assets/3d/player/gravebound_player.glb",
+      "excluded_by_user": true,
+      "exclusion_reason": "사용자 요청: 방금 완성한 플레이어 몸과 손·팔 외형을 이번 아트 변경과 이미지 반복에서 제외합니다."
+    },
+    {
+      "id": "sanctuary_warden",
+      "title": "성소 감시자",
+      "name_ko": "성소 감시자",
+      "category": "character",
+      "source_path": "godot-game/scripts/enemy.gd",
+      "runtime_constructor": "_build_body",
+      "factory": "enemy.gd::_build_body",
+      "factory_type": "enemy",
+      "description_en": "Tall menacing undead knight in corroded black plate armor and tattered cloth, dim cold spectral eyes, pitted longsword.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "keeper": false
+    },
+    {
+      "id": "ossuary_keeper",
+      "title": "굶주린 납골당지기",
+      "name_ko": "굶주린 납골당지기",
+      "category": "character",
+      "source_path": "godot-game/scripts/enemy.gd",
+      "runtime_constructor": "_build_body",
+      "factory": "enemy.gd::_build_body",
+      "factory_type": "enemy",
+      "description_en": "Anatomically faithful weathered human skeleton with porous aged ivory bones, complete articulated body and skull, sinister dark fantasy enemy.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "keeper": true
+    },
+    {
+      "id": "chest_hands",
+      "title": "상자 조작 손과 소매",
+      "name_ko": "상자 조작 손과 소매",
+      "category": "character",
+      "source_path": "godot-game/scripts/chest_hand_visuals.gd",
+      "runtime_constructor": "_ensure_built",
+      "factory": "chest_hand_visuals.gd::_ensure_built",
+      "factory_type": "hands",
+      "description_en": "Two realistic worn human hands with articulated fingers, frayed dark wool sleeves and leather cuffs, the same survivor skin and clothing.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "excluded_by_user": true,
+      "exclusion_reason": "사용자 요청: 방금 완성한 플레이어 몸과 손·팔 외형을 이번 아트 변경과 이미지 반복에서 제외합니다."
+    },
+    {
+      "id": "rusted_longsword",
+      "title": "녹슨 장검",
+      "name_ko": "녹슨 장검",
+      "category": "equipment",
+      "source_path": "godot-game/scripts/player.gd",
+      "runtime_constructor": "_build_viewmodel",
+      "factory": "player.gd::_build_viewmodel",
+      "factory_type": "scene",
+      "description_en": "Medieval double edged iron longsword, narrow pitted blade with fuller, dark cruciform guard, brown leather wrapped grip and iron pommel.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "asset_path": "res://assets/3d/dark_fantasy/rusted_longsword.glb"
+    },
+    {
+      "id": "weathered_round_shield",
+      "title": "낡은 원형 방패",
+      "name_ko": "낡은 원형 방패",
+      "category": "equipment",
+      "source_path": "godot-game/scripts/player.gd",
+      "runtime_constructor": "_build_viewmodel",
+      "factory": "player.gd::_build_viewmodel",
+      "factory_type": "scene",
+      "description_en": "Round wooden shield of cracked oak planks, riveted iron rim, central domed boss, leather rear hand straps.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "asset_path": "res://assets/3d/dark_fantasy/weathered_round_shield.glb"
+    },
+    {
+      "id": "iron_cage_torch",
+      "title": "철제 우리 횃불",
+      "name_ko": "철제 우리 횃불",
+      "category": "equipment",
+      "source_path": "godot-game/scripts/player.gd",
+      "runtime_constructor": "_build_viewmodel",
+      "factory": "player.gd::_build_viewmodel",
+      "factory_type": "scene",
+      "description_en": "Charred wood handled torch with a black iron fuel cup and cage prongs, glowing coals and amber fire.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "asset_path": "res://assets/3d/dark_fantasy/iron_cage_torch.glb"
+    },
+    {
+      "id": "weathered_staff",
+      "title": "낡은 수정 지팡이",
+      "name_ko": "낡은 수정 지팡이",
+      "category": "equipment",
+      "source_path": "godot-game/scripts/player.gd",
+      "runtime_constructor": "_build_staff_visual",
+      "factory": "player.gd::_build_staff_visual",
+      "factory_type": "staff",
+      "description_en": "Long ancient oak staff with weathered leather grip, three iron bands, forked branches holding a small cracked pale turquoise crystal.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "hunting_bow",
+      "title": "사냥용 장궁",
+      "name_ko": "사냥용 장궁",
+      "category": "equipment",
+      "source_path": "godot-game/scripts/archery_visuals.gd",
+      "runtime_constructor": "create_bow",
+      "factory": "archery_visuals.gd::create_bow",
+      "factory_type": "bow",
+      "description_en": "Bent dark oak hunting bow with two tapered limbs, tight bowstring, leather grip and worn iron reinforcement.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "hunting_arrow",
+      "title": "사냥용 화살",
+      "name_ko": "사냥용 화살",
+      "category": "equipment",
+      "source_path": "godot-game/scripts/archery_visuals.gd",
+      "runtime_constructor": "create_arrow",
+      "factory": "archery_visuals.gd::create_arrow",
+      "factory_type": "arrow",
+      "description_en": "Straight weathered wood arrow shaft, forged narrow iron arrowhead, feather fletching and a nocked tail.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "chain_flail",
+      "title": "쇠사슬 철퇴",
+      "name_ko": "쇠사슬 철퇴",
+      "category": "equipment",
+      "source_path": "godot-game/scripts/flail_visuals.gd",
+      "runtime_constructor": "create_flail",
+      "factory": "flail_visuals.gd::create_flail",
+      "factory_type": "flail",
+      "description_en": "Leather wrapped iron handle attached through linked iron chain to a heavy black spiked spherical flail head.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "flail_head",
+      "title": "가시 철퇴 머리",
+      "name_ko": "가시 철퇴 머리",
+      "category": "equipment",
+      "source_path": "godot-game/scripts/flail_visuals.gd",
+      "runtime_constructor": "create_head",
+      "factory": "flail_visuals.gd::create_head",
+      "factory_type": "flail_head",
+      "description_en": "Heavy forged spherical black iron flail head with sharp conical spikes and a solid chain attachment loop.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "flail_chain",
+      "title": "철퇴 사슬",
+      "name_ko": "철퇴 사슬",
+      "category": "equipment",
+      "source_path": "godot-game/scripts/flail_visuals.gd",
+      "runtime_constructor": "create_chain",
+      "factory": "flail_visuals.gd::create_chain",
+      "factory_type": "flail_chain",
+      "description_en": "Interlocking worn oval iron links forming a physically readable medieval weapon chain.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "reliquary_chest",
+      "title": "성유물 보급 상자",
+      "name_ko": "성유물 보급 상자",
+      "category": "prop",
+      "source_path": "godot-game/scripts/loot_chest.gd",
+      "runtime_constructor": "_build_visuals",
+      "factory": "loot_chest.gd::_build_visuals",
+      "factory_type": "chest",
+      "description_en": "Ancient oak reliquary chest with arched hinged lid, dense worn planks, riveted black iron bands, corners, latch and a faint turquoise rune seal.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ]
+    },
+    {
+      "id": "blood_rune_trap",
+      "title": "피의 룬 가시 함정",
+      "name_ko": "피의 룬 가시 함정",
+      "category": "prop",
+      "source_path": "godot-game/scripts/trap.gd",
+      "runtime_constructor": "_build_visuals",
+      "factory": "trap.gd::_build_visuals",
+      "factory_type": "trap",
+      "description_en": "Sunken square blackened stone and iron trap plate etched with a circular turquoise rune, nine spike sockets and extending black iron spikes.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "retracted spikes",
+        "extended spikes"
+      ]
+    },
+    {
+      "id": "dungeon_archway",
+      "title": "납골당 아치문",
+      "name_ko": "납골당 아치문",
+      "category": "architecture",
+      "source_path": "godot-game/scripts/hideout.gd",
+      "runtime_constructor": "_add_arch",
+      "factory": "hideout.gd::_add_arch",
+      "factory_type": "scene",
+      "description_en": "Heavy modular gothic stone archway made of aged ashlar blocks and pointed vault stones.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "asset_path": "res://assets/3d/dark_fantasy/dungeon_archway_4m.glb"
+    },
+    {
+      "id": "dungeon_pillar",
+      "title": "고딕 석조 기둥",
+      "name_ko": "고딕 석조 기둥",
+      "category": "architecture",
+      "source_path": "godot-game/scripts/hideout.gd",
+      "runtime_constructor": "_add_pillar",
+      "factory": "hideout.gd::_add_pillar",
+      "factory_type": "scene",
+      "description_en": "Tall weathered stone pillar with layered square base, clustered shaft and heavy capital.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "asset_path": "res://assets/3d/dark_fantasy/dungeon_pillar_3m.glb"
+    },
+    {
+      "id": "dungeon_stairs",
+      "title": "폐허 예배당 계단",
+      "name_ko": "폐허 예배당 계단",
+      "category": "architecture",
+      "source_path": "godot-game/scripts/hideout.gd",
+      "runtime_constructor": "_build_entry_and_stairs",
+      "factory": "hideout.gd::_build_entry_and_stairs",
+      "factory_type": "scene",
+      "description_en": "Broad worn stone steps with chipped edges, dark wet crevices and ruin debris.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "asset_path": "res://assets/3d/dark_fantasy/dungeon_stairs_4m.glb"
+    },
+    {
+      "id": "extraction_portal",
+      "title": "탈출 성소 차원문",
+      "name_ko": "탈출 성소 차원문",
+      "category": "architecture",
+      "source_path": "godot-game/scripts/game.gd",
+      "runtime_constructor": "_build_extraction_gate",
+      "factory": "game.gd::_build_extraction_gate",
+      "factory_type": "game",
+      "description_en": "Ancient tall stone portal arch with gothic blocks and a red spectral membrane, drifting teal motes and a broad threshold.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "method": "_build_extraction_gate",
+      "args": []
+    },
+    {
+      "id": "headless_saint",
+      "title": "머리 없는 성인 석상",
+      "name_ko": "머리 없는 성인 석상",
+      "category": "hideout_prop",
+      "source_path": "godot-game/scripts/hideout.gd",
+      "runtime_constructor": "_build_broken_saint",
+      "factory": "hideout.gd::_build_broken_saint",
+      "factory_type": "hideout",
+      "description_en": "Headless eroded stone saint in a long robe on a rectangular plinth, broken shoulders and arms, rubble at the base.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "method": "_build_broken_saint",
+      "args": []
+    },
+    {
+      "id": "hideout_hearth",
+      "title": "은신처 잿불 화로",
+      "name_ko": "은신처 잿불 화로",
+      "category": "hideout_prop",
+      "source_path": "godot-game/scripts/hideout.gd",
+      "runtime_constructor": "_build_hearth",
+      "factory": "hideout.gd::_build_hearth",
+      "factory_type": "hideout",
+      "description_en": "Rough circular stone hearth with black ash bed, charred logs and subdued amber flames, adjacent soot black pot and iron cup.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "method": "_build_hearth",
+      "args": []
+    },
+    {
+      "id": "wooden_stool",
+      "title": "세발 나무 의자",
+      "name_ko": "세발 나무 의자",
+      "category": "hideout_prop",
+      "source_path": "godot-game/scripts/hideout.gd",
+      "runtime_constructor": "_build_small_stool",
+      "factory": "hideout.gd::_build_small_stool",
+      "factory_type": "hideout",
+      "description_en": "Simple worn circular oak stool with three sturdy wooden legs.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "method": "_build_small_stool",
+      "args": [
+        {
+          "v3": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "storage_shelf",
+      "title": "낡은 보관 선반",
+      "name_ko": "낡은 보관 선반",
+      "category": "hideout_prop",
+      "source_path": "godot-game/scripts/hideout.gd",
+      "runtime_constructor": "_build_shelf",
+      "factory": "hideout.gd::_build_shelf",
+      "factory_type": "hideout",
+      "description_en": "Bare crooked three tier oak storage shelf with two heavy posts and rough splintered boards.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "width 2.8 m",
+        "width 3.2 m",
+        "width 3.8 m"
+      ],
+      "method": "_build_shelf",
+      "args": [
+        {
+          "v3": [
+            0,
+            0,
+            0
+          ]
+        },
+        0.0,
+        3.8
+      ]
+    },
+    {
+      "id": "weapon_rack",
+      "title": "버려진 무기 거치대",
+      "name_ko": "버려진 무기 거치대",
+      "category": "hideout_prop",
+      "source_path": "godot-game/scripts/hideout.gd",
+      "runtime_constructor": "_build_weapon_rack",
+      "factory": "hideout.gd::_build_weapon_rack",
+      "factory_type": "hideout",
+      "description_en": "Abandoned oak weapon rack with corroded iron longsword and weathered round shield.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "method": "_build_weapon_rack",
+      "args": [
+        {
+          "v3": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hideout_crate",
+      "title": "은신처 나무 상자",
+      "name_ko": "은신처 나무 상자",
+      "category": "hideout_prop",
+      "source_path": "godot-game/scripts/hideout.gd",
+      "runtime_constructor": "_add_crate",
+      "factory": "hideout.gd::_add_crate",
+      "factory_type": "hideout",
+      "description_en": "Empty aged oak crate with two horizontal black iron bands.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "large 1.25x0.92x1.08",
+        "small 0.86x0.62x0.78"
+      ],
+      "method": "_add_crate",
+      "args": [
+        {
+          "v3": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "v3": [
+            1.25,
+            0.92,
+            1.08
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hideout_barrel",
+      "title": "은신처 참나무 통",
+      "name_ko": "은신처 참나무 통",
+      "category": "hideout_prop",
+      "source_path": "godot-game/scripts/hideout.gd",
+      "runtime_constructor": "_add_barrel",
+      "factory": "hideout.gd::_add_barrel",
+      "factory_type": "hideout",
+      "description_en": "Standing tapered oak barrel with two weathered iron hoops.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "large radius0.52 height1.22",
+        "small radius0.42 height0.92",
+        "flooded radius0.48 height1.1",
+        "flooded small radius0.38 height0.82"
+      ],
+      "method": "_add_barrel",
+      "args": [
+        {
+          "v3": [
+            0,
+            0,
+            0
+          ]
+        },
+        0.52,
+        1.22
+      ]
+    },
+    {
+      "id": "rain_bucket",
+      "title": "빗물 양동이",
+      "name_ko": "빗물 양동이",
+      "category": "hideout_prop",
+      "source_path": "godot-game/scripts/hideout.gd",
+      "runtime_constructor": "_add_bucket",
+      "factory": "hideout.gd::_add_bucket",
+      "factory_type": "hideout",
+      "description_en": "Tapered battered iron bucket filled near the lip with still dark rainwater.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "scale0.52",
+        "scale0.62"
+      ],
+      "method": "_add_bucket",
+      "args": [
+        {
+          "v3": [
+            0,
+            0,
+            0
+          ]
+        },
+        0.62
+      ]
+    },
+    {
+      "id": "hanging_cloak",
+      "title": "축축한 벽 망토",
+      "name_ko": "축축한 벽 망토",
+      "category": "hideout_prop",
+      "source_path": "godot-game/scripts/hideout.gd",
+      "runtime_constructor": "_add_hanging_cloth",
+      "factory": "hideout.gd::_add_hanging_cloth",
+      "factory_type": "hideout",
+      "description_en": "Damp dark moss grey cloth cloak hanging from a rough wooden peg, heavy sagging fabric.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "method": "_add_hanging_cloth",
+      "args": [
+        {
+          "v3": [
+            0,
+            1.8,
+            0
+          ]
+        },
+        {
+          "v2": [
+            1.25,
+            1.8
+          ]
+        },
+        {
+          "color": [
+            0.105,
+            0.12,
+            0.105
+          ]
+        }
+      ]
+    },
+    {
+      "id": "drying_herbs",
+      "title": "말리는 약초 다발",
+      "name_ko": "말리는 약초 다발",
+      "category": "hideout_prop",
+      "source_path": "godot-game/scripts/hideout.gd",
+      "runtime_constructor": "_add_hanging_herbs",
+      "factory": "hideout.gd::_add_hanging_herbs",
+      "factory_type": "hideout",
+      "description_en": "Five bunches of desiccated brown green medicinal herbs tied upside down to a hemp cord.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "method": "_add_hanging_herbs",
+      "args": [
+        {
+          "v3": [
+            0,
+            1.2,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "used_candles",
+      "title": "다 탄 밀랍 양초",
+      "name_ko": "다 탄 밀랍 양초",
+      "category": "hideout_prop",
+      "source_path": "godot-game/scripts/hideout.gd",
+      "runtime_constructor": "_add_candle_cluster",
+      "factory": "hideout.gd::_add_candle_cluster",
+      "factory_type": "hideout",
+      "description_en": "Three short used aged ivory wax candles with varying heights and tiny amber flames.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "heights .24 .32 .40 m"
+      ],
+      "method": "_add_candle_cluster",
+      "args": [
+        {
+          "v3": [
+            0,
+            0,
+            0
+          ]
+        },
+        3
+      ]
+    },
+    {
+      "id": "ossuary_gate",
+      "title": "봉인된 납골실 철문",
+      "name_ko": "봉인된 납골실 철문",
+      "category": "hideout_prop",
+      "source_path": "godot-game/scripts/hideout.gd",
+      "runtime_constructor": "_add_iron_gate",
+      "factory": "hideout.gd::_add_iron_gate",
+      "factory_type": "hideout",
+      "description_en": "Wide barred black iron gate with twelve upright bars and two horizontal braces, corrosion and moisture.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "method": "_add_iron_gate",
+      "args": [
+        {
+          "v3": [
+            0,
+            0,
+            0
+          ]
+        },
+        5.7,
+        3.65,
+        false
+      ]
+    },
+    {
+      "id": "drain_gate",
+      "title": "좁은 배수 철문",
+      "name_ko": "좁은 배수 철문",
+      "category": "hideout_prop",
+      "source_path": "godot-game/scripts/hideout.gd",
+      "runtime_constructor": "_add_iron_gate",
+      "factory": "hideout.gd::_add_iron_gate",
+      "factory_type": "hideout",
+      "description_en": "Narrow barred drainage iron gate with seven upright bars and two heavy horizontal braces.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "method": "_add_iron_gate",
+      "args": [
+        {
+          "v3": [
+            0,
+            0,
+            0
+          ]
+        },
+        3.2,
+        3.3,
+        false
+      ]
+    },
+    {
+      "id": "ossuary_niches",
+      "title": "해골 납골 벽감",
+      "name_ko": "해골 납골 벽감",
+      "category": "hideout_prop",
+      "source_path": "godot-game/scripts/hideout.gd",
+      "runtime_constructor": "_add_niche_wall",
+      "factory": "hideout.gd::_add_niche_wall",
+      "factory_type": "hideout",
+      "description_en": "Grid of aged stone burial niches with dark recesses, chipped square frames and human skulls.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "5 columns x3 rows",
+        "4 columns x3 rows"
+      ],
+      "method": "_add_niche_wall",
+      "args": [
+        {
+          "v3": [
+            0,
+            0,
+            0
+          ]
+        },
+        5,
+        3
+      ]
+    },
+    {
+      "id": "weathered_skull",
+      "title": "풍화된 해골",
+      "name_ko": "풍화된 해골",
+      "category": "hideout_prop",
+      "source_path": "godot-game/scripts/hideout.gd",
+      "runtime_constructor": "_add_skull",
+      "factory": "hideout.gd::_add_skull",
+      "factory_type": "hideout",
+      "description_en": "Weathered ivory human skull with a separate lower jaw, surface age and deep hollow eye sockets.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "method": "_add_skull",
+      "args": [
+        {
+          "v3": [
+            0,
+            0.4,
+            0
+          ]
+        },
+        0.23
+      ]
+    },
+    {
+      "id": "cold_seal_rune",
+      "title": "납골실 냉기 룬",
+      "name_ko": "납골실 냉기 룬",
+      "category": "vfx",
+      "source_path": "godot-game/scripts/hideout.gd",
+      "runtime_constructor": "_add_cold_rune",
+      "factory": "hideout.gd::_add_cold_rune",
+      "factory_type": "hideout",
+      "description_en": "Faint turquoise circular occult seal glowing on dark stone, thin etched geometric symbols.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "method": "_add_cold_rune",
+      "args": [
+        {
+          "v3": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "v2": [
+            2.4,
+            2.4
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hideout_rubble",
+      "title": "납골당 깨진 석재",
+      "name_ko": "납골당 깨진 석재",
+      "category": "architecture",
+      "source_path": "godot-game/scripts/hideout.gd",
+      "runtime_constructor": "_add_rubble_cluster",
+      "factory": "hideout.gd::_add_rubble_cluster",
+      "factory_type": "hideout",
+      "description_en": "Cluster of six different chipped rectangular ashlar stone fragments with wet mossy edges.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "6 shard shapes"
+      ],
+      "method": "_add_rubble_cluster",
+      "args": [
+        {
+          "v3": [
+            0,
+            0,
+            0
+          ]
+        },
+        1.0
+      ]
+    },
+    {
+      "id": "shallow_water",
+      "title": "은신처 얕은 고인 물",
+      "name_ko": "은신처 얕은 고인 물",
+      "category": "environment",
+      "source_path": "godot-game/scripts/hideout.gd",
+      "runtime_constructor": "_add_water_surface",
+      "factory": "hideout.gd::_add_water_surface",
+      "factory_type": "hideout",
+      "description_en": "Thin dark still water surface in a flooded crypt, muted cold reflections and faint ripples.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "method": "_add_water_surface",
+      "args": [
+        {
+          "v3": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "v2": [
+            3,
+            3
+          ]
+        },
+        42.0
+      ]
+    },
+    {
+      "id": "moss_patch",
+      "title": "젖은 벽 이끼",
+      "name_ko": "젖은 벽 이끼",
+      "category": "environment",
+      "source_path": "godot-game/scripts/hideout.gd",
+      "runtime_constructor": "_add_moss_patch",
+      "factory": "hideout.gd::_add_moss_patch",
+      "factory_type": "hideout",
+      "description_en": "Moist dark green moss patch clinging to an old cold stone wall.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "method": "_add_moss_patch",
+      "args": [
+        {
+          "v3": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "v2": [
+            2.2,
+            1.4
+          ]
+        },
+        0.0
+      ]
+    },
+    {
+      "id": "wall_torch",
+      "title": "벽걸이 철제 횃불",
+      "name_ko": "벽걸이 철제 횃불",
+      "category": "prop",
+      "source_path": "godot-game/scripts/hideout.gd",
+      "runtime_constructor": "_add_wall_torch",
+      "factory": "hideout.gd::_add_wall_torch",
+      "factory_type": "hideout",
+      "description_en": "Wall mounted iron cage torch with a charred handle and small amber flame.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "method": "_add_wall_torch",
+      "args": [
+        {
+          "v3": [
+            0,
+            0,
+            0
+          ]
+        },
+        0.0,
+        {
+          "color": [
+            1,
+            0.4,
+            0.17
+          ]
+        },
+        1.0
+      ]
+    },
+    {
+      "id": "flame_and_sparks",
+      "title": "불꽃과 불티",
+      "name_ko": "불꽃과 불티",
+      "category": "vfx",
+      "source_path": "godot-game/scripts/hideout.gd",
+      "runtime_constructor": "_add_flame",
+      "factory": "hideout.gd::_add_flame",
+      "factory_type": "hideout",
+      "description_en": "Lively narrow amber fire tongue with a bright heart and drifting sparks on transparent darkness.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "method": "_add_flame",
+      "args": [
+        {
+          "v3": [
+            0,
+            0,
+            0
+          ]
+        },
+        1.0,
+        {
+          "color": [
+            1,
+            0.4,
+            0.15
+          ]
+        }
+      ]
+    },
+    {
+      "id": "water_drips",
+      "title": "천장 물방울",
+      "name_ko": "천장 물방울",
+      "category": "vfx",
+      "source_path": "godot-game/scripts/hideout.gd",
+      "runtime_constructor": "_add_water_drips",
+      "factory": "hideout.gd::_add_water_drips",
+      "factory_type": "hideout",
+      "description_en": "Cold beads of water falling from a dungeon ceiling, slim transparent streaks.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "method": "_add_water_drips",
+      "args": [
+        {
+          "v3": [
+            0,
+            2,
+            0
+          ]
+        },
+        {
+          "v3": [
+            0.4,
+            0.1,
+            0.4
+          ]
+        },
+        18
+      ],
+      "parent_last": true
+    },
+    {
+      "id": "straw_bed",
+      "title": "짚 침상",
+      "name_ko": "짚 침상",
+      "category": "hideout_prop",
+      "source_path": "godot-game/scripts/hideout.gd",
+      "runtime_constructor": "_build_sleeping_cell",
+      "factory": "hideout.gd::_build_sleeping_cell",
+      "factory_type": "hideout_section",
+      "description_en": "Simple timber bed with a sagging straw mattress, threadbare brown blanket and rolled pillow.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "section": "sleep",
+      "prefixes": [
+        "BedFrame",
+        "StrawMattress",
+        "ThreadbareBlanket",
+        "RolledPillow"
+      ]
+    },
+    {
+      "id": "mud_mat",
+      "title": "진흙 묻은 깔개",
+      "name_ko": "진흙 묻은 깔개",
+      "category": "hideout_prop",
+      "source_path": "godot-game/scripts/hideout.gd",
+      "runtime_constructor": "_build_entry_and_stairs",
+      "factory": "hideout.gd::_build_entry_and_stairs",
+      "factory_type": "hideout_section",
+      "description_en": "Small frayed rectangular straw mat darkened by muddy boots.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "section": "entrance",
+      "prefixes": [
+        "MudMat"
+      ]
+    },
+    {
+      "id": "hidden_hatch",
+      "title": "철제 버팀 입구 판자문",
+      "name_ko": "철제 버팀 입구 판자문",
+      "category": "hideout_prop",
+      "source_path": "godot-game/scripts/hideout.gd",
+      "runtime_constructor": "_build_entry_and_stairs",
+      "factory": "hideout.gd::_build_entry_and_stairs",
+      "factory_type": "hideout_section",
+      "description_en": "Heavy plank hatch door with two slanting forged iron braces.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "section": "entrance",
+      "prefixes": [
+        "HiddenHatchWall",
+        "HatchIronBrace"
+      ]
+    },
+    {
+      "id": "empty_sack",
+      "title": "빈 삼베 자루",
+      "name_ko": "빈 삼베 자루",
+      "category": "hideout_prop",
+      "source_path": "godot-game/scripts/hideout.gd",
+      "runtime_constructor": "_build_storage_room",
+      "factory": "hideout.gd::_build_storage_room",
+      "factory_type": "hideout_section",
+      "description_en": "Slumped empty coarse burlap sack on a wet cellar floor.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "section": "storage",
+      "prefixes": [
+        "EmptySack"
+      ]
+    },
+    {
+      "id": "broken_workbench",
+      "title": "부서진 작업대",
+      "name_ko": "부서진 작업대",
+      "category": "hideout_prop",
+      "source_path": "godot-game/scripts/hideout.gd",
+      "runtime_constructor": "_build_workshop",
+      "factory": "hideout.gd::_build_workshop",
+      "factory_type": "hideout_section",
+      "description_en": "Heavy worn timber workbench with crooked legs and a broad scarred top.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "section": "workshop",
+      "prefixes": [
+        "BrokenWorkbenchCollision",
+        "WorkbenchLeg"
+      ]
+    },
+    {
+      "id": "whetstone",
+      "title": "낡은 숫돌",
+      "name_ko": "낡은 숫돌",
+      "category": "hideout_prop",
+      "source_path": "godot-game/scripts/hideout.gd",
+      "runtime_constructor": "_build_workshop",
+      "factory": "hideout.gd::_build_workshop",
+      "factory_type": "hideout_section",
+      "description_en": "Small rectangular battered grey whetstone with abraded edges.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "section": "workshop",
+      "prefixes": [
+        "Whetstone"
+      ]
+    },
+    {
+      "id": "rusty_vice",
+      "title": "녹슨 바이스",
+      "name_ko": "녹슨 바이스",
+      "category": "hideout_prop",
+      "source_path": "godot-game/scripts/hideout.gd",
+      "runtime_constructor": "_build_workshop",
+      "factory": "hideout.gd::_build_workshop",
+      "factory_type": "hideout_section",
+      "description_en": "Compact corroded iron bench vice with a heavy squared body.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "section": "workshop",
+      "prefixes": [
+        "RustyVice"
+      ]
+    },
+    {
+      "id": "gothic_voussoir_arch",
+      "title": "납골당 천장 석조 아치",
+      "name_ko": "납골당 천장 석조 아치",
+      "category": "architecture",
+      "source_path": "godot-game/scripts/game.gd",
+      "runtime_constructor": "_add_gothic_arch",
+      "factory": "game.gd::_add_gothic_arch",
+      "factory_type": "game",
+      "description_en": "Broad shallow gothic vault arch assembled from 25 worn stone voussoir blocks.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "method": "_add_gothic_arch",
+      "args": [
+        {
+          "v3": [
+            0,
+            0,
+            0
+          ]
+        },
+        3.55,
+        1.42
+      ]
+    },
+    {
+      "id": "hanging_chain",
+      "title": "천장 녹슨 사슬",
+      "name_ko": "천장 녹슨 사슬",
+      "category": "architecture",
+      "source_path": "godot-game/scripts/game.gd",
+      "runtime_constructor": "_add_hanging_chain",
+      "factory": "game.gd::_add_hanging_chain",
+      "factory_type": "game",
+      "description_en": "Hanging length of interlocked corroded iron oval links.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "method": "_add_hanging_chain",
+      "args": [
+        {
+          "v3": [
+            0,
+            2.15,
+            0
+          ]
+        },
+        2.15
+      ]
+    },
+    {
+      "id": "dungeon_rubble",
+      "title": "던전 폐석 더미",
+      "name_ko": "던전 폐석 더미",
+      "category": "architecture",
+      "source_path": "godot-game/scripts/game.gd",
+      "runtime_constructor": "_add_rubble_cluster",
+      "factory": "game.gd::_add_rubble_cluster",
+      "factory_type": "game",
+      "description_en": "Seven scattered irregular rectangular ashlar rubble chunks of varied proportions.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "method": "_add_rubble_cluster",
+      "args": [
+        {
+          "v3": [
+            0,
+            0,
+            0
+          ]
+        },
+        1.0
+      ]
+    },
+    {
+      "id": "wet_floor_patch",
+      "title": "바닥 물 반사 자국",
+      "name_ko": "바닥 물 반사 자국",
+      "category": "architecture",
+      "source_path": "godot-game/scripts/game.gd",
+      "runtime_constructor": "_add_wet_patch",
+      "factory": "game.gd::_add_wet_patch",
+      "factory_type": "game",
+      "description_en": "Shallow irregular looking dark teal wet stone reflection patch.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "method": "_add_wet_patch",
+      "args": [
+        {
+          "v3": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "v2": [
+            2.5,
+            1.45
+          ]
+        },
+        0.0
+      ]
+    },
+    {
+      "id": "ossuary_wall",
+      "title": "축축한 납골당 벽",
+      "name_ko": "축축한 납골당 벽",
+      "category": "architecture",
+      "source_path": "godot-game/scripts/game.gd",
+      "runtime_constructor": "_add_visual_box",
+      "factory": "game.gd::_add_visual_box",
+      "factory_type": "game_box",
+      "description_en": "Dark grey ossuary masonry wall with age worn seams, moisture, grime and moss.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "size": {
+        "v3": [
+          4,
+          4,
+          0.5
+        ]
+      },
+      "material": "stone_material"
+    },
+    {
+      "id": "wet_flagstone_floor",
+      "title": "젖은 판석 바닥",
+      "name_ko": "젖은 판석 바닥",
+      "category": "architecture",
+      "source_path": "godot-game/scripts/game.gd",
+      "runtime_constructor": "_add_visual_box",
+      "factory": "game.gd::_add_visual_box",
+      "factory_type": "game_box",
+      "description_en": "Broad uneven weathered flagstone floor slab with damp cracks and worn stone surfaces.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "size": {
+        "v3": [
+          4,
+          0.2,
+          4
+        ]
+      },
+      "material": "floor_material"
+    },
+    {
+      "id": "crypt_ceiling",
+      "title": "납골당 석조 천장",
+      "name_ko": "납골당 석조 천장",
+      "category": "architecture",
+      "source_path": "godot-game/scripts/game.gd",
+      "runtime_constructor": "_add_visual_box",
+      "factory": "game.gd::_add_visual_box",
+      "factory_type": "game_box",
+      "description_en": "Heavy dark stone crypt ceiling section with soot and deep block joints.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "size": {
+        "v3": [
+          4,
+          0.3,
+          4
+        ]
+      },
+      "material": "stone_material"
+    },
+    {
+      "id": "broken_altar",
+      "title": "부서진 제단",
+      "name_ko": "부서진 제단",
+      "category": "architecture",
+      "source_path": "godot-game/scripts/game.gd",
+      "runtime_constructor": "_add_visual_box",
+      "factory": "game.gd::_add_visual_box",
+      "factory_type": "game_box",
+      "description_en": "Low broad rectangular ancient stone altar worn and chipped along the upper edge.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "size": {
+        "v3": [
+          2.7,
+          1.24,
+          1.3
+        ]
+      },
+      "material": "stone_material"
+    },
+    {
+      "id": "campfire",
+      "title": "원정 야영 모닥불",
+      "name_ko": "원정 야영 모닥불",
+      "category": "camp",
+      "source_path": "godot-game/scripts/camp_visuals.gd",
+      "runtime_constructor": "create_camp",
+      "factory": "camp_visuals.gd::create_camp",
+      "factory_type": "camp",
+      "description_en": "Nine stone fire ring with crossed oak logs and amber flame on black ash.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "selection": [
+        "FireRingStone",
+        "Firewood",
+        "Flame",
+        "CampfireLight"
+      ]
+    },
+    {
+      "id": "camp_bedroll",
+      "title": "야영 침낭",
+      "name_ko": "야영 침낭",
+      "category": "camp",
+      "source_path": "godot-game/scripts/camp_visuals.gd",
+      "runtime_constructor": "create_camp",
+      "factory": "camp_visuals.gd::create_camp",
+      "factory_type": "camp",
+      "description_en": "Compact brown cloth bedroll with a cylindrical rolled blanket pillow.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "selection": [
+        "Bedroll",
+        "RolledBlanket"
+      ]
+    },
+    {
+      "id": "roasting_spit",
+      "title": "고기 굽는 꼬챙이",
+      "name_ko": "고기 굽는 꼬챙이",
+      "category": "camp",
+      "source_path": "godot-game/scripts/camp_visuals.gd",
+      "runtime_constructor": "create_camp + set_cooking",
+      "factory": "camp_visuals.gd::create_camp + set_cooking",
+      "factory_type": "camp",
+      "description_en": "Wooden Y supports and a forged iron rotating spit holding roasting meat above embers.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "recipe": "roast_meat",
+      "selection": [
+        "RoastingSpit"
+      ]
+    },
+    {
+      "id": "mushroom_soup_pot",
+      "title": "버섯 수프 냄비",
+      "name_ko": "버섯 수프 냄비",
+      "category": "camp",
+      "source_path": "godot-game/scripts/camp_visuals.gd",
+      "runtime_constructor": "create_camp + set_cooking",
+      "factory": "camp_visuals.gd::create_camp + set_cooking",
+      "factory_type": "camp",
+      "description_en": "Blackened round iron pot with rim and loop handles, mushroom soup with visible ingredients.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "recipe": "mushroom_soup",
+      "selection": [
+        "SoupPot"
+      ]
+    },
+    {
+      "id": "trail_stew_pot",
+      "title": "행군 스튜 냄비",
+      "name_ko": "행군 스튜 냄비",
+      "category": "camp",
+      "source_path": "godot-game/scripts/camp_visuals.gd",
+      "runtime_constructor": "create_camp + set_cooking",
+      "factory": "camp_visuals.gd::create_camp + set_cooking",
+      "factory_type": "camp",
+      "description_en": "Blackened round iron pot with rim and loop handles, dark hearty stew with meat and herbs.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "recipe": "trail_stew",
+      "selection": [
+        "SoupPot"
+      ]
+    },
+    {
+      "id": "cooking_steam",
+      "title": "요리 수증기",
+      "name_ko": "요리 수증기",
+      "category": "camp",
+      "source_path": "godot-game/scripts/camp_visuals.gd",
+      "runtime_constructor": "create_camp + set_cooking",
+      "factory": "camp_visuals.gd::create_camp + set_cooking",
+      "factory_type": "camp",
+      "description_en": "Soft pale wisps of cooking steam floating upward from a hot iron pot.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "recipe": "mushroom_soup",
+      "selection": [
+        "CookingSteam"
+      ]
+    },
+    {
+      "id": "fire_bolt",
+      "title": "응축한 화염탄",
+      "name_ko": "응축한 화염탄",
+      "category": "vfx",
+      "source_path": "godot-game/scripts/magic_projectile.gd",
+      "runtime_constructor": "_build_visual",
+      "factory": "magic_projectile.gd::_build_visual",
+      "factory_type": "spell",
+      "description_en": "Condensed glowing orange red orb of embers and flame with a faint hot halo.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "spell_id": "fire_bolt"
+    },
+    {
+      "id": "water_bolt",
+      "title": "물의 화살",
+      "name_ko": "물의 화살",
+      "category": "vfx",
+      "source_path": "godot-game/scripts/magic_projectile.gd",
+      "runtime_constructor": "_build_visual",
+      "factory": "magic_projectile.gd::_build_visual",
+      "factory_type": "spell",
+      "description_en": "Elongated translucent blue water projectile with a misty blue halo.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "spell_id": "water_bolt"
+    },
+    {
+      "id": "ice_shard",
+      "title": "서리 결정 파편",
+      "name_ko": "서리 결정 파편",
+      "category": "vfx",
+      "source_path": "godot-game/scripts/magic_projectile.gd",
+      "runtime_constructor": "_build_visual",
+      "factory": "magic_projectile.gd::_build_visual",
+      "factory_type": "spell",
+      "description_en": "Long sharp faceted pale blue ice crystal flying point first with a cold halo.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "spell_id": "ice_shard"
+    },
+    {
+      "id": "stone_shard",
+      "title": "돌 탄환",
+      "name_ko": "돌 탄환",
+      "category": "vfx",
+      "source_path": "godot-game/scripts/magic_projectile.gd",
+      "runtime_constructor": "_build_visual",
+      "factory": "magic_projectile.gd::_build_visual",
+      "factory_type": "spell",
+      "description_en": "Heavy irregular rough brown stone shard, compact chipped mineral surface.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "spell_id": "stone_shard"
+    },
+    {
+      "id": "mine_monster_skeleton",
+      "title": "거대 짐승 유골",
+      "name_ko": "거대 짐승 유골",
+      "category": "mine_prop",
+      "source_path": "godot-game/scripts/cave_geometry.gd",
+      "runtime_constructor": "build -> abandoned_mine.glb/Mine_bone_cavern_monster_skeleton",
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_bone_cavern_monster_skeleton",
+      "factory_type": "mine_node",
+      "description_en": "A colossal articulated beast skeleton with hollow fanged skull, long spine and rib cage.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "Mine_bone_cavern_monster_skeleton"
+      ],
+      "asset_path": "res://assets/3d/abandoned_mine/abandoned_mine.glb",
+      "node_name": "Mine_bone_cavern_monster_skeleton"
+    },
+    {
+      "id": "mine_abandoned_crate_stack_01",
+      "title": "폐광 보급 상자 더미 01",
+      "name_ko": "폐광 보급 상자 더미 01",
+      "category": "mine_prop",
+      "source_path": "godot-game/scripts/cave_geometry.gd",
+      "runtime_constructor": "build -> abandoned_mine.glb/Mine_east_store_abandoned_crate_stack_02",
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_east_store_abandoned_crate_stack_02",
+      "factory_type": "mine_node",
+      "description_en": "Stack of weathered oak crates with iron nails, corner posts and an abandoned lantern.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "Mine_east_store_abandoned_crate_stack_02"
+      ],
+      "asset_path": "res://assets/3d/abandoned_mine/abandoned_mine.glb",
+      "node_name": "Mine_east_store_abandoned_crate_stack_02"
+    },
+    {
+      "id": "mine_abandoned_crate_stack_02",
+      "title": "폐광 보급 상자 더미 02",
+      "name_ko": "폐광 보급 상자 더미 02",
+      "category": "mine_prop",
+      "source_path": "godot-game/scripts/cave_geometry.gd",
+      "runtime_constructor": "build -> abandoned_mine.glb/Mine_east_store_abandoned_crate_stack_03",
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_east_store_abandoned_crate_stack_03",
+      "factory_type": "mine_node",
+      "description_en": "Stack of weathered oak crates with iron nails, corner posts and an abandoned lantern.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "Mine_east_store_abandoned_crate_stack_03"
+      ],
+      "asset_path": "res://assets/3d/abandoned_mine/abandoned_mine.glb",
+      "node_name": "Mine_east_store_abandoned_crate_stack_03"
+    },
+    {
+      "id": "mine_abandoned_crate_stack_03",
+      "title": "폐광 보급 상자 더미 03",
+      "name_ko": "폐광 보급 상자 더미 03",
+      "category": "mine_prop",
+      "source_path": "godot-game/scripts/cave_geometry.gd",
+      "runtime_constructor": "build -> abandoned_mine.glb/Mine_entrance_abandoned_crate_stack_01",
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_entrance_abandoned_crate_stack_01",
+      "factory_type": "mine_node",
+      "description_en": "Stack of weathered oak crates with iron nails, corner posts and an abandoned lantern.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "Mine_entrance_abandoned_crate_stack_01"
+      ],
+      "asset_path": "res://assets/3d/abandoned_mine/abandoned_mine.glb",
+      "node_name": "Mine_entrance_abandoned_crate_stack_01"
+    },
+    {
+      "id": "mine_abandoned_crate_stack_04",
+      "title": "폐광 보급 상자 더미 04",
+      "name_ko": "폐광 보급 상자 더미 04",
+      "category": "mine_prop",
+      "source_path": "godot-game/scripts/cave_geometry.gd",
+      "runtime_constructor": "build -> abandoned_mine.glb/Mine_foreman_workroom_abandoned_crate_stack_04",
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_foreman_workroom_abandoned_crate_stack_04",
+      "factory_type": "mine_node",
+      "description_en": "Stack of weathered oak crates with iron nails, corner posts and an abandoned lantern.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "Mine_foreman_workroom_abandoned_crate_stack_04"
+      ],
+      "asset_path": "res://assets/3d/abandoned_mine/abandoned_mine.glb",
+      "node_name": "Mine_foreman_workroom_abandoned_crate_stack_04"
+    },
+    {
+      "id": "mine_abandoned_crate_stack_05",
+      "title": "폐광 보급 상자 더미 05",
+      "name_ko": "폐광 보급 상자 더미 05",
+      "category": "mine_prop",
+      "source_path": "godot-game/scripts/cave_geometry.gd",
+      "runtime_constructor": "build -> abandoned_mine.glb/Mine_north_workings_abandoned_crate_stack_05",
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_north_workings_abandoned_crate_stack_05",
+      "factory_type": "mine_node",
+      "description_en": "Stack of weathered oak crates with iron nails, corner posts and an abandoned lantern.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "Mine_north_workings_abandoned_crate_stack_05"
+      ],
+      "asset_path": "res://assets/3d/abandoned_mine/abandoned_mine.glb",
+      "node_name": "Mine_north_workings_abandoned_crate_stack_05"
+    },
+    {
+      "id": "mine_barrels_and_rope",
+      "title": "폐광 통과 밧줄",
+      "name_ko": "폐광 통과 밧줄",
+      "category": "mine_prop",
+      "source_path": "godot-game/scripts/cave_geometry.gd",
+      "runtime_constructor": "build -> abandoned_mine.glb/Mine_east_store_barrels_and_rope_01",
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_east_store_barrels_and_rope_01",
+      "factory_type": "mine_node",
+      "description_en": "Bulging oak stave barrels with riveted iron hoops and coiled coarse hemp rope.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "Mine_east_store_barrels_and_rope_01",
+        "Mine_foreman_workroom_barrels_and_rope_02",
+        "Mine_southwest_adit_barrels_and_rope_03"
+      ],
+      "asset_path": "res://assets/3d/abandoned_mine/abandoned_mine.glb",
+      "node_name": "Mine_east_store_barrels_and_rope_01"
+    },
+    {
+      "id": "mine_torn_canvas_rack",
+      "title": "찢어진 천 거치대",
+      "name_ko": "찢어진 천 거치대",
+      "category": "mine_prop",
+      "source_path": "godot-game/scripts/cave_geometry.gd",
+      "runtime_constructor": "build -> abandoned_mine.glb/Mine_east_store_torn_canvas_rack_01",
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_east_store_torn_canvas_rack_01",
+      "factory_type": "mine_node",
+      "description_en": "Tall wooden rack draped in torn dusty heavy work canvas.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "Mine_east_store_torn_canvas_rack_01"
+      ],
+      "asset_path": "res://assets/3d/abandoned_mine/abandoned_mine.glb",
+      "node_name": "Mine_east_store_torn_canvas_rack_01"
+    },
+    {
+      "id": "mine_weathered_footbridge_01",
+      "title": "폐광 판자 다리 01",
+      "name_ko": "폐광 판자 다리 01",
+      "category": "mine_prop",
+      "source_path": "godot-game/scripts/cave_geometry.gd",
+      "runtime_constructor": "build -> abandoned_mine.glb/Mine_east_store_weathered_footbridge_02",
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_east_store_weathered_footbridge_02",
+      "factory_type": "mine_node",
+      "description_en": "Long uneven weathered plank footbridge with timber stringers and black iron bolts.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "Mine_east_store_weathered_footbridge_02"
+      ],
+      "asset_path": "res://assets/3d/abandoned_mine/abandoned_mine.glb",
+      "node_name": "Mine_east_store_weathered_footbridge_02"
+    },
+    {
+      "id": "mine_weathered_footbridge_02",
+      "title": "폐광 판자 다리 02",
+      "name_ko": "폐광 판자 다리 02",
+      "category": "mine_prop",
+      "source_path": "godot-game/scripts/cave_geometry.gd",
+      "runtime_constructor": "build -> abandoned_mine.glb/Mine_west_pool_weathered_footbridge_01",
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_west_pool_weathered_footbridge_01",
+      "factory_type": "mine_node",
+      "description_en": "Long uneven weathered plank footbridge with timber stringers and black iron bolts.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "Mine_west_pool_weathered_footbridge_01"
+      ],
+      "asset_path": "res://assets/3d/abandoned_mine/abandoned_mine.glb",
+      "node_name": "Mine_west_pool_weathered_footbridge_01"
+    },
+    {
+      "id": "mine_abandoned_hand_tools",
+      "title": "폐광 곡괭이와 도구",
+      "name_ko": "폐광 곡괭이와 도구",
+      "category": "mine_prop",
+      "source_path": "godot-game/scripts/cave_geometry.gd",
+      "runtime_constructor": "build -> abandoned_mine.glb/Mine_entrance_abandoned_hand_tools_03",
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_entrance_abandoned_hand_tools_03",
+      "factory_type": "mine_node",
+      "description_en": "Abandoned pickaxe with an ash handle and forged curved iron head alongside hemp rope and an oil lantern.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "Mine_entrance_abandoned_hand_tools_03",
+        "Mine_north_workings_abandoned_hand_tools_01",
+        "Mine_rubble_passage_abandoned_hand_tools_04",
+        "Mine_workshops_abandoned_hand_tools_02"
+      ],
+      "asset_path": "res://assets/3d/abandoned_mine/abandoned_mine.glb",
+      "node_name": "Mine_entrance_abandoned_hand_tools_03"
+    },
+    {
+      "id": "mine_timber_support_01",
+      "title": "폐광 목조 버팀대 01",
+      "name_ko": "폐광 목조 버팀대 01",
+      "category": "mine_prop",
+      "source_path": "godot-game/scripts/cave_geometry.gd",
+      "runtime_constructor": "build -> abandoned_mine.glb/Mine_entrance_timber_support_01",
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_entrance_timber_support_01",
+      "factory_type": "mine_node",
+      "description_en": "Heavy aged oak mine support frame with upright posts, diagonal braces and iron bands.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "Mine_entrance_timber_support_01"
+      ],
+      "asset_path": "res://assets/3d/abandoned_mine/abandoned_mine.glb",
+      "node_name": "Mine_entrance_timber_support_01"
+    },
+    {
+      "id": "mine_timber_support_02",
+      "title": "폐광 목조 버팀대 02",
+      "name_ko": "폐광 목조 버팀대 02",
+      "category": "mine_prop",
+      "source_path": "godot-game/scripts/cave_geometry.gd",
+      "runtime_constructor": "build -> abandoned_mine.glb/Mine_grand_quarry_timber_support_02",
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_grand_quarry_timber_support_02",
+      "factory_type": "mine_node",
+      "description_en": "Heavy aged oak mine support frame with upright posts, diagonal braces and iron bands.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "Mine_grand_quarry_timber_support_02"
+      ],
+      "asset_path": "res://assets/3d/abandoned_mine/abandoned_mine.glb",
+      "node_name": "Mine_grand_quarry_timber_support_02"
+    },
+    {
+      "id": "mine_timber_support_03",
+      "title": "폐광 목조 버팀대 03",
+      "name_ko": "폐광 목조 버팀대 03",
+      "category": "mine_prop",
+      "source_path": "godot-game/scripts/cave_geometry.gd",
+      "runtime_constructor": "build -> abandoned_mine.glb/Mine_north_workings_timber_support_04",
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_north_workings_timber_support_04",
+      "factory_type": "mine_node",
+      "description_en": "Heavy aged oak mine support frame with upright posts, diagonal braces and iron bands.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "Mine_north_workings_timber_support_04"
+      ],
+      "asset_path": "res://assets/3d/abandoned_mine/abandoned_mine.glb",
+      "node_name": "Mine_north_workings_timber_support_04"
+    },
+    {
+      "id": "mine_timber_support_04",
+      "title": "폐광 목조 버팀대 04",
+      "name_ko": "폐광 목조 버팀대 04",
+      "category": "mine_prop",
+      "source_path": "godot-game/scripts/cave_geometry.gd",
+      "runtime_constructor": "build -> abandoned_mine.glb/Mine_upper_lake_timber_support_05",
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_upper_lake_timber_support_05",
+      "factory_type": "mine_node",
+      "description_en": "Heavy aged oak mine support frame with upright posts, diagonal braces and iron bands.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "Mine_upper_lake_timber_support_05"
+      ],
+      "asset_path": "res://assets/3d/abandoned_mine/abandoned_mine.glb",
+      "node_name": "Mine_upper_lake_timber_support_05"
+    },
+    {
+      "id": "mine_timber_support_05",
+      "title": "폐광 목조 버팀대 05",
+      "name_ko": "폐광 목조 버팀대 05",
+      "category": "mine_prop",
+      "source_path": "godot-game/scripts/cave_geometry.gd",
+      "runtime_constructor": "build -> abandoned_mine.glb/Mine_western_altar_timber_support_03",
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_western_altar_timber_support_03",
+      "factory_type": "mine_node",
+      "description_en": "Heavy aged oak mine support frame with upright posts, diagonal braces and iron bands.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "Mine_western_altar_timber_support_03"
+      ],
+      "asset_path": "res://assets/3d/abandoned_mine/abandoned_mine.glb",
+      "node_name": "Mine_western_altar_timber_support_03"
+    },
+    {
+      "id": "mine_foreman_bench",
+      "title": "감독관 작업대",
+      "name_ko": "감독관 작업대",
+      "category": "mine_prop",
+      "source_path": "godot-game/scripts/cave_geometry.gd",
+      "runtime_constructor": "build -> abandoned_mine.glb/Mine_foreman_workroom_foreman_bench_01",
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_foreman_workroom_foreman_bench_01",
+      "factory_type": "mine_node",
+      "description_en": "Scarred oak workbench with a forged bench vice, rope and a dusty oil lantern.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "Mine_foreman_workroom_foreman_bench_01"
+      ],
+      "asset_path": "res://assets/3d/abandoned_mine/abandoned_mine.glb",
+      "node_name": "Mine_foreman_workroom_foreman_bench_01"
+    },
+    {
+      "id": "mine_supported_oil_lantern",
+      "title": "폐광 벽걸이 등잔",
+      "name_ko": "폐광 벽걸이 등잔",
+      "category": "mine_prop",
+      "source_path": "godot-game/scripts/cave_geometry.gd",
+      "runtime_constructor": "build -> abandoned_mine.glb/Mine_gallery_supported_oil_lantern_01",
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_gallery_supported_oil_lantern_01",
+      "factory_type": "mine_node",
+      "description_en": "Wall mounted oak backplate supporting a black iron oil lantern, smoked glass reservoir and thin amber flame.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "Mine_gallery_supported_oil_lantern_01",
+        "Mine_gallery_supported_oil_lantern_02",
+        "Mine_gallery_supported_oil_lantern_03",
+        "Mine_gallery_supported_oil_lantern_04",
+        "Mine_gallery_supported_oil_lantern_05",
+        "Mine_gallery_supported_oil_lantern_06",
+        "Mine_gallery_supported_oil_lantern_07",
+        "Mine_gallery_supported_oil_lantern_08",
+        "Mine_gallery_supported_oil_lantern_09",
+        "Mine_gallery_supported_oil_lantern_10",
+        "Mine_gallery_supported_oil_lantern_11",
+        "Mine_gallery_supported_oil_lantern_12",
+        "Mine_gallery_supported_oil_lantern_13",
+        "Mine_gallery_supported_oil_lantern_14",
+        "Mine_gallery_supported_oil_lantern_15",
+        "Mine_gallery_supported_oil_lantern_16",
+        "Mine_gallery_supported_oil_lantern_17",
+        "Mine_gallery_supported_oil_lantern_18",
+        "Mine_gallery_supported_oil_lantern_19",
+        "Mine_gallery_supported_oil_lantern_20",
+        "Mine_gallery_supported_oil_lantern_21",
+        "Mine_gallery_supported_oil_lantern_22",
+        "Mine_gallery_supported_oil_lantern_23",
+        "Mine_gallery_supported_oil_lantern_24",
+        "Mine_gallery_supported_oil_lantern_25",
+        "Mine_gallery_supported_oil_lantern_26",
+        "Mine_gallery_supported_oil_lantern_27",
+        "Mine_gallery_supported_oil_lantern_28",
+        "Mine_gallery_supported_oil_lantern_29",
+        "Mine_gallery_supported_oil_lantern_30",
+        "Mine_gallery_supported_oil_lantern_31",
+        "Mine_gallery_supported_oil_lantern_32",
+        "Mine_gallery_supported_oil_lantern_33",
+        "Mine_gallery_supported_oil_lantern_34",
+        "Mine_gallery_supported_oil_lantern_35",
+        "Mine_gallery_supported_oil_lantern_36",
+        "Mine_gallery_supported_oil_lantern_37",
+        "Mine_gallery_supported_oil_lantern_38",
+        "Mine_gallery_supported_oil_lantern_39",
+        "Mine_gallery_supported_oil_lantern_40",
+        "Mine_gallery_supported_oil_lantern_41",
+        "Mine_gallery_supported_oil_lantern_42",
+        "Mine_gallery_supported_oil_lantern_43",
+        "Mine_gallery_supported_oil_lantern_44",
+        "Mine_gallery_supported_oil_lantern_45",
+        "Mine_gallery_supported_oil_lantern_46",
+        "Mine_gallery_supported_oil_lantern_47",
+        "Mine_gallery_supported_oil_lantern_48",
+        "Mine_gallery_supported_oil_lantern_49",
+        "Mine_gallery_supported_oil_lantern_50",
+        "Mine_gallery_supported_oil_lantern_51",
+        "Mine_gallery_supported_oil_lantern_52"
+      ],
+      "asset_path": "res://assets/3d/abandoned_mine/abandoned_mine.glb",
+      "node_name": "Mine_gallery_supported_oil_lantern_01"
+    },
+    {
+      "id": "mine_overturned_ore_cart",
+      "title": "전복된 광차",
+      "name_ko": "전복된 광차",
+      "category": "mine_prop",
+      "source_path": "godot-game/scripts/cave_geometry.gd",
+      "runtime_constructor": "build -> abandoned_mine.glb/Mine_grand_quarry_overturned_ore_cart_01",
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_grand_quarry_overturned_ore_cart_01",
+      "factory_type": "mine_node",
+      "description_en": "Overturned abandoned wooden ore cart with forged axle and wheels spilling angular dark ore rocks.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "Mine_grand_quarry_overturned_ore_cart_01"
+      ],
+      "asset_path": "res://assets/3d/abandoned_mine/abandoned_mine.glb",
+      "node_name": "Mine_grand_quarry_overturned_ore_cart_01"
+    },
+    {
+      "id": "mine_short_disused_rail",
+      "title": "폐광 녹슨 철길",
+      "name_ko": "폐광 녹슨 철길",
+      "category": "mine_prop",
+      "source_path": "godot-game/scripts/cave_geometry.gd",
+      "runtime_constructor": "build -> abandoned_mine.glb/Mine_grand_quarry_short_disused_rail_02",
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_grand_quarry_short_disused_rail_02",
+      "factory_type": "mine_node",
+      "description_en": "Short run of corroded iron mine rails supported by partly buried rough timber sleepers.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "Mine_grand_quarry_short_disused_rail_02",
+        "Mine_north_workings_short_disused_rail_01",
+        "Mine_workshops_short_disused_rail_03"
+      ],
+      "asset_path": "res://assets/3d/abandoned_mine/abandoned_mine.glb",
+      "node_name": "Mine_grand_quarry_short_disused_rail_02"
+    },
+    {
+      "id": "mine_stone_pillar_01",
+      "title": "폐광 석조 기둥 01",
+      "name_ko": "폐광 석조 기둥 01",
+      "category": "mine_prop",
+      "source_path": "godot-game/scripts/cave_geometry.gd",
+      "runtime_constructor": "build -> abandoned_mine.glb/Mine_grand_quarry_stone_pillar_01",
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_grand_quarry_stone_pillar_01",
+      "factory_type": "mine_node",
+      "description_en": "Heavy crumbling stone support pillar on a broad sunken foundation, rough jointed masonry.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "Mine_grand_quarry_stone_pillar_01"
+      ],
+      "asset_path": "res://assets/3d/abandoned_mine/abandoned_mine.glb",
+      "node_name": "Mine_grand_quarry_stone_pillar_01"
+    },
+    {
+      "id": "mine_stone_pillar_02",
+      "title": "폐광 석조 기둥 02",
+      "name_ko": "폐광 석조 기둥 02",
+      "category": "mine_prop",
+      "source_path": "godot-game/scripts/cave_geometry.gd",
+      "runtime_constructor": "build -> abandoned_mine.glb/Mine_grand_quarry_stone_pillar_02",
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_grand_quarry_stone_pillar_02",
+      "factory_type": "mine_node",
+      "description_en": "Heavy crumbling stone support pillar on a broad sunken foundation, rough jointed masonry.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "Mine_grand_quarry_stone_pillar_02"
+      ],
+      "asset_path": "res://assets/3d/abandoned_mine/abandoned_mine.glb",
+      "node_name": "Mine_grand_quarry_stone_pillar_02"
+    },
+    {
+      "id": "mine_stone_pillar_03",
+      "title": "폐광 석조 기둥 03",
+      "name_ko": "폐광 석조 기둥 03",
+      "category": "mine_prop",
+      "source_path": "godot-game/scripts/cave_geometry.gd",
+      "runtime_constructor": "build -> abandoned_mine.glb/Mine_grand_quarry_stone_pillar_03",
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_grand_quarry_stone_pillar_03",
+      "factory_type": "mine_node",
+      "description_en": "Heavy crumbling stone support pillar on a broad sunken foundation, rough jointed masonry.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "Mine_grand_quarry_stone_pillar_03"
+      ],
+      "asset_path": "res://assets/3d/abandoned_mine/abandoned_mine.glb",
+      "node_name": "Mine_grand_quarry_stone_pillar_03"
+    },
+    {
+      "id": "mine_stone_pillar_04",
+      "title": "폐광 석조 기둥 04",
+      "name_ko": "폐광 석조 기둥 04",
+      "category": "mine_prop",
+      "source_path": "godot-game/scripts/cave_geometry.gd",
+      "runtime_constructor": "build -> abandoned_mine.glb/Mine_grand_quarry_stone_pillar_04",
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_grand_quarry_stone_pillar_04",
+      "factory_type": "mine_node",
+      "description_en": "Heavy crumbling stone support pillar on a broad sunken foundation, rough jointed masonry.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "Mine_grand_quarry_stone_pillar_04"
+      ],
+      "asset_path": "res://assets/3d/abandoned_mine/abandoned_mine.glb",
+      "node_name": "Mine_grand_quarry_stone_pillar_04"
+    },
+    {
+      "id": "mine_stone_pillar_05",
+      "title": "폐광 석조 기둥 05",
+      "name_ko": "폐광 석조 기둥 05",
+      "category": "mine_prop",
+      "source_path": "godot-game/scripts/cave_geometry.gd",
+      "runtime_constructor": "build -> abandoned_mine.glb/Mine_grand_quarry_stone_pillar_05",
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_grand_quarry_stone_pillar_05",
+      "factory_type": "mine_node",
+      "description_en": "Heavy crumbling stone support pillar on a broad sunken foundation, rough jointed masonry.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "Mine_grand_quarry_stone_pillar_05"
+      ],
+      "asset_path": "res://assets/3d/abandoned_mine/abandoned_mine.glb",
+      "node_name": "Mine_grand_quarry_stone_pillar_05"
+    },
+    {
+      "id": "mine_stone_pillar_06",
+      "title": "폐광 석조 기둥 06",
+      "name_ko": "폐광 석조 기둥 06",
+      "category": "mine_prop",
+      "source_path": "godot-game/scripts/cave_geometry.gd",
+      "runtime_constructor": "build -> abandoned_mine.glb/Mine_grand_quarry_stone_pillar_06",
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_grand_quarry_stone_pillar_06",
+      "factory_type": "mine_node",
+      "description_en": "Heavy crumbling stone support pillar on a broad sunken foundation, rough jointed masonry.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "Mine_grand_quarry_stone_pillar_06"
+      ],
+      "asset_path": "res://assets/3d/abandoned_mine/abandoned_mine.glb",
+      "node_name": "Mine_grand_quarry_stone_pillar_06"
+    },
+    {
+      "id": "mine_stone_pillar_07",
+      "title": "폐광 석조 기둥 07",
+      "name_ko": "폐광 석조 기둥 07",
+      "category": "mine_prop",
+      "source_path": "godot-game/scripts/cave_geometry.gd",
+      "runtime_constructor": "build -> abandoned_mine.glb/Mine_pillar_shrine_stone_pillar_07",
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_pillar_shrine_stone_pillar_07",
+      "factory_type": "mine_node",
+      "description_en": "Heavy crumbling stone support pillar on a broad sunken foundation, rough jointed masonry.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "Mine_pillar_shrine_stone_pillar_07"
+      ],
+      "asset_path": "res://assets/3d/abandoned_mine/abandoned_mine.glb",
+      "node_name": "Mine_pillar_shrine_stone_pillar_07"
+    },
+    {
+      "id": "mine_stone_pillar_08",
+      "title": "폐광 석조 기둥 08",
+      "name_ko": "폐광 석조 기둥 08",
+      "category": "mine_prop",
+      "source_path": "godot-game/scripts/cave_geometry.gd",
+      "runtime_constructor": "build -> abandoned_mine.glb/Mine_pillar_shrine_stone_pillar_08",
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_pillar_shrine_stone_pillar_08",
+      "factory_type": "mine_node",
+      "description_en": "Heavy crumbling stone support pillar on a broad sunken foundation, rough jointed masonry.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "Mine_pillar_shrine_stone_pillar_08"
+      ],
+      "asset_path": "res://assets/3d/abandoned_mine/abandoned_mine.glb",
+      "node_name": "Mine_pillar_shrine_stone_pillar_08"
+    },
+    {
+      "id": "mine_stone_pillar_09",
+      "title": "폐광 석조 기둥 09",
+      "name_ko": "폐광 석조 기둥 09",
+      "category": "mine_prop",
+      "source_path": "godot-game/scripts/cave_geometry.gd",
+      "runtime_constructor": "build -> abandoned_mine.glb/Mine_pillar_shrine_stone_pillar_09",
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_pillar_shrine_stone_pillar_09",
+      "factory_type": "mine_node",
+      "description_en": "Heavy crumbling stone support pillar on a broad sunken foundation, rough jointed masonry.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "Mine_pillar_shrine_stone_pillar_09"
+      ],
+      "asset_path": "res://assets/3d/abandoned_mine/abandoned_mine.glb",
+      "node_name": "Mine_pillar_shrine_stone_pillar_09"
+    },
+    {
+      "id": "mine_stone_pillar_10",
+      "title": "폐광 석조 기둥 10",
+      "name_ko": "폐광 석조 기둥 10",
+      "category": "mine_prop",
+      "source_path": "godot-game/scripts/cave_geometry.gd",
+      "runtime_constructor": "build -> abandoned_mine.glb/Mine_pillar_shrine_stone_pillar_10",
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_pillar_shrine_stone_pillar_10",
+      "factory_type": "mine_node",
+      "description_en": "Heavy crumbling stone support pillar on a broad sunken foundation, rough jointed masonry.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "Mine_pillar_shrine_stone_pillar_10"
+      ],
+      "asset_path": "res://assets/3d/abandoned_mine/abandoned_mine.glb",
+      "node_name": "Mine_pillar_shrine_stone_pillar_10"
+    },
+    {
+      "id": "mine_stone_pillar_11",
+      "title": "폐광 석조 기둥 11",
+      "name_ko": "폐광 석조 기둥 11",
+      "category": "mine_prop",
+      "source_path": "godot-game/scripts/cave_geometry.gd",
+      "runtime_constructor": "build -> abandoned_mine.glb/Mine_pillar_shrine_stone_pillar_11",
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_pillar_shrine_stone_pillar_11",
+      "factory_type": "mine_node",
+      "description_en": "Heavy crumbling stone support pillar on a broad sunken foundation, rough jointed masonry.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "Mine_pillar_shrine_stone_pillar_11"
+      ],
+      "asset_path": "res://assets/3d/abandoned_mine/abandoned_mine.glb",
+      "node_name": "Mine_pillar_shrine_stone_pillar_11"
+    },
+    {
+      "id": "mine_stone_pillar_12",
+      "title": "폐광 석조 기둥 12",
+      "name_ko": "폐광 석조 기둥 12",
+      "category": "mine_prop",
+      "source_path": "godot-game/scripts/cave_geometry.gd",
+      "runtime_constructor": "build -> abandoned_mine.glb/Mine_pillar_shrine_stone_pillar_12",
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_pillar_shrine_stone_pillar_12",
+      "factory_type": "mine_node",
+      "description_en": "Heavy crumbling stone support pillar on a broad sunken foundation, rough jointed masonry.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "Mine_pillar_shrine_stone_pillar_12"
+      ],
+      "asset_path": "res://assets/3d/abandoned_mine/abandoned_mine.glb",
+      "node_name": "Mine_pillar_shrine_stone_pillar_12"
+    },
+    {
+      "id": "mine_manual_hoist",
+      "title": "수동 권양기",
+      "name_ko": "수동 권양기",
+      "category": "mine_prop",
+      "source_path": "godot-game/scripts/cave_geometry.gd",
+      "runtime_constructor": "build -> abandoned_mine.glb/Mine_hoistroom_manual_hoist_01",
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_hoistroom_manual_hoist_01",
+      "factory_type": "mine_node",
+      "description_en": "Large timber hoist scaffold with wooden winch drum wrapped in hemp rope and black iron fittings.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "Mine_hoistroom_manual_hoist_01"
+      ],
+      "asset_path": "res://assets/3d/abandoned_mine/abandoned_mine.glb",
+      "node_name": "Mine_hoistroom_manual_hoist_01"
+    },
+    {
+      "id": "mine_ore_cart",
+      "title": "폐광 광차",
+      "name_ko": "폐광 광차",
+      "category": "mine_prop",
+      "source_path": "godot-game/scripts/cave_geometry.gd",
+      "runtime_constructor": "build -> abandoned_mine.glb/Mine_north_workings_ore_cart_01",
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_north_workings_ore_cart_01",
+      "factory_type": "mine_node",
+      "description_en": "Abandoned upright wooden mine ore cart with corroded iron wheels and a load of angular black ore.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "Mine_north_workings_ore_cart_01"
+      ],
+      "asset_path": "res://assets/3d/abandoned_mine/abandoned_mine.glb",
+      "node_name": "Mine_north_workings_ore_cart_01",
+      "coverage_note": "Upright north workings cart; overturned quarry cart is covered independently by mine_overturned_ore_cart."
+    },
+    {
+      "id": "mine_ruined_shrine",
+      "title": "폐광 폐허 신단",
+      "name_ko": "폐광 폐허 신단",
+      "category": "mine_prop",
+      "source_path": "godot-game/scripts/cave_geometry.gd",
+      "runtime_constructor": "build -> abandoned_mine.glb/Mine_pillar_shrine_ruined_shrine_01",
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_pillar_shrine_ruined_shrine_01",
+      "factory_type": "mine_node",
+      "description_en": "Ancient damaged stone effigy and pedestal with a dark oil lantern and buried stone foundation.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "Mine_pillar_shrine_ruined_shrine_01"
+      ],
+      "asset_path": "res://assets/3d/abandoned_mine/abandoned_mine.glb",
+      "node_name": "Mine_pillar_shrine_ruined_shrine_01"
+    },
+    {
+      "id": "mine_workbench",
+      "title": "광부 작업대",
+      "name_ko": "광부 작업대",
+      "category": "mine_prop",
+      "source_path": "godot-game/scripts/cave_geometry.gd",
+      "runtime_constructor": "build -> abandoned_mine.glb/Mine_workshops_workbench_01",
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb/Mine_workshops_workbench_01",
+      "factory_type": "mine_node",
+      "description_en": "Rugged timber workbench with a heavy iron bench vice, coiled rope and abandoned oil lantern.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "Mine_workshops_workbench_01",
+        "Mine_workshops_workbench_02"
+      ],
+      "asset_path": "res://assets/3d/abandoned_mine/abandoned_mine.glb",
+      "node_name": "Mine_workshops_workbench_01"
+    },
+    {
+      "id": "eroded_bedrock_00",
+      "title": "침식 암반 00",
+      "name_ko": "침식 암반 00",
+      "category": "environment",
+      "source_path": "godot-game/scripts/cave_art_details.gd",
+      "runtime_constructor": "_load_rock_meshes",
+      "factory": "cave_art_details.gd::_load_rock_meshes",
+      "factory_type": "rock",
+      "description_en": "Irregular low broad eroded limestone boulder variant 00, angular fractures, pitted crevices, dark geological layers.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "asset_path": "res://assets/3d/abandoned_mine/art_rock_kit.glb",
+      "node_name": "ErodedBedrock_00",
+      "variant": 0
+    },
+    {
+      "id": "eroded_bedrock_01",
+      "title": "침식 암반 01",
+      "name_ko": "침식 암반 01",
+      "category": "environment",
+      "source_path": "godot-game/scripts/cave_art_details.gd",
+      "runtime_constructor": "_load_rock_meshes",
+      "factory": "cave_art_details.gd::_load_rock_meshes",
+      "factory_type": "rock",
+      "description_en": "Irregular low broad eroded limestone boulder variant 01, angular fractures, pitted crevices, dark geological layers.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "asset_path": "res://assets/3d/abandoned_mine/art_rock_kit.glb",
+      "node_name": "ErodedBedrock_01",
+      "variant": 1
+    },
+    {
+      "id": "eroded_bedrock_02",
+      "title": "침식 암반 02",
+      "name_ko": "침식 암반 02",
+      "category": "environment",
+      "source_path": "godot-game/scripts/cave_art_details.gd",
+      "runtime_constructor": "_load_rock_meshes",
+      "factory": "cave_art_details.gd::_load_rock_meshes",
+      "factory_type": "rock",
+      "description_en": "Irregular low broad eroded limestone boulder variant 02, angular fractures, pitted crevices, dark geological layers.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "asset_path": "res://assets/3d/abandoned_mine/art_rock_kit.glb",
+      "node_name": "ErodedBedrock_02",
+      "variant": 2
+    },
+    {
+      "id": "eroded_bedrock_03",
+      "title": "침식 암반 03",
+      "name_ko": "침식 암반 03",
+      "category": "environment",
+      "source_path": "godot-game/scripts/cave_art_details.gd",
+      "runtime_constructor": "_load_rock_meshes",
+      "factory": "cave_art_details.gd::_load_rock_meshes",
+      "factory_type": "rock",
+      "description_en": "Irregular low broad eroded limestone boulder variant 03, angular fractures, pitted crevices, dark geological layers.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "asset_path": "res://assets/3d/abandoned_mine/art_rock_kit.glb",
+      "node_name": "ErodedBedrock_03",
+      "variant": 3
+    },
+    {
+      "id": "eroded_bedrock_04",
+      "title": "침식 암반 04",
+      "name_ko": "침식 암반 04",
+      "category": "environment",
+      "source_path": "godot-game/scripts/cave_art_details.gd",
+      "runtime_constructor": "_load_rock_meshes",
+      "factory": "cave_art_details.gd::_load_rock_meshes",
+      "factory_type": "rock",
+      "description_en": "Irregular low broad eroded limestone boulder variant 04, angular fractures, pitted crevices, dark geological layers.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "asset_path": "res://assets/3d/abandoned_mine/art_rock_kit.glb",
+      "node_name": "ErodedBedrock_04",
+      "variant": 4
+    },
+    {
+      "id": "eroded_bedrock_05",
+      "title": "침식 암반 05",
+      "name_ko": "침식 암반 05",
+      "category": "environment",
+      "source_path": "godot-game/scripts/cave_art_details.gd",
+      "runtime_constructor": "_load_rock_meshes",
+      "factory": "cave_art_details.gd::_load_rock_meshes",
+      "factory_type": "rock",
+      "description_en": "Irregular low broad eroded limestone boulder variant 05, angular fractures, pitted crevices, dark geological layers.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "asset_path": "res://assets/3d/abandoned_mine/art_rock_kit.glb",
+      "node_name": "ErodedBedrock_05",
+      "variant": 5
+    },
+    {
+      "id": "eroded_bedrock_06",
+      "title": "침식 암반 06",
+      "name_ko": "침식 암반 06",
+      "category": "environment",
+      "source_path": "godot-game/scripts/cave_art_details.gd",
+      "runtime_constructor": "_load_rock_meshes",
+      "factory": "cave_art_details.gd::_load_rock_meshes",
+      "factory_type": "rock",
+      "description_en": "Irregular low broad eroded limestone boulder variant 06, angular fractures, pitted crevices, dark geological layers.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "asset_path": "res://assets/3d/abandoned_mine/art_rock_kit.glb",
+      "node_name": "ErodedBedrock_06",
+      "variant": 6
+    },
+    {
+      "id": "eroded_bedrock_07",
+      "title": "침식 암반 07",
+      "name_ko": "침식 암반 07",
+      "category": "environment",
+      "source_path": "godot-game/scripts/cave_art_details.gd",
+      "runtime_constructor": "_load_rock_meshes",
+      "factory": "cave_art_details.gd::_load_rock_meshes",
+      "factory_type": "rock",
+      "description_en": "Irregular low broad eroded limestone boulder variant 07, angular fractures, pitted crevices, dark geological layers.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "asset_path": "res://assets/3d/abandoned_mine/art_rock_kit.glb",
+      "node_name": "ErodedBedrock_07",
+      "variant": 7
+    },
+    {
+      "id": "eroded_bedrock_08",
+      "title": "침식 암반 08",
+      "name_ko": "침식 암반 08",
+      "category": "environment",
+      "source_path": "godot-game/scripts/cave_art_details.gd",
+      "runtime_constructor": "_load_rock_meshes",
+      "factory": "cave_art_details.gd::_load_rock_meshes",
+      "factory_type": "rock",
+      "description_en": "Irregular low broad eroded limestone boulder variant 08, angular fractures, pitted crevices, dark geological layers.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "asset_path": "res://assets/3d/abandoned_mine/art_rock_kit.glb",
+      "node_name": "ErodedBedrock_08",
+      "variant": 8
+    },
+    {
+      "id": "eroded_bedrock_09",
+      "title": "침식 암반 09",
+      "name_ko": "침식 암반 09",
+      "category": "environment",
+      "source_path": "godot-game/scripts/cave_art_details.gd",
+      "runtime_constructor": "_load_rock_meshes",
+      "factory": "cave_art_details.gd::_load_rock_meshes",
+      "factory_type": "rock",
+      "description_en": "Irregular low broad eroded limestone boulder variant 09, angular fractures, pitted crevices, dark geological layers.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "asset_path": "res://assets/3d/abandoned_mine/art_rock_kit.glb",
+      "node_name": "ErodedBedrock_09",
+      "variant": 9
+    },
+    {
+      "id": "eroded_bedrock_10",
+      "title": "침식 암반 10",
+      "name_ko": "침식 암반 10",
+      "category": "environment",
+      "source_path": "godot-game/scripts/cave_art_details.gd",
+      "runtime_constructor": "_load_rock_meshes",
+      "factory": "cave_art_details.gd::_load_rock_meshes",
+      "factory_type": "rock",
+      "description_en": "Irregular low broad eroded limestone boulder variant 10, angular fractures, pitted crevices, dark geological layers.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "asset_path": "res://assets/3d/abandoned_mine/art_rock_kit.glb",
+      "node_name": "ErodedBedrock_10",
+      "variant": 10
+    },
+    {
+      "id": "eroded_bedrock_11",
+      "title": "침식 암반 11",
+      "name_ko": "침식 암반 11",
+      "category": "environment",
+      "source_path": "godot-game/scripts/cave_art_details.gd",
+      "runtime_constructor": "_load_rock_meshes",
+      "factory": "cave_art_details.gd::_load_rock_meshes",
+      "factory_type": "rock",
+      "description_en": "Irregular low broad eroded limestone boulder variant 11, angular fractures, pitted crevices, dark geological layers.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "asset_path": "res://assets/3d/abandoned_mine/art_rock_kit.glb",
+      "node_name": "ErodedBedrock_11",
+      "variant": 11
+    },
+    {
+      "id": "aged_board_00",
+      "title": "부러진 폐광 판자 00",
+      "name_ko": "부러진 폐광 판자 00",
+      "category": "environment",
+      "source_path": "godot-game/scripts/cave_art_details.gd",
+      "runtime_constructor": "_fragment_mesh",
+      "factory": "cave_art_details.gd::_fragment_mesh",
+      "factory_type": "board",
+      "description_en": "A thin splintered weathered oak floor board from an abandoned medieval mine, exact grounded production fragment shape variant 0, with narrow thickness and long wooden grain; same placement orientation and six cameras as the provided runtime sheet.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "variant": 0,
+      "production_sample": {
+        "basis": [
+          [
+            0.0360423848032951,
+            -0.0037211982998997,
+            -0.140334069728851
+          ],
+          [
+            0.000202060909941792,
+            0.0429758355021477,
+            -0.00108768220525235
+          ],
+          [
+            0.809599280357361,
+            0.00145507755223662,
+            0.207892999053001
+          ]
+        ],
+        "batch": "12_-1_3",
+        "color": [
+          0.440928310155869,
+          0.402917236089706,
+          0.334497332572937,
+          1.0
+        ],
+        "origin": [
+          -6.2528600692749,
+          -0.00351384305395186,
+          61.3140640258789
+        ],
+        "scale": [
+          0.144936367869377,
+          0.0429900735616684,
+          0.835866391658783
+        ]
+      }
+    },
+    {
+      "id": "aged_board_01",
+      "title": "부러진 폐광 판자 01",
+      "name_ko": "부러진 폐광 판자 01",
+      "category": "environment",
+      "source_path": "godot-game/scripts/cave_art_details.gd",
+      "runtime_constructor": "_fragment_mesh",
+      "factory": "cave_art_details.gd::_fragment_mesh",
+      "factory_type": "board",
+      "description_en": "A thin splintered weathered oak floor board from an abandoned medieval mine, exact grounded production fragment shape variant 1, with narrow thickness and long wooden grain; same placement orientation and six cameras as the provided runtime sheet.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "variant": 1,
+      "production_sample": {
+        "basis": [
+          [
+            0.167243793606758,
+            -0.00131101545412093,
+            -0.0487790703773499
+          ],
+          [
+            0.00014546602324117,
+            0.033011082559824,
+            -0.00038848104304634
+          ],
+          [
+            0.336884707212448,
+            0.0121044293045998,
+            1.15471661090851
+          ]
+        ],
+        "batch": "13_0_1",
+        "color": [
+          0.455245524644852,
+          0.416000217199326,
+          0.345358669757843,
+          1.0
+        ],
+        "origin": [
+          4.98361396789551,
+          0.0359552763402462,
+          24.2955513000488
+        ],
+        "scale": [
+          0.174217119812965,
+          0.0330136902630329,
+          1.20291650295258
+        ]
+      }
+    },
+    {
+      "id": "aged_board_02",
+      "title": "부러진 폐광 판자 02",
+      "name_ko": "부러진 폐광 판자 02",
+      "category": "environment",
+      "source_path": "godot-game/scripts/cave_art_details.gd",
+      "runtime_constructor": "_fragment_mesh",
+      "factory": "cave_art_details.gd::_fragment_mesh",
+      "factory_type": "board",
+      "description_en": "A thin splintered weathered oak floor board from an abandoned medieval mine, exact grounded production fragment shape variant 2, with narrow thickness and long wooden grain; same placement orientation and six cameras as the provided runtime sheet.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production model"
+      ],
+      "variant": 2,
+      "production_sample": {
+        "basis": [
+          [
+            -0.0961885303258896,
+            -0.00110593880526721,
+            -0.118047222495079
+          ],
+          [
+            -0.000214867177419364,
+            0.0429861173033714,
+            -0.000227639873628505
+          ],
+          [
+            0.661959290504456,
+            0.000452398264314979,
+            -0.539389252662659
+          ]
+        ],
+        "batch": "14_0_3",
+        "color": [
+          0.535875380039215,
+          0.489679247140884,
+          0.406526178121567,
+          1.0
+        ],
+        "origin": [
+          4.96231365203857,
+          -0.0249969400465488,
+          60.9150848388672
+        ],
+        "scale": [
+          0.152278035879135,
+          0.0429872572422028,
+          0.853891730308533
+        ]
+      }
+    },
+    {
+      "id": "mine_terrain",
+      "title": "폐광 자연 암반 지형",
+      "name_ko": "폐광 자연 암반 지형",
+      "category": "environment",
+      "source_path": "godot-game/scripts/cave_geometry.gd",
+      "runtime_constructor": "build -> abandoned_mine.glb",
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb",
+      "factory_type": "mine_node",
+      "description_en": "Large naturally eroded underground rock floor, wall and ceiling surfaces with stratified geology and fissures.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "Terrain_00_00",
+        "Terrain_00_01",
+        "Terrain_00_02",
+        "Terrain_00_03",
+        "Terrain_00_04",
+        "Terrain_00_05",
+        "Terrain_00_06",
+        "Terrain_00_07",
+        "Terrain_00_08",
+        "Terrain_00_09",
+        "Terrain_00_10",
+        "Terrain_00_11",
+        "Terrain_01_00",
+        "Terrain_01_01",
+        "Terrain_01_02",
+        "Terrain_01_03",
+        "Terrain_01_04",
+        "Terrain_01_05",
+        "Terrain_01_06",
+        "Terrain_01_07",
+        "Terrain_01_08",
+        "Terrain_01_09",
+        "Terrain_01_10",
+        "Terrain_01_11",
+        "Terrain_02_00",
+        "Terrain_02_01",
+        "Terrain_02_02",
+        "Terrain_02_03",
+        "Terrain_02_04",
+        "Terrain_02_05",
+        "Terrain_02_06",
+        "Terrain_02_07",
+        "Terrain_02_08",
+        "Terrain_02_09",
+        "Terrain_02_10",
+        "Terrain_02_11",
+        "Terrain_03_01",
+        "Terrain_03_02",
+        "Terrain_03_03",
+        "Terrain_03_04",
+        "Terrain_03_05",
+        "Terrain_03_06",
+        "Terrain_03_07",
+        "Terrain_03_08",
+        "Terrain_03_09",
+        "Terrain_03_10",
+        "Terrain_03_11",
+        "Terrain_04_00",
+        "Terrain_04_01",
+        "Terrain_04_02",
+        "Terrain_04_03",
+        "Terrain_04_04",
+        "Terrain_04_05",
+        "Terrain_04_06",
+        "Terrain_04_07",
+        "Terrain_04_08",
+        "Terrain_04_09",
+        "Terrain_04_10",
+        "Terrain_04_11",
+        "Terrain_05_00",
+        "Terrain_05_01",
+        "Terrain_05_02",
+        "Terrain_05_03",
+        "Terrain_05_04",
+        "Terrain_05_05",
+        "Terrain_05_06",
+        "Terrain_05_07",
+        "Terrain_05_08",
+        "Terrain_05_09",
+        "Terrain_05_10",
+        "Terrain_05_11",
+        "Terrain_06_00",
+        "Terrain_06_01",
+        "Terrain_06_02",
+        "Terrain_06_03",
+        "Terrain_06_05",
+        "Terrain_06_06",
+        "Terrain_06_07",
+        "Terrain_06_08",
+        "Terrain_06_09",
+        "Terrain_06_10",
+        "Terrain_06_11",
+        "Terrain_07_00",
+        "Terrain_07_01",
+        "Terrain_07_02",
+        "Terrain_07_03",
+        "Terrain_07_04",
+        "Terrain_07_05",
+        "Terrain_07_06",
+        "Terrain_07_07",
+        "Terrain_07_08",
+        "Terrain_07_09",
+        "Terrain_07_10",
+        "Terrain_07_11",
+        "Terrain_08_00",
+        "Terrain_08_01",
+        "Terrain_08_02",
+        "Terrain_08_03",
+        "Terrain_08_04",
+        "Terrain_08_05",
+        "Terrain_08_06",
+        "Terrain_08_07",
+        "Terrain_08_08",
+        "Terrain_08_09",
+        "Terrain_08_10",
+        "Terrain_08_11",
+        "Terrain_09_01",
+        "Terrain_09_02",
+        "Terrain_09_03",
+        "Terrain_09_04",
+        "Terrain_09_05",
+        "Terrain_09_06",
+        "Terrain_09_07",
+        "Terrain_09_08",
+        "Terrain_09_09",
+        "Terrain_09_10",
+        "Terrain_09_11",
+        "Terrain_10_01",
+        "Terrain_10_02",
+        "Terrain_10_03",
+        "Terrain_10_04",
+        "Terrain_10_05",
+        "Terrain_10_06",
+        "Terrain_10_07",
+        "Terrain_10_08",
+        "Terrain_10_09",
+        "Terrain_10_10"
+      ],
+      "asset_path": "res://assets/3d/abandoned_mine/abandoned_mine.glb",
+      "node_name": "Terrain_00_00"
+    },
+    {
+      "id": "mine_calcite",
+      "title": "폐광 방해석 천장",
+      "name_ko": "폐광 방해석 천장",
+      "category": "environment",
+      "source_path": "godot-game/scripts/cave_geometry.gd",
+      "runtime_constructor": "build -> abandoned_mine.glb",
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb",
+      "factory_type": "mine_node",
+      "description_en": "Jagged pale calcite mineral growth hanging from a dark natural cave ceiling.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "CalciteCeiling_0041",
+        "CalciteCeiling_0262",
+        "CalciteCeiling_0272",
+        "CalciteCeiling_0273",
+        "CalciteCeiling_0280"
+      ],
+      "asset_path": "res://assets/3d/abandoned_mine/abandoned_mine.glb",
+      "node_name": "CalciteCeiling_0041"
+    },
+    {
+      "id": "mine_rock_formation",
+      "title": "폐광 자연 석순 암석",
+      "name_ko": "폐광 자연 석순 암석",
+      "category": "environment",
+      "source_path": "godot-game/scripts/cave_geometry.gd",
+      "runtime_constructor": "build -> abandoned_mine.glb",
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb",
+      "factory_type": "mine_node",
+      "description_en": "Tall irregular natural rock formation and stalagmite with fractured weathered dark mineral surface.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "RockFormation_0006",
+        "RockFormation_0018",
+        "RockFormation_0064",
+        "RockFormation_0069",
+        "RockFormation_0152",
+        "RockFormation_0159",
+        "RockFormation_0164",
+        "RockFormation_0170",
+        "RockFormation_0182",
+        "RockFormation_0197",
+        "RockFormation_0205",
+        "RockFormation_0227",
+        "RockFormation_0244",
+        "RockFormation_0247",
+        "RockFormation_0264",
+        "RockFormation_0276",
+        "RockFormation_0283",
+        "RockFormation_0309",
+        "RockFormation_0317",
+        "RockFormation_0326",
+        "RockFormation_0334",
+        "RockFormation_0351",
+        "RockFormation_0365",
+        "RockFormation_0370",
+        "RockFormation_0380",
+        "RockFormation_0388",
+        "RockFormation_0400",
+        "RockFormation_0428"
+      ],
+      "asset_path": "res://assets/3d/abandoned_mine/abandoned_mine.glb",
+      "node_name": "RockFormation_0006"
+    },
+    {
+      "id": "mine_surface_rock",
+      "title": "폐광 표면 암석",
+      "name_ko": "폐광 표면 암석",
+      "category": "environment",
+      "source_path": "godot-game/scripts/cave_geometry.gd",
+      "runtime_constructor": "build -> abandoned_mine.glb",
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb",
+      "factory_type": "mine_node",
+      "description_en": "Photogrammetric limestone rock outcrop with complex erosion and grounded lower silhouette.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "RockScan_000",
+        "RockScan_001",
+        "RockScan_002",
+        "RockScan_003",
+        "RockScan_004",
+        "RockScan_005",
+        "RockScan_006",
+        "RockScan_007",
+        "RockScan_008",
+        "RockScan_009",
+        "RockScan_010",
+        "RockScan_011",
+        "RockScan_012",
+        "RockScan_013",
+        "RockScan_014",
+        "RockScan_015",
+        "RockScan_016",
+        "RockScan_017",
+        "RockScan_018",
+        "RockScan_019",
+        "RockScan_020",
+        "RockScan_021",
+        "RockScan_022",
+        "RockScan_023",
+        "RockScan_024",
+        "RockScan_025",
+        "RockScan_026",
+        "RockScan_027",
+        "RockScan_028",
+        "RockScan_029",
+        "RockScan_030",
+        "RockScan_031",
+        "RockScan_032",
+        "RockScan_033",
+        "RockScan_034",
+        "RockScan_035",
+        "RockScan_036",
+        "RockScan_037",
+        "RockScan_038",
+        "RockScan_039",
+        "RockScan_040",
+        "RockScan_041",
+        "RockScan_042",
+        "RockScan_043"
+      ],
+      "asset_path": "res://assets/3d/abandoned_mine/abandoned_mine.glb",
+      "node_name": "RockScan_000"
+    },
+    {
+      "id": "mine_detail_rock",
+      "title": "폐광 미세 암석",
+      "name_ko": "폐광 미세 암석",
+      "category": "environment",
+      "source_path": "godot-game/scripts/cave_geometry.gd",
+      "runtime_constructor": "build -> abandoned_mine.glb",
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb",
+      "factory_type": "mine_node",
+      "description_en": "Small irregular rocks fitted into the cave wall and ground, complex chipped mineral surfaces.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "RockScan_Detail_000_grand_quarry_rock_island",
+        "RockScan_Detail_001_grand_quarry_rock_island",
+        "RockScan_Detail_002_grand_quarry_rock_island",
+        "RockScan_Detail_003_grand_quarry_rock_island",
+        "RockScan_Detail_004_grand_quarry_rock_island",
+        "RockScan_Detail_005_grand_quarry_rock_island",
+        "RockScan_Detail_006_grand_quarry_rock_island",
+        "RockScan_Detail_007_grand_quarry_rock_island",
+        "RockScan_Detail_008_grand_quarry_rock_island",
+        "RockScan_Detail_009_grand_quarry_rock_island",
+        "RockScan_Detail_010_grand_quarry_rock_island",
+        "RockScan_Detail_011_grand_quarry_rock_island",
+        "RockScan_Detail_012_grand_quarry_rock_island",
+        "RockScan_Detail_013_grand_quarry_rock_island",
+        "RockScan_Detail_014_grand_quarry_rock_island",
+        "RockScan_Detail_015_grand_quarry_rock_island",
+        "RockScan_Detail_016_grand_quarry_rock_island",
+        "RockScan_Detail_017_grand_quarry",
+        "RockScan_Detail_018_grand_quarry",
+        "RockScan_Detail_019_grand_quarry",
+        "RockScan_Detail_020_grand_quarry",
+        "RockScan_Detail_021_grand_quarry",
+        "RockScan_Detail_022_grand_quarry",
+        "RockScan_Detail_023_grand_quarry",
+        "RockScan_Detail_024_grand_quarry",
+        "RockScan_Detail_025_grand_quarry",
+        "RockScan_Detail_026_grand_quarry",
+        "RockScan_Detail_027_grand_quarry",
+        "RockScan_Detail_028_grand_quarry",
+        "RockScan_Detail_029_grand_quarry",
+        "RockScan_Detail_030_grand_quarry",
+        "RockScan_Detail_031_grand_quarry",
+        "RockScan_Detail_032_grand_quarry",
+        "RockScan_Detail_033_rubble_passage",
+        "RockScan_Detail_034_rubble_passage",
+        "RockScan_Detail_035_rubble_passage",
+        "RockScan_Detail_036_rubble_passage",
+        "RockScan_Detail_037_rubble_passage",
+        "RockScan_Detail_038_rubble_passage",
+        "RockScan_Detail_039_rubble_passage",
+        "RockScan_Detail_040_north_workings",
+        "RockScan_Detail_041_north_workings",
+        "RockScan_Detail_042_north_workings",
+        "RockScan_Detail_043_north_workings",
+        "RockScan_Detail_044_north_workings",
+        "RockScan_Detail_045_north_workings",
+        "RockScan_Detail_046_entrance",
+        "RockScan_Detail_047_entrance",
+        "RockScan_Detail_048_entrance",
+        "RockScan_Detail_049_entrance",
+        "RockScan_Detail_050_entrance",
+        "RockScan_Detail_051_north_vents",
+        "RockScan_Detail_052_north_vents",
+        "RockScan_Detail_053_north_vents",
+        "RockScan_Detail_054_north_vents",
+        "RockScan_Detail_055_north_vents",
+        "RockScan_Detail_056_western_altar",
+        "RockScan_Detail_057_western_altar",
+        "RockScan_Detail_058_western_altar",
+        "RockScan_Detail_059_western_altar",
+        "RockScan_Detail_060_western_altar",
+        "RockScan_Detail_061_pillar_shrine",
+        "RockScan_Detail_062_pillar_shrine",
+        "RockScan_Detail_063_pillar_shrine",
+        "RockScan_Detail_064_pillar_shrine",
+        "RockScan_Detail_065_pillar_shrine",
+        "RockScan_Detail_066_hoistroom",
+        "RockScan_Detail_067_hoistroom",
+        "RockScan_Detail_068_hoistroom",
+        "RockScan_Detail_069_hoistroom",
+        "RockScan_Detail_070_hoistroom",
+        "RockScan_Detail_071_foreman_workroom",
+        "RockScan_Detail_072_foreman_workroom",
+        "RockScan_Detail_073_foreman_workroom",
+        "RockScan_Detail_074_foreman_workroom",
+        "RockScan_Detail_075_east_store",
+        "RockScan_Detail_076_east_store",
+        "RockScan_Detail_077_east_store",
+        "RockScan_Detail_078_east_store",
+        "RockScan_Detail_079_bone_cavern",
+        "RockScan_Detail_080_bone_cavern",
+        "RockScan_Detail_081_bone_cavern",
+        "RockScan_Detail_082_workshops",
+        "RockScan_Detail_083_workshops",
+        "RockScan_Detail_084_workshops",
+        "RockScan_Detail_085_southwest_adit",
+        "RockScan_Detail_086_southwest_adit",
+        "RockScan_Detail_087_southwest_adit"
+      ],
+      "asset_path": "res://assets/3d/abandoned_mine/abandoned_mine.glb",
+      "node_name": "RockScan_Detail_000_grand_quarry_rock_island"
+    },
+    {
+      "id": "mine_icosphere_rock",
+      "title": "폐광 둥근 자연 암석",
+      "name_ko": "폐광 둥근 자연 암석",
+      "category": "environment",
+      "source_path": "godot-game/scripts/cave_geometry.gd",
+      "runtime_constructor": "build -> abandoned_mine.glb",
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb",
+      "factory_type": "mine_node",
+      "description_en": "Rounded natural cave boulder with uneven rugged facets.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "MineralCluster_033",
+        "MineralCluster_034",
+        "MineralCluster_036",
+        "MineralCluster_037",
+        "MineralCluster_038",
+        "MineralCluster_040",
+        "MineralCluster_041",
+        "MineralCluster_042",
+        "MineralCluster_043",
+        "MineralCluster_044",
+        "MineralCluster_045",
+        "MineralCluster_046",
+        "MineralCluster_047",
+        "MineralCluster_048",
+        "MineralCluster_049",
+        "MineralCluster_050",
+        "MineralCluster_051",
+        "MineralCluster_052",
+        "MineralCluster_054",
+        "MineralCluster_055",
+        "MineralCluster_056",
+        "MineralCluster_057",
+        "MineralCluster_058",
+        "MineralCluster_059",
+        "MineralCluster_060",
+        "MineralCluster_061",
+        "MineralCluster_062",
+        "MineralCluster_063",
+        "MineralCluster_064",
+        "MineralCluster_065",
+        "MineralCluster_066",
+        "MineralCluster_067",
+        "MineralCluster_068",
+        "MineralCluster_069",
+        "MineralCluster_071",
+        "MineralCluster_072",
+        "MineralCluster_073",
+        "MineralCluster_074",
+        "MineralCluster_077",
+        "MineralCluster_078",
+        "MineralCluster_079",
+        "MineralCluster_080",
+        "MineralCluster_081",
+        "MineralCluster_082",
+        "MineralCluster_084",
+        "MineralCluster_085",
+        "Scree_bone_cavern.008",
+        "Scree_east_store.012",
+        "Scree_entrance.009",
+        "Scree_longlake.005",
+        "Scree_longlake.006",
+        "Scree_upper_lake.009"
+      ],
+      "asset_path": "res://assets/3d/abandoned_mine/abandoned_mine.glb",
+      "node_name": "MineralCluster_033"
+    },
+    {
+      "id": "mine_water",
+      "title": "폐광 지하수",
+      "name_ko": "폐광 지하수",
+      "category": "environment",
+      "source_path": "godot-game/scripts/cave_water.gd",
+      "runtime_constructor": "_build_surface",
+      "factory": "cave_water.gd::_build_surface",
+      "factory_type": "mine_water",
+      "description_en": "Still underground pool with faint ripples, cold dark teal reflections and muddy mineral shoreline.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "all six authored pool shapes"
+      ],
+      "pool_index": 0
+    },
+    {
+      "id": "mine_mineral_cluster",
+      "title": "폐광 광물 군집",
+      "name_ko": "폐광 광물 군집",
+      "category": "environment",
+      "source_path": "godot-game/scripts/cave_geometry.gd",
+      "runtime_constructor": "build -> abandoned_mine.glb",
+      "factory": "cave_geometry.gd::build -> abandoned_mine.glb",
+      "factory_type": "mine_node",
+      "description_en": "Dense irregular mineral crystal deposits clinging to dark limestone, jagged pointed formations with pale aged calcite surfaces.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "MineralCluster_000",
+        "MineralCluster_001",
+        "MineralCluster_002",
+        "MineralCluster_003",
+        "MineralCluster_004",
+        "MineralCluster_006",
+        "MineralCluster_007",
+        "MineralCluster_008",
+        "MineralCluster_009",
+        "MineralCluster_010",
+        "MineralCluster_011",
+        "MineralCluster_012",
+        "MineralCluster_013",
+        "MineralCluster_014",
+        "MineralCluster_015",
+        "MineralCluster_017",
+        "MineralCluster_018",
+        "MineralCluster_019",
+        "MineralCluster_022",
+        "MineralCluster_024",
+        "MineralCluster_025",
+        "MineralCluster_026",
+        "MineralCluster_027",
+        "MineralCluster_028",
+        "MineralCluster_029",
+        "MineralCluster_030",
+        "MineralCluster_031",
+        "MineralCluster_032",
+        "MineralCluster_033",
+        "MineralCluster_034",
+        "MineralCluster_036",
+        "MineralCluster_037",
+        "MineralCluster_038",
+        "MineralCluster_040",
+        "MineralCluster_041",
+        "MineralCluster_042",
+        "MineralCluster_043",
+        "MineralCluster_044",
+        "MineralCluster_045",
+        "MineralCluster_046",
+        "MineralCluster_047",
+        "MineralCluster_048",
+        "MineralCluster_049",
+        "MineralCluster_050",
+        "MineralCluster_051",
+        "MineralCluster_052",
+        "MineralCluster_054",
+        "MineralCluster_055",
+        "MineralCluster_056",
+        "MineralCluster_057",
+        "MineralCluster_058",
+        "MineralCluster_059",
+        "MineralCluster_060",
+        "MineralCluster_061",
+        "MineralCluster_062",
+        "MineralCluster_063",
+        "MineralCluster_064",
+        "MineralCluster_065",
+        "MineralCluster_066",
+        "MineralCluster_067",
+        "MineralCluster_068",
+        "MineralCluster_069",
+        "MineralCluster_071",
+        "MineralCluster_072",
+        "MineralCluster_073",
+        "MineralCluster_074",
+        "MineralCluster_077",
+        "MineralCluster_078",
+        "MineralCluster_079",
+        "MineralCluster_080",
+        "MineralCluster_081",
+        "MineralCluster_082",
+        "MineralCluster_084",
+        "MineralCluster_085"
+      ],
+      "asset_path": "res://assets/3d/abandoned_mine/abandoned_mine.glb",
+      "node_name": "MineralCluster_000"
+    },
+    {
+      "id": "peripheral_afterimage",
+      "title": "주변시야의 환영",
+      "name_ko": "주변시야의 환영",
+      "category": "vfx",
+      "source_path": "godot-game/scripts/stress_perception.gd",
+      "runtime_constructor": "_build_ghost",
+      "factory": "stress_perception.gd::_build_ghost",
+      "factory_type": "ghost",
+      "description_en": "Faint human shaped shadow apparition with a shrouded body, featureless round head and long thin arms, translucent near-black purple silhouette.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production visual"
+      ]
+    },
+    {
+      "id": "archery_accuracy_target",
+      "title": "궁술 원형 과녁",
+      "name_ko": "궁술 원형 과녁",
+      "category": "test_fixture",
+      "source_path": "godot-game/scripts/test_room.gd",
+      "runtime_constructor": "_spawn_archery_accuracy_target",
+      "factory": "test_room.gd::_spawn_archery_accuracy_target",
+      "factory_type": "archery_target",
+      "description_en": "Large square weathered wood target backboard with five concentric painted cream, slate, faded ivory, dark red and golden bullseye rings.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "canonical production visual"
+      ]
+    },
+    {
+      "id": "flail_station_markers",
+      "title": "철퇴 시험 발판",
+      "name_ko": "철퇴 시험 발판",
+      "category": "test_fixture",
+      "source_path": "godot-game/scripts/test_room.gd",
+      "runtime_constructor": "_build_flail_station_markers",
+      "factory": "test_room.gd::_build_flail_station_markers",
+      "factory_type": "flail_markers",
+      "description_en": "Low rectangular stone training station floor pad with weathered moss green or muted blue painted surfaces.",
+      "required_views": [
+        "front",
+        "back",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "variant_coverage": [
+        "green near melee station",
+        "blue far throw station"
+      ]
+    }
+  ],
+  "total_entries": 128,
+  "categories": {
+    "character": 2,
+    "equipment": 9,
+    "prop": 3,
+    "architecture": 13,
+    "hideout_prop": 22,
+    "vfx": 8,
+    "environment": 25,
+    "camp": 6,
+    "mine_prop": 36,
+    "test_fixture": 2
+  },
+  "unreferenced_assets": [
+    "reference_skeleton_3d.glb",
+    "dungeon_floor_4m.glb",
+    "medieval_peasant_realistic_3d.glb",
+    "mercenary_crossbowman_game_ready_3d.glb",
+    "mercenary_crossbowman_game_ready_v16.glb",
+    "dungeon_wall_4m.glb",
+    "medieval_peasant_3d.glb",
+    "mercenary_crossbowman_web_preview.glb",
+    "ossuary_keeper_3d.glb"
+  ],
+  "notes": [
+    "Individual gameplay inventory consumables exist as 2D icons; they have no runtime 3D representation unless listed as cooking ingredients.",
+    "Healing light is a HUD pulse without a distinct world mesh.",
+    "Mine collision_* nodes and occlusion/camera/marker nodes are not visual objects.",
+    "Variations can be rendered via build_object(id, variant_index)."
+  ],
+  "mine_mesh_coverage_audit": {
+    "uncovered_visible_mesh_nodes": 0,
+    "excluded": "collision_* and original Water_* replaced by live six pool water system"
+  },
+  "active_entries": 126
+}

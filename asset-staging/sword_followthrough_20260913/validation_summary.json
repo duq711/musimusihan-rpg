@@ -1,0 +1,51 @@
+{
+  "date": "2026-09-13",
+  "request": "Remove end-of-cut bending; continue the forehand swing completely outside the view.",
+  "production_candidate": "candidate_02",
+  "changes": [
+    "Preserve forehand source sword and arm keys through .710s contact.",
+    "Replace post-contact local wrist reversal with a continuous leftward grip and horizontal blade sweep, ending outside the left frustum by .800s.",
+    "Lower and rotate only outside the camera; finish rotation early enough that Godot interpolation also stays constant during the visible idle return.",
+    "Keep the accepted reverse, nine other clips, exact shield track, original models and player combat code.",
+    "Extend the existing playable shield-stow test-room description with full follow-through inspection."
+  ],
+  "passed_checks": {
+    "sword_forehand_grip": "tests.log candidate_01; contact/input/geometry/isolation checks passed",
+    "reference_sword_motion_test_room": "tests.log candidate_01; actual target/fixture/reset/session passed",
+    "sword_edge_alignment": "final_tests.log candidate_02; approach, contact, continuous leftward blade, hidden reset and fixed visible return passed",
+    "sword_recovery_continuity": "final_tests.log candidate_02; actual player recovery and idle boundary passed"
+  },
+  "resolved_during_validation": [
+    "Initial edge-check helper append failed due to wrong working directory; helpers were written and the test rerun.",
+    "candidate_01 had a small Godot SQUAD overshoot at the fixed-orientation return boundary. candidate_02 finishes rotation .025 source seconds sooner, retaining neighbor keys before the return. The strict orientation check now passes."
+  ],
+  "actual_captures": {
+    "captures": {
+      "two_hand": {
+        "actual_sequence_frames": 182,
+        "unchanged_reverse_frames": 91,
+        "current_source_hashes_match": true,
+        "expedition_and_cursor_preserved": true
+      },
+      "shield": {
+        "actual_sequence_frames": 182,
+        "unchanged_reverse_frames": 91,
+        "current_source_hashes_match": true,
+        "expedition_and_cursor_preserved": true
+      }
+    },
+    "video": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/godot-game/artifacts/visual_qa/reference_sword_motion/forehand_followthrough_comparison/followthrough_comparison.mp4",
+    "encoded_frames": 546,
+    "fps": 60,
+    "presentation": "Actual normal-speed then labelled half-speed before/after forehand; no mirrored, reversed or replaced pixels."
+  },
+  "source_preservation": "source_preservation.json",
+  "visual_review": "visual_review.json",
+  "unrelated_known_status": "The prior turn documented four sword_clash natural-contact assertions failing. That separate suite was not rerun or claimed repaired in this follow-through edit.",
+  "user_aesthetic_approval": false,
+  "process_cleanup": {
+    "owned_godot_or_blender_processes_remaining": false,
+    "preexisting_user_editor_pid": 1313,
+    "preexisting_thumbnail_service_pid": 1868
+  }
+}

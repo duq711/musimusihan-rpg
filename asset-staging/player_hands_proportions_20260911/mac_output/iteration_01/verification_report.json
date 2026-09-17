@@ -1,0 +1,1073 @@
+{
+  "status": "passed",
+  "verified_sha256": {
+    "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/player_hands_realism_20260911/mac_output/iteration_04/bilateral_hands_realistic.blend": "cbf03527f6471047848cd17ac8b972e0fd4f2caee2c704b4e2c53304d8c86e67",
+    "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/player_hands_proportions_20260911/mac_output/iteration_01/bilateral_hands_proportions.blend": "773f0fc72f979a06c642f2e8c4d628357bb3a0a69d8f02862aa81894c3c729a5",
+    "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/player_hands_proportions_20260911/mac_output/iteration_01/left_hand_proportions.glb": "28bdda46650572041049e77f4f3023c93ba9cef864d98af6163bb40f8c0292aa",
+    "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/player_hands_proportions_20260911/mac_output/iteration_01/right_hand_proportions.glb": "cc4c1cd71f50f13f0986bcb71e1ab95fa96a1eab68a5de62bac6bd08d907327a",
+    "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/player_hands_proportions_20260911/tools/proportion_math.py": "747a15d9b6b129c354f805e5a37101ba06ba9fda5545e6776fc4d50d984fe41e",
+    "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/player_hands_proportions_20260911/tools/verify_proportions.py": "eb9929698b6b6497e1be10aad63b0937ef6e8c64e91d57e653bc5d9e515399e9",
+    "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/player_hands_realism_20260911/tools/verify_hands_realistic.py": "100202f79acb6a18e5bcb3633aa0873a8217529bfa2399452bb192807dd0401f",
+    "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/player_hands_realism_20260911/tools/joint_verification_core.py": "d8f2e475568a09fa27dae25a14e8eab36a8b232a52e835348bf356f38ecd4446",
+    "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/player_hands_realism_20260911/mac_output/iteration_04/left_hand_realistic.glb": "d5f5b5c548670192a722059bef3689fee923ffa23e218309506e650c007dac88",
+    "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/player_hands_realism_20260911/mac_output/iteration_04/right_hand_realistic.glb": "1fc735a1cc8b1f42036c3cf1dc06230b849ecae44c71888402284e218c45081e"
+  },
+  "checks": {
+    "editable_left": {
+      "preservation": {
+        "parts": {
+          "hand": {
+            "vertices": 14988,
+            "topology_uv_material_weights_exact": true,
+            "mapped_position_error_m": 7.45059480776499e-09,
+            "sampled_mapped_corrective_error_m": 3.732559164492739e-09
+          },
+          "nail_index": {
+            "vertices": 322,
+            "topology_uv_material_weights_exact": true,
+            "mapped_position_error_m": 0.0,
+            "sampled_mapped_corrective_error_m": 0.0
+          },
+          "nail_little": {
+            "vertices": 322,
+            "topology_uv_material_weights_exact": true,
+            "mapped_position_error_m": 0.0,
+            "sampled_mapped_corrective_error_m": 0.0
+          },
+          "nail_middle": {
+            "vertices": 322,
+            "topology_uv_material_weights_exact": true,
+            "mapped_position_error_m": 0.0,
+            "sampled_mapped_corrective_error_m": 0.0
+          },
+          "nail_ring": {
+            "vertices": 322,
+            "topology_uv_material_weights_exact": true,
+            "mapped_position_error_m": 0.0,
+            "sampled_mapped_corrective_error_m": 0.0
+          },
+          "nail_thumb": {
+            "vertices": 322,
+            "topology_uv_material_weights_exact": true,
+            "mapped_position_error_m": 0.0,
+            "sampled_mapped_corrective_error_m": 0.0
+          },
+          "WristCuff": {
+            "vertices": 4608,
+            "topology_uv_material_weights_exact": true,
+            "mapped_position_error_m": 0.0,
+            "sampled_mapped_corrective_error_m": 0.0
+          },
+          "Forearm": {
+            "vertices": 8229,
+            "topology_uv_material_weights_exact": true,
+            "mapped_position_error_m": 0.0,
+            "sampled_mapped_corrective_error_m": 0.0
+          },
+          "UpperArm": {
+            "vertices": 4986,
+            "topology_uv_material_weights_exact": true,
+            "mapped_position_error_m": 0.0,
+            "sampled_mapped_corrective_error_m": 0.0
+          }
+        },
+        "bones": {
+          "wrist": {
+            "mapped_head_tail_error_m": 0.0
+          },
+          "index0": {
+            "mapped_head_tail_error_m": 0.0
+          },
+          "index1": {
+            "mapped_head_tail_error_m": 0.0
+          },
+          "index2": {
+            "mapped_head_tail_error_m": 0.0
+          },
+          "little0": {
+            "mapped_head_tail_error_m": 0.0
+          },
+          "little1": {
+            "mapped_head_tail_error_m": 0.0
+          },
+          "little2": {
+            "mapped_head_tail_error_m": 0.0
+          },
+          "middle0": {
+            "mapped_head_tail_error_m": 0.0
+          },
+          "middle1": {
+            "mapped_head_tail_error_m": 0.0
+          },
+          "middle2": {
+            "mapped_head_tail_error_m": 0.0
+          },
+          "ring0": {
+            "mapped_head_tail_error_m": 0.0
+          },
+          "ring1": {
+            "mapped_head_tail_error_m": 0.0
+          },
+          "ring2": {
+            "mapped_head_tail_error_m": 0.0
+          },
+          "thumb0": {
+            "mapped_head_tail_error_m": 0.0
+          },
+          "thumb1": {
+            "mapped_head_tail_error_m": 0.0
+          },
+          "thumb2": {
+            "mapped_head_tail_error_m": 0.0
+          }
+        },
+        "corrective_support": {
+          "Joint_thumb_0": {
+            "original_nonzero_support_vertices": 220,
+            "current_above_1um_vertices": 161,
+            "new_previously_unaffected_vertices": 0,
+            "original_support_axial_m": 0.013932162707990718,
+            "current_support_axial_m": 0.01406651023832596
+          },
+          "Joint_thumb_1": {
+            "original_nonzero_support_vertices": 499,
+            "current_above_1um_vertices": 356,
+            "new_previously_unaffected_vertices": 0,
+            "original_support_axial_m": 0.012892481321155369,
+            "current_support_axial_m": 0.01362858273580495
+          },
+          "Joint_thumb_2": {
+            "original_nonzero_support_vertices": 259,
+            "current_above_1um_vertices": 194,
+            "new_previously_unaffected_vertices": 0,
+            "original_support_axial_m": 0.010703922041038164,
+            "current_support_axial_m": 0.011622783017313102
+          },
+          "Joint_index_0": {
+            "original_nonzero_support_vertices": 368,
+            "current_above_1um_vertices": 260,
+            "new_previously_unaffected_vertices": 0,
+            "original_support_axial_m": 0.014029009114736724,
+            "current_support_axial_m": 0.013625471632982217
+          },
+          "Joint_index_1": {
+            "original_nonzero_support_vertices": 405,
+            "current_above_1um_vertices": 318,
+            "new_previously_unaffected_vertices": 0,
+            "original_support_axial_m": 0.012902062416892103,
+            "current_support_axial_m": 0.01273600665415734
+          },
+          "Joint_index_2": {
+            "original_nonzero_support_vertices": 235,
+            "current_above_1um_vertices": 161,
+            "new_previously_unaffected_vertices": 0,
+            "original_support_axial_m": 0.010781936937684426,
+            "current_support_axial_m": 0.008322749658645334
+          },
+          "Joint_middle_0": {
+            "original_nonzero_support_vertices": 248,
+            "current_above_1um_vertices": 155,
+            "new_previously_unaffected_vertices": 0,
+            "original_support_axial_m": 0.014096583518603309,
+            "current_support_axial_m": 0.013858134707946536
+          },
+          "Joint_middle_1": {
+            "original_nonzero_support_vertices": 303,
+            "current_above_1um_vertices": 237,
+            "new_previously_unaffected_vertices": 0,
+            "original_support_axial_m": 0.012921205654535046,
+            "current_support_axial_m": 0.014298519292407897,
+            "all_original_active_vertices_follow_W": true,
+            "all_active_W_error_m": 0.0
+          },
+          "Joint_middle_2": {
+            "original_nonzero_support_vertices": 197,
+            "current_above_1um_vertices": 143,
+            "new_previously_unaffected_vertices": 0,
+            "original_support_axial_m": 0.010094167724488463,
+            "current_support_axial_m": 0.008481923965860779
+          },
+          "Joint_ring_0": {
+            "original_nonzero_support_vertices": 293,
+            "current_above_1um_vertices": 202,
+            "new_previously_unaffected_vertices": 0,
+            "original_support_axial_m": 0.013954679761921046,
+            "current_support_axial_m": 0.014041997978333044
+          },
+          "Joint_ring_1": {
+            "original_nonzero_support_vertices": 329,
+            "current_above_1um_vertices": 254,
+            "new_previously_unaffected_vertices": 0,
+            "original_support_axial_m": 0.012917877640155315,
+            "current_support_axial_m": 0.014668985683148679,
+            "all_original_active_vertices_follow_W": true,
+            "all_active_W_error_m": 1.862645149230957e-09
+          },
+          "Joint_ring_2": {
+            "original_nonzero_support_vertices": 245,
+            "current_above_1um_vertices": 179,
+            "new_previously_unaffected_vertices": 0,
+            "original_support_axial_m": 0.01032646888323498,
+            "current_support_axial_m": 0.007904095845183274
+          },
+          "Joint_little_0": {
+            "original_nonzero_support_vertices": 320,
+            "current_above_1um_vertices": 228,
+            "new_previously_unaffected_vertices": 0,
+            "original_support_axial_m": 0.014043371969755422,
+            "current_support_axial_m": 0.013102331571285672
+          },
+          "Joint_little_1": {
+            "original_nonzero_support_vertices": 399,
+            "current_above_1um_vertices": 294,
+            "new_previously_unaffected_vertices": 0,
+            "original_support_axial_m": 0.01292143288692459,
+            "current_support_axial_m": 0.011734232509876498
+          },
+          "Joint_little_2": {
+            "original_nonzero_support_vertices": 244,
+            "current_above_1um_vertices": 174,
+            "new_previously_unaffected_vertices": 0,
+            "original_support_axial_m": 0.010775128142697227,
+            "current_support_axial_m": 0.00814125848156087
+          }
+        }
+      },
+      "map_minimum_sampled_jacobian": 0.41263331646892676,
+      "articulation": {
+        "joints": {
+          "thumb0": {
+            "limit_degrees": 60,
+            "actual_skin_movement_m": 0.1131505911488521,
+            "actual_corrective_effect_m": 0.0001401332825124609,
+            "nail_bone_local_error_m": 2.5059327570858802e-08
+          },
+          "thumb1": {
+            "limit_degrees": 70,
+            "actual_skin_movement_m": 0.07508830059034853,
+            "actual_corrective_effect_m": 0.00041961885183836126,
+            "nail_bone_local_error_m": 3.271664094595156e-08
+          },
+          "thumb2": {
+            "limit_degrees": 80,
+            "actual_skin_movement_m": 0.042667931019080875,
+            "actual_corrective_effect_m": 0.0002471215535957193,
+            "nail_bone_local_error_m": 2.9155008201484622e-08
+          },
+          "index0": {
+            "limit_degrees": 90,
+            "actual_skin_movement_m": 0.12905636925657935,
+            "actual_corrective_effect_m": 0.00017147745345518238,
+            "nail_bone_local_error_m": 3.440934440617541e-08
+          },
+          "index1": {
+            "limit_degrees": 110,
+            "actual_skin_movement_m": 0.08176602629622888,
+            "actual_corrective_effect_m": 0.000296741640955674,
+            "nail_bone_local_error_m": 4.2528574119848816e-08
+          },
+          "index2": {
+            "limit_degrees": 80,
+            "actual_skin_movement_m": 0.02838538414184476,
+            "actual_corrective_effect_m": 0.00018631791481838573,
+            "nail_bone_local_error_m": 5.5807640276301026e-08
+          },
+          "middle0": {
+            "limit_degrees": 90,
+            "actual_skin_movement_m": 0.14010102342739766,
+            "actual_corrective_effect_m": 0.00015404383278333174,
+            "nail_bone_local_error_m": 5.04813133378932e-08
+          },
+          "middle1": {
+            "limit_degrees": 110,
+            "actual_skin_movement_m": 0.08657984217904843,
+            "actual_corrective_effect_m": 0.0002836456513954037,
+            "nail_bone_local_error_m": 6.028841443899119e-08
+          },
+          "middle2": {
+            "limit_degrees": 80,
+            "actual_skin_movement_m": 0.031496145279969134,
+            "actual_corrective_effect_m": 0.0001992223812636372,
+            "nail_bone_local_error_m": 5.660802011197845e-08
+          },
+          "ring0": {
+            "limit_degrees": 90,
+            "actual_skin_movement_m": 0.13176991014622885,
+            "actual_corrective_effect_m": 0.00014360459987409284,
+            "nail_bone_local_error_m": 7.48372163585722e-08
+          },
+          "ring1": {
+            "limit_degrees": 110,
+            "actual_skin_movement_m": 0.0811309025646868,
+            "actual_corrective_effect_m": 0.00034418039831010276,
+            "nail_bone_local_error_m": 6.867359470624388e-08
+          },
+          "ring2": {
+            "limit_degrees": 80,
+            "actual_skin_movement_m": 0.029487430566875528,
+            "actual_corrective_effect_m": 0.00023494618136441568,
+            "nail_bone_local_error_m": 5.977221100881962e-08
+          },
+          "little0": {
+            "limit_degrees": 90,
+            "actual_skin_movement_m": 0.10666877362852885,
+            "actual_corrective_effect_m": 0.00013606207019465093,
+            "nail_bone_local_error_m": 6.58260208129991e-08
+          },
+          "little1": {
+            "limit_degrees": 110,
+            "actual_skin_movement_m": 0.06995975945536265,
+            "actual_corrective_effect_m": 0.00027691885353316387,
+            "nail_bone_local_error_m": 3.306277121489531e-08
+          },
+          "little2": {
+            "limit_degrees": 80,
+            "actual_skin_movement_m": 0.029861875861422922,
+            "actual_corrective_effect_m": 0.000210730409263734,
+            "nail_bone_local_error_m": 4.193036841514334e-08
+          }
+        },
+        "neutral_reset": true
+      }
+    },
+    "editable_right": {
+      "preservation": {
+        "parts": {
+          "hand": {
+            "vertices": 14988,
+            "topology_uv_material_weights_exact": true,
+            "mapped_position_error_m": 1.4901161193847656e-08,
+            "sampled_mapped_corrective_error_m": 3.725290298461914e-09
+          },
+          "nail_index": {
+            "vertices": 322,
+            "topology_uv_material_weights_exact": true,
+            "mapped_position_error_m": 0.0,
+            "sampled_mapped_corrective_error_m": 0.0
+          },
+          "nail_little": {
+            "vertices": 322,
+            "topology_uv_material_weights_exact": true,
+            "mapped_position_error_m": 0.0,
+            "sampled_mapped_corrective_error_m": 0.0
+          },
+          "nail_middle": {
+            "vertices": 322,
+            "topology_uv_material_weights_exact": true,
+            "mapped_position_error_m": 0.0,
+            "sampled_mapped_corrective_error_m": 0.0
+          },
+          "nail_ring": {
+            "vertices": 322,
+            "topology_uv_material_weights_exact": true,
+            "mapped_position_error_m": 0.0,
+            "sampled_mapped_corrective_error_m": 0.0
+          },
+          "nail_thumb": {
+            "vertices": 322,
+            "topology_uv_material_weights_exact": true,
+            "mapped_position_error_m": 0.0,
+            "sampled_mapped_corrective_error_m": 0.0
+          },
+          "WristCuff": {
+            "vertices": 4608,
+            "topology_uv_material_weights_exact": true,
+            "mapped_position_error_m": 0.0,
+            "sampled_mapped_corrective_error_m": 0.0
+          },
+          "Forearm": {
+            "vertices": 8229,
+            "topology_uv_material_weights_exact": true,
+            "mapped_position_error_m": 0.0,
+            "sampled_mapped_corrective_error_m": 0.0
+          },
+          "UpperArm": {
+            "vertices": 4986,
+            "topology_uv_material_weights_exact": true,
+            "mapped_position_error_m": 0.0,
+            "sampled_mapped_corrective_error_m": 0.0
+          }
+        },
+        "bones": {
+          "wrist": {
+            "mapped_head_tail_error_m": 0.0
+          },
+          "index0": {
+            "mapped_head_tail_error_m": 0.0
+          },
+          "index1": {
+            "mapped_head_tail_error_m": 0.0
+          },
+          "index2": {
+            "mapped_head_tail_error_m": 0.0
+          },
+          "little0": {
+            "mapped_head_tail_error_m": 0.0
+          },
+          "little1": {
+            "mapped_head_tail_error_m": 0.0
+          },
+          "little2": {
+            "mapped_head_tail_error_m": 0.0
+          },
+          "middle0": {
+            "mapped_head_tail_error_m": 0.0
+          },
+          "middle1": {
+            "mapped_head_tail_error_m": 0.0
+          },
+          "middle2": {
+            "mapped_head_tail_error_m": 0.0
+          },
+          "ring0": {
+            "mapped_head_tail_error_m": 0.0
+          },
+          "ring1": {
+            "mapped_head_tail_error_m": 0.0
+          },
+          "ring2": {
+            "mapped_head_tail_error_m": 0.0
+          },
+          "thumb0": {
+            "mapped_head_tail_error_m": 0.0
+          },
+          "thumb1": {
+            "mapped_head_tail_error_m": 0.0
+          },
+          "thumb2": {
+            "mapped_head_tail_error_m": 0.0
+          }
+        },
+        "corrective_support": {
+          "Joint_thumb_0": {
+            "original_nonzero_support_vertices": 209,
+            "current_above_1um_vertices": 151,
+            "new_previously_unaffected_vertices": 0,
+            "original_support_axial_m": 0.013932162622218967,
+            "current_support_axial_m": 0.014070440936539202
+          },
+          "Joint_thumb_1": {
+            "original_nonzero_support_vertices": 489,
+            "current_above_1um_vertices": 353,
+            "new_previously_unaffected_vertices": 0,
+            "original_support_axial_m": 0.012895672669327484,
+            "current_support_axial_m": 0.01363201034689175
+          },
+          "Joint_thumb_2": {
+            "original_nonzero_support_vertices": 259,
+            "current_above_1um_vertices": 194,
+            "new_previously_unaffected_vertices": 0,
+            "original_support_axial_m": 0.010703922041038164,
+            "current_support_axial_m": 0.011624675982958734
+          },
+          "Joint_index_0": {
+            "original_nonzero_support_vertices": 369,
+            "current_above_1um_vertices": 260,
+            "new_previously_unaffected_vertices": 0,
+            "original_support_axial_m": 0.014096287986072547,
+            "current_support_axial_m": 0.013609984768695122
+          },
+          "Joint_index_1": {
+            "original_nonzero_support_vertices": 405,
+            "current_above_1um_vertices": 318,
+            "new_previously_unaffected_vertices": 0,
+            "original_support_axial_m": 0.012902673388039455,
+            "current_support_axial_m": 0.012735946478614639
+          },
+          "Joint_index_2": {
+            "original_nonzero_support_vertices": 235,
+            "current_above_1um_vertices": 161,
+            "new_previously_unaffected_vertices": 0,
+            "original_support_axial_m": 0.010782053439023918,
+            "current_support_axial_m": 0.008322741475796659
+          },
+          "Joint_middle_0": {
+            "original_nonzero_support_vertices": 247,
+            "current_above_1um_vertices": 156,
+            "new_previously_unaffected_vertices": 0,
+            "original_support_axial_m": 0.014095632915462123,
+            "current_support_axial_m": 0.013857113683711841
+          },
+          "Joint_middle_1": {
+            "original_nonzero_support_vertices": 303,
+            "current_above_1um_vertices": 237,
+            "new_previously_unaffected_vertices": 0,
+            "original_support_axial_m": 0.012921303137476792,
+            "current_support_axial_m": 0.014298450044620235,
+            "all_original_active_vertices_follow_W": true,
+            "all_active_W_error_m": 0.0
+          },
+          "Joint_middle_2": {
+            "original_nonzero_support_vertices": 197,
+            "current_above_1um_vertices": 143,
+            "new_previously_unaffected_vertices": 0,
+            "original_support_axial_m": 0.010094200488571936,
+            "current_support_axial_m": 0.008481910507252546
+          },
+          "Joint_ring_0": {
+            "original_nonzero_support_vertices": 303,
+            "current_above_1um_vertices": 211,
+            "new_previously_unaffected_vertices": 0,
+            "original_support_axial_m": 0.013951791660442798,
+            "current_support_axial_m": 0.01412082343978254
+          },
+          "Joint_ring_1": {
+            "original_nonzero_support_vertices": 329,
+            "current_above_1um_vertices": 254,
+            "new_previously_unaffected_vertices": 0,
+            "original_support_axial_m": 0.012917876798448061,
+            "current_support_axial_m": 0.014668629977118224,
+            "all_original_active_vertices_follow_W": true,
+            "all_active_W_error_m": 0.0
+          },
+          "Joint_ring_2": {
+            "original_nonzero_support_vertices": 245,
+            "current_above_1um_vertices": 179,
+            "new_previously_unaffected_vertices": 0,
+            "original_support_axial_m": 0.01032636587536838,
+            "current_support_axial_m": 0.007904064121575129
+          },
+          "Joint_little_0": {
+            "original_nonzero_support_vertices": 319,
+            "current_above_1um_vertices": 227,
+            "new_previously_unaffected_vertices": 0,
+            "original_support_axial_m": 0.014043371969755422,
+            "current_support_axial_m": 0.013094328244685096
+          },
+          "Joint_little_1": {
+            "original_nonzero_support_vertices": 400,
+            "current_above_1um_vertices": 291,
+            "new_previously_unaffected_vertices": 0,
+            "original_support_axial_m": 0.012921439121181539,
+            "current_support_axial_m": 0.01173428020874276
+          },
+          "Joint_little_2": {
+            "original_nonzero_support_vertices": 244,
+            "current_above_1um_vertices": 174,
+            "new_previously_unaffected_vertices": 0,
+            "original_support_axial_m": 0.010774956588347233,
+            "current_support_axial_m": 0.008141245230820174
+          }
+        }
+      },
+      "map_minimum_sampled_jacobian": 0.40864982143402456,
+      "articulation": {
+        "joints": {
+          "thumb0": {
+            "limit_degrees": 60,
+            "actual_skin_movement_m": 0.11315060658164562,
+            "actual_corrective_effect_m": 0.00014104984635111218,
+            "nail_bone_local_error_m": 4.60887068199315e-08
+          },
+          "thumb1": {
+            "limit_degrees": 70,
+            "actual_skin_movement_m": 0.07508831338097391,
+            "actual_corrective_effect_m": 0.0004193252803239015,
+            "nail_bone_local_error_m": 4.047772625852512e-08
+          },
+          "thumb2": {
+            "limit_degrees": 80,
+            "actual_skin_movement_m": 0.042667863320521436,
+            "actual_corrective_effect_m": 0.0002453224858048676,
+            "nail_bone_local_error_m": 3.955654908268769e-08
+          },
+          "index0": {
+            "limit_degrees": 90,
+            "actual_skin_movement_m": 0.1290563029840628,
+            "actual_corrective_effect_m": 0.0001714372321764029,
+            "nail_bone_local_error_m": 3.963663908607944e-08
+          },
+          "index1": {
+            "limit_degrees": 110,
+            "actual_skin_movement_m": 0.08176605214639489,
+            "actual_corrective_effect_m": 0.00029635796963998806,
+            "nail_bone_local_error_m": 3.8312537104077163e-08
+          },
+          "index2": {
+            "limit_degrees": 80,
+            "actual_skin_movement_m": 0.028385418778091635,
+            "actual_corrective_effect_m": 0.00018619140024474527,
+            "nail_bone_local_error_m": 3.6685340770880486e-08
+          },
+          "middle0": {
+            "limit_degrees": 90,
+            "actual_skin_movement_m": 0.14010091706724065,
+            "actual_corrective_effect_m": 0.00015416677422485812,
+            "nail_bone_local_error_m": 4.141833998864741e-08
+          },
+          "middle1": {
+            "limit_degrees": 110,
+            "actual_skin_movement_m": 0.08657982907706853,
+            "actual_corrective_effect_m": 0.00028362055020950594,
+            "nail_bone_local_error_m": 3.3271979625750015e-08
+          },
+          "middle2": {
+            "limit_degrees": 80,
+            "actual_skin_movement_m": 0.031496150362211844,
+            "actual_corrective_effect_m": 0.00019935844667041158,
+            "nail_bone_local_error_m": 5.698265417009121e-08
+          },
+          "ring0": {
+            "limit_degrees": 90,
+            "actual_skin_movement_m": 0.13176994208934062,
+            "actual_corrective_effect_m": 0.0001441658844345735,
+            "nail_bone_local_error_m": 4.127345943108264e-08
+          },
+          "ring1": {
+            "limit_degrees": 110,
+            "actual_skin_movement_m": 0.08113094141367079,
+            "actual_corrective_effect_m": 0.00034357774846395934,
+            "nail_bone_local_error_m": 7.96076537690458e-08
+          },
+          "ring2": {
+            "limit_degrees": 80,
+            "actual_skin_movement_m": 0.029487440831966343,
+            "actual_corrective_effect_m": 0.00023516371909229963,
+            "nail_bone_local_error_m": 7.331171127074542e-08
+          },
+          "little0": {
+            "limit_degrees": 90,
+            "actual_skin_movement_m": 0.10666881782908912,
+            "actual_corrective_effect_m": 0.00013509006844160423,
+            "nail_bone_local_error_m": 5.49558699544006e-08
+          },
+          "little1": {
+            "limit_degrees": 110,
+            "actual_skin_movement_m": 0.06995979356802304,
+            "actual_corrective_effect_m": 0.0002770024798309391,
+            "nail_bone_local_error_m": 6.092337578702346e-08
+          },
+          "little2": {
+            "limit_degrees": 80,
+            "actual_skin_movement_m": 0.02986188365834145,
+            "actual_corrective_effect_m": 0.0002106322646534979,
+            "nail_bone_local_error_m": 6.335218703491491e-08
+          }
+        },
+        "neutral_reset": true
+      }
+    },
+    "left_glb": {
+      "container": {
+        "embedded_images": [
+          {
+            "name": "realistic_hands_normal",
+            "mime": "image/png",
+            "bytes": 10746830,
+            "sha256": "2152cfac4c8b61b910b688b5211e4f7b994ae5c21a562c2598bba88f5020cf8d"
+          },
+          {
+            "name": "realistic_hands_basecolor",
+            "mime": "image/png",
+            "bytes": 3151232,
+            "sha256": "2eb2e2492e8e90bd57d5d61bc9bc14e01ec371e7d01479280a328e8eefe4ba62"
+          },
+          {
+            "name": "realistic_hands_roughness",
+            "mime": "image/png",
+            "bytes": 5971971,
+            "sha256": "8867d52874ef39a0ed27d7ddc05cf3e1ac8349de19ff72fdb482235085ad921c"
+          }
+        ],
+        "primitive_texture_coordinate_checks": 39,
+        "white_vertex_color_accessors": 0,
+        "baked_color_double_tint_absent": true,
+        "authored_tangent_vertices": 46104,
+        "portable_normal_and_metallic_roughness_textures": true
+      },
+      "material_json_exact": true,
+      "embedded_original_images": [
+        {
+          "name": "realistic_hands_normal",
+          "original_blob_sha256": "2152cfac4c8b61b910b688b5211e4f7b994ae5c21a562c2598bba88f5020cf8d",
+          "output_blob_sha256": "2152cfac4c8b61b910b688b5211e4f7b994ae5c21a562c2598bba88f5020cf8d",
+          "blob_exact": true
+        },
+        {
+          "name": "realistic_hands_basecolor",
+          "original_blob_sha256": "2eb2e2492e8e90bd57d5d61bc9bc14e01ec371e7d01479280a328e8eefe4ba62",
+          "output_blob_sha256": "2eb2e2492e8e90bd57d5d61bc9bc14e01ec371e7d01479280a328e8eefe4ba62",
+          "blob_exact": true
+        },
+        {
+          "name": "realistic_hands_roughness",
+          "original_blob_sha256": "5d62614d102d84cf754eddbbfecbc6e5e39627682868633f68831262789967af",
+          "output_blob_sha256": "8867d52874ef39a0ed27d7ddc05cf3e1ac8349de19ff72fdb482235085ad921c",
+          "blob_exact": false,
+          "lossless_reencoded_png": true,
+          "rgba_pixel_sha256_bottom_up": "171fe52b288c62d732ade53aed828dd46ca1b6569b9f1438c16308ed780dc920",
+          "rgba_pixels": 16777216,
+          "mismatched_pixels": 0
+        }
+      ],
+      "roundtrip": {
+        "parts": {
+          "hand": {
+            "named_weight_error": 0.0,
+            "morph_error_m": 7.450580596923828e-09,
+            "uv_error": 2.9802322387695312e-08,
+            "position_error_m": 5.975179817596654e-08
+          },
+          "nail_index": {
+            "named_weight_error": 0.0,
+            "morph_error_m": 0.0,
+            "uv_error": 2.9802322387695312e-08,
+            "position_error_m": 3.05070351203085e-08
+          },
+          "nail_little": {
+            "named_weight_error": 0.0,
+            "morph_error_m": 0.0,
+            "uv_error": 2.9802322387695312e-08,
+            "position_error_m": 2.986047320518992e-08
+          },
+          "nail_middle": {
+            "named_weight_error": 0.0,
+            "morph_error_m": 0.0,
+            "uv_error": 2.9802322387695312e-08,
+            "position_error_m": 3.034808315760529e-08
+          },
+          "nail_ring": {
+            "named_weight_error": 0.0,
+            "morph_error_m": 0.0,
+            "uv_error": 2.9802322387695312e-08,
+            "position_error_m": 1.729854837151379e-08
+          },
+          "nail_thumb": {
+            "named_weight_error": 0.0,
+            "morph_error_m": 0.0,
+            "uv_error": 2.9802322387695312e-08,
+            "position_error_m": 1.666000493116826e-08
+          },
+          "WristCuff": {
+            "named_weight_error": 0.0,
+            "morph_error_m": 0.0,
+            "uv_error": 2.9802322387695312e-08,
+            "position_error_m": 0.0
+          },
+          "Forearm": {
+            "named_weight_error": 0.0,
+            "morph_error_m": 0.0,
+            "uv_error": 2.9802322387695312e-08,
+            "position_error_m": 0.0
+          },
+          "UpperArm": {
+            "named_weight_error": 0.0,
+            "morph_error_m": 0.0,
+            "uv_error": 2.9802322387695312e-08,
+            "position_error_m": 0.0
+          }
+        },
+        "rest_matrix_error": 1.7881393432617188e-07
+      },
+      "articulation": {
+        "joints": {
+          "thumb0": {
+            "limit_degrees": 60,
+            "actual_skin_movement_m": 0.11315058703344015,
+            "actual_corrective_effect_m": 0.00014012700369387461,
+            "nail_bone_local_error_m": 3.129299286084518e-08
+          },
+          "thumb1": {
+            "limit_degrees": 70,
+            "actual_skin_movement_m": 0.07508832035767775,
+            "actual_corrective_effect_m": 0.00041961885183836126,
+            "nail_bone_local_error_m": 2.215686673926249e-08
+          },
+          "thumb2": {
+            "limit_degrees": 80,
+            "actual_skin_movement_m": 0.042667938010613644,
+            "actual_corrective_effect_m": 0.0002471238466178962,
+            "nail_bone_local_error_m": 2.4200950675059636e-08
+          },
+          "index0": {
+            "limit_degrees": 90,
+            "actual_skin_movement_m": 0.1290563137381974,
+            "actual_corrective_effect_m": 0.00017147726666705916,
+            "nail_bone_local_error_m": 3.008114248422759e-08
+          },
+          "index1": {
+            "limit_degrees": 110,
+            "actual_skin_movement_m": 0.08176599971192744,
+            "actual_corrective_effect_m": 0.00029675447809856273,
+            "nail_bone_local_error_m": 4.061881391807995e-08
+          },
+          "index2": {
+            "limit_degrees": 80,
+            "actual_skin_movement_m": 0.02838537038025298,
+            "actual_corrective_effect_m": 0.00018630437305287365,
+            "nail_bone_local_error_m": 3.319694712203053e-08
+          },
+          "middle0": {
+            "limit_degrees": 90,
+            "actual_skin_movement_m": 0.1401009902336763,
+            "actual_corrective_effect_m": 0.00015404968995451858,
+            "nail_bone_local_error_m": 4.276880916891948e-08
+          },
+          "middle1": {
+            "limit_degrees": 110,
+            "actual_skin_movement_m": 0.08657980367277292,
+            "actual_corrective_effect_m": 0.0002836456513954037,
+            "nail_bone_local_error_m": 4.059006801311095e-08
+          },
+          "middle2": {
+            "limit_degrees": 80,
+            "actual_skin_movement_m": 0.03149611428206091,
+            "actual_corrective_effect_m": 0.0001992356382481983,
+            "nail_bone_local_error_m": 3.42419397732437e-08
+          },
+          "ring0": {
+            "limit_degrees": 90,
+            "actual_skin_movement_m": 0.13176992613158997,
+            "actual_corrective_effect_m": 0.0001436028943809972,
+            "nail_bone_local_error_m": 3.126266220888838e-08
+          },
+          "ring1": {
+            "limit_degrees": 110,
+            "actual_skin_movement_m": 0.08113096080732773,
+            "actual_corrective_effect_m": 0.0003441931305612397,
+            "nail_bone_local_error_m": 8.273616528648826e-08
+          },
+          "ring2": {
+            "limit_degrees": 80,
+            "actual_skin_movement_m": 0.029487448876325158,
+            "actual_corrective_effect_m": 0.00023495663568531166,
+            "nail_bone_local_error_m": 6.182530478392162e-08
+          },
+          "little0": {
+            "limit_degrees": 90,
+            "actual_skin_movement_m": 0.10666875180108493,
+            "actual_corrective_effect_m": 0.00013606404900478537,
+            "nail_bone_local_error_m": 4.8341383540143496e-08
+          },
+          "little1": {
+            "limit_degrees": 110,
+            "actual_skin_movement_m": 0.06995975695931367,
+            "actual_corrective_effect_m": 0.00027690920282005203,
+            "nail_bone_local_error_m": 3.299060076720887e-08
+          },
+          "little2": {
+            "limit_degrees": 80,
+            "actual_skin_movement_m": 0.029861844551901447,
+            "actual_corrective_effect_m": 0.00021071841371103736,
+            "nail_bone_local_error_m": 4.4947773339838417e-08
+          }
+        },
+        "neutral_reset": true
+      }
+    },
+    "right_glb": {
+      "container": {
+        "embedded_images": [
+          {
+            "name": "realistic_hands_normal",
+            "mime": "image/png",
+            "bytes": 10746830,
+            "sha256": "2152cfac4c8b61b910b688b5211e4f7b994ae5c21a562c2598bba88f5020cf8d"
+          },
+          {
+            "name": "realistic_hands_basecolor",
+            "mime": "image/png",
+            "bytes": 3151232,
+            "sha256": "2eb2e2492e8e90bd57d5d61bc9bc14e01ec371e7d01479280a328e8eefe4ba62"
+          },
+          {
+            "name": "realistic_hands_roughness",
+            "mime": "image/png",
+            "bytes": 5971971,
+            "sha256": "8867d52874ef39a0ed27d7ddc05cf3e1ac8349de19ff72fdb482235085ad921c"
+          }
+        ],
+        "primitive_texture_coordinate_checks": 39,
+        "white_vertex_color_accessors": 0,
+        "baked_color_double_tint_absent": true,
+        "authored_tangent_vertices": 46050,
+        "portable_normal_and_metallic_roughness_textures": true
+      },
+      "material_json_exact": true,
+      "embedded_original_images": [
+        {
+          "name": "realistic_hands_normal",
+          "original_blob_sha256": "2152cfac4c8b61b910b688b5211e4f7b994ae5c21a562c2598bba88f5020cf8d",
+          "output_blob_sha256": "2152cfac4c8b61b910b688b5211e4f7b994ae5c21a562c2598bba88f5020cf8d",
+          "blob_exact": true
+        },
+        {
+          "name": "realistic_hands_basecolor",
+          "original_blob_sha256": "2eb2e2492e8e90bd57d5d61bc9bc14e01ec371e7d01479280a328e8eefe4ba62",
+          "output_blob_sha256": "2eb2e2492e8e90bd57d5d61bc9bc14e01ec371e7d01479280a328e8eefe4ba62",
+          "blob_exact": true
+        },
+        {
+          "name": "realistic_hands_roughness",
+          "original_blob_sha256": "5d62614d102d84cf754eddbbfecbc6e5e39627682868633f68831262789967af",
+          "output_blob_sha256": "8867d52874ef39a0ed27d7ddc05cf3e1ac8349de19ff72fdb482235085ad921c",
+          "blob_exact": false,
+          "lossless_reencoded_png": true,
+          "rgba_pixel_sha256_bottom_up": "171fe52b288c62d732ade53aed828dd46ca1b6569b9f1438c16308ed780dc920",
+          "rgba_pixels": 16777216,
+          "mismatched_pixels": 0
+        }
+      ],
+      "roundtrip": {
+        "parts": {
+          "hand": {
+            "named_weight_error": 0.0,
+            "morph_error_m": 7.450580596923828e-09,
+            "uv_error": 2.9802322387695312e-08,
+            "position_error_m": 5.005804837310279e-08
+          },
+          "nail_index": {
+            "named_weight_error": 0.0,
+            "morph_error_m": 0.0,
+            "uv_error": 2.9802322387695312e-08,
+            "position_error_m": 3.3527612686157227e-08
+          },
+          "nail_little": {
+            "named_weight_error": 0.0,
+            "morph_error_m": 0.0,
+            "uv_error": 2.9802322387695312e-08,
+            "position_error_m": 5.005804837310279e-08
+          },
+          "nail_middle": {
+            "named_weight_error": 0.0,
+            "morph_error_m": 0.0,
+            "uv_error": 2.9802322387695312e-08,
+            "position_error_m": 4.567310085690224e-08
+          },
+          "nail_ring": {
+            "named_weight_error": 0.0,
+            "morph_error_m": 0.0,
+            "uv_error": 2.9802322387695312e-08,
+            "position_error_m": 7.957223324694951e-09
+          },
+          "nail_thumb": {
+            "named_weight_error": 0.0,
+            "morph_error_m": 0.0,
+            "uv_error": 2.9802322387695312e-08,
+            "position_error_m": 2.499000650857397e-08
+          },
+          "WristCuff": {
+            "named_weight_error": 0.0,
+            "morph_error_m": 0.0,
+            "uv_error": 2.9802322387695312e-08,
+            "position_error_m": 0.0
+          },
+          "Forearm": {
+            "named_weight_error": 0.0,
+            "morph_error_m": 0.0,
+            "uv_error": 2.9802322387695312e-08,
+            "position_error_m": 0.0
+          },
+          "UpperArm": {
+            "named_weight_error": 0.0,
+            "morph_error_m": 0.0,
+            "uv_error": 2.9802322387695312e-08,
+            "position_error_m": 0.0
+          }
+        },
+        "rest_matrix_error": 2.384185791015625e-07
+      },
+      "articulation": {
+        "joints": {
+          "thumb0": {
+            "limit_degrees": 60,
+            "actual_skin_movement_m": 0.11315057983146887,
+            "actual_corrective_effect_m": 0.00014105091209938141,
+            "nail_bone_local_error_m": 2.5943644861102326e-08
+          },
+          "thumb1": {
+            "limit_degrees": 70,
+            "actual_skin_movement_m": 0.07508827307111685,
+            "actual_corrective_effect_m": 0.00041932622076511656,
+            "nail_bone_local_error_m": 2.5645214715999297e-08
+          },
+          "thumb2": {
+            "limit_degrees": 80,
+            "actual_skin_movement_m": 0.042667824952272546,
+            "actual_corrective_effect_m": 0.0002453261297632976,
+            "nail_bone_local_error_m": 2.8678838331555615e-08
+          },
+          "index0": {
+            "limit_degrees": 90,
+            "actual_skin_movement_m": 0.12905623497788266,
+            "actual_corrective_effect_m": 0.0001714360469881503,
+            "nail_bone_local_error_m": 3.6343401727928854e-08
+          },
+          "index1": {
+            "limit_degrees": 110,
+            "actual_skin_movement_m": 0.08176599161428076,
+            "actual_corrective_effect_m": 0.0002963611808848951,
+            "nail_bone_local_error_m": 2.8304010055989225e-08
+          },
+          "index2": {
+            "limit_degrees": 80,
+            "actual_skin_movement_m": 0.02838539695822226,
+            "actual_corrective_effect_m": 0.00018618909620261197,
+            "nail_bone_local_error_m": 3.957813039433497e-08
+          },
+          "middle0": {
+            "limit_degrees": 90,
+            "actual_skin_movement_m": 0.14010085045739842,
+            "actual_corrective_effect_m": 0.0001541744977575648,
+            "nail_bone_local_error_m": 2.981709801381197e-08
+          },
+          "middle1": {
+            "limit_degrees": 110,
+            "actual_skin_movement_m": 0.08657972292574691,
+            "actual_corrective_effect_m": 0.00028361885895939165,
+            "nail_bone_local_error_m": 4.5567193605204014e-08
+          },
+          "middle2": {
+            "limit_degrees": 80,
+            "actual_skin_movement_m": 0.03149606985657555,
+            "actual_corrective_effect_m": 0.00019937256774387623,
+            "nail_bone_local_error_m": 3.3613399656599754e-08
+          },
+          "ring0": {
+            "limit_degrees": 90,
+            "actual_skin_movement_m": 0.13176996152576786,
+            "actual_corrective_effect_m": 0.00014417324179249858,
+            "nail_bone_local_error_m": 2.4545971151644233e-08
+          },
+          "ring1": {
+            "limit_degrees": 110,
+            "actual_skin_movement_m": 0.08113096252248908,
+            "actual_corrective_effect_m": 0.00034357792683492583,
+            "nail_bone_local_error_m": 4.3093329339473504e-08
+          },
+          "ring2": {
+            "limit_degrees": 80,
+            "actual_skin_movement_m": 0.029487465579977175,
+            "actual_corrective_effect_m": 0.00023517688482770617,
+            "nail_bone_local_error_m": 5.444853001178602e-08
+          },
+          "little0": {
+            "limit_degrees": 90,
+            "actual_skin_movement_m": 0.10666878017676115,
+            "actual_corrective_effect_m": 0.0001350991218774929,
+            "nail_bone_local_error_m": 2.604791199964843e-08
+          },
+          "little1": {
+            "limit_degrees": 110,
+            "actual_skin_movement_m": 0.06995978441584749,
+            "actual_corrective_effect_m": 0.00027700914243212224,
+            "nail_bone_local_error_m": 3.399646328472342e-08
+          },
+          "little2": {
+            "limit_degrees": 80,
+            "actual_skin_movement_m": 0.02986187159748224,
+            "actual_corrective_effect_m": 0.0002106217035999778,
+            "nail_bone_local_error_m": 3.6912469745191655e-08
+          }
+        },
+        "neutral_reset": true
+      }
+    }
+  },
+  "errors": [],
+  "limitations": [
+    "Visual similarity is decided from matched-view original/proportion renders, not numeric PASS.",
+    "All basis vertices and bone endpoints are compared to the declared W; corrective W consistency uses all active middle1/ring1 vertices and up to128 active samples for other keys plus unchanged inactive support.",
+    "The supplied pure W implementation is used only for map consistency; preservation, actual articulation and GLB comparisons are independent."
+  ]
+}

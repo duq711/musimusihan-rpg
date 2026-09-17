@@ -1,0 +1,390 @@
+{
+  "objects": {
+    "cowl": {
+      "bounds": {
+        "min": [
+          -0.2389577031135559,
+          -0.1734764277935028,
+          1.430712103843689
+        ],
+        "max": [
+          0.23825375735759735,
+          0.18970049917697906,
+          1.586595892906189
+        ]
+      },
+      "vertices": 8895,
+      "faces": 17790
+    },
+    "head": {
+      "bounds": {
+        "min": [
+          -0.15946562588214874,
+          -0.10805191844701767,
+          1.4900000095367432
+        ],
+        "max": [
+          0.15946580469608307,
+          0.12439655512571335,
+          1.7799999713897705
+        ]
+      },
+      "vertices": 17748,
+      "faces": 35366
+    },
+    "yoke": {
+      "bounds": {
+        "min": [
+          -0.3310000002384186,
+          0.027000000700354576,
+          1.4220000505447388
+        ],
+        "max": [
+          0.3310000002384186,
+          0.18299999833106995,
+          1.4819999933242798
+        ]
+      },
+      "vertices": 580,
+      "faces": 672
+    }
+  },
+  "cowl_materials": [
+    "MAT_ReferenceProjection_Front_4K",
+    "MAT_ReferenceProjection_Back_4K",
+    "MAT_Skin_Side_PBR_4K",
+    "MAT_Gambeson_Side_PBR_4K",
+    "MAT_OuterWool_Side_PBR_4K",
+    "MAT_CowlWool_Side_PBR_4K",
+    "MAT_Leather_Side_PBR_4K"
+  ],
+  "cowl_material_counts": {
+    "5": 5444,
+    "1": 6141,
+    "0": 6205
+  },
+  "components": [
+    {
+      "index": 0,
+      "faces": 5974,
+      "materials": {
+        "1": 2180,
+        "5": 1635,
+        "0": 2159
+      },
+      "center_min": [
+        -0.23852992057800293,
+        -0.17278926074504852,
+        1.4310173988342285
+      ],
+      "center_max": [
+        0.23795168101787567,
+        0.18891358375549316,
+        1.5024254322052002
+      ],
+      "top_exposed": 732
+    },
+    {
+      "index": 1,
+      "faces": 5924,
+      "materials": {
+        "5": 1922,
+        "0": 2009,
+        "1": 1993
+      },
+      "center_min": [
+        -0.21466311812400818,
+        -0.1557074636220932,
+        1.4621589183807373
+      ],
+      "center_max": [
+        0.21966060996055603,
+        0.17344507575035095,
+        1.5410633087158203
+      ],
+      "top_exposed": 1302
+    },
+    {
+      "index": 2,
+      "faces": 5892,
+      "materials": {
+        "5": 1887,
+        "0": 2037,
+        "1": 1968
+      },
+      "center_min": [
+        -0.17258398234844208,
+        -0.12670955061912537,
+        1.4991563558578491
+      ],
+      "center_max": [
+        0.1792464703321457,
+        0.1446637511253357,
+        1.5863112211227417
+      ],
+      "top_exposed": 1471
+    }
+  ],
+  "top_exposed": {
+    "count": 3505,
+    "materials": {
+      "5": 1030,
+      "1": 1085,
+      "0": 1390
+    },
+    "components": {
+      "2": 1471,
+      "0": 732,
+      "1": 1302
+    },
+    "center_bounds": {
+      "min": [
+        -0.2357957810163498,
+        -0.17110584676265717,
+        1.456804633140564
+      ],
+      "max": [
+        0.2351382076740265,
+        0.1874057948589325,
+        1.5863112211227417
+      ]
+    }
+  },
+  "deform_bones": [
+    "DEF-spine",
+    "DEF-spine.001",
+    "DEF-spine.002",
+    "DEF-spine.003",
+    "DEF-spine.004",
+    "DEF-spine.005",
+    "DEF-spine.006",
+    "DEF-pelvis.L",
+    "DEF-pelvis.R",
+    "DEF-thigh.L",
+    "DEF-thigh.L.001",
+    "DEF-shin.L",
+    "DEF-shin.L.001",
+    "DEF-foot.L",
+    "DEF-toe.L",
+    "DEF-thigh.R",
+    "DEF-thigh.R.001",
+    "DEF-shin.R",
+    "DEF-shin.R.001",
+    "DEF-foot.R",
+    "DEF-toe.R",
+    "DEF-forehead.L",
+    "DEF-forehead.R",
+    "DEF-forehead.L.001",
+    "DEF-forehead.R.001",
+    "DEF-forehead.L.002",
+    "DEF-forehead.R.002",
+    "DEF-temple.L",
+    "DEF-temple.R",
+    "DEF-brow.B.L",
+    "DEF-brow.B.L.001",
+    "DEF-brow.B.L.002",
+    "DEF-brow.B.L.003",
+    "DEF-lid.B.L",
+    "DEF-lid.B.L.001",
+    "DEF-lid.B.L.002",
+    "DEF-lid.B.L.003",
+    "DEF-lid.T.L",
+    "DEF-lid.T.L.001",
+    "DEF-lid.T.L.002",
+    "DEF-lid.T.L.003",
+    "DEF-brow.B.R",
+    "DEF-brow.B.R.001",
+    "DEF-brow.B.R.002",
+    "DEF-brow.B.R.003",
+    "DEF-lid.B.R",
+    "DEF-lid.B.R.001",
+    "DEF-lid.B.R.002",
+    "DEF-lid.B.R.003",
+    "DEF-lid.T.R",
+    "DEF-lid.T.R.001",
+    "DEF-lid.T.R.002",
+    "DEF-lid.T.R.003",
+    "DEF-ear.L",
+    "DEF-ear.L.001",
+    "DEF-ear.L.002",
+    "DEF-ear.L.003",
+    "DEF-ear.L.004",
+    "DEF-ear.R",
+    "DEF-ear.R.001",
+    "DEF-ear.R.002",
+    "DEF-ear.R.003",
+    "DEF-ear.R.004",
+    "DEF-tongue",
+    "DEF-chin",
+    "DEF-chin.001",
+    "DEF-chin.L",
+    "DEF-chin.R",
+    "DEF-jaw",
+    "DEF-jaw.L.001",
+    "DEF-jaw.R.001",
+    "DEF-tongue.001",
+    "DEF-tongue.002",
+    "DEF-cheek.T.L",
+    "DEF-brow.T.L",
+    "DEF-brow.T.L.001",
+    "DEF-brow.T.L.002",
+    "DEF-brow.T.L.003",
+    "DEF-cheek.T.R",
+    "DEF-brow.T.R",
+    "DEF-brow.T.R.001",
+    "DEF-brow.T.R.002",
+    "DEF-brow.T.R.003",
+    "DEF-jaw.L",
+    "DEF-jaw.R",
+    "DEF-nose",
+    "DEF-nose.L",
+    "DEF-nose.R",
+    "DEF-lip.B.L",
+    "DEF-lip.B.R",
+    "DEF-lip.B.L.001",
+    "DEF-lip.B.R.001",
+    "DEF-cheek.B.L.001",
+    "DEF-cheek.B.R.001",
+    "DEF-cheek.B.L",
+    "DEF-cheek.B.R",
+    "DEF-lip.T.L.001",
+    "DEF-lip.T.R.001",
+    "DEF-lip.T.L",
+    "DEF-lip.T.R",
+    "DEF-nose.002",
+    "DEF-nose.001",
+    "DEF-nose.003",
+    "DEF-nose.004",
+    "DEF-nose.L.001",
+    "DEF-nose.R.001",
+    "DEF-cheek.T.L.001",
+    "DEF-cheek.T.R.001",
+    "DEF-shoulder.L",
+    "DEF-upper_arm.L",
+    "DEF-upper_arm.L.001",
+    "DEF-forearm.L",
+    "DEF-forearm.L.001",
+    "DEF-hand.L",
+    "DEF-f_index.01.L",
+    "DEF-f_index.02.L",
+    "DEF-f_index.03.L",
+    "DEF-thumb.01.L",
+    "DEF-thumb.02.L",
+    "DEF-thumb.03.L",
+    "DEF-palm.01.L",
+    "DEF-f_middle.01.L",
+    "DEF-f_middle.02.L",
+    "DEF-f_middle.03.L",
+    "DEF-palm.02.L",
+    "DEF-f_ring.01.L",
+    "DEF-f_ring.02.L",
+    "DEF-f_ring.03.L",
+    "DEF-palm.03.L",
+    "DEF-f_pinky.01.L",
+    "DEF-f_pinky.02.L",
+    "DEF-f_pinky.03.L",
+    "DEF-palm.04.L",
+    "DEF-shoulder.R",
+    "DEF-upper_arm.R",
+    "DEF-upper_arm.R.001",
+    "DEF-forearm.R",
+    "DEF-forearm.R.001",
+    "DEF-hand.R",
+    "DEF-f_index.01.R",
+    "DEF-f_index.02.R",
+    "DEF-f_index.03.R",
+    "DEF-thumb.01.R",
+    "DEF-thumb.02.R",
+    "DEF-thumb.03.R",
+    "DEF-palm.01.R",
+    "DEF-f_middle.01.R",
+    "DEF-f_middle.02.R",
+    "DEF-f_middle.03.R",
+    "DEF-palm.02.R",
+    "DEF-f_ring.01.R",
+    "DEF-f_ring.02.R",
+    "DEF-f_ring.03.R",
+    "DEF-palm.03.R",
+    "DEF-f_pinky.01.R",
+    "DEF-f_pinky.02.R",
+    "DEF-f_pinky.03.R",
+    "DEF-palm.04.R",
+    "DEF-breast.L",
+    "DEF-breast.R"
+  ],
+  "head_low_slices": [
+    {
+      "upper_z": 1.495,
+      "count": 143,
+      "min": [
+        -0.15946562588214874,
+        -0.010928573086857796,
+        1.4900000095367432
+      ],
+      "max": [
+        0.15946580469608307,
+        0.12439655512571335,
+        1.4949910640716553
+      ]
+    },
+    {
+      "upper_z": 1.5,
+      "count": 220,
+      "min": [
+        -0.15946562588214874,
+        -0.012451207265257835,
+        1.4900000095367432
+      ],
+      "max": [
+        0.15946580469608307,
+        0.12439655512571335,
+        1.4997671842575073
+      ]
+    },
+    {
+      "upper_z": 1.51,
+      "count": 363,
+      "min": [
+        -0.15946562588214874,
+        -0.014514142647385597,
+        1.4900000095367432
+      ],
+      "max": [
+        0.15946580469608307,
+        0.12439655512571335,
+        1.5098698139190674
+      ]
+    },
+    {
+      "upper_z": 1.525,
+      "count": 606,
+      "min": [
+        -0.15946562588214874,
+        -0.019644487649202347,
+        1.4900000095367432
+      ],
+      "max": [
+        0.15946580469608307,
+        0.12439655512571335,
+        1.5248225927352905
+      ]
+    },
+    {
+      "upper_z": 1.55,
+      "count": 1010,
+      "min": [
+        -0.15946562588214874,
+        -0.042832035571336746,
+        1.4900000095367432
+      ],
+      "max": [
+        0.15946580469608307,
+        0.12439655512571335,
+        1.5499931573867798
+      ]
+    }
+  ],
+  "head_base_weight_totals": {
+    "DEF-spine.006": 443.0
+  }
+}

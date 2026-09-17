@@ -1,0 +1,185 @@
+--- before/player.gd
+
++++ after/player.gd
+
+@@ -120,4 +120,11 @@
+
+ var _motion_clock := 0.0
+ var _motion_equip_elapsed := MOTION.EQUIP_DURATION
++const SWORD_DRAW_DURATION := 1.5
++var _sword_draw_elapsed := SWORD_DRAW_DURATION
++var _draw_sword := false
++var _draw_shield := false
++var _displayed_offhand := ""
++var _draw_reach_material: StandardMaterial3D
++var _draw_reach_overrides: Dictionary = {}
+ var _motion_initialized := false
+ var _motion_flail_phase := "ready"
+@@ -1941,5 +1948,11 @@
+
+ 	_refresh_carried_visibility()
+ 	var identity := "" if inventory_model == null else str(inventory_model.equipment.get("weapon", "")) + str(inventory_model.get_equipment_instance("weapon").get("uid", ""))
+-	if _displayed_weapon_type == weapon_type and _displayed_weapon_identity == identity:
++	var offhand := "" if inventory_model == null else str(inventory_model.equipment.get("offhand", ""))
++	var weapon_changed := _displayed_weapon_type != weapon_type or _displayed_weapon_identity != identity
++	var shield_added := offhand == "round_shield" and _displayed_offhand != offhand
++	_displayed_offhand = offhand
++	if not weapon_changed:
++		if shield_added and _motion_initialized:
++			begin_equipment_draw(false, true)
+ 		return
+ 	_displayed_weapon_type = weapon_type
+@@ -1953,4 +1966,32 @@
+
+ 	cancel_sword_attack()
+ 	_refresh_magic_hud()
++	_sword_draw_elapsed = SWORD_DRAW_DURATION
++	if _motion_initialized and weapon_type == "melee" and not safe_zone_mode:
++		begin_equipment_draw(true, _has_shield_equipped())
++
++
++func begin_equipment_draw(sword: bool = true, shield: bool = true) -> bool:
++	# Shared by actual inventory changes and the test-room replay. This is only
++	# presentation: no item duplication, attack clock or stamina transaction.
++	if not _has_melee_weapon_equipped() or safe_zone_mode or camping or not REFERENCE_MOTION.has_track("equip"):
++		return false
++	_draw_sword = sword
++	_draw_shield = shield and _has_shield_equipped()
++	if not _draw_sword and not _draw_shield: return false
++	_sword_draw_elapsed = 0.0
++	_motion_equip_elapsed = MOTION.EQUIP_DURATION
++	_reference_pose_key = "draw"
++	_reference_pose_handoff_active = false
++	_reference_locomotion_valid = false
++	_update_viewmodel(0.0)
++	return true
++
++
++func _equipment_draw_active() -> bool:
++	return _sword_draw_elapsed < SWORD_DRAW_DURATION and _has_melee_weapon_equipped() and not safe_zone_mode and not camping and not chest_equipment_stowed
++
++
++func _equipment_draw_reaching() -> bool:
++	return _equipment_draw_active() and _draw_sword and _sword_draw_elapsed < 0.46
+ 
+ 
+@@ -2213,4 +2254,10 @@
+
+ 		_update_character_arms()
+ 		return
++	# Actions may interrupt presentation immediately; the existing pose handoff
++	# blends from the actual drawn position without delaying gameplay contact.
++	if combat_state != CombatState.READY or blocking or safe_zone_mode or camping:
++		_sword_draw_elapsed = SWORD_DRAW_DURATION
++	else:
++		_sword_draw_elapsed = minf(SWORD_DRAW_DURATION, _sword_draw_elapsed + delta)
+ 	_motion_clock += delta
+ 	_motion_equip_elapsed = minf(MOTION.EQUIP_DURATION, _motion_equip_elapsed + delta)
+@@ -2257,5 +2304,5 @@
+
+ 	var sword_airborne := weapon == "melee" and _movement_ground_known and not _movement_grounded
+ 	var movement := MOTION.locomotion(_motion_clock, 0.0 if sword_airborne else _motion_speed, local_velocity.x, bow_drawing or blocking or phase != "ready")
+-	var reference_locomotion := reference_enabled and phase == "ready" and not reference_guard_owned and _has_reference_locomotion()
++	var reference_locomotion := reference_enabled and not _equipment_draw_active() and phase == "ready" and not reference_guard_owned and _has_reference_locomotion()
+ 	if reference_locomotion:
+ 		target = _sample_reference_locomotion(target, delta)
+@@ -2274,4 +2321,10 @@
+
+ 		target = CHOREOGRAPHY.ready()
+ 	_reference_arm_target = _reference_right_arm_target(reference_enabled, reference_locomotion, phase, paired_sword, target)
++	if _equipment_draw_active():
++		movement.position = Vector3.ZERO
++		movement.rotation = Vector3.ZERO
++		if _draw_sword:
++			target = REFERENCE_MOTION.sample("equip", _sword_draw_elapsed)
++			_reference_arm_target = REFERENCE_MOTION.sample_right_arm("equip", _sword_draw_elapsed)
+ 	target.origin += movement.position
+ 	target.basis = target.basis * Basis.from_euler(movement.rotation)
+@@ -2312,4 +2365,6 @@
+
+ 		if paired_sword:
+ 			shield_target.origin += Vector3(0,-0.22,0.08) * raising
++		if _equipment_draw_active() and _draw_shield:
++			shield_target = REFERENCE_MOTION.sample("equip", _sword_draw_elapsed, "shield")
+ 		if reference_enabled:
+ 			shield_pivot.transform = _apply_reference_pose_handoff(shield_target, "shield")
+@@ -2364,4 +2419,5 @@
+
+ 		return
+ 	var key := ("guard" if guard_owned else "locomotion") if phase == "ready" else phase
++	if _equipment_draw_active(): key = "draw"
+ 	if key != _reference_pose_key:
+ 		# Movement and guard can end at any sampled pose. Capture the actual
+@@ -2757,4 +2813,5 @@
+
+ 	var role := _left_hand_role()
+ 	_refresh_hand_visibility()
++	_update_draw_reach_material()
+ 	if finger_joint_review_active:
+ 		if _equipped_weapon_type() != "unarmed" or role != "free" or chest_equipment_stowed or camping:
+@@ -2764,5 +2821,5 @@
+
+ 		return
+ 	if is_instance_valid(weapon_arm):
+-		weapon_arm.visible = not safe_zone_mode and _equipped_weapon_type() != "unarmed" and not chest_equipment_stowed and not camping
++		weapon_arm.visible = not safe_zone_mode and _equipped_weapon_type() != "unarmed" and not chest_equipment_stowed and not camping and not _equipment_draw_reaching()
+ 		var grip := Vector3(0.0, -0.108, 0.002) if weapon_arm == _sword_weapon_arm else Vector3(0.0, -0.17, 0.015)
+ 		if _is_staff_equipped():
+@@ -2798,4 +2855,10 @@
+
+ 		_place_hand_contact(right_relaxed_arm, camera.to_global(Vector3(0.43, -0.60, -0.65)), camera.global_basis * Basis.from_euler(Vector3(0.75, -0.28, 0.25)), "free_right")
+ 		right_relaxed_arm.call("set_relaxed_pose", 0.0)
++		if _equipment_draw_reaching():
++			var t := _sword_draw_elapsed
++			var reach := Vector3(0.30, -0.25, -0.48).lerp(Vector3(0.08, -0.18, -0.48), MOTION.smooth_phase(t / 0.12))
++			reach = reach.lerp(Vector3(-0.04, -0.72, -0.30), MOTION.smooth_phase((t - 0.14) / 0.26))
++			_place_hand_contact(right_relaxed_arm, camera.to_global(reach), camera.global_basis * Basis.from_euler(Vector3(0.18, 1.20, -0.10)), "draw_reach")
++			right_relaxed_arm.call("set_relaxed_pose", 0.85)
+ 	for arm: Node3D in [weapon_arm, shield_arm, torch_arm, left_support_arm, right_relaxed_arm]:
+ 		if not is_instance_valid(arm) or not arm.is_visible_in_tree():
+@@ -3033,5 +3096,5 @@
+
+ 		if is_instance_valid(arm) and arm.is_visible_in_tree():
+ 			arms += 1
+-	return {"weapon": _equipped_weapon_type(), "phase": str(CombatState.keys()[combat_state]).to_lower(), "phase_time": state_time, "sword_attack_variant": sword_attack_variant, "sword_attack_mode": sword_attack_mode, "sword_next_attack_variant": get_next_sword_attack_variant(), "motion_time": _motion_clock, "grounded": _movement_grounded, "movement_ground_known": _movement_ground_known, "movement_phase": _movement_phase, "movement_phase_time": _movement_phase_time, "landing_count": _movement_landing_count, "landing_strength": _movement_landing_strength, "reference_motion_available": REFERENCE_MOTION.is_available(), "shield_raise_progress": _shield_raise_progress, "shield_impact_remaining": _shield_impact, "joint_landmarks": _joint_landmarks.duplicate(true), "equip_progress": _motion_equip_elapsed / MOTION.EQUIP_DURATION, "flail_phase": flail_state, "draw_ratio": get_bow_draw_ratio(), "visible_arm_count": arms, "left_hand_role": _left_hand_role(), "hand_contacts": _hand_contacts.duplicate(true), "weapon_transform": weapon_pivot.transform if is_instance_valid(weapon_pivot) else Transform3D.IDENTITY, "shield_visible": is_instance_valid(shield_pivot) and shield_pivot.is_visible_in_tree(), "torch_enabled": torch_enabled, "torch_draw_progress": _torch_draw_elapsed / TORCH_GRIP.DRAW_DURATION}
++	return {"weapon": _equipped_weapon_type(), "phase": str(CombatState.keys()[combat_state]).to_lower(), "phase_time": state_time, "sword_attack_variant": sword_attack_variant, "sword_attack_mode": sword_attack_mode, "sword_next_attack_variant": get_next_sword_attack_variant(), "motion_time": _motion_clock, "grounded": _movement_grounded, "movement_ground_known": _movement_ground_known, "movement_phase": _movement_phase, "movement_phase_time": _movement_phase_time, "landing_count": _movement_landing_count, "landing_strength": _movement_landing_strength, "reference_motion_available": REFERENCE_MOTION.is_available(), "shield_raise_progress": _shield_raise_progress, "shield_impact_remaining": _shield_impact, "joint_landmarks": _joint_landmarks.duplicate(true), "equip_progress": _motion_equip_elapsed / MOTION.EQUIP_DURATION, "sword_draw_progress": _sword_draw_elapsed / SWORD_DRAW_DURATION, "sword_draw_active": _equipment_draw_active(), "sword_draw_reaching": _equipment_draw_reaching(), "flail_phase": flail_state, "draw_ratio": get_bow_draw_ratio(), "visible_arm_count": arms, "left_hand_role": _left_hand_role(), "hand_contacts": _hand_contacts.duplicate(true), "weapon_transform": weapon_pivot.transform if is_instance_valid(weapon_pivot) else Transform3D.IDENTITY, "shield_visible": is_instance_valid(shield_pivot) and shield_pivot.is_visible_in_tree(), "torch_enabled": torch_enabled, "torch_draw_progress": _torch_draw_elapsed / TORCH_GRIP.DRAW_DURATION}
+ 
+ 
+@@ -3243,4 +3306,22 @@
+
+ 
+ 
++func _update_draw_reach_material() -> void:
++	# The flexible reaching hand wears the same brown full glove as the rigid
++	# sword grip. Instance overrides are restored before free-hand/other use.
++	if _equipment_draw_reaching() and is_instance_valid(right_relaxed_arm):
++		if _draw_reach_material == null:
++			_draw_reach_material = StandardMaterial3D.new()
++			_draw_reach_material.resource_name = "DrawOnlyBrownGlove"
++			_draw_reach_material.albedo_color = Color(0.15, 0.092, 0.065)
++			_draw_reach_material.roughness = 0.90
++		for part: MeshInstance3D in right_relaxed_arm.hand_meshes:
++			if not _draw_reach_overrides.has(part): _draw_reach_overrides[part] = part.material_override
++			part.material_override = _draw_reach_material
++	else:
++		for part: MeshInstance3D in _draw_reach_overrides:
++			if is_instance_valid(part): part.material_override = _draw_reach_overrides[part]
++		_draw_reach_overrides.clear()
++
++
+ func _refresh_hand_visibility() -> void:
+ 	if is_instance_valid(_sword_weapon_arm) and is_instance_valid(_legacy_weapon_arm):
+@@ -3253,5 +3334,5 @@
+
+ 		left_support_arm.visible = (role == "bow" or using_free_hand) and not chest_equipment_stowed and not camping
+ 	if is_instance_valid(right_relaxed_arm):
+-		right_relaxed_arm.visible = (safe_zone_mode or _equipped_weapon_type() == "unarmed") and not chest_equipment_stowed and not camping
++		right_relaxed_arm.visible = (safe_zone_mode or _equipped_weapon_type() == "unarmed" or _equipment_draw_reaching()) and not chest_equipment_stowed and not camping
+ 	if is_instance_valid(shield_arm):
+ 		shield_arm.visible = role == "shield" and not chest_equipment_stowed and not camping
+@@ -3259,3 +3340,3 @@
+
+ 		torch_arm.visible = role == "torch" and not chest_equipment_stowed and not camping
+ 	if is_instance_valid(weapon_arm):
+-		weapon_arm.visible = not safe_zone_mode and _equipped_weapon_type() != "unarmed" and not chest_equipment_stowed and not camping
++		weapon_arm.visible = not safe_zone_mode and _equipped_weapon_type() != "unarmed" and not chest_equipment_stowed and not camping and not _equipment_draw_reaching()

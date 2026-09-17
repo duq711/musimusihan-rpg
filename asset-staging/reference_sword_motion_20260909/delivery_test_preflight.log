@@ -1,0 +1,17 @@
+[HEADLESS] reference_sword_motion_test.gd
+WARNING: 'res://assets/3d/player/sword_hold_long_grip/SwordHold_Static.glb': In external resource #2, invalid UID: 'uid://c8l1s3g6lct1e' - using text path instead: 'res://assets/3d/player/sword_hold_long_grip/SwordHold_Static_Glove_Reference_BaseColor.png'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+WARNING: 'res://assets/3d/player/sword_hold_long_grip/SwordHold_Static.glb': In external resource #3, invalid UID: 'uid://dnp12rrbrd37m' - using text path instead: 'res://assets/3d/player/sword_hold_long_grip/SwordHold_Static_Glove_Reference_Roughness.png'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+WARNING: 'res://assets/3d/player/sword_hold_long_grip/SwordHold_Static.glb': In external resource #5, invalid UID: 'uid://c31bmnksqdhw5' - using text path instead: 'res://assets/3d/player/sword_hold_long_grip/SwordHold_Static_weapon_material_atlas_v2.png'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+WARNING: 'res://assets/3d/player/sword_hold_long_grip/SwordHold_Static.glb': In external resource #6, invalid UID: 'uid://cgpsl8nxafms3' - using text path instead: 'res://assets/3d/player/sword_hold_long_grip/SwordHold_Static_weapon_material_normal_v2.png'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+ERROR: Actual Windows-authored motion must load; fallback curves are not a completed delivery: 
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/reference_sword_motion_test.gd:24)
+REFERENCE SWORD MOTION FAIL: Windows motion delivery and production playback checks, physical run/air handoffs, guard ownership and composed solo/paired clash recovery
+
+Headless validation: 0 passed, 1 failed.
+FAILED: reference_sword_motion_test.gd (1)

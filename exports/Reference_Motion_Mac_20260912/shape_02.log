@@ -1,0 +1,20 @@
+[HEADLESS] reference_motion_shape_test.gd
+right_diagonal contact linear difference=0.00802452078119 angular difference=2.68857359886169 speeds=(-1.2815, -0.77635, -5.070865) / (0.984967, 0.157207, -3.966317)
+left_reverse contact linear difference=0.00614390600617 angular difference=2.05345225334167 speeds=(3.445148, -1.119077, 4.793704) / (3.153086, -1.254678, 2.765656)
+overhead contact linear difference=0.00149011611938 angular difference=2.2782347202301 speeds=(-4.312396, -2.984516, -1.079589) / (-3.127754, -3.103632, 0.862777)
+ERROR: Contact velocity mismatch: right_diagonal
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _init (res://tests/reference_motion_shape_test.gd:32)
+ERROR: Contact velocity mismatch: left_reverse
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _init (res://tests/reference_motion_shape_test.gd:32)
+ERROR: Contact velocity mismatch: overhead
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _init (res://tests/reference_motion_shape_test.gd:32)
+REFERENCE MOTION SHAPE FAIL
+
+Headless validation: 0 passed, 1 failed.
+FAILED: reference_motion_shape_test.gd (1)

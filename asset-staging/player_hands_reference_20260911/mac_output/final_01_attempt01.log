@@ -1,0 +1,32 @@
+00:00.604  blend            | Read blend: "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/player_hands_reference_20260911/mac_output/geometry_03/bilateral_hands_reference_geometry.blend"
+REFERENCE_UV_READY
+Info: Baking map saved to internal image, save it externally or pack it
+PBR_ATLAS_BAKED basecolor
+Info: Baking map saved to internal image, save it externally or pack it
+PBR_ATLAS_BAKED roughness
+Info: Baking map saved to internal image, save it externally or pack it
+PBR_ATLAS_BAKED normal
+Traceback (most recent call last):
+  File "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/player_hands_reference_20260911/tools/pad_reference_textures.py", line 26, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/player_hands_reference_20260911/tools/pad_reference_textures.py", line 12, in main
+    valid=data['basecolor'].max(2)>0;assert np.array_equal(valid,data['roughness'].max(2)>0)
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+Traceback (most recent call last):
+  File "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/player_hands_reference_20260911/tools/build_reference_hands.py", line 204, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/player_hands_reference_20260911/tools/build_reference_hands.py", line 182, in main
+    subprocess.run([args.padding_python,str(Path(__file__).with_name('pad_reference_textures.py')),'--source',str(raw),'--output',str(output)],check=True)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/Blender.app/Contents/Resources/5.2/python/lib/python3.13/subprocess.py", line 577, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['/Users/duq711gmail.com/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3', '/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/player_hands_reference_20260911/tools/pad_reference_textures.py', '--source', '/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/player_hands_reference_20260911/mac_output/final_01/unfilled_atlas', '--output', '/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/player_hands_reference_20260911/mac_output/final_01']' returned non-zero exit status 1.
+
+Error: script failed, file: 'asset-staging/player_hands_reference_20260911/tools/build_reference_hands.py', exiting.
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 01:35:57)
+
+Blender quit

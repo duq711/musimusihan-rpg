@@ -1,0 +1,15 @@
+[HEADLESS] splint_motion_test.gd
+SCRIPT ERROR: Parse Error: Cannot infer the type of "completed" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/splint_motion_preview.gd:72)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+          at: GDScript::reload (res://tests/splint_motion_test.gd:0)
+ERROR: Failed to load script "res://tests/splint_motion_test.gd" with error "Compilation failed".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Invalid call. Nonexistent function 'create_fixture' in base 'GDScript'.
+          at: _run (res://tests/splint_motion_test.gd:19)
+          GDScript backtrace (most recent call first):
+              [0] _run (res://tests/splint_motion_test.gd:19)
+Script error detected in splint_motion_test.gd, regardless of engine exit status.
+
+Headless validation: 0 passed, 1 failed.
+FAILED: splint_motion_test.gd (1)

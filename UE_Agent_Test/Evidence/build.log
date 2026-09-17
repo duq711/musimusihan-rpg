@@ -1,0 +1,29 @@
+Setting up bundled DotNet SDK
+/Volumes/T7/UE 58/UE_5.8/Engine/Binaries/ThirdParty/DotNet/10.0/mac-arm64
+Running dotnet Engine/Binaries/DotNET/UnrealBuildTool/UnrealBuildTool.dll UE_Agent_TestEditor Mac Development -Project=/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/UE_Agent_Test/UE_Agent_Test.uproject -WaitMutex -NoHotReloadFromIDE -MaxParallelActions=3
+Log file: /Users/duq711gmail.com/Library/Application Support/Epic/UnrealBuildTool/Log.txt
+Executing up to 3 actions based on MaxProcessorCount override
+Using 'git status' to determine working set for adaptive non-unity build (/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg).
+Creating makefile for UE_Agent_TestEditor (no existing makefile)
+UbaServer - Listening on 0.0.0.0:1345
+Warning: [Upgrade]
+Warning: [Upgrade] Using backward-compatible build settings. The latest version of UE sets the following values by default, which may require code changes:
+Warning: [Upgrade]     FPSemantics = Precise                              => Updates default floating point semantics for Editor and Program targets to Precise for Microsoft platforms. Game, Client, & Server default remains Imprecise. (Previously: Imprecise for MSVC, Precise for Clang)
+Warning: [Upgrade]     ReturnTypeWarningLevel = WarningLevel.Error        => Validates that non-void functions return a value. (Previously: Off for VCClang, Error for MSVC and non-VC Clang).
+Warning: [Upgrade]     DanglingWarningLevel = WarningLevel.Error          => Enables clang warnings related possible dangling references or pointers. (Previously: Off for VCClang, Error for non-VC Clang).
+Warning: [Upgrade]     UnreachableCodeWarningLevel = WarningLevel.Error   => Enables compile-time validation of unreachable code. (Previously: Error for MSVC, Off for Clang).
+Warning: [Upgrade] Suppress this message by setting 'DefaultBuildSettings = BuildSettingsVersion.V7;' in UE_Agent_TestEditor.Target.cs, and explicitly overriding settings that differ from the new defaults.
+Warning: [Upgrade]
+Warning: [Upgrade]
+Warning: [Upgrade] Using backward-compatible include order. The latest version of UE has changed the order of includes, which may require code changes. The current setting is:
+Warning: [Upgrade]     IncludeOrderVersion = EngineIncludeOrderVersion.Unreal5_6
+Warning: [Upgrade] Suppress this message by setting 'IncludeOrderVersion = EngineIncludeOrderVersion.Unreal5_8;' in UE_Agent_TestEditor.Target.cs.
+Warning: [Upgrade] Alternatively you can set this to 'EngineIncludeOrderVersion.Latest' to always use the latest include order. This will potentially cause compile errors when integrating new versions of the engine.
+Warning: [Upgrade]
+Wrote partial receipt to /Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/UE_Agent_Test/Binaries/Mac/UE_Agent_TestEditor.target
+UE_Agent_TestEditor modifies the values of properties: [ UnreachableCodeWarningLevel: Off != Error, ReturnTypeWarningLevel: Off != Error, DanglingWarningLevel: Off != Error ]. This is not allowed, as UE_Agent_TestEditor has build products in common with UnrealEditor.
+Remove the modified setting, change UE_Agent_TestEditor to use a unique build environment by setting 'BuildEnvironment = TargetBuildEnvironment.Unique;' in the UE_Agent_TestEditorTarget constructor, or set bOverrideBuildEnvironment = true to force this setting on.
+
+Result: Failed (OtherCompilationError)
+Total execution time: 43.51 seconds
+Trace written to file /Users/duq711gmail.com/Library/Application Support/Epic/UnrealBuildTool/Trace.uba with size 3.8kb

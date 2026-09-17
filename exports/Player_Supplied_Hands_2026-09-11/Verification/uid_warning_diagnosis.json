@@ -1,0 +1,23 @@
+{
+  "cause": "The compiled scene texture UIDs matched the existing PNG .import UIDs. The UID cache declared 530 records but physically contained 558 complete records, so 10 required extracted-texture mappings beyond the declared count were ignored. A concurrent importer/editor write is consistent with this stale count; the exact writer was not controlled or proven.",
+  "repair": "Preserved every existing record byte, backed up the cache, and corrected its record-count header only. Following root iteration02 import, cache is compacted to 545 declared/545 physical records and all scene dependencies resolve.",
+  "new_uids_generated": 0,
+  "user_editor_process_touched": false,
+  "runtime_or_model_files_changed": false,
+  "repair_report": "audit/import_uid_repair.json",
+  "verification": "audit/import_uid_after.json",
+  "fresh_process_loaded_all_three_models": true,
+  "fresh_process_import_warnings": [],
+  "unregistered_after": [],
+  "baseline_objectdb_warning": {
+    "count": 2,
+    "predates_supplied_wrapper": true,
+    "evidence": [
+      "asset-staging/player_hands_greybox_20260910/godot_greybox_final.log:3",
+      "asset-staging/player_hands_greybox_20260910/godot_tests_01.log:7",
+      "asset-staging/reference_sword_motion_20260909/pre_delivery_tests.log:11"
+    ],
+    "root_cause_not_investigated": true
+  },
+  "exact_engine_source": "https://github.com/godotengine/godot/blob/5b4e0cb0f/core/io/resource_uid.cpp#L283"
+}

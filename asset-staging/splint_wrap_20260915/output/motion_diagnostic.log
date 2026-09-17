@@ -1,0 +1,13 @@
+[HEADLESS] splint_motion_test.gd
+SPLINT_DIAGNOSTIC 2.23333333333333 roll_step=0.01320881024003 contact_step=0.00652842596173 sleeve_angle=0.01787426695228 hand_angle=0.44931045174599 scale_before=(1.0, 1.0, 1.922866) scale_after=(1.0, 1.0, 1.907207)
+SPLINT_DIAGNOSTIC 2.25 roll_step=0.01381636317819 contact_step=0.00694961566478 sleeve_angle=0.01852923631668 hand_angle=0.61043310165405 scale_before=(1.0, 1.0, 1.907207) scale_after=(1.0, 1.0, 1.891904)
+SPLINT_DIAGNOSTIC 3.34999999999999 roll_step=0.0138937458396 contact_step=0.00690479157493 sleeve_angle=0.01852923631668 hand_angle=0.61043310165405 scale_before=(1.0, 1.0, 1.907207) scale_after=(1.0, 1.0, 1.891904)
+SPLINT_DIAGNOSTIC 4.44999999999999 roll_step=0.01399376243353 contact_step=0.00691138440743 sleeve_angle=0.01852923631668 hand_angle=0.61043310165405 scale_before=(1.0, 1.0, 1.907207) scale_after=(1.0, 1.0, 1.891904)
+ERROR: hand transfers must be continuous
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/splint_motion_test.gd:84)
+SPLINT MOTION TEST FAIL: wrist gap 0.000000, maximum hand step 0.0790 at 4.450s
+
+Headless validation: 0 passed, 1 failed.
+FAILED: splint_motion_test.gd (1)

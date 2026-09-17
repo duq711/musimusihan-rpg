@@ -1,0 +1,3235 @@
+{
+  "source": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/player_hands_proportions_20260911/mac_output/iteration_01/bilateral_hands_proportions.blend",
+  "source_sha256": "773f0fc72f979a06c642f2e8c4d628357bb3a0a69d8f02862aa81894c3c729a5",
+  "scene": "Bilateral_Realistic_Review",
+  "native_axes": {
+    "fingers": "+Y",
+    "dorsum": "+Z",
+    "forearm": "-Y"
+  },
+  "hands": {
+    "left": {
+      "bones": {
+        "wrist": {
+          "parent": null,
+          "head_native_m": [
+            0.0,
+            -0.05624999850988388,
+            0.0
+          ],
+          "tail_native_m": [
+            0.0,
+            0.016830526292324066,
+            0.0
+          ],
+          "local_x_native": [
+            1.0,
+            0.0,
+            0.0
+          ]
+        },
+        "index0": {
+          "parent": "wrist",
+          "head_native_m": [
+            0.030947402119636536,
+            0.0899498239159584,
+            0.013059202581644058
+          ],
+          "tail_native_m": [
+            0.03402860090136528,
+            0.132053941488266,
+            0.015991410240530968
+          ],
+          "local_x_native": [
+            0.9973342418670654,
+            -0.07296936213970184,
+            -0.00023008094285614789
+          ]
+        },
+        "index1": {
+          "parent": "index0",
+          "head_native_m": [
+            0.03402860462665558,
+            0.132053941488266,
+            0.015991412103176117
+          ],
+          "tail_native_m": [
+            0.0359637551009655,
+            0.15931108593940735,
+            0.010327018797397614
+          ],
+          "local_x_native": [
+            0.9974874258041382,
+            -0.07084329426288605,
+            -0.00012314716877881438
+          ]
+        },
+        "index2": {
+          "parent": "index1",
+          "head_native_m": [
+            0.0359637513756752,
+            0.15931108593940735,
+            0.010327012278139591
+          ],
+          "tail_native_m": [
+            0.03946008160710335,
+            0.18640998005867004,
+            0.004747107625007629
+          ],
+          "local_x_native": [
+            0.9916099905967712,
+            -0.1291349232196808,
+            -0.005809556692838669
+          ]
+        },
+        "little0": {
+          "parent": "wrist",
+          "head_native_m": [
+            -0.04357582703232765,
+            0.07553784549236298,
+            0.005840215366333723
+          ],
+          "tail_native_m": [
+            -0.057618774473667145,
+            0.10562257468700409,
+            0.00872319657355547
+          ],
+          "local_x_native": [
+            0.9060971736907959,
+            0.42306774854660034,
+            -0.0012501571327447891
+          ]
+        },
+        "little1": {
+          "parent": "little0",
+          "head_native_m": [
+            -0.057618774473667145,
+            0.10562257468700409,
+            0.008723195642232895
+          ],
+          "tail_native_m": [
+            -0.06507094204425812,
+            0.12337267398834229,
+            0.006183643359690905
+          ],
+          "local_x_native": [
+            0.922199547290802,
+            0.386700302362442,
+            -0.00331402150914073
+          ]
+        },
+        "little2": {
+          "parent": "little1",
+          "head_native_m": [
+            -0.06507094204425812,
+            0.12337265908718109,
+            0.006183643359690905
+          ],
+          "tail_native_m": [
+            -0.07286395877599716,
+            0.14074213802814484,
+            0.002938276156783104
+          ],
+          "local_x_native": [
+            0.9125322103500366,
+            0.4089987576007843,
+            -0.0022441321052610874
+          ]
+        },
+        "middle0": {
+          "parent": "wrist",
+          "head_native_m": [
+            0.004091489594429731,
+            0.10123657435178757,
+            0.017029309645295143
+          ],
+          "tail_native_m": [
+            0.005085401237010956,
+            0.14822697639465332,
+            0.021696068346500397
+          ],
+          "local_x_native": [
+            0.9997763633728027,
+            -0.02114786021411419,
+            1.2183212675154209e-05
+          ]
+        },
+        "middle1": {
+          "parent": "middle0",
+          "head_native_m": [
+            0.005085399840027094,
+            0.14822697639465332,
+            0.0216960608959198
+          ],
+          "tail_native_m": [
+            0.004509110935032368,
+            0.17589138448238373,
+            0.015347801148891449
+          ],
+          "local_x_native": [
+            0.9997484683990479,
+            0.02191741205751896,
+            0.004755373112857342
+          ]
+        },
+        "middle2": {
+          "parent": "middle1",
+          "head_native_m": [
+            0.004509110935032368,
+            0.17589138448238373,
+            0.015347808599472046
+          ],
+          "tail_native_m": [
+            0.005608004052191973,
+            0.20398950576782227,
+            0.009926114231348038
+          ],
+          "local_x_native": [
+            0.9992210865020752,
+            -0.03942125290632248,
+            -0.0017753392457962036
+          ]
+        },
+        "ring0": {
+          "parent": "wrist",
+          "head_native_m": [
+            -0.023480484262108803,
+            0.09373850375413895,
+            0.011226881295442581
+          ],
+          "tail_native_m": [
+            -0.026412872597575188,
+            0.1387302428483963,
+            0.018133044242858887
+          ],
+          "local_x_native": [
+            0.9978806376457214,
+            0.06507179141044617,
+            -0.00022004454513080418
+          ]
+        },
+        "ring1": {
+          "parent": "ring0",
+          "head_native_m": [
+            -0.026412876322865486,
+            0.1387302428483963,
+            0.018133047968149185
+          ],
+          "tail_native_m": [
+            -0.027569998055696487,
+            0.1640070527791977,
+            0.009640239179134369
+          ],
+          "local_x_native": [
+            0.9989968538284302,
+            0.044669680297374725,
+            -0.0031619600486010313
+          ]
+        },
+        "ring2": {
+          "parent": "ring1",
+          "head_native_m": [
+            -0.027569998055696487,
+            0.1640070527791977,
+            0.009640244767069817
+          ],
+          "tail_native_m": [
+            -0.028994452208280563,
+            0.19105499982833862,
+            0.004040008410811424
+          ],
+          "local_x_native": [
+            0.9986320734024048,
+            0.05226459726691246,
+            -0.0015812574420124292
+          ]
+        },
+        "thumb0": {
+          "parent": "wrist",
+          "head_native_m": [
+            0.028703855350613594,
+            0.0062499940395355225,
+            -0.0045189326629042625
+          ],
+          "tail_native_m": [
+            0.061108194291591644,
+            0.043982747942209244,
+            -0.015329397283494473
+          ],
+          "local_x_native": [
+            0.7566350102424622,
+            -0.6536952257156372,
+            -0.013640739023685455
+          ]
+        },
+        "thumb1": {
+          "parent": "thumb0",
+          "head_native_m": [
+            0.06110819801688194,
+            0.04398273676633835,
+            -0.015329396352171898
+          ],
+          "tail_native_m": [
+            0.07329555600881577,
+            0.07297120243310928,
+            -0.022656254470348358
+          ],
+          "local_x_native": [
+            0.9217050671577454,
+            -0.38788849115371704,
+            -0.0015207305550575256
+          ]
+        },
+        "thumb2": {
+          "parent": "thumb1",
+          "head_native_m": [
+            0.07329554110765457,
+            0.07297120243310928,
+            -0.022656254470348358
+          ],
+          "tail_native_m": [
+            0.0846584364771843,
+            0.10231874138116837,
+            -0.027283955365419388
+          ],
+          "local_x_native": [
+            0.9326074719429016,
+            -0.36089035868644714,
+            0.0012699106009677052
+          ]
+        }
+      },
+      "parts": {
+        "hand": {
+          "object": "ContinuousAnatomicalHand.001",
+          "vertices": 14988,
+          "polygons": 25470,
+          "triangles": 28234,
+          "materials": {
+            "Detailed_Skin": {
+              "polygons": 11655,
+              "triangles": 11655,
+              "vertices": 6406
+            },
+            "Detailed_Glove": {
+              "polygons": 12491,
+              "triangles": 13931,
+              "vertices": 7299
+            },
+            "Detailed_Trim": {
+              "polygons": 1324,
+              "triangles": 2648,
+              "vertices": 1512
+            }
+          },
+          "bounds_native_m": [
+            [
+              -0.07507187873125076,
+              -0.02069675363600254,
+              -0.03716569393873215
+            ],
+            [
+              0.08859843760728836,
+              0.20022325217723846,
+              0.033326081931591034
+            ]
+          ],
+          "uv_layers": [
+            "RealismUV"
+          ],
+          "active_uv": "RealismUV",
+          "shape_keys": {
+            "Joint_thumb_0": {
+              "relative_key": "Basis",
+              "value": 0.0,
+              "nonzero_vertices": 220,
+              "max_delta_m": 0.00015443477605003864,
+              "active_gt_1um_vertices": 161
+            },
+            "Joint_thumb_1": {
+              "relative_key": "Basis",
+              "value": 0.0,
+              "nonzero_vertices": 499,
+              "max_delta_m": 0.0004910037969239056,
+              "active_gt_1um_vertices": 356
+            },
+            "Joint_thumb_2": {
+              "relative_key": "Basis",
+              "value": 0.0,
+              "nonzero_vertices": 259,
+              "max_delta_m": 0.00031315701198764145,
+              "active_gt_1um_vertices": 194
+            },
+            "Joint_index_0": {
+              "relative_key": "Basis",
+              "value": 0.0,
+              "nonzero_vertices": 368,
+              "max_delta_m": 0.00019566758419387043,
+              "active_gt_1um_vertices": 260
+            },
+            "Joint_index_1": {
+              "relative_key": "Basis",
+              "value": 0.0,
+              "nonzero_vertices": 405,
+              "max_delta_m": 0.0004402376071084291,
+              "active_gt_1um_vertices": 318
+            },
+            "Joint_index_2": {
+              "relative_key": "Basis",
+              "value": 0.0,
+              "nonzero_vertices": 235,
+              "max_delta_m": 0.00024180310720112175,
+              "active_gt_1um_vertices": 161
+            },
+            "Joint_middle_0": {
+              "relative_key": "Basis",
+              "value": 0.0,
+              "nonzero_vertices": 248,
+              "max_delta_m": 0.0001793718693079427,
+              "active_gt_1um_vertices": 155
+            },
+            "Joint_middle_1": {
+              "relative_key": "Basis",
+              "value": 0.0,
+              "nonzero_vertices": 303,
+              "max_delta_m": 0.0004841219342779368,
+              "active_gt_1um_vertices": 237
+            },
+            "Joint_middle_2": {
+              "relative_key": "Basis",
+              "value": 0.0,
+              "nonzero_vertices": 197,
+              "max_delta_m": 0.0002260338660562411,
+              "active_gt_1um_vertices": 143
+            },
+            "Joint_ring_0": {
+              "relative_key": "Basis",
+              "value": 0.0,
+              "nonzero_vertices": 293,
+              "max_delta_m": 0.00018306498532183468,
+              "active_gt_1um_vertices": 202
+            },
+            "Joint_ring_1": {
+              "relative_key": "Basis",
+              "value": 0.0,
+              "nonzero_vertices": 329,
+              "max_delta_m": 0.0005122002330608666,
+              "active_gt_1um_vertices": 254
+            },
+            "Joint_ring_2": {
+              "relative_key": "Basis",
+              "value": 0.0,
+              "nonzero_vertices": 245,
+              "max_delta_m": 0.00028649799060076475,
+              "active_gt_1um_vertices": 179
+            },
+            "Joint_little_0": {
+              "relative_key": "Basis",
+              "value": 0.0,
+              "nonzero_vertices": 320,
+              "max_delta_m": 0.00018033235392067581,
+              "active_gt_1um_vertices": 228
+            },
+            "Joint_little_1": {
+              "relative_key": "Basis",
+              "value": 0.0,
+              "nonzero_vertices": 399,
+              "max_delta_m": 0.00040908102528192103,
+              "active_gt_1um_vertices": 294
+            },
+            "Joint_little_2": {
+              "relative_key": "Basis",
+              "value": 0.0,
+              "nonzero_vertices": 244,
+              "max_delta_m": 0.000267068826360628,
+              "active_gt_1um_vertices": 174
+            }
+          },
+          "modifiers": [
+            {
+              "type": "ARMATURE",
+              "name": "Armature"
+            }
+          ],
+          "weight_bones": [
+            "index0",
+            "index1",
+            "index2",
+            "little0",
+            "little1",
+            "little2",
+            "middle0",
+            "middle1",
+            "middle2",
+            "ring0",
+            "ring1",
+            "ring2",
+            "thumb0",
+            "thumb1",
+            "thumb2",
+            "wrist"
+          ],
+          "metadata": {},
+          "physical_vertices": 12036,
+          "appended_original_glove_trim_vertices": 2952,
+          "physical_weighted_digit_counts": {},
+          "vertex_attributes": [
+            [
+              "custom_normal",
+              "CORNER",
+              "INT16_2D"
+            ],
+            [
+              "RealismUV",
+              "CORNER",
+              "FLOAT2"
+            ],
+            [
+              ".select_vert",
+              "POINT",
+              "BOOLEAN"
+            ],
+            [
+              ".select_edge",
+              "EDGE",
+              "BOOLEAN"
+            ],
+            [
+              ".select_poly",
+              "FACE",
+              "BOOLEAN"
+            ],
+            [
+              ".uv_select_vert",
+              "CORNER",
+              "BOOLEAN"
+            ],
+            [
+              ".uv_select_edge",
+              "CORNER",
+              "BOOLEAN"
+            ],
+            [
+              ".uv_select_face",
+              "FACE",
+              "BOOLEAN"
+            ],
+            [
+              "material_index",
+              "FACE",
+              "INT"
+            ],
+            [
+              "position",
+              "POINT",
+              "FLOAT_VECTOR"
+            ],
+            [
+              ".edge_verts",
+              "EDGE",
+              "INT32_2D"
+            ],
+            [
+              ".corner_vert",
+              "CORNER",
+              "INT"
+            ],
+            [
+              ".corner_edge",
+              "CORNER",
+              "INT"
+            ],
+            [
+              "sharp_edge",
+              "EDGE",
+              "BOOLEAN"
+            ]
+          ]
+        },
+        "nail_index": {
+          "object": "Nail_index",
+          "vertices": 322,
+          "polygons": 352,
+          "triangles": 640,
+          "materials": {
+            "Detailed_Nail": {
+              "polygons": 352,
+              "triangles": 640,
+              "vertices": 322
+            }
+          },
+          "bounds_native_m": [
+            [
+              0.03415310010313988,
+              0.1644364446401596,
+              0.008257606998085976
+            ],
+            [
+              0.04395608231425285,
+              0.179409459233284,
+              0.01702447421848774
+            ]
+          ],
+          "uv_layers": [
+            "RealismUV"
+          ],
+          "active_uv": "RealismUV",
+          "shape_keys": {},
+          "modifiers": [
+            {
+              "type": "ARMATURE",
+              "name": "DetailSkin"
+            }
+          ],
+          "weight_bones": [
+            "index2"
+          ],
+          "metadata": {},
+          "rigid_distal_weights_exact": true
+        },
+        "nail_little": {
+          "object": "Nail_little",
+          "vertices": 322,
+          "polygons": 352,
+          "triangles": 640,
+          "materials": {
+            "Detailed_Nail": {
+              "polygons": 352,
+              "triangles": 640,
+              "vertices": 322
+            }
+          },
+          "bounds_native_m": [
+            [
+              -0.07323872298002243,
+              0.1283048391342163,
+              0.004348049871623516
+            ],
+            [
+              -0.06271551549434662,
+              0.14414794743061066,
+              0.011849779635667801
+            ]
+          ],
+          "uv_layers": [
+            "RealismUV"
+          ],
+          "active_uv": "RealismUV",
+          "shape_keys": {},
+          "modifiers": [
+            {
+              "type": "ARMATURE",
+              "name": "DetailSkin"
+            }
+          ],
+          "weight_bones": [
+            "little2"
+          ],
+          "metadata": {},
+          "rigid_distal_weights_exact": true
+        },
+        "nail_middle": {
+          "object": "Nail_middle",
+          "vertices": 322,
+          "polygons": 352,
+          "triangles": 640,
+          "materials": {
+            "Detailed_Nail": {
+              "polygons": 352,
+              "triangles": 640,
+              "vertices": 322
+            }
+          },
+          "bounds_native_m": [
+            [
+              -0.00033283280208706856,
+              0.18172280490398407,
+              0.014330169185996056
+            ],
+            [
+              0.009479682892560959,
+              0.19883418083190918,
+              0.021693162620067596
+            ]
+          ],
+          "uv_layers": [
+            "RealismUV"
+          ],
+          "active_uv": "RealismUV",
+          "shape_keys": {},
+          "modifiers": [
+            {
+              "type": "ARMATURE",
+              "name": "DetailSkin"
+            }
+          ],
+          "weight_bones": [
+            "middle2"
+          ],
+          "metadata": {},
+          "rigid_distal_weights_exact": true
+        },
+        "nail_ring": {
+          "object": "Nail_ring",
+          "vertices": 322,
+          "polygons": 352,
+          "triangles": 640,
+          "materials": {
+            "Detailed_Nail": {
+              "polygons": 352,
+              "triangles": 640,
+              "vertices": 322
+            }
+          },
+          "bounds_native_m": [
+            [
+              -0.032989732921123505,
+              0.1700984388589859,
+              0.0076394639909267426
+            ],
+            [
+              -0.024031030014157295,
+              0.18568187952041626,
+              0.016034776344895363
+            ]
+          ],
+          "uv_layers": [
+            "RealismUV"
+          ],
+          "active_uv": "RealismUV",
+          "shape_keys": {},
+          "modifiers": [
+            {
+              "type": "ARMATURE",
+              "name": "DetailSkin"
+            }
+          ],
+          "weight_bones": [
+            "ring2"
+          ],
+          "metadata": {},
+          "rigid_distal_weights_exact": true
+        },
+        "nail_thumb": {
+          "object": "Nail_thumb",
+          "vertices": 322,
+          "polygons": 352,
+          "triangles": 640,
+          "materials": {
+            "Detailed_Nail": {
+              "polygons": 352,
+              "triangles": 640,
+              "vertices": 322
+            }
+          },
+          "bounds_native_m": [
+            [
+              0.0665515810251236,
+              0.07902132719755173,
+              -0.023300103843212128
+            ],
+            [
+              0.08152883499860764,
+              0.10256525129079819,
+              -0.011076297610998154
+            ]
+          ],
+          "uv_layers": [
+            "RealismUV"
+          ],
+          "active_uv": "RealismUV",
+          "shape_keys": {},
+          "modifiers": [
+            {
+              "type": "ARMATURE",
+              "name": "DetailSkin"
+            }
+          ],
+          "weight_bones": [
+            "thumb2"
+          ],
+          "metadata": {},
+          "rigid_distal_weights_exact": true
+        },
+        "WristCuff": {
+          "object": "WristCuff_Surface.001",
+          "vertices": 4608,
+          "polygons": 4608,
+          "triangles": 9216,
+          "materials": {
+            "Detailed_Glove": {
+              "polygons": 4608,
+              "triangles": 9216,
+              "vertices": 4608
+            }
+          },
+          "bounds_native_m": [
+            [
+              -0.051228415220975876,
+              -0.09000000357627869,
+              -0.04126531630754471
+            ],
+            [
+              0.05344469100236893,
+              -0.009999999776482582,
+              0.04297425225377083
+            ]
+          ],
+          "uv_layers": [
+            "RealismUV"
+          ],
+          "active_uv": "RealismUV",
+          "shape_keys": {},
+          "modifiers": [],
+          "weight_bones": [],
+          "metadata": {
+            "wrist_flex_version": 1,
+            "wrist_flex_start_z": 0.014,
+            "wrist_flex_end_z": 0.075
+          }
+        },
+        "Forearm": {
+          "object": "Forearm_Surface.001",
+          "vertices": 8229,
+          "polygons": 13170,
+          "triangles": 13836,
+          "materials": {
+            "Detailed_Sleeve": {
+              "polygons": 12504,
+              "triangles": 12504,
+              "vertices": 7485
+            },
+            "Detailed_Trim": {
+              "polygons": 666,
+              "triangles": 1332,
+              "vertices": 744
+            }
+          },
+          "bounds_native_m": [
+            [
+              -0.06671679019927979,
+              -0.2709999978542328,
+              -0.05437707528471947
+            ],
+            [
+              0.06632827967405319,
+              -0.07699999958276749,
+              0.05395316705107689
+            ]
+          ],
+          "uv_layers": [
+            "RealismUV"
+          ],
+          "active_uv": "RealismUV",
+          "shape_keys": {},
+          "modifiers": [],
+          "weight_bones": [],
+          "metadata": {}
+        },
+        "UpperArm": {
+          "object": "UpperArm_Surface.001",
+          "vertices": 4986,
+          "polygons": 9118,
+          "triangles": 9484,
+          "materials": {
+            "Detailed_Sleeve": {
+              "polygons": 8752,
+              "triangles": 8752,
+              "vertices": 4578
+            },
+            "Detailed_Trim": {
+              "polygons": 366,
+              "triangles": 732,
+              "vertices": 408
+            }
+          },
+          "bounds_native_m": [
+            [
+              -0.08381537348031998,
+              -0.6060000061988831,
+              -0.07430573552846909
+            ],
+            [
+              0.083602175116539,
+              -0.22395096719264984,
+              0.06991825252771378
+            ]
+          ],
+          "uv_layers": [
+            "RealismUV"
+          ],
+          "active_uv": "RealismUV",
+          "shape_keys": {},
+          "modifiers": [],
+          "weight_bones": [],
+          "metadata": {}
+        }
+      },
+      "landmarks": {
+        "thumb": {
+          "0": {
+            "bone_head_native_m": [
+              0.028703855350613594,
+              0.0062499940395355225,
+              -0.0045189326629042625
+            ],
+            "bone_axis_native": [
+              0.6366449594497681,
+              0.7413317561149597,
+              -0.2123921662569046
+            ],
+            "plane_edge_intersections": 108,
+            "surface_section_center_native_m": [
+              0.02598637528717518,
+              0.008037020452320576,
+              -0.006427147425711155
+            ],
+            "width_m": 0.021605137968435884,
+            "depth_m": 0.04434910602867603,
+            "dorsal_surface_native_m": [
+              0.02905479073524475,
+              0.011609991081058979,
+              0.01524148229509592
+            ],
+            "palm_surface_native_m": [
+              0.022917959839105606,
+              0.004464049823582172,
+              -0.028095778077840805
+            ],
+            "bone_head_to_surface_center_m": 0.003770867922993359
+          },
+          "1": {
+            "bone_head_native_m": [
+              0.061108194291591644,
+              0.04398273304104805,
+              -0.015329395420849323
+            ],
+            "bone_axis_native": [
+              0.3774522840976715,
+              0.897796094417572,
+              -0.22691869735717773
+            ],
+            "plane_edge_intersections": 172,
+            "surface_section_center_native_m": [
+              0.04766825959086418,
+              0.05037977918982506,
+              -0.012375440448522568
+            ],
+            "width_m": 0.042036337428726256,
+            "depth_m": 0.03660165243491065,
+            "dorsal_surface_native_m": [
+              0.04927772656083107,
+              0.05420801043510437,
+              0.005447983741760254
+            ],
+            "palm_surface_native_m": [
+              0.04605879262089729,
+              0.046551547944545746,
+              -0.03019886463880539
+            ],
+            "bone_head_to_surface_center_m": 0.015174976061270724
+          },
+          "2": {
+            "bone_head_native_m": [
+              0.07329553365707397,
+              0.07297119498252869,
+              -0.02265625074505806
+            ],
+            "bone_axis_native": [
+              0.3572233319282532,
+              0.922619104385376,
+              -0.14548426866531372
+            ],
+            "plane_edge_intersections": 136,
+            "surface_section_center_native_m": [
+              0.06818220019340515,
+              0.07506517320871353,
+              -0.021932151168584824
+            ],
+            "width_m": 0.0206986078992486,
+            "depth_m": 0.0227632296300726,
+            "dorsal_surface_native_m": [
+              0.06878006458282471,
+              0.07660931348800659,
+              -0.010671630501747131
+            ],
+            "palm_surface_native_m": [
+              0.0675843358039856,
+              0.07352103292942047,
+              -0.033192671835422516
+            ],
+            "bone_head_to_surface_center_m": 0.005572723232095233
+          },
+          "nail": {
+            "centroid_native_m": [
+              0.07429967075586319,
+              0.09093812108039856,
+              -0.0153553057461977
+            ],
+            "bounds_native_m": [
+              [
+                0.0665515810251236,
+                0.07902132719755173,
+                -0.023300103843212128
+              ],
+              [
+                0.08152883499860764,
+                0.10256525129079819,
+                -0.011076297610998154
+              ]
+            ]
+          }
+        },
+        "index": {
+          "0": {
+            "bone_head_native_m": [
+              0.030947402119636536,
+              0.0899498239159584,
+              0.013059202581644058
+            ],
+            "bone_axis_native": [
+              0.07280987501144409,
+              0.9949359893798828,
+              0.06928915530443192
+            ],
+            "plane_edge_intersections": 128,
+            "surface_section_center_native_m": [
+              0.029047440737485886,
+              0.08996695280075073,
+              0.014809729531407356
+            ],
+            "width_m": 0.023691165464697406,
+            "depth_m": 0.030067530769883888,
+            "dorsal_surface_native_m": [
+              0.028971413150429726,
+              0.08892805129289627,
+              0.02980736456811428
+            ],
+            "palm_surface_native_m": [
+              0.029123468324542046,
+              0.0910058543086052,
+              -0.00018790550529956818
+            ],
+            "bone_head_to_surface_center_m": 0.0025835036959100497
+          },
+          "1": {
+            "bone_head_native_m": [
+              0.03402860462665558,
+              0.132053941488266,
+              0.015991412103176117
+            ],
+            "bone_axis_native": [
+              0.06934366375207901,
+              0.976725161075592,
+              -0.20297637581825256
+            ],
+            "plane_edge_intersections": 128,
+            "surface_section_center_native_m": [
+              0.036436788737773895,
+              0.13202643394470215,
+              0.016681725159287453
+            ],
+            "width_m": 0.019387102542623325,
+            "depth_m": 0.01955898478445306,
+            "dorsal_surface_native_m": [
+              0.036577362567186356,
+              0.13400645554065704,
+              0.026257645338773727
+            ],
+            "palm_surface_native_m": [
+              0.036296214908361435,
+              0.13004641234874725,
+              0.007105805911123753
+            ],
+            "bone_head_to_surface_center_m": 0.0025053222242458493
+          },
+          "2": {
+            "bone_head_native_m": [
+              0.0359637513756752,
+              0.15931108593940735,
+              0.010327011346817017
+            ],
+            "bone_axis_native": [
+              0.12537291646003723,
+              0.971723735332489,
+              -0.20008662343025208
+            ],
+            "plane_edge_intersections": 130,
+            "surface_section_center_native_m": [
+              0.03888368606567383,
+              0.1591396927833557,
+              0.01132424920797348
+            ],
+            "width_m": 0.016952479767496698,
+            "depth_m": 0.015301773886676528,
+            "dorsal_surface_native_m": [
+              0.03907957300543785,
+              0.16065794229507446,
+              0.018820421770215034
+            ],
+            "palm_surface_native_m": [
+              0.038687799125909805,
+              0.15762144327163696,
+              0.0038280771113932133
+            ],
+            "bone_head_to_surface_center_m": 0.003090287677583772
+          },
+          "nail": {
+            "centroid_native_m": [
+              0.03924642130732536,
+              0.17163436114788055,
+              0.0121406065300107
+            ],
+            "bounds_native_m": [
+              [
+                0.03415310010313988,
+                0.1644364446401596,
+                0.008257606998085976
+              ],
+              [
+                0.04395608231425285,
+                0.179409459233284,
+                0.01702447421848774
+              ]
+            ]
+          }
+        },
+        "middle": {
+          "0": {
+            "bone_head_native_m": [
+              0.004091489594429731,
+              0.10123657435178757,
+              0.017029309645295143
+            ],
+            "bone_axis_native": [
+              0.02104317583143711,
+              0.9948843717575073,
+              0.09880498796701431
+            ],
+            "plane_edge_intersections": 80,
+            "surface_section_center_native_m": [
+              0.003694142447784543,
+              0.10121049731969833,
+              0.017376484349370003
+            ],
+            "width_m": 0.027205419745769177,
+            "depth_m": 0.029636695574026817,
+            "dorsal_surface_native_m": [
+              0.0036631810944527388,
+              0.0997466966509819,
+              0.03212232142686844
+            ],
+            "palm_surface_native_m": [
+              0.0037251038011163473,
+              0.10267429798841476,
+              0.002630646340548992
+            ],
+            "bone_head_to_surface_center_m": 0.0005282944645745225
+          },
+          "1": {
+            "bone_head_native_m": [
+              0.005085399840027094,
+              0.14822697639465332,
+              0.0216960608959198
+            ],
+            "bone_axis_native": [
+              -0.020299512892961502,
+              0.9744662046432495,
+              -0.22361457347869873
+            ],
+            "plane_edge_intersections": 136,
+            "surface_section_center_native_m": [
+              0.004955556243658066,
+              0.14836731553077698,
+              0.022319363430142403
+            ],
+            "width_m": 0.018812997939448906,
+            "depth_m": 0.018705331784531154,
+            "dorsal_surface_native_m": [
+              0.0049119992181658745,
+              0.15045826137065887,
+              0.031435199081897736
+            ],
+            "palm_surface_native_m": [
+              0.004999113269150257,
+              0.14627636969089508,
+              0.013203528709709644
+            ],
+            "bone_head_to_surface_center_m": 0.0006519666175327137
+          },
+          "2": {
+            "bone_head_native_m": [
+              0.004509110935032368,
+              0.17589138448238373,
+              0.015347808599472046
+            ],
+            "bone_axis_native": [
+              0.03837251663208008,
+              0.9811650514602661,
+              -0.18932144343852997
+            ],
+            "plane_edge_intersections": 134,
+            "surface_section_center_native_m": [
+              0.004743876866996288,
+              0.17601819336414337,
+              0.016052596271038055
+            ],
+            "width_m": 0.016803231993435475,
+            "depth_m": 0.015201013588466594,
+            "dorsal_surface_native_m": [
+              0.004800109658390284,
+              0.17745603621006012,
+              0.023515649139881134
+            ],
+            "palm_surface_native_m": [
+              0.004687644075602293,
+              0.17458035051822662,
+              0.008589543402194977
+            ],
+            "bone_head_to_surface_center_m": 0.0007536054540046636
+          },
+          "nail": {
+            "centroid_native_m": [
+              0.0046516177244484425,
+              0.18984133005142212,
+              0.017470847815275192
+            ],
+            "bounds_native_m": [
+              [
+                -0.00033283280208706856,
+                0.18172280490398407,
+                0.014330169185996056
+              ],
+              [
+                0.009479682892560959,
+                0.19883418083190918,
+                0.021693162620067596
+              ]
+            ]
+          }
+        },
+        "ring": {
+          "0": {
+            "bone_head_native_m": [
+              -0.023480484262108803,
+              0.09373850375413895,
+              0.011226881295442581
+            ],
+            "bone_axis_native": [
+              -0.06428837031126022,
+              0.9863786697387695,
+              0.1514076143503189
+            ],
+            "plane_edge_intersections": 82,
+            "surface_section_center_native_m": [
+              -0.022805752232670784,
+              0.0934855043888092,
+              0.01316162385046482
+            ],
+            "width_m": 0.02427988783165347,
+            "depth_m": 0.028781724846339785,
+            "dorsal_surface_native_m": [
+              -0.022664042189717293,
+              0.09131123125553131,
+              0.027386579662561417
+            ],
+            "palm_surface_native_m": [
+              -0.022947462275624275,
+              0.0956597775220871,
+              -0.001063331961631775
+            ],
+            "bone_head_to_surface_center_m": 0.002064582455808918
+          },
+          "1": {
+            "bone_head_native_m": [
+              -0.026412876322865486,
+              0.1387302428483963,
+              0.018133047968149185
+            ],
+            "bone_axis_native": [
+              -0.04335328936576843,
+              0.9470332860946655,
+              -0.3181957006454468
+            ],
+            "plane_edge_intersections": 130,
+            "surface_section_center_native_m": [
+              -0.025270603597164154,
+              0.13909263908863068,
+              0.019055981189012527
+            ],
+            "width_m": 0.017226088002644246,
+            "depth_m": 0.017255270984605886,
+            "dorsal_surface_native_m": [
+              -0.02539614588022232,
+              0.1418350487947464,
+              0.02723519504070282
+            ],
+            "palm_surface_native_m": [
+              -0.025145061314105988,
+              0.13635022938251495,
+              0.01087676640599966
+            ],
+            "bone_head_to_surface_center_m": 0.0015125884409696577
+          },
+          "2": {
+            "bone_head_native_m": [
+              -0.027569998055696487,
+              0.1640070527791977,
+              0.009640244767069817
+            ],
+            "bone_axis_native": [
+              -0.0515018105506897,
+              0.9779313206672668,
+              -0.20247918367385864
+            ],
+            "plane_edge_intersections": 136,
+            "surface_section_center_native_m": [
+              -0.027987703680992126,
+              0.16425012052059174,
+              0.010920481756329536
+            ],
+            "width_m": 0.01570191644714214,
+            "depth_m": 0.015691623492784856,
+            "dorsal_surface_native_m": [
+              -0.028071250766515732,
+              0.16583654284477234,
+              0.01860377937555313
+            ],
+            "palm_surface_native_m": [
+              -0.02790415659546852,
+              0.16266369819641113,
+              0.0032371836714446545
+            ],
+            "bone_head_to_surface_center_m": 0.001368417584227874
+          },
+          "nail": {
+            "centroid_native_m": [
+              -0.02862231619656086,
+              0.17736339569091797,
+              0.011345526203513145
+            ],
+            "bounds_native_m": [
+              [
+                -0.032989732921123505,
+                0.1700984388589859,
+                0.0076394639909267426
+              ],
+              [
+                -0.024031030014157295,
+                0.18568187952041626,
+                0.016034776344895363
+              ]
+            ]
+          }
+        },
+        "little": {
+          "0": {
+            "bone_head_native_m": [
+              -0.04357582703232765,
+              0.07553783804178238,
+              0.005840215366333723
+            ],
+            "bone_axis_native": [
+              -0.4213840961456299,
+              0.9027467966079712,
+              0.08650907129049301
+            ],
+            "plane_edge_intersections": 104,
+            "surface_section_center_native_m": [
+              -0.03967099264264107,
+              0.07726219296455383,
+              0.006866442039608955
+            ],
+            "width_m": 0.019224536372348666,
+            "depth_m": 0.02713156389654614,
+            "dorsal_surface_native_m": [
+              -0.03917461261153221,
+              0.07619877904653549,
+              0.020381366834044456
+            ],
+            "palm_surface_native_m": [
+              -0.040167372673749924,
+              0.07832560688257217,
+              -0.006648482754826546
+            ],
+            "bone_head_to_surface_center_m": 0.004390247432386657
+          },
+          "1": {
+            "bone_head_native_m": [
+              -0.057618774473667145,
+              0.10562256723642349,
+              0.008723195642232895
+            ],
+            "bone_axis_native": [
+              -0.3837806284427643,
+              0.914115846157074,
+              -0.13078492879867554
+            ],
+            "plane_edge_intersections": 136,
+            "surface_section_center_native_m": [
+              -0.05321904271841049,
+              0.10756292939186096,
+              0.009374509565532207
+            ],
+            "width_m": 0.01629020378459245,
+            "depth_m": 0.015511307730776025,
+            "dorsal_surface_native_m": [
+              -0.053611692041158676,
+              0.10849817097187042,
+              0.017063548788428307
+            ],
+            "palm_surface_native_m": [
+              -0.05282639339566231,
+              0.1066276878118515,
+              0.0016854708082973957
+            ],
+            "bone_head_to_surface_center_m": 0.0048525101521916855
+          },
+          "2": {
+            "bone_head_native_m": [
+              -0.06507094204425812,
+              0.1233726516366005,
+              0.006183642894029617
+            ],
+            "bone_axis_native": [
+              -0.40352749824523926,
+              0.8994029760360718,
+              -0.1680472195148468
+            ],
+            "plane_edge_intersections": 128,
+            "surface_section_center_native_m": [
+              -0.06309498846530914,
+              0.12438157945871353,
+              0.006838738918304443
+            ],
+            "width_m": 0.013249000476207584,
+            "depth_m": 0.012488751253840746,
+            "dorsal_surface_native_m": [
+              -0.06352453678846359,
+              0.12533898651599884,
+              0.0129943136125803
+            ],
+            "palm_surface_native_m": [
+              -0.0626654401421547,
+              0.12342417240142822,
+              0.0006831646896898746
+            ],
+            "bone_head_to_surface_center_m": 0.002313326323086465
+          },
+          "nail": {
+            "centroid_native_m": [
+              -0.06812386214733124,
+              0.13603048026561737,
+              0.008071544580161572
+            ],
+            "bounds_native_m": [
+              [
+                -0.07323872298002243,
+                0.1283048391342163,
+                0.004348049871623516
+              ],
+              [
+                -0.06271551549434662,
+                0.14414794743061066,
+                0.011849779635667801
+              ]
+            ]
+          }
+        }
+      }
+    },
+    "right": {
+      "bones": {
+        "wrist": {
+          "parent": null,
+          "head_native_m": [
+            0.0,
+            -0.05624999850988388,
+            0.0
+          ],
+          "tail_native_m": [
+            0.0,
+            0.016830526292324066,
+            0.0
+          ],
+          "local_x_native": [
+            1.0,
+            0.0,
+            0.0
+          ]
+        },
+        "index0": {
+          "parent": "wrist",
+          "head_native_m": [
+            -0.030948199331760406,
+            0.08994965255260468,
+            0.013059286400675774
+          ],
+          "tail_native_m": [
+            -0.034029968082904816,
+            0.1320536583662033,
+            0.015991555526852608
+          ],
+          "local_x_native": [
+            0.9973332285881042,
+            0.07298291474580765,
+            0.00023100667749531567
+          ]
+        },
+        "index1": {
+          "parent": "index0",
+          "head_native_m": [
+            -0.034029971808195114,
+            0.1320536583662033,
+            0.015991557389497757
+          ],
+          "tail_native_m": [
+            -0.035965122282505035,
+            0.15931080281734467,
+            0.010327164083719254
+          ],
+          "local_x_native": [
+            0.997487485408783,
+            0.07084329426288605,
+            0.00012314465129747987
+          ]
+        },
+        "index2": {
+          "parent": "index1",
+          "head_native_m": [
+            -0.03596511483192444,
+            0.15931078791618347,
+            0.010327154770493507
+          ],
+          "tail_native_m": [
+            -0.039461445063352585,
+            0.18640969693660736,
+            0.00474725104868412
+          ],
+          "local_x_native": [
+            0.991610050201416,
+            0.12913484871387482,
+            0.005809576716274023
+          ]
+        },
+        "little0": {
+          "parent": "wrist",
+          "head_native_m": [
+            0.043575868010520935,
+            0.07553784549236298,
+            0.0058399769477546215
+          ],
+          "tail_native_m": [
+            0.057618845254182816,
+            0.10562256723642349,
+            0.008722787722945213
+          ],
+          "local_x_native": [
+            0.9060968160629272,
+            -0.4230686128139496,
+            0.0012500733137130737
+          ]
+        },
+        "little1": {
+          "parent": "little0",
+          "head_native_m": [
+            0.057618845254182816,
+            0.10562256723642349,
+            0.008722786791622639
+          ],
+          "tail_native_m": [
+            0.06507100909948349,
+            0.12337266653776169,
+            0.006183234509080648
+          ],
+          "local_x_native": [
+            0.922199547290802,
+            -0.38670021295547485,
+            0.0033139921724796295
+          ]
+        },
+        "little2": {
+          "parent": "little1",
+          "head_native_m": [
+            0.06507101655006409,
+            0.1233726516366005,
+            0.006183235440403223
+          ],
+          "tail_native_m": [
+            0.07286402583122253,
+            0.14074213802814484,
+            0.0029378673061728477
+          ],
+          "local_x_native": [
+            0.9125324487686157,
+            -0.40899839997291565,
+            0.002244018716737628
+          ]
+        },
+        "middle0": {
+          "parent": "wrist",
+          "head_native_m": [
+            -0.0040914881974458694,
+            0.10123647749423981,
+            0.017029747366905212
+          ],
+          "tail_native_m": [
+            -0.005085397977381945,
+            0.1482268124818802,
+            0.021696820855140686
+          ],
+          "local_x_native": [
+            0.9997763633728027,
+            0.021147843450307846,
+            -1.2184842489659786e-05
+          ]
+        },
+        "middle1": {
+          "parent": "middle0",
+          "head_native_m": [
+            -0.005085396580398083,
+            0.1482268124818802,
+            0.02169681154191494
+          ],
+          "tail_native_m": [
+            -0.004509108141064644,
+            0.1758912205696106,
+            0.015348551794886589
+          ],
+          "local_x_native": [
+            0.9997484683990479,
+            -0.021917397156357765,
+            -0.004755377769470215
+          ]
+        },
+        "middle2": {
+          "parent": "middle1",
+          "head_native_m": [
+            -0.004509108141064644,
+            0.1758912205696106,
+            0.015348558314144611
+          ],
+          "tail_native_m": [
+            -0.005608000792562962,
+            0.20398932695388794,
+            0.009926866739988327
+          ],
+          "local_x_native": [
+            0.9992210865020752,
+            0.039421238005161285,
+            0.0017753355205059052
+          ]
+        },
+        "ring0": {
+          "parent": "wrist",
+          "head_native_m": [
+            0.02348056621849537,
+            0.09373853355646133,
+            0.011226736940443516
+          ],
+          "tail_native_m": [
+            0.02641301415860653,
+            0.13873030245304108,
+            0.01813279651105404
+          ],
+          "local_x_native": [
+            0.9978804588317871,
+            -0.06507303565740585,
+            0.00021985778585076332
+          ]
+        },
+        "ring1": {
+          "parent": "ring0",
+          "head_native_m": [
+            0.026413017883896828,
+            0.13873030245304108,
+            0.018132800236344337
+          ],
+          "tail_native_m": [
+            0.02757013775408268,
+            0.16400711238384247,
+            0.009639991447329521
+          ],
+          "local_x_native": [
+            0.9989968538284302,
+            -0.04466961324214935,
+            0.003161926055327058
+          ]
+        },
+        "ring2": {
+          "parent": "ring1",
+          "head_native_m": [
+            0.02757013775408268,
+            0.16400711238384247,
+            0.009639997035264969
+          ],
+          "tail_native_m": [
+            0.028994593769311905,
+            0.1910550594329834,
+            0.004039762541651726
+          ],
+          "local_x_native": [
+            0.9986320734024048,
+            -0.05226466804742813,
+            0.0015812788624316454
+          ]
+        },
+        "thumb0": {
+          "parent": "wrist",
+          "head_native_m": [
+            -0.028703855350613594,
+            0.0062499940395355225,
+            -0.0045189326629042625
+          ],
+          "tail_native_m": [
+            -0.06110820174217224,
+            0.04398277401924133,
+            -0.01532937865704298
+          ],
+          "local_x_native": [
+            0.7566350698471069,
+            0.6536951065063477,
+            0.01364077627658844
+          ]
+        },
+        "thumb1": {
+          "parent": "thumb0",
+          "head_native_m": [
+            -0.06110819801688194,
+            0.04398276284337044,
+            -0.015329377725720406
+          ],
+          "tail_native_m": [
+            -0.07329556345939636,
+            0.07297128438949585,
+            -0.022656206041574478
+          ],
+          "local_x_native": [
+            0.9217052459716797,
+            0.387888103723526,
+            0.0015208348631858826
+          ]
+        },
+        "thumb2": {
+          "parent": "thumb1",
+          "head_native_m": [
+            -0.07329554855823517,
+            0.07297127693891525,
+            -0.02265620417892933
+          ],
+          "tail_native_m": [
+            -0.08465845137834549,
+            0.10231881588697433,
+            -0.02728390507400036
+          ],
+          "local_x_native": [
+            0.9326073527336121,
+            0.36089056730270386,
+            -0.0012699407525360584
+          ]
+        }
+      },
+      "parts": {
+        "hand": {
+          "object": "ContinuousAnatomicalHand.003",
+          "vertices": 14988,
+          "polygons": 25470,
+          "triangles": 28234,
+          "materials": {
+            "Detailed_Skin": {
+              "polygons": 11658,
+              "triangles": 11658,
+              "vertices": 6410
+            },
+            "Detailed_Glove": {
+              "polygons": 12488,
+              "triangles": 13928,
+              "vertices": 7299
+            },
+            "Detailed_Trim": {
+              "polygons": 1324,
+              "triangles": 2648,
+              "vertices": 1512
+            }
+          },
+          "bounds_native_m": [
+            [
+              -0.08859845250844955,
+              -0.02069675363600254,
+              -0.03716564178466797
+            ],
+            [
+              0.07507194578647614,
+              0.20022308826446533,
+              0.033324651420116425
+            ]
+          ],
+          "uv_layers": [
+            "RealismUV"
+          ],
+          "active_uv": "RealismUV",
+          "shape_keys": {
+            "Joint_thumb_0": {
+              "relative_key": "Basis",
+              "value": 0.0,
+              "nonzero_vertices": 209,
+              "max_delta_m": 0.00015443387383129448,
+              "active_gt_1um_vertices": 151
+            },
+            "Joint_thumb_1": {
+              "relative_key": "Basis",
+              "value": 0.0,
+              "nonzero_vertices": 489,
+              "max_delta_m": 0.0004907905822619796,
+              "active_gt_1um_vertices": 353
+            },
+            "Joint_thumb_2": {
+              "relative_key": "Basis",
+              "value": 0.0,
+              "nonzero_vertices": 259,
+              "max_delta_m": 0.000312662567012012,
+              "active_gt_1um_vertices": 194
+            },
+            "Joint_index_0": {
+              "relative_key": "Basis",
+              "value": 0.0,
+              "nonzero_vertices": 369,
+              "max_delta_m": 0.00019564112881198525,
+              "active_gt_1um_vertices": 260
+            },
+            "Joint_index_1": {
+              "relative_key": "Basis",
+              "value": 0.0,
+              "nonzero_vertices": 405,
+              "max_delta_m": 0.00043963425559923053,
+              "active_gt_1um_vertices": 318
+            },
+            "Joint_index_2": {
+              "relative_key": "Basis",
+              "value": 0.0,
+              "nonzero_vertices": 235,
+              "max_delta_m": 0.00024168608069885522,
+              "active_gt_1um_vertices": 161
+            },
+            "Joint_middle_0": {
+              "relative_key": "Basis",
+              "value": 0.0,
+              "nonzero_vertices": 247,
+              "max_delta_m": 0.0001794317358871922,
+              "active_gt_1um_vertices": 156
+            },
+            "Joint_middle_1": {
+              "relative_key": "Basis",
+              "value": 0.0,
+              "nonzero_vertices": 303,
+              "max_delta_m": 0.00048341607907786965,
+              "active_gt_1um_vertices": 237
+            },
+            "Joint_middle_2": {
+              "relative_key": "Basis",
+              "value": 0.0,
+              "nonzero_vertices": 197,
+              "max_delta_m": 0.00022607317077927291,
+              "active_gt_1um_vertices": 143
+            },
+            "Joint_ring_0": {
+              "relative_key": "Basis",
+              "value": 0.0,
+              "nonzero_vertices": 303,
+              "max_delta_m": 0.000183705153176561,
+              "active_gt_1um_vertices": 211
+            },
+            "Joint_ring_1": {
+              "relative_key": "Basis",
+              "value": 0.0,
+              "nonzero_vertices": 329,
+              "max_delta_m": 0.0005125056486576796,
+              "active_gt_1um_vertices": 254
+            },
+            "Joint_ring_2": {
+              "relative_key": "Basis",
+              "value": 0.0,
+              "nonzero_vertices": 245,
+              "max_delta_m": 0.0002866599534172565,
+              "active_gt_1um_vertices": 179
+            },
+            "Joint_little_0": {
+              "relative_key": "Basis",
+              "value": 0.0,
+              "nonzero_vertices": 319,
+              "max_delta_m": 0.0001795868156477809,
+              "active_gt_1um_vertices": 227
+            },
+            "Joint_little_1": {
+              "relative_key": "Basis",
+              "value": 0.0,
+              "nonzero_vertices": 400,
+              "max_delta_m": 0.0004095635667908937,
+              "active_gt_1um_vertices": 291
+            },
+            "Joint_little_2": {
+              "relative_key": "Basis",
+              "value": 0.0,
+              "nonzero_vertices": 244,
+              "max_delta_m": 0.0002663764462340623,
+              "active_gt_1um_vertices": 174
+            }
+          },
+          "modifiers": [
+            {
+              "type": "ARMATURE",
+              "name": "Armature"
+            }
+          ],
+          "weight_bones": [
+            "index0",
+            "index1",
+            "index2",
+            "little0",
+            "little1",
+            "little2",
+            "middle0",
+            "middle1",
+            "middle2",
+            "ring0",
+            "ring1",
+            "ring2",
+            "thumb0",
+            "thumb1",
+            "thumb2",
+            "wrist"
+          ],
+          "metadata": {},
+          "physical_vertices": 12036,
+          "appended_original_glove_trim_vertices": 2952,
+          "physical_weighted_digit_counts": {},
+          "vertex_attributes": [
+            [
+              "custom_normal",
+              "CORNER",
+              "INT16_2D"
+            ],
+            [
+              "RealismUV",
+              "CORNER",
+              "FLOAT2"
+            ],
+            [
+              ".select_vert",
+              "POINT",
+              "BOOLEAN"
+            ],
+            [
+              ".select_edge",
+              "EDGE",
+              "BOOLEAN"
+            ],
+            [
+              ".select_poly",
+              "FACE",
+              "BOOLEAN"
+            ],
+            [
+              ".uv_select_vert",
+              "CORNER",
+              "BOOLEAN"
+            ],
+            [
+              ".uv_select_edge",
+              "CORNER",
+              "BOOLEAN"
+            ],
+            [
+              ".uv_select_face",
+              "FACE",
+              "BOOLEAN"
+            ],
+            [
+              "material_index",
+              "FACE",
+              "INT"
+            ],
+            [
+              "position",
+              "POINT",
+              "FLOAT_VECTOR"
+            ],
+            [
+              ".edge_verts",
+              "EDGE",
+              "INT32_2D"
+            ],
+            [
+              ".corner_vert",
+              "CORNER",
+              "INT"
+            ],
+            [
+              ".corner_edge",
+              "CORNER",
+              "INT"
+            ],
+            [
+              "sharp_edge",
+              "EDGE",
+              "BOOLEAN"
+            ]
+          ]
+        },
+        "nail_index": {
+          "object": "Nail_index.001",
+          "vertices": 322,
+          "polygons": 352,
+          "triangles": 640,
+          "materials": {
+            "Detailed_Nail": {
+              "polygons": 352,
+              "triangles": 640,
+              "vertices": 322
+            }
+          },
+          "bounds_native_m": [
+            [
+              -0.04396543651819229,
+              0.1644359678030014,
+              0.00825910922139883
+            ],
+            [
+              -0.034157492220401764,
+              0.17941062152385712,
+              0.016973180696368217
+            ]
+          ],
+          "uv_layers": [
+            "RealismUV"
+          ],
+          "active_uv": "RealismUV",
+          "shape_keys": {},
+          "modifiers": [
+            {
+              "type": "ARMATURE",
+              "name": "DetailSkin"
+            }
+          ],
+          "weight_bones": [
+            "index2"
+          ],
+          "metadata": {},
+          "rigid_distal_weights_exact": true
+        },
+        "nail_little": {
+          "object": "Nail_little.001",
+          "vertices": 322,
+          "polygons": 352,
+          "triangles": 640,
+          "materials": {
+            "Detailed_Nail": {
+              "polygons": 352,
+              "triangles": 640,
+              "vertices": 322
+            }
+          },
+          "bounds_native_m": [
+            [
+              0.06271182745695114,
+              0.12830083072185516,
+              0.004353974014520645
+            ],
+            [
+              0.07323827594518661,
+              0.14413557946681976,
+              0.011848146095871925
+            ]
+          ],
+          "uv_layers": [
+            "RealismUV"
+          ],
+          "active_uv": "RealismUV",
+          "shape_keys": {},
+          "modifiers": [
+            {
+              "type": "ARMATURE",
+              "name": "DetailSkin"
+            }
+          ],
+          "weight_bones": [
+            "little2"
+          ],
+          "metadata": {},
+          "rigid_distal_weights_exact": true
+        },
+        "nail_middle": {
+          "object": "Nail_middle.001",
+          "vertices": 322,
+          "polygons": 352,
+          "triangles": 640,
+          "materials": {
+            "Detailed_Nail": {
+              "polygons": 352,
+              "triangles": 640,
+              "vertices": 322
+            }
+          },
+          "bounds_native_m": [
+            [
+              -0.009483368135988712,
+              0.1817244440317154,
+              0.014316157437860966
+            ],
+            [
+              0.0003351946361362934,
+              0.19882327318191528,
+              0.02169829234480858
+            ]
+          ],
+          "uv_layers": [
+            "RealismUV"
+          ],
+          "active_uv": "RealismUV",
+          "shape_keys": {},
+          "modifiers": [
+            {
+              "type": "ARMATURE",
+              "name": "DetailSkin"
+            }
+          ],
+          "weight_bones": [
+            "middle2"
+          ],
+          "metadata": {},
+          "rigid_distal_weights_exact": true
+        },
+        "nail_ring": {
+          "object": "Nail_ring.001",
+          "vertices": 322,
+          "polygons": 352,
+          "triangles": 640,
+          "materials": {
+            "Detailed_Nail": {
+              "polygons": 352,
+              "triangles": 640,
+              "vertices": 322
+            }
+          },
+          "bounds_native_m": [
+            [
+              0.024046089500188828,
+              0.17009851336479187,
+              0.007642267271876335
+            ],
+            [
+              0.032989006489515305,
+              0.18568231165409088,
+              0.01603294536471367
+            ]
+          ],
+          "uv_layers": [
+            "RealismUV"
+          ],
+          "active_uv": "RealismUV",
+          "shape_keys": {},
+          "modifiers": [
+            {
+              "type": "ARMATURE",
+              "name": "DetailSkin"
+            }
+          ],
+          "weight_bones": [
+            "ring2"
+          ],
+          "metadata": {},
+          "rigid_distal_weights_exact": true
+        },
+        "nail_thumb": {
+          "object": "Nail_thumb.001",
+          "vertices": 322,
+          "polygons": 352,
+          "triangles": 640,
+          "materials": {
+            "Detailed_Nail": {
+              "polygons": 352,
+              "triangles": 640,
+              "vertices": 322
+            }
+          },
+          "bounds_native_m": [
+            [
+              -0.0815228819847107,
+              0.07902336120605469,
+              -0.02330970950424671
+            ],
+            [
+              -0.06655170768499374,
+              0.10256074368953705,
+              -0.011073130182921886
+            ]
+          ],
+          "uv_layers": [
+            "RealismUV"
+          ],
+          "active_uv": "RealismUV",
+          "shape_keys": {},
+          "modifiers": [
+            {
+              "type": "ARMATURE",
+              "name": "DetailSkin"
+            }
+          ],
+          "weight_bones": [
+            "thumb2"
+          ],
+          "metadata": {},
+          "rigid_distal_weights_exact": true
+        },
+        "WristCuff": {
+          "object": "WristCuff.001_Surface.001",
+          "vertices": 4608,
+          "polygons": 4608,
+          "triangles": 9216,
+          "materials": {
+            "Detailed_Glove": {
+              "polygons": 4608,
+              "triangles": 9216,
+              "vertices": 4608
+            }
+          },
+          "bounds_native_m": [
+            [
+              -0.054089974611997604,
+              -0.09000000357627869,
+              -0.04360717535018921
+            ],
+            [
+              0.0563330352306366,
+              -0.009999999776482582,
+              0.045307718217372894
+            ]
+          ],
+          "uv_layers": [
+            "RealismUV"
+          ],
+          "active_uv": "RealismUV",
+          "shape_keys": {},
+          "modifiers": [],
+          "weight_bones": [],
+          "metadata": {
+            "wrist_flex_version": 1,
+            "wrist_flex_start_z": 0.014,
+            "wrist_flex_end_z": 0.075
+          }
+        },
+        "Forearm": {
+          "object": "Forearm.001_Surface.001",
+          "vertices": 8229,
+          "polygons": 13170,
+          "triangles": 13836,
+          "materials": {
+            "Detailed_Sleeve": {
+              "polygons": 12504,
+              "triangles": 12504,
+              "vertices": 7485
+            },
+            "Detailed_Trim": {
+              "polygons": 666,
+              "triangles": 1332,
+              "vertices": 744
+            }
+          },
+          "bounds_native_m": [
+            [
+              -0.0736331045627594,
+              -0.2709999978542328,
+              -0.05997928977012634
+            ],
+            [
+              0.07324445992708206,
+              -0.07699999958276749,
+              0.059555329382419586
+            ]
+          ],
+          "uv_layers": [
+            "RealismUV"
+          ],
+          "active_uv": "RealismUV",
+          "shape_keys": {},
+          "modifiers": [],
+          "weight_bones": [],
+          "metadata": {}
+        },
+        "UpperArm": {
+          "object": "UpperArm.001_Surface.001",
+          "vertices": 4986,
+          "polygons": 9118,
+          "triangles": 9484,
+          "materials": {
+            "Detailed_Sleeve": {
+              "polygons": 8752,
+              "triangles": 8752,
+              "vertices": 4578
+            },
+            "Detailed_Trim": {
+              "polygons": 366,
+              "triangles": 732,
+              "vertices": 408
+            }
+          },
+          "bounds_native_m": [
+            [
+              -0.0917714312672615,
+              -0.6060000061988831,
+              -0.08263678848743439
+            ],
+            [
+              0.09310531616210938,
+              -0.2239447385072708,
+              0.07762858271598816
+            ]
+          ],
+          "uv_layers": [
+            "RealismUV"
+          ],
+          "active_uv": "RealismUV",
+          "shape_keys": {},
+          "modifiers": [],
+          "weight_bones": [],
+          "metadata": {}
+        }
+      },
+      "landmarks": {
+        "thumb": {
+          "0": {
+            "bone_head_native_m": [
+              -0.028703855350613594,
+              0.0062499940395355225,
+              -0.0045189326629042625
+            ],
+            "bone_axis_native": [
+              -0.6366448998451233,
+              0.7413319945335388,
+              -0.2123917192220688
+            ],
+            "plane_edge_intersections": 130,
+            "surface_section_center_native_m": [
+              -0.026418203487992287,
+              0.007676854729652405,
+              -0.0063898684456944466
+            ],
+            "width_m": 0.02050584042444825,
+            "depth_m": 0.04427247741841711,
+            "dorsal_surface_native_m": [
+              -0.02948131039738655,
+              0.011243644170463085,
+              0.015241325832903385
+            ],
+            "palm_surface_native_m": [
+              -0.023355096578598022,
+              0.004110065288841724,
+              -0.028021063655614853
+            ],
+            "bone_head_to_surface_center_m": 0.003280325669411592
+          },
+          "1": {
+            "bone_head_native_m": [
+              -0.06110820174217224,
+              0.04398276284337044,
+              -0.015329377725720406
+            ],
+            "bone_axis_native": [
+              -0.37745192646980286,
+              0.8977964520454407,
+              -0.22691743075847626
+            ],
+            "plane_edge_intersections": 190,
+            "surface_section_center_native_m": [
+              -0.047668714076280594,
+              0.05038105323910713,
+              -0.012369709089398384
+            ],
+            "width_m": 0.0420364742167294,
+            "depth_m": 0.036613836578908376,
+            "dorsal_surface_native_m": [
+              -0.049278706312179565,
+              0.054210539907217026,
+              0.005459655076265335
+            ],
+            "palm_surface_native_m": [
+              -0.04605872184038162,
+              0.04655156657099724,
+              -0.030199073255062103
+            ],
+            "bone_head_to_surface_center_m": 0.01517621777985515
+          },
+          "2": {
+            "bone_head_native_m": [
+              -0.07329555600881577,
+              0.07297128438949585,
+              -0.022656206041574478
+            ],
+            "bone_axis_native": [
+              -0.3572234809398651,
+              0.9226189255714417,
+              -0.14548422396183014
+            ],
+            "plane_edge_intersections": 128,
+            "surface_section_center_native_m": [
+              -0.06818628311157227,
+              0.0750637799501419,
+              -0.021931573748588562
+            ],
+            "width_m": 0.020708479976747185,
+            "depth_m": 0.022767091853893362,
+            "dorsal_surface_native_m": [
+              -0.06878425180912018,
+              0.07660818845033646,
+              -0.010669142939150333
+            ],
+            "palm_surface_native_m": [
+              -0.06758831441402435,
+              0.07351937144994736,
+              -0.033194005489349365
+            ],
+            "bone_head_to_surface_center_m": 0.005568509616145355
+          },
+          "nail": {
+            "centroid_native_m": [
+              -0.0742998868227005,
+              0.09093812108039856,
+              -0.015351539477705956
+            ],
+            "bounds_native_m": [
+              [
+                -0.0815228819847107,
+                0.07902336120605469,
+                -0.02330970950424671
+              ],
+              [
+                -0.06655170768499374,
+                0.10256074368953705,
+                -0.011073130182921886
+              ]
+            ]
+          }
+        },
+        "index": {
+          "0": {
+            "bone_head_native_m": [
+              -0.030948199331760406,
+              0.08994964510202408,
+              0.013059286400675774
+            ],
+            "bone_axis_native": [
+              -0.07282345741987228,
+              0.9949349164962769,
+              0.06929071992635727
+            ],
+            "plane_edge_intersections": 128,
+            "surface_section_center_native_m": [
+              -0.029356908053159714,
+              0.08994411677122116,
+              0.01481116283684969
+            ],
+            "width_m": 0.023072186057106592,
+            "depth_m": 0.030065359927903046,
+            "dorsal_surface_native_m": [
+              -0.029280871152877808,
+              0.08890526741743088,
+              0.029807712882757187
+            ],
+            "palm_surface_native_m": [
+              -0.02943294495344162,
+              0.09098296612501144,
+              -0.0001853862777352333
+            ],
+            "bone_head_to_surface_center_m": 0.0023667085655563348
+          },
+          "1": {
+            "bone_head_native_m": [
+              -0.034029971808195114,
+              0.13205364346504211,
+              0.015991557389497757
+            ],
+            "bone_axis_native": [
+              -0.06934366375207901,
+              0.976725161075592,
+              -0.20297633111476898
+            ],
+            "plane_edge_intersections": 136,
+            "surface_section_center_native_m": [
+              -0.03643818199634552,
+              0.1320255994796753,
+              0.01667935959994793
+            ],
+            "width_m": 0.019386974379358435,
+            "depth_m": 0.01955396591938552,
+            "dorsal_surface_native_m": [
+              -0.036578718572854996,
+              0.1340051144361496,
+              0.02625282108783722
+            ],
+            "palm_surface_native_m": [
+              -0.036297645419836044,
+              0.130046084523201,
+              0.007105897180736065
+            ],
+            "bone_head_to_surface_center_m": 0.002504662557770016
+          },
+          "2": {
+            "bone_head_native_m": [
+              -0.03596511483192444,
+              0.15931077301502228,
+              0.010327156633138657
+            ],
+            "bone_axis_native": [
+              -0.12537284195423126,
+              0.971723735332489,
+              -0.20008645951747894
+            ],
+            "plane_edge_intersections": 142,
+            "surface_section_center_native_m": [
+              -0.0388837605714798,
+              0.1591399908065796,
+              0.011326557956635952
+            ],
+            "width_m": 0.016955125880485866,
+            "depth_m": 0.015306013588997303,
+            "dorsal_surface_native_m": [
+              -0.0390797033905983,
+              0.16065867245197296,
+              0.018824808299541473
+            ],
+            "palm_surface_native_m": [
+              -0.0386878177523613,
+              0.15762130916118622,
+              0.003828308079391718
+            ],
+            "bone_head_to_surface_center_m": 0.0030897350138968807
+          },
+          "nail": {
+            "centroid_native_m": [
+              -0.03924824297428131,
+              0.1716340184211731,
+              0.01214165985584259
+            ],
+            "bounds_native_m": [
+              [
+                -0.04396543651819229,
+                0.1644359678030014,
+                0.00825910922139883
+              ],
+              [
+                -0.034157492220401764,
+                0.17941062152385712,
+                0.016973180696368217
+              ]
+            ]
+          }
+        },
+        "middle": {
+          "0": {
+            "bone_head_native_m": [
+              -0.0040914881974458694,
+              0.10123647004365921,
+              0.017029747366905212
+            ],
+            "bone_axis_native": [
+              -0.021043146029114723,
+              0.9948837161064148,
+              0.09881170094013214
+            ],
+            "plane_edge_intersections": 78,
+            "surface_section_center_native_m": [
+              -0.004354409873485565,
+              0.10119644552469254,
+              0.01737675815820694
+            ],
+            "width_m": 0.025878109515360848,
+            "depth_m": 0.02963756036228915,
+            "dorsal_surface_native_m": [
+              -0.004323445726186037,
+              0.09973250329494476,
+              0.03212301805615425
+            ],
+            "palm_surface_native_m": [
+              -0.004385374020785093,
+              0.10266038775444031,
+              0.002630499191582203
+            ],
+            "bone_head_to_surface_center_m": 0.00043720276422359194
+          },
+          "1": {
+            "bone_head_native_m": [
+              -0.005085396580398083,
+              0.1482268124818802,
+              0.02169681154191494
+            ],
+            "bone_axis_native": [
+              0.02029949612915516,
+              0.9744662642478943,
+              -0.22361457347869873
+            ],
+            "plane_edge_intersections": 128,
+            "surface_section_center_native_m": [
+              -0.0049555329605937,
+              0.14836753904819489,
+              0.022321809083223343
+            ],
+            "width_m": 0.01881299731553554,
+            "depth_m": 0.01870237502953387,
+            "dorsal_surface_native_m": [
+              -0.004911982454359531,
+              0.15045814216136932,
+              0.03143620491027832
+            ],
+            "palm_surface_native_m": [
+              -0.004999083466827869,
+              0.14627693593502045,
+              0.013207415118813515
+            ],
+            "bone_head_to_surface_center_m": 0.0006536745723834922
+          },
+          "2": {
+            "bone_head_native_m": [
+              -0.004509108141064644,
+              0.1758912205696106,
+              0.015348558314144611
+            ],
+            "bone_axis_native": [
+              -0.03837252035737038,
+              0.9811650514602661,
+              -0.18932144343852997
+            ],
+            "plane_edge_intersections": 130,
+            "surface_section_center_native_m": [
+              -0.0047438982874155045,
+              0.17601832747459412,
+              0.016054842621088028
+            ],
+            "width_m": 0.016803218607037707,
+            "depth_m": 0.015206028890361267,
+            "dorsal_surface_native_m": [
+              -0.004800149705260992,
+              0.17745664715766907,
+              0.02352035790681839
+            ],
+            "palm_surface_native_m": [
+              -0.004687646869570017,
+              0.17458000779151917,
+              0.008589327335357666
+            ],
+            "bone_head_to_surface_center_m": 0.0007550629589914579
+          },
+          "nail": {
+            "centroid_native_m": [
+              -0.004651415161788464,
+              0.18984080851078033,
+              0.01747223548591137
+            ],
+            "bounds_native_m": [
+              [
+                -0.009483368135988712,
+                0.1817244440317154,
+                0.014316157437860966
+              ],
+              [
+                0.0003351946361362934,
+                0.19882327318191528,
+                0.02169829234480858
+              ]
+            ]
+          }
+        },
+        "ring": {
+          "0": {
+            "bone_head_native_m": [
+              0.02348056621849537,
+              0.09373853355646133,
+              0.011226736940443516
+            ],
+            "bone_axis_native": [
+              0.0642896443605423,
+              0.9863789081573486,
+              0.15140528976917267
+            ],
+            "plane_edge_intersections": 96,
+            "surface_section_center_native_m": [
+              0.02272934652864933,
+              0.09349041432142258,
+              0.013162178918719292
+            ],
+            "width_m": 0.024430649566056672,
+            "depth_m": 0.028787697381631006,
+            "dorsal_surface_native_m": [
+              0.02258760668337345,
+              0.09131572395563126,
+              0.027390092611312866
+            ],
+            "palm_surface_native_m": [
+              0.02287108637392521,
+              0.0956651046872139,
+              -0.0010657347738742828
+            ],
+            "bone_head_to_surface_center_m": 0.0020908920967926694
+          },
+          "1": {
+            "bone_head_native_m": [
+              0.026413017883896828,
+              0.13873030245304108,
+              0.018132800236344337
+            ],
+            "bone_axis_native": [
+              0.04335321485996246,
+              0.9470332860946655,
+              -0.3181956708431244
+            ],
+            "plane_edge_intersections": 134,
+            "surface_section_center_native_m": [
+              0.025270624086260796,
+              0.13909265398979187,
+              0.019055599346756935
+            ],
+            "width_m": 0.01722575433905149,
+            "depth_m": 0.01725762224305072,
+            "dorsal_surface_native_m": [
+              0.025396183133125305,
+              0.14183543622493744,
+              0.027235928922891617
+            ],
+            "palm_surface_native_m": [
+              0.025145065039396286,
+              0.1363498717546463,
+              0.010875270701944828
+            ],
+            "bone_head_to_surface_center_m": 0.001512587332352518
+          },
+          "2": {
+            "bone_head_native_m": [
+              0.02757013775408268,
+              0.16400711238384247,
+              0.009639998897910118
+            ],
+            "bone_axis_native": [
+              0.051501888781785965,
+              0.9779313802719116,
+              -0.20247916877269745
+            ],
+            "plane_edge_intersections": 136,
+            "surface_section_center_native_m": [
+              0.027987858280539513,
+              0.16425301134586334,
+              0.010933896526694298
+            ],
+            "width_m": 0.015701645167609968,
+            "depth_m": 0.01564876760039624,
+            "dorsal_surface_native_m": [
+              0.028071178123354912,
+              0.16583509743213654,
+              0.018596209585666656
+            ],
+            "palm_surface_native_m": [
+              0.027904538437724113,
+              0.16267092525959015,
+              0.0032715825363993645
+            ],
+            "bone_head_to_surface_center_m": 0.001381711892422998
+          },
+          "nail": {
+            "centroid_native_m": [
+              0.028622109442949295,
+              0.17736482620239258,
+              0.011345726437866688
+            ],
+            "bounds_native_m": [
+              [
+                0.024046089500188828,
+                0.17009851336479187,
+                0.007642267271876335
+              ],
+              [
+                0.032989006489515305,
+                0.18568231165409088,
+                0.01603294536471367
+              ]
+            ]
+          }
+        },
+        "little": {
+          "0": {
+            "bone_head_native_m": [
+              0.043575868010520935,
+              0.07553783804178238,
+              0.0058399769477546215
+            ],
+            "bone_axis_native": [
+              0.4213850796222687,
+              0.9027467966079712,
+              0.08650398254394531
+            ],
+            "plane_edge_intersections": 100,
+            "surface_section_center_native_m": [
+              0.039670538157224655,
+              0.07726189494132996,
+              0.006871864199638367
+            ],
+            "width_m": 0.019225201453082263,
+            "depth_m": 0.02713093401689548,
+            "dorsal_surface_native_m": [
+              0.039174195379018784,
+              0.07619856297969818,
+              0.020386481657624245
+            ],
+            "palm_surface_native_m": [
+              0.04016688093543053,
+              0.07832522690296173,
+              -0.006642753258347511
+            ],
+            "bone_head_to_surface_center_m": 0.004391897624856048
+          },
+          "1": {
+            "bone_head_native_m": [
+              0.057618845254182816,
+              0.1056225597858429,
+              0.008722786791622639
+            ],
+            "bone_axis_native": [
+              0.38378050923347473,
+              0.9141159057617188,
+              -0.13078494369983673
+            ],
+            "plane_edge_intersections": 128,
+            "surface_section_center_native_m": [
+              0.05321623012423515,
+              0.10756310820579529,
+              0.009366968646645546
+            ],
+            "width_m": 0.01629565062467009,
+            "depth_m": 0.015504104885621928,
+            "dorsal_surface_native_m": [
+              0.05360869690775871,
+              0.10849791765213013,
+              0.017052436247467995
+            ],
+            "palm_surface_native_m": [
+              0.052823763340711594,
+              0.10662829875946045,
+              0.00168150058016181
+            ],
+            "bone_head_to_surface_center_m": 0.004854247483172201
+          },
+          "2": {
+            "bone_head_native_m": [
+              0.06507101655006409,
+              0.1233726441860199,
+              0.006183234974741936
+            ],
+            "bone_axis_native": [
+              0.4035269618034363,
+              0.8994031548500061,
+              -0.1680472493171692
+            ],
+            "plane_edge_intersections": 128,
+            "surface_section_center_native_m": [
+              0.06309516727924347,
+              0.12438175082206726,
+              0.006839527748525143
+            ],
+            "width_m": 0.013249064330011606,
+            "depth_m": 0.012475626895053438,
+            "dorsal_surface_native_m": [
+              0.0635242685675621,
+              0.12533815205097198,
+              0.012988632544875145
+            ],
+            "palm_surface_native_m": [
+              0.06266606599092484,
+              0.12342534959316254,
+              0.0006904229521751404
+            ],
+            "bone_head_to_surface_center_m": 0.0023136544548356406
+          },
+          "nail": {
+            "centroid_native_m": [
+              0.0681234821677208,
+              0.13602809607982635,
+              0.00806618481874466
+            ],
+            "bounds_native_m": [
+              [
+                0.06271182745695114,
+                0.12830083072185516,
+                0.004353974014520645
+              ],
+              [
+                0.07323827594518661,
+                0.14413557946681976,
+                0.011848146095871925
+              ]
+            ]
+          }
+        }
+      }
+    }
+  },
+  "materials": {
+    "Detailed_Nail": {
+      "images": [
+        {
+          "node": "Baked_basecolor",
+          "image": "realistic_hands_basecolor",
+          "size": [
+            4096,
+            4096
+          ],
+          "colorspace": "sRGB",
+          "packed_sha256": [
+            "2eb2e2492e8e90bd57d5d61bc9bc14e01ec371e7d01479280a328e8eefe4ba62"
+          ]
+        },
+        {
+          "node": "Baked_roughness",
+          "image": "realistic_hands_roughness",
+          "size": [
+            4096,
+            4096
+          ],
+          "colorspace": "Non-Color",
+          "packed_sha256": [
+            "ff197ffba75d15654af57ef1eac65748da9036f8f29c2c90975f4d3bdd2da8ca"
+          ]
+        },
+        {
+          "node": "Baked_normal",
+          "image": "realistic_hands_normal",
+          "size": [
+            4096,
+            4096
+          ],
+          "colorspace": "Non-Color",
+          "packed_sha256": [
+            "2152cfac4c8b61b910b688b5211e4f7b994ae5c21a562c2598bba88f5020cf8d"
+          ]
+        }
+      ],
+      "links": [
+        [
+          "Principled BSDF",
+          "BSDF",
+          "Material Output",
+          "Surface"
+        ],
+        [
+          "Baked_basecolor",
+          "Color",
+          "Principled BSDF",
+          "Base Color"
+        ],
+        [
+          "Baked_roughness",
+          "Color",
+          "Principled BSDF",
+          "Roughness"
+        ],
+        [
+          "Baked_normal",
+          "Color",
+          "Normal Map",
+          "Color"
+        ],
+        [
+          "Normal Map",
+          "Normal",
+          "Principled BSDF",
+          "Normal"
+        ]
+      ]
+    },
+    "Detailed_Glove": {
+      "images": [
+        {
+          "node": "Baked_basecolor",
+          "image": "realistic_hands_basecolor",
+          "size": [
+            4096,
+            4096
+          ],
+          "colorspace": "sRGB",
+          "packed_sha256": [
+            "2eb2e2492e8e90bd57d5d61bc9bc14e01ec371e7d01479280a328e8eefe4ba62"
+          ]
+        },
+        {
+          "node": "Baked_roughness",
+          "image": "realistic_hands_roughness",
+          "size": [
+            4096,
+            4096
+          ],
+          "colorspace": "Non-Color",
+          "packed_sha256": [
+            "ff197ffba75d15654af57ef1eac65748da9036f8f29c2c90975f4d3bdd2da8ca"
+          ]
+        },
+        {
+          "node": "Baked_normal",
+          "image": "realistic_hands_normal",
+          "size": [
+            4096,
+            4096
+          ],
+          "colorspace": "Non-Color",
+          "packed_sha256": [
+            "2152cfac4c8b61b910b688b5211e4f7b994ae5c21a562c2598bba88f5020cf8d"
+          ]
+        }
+      ],
+      "links": [
+        [
+          "Principled BSDF",
+          "BSDF",
+          "Material Output",
+          "Surface"
+        ],
+        [
+          "Baked_basecolor",
+          "Color",
+          "Principled BSDF",
+          "Base Color"
+        ],
+        [
+          "Baked_roughness",
+          "Color",
+          "Principled BSDF",
+          "Roughness"
+        ],
+        [
+          "Baked_normal",
+          "Color",
+          "Normal Map",
+          "Color"
+        ],
+        [
+          "Normal Map",
+          "Normal",
+          "Principled BSDF",
+          "Normal"
+        ]
+      ]
+    },
+    "Detailed_Skin": {
+      "images": [
+        {
+          "node": "Baked_basecolor",
+          "image": "realistic_hands_basecolor",
+          "size": [
+            4096,
+            4096
+          ],
+          "colorspace": "sRGB",
+          "packed_sha256": [
+            "2eb2e2492e8e90bd57d5d61bc9bc14e01ec371e7d01479280a328e8eefe4ba62"
+          ]
+        },
+        {
+          "node": "Baked_roughness",
+          "image": "realistic_hands_roughness",
+          "size": [
+            4096,
+            4096
+          ],
+          "colorspace": "Non-Color",
+          "packed_sha256": [
+            "ff197ffba75d15654af57ef1eac65748da9036f8f29c2c90975f4d3bdd2da8ca"
+          ]
+        },
+        {
+          "node": "Baked_normal",
+          "image": "realistic_hands_normal",
+          "size": [
+            4096,
+            4096
+          ],
+          "colorspace": "Non-Color",
+          "packed_sha256": [
+            "2152cfac4c8b61b910b688b5211e4f7b994ae5c21a562c2598bba88f5020cf8d"
+          ]
+        }
+      ],
+      "links": [
+        [
+          "Principled BSDF",
+          "BSDF",
+          "Material Output",
+          "Surface"
+        ],
+        [
+          "Baked_basecolor",
+          "Color",
+          "Principled BSDF",
+          "Base Color"
+        ],
+        [
+          "Baked_roughness",
+          "Color",
+          "Principled BSDF",
+          "Roughness"
+        ],
+        [
+          "Baked_normal",
+          "Color",
+          "Normal Map",
+          "Color"
+        ],
+        [
+          "Normal Map",
+          "Normal",
+          "Principled BSDF",
+          "Normal"
+        ]
+      ]
+    },
+    "Detailed_Sleeve": {
+      "images": [
+        {
+          "node": "Baked_basecolor",
+          "image": "realistic_hands_basecolor",
+          "size": [
+            4096,
+            4096
+          ],
+          "colorspace": "sRGB",
+          "packed_sha256": [
+            "2eb2e2492e8e90bd57d5d61bc9bc14e01ec371e7d01479280a328e8eefe4ba62"
+          ]
+        },
+        {
+          "node": "Baked_roughness",
+          "image": "realistic_hands_roughness",
+          "size": [
+            4096,
+            4096
+          ],
+          "colorspace": "Non-Color",
+          "packed_sha256": [
+            "ff197ffba75d15654af57ef1eac65748da9036f8f29c2c90975f4d3bdd2da8ca"
+          ]
+        },
+        {
+          "node": "Baked_normal",
+          "image": "realistic_hands_normal",
+          "size": [
+            4096,
+            4096
+          ],
+          "colorspace": "Non-Color",
+          "packed_sha256": [
+            "2152cfac4c8b61b910b688b5211e4f7b994ae5c21a562c2598bba88f5020cf8d"
+          ]
+        }
+      ],
+      "links": [
+        [
+          "Principled BSDF",
+          "BSDF",
+          "Material Output",
+          "Surface"
+        ],
+        [
+          "Baked_basecolor",
+          "Color",
+          "Principled BSDF",
+          "Base Color"
+        ],
+        [
+          "Baked_roughness",
+          "Color",
+          "Principled BSDF",
+          "Roughness"
+        ],
+        [
+          "Baked_normal",
+          "Color",
+          "Normal Map",
+          "Color"
+        ],
+        [
+          "Normal Map",
+          "Normal",
+          "Principled BSDF",
+          "Normal"
+        ]
+      ]
+    },
+    "Detailed_Trim": {
+      "images": [
+        {
+          "node": "Baked_basecolor",
+          "image": "realistic_hands_basecolor",
+          "size": [
+            4096,
+            4096
+          ],
+          "colorspace": "sRGB",
+          "packed_sha256": [
+            "2eb2e2492e8e90bd57d5d61bc9bc14e01ec371e7d01479280a328e8eefe4ba62"
+          ]
+        },
+        {
+          "node": "Baked_roughness",
+          "image": "realistic_hands_roughness",
+          "size": [
+            4096,
+            4096
+          ],
+          "colorspace": "Non-Color",
+          "packed_sha256": [
+            "ff197ffba75d15654af57ef1eac65748da9036f8f29c2c90975f4d3bdd2da8ca"
+          ]
+        },
+        {
+          "node": "Baked_normal",
+          "image": "realistic_hands_normal",
+          "size": [
+            4096,
+            4096
+          ],
+          "colorspace": "Non-Color",
+          "packed_sha256": [
+            "2152cfac4c8b61b910b688b5211e4f7b994ae5c21a562c2598bba88f5020cf8d"
+          ]
+        }
+      ],
+      "links": [
+        [
+          "Principled BSDF",
+          "BSDF",
+          "Material Output",
+          "Surface"
+        ],
+        [
+          "Baked_basecolor",
+          "Color",
+          "Principled BSDF",
+          "Base Color"
+        ],
+        [
+          "Baked_roughness",
+          "Color",
+          "Principled BSDF",
+          "Roughness"
+        ],
+        [
+          "Baked_normal",
+          "Color",
+          "Normal Map",
+          "Color"
+        ],
+        [
+          "Normal Map",
+          "Normal",
+          "Principled BSDF",
+          "Normal"
+        ]
+      ]
+    }
+  },
+  "source_unchanged": true
+}

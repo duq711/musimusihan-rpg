@@ -1,0 +1,585 @@
+{
+  "source_stage": "corrected_arms before added glove extensions",
+  "arms": [
+    {
+      "side": "left",
+      "source_sha256": "f7e82afdcd98c85e2bcf64ae0aa95df5108bf0af815d19945f155b705e879995",
+      "output_sha256": "33726838da1866284b33821058ef95bcd2e34ffb77f89d9eac00e8bf1e6c7b21",
+      "source": "source_corrected_arms/left_arm.glb",
+      "output": "left_arm.glb",
+      "longitudinal_factor": 0.8,
+      "saved_float32_validation": {
+        "verified_actual_vertices": 23763,
+        "weighted_geometry_max_error_m": 8.147787865323157e-09,
+        "pure_phalanx_local_xz_max_error_m": 1.0602658709335522e-08,
+        "pure_phalanx_y_factor_max_error_m": 2.565730559261903e-08,
+        "rest_times_inverse_bind_max_identity_error": 1.700023277706464e-07,
+        "source_rest_times_inverse_bind_max_identity_error": 1.700023277706464e-07,
+        "rest_times_inverse_bind_max_change": 6.979740813095603e-09,
+        "weights_uv_indices_rechecked_byte_exact": true
+      },
+      "preserved_global_anchors_y_up": {
+        "wrist": [
+          0.0,
+          0.0,
+          0.05624999850988388
+        ],
+        "thumb0": [
+          0.03749999776482582,
+          -0.005316390655934796,
+          -0.006249994039535509
+        ],
+        "thumb1": [
+          0.07500000229865947,
+          -0.015254763065967732,
+          -0.043749986966511716
+        ],
+        "little0": [
+          -0.05375000089406967,
+          0.010122789070010213,
+          -0.07499999552965161
+        ],
+        "ring0": [
+          -0.028750000521540642,
+          0.01645631901919845,
+          -0.09374999254941938
+        ],
+        "middle0": [
+          0.005000000353902578,
+          0.023313136771321328,
+          -0.1012500002980232
+        ],
+        "index0": [
+          0.03749999776482582,
+          0.018623864278197316,
+          -0.08999998122453687
+        ]
+      },
+      "actual_joint_and_skin_lengths": [
+        {
+          "digit": "little",
+          "segments": [
+            {
+              "parent": "little0",
+              "child": "little1",
+              "old_m": 0.04601000249385835,
+              "new_m": 0.03680800199508669
+            },
+            {
+              "parent": "little1",
+              "child": "little2",
+              "old_m": 0.02746061794459825,
+              "new_m": 0.021968494355678603
+            },
+            {
+              "distal_measurement": "actual single-bone distal skin extent in bone-local Y (GLB has no leaf tail length)",
+              "sample_count": 535,
+              "old_y_bounds": [
+                0.010021761318307232,
+                0.033057589026770584
+              ],
+              "new_y_bounds": [
+                0.008017415987472187,
+                0.02644607707767127
+              ]
+            }
+          ]
+        },
+        {
+          "digit": "ring",
+          "segments": [
+            {
+              "parent": "ring0",
+              "child": "ring1",
+              "old_m": 0.057019993662834216,
+              "new_m": 0.04561599493026737
+            },
+            {
+              "parent": "ring1",
+              "child": "ring2",
+              "old_m": 0.03645888715982488,
+              "new_m": 0.029167109727859908
+            },
+            {
+              "distal_measurement": "actual single-bone distal skin extent in bone-local Y (GLB has no leaf tail length)",
+              "sample_count": 462,
+              "old_y_bounds": [
+                0.01356730865723832,
+                0.03043333788383809
+              ],
+              "new_y_bounds": [
+                0.010853844109809108,
+                0.02434666765664284
+              ]
+            }
+          ]
+        },
+        {
+          "digit": "middle",
+          "segments": [
+            {
+              "parent": "middle0",
+              "child": "middle1",
+              "old_m": 0.05904659628868105,
+              "new_m": 0.04723727703094484
+            },
+            {
+              "parent": "middle1",
+              "child": "middle2",
+              "old_m": 0.037049289792776295,
+              "new_m": 0.02963943183422104
+            },
+            {
+              "distal_measurement": "actual single-bone distal skin extent in bone-local Y (GLB has no leaf tail length)",
+              "sample_count": 443,
+              "old_y_bounds": [
+                0.014177343528088637,
+                0.03157703919258137
+              ],
+              "new_y_bounds": [
+                0.011341862818798787,
+                0.025261620773497195
+              ]
+            }
+          ]
+        },
+        {
+          "digit": "index",
+          "segments": [
+            {
+              "parent": "index0",
+              "child": "index1",
+              "old_m": 0.05400536954402924,
+              "new_m": 0.043204295635223405
+            },
+            {
+              "parent": "index1",
+              "child": "index2",
+              "old_m": 0.03667701780796063,
+              "new_m": 0.0293416142463685
+            },
+            {
+              "distal_measurement": "actual single-bone distal skin extent in bone-local Y (GLB has no leaf tail length)",
+              "sample_count": 456,
+              "old_y_bounds": [
+                0.01190292992468936,
+                0.029371396722717935
+              ],
+              "new_y_bounds": [
+                0.009522353504375664,
+                0.023497125054602525
+              ]
+            }
+          ]
+        },
+        {
+          "digit": "thumb",
+          "segments": [
+            {
+              "parent": "thumb0",
+              "child": "thumb1",
+              "old_m": 0.05395619571208958,
+              "new_m": 0.05395619571208958
+            },
+            {
+              "parent": "thumb1",
+              "child": "thumb2",
+              "old_m": 0.03909112140536384,
+              "new_m": 0.03127289712429107
+            },
+            {
+              "distal_measurement": "actual single-bone distal skin extent in bone-local Y (GLB has no leaf tail length)",
+              "sample_count": 476,
+              "old_y_bounds": [
+                0.009554412652645339,
+                0.04064695103744431
+              ],
+              "new_y_bounds": [
+                0.0076435098191036666,
+                0.03251753742246191
+              ]
+            }
+          ]
+        }
+      ],
+      "meshes": [
+        {
+          "name": "ContinuousAnatomicalHand",
+          "before_bounds": {
+            "min": [
+              -0.09774097800254822,
+              -0.04177078977227211,
+              -0.22548028826713562
+            ],
+            "max": [
+              0.10872320830821991,
+              0.04317372664809227,
+              0.056126918643713
+            ]
+          },
+          "after_bounds": {
+            "min": [
+              -0.08961543550882294,
+              -0.03937726319394093,
+              -0.2007831231360835
+            ],
+            "max": [
+              0.1034386031409272,
+              0.04328059136983755,
+              0.056126918643713
+            ]
+          },
+          "vertices": 12036,
+          "weights_uv_indices_materials_preserved": true
+        },
+        {
+          "name": "FingerlessLeatherGlove",
+          "before_bounds": {
+            "min": [
+              -0.06666287034749985,
+              -0.03807572275400162,
+              -0.12691622972488403
+            ],
+            "max": [
+              0.0925682783126831,
+              0.04561059921979904,
+              0.055998679250478745
+            ]
+          },
+          "after_bounds": {
+            "min": [
+              -0.06491577758649882,
+              -0.03807572275400162,
+              -0.12188252319185759
+            ],
+            "max": [
+              0.09055555952706404,
+              0.0457126772118763,
+              0.055998679250478745
+            ]
+          },
+          "vertices": 11727,
+          "weights_uv_indices_materials_preserved": true
+        }
+      ],
+      "pure_phalanx_vertex_count": 3743,
+      "maximum_pure_local_xz_change_m": 8.59090096283488e-09,
+      "maximum_pure_local_y_scale_error_m": 2.3482953054321243e-08,
+      "unchanged_pure_wrist_palm_vertices": 1516,
+      "blended_wrist_finger_junction_vertices": 5871,
+      "maximum_blended_wrist_finger_junction_shift_m": 0.003039750146122723,
+      "original_rigid_meshes": [
+        {
+          "name": "Forearm_Surface",
+          "unchanged_sha256": "5523f749aecf67f5e239d57095aea8d195f4cedc29514121ec6e396d37b66abf"
+        },
+        {
+          "name": "UpperArm_Surface",
+          "unchanged_sha256": "f6d916e12301c3a58f4101200230cef14a6634f1202ad43ea648beb511b9a758"
+        },
+        {
+          "name": "WristCuff_Surface",
+          "unchanged_sha256": "f07d6ba44c3309714ad90513c63d07058996e909d78785696758a48a396f80f7"
+        }
+      ],
+      "joint_rotations_scales_and_names_unchanged": true,
+      "skin_weights_uv_materials_topology_unchanged": true,
+      "all_other_original_binary_bytes_preserved": true,
+      "bind_change": "only downstream inverse-bind translation elements; original basis/order preserved",
+      "geometry_method": "Pnew=P+sum(affected original weights*(Gnew*scaleY(.8)*oldInverseBind*P-P)); wrist and thumb metacarpal influences identity",
+      "normal_method": "inverse-transpose of weighted local deformation Jacobian; UV tangent transformed and orthogonalized; unaffected palm vertices untouched",
+      "whole_hand_node_scale_added": false,
+      "engine_import_and_gameplay_validation": "pending; root only"
+    },
+    {
+      "side": "right",
+      "source_sha256": "f413710a3caaf00303ced1d54db5fc626a11e4c72d5a5106928e4e5e63f2d322",
+      "output_sha256": "0c885531011e79de4b455bd6ec969029917a93e96996bd21fe0168e8ee39c130",
+      "source": "source_corrected_arms/right_arm.glb",
+      "output": "right_arm.glb",
+      "longitudinal_factor": 0.8,
+      "saved_float32_validation": {
+        "verified_actual_vertices": 23756,
+        "weighted_geometry_max_error_m": 8.110103664079877e-09,
+        "pure_phalanx_local_xz_max_error_m": 1.0602658709335522e-08,
+        "pure_phalanx_y_factor_max_error_m": 2.565730559261903e-08,
+        "rest_times_inverse_bind_max_identity_error": 1.700023277706464e-07,
+        "source_rest_times_inverse_bind_max_identity_error": 1.700023277706464e-07,
+        "rest_times_inverse_bind_max_change": 6.979740813095603e-09,
+        "weights_uv_indices_rechecked_byte_exact": true
+      },
+      "preserved_global_anchors_y_up": {
+        "wrist": [
+          0.0,
+          0.0,
+          0.05624999850988388
+        ],
+        "thumb0": [
+          -0.03749999776482582,
+          -0.005316390655934796,
+          -0.006249994039535509
+        ],
+        "thumb1": [
+          -0.07500000229865947,
+          -0.015254763065967732,
+          -0.043749986966511716
+        ],
+        "little0": [
+          0.05375000089406967,
+          0.010122789070010213,
+          -0.07499999552965161
+        ],
+        "ring0": [
+          0.028750000521540642,
+          0.01645631901919845,
+          -0.09374999254941938
+        ],
+        "middle0": [
+          -0.005000000353902578,
+          0.023313136771321328,
+          -0.1012500002980232
+        ],
+        "index0": [
+          -0.03749999776482582,
+          0.018623864278197316,
+          -0.08999998122453687
+        ]
+      },
+      "actual_joint_and_skin_lengths": [
+        {
+          "digit": "little",
+          "segments": [
+            {
+              "parent": "little0",
+              "child": "little1",
+              "old_m": 0.04601000249385835,
+              "new_m": 0.03680800199508669
+            },
+            {
+              "parent": "little1",
+              "child": "little2",
+              "old_m": 0.02746061794459825,
+              "new_m": 0.021968494355678603
+            },
+            {
+              "distal_measurement": "actual single-bone distal skin extent in bone-local Y (GLB has no leaf tail length)",
+              "sample_count": 535,
+              "old_y_bounds": [
+                0.010021761318307232,
+                0.033057589026770584
+              ],
+              "new_y_bounds": [
+                0.008017415987472187,
+                0.02644607707767127
+              ]
+            }
+          ]
+        },
+        {
+          "digit": "ring",
+          "segments": [
+            {
+              "parent": "ring0",
+              "child": "ring1",
+              "old_m": 0.057019993662834216,
+              "new_m": 0.04561599493026737
+            },
+            {
+              "parent": "ring1",
+              "child": "ring2",
+              "old_m": 0.03645888715982488,
+              "new_m": 0.029167109727859908
+            },
+            {
+              "distal_measurement": "actual single-bone distal skin extent in bone-local Y (GLB has no leaf tail length)",
+              "sample_count": 458,
+              "old_y_bounds": [
+                0.01356730865723832,
+                0.03043333788383809
+              ],
+              "new_y_bounds": [
+                0.010853844109809108,
+                0.02434666765664284
+              ]
+            }
+          ]
+        },
+        {
+          "digit": "middle",
+          "segments": [
+            {
+              "parent": "middle0",
+              "child": "middle1",
+              "old_m": 0.05904659628868105,
+              "new_m": 0.04723727703094484
+            },
+            {
+              "parent": "middle1",
+              "child": "middle2",
+              "old_m": 0.037049289792776295,
+              "new_m": 0.02963943183422104
+            },
+            {
+              "distal_measurement": "actual single-bone distal skin extent in bone-local Y (GLB has no leaf tail length)",
+              "sample_count": 443,
+              "old_y_bounds": [
+                0.014177343528088637,
+                0.03157703919258137
+              ],
+              "new_y_bounds": [
+                0.011341862818798787,
+                0.025261620773497195
+              ]
+            }
+          ]
+        },
+        {
+          "digit": "index",
+          "segments": [
+            {
+              "parent": "index0",
+              "child": "index1",
+              "old_m": 0.05400536954402924,
+              "new_m": 0.043204295635223405
+            },
+            {
+              "parent": "index1",
+              "child": "index2",
+              "old_m": 0.03667701780796063,
+              "new_m": 0.0293416142463685
+            },
+            {
+              "distal_measurement": "actual single-bone distal skin extent in bone-local Y (GLB has no leaf tail length)",
+              "sample_count": 457,
+              "old_y_bounds": [
+                0.011980288712021309,
+                0.029371396722717935
+              ],
+              "new_y_bounds": [
+                0.009584240599424615,
+                0.023497125054602525
+              ]
+            }
+          ]
+        },
+        {
+          "digit": "thumb",
+          "segments": [
+            {
+              "parent": "thumb0",
+              "child": "thumb1",
+              "old_m": 0.05395619571208958,
+              "new_m": 0.05395619571208958
+            },
+            {
+              "parent": "thumb1",
+              "child": "thumb2",
+              "old_m": 0.03909112140536384,
+              "new_m": 0.03127289712429107
+            },
+            {
+              "distal_measurement": "actual single-bone distal skin extent in bone-local Y (GLB has no leaf tail length)",
+              "sample_count": 480,
+              "old_y_bounds": [
+                0.009554412652645339,
+                0.04064695103744431
+              ],
+              "new_y_bounds": [
+                0.0076435098191036666,
+                0.03251753742246191
+              ]
+            }
+          ]
+        }
+      ],
+      "meshes": [
+        {
+          "name": "ContinuousAnatomicalHand.001",
+          "before_bounds": {
+            "min": [
+              -0.10872320830821991,
+              -0.04177078977227211,
+              -0.22548028826713562
+            ],
+            "max": [
+              0.09774097800254822,
+              0.04317372664809227,
+              0.056126918643713
+            ]
+          },
+          "after_bounds": {
+            "min": [
+              -0.1034386031409272,
+              -0.03937726319394093,
+              -0.2007831231360835
+            ],
+            "max": [
+              0.08961543550882294,
+              0.043280609470340965,
+              0.056126918643713
+            ]
+          },
+          "vertices": 12036,
+          "weights_uv_indices_materials_preserved": true
+        },
+        {
+          "name": "FingerlessLeatherGlove.001",
+          "before_bounds": {
+            "min": [
+              -0.0926191434264183,
+              -0.038012150675058365,
+              -0.12688641250133514
+            ],
+            "max": [
+              0.06645119935274124,
+              0.045538339763879776,
+              0.05599323287606239
+            ]
+          },
+          "after_bounds": {
+            "min": [
+              -0.09061464754920648,
+              -0.038012150675058365,
+              -0.12188503453086283
+            ],
+            "max": [
+              0.06471540016723884,
+              0.04564139079941485,
+              0.05599323287606239
+            ]
+          },
+          "vertices": 11720,
+          "weights_uv_indices_materials_preserved": true
+        }
+      ],
+      "pure_phalanx_vertex_count": 3746,
+      "maximum_pure_local_xz_change_m": 8.59090096283488e-09,
+      "maximum_pure_local_y_scale_error_m": 2.3482953054321243e-08,
+      "unchanged_pure_wrist_palm_vertices": 1513,
+      "blended_wrist_finger_junction_vertices": 5874,
+      "maximum_blended_wrist_finger_junction_shift_m": 0.0031187424397582132,
+      "original_rigid_meshes": [
+        {
+          "name": "Forearm.001_Surface",
+          "unchanged_sha256": "e85ca8833b44492e59e363143d22abdaed1e669f015964cb1142518e65e82422"
+        },
+        {
+          "name": "UpperArm.001_Surface",
+          "unchanged_sha256": "49827a9a537b0bd47debbd8c2a3034f3f9a6752ef307cdfb951b2787001e373c"
+        },
+        {
+          "name": "WristCuff.001_Surface",
+          "unchanged_sha256": "de390604a62cf42c21acd1fbda55a338c5d0c96c6352a4ea0ea60fb0540e5012"
+        }
+      ],
+      "joint_rotations_scales_and_names_unchanged": true,
+      "skin_weights_uv_materials_topology_unchanged": true,
+      "all_other_original_binary_bytes_preserved": true,
+      "bind_change": "only downstream inverse-bind translation elements; original basis/order preserved",
+      "geometry_method": "Pnew=P+sum(affected original weights*(Gnew*scaleY(.8)*oldInverseBind*P-P)); wrist and thumb metacarpal influences identity",
+      "normal_method": "inverse-transpose of weighted local deformation Jacobian; UV tangent transformed and orthogonalized; unaffected palm vertices untouched",
+      "whole_hand_node_scale_added": false,
+      "engine_import_and_gameplay_validation": "pending; root only"
+    }
+  ]
+}

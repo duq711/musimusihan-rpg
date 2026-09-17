@@ -1,5 +1,23 @@
 # Chat On Steroids 작업 인계 / Project handoff
 
+## 이 Mac의 준비 상태 / Setup status on this Mac
+
+2026-09-17: 앱 2.1.13 설치와 기존 프로젝트 `/rpg` 등록, ChatGPT 워크스페이스용 터널 생성·지정까지 완료했습니다. 아직 API 키가 입력되지 않아 **Connect**가 비활성화돼 있고, Core 플러그인과 Chrome companion의 실제 연결은 완료되지 않았습니다.
+
+2026-09-17: App 2.1.13 is installed; the existing project is registered as `/rpg`, and a tunnel associated with the ChatGPT workspace is created and selected. **Connect** remains disabled until the API key is entered. The Core plugin and Chrome companion are not yet connected.
+
+사용자가 직접 할 단계: API 키 화면에서 **Restricted → Tunnels: Read + Use**로 키를 만들고 앱의 **Settings → Setup → TUNNEL API KEY**에 입력합니다. 키는 대화에 보내지 않습니다. Chrome에서 `chrome://extensions` → **Developer mode → Load unpacked**를 선택하고 앱의 **Open extension folder**가 가리키는 폴더를 불러옵니다. 이 두 단계 뒤에는 아래 연결 절차를 따라 **Connected**, Core 연결, 실제 파일 읽기를 확인합니다.
+
+User steps: Create a restricted key with **Tunnels: Read + Use** and enter it under **Settings → Setup → TUNNEL API KEY**, without sharing it in chat. In Chrome, open `chrome://extensions`, enable **Developer mode**, choose **Load unpacked**, and select the app's **Open extension folder** location. Then follow the connection steps below and verify **Connected**, Core pairing, and a real project file read.
+
+컴퓨터 제어 도구는 새 인증 정보의 최종 입력을 사용자에게 넘기도록 요구하며, Chrome 확장 관리 페이지에 대한 자동 접근도 보안 정책으로 차단했습니다. 이 상태를 연결 완료로 간주하지 않습니다.
+
+The computer-control tool requires user handoff for new credentials and blocks automated access to Chrome extension management. These remaining steps are not treated as completed.
+
+Codex용 개인 연결 스킬 `chat-on-steroids`와 이후 작업의 연속성 지침을 이 Mac에 저장했습니다. 공유용 [스킬 원본](../skills/chat-on-steroids/SKILL.md)도 포함합니다. 이 스킬은 이번에 작성한 인계 지침이며, 앱 자체가 Codex 안에 설치되거나 모든 대화가 자동 이전된다는 뜻은 아닙니다. 기존 제작 자료의 공유 내역은 [아카이브 안내](WORK_ARCHIVE_20260917.md)를 확인합니다.
+
+A personal `chat-on-steroids` integration skill and persistent continuity preference are saved on this Mac. Its [shareable source](../skills/chat-on-steroids/SKILL.md) is included. This newly authored handoff skill does not embed the app inside Codex or automatically migrate conversations. See the [archive report](WORK_ARCHIVE_20260917.md) for historical materials.
+
 ## 기존 작업을 이어 쓰는 방법 / Continue existing work
 
 Chat On Steroids는 별도 앱입니다. 기존 프로젝트의 최상위 `무시무시한 rpg` 폴더를 Workspace와 프로젝트로 선택하면 게임 코드뿐 아니라 같은 폴더 안의 모델·모션·기획·제작 원본을 필요할 때 읽고 수정할 수 있습니다. 파일을 복제하거나 GitHub에서 다시 받을 필요가 없습니다. 파일 접근 설정은 파일 전체를 대화에 자동 첨부하거나 공개 업로드하는 동작과 다릅니다.

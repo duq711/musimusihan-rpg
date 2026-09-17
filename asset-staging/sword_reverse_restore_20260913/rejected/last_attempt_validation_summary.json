@@ -1,0 +1,56 @@
+{
+  "headless_passed": [
+    "sword_direct_entry",
+    "reference_sword_arm_player",
+    "reference_sword_cut_preview",
+    "sword_edge_alignment",
+    "unified_sword_motion",
+    "reference_sword_motion_test_room",
+    "sword_two_hand_grip",
+    "sword_recovery_continuity",
+    "sword_attack_variants"
+  ],
+  "headless_failed": [],
+  "captures": [
+    {
+      "directory": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/godot-game/artifacts/visual_qa/reference_sword_motion/reverse_match_two_hand",
+      "actual_frames": 182,
+      "approved_forehand_identical_png_frames": 91,
+      "renderer": "vulkan",
+      "display": "embedded",
+      "current_source_hashes_match": true,
+      "expedition_and_cursor_preserved": true
+    },
+    {
+      "directory": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/godot-game/artifacts/visual_qa/reference_sword_motion/reverse_match_shield",
+      "actual_frames": 182,
+      "approved_forehand_identical_png_frames": 91,
+      "renderer": "vulkan",
+      "display": "embedded",
+      "current_source_hashes_match": true,
+      "expedition_and_cursor_preserved": true
+    }
+  ],
+  "accepted_forehand_canonical_sha256": "57b8ec6068eb985402ff70b2a1f34e561c9a1868b64fb39e72050f51d2642a65",
+  "visual_review": [
+    "Reverse retains the same laid blade silhouette and sweeps left to right.",
+    "No sudden blade reversal was seen in follow-through/recovery samples.",
+    "No new sleeve spikes or detached-hand jumps were seen in visible frames.",
+    "Hands are partly below frame during late follow-through; hidden finger surfaces are not a visual pass claim.",
+    "Both approved forehand sequences remain byte-identical in all 91 PNGs each."
+  ],
+  "known_prior_issue_not_rerun": {
+    "test": "sword_clash",
+    "fixture_variant": "right_diagonal",
+    "reason": "The natural-clash fixture exercises the unchanged accepted forehand; previous failure is retained in the preceding validation record.",
+    "record": "../sword_edge_alignment_20260913/validation_summary.json"
+  },
+  "logs": [
+    "preflight.log",
+    "edge_alignment_verified.log",
+    "regressions.log",
+    "two_hand_preview.log",
+    "shield_preview.log"
+  ],
+  "superseded_diagnostic": "edge_alignment.log exposed a Python/Godot parser fingerprint mismatch; immutable baseline verified before updating the test, see edge_fingerprint_source_verification.log"
+}

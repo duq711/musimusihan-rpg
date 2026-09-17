@@ -1,0 +1,2 @@
+from pathlib import Path
+p=Path('godot-game/scripts/sword_shield_choreography.gd');s=p.read_text();needle='\tvar pulse := recoil(impact_remaining) if impact_remaining > 0.0 else 0.0';s=s.replace(needle,'\t# Bring the elbow inward while raising; both endpoint framings stay exact.\n\tresult.origin += Vector3(0, 0.03, 0.06) * pow(sin(PI * clampf(raise_progress, 0, 1)), 2.0)\n'+needle);p.write_text(s)

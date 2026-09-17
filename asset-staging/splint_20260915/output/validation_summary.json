@@ -1,0 +1,36 @@
+{
+  "status": "verified",
+  "tests": {
+    "splint_motion": "splint_final_test.log",
+    "bandage_motion": "tests.log: passed",
+    "body_health_routes": "routes_retest.log",
+    "body_health_test_room": "tests.log: passed",
+    "test_room_session": "tests.log: passed"
+  },
+  "initial_failures_resolved": [
+    "first strap hand discontinuity corrected",
+    "body_health_routes timeout resolved with 600s budget"
+  ],
+  "render": {
+    "display": "embedded",
+    "renderer": "vulkan",
+    "frames": 271,
+    "source_and_session_preserved": true,
+    "path": "godot-game/artifacts/visual_qa/splint_forearm/final_02",
+    "visual_review": "Inspected preparation, placement, fastening and finished poses. Linen now visible above sleeve, three belts fasten elbow to wrist. Existing character hands and coat retained."
+  },
+  "limits": [
+    "left-arm animation only",
+    "no sleeve roll-up deformation",
+    "no permanent worn equipment after completion",
+    "existing immediate consumption and fracture cure retained"
+  ],
+  "sha256": {
+    "godot-game/assets/3d/items/splint/wood_linen_splint.glb": "50ae5e4bb495057d86fd2c2d8555f7077789dda4cfe8bba22717ec7ba9885397",
+    "godot-game/scripts/splint_use_visuals.gd": "546032c9af98016be7560183657e452aa0961a3c2fb35ebcbc1d957ef9c2b891",
+    "godot-game/scripts/player.gd": "3f85fa5f43e2d42670214575d4c29c6c64b6fb59c7ccfd417ee486db3ad4b65e",
+    "godot-game/scripts/test_room.gd": "b8c30f8dc44ea53b6f39d1416b10008af4c4d60423aa1564532cf13763843690",
+    "godot-game/scripts/test_room_catalog.gd": "0036355bdc5cb8343dae94809de6d45acc4f92f55a39ae6baee5ad40a9cf7a24",
+    "asset-staging/splint_20260915/output/wood_linen_splint.blend": "9eae5da0d4288e3431a2ea76002b74a6b38c04d18772a90f2e5d21c9167fe893"
+  }
+}

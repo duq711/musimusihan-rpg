@@ -1,0 +1,95 @@
+{
+  "id": "rock_face_01",
+  "source_url": "https://polyhaven.com/a/rock_face_01",
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "authors": {
+    "Dario Barresi": "All"
+  },
+  "declared_source_dimensions_m": [
+    7.108232021331787,
+    5.624304533004761,
+    4.9804371148347855
+  ],
+  "triangle_count": 20174,
+  "source_width_provenance": "Official API dimensions. Inspect glTF actual vertex bounds before placing; exported mesh extent can differ from the library's source metadata.",
+  "use_note": "Optional genuine irregular cliff silhouette source for Blender. Contains outdoor lichen; use the five selected cave PBR sets if that appearance is unsuitable. The game has not automatically imported or placed this staging asset.",
+  "files": [
+    {
+      "relative_path": "rock_face_01_1k.gltf",
+      "source_url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/1k/rock_face_01/rock_face_01_1k.gltf",
+      "source_md5": "b4855bc7e841a17a94332561a9b301c0",
+      "sha256": "96c332c01d173a2431115f3bac29be101fba341e5500e2a08e384f4edd17299e",
+      "bytes": 2793
+    },
+    {
+      "relative_path": "textures/rock_face_01_arm_1k.jpg",
+      "source_url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/rock_face_01/rock_face_01_arm_1k.jpg",
+      "source_md5": "5799e7f5546350576b87bf67c34fb49f",
+      "sha256": "59128c79d207a50a69a38002986135ade3b19642d26158cec141eca41578c9ca",
+      "bytes": 693610
+    },
+    {
+      "relative_path": "textures/rock_face_01_nor_gl_1k.jpg",
+      "source_url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/rock_face_01/rock_face_01_nor_gl_1k.jpg",
+      "source_md5": "46e01f5c3b8ac4463aeef2b4c61d1cd4",
+      "sha256": "9a9d85b9a01f4e24fc9ceec8baf96c019f552bca69591ff544c7a725e28b1d97",
+      "bytes": 1023400
+    },
+    {
+      "relative_path": "textures/rock_face_01_diff_1k.jpg",
+      "source_url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/rock_face_01/rock_face_01_diff_1k.jpg",
+      "source_md5": "98ee9f024a6383d7e6cab44ed41e1f15",
+      "sha256": "41bd26ed2db1332b1ebb4b1326fd8af4d21f0f0eb57b8ea385033115c722cfdb",
+      "bytes": 853749
+    },
+    {
+      "relative_path": "rock_face_01.bin",
+      "source_url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/8k/rock_face_01/rock_face_01.bin",
+      "source_md5": "06caed23e725af568b64f8cbee210c1c",
+      "sha256": "873eac0319333e92bc96ddeedf8ebf69dc3c68ff1dfe32d8c14ddc165cdb20ac",
+      "bytes": 476436
+    }
+  ],
+  "measured_geometry": {
+    "gltf_units": "metres, +Y up, identity node transforms",
+    "gltf_bounds_min": [
+      -2.133601427078247,
+      -0.03435921296477318,
+      -3.466048240661621
+    ],
+    "gltf_bounds_max": [
+      2.8199098110198975,
+      3.5296897888183594,
+      0.36125504970550537
+    ],
+    "gltf_size_xyz": [
+      4.9535112380981445,
+      3.5640490017831326,
+      3.8273032903671265
+    ],
+    "gltf_floor_center_offset": [
+      -0.3431541919708252,
+      0.03435921296477318,
+      1.5523965954780579
+    ],
+    "blender_axis_conversion": "glTF (x,y,z) maps to Blender (x,-z,y); Blender +Z up",
+    "blender_bounds_min": [
+      -2.133601427078247,
+      -0.36125504970550537,
+      -0.03435921296477318
+    ],
+    "blender_bounds_max": [
+      2.8199098110198975,
+      3.466048240661621,
+      3.5296897888183594
+    ],
+    "net_surface_normal_gltf": [
+      -0.03115339612330879,
+      0.7033807363270655,
+      0.7101302737343195
+    ],
+    "net_surface_area_ratio": 0.7192169334110833,
+    "orientation_note": "Net normal estimates the outward direction of an open scan patch; it is not a authored forward axis. Recenter on the floor before applying placement rotation. Inspect the scan's visible face in the scene render."
+  }
+}

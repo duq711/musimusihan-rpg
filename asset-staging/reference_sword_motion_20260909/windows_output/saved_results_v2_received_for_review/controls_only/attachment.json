@@ -1,0 +1,191 @@
+{
+  "status": "noncanonical_preview_attachment",
+  "source_iteration_blend": "C:\\Users\\duq71\\Documents\\Codex\\2026-09-08\\d\\outputs\\reference_sword_motion_20260909\\output\\iteration_02\\Reference_Sword_Motion.blend",
+  "source_iteration_sha256": "0aa35c1c8bc89b89cc1c9e6743937fab51198958037cbff9bf097eb01c888df3",
+  "compatible_static_glb_sha256": "2b94cc385f837fe253552cd654cb1f665246f61cdee5227814d63049da9f22fb",
+  "keep_imported_controls_root_transform": true,
+  "source_grip_pivot_camera_m": [
+    0.31000006198883057,
+    -0.10999997705221176,
+    -0.6000000834465027
+  ],
+  "source_camera_blender_matrix": [
+    [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      -1.3400000398178236e-07,
+      -1.0000001192092896,
+      5.99999978589949e-08
+    ],
+    [
+      0.0,
+      1.0000001192092896,
+      -1.3400000398178236e-07,
+      2.999999892949745e-08
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "sword_static_root_local_matrix_under_Sword_Control_godot": [
+    [
+      1.0,
+      0.0,
+      0.0,
+      -0.31000006198883057
+    ],
+    [
+      0.0,
+      -1.3399997556007293e-07,
+      0.9999998807907104,
+      0.6000001430511475
+    ],
+    [
+      0.0,
+      -0.9999998807907104,
+      -1.3399997556007293e-07,
+      -0.10999994724988937
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "sword_static_root_local_matrix_under_Sword_Control_blender": [
+    [
+      1.0,
+      -0.0,
+      0.0,
+      -0.31000006198883057
+    ],
+    [
+      -0.0,
+      -1.3399997556007293e-07,
+      0.9999998807907104,
+      0.10999994724988937
+    ],
+    [
+      0.0,
+      -0.9999998807907104,
+      -1.3399997556007293e-07,
+      0.6000001430511475
+    ],
+    [
+      -0.0,
+      0.0,
+      -0.0,
+      1.0
+    ]
+  ],
+  "rest_controls_camera": {
+    "sword": {
+      "position_m": [
+        0.500022828578949,
+        -0.43126967549324036,
+        -0.6000000238418579
+      ],
+      "quaternion_wxyz": [
+        0.9986431002616882,
+        -0.00045223432243801653,
+        -0.005169074051082134,
+        0.05181707441806793
+      ]
+    },
+    "shield": {
+      "position_m": [
+        -0.5661180019378662,
+        -0.45643264055252075,
+        -0.6793106198310852
+      ],
+      "quaternion_wxyz": [
+        1,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "source_idle": {
+    "pivots_camera_m": {
+      "sword": [
+        0.31000006198883057,
+        -0.10999997705221176,
+        -0.6000000834465027
+      ],
+      "shield": [
+        -0.25855082273483276,
+        -0.21672029793262482,
+        -0.6793106198310852
+      ]
+    },
+    "blade_axis_camera": [
+      0.138482407,
+      0.985353589,
+      0.099503726
+    ]
+  },
+  "offset_validation_all_right_meshes": [
+    {
+      "mesh": "Sword_FullerPolishedChannel",
+      "local_matrix_max_error": 2.384185791015625e-07
+    },
+    {
+      "mesh": "Sword_GripBinding",
+      "local_matrix_max_error": 2.384185791015625e-07
+    },
+    {
+      "mesh": "Sword_GripLeather",
+      "local_matrix_max_error": 2.384185791015625e-07
+    },
+    {
+      "mesh": "Sword_PittedBlade",
+      "local_matrix_max_error": 2.384185791015625e-07
+    },
+    {
+      "mesh": "Sword_SwordsmanLongsword_Surface",
+      "local_matrix_max_error": 2.384185791015625e-07
+    },
+    {
+      "mesh": "RightArm_Forearm_Surface",
+      "local_matrix_max_error": 2.384185791015625e-07
+    },
+    {
+      "mesh": "RightHand_Glove",
+      "local_matrix_max_error": 2.384185791015625e-07
+    },
+    {
+      "mesh": "RightArm_UpperArm_Surface",
+      "local_matrix_max_error": 2.384185791015625e-07
+    },
+    {
+      "mesh": "RightArm_WristCuff_Surface",
+      "local_matrix_max_error": 2.384185791015625e-07
+    },
+    {
+      "mesh": "Sword_GripLeather_Extension",
+      "local_matrix_max_error": 2.384185791015625e-07
+    },
+    {
+      "mesh": "Sword_GripBinding_Extension",
+      "local_matrix_max_error": 2.384185791015625e-07
+    }
+  ],
+  "notes": [
+    "Instance the controls GLB under Camera3D with identity transform. Preserve the imported Motion_CameraSpace node and control hierarchy.",
+    "Instance the compatible SwordHold_Static.glb root under Sword_Control and assign the supplied GODOT local matrix. Do not use identity or keep-global reparent while the animation is active.",
+    "Matrices use row-major storage and column vectors. Godot Basis constructor takes columns, so transpose the 3x3 rows into its three column vectors.",
+    "The model already contains the source idle pose in camera-relative vertex/object transforms. The supplied offset removes that original control frame exactly once.",
+    "Shield_Control carries motion but no geometry. The separate original shield/hand group needs its own source-camera/pivot compensation; never attach an arbitrary standalone shield at identity.",
+    "This remains the iteration_02 NONCANONICAL_PREVIEW motion; it does not assert the missing receiving manifest contract."
+  ]
+}

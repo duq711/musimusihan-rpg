@@ -1,0 +1,36 @@
+[HEADLESS] torch_grip_test.gd
+TORCH PAD thumb samples=14 min/max_m=0.00052968476503/0.00243512598367
+TORCH PAD index samples=12 min/max_m=0.00060226652059/0.00146637131583
+TORCH PAD middle samples=12 min/max_m=0.00040041547431/0.00114285501492
+TORCH PAD ring samples=19 min/max_m=0.00039872580003/0.0008280814397
+TORCH PAD little samples=17 min/max_m=0.00044178598493/0.00107014037429
+TORCH PAD palm samples=12 min/max_m=0.00047378867343/0.00074338383124
+TORCH SKIN vertices=30045 minimum_clearance_m=0.00029581999058
+TORCH GRIP PASS: actual skin/shaft clearance and six pad contacts, unique left hand, motion lock, profile/reset/relight restoration and playable testroom lifecycle
+[HEADLESS] player_arm_test.gd
+PLAYER ARM PASS: supplied default hand GLB/texture fidelity, real skinned grip and wrist-preserving arm fit, actual combat/bow/chest preview paths, trial hits and contacts, F2/repeat/reset and expedition restoration
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2535)
+[HEADLESS] first_person_motion_test.gd
+FIRST PERSON MOTION PASS: phase-continuous sword curves, impact clock, actual two-hand bow/string and shield contacts, release, interruption, two-arm ownership, frame-rate consistency, pause and aim isolation
+[HEADLESS] player_hands_detailed_test.gd
+PBR CUFF SOURCE FRAME: WristCuff_Surface_left/0/Detailed_Glove; 5170 imported frames, 9101 UV-derivative comparisons, signed U/normal-map-Y min=(0.862633, 0.618852); no runtime tangent fallback
+SUPPLIED FIXED WRIST: supplied wrist/-1; actual proximal vertices=3290, finger vertices=26274, full-flex wrist movement_m=0.0, finger movement_m=0.12740451097488, source_max_z_m=0.0129999993369, posed_stump_max_z_m=0.01299999374896
+PBR CUFF SOURCE FRAME: WristCuff_Surface_right/0/Detailed_Glove; 5172 imported frames, 9102 UV-derivative comparisons, signed U/normal-map-Y min=(0.87721, 0.540393); no runtime tangent fallback
+SUPPLIED FIXED WRIST: supplied wrist/1; actual proximal vertices=3290, finger vertices=26274, full-flex wrist movement_m=0.0, finger movement_m=0.12740440666676, source_max_z_m=0.0129999993369, posed_stump_max_z_m=0.01299999374896
+SUPPLIED CUFF DEPTH: chest_touch/CharacterArm; retained_scale=0.43967772487488, geometry_bound=0.41363867616492, actual_inner_depth_m=0.05273929983377, min_jacobian=0.00871625356376, invalid_compressions=0
+PLAYER HANDS DETAILED PASS: bilateral supplied anatomy and handedness, skinned fingers and rigid nail attachment, free/bow/chest gameplay, render layers, default fidelity and isolated F2/repeat/switch/reset/exit
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2535)
+[HEADLESS] player_finger_joints_test.gd
+PLAYER FINGER JOINTS PASS: thirty independent local joints, source-localized morphs and weighted supplied anatomy, original nail attachment, limits/reset, bow/chest linkage, real controls and isolated F2/repeat/switch/reset/exit
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2535)
+[HEADLESS] test_room_session_test.gd
+TEST ROOM SESSION TEST PASS: inventory identity, stress accumulation/recovery isolation, camping supplies, bow and arrows, chain flail, wallet, deep stock copies, needs, ailments, magic, and unstarted-session restoration
+[HEADLESS] test_room_test.gd
+TEST ROOM PASS: catalog, actors, chest hands/equipment/repeat/cancellation, stress accumulation/recovery/perception/isolation, pause, camping, flail, archery, fixtures, results, reset, scene roundtrip and original session restoration
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2535)
+
+Headless validation: 7 passed, 0 failed.

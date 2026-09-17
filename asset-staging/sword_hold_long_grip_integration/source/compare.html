@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>긴 손잡이 · 비스듬한 1인칭 파지</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,sans-serif;background:#141a20;color:#ebeff1}body{margin:0;padding:28px;max-width:1800px;margin:auto}
+h1{font-size:24px;margin:0 0 10px}p{color:#b6c0c9;line-height:1.7;margin:0 0 24px}
+nav{display:flex;gap:8px;margin-bottom:22px}button{font:inherit;color:inherit;background:#25303c;border:1px solid #485767;padding:10px 24px;border-radius:8px;cursor:pointer}
+button[aria-pressed=true]{background:#805734;border-color:#c08b57}main{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+figure{margin:0;background:#11171d;border-radius:12px;overflow:hidden;border:1px solid #303a44}figcaption{padding:14px 18px;font-weight:600}img{display:block;width:100%;aspect-ratio:16/9;object-fit:contain}footer{margin-top:24px;color:#9faebc;font-size:14px}
+a{color:#dfb283}@media(max-width:900px){main{grid-template-columns:1fr}body{padding:18px}}
+</style>
+<h1>긴 손잡이 · 비스듬한 1인칭 파지</h1>
+<p>긴 손잡이를 가드 가까이 쥐고, 칼날의 넓은 면이 비스듬히 보이도록 수정한 정적 자세입니다.</p>
+<nav aria-label="손 방향"><button data-pose="up" aria-pressed="true">위</button><button data-pose="down" aria-pressed="false">아래</button><button data-pose="left" aria-pressed="false">왼쪽</button><button data-pose="right" aria-pressed="false">오른쪽</button></nav>
+<main><figure><figcaption>생성한 참고 이미지</figcaption><img id="reference" src="references/up.png" alt="위를 향한 1인칭 손 참고 이미지"></figure>
+<figure><figcaption>정적 3D 모델 렌더</figcaption><img id="render" src="renders/up.png" alt="위를 향한 정적 3D 모델"></figure></main>
+<footer>각 버튼은 별도의 정지 이미지를 표시합니다. 애니메이션은 없습니다. AI 이미지의 세부 봉제선·주름과 3D 모델은 완전히 일치하지 않을 수 있습니다.<br>
+<a href="model/SwordHold_Static.glb">Godot용 GLB</a> · <a href="model/SwordHold_Static.blend">Blender 원본</a> · <a href="README.md">파일 설명</a></footer>
+<script>
+const labels={up:'위',down:'아래',left:'왼쪽',right:'오른쪽'};
+document.querySelectorAll('[data-pose]').forEach(b=>b.addEventListener('click',()=>{
+const p=b.dataset.pose;document.querySelectorAll('[data-pose]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));
+document.getElementById('reference').src='references/'+p+'.png';document.getElementById('reference').alt=labels[p]+' 방향 1인칭 손 참고 이미지';
+document.getElementById('render').src='renders/'+p+'.png';document.getElementById('render').alt=labels[p]+' 방향 정적 3D 모델';
+}));
+</script></html>
+

@@ -1,0 +1,22 @@
+[HEADLESS] unified_sword_motion_test.gd
+UNIFIED SWORD MOTION PASS max_position_m=0.0 max_angle_rad=0.0009765625
+[HEADLESS] sword_recovery_continuity_test.gd
+RECOVERY METRIC true right_diagonal peak_deg=11.7522027783897 boundary_m=0.0001767512731
+RECOVERY METRIC true left_reverse peak_deg=11.9420034901406 boundary_m=0.00013100702199
+RECOVERY METRIC true overhead peak_deg=14.1934276471945 boundary_m=0.00013590096205
+RECOVERY METRIC false right_diagonal peak_deg=11.7522027783897 boundary_m=0.00016704815789
+RECOVERY METRIC false left_reverse peak_deg=11.9420034901406 boundary_m=0.00032122660195
+RECOVERY METRIC false overhead peak_deg=14.1934276471945 boundary_m=0.00026330872788
+SWORD RECOVERY CONTINUITY PASS
+[HEADLESS] primary_shield_stow_test.gd
+PRIMARY SHIELD STOW PASS
+[HEADLESS] shield_guard_test.gd
+SHIELD GUARD TEST PASS: full damage blocking with positive stamina, immediate exhaustion release and recovery, timed attacker stun, real attack and equipment boundaries, ailments/stress, F2/repeat/reset and original expedition restoration
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2535)
+[HEADLESS] reference_sword_motion_test_room_test.gd
+REFERENCE SWORD MOTION TEST ROOM PASS: five playable fixtures, actual run/jump/landing/collision and target damage, repeated F2, reset and original expedition restoration
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2535)
+
+Headless validation: 5 passed, 0 failed.

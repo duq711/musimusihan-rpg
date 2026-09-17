@@ -1,0 +1,575 @@
+{
+	"actual_renderer": "vulkan",
+	"capture_kind": "Actual production geometry in the same isolated six-view viewport as the in-game test-room gallery",
+	"captured_count": 11,
+	"catalog_count": 126,
+	"complete_catalog": false,
+	"desktop_capture": false,
+	"display_driver": "embedded",
+	"expedition_and_cursor_preserved": true,
+	"external_input": false,
+	"objects": [
+		{
+			"bounds": {
+				"position": [
+					-0.665836572647095,
+					-0.899677157402039,
+					-0.639999985694885
+				],
+				"size": [
+					1.33088266849518,
+					2.12070035934448,
+					1.27999997138977
+				]
+			},
+			"factory": "enemy.gd::_build_body",
+			"id": "sanctuary_warden",
+			"images": [
+				{
+					"file": "sanctuary_warden_front.png",
+					"sha256": "a0154e5e3cea6c3e585d92216a9f08ce56bc2e26720fa4cfb5d34989759ce28c",
+					"view": "front"
+				},
+				{
+					"file": "sanctuary_warden_back.png",
+					"sha256": "fbe09bc48e3ac8b219374d1dbf964cfb48f2b25b02d25f7287b2d04de15797b6",
+					"view": "back"
+				},
+				{
+					"file": "sanctuary_warden_left.png",
+					"sha256": "63d8362e5dcd808ff0cbc6957eafa2a538877ba910bd535c36fc4ec39d0d5ef7",
+					"view": "left"
+				},
+				{
+					"file": "sanctuary_warden_right.png",
+					"sha256": "50613118296d8e74ee105c0651cedcc88d0f4076976b661df8d52505e07846cc",
+					"view": "right"
+				},
+				{
+					"file": "sanctuary_warden_top.png",
+					"sha256": "8691981ec338c6946d2487c74b7508a81cbb24d773d69b37670dda987f7f1f6f",
+					"view": "top"
+				},
+				{
+					"file": "sanctuary_warden_bottom.png",
+					"sha256": "e4c5cbc3b06518c6950a53845d06ed34162289e8f153a8c69c76813a774ac3f5",
+					"view": "bottom"
+				}
+			],
+			"sheet": "sanctuary_warden_six_views.png",
+			"title": "성소 감시자"
+		},
+		{
+			"bounds": {
+				"position": [
+					-0.560000002384186,
+					-0.899937570095062,
+					-0.560000002384186
+				],
+				"size": [
+					1.12000012397766,
+					1.94314742088318,
+					1.12000012397766
+				]
+			},
+			"factory": "enemy.gd::_build_body",
+			"id": "ossuary_keeper",
+			"images": [
+				{
+					"file": "ossuary_keeper_front.png",
+					"sha256": "98f1f2bf8a59d7dc40732f84bff4576a617d7419cc3f63937b14722b7d422aee",
+					"view": "front"
+				},
+				{
+					"file": "ossuary_keeper_back.png",
+					"sha256": "4771f1d62e1214756a7943f2d7bd8460fbd3483bd5860bf7a3bf46fc13d48534",
+					"view": "back"
+				},
+				{
+					"file": "ossuary_keeper_left.png",
+					"sha256": "7c8d69bc003aa63ee36211dab00710739c01bc8ad568bb8472e55107ea0b5bd8",
+					"view": "left"
+				},
+				{
+					"file": "ossuary_keeper_right.png",
+					"sha256": "935acb859fa79b47326080d8ec98301fecb2a197d79d61c7a0ca068acc36f4cb",
+					"view": "right"
+				},
+				{
+					"file": "ossuary_keeper_top.png",
+					"sha256": "c3023cce56a98e180c63c902ac62db8fc9304ef3c9adf1c8a6ff806a8224551f",
+					"view": "top"
+				},
+				{
+					"file": "ossuary_keeper_bottom.png",
+					"sha256": "53ae5d32476b0c2c1a3c22975447880f11c8a37f5efb029108f8a46440f80a07",
+					"view": "bottom"
+				}
+			],
+			"sheet": "ossuary_keeper_six_views.png",
+			"title": "굶주린 납골당지기"
+		},
+		{
+			"bounds": {
+				"position": [
+					-0.311578035354614,
+					-0.457500010728836,
+					-0.0549999997019768
+				],
+				"size": [
+					0.623156070709229,
+					1.54250001907349,
+					0.109999999403954
+				]
+			},
+			"factory": "player.gd::_build_viewmodel",
+			"id": "rusted_longsword",
+			"images": [
+				{
+					"file": "rusted_longsword_front.png",
+					"sha256": "4d71792f05210967979520844d27ebea45b2e1797cfd50933b975adff4d60274",
+					"view": "front"
+				},
+				{
+					"file": "rusted_longsword_back.png",
+					"sha256": "6ea26756dc6679b4cd97b43531cc00b1fb5ea45443b272c81688a70dcf08e606",
+					"view": "back"
+				},
+				{
+					"file": "rusted_longsword_left.png",
+					"sha256": "effe1bfc74ba3a632c93c55d7bb1443f03ed3e25afc3f47255fff0addccf561e",
+					"view": "left"
+				},
+				{
+					"file": "rusted_longsword_right.png",
+					"sha256": "5270b0a30363694de65811a23745e1c24082f56b126a1cfa1156023a3806a38b",
+					"view": "right"
+				},
+				{
+					"file": "rusted_longsword_top.png",
+					"sha256": "9d0bf762da1cba4727fd290fcc41d5080c4d1379c37fa759b5d4b39ad73b5efb",
+					"view": "top"
+				},
+				{
+					"file": "rusted_longsword_bottom.png",
+					"sha256": "6588a2502a3fb83f151d1b71e2876505ddcdf1cbc9d587ef7a6f9ff2e84e4cd4",
+					"view": "bottom"
+				}
+			],
+			"sheet": "rusted_longsword_six_views.png",
+			"title": "녹슨 장검"
+		},
+		{
+			"bounds": {
+				"position": [
+					-0.5,
+					-0.5,
+					-0.105000004172325
+				],
+				"size": [
+					1.0,
+					1.0,
+					0.259491086006165
+				]
+			},
+			"factory": "player.gd::_build_viewmodel",
+			"id": "weathered_round_shield",
+			"images": [
+				{
+					"file": "weathered_round_shield_front.png",
+					"sha256": "307ee76c96b4952b4d162899041ebc26eaa71652f9250528aeafddcb0308b073",
+					"view": "front"
+				},
+				{
+					"file": "weathered_round_shield_back.png",
+					"sha256": "7738449d3f8fcb136d0f7d21146dbb2162d55a87796b63827b82d7fb711cf03a",
+					"view": "back"
+				},
+				{
+					"file": "weathered_round_shield_left.png",
+					"sha256": "e93e976f8bd09440701b13d7c872bc6044cf852303d1c5a51eb45aaf3f2df537",
+					"view": "left"
+				},
+				{
+					"file": "weathered_round_shield_right.png",
+					"sha256": "7cc074be9cafc451a3d6a1e51b75b2139d24734f310b625116b54016b492e1ba",
+					"view": "right"
+				},
+				{
+					"file": "weathered_round_shield_top.png",
+					"sha256": "66fc55dac204d55c5868261dfb57bf3b7495dd209e3b66c8370244c5a23a5a6a",
+					"view": "top"
+				},
+				{
+					"file": "weathered_round_shield_bottom.png",
+					"sha256": "c5be815e828298db4e6ab2350b84677a181757cd1c98852d271e9837c3560f42",
+					"view": "bottom"
+				}
+			],
+			"sheet": "weathered_round_shield_six_views.png",
+			"title": "낡은 원형 방패"
+		},
+		{
+			"bounds": {
+				"position": [
+					-0.176640003919601,
+					-0.081399992108345,
+					-0.176640003919601
+				],
+				"size": [
+					0.353280007839203,
+					1.76813876628876,
+					0.353280007839203
+				]
+			},
+			"factory": "player.gd::_build_viewmodel",
+			"id": "iron_cage_torch",
+			"images": [
+				{
+					"file": "iron_cage_torch_front.png",
+					"sha256": "31c611a24e8d2b81ffdd0de71b690dd7ddf8be2b557383de4a63a40bf2f00ac8",
+					"view": "front"
+				},
+				{
+					"file": "iron_cage_torch_back.png",
+					"sha256": "f965ee57137795cff1606732fac785c8e424fa1f02ff0670f7ca973d5f05e92a",
+					"view": "back"
+				},
+				{
+					"file": "iron_cage_torch_left.png",
+					"sha256": "5170f741e0428046245f972d4f37372dd8c061cef8cd7492e56b66ac05660689",
+					"view": "left"
+				},
+				{
+					"file": "iron_cage_torch_right.png",
+					"sha256": "9a2d2ced10f0f76fbd57aadb0e98f670f54610560eb8c0463b43f1537b5ff870",
+					"view": "right"
+				},
+				{
+					"file": "iron_cage_torch_top.png",
+					"sha256": "2d32b52d629a6ea497e143f896ea08a5035c917c564a813d6823f9167c3910de",
+					"view": "top"
+				},
+				{
+					"file": "iron_cage_torch_bottom.png",
+					"sha256": "b2a8eb8038466e40d35af1cb028c7b249e9b27d622fea681fac23b874326879d",
+					"view": "bottom"
+				}
+			],
+			"sheet": "iron_cage_torch_six_views.png",
+			"title": "철제 우리 횃불"
+		},
+		{
+			"bounds": {
+				"position": [
+					-0.16353452205658,
+					-0.46000000834465,
+					-0.068000003695488
+				],
+				"size": [
+					0.327069044113159,
+					1.52850008010864,
+					0.136000007390976
+				]
+			},
+			"factory": "player.gd::_build_staff_visual",
+			"id": "weathered_staff",
+			"images": [
+				{
+					"file": "weathered_staff_front.png",
+					"sha256": "7b96123080b9c0891716b879939b69442133ba230eb2040ec8758cc0fc688e14",
+					"view": "front"
+				},
+				{
+					"file": "weathered_staff_back.png",
+					"sha256": "c30748d9b8c054027f6287f2fd8a039f027670866624b5cb4a795e575be6e1eb",
+					"view": "back"
+				},
+				{
+					"file": "weathered_staff_left.png",
+					"sha256": "0bd8c55c25981d8925159654c7223ba9eb58a635f1d2e1e7ae64c3884abe164a",
+					"view": "left"
+				},
+				{
+					"file": "weathered_staff_right.png",
+					"sha256": "9ca13270d3df9a354b0afdd081fc00c5b548682b053977edc4c85b5cfab6cae9",
+					"view": "right"
+				},
+				{
+					"file": "weathered_staff_top.png",
+					"sha256": "68d83e28a4d672fc775abbe475c50e9e602a3c5732b2862802243919e9f27125",
+					"view": "top"
+				},
+				{
+					"file": "weathered_staff_bottom.png",
+					"sha256": "1f5121210f78658256f67c85ecb79b77ecbb159ab729b6dd4c2e52c909ea699b",
+					"view": "bottom"
+				}
+			],
+			"sheet": "weathered_staff_six_views.png",
+			"title": "낡은 수정 지팡이"
+		},
+		{
+			"bounds": {
+				"position": [
+					-0.0344999991357327,
+					-0.642000019550323,
+					-0.680000007152557
+				],
+				"size": [
+					0.0925000011920929,
+					1.28400003910065,
+					0.813000023365021
+				]
+			},
+			"factory": "archery_visuals.gd::create_bow",
+			"id": "hunting_bow",
+			"images": [
+				{
+					"file": "hunting_bow_front.png",
+					"sha256": "cf42a5c70ce0e7bf8c9080f54bc240bf94a3af7acab2a6ff0de5e902e2a0cb11",
+					"view": "front"
+				},
+				{
+					"file": "hunting_bow_back.png",
+					"sha256": "9d403f837b4279aa6334a1e21584489611fd31603c707e9955fcece5d8e66ecc",
+					"view": "back"
+				},
+				{
+					"file": "hunting_bow_left.png",
+					"sha256": "8bae91b691e831c67e72165adbc240254612ad374e77693fdbe39f74c24674cc",
+					"view": "left"
+				},
+				{
+					"file": "hunting_bow_right.png",
+					"sha256": "8095b9e6c81d7231be34d1c4055ad946a0f006c6d742a73feb8a60c42507a88b",
+					"view": "right"
+				},
+				{
+					"file": "hunting_bow_top.png",
+					"sha256": "d315b77fe34434c3b2178e4ac6f60e0be81a02cc06664bf4ae3f77c6ec0cd064",
+					"view": "top"
+				},
+				{
+					"file": "hunting_bow_bottom.png",
+					"sha256": "4b4e4906420cc51b2c27fc1043b9d0c9c4cc3dd631146f2bee2e800247a23e54",
+					"view": "bottom"
+				}
+			],
+			"sheet": "hunting_bow_six_views.png",
+			"title": "사냥용 장궁"
+		},
+		{
+			"bounds": {
+				"position": [
+					-0.029008662328124,
+					-0.0502344742417336,
+					-0.000000001136496119436
+				],
+				"size": [
+					0.0870086625218391,
+					0.100463949143887,
+					0.799999952316284
+				]
+			},
+			"factory": "archery_visuals.gd::create_arrow",
+			"id": "hunting_arrow",
+			"images": [
+				{
+					"file": "hunting_arrow_front.png",
+					"sha256": "3b73155add4cdd07aa3763b0e38d6f27ed4695cbcbe830f824ec066e4363788c",
+					"view": "front"
+				},
+				{
+					"file": "hunting_arrow_back.png",
+					"sha256": "5c42176ac0f7ee26052bf1f83219fa77c75a3ac2bd2b17978b6c1c03a36c38a3",
+					"view": "back"
+				},
+				{
+					"file": "hunting_arrow_left.png",
+					"sha256": "7ac19fad6940a14e845b6e12a48706d294462108ec3471aabccee08de795037e",
+					"view": "left"
+				},
+				{
+					"file": "hunting_arrow_right.png",
+					"sha256": "dae09894cdfee49ba6c7bec8cf0907b4ae664ac19a4f0082ea818836b4748dda",
+					"view": "right"
+				},
+				{
+					"file": "hunting_arrow_top.png",
+					"sha256": "e9904cd7c7a2e34c0b2d4befd8be4a923689773f839c2795bf984212e387258b",
+					"view": "top"
+				},
+				{
+					"file": "hunting_arrow_bottom.png",
+					"sha256": "f80a45c0725dfb48a23ec4cb4f80fd70cb08ef840691abca8d3acf3536b6cf58",
+					"view": "bottom"
+				}
+			],
+			"sheet": "hunting_arrow_six_views.png",
+			"title": "사냥용 화살"
+		},
+		{
+			"bounds": {
+				"position": [
+					-0.0499999970197678,
+					-0.360000014305115,
+					-0.819999992847443
+				],
+				"size": [
+					0.400000035762787,
+					0.671738386154175,
+					0.860000014305115
+				]
+			},
+			"factory": "flail_visuals.gd::create_flail",
+			"id": "chain_flail",
+			"images": [
+				{
+					"file": "chain_flail_front.png",
+					"sha256": "093f2fa7bea093b806f3ac8ff5aed9b9bcff07914fe6ddcc20ed398b91eaf986",
+					"view": "front"
+				},
+				{
+					"file": "chain_flail_back.png",
+					"sha256": "01db7940be6d16a58d74a5a55d8806c930fbbf417b477a33a7a3494cf08d4d15",
+					"view": "back"
+				},
+				{
+					"file": "chain_flail_left.png",
+					"sha256": "403f084f95eef349ed1424a991d9ef4c55fe66f5e1b6fe85f50a3a0ddf5099a5",
+					"view": "left"
+				},
+				{
+					"file": "chain_flail_right.png",
+					"sha256": "adbb6c5082d2969df7a76dc18a588357208a2e7dca52308dd9a8eead828dc8bf",
+					"view": "right"
+				},
+				{
+					"file": "chain_flail_top.png",
+					"sha256": "e475bf8561097467913ffc287375f3aa802196ceb5be51c924ab4318c00e53b7",
+					"view": "top"
+				},
+				{
+					"file": "chain_flail_bottom.png",
+					"sha256": "6c83718cd017d46e4ca719e5ae0ff85ef01ec5087558ba65cdaffc62234e0918",
+					"view": "bottom"
+				}
+			],
+			"sheet": "chain_flail_six_views.png",
+			"title": "쇠사슬 철퇴"
+		},
+		{
+			"bounds": {
+				"position": [
+					-0.200000002980232,
+					-0.200000002980232,
+					-0.200000002980232
+				],
+				"size": [
+					0.400000005960464,
+					0.399999976158142,
+					0.400000005960464
+				]
+			},
+			"factory": "flail_visuals.gd::create_head",
+			"id": "flail_head",
+			"images": [
+				{
+					"file": "flail_head_front.png",
+					"sha256": "a2b8e7343f3c46c66be398c3ebd061e0ebb23a658c5ec14c26e7e83a6b45f9e0",
+					"view": "front"
+				},
+				{
+					"file": "flail_head_back.png",
+					"sha256": "f4a0380223d6044f949d440f41b81cb366f2791b01656c357a71fa7570e76722",
+					"view": "back"
+				},
+				{
+					"file": "flail_head_left.png",
+					"sha256": "284da64960a430c3558db0725dd71da056b0d5405bb363c348f8250f13ea789f",
+					"view": "left"
+				},
+				{
+					"file": "flail_head_right.png",
+					"sha256": "36c50208e474816de88ca8fddb46329175ae2fdf2da198b94f0a311aa50defcc",
+					"view": "right"
+				},
+				{
+					"file": "flail_head_top.png",
+					"sha256": "abc62445edd921954309f783025df1964c066bb7a465983a20780577a531a78e",
+					"view": "top"
+				},
+				{
+					"file": "flail_head_bottom.png",
+					"sha256": "b8e6c838ff7221005a3514485c839e783669535d88f09c93e66e738288a5e16f",
+					"view": "bottom"
+				}
+			],
+			"sheet": "flail_head_six_views.png",
+			"title": "가시 철퇴 머리"
+		},
+		{
+			"bounds": {
+				"position": [
+					-0.0260000005364418,
+					-1.43818175792694,
+					-0.0260000005364418
+				],
+				"size": [
+					0.0520000010728836,
+					1.47636365890503,
+					0.0520000010728836
+				]
+			},
+			"factory": "flail_visuals.gd::create_chain",
+			"id": "flail_chain",
+			"images": [
+				{
+					"file": "flail_chain_front.png",
+					"sha256": "7285a9cadbffb240aa3c76d562fed1d89ed052fad536ff7e13eb0ef0d0ff6141",
+					"view": "front"
+				},
+				{
+					"file": "flail_chain_back.png",
+					"sha256": "679d802ec4a705c0108fa2c34d9e9fc369c07b4a2474bff13b6f86fb95bbba4a",
+					"view": "back"
+				},
+				{
+					"file": "flail_chain_left.png",
+					"sha256": "3c0bf9545b35f5de082c0e02819ede2b6bae07e9399f53889f3af5eac6b936c0",
+					"view": "left"
+				},
+				{
+					"file": "flail_chain_right.png",
+					"sha256": "4736a89d3f59210f4075e9a302df03fe95dd0013857057c021cf7c8b3f092d1f",
+					"view": "right"
+				},
+				{
+					"file": "flail_chain_top.png",
+					"sha256": "35ae906ae7d8f9b3d88576e71261d255e3d777ae945143940d9460031dd9add4",
+					"view": "top"
+				},
+				{
+					"file": "flail_chain_bottom.png",
+					"sha256": "9a363c7392c1b48904e6fe2a6d885e736dbe4e54954be51aed8ae4352b43b3ad",
+					"view": "bottom"
+				}
+			],
+			"sheet": "flail_chain_six_views.png",
+			"title": "철퇴 사슬"
+		}
+	],
+	"sources": {
+		"res://scripts/dark_fantasy_gallery.gd": "a20ea2ed28c6e5b326f75d0ae8177051abafa3807760ef9656482da2dcf3fa94",
+		"res://scripts/dark_fantasy_object_catalog.gd": "6a3a3210b8b3048cd16465be1ab2a38c4e8d7a607a3433441f8dbbaafec76197"
+	},
+	"view_order": [
+		"front",
+		"back",
+		"left",
+		"right",
+		"top",
+		"bottom"
+	]
+}

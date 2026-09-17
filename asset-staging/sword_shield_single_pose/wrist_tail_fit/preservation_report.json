@@ -1,0 +1,1367 @@
+{
+  "task": "Only shorten the exposed wrist tail; retain finger and palm contacts",
+  "arms": [
+    {
+      "side": "left",
+      "source": "source_proportioned_hands/left_arm.glb",
+      "output": "left_arm.glb",
+      "source_sha256": "33726838da1866284b33821058ef95bcd2e34ffb77f89d9eac00e8bf1e6c7b21",
+      "output_sha256": "e3f7d9415bd89e24deaa83d05b05021563d84a4f2c5aa28f37d81a97beecd5cf",
+      "k_per_metre": 30.5,
+      "coordinate_frame": "authored player hand-root; fingers -Z, forearm +Z; root origin is not the wrist bone head",
+      "formula": "z_new = z/(1+30.5*z) only for z>0; x/y unchanged; z<=0 byte-exact",
+      "continuity": "value and first derivative agree with identity at z=0; dz_new/dz=1/(1+30.5*z)^2>0",
+      "normals_tangents": "inverse-transpose axial Jacobian; forward tangent Jacobian, orthogonalized and normalized; original tangent handedness retained",
+      "meshes": [
+        {
+          "name": "ContinuousAnatomicalHand",
+          "before_bounds": {
+            "min": [
+              -0.08961543440818787,
+              -0.03937726467847824,
+              -0.2007831186056137
+            ],
+            "max": [
+              0.103438600897789,
+              0.04328059032559395,
+              0.056126918643713
+            ]
+          },
+          "after_bounds": {
+            "min": [
+              -0.08961543440818787,
+              -0.03937726467847824,
+              -0.2007831186056137
+            ],
+            "max": [
+              0.103438600897789,
+              0.04328059032559395,
+              0.020696750788686238
+            ]
+          },
+          "affected_vertex_count": 1203,
+          "unaffected_vertex_count": 10833,
+          "affected_original_z_range_m": [
+            1.5830257325433195e-05,
+            0.056126918643713
+          ],
+          "saved_float32_max_formula_error_m": 9.248202238743009e-10,
+          "saved_float32_max_xy_change_m": 0.0
+        },
+        {
+          "name": "FingerlessLeatherGlove",
+          "before_bounds": {
+            "min": [
+              -0.06491577625274658,
+              -0.03807572275400162,
+              -0.12188252061605453
+            ],
+            "max": [
+              0.09055555611848831,
+              0.0457126758992672,
+              0.055998679250478745
+            ]
+          },
+          "after_bounds": {
+            "min": [
+              -0.06491577625274658,
+              -0.03807572275400162,
+              -0.12188252061605453
+            ],
+            "max": [
+              0.09055555611848831,
+              0.0457126758992672,
+              0.02067928813565578
+            ]
+          },
+          "affected_vertex_count": 2588,
+          "unaffected_vertex_count": 9139,
+          "affected_original_z_range_m": [
+            1.763404179655481e-05,
+            0.055998679250478745
+          ],
+          "saved_float32_max_formula_error_m": 9.309874329788137e-10,
+          "saved_float32_max_xy_change_m": 0.0
+        }
+      ],
+      "independent_real_skin_contact_patches": [
+        {
+          "patch": "little",
+          "weighted_bone": "little2",
+          "sample_count": 20,
+          "indices": [
+            1554,
+            1553,
+            7679,
+            7680,
+            7618,
+            283,
+            7615,
+            1552,
+            7681,
+            2505,
+            4610,
+            7683,
+            7682,
+            7612,
+            7684,
+            282,
+            1217,
+            2761,
+            4611,
+            7617
+          ],
+          "source_reference": [
+            -0.0827757344558174,
+            -0.0003874198332643221,
+            -0.13948737766387917
+          ],
+          "maximum_original_z_m": -0.1348390132188797,
+          "all_original_vertex_attributes_byte_exact": true
+        },
+        {
+          "patch": "little_middle",
+          "weighted_bone": "little1",
+          "sample_count": 20,
+          "indices": [
+            6665,
+            6668,
+            6664,
+            6667,
+            6666,
+            6669,
+            2955,
+            2954,
+            1796,
+            1795,
+            6670,
+            1797,
+            1277,
+            6671,
+            1278,
+            2956,
+            6656,
+            105,
+            6655,
+            6672
+          ],
+          "source_reference": [
+            -0.07363943526374196,
+            0.004021253985371315,
+            -0.11772357716898504
+          ],
+          "maximum_original_z_m": -0.11348865181207657,
+          "all_original_vertex_attributes_byte_exact": true
+        },
+        {
+          "patch": "little_proximal",
+          "weighted_bone": "little0",
+          "sample_count": 20,
+          "indices": [
+            6756,
+            6757,
+            2136,
+            2137,
+            6753,
+            6754,
+            6759,
+            6760,
+            2129,
+            6758,
+            215,
+            2138,
+            2128,
+            6755,
+            4732,
+            6761,
+            6750,
+            6751,
+            6762,
+            6763
+          ],
+          "source_reference": [
+            -0.06761011722068357,
+            0.005813051273194845,
+            -0.10358648138150647
+          ],
+          "maximum_original_z_m": -0.0994250476360321,
+          "all_original_vertex_attributes_byte_exact": true
+        },
+        {
+          "patch": "little_palm",
+          "weighted_bone": "wrist",
+          "sample_count": 20,
+          "indices": [
+            3703,
+            393,
+            3704,
+            1482,
+            1481,
+            3705,
+            9415,
+            3200,
+            9412,
+            8505,
+            1480,
+            396,
+            9409,
+            8504,
+            9416,
+            390,
+            3201,
+            9413,
+            3586,
+            8503
+          ],
+          "source_reference": [
+            -0.05375000089406967,
+            -0.016,
+            -0.05699999552965161
+          ],
+          "maximum_original_z_m": -0.0374908410012722,
+          "all_original_vertex_attributes_byte_exact": true
+        },
+        {
+          "patch": "ring",
+          "weighted_bone": "ring2",
+          "sample_count": 20,
+          "indices": [
+            6895,
+            6892,
+            4062,
+            6896,
+            4063,
+            6893,
+            6886,
+            6887,
+            6894,
+            6897,
+            6889,
+            6890,
+            4064,
+            3308,
+            6884,
+            73,
+            6891,
+            6888,
+            3307,
+            6883
+          ],
+          "source_reference": [
+            -0.03343697479345127,
+            -0.0010647145189448728,
+            -0.17917643136676104
+          ],
+          "maximum_original_z_m": -0.1782078891992569,
+          "all_original_vertex_attributes_byte_exact": true
+        },
+        {
+          "patch": "ring_middle",
+          "weighted_bone": "ring1",
+          "sample_count": 20,
+          "indices": [
+            6587,
+            1327,
+            6586,
+            1326,
+            6590,
+            6588,
+            6589,
+            6602,
+            1328,
+            6601,
+            6591,
+            80,
+            3611,
+            6593,
+            6603,
+            6592,
+            4512,
+            6599,
+            6598,
+            3612
+          ],
+          "source_reference": [
+            -0.03217842770189894,
+            0.009805138772694094,
+            -0.14988911009042513
+          ],
+          "maximum_original_z_m": -0.1463843435049057,
+          "all_original_vertex_attributes_byte_exact": true
+        },
+        {
+          "patch": "ring_proximal",
+          "weighted_bone": "ring0",
+          "sample_count": 20,
+          "indices": [
+            6139,
+            6140,
+            6136,
+            6142,
+            6137,
+            6143,
+            3384,
+            3178,
+            3177,
+            5144,
+            6141,
+            3385,
+            5145,
+            3179,
+            6144,
+            6138,
+            135,
+            142,
+            6484,
+            6535
+          ],
+          "source_reference": [
+            -0.0313698446246827,
+            0.015351636586815348,
+            -0.13304767226880343
+          ],
+          "maximum_original_z_m": -0.12918366491794586,
+          "all_original_vertex_attributes_byte_exact": true
+        },
+        {
+          "patch": "ring_palm",
+          "weighted_bone": "wrist",
+          "sample_count": 20,
+          "indices": [
+            1625,
+            10932,
+            8539,
+            1626,
+            8540,
+            8528,
+            4170,
+            3405,
+            8542,
+            8541,
+            590,
+            8543,
+            10780,
+            8527,
+            8524,
+            10783,
+            4169,
+            4653,
+            8544,
+            8545
+          ],
+          "source_reference": [
+            -0.028750000521540642,
+            -0.016,
+            -0.07574999254941937
+          ],
+          "maximum_original_z_m": -0.053187862038612366,
+          "all_original_vertex_attributes_byte_exact": true
+        },
+        {
+          "patch": "middle",
+          "weighted_bone": "middle2",
+          "sample_count": 20,
+          "indices": [
+            913,
+            914,
+            7559,
+            7570,
+            7562,
+            271,
+            7573,
+            915,
+            3516,
+            2570,
+            7565,
+            7576,
+            7563,
+            7560,
+            279,
+            7572,
+            7569,
+            1882,
+            4322,
+            7566
+          ],
+          "source_reference": [
+            0.005708004462962025,
+            0.007387571278854374,
+            -0.1918260695873145
+          ],
+          "maximum_original_z_m": -0.1913629174232483,
+          "all_original_vertex_attributes_byte_exact": true
+        },
+        {
+          "patch": "middle_middle",
+          "weighted_bone": "middle1",
+          "sample_count": 20,
+          "indices": [
+            6088,
+            6089,
+            1254,
+            1255,
+            1259,
+            6090,
+            1253,
+            179,
+            6091,
+            6092,
+            6003,
+            1260,
+            11361,
+            6006,
+            3448,
+            6093,
+            178,
+            3378,
+            6000,
+            4255
+          ],
+          "source_reference": [
+            0.0055315066866039615,
+            0.01599954878706357,
+            -0.16136782054209642
+          ],
+          "maximum_original_z_m": -0.15696215629577637,
+          "all_original_vertex_attributes_byte_exact": true
+        },
+        {
+          "patch": "middle_proximal",
+          "weighted_bone": "middle0",
+          "sample_count": 20,
+          "indices": [
+            1963,
+            11343,
+            625,
+            815,
+            1964,
+            11346,
+            6414,
+            774,
+            4844,
+            11283,
+            11349,
+            6417,
+            1965,
+            11344,
+            6427,
+            816,
+            11347,
+            4845,
+            11284,
+            6420
+          ],
+          "source_reference": [
+            0.0058645681430575585,
+            0.020275076500014033,
+            -0.1418847190337256
+          ],
+          "maximum_original_z_m": -0.1394454389810562,
+          "all_original_vertex_attributes_byte_exact": true
+        },
+        {
+          "patch": "middle_palm",
+          "weighted_bone": "wrist",
+          "sample_count": 20,
+          "indices": [
+            9086,
+            4580,
+            9082,
+            9083,
+            9078,
+            9079,
+            11652,
+            4581,
+            592,
+            1388,
+            9080,
+            11649,
+            4582,
+            11653,
+            1389,
+            1848,
+            10864,
+            11646,
+            11650,
+            1390
+          ],
+          "source_reference": [
+            0.005000000353902578,
+            -0.016,
+            -0.0832500002980232
+          ],
+          "maximum_original_z_m": -0.06933296471834183,
+          "all_original_vertex_attributes_byte_exact": true
+        },
+        {
+          "patch": "index",
+          "weighted_bone": "index2",
+          "sample_count": 20,
+          "indices": [
+            7377,
+            7380,
+            7378,
+            7381,
+            1738,
+            1737,
+            7379,
+            7382,
+            7374,
+            7375,
+            3331,
+            3330,
+            7376,
+            3332,
+            3060,
+            1736,
+            3059,
+            259,
+            3061,
+            7332
+          ],
+          "source_reference": [
+            0.044602933852799655,
+            0.0025073351807544993,
+            -0.17501957110625332
+          ],
+          "maximum_original_z_m": -0.1723707616329193,
+          "all_original_vertex_attributes_byte_exact": true
+        },
+        {
+          "patch": "index_middle",
+          "weighted_bone": "index1",
+          "sample_count": 20,
+          "indices": [
+            6284,
+            6287,
+            6281,
+            6285,
+            6283,
+            6282,
+            6286,
+            6280,
+            6288,
+            1009,
+            813,
+            5194,
+            1422,
+            1008,
+            812,
+            5195,
+            1421,
+            1010,
+            5193,
+            814
+          ],
+          "source_reference": [
+            0.041454841656583294,
+            0.010164416866708735,
+            -0.1463678102193805
+          ],
+          "maximum_original_z_m": -0.14166654646396637,
+          "all_original_vertex_attributes_byte_exact": true
+        },
+        {
+          "patch": "index_proximal",
+          "weighted_bone": "index0",
+          "sample_count": 20,
+          "indices": [
+            6166,
+            6169,
+            1559,
+            1560,
+            6167,
+            6170,
+            6225,
+            6222,
+            6163,
+            6168,
+            4685,
+            163,
+            1558,
+            6164,
+            6171,
+            4686,
+            5123,
+            6223,
+            6228,
+            6226
+          ],
+          "source_reference": [
+            0.04008308744644636,
+            0.014134310931422119,
+            -0.12702427212479603
+          ],
+          "maximum_original_z_m": -0.12289343029260635,
+          "all_original_vertex_attributes_byte_exact": true
+        },
+        {
+          "patch": "index_palm",
+          "weighted_bone": "wrist",
+          "sample_count": 20,
+          "indices": [
+            8941,
+            3534,
+            8944,
+            10900,
+            8947,
+            1411,
+            821,
+            429,
+            12008,
+            822,
+            1846,
+            823,
+            1847,
+            442,
+            1848,
+            892,
+            4881,
+            8771,
+            8768,
+            10858
+          ],
+          "source_reference": [
+            0.03749999776482582,
+            -0.016,
+            -0.07199998122453687
+          ],
+          "maximum_original_z_m": -0.05166691541671753,
+          "all_original_vertex_attributes_byte_exact": true
+        },
+        {
+          "patch": "thumb",
+          "weighted_bone": "thumb2",
+          "sample_count": 20,
+          "indices": [
+            7820,
+            7821,
+            7819,
+            7817,
+            7824,
+            7823,
+            3874,
+            7818,
+            7816,
+            7822,
+            3873,
+            3175,
+            3174,
+            3875,
+            3176,
+            5069,
+            5070,
+            43,
+            2895,
+            2896
+          ],
+          "source_reference": [
+            0.09389136708108457,
+            -0.030754288573698052,
+            -0.09012696093782543
+          ],
+          "maximum_original_z_m": -0.08550570905208588,
+          "all_original_vertex_attributes_byte_exact": true
+        }
+      ],
+      "rigid_meshes": [
+        {
+          "name": "Forearm_Surface",
+          "unchanged_sha256": "5523f749aecf67f5e239d57095aea8d195f4cedc29514121ec6e396d37b66abf"
+        },
+        {
+          "name": "UpperArm_Surface",
+          "unchanged_sha256": "f6d916e12301c3a58f4101200230cef14a6634f1202ad43ea648beb511b9a758"
+        },
+        {
+          "name": "WristCuff_Surface",
+          "unchanged_sha256": "f07d6ba44c3309714ad90513c63d07058996e909d78785696758a48a396f80f7"
+        }
+      ],
+      "nodes_bones_rotations_inverse_binds_weights_uv_topology_materials_preserved": true,
+      "all_unaffected_original_binary_bytes_preserved": true,
+      "production_install_engine_import_and_render_validation": "pending; root only"
+    },
+    {
+      "side": "right",
+      "source": "source_proportioned_hands/right_arm.glb",
+      "output": "right_arm.glb",
+      "source_sha256": "0c885531011e79de4b455bd6ec969029917a93e96996bd21fe0168e8ee39c130",
+      "output_sha256": "4234e0d9a9f2ccdb7399e13b909e458e359230a22ce3c3e13df4f4ea158ad56d",
+      "k_per_metre": 30.5,
+      "coordinate_frame": "authored player hand-root; fingers -Z, forearm +Z; root origin is not the wrist bone head",
+      "formula": "z_new = z/(1+30.5*z) only for z>0; x/y unchanged; z<=0 byte-exact",
+      "continuity": "value and first derivative agree with identity at z=0; dz_new/dz=1/(1+30.5*z)^2>0",
+      "normals_tangents": "inverse-transpose axial Jacobian; forward tangent Jacobian, orthogonalized and normalized; original tangent handedness retained",
+      "meshes": [
+        {
+          "name": "ContinuousAnatomicalHand.001",
+          "before_bounds": {
+            "min": [
+              -0.103438600897789,
+              -0.03937726467847824,
+              -0.2007831186056137
+            ],
+            "max": [
+              0.08961543440818787,
+              0.04328060895204544,
+              0.056126918643713
+            ]
+          },
+          "after_bounds": {
+            "min": [
+              -0.103438600897789,
+              -0.03937726467847824,
+              -0.2007831186056137
+            ],
+            "max": [
+              0.08961543440818787,
+              0.04328060895204544,
+              0.020696750788686238
+            ]
+          },
+          "affected_vertex_count": 1203,
+          "unaffected_vertex_count": 10833,
+          "affected_original_z_range_m": [
+            1.9280649212305434e-05,
+            0.056126918643713
+          ],
+          "saved_float32_max_formula_error_m": 9.248202238743009e-10,
+          "saved_float32_max_xy_change_m": 0.0
+        },
+        {
+          "name": "FingerlessLeatherGlove.001",
+          "before_bounds": {
+            "min": [
+              -0.09061464667320251,
+              -0.038012150675058365,
+              -0.1218850314617157
+            ],
+            "max": [
+              0.06471540033817291,
+              0.04564139246940613,
+              0.05599323287606239
+            ]
+          },
+          "after_bounds": {
+            "min": [
+              -0.09061464667320251,
+              -0.038012150675058365,
+              -0.1218850314617157
+            ],
+            "max": [
+              0.06471540033817291,
+              0.04564139246940613,
+              0.02067854537355386
+            ]
+          },
+          "affected_vertex_count": 2588,
+          "unaffected_vertex_count": 9132,
+          "affected_original_z_range_m": [
+            5.798647180199623e-06,
+            0.05599323287606239
+          ],
+          "saved_float32_max_formula_error_m": 9.282637575269703e-10,
+          "saved_float32_max_xy_change_m": 0.0
+        }
+      ],
+      "independent_real_skin_contact_patches": [
+        {
+          "patch": "little",
+          "weighted_bone": "little2",
+          "sample_count": 20,
+          "indices": [
+            1554,
+            1553,
+            7679,
+            7680,
+            7618,
+            283,
+            7615,
+            1552,
+            7681,
+            2505,
+            4610,
+            7683,
+            7682,
+            7612,
+            7684,
+            282,
+            1217,
+            2761,
+            4611,
+            7617
+          ],
+          "source_reference": [
+            0.0827757344558174,
+            -0.0003874198332643221,
+            -0.13948737766387917
+          ],
+          "maximum_original_z_m": -0.1348390281200409,
+          "all_original_vertex_attributes_byte_exact": true
+        },
+        {
+          "patch": "little_middle",
+          "weighted_bone": "little1",
+          "sample_count": 20,
+          "indices": [
+            6665,
+            6668,
+            6664,
+            6667,
+            6666,
+            6669,
+            2955,
+            2954,
+            1796,
+            1795,
+            6670,
+            1797,
+            1277,
+            6671,
+            1278,
+            2956,
+            6656,
+            105,
+            6655,
+            6672
+          ],
+          "source_reference": [
+            0.07363943526374196,
+            0.004021253985371315,
+            -0.11772357716898504
+          ],
+          "maximum_original_z_m": -0.1134883239865303,
+          "all_original_vertex_attributes_byte_exact": true
+        },
+        {
+          "patch": "little_proximal",
+          "weighted_bone": "little0",
+          "sample_count": 20,
+          "indices": [
+            6756,
+            6757,
+            2136,
+            2137,
+            6753,
+            6754,
+            6759,
+            6760,
+            2129,
+            6758,
+            215,
+            2138,
+            2128,
+            6755,
+            4732,
+            6761,
+            6750,
+            6751,
+            6762,
+            6763
+          ],
+          "source_reference": [
+            0.06761011722068357,
+            0.005813051273194845,
+            -0.10358648138150647
+          ],
+          "maximum_original_z_m": -0.09942507743835449,
+          "all_original_vertex_attributes_byte_exact": true
+        },
+        {
+          "patch": "little_palm",
+          "weighted_bone": "wrist",
+          "sample_count": 20,
+          "indices": [
+            3703,
+            393,
+            3704,
+            1482,
+            1481,
+            3705,
+            9415,
+            3200,
+            9412,
+            8505,
+            1480,
+            396,
+            9409,
+            8504,
+            9416,
+            8521,
+            390,
+            3201,
+            9413,
+            3586
+          ],
+          "source_reference": [
+            0.05375000089406967,
+            -0.016,
+            -0.05699999552965161
+          ],
+          "maximum_original_z_m": -0.037486039102077484,
+          "all_original_vertex_attributes_byte_exact": true
+        },
+        {
+          "patch": "ring",
+          "weighted_bone": "ring2",
+          "sample_count": 20,
+          "indices": [
+            6895,
+            6892,
+            4062,
+            6896,
+            4063,
+            6893,
+            6886,
+            6887,
+            6894,
+            6897,
+            6889,
+            6890,
+            4064,
+            3308,
+            6884,
+            73,
+            6891,
+            6888,
+            3307,
+            6883
+          ],
+          "source_reference": [
+            0.03343697479345127,
+            -0.0010647145189448728,
+            -0.17917643136676104
+          ],
+          "maximum_original_z_m": -0.1782078891992569,
+          "all_original_vertex_attributes_byte_exact": true
+        },
+        {
+          "patch": "ring_middle",
+          "weighted_bone": "ring1",
+          "sample_count": 20,
+          "indices": [
+            6587,
+            1327,
+            6586,
+            1326,
+            6590,
+            6588,
+            6589,
+            6602,
+            1328,
+            6601,
+            6591,
+            80,
+            3611,
+            6593,
+            6603,
+            6592,
+            4512,
+            6599,
+            6598,
+            3612
+          ],
+          "source_reference": [
+            0.03217842770189894,
+            0.009805138772694094,
+            -0.14988911009042513
+          ],
+          "maximum_original_z_m": -0.14638610184192657,
+          "all_original_vertex_attributes_byte_exact": true
+        },
+        {
+          "patch": "ring_proximal",
+          "weighted_bone": "ring0",
+          "sample_count": 20,
+          "indices": [
+            6139,
+            6140,
+            6136,
+            6142,
+            6137,
+            6143,
+            3384,
+            3178,
+            3177,
+            5144,
+            6141,
+            3385,
+            5145,
+            3179,
+            6144,
+            6138,
+            135,
+            142,
+            6484,
+            6535
+          ],
+          "source_reference": [
+            0.0313698446246827,
+            0.015351636586815348,
+            -0.13304767226880343
+          ],
+          "maximum_original_z_m": -0.12918657064437866,
+          "all_original_vertex_attributes_byte_exact": true
+        },
+        {
+          "patch": "ring_palm",
+          "weighted_bone": "wrist",
+          "sample_count": 20,
+          "indices": [
+            1625,
+            10932,
+            8539,
+            1626,
+            8540,
+            8528,
+            4170,
+            3405,
+            8542,
+            8541,
+            590,
+            8543,
+            10780,
+            8527,
+            8524,
+            10783,
+            4169,
+            4653,
+            8544,
+            8545
+          ],
+          "source_reference": [
+            0.028750000521540642,
+            -0.016,
+            -0.07574999254941937
+          ],
+          "maximum_original_z_m": -0.053153663873672485,
+          "all_original_vertex_attributes_byte_exact": true
+        },
+        {
+          "patch": "middle",
+          "weighted_bone": "middle2",
+          "sample_count": 20,
+          "indices": [
+            913,
+            914,
+            7559,
+            7570,
+            7562,
+            271,
+            7573,
+            915,
+            3516,
+            2570,
+            7565,
+            7576,
+            7563,
+            7560,
+            279,
+            7572,
+            7569,
+            1882,
+            4322,
+            7566
+          ],
+          "source_reference": [
+            -0.005708004462962025,
+            0.007387571278854374,
+            -0.1918260695873145
+          ],
+          "maximum_original_z_m": -0.1913629174232483,
+          "all_original_vertex_attributes_byte_exact": true
+        },
+        {
+          "patch": "middle_middle",
+          "weighted_bone": "middle1",
+          "sample_count": 20,
+          "indices": [
+            6088,
+            6089,
+            1254,
+            1255,
+            1259,
+            6090,
+            1253,
+            179,
+            6091,
+            6092,
+            6003,
+            1260,
+            11361,
+            6006,
+            3448,
+            6093,
+            178,
+            3378,
+            6000,
+            4255
+          ],
+          "source_reference": [
+            -0.0055315066866039615,
+            0.01599954878706357,
+            -0.16136782054209642
+          ],
+          "maximum_original_z_m": -0.15696075558662415,
+          "all_original_vertex_attributes_byte_exact": true
+        },
+        {
+          "patch": "middle_proximal",
+          "weighted_bone": "middle0",
+          "sample_count": 20,
+          "indices": [
+            1963,
+            11343,
+            625,
+            815,
+            1964,
+            11346,
+            6414,
+            774,
+            4844,
+            11283,
+            11349,
+            6417,
+            1965,
+            11344,
+            6427,
+            816,
+            11347,
+            4845,
+            11284,
+            6420
+          ],
+          "source_reference": [
+            -0.0058645681430575585,
+            0.020275076500014033,
+            -0.1418847190337256
+          ],
+          "maximum_original_z_m": -0.13943997025489807,
+          "all_original_vertex_attributes_byte_exact": true
+        },
+        {
+          "patch": "middle_palm",
+          "weighted_bone": "wrist",
+          "sample_count": 20,
+          "indices": [
+            9086,
+            4580,
+            9082,
+            9083,
+            9078,
+            9079,
+            11652,
+            4581,
+            592,
+            1388,
+            9080,
+            11649,
+            4582,
+            11653,
+            1389,
+            1848,
+            10864,
+            11646,
+            11650,
+            1390
+          ],
+          "source_reference": [
+            -0.005000000353902578,
+            -0.016,
+            -0.0832500002980232
+          ],
+          "maximum_original_z_m": -0.0693308487534523,
+          "all_original_vertex_attributes_byte_exact": true
+        },
+        {
+          "patch": "index",
+          "weighted_bone": "index2",
+          "sample_count": 20,
+          "indices": [
+            7377,
+            7380,
+            7378,
+            7381,
+            1738,
+            1737,
+            7379,
+            7382,
+            7374,
+            7375,
+            3331,
+            3330,
+            7376,
+            3332,
+            3060,
+            1736,
+            3059,
+            259,
+            3061,
+            7332
+          ],
+          "source_reference": [
+            -0.044602933852799655,
+            0.0025073351807544993,
+            -0.17501957110625332
+          ],
+          "maximum_original_z_m": -0.1723707616329193,
+          "all_original_vertex_attributes_byte_exact": true
+        },
+        {
+          "patch": "index_middle",
+          "weighted_bone": "index1",
+          "sample_count": 20,
+          "indices": [
+            6284,
+            6287,
+            6281,
+            6285,
+            6283,
+            6282,
+            6286,
+            6280,
+            6288,
+            1009,
+            813,
+            5194,
+            1422,
+            1008,
+            812,
+            5195,
+            1421,
+            1010,
+            5193,
+            814
+          ],
+          "source_reference": [
+            -0.041454841656583294,
+            0.010164416866708735,
+            -0.1463678102193805
+          ],
+          "maximum_original_z_m": -0.14166656136512756,
+          "all_original_vertex_attributes_byte_exact": true
+        },
+        {
+          "patch": "index_proximal",
+          "weighted_bone": "index0",
+          "sample_count": 20,
+          "indices": [
+            6166,
+            6169,
+            1559,
+            1560,
+            6167,
+            6170,
+            6225,
+            6222,
+            6163,
+            6168,
+            4685,
+            163,
+            1558,
+            6164,
+            6171,
+            4686,
+            5123,
+            6223,
+            6228,
+            6226
+          ],
+          "source_reference": [
+            -0.04008308744644636,
+            0.014134310931422119,
+            -0.12702427212479603
+          ],
+          "maximum_original_z_m": -0.1228933185338974,
+          "all_original_vertex_attributes_byte_exact": true
+        },
+        {
+          "patch": "index_palm",
+          "weighted_bone": "wrist",
+          "sample_count": 20,
+          "indices": [
+            8941,
+            3534,
+            8944,
+            10900,
+            8947,
+            1411,
+            821,
+            429,
+            12008,
+            822,
+            1846,
+            823,
+            1847,
+            442,
+            1848,
+            892,
+            4881,
+            8771,
+            8768,
+            10858
+          ],
+          "source_reference": [
+            -0.03749999776482582,
+            -0.016,
+            -0.07199998122453687
+          ],
+          "maximum_original_z_m": -0.051666829735040665,
+          "all_original_vertex_attributes_byte_exact": true
+        },
+        {
+          "patch": "thumb",
+          "weighted_bone": "thumb2",
+          "sample_count": 20,
+          "indices": [
+            7820,
+            7821,
+            7819,
+            7817,
+            7824,
+            7823,
+            3874,
+            7818,
+            7816,
+            7822,
+            3873,
+            3175,
+            3174,
+            3875,
+            3176,
+            5069,
+            5070,
+            43,
+            2895,
+            2896
+          ],
+          "source_reference": [
+            -0.09389136708108457,
+            -0.030754288573698052,
+            -0.09012696093782543
+          ],
+          "maximum_original_z_m": -0.08550570905208588,
+          "all_original_vertex_attributes_byte_exact": true
+        }
+      ],
+      "rigid_meshes": [
+        {
+          "name": "Forearm.001_Surface",
+          "unchanged_sha256": "e85ca8833b44492e59e363143d22abdaed1e669f015964cb1142518e65e82422"
+        },
+        {
+          "name": "UpperArm.001_Surface",
+          "unchanged_sha256": "49827a9a537b0bd47debbd8c2a3034f3f9a6752ef307cdfb951b2787001e373c"
+        },
+        {
+          "name": "WristCuff.001_Surface",
+          "unchanged_sha256": "de390604a62cf42c21acd1fbda55a338c5d0c96c6352a4ea0ea60fb0540e5012"
+        }
+      ],
+      "nodes_bones_rotations_inverse_binds_weights_uv_topology_materials_preserved": true,
+      "all_unaffected_original_binary_bytes_preserved": true,
+      "production_install_engine_import_and_render_validation": "pending; root only"
+    }
+  ]
+}

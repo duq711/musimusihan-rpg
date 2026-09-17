@@ -1,0 +1,146 @@
+{
+  "status": "semantic_pending",
+  "source_samples_path": "C:\\Users\\duq71\\Documents\\Codex\\2026-09-08\\d\\outputs\\reference_sword_motion_20260909\\output\\iteration_02\\motion_samples_120hz.json",
+  "source_samples_sha256": "f76157f578ba3a2dba7be6d5d6c10023225a088c1847b87c58d9f45e6a250081",
+  "source_format_valid": true,
+  "received_schema_saved": true,
+  "received_schema_applied": false,
+  "source_ready_control_camera": {
+    "sword": {
+      "position": [
+        0.31000006198883057,
+        -0.10999997705221176,
+        -0.6000000834465027
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "shield": {
+      "position": [
+        -0.25855082273483276,
+        -0.21672029793262482,
+        -0.6793106198310852
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ]
+    }
+  },
+  "source_ready_basis_evidence": "author_motion.py creates camera-parented controls at the measured pivots with identity rotation and reparents source meshes preserving world transforms before video idle is applied",
+  "video_idle_is_not_source_ready": {
+    "sword": {
+      "control": "Sword_Control",
+      "pivot_camera_m": [
+        0.31000006198883057,
+        -0.10999997705221176,
+        -0.6000000834465027
+      ],
+      "rest": {
+        "position_m": [
+          0.500022828578949,
+          -0.43126967549324036,
+          -0.6000000238418579
+        ],
+        "quaternion_wxyz": [
+          0.9986431002616882,
+          -0.00045223432243801653,
+          -0.005169074051082134,
+          0.05181707441806793
+        ]
+      }
+    },
+    "shield": {
+      "control": "Shield_Control",
+      "pivot_camera_m": [
+        -0.25855082273483276,
+        -0.21672029793262482,
+        -0.6793106198310852
+      ],
+      "rest": {
+        "position_m": [
+          -0.5661180019378662,
+          -0.45643264055252075,
+          -0.6793106198310852
+        ],
+        "quaternion_wxyz": [
+          1,
+          0,
+          0,
+          0
+        ]
+      }
+    }
+  },
+  "conversion_formula": "M_canonical(t) = M_raw_control(t) * inverse(T(source_idle.pivot_camera_m)) * M_receiving_canonical_ready",
+  "missing": [
+    "Receiving canonical source-ready sword and production shield-idle transforms, with normalization evidence",
+    "Exact attack hit_seconds relative to active start, with observation/runtime-choice basis",
+    "Actual successful Windows authoring execution provenance and artifact list"
+  ],
+  "attacks": {
+    "right_diagonal": {
+      "windup_seconds": 0.715,
+      "active_seconds": 0.175,
+      "recovery_seconds": 0.7,
+      "known_exact_seams_seconds": [
+        0,
+        0.715,
+        0.89,
+        1.59
+      ],
+      "seams_missing_from_raw_grid": [
+        0.715,
+        0.89
+      ],
+      "hit_seconds": null,
+      "hit_time_status": "not established by supplied source_events; requires explicit runtime choice or observation"
+    },
+    "left_reverse": {
+      "windup_seconds": 0.62,
+      "active_seconds": 0.15,
+      "recovery_seconds": 0.7,
+      "known_exact_seams_seconds": [
+        0,
+        0.62,
+        0.77,
+        1.47
+      ],
+      "seams_missing_from_raw_grid": [
+        0.62,
+        0.77
+      ],
+      "hit_seconds": null,
+      "hit_time_status": "not established by supplied source_events; requires explicit runtime choice or observation"
+    },
+    "overhead": {
+      "windup_seconds": 0.67,
+      "active_seconds": 0.15,
+      "recovery_seconds": 0.73,
+      "known_exact_seams_seconds": [
+        0,
+        0.67,
+        0.82,
+        1.55
+      ],
+      "seams_missing_from_raw_grid": [
+        0.67,
+        0.82
+      ],
+      "hit_seconds": null,
+      "hit_time_status": "not established by supplied source_events; requires explicit runtime choice or observation"
+    }
+  },
+  "sampling_note": "Exact phase/contact instants are inserted using source-sample linear position and shortest SLERP. Existing raw source files remain unchanged. This describes sample interpolation, not new animation authoring.",
+  "limits": [
+    "Schema receipt alone does not establish canonical normalization.",
+    "No exact visual agreement with the reference video is asserted.",
+    "The original authoring report identifies these motions as an independently authored preview."
+  ]
+}

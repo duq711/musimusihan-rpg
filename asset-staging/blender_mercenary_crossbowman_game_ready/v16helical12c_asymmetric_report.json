@@ -1,0 +1,127 @@
+{
+  "candidate": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/blender_mercenary_crossbowman_game_ready/mercenary_crossbowman_game_ready_v16helical12c_asymmetric_candidate.blend",
+  "character_meshes": 10,
+  "deform_bones": 160,
+  "donor_geometry_after": {
+    "polygons": 67531,
+    "triangles": 67531,
+    "vertices": 34050
+  },
+  "donor_geometry_before": {
+    "polygons": 67531,
+    "triangles": 67531,
+    "vertices": 34050
+  },
+  "donor_geometry_preserved": true,
+  "donor_weights_preserved": true,
+  "max_scarf_arm_weight": 0.1666647036253803,
+  "new_object_validation": {
+    "Mercenary_AsymmetricHelicalScarf_v16helical12c_LOD0": {
+      "bounds": {
+        "x": [
+          -0.24786709249019623,
+          0.21088019013404846
+        ],
+        "y": [
+          -0.1843837946653366,
+          0.21104276180267334
+        ],
+        "z": [
+          1.3670240640640259,
+          1.5433052778244019
+        ]
+      },
+      "rigify": true,
+      "topology": {
+        "boundary_edges": 0,
+        "components": 1,
+        "loose_vertices": 0,
+        "nonmanifold_edges": 0,
+        "overconnected_edges": 0,
+        "zero_area_faces": 0
+      },
+      "triangles": 24096,
+      "vertices": 12050,
+      "weight_sum_range": [
+        0.9999999552965164,
+        1.0000000447034836
+      ]
+    },
+    "Mercenary_NarrowDarkNeckLiner_v16helical12c_LOD0": {
+      "bounds": {
+        "x": [
+          -0.1120000034570694,
+          0.10999999940395355
+        ],
+        "y": [
+          -0.06800000369548798,
+          0.09000000357627869
+        ],
+        "z": [
+          1.4079999923706055,
+          1.4652034044265747
+        ]
+      },
+      "rigify": true,
+      "topology": {
+        "boundary_edges": 0,
+        "components": 1,
+        "loose_vertices": 0,
+        "nonmanifold_edges": 0,
+        "overconnected_edges": 0,
+        "zero_area_faces": 0
+      },
+      "triangles": 1536,
+      "vertices": 768,
+      "weight_sum_range": [
+        0.9999999701976776,
+        1.0000000298023224
+      ]
+    }
+  },
+  "previews": {
+    "back": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/blender_mercenary_crossbowman_game_ready/previews/diagnostic_v16helical12c_back.png",
+    "front": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/blender_mercenary_crossbowman_game_ready/previews/diagnostic_v16helical12c_front.png",
+    "high": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/blender_mercenary_crossbowman_game_ready/previews/diagnostic_v16helical12c_high.png",
+    "three_quarter": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/blender_mercenary_crossbowman_game_ready/previews/diagnostic_v16helical12c_three_quarter.png",
+    "top": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/blender_mercenary_crossbowman_game_ready/previews/diagnostic_v16helical12c_top.png"
+  },
+  "production_modified": false,
+  "retired_upper_objects": [
+    {
+      "name": "Mercenary_Cowl_LayeredClean_LOD0",
+      "triangles": 17790
+    },
+    {
+      "name": "Mercenary_UnderCowl_Yoke_LOD0",
+      "triangles": 1152
+    },
+    {
+      "name": "Mercenary_ShoulderCowl_Gussets_LOD0",
+      "triangles": 16
+    },
+    {
+      "name": "Mercenary_RearShoulder_NotchPatches_LOD0",
+      "triangles": 32
+    },
+    {
+      "name": "Mercenary_InnerCowl_RolledCollar_LOD0",
+      "triangles": 10752
+    }
+  ],
+  "scarf_outer_x_radius_m": 0.24786709249019623,
+  "scarf_turns": 1.1,
+  "shoulder_projection_polygons_remapped_to_gambeson": 3479,
+  "shoulder_surface_polygons_unified_to_gambeson": 1831,
+  "source": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/blender_mercenary_crossbowman_game_ready/mercenary_crossbowman_game_ready_v16j_darkbrown_hair_candidate.blend",
+  "total_triangles": 138081,
+  "visual_qa": {
+    "back": "PASS: both helical ends are buried; no rear bow, tail fan, or stacked collar remains.",
+    "front": "CONDITIONAL PASS: compact dark scarf reads as one asymmetric wrap at game distance.",
+    "high": "FAIL FOR FINAL: broad smooth ribbon still looks synthetically inflated and donor shoulder fragments remain visible.",
+    "recommendation": "Keep only as an experimental scarf donor; combine with a separate anatomically clean shoulder/sleeve solution before final delivery.",
+    "strict_final_verdict": "NOT FINAL-READY",
+    "three_quarter": "CONDITIONAL PASS: two broad folds are readable, but the right shoulder transition is still ragged.",
+    "top": "CONDITIONAL PASS: no concentric multi-ring stack; the single wrap forms an open-back U, but remains too smooth and heavy."
+  }
+}

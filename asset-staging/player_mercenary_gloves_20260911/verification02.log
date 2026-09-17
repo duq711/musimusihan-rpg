@@ -1,0 +1,26 @@
+00:02.875  blend            | Read blend: "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/player_fingers_detail_20260911/mac_output/iteration_10/bilateral_hands_finger_detail.blend"
+21:28:31 | INFO: Data are loaded, start creating Blender stuff
+21:28:31 | INFO: Blender create Mesh node FittedLeather.001
+21:28:31 | INFO: Blender create Mesh node ContinuousAnatomicalHandMesh.002
+21:28:31 | INFO: Blender create Mesh node Nail_indexMesh
+21:28:31 | INFO: Blender create Mesh node Nail_littleMesh
+21:28:31 | INFO: Blender create Mesh node Nail_middleMesh
+21:28:31 | INFO: Blender create Mesh node Nail_ringMesh
+21:28:31 | INFO: Blender create Mesh node Nail_thumbMesh
+21:28:31 | INFO: Blender create Mesh node TailoredClothSleeve.001
+21:28:31 | INFO: Blender create Mesh node WristTransitionMesh_v1
+21:28:31 | INFO: glTF import finished in 0.12s
+21:28:31 | INFO: Data are loaded, start creating Blender stuff
+21:28:31 | INFO: Blender create Mesh node FittedLeather.003
+21:28:31 | INFO: Blender create Mesh node ContinuousAnatomicalHandMesh.003
+21:28:31 | INFO: Blender create Mesh node Nail_indexMesh.001
+21:28:31 | INFO: Blender create Mesh node Nail_littleMesh.001
+21:28:31 | INFO: Blender create Mesh node Nail_middleMesh.001
+21:28:31 | INFO: Blender create Mesh node Nail_ringMesh.001
+21:28:31 | INFO: Blender create Mesh node Nail_thumbMesh.001
+21:28:31 | INFO: Blender create Mesh node TailoredClothSleeve.003
+21:28:31 | INFO: Blender create Mesh node WristTransitionMesh_v1.001
+21:28:31 | INFO: glTF import finished in 0.11s
+00:04.666  blend            | Read blend: "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/player_mercenary_gloves_20260911/mac_output/iteration_02/bilateral_mercenary_gloves.blend"
+MERCENARY_GLOVE_VERIFICATION failed [{"error": "Physical split seam opens in Joint_index_2: {\"vertices\": [2784, 2785], \"source_gap_m\": 4.008984010494894e-06, \"candidate_gap_m\": 3.5387009086082904e-06}", "traceback": "Traceback (most recent call last):\n  File \"/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/player_mercenary_gloves_20260911/tools/verify_gloves.py\", line 206, in main\n    report['checks']['editable_'+s]=validate_preservation(old[s],new[s])\n                                    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^\n  File \"/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/player_mercenary_gloves_20260911/tools/verify_gloves.py\", line 143, in validate_preservation\n    'actual_split_seam_closure':inspect_coincident_seams(old,new)}\n                                ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^\n  File \"/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/player_mercenary_gloves_20260911/tools/verify_gloves.py\", line 72, in inspect_coincident_seams\n    assert maximum<=2e-6,'Physical split seam opens in '+key+': '+json.dumps({'vertices':pairs[worst].tolist(),'source_gap_m':float(before[worst]),'candidate_gap_m':maximum})\n           ^^^^^^^^^^^^^\nAssertionError: Physical split seam opens in Joint_index_2: {\"vertices\": [2784, 2785], \"source_gap_m\": 4.008984010494894e-06, \"candidate_gap_m\": 3.5387009086082904e-06}\n"}]
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 01:35:57)

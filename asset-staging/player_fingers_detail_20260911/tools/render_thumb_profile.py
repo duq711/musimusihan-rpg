@@ -1,0 +1,13 @@
+"""Read-only actual thumbnail oblique/profile review; separate individual PNGs."""
+import bpy,json,sys,argparse,copy
+from pathlib import Path
+from mathutils import Vector,Matrix
+sys.path.insert(0,str(Path(__file__).resolve().parent));import render_individual_fingers as r
+p=argparse.ArgumentParser();p.add_argument('--source',type=Path,required=True);p.add_argument('--output-dir',type=Path,required=True);a=p.parse_args(sys.argv[sys.argv.index('--')+1:]);source=a.source.resolve();out=a.output_dir.resolve();assert not out.exists();out.mkdir();original=r.sha(source)
+bpy.ops.wm.open_mainfile(filepath=str(source));scene=bpy.data.scenes['Bilateral_Realistic_Review'];bpy.context.window.scene=scene;holder=scene.objects['LEFT_PreviewTranslationOnly'];objects=r.descendants(holder);rig=next(o for o in objects if o.type=='ARMATURE');skin=next(o for o in objects if o.type=='MESH' and 'Anatomical' in o.name);nail=next(o for o in objects if o.type=='MESH' and o.name.startswith('Nail_thumb'));r.neutral_source(objects,rig);sig=r.source_signature(objects);selection=r.face_ids(skin,'thumb');frame=r.digit_frame(holder,rig,skin,selection,'thumb')['thumb_dorsal'];review=r.new_scene(1024,1536,32,4);deps=bpy.context.evaluated_depsgraph_get();r.static_copy(skin,selection,review,deps,'Review_thumb');r.static_copy(nail,list(range(len(nail.data.polygons))),review,deps,'Review_thumb_nail');report={'source_sha256':original,'actual_blender_geometry':True,'renders':{}}
+for name,degrees in [('thumb_oblique',48),('thumb_profile',85)]:
+ f=copy.deepcopy(frame);rotation=Matrix.Rotation(__import__('math').radians(degrees),3,Vector(frame['axis_native']));center=Vector(frame['center_native']);f['location_native']=list(center+rotation@(Vector(frame['location_native'])-center));f['rotation_native']=[list(row) for row in rotation@Matrix(frame['rotation_native'])]
+ for light in f['lights']:light['location_native']=list(center+rotation@(Vector(light['location_native'])-center))
+ temporary=r.place_frame(review,holder,f);review.render.filepath=str(out/(name+'.png'));bpy.ops.render.render(write_still=True,scene=review.name);report['renders'][name]={'file':name+'.png','sha256':r.sha(out/(name+'.png')),'view_degrees_from_dorsal':degrees}
+ for o in temporary:bpy.data.objects.remove(o,do_unlink=True)
+assert r.sha(source)==original and r.source_signature(objects)==sig;report['source_unchanged']=True;(out/'profile_report.json').write_text(json.dumps(report,indent=2));print('THUMB_PROFILE_REVIEW_COMPLETE')

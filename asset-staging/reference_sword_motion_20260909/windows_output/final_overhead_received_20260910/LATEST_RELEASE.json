@@ -1,0 +1,62 @@
+{
+  "status": "completed_windows_release_awaiting_mac_integration",
+  "execution_os": "Windows",
+  "hostname": "DESKTOP-M9TL6BT",
+  "iteration": "iteration_07",
+  "clips": [
+    {
+      "id": "overhead",
+      "duration_seconds": 1.55,
+      "actual_sample_hz": 120,
+      "actual_samples": 187,
+      "video_fps": 60,
+      "video_resolution": [
+        1280,
+        720
+      ]
+    }
+  ],
+  "completed_scope": "one first-person overhead attack; no new clips authored during transfer",
+  "skin_count": 1,
+  "sleeve_bones": 7,
+  "skinned_meshes": 3,
+  "integration_requires": "full delivered GLB hierarchy including Skin, Skeleton and overhead Action/AnimationPlayer; right_arm.parts_camera alone cannot reproduce final sleeve",
+  "source_preserved": true,
+  "mac_production_applied": false,
+  "files": [
+    {
+      "path": "C:\\Users\\duq71\\Documents\\Codex\\2026-09-08\\d\\outputs\\reference_sword_motion_rebuild_20260910\\output\\iteration_07\\Overhead_Review.blend",
+      "bytes": 18224573,
+      "sha256": "c2d42f15489ca6baa89038d8c0d1adb16e91e1f137d97324e2d34352184dba0c"
+    },
+    {
+      "path": "C:\\Users\\duq71\\Documents\\Codex\\2026-09-08\\d\\outputs\\reference_sword_motion_rebuild_20260910\\output\\iteration_07\\Overhead_Review.glb",
+      "bytes": 18986536,
+      "sha256": "a0df768367d78a487573101e780b881869b52b17ddd6daeaaea9cbcf6b24f319"
+    },
+    {
+      "path": "C:\\Users\\duq71\\Documents\\Codex\\2026-09-08\\d\\outputs\\reference_sword_motion_rebuild_20260910\\output\\iteration_07\\arm_pose_samples.json",
+      "bytes": 356998,
+      "sha256": "3c383aacbfb138a1c3ac19686f4a555d06ef2e311575aeefd7c2a529045254b0"
+    },
+    {
+      "path": "C:\\Users\\duq71\\Documents\\Codex\\2026-09-08\\d\\outputs\\reference_sword_motion_rebuild_20260910\\delivery\\Media\\Overhead_Final_60fps.mp4",
+      "bytes": 233613,
+      "sha256": "8d0c8f84ff5d43dfef188a20daefa38e49d672d6a74059549307ac16d9bc2518"
+    },
+    {
+      "path": "C:\\Users\\duq71\\Documents\\Codex\\2026-09-08\\d\\outputs\\reference_sword_motion_rebuild_20260910\\Overhead_Final_Godot_Blender_20260910.zip",
+      "bytes": 52269952,
+      "sha256": "5904080acc97863f847183765d9583b4d84a22351258fa2d7f3ca004874790ab"
+    }
+  ],
+  "deferred_large_files": [
+    "Overhead_Review.blend",
+    "Overhead_Review.glb",
+    "Overhead_Final_Godot_Blender_20260910.zip"
+  ],
+  "preview_images": "Downscaled actual source/render contact sheets and one actual final POV frame; no generated substitute images",
+  "original_video_reference": "https://youtu.be/sU7jk2OQlgc",
+  "visual_status": "accepted for first-person overhead with documented differences; not a pixel-identical reference recreation",
+  "model_glb_axis_note": "Use full imported GLB under an identity Camera3D as in GodotPreview; do not reapply SOURCE_READY or camera axis corrections. Rigid node frame compensation and skin bind frames differ; the full GLB retains both correctly."
+}

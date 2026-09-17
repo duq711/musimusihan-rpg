@@ -1,0 +1,960 @@
+{
+  "status": "building",
+  "phase": "material",
+  "source": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/player_hands_reference_20260911/mac_output/geometry_04/bilateral_hands_reference_geometry.blend",
+  "source_sha256": "202ea95761cc89faffc788cd89e5737fda3d22f11db017a4d247e19893d163ca",
+  "created_utc": "2026-09-10T21:05:45.565034+00:00",
+  "blender": "5.2.1 LTS",
+  "host": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "hands": {
+    "left": {
+      "fields": {
+        "photo_projection": {
+          "status": "photo_fields_ready_pending_visual_review",
+          "attributes": [
+            "ReferencePhotoPalm",
+            "ReferencePhotoBack",
+            "ReferencePhotoFingerPalm",
+            "ReferencePhotoFingerBack",
+            "ReferencePhotoWeights"
+          ],
+          "photo_path": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/player_hands_reference_20260911/reference/user_hand_photo.png",
+          "photo_sha256": "67536edf1860cd47984cd6b00ff9935a00a6c8c15226b40ad1276e6bba3e4af7",
+          "photo_size": [
+            800,
+            553
+          ],
+          "packed_original": true,
+          "geometry_weights_keys_atlas_uv_unchanged": true,
+          "digit_vertex_counts": {
+            "thumb": 1963,
+            "index": 2155,
+            "middle": 1723,
+            "ring": 1744,
+            "little": 1822
+          },
+          "projection": "Main palm/back plus five independent joint-frame finger projections; finger photo fades in above the broad MCP/web region.",
+          "landmarks_image_pixels": {
+            "palm": {
+              "index": [
+                [
+                  219,
+                  275
+                ],
+                [
+                  238,
+                  216
+                ],
+                [
+                  250,
+                  170
+                ],
+                [
+                  260,
+                  140
+                ]
+              ],
+              "middle": [
+                [
+                  181,
+                  258
+                ],
+                [
+                  184,
+                  199
+                ],
+                [
+                  183,
+                  150
+                ],
+                [
+                  183,
+                  113
+                ]
+              ],
+              "ring": [
+                [
+                  148,
+                  268
+                ],
+                [
+                  133,
+                  211
+                ],
+                [
+                  122,
+                  164
+                ],
+                [
+                  116,
+                  141
+                ]
+              ],
+              "little": [
+                [
+                  127,
+                  286
+                ],
+                [
+                  93,
+                  253
+                ],
+                [
+                  78,
+                  222
+                ],
+                [
+                  67,
+                  201
+                ]
+              ],
+              "thumb": [
+                [
+                  227,
+                  367
+                ],
+                [
+                  274,
+                  328
+                ],
+                [
+                  310,
+                  309
+                ],
+                [
+                  345,
+                  300
+                ]
+              ]
+            },
+            "back": {
+              "index": [
+                [
+                  563,
+                  276
+                ],
+                [
+                  545,
+                  203
+                ],
+                [
+                  538,
+                  156
+                ],
+                [
+                  532,
+                  124
+                ]
+              ],
+              "middle": [
+                [
+                  604,
+                  267
+                ],
+                [
+                  610,
+                  196
+                ],
+                [
+                  616,
+                  147
+                ],
+                [
+                  620,
+                  108
+                ]
+              ],
+              "ring": [
+                [
+                  637,
+                  291
+                ],
+                [
+                  661,
+                  235
+                ],
+                [
+                  679,
+                  188
+                ],
+                [
+                  691,
+                  146
+                ]
+              ],
+              "little": [
+                [
+                  660,
+                  322
+                ],
+                [
+                  699,
+                  281
+                ],
+                [
+                  728,
+                  255
+                ],
+                [
+                  750,
+                  231
+                ]
+              ],
+              "thumb": [
+                [
+                  534,
+                  377
+                ],
+                [
+                  476,
+                  353
+                ],
+                [
+                  441,
+                  328
+                ],
+                [
+                  402,
+                  307
+                ]
+              ]
+            }
+          },
+          "palm_native_end_y": 0.09602427234252293,
+          "thumb_sign": 1.0,
+          "linear_rgb_multiplier": [
+            0.73,
+            0.62,
+            0.56
+          ],
+          "maximum_photo_blend": 0.65,
+          "body_interior_fade": {
+            "abs_u": [
+              0.5,
+              0.8
+            ],
+            "v_low": [
+              0.1,
+              0.25
+            ],
+            "v_high": [
+              0.72,
+              0.96
+            ]
+          },
+          "background_rule": "Smooth R-G confidence 0.04..0.10 and R-B 0.06..0.15, multiplied by anatomical body-interior gate; no bitmap replacement.",
+          "missing_attribute_behavior": "Zero photo-facing weights, so cuff and other non-photo surfaces retain procedural pigment."
+        },
+        "attributes": [
+          "ReferencePigment",
+          "ReferenceNative",
+          "ReferencePalm",
+          "ReferenceFacing",
+          "ReferenceJoint0",
+          "ReferenceJoint1",
+          "ReferenceJoint2",
+          "ReferencePhotoPalm",
+          "ReferencePhotoBack",
+          "ReferencePhotoFingerPalm",
+          "ReferencePhotoFingerBack",
+          "ReferencePhotoWeights"
+        ],
+        "geometry_changed": false,
+        "thumb_side_native_x_sign": 1.0,
+        "palm_start_y": 0.01,
+        "palm_end_y": 0.09602427234252293,
+        "palm_center_x": -0.006448578089475632,
+        "palm_half_width": 0.038522783666849136,
+        "skin_srgb": [
+          0.76,
+          0.535,
+          0.4
+        ],
+        "palm_srgb": [
+          0.85,
+          0.655,
+          0.505
+        ],
+        "joint_section_centers_native": {
+          "thumb0": [
+            0.023082954809069633,
+            0.02068406157195568,
+            -0.005252194125205278
+          ],
+          "thumb1": [
+            0.0508962981402874,
+            0.05658973380923271,
+            -0.0053168050944805145
+          ],
+          "thumb2": [
+            0.07839339971542358,
+            0.07679720222949982,
+            -0.008302535861730576
+          ],
+          "index0": [
+            0.03462159261107445,
+            0.09087482839822769,
+            0.008747049607336521
+          ],
+          "index1": [
+            0.044040828943252563,
+            0.13267871737480164,
+            0.021334202960133553
+          ],
+          "index2": [
+            0.046752918511629105,
+            0.16066259145736694,
+            0.014010440558195114
+          ],
+          "middle0": [
+            0.004940661136060953,
+            0.10217873752117157,
+            0.013881080783903599
+          ],
+          "middle1": [
+            0.006051904521882534,
+            0.14830060303211212,
+            0.02807582914829254
+          ],
+          "middle2": [
+            0.005440786946564913,
+            0.1764107048511505,
+            0.01887473091483116
+          ],
+          "ring0": [
+            -0.027353445068001747,
+            0.09501925110816956,
+            0.008721387013792992
+          ],
+          "ring1": [
+            -0.029874173924326897,
+            0.13856038451194763,
+            0.02278248779475689
+          ],
+          "ring2": [
+            -0.033107634633779526,
+            0.16516873240470886,
+            0.01141371764242649
+          ],
+          "little0": [
+            -0.047403063625097275,
+            0.0786822959780693,
+            0.003754611127078533
+          ],
+          "little1": [
+            -0.06255171447992325,
+            0.1099778488278389,
+            0.009078986011445522
+          ],
+          "little2": [
+            -0.07462166994810104,
+            0.12934952974319458,
+            0.008873638696968555
+          ]
+        },
+        "palm_main_flows": 3,
+        "palm_total_segments_including_branches": 12,
+        "nails": [
+          {
+            "object": "Nail_index",
+            "is_nail": true,
+            "is_skin_material": false,
+            "geometry_changed": false
+          },
+          {
+            "object": "Nail_little",
+            "is_nail": true,
+            "is_skin_material": false,
+            "geometry_changed": false
+          },
+          {
+            "object": "Nail_middle",
+            "is_nail": true,
+            "is_skin_material": false,
+            "geometry_changed": false
+          },
+          {
+            "object": "Nail_ring",
+            "is_nail": true,
+            "is_skin_material": false,
+            "geometry_changed": false
+          },
+          {
+            "object": "Nail_thumb",
+            "is_nail": true,
+            "is_skin_material": false,
+            "geometry_changed": false
+          }
+        ]
+      }
+    },
+    "right": {
+      "fields": {
+        "photo_projection": {
+          "status": "photo_fields_ready_pending_visual_review",
+          "attributes": [
+            "ReferencePhotoPalm",
+            "ReferencePhotoBack",
+            "ReferencePhotoFingerPalm",
+            "ReferencePhotoFingerBack",
+            "ReferencePhotoWeights"
+          ],
+          "photo_path": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/player_hands_reference_20260911/reference/user_hand_photo.png",
+          "photo_sha256": "67536edf1860cd47984cd6b00ff9935a00a6c8c15226b40ad1276e6bba3e4af7",
+          "photo_size": [
+            800,
+            553
+          ],
+          "packed_original": true,
+          "geometry_weights_keys_atlas_uv_unchanged": true,
+          "digit_vertex_counts": {
+            "thumb": 1964,
+            "index": 2155,
+            "middle": 1723,
+            "ring": 1747,
+            "little": 1822
+          },
+          "projection": "Main palm/back plus five independent joint-frame finger projections; finger photo fades in above the broad MCP/web region.",
+          "landmarks_image_pixels": {
+            "palm": {
+              "index": [
+                [
+                  219,
+                  275
+                ],
+                [
+                  238,
+                  216
+                ],
+                [
+                  250,
+                  170
+                ],
+                [
+                  260,
+                  140
+                ]
+              ],
+              "middle": [
+                [
+                  181,
+                  258
+                ],
+                [
+                  184,
+                  199
+                ],
+                [
+                  183,
+                  150
+                ],
+                [
+                  183,
+                  113
+                ]
+              ],
+              "ring": [
+                [
+                  148,
+                  268
+                ],
+                [
+                  133,
+                  211
+                ],
+                [
+                  122,
+                  164
+                ],
+                [
+                  116,
+                  141
+                ]
+              ],
+              "little": [
+                [
+                  127,
+                  286
+                ],
+                [
+                  93,
+                  253
+                ],
+                [
+                  78,
+                  222
+                ],
+                [
+                  67,
+                  201
+                ]
+              ],
+              "thumb": [
+                [
+                  227,
+                  367
+                ],
+                [
+                  274,
+                  328
+                ],
+                [
+                  310,
+                  309
+                ],
+                [
+                  345,
+                  300
+                ]
+              ]
+            },
+            "back": {
+              "index": [
+                [
+                  563,
+                  276
+                ],
+                [
+                  545,
+                  203
+                ],
+                [
+                  538,
+                  156
+                ],
+                [
+                  532,
+                  124
+                ]
+              ],
+              "middle": [
+                [
+                  604,
+                  267
+                ],
+                [
+                  610,
+                  196
+                ],
+                [
+                  616,
+                  147
+                ],
+                [
+                  620,
+                  108
+                ]
+              ],
+              "ring": [
+                [
+                  637,
+                  291
+                ],
+                [
+                  661,
+                  235
+                ],
+                [
+                  679,
+                  188
+                ],
+                [
+                  691,
+                  146
+                ]
+              ],
+              "little": [
+                [
+                  660,
+                  322
+                ],
+                [
+                  699,
+                  281
+                ],
+                [
+                  728,
+                  255
+                ],
+                [
+                  750,
+                  231
+                ]
+              ],
+              "thumb": [
+                [
+                  534,
+                  377
+                ],
+                [
+                  476,
+                  353
+                ],
+                [
+                  441,
+                  328
+                ],
+                [
+                  402,
+                  307
+                ]
+              ]
+            }
+          },
+          "palm_native_end_y": 0.0959826906522115,
+          "thumb_sign": -1.0,
+          "linear_rgb_multiplier": [
+            0.73,
+            0.62,
+            0.56
+          ],
+          "maximum_photo_blend": 0.65,
+          "body_interior_fade": {
+            "abs_u": [
+              0.5,
+              0.8
+            ],
+            "v_low": [
+              0.1,
+              0.25
+            ],
+            "v_high": [
+              0.72,
+              0.96
+            ]
+          },
+          "background_rule": "Smooth R-G confidence 0.04..0.10 and R-B 0.06..0.15, multiplied by anatomical body-interior gate; no bitmap replacement.",
+          "missing_attribute_behavior": "Zero photo-facing weights, so cuff and other non-photo surfaces retain procedural pigment."
+        },
+        "attributes": [
+          "ReferencePigment",
+          "ReferenceNative",
+          "ReferencePalm",
+          "ReferenceFacing",
+          "ReferenceJoint0",
+          "ReferenceJoint1",
+          "ReferenceJoint2",
+          "ReferencePhotoPalm",
+          "ReferencePhotoBack",
+          "ReferencePhotoFingerPalm",
+          "ReferencePhotoFingerBack",
+          "ReferencePhotoWeights"
+        ],
+        "geometry_changed": false,
+        "thumb_side_native_x_sign": -1.0,
+        "palm_start_y": 0.01,
+        "palm_end_y": 0.0959826906522115,
+        "palm_center_x": 0.006453152745962143,
+        "palm_half_width": 0.038517870008945465,
+        "skin_srgb": [
+          0.76,
+          0.535,
+          0.4
+        ],
+        "palm_srgb": [
+          0.85,
+          0.655,
+          0.505
+        ],
+        "joint_section_centers_native": {
+          "thumb0": [
+            -0.023086432367563248,
+            0.020680788904428482,
+            -0.005251429509371519
+          ],
+          "thumb1": [
+            -0.050996385514736176,
+            0.056420113891363144,
+            -0.0058186594396829605
+          ],
+          "thumb2": [
+            -0.07838037610054016,
+            0.0768042653799057,
+            -0.008285700343549252
+          ],
+          "index0": [
+            -0.0362919457256794,
+            0.09075791388750076,
+            0.00875252578407526
+          ],
+          "index1": [
+            -0.044040337204933167,
+            0.1326778531074524,
+            0.021331265568733215
+          ],
+          "index2": [
+            -0.04675266146659851,
+            0.16066116094589233,
+            0.014005618169903755
+          ],
+          "middle0": [
+            -0.005391354206949472,
+            0.10216639935970306,
+            0.013909007422626019
+          ],
+          "middle1": [
+            -0.006052268203347921,
+            0.14829929172992706,
+            0.028072046115994453
+          ],
+          "middle2": [
+            -0.0054407985880970955,
+            0.1764104664325714,
+            0.018873946741223335
+          ],
+          "ring0": [
+            0.027282381430268288,
+            0.0950237587094307,
+            0.008722860366106033
+          ],
+          "ring1": [
+            0.029894227162003517,
+            0.13858169317245483,
+            0.022826049476861954
+          ],
+          "ring2": [
+            0.033123355358839035,
+            0.1651630997657776,
+            0.011399208568036556
+          ],
+          "little0": [
+            0.04741104692220688,
+            0.07867838442325592,
+            0.0037550623528659344
+          ],
+          "little1": [
+            0.06255418062210083,
+            0.10997673869132996,
+            0.009078403003513813
+          ],
+          "little2": [
+            0.07462229579687119,
+            0.1293507069349289,
+            0.008878923952579498
+          ]
+        },
+        "palm_main_flows": 3,
+        "palm_total_segments_including_branches": 12,
+        "nails": [
+          {
+            "object": "Nail_index.001",
+            "is_nail": true,
+            "is_skin_material": false,
+            "geometry_changed": false
+          },
+          {
+            "object": "Nail_little.001",
+            "is_nail": true,
+            "is_skin_material": false,
+            "geometry_changed": false
+          },
+          {
+            "object": "Nail_middle.001",
+            "is_nail": true,
+            "is_skin_material": false,
+            "geometry_changed": false
+          },
+          {
+            "object": "Nail_ring.001",
+            "is_nail": true,
+            "is_skin_material": false,
+            "geometry_changed": false
+          },
+          {
+            "object": "Nail_thumb.001",
+            "is_nail": true,
+            "is_skin_material": false,
+            "geometry_changed": false
+          }
+        ]
+      }
+    }
+  },
+  "uv": {
+    "Forearm_Surface.001": {
+      "uv_name": "ReferenceUV",
+      "priority_scale": 1.0,
+      "loop_count": 40176,
+      "atlas_fraction_uv_area": 0.01672420860327327,
+      "degenerate_polygons": 0
+    },
+    "ContinuousAnatomicalHand.001": {
+      "uv_name": "ReferenceUV",
+      "priority_scale": 10.0,
+      "loop_count": 68118,
+      "atlas_fraction_uv_area": 0.16724211631604083,
+      "degenerate_polygons": 0
+    },
+    "Nail_index": {
+      "uv_name": "ReferenceUV",
+      "priority_scale": 0.15,
+      "loop_count": 9088,
+      "atlas_fraction_uv_area": 0.002508631295373487,
+      "degenerate_polygons": 0
+    },
+    "Nail_little": {
+      "uv_name": "ReferenceUV",
+      "priority_scale": 0.15,
+      "loop_count": 9088,
+      "atlas_fraction_uv_area": 0.0025086323522512943,
+      "degenerate_polygons": 0
+    },
+    "Nail_middle": {
+      "uv_name": "ReferenceUV",
+      "priority_scale": 0.15,
+      "loop_count": 9088,
+      "atlas_fraction_uv_area": 0.0025086327286369947,
+      "degenerate_polygons": 0
+    },
+    "Nail_ring": {
+      "uv_name": "ReferenceUV",
+      "priority_scale": 0.15,
+      "loop_count": 9088,
+      "atlas_fraction_uv_area": 0.0025086319721037142,
+      "degenerate_polygons": 0
+    },
+    "Nail_thumb": {
+      "uv_name": "ReferenceUV",
+      "priority_scale": 0.15,
+      "loop_count": 9088,
+      "atlas_fraction_uv_area": 0.002508631132370792,
+      "degenerate_polygons": 0
+    },
+    "UpperArm_Surface.001": {
+      "uv_name": "ReferenceUV",
+      "priority_scale": 0.45,
+      "loop_count": 27720,
+      "atlas_fraction_uv_area": 0.4499999585695589,
+      "degenerate_polygons": 0
+    },
+    "WristCuff_Surface.001": {
+      "uv_name": "ReferenceUV",
+      "priority_scale": 0.8,
+      "loop_count": 17408,
+      "atlas_fraction_uv_area": 0.013379369221744986,
+      "degenerate_polygons": 0
+    },
+    "Forearm.001_Surface.001": {
+      "uv_name": "ReferenceUV",
+      "priority_scale": 1.0,
+      "loop_count": 40176,
+      "atlas_fraction_uv_area": 0.016724211821530707,
+      "degenerate_polygons": 0
+    },
+    "ContinuousAnatomicalHand.003": {
+      "uv_name": "ReferenceUV",
+      "priority_scale": 10.0,
+      "loop_count": 68118,
+      "atlas_fraction_uv_area": 0.1672421344773185,
+      "degenerate_polygons": 0
+    },
+    "Nail_index.001": {
+      "uv_name": "ReferenceUV",
+      "priority_scale": 0.15,
+      "loop_count": 9088,
+      "atlas_fraction_uv_area": 0.0025086328963599414,
+      "degenerate_polygons": 0
+    },
+    "Nail_little.001": {
+      "uv_name": "ReferenceUV",
+      "priority_scale": 0.15,
+      "loop_count": 9088,
+      "atlas_fraction_uv_area": 0.0025086318305379274,
+      "degenerate_polygons": 0
+    },
+    "Nail_middle.001": {
+      "uv_name": "ReferenceUV",
+      "priority_scale": 0.15,
+      "loop_count": 9088,
+      "atlas_fraction_uv_area": 0.002508631455984567,
+      "degenerate_polygons": 0
+    },
+    "Nail_ring.001": {
+      "uv_name": "ReferenceUV",
+      "priority_scale": 0.15,
+      "loop_count": 9088,
+      "atlas_fraction_uv_area": 0.00250863137586458,
+      "degenerate_polygons": 0
+    },
+    "Nail_thumb.001": {
+      "uv_name": "ReferenceUV",
+      "priority_scale": 0.15,
+      "loop_count": 9088,
+      "atlas_fraction_uv_area": 0.002508631556658758,
+      "degenerate_polygons": 0
+    },
+    "UpperArm.001_Surface.001": {
+      "uv_name": "ReferenceUV",
+      "priority_scale": 0.45,
+      "loop_count": 27720,
+      "atlas_fraction_uv_area": 0.4499999585695589,
+      "degenerate_polygons": 0
+    },
+    "WristCuff.001_Surface.001": {
+      "uv_name": "ReferenceUV",
+      "priority_scale": 0.8,
+      "loop_count": 17408,
+      "atlas_fraction_uv_area": 0.013379370648706673,
+      "degenerate_polygons": 0
+    }
+  },
+  "textures": {
+    "basecolor": {
+      "file": "reference_hands_basecolor.png",
+      "resolution": [
+        4096,
+        4096
+      ],
+      "colorspace": "sRGB",
+      "sample_min": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "sample_max": [
+        0.8549020290374756,
+        0.686274528503418,
+        0.615686297416687
+      ],
+      "packed": true
+    },
+    "roughness": {
+      "file": "reference_hands_roughness.png",
+      "resolution": [
+        4096,
+        4096
+      ],
+      "colorspace": "Non-Color",
+      "sample_min": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "sample_max": [
+        0.7960785031318665,
+        0.7960785031318665,
+        0.7960785031318665
+      ],
+      "packed": true
+    },
+    "normal": {
+      "file": "reference_hands_normal.png",
+      "resolution": [
+        4096,
+        4096
+      ],
+      "colorspace": "Non-Color",
+      "sample_min": [
+        0.29019609093666077,
+        0.08235294371843338,
+        0.7725490927696228
+      ],
+      "sample_max": [
+        0.729411780834198,
+        0.803921639919281,
+        1.0
+      ],
+      "packed": true
+    }
+  }
+}

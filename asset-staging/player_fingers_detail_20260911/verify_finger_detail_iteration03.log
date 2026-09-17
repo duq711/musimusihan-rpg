@@ -1,0 +1,26 @@
+00:02.747  blend            | Read blend: "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/player_hands_proportions_20260911/mac_output/iteration_01/bilateral_hands_proportions.blend"
+07:54:11 | INFO: Data are loaded, start creating Blender stuff
+07:54:11 | INFO: Blender create Mesh node FittedLeather.001
+07:54:11 | INFO: Blender create Mesh node ContinuousAnatomicalHandMesh.002
+07:54:11 | INFO: Blender create Mesh node Nail_indexMesh
+07:54:11 | INFO: Blender create Mesh node Nail_littleMesh
+07:54:11 | INFO: Blender create Mesh node Nail_middleMesh
+07:54:11 | INFO: Blender create Mesh node Nail_ringMesh
+07:54:11 | INFO: Blender create Mesh node Nail_thumbMesh
+07:54:11 | INFO: Blender create Mesh node TailoredClothSleeve.001
+07:54:11 | INFO: Blender create Mesh node WristTransitionMesh_v1
+07:54:11 | INFO: glTF import finished in 0.15s
+07:54:11 | INFO: Data are loaded, start creating Blender stuff
+07:54:11 | INFO: Blender create Mesh node FittedLeather.003
+07:54:11 | INFO: Blender create Mesh node ContinuousAnatomicalHandMesh.003
+07:54:12 | INFO: Blender create Mesh node Nail_indexMesh.001
+07:54:12 | INFO: Blender create Mesh node Nail_littleMesh.001
+07:54:12 | INFO: Blender create Mesh node Nail_middleMesh.001
+07:54:12 | INFO: Blender create Mesh node Nail_ringMesh.001
+07:54:12 | INFO: Blender create Mesh node Nail_thumbMesh.001
+07:54:12 | INFO: Blender create Mesh node TailoredClothSleeve.003
+07:54:12 | INFO: Blender create Mesh node WristTransitionMesh_v1.001
+07:54:12 | INFO: glTF import finished in 0.17s
+00:07.023  blend            | Read blend: "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/player_fingers_detail_20260911/mac_output/iteration_03/bilateral_hands_finger_detail.blend"
+FINGER_DETAIL_VERIFICATION failed [{"error": "New non-adjacent physical skin intersection: [[20280, 20300], [20281, 20300], [20283, 20299], [20283, 20300]]", "traceback": "Traceback (most recent call last):\n  File \"/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/player_fingers_detail_20260911/tools/verify_finger_detail.py\", line 498, in main\n    row[\"source_preservation\"] = inspect_changes(original[side],current[side])\n                                 ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/player_fingers_detail_20260911/tools/verify_finger_detail.py\", line 216, in inspect_changes\n    \"corrective_vectors\": corrections, \"surface\": inspect_surface(a,b,changed)}\n                                                  ~~~~~~~~~~~~~~~^^^^^^^^^^^^^\n  File \"/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/player_fingers_detail_20260911/tools/verify_finger_detail.py\", line 133, in inspect_surface\n    assert not new_intersections, \"New non-adjacent physical skin intersection: \" + str(new_intersections[:8])\n           ^^^^^^^^^^^^^^^^^^^^^\nAssertionError: New non-adjacent physical skin intersection: [[20280, 20300], [20281, 20300], [20283, 20299], [20283, 20300]]\n"}]
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 01:35:57)

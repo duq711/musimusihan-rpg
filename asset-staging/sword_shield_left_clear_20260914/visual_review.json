@@ -1,0 +1,20 @@
+{
+  "reviewed_images": [
+    "godot-game/artifacts/visual_qa/reference_sword_motion/shield_left_clear_comparison/right_diagonal.jpg",
+    "godot-game/artifacts/visual_qa/reference_sword_motion/shield_left_clear_comparison/right_diagonal_return.jpg",
+    "godot-game/artifacts/visual_qa/reference_sword_motion/shield_left_clear_comparison/left_reverse.jpg",
+    "godot-game/artifacts/visual_qa/reference_sword_motion/shield_left_clear_comparison/left_reverse_return.jpg",
+    "godot-game/artifacts/visual_qa/reference_sword_motion/shield_left_clear_comparison/overhead.jpg",
+    "godot-game/artifacts/visual_qa/reference_sword_motion/shield_left_clear_comparison/overhead_return.jpg"
+  ],
+  "observations": [
+    "Shield opens toward the left border ahead of contact, with a slight outward turn and no downward stow.",
+    "Sword and hand have more visible room on forehand and reverse sweeps.",
+    "Shield returns gradually while sword completes its existing recovery.",
+    "Every captured sword transform is exactly identical to the previous fixed-shield capture, including READY."
+  ],
+  "limitations": [
+    "Review is of the existing first-person camera; it is not a new third-person anatomy review.",
+    "Normal-speed and labelled half-speed video contains actual frames, without generated poses or interpolated frames."
+  ]
+}

@@ -1,0 +1,165 @@
+{
+  "status": "PASS",
+  "scope": "Blender candidate source-key arithmetic and original-input preservation; no Godot execution, runtime interpolation or screen quality claim",
+  "source_samples": 174,
+  "active_samples": 24,
+  "exact_mirror_plateau_seconds": [
+    0.6,
+    0.82
+  ],
+  "max_errors": {
+    "active_grip_m": 3.332000937312528e-08,
+    "active_axis": 3.2098083538618706e-07,
+    "grip_anchor_m": 5.960464477539063e-08,
+    "wrist_anchor_m": 0.0,
+    "upper_length_m": 7.732631146506463e-08,
+    "forearm_length_m": 7.578140504005404e-08,
+    "determinant": 3.5762786865234375e-07,
+    "unit_quaternion": 1.1920928955078125e-07,
+    "shoulder_adjustment_m": 0.4624305626356347
+  },
+  "shared_ready_endpoints": [
+    {
+      "time_seconds": 0.0,
+      "pivot_m": 0.0,
+      "grip_m": 0.0,
+      "rotation_rad": 5.820766091346741e-11,
+      "max_joint_m": 8.560065398421926e-08
+    },
+    {
+      "time_seconds": 1.42,
+      "pivot_m": 0.0,
+      "grip_m": 0.0,
+      "rotation_rad": 5.820766091346741e-11,
+      "max_joint_m": 8.940696716308594e-08
+    }
+  ],
+  "preserved_clip_semantic_sha256": {
+    "idle": "f8fdb18a2ef9d1d7310a35ff591a7bb52b2ebacd21b881c54097fce87294323b",
+    "walk": "5aff1937d6cdae0d8fe11fc1199120f8daa1744a66b4305c8cd45494db4031d7",
+    "run": "ddb870ce9b8f487095150039e1ffeb7ad512c501ceae0fe40cb85be9eb47a622",
+    "takeoff": "8016024f961c2302c41bb04de0aaad06b15f81f7f6d75582d1d879ba59fdbe01",
+    "air": "9644275e3cab34329ae9af42c785173d3c6f93cbfb20d09d8057e4cb8ab25039",
+    "land": "76ac5d667f7a189965fb8da47996504f1b0a4ba680c524c0a8e82203a9fd34c3",
+    "overhead": "0a4a75acaf34108de47f52255a9a0f258d62f4de48f4cd12bf4760fc7b48a33b",
+    "left_reverse": "886564b7cc728f09f96e787f57762dd1e6cbb354c292bb5405c5824c026a9780",
+    "equip": "355955d2cbbc2d1479f66cd7a156c615dca3c1df92bda5395cc827907474ac8a"
+  },
+  "preserved_shield_track_semantic_sha256": "02f2f528a59e7be8db43d3052a6670d9a6ca8be6a141626a35638f62ec8881a3",
+  "input_sha256": {
+    "asset-staging/sword_forehand_mirror_reverse_20260913/baseline/godot-game/assets/animations/reference_sword_motion/motion_manifest.json": "f59bd4a6e3eac5bb338e52f09f27907c69d26e32fcfe6684302b687971f3d2a6",
+    "asset-staging/sword_reverse_match_20260913/baseline/godot-game/assets/animations/reference_sword_motion/motion_manifest.json": "1c26b1b8243e7581cfdfc1b9a785fb4ae6783e8c291e3e7ecc78e6d8e8cb35b5",
+    "godot-game/assets/3d/player/sword_hold_long_grip/SwordHold_Static.glb": "2b94cc385f837fe253552cd654cb1f665246f61cdee5227814d63049da9f22fb",
+    "godot-game/assets/3d/player/sword_shield/left_arm.glb": "e3f7d9415bd89e24deaa83d05b05021563d84a4f2c5aa28f37d81a97beecd5cf",
+    "godot-game/assets/3d/player/sword_shield/right_arm.glb": "4234e0d9a9f2ccdb7399e13b909e458e359230a22ce3c3e13df4f4ea158ad56d"
+  },
+  "shoulder_reach_adjusted_samples": 99,
+  "largest_shoulder_adjustments": [
+    {
+      "time_seconds": 0.733333333,
+      "ready_correction_weight": 0.0,
+      "requested_shoulder": [
+        0.28999999165534973,
+        -0.3400000035762787,
+        0.09999996423721313
+      ],
+      "solved_shoulder": [
+        -0.13492292165756226,
+        -0.31381502747535706,
+        -0.08054611086845398
+      ],
+      "elbow_hint": [
+        -0.5766260027885437,
+        -0.4801406264305115,
+        -0.017499558627605438
+      ],
+      "shoulder_adjustment_m": 0.4624305626356347,
+      "reach_adjusted": true
+    },
+    {
+      "time_seconds": 0.75,
+      "ready_correction_weight": 0.0,
+      "requested_shoulder": [
+        0.2900000214576721,
+        -0.3400000333786011,
+        0.09999996423721313
+      ],
+      "solved_shoulder": [
+        -0.13591498136520386,
+        -0.36871370673179626,
+        -0.0417650043964386
+      ],
+      "elbow_hint": [
+        -0.5653195381164551,
+        -0.532509446144104,
+        0.04766150563955307
+      ],
+      "shoulder_adjustment_m": 0.44980592842661765,
+      "reach_adjusted": true
+    },
+    {
+      "time_seconds": 0.766666667,
+      "ready_correction_weight": 0.0,
+      "requested_shoulder": [
+        0.2900000214576721,
+        -0.3400000333786011,
+        0.09999996423721313
+      ],
+      "solved_shoulder": [
+        -0.13591498136520386,
+        -0.36871370673179626,
+        -0.0417650043964386
+      ],
+      "elbow_hint": [
+        -0.5653195381164551,
+        -0.532509446144104,
+        0.04766150563955307
+      ],
+      "shoulder_adjustment_m": 0.44980592842661765,
+      "reach_adjusted": true
+    },
+    {
+      "time_seconds": 0.775,
+      "ready_correction_weight": 0.0,
+      "requested_shoulder": [
+        0.2900000214576721,
+        -0.3400000333786011,
+        0.09999996423721313
+      ],
+      "solved_shoulder": [
+        -0.13591498136520386,
+        -0.36871370673179626,
+        -0.0417650043964386
+      ],
+      "elbow_hint": [
+        -0.5653195381164551,
+        -0.532509446144104,
+        0.04766150563955307
+      ],
+      "shoulder_adjustment_m": 0.44980592842661765,
+      "reach_adjusted": true
+    },
+    {
+      "time_seconds": 0.783333333,
+      "ready_correction_weight": 0.0,
+      "requested_shoulder": [
+        0.2900000214576721,
+        -0.3400000333786011,
+        0.09999996423721313
+      ],
+      "solved_shoulder": [
+        -0.13591498136520386,
+        -0.36871370673179626,
+        -0.0417650043964386
+      ],
+      "elbow_hint": [
+        -0.5653195381164551,
+        -0.532509446144104,
+        0.04766150563955307
+      ],
+      "shoulder_adjustment_m": 0.44980592842661765,
+      "reach_adjusted": true
+    }
+  ],
+  "candidate_manifest_sha256": "16b3bc00f1d0a71c2c986831ddd58e423acb3c32d7087e6578d5698c9a6ac4ad"
+}

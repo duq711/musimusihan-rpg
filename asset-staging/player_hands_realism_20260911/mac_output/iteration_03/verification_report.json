@@ -1,0 +1,4447 @@
+{
+  "status": "passed",
+  "utc": "2026-09-10T16:28:12.297963+00:00",
+  "host": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "blender_version": "5.2.1 LTS",
+  "blender_binary": "/Applications/Blender.app/Contents/MacOS/Blender",
+  "background": true,
+  "checks": {
+    "prior_export_weights_left": {
+      "hand": {
+        "vertices": 14988,
+        "prior_blend_to_glb_changed_weight_vertices": 13,
+        "prior_blend_to_glb_maximum_weight_difference": 9.593188588041812e-05,
+        "new_export_comparison": "Exact named-weight comparison with actual previous GLB, tolerance 1e-6"
+      },
+      "nail_index": {
+        "vertices": 322,
+        "prior_blend_to_glb_changed_weight_vertices": 0,
+        "prior_blend_to_glb_maximum_weight_difference": 0.0,
+        "new_export_comparison": "Exact named-weight comparison with actual previous GLB, tolerance 1e-6"
+      },
+      "nail_little": {
+        "vertices": 322,
+        "prior_blend_to_glb_changed_weight_vertices": 0,
+        "prior_blend_to_glb_maximum_weight_difference": 0.0,
+        "new_export_comparison": "Exact named-weight comparison with actual previous GLB, tolerance 1e-6"
+      },
+      "nail_middle": {
+        "vertices": 322,
+        "prior_blend_to_glb_changed_weight_vertices": 0,
+        "prior_blend_to_glb_maximum_weight_difference": 0.0,
+        "new_export_comparison": "Exact named-weight comparison with actual previous GLB, tolerance 1e-6"
+      },
+      "nail_ring": {
+        "vertices": 322,
+        "prior_blend_to_glb_changed_weight_vertices": 0,
+        "prior_blend_to_glb_maximum_weight_difference": 0.0,
+        "new_export_comparison": "Exact named-weight comparison with actual previous GLB, tolerance 1e-6"
+      },
+      "nail_thumb": {
+        "vertices": 322,
+        "prior_blend_to_glb_changed_weight_vertices": 0,
+        "prior_blend_to_glb_maximum_weight_difference": 0.0,
+        "new_export_comparison": "Exact named-weight comparison with actual previous GLB, tolerance 1e-6"
+      },
+      "WristCuff": {
+        "vertices": 4608,
+        "prior_blend_to_glb_changed_weight_vertices": 0,
+        "prior_blend_to_glb_maximum_weight_difference": 0.0,
+        "new_export_comparison": "Exact named-weight comparison with actual previous GLB, tolerance 1e-6"
+      },
+      "Forearm": {
+        "vertices": 8229,
+        "prior_blend_to_glb_changed_weight_vertices": 0,
+        "prior_blend_to_glb_maximum_weight_difference": 0.0,
+        "new_export_comparison": "Exact named-weight comparison with actual previous GLB, tolerance 1e-6"
+      },
+      "UpperArm": {
+        "vertices": 4986,
+        "prior_blend_to_glb_changed_weight_vertices": 0,
+        "prior_blend_to_glb_maximum_weight_difference": 0.0,
+        "new_export_comparison": "Exact named-weight comparison with actual previous GLB, tolerance 1e-6"
+      }
+    },
+    "prior_export_weights_right": {
+      "hand": {
+        "vertices": 14988,
+        "prior_blend_to_glb_changed_weight_vertices": 18,
+        "prior_blend_to_glb_maximum_weight_difference": 9.579652396496385e-05,
+        "new_export_comparison": "Exact named-weight comparison with actual previous GLB, tolerance 1e-6"
+      },
+      "nail_index": {
+        "vertices": 322,
+        "prior_blend_to_glb_changed_weight_vertices": 0,
+        "prior_blend_to_glb_maximum_weight_difference": 0.0,
+        "new_export_comparison": "Exact named-weight comparison with actual previous GLB, tolerance 1e-6"
+      },
+      "nail_little": {
+        "vertices": 322,
+        "prior_blend_to_glb_changed_weight_vertices": 0,
+        "prior_blend_to_glb_maximum_weight_difference": 0.0,
+        "new_export_comparison": "Exact named-weight comparison with actual previous GLB, tolerance 1e-6"
+      },
+      "nail_middle": {
+        "vertices": 322,
+        "prior_blend_to_glb_changed_weight_vertices": 0,
+        "prior_blend_to_glb_maximum_weight_difference": 0.0,
+        "new_export_comparison": "Exact named-weight comparison with actual previous GLB, tolerance 1e-6"
+      },
+      "nail_ring": {
+        "vertices": 322,
+        "prior_blend_to_glb_changed_weight_vertices": 0,
+        "prior_blend_to_glb_maximum_weight_difference": 0.0,
+        "new_export_comparison": "Exact named-weight comparison with actual previous GLB, tolerance 1e-6"
+      },
+      "nail_thumb": {
+        "vertices": 322,
+        "prior_blend_to_glb_changed_weight_vertices": 0,
+        "prior_blend_to_glb_maximum_weight_difference": 0.0,
+        "new_export_comparison": "Exact named-weight comparison with actual previous GLB, tolerance 1e-6"
+      },
+      "WristCuff": {
+        "vertices": 4608,
+        "prior_blend_to_glb_changed_weight_vertices": 0,
+        "prior_blend_to_glb_maximum_weight_difference": 0.0,
+        "new_export_comparison": "Exact named-weight comparison with actual previous GLB, tolerance 1e-6"
+      },
+      "Forearm": {
+        "vertices": 8229,
+        "prior_blend_to_glb_changed_weight_vertices": 0,
+        "prior_blend_to_glb_maximum_weight_difference": 0.0,
+        "new_export_comparison": "Exact named-weight comparison with actual previous GLB, tolerance 1e-6"
+      },
+      "UpperArm": {
+        "vertices": 4986,
+        "prior_blend_to_glb_changed_weight_vertices": 0,
+        "prior_blend_to_glb_maximum_weight_difference": 0.0,
+        "new_export_comparison": "Exact named-weight comparison with actual previous GLB, tolerance 1e-6"
+      }
+    },
+    "editable_left": {
+      "rest": {
+        "all_16_bone_rest_matrices_max_error": 0.0
+      },
+      "parts": {
+        "hand": {
+          "vertices": 14988,
+          "faces": 25470,
+          "max_position_change_m": 0.000611546124158401,
+          "max_weight_error": 0.0,
+          "max_corrective_delta_error_m": 1.862645149230957e-09,
+          "changed_over_0_01_mm": 1612,
+          "protected_wrist_vertices": 1727,
+          "max_protected_wrist_change_m": 0.0,
+          "protected_nail_bed_vertices": 547,
+          "max_protected_nail_bed_change_m": 0.0
+        },
+        "nail_index": {
+          "vertices": 322,
+          "faces": 352,
+          "max_position_change_m": 0.0,
+          "max_weight_error": 0.0,
+          "max_corrective_delta_error_m": 0.0
+        },
+        "nail_little": {
+          "vertices": 322,
+          "faces": 352,
+          "max_position_change_m": 0.0,
+          "max_weight_error": 0.0,
+          "max_corrective_delta_error_m": 0.0
+        },
+        "nail_middle": {
+          "vertices": 322,
+          "faces": 352,
+          "max_position_change_m": 0.0,
+          "max_weight_error": 0.0,
+          "max_corrective_delta_error_m": 0.0
+        },
+        "nail_ring": {
+          "vertices": 322,
+          "faces": 352,
+          "max_position_change_m": 0.0,
+          "max_weight_error": 0.0,
+          "max_corrective_delta_error_m": 0.0
+        },
+        "nail_thumb": {
+          "vertices": 322,
+          "faces": 352,
+          "max_position_change_m": 0.0,
+          "max_weight_error": 0.0,
+          "max_corrective_delta_error_m": 0.0
+        },
+        "WristCuff": {
+          "vertices": 4608,
+          "faces": 4608,
+          "max_position_change_m": 0.0,
+          "max_weight_error": 0.0,
+          "max_corrective_delta_error_m": 0.0
+        },
+        "Forearm": {
+          "vertices": 8229,
+          "faces": 13170,
+          "max_position_change_m": 0.0,
+          "max_weight_error": 0.0,
+          "max_corrective_delta_error_m": 0.0
+        },
+        "UpperArm": {
+          "vertices": 4986,
+          "faces": 9118,
+          "max_position_change_m": 0.0,
+          "max_weight_error": 0.0,
+          "max_corrective_delta_error_m": 0.0
+        }
+      },
+      "articulation": {
+        "rig": {
+          "rig": "HandRig.001",
+          "bones": [
+            "index0",
+            "index1",
+            "index2",
+            "little0",
+            "little1",
+            "little2",
+            "middle0",
+            "middle1",
+            "middle2",
+            "ring0",
+            "ring1",
+            "ring2",
+            "thumb0",
+            "thumb1",
+            "thumb2",
+            "wrist"
+          ],
+          "meshes": {
+            "ContinuousAnatomicalHand.001": {
+              "vertices": 14988,
+              "weight_sum_min": 0.9999998901039362,
+              "weight_sum_max": 1.0000001122243702,
+              "wrist_only_vertices": 536
+            },
+            "Nail_index": {
+              "vertices": 322,
+              "weight_sum_min": 1.0,
+              "weight_sum_max": 1.0,
+              "wrist_only_vertices": 0
+            },
+            "Nail_little": {
+              "vertices": 322,
+              "weight_sum_min": 1.0,
+              "weight_sum_max": 1.0,
+              "wrist_only_vertices": 0
+            },
+            "Nail_middle": {
+              "vertices": 322,
+              "weight_sum_min": 1.0,
+              "weight_sum_max": 1.0,
+              "wrist_only_vertices": 0
+            },
+            "Nail_ring": {
+              "vertices": 322,
+              "weight_sum_min": 1.0,
+              "weight_sum_max": 1.0,
+              "wrist_only_vertices": 0
+            },
+            "Nail_thumb": {
+              "vertices": 322,
+              "weight_sum_min": 1.0,
+              "weight_sum_max": 1.0,
+              "wrist_only_vertices": 0
+            }
+          },
+          "finger_pose_checks": {
+            "thumb": {
+              "local_x_rotation_radians": 0.4,
+              "moved_vertices": 4639,
+              "max_displacement_m": 0.04495459485169198,
+              "wrist_bone_error_m": 0.0,
+              "wrist_only_mesh_error_m": 0.0
+            },
+            "index": {
+              "local_x_rotation_radians": 0.4,
+              "moved_vertices": 4634,
+              "max_displacement_m": 0.03739506535840833,
+              "wrist_bone_error_m": 0.0,
+              "wrist_only_mesh_error_m": 0.0
+            },
+            "middle": {
+              "local_x_rotation_radians": 0.4,
+              "moved_vertices": 4475,
+              "max_displacement_m": 0.03974375731967587,
+              "wrist_bone_error_m": 0.0,
+              "wrist_only_mesh_error_m": 0.0
+            },
+            "ring": {
+              "local_x_rotation_radians": 0.4,
+              "moved_vertices": 4484,
+              "max_displacement_m": 0.037776509841956275,
+              "wrist_bone_error_m": 0.0,
+              "wrist_only_mesh_error_m": 0.0
+            },
+            "little": {
+              "local_x_rotation_radians": 0.4,
+              "moved_vertices": 4028,
+              "max_displacement_m": 0.03339028167706218,
+              "wrist_bone_error_m": 0.0,
+              "wrist_only_mesh_error_m": 0.0
+            }
+          },
+          "wrist_world_m": [
+            -0.16343863308429718,
+            -0.05624999850988388,
+            0.0
+          ],
+          "thumb_minus_middle_x_m": 0.0325000137090683
+        },
+        "all_fifteen_joint_effects": {
+          "Joint_thumb_0": {
+            "corrective_vertices": 169,
+            "max_corrective_delta_m": 0.00018582619966103333,
+            "evaluated_correction_m": 0.00018582418265090258,
+            "joint_flex_movement_m": 0.06144522078266865,
+            "correction_after_skinning_m": 0.00018062751204517472,
+            "distal_nail_movement_m": 0.05788881857523227,
+            "affected_center_world_m": [
+              -0.12439265102148056,
+              0.004350810777395964,
+              -0.00076767907012254
+            ]
+          },
+          "Joint_thumb_1": {
+            "corrective_vertices": 370,
+            "max_corrective_delta_m": 0.0005958304013665387,
+            "evaluated_correction_m": 0.0005958304013665387,
+            "joint_flex_movement_m": 0.03464007646005603,
+            "correction_after_skinning_m": 0.0005775556458830978,
+            "distal_nail_movement_m": 0.03238949910307454,
+            "affected_center_world_m": [
+              -0.1020488440990448,
+              0.05393112450838089,
+              -0.013249887153506279
+            ]
+          },
+          "Joint_thumb_2": {
+            "corrective_vertices": 197,
+            "max_corrective_delta_m": 0.00039955981071872947,
+            "evaluated_correction_m": 0.00039955981071872947,
+            "joint_flex_movement_m": 0.0177021830414841,
+            "correction_after_skinning_m": 0.0003856491383199173,
+            "distal_nail_movement_m": 0.016230263891064092,
+            "affected_center_world_m": [
+              -0.08385968208312988,
+              0.073361337184906,
+              -0.019835438579320908
+            ]
+          },
+          "Joint_index_0": {
+            "corrective_vertices": 266,
+            "max_corrective_delta_m": 0.00025106107059494104,
+            "evaluated_correction_m": 0.0002510606776889732,
+            "joint_flex_movement_m": 0.05111262504731102,
+            "correction_after_skinning_m": 0.0002463699680641722,
+            "distal_nail_movement_m": 0.05010286916409834,
+            "affected_center_world_m": [
+              -0.12282867729663849,
+              0.0891631692647934,
+              0.022504111751914024
+            ]
+          },
+          "Joint_index_1": {
+            "corrective_vertices": 324,
+            "max_corrective_delta_m": 0.0005862742492679235,
+            "evaluated_correction_m": 0.0005862729388313955,
+            "joint_flex_movement_m": 0.028668520750626474,
+            "correction_after_skinning_m": 0.0005684598304444437,
+            "distal_nail_movement_m": 0.027155125118198776,
+            "affected_center_world_m": [
+              -0.12015754729509354,
+              0.1325608342885971,
+              0.022257385775446892
+            ]
+          },
+          "Joint_index_2": {
+            "corrective_vertices": 166,
+            "max_corrective_delta_m": 0.0003113752101924032,
+            "evaluated_correction_m": 0.0003113749475005987,
+            "joint_flex_movement_m": 0.012838584946946821,
+            "correction_after_skinning_m": 0.0002998853655331099,
+            "distal_nail_movement_m": 0.011446506113947513,
+            "affected_center_world_m": [
+              -0.1170821338891983,
+              0.15914635360240936,
+              0.014521276578307152
+            ]
+          },
+          "Joint_middle_0": {
+            "corrective_vertices": 162,
+            "max_corrective_delta_m": 0.0002352605010583531,
+            "evaluated_correction_m": 0.00023526035830486692,
+            "joint_flex_movement_m": 0.05432290644894004,
+            "correction_after_skinning_m": 0.00023066131213357642,
+            "distal_nail_movement_m": 0.05333335002188943,
+            "affected_center_world_m": [
+              -0.1581648737192154,
+              0.10125596076250076,
+              0.030833009630441666
+            ]
+          },
+          "Joint_middle_1": {
+            "corrective_vertices": 245,
+            "max_corrective_delta_m": 0.0005895494772572295,
+            "evaluated_correction_m": 0.0005895493669033443,
+            "joint_flex_movement_m": 0.029846654011918602,
+            "correction_after_skinning_m": 0.0005674583835017404,
+            "distal_nail_movement_m": 0.028304002547542853,
+            "affected_center_world_m": [
+              -0.1584172248840332,
+              0.14776401221752167,
+              0.027840187773108482
+            ]
+          },
+          "Joint_middle_2": {
+            "corrective_vertices": 150,
+            "max_corrective_delta_m": 0.0002702225073802455,
+            "evaluated_correction_m": 0.0002702228852639839,
+            "joint_flex_movement_m": 0.01374318042905079,
+            "correction_after_skinning_m": 0.00026478960595530804,
+            "distal_nail_movement_m": 0.012517646921117046,
+            "affected_center_world_m": [
+              -0.15861830115318298,
+              0.17504560947418213,
+              0.01938719116151333
+            ]
+          },
+          "Joint_ring_0": {
+            "corrective_vertices": 209,
+            "max_corrective_delta_m": 0.000239515900797474,
+            "evaluated_correction_m": 0.00023951571666094504,
+            "joint_flex_movement_m": 0.05163401860429919,
+            "correction_after_skinning_m": 0.00023218025395723563,
+            "distal_nail_movement_m": 0.05075392305400117,
+            "affected_center_world_m": [
+              -0.19467583298683167,
+              0.0950552448630333,
+              0.021467167884111404
+            ]
+          },
+          "Joint_ring_1": {
+            "corrective_vertices": 263,
+            "max_corrective_delta_m": 0.0005942267349893044,
+            "evaluated_correction_m": 0.0005942346573908779,
+            "joint_flex_movement_m": 0.029152891707367942,
+            "correction_after_skinning_m": 0.0005725014419561682,
+            "distal_nail_movement_m": 0.027353489045862905,
+            "affected_center_world_m": [
+              -0.19293946027755737,
+              0.13914304971694946,
+              0.02336328662931919
+            ]
+          },
+          "Joint_ring_2": {
+            "corrective_vertices": 184,
+            "max_corrective_delta_m": 0.0003477088570865574,
+            "evaluated_correction_m": 0.00034771464844248953,
+            "joint_flex_movement_m": 0.013313207826315083,
+            "correction_after_skinning_m": 0.00033741279689854985,
+            "distal_nail_movement_m": 0.011979902797670196,
+            "affected_center_world_m": [
+              -0.1961553394794464,
+              0.16377370059490204,
+              0.011972857639193535
+            ]
+          },
+          "Joint_little_0": {
+            "corrective_vertices": 237,
+            "max_corrective_delta_m": 0.00023654896479951315,
+            "evaluated_correction_m": 0.00023655060138849508,
+            "joint_flex_movement_m": 0.045638800424003555,
+            "correction_after_skinning_m": 0.0002291978096101895,
+            "distal_nail_movement_m": 0.04448657660396968,
+            "affected_center_world_m": [
+              -0.21653075516223907,
+              0.07474695891141891,
+              0.013759096153080463
+            ]
+          },
+          "Joint_little_1": {
+            "corrective_vertices": 311,
+            "max_corrective_delta_m": 0.0005823971846430048,
+            "evaluated_correction_m": 0.0005823971846430048,
+            "joint_flex_movement_m": 0.02634746392065117,
+            "correction_after_skinning_m": 0.000563517671522431,
+            "distal_nail_movement_m": 0.024872447734508314,
+            "affected_center_world_m": [
+              -0.2257472276687622,
+              0.11006462574005127,
+              0.013919702731072903
+            ]
+          },
+          "Joint_little_2": {
+            "corrective_vertices": 182,
+            "max_corrective_delta_m": 0.0003749466138349981,
+            "evaluated_correction_m": 0.00037494576461456964,
+            "joint_flex_movement_m": 0.01436620175164378,
+            "correction_after_skinning_m": 0.0003620219015323333,
+            "distal_nail_movement_m": 0.012978335770171956,
+            "affected_center_world_m": [
+              -0.23721684515476227,
+              0.12801480293273926,
+              0.0098267188295722
+            ]
+          }
+        },
+        "rigid_nails": {
+          "thumb": {
+            "mesh": "Nail_thumb",
+            "vertices": 322,
+            "max_movement_m": 0.05788882542525403,
+            "bone_local_error_m": 3.454692101290712e-08,
+            "exposed_face_dorsal_dot": 0.9600845193490386
+          },
+          "index": {
+            "mesh": "Nail_index",
+            "vertices": 322,
+            "max_movement_m": 0.05010286366387621,
+            "bone_local_error_m": 6.44852619778419e-08,
+            "exposed_face_dorsal_dot": 0.9767572577111423
+          },
+          "middle": {
+            "mesh": "Nail_middle",
+            "vertices": 322,
+            "max_movement_m": 0.05333334024744368,
+            "bone_local_error_m": 5.6172081683054335e-08,
+            "exposed_face_dorsal_dot": 0.9945461753522977
+          },
+          "ring": {
+            "mesh": "Nail_ring",
+            "vertices": 322,
+            "max_movement_m": 0.05075392066340212,
+            "bone_local_error_m": 5.9141847968952086e-08,
+            "exposed_face_dorsal_dot": 0.9937425361713395
+          },
+          "little": {
+            "mesh": "Nail_little",
+            "vertices": 322,
+            "max_movement_m": 0.044486567935606756,
+            "bone_local_error_m": 7.001198484407484e-08,
+            "exposed_face_dorsal_dot": 0.9367566239088774
+          }
+        },
+        "full_flex_nail_seating": {
+          "neutral": {
+            "thumb": {
+              "max_skin_gap_m": 0.0003200018545612693,
+              "mean_skin_gap_m": 0.00016275901606553907
+            },
+            "index": {
+              "max_skin_gap_m": 0.0003199964121449739,
+              "mean_skin_gap_m": 0.00016263688946157616
+            },
+            "middle": {
+              "max_skin_gap_m": 0.0003200049977749586,
+              "mean_skin_gap_m": 0.0001626108375789926
+            },
+            "ring": {
+              "max_skin_gap_m": 0.0003199901548214257,
+              "mean_skin_gap_m": 0.00016273581208202045
+            },
+            "little": {
+              "max_skin_gap_m": 0.000320004066452384,
+              "mean_skin_gap_m": 0.00016162582360605183
+            }
+          },
+          "all_full_flex": {
+            "thumb": {
+              "max_skin_gap_m": 0.00032000651117414236,
+              "mean_skin_gap_m": 0.00016275924555195375
+            },
+            "index": {
+              "max_skin_gap_m": 0.0003199985367245972,
+              "mean_skin_gap_m": 0.00015953820743194478
+            },
+            "middle": {
+              "max_skin_gap_m": 0.0003200043283868581,
+              "mean_skin_gap_m": 0.00016054952044124203
+            },
+            "ring": {
+              "max_skin_gap_m": 0.00031999300699681044,
+              "mean_skin_gap_m": 0.00016002022049342598
+            },
+            "little": {
+              "max_skin_gap_m": 0.00032000444480217993,
+              "mean_skin_gap_m": 0.00015859255154282437
+            }
+          },
+          "thumb_middle_full": {
+            "thumb": {
+              "max_skin_gap_m": 0.0003200018545612693,
+              "mean_skin_gap_m": 0.00016275919868755594
+            },
+            "index": {
+              "max_skin_gap_m": 0.0003199964121449739,
+              "mean_skin_gap_m": 0.00016263688946157616
+            },
+            "middle": {
+              "max_skin_gap_m": 0.0003200049977749586,
+              "mean_skin_gap_m": 0.0001626108375789926
+            },
+            "ring": {
+              "max_skin_gap_m": 0.0003199901548214257,
+              "mean_skin_gap_m": 0.00016273581208202045
+            },
+            "little": {
+              "max_skin_gap_m": 0.000320004066452384,
+              "mean_skin_gap_m": 0.00016162582360605183
+            }
+          },
+          "thumb_tip_full": {
+            "thumb": {
+              "max_skin_gap_m": 0.00032000787905417383,
+              "mean_skin_gap_m": 0.0001627579567132258
+            },
+            "index": {
+              "max_skin_gap_m": 0.0003199964121449739,
+              "mean_skin_gap_m": 0.00016263688946157616
+            },
+            "middle": {
+              "max_skin_gap_m": 0.0003200049977749586,
+              "mean_skin_gap_m": 0.0001626108375789926
+            },
+            "ring": {
+              "max_skin_gap_m": 0.0003199901548214257,
+              "mean_skin_gap_m": 0.00016273581208202045
+            },
+            "little": {
+              "max_skin_gap_m": 0.000320004066452384,
+              "mean_skin_gap_m": 0.00016162582360605183
+            }
+          },
+          "index_tip_full": {
+            "thumb": {
+              "max_skin_gap_m": 0.0003200018545612693,
+              "mean_skin_gap_m": 0.00016275901606553907
+            },
+            "index": {
+              "max_skin_gap_m": 0.00031999876955524087,
+              "mean_skin_gap_m": 0.00016263627149664504
+            },
+            "middle": {
+              "max_skin_gap_m": 0.0003200049977749586,
+              "mean_skin_gap_m": 0.0001626108375789926
+            },
+            "ring": {
+              "max_skin_gap_m": 0.0003199901548214257,
+              "mean_skin_gap_m": 0.00016273581208202045
+            },
+            "little": {
+              "max_skin_gap_m": 0.000320004066452384,
+              "mean_skin_gap_m": 0.00016162582360605183
+            }
+          },
+          "middle_tip_full": {
+            "thumb": {
+              "max_skin_gap_m": 0.0003200018545612693,
+              "mean_skin_gap_m": 0.00016275901606553907
+            },
+            "index": {
+              "max_skin_gap_m": 0.0003199964121449739,
+              "mean_skin_gap_m": 0.00016263688946157616
+            },
+            "middle": {
+              "max_skin_gap_m": 0.0003199969360139221,
+              "mean_skin_gap_m": 0.0001626110309398258
+            },
+            "ring": {
+              "max_skin_gap_m": 0.0003199901548214257,
+              "mean_skin_gap_m": 0.00016273581208202045
+            },
+            "little": {
+              "max_skin_gap_m": 0.000320004066452384,
+              "mean_skin_gap_m": 0.00016162582360605183
+            }
+          },
+          "ring_tip_full": {
+            "thumb": {
+              "max_skin_gap_m": 0.0003200018545612693,
+              "mean_skin_gap_m": 0.00016275901606553907
+            },
+            "index": {
+              "max_skin_gap_m": 0.0003199964121449739,
+              "mean_skin_gap_m": 0.00016263688946157616
+            },
+            "middle": {
+              "max_skin_gap_m": 0.0003200049977749586,
+              "mean_skin_gap_m": 0.0001626108375789926
+            },
+            "ring": {
+              "max_skin_gap_m": 0.0003199856437277049,
+              "mean_skin_gap_m": 0.0001627357954060679
+            },
+            "little": {
+              "max_skin_gap_m": 0.000320004066452384,
+              "mean_skin_gap_m": 0.00016162582360605183
+            }
+          },
+          "little_tip_full": {
+            "thumb": {
+              "max_skin_gap_m": 0.0003200018545612693,
+              "mean_skin_gap_m": 0.00016275901606553907
+            },
+            "index": {
+              "max_skin_gap_m": 0.0003199964121449739,
+              "mean_skin_gap_m": 0.00016263688946157616
+            },
+            "middle": {
+              "max_skin_gap_m": 0.0003200049977749586,
+              "mean_skin_gap_m": 0.0001626108375789926
+            },
+            "ring": {
+              "max_skin_gap_m": 0.0003199901548214257,
+              "mean_skin_gap_m": 0.00016273581208202045
+            },
+            "little": {
+              "max_skin_gap_m": 0.0003199984785169363,
+              "mean_skin_gap_m": 0.00016162326524264803
+            }
+          }
+        }
+      }
+    },
+    "editable_right": {
+      "rest": {
+        "all_16_bone_rest_matrices_max_error": 0.0
+      },
+      "parts": {
+        "hand": {
+          "vertices": 14988,
+          "faces": 25470,
+          "max_position_change_m": 0.0006110306016457128,
+          "max_weight_error": 0.0,
+          "max_corrective_delta_error_m": 3.725290298461914e-09,
+          "changed_over_0_01_mm": 1616,
+          "protected_wrist_vertices": 1727,
+          "max_protected_wrist_change_m": 0.0,
+          "protected_nail_bed_vertices": 547,
+          "max_protected_nail_bed_change_m": 0.0
+        },
+        "nail_index": {
+          "vertices": 322,
+          "faces": 352,
+          "max_position_change_m": 0.0,
+          "max_weight_error": 0.0,
+          "max_corrective_delta_error_m": 0.0
+        },
+        "nail_little": {
+          "vertices": 322,
+          "faces": 352,
+          "max_position_change_m": 0.0,
+          "max_weight_error": 0.0,
+          "max_corrective_delta_error_m": 0.0
+        },
+        "nail_middle": {
+          "vertices": 322,
+          "faces": 352,
+          "max_position_change_m": 0.0,
+          "max_weight_error": 0.0,
+          "max_corrective_delta_error_m": 0.0
+        },
+        "nail_ring": {
+          "vertices": 322,
+          "faces": 352,
+          "max_position_change_m": 0.0,
+          "max_weight_error": 0.0,
+          "max_corrective_delta_error_m": 0.0
+        },
+        "nail_thumb": {
+          "vertices": 322,
+          "faces": 352,
+          "max_position_change_m": 0.0,
+          "max_weight_error": 0.0,
+          "max_corrective_delta_error_m": 0.0
+        },
+        "WristCuff": {
+          "vertices": 4608,
+          "faces": 4608,
+          "max_position_change_m": 0.0,
+          "max_weight_error": 0.0,
+          "max_corrective_delta_error_m": 0.0
+        },
+        "Forearm": {
+          "vertices": 8229,
+          "faces": 13170,
+          "max_position_change_m": 0.0,
+          "max_weight_error": 0.0,
+          "max_corrective_delta_error_m": 0.0
+        },
+        "UpperArm": {
+          "vertices": 4986,
+          "faces": 9118,
+          "max_position_change_m": 0.0,
+          "max_weight_error": 0.0,
+          "max_corrective_delta_error_m": 0.0
+        }
+      },
+      "articulation": {
+        "rig": {
+          "rig": "HandRig.003",
+          "bones": [
+            "index0",
+            "index1",
+            "index2",
+            "little0",
+            "little1",
+            "little2",
+            "middle0",
+            "middle1",
+            "middle2",
+            "ring0",
+            "ring1",
+            "ring2",
+            "thumb0",
+            "thumb1",
+            "thumb2",
+            "wrist"
+          ],
+          "meshes": {
+            "ContinuousAnatomicalHand.003": {
+              "vertices": 14988,
+              "weight_sum_min": 0.9999998807907104,
+              "weight_sum_max": 1.0000001080334187,
+              "wrist_only_vertices": 535
+            },
+            "Nail_index.001": {
+              "vertices": 322,
+              "weight_sum_min": 1.0,
+              "weight_sum_max": 1.0,
+              "wrist_only_vertices": 0
+            },
+            "Nail_little.001": {
+              "vertices": 322,
+              "weight_sum_min": 1.0,
+              "weight_sum_max": 1.0,
+              "wrist_only_vertices": 0
+            },
+            "Nail_middle.001": {
+              "vertices": 322,
+              "weight_sum_min": 1.0,
+              "weight_sum_max": 1.0,
+              "wrist_only_vertices": 0
+            },
+            "Nail_ring.001": {
+              "vertices": 322,
+              "weight_sum_min": 1.0,
+              "weight_sum_max": 1.0,
+              "wrist_only_vertices": 0
+            },
+            "Nail_thumb.001": {
+              "vertices": 322,
+              "weight_sum_min": 1.0,
+              "weight_sum_max": 1.0,
+              "wrist_only_vertices": 0
+            }
+          },
+          "finger_pose_checks": {
+            "thumb": {
+              "local_x_rotation_radians": 0.4,
+              "moved_vertices": 4640,
+              "max_displacement_m": 0.04495459485169198,
+              "wrist_bone_error_m": 0.0,
+              "wrist_only_mesh_error_m": 0.0
+            },
+            "index": {
+              "local_x_rotation_radians": 0.4,
+              "moved_vertices": 4633,
+              "max_displacement_m": 0.03739506535840833,
+              "wrist_bone_error_m": 0.0,
+              "wrist_only_mesh_error_m": 0.0
+            },
+            "middle": {
+              "local_x_rotation_radians": 0.4,
+              "moved_vertices": 4485,
+              "max_displacement_m": 0.03974375731967587,
+              "wrist_bone_error_m": 0.0,
+              "wrist_only_mesh_error_m": 0.0
+            },
+            "ring": {
+              "local_x_rotation_radians": 0.4,
+              "moved_vertices": 4501,
+              "max_displacement_m": 0.037776509841956275,
+              "wrist_bone_error_m": 0.0,
+              "wrist_only_mesh_error_m": 0.0
+            },
+            "little": {
+              "local_x_rotation_radians": 0.4,
+              "moved_vertices": 4028,
+              "max_displacement_m": 0.03339028167706218,
+              "wrist_bone_error_m": 0.0,
+              "wrist_only_mesh_error_m": 0.0
+            }
+          },
+          "wrist_world_m": [
+            0.16343863308429718,
+            -0.05624999850988388,
+            0.0
+          ],
+          "thumb_minus_middle_x_m": -0.0325000137090683
+        },
+        "all_fifteen_joint_effects": {
+          "Joint_thumb_0": {
+            "corrective_vertices": 159,
+            "max_corrective_delta_m": 0.00018609378910494336,
+            "evaluated_correction_m": 0.0001860958151246649,
+            "joint_flex_movement_m": 0.06144522078266865,
+            "correction_after_skinning_m": 0.00018165082133982414,
+            "distal_nail_movement_m": 0.057890577684470326,
+            "affected_center_world_m": [
+              0.12389791756868362,
+              0.003859197488054633,
+              -0.0020857499912381172
+            ]
+          },
+          "Joint_thumb_1": {
+            "corrective_vertices": 365,
+            "max_corrective_delta_m": 0.0005962856811000614,
+            "evaluated_correction_m": 0.0005962856811000614,
+            "joint_flex_movement_m": 0.03464007646005603,
+            "correction_after_skinning_m": 0.0005779810248801799,
+            "distal_nail_movement_m": 0.032389890913936535,
+            "affected_center_world_m": [
+              0.10217776894569397,
+              0.053885940462350845,
+              -0.01310295332223177
+            ]
+          },
+          "Joint_thumb_2": {
+            "corrective_vertices": 197,
+            "max_corrective_delta_m": 0.00039925360167303525,
+            "evaluated_correction_m": 0.00039925360167303525,
+            "joint_flex_movement_m": 0.0177021830414841,
+            "correction_after_skinning_m": 0.0003850629497570147,
+            "distal_nail_movement_m": 0.016230428060149106,
+            "affected_center_world_m": [
+              0.08386057615280151,
+              0.07335978746414185,
+              -0.019834719598293304
+            ]
+          },
+          "Joint_index_0": {
+            "corrective_vertices": 266,
+            "max_corrective_delta_m": 0.00025099195069917146,
+            "evaluated_correction_m": 0.00025099314079628725,
+            "joint_flex_movement_m": 0.05111262504731102,
+            "correction_after_skinning_m": 0.0002463270118366603,
+            "distal_nail_movement_m": 0.05010334763459686,
+            "affected_center_world_m": [
+              0.12282867729663849,
+              0.08916395157575607,
+              0.022504325956106186
+            ]
+          },
+          "Joint_index_1": {
+            "corrective_vertices": 324,
+            "max_corrective_delta_m": 0.0005855929430054711,
+            "evaluated_correction_m": 0.0005855929430054711,
+            "joint_flex_movement_m": 0.028668520750626474,
+            "correction_after_skinning_m": 0.0005677930350598696,
+            "distal_nail_movement_m": 0.027155272817900634,
+            "affected_center_world_m": [
+              0.12015756219625473,
+              0.1325608789920807,
+              0.022257084026932716
+            ]
+          },
+          "Joint_index_2": {
+            "corrective_vertices": 166,
+            "max_corrective_delta_m": 0.0003104437160757762,
+            "evaluated_correction_m": 0.0003104437160757762,
+            "joint_flex_movement_m": 0.012838584946946821,
+            "correction_after_skinning_m": 0.00029898619679221696,
+            "distal_nail_movement_m": 0.01144754192752924,
+            "affected_center_world_m": [
+              0.11708150804042816,
+              0.1591455042362213,
+              0.014521613717079163
+            ]
+          },
+          "Joint_middle_0": {
+            "corrective_vertices": 162,
+            "max_corrective_delta_m": 0.00023536473352100628,
+            "evaluated_correction_m": 0.0002353655189055557,
+            "joint_flex_movement_m": 0.05432290644894004,
+            "correction_after_skinning_m": 0.00023077300564087113,
+            "distal_nail_movement_m": 0.053328233657885166,
+            "affected_center_world_m": [
+              0.15815512835979462,
+              0.10123927891254425,
+              0.030915822833776474
+            ]
+          },
+          "Joint_middle_1": {
+            "corrective_vertices": 245,
+            "max_corrective_delta_m": 0.0005899749656731936,
+            "evaluated_correction_m": 0.0005899752437111152,
+            "joint_flex_movement_m": 0.029846654011918602,
+            "correction_after_skinning_m": 0.0005678723387034087,
+            "distal_nail_movement_m": 0.028302309405811254,
+            "affected_center_world_m": [
+              0.15841704607009888,
+              0.14776191115379333,
+              0.027840306982398033
+            ]
+          },
+          "Joint_middle_2": {
+            "corrective_vertices": 150,
+            "max_corrective_delta_m": 0.00027045415680349266,
+            "evaluated_correction_m": 0.0002704544927745138,
+            "joint_flex_movement_m": 0.01374318042905079,
+            "correction_after_skinning_m": 0.00026503549634105116,
+            "distal_nail_movement_m": 0.012512221468445215,
+            "affected_center_world_m": [
+              0.15861794352531433,
+              0.17504531145095825,
+              0.019387494772672653
+            ]
+          },
+          "Joint_ring_0": {
+            "corrective_vertices": 221,
+            "max_corrective_delta_m": 0.0002403146796563371,
+            "evaluated_correction_m": 0.00024031463795477144,
+            "joint_flex_movement_m": 0.05163401860429919,
+            "correction_after_skinning_m": 0.00023297925307230304,
+            "distal_nail_movement_m": 0.050754276627345205,
+            "affected_center_world_m": [
+              0.1951761245727539,
+              0.0951954573392868,
+              0.0214944239705801
+            ]
+          },
+          "Joint_ring_1": {
+            "corrective_vertices": 264,
+            "max_corrective_delta_m": 0.0005941419140574621,
+            "evaluated_correction_m": 0.0005941337413760579,
+            "joint_flex_movement_m": 0.029152891707367942,
+            "correction_after_skinning_m": 0.0005723976190967487,
+            "distal_nail_movement_m": 0.027354068748894306,
+            "affected_center_world_m": [
+              0.1929207444190979,
+              0.139102965593338,
+              0.02332167699933052
+            ]
+          },
+          "Joint_ring_2": {
+            "corrective_vertices": 185,
+            "max_corrective_delta_m": 0.00034775585917846735,
+            "evaluated_correction_m": 0.0003477639946222457,
+            "joint_flex_movement_m": 0.013313207826315083,
+            "correction_after_skinning_m": 0.0003374815210884253,
+            "distal_nail_movement_m": 0.01198026900939302,
+            "affected_center_world_m": [
+              0.19609588384628296,
+              0.16374143958091736,
+              0.012001275084912777
+            ]
+          },
+          "Joint_little_0": {
+            "corrective_vertices": 236,
+            "max_corrective_delta_m": 0.00023509026863474867,
+            "evaluated_correction_m": 0.00023509026863474867,
+            "joint_flex_movement_m": 0.045638800424003555,
+            "correction_after_skinning_m": 0.00022775865828482178,
+            "distal_nail_movement_m": 0.04449246415842894,
+            "affected_center_world_m": [
+              0.21659912168979645,
+              0.07473785430192947,
+              0.013693706132471561
+            ]
+          },
+          "Joint_little_1": {
+            "corrective_vertices": 308,
+            "max_corrective_delta_m": 0.0005831228920219419,
+            "evaluated_correction_m": 0.0005831228920219419,
+            "joint_flex_movement_m": 0.02634746392065117,
+            "correction_after_skinning_m": 0.0005641980175955148,
+            "distal_nail_movement_m": 0.024878382677944982,
+            "affected_center_world_m": [
+              0.22593490779399872,
+              0.11010634154081345,
+              0.013953250832855701
+            ]
+          },
+          "Joint_little_2": {
+            "corrective_vertices": 182,
+            "max_corrective_delta_m": 0.00037404047123461813,
+            "evaluated_correction_m": 0.00037404047123461813,
+            "joint_flex_movement_m": 0.01436620175164378,
+            "correction_after_skinning_m": 0.00036119393399760413,
+            "distal_nail_movement_m": 0.012984292550063937,
+            "affected_center_world_m": [
+              0.23721668124198914,
+              0.1280137151479721,
+              0.009827490895986557
+            ]
+          }
+        },
+        "rigid_nails": {
+          "thumb": {
+            "mesh": "Nail_thumb.001",
+            "vertices": 322,
+            "max_movement_m": 0.05789058748787303,
+            "bone_local_error_m": 3.384944395234109e-08,
+            "exposed_face_dorsal_dot": 0.9572508055716753
+          },
+          "index": {
+            "mesh": "Nail_index.001",
+            "vertices": 322,
+            "max_movement_m": 0.05010335876285174,
+            "bone_local_error_m": 6.068086533822067e-08,
+            "exposed_face_dorsal_dot": 0.9758960260078311
+          },
+          "middle": {
+            "mesh": "Nail_middle.001",
+            "vertices": 322,
+            "max_movement_m": 0.053328222882472354,
+            "bone_local_error_m": 4.869125633110332e-08,
+            "exposed_face_dorsal_dot": 0.9900127031141892
+          },
+          "ring": {
+            "mesh": "Nail_ring.001",
+            "vertices": 322,
+            "max_movement_m": 0.05075427667998394,
+            "bone_local_error_m": 5.926397495661397e-08,
+            "exposed_face_dorsal_dot": 0.9935305168619379
+          },
+          "little": {
+            "mesh": "Nail_little.001",
+            "vertices": 322,
+            "max_movement_m": 0.044492459375107186,
+            "bone_local_error_m": 6.164342441921276e-08,
+            "exposed_face_dorsal_dot": 0.9350085910409689
+          }
+        },
+        "full_flex_nail_seating": {
+          "neutral": {
+            "thumb": {
+              "max_skin_gap_m": 0.0003200013597961515,
+              "mean_skin_gap_m": 0.00016275878743212871
+            },
+            "index": {
+              "max_skin_gap_m": 0.0003199986240360886,
+              "mean_skin_gap_m": 0.00016263707389128438
+            },
+            "middle": {
+              "max_skin_gap_m": 0.00031999783823266625,
+              "mean_skin_gap_m": 0.00016270529146218362
+            },
+            "ring": {
+              "max_skin_gap_m": 0.0003199894563294947,
+              "mean_skin_gap_m": 0.00016271082138768665
+            },
+            "little": {
+              "max_skin_gap_m": 0.0003199990023858845,
+              "mean_skin_gap_m": 0.0001611217662543568
+            }
+          },
+          "all_full_flex": {
+            "thumb": {
+              "max_skin_gap_m": 0.00031999763450585306,
+              "mean_skin_gap_m": 0.00016275819126117624
+            },
+            "index": {
+              "max_skin_gap_m": 0.0003199947241228074,
+              "mean_skin_gap_m": 0.00015951652785757992
+            },
+            "middle": {
+              "max_skin_gap_m": 0.0003200088394805789,
+              "mean_skin_gap_m": 0.00016076797830058055
+            },
+            "ring": {
+              "max_skin_gap_m": 0.00031998727354221046,
+              "mean_skin_gap_m": 0.00015965766020622
+            },
+            "little": {
+              "max_skin_gap_m": 0.0003200068895239383,
+              "mean_skin_gap_m": 0.00015805866421388876
+            }
+          },
+          "thumb_middle_full": {
+            "thumb": {
+              "max_skin_gap_m": 0.00032000767532736063,
+              "mean_skin_gap_m": 0.0001627589846117099
+            },
+            "index": {
+              "max_skin_gap_m": 0.0003199986240360886,
+              "mean_skin_gap_m": 0.00016263707389128438
+            },
+            "middle": {
+              "max_skin_gap_m": 0.00031999783823266625,
+              "mean_skin_gap_m": 0.00016270529146218362
+            },
+            "ring": {
+              "max_skin_gap_m": 0.0003199894563294947,
+              "mean_skin_gap_m": 0.00016271082138768665
+            },
+            "little": {
+              "max_skin_gap_m": 0.0003199990023858845,
+              "mean_skin_gap_m": 0.0001611217662543568
+            }
+          },
+          "thumb_tip_full": {
+            "thumb": {
+              "max_skin_gap_m": 0.0003200146893505007,
+              "mean_skin_gap_m": 0.000162759568123174
+            },
+            "index": {
+              "max_skin_gap_m": 0.0003199986240360886,
+              "mean_skin_gap_m": 0.00016263707389128438
+            },
+            "middle": {
+              "max_skin_gap_m": 0.00031999783823266625,
+              "mean_skin_gap_m": 0.00016270529146218362
+            },
+            "ring": {
+              "max_skin_gap_m": 0.0003199894563294947,
+              "mean_skin_gap_m": 0.00016271082138768665
+            },
+            "little": {
+              "max_skin_gap_m": 0.0003199990023858845,
+              "mean_skin_gap_m": 0.0001611217662543568
+            }
+          },
+          "index_tip_full": {
+            "thumb": {
+              "max_skin_gap_m": 0.0003200013597961515,
+              "mean_skin_gap_m": 0.00016275878743212871
+            },
+            "index": {
+              "max_skin_gap_m": 0.00032001148792915046,
+              "mean_skin_gap_m": 0.0001626365859332543
+            },
+            "middle": {
+              "max_skin_gap_m": 0.00031999783823266625,
+              "mean_skin_gap_m": 0.00016270529146218362
+            },
+            "ring": {
+              "max_skin_gap_m": 0.0003199894563294947,
+              "mean_skin_gap_m": 0.00016271082138768665
+            },
+            "little": {
+              "max_skin_gap_m": 0.0003199990023858845,
+              "mean_skin_gap_m": 0.0001611217662543568
+            }
+          },
+          "middle_tip_full": {
+            "thumb": {
+              "max_skin_gap_m": 0.0003200013597961515,
+              "mean_skin_gap_m": 0.00016275878743212871
+            },
+            "index": {
+              "max_skin_gap_m": 0.0003199986240360886,
+              "mean_skin_gap_m": 0.00016263707389128438
+            },
+            "middle": {
+              "max_skin_gap_m": 0.00031999818747863173,
+              "mean_skin_gap_m": 0.0001627043379840921
+            },
+            "ring": {
+              "max_skin_gap_m": 0.0003199894563294947,
+              "mean_skin_gap_m": 0.00016271082138768665
+            },
+            "little": {
+              "max_skin_gap_m": 0.0003199990023858845,
+              "mean_skin_gap_m": 0.0001611217662543568
+            }
+          },
+          "ring_tip_full": {
+            "thumb": {
+              "max_skin_gap_m": 0.0003200013597961515,
+              "mean_skin_gap_m": 0.00016275878743212871
+            },
+            "index": {
+              "max_skin_gap_m": 0.0003199986240360886,
+              "mean_skin_gap_m": 0.00016263707389128438
+            },
+            "middle": {
+              "max_skin_gap_m": 0.00031999783823266625,
+              "mean_skin_gap_m": 0.00016270529146218362
+            },
+            "ring": {
+              "max_skin_gap_m": 0.00031998255872167647,
+              "mean_skin_gap_m": 0.00016271114128691314
+            },
+            "little": {
+              "max_skin_gap_m": 0.0003199990023858845,
+              "mean_skin_gap_m": 0.0001611217662543568
+            }
+          },
+          "little_tip_full": {
+            "thumb": {
+              "max_skin_gap_m": 0.0003200013597961515,
+              "mean_skin_gap_m": 0.00016275878743212871
+            },
+            "index": {
+              "max_skin_gap_m": 0.0003199986240360886,
+              "mean_skin_gap_m": 0.00016263707389128438
+            },
+            "middle": {
+              "max_skin_gap_m": 0.00031999783823266625,
+              "mean_skin_gap_m": 0.00016270529146218362
+            },
+            "ring": {
+              "max_skin_gap_m": 0.0003199894563294947,
+              "mean_skin_gap_m": 0.00016271082138768665
+            },
+            "little": {
+              "max_skin_gap_m": 0.00031999839120544493,
+              "mean_skin_gap_m": 0.0001611192337607107
+            }
+          }
+        }
+      }
+    },
+    "editable_materials": {
+      "uv": {
+        "Detailed_Sleeve": {
+          "sampled_face_centers": 42512,
+          "nondegenerate_triangles_fraction": 1.0,
+          "uv_min": [
+            0.0015748465666547418,
+            0.0012321789981797338
+          ],
+          "uv_max": [
+            0.9979372620582581,
+            0.9973079562187195
+          ]
+        },
+        "Detailed_Trim": {
+          "sampled_face_centers": 4712,
+          "nondegenerate_triangles_fraction": 1.0,
+          "uv_min": [
+            0.001388981647323817,
+            0.0012689807917922735
+          ],
+          "uv_max": [
+            0.9978395998477936,
+            0.9971888810396194
+          ]
+        },
+        "Detailed_Skin": {
+          "sampled_face_centers": 23313,
+          "nondegenerate_triangles_fraction": 1.0,
+          "uv_min": [
+            0.0019443747975553076,
+            0.0017418027467404802
+          ],
+          "uv_max": [
+            0.9943916002909342,
+            0.9937450091044108
+          ]
+        },
+        "Detailed_Nail": {
+          "sampled_face_centers": 3520,
+          "nondegenerate_triangles_fraction": 1.0,
+          "uv_min": [
+            0.10991889486710231,
+            0.04408723395317793
+          ],
+          "uv_max": [
+            0.9852830171585083,
+            0.9891839822133383
+          ]
+        },
+        "Detailed_Glove": {
+          "sampled_face_centers": 34195,
+          "nondegenerate_triangles_fraction": 1.0,
+          "uv_min": [
+            0.0013149610022082925,
+            0.0013219360844232142
+          ],
+          "uv_max": [
+            0.9904981255531311,
+            0.9935600459575653
+          ]
+        }
+      },
+      "materials": {
+        "Detailed_Trim": {
+          "base_color": {
+            "image": "realistic_hands_basecolor",
+            "channel": null,
+            "colorspace": "sRGB",
+            "size": [
+              4096,
+              4096
+            ],
+            "packed_bytes": 3365262
+          },
+          "normal": {
+            "image": "realistic_hands_normal",
+            "channel": null,
+            "colorspace": "Non-Color",
+            "size": [
+              4096,
+              4096
+            ],
+            "packed_bytes": 11818742
+          },
+          "roughness": {
+            "image": "realistic_hands_roughness",
+            "channel": null,
+            "colorspace": "Non-Color",
+            "size": [
+              4096,
+              4096
+            ],
+            "packed_bytes": 4733974
+          }
+        },
+        "Detailed_Glove": {
+          "base_color": {
+            "image": "realistic_hands_basecolor",
+            "channel": null,
+            "colorspace": "sRGB",
+            "size": [
+              4096,
+              4096
+            ],
+            "packed_bytes": 3365262
+          },
+          "normal": {
+            "image": "realistic_hands_normal",
+            "channel": null,
+            "colorspace": "Non-Color",
+            "size": [
+              4096,
+              4096
+            ],
+            "packed_bytes": 11818742
+          },
+          "roughness": {
+            "image": "realistic_hands_roughness",
+            "channel": null,
+            "colorspace": "Non-Color",
+            "size": [
+              4096,
+              4096
+            ],
+            "packed_bytes": 4733974
+          }
+        },
+        "Detailed_Nail": {
+          "base_color": {
+            "image": "realistic_hands_basecolor",
+            "channel": null,
+            "colorspace": "sRGB",
+            "size": [
+              4096,
+              4096
+            ],
+            "packed_bytes": 3365262
+          },
+          "normal": {
+            "image": "realistic_hands_normal",
+            "channel": null,
+            "colorspace": "Non-Color",
+            "size": [
+              4096,
+              4096
+            ],
+            "packed_bytes": 11818742
+          },
+          "roughness": {
+            "image": "realistic_hands_roughness",
+            "channel": null,
+            "colorspace": "Non-Color",
+            "size": [
+              4096,
+              4096
+            ],
+            "packed_bytes": 4733974
+          }
+        },
+        "Detailed_Skin": {
+          "base_color": {
+            "image": "realistic_hands_basecolor",
+            "channel": null,
+            "colorspace": "sRGB",
+            "size": [
+              4096,
+              4096
+            ],
+            "packed_bytes": 3365262
+          },
+          "normal": {
+            "image": "realistic_hands_normal",
+            "channel": null,
+            "colorspace": "Non-Color",
+            "size": [
+              4096,
+              4096
+            ],
+            "packed_bytes": 11818742
+          },
+          "roughness": {
+            "image": "realistic_hands_roughness",
+            "channel": null,
+            "colorspace": "Non-Color",
+            "size": [
+              4096,
+              4096
+            ],
+            "packed_bytes": 4733974
+          }
+        },
+        "Detailed_Sleeve": {
+          "base_color": {
+            "image": "realistic_hands_basecolor",
+            "channel": null,
+            "colorspace": "sRGB",
+            "size": [
+              4096,
+              4096
+            ],
+            "packed_bytes": 3365262
+          },
+          "normal": {
+            "image": "realistic_hands_normal",
+            "channel": null,
+            "colorspace": "Non-Color",
+            "size": [
+              4096,
+              4096
+            ],
+            "packed_bytes": 11818742
+          },
+          "roughness": {
+            "image": "realistic_hands_roughness",
+            "channel": null,
+            "colorspace": "Non-Color",
+            "size": [
+              4096,
+              4096
+            ],
+            "packed_bytes": 4733974
+          }
+        }
+      },
+      "images": {
+        "realistic_hands_basecolor": {
+          "global": {
+            "minimum": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "maximum": [
+              0.7176470756530762,
+              0.6235294342041016,
+              0.4862745404243469
+            ],
+            "standard_deviation": [
+              0.20699986815452576,
+              0.14493907988071442,
+              0.11127931624650955
+            ],
+            "mean": [
+              0.12924154102802277,
+              0.0920802652835846,
+              0.07006845623254776
+            ]
+          },
+          "used_surface": {
+            "Detailed_Trim/base_color": {
+              "minimum": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "maximum": [
+                0.20784315466880798,
+                0.16470588743686676,
+                0.1098039299249649
+              ],
+              "standard_deviation": [
+                0.07017099857330322,
+                0.05578694865107536,
+                0.03631376475095749
+              ],
+              "mean": [
+                0.17643523216247559,
+                0.140237957239151,
+                0.09132273495197296
+              ]
+            },
+            "Detailed_Glove/base_color": {
+              "minimum": [
+                0.09019608050584793,
+                0.06666667014360428,
+                0.0470588281750679
+              ],
+              "maximum": [
+                0.0941176563501358,
+                0.07058823853731155,
+                0.05098039656877518
+              ],
+              "standard_deviation": [
+                0.0017726620426401496,
+                0.0011630860390141606,
+                0.0012032405938953161
+              ],
+              "mean": [
+                0.09130943566560745,
+                0.06703770905733109,
+                0.05058428645133972
+              ]
+            },
+            "Detailed_Nail/base_color": {
+              "minimum": [
+                0.6000000238418579,
+                0.4117647409439087,
+                0.34117648005485535
+              ],
+              "maximum": [
+                0.7176470756530762,
+                0.6235294342041016,
+                0.48235297203063965
+              ],
+              "standard_deviation": [
+                0.025003662332892418,
+                0.04953712970018387,
+                0.03279712051153183
+              ],
+              "mean": [
+                0.6192912459373474,
+                0.4391036331653595,
+                0.3621368408203125
+              ]
+            },
+            "Detailed_Skin/base_color": {
+              "minimum": [
+                0.5529412031173706,
+                0.3764706254005432,
+                0.2823529541492462
+              ],
+              "maximum": [
+                0.5960784554481506,
+                0.4235294461250305,
+                0.32156863808631897
+              ],
+              "standard_deviation": [
+                0.009184811264276505,
+                0.009350179694592953,
+                0.010086877271533012
+              ],
+              "mean": [
+                0.5706203579902649,
+                0.3962816298007965,
+                0.29781386256217957
+              ]
+            },
+            "Detailed_Sleeve/base_color": {
+              "minimum": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "maximum": [
+                0.14509804546833038,
+                0.12941177189350128,
+                0.10588236153125763
+              ],
+              "standard_deviation": [
+                0.03186947852373123,
+                0.03208357095718384,
+                0.02984054945409298
+              ],
+              "mean": [
+                0.1075482964515686,
+                0.08887934684753418,
+                0.07034768164157867
+              ]
+            }
+          }
+        },
+        "realistic_hands_normal": {
+          "global": {
+            "minimum": [
+              0.04313725605607033,
+              0.14509804546833038,
+              0.0
+            ],
+            "maximum": [
+              0.8509804606437683,
+              1.0,
+              1.0
+            ],
+            "standard_deviation": [
+              0.009355515241622925,
+              0.009620429016649723,
+              0.007417104206979275
+            ],
+            "mean": [
+              0.5010544657707214,
+              0.5010461807250977,
+              0.9997996687889099
+            ]
+          },
+          "used_surface": {
+            "Detailed_Trim/normal": {
+              "minimum": [
+                0.21176472306251526,
+                0.19607844948768616,
+                0.0
+              ],
+              "maximum": [
+                0.8117647767066956,
+                0.9294118285179138,
+                1.0
+              ],
+              "standard_deviation": [
+                0.055224813520908356,
+                0.056645240634679794,
+                0.02536354959011078
+              ],
+              "mean": [
+                0.5019346475601196,
+                0.5007262825965881,
+                0.9927811622619629
+              ]
+            },
+            "Detailed_Glove/normal": {
+              "minimum": [
+                0.3764706254005432,
+                0.3686274588108063,
+                0.9764706492424011
+              ],
+              "maximum": [
+                0.6549019813537598,
+                0.6352941393852234,
+                1.0
+              ],
+              "standard_deviation": [
+                0.01373540610074997,
+                0.01504905242472887,
+                0.0010707819601520896
+              ],
+              "mean": [
+                0.5005423426628113,
+                0.5004315376281738,
+                0.9998237490653992
+              ]
+            },
+            "Detailed_Nail/normal": {
+              "minimum": [
+                0.3921568989753723,
+                0.30980393290519714,
+                0.960784375667572
+              ],
+              "maximum": [
+                0.6117647290229797,
+                0.658823549747467,
+                1.0
+              ],
+              "standard_deviation": [
+                0.008808632381260395,
+                0.017340509220957756,
+                0.0020353696309030056
+              ],
+              "mean": [
+                0.5019754767417908,
+                0.5015197992324829,
+                0.9996345043182373
+              ]
+            },
+            "Detailed_Skin/normal": {
+              "minimum": [
+                0.3921568989753723,
+                0.3921568989753723,
+                0.9843137860298157
+              ],
+              "maximum": [
+                0.615686297416687,
+                0.6117647290229797,
+                1.0
+              ],
+              "standard_deviation": [
+                0.008782891556620598,
+                0.010117201134562492,
+                0.0007881650235503912
+              ],
+              "mean": [
+                0.5009630918502808,
+                0.5009670257568359,
+                0.9998939633369446
+              ]
+            },
+            "Detailed_Sleeve/normal": {
+              "minimum": [
+                0.06666667014360428,
+                0.16078431904315948,
+                0.5333333611488342
+              ],
+              "maximum": [
+                0.847058892250061,
+                0.8588235974311829,
+                1.0
+              ],
+              "standard_deviation": [
+                0.029147125780582428,
+                0.02358323149383068,
+                0.005960614420473576
+              ],
+              "mean": [
+                0.5007593035697937,
+                0.50071781873703,
+                0.9986258745193481
+              ]
+            }
+          }
+        },
+        "realistic_hands_roughness": {
+          "global": {
+            "minimum": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "maximum": [
+              0.8117647767066956,
+              0.8117647767066956,
+              0.8117647767066956
+            ],
+            "standard_deviation": [
+              0.32548442482948303,
+              0.32548442482948303,
+              0.32548442482948303
+            ],
+            "mean": [
+              0.31865182518959045,
+              0.31865182518959045,
+              0.31865182518959045
+            ]
+          },
+          "used_surface": {
+            "Detailed_Trim/roughness": {
+              "minimum": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "maximum": [
+                0.7215686440467834,
+                0.7215686440467834,
+                0.7215686440467834
+              ],
+              "standard_deviation": [
+                0.23705264925956726,
+                0.23705264925956726,
+                0.23705264925956726
+              ],
+              "mean": [
+                0.5955170392990112,
+                0.5955170392990112,
+                0.5955170392990112
+              ]
+            },
+            "Detailed_Glove/roughness": {
+              "minimum": [
+                0.6352941393852234,
+                0.6352941393852234,
+                0.6352941393852234
+              ],
+              "maximum": [
+                0.7372549176216125,
+                0.7372549176216125,
+                0.7372549176216125
+              ],
+              "standard_deviation": [
+                0.013414877466857433,
+                0.013414877466857433,
+                0.013414877466857433
+              ],
+              "mean": [
+                0.6846468448638916,
+                0.6846468448638916,
+                0.6846468448638916
+              ]
+            },
+            "Detailed_Nail/roughness": {
+              "minimum": [
+                0.32156863808631897,
+                0.32156863808631897,
+                0.32156863808631897
+              ],
+              "maximum": [
+                0.3686274588108063,
+                0.3686274588108063,
+                0.3686274588108063
+              ],
+              "standard_deviation": [
+                0.00877364445477724,
+                0.00877364445477724,
+                0.00877364445477724
+              ],
+              "mean": [
+                0.34434187412261963,
+                0.34434187412261963,
+                0.34434187412261963
+              ]
+            },
+            "Detailed_Skin/roughness": {
+              "minimum": [
+                0.529411792755127,
+                0.529411792755127,
+                0.529411792755127
+              ],
+              "maximum": [
+                0.6039215922355652,
+                0.6039215922355652,
+                0.6039215922355652
+              ],
+              "standard_deviation": [
+                0.011605572886765003,
+                0.011605572886765003,
+                0.011605572886765003
+              ],
+              "mean": [
+                0.5650362372398376,
+                0.5650362372398376,
+                0.5650362372398376
+              ]
+            },
+            "Detailed_Sleeve/roughness": {
+              "minimum": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "maximum": [
+                0.8078432083129883,
+                0.8078432083129883,
+                0.8078432083129883
+              ],
+              "standard_deviation": [
+                0.11743389070034027,
+                0.11743389070034027,
+                0.11743389070034027
+              ],
+              "mean": [
+                0.7313817143440247,
+                0.7313817143440247,
+                0.7313817143440247
+              ]
+            }
+          }
+        }
+      }
+    },
+    "left_glb": {
+      "container": {
+        "embedded_images": [
+          {
+            "name": "realistic_hands_normal",
+            "mime": "image/png",
+            "bytes": 11818742,
+            "sha256": "b1dec1b3b2f9c9f2134904091572edc3c7d54ba075b856424921ba3eb55cc401"
+          },
+          {
+            "name": "realistic_hands_basecolor",
+            "mime": "image/png",
+            "bytes": 3365262,
+            "sha256": "24704fb664d4eae677f77d6125226a0f318cc300d616c8cafbbb8e462abede28"
+          },
+          {
+            "name": "realistic_hands_roughness",
+            "mime": "image/png",
+            "bytes": 4522378,
+            "sha256": "1c79923381b8cb93e1e45d0a232ed7dfec6e202d5b27383ad300156f209a94ea"
+          }
+        ],
+        "primitive_texture_coordinate_checks": 39,
+        "white_vertex_color_accessors": 0,
+        "baked_color_double_tint_absent": true,
+        "authored_tangent_vertices": 46104,
+        "portable_normal_and_metallic_roughness_textures": true
+      },
+      "rest": {
+        "all_16_bone_rest_matrices_max_error": 1.4901161193847656e-07
+      },
+      "roundtrip": {
+        "hand": {
+          "vertices": 21358,
+          "maximum_position_error_m": 7.513759214816673e-08,
+          "maximum_weight_error_from_prior_glb": 0.0,
+          "maximum_corrective_error_m": 5.78719381577063e-07
+        },
+        "nail_index": {
+          "vertices": 395,
+          "maximum_position_error_m": 3.210024601685291e-08,
+          "maximum_weight_error_from_prior_glb": 0.0,
+          "maximum_corrective_error_m": 0.0
+        },
+        "nail_little": {
+          "vertices": 424,
+          "maximum_position_error_m": 3.1723121907134555e-08,
+          "maximum_weight_error_from_prior_glb": 0.0,
+          "maximum_corrective_error_m": 0.0
+        },
+        "nail_middle": {
+          "vertices": 399,
+          "maximum_position_error_m": 7.453490269426766e-08,
+          "maximum_weight_error_from_prior_glb": 0.0,
+          "maximum_corrective_error_m": 0.0
+        },
+        "nail_ring": {
+          "vertices": 413,
+          "maximum_position_error_m": 1.580506747700383e-08,
+          "maximum_weight_error_from_prior_glb": 0.0,
+          "maximum_corrective_error_m": 0.0
+        },
+        "nail_thumb": {
+          "vertices": 442,
+          "maximum_position_error_m": 1.3463973935756712e-08,
+          "maximum_weight_error_from_prior_glb": 0.0,
+          "maximum_corrective_error_m": 0.0
+        },
+        "WristCuff": {
+          "vertices": 5170,
+          "maximum_position_error_m": 0.0,
+          "maximum_weight_error_from_prior_glb": 0.0,
+          "maximum_corrective_error_m": 0.0
+        },
+        "Forearm": {
+          "vertices": 11460,
+          "maximum_position_error_m": 0.0,
+          "maximum_weight_error_from_prior_glb": 0.0,
+          "maximum_corrective_error_m": 0.0
+        },
+        "UpperArm": {
+          "vertices": 6043,
+          "maximum_position_error_m": 0.0,
+          "maximum_weight_error_from_prior_glb": 0.0,
+          "maximum_corrective_error_m": 0.0
+        }
+      },
+      "articulation": {
+        "rig": {
+          "rig": "HandRig.001",
+          "bones": [
+            "index0",
+            "index1",
+            "index2",
+            "little0",
+            "little1",
+            "little2",
+            "middle0",
+            "middle1",
+            "middle2",
+            "ring0",
+            "ring1",
+            "ring2",
+            "thumb0",
+            "thumb1",
+            "thumb2",
+            "wrist"
+          ],
+          "meshes": {
+            "ContinuousAnatomicalHand.001": {
+              "vertices": 21358,
+              "weight_sum_min": 0.9999998733401299,
+              "weight_sum_max": 1.0000001210719347,
+              "wrist_only_vertices": 656
+            },
+            "Nail_index": {
+              "vertices": 395,
+              "weight_sum_min": 1.0,
+              "weight_sum_max": 1.0,
+              "wrist_only_vertices": 0
+            },
+            "Nail_little": {
+              "vertices": 424,
+              "weight_sum_min": 1.0,
+              "weight_sum_max": 1.0,
+              "wrist_only_vertices": 0
+            },
+            "Nail_middle": {
+              "vertices": 399,
+              "weight_sum_min": 1.0,
+              "weight_sum_max": 1.0,
+              "wrist_only_vertices": 0
+            },
+            "Nail_ring": {
+              "vertices": 413,
+              "weight_sum_min": 1.0,
+              "weight_sum_max": 1.0,
+              "wrist_only_vertices": 0
+            },
+            "Nail_thumb": {
+              "vertices": 442,
+              "weight_sum_min": 1.0,
+              "weight_sum_max": 1.0,
+              "wrist_only_vertices": 0
+            }
+          },
+          "finger_pose_checks": {
+            "thumb": {
+              "local_x_rotation_radians": 0.4,
+              "moved_vertices": 6277,
+              "max_displacement_m": 0.04495459762213018,
+              "wrist_bone_error_m": 0.0,
+              "wrist_only_mesh_error_m": 0.0
+            },
+            "index": {
+              "local_x_rotation_radians": 0.4,
+              "moved_vertices": 6562,
+              "max_displacement_m": 0.037395031849792294,
+              "wrist_bone_error_m": 0.0,
+              "wrist_only_mesh_error_m": 0.0
+            },
+            "middle": {
+              "local_x_rotation_radians": 0.4,
+              "moved_vertices": 6767,
+              "max_displacement_m": 0.039743752735564006,
+              "wrist_bone_error_m": 0.0,
+              "wrist_only_mesh_error_m": 0.0
+            },
+            "ring": {
+              "local_x_rotation_radians": 0.4,
+              "moved_vertices": 6917,
+              "max_displacement_m": 0.03777652529091416,
+              "wrist_bone_error_m": 0.0,
+              "wrist_only_mesh_error_m": 0.0
+            },
+            "little": {
+              "local_x_rotation_radians": 0.4,
+              "moved_vertices": 5739,
+              "max_displacement_m": 0.033390282436329945,
+              "wrist_bone_error_m": 0.0,
+              "wrist_only_mesh_error_m": 0.0
+            }
+          },
+          "wrist_world_m": [
+            0.0,
+            -0.05624999850988388,
+            0.0
+          ],
+          "native_wrist_error_m": 0.0,
+          "thumb_minus_middle_x_m": 0.03250000346451998
+        },
+        "all_fifteen_joint_effects": {
+          "Joint_thumb_0": {
+            "corrective_vertices": 228,
+            "max_corrective_delta_m": 0.00018582619966103333,
+            "evaluated_correction_m": 0.00018582619966103333,
+            "joint_flex_movement_m": 0.06144523451865948,
+            "correction_after_skinning_m": 0.0001806269441097169,
+            "distal_nail_movement_m": 0.05788883654868212,
+            "affected_center_world_m": [
+              0.038882140070199966,
+              0.0039004783611744642,
+              0.00019429567328188568
+            ]
+          },
+          "Joint_thumb_1": {
+            "corrective_vertices": 491,
+            "max_corrective_delta_m": 0.0005958304490675426,
+            "evaluated_correction_m": 0.0005958320813339683,
+            "joint_flex_movement_m": 0.034640069738631304,
+            "correction_after_skinning_m": 0.0005775565070633975,
+            "distal_nail_movement_m": 0.03238948591954712,
+            "affected_center_world_m": [
+              0.06193767860531807,
+              0.05457240343093872,
+              -0.013118905946612358
+            ]
+          },
+          "Joint_thumb_2": {
+            "corrective_vertices": 250,
+            "max_corrective_delta_m": 0.00039955981071872947,
+            "evaluated_correction_m": 0.00039955981071872947,
+            "joint_flex_movement_m": 0.017702185045208232,
+            "correction_after_skinning_m": 0.00038564612703919016,
+            "distal_nail_movement_m": 0.016230267477429346,
+            "affected_center_world_m": [
+              0.07978767901659012,
+              0.07356829941272736,
+              -0.020012639462947845
+            ]
+          },
+          "Joint_index_0": {
+            "corrective_vertices": 306,
+            "max_corrective_delta_m": 0.00025106107059494104,
+            "evaluated_correction_m": 0.00025106107059494104,
+            "joint_flex_movement_m": 0.05111259067164226,
+            "correction_after_skinning_m": 0.0002463684163064417,
+            "distal_nail_movement_m": 0.050102829083257895,
+            "affected_center_world_m": [
+              0.041002970188856125,
+              0.08929001539945602,
+              0.022481951862573624
+            ]
+          },
+          "Joint_index_1": {
+            "corrective_vertices": 389,
+            "max_corrective_delta_m": 0.0005862742492679235,
+            "evaluated_correction_m": 0.0005862706012477498,
+            "joint_flex_movement_m": 0.028668466945811252,
+            "correction_after_skinning_m": 0.0005684649036304556,
+            "distal_nail_movement_m": 0.0271550870538758,
+            "affected_center_world_m": [
+              0.04361375421285629,
+              0.13250954449176788,
+              0.022579751908779144
+            ]
+          },
+          "Joint_index_2": {
+            "corrective_vertices": 217,
+            "max_corrective_delta_m": 0.0003113752101924032,
+            "evaluated_correction_m": 0.0003113752101924032,
+            "joint_flex_movement_m": 0.012838568910367045,
+            "correction_after_skinning_m": 0.00029988521950607717,
+            "distal_nail_movement_m": 0.011446480954891603,
+            "affected_center_world_m": [
+              0.04623127356171608,
+              0.15913034975528717,
+              0.014730513095855713
+            ]
+          },
+          "Joint_middle_0": {
+            "corrective_vertices": 203,
+            "max_corrective_delta_m": 0.0002352605010583531,
+            "evaluated_correction_m": 0.0002352605010583531,
+            "joint_flex_movement_m": 0.05432290552706278,
+            "correction_after_skinning_m": 0.0002306580191474352,
+            "distal_nail_movement_m": 0.053333348371743236,
+            "affected_center_world_m": [
+              0.005321790464222431,
+              0.10176881402730942,
+              0.031446605920791626
+            ]
+          },
+          "Joint_middle_1": {
+            "corrective_vertices": 294,
+            "max_corrective_delta_m": 0.0005895494772572295,
+            "evaluated_correction_m": 0.0005895494772572295,
+            "joint_flex_movement_m": 0.029846630342112924,
+            "correction_after_skinning_m": 0.0005674484136628217,
+            "distal_nail_movement_m": 0.02830398830128924,
+            "affected_center_world_m": [
+              0.004814757965505123,
+              0.14820820093154907,
+              0.02828909456729889
+            ]
+          },
+          "Joint_middle_2": {
+            "corrective_vertices": 197,
+            "max_corrective_delta_m": 0.0002702225073802455,
+            "evaluated_correction_m": 0.0002702225073802455,
+            "joint_flex_movement_m": 0.013743185643143823,
+            "correction_after_skinning_m": 0.0002647860534314566,
+            "distal_nail_movement_m": 0.012517644734879008,
+            "affected_center_world_m": [
+              0.004635607358068228,
+              0.17498187720775604,
+              0.01937177963554859
+            ]
+          },
+          "Joint_ring_0": {
+            "corrective_vertices": 320,
+            "max_corrective_delta_m": 0.000239515900797474,
+            "evaluated_correction_m": 0.000239515900797474,
+            "joint_flex_movement_m": 0.051634027318950455,
+            "correction_after_skinning_m": 0.00023218352081142037,
+            "distal_nail_movement_m": 0.05075393977195168,
+            "affected_center_world_m": [
+              -0.03374957665801048,
+              0.09617488086223602,
+              0.02007913403213024
+            ]
+          },
+          "Joint_ring_1": {
+            "corrective_vertices": 340,
+            "max_corrective_delta_m": 0.0005942267349893044,
+            "evaluated_correction_m": 0.0005942352426431632,
+            "joint_flex_movement_m": 0.029152906988245096,
+            "correction_after_skinning_m": 0.0005724992017309856,
+            "distal_nail_movement_m": 0.027353499606789827,
+            "affected_center_world_m": [
+              -0.030089886859059334,
+              0.13932399451732635,
+              0.023618020117282867
+            ]
+          },
+          "Joint_ring_2": {
+            "corrective_vertices": 250,
+            "max_corrective_delta_m": 0.0003477088570865574,
+            "evaluated_correction_m": 0.00034771545241734557,
+            "joint_flex_movement_m": 0.013313200756755515,
+            "correction_after_skinning_m": 0.00033741474744195763,
+            "distal_nail_movement_m": 0.011979901995930655,
+            "affected_center_world_m": [
+              -0.03252069279551506,
+              0.16367027163505554,
+              0.012141791172325611
+            ]
+          },
+          "Joint_little_0": {
+            "corrective_vertices": 292,
+            "max_corrective_delta_m": 0.00023654896479951315,
+            "evaluated_correction_m": 0.00023654896479951315,
+            "joint_flex_movement_m": 0.0456387685390281,
+            "correction_after_skinning_m": 0.00022919721574099245,
+            "distal_nail_movement_m": 0.04448653412079752,
+            "affected_center_world_m": [
+              -0.05182386562228203,
+              0.07589855045080185,
+              0.015271191485226154
+            ]
+          },
+          "Joint_little_1": {
+            "corrective_vertices": 395,
+            "max_corrective_delta_m": 0.0005823971846430048,
+            "evaluated_correction_m": 0.0005823989902863809,
+            "joint_flex_movement_m": 0.026347448697657393,
+            "correction_after_skinning_m": 0.0005635149327888387,
+            "distal_nail_movement_m": 0.024872430036387203,
+            "affected_center_world_m": [
+              -0.061726056039333344,
+              0.11023770272731781,
+              0.014141800813376904
+            ]
+          },
+          "Joint_little_2": {
+            "corrective_vertices": 235,
+            "max_corrective_delta_m": 0.0003749466138349981,
+            "evaluated_correction_m": 0.0003749448324833774,
+            "joint_flex_movement_m": 0.01436617702987022,
+            "correction_after_skinning_m": 0.0003620234612672873,
+            "distal_nail_movement_m": 0.012978320589534895,
+            "affected_center_world_m": [
+              -0.07351171970367432,
+              0.12815260887145996,
+              0.009796824306249619
+            ]
+          }
+        },
+        "rigid_nails": {
+          "thumb": {
+            "mesh": "Nail_thumb",
+            "vertices": 442,
+            "max_movement_m": 0.05788882567663096,
+            "bone_local_error_m": 3.4053819810565976e-08,
+            "exposed_face_dorsal_dot": 0.9600844886153936
+          },
+          "index": {
+            "mesh": "Nail_index",
+            "vertices": 395,
+            "max_movement_m": 0.05010283682305584,
+            "bone_local_error_m": 3.204954193452329e-08,
+            "exposed_face_dorsal_dot": 0.9816642354708165
+          },
+          "middle": {
+            "mesh": "Nail_middle",
+            "vertices": 399,
+            "max_movement_m": 0.05333334993356011,
+            "bone_local_error_m": 4.768198774906624e-08,
+            "exposed_face_dorsal_dot": 0.9889496171381325
+          },
+          "ring": {
+            "mesh": "Nail_ring",
+            "vertices": 413,
+            "max_movement_m": 0.05075394632439671,
+            "bone_local_error_m": 4.8308290863643936e-08,
+            "exposed_face_dorsal_dot": 0.9896293185884133
+          },
+          "little": {
+            "mesh": "Nail_little",
+            "vertices": 424,
+            "max_movement_m": 0.04448654307538675,
+            "bone_local_error_m": 4.364813922140929e-08,
+            "exposed_face_dorsal_dot": 0.8772761905565858
+          }
+        },
+        "full_flex_nail_seating": {
+          "neutral": {
+            "thumb": {
+              "max_skin_gap_m": 0.0003200018545612693,
+              "mean_skin_gap_m": 0.0001555972296367091
+            },
+            "index": {
+              "max_skin_gap_m": 0.0003199968778062612,
+              "mean_skin_gap_m": 0.00015096248673585307
+            },
+            "middle": {
+              "max_skin_gap_m": 0.00032000508508645,
+              "mean_skin_gap_m": 0.00014960387685314437
+            },
+            "ring": {
+              "max_skin_gap_m": 0.0003199965867679566,
+              "mean_skin_gap_m": 0.00014696473697032417
+            },
+            "little": {
+              "max_skin_gap_m": 0.000320004066452384,
+              "mean_skin_gap_m": 0.00015051223735923177
+            }
+          },
+          "all_full_flex": {
+            "thumb": {
+              "max_skin_gap_m": 0.0003200062783434987,
+              "mean_skin_gap_m": 0.00015559791215692543
+            },
+            "index": {
+              "max_skin_gap_m": 0.0003200011560693383,
+              "mean_skin_gap_m": 0.0001478981771504527
+            },
+            "middle": {
+              "max_skin_gap_m": 0.0003200110513716936,
+              "mean_skin_gap_m": 0.00014794164667535342
+            },
+            "ring": {
+              "max_skin_gap_m": 0.0003199847706127912,
+              "mean_skin_gap_m": 0.00014484786426855113
+            },
+            "little": {
+              "max_skin_gap_m": 0.00031999085331335664,
+              "mean_skin_gap_m": 0.00014717985564462687
+            }
+          },
+          "thumb_middle_full": {
+            "thumb": {
+              "max_skin_gap_m": 0.00032000697683542967,
+              "mean_skin_gap_m": 0.00015559711750547773
+            },
+            "index": {
+              "max_skin_gap_m": 0.0003199968778062612,
+              "mean_skin_gap_m": 0.00015096248673585307
+            },
+            "middle": {
+              "max_skin_gap_m": 0.00032000508508645,
+              "mean_skin_gap_m": 0.00014960387685314437
+            },
+            "ring": {
+              "max_skin_gap_m": 0.0003199965867679566,
+              "mean_skin_gap_m": 0.00014696473697032417
+            },
+            "little": {
+              "max_skin_gap_m": 0.000320004066452384,
+              "mean_skin_gap_m": 0.00015051223735923177
+            }
+          },
+          "thumb_tip_full": {
+            "thumb": {
+              "max_skin_gap_m": 0.0003200031351298094,
+              "mean_skin_gap_m": 0.00015559747430312997
+            },
+            "index": {
+              "max_skin_gap_m": 0.0003199968778062612,
+              "mean_skin_gap_m": 0.00015096248673585307
+            },
+            "middle": {
+              "max_skin_gap_m": 0.00032000508508645,
+              "mean_skin_gap_m": 0.00014960387685314437
+            },
+            "ring": {
+              "max_skin_gap_m": 0.0003199965867679566,
+              "mean_skin_gap_m": 0.00014696473697032417
+            },
+            "little": {
+              "max_skin_gap_m": 0.000320004066452384,
+              "mean_skin_gap_m": 0.00015051223735923177
+            }
+          },
+          "index_tip_full": {
+            "thumb": {
+              "max_skin_gap_m": 0.0003200018545612693,
+              "mean_skin_gap_m": 0.0001555972296367091
+            },
+            "index": {
+              "max_skin_gap_m": 0.00031999737257137895,
+              "mean_skin_gap_m": 0.0001509635933721659
+            },
+            "middle": {
+              "max_skin_gap_m": 0.00032000508508645,
+              "mean_skin_gap_m": 0.00014960387685314437
+            },
+            "ring": {
+              "max_skin_gap_m": 0.0003199965867679566,
+              "mean_skin_gap_m": 0.00014696473697032417
+            },
+            "little": {
+              "max_skin_gap_m": 0.000320004066452384,
+              "mean_skin_gap_m": 0.00015051223735923177
+            }
+          },
+          "middle_tip_full": {
+            "thumb": {
+              "max_skin_gap_m": 0.0003200018545612693,
+              "mean_skin_gap_m": 0.0001555972296367091
+            },
+            "index": {
+              "max_skin_gap_m": 0.0003199968778062612,
+              "mean_skin_gap_m": 0.00015096248673585307
+            },
+            "middle": {
+              "max_skin_gap_m": 0.0003199968487024307,
+              "mean_skin_gap_m": 0.0001496050561737254
+            },
+            "ring": {
+              "max_skin_gap_m": 0.0003199965867679566,
+              "mean_skin_gap_m": 0.00014696473697032417
+            },
+            "little": {
+              "max_skin_gap_m": 0.000320004066452384,
+              "mean_skin_gap_m": 0.00015051223735923177
+            }
+          },
+          "ring_tip_full": {
+            "thumb": {
+              "max_skin_gap_m": 0.0003200018545612693,
+              "mean_skin_gap_m": 0.0001555972296367091
+            },
+            "index": {
+              "max_skin_gap_m": 0.0003199968778062612,
+              "mean_skin_gap_m": 0.00015096248673585307
+            },
+            "middle": {
+              "max_skin_gap_m": 0.00032000508508645,
+              "mean_skin_gap_m": 0.00014960387685314437
+            },
+            "ring": {
+              "max_skin_gap_m": 0.00032000101055018604,
+              "mean_skin_gap_m": 0.0001469641946516263
+            },
+            "little": {
+              "max_skin_gap_m": 0.000320004066452384,
+              "mean_skin_gap_m": 0.00015051223735923177
+            }
+          },
+          "little_tip_full": {
+            "thumb": {
+              "max_skin_gap_m": 0.0003200018545612693,
+              "mean_skin_gap_m": 0.0001555972296367091
+            },
+            "index": {
+              "max_skin_gap_m": 0.0003199968778062612,
+              "mean_skin_gap_m": 0.00015096248673585307
+            },
+            "middle": {
+              "max_skin_gap_m": 0.00032000508508645,
+              "mean_skin_gap_m": 0.00014960387685314437
+            },
+            "ring": {
+              "max_skin_gap_m": 0.0003199965867679566,
+              "mean_skin_gap_m": 0.00014696473697032417
+            },
+            "little": {
+              "max_skin_gap_m": 0.0003200203354936093,
+              "mean_skin_gap_m": 0.00015050831056437604
+            }
+          }
+        }
+      },
+      "materials": {
+        "uv": {
+          "Detailed_Sleeve": {
+            "sampled_face_centers": 21256,
+            "nondegenerate_triangles_fraction": 1.0,
+            "uv_min": [
+              0.013170908205211163,
+              0.0013373692830403645
+            ],
+            "uv_max": [
+              0.9979372620582581,
+              0.9971639116605123
+            ]
+          },
+          "Detailed_Trim": {
+            "sampled_face_centers": 4712,
+            "nondegenerate_triangles_fraction": 1.0,
+            "uv_min": [
+              0.0013590979700287182,
+              0.009151836236317953
+            ],
+            "uv_max": [
+              0.9978835582733154,
+              0.9973055720329285
+            ]
+          },
+          "Detailed_Skin": {
+            "sampled_face_centers": 11655,
+            "nondegenerate_triangles_fraction": 1.0,
+            "uv_min": [
+              0.039170032987991966,
+              0.0018442273139953613
+            ],
+            "uv_max": [
+              0.9906074603398641,
+              0.9937450091044108
+            ]
+          },
+          "Detailed_Nail": {
+            "sampled_face_centers": 3200,
+            "nondegenerate_triangles_fraction": 1.0,
+            "uv_min": [
+              0.10991889486710231,
+              0.051500797271728516
+            ],
+            "uv_max": [
+              0.9852830171585083,
+              0.9891839822133383
+            ]
+          },
+          "Detailed_Glove": {
+            "sampled_face_centers": 23147,
+            "nondegenerate_triangles_fraction": 1.0,
+            "uv_min": [
+              0.0012764301306257646,
+              0.0012813011805216472
+            ],
+            "uv_max": [
+              0.9908977150917053,
+              0.9893648028373718
+            ]
+          }
+        },
+        "materials": {
+          "Detailed_Nail": {
+            "base_color": {
+              "image": "realistic_hands_basecolor",
+              "channel": null,
+              "colorspace": "sRGB",
+              "size": [
+                4096,
+                4096
+              ],
+              "packed_bytes": 3365262
+            },
+            "normal": {
+              "image": "realistic_hands_normal",
+              "channel": null,
+              "colorspace": "Non-Color",
+              "size": [
+                4096,
+                4096
+              ],
+              "packed_bytes": 11818742
+            },
+            "roughness": {
+              "image": "realistic_hands_roughness",
+              "channel": 1,
+              "colorspace": "Non-Color",
+              "size": [
+                4096,
+                4096
+              ],
+              "packed_bytes": 4522378
+            }
+          },
+          "Detailed_Trim": {
+            "base_color": {
+              "image": "realistic_hands_basecolor",
+              "channel": null,
+              "colorspace": "sRGB",
+              "size": [
+                4096,
+                4096
+              ],
+              "packed_bytes": 3365262
+            },
+            "normal": {
+              "image": "realistic_hands_normal",
+              "channel": null,
+              "colorspace": "Non-Color",
+              "size": [
+                4096,
+                4096
+              ],
+              "packed_bytes": 11818742
+            },
+            "roughness": {
+              "image": "realistic_hands_roughness",
+              "channel": 1,
+              "colorspace": "Non-Color",
+              "size": [
+                4096,
+                4096
+              ],
+              "packed_bytes": 4522378
+            }
+          },
+          "Detailed_Sleeve": {
+            "base_color": {
+              "image": "realistic_hands_basecolor",
+              "channel": null,
+              "colorspace": "sRGB",
+              "size": [
+                4096,
+                4096
+              ],
+              "packed_bytes": 3365262
+            },
+            "normal": {
+              "image": "realistic_hands_normal",
+              "channel": null,
+              "colorspace": "Non-Color",
+              "size": [
+                4096,
+                4096
+              ],
+              "packed_bytes": 11818742
+            },
+            "roughness": {
+              "image": "realistic_hands_roughness",
+              "channel": 1,
+              "colorspace": "Non-Color",
+              "size": [
+                4096,
+                4096
+              ],
+              "packed_bytes": 4522378
+            }
+          },
+          "Detailed_Glove": {
+            "base_color": {
+              "image": "realistic_hands_basecolor",
+              "channel": null,
+              "colorspace": "sRGB",
+              "size": [
+                4096,
+                4096
+              ],
+              "packed_bytes": 3365262
+            },
+            "normal": {
+              "image": "realistic_hands_normal",
+              "channel": null,
+              "colorspace": "Non-Color",
+              "size": [
+                4096,
+                4096
+              ],
+              "packed_bytes": 11818742
+            },
+            "roughness": {
+              "image": "realistic_hands_roughness",
+              "channel": 1,
+              "colorspace": "Non-Color",
+              "size": [
+                4096,
+                4096
+              ],
+              "packed_bytes": 4522378
+            }
+          },
+          "Detailed_Skin": {
+            "base_color": {
+              "image": "realistic_hands_basecolor",
+              "channel": null,
+              "colorspace": "sRGB",
+              "size": [
+                4096,
+                4096
+              ],
+              "packed_bytes": 3365262
+            },
+            "normal": {
+              "image": "realistic_hands_normal",
+              "channel": null,
+              "colorspace": "Non-Color",
+              "size": [
+                4096,
+                4096
+              ],
+              "packed_bytes": 11818742
+            },
+            "roughness": {
+              "image": "realistic_hands_roughness",
+              "channel": 1,
+              "colorspace": "Non-Color",
+              "size": [
+                4096,
+                4096
+              ],
+              "packed_bytes": 4522378
+            }
+          }
+        },
+        "images": {
+          "realistic_hands_basecolor": {
+            "global": {
+              "minimum": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "maximum": [
+                0.7176470756530762,
+                0.6235294342041016,
+                0.4862745404243469
+              ],
+              "standard_deviation": [
+                0.20699986815452576,
+                0.14493907988071442,
+                0.11127931624650955
+              ],
+              "mean": [
+                0.12924154102802277,
+                0.0920802652835846,
+                0.07006845623254776
+              ]
+            },
+            "used_surface": {
+              "Detailed_Nail/base_color": {
+                "minimum": [
+                  0.6000000238418579,
+                  0.4117647409439087,
+                  0.34117648005485535
+                ],
+                "maximum": [
+                  0.7176470756530762,
+                  0.6235294342041016,
+                  0.4862745404243469
+                ],
+                "standard_deviation": [
+                  0.026054980233311653,
+                  0.051663629710674286,
+                  0.034165360033512115
+                ],
+                "mean": [
+                  0.6206443905830383,
+                  0.44144463539123535,
+                  0.36376655101776123
+                ]
+              },
+              "Detailed_Trim/base_color": {
+                "minimum": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "maximum": [
+                  0.20784315466880798,
+                  0.16470588743686676,
+                  0.1098039299249649
+                ],
+                "standard_deviation": [
+                  0.06856076419353485,
+                  0.054510340094566345,
+                  0.03545959293842316
+                ],
+                "mean": [
+                  0.17795240879058838,
+                  0.14146171510219574,
+                  0.09205424785614014
+                ]
+              },
+              "Detailed_Sleeve/base_color": {
+                "minimum": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "maximum": [
+                  0.14509804546833038,
+                  0.12941177189350128,
+                  0.10588236153125763
+                ],
+                "standard_deviation": [
+                  0.031823188066482544,
+                  0.03206145390868187,
+                  0.029823441058397293
+                ],
+                "mean": [
+                  0.10772991925477982,
+                  0.08901748061180115,
+                  0.07044214010238647
+                ]
+              },
+              "Detailed_Glove/base_color": {
+                "minimum": [
+                  0.09019608050584793,
+                  0.06666667014360428,
+                  0.0470588281750679
+                ],
+                "maximum": [
+                  0.0941176563501358,
+                  0.07058823853731155,
+                  0.05098039656877518
+                ],
+                "standard_deviation": [
+                  0.0017787945689633489,
+                  0.0011774016311392188,
+                  0.001181632629595697
+                ],
+                "mean": [
+                  0.09133752435445786,
+                  0.06705150753259659,
+                  0.050586387515068054
+                ]
+              },
+              "Detailed_Skin/base_color": {
+                "minimum": [
+                  0.5529412031173706,
+                  0.3764706254005432,
+                  0.2823529541492462
+                ],
+                "maximum": [
+                  0.5960784554481506,
+                  0.4235294461250305,
+                  0.32156863808631897
+                ],
+                "standard_deviation": [
+                  0.00921643152832985,
+                  0.009373283945024014,
+                  0.010104639455676079
+                ],
+                "mean": [
+                  0.5708869099617004,
+                  0.39636746048927307,
+                  0.29794105887413025
+                ]
+              }
+            }
+          },
+          "realistic_hands_normal": {
+            "global": {
+              "minimum": [
+                0.04313725605607033,
+                0.14509804546833038,
+                0.0
+              ],
+              "maximum": [
+                0.8509804606437683,
+                1.0,
+                1.0
+              ],
+              "standard_deviation": [
+                0.009355515241622925,
+                0.009620429016649723,
+                0.007417104206979275
+              ],
+              "mean": [
+                0.5010544657707214,
+                0.5010461807250977,
+                0.9997996687889099
+              ]
+            },
+            "used_surface": {
+              "Detailed_Nail/normal": {
+                "minimum": [
+                  0.3529411852359772,
+                  0.3333333432674408,
+                  0.9725490808486938
+                ],
+                "maximum": [
+                  0.5882353186607361,
+                  0.6549019813537598,
+                  1.0
+                ],
+                "standard_deviation": [
+                  0.007155419792979956,
+                  0.015662776306271553,
+                  0.0017667028587311506
+                ],
+                "mean": [
+                  0.5017459392547607,
+                  0.5015230774879456,
+                  0.9997189044952393
+                ]
+              },
+              "Detailed_Trim/normal": {
+                "minimum": [
+                  0.16078431904315948,
+                  0.11764706671237946,
+                  0.30588236451148987
+                ],
+                "maximum": [
+                  0.9294118285179138,
+                  0.803921639919281,
+                  1.0
+                ],
+                "standard_deviation": [
+                  0.06354115903377533,
+                  0.05833294987678528,
+                  0.01955064758658409
+                ],
+                "mean": [
+                  0.5009552836418152,
+                  0.501237690448761,
+                  0.9920453429222107
+                ]
+              },
+              "Detailed_Sleeve/normal": {
+                "minimum": [
+                  0.06666667014360428,
+                  0.250980406999588,
+                  0.5333333611488342
+                ],
+                "maximum": [
+                  0.7411764860153198,
+                  0.8588235974311829,
+                  1.0
+                ],
+                "standard_deviation": [
+                  0.029625969007611275,
+                  0.02259785868227482,
+                  0.007043854333460331
+                ],
+                "mean": [
+                  0.500726044178009,
+                  0.5006974339485168,
+                  0.9986284971237183
+                ]
+              },
+              "Detailed_Glove/normal": {
+                "minimum": [
+                  0.3764706254005432,
+                  0.3333333432674408,
+                  0.9725490808486938
+                ],
+                "maximum": [
+                  0.6196078658103943,
+                  0.6313725709915161,
+                  1.0
+                ],
+                "standard_deviation": [
+                  0.013976813293993473,
+                  0.015156621113419533,
+                  0.0011476284125819802
+                ],
+                "mean": [
+                  0.5006241798400879,
+                  0.5004562735557556,
+                  0.9998006820678711
+                ]
+              },
+              "Detailed_Skin/normal": {
+                "minimum": [
+                  0.40000003576278687,
+                  0.3921568989753723,
+                  0.9843137860298157
+                ],
+                "maximum": [
+                  0.615686297416687,
+                  0.6039215922355652,
+                  1.0
+                ],
+                "standard_deviation": [
+                  0.008903061039745808,
+                  0.009925908409059048,
+                  0.0007787313079461455
+                ],
+                "mean": [
+                  0.5010395050048828,
+                  0.5009539723396301,
+                  0.9998947381973267
+                ]
+              }
+            }
+          },
+          "realistic_hands_roughness": {
+            "global": {
+              "minimum": [
+                1.0,
+                0.0,
+                1.0
+              ],
+              "maximum": [
+                1.0,
+                0.8117647767066956,
+                1.0
+              ],
+              "standard_deviation": [
+                0.0,
+                0.32548442482948303,
+                0.0
+              ],
+              "mean": [
+                1.0,
+                0.31865182518959045,
+                1.0
+              ]
+            },
+            "used_surface": {
+              "Detailed_Nail/roughness": {
+                "minimum": [
+                  1.0,
+                  0.32156863808631897,
+                  1.0
+                ],
+                "maximum": [
+                  1.0,
+                  0.3686274588108063,
+                  1.0
+                ],
+                "standard_deviation": [
+                  0.0,
+                  0.009166035801172256,
+                  0.0
+                ],
+                "mean": [
+                  1.0,
+                  0.3448719382286072,
+                  1.0
+                ]
+              },
+              "Detailed_Trim/roughness": {
+                "minimum": [
+                  1.0,
+                  0.0,
+                  1.0
+                ],
+                "maximum": [
+                  1.0,
+                  0.7254902124404907,
+                  1.0
+                ],
+                "standard_deviation": [
+                  0.0,
+                  0.2316361516714096,
+                  0.0
+                ],
+                "mean": [
+                  1.0,
+                  0.6005650758743286,
+                  1.0
+                ]
+              },
+              "Detailed_Sleeve/roughness": {
+                "minimum": [
+                  1.0,
+                  0.0,
+                  1.0
+                ],
+                "maximum": [
+                  1.0,
+                  0.8078432083129883,
+                  1.0
+                ],
+                "standard_deviation": [
+                  0.0,
+                  0.11661167442798615,
+                  0.0
+                ],
+                "mean": [
+                  1.0,
+                  0.7315534353256226,
+                  1.0
+                ]
+              },
+              "Detailed_Glove/roughness": {
+                "minimum": [
+                  1.0,
+                  0.6352941393852234,
+                  1.0
+                ],
+                "maximum": [
+                  1.0,
+                  0.7372549176216125,
+                  1.0
+                ],
+                "standard_deviation": [
+                  0.0,
+                  0.013447249308228493,
+                  0.0
+                ],
+                "mean": [
+                  1.0,
+                  0.6850903034210205,
+                  1.0
+                ]
+              },
+              "Detailed_Skin/roughness": {
+                "minimum": [
+                  1.0,
+                  0.529411792755127,
+                  1.0
+                ],
+                "maximum": [
+                  1.0,
+                  0.6039215922355652,
+                  1.0
+                ],
+                "standard_deviation": [
+                  0.0,
+                  0.011512982659041882,
+                  0.0
+                ],
+                "mean": [
+                  1.0,
+                  0.5656456351280212,
+                  1.0
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "right_glb": {
+      "container": {
+        "embedded_images": [
+          {
+            "name": "realistic_hands_normal",
+            "mime": "image/png",
+            "bytes": 11818742,
+            "sha256": "b1dec1b3b2f9c9f2134904091572edc3c7d54ba075b856424921ba3eb55cc401"
+          },
+          {
+            "name": "realistic_hands_basecolor",
+            "mime": "image/png",
+            "bytes": 3365262,
+            "sha256": "24704fb664d4eae677f77d6125226a0f318cc300d616c8cafbbb8e462abede28"
+          },
+          {
+            "name": "realistic_hands_roughness",
+            "mime": "image/png",
+            "bytes": 4522378,
+            "sha256": "1c79923381b8cb93e1e45d0a232ed7dfec6e202d5b27383ad300156f209a94ea"
+          }
+        ],
+        "primitive_texture_coordinate_checks": 39,
+        "white_vertex_color_accessors": 0,
+        "baked_color_double_tint_absent": true,
+        "authored_tangent_vertices": 46050,
+        "portable_normal_and_metallic_roughness_textures": true
+      },
+      "rest": {
+        "all_16_bone_rest_matrices_max_error": 1.4901161193847656e-07
+      },
+      "roundtrip": {
+        "hand": {
+          "vertices": 21446,
+          "maximum_position_error_m": 7.513759214816673e-08,
+          "maximum_weight_error_from_prior_glb": 0.0,
+          "maximum_corrective_error_m": 6.765326162097617e-07
+        },
+        "nail_index": {
+          "vertices": 395,
+          "maximum_position_error_m": 3.210024601685291e-08,
+          "maximum_weight_error_from_prior_glb": 0.0,
+          "maximum_corrective_error_m": 0.0
+        },
+        "nail_little": {
+          "vertices": 420,
+          "maximum_position_error_m": 3.1723121907134555e-08,
+          "maximum_weight_error_from_prior_glb": 0.0,
+          "maximum_corrective_error_m": 0.0
+        },
+        "nail_middle": {
+          "vertices": 398,
+          "maximum_position_error_m": 7.453490269426766e-08,
+          "maximum_weight_error_from_prior_glb": 0.0,
+          "maximum_corrective_error_m": 0.0
+        },
+        "nail_ring": {
+          "vertices": 399,
+          "maximum_position_error_m": 1.580506747700383e-08,
+          "maximum_weight_error_from_prior_glb": 0.0,
+          "maximum_corrective_error_m": 0.0
+        },
+        "nail_thumb": {
+          "vertices": 438,
+          "maximum_position_error_m": 1.3463973935756712e-08,
+          "maximum_weight_error_from_prior_glb": 0.0,
+          "maximum_corrective_error_m": 0.0
+        },
+        "WristCuff": {
+          "vertices": 5172,
+          "maximum_position_error_m": 0.0,
+          "maximum_weight_error_from_prior_glb": 0.0,
+          "maximum_corrective_error_m": 0.0
+        },
+        "Forearm": {
+          "vertices": 11418,
+          "maximum_position_error_m": 0.0,
+          "maximum_weight_error_from_prior_glb": 0.0,
+          "maximum_corrective_error_m": 0.0
+        },
+        "UpperArm": {
+          "vertices": 5964,
+          "maximum_position_error_m": 0.0,
+          "maximum_weight_error_from_prior_glb": 0.0,
+          "maximum_corrective_error_m": 0.0
+        }
+      },
+      "articulation": {
+        "rig": {
+          "rig": "HandRig.003",
+          "bones": [
+            "index0",
+            "index1",
+            "index2",
+            "little0",
+            "little1",
+            "little2",
+            "middle0",
+            "middle1",
+            "middle2",
+            "ring0",
+            "ring1",
+            "ring2",
+            "thumb0",
+            "thumb1",
+            "thumb2",
+            "wrist"
+          ],
+          "meshes": {
+            "ContinuousAnatomicalHand.003": {
+              "vertices": 21446,
+              "weight_sum_min": 0.9999998733401299,
+              "weight_sum_max": 1.0000001275911927,
+              "wrist_only_vertices": 658
+            },
+            "Nail_index.001": {
+              "vertices": 395,
+              "weight_sum_min": 1.0,
+              "weight_sum_max": 1.0,
+              "wrist_only_vertices": 0
+            },
+            "Nail_little.001": {
+              "vertices": 420,
+              "weight_sum_min": 1.0,
+              "weight_sum_max": 1.0,
+              "wrist_only_vertices": 0
+            },
+            "Nail_middle.001": {
+              "vertices": 398,
+              "weight_sum_min": 1.0,
+              "weight_sum_max": 1.0,
+              "wrist_only_vertices": 0
+            },
+            "Nail_ring.001": {
+              "vertices": 399,
+              "weight_sum_min": 1.0,
+              "weight_sum_max": 1.0,
+              "wrist_only_vertices": 0
+            },
+            "Nail_thumb.001": {
+              "vertices": 438,
+              "weight_sum_min": 1.0,
+              "weight_sum_max": 1.0,
+              "wrist_only_vertices": 0
+            }
+          },
+          "finger_pose_checks": {
+            "thumb": {
+              "local_x_rotation_radians": 0.4,
+              "moved_vertices": 6287,
+              "max_displacement_m": 0.04495459762213018,
+              "wrist_bone_error_m": 0.0,
+              "wrist_only_mesh_error_m": 0.0
+            },
+            "index": {
+              "local_x_rotation_radians": 0.4,
+              "moved_vertices": 6553,
+              "max_displacement_m": 0.037395031849792294,
+              "wrist_bone_error_m": 0.0,
+              "wrist_only_mesh_error_m": 0.0
+            },
+            "middle": {
+              "local_x_rotation_radians": 0.4,
+              "moved_vertices": 6789,
+              "max_displacement_m": 0.039743752735564006,
+              "wrist_bone_error_m": 0.0,
+              "wrist_only_mesh_error_m": 0.0
+            },
+            "ring": {
+              "local_x_rotation_radians": 0.4,
+              "moved_vertices": 6863,
+              "max_displacement_m": 0.03777652529091416,
+              "wrist_bone_error_m": 0.0,
+              "wrist_only_mesh_error_m": 0.0
+            },
+            "little": {
+              "local_x_rotation_radians": 0.4,
+              "moved_vertices": 5882,
+              "max_displacement_m": 0.033390282436329945,
+              "wrist_bone_error_m": 0.0,
+              "wrist_only_mesh_error_m": 0.0
+            }
+          },
+          "wrist_world_m": [
+            0.0,
+            -0.05624999850988388,
+            0.0
+          ],
+          "native_wrist_error_m": 0.0,
+          "thumb_minus_middle_x_m": -0.03250000346451998
+        },
+        "all_fifteen_joint_effects": {
+          "Joint_thumb_0": {
+            "corrective_vertices": 225,
+            "max_corrective_delta_m": 0.00018609378910494336,
+            "evaluated_correction_m": 0.00018609378910494336,
+            "joint_flex_movement_m": 0.06144523451865948,
+            "correction_after_skinning_m": 0.00018164774338483343,
+            "distal_nail_movement_m": 0.05789059364642003,
+            "affected_center_world_m": [
+              -0.0405537411570549,
+              0.0032173634972423315,
+              -0.0029043988324701786
+            ]
+          },
+          "Joint_thumb_1": {
+            "corrective_vertices": 470,
+            "max_corrective_delta_m": 0.0005962857764292234,
+            "evaluated_correction_m": 0.0005962855961975137,
+            "joint_flex_movement_m": 0.034640069738631304,
+            "correction_after_skinning_m": 0.0005779818362526233,
+            "distal_nail_movement_m": 0.032389891236851764,
+            "affected_center_world_m": [
+              -0.06142649054527283,
+              0.05490276217460632,
+              -0.012512692250311375
+            ]
+          },
+          "Joint_thumb_2": {
+            "corrective_vertices": 247,
+            "max_corrective_delta_m": 0.00039925313895656237,
+            "evaluated_correction_m": 0.00039925313895656237,
+            "joint_flex_movement_m": 0.017702185045208232,
+            "correction_after_skinning_m": 0.00038506205826289194,
+            "distal_nail_movement_m": 0.01623043839010528,
+            "affected_center_world_m": [
+              -0.07929325103759766,
+              0.07374312728643417,
+              -0.02024633251130581
+            ]
+          },
+          "Joint_index_0": {
+            "corrective_vertices": 301,
+            "max_corrective_delta_m": 0.00025099195069917146,
+            "evaluated_correction_m": 0.00025099195069917146,
+            "joint_flex_movement_m": 0.05111259067164226,
+            "correction_after_skinning_m": 0.0002463297936094613,
+            "distal_nail_movement_m": 0.05010331269126485,
+            "affected_center_world_m": [
+              -0.04051269590854645,
+              0.08954653888940811,
+              0.022792620584368706
+            ]
+          },
+          "Joint_index_1": {
+            "corrective_vertices": 374,
+            "max_corrective_delta_m": 0.0005855929430054711,
+            "evaluated_correction_m": 0.000585589304391526,
+            "joint_flex_movement_m": 0.028668466945811252,
+            "correction_after_skinning_m": 0.0005678017698449781,
+            "distal_nail_movement_m": 0.027155222445315194,
+            "affected_center_world_m": [
+              -0.0432334840297699,
+              0.1328284740447998,
+              0.022416001185774803
+            ]
+          },
+          "Joint_index_2": {
+            "corrective_vertices": 220,
+            "max_corrective_delta_m": 0.0003104437160757762,
+            "evaluated_correction_m": 0.0003104437160757762,
+            "joint_flex_movement_m": 0.012838568910367045,
+            "correction_after_skinning_m": 0.0002989674039739253,
+            "distal_nail_movement_m": 0.011447529004660556,
+            "affected_center_world_m": [
+              -0.04641501232981682,
+              0.15903861820697784,
+              0.013958594761788845
+            ]
+          },
+          "Joint_middle_0": {
+            "corrective_vertices": 194,
+            "max_corrective_delta_m": 0.00023536473352100628,
+            "evaluated_correction_m": 0.00023536473352100628,
+            "joint_flex_movement_m": 0.05432290552706278,
+            "correction_after_skinning_m": 0.00023077638117557003,
+            "distal_nail_movement_m": 0.053328224844091304,
+            "affected_center_world_m": [
+              -0.005765232257544994,
+              0.10180056840181351,
+              0.03129057586193085
+            ]
+          },
+          "Joint_middle_1": {
+            "corrective_vertices": 297,
+            "max_corrective_delta_m": 0.0005899749656731936,
+            "evaluated_correction_m": 0.0005899749656731936,
+            "joint_flex_movement_m": 0.029846630342112924,
+            "correction_after_skinning_m": 0.0005678653138454198,
+            "distal_nail_movement_m": 0.028302296267865512,
+            "affected_center_world_m": [
+              -0.0053338720463216305,
+              0.14786940813064575,
+              0.02823919802904129
+            ]
+          },
+          "Joint_middle_2": {
+            "corrective_vertices": 199,
+            "max_corrective_delta_m": 0.00027045415680349266,
+            "evaluated_correction_m": 0.00027045415680349266,
+            "joint_flex_movement_m": 0.013743185643143823,
+            "correction_after_skinning_m": 0.0002650394833629454,
+            "distal_nail_movement_m": 0.012512230679580582,
+            "affected_center_world_m": [
+              -0.005161975510418415,
+              0.17508262395858765,
+              0.019400427117943764
+            ]
+          },
+          "Joint_ring_0": {
+            "corrective_vertices": 348,
+            "max_corrective_delta_m": 0.0002403146796563371,
+            "evaluated_correction_m": 0.0002403146796563371,
+            "joint_flex_movement_m": 0.051634027318950455,
+            "correction_after_skinning_m": 0.00023297546097052573,
+            "distal_nail_movement_m": 0.05075429372149005,
+            "affected_center_world_m": [
+              0.034698206931352615,
+              0.09659618884325027,
+              0.01993834786117077
+            ]
+          },
+          "Joint_ring_1": {
+            "corrective_vertices": 332,
+            "max_corrective_delta_m": 0.0005941419140574621,
+            "evaluated_correction_m": 0.000594150446843814,
+            "joint_flex_movement_m": 0.029152906988245096,
+            "correction_after_skinning_m": 0.0005723832511276619,
+            "distal_nail_movement_m": 0.027354087152714358,
+            "affected_center_world_m": [
+              0.029271382838487625,
+              0.1397082656621933,
+              0.024049757048487663
+            ]
+          },
+          "Joint_ring_2": {
+            "corrective_vertices": 246,
+            "max_corrective_delta_m": 0.00034775585917846735,
+            "evaluated_correction_m": 0.0003477624791576598,
+            "joint_flex_movement_m": 0.013313200756755515,
+            "correction_after_skinning_m": 0.0003374804154084205,
+            "distal_nail_movement_m": 0.011980261373451793,
+            "affected_center_world_m": [
+              0.032776281237602234,
+              0.16367071866989136,
+              0.011848521418869495
+            ]
+          },
+          "Joint_little_0": {
+            "corrective_vertices": 283,
+            "max_corrective_delta_m": 0.00023509026863474867,
+            "evaluated_correction_m": 0.00023509026863474867,
+            "joint_flex_movement_m": 0.0456387685390281,
+            "correction_after_skinning_m": 0.00022776162979662275,
+            "distal_nail_movement_m": 0.0444924196776051,
+            "affected_center_world_m": [
+              0.05210676044225693,
+              0.0751086100935936,
+              0.014812082052230835
+            ]
+          },
+          "Joint_little_1": {
+            "corrective_vertices": 447,
+            "max_corrective_delta_m": 0.0005831228920219419,
+            "evaluated_correction_m": 0.0005831210886201385,
+            "joint_flex_movement_m": 0.026347448697657393,
+            "correction_after_skinning_m": 0.0005641949824685811,
+            "distal_nail_movement_m": 0.02487835518659225,
+            "affected_center_world_m": [
+              0.062399279326200485,
+              0.11056486517190933,
+              0.014298416674137115
+            ]
+          },
+          "Joint_little_2": {
+            "corrective_vertices": 249,
+            "max_corrective_delta_m": 0.00037404047123461813,
+            "evaluated_correction_m": 0.00037404047123461813,
+            "joint_flex_movement_m": 0.01436617702987022,
+            "correction_after_skinning_m": 0.0003611955962825254,
+            "distal_nail_movement_m": 0.012984280545965449,
+            "affected_center_world_m": [
+              0.0734582468867302,
+              0.1285391002893448,
+              0.009902050718665123
+            ]
+          }
+        },
+        "rigid_nails": {
+          "thumb": {
+            "mesh": "Nail_thumb.001",
+            "vertices": 438,
+            "max_movement_m": 0.057890586608080545,
+            "bone_local_error_m": 3.337203127736024e-08,
+            "exposed_face_dorsal_dot": 0.9572507729753852
+          },
+          "index": {
+            "mesh": "Nail_index.001",
+            "vertices": 395,
+            "max_movement_m": 0.05010332163556891,
+            "bone_local_error_m": 3.015404039187731e-08,
+            "exposed_face_dorsal_dot": 0.9814789700321853
+          },
+          "middle": {
+            "mesh": "Nail_middle.001",
+            "vertices": 398,
+            "max_movement_m": 0.053328229110354106,
+            "bone_local_error_m": 4.4998399719700346e-08,
+            "exposed_face_dorsal_dot": 0.9941712786676362
+          },
+          "ring": {
+            "mesh": "Nail_ring.001",
+            "vertices": 399,
+            "max_movement_m": 0.050754302567032956,
+            "bone_local_error_m": 4.593377447766965e-08,
+            "exposed_face_dorsal_dot": 0.9902495925780386
+          },
+          "little": {
+            "mesh": "Nail_little.001",
+            "vertices": 420,
+            "max_movement_m": 0.04449244833667041,
+            "bone_local_error_m": 5.218108216566705e-08,
+            "exposed_face_dorsal_dot": 0.8182615730911493
+          }
+        },
+        "full_flex_nail_seating": {
+          "neutral": {
+            "thumb": {
+              "max_skin_gap_m": 0.0003200013597961515,
+              "mean_skin_gap_m": 0.00015621253670904637
+            },
+            "index": {
+              "max_skin_gap_m": 0.00031999839120544493,
+              "mean_skin_gap_m": 0.00015096384775898524
+            },
+            "middle": {
+              "max_skin_gap_m": 0.0003199978673364967,
+              "mean_skin_gap_m": 0.00015022369205408226
+            },
+            "ring": {
+              "max_skin_gap_m": 0.0003199962666258216,
+              "mean_skin_gap_m": 0.0001496109435722707
+            },
+            "little": {
+              "max_skin_gap_m": 0.0003200005739927292,
+              "mean_skin_gap_m": 0.00015148368434200253
+            }
+          },
+          "all_full_flex": {
+            "thumb": {
+              "max_skin_gap_m": 0.00032000374631024897,
+              "mean_skin_gap_m": 0.00015621285832132352
+            },
+            "index": {
+              "max_skin_gap_m": 0.00031999460770748556,
+              "mean_skin_gap_m": 0.00014789551217901032
+            },
+            "middle": {
+              "max_skin_gap_m": 0.0003200004866812378,
+              "mean_skin_gap_m": 0.00014860731397076696
+            },
+            "ring": {
+              "max_skin_gap_m": 0.00031999486964195967,
+              "mean_skin_gap_m": 0.00014714655402745018
+            },
+            "little": {
+              "max_skin_gap_m": 0.0003199970815330744,
+              "mean_skin_gap_m": 0.0001481157314672254
+            }
+          },
+          "thumb_middle_full": {
+            "thumb": {
+              "max_skin_gap_m": 0.00032000214559957385,
+              "mean_skin_gap_m": 0.00015621246389548195
+            },
+            "index": {
+              "max_skin_gap_m": 0.00031999839120544493,
+              "mean_skin_gap_m": 0.00015096384775898524
+            },
+            "middle": {
+              "max_skin_gap_m": 0.0003199978673364967,
+              "mean_skin_gap_m": 0.00015022369205408226
+            },
+            "ring": {
+              "max_skin_gap_m": 0.0003199962666258216,
+              "mean_skin_gap_m": 0.0001496109435722707
+            },
+            "little": {
+              "max_skin_gap_m": 0.0003200005739927292,
+              "mean_skin_gap_m": 0.00015148368434200253
+            }
+          },
+          "thumb_tip_full": {
+            "thumb": {
+              "max_skin_gap_m": 0.0003199996135663241,
+              "mean_skin_gap_m": 0.00015621323947435654
+            },
+            "index": {
+              "max_skin_gap_m": 0.00031999839120544493,
+              "mean_skin_gap_m": 0.00015096384775898524
+            },
+            "middle": {
+              "max_skin_gap_m": 0.0003199978673364967,
+              "mean_skin_gap_m": 0.00015022369205408226
+            },
+            "ring": {
+              "max_skin_gap_m": 0.0003199962666258216,
+              "mean_skin_gap_m": 0.0001496109435722707
+            },
+            "little": {
+              "max_skin_gap_m": 0.0003200005739927292,
+              "mean_skin_gap_m": 0.00015148368434200253
+            }
+          },
+          "index_tip_full": {
+            "thumb": {
+              "max_skin_gap_m": 0.0003200013597961515,
+              "mean_skin_gap_m": 0.00015621253670904637
+            },
+            "index": {
+              "max_skin_gap_m": 0.000319996674079448,
+              "mean_skin_gap_m": 0.00015096400459731717
+            },
+            "middle": {
+              "max_skin_gap_m": 0.0003199978673364967,
+              "mean_skin_gap_m": 0.00015022369205408226
+            },
+            "ring": {
+              "max_skin_gap_m": 0.0003199962666258216,
+              "mean_skin_gap_m": 0.0001496109435722707
+            },
+            "little": {
+              "max_skin_gap_m": 0.0003200005739927292,
+              "mean_skin_gap_m": 0.00015148368434200253
+            }
+          },
+          "middle_tip_full": {
+            "thumb": {
+              "max_skin_gap_m": 0.0003200013597961515,
+              "mean_skin_gap_m": 0.00015621253670904637
+            },
+            "index": {
+              "max_skin_gap_m": 0.00031999839120544493,
+              "mean_skin_gap_m": 0.00015096384775898524
+            },
+            "middle": {
+              "max_skin_gap_m": 0.00031998290796764195,
+              "mean_skin_gap_m": 0.00015022406039943647
+            },
+            "ring": {
+              "max_skin_gap_m": 0.0003199962666258216,
+              "mean_skin_gap_m": 0.0001496109435722707
+            },
+            "little": {
+              "max_skin_gap_m": 0.0003200005739927292,
+              "mean_skin_gap_m": 0.00015148368434200253
+            }
+          },
+          "ring_tip_full": {
+            "thumb": {
+              "max_skin_gap_m": 0.0003200013597961515,
+              "mean_skin_gap_m": 0.00015621253670904637
+            },
+            "index": {
+              "max_skin_gap_m": 0.00031999839120544493,
+              "mean_skin_gap_m": 0.00015096384775898524
+            },
+            "middle": {
+              "max_skin_gap_m": 0.0003199978673364967,
+              "mean_skin_gap_m": 0.00015022369205408226
+            },
+            "ring": {
+              "max_skin_gap_m": 0.0003199970815330744,
+              "mean_skin_gap_m": 0.00014961194539778045
+            },
+            "little": {
+              "max_skin_gap_m": 0.0003200005739927292,
+              "mean_skin_gap_m": 0.00015148368434200253
+            }
+          },
+          "little_tip_full": {
+            "thumb": {
+              "max_skin_gap_m": 0.0003200013597961515,
+              "mean_skin_gap_m": 0.00015621253670904637
+            },
+            "index": {
+              "max_skin_gap_m": 0.00031999839120544493,
+              "mean_skin_gap_m": 0.00015096384775898524
+            },
+            "middle": {
+              "max_skin_gap_m": 0.0003199978673364967,
+              "mean_skin_gap_m": 0.00015022369205408226
+            },
+            "ring": {
+              "max_skin_gap_m": 0.0003199962666258216,
+              "mean_skin_gap_m": 0.0001496109435722707
+            },
+            "little": {
+              "max_skin_gap_m": 0.0003200174542143941,
+              "mean_skin_gap_m": 0.00015147903901985654
+            }
+          }
+        }
+      },
+      "materials": {
+        "uv": {
+          "Detailed_Sleeve": {
+            "sampled_face_centers": 21256,
+            "nondegenerate_triangles_fraction": 1.0,
+            "uv_min": [
+              0.0015748465666547418,
+              0.0012321869532267253
+            ],
+            "uv_max": [
+              0.9979366858800253,
+              0.9973079562187195
+            ]
+          },
+          "Detailed_Trim": {
+            "sampled_face_centers": 4712,
+            "nondegenerate_triangles_fraction": 1.0,
+            "uv_min": [
+              0.0013259978732094169,
+              0.0012459158897399902
+            ],
+            "uv_max": [
+              0.9978927373886108,
+              0.9973016182581583
+            ]
+          },
+          "Detailed_Skin": {
+            "sampled_face_centers": 11658,
+            "nondegenerate_triangles_fraction": 1.0,
+            "uv_min": [
+              0.0019443747975553076,
+              0.00174178679784139
+            ],
+            "uv_max": [
+              0.9943916002909342,
+              0.9895549615224203
+            ]
+          },
+          "Detailed_Nail": {
+            "sampled_face_centers": 3200,
+            "nondegenerate_triangles_fraction": 1.0,
+            "uv_min": [
+              0.40145163734753925,
+              0.04351963599522909
+            ],
+            "uv_max": [
+              0.9852302670478821,
+              0.9777456124623617
+            ]
+          },
+          "Detailed_Glove": {
+            "sampled_face_centers": 23144,
+            "nondegenerate_triangles_fraction": 1.0,
+            "uv_min": [
+              0.001969673903658986,
+              0.0034947991371154785
+            ],
+            "uv_max": [
+              0.9908018310864767,
+              0.9938232700030009
+            ]
+          }
+        },
+        "materials": {
+          "Detailed_Skin": {
+            "base_color": {
+              "image": "realistic_hands_basecolor",
+              "channel": null,
+              "colorspace": "sRGB",
+              "size": [
+                4096,
+                4096
+              ],
+              "packed_bytes": 3365262
+            },
+            "normal": {
+              "image": "realistic_hands_normal",
+              "channel": null,
+              "colorspace": "Non-Color",
+              "size": [
+                4096,
+                4096
+              ],
+              "packed_bytes": 11818742
+            },
+            "roughness": {
+              "image": "realistic_hands_roughness",
+              "channel": 1,
+              "colorspace": "Non-Color",
+              "size": [
+                4096,
+                4096
+              ],
+              "packed_bytes": 4522378
+            }
+          },
+          "Detailed_Nail": {
+            "base_color": {
+              "image": "realistic_hands_basecolor",
+              "channel": null,
+              "colorspace": "sRGB",
+              "size": [
+                4096,
+                4096
+              ],
+              "packed_bytes": 3365262
+            },
+            "normal": {
+              "image": "realistic_hands_normal",
+              "channel": null,
+              "colorspace": "Non-Color",
+              "size": [
+                4096,
+                4096
+              ],
+              "packed_bytes": 11818742
+            },
+            "roughness": {
+              "image": "realistic_hands_roughness",
+              "channel": 1,
+              "colorspace": "Non-Color",
+              "size": [
+                4096,
+                4096
+              ],
+              "packed_bytes": 4522378
+            }
+          },
+          "Detailed_Glove": {
+            "base_color": {
+              "image": "realistic_hands_basecolor",
+              "channel": null,
+              "colorspace": "sRGB",
+              "size": [
+                4096,
+                4096
+              ],
+              "packed_bytes": 3365262
+            },
+            "normal": {
+              "image": "realistic_hands_normal",
+              "channel": null,
+              "colorspace": "Non-Color",
+              "size": [
+                4096,
+                4096
+              ],
+              "packed_bytes": 11818742
+            },
+            "roughness": {
+              "image": "realistic_hands_roughness",
+              "channel": 1,
+              "colorspace": "Non-Color",
+              "size": [
+                4096,
+                4096
+              ],
+              "packed_bytes": 4522378
+            }
+          },
+          "Detailed_Trim": {
+            "base_color": {
+              "image": "realistic_hands_basecolor",
+              "channel": null,
+              "colorspace": "sRGB",
+              "size": [
+                4096,
+                4096
+              ],
+              "packed_bytes": 3365262
+            },
+            "normal": {
+              "image": "realistic_hands_normal",
+              "channel": null,
+              "colorspace": "Non-Color",
+              "size": [
+                4096,
+                4096
+              ],
+              "packed_bytes": 11818742
+            },
+            "roughness": {
+              "image": "realistic_hands_roughness",
+              "channel": 1,
+              "colorspace": "Non-Color",
+              "size": [
+                4096,
+                4096
+              ],
+              "packed_bytes": 4522378
+            }
+          },
+          "Detailed_Sleeve": {
+            "base_color": {
+              "image": "realistic_hands_basecolor",
+              "channel": null,
+              "colorspace": "sRGB",
+              "size": [
+                4096,
+                4096
+              ],
+              "packed_bytes": 3365262
+            },
+            "normal": {
+              "image": "realistic_hands_normal",
+              "channel": null,
+              "colorspace": "Non-Color",
+              "size": [
+                4096,
+                4096
+              ],
+              "packed_bytes": 11818742
+            },
+            "roughness": {
+              "image": "realistic_hands_roughness",
+              "channel": 1,
+              "colorspace": "Non-Color",
+              "size": [
+                4096,
+                4096
+              ],
+              "packed_bytes": 4522378
+            }
+          }
+        },
+        "images": {
+          "realistic_hands_basecolor": {
+            "global": {
+              "minimum": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "maximum": [
+                0.7176470756530762,
+                0.6235294342041016,
+                0.4862745404243469
+              ],
+              "standard_deviation": [
+                0.20699986815452576,
+                0.14493907988071442,
+                0.11127931624650955
+              ],
+              "mean": [
+                0.12924154102802277,
+                0.0920802652835846,
+                0.07006845623254776
+              ]
+            },
+            "used_surface": {
+              "Detailed_Skin/base_color": {
+                "minimum": [
+                  0.5529412031173706,
+                  0.3764706254005432,
+                  0.2823529541492462
+                ],
+                "maximum": [
+                  0.5960784554481506,
+                  0.41960787773132324,
+                  0.32156863808631897
+                ],
+                "standard_deviation": [
+                  0.009150952100753784,
+                  0.009325716644525528,
+                  0.010068574920296669
+                ],
+                "mean": [
+                  0.5705912709236145,
+                  0.3961443305015564,
+                  0.2977813184261322
+                ]
+              },
+              "Detailed_Nail/base_color": {
+                "minimum": [
+                  0.6000000238418579,
+                  0.4117647409439087,
+                  0.34117648005485535
+                ],
+                "maximum": [
+                  0.7137255072593689,
+                  0.6196078658103943,
+                  0.48235297203063965
+                ],
+                "standard_deviation": [
+                  0.02611997351050377,
+                  0.051766879856586456,
+                  0.03422584384679794
+                ],
+                "mean": [
+                  0.6203368306159973,
+                  0.44122031331062317,
+                  0.36360716819763184
+                ]
+              },
+              "Detailed_Glove/base_color": {
+                "minimum": [
+                  0.09019608050584793,
+                  0.06666667014360428,
+                  0.0470588281750679
+                ],
+                "maximum": [
+                  0.0941176563501358,
+                  0.07058823853731155,
+                  0.05098039656877518
+                ],
+                "standard_deviation": [
+                  0.001766275498084724,
+                  0.001132634119130671,
+                  0.001203771447762847
+                ],
+                "mean": [
+                  0.09131176024675369,
+                  0.06701872497797012,
+                  0.05056965351104736
+                ]
+              },
+              "Detailed_Trim/base_color": {
+                "minimum": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "maximum": [
+                  0.20784315466880798,
+                  0.16470588743686676,
+                  0.1098039299249649
+                ],
+                "standard_deviation": [
+                  0.07159522920846939,
+                  0.05691973492503166,
+                  0.03707354515790939
+                ],
+                "mean": [
+                  0.1750325858592987,
+                  0.139114111661911,
+                  0.09064943343400955
+                ]
+              },
+              "Detailed_Sleeve/base_color": {
+                "minimum": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "maximum": [
+                  0.14509804546833038,
+                  0.12941177189350128,
+                  0.10588236153125763
+                ],
+                "standard_deviation": [
+                  0.03192394599318504,
+                  0.032106369733810425,
+                  0.029860664159059525
+                ],
+                "mean": [
+                  0.10746925324201584,
+                  0.0887489914894104,
+                  0.07018473744392395
+                ]
+              }
+            }
+          },
+          "realistic_hands_normal": {
+            "global": {
+              "minimum": [
+                0.04313725605607033,
+                0.14509804546833038,
+                0.0
+              ],
+              "maximum": [
+                0.8509804606437683,
+                1.0,
+                1.0
+              ],
+              "standard_deviation": [
+                0.009355515241622925,
+                0.009620429016649723,
+                0.007417104206979275
+              ],
+              "mean": [
+                0.5010544657707214,
+                0.5010461807250977,
+                0.9997996687889099
+              ]
+            },
+            "used_surface": {
+              "Detailed_Skin/normal": {
+                "minimum": [
+                  0.3921568989753723,
+                  0.3960784673690796,
+                  0.988235354423523
+                ],
+                "maximum": [
+                  0.5921568870544434,
+                  0.6117647290229797,
+                  1.0
+                ],
+                "standard_deviation": [
+                  0.008661072701215744,
+                  0.010305438190698624,
+                  0.0007976960623636842
+                ],
+                "mean": [
+                  0.5008869767189026,
+                  0.5009804368019104,
+                  0.9998931288719177
+                ]
+              },
+              "Detailed_Nail/normal": {
+                "minimum": [
+                  0.33725491166114807,
+                  0.2352941334247589,
+                  0.9254902601242065
+                ],
+                "maximum": [
+                  0.6705882549285889,
+                  0.6666666865348816,
+                  1.0
+                ],
+                "standard_deviation": [
+                  0.009838417172431946,
+                  0.016373084858059883,
+                  0.0024934725370258093
+                ],
+                "mean": [
+                  0.5019640922546387,
+                  0.5012804269790649,
+                  0.999645471572876
+                ]
+              },
+              "Detailed_Glove/normal": {
+                "minimum": [
+                  0.3686274588108063,
+                  0.3176470696926117,
+                  0.9568628072738647
+                ],
+                "maximum": [
+                  0.6313725709915161,
+                  0.6509804129600525,
+                  1.0
+                ],
+                "standard_deviation": [
+                  0.014506280422210693,
+                  0.015205743722617626,
+                  0.0012732057366520166
+                ],
+                "mean": [
+                  0.5005598664283752,
+                  0.5006093382835388,
+                  0.9997767210006714
+                ]
+              },
+              "Detailed_Trim/normal": {
+                "minimum": [
+                  0.18039216101169586,
+                  0.19607844948768616,
+                  0.003921568859368563
+                ],
+                "maximum": [
+                  0.8352941870689392,
+                  0.9294118285179138,
+                  1.0
+                ],
+                "standard_deviation": [
+                  0.061323706060647964,
+                  0.05729574337601662,
+                  0.030981915071606636
+                ],
+                "mean": [
+                  0.5007330775260925,
+                  0.5014616847038269,
+                  0.9916203618049622
+                ]
+              },
+              "Detailed_Sleeve/normal": {
+                "minimum": [
+                  0.19607844948768616,
+                  0.16078431904315948,
+                  0.8588235974311829
+                ],
+                "maximum": [
+                  0.847058892250061,
+                  0.8000000715255737,
+                  1.0
+                ],
+                "standard_deviation": [
+                  0.02865959145128727,
+                  0.024526534602046013,
+                  0.004630187060683966
+                ],
+                "mean": [
+                  0.5008001327514648,
+                  0.5007386803627014,
+                  0.9986230134963989
+                ]
+              }
+            }
+          },
+          "realistic_hands_roughness": {
+            "global": {
+              "minimum": [
+                1.0,
+                0.0,
+                1.0
+              ],
+              "maximum": [
+                1.0,
+                0.8117647767066956,
+                1.0
+              ],
+              "standard_deviation": [
+                0.0,
+                0.32548442482948303,
+                0.0
+              ],
+              "mean": [
+                1.0,
+                0.31865182518959045,
+                1.0
+              ]
+            },
+            "used_surface": {
+              "Detailed_Skin/roughness": {
+                "minimum": [
+                  1.0,
+                  0.529411792755127,
+                  1.0
+                ],
+                "maximum": [
+                  1.0,
+                  0.6039215922355652,
+                  1.0
+                ],
+                "standard_deviation": [
+                  0.0,
+                  0.011675296351313591,
+                  0.0
+                ],
+                "mean": [
+                  1.0,
+                  0.5646246671676636,
+                  1.0
+                ]
+              },
+              "Detailed_Nail/roughness": {
+                "minimum": [
+                  1.0,
+                  0.3176470696926117,
+                  1.0
+                ],
+                "maximum": [
+                  1.0,
+                  0.3686274588108063,
+                  1.0
+                ],
+                "standard_deviation": [
+                  0.0,
+                  0.008515431545674801,
+                  0.0
+                ],
+                "mean": [
+                  1.0,
+                  0.3439871668815613,
+                  1.0
+                ]
+              },
+              "Detailed_Glove/roughness": {
+                "minimum": [
+                  1.0,
+                  0.6352941393852234,
+                  1.0
+                ],
+                "maximum": [
+                  1.0,
+                  0.729411780834198,
+                  1.0
+                ],
+                "standard_deviation": [
+                  0.0,
+                  0.013301268219947815,
+                  0.0
+                ],
+                "mean": [
+                  1.0,
+                  0.6846845746040344,
+                  1.0
+                ]
+              },
+              "Detailed_Trim/roughness": {
+                "minimum": [
+                  1.0,
+                  0.0,
+                  1.0
+                ],
+                "maximum": [
+                  1.0,
+                  0.7215686440467834,
+                  1.0
+                ],
+                "standard_deviation": [
+                  0.0,
+                  0.2418583333492279,
+                  0.0
+                ],
+                "mean": [
+                  1.0,
+                  0.5908839106559753,
+                  1.0
+                ]
+              },
+              "Detailed_Sleeve/roughness": {
+                "minimum": [
+                  1.0,
+                  0.0,
+                  1.0
+                ],
+                "maximum": [
+                  1.0,
+                  0.8078432083129883,
+                  1.0
+                ],
+                "standard_deviation": [
+                  0.0,
+                  0.11825128644704819,
+                  0.0
+                ],
+                "mean": [
+                  1.0,
+                  0.7312489748001099,
+                  1.0
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "errors": [],
+  "verified_asset_sha256": {
+    "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/player_wrist_refinement_20260910/mac_output/iteration_02/bilateral_hands_wrist_refined.blend": "5f868646f6e56a1c98d698114b53cb25c019c13088e0e6529c244fec92b38332",
+    "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/player_wrist_refinement_20260910/mac_output/iteration_02/left_hand_wrist_refined.glb": "81d83646b121394fc87dfce242bfa4ecd6b419999aee805c12e61305b7b219fa",
+    "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/player_wrist_refinement_20260910/mac_output/iteration_02/right_hand_wrist_refined.glb": "e80970309f1b9b53efb4eb2697868c0fdb86bb89a4c03c660519dd27ea7e8912",
+    "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/player_hands_realism_20260911/mac_output/iteration_03/bilateral_hands_realistic.blend": "daf9f9897c3d2645681d7bbc56e400858310371af6c18c23a8a4a6dd2736bb06",
+    "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/player_hands_realism_20260911/diagnostics/left_hand_realistic_tangent_fixed.glb": "5da84f05ae6c8585291ee842dcc41c1cd0160cf89fdcf8499123e9549885d3a8",
+    "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/player_hands_realism_20260911/mac_output/iteration_03/right_hand_realistic.glb": "664b251c7f991e72aa0d3113565368bad5c2a714d4d7fa5faaf77aa3428a2e4d"
+  },
+  "verified_glb_roles": {
+    "left": {
+      "path": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/player_hands_realism_20260911/diagnostics/left_hand_realistic_tangent_fixed.glb",
+      "sha256": "5da84f05ae6c8585291ee842dcc41c1cd0160cf89fdcf8499123e9549885d3a8"
+    },
+    "right": {
+      "path": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/player_hands_realism_20260911/mac_output/iteration_03/right_hand_realistic.glb",
+      "sha256": "664b251c7f991e72aa0d3113565368bad5c2a714d4d7fa5faaf77aa3428a2e4d"
+    }
+  },
+  "verifier_sha256": "ffa06638db8edba8d5c361492e8151d51e00f5b527d173a3e58bc6ecdb69fba3",
+  "joint_core_sha256": "d8f2e475568a09fa27dae25a14e8eab36a8b232a52e835348bf356f38ecd4446",
+  "limitations": [
+    "Texture statistics and geometry checks do not establish visual quality.",
+    "Actual Godot wrist deformation, renderer, and test-room behavior are verified separately."
+  ]
+}

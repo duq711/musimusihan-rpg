@@ -1,0 +1,70 @@
+{
+  "status": "success",
+  "glb": "/tmp/meshy-cuff-review.scQXjs/cuff_aligned.glb",
+  "file_bytes": 38182080,
+  "mesh_count": 3,
+  "armature_count": 1,
+  "armature_bones": 181,
+  "total_triangles": 143416,
+  "bounds_min": [
+    -0.9027332663536072,
+    -0.16905345022678375,
+    0.0008058797684498131
+  ],
+  "bounds_max": [
+    0.9027326703071594,
+    0.1971353143453598,
+    1.90254545211792
+  ],
+  "mesh_stats": {
+    "Original_Rugged_Head_Hair": {
+      "vertices": 38263,
+      "triangles": 45000,
+      "materials": [
+        "MAT_Original_Face_Hair_Softened_4K"
+      ],
+      "weighted_vertices": 38263
+    },
+    "Repaired_Human_Hands_Feet": {
+      "vertices": 15348,
+      "triangles": 28416,
+      "materials": [
+        "MAT_Clean_Hands_Feet_Skin_4K"
+      ],
+      "weighted_vertices": 15348
+    },
+    "Retained_Clothing_And_Body": {
+      "vertices": 58881,
+      "triangles": 70000,
+      "materials": [
+        "Material_0"
+      ],
+      "weighted_vertices": 58881
+    }
+  },
+  "images": {
+    "Image_0": [
+      4096,
+      4096
+    ],
+    "Image_1": [
+      2048,
+      2048
+    ],
+    "Image_2": [
+      4096,
+      4096
+    ],
+    "middleage_lightskinned_male_diffuse": [
+      4096,
+      4096
+    ]
+  },
+  "pose_test_bone": "DEF-forearm.L",
+  "pose_test_rendered": true,
+  "face_changed_this_revision": false,
+  "rest_cuff_visual_review": "Both forearm roots enter sleeves in axial, top and side renders.",
+  "pose_visual_review": "Not production-ready: sleeve deformation requires further weight correction during forearm rotation.",
+  "reference_face_match": "Not achieved. Eye, lip and hair reconstruction remains incomplete.",
+  "scope": "Forearm-to-sleeve alignment and hidden root extension, rest-pose and limited arm-rotation visual checks only."
+}

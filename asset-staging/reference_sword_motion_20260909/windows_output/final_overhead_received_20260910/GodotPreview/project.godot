@@ -1,0 +1,22 @@
+; Open this file in Godot, then press F6/F5 to view the full animated GLB.
+config_version=5
+
+[application]
+config/name="First-person overhead preview"
+run/main_scene="res://Preview.tscn"
+config/features=PackedStringArray("4.4", "GL Compatibility")
+
+[display]
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/size/window_width_override=1280
+window/size/window_height_override=720
+window/stretch/mode="canvas_items"
+
+[rendering]
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.055, 0.07, 0.09, 1)
+
+[debug]
+file_logging/enable_file_logging=false

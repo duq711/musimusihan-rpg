@@ -1,0 +1,41 @@
+{
+  "status": "requested chest-hand removal complete",
+  "runtime_change": "Production chest opening clears the archived hand rig instead of starting it, and no longer advances its hand animation. Equipment stow, timed opening, lid motion and inventory flow are retained.",
+  "passed_tests": [
+    "chest_hands",
+    "inventory_chest",
+    "loot_container_models",
+    "test_room",
+    "loot_spawn"
+  ],
+  "remaining_non_chest_test_failures": {
+    "player_arm": "sword_windup/active expects the whole static arm transform to move",
+    "player_hands_greybox": "free-hands left visual hidden",
+    "player_hands_detailed": "free-hands left visual hidden",
+    "first_person_motion": "slash wrist expected to stay on the right"
+  },
+  "failure_scope": "These assertions exercise unchanged sword/free-hand behavior before the new chest assertions; pre-change full suites were not rerun. Not all project tests pass.",
+  "initial_chest_test_correction": "Old restore assertion required a visible torch in the explicitly torch-disabled bow fixture; now checks the toggle state. Chest suite rerun passes.",
+  "visual": {
+    "manifest": "godot-game/artifacts/visual_qa/player_arms/chest_no_hands/capture_manifest.json",
+    "renderer": "embedded Vulkan",
+    "captures": 10,
+    "reviewed": [
+      "player_arms_chest_touch.png",
+      "player_arms_chest_lift.png"
+    ],
+    "observation": "No hands in front of the closed or lifting lid; expedition, cursor and capture source hashes preserved."
+  },
+  "unchanged_sources": [
+    "scripts/loot_chest.gd",
+    "scripts/chest_hand_visuals.gd",
+    "scripts/sword_long_grip_visual.gd",
+    "scripts/sword_shield_arm_visual.gd"
+  ],
+  "concurrent_edits": "inventory_model.gd changed outside this task and was preserved; this task made no inventory data edits.",
+  "logs": [
+    "tests.log",
+    "focused_tests.log",
+    "visual.log"
+  ]
+}

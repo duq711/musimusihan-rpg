@@ -1,0 +1,66 @@
+00:00.889  blend            | Read blend: "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/loot_containers_20260912/sources/wooden_barrels_01/wooden_barrels_01_4k.blend"
+Info: Saved as "wooden_barrel_01.blend"
+INFO Draco is available, use library at /Applications/Blender.app/Contents/Resources/5.2/scripts/addons_core/io_scene_gltf2/libbf_intern_draco_bridge.dylib
+INFO MeshOptimizer is available, use library at /Applications/Blender.app/Contents/Resources/5.2/scripts/addons_core/io_scene_gltf2/libbf_intern_meshopt_bridge.dylib
+15:30:48 | INFO: Starting glTF 2.0 export
+15:30:48 | WARNING: Mesh Plane.001 is not valid, and may be exported wrongly
+15:30:48 | INFO: Extracting primitive: Plane.001
+15:30:48 | WARNING: Plane.001: Could not calculate tangents. Please try to triangulate the mesh first.
+15:30:48 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+15:30:48 | INFO: Primitives created: 1
+15:30:48 | INFO: Extracting primitive: Plane.002
+15:30:48 | WARNING: Plane.002: Could not calculate tangents. Please try to triangulate the mesh first.
+15:30:48 | INFO: Primitives created: 1
+15:30:48 | INFO: Finished glTF 2.0 export in 0.5101981163024902 s
+
+Warning: Plane.001: Could not calculate tangents. Please try to triangulate the mesh first.
+Warning: Plane.002: Could not calculate tangents. Please try to triangulate the mesh first.
+ASSET_DONE {"variant": "wooden_barrel_01", "source": "wooden_barrels_01", "glb": "res://assets/models/loot_containers/wooden_barrel_01.glb", "glb_bytes": 20314168, "sha256": "346d69d3b656f3f9eb83b5a3861b0d54e408b42ea27257a49efb4b49c50b2b0e", "dimensions_m": [0.810445, 1.0, 0.810442], "bounds_min": [-0.405222, 0.0, -0.405221], "bounds_max": [0.405222, 1.0, 0.405221], "source_triangles": 11184, "runtime_triangles": 11184, "opening_mode": "lift", "hinge_axis": "+X", "hinge_open_angle_degrees": 0, "lift_distance_m": 0.32, "lid_pivot": [0.0, 0.912948, -0.0], "lid_node": "LidPivot", "front_axis": "-Z", "contacts": [{"name": "LidLeftContact", "closed_position": [-0.168547, 0.950915, -0.218155], "local_position": [-0.168547, 0.037968, -0.218155]}, {"name": "LidRightContact", "closed_position": [0.168547, 0.950915, -0.218155], "local_position": [0.168547, 0.037968, -0.218155]}], "textures": [{"channel": "base_color", "size": [2048, 2048], "path": "runtime_textures/wooden_barrel_01/base_color.jpg", "bytes": 764254}, {"channel": "metallic", "size": [2048, 2048], "path": "runtime_textures/wooden_barrel_01/metallic.png", "bytes": 76088}, {"channel": "roughness", "size": [2048, 2048], "path": "runtime_textures/wooden_barrel_01/roughness.png", "bytes": 6539531}, {"channel": "normal", "size": [2048, 2048], "path": "runtime_textures/wooden_barrel_01/normal.png", "bytes": 15599092}], "mesh_objects": 2, "animation_clips": [], "opening_notes": "Runtime drives separate LidPivot; no whole-container rotation."}
+00:13.577  blend            | Read blend: "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/loot_containers_20260912/sources/treasure_chest/treasure_chest_4k.blend"
+Info: Saved as "treasure_chest.blend"
+15:30:57 | INFO: Starting glTF 2.0 export
+15:30:57 | INFO: Extracting primitive: Plane.001
+15:30:57 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+15:30:58 | INFO: Primitives created: 1
+15:30:58 | INFO: Extracting primitive: Plane.002
+15:30:58 | INFO: Primitives created: 1
+15:30:58 | INFO: Extracting primitive: Plane.004
+15:30:58 | INFO: Primitives created: 1
+15:30:58 | INFO: Extracting primitive: Plane.003
+15:30:58 | INFO: Primitives created: 1
+15:30:58 | INFO: Extracting primitive: Plane.005
+15:30:58 | INFO: Primitives created: 1
+15:30:58 | INFO: Finished glTF 2.0 export in 0.5744829177856445 s
+
+ASSET_DONE {"variant": "treasure_chest", "source": "treasure_chest", "glb": "res://assets/models/loot_containers/treasure_chest.glb", "glb_bytes": 29331916, "sha256": "00017a538debf0b8b5344f1661210710697602a52ef3284695ab0d617bef987d", "dimensions_m": [1.199729, 0.774372, 0.65403], "bounds_min": [-0.599865, 2.7e-05, -0.326918], "bounds_max": [0.599865, 0.774399, 0.327112], "source_triangles": 103330, "runtime_triangles": 31997, "opening_mode": "hinge", "hinge_axis": "+X", "hinge_open_angle_degrees": 95, "lift_distance_m": 0, "lid_pivot": [0.0, 0.523346, 0.327112], "lid_node": "LidPivot", "front_axis": "-Z", "contacts": [{"name": "LidLeftContact", "closed_position": [-0.3, 0.561004, -0.295637], "local_position": [-0.3, 0.037658, -0.622748]}, {"name": "LidRightContact", "closed_position": [0.3, 0.561004, -0.295637], "local_position": [0.3, 0.037658, -0.622748]}], "textures": [{"channel": "base_color", "size": [2048, 2048], "path": "runtime_textures/treasure_chest/base_color.jpg", "bytes": 1130885}, {"channel": "metallic", "size": [2048, 2048], "path": "runtime_textures/treasure_chest/metallic.png", "bytes": 868173}, {"channel": "roughness", "size": [2048, 2048], "path": "runtime_textures/treasure_chest/roughness.png", "bytes": 9297146}, {"channel": "normal", "size": [2048, 2048], "path": "runtime_textures/treasure_chest/normal.png", "bytes": 22594000}], "mesh_objects": 5, "animation_clips": [], "opening_notes": "Runtime drives separate LidPivot; no whole-container rotation."}
+00:23.092  blend            | Read blend: "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/loot_containers_20260912/sources/wooden_crate_01/wooden_crate_01_4k.blend"
+Info: Saved as "wooden_crate_01.blend"
+15:31:03 | INFO: Starting glTF 2.0 export
+15:31:03 | INFO: Extracting primitive: Cube.003
+15:31:04 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+15:31:04 | INFO: Primitives created: 1
+15:31:04 | INFO: Extracting primitive: Cube.002
+15:31:04 | WARNING: Cube.002: Could not calculate tangents. Please try to triangulate the mesh first.
+15:31:04 | INFO: Primitives created: 1
+15:31:04 | INFO: Extracting primitive: Cube.004
+15:31:04 | INFO: Primitives created: 1
+15:31:04 | INFO: Finished glTF 2.0 export in 0.41037917137145996 s
+
+Warning: Cube.002: Could not calculate tangents. Please try to triangulate the mesh first.
+ASSET_DONE {"variant": "wooden_crate_01", "source": "wooden_crate_01", "glb": "res://assets/models/loot_containers/wooden_crate_01.glb", "glb_bytes": 25344392, "sha256": "3c4f64ae0733b29383cb15ff6173982c6a2e00aecc1bf05040584ce1f1f3247d", "dimensions_m": [1.1, 0.466004, 0.545091], "bounds_min": [-0.55, 0.0, -0.272546], "bounds_max": [0.55, 0.466004, 0.272546], "source_triangles": 6576, "runtime_triangles": 6576, "opening_mode": "hinge", "hinge_axis": "+X", "hinge_open_angle_degrees": 95, "lift_distance_m": 0, "lid_pivot": [0.0, 0.409725, 0.272546], "lid_node": "LidPivot", "front_axis": "-Z", "contacts": [{"name": "LidLeftContact", "closed_position": [-0.254731, 0.418167, -0.216998], "local_position": [-0.254731, 0.008442, -0.489544]}, {"name": "LidRightContact", "closed_position": [0.254731, 0.418167, -0.216998], "local_position": [0.254731, 0.008442, -0.489544]}], "textures": [{"channel": "base_color", "size": [2048, 2048], "path": "runtime_textures/wooden_crate_01/base_color.jpg", "bytes": 958014}, {"channel": "metallic", "size": [2048, 2048], "path": "runtime_textures/wooden_crate_01/metallic.png", "bytes": 263054}, {"channel": "roughness", "size": [2048, 2048], "path": "runtime_textures/wooden_crate_01/roughness.png", "bytes": 9900102}, {"channel": "normal", "size": [2048, 2048], "path": "runtime_textures/wooden_crate_01/normal.png", "bytes": 20338152}], "mesh_objects": 3, "animation_clips": [], "opening_notes": "Runtime drives separate LidPivot; no whole-container rotation."}
+00:29.161  blend            | Read blend: "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/loot_containers_20260912/sources/wooden_crate_02/wooden_crate_02_4k.blend"
+Info: Saved as "wooden_crate_02.blend"
+15:31:10 | INFO: Starting glTF 2.0 export
+15:31:10 | INFO: Extracting primitive: Cube.001
+15:31:10 | WARNING: Cube.001: Could not calculate tangents. Please try to triangulate the mesh first.
+15:31:11 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+15:31:11 | INFO: Primitives created: 1
+15:31:11 | INFO: Extracting primitive: Cube.002
+15:31:11 | INFO: Primitives created: 1
+15:31:11 | INFO: Finished glTF 2.0 export in 0.6554510593414307 s
+
+Warning: Cube.001: Could not calculate tangents. Please try to triangulate the mesh first.
+ASSET_DONE {"variant": "wooden_crate_02", "source": "wooden_crate_02", "glb": "res://assets/models/loot_containers/wooden_crate_02.glb", "glb_bytes": 24957628, "sha256": "149ce27a532b9b40747e371c8eac7824bfb3aded7d3bed173839c5419f2f269d", "dimensions_m": [1.28, 0.509173, 0.580669], "bounds_min": [-0.64, 0.0, -0.290334], "bounds_max": [0.64, 0.509173, 0.290334], "source_triangles": 5176, "runtime_triangles": 5176, "opening_mode": "lift", "hinge_axis": "+X", "hinge_open_angle_degrees": 0, "lift_distance_m": 0.32, "lid_pivot": [0.0, 0.435359, -0.0], "lid_node": "LidPivot", "front_axis": "-Z", "contacts": [{"name": "LidLeftContact", "closed_position": [-0.3, 0.446431, -0.235403], "local_position": [-0.3, 0.011072, -0.235403]}, {"name": "LidRightContact", "closed_position": [0.3, 0.446431, -0.235403], "local_position": [0.3, 0.011072, -0.235403]}], "textures": [{"channel": "base_color", "size": [2048, 2048], "path": "runtime_textures/wooden_crate_02/base_color.jpg", "bytes": 971569}, {"channel": "metallic", "size": [2048, 2048], "path": "runtime_textures/wooden_crate_02/metallic.png", "bytes": 299021}, {"channel": "roughness", "size": [2048, 2048], "path": "runtime_textures/wooden_crate_02/roughness.png", "bytes": 9345888}, {"channel": "normal", "size": [2048, 2048], "path": "runtime_textures/wooden_crate_02/normal.png", "bytes": 20031739}], "mesh_objects": 2, "animation_clips": [], "opening_notes": "Runtime drives separate LidPivot; no whole-container rotation."}
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 01:35:57)
+
+Blender quit

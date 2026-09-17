@@ -1,0 +1,50 @@
+[HEADLESS] sword_edge_alignment_test.gd
+SWORD EDGE SHIELD RESAMPLE {"max_angle_degrees":0.0559529096807445,"max_position_m":0.0000572963508602697,"samples":1769}
+SWORD EDGE ALIGNMENT PASS {"aesthetic_quality_evaluated":false,"baseline":"all_other_clips_preserved; original_shield_curve_within_1mm_0.1deg","contract":"preserved_reverse_poses_played_in_opposite_time","correspondence":{"max_axis_error":0.00000038165595128703,"max_joint_m":0.0000000298023223876953,"max_position_m":0.0000000298023223876953,"samples":285},"left_reverse_wrist":{"exact_keys":174,"max_segment_length_m":0.0000000798702239901417,"max_wrist_m":0.0000000682857006495396},"right_diagonal_wrist":{"exact_keys":174,"max_segment_length_m":0.0000000798702239901417,"max_wrist_m":0.0000000682857006495396},"sweep":{"blade_65cm":{"after_contact":89,"before_contact":48,"least_opposite_dot":-0.999999821186066,"max_velocity_sum_m_per_s":0.000188612611964345,"moving_samples":139},"center":{"after_contact":89,"before_contact":48,"least_opposite_dot":-0.999999761581421,"max_velocity_sum_m_per_s":0.000163501608767547,"moving_samples":139},"contact_grip_x_m_per_s":{"left_reverse":16.7436447143555,"right_diagonal":-16.7436294555664},"tip":{"after_contact":89,"before_contact":48,"least_opposite_dot":-0.99999988079071,"max_velocity_sum_m_per_s":0.000253413716563955,"moving_samples":139}}}
+[HEADLESS] reference_sword_motion_test_room_test.gd
+REFERENCE SWORD MOTION TEST ROOM PASS: five playable fixtures, two-hand basic/reverse target hits and grip, actual run/jump/landing/collision, repeated F2, reset and original expedition restoration
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2535)
+[HEADLESS] sword_recovery_continuity_test.gd
+RECOVERY METRIC true right_diagonal peak_deg=8.05061846996803 boundary_m=0.00017740674957
+RECOVERY METRIC true left_reverse peak_deg=11.9420034901406 boundary_m=0.00013100702199
+RECOVERY METRIC true overhead peak_deg=14.1934276471945 boundary_m=0.00013590096205
+RECOVERY METRIC false right_diagonal peak_deg=8.05061846996803 boundary_m=0.0001668027835
+RECOVERY METRIC false left_reverse peak_deg=11.9420034901406 boundary_m=0.00032122660195
+RECOVERY METRIC false overhead peak_deg=14.1934276471945 boundary_m=0.00026330872788
+SWORD RECOVERY CONTINUITY PASS
+[HEADLESS] sword_two_hand_grip_test.gd
+SWORD TWO HAND GRIP PASS: 48 support diagnostics, three real cuts, original source fidelity and unchanged expedition
+[HEADLESS] unified_sword_motion_test.gd
+UNIFIED SWORD MOTION PASS [{"max_angle_rad":0.0009765625,"max_position_m":0.0,"profile":"quick_click","samples_per_stance":348},{"max_angle_rad":0.0009765625,"max_position_m":0.0,"profile":"hold_0_45s","samples_per_stance":348}]
+[HEADLESS] sword_attack_variants_test.gd
+SWORD ATTACK VARIANTS PASS: three actual paired attacks, 145ms/300ms paired versus 55ms/160ms solo timing, unchanged one-hit/cost transactions, commit-only cycle, cancellation and menu/equipment reset
+[HEADLESS] sword_clash_test.gd
+ERROR: SWORD CLASH TEST FAIL: natural close-range attacks must overlap their rendered blade models
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_clash_test.gd:253)
+       [1] _run (res://tests/sword_clash_test.gd:137)
+ERROR: SWORD CLASH TEST FAIL: natural blade contact must occur before either body's damage deadline
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_clash_test.gd:253)
+       [1] _run (res://tests/sword_clash_test.gd:137)
+ERROR: SWORD CLASH TEST FAIL: natural swing animation must cancel the player strike into clash recovery
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_clash_test.gd:253)
+       [1] _run (res://tests/sword_clash_test.gd:137)
+ERROR: SWORD CLASH TEST FAIL: natural swing animation must stagger the armed enemy
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_clash_test.gd:253)
+       [1] _run (res://tests/sword_clash_test.gd:137)
+ERROR: SWORD CLASH TEST FAIL: natural swing clash must prevent enemy damage
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_clash_test.gd:253)
+       [1] _run (res://tests/sword_clash_test.gd:137)
+
+Headless validation: 6 passed, 1 failed.
+FAILED: sword_clash_test.gd (1)

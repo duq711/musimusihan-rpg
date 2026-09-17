@@ -1,0 +1,440 @@
+{
+  "assets": [
+    {
+      "variant": "wooden_barrel_01",
+      "source": "wooden_barrels_01",
+      "glb": "res://assets/models/loot_containers/wooden_barrel_01.glb",
+      "glb_bytes": 7224580,
+      "sha256": "b4e0c8ce3995f7c3492cd561843be5d1e5dd28bbd47cb5942a87c32f48e3a854",
+      "dimensions_m": [
+        0.810445,
+        1.0,
+        0.810442
+      ],
+      "bounds_min": [
+        -0.405222,
+        0.0,
+        -0.405221
+      ],
+      "bounds_max": [
+        0.405222,
+        1.0,
+        0.405221
+      ],
+      "source_triangles": 11184,
+      "runtime_triangles": 11184,
+      "opening_mode": "lift",
+      "hinge_axis": "+X",
+      "hinge_open_angle_degrees": 0,
+      "lift_distance_m": 0.32,
+      "lid_pivot": [
+        0.0,
+        0.912948,
+        0.0
+      ],
+      "lid_node": "LidPivot",
+      "front_axis": "-Z",
+      "contacts": [
+        {
+          "name": "LidLeftContact",
+          "closed_position": [
+            -0.168547,
+            0.951683,
+            -0.218155
+          ],
+          "local_position": [
+            -0.168547,
+            0.038736,
+            -0.218155
+          ],
+          "surface_distance_m": 0.0
+        },
+        {
+          "name": "LidRightContact",
+          "closed_position": [
+            0.168547,
+            0.951683,
+            -0.218155
+          ],
+          "local_position": [
+            0.168547,
+            0.038736,
+            -0.218155
+          ],
+          "surface_distance_m": 0.0
+        }
+      ],
+      "textures": [
+        {
+          "channel": "base_color",
+          "size": [
+            2048,
+            2048
+          ],
+          "path": "runtime_textures/wooden_barrel_01/base_color.jpg",
+          "bytes": 764254
+        },
+        {
+          "channel": "metallic",
+          "size": [
+            1024,
+            1024
+          ],
+          "path": "runtime_textures/wooden_barrel_01/metallic.png",
+          "bytes": 27094,
+          "bit_depth": 8
+        },
+        {
+          "channel": "roughness",
+          "size": [
+            1024,
+            1024
+          ],
+          "path": "runtime_textures/wooden_barrel_01/roughness.png",
+          "bytes": 974142,
+          "bit_depth": 8
+        },
+        {
+          "channel": "normal",
+          "size": [
+            2048,
+            2048
+          ],
+          "path": "runtime_textures/wooden_barrel_01/normal.png",
+          "bytes": 4919066,
+          "bit_depth": 8
+        }
+      ],
+      "mesh_objects": 2,
+      "animation_clips": [],
+      "opening_notes": "Runtime drives separate LidPivot; no whole-container rotation."
+    },
+    {
+      "variant": "treasure_chest",
+      "source": "treasure_chest",
+      "glb": "res://assets/models/loot_containers/treasure_chest.glb",
+      "glb_bytes": 12515656,
+      "sha256": "e12c617ac3e82fea9b90fea091ceb5db81e2da386773f2d50113c3c51d513418",
+      "dimensions_m": [
+        1.199729,
+        0.774372,
+        0.65403
+      ],
+      "bounds_min": [
+        -0.599865,
+        0.0,
+        -0.327015
+      ],
+      "bounds_max": [
+        0.599865,
+        0.774372,
+        0.327015
+      ],
+      "source_triangles": 103330,
+      "runtime_triangles": 31997,
+      "opening_mode": "hinge",
+      "hinge_axis": "+X",
+      "hinge_open_angle_degrees": 68,
+      "lift_distance_m": 0,
+      "lid_pivot": [
+        0.0,
+        0.523318,
+        0.327015
+      ],
+      "lid_node": "LidPivot",
+      "front_axis": "-Z",
+      "contacts": [
+        {
+          "name": "LidLeftContact",
+          "closed_position": [
+            -0.3,
+            0.672349,
+            -0.295734
+          ],
+          "local_position": [
+            -0.3,
+            0.14903,
+            -0.622748
+          ],
+          "surface_distance_m": 0.0
+        },
+        {
+          "name": "LidRightContact",
+          "closed_position": [
+            0.3,
+            0.672312,
+            -0.295734
+          ],
+          "local_position": [
+            0.3,
+            0.148994,
+            -0.622748
+          ],
+          "surface_distance_m": 0.0
+        }
+      ],
+      "textures": [
+        {
+          "channel": "base_color",
+          "size": [
+            2048,
+            2048
+          ],
+          "path": "runtime_textures/treasure_chest/base_color.jpg",
+          "bytes": 1130885
+        },
+        {
+          "channel": "metallic",
+          "size": [
+            1024,
+            1024
+          ],
+          "path": "runtime_textures/treasure_chest/metallic.png",
+          "bytes": 178484,
+          "bit_depth": 8
+        },
+        {
+          "channel": "roughness",
+          "size": [
+            1024,
+            1024
+          ],
+          "path": "runtime_textures/treasure_chest/roughness.png",
+          "bytes": 1046605,
+          "bit_depth": 8
+        },
+        {
+          "channel": "normal",
+          "size": [
+            2048,
+            2048
+          ],
+          "path": "runtime_textures/treasure_chest/normal.png",
+          "bytes": 8795392,
+          "bit_depth": 8
+        }
+      ],
+      "mesh_objects": 5,
+      "animation_clips": [],
+      "opening_notes": "Runtime drives separate LidPivot; no whole-container rotation."
+    },
+    {
+      "variant": "wooden_crate_01",
+      "source": "wooden_crate_01",
+      "glb": "res://assets/models/loot_containers/wooden_crate_01.glb",
+      "glb_bytes": 9136572,
+      "sha256": "21bea69ddfa8b9bee259d9ac99fd49317f70f9cb2fb14d37436027b8d99da5c2",
+      "dimensions_m": [
+        1.1,
+        0.466004,
+        0.545091
+      ],
+      "bounds_min": [
+        -0.55,
+        0.0,
+        -0.272546
+      ],
+      "bounds_max": [
+        0.55,
+        0.466004,
+        0.272546
+      ],
+      "source_triangles": 6576,
+      "runtime_triangles": 6576,
+      "opening_mode": "hinge",
+      "hinge_axis": "+X",
+      "hinge_open_angle_degrees": 68,
+      "lift_distance_m": 0,
+      "lid_pivot": [
+        0.0,
+        0.409725,
+        0.272546
+      ],
+      "lid_node": "LidPivot",
+      "front_axis": "-Z",
+      "contacts": [
+        {
+          "name": "LidLeftContact",
+          "closed_position": [
+            -0.254731,
+            0.449101,
+            -0.216998
+          ],
+          "local_position": [
+            -0.254731,
+            0.039375,
+            -0.489544
+          ],
+          "surface_distance_m": 0.0
+        },
+        {
+          "name": "LidRightContact",
+          "closed_position": [
+            0.254731,
+            0.449101,
+            -0.216998
+          ],
+          "local_position": [
+            0.254731,
+            0.039375,
+            -0.489544
+          ],
+          "surface_distance_m": 0.0
+        }
+      ],
+      "textures": [
+        {
+          "channel": "base_color",
+          "size": [
+            2048,
+            2048
+          ],
+          "path": "runtime_textures/wooden_crate_01/base_color.jpg",
+          "bytes": 958014
+        },
+        {
+          "channel": "metallic",
+          "size": [
+            1024,
+            1024
+          ],
+          "path": "runtime_textures/wooden_crate_01/metallic.png",
+          "bytes": 46959,
+          "bit_depth": 8
+        },
+        {
+          "channel": "roughness",
+          "size": [
+            1024,
+            1024
+          ],
+          "path": "runtime_textures/wooden_crate_01/roughness.png",
+          "bytes": 1029786,
+          "bit_depth": 8
+        },
+        {
+          "channel": "normal",
+          "size": [
+            2048,
+            2048
+          ],
+          "path": "runtime_textures/wooden_crate_01/normal.png",
+          "bytes": 6895111,
+          "bit_depth": 8
+        }
+      ],
+      "mesh_objects": 3,
+      "animation_clips": [],
+      "opening_notes": "Runtime drives separate LidPivot; no whole-container rotation."
+    },
+    {
+      "variant": "wooden_crate_02",
+      "source": "wooden_crate_02",
+      "glb": "res://assets/models/loot_containers/wooden_crate_02.glb",
+      "glb_bytes": 8525572,
+      "sha256": "8088844718f719129eef6bac64759359bca58362d0b497729437d9e452140552",
+      "dimensions_m": [
+        1.28,
+        0.509173,
+        0.580669
+      ],
+      "bounds_min": [
+        -0.64,
+        0.0,
+        -0.290334
+      ],
+      "bounds_max": [
+        0.64,
+        0.509173,
+        0.290334
+      ],
+      "source_triangles": 5176,
+      "runtime_triangles": 5176,
+      "opening_mode": "lift",
+      "hinge_axis": "+X",
+      "hinge_open_angle_degrees": 0,
+      "lift_distance_m": 0.32,
+      "lid_pivot": [
+        0.0,
+        0.435359,
+        -0.0
+      ],
+      "lid_node": "LidPivot",
+      "front_axis": "-Z",
+      "contacts": [
+        {
+          "name": "LidLeftContact",
+          "closed_position": [
+            -0.3,
+            0.509173,
+            -0.235403
+          ],
+          "local_position": [
+            -0.3,
+            0.073814,
+            -0.235403
+          ],
+          "surface_distance_m": 0.0
+        },
+        {
+          "name": "LidRightContact",
+          "closed_position": [
+            0.3,
+            0.509173,
+            -0.235403
+          ],
+          "local_position": [
+            0.3,
+            0.073814,
+            -0.235403
+          ],
+          "surface_distance_m": 0.0
+        }
+      ],
+      "textures": [
+        {
+          "channel": "base_color",
+          "size": [
+            2048,
+            2048
+          ],
+          "path": "runtime_textures/wooden_crate_02/base_color.jpg",
+          "bytes": 971569
+        },
+        {
+          "channel": "metallic",
+          "size": [
+            1024,
+            1024
+          ],
+          "path": "runtime_textures/wooden_crate_02/metallic.png",
+          "bytes": 67314,
+          "bit_depth": 8
+        },
+        {
+          "channel": "roughness",
+          "size": [
+            1024,
+            1024
+          ],
+          "path": "runtime_textures/wooden_crate_02/roughness.png",
+          "bytes": 1025381,
+          "bit_depth": 8
+        },
+        {
+          "channel": "normal",
+          "size": [
+            2048,
+            2048
+          ],
+          "path": "runtime_textures/wooden_crate_02/normal.png",
+          "bytes": 6312518,
+          "bit_depth": 8
+        }
+      ],
+      "mesh_objects": 2,
+      "animation_clips": [],
+      "opening_notes": "Runtime drives separate LidPivot; no whole-container rotation."
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "additional_torn_donor_faces_removed": 4238,
+  "candidate": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/blender_mercenary_crossbowman_game_ready/mercenary_crossbowman_game_ready_v16au_aaj_anatomical_sleeves_candidate.blend",
+  "cowl_object": "Mercenary_CleanDrapedScarf_v16aaj_LOD0",
+  "deform_bones": 160,
+  "donor_preservation": "Only faces inside the sleeve-covered upper-arm transition were removed; torso, forearms, hands and face remain.",
+  "hunyuan_used": false,
+  "mesh_count": 10,
+  "new_sleeve_triangles": 6500,
+  "old_sleeve_triangles": 4224,
+  "previews": {
+    "back": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/blender_mercenary_crossbowman_game_ready/previews/diagnostic_v16au_aaj_anatomical_back.png",
+    "front": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/blender_mercenary_crossbowman_game_ready/previews/diagnostic_v16au_aaj_anatomical_front.png",
+    "high": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/blender_mercenary_crossbowman_game_ready/previews/diagnostic_v16au_aaj_anatomical_high.png",
+    "three_quarter": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/blender_mercenary_crossbowman_game_ready/previews/diagnostic_v16au_aaj_anatomical_three_quarter.png",
+    "top": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/blender_mercenary_crossbowman_game_ready/previews/diagnostic_v16au_aaj_anatomical_top.png"
+  },
+  "production_modified": false,
+  "removed_object": "Mercenary_GambesonUpperSleeves_v16zb_LOD0",
+  "replacement_object": "Mercenary_AnatomicalGambesonUpperSleeves_v16as_LOD0",
+  "sleeve_source": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/blender_mercenary_crossbowman_game_ready/mercenary_crossbowman_game_ready_v16as_anatomical_upper_sleeves_candidate.blend",
+  "source": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/blender_mercenary_crossbowman_game_ready/mercenary_crossbowman_game_ready_v16aaj_clean_draped_cowl.blend",
+  "topology": {
+    "boundary_edges": 0,
+    "components": 2,
+    "nonmanifold_edges": 0,
+    "overconnected_edges": 0
+  },
+  "total_triangles": 130743,
+  "visual_qa": {
+    "passes": [
+      "No original rectangular V16ZB upper-sleeve objects remain",
+      "AAJ cowl covers the shoulder seam from normal gameplay views",
+      "Cuff overlap hides the torn donor transition",
+      "No open/non-manifold edges in replacement sleeves"
+    ],
+    "remaining_limits": [
+      "Sleeve quilting is lower-frequency than the front gambeson",
+      "Extreme close high angles still show low-poly donor/head artefacts unrelated to the sleeve shell"
+    ],
+    "verdict": "best current merge candidate; conditional pass",
+    "views_checked": [
+      "top",
+      "high",
+      "three_quarter",
+      "front",
+      "back"
+    ]
+  },
+  "weight_sum_range": [
+    0.9999999701976776,
+    1.0000000298023224
+  ]
+}

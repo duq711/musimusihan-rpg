@@ -1,0 +1,13 @@
+[HEADLESS] sword_edge_alignment_test.gd
+SWORD EDGE SHIELD RESAMPLE {"max_angle_degrees":0.0559529096807445,"max_position_m":0.0,"samples":1769}
+SWORD EDGE ALIGNMENT PASS {"aesthetic_quality_evaluated":false,"baseline":"all_other_clips_preserved; original_shield_curve_within_1mm_0.1deg","contract":"retained_approach_and_contact; horizontal_followthrough_outside_view; shared_idle","correspondence":{"max_axis_error":0.000000547097897651838,"max_grip_m":0.0000000988431239079546,"samples":181},"followthrough":{"fixed_orientation_return_samples":221,"hidden_reset_samples":401,"max_cutting_plane_y_error":0.00204187631607056,"max_followthrough_1ms_angle_deg":1.843131243283},"left_reverse_wrist":{"exact_keys":174,"max_segment_length_m":0.0000000798702239901417,"max_wrist_m":0.0000000682857006495396},"recovery":{"idle_and_arm_endpoints_checked":true,"max_1ms_grip_step_m":0.0260203648358583,"max_visible_step_m":0.0110520124435425,"samples":621},"right_diagonal_wrist":{"exact_keys":174,"max_segment_length_m":0.000000128746032723726,"max_wrist_m":0.000000121286660714759},"sweep":{"max_reflected_velocity_error_m_per_s":{"blade_65cm":0.000137266164529137,"center":0.000108335472759791,"tip":0.000253873586189002},"moving_samples":79}}
+[HEADLESS] sword_recovery_continuity_test.gd
+RECOVERY METRIC true right_diagonal peak_deg=16.6625333481912 boundary_m=0.00017173057131
+RECOVERY METRIC true left_reverse peak_deg=11.9420034901406 boundary_m=0.00013100702199
+RECOVERY METRIC true overhead peak_deg=14.1934276471945 boundary_m=0.00013590096205
+RECOVERY METRIC false right_diagonal peak_deg=16.6625333481912 boundary_m=0.00015989453823
+RECOVERY METRIC false left_reverse peak_deg=11.9420034901406 boundary_m=0.00032122660195
+RECOVERY METRIC false overhead peak_deg=14.1934276471945 boundary_m=0.00026330872788
+SWORD RECOVERY CONTINUITY PASS
+
+Headless validation: 2 passed, 0 failed.

@@ -1,0 +1,26 @@
+00:02.452  blend            | Read blend: "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/player_fingers_detail_20260911/mac_output/iteration_10/bilateral_hands_finger_detail.blend"
+21:11:08 | INFO: Data are loaded, start creating Blender stuff
+21:11:08 | INFO: Blender create Mesh node FittedLeather.001
+21:11:08 | INFO: Blender create Mesh node ContinuousAnatomicalHandMesh.002
+21:11:08 | INFO: Blender create Mesh node Nail_indexMesh
+21:11:08 | INFO: Blender create Mesh node Nail_littleMesh
+21:11:08 | INFO: Blender create Mesh node Nail_middleMesh
+21:11:08 | INFO: Blender create Mesh node Nail_ringMesh
+21:11:08 | INFO: Blender create Mesh node Nail_thumbMesh
+21:11:08 | INFO: Blender create Mesh node TailoredClothSleeve.001
+21:11:08 | INFO: Blender create Mesh node WristTransitionMesh_v1
+21:11:08 | INFO: glTF import finished in 0.11s
+21:11:08 | INFO: Data are loaded, start creating Blender stuff
+21:11:08 | INFO: Blender create Mesh node FittedLeather.003
+21:11:09 | INFO: Blender create Mesh node ContinuousAnatomicalHandMesh.003
+21:11:09 | INFO: Blender create Mesh node Nail_indexMesh.001
+21:11:09 | INFO: Blender create Mesh node Nail_littleMesh.001
+21:11:09 | INFO: Blender create Mesh node Nail_middleMesh.001
+21:11:09 | INFO: Blender create Mesh node Nail_ringMesh.001
+21:11:09 | INFO: Blender create Mesh node Nail_thumbMesh.001
+21:11:09 | INFO: Blender create Mesh node TailoredClothSleeve.003
+21:11:09 | INFO: Blender create Mesh node WristTransitionMesh_v1.001
+21:11:09 | INFO: glTF import finished in 0.11s
+00:05.730  blend            | Read blend: "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/player_fingers_photoref_20260911/mac_output/geometry_03/bilateral_hands_finger_detail.blend"
+PHOTOREF_FINGER_VERIFICATION failed [{"error": "Detail reversed a triangle relative to its original surface", "traceback": "Traceback (most recent call last):\n  File \"/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/player_fingers_photoref_20260911/tools/verify_photoref_fingers.py\", line 267, in main\n    row['source_preservation_and_surface'] = inspect_changes(original[side], current[side], side)\n                                             ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/player_fingers_photoref_20260911/tools/verify_photoref_fingers.py\", line 179, in inspect_changes\n    'physical_surface': detail.inspect_surface(a, b, changed)}\n                        ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^\n  File \"/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/asset-staging/player_fingers_detail_20260911/tools/verify_finger_detail.py\", line 115, in inspect_surface\n    assert float(alignment.min()) > 0.0, \"Detail reversed a triangle relative to its original surface\"\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Detail reversed a triangle relative to its original surface\n"}]
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 01:35:57)

@@ -1,0 +1,26 @@
+{
+  "status": "direct_visual_review_completed_with_documented_limitation",
+  "model_iteration": "final_04",
+  "preview_iteration": "reference_final_02",
+  "native_renders": 6,
+  "godot_captures": 18,
+  "detached_wrist_notch_resolved": true,
+  "fist_gap_resolved": true,
+  "limitations": [
+    "Strong wrist bends retain a shallow collar-like transition at the fixed skin/cuff boundary. It is a connected surface, not the previous detached gap; it is not explained solely as lighting.",
+    "The result is a photo-referenced game model, not a photorealistic scan."
+  ],
+  "observed_examples": {
+    "player_finger_joints/open.png": {
+      "left_pixel": [
+        292,
+        444
+      ],
+      "right_pixel": [
+        689,
+        443
+      ]
+    },
+    "player_finger_joints/fist.png": "The shallow transition remains while the skin boundary stays joined."
+  }
+}

@@ -1,0 +1,229 @@
+{
+  "status": "pass",
+  "scope": "GLB reimport into Blender; symmetric nearest world vertices and triangle counts compared to final Blender scene. Source and imported textures packed.",
+  "source_sha256": {
+    "SwordHold_Static.blend": "9555a83ca473801cc23e239360013cc9ec656a8235d679cbd9c8309c3de6a1f0",
+    "SwordHold_Static.glb": "2b94cc385f837fe253552cd654cb1f665246f61cdee5227814d63049da9f22fb"
+  },
+  "meshes": [
+    {
+      "mesh": "Sword_FullerPolishedChannel",
+      "source_vertices": 190,
+      "imported_vertices": 190,
+      "triangles": 64,
+      "import_to_source_max_distance_m": 1.712013073529306e-07,
+      "source_to_import_max_distance_m": 1.712013073529306e-07
+    },
+    {
+      "mesh": "Sword_GripBinding",
+      "source_vertices": 8732,
+      "imported_vertices": 8732,
+      "triangles": 14360,
+      "import_to_source_max_distance_m": 1.6049041562382627e-07,
+      "source_to_import_max_distance_m": 1.6049041562382627e-07
+    },
+    {
+      "mesh": "Sword_GripLeather",
+      "source_vertices": 1625,
+      "imported_vertices": 1625,
+      "triangles": 3196,
+      "import_to_source_max_distance_m": 1.5269147013441398e-07,
+      "source_to_import_max_distance_m": 1.5269147013441398e-07
+    },
+    {
+      "mesh": "Sword_PittedBlade",
+      "source_vertices": 726,
+      "imported_vertices": 726,
+      "triangles": 320,
+      "import_to_source_max_distance_m": 1.7881393432617188e-07,
+      "source_to_import_max_distance_m": 1.7881393432617188e-07
+    },
+    {
+      "mesh": "Sword_SwordsmanLongsword_Surface",
+      "source_vertices": 1860,
+      "imported_vertices": 1860,
+      "triangles": 1508,
+      "import_to_source_max_distance_m": 1.9314111909807252e-07,
+      "source_to_import_max_distance_m": 1.9314111909807252e-07
+    },
+    {
+      "mesh": "RightArm_Forearm_Surface",
+      "source_vertices": 3033,
+      "imported_vertices": 3084,
+      "triangles": 5520,
+      "import_to_source_max_distance_m": 1.437015981764489e-07,
+      "source_to_import_max_distance_m": 1.437015981764489e-07
+    },
+    {
+      "mesh": "RightHand_Glove",
+      "source_vertices": 11396,
+      "imported_vertices": 14177,
+      "triangles": 22706,
+      "import_to_source_max_distance_m": 1.6049041562382627e-07,
+      "source_to_import_max_distance_m": 1.6049041562382627e-07
+    },
+    {
+      "mesh": "RightArm_UpperArm_Surface",
+      "source_vertices": 4095,
+      "imported_vertices": 4158,
+      "triangles": 7936,
+      "import_to_source_max_distance_m": 1.163817913152343e-07,
+      "source_to_import_max_distance_m": 1.163817913152343e-07
+    },
+    {
+      "mesh": "RightArm_WristCuff_Surface",
+      "source_vertices": 1043,
+      "imported_vertices": 1062,
+      "triangles": 1824,
+      "import_to_source_max_distance_m": 1.437015981764489e-07,
+      "source_to_import_max_distance_m": 1.437015981764489e-07
+    },
+    {
+      "mesh": "Sword_GripLeather_Extension",
+      "source_vertices": 1625,
+      "imported_vertices": 1625,
+      "triangles": 3196,
+      "import_to_source_max_distance_m": 1.6049041562382627e-07,
+      "source_to_import_max_distance_m": 1.6049041562382627e-07
+    },
+    {
+      "mesh": "Sword_GripBinding_Extension",
+      "source_vertices": 8732,
+      "imported_vertices": 8732,
+      "triangles": 14360,
+      "import_to_source_max_distance_m": 1.6049041562382627e-07,
+      "source_to_import_max_distance_m": 1.6049041562382627e-07
+    }
+  ],
+  "mesh_count": 11,
+  "max_vertex_distance_m": 1.9314111909807252e-07,
+  "source_portability": {
+    "linked_libraries": 0,
+    "images": [
+      {
+        "name": "Arm_Leather_BaseColor",
+        "packed": true,
+        "size": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "name": "Arm_Leather_Normal",
+        "packed": true,
+        "size": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "name": "Glove_Reference_BaseColor",
+        "packed": true,
+        "size": [
+          2048,
+          2048
+        ]
+      },
+      {
+        "name": "Glove_Reference_Normal",
+        "packed": true,
+        "size": [
+          2048,
+          2048
+        ]
+      },
+      {
+        "name": "Glove_Reference_Roughness",
+        "packed": true,
+        "size": [
+          2048,
+          2048
+        ]
+      },
+      {
+        "name": "weapon_material_atlas_v2.png",
+        "packed": true,
+        "size": [
+          1254,
+          1254
+        ]
+      },
+      {
+        "name": "weapon_material_normal_v2.png",
+        "packed": true,
+        "size": [
+          1254,
+          1254
+        ]
+      }
+    ],
+    "actions": 0,
+    "armatures": 0,
+    "modifiers": 0
+  },
+  "imported_portability": {
+    "linked_libraries": 0,
+    "images": [
+      {
+        "name": "Arm_Leather_BaseColor",
+        "packed": true,
+        "size": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "name": "Arm_Leather_Normal",
+        "packed": true,
+        "size": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "name": "Glove_Reference_BaseColor",
+        "packed": true,
+        "size": [
+          2048,
+          2048
+        ]
+      },
+      {
+        "name": "Glove_Reference_Normal",
+        "packed": true,
+        "size": [
+          2048,
+          2048
+        ]
+      },
+      {
+        "name": "Glove_Reference_Roughness",
+        "packed": true,
+        "size": [
+          2048,
+          2048
+        ]
+      },
+      {
+        "name": "weapon_material_atlas_v2",
+        "packed": true,
+        "size": [
+          1254,
+          1254
+        ]
+      },
+      {
+        "name": "weapon_material_normal_v2",
+        "packed": true,
+        "size": [
+          1254,
+          1254
+        ]
+      }
+    ],
+    "actions": 0,
+    "armatures": 0,
+    "modifiers": 0
+  },
+  "original_game_modified": false
+}

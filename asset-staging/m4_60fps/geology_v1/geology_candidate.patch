@@ -1,0 +1,47 @@
+--- a/godot-game/shaders/mine_geology.gdshader
++++ b/godot-game/shaders/mine_geology.gdshader
+@@ -48,7 +48,8 @@
+  if (!FRONT_FACING) { n=-n; }
+  vec3 p=world_position/metric_scale;
+  // Scanned crevices provide local occlusion without distorting texture derivatives.
+- float height=photograph(height_map,p,w).r;
++ float height=1.0;
++ if (!ground_surface) { height=photograph(height_map,p,w).r; }
+  // Keep sampling derivatives stable at grazing angles. Geometric ledges
+ // carry silhouette depth; photographic normals carry the fine relief.
+  float macro=noise(world_position*0.28)+0.35*noise(world_position*0.73+4.7);
+@@ -61,12 +62,18 @@
+   float silt=smoothstep(0.31,0.81,noise(world_position*0.57+8.1));
+   dry=mix(dry,vec3(0.105,0.085,0.062),silt*0.82);
+  }
+- vec3 fractured=photograph(fracture_albedo,p*0.64+3.71,w);
+- dry=mix(dry,fractured,fracture);
++ // This is a uniform branch; all fragments retain coherent derivatives.
++ // A zero fracture mix contributes neither photograph nor fracture normal.
++ if (fracture_mix != 0.0) {
++  vec3 fractured=photograph(fracture_albedo,p*0.64+3.71,w);
++  dry=mix(dry,fractured,fracture);
++ }
+  // The authored concept surface adds fine mineral grain; the scanned maps
+  // retain the large fracture structure and world-scale continuity.
+- vec3 grain=photograph(concept_grain,p*1.9,w);
+- if (!ground_surface) { dry=mix(dry,grain,0.32); }
++ if (!ground_surface) {
++  vec3 grain=photograph(concept_grain,p*1.9,w);
++  dry=mix(dry,grain,0.32);
++ }
+  float luma=dot(dry,vec3(0.2126,0.7152,0.0722));
+  dry=mix(vec3(luma),dry,ground_surface?0.66:0.36);
+  float damp=smoothstep(0.36,0.8,veins)*(ground_surface?0.74:0.8);
+@@ -79,7 +86,10 @@
+  float stain=(1.0-smoothstep(0.1,1.15,world_position.y))*smoothstep(0.58,0.81,veins);
+  color=mix(color,color*vec3(0.57,0.79,0.68),stain*0.5);
+  ALBEDO=color;
+- vec3 bump=mix(relief_normal(normal_map,p,w),relief_normal(fracture_normal,p*0.64+3.71,w),fracture);
++ vec3 bump=relief_normal(normal_map,p,w);
++ if (fracture_mix != 0.0) {
++  bump=mix(bump,relief_normal(fracture_normal,p*0.64+3.71,w),fracture);
++ }
+  if (!ground_surface) { bump+=relief_normal(normal_map,p*5.8+11.3,w)*0.18; }
+  bump-=n*dot(n,bump);
+  NORMAL=normalize((VIEW_MATRIX*vec4(normalize(n+bump*normal_strength),0.0)).xyz);

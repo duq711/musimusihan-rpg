@@ -1,0 +1,209 @@
+{
+  "reference_mode": "ten individual images, fixed one digit and one face per image",
+  "baseline": {
+    "source": "../player_hands_proportions_20260911/mac_output/iteration_01/bilateral_hands_proportions.blend",
+    "observed": [
+      "silhouette already slender; preserve overall proportions",
+      "dorsal creases sparse and repetitive",
+      "palmar surface lacks visible fingerprint loops",
+      "nail surface lacks keratin microrelief"
+    ]
+  },
+  "geometry_01": {
+    "reviewed": [
+      "preview_finger_dorsum.png"
+    ],
+    "result": "Modest knuckle/pad shape refinement retains glove and contact silhouette; microdetail still absent before baking.",
+    "next": "Bake distinct dorsal/palmar microrelief and inspect each separate face"
+  },
+  "iteration_01": {
+    "result": "Incomplete build: protected non-skin roughness texels differ by exactly one 8-bit level; stopped before normal export and final model save.",
+    "next": "Resolved by margin=0 while retaining exact-zero non-skin preservation checks.",
+    "cause": "Cycles margin=2 expanded skin bake across contiguous skin/glove UV material boundary; 2 of 9000 protected roughness samples changed one 8-bit level. Native margin=0 retains existing atlas gutters and exact protected pixels."
+  },
+  "target_features": {
+    "dorsal": [
+      "fine branched PIP/DIP crease network",
+      "soft rounded knuckles",
+      "close nail edge and longitudinal keratin ridges",
+      "fine uneven skin furrows"
+    ],
+    "palmar": [
+      "looping fingerprint pattern",
+      "fleshy tapered distal pad",
+      "correct flexion-fold placement",
+      "fine cross-grain skin texture"
+    ]
+  },
+  "similarity_assessment": "Direct visual comparison per digit/view; no fabricated numeric photorealism percentage.",
+  "iteration_02": {
+    "result": "Rejected persistence failure: live baked pixels showed new detail, but copied packed images retained original payload in saved blend and basecolor/normal GLBs.",
+    "resolution": "Bake and save PNG, load a fresh image from that PNG, pack it, and assert actual packed bytes SHA equals PNG. Independent save/reopen whole-pixel probe passed."
+  },
+  "iteration_03": {
+    "reviewed": [
+      "thumb_dorsal.png",
+      "thumb_palmar.png",
+      "index_dorsal.png",
+      "index_palmar.png",
+      "middle_dorsal.png",
+      "middle_palmar.png",
+      "ring_dorsal.png",
+      "ring_palmar.png",
+      "little_dorsal.png",
+      "little_palmar.png"
+    ],
+    "actual_saved_blend_reopened": true,
+    "camera_manifest": "audit/individual_render_probe03/render_report.json",
+    "observed": [
+      "All ten faces have new relief in the saved model; no longer the smooth baseline.",
+      "Skin is too granular across phalanges compared with the references fine directional furrows.",
+      "Knuckle creases form overly regular concentric ellipses; replace with irregular broken curved transverse folds.",
+      "Fingerprints are visible but have round target-like centers; elongate asymmetric loop flow.",
+      "Nail grain appears stamped/corrugated; lower amplitude and remove high-frequency phase perturbation.",
+      "Thumb and middle inherited skin-through-nail patches are visibly repaired; source curved digit pose and glove edge are preserved."
+    ],
+    "result": "Rejected: granular skin, stamped nail ridges and concentric knuckle targets; four real submicron seam-crossing pairs also found."
+  },
+  "geometry_02": {
+    "change": "Submicron split seam groups share a displacement without merging topology or UVs.",
+    "verification": "Independent geometry preservation and actual triangle intersections PASS for both hands.",
+    "evidence": "audit/geometry02_preservation.json"
+  },
+  "nail_seating_diagnostic": {
+    "cause": "Full curl ray tested entire digit and hit proximal ring0/little0 webbing in both source and candidate, not the nail bed.",
+    "evidence": [
+      "audit/nail_ray_source.json",
+      "audit/nail_ray_geometry02.json",
+      "audit/nail_bed_probe.json"
+    ],
+    "correction": "Nail seating rays and nearest distances use skin owned by distal bone2>0.25; unchanged clearance/intrusion/gap thresholds. All 80 pose/digit cases passed. Whole-fist self collision is outside this seating check."
+  },
+  "iteration_04": {
+    "reviewed": [
+      "thumb_dorsal.png",
+      "thumb_palmar.png",
+      "index_dorsal.png",
+      "index_palmar.png",
+      "middle_dorsal.png",
+      "middle_palmar.png",
+      "ring_dorsal.png",
+      "ring_palmar.png",
+      "little_dorsal.png",
+      "little_palmar.png"
+    ],
+    "independent_verification": "passed",
+    "observed": [
+      "Nail relief is smooth and subtle; prior stamped grain removed.",
+      "Dorsal curved transverse arcs replace bullseye rings; palmar elongated open loops replace circular targets.",
+      "Skin furrows look too regularly spaced like diagonal woven lines."
+    ],
+    "next": "Increase local variation and reduce furrow spacing; retain improved nails, loop fingerprints and protected geometry."
+  },
+  "iteration_05": {
+    "status": "independent_passed_appearance_rejected",
+    "change": "Finer 0.64/0.89mm directional furrows with local warped spacing and broken extent; microdepth remains restrained. No camera/light changes.",
+    "reviewed": [
+      "thumb_dorsal.png",
+      "thumb_palmar.png",
+      "index_dorsal.png"
+    ],
+    "observed": "Fine furrows remain too straight and form a visible lattice, especially over the fingerprint.",
+    "next": "Use different locally warped fields for each directional family, break their extent and attenuate skin cross-furrows on the fingertip pad."
+  },
+  "iteration_06": {
+    "status": "independent_passed_then_user_requested_thumb_placement_fix",
+    "reviewed": [
+      "thumb_dorsal.png",
+      "thumb_palmar.png"
+    ],
+    "observed": "Skin furrows are irregular and separated from the smooth fingerprint pad. User identified the thumb nail position as incorrect.",
+    "next": "Reposition and shorten thumb nail while preserving other digits."
+  },
+  "thumb_placement": {
+    "user_request": "\uc5c4\uc9c0\uc190\uac00\ub77d \uc190\ud1b1 \uc704\uce58\uac00 \uc774\uc0c1\ud55c\ub370\uc694?",
+    "observed": "Thumb nail extended too close to IP fold, with excess exposed skin at tip and a lateral offset.",
+    "measured_source_length_m": 0.025612,
+    "corrected_length_m": 0.018953,
+    "cross_center_shift_m": 0.0011304,
+    "source_tip_margin_m": 0.004372,
+    "corrected_tip_margin_m": 0.0031,
+    "geometry_03_thumb": "Rejected: moving too close to the terminal tip made part of nail footprint miss actual skin.",
+    "geometry_04_thumb": "Shortened/cross-centered footprint fits skin; direct height projection caused an uneven plate highlight.",
+    "geometry_05_thumb": "Rejected: planar envelope floated above the curved sidewall.",
+    "geometry_06_thumb": "Rejected after actual oblique/profile renders and nail-bed ray failures: unconstrained quadratic envelope also floated.",
+    "iteration_08": "Constrain smooth fitting to actual nail bed+0.22mm and recompute thumb nail surface normals; re-bake/render/verify pending."
+  },
+  "iteration_08": {
+    "status": "independent_passed_but_user_corrected_axial_direction",
+    "reviewed": [
+      "preview_finger_dorsum.png",
+      "hand_dorsum.png",
+      "individual/thumb_dorsal.png",
+      "individual/thumb_palmar.png",
+      "profile/thumb_oblique.png",
+      "profile/thumb_profile.png"
+    ],
+    "result": "Length, centering and attachment repaired; user clarified that the unresolved issue is axial orientation relative to the four other nails."
+  },
+  "iteration_09": {
+    "status": "rejected_orientation_overshoot",
+    "reviewed": [
+      "hand_dorsum.png",
+      "hand_palmar.png",
+      "thumb_radial.png"
+    ],
+    "result": "75 degree axial roll moved true cap normal 95.83 degrees from the other four. Selected a smaller roll to retain a slight dorsal component."
+  },
+  "iteration_10": {
+    "status": "accepted_native_and_runtime_verified",
+    "actual_mesh_roll_degrees": {
+      "left": 60,
+      "right": -60
+    },
+    "actual_nail_normal_separation_degrees": {
+      "left": 81.748,
+      "right": 81.668
+    },
+    "independent_verification": "passed",
+    "reviewed_fixed_faces": [
+      "thumb_dorsal.png",
+      "thumb_palmar.png",
+      "index_dorsal.png",
+      "index_palmar.png",
+      "middle_dorsal.png",
+      "middle_palmar.png",
+      "ring_dorsal.png",
+      "ring_palmar.png",
+      "little_dorsal.png",
+      "little_palmar.png"
+    ],
+    "reviewed_intrinsic_thumb_faces": [
+      "thumb_local/thumb_dorsal.png",
+      "thumb_local/thumb_palmar.png"
+    ],
+    "observations": [
+      "Actual nail, its underlying thumb skin and corrective vectors rotate together. The pad faces inward and nail faces outward.",
+      "The fixed hand-facing thumb images now show its lateral surface; separate intrinsic thumb face images preserve one-finger/one-face comparison to the generated references.",
+      "Fine uneven phalange furrows, joint arcs and pad loops remain; original nail silhouette and some broad surface asymmetry remain visible at macro scale.",
+      "No claimed photographic or pixel-exact reconstruction."
+    ],
+    "headless": {
+      "passed": 7,
+      "failed": 0
+    },
+    "reviewed_extra_native": [
+      "profile/thumb_oblique.png",
+      "profile/thumb_profile.png",
+      "hand_dorsum.png",
+      "hand_palmar.png",
+      "thumb_radial.png"
+    ],
+    "nail_pose_checks": 80,
+    "gpu": {
+      "captures": 18,
+      "all_directly_visually_reviewed": true,
+      "status": "passed"
+    }
+  }
+}

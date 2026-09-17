@@ -1,0 +1,17 @@
+[HEADLESS] bandage_motion_test.gd
+Bandage forearm centreline clearance: 0.121094442904
+Bandage wrist gap / upper sleeve length: 0.00000024211522 / 0.37768277525902
+ERROR: torn strip must remain a short roll-side tail rather than bridge back to the arm
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/bandage_motion_test.gd:133)
+BANDAGE MOTION TEST FAIL: stow/lift/tear/redraw, real consumption, 3 low wraps, continuous pose, pause, completion, interruption, isolation
+[HEADLESS] body_health_routes_test.gd
+TIMEOUT after 180s: body_health_routes_test.gd
+[HEADLESS] body_health_test_room_test.gd
+TIMEOUT after 180s: body_health_test_room_test.gd
+
+Headless validation: 0 passed, 3 failed.
+FAILED: bandage_motion_test.gd (1)
+FAILED: body_health_routes_test.gd (124)
+FAILED: body_health_test_room_test.gd (124)

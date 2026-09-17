@@ -1,0 +1,175 @@
+{
+  "status": "reviewed",
+  "reviewer": "finger_four_views agent",
+  "source_obj_sha256": "0b4e513a2ba1384e2405119d6edc59c1b3a775044df49c8637872acc93648213",
+  "actual_user_supplied_geometry": true,
+  "renders": {
+    "dorsal": {
+      "file": "review/neutral/source_positive_normal.png",
+      "sha256": "1054a9f64904dcae271f9b03e70ad65e78c5cb3e84cf6ce650b86ab38797a258",
+      "view_direction": [
+        0.3836883306503296,
+        -0.06949225068092346,
+        0.9208442568778992
+      ],
+      "actual_supplied_geometry": true,
+      "directly_visually_reviewed": true
+    },
+    "palmar": {
+      "file": "review/neutral/source_negative_normal.png",
+      "sha256": "9e91a4c074e17308c755b865dde1e3469f6032bcf2373a0ca2877f9a56703e19",
+      "view_direction": [
+        -0.3836883306503296,
+        0.06949225068092346,
+        -0.9208442568778992
+      ],
+      "actual_supplied_geometry": true,
+      "directly_visually_reviewed": true
+    },
+    "radial_side_oblique": {
+      "file": "review/neutral/source_side.png",
+      "sha256": "e010db926209208388da285d557986043aa8da14ff003cfca1a34d2bf050de12",
+      "view_direction": [
+        0.7696015238761902,
+        0.5751857757568359,
+        -0.2772631347179413
+      ],
+      "actual_supplied_geometry": true,
+      "directly_visually_reviewed": true
+    }
+  },
+  "handedness": "left, confirmed by dorsal/thumb arrangement and supplied file context",
+  "component_digit_mapping": {
+    "little": 1,
+    "ring": 2,
+    "middle": 3,
+    "thumb": 4,
+    "index": 5
+  },
+  "source_joint_estimates": {
+    "little": {
+      "root": [
+        57.538448924157514,
+        195.16880515555223,
+        71.39074555148676
+      ],
+      "pip": [
+        52.4587317015644,
+        200.25671925122714,
+        71.06352249811992
+      ],
+      "dip": [
+        49.28130235169523,
+        203.1079803244031,
+        68.08019516928707
+      ],
+      "tip": [
+        46.854927062988295,
+        204.94960021972656,
+        63.30620193481443
+      ]
+    },
+    "ring": {
+      "root": [
+        60.168828099354585,
+        200.1186913247193,
+        71.77440887835397
+      ],
+      "pip": [
+        56.32846745064549,
+        206.06326983692585,
+        73.42642083236395
+      ],
+      "dip": [
+        50.91045623199996,
+        210.5437860986445,
+        69.20071000261149
+      ],
+      "tip": [
+        47.10907745361328,
+        213.14869689941406,
+        63.92523956298826
+      ]
+    },
+    "middle": {
+      "root": [
+        65.19363973200434,
+        205.12326720444062,
+        71.55587200243136
+      ],
+      "pip": [
+        60.571102037713764,
+        213.22467478689896,
+        74.70340792782525
+      ],
+      "dip": [
+        55.225140401054716,
+        218.24218464727542,
+        71.81146670571277
+      ],
+      "tip": [
+        50.033123016357415,
+        221.66920471191406,
+        67.67150878906247
+      ]
+    },
+    "index": {
+      "root": [
+        70.94488565386709,
+        209.9278573096027,
+        69.64273634197899
+      ],
+      "pip": [
+        67.91999888973513,
+        218.64750072787297,
+        74.4488625754621
+      ],
+      "dip": [
+        63.175418177219015,
+        223.9140760935949,
+        72.11755311871065
+      ],
+      "tip": [
+        59.90692138671875,
+        226.72062683105466,
+        69.4385299682617
+      ]
+    },
+    "thumb": {
+      "root": [
+        78.18962909998783,
+        198.80827716161394,
+        60.07037869377203
+      ],
+      "pip": [
+        79.25510191763736,
+        208.23909052606967,
+        56.308429192798734
+      ],
+      "dip": [
+        77.07845689153362,
+        214.86883511599223,
+        54.1233632831817
+      ],
+      "tip": [
+        75.80116271972655,
+        218.4795684814453,
+        53.39484024047851
+      ]
+    }
+  },
+  "source_wrist_cap_center": [
+    77.96550085374417,
+    178.92704465467128,
+    56.697457935590904
+  ],
+  "observations": [
+    "The source is a complete high-density hand with a closed wrist stump and five separate actual nail shells.",
+    "The supplied neutral shape has mildly flexed fingers; the new rig should follow this existing shape rather than straightening or replacing it.",
+    "Fine skin creases, palm folds, nail rims and lateral thumb orientation are already modeled in the supplied source.",
+    "OBJ contains no UV map, material, texture references or vertex color; grey lighting is diagnostic only."
+  ],
+  "rejected_probe": "The first three images directly under review/ were overexposed lighting probes. The three images in review/neutral/ are the readable final source-shape inspection.",
+  "original_obj_and_ztl_unchanged": true,
+  "preparation": "geometry/supplied_left_prepared.blend is a direct 48,000-triangle decimation of this supplied shape with a new shared UV atlas and preserved high-resolution source collection. No prior gameplay hand mesh was used."
+}

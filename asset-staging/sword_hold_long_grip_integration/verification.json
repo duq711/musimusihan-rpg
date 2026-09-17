@@ -1,0 +1,70 @@
+{
+  "date": "2026-09-09",
+  "status": "pass",
+  "source_glb_sha256": "2b94cc385f837fe253552cd654cb1f665246f61cdee5227814d63049da9f22fb",
+  "source_original_unchanged": true,
+  "source_contains_animation_tracks": false,
+  "integration": "Original static sword and closed glove with existing production combat. Unchanged source meshes/materials; sleeve segments and cuff follow the shoulder/wrist.",
+  "tests": {
+    "distinct_suites_passed": 14,
+    "final_cuff_change_passed": [
+      "sword_long_grip",
+      "sword_shield_model",
+      "sword_shield_choreography",
+      "sword_shield_choreography_preview",
+      "first_person_motion_test_room",
+      "player_arm"
+    ],
+    "other_passed_suites": [
+      "first_person_motion",
+      "sword_attack_variants",
+      "sword_clash",
+      "first_person_renderer",
+      "first_person_motion_preview",
+      "sword_shield_gallery",
+      "blacksmith_test_room",
+      "test_room_session"
+    ],
+    "history": "Broad run had one 0.092 mm near-parallel sleeve endpoint error. Robust quaternion fix passed both affected suites; final cuff rotation then passed all six affected suites. See retained logs."
+  },
+  "final_capture_manifest": "godot-game/artifacts/visual_qa/sword_shield_choreography/long_grip_02/capture_manifest.json",
+  "final_capture": {
+    "renderer": "vulkan",
+    "display": "embedded",
+    "actions": 6,
+    "pov_frames": 204,
+    "same_arm_external_frames": 96,
+    "source_files_unchanged": true,
+    "original_session_and_inventory_preserved": true
+  },
+  "visual_review": {
+    "reviewed": "Ready, three actual cuts, guard and impact; compared rejected cuff/sleeve iterations with final capture.",
+    "result": "Detached sleeve root and open cuff protrusion resolved; authored closed glove and long grip retained.",
+    "rejected_iterations": [
+      "first_person_motion/long_grip_01",
+      "sword_shield_choreography/long_grip_01"
+    ]
+  },
+  "modified_text_sha256": {
+    "scripts/player.gd": "f6097e43fc9f549293711d791c6e1ea9fd6ab905abc3a3b5507123762fd21d76",
+    "scripts/first_person_motion.gd": "3ead7e80810806bef469b46914cbfd163542eb476f065fa5ab929a804566501d",
+    "scripts/sword_shield_choreography.gd": "49d68c58f720ec0aaf119175bbe5b754d1ad82a64d6fa5a0375b151b5bda0708",
+    "scripts/sword_long_grip_visual.gd": "c5d5b573ae72083ad6cf2dead38bbd817c3084006667a162a363fe55649cfed1",
+    "scripts/dark_fantasy_object_catalog.gd": "3a43f4cb159659776d647b9d812baeed84c568b2e7d4137e59334bc7549f2958",
+    "scripts/test_room_catalog.gd": "7a0ae093d80ddacf4cce9d69767c68e81619ce5e9a48f30c9d6a3d101feb6bb5",
+    "scripts/test_room.gd": "e9ae0857313c76461f497024ed1515dc4c3d000c0da9c5aed4b15cc0ab7866e7",
+    "assets/art_direction/object_inventory.json": "7d821af75a7ec5a0ffd9cff176bef3045bcb347cfd164b6c5b2435698dc966c2",
+    "tests/sword_long_grip_test.gd": "82e4a545ac8e8217276cd8357f925f6e1d10484d410286ddb927144f68e12648",
+    "tests/sword_shield_model_test.gd": "9e5c38042fd9e359bc3acefb7ad24fb2480551003f754ca105adf9dccc1535f6",
+    "tests/sword_shield_gallery_test.gd": "656fd84aedf689658641a752de9dbfa6a61d7a1b6a2577fba66a68664e3a79cd",
+    "tests/sword_shield_choreography_test.gd": "2d9d6674a9ad06a497381d0e5a9f03ae977f5d21dc54a9ae28d67d8598843307",
+    "tests/sword_shield_choreography_preview_test.gd": "232f970b6f3fbcfb1bc5eb9938aef38208fcdf6069ceddc8aa68bb5977f9fe68",
+    "tests/first_person_motion_test_room_test.gd": "9215f2775c82a12b1af1e8875ebdf93c37d475bb6d06fdd0e43da0990cef47d2",
+    "tests/player_arm_test.gd": "497bc5e19d0918dddb9e527497492600a25d45b48a7f84f61b2ce5315bc0795d",
+    "tests/sword_shield_preview.gd": "e0c0dc54a650cea07b2e8cef3835336ab55a188cfb269f7d4e3e618c3b0e8dc7",
+    "tests/sword_shield_choreography_preview.gd": "15af56164dde63d6969233efdc44c8351e625edf7daab650b768b54c3814caef",
+    "tests/first_person_motion_preview.gd": "da094bedd0ae823b6401b66f20b2ce6c5c4b3b811d4bbccb4ccbcc3c7b264219",
+    "README.md": "a941db53ee64f5c903017c2eee2314a0072cafffb33e2a8e75dc80ce8f799be9",
+    "TEST_ROOM.md": "0ef5a36fb980fa3e045f6121566955a5829470267e6ee172c2a9ab7984a1d5bb"
+  }
+}

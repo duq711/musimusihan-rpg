@@ -1,0 +1,738 @@
+{
+  "asset": "C:\\Users\\duq71\\Documents\\Codex\\2026-09-08\\d\\outputs\\sword_hold_long_grip\\model\\SwordHold_Static.glb",
+  "glb_sha256": "2b94cc385f837fe253552cd654cb1f665246f61cdee5227814d63049da9f22fb",
+  "checked_at_utc": "2026-09-09T09:56:54.539574+00:00",
+  "gltf": {
+    "animations": 0,
+    "skins": 0,
+    "bone_attributes": [],
+    "mesh_nodes": 11,
+    "meshes": 11,
+    "materials": 11,
+    "images": [
+      {
+        "index": 0,
+        "name": "Arm_Leather_Normal",
+        "embedded": true,
+        "bytes": 916999,
+        "width": 1024,
+        "height": 1024,
+        "sha256": "9b7be8df6811c132f0b92c4e9cbb81839f9d1063cb697e2b4fdd2bb29e07b6a4"
+      },
+      {
+        "index": 1,
+        "name": "Arm_Leather_BaseColor",
+        "embedded": true,
+        "bytes": 166348,
+        "width": 1024,
+        "height": 1024,
+        "sha256": "95d103ccb1d63444fa73e095d7809185dc7dd714c976853aa269eef6c5cb16b1"
+      },
+      {
+        "index": 2,
+        "name": "Glove_Reference_Normal",
+        "embedded": true,
+        "bytes": 5941582,
+        "width": 2048,
+        "height": 2048,
+        "sha256": "bf0d2927173bcd6db752517132ad10bd2f5a1b82b7482bdf61b3ffde8b239647"
+      },
+      {
+        "index": 3,
+        "name": "Glove_Reference_BaseColor",
+        "embedded": true,
+        "bytes": 264611,
+        "width": 2048,
+        "height": 2048,
+        "sha256": "46c74883a607a089eac64b9ea790e01ee1d1e63d0b8ba3b8b2c9f8dacf11e17a"
+      },
+      {
+        "index": 4,
+        "name": "Glove_Reference_Roughness",
+        "embedded": true,
+        "bytes": 149937,
+        "width": 2048,
+        "height": 2048,
+        "sha256": "0f0b51ba1156c513c5a6e29168496382b376c279ee997cab2ab314950eb86e83"
+      },
+      {
+        "index": 5,
+        "name": "weapon_material_normal_v2",
+        "embedded": true,
+        "bytes": 3423947,
+        "width": 1254,
+        "height": 1254,
+        "sha256": "724cdfafb7e972c954e1ed3b9152077b6d45ae33ef8502e3eb622e913adfc108"
+      },
+      {
+        "index": 6,
+        "name": "weapon_material_atlas_v2",
+        "embedded": true,
+        "bytes": 3052794,
+        "width": 1254,
+        "height": 1254,
+        "sha256": "649dde7bdd433de1caba0f763cd86367c1fc86f5fe78a59d25991a722086979f"
+      }
+    ],
+    "failures": [],
+    "pass": true
+  },
+  "headless": true,
+  "original_game_modified": false,
+  "godot_render_executed": false,
+  "pass": true,
+  "import": {
+    "exit_code": 0,
+    "errors": [],
+    "warnings": [],
+    "log_sha256": "9a88c4d5599c43832353df07b588bd6a3ad9d27d99a35c768e67e204e4ceef3e"
+  },
+  "scene_check": {
+    "exit_code": 0,
+    "errors": [],
+    "warnings": [],
+    "log_sha256": "247bee153078930c80937d73b0fb8b78ce7c28c042ba88da8eabb250413b3013"
+  },
+  "godot": {
+    "all_geometry_in_front": false,
+    "allowed_upper_arm_connection_tail": {
+      "actual_max_z_m": 0.0970576703548431,
+      "mesh": "RightArm_UpperArm_Surface",
+      "reason": "Intentional offscreen upper-arm connection tail for this FPS pose; visible hand, sword, cuff and forearm remain in front. No geometry was trimmed to satisfy the diagnostic.",
+      "vertices_at_or_behind_camera": 948
+    },
+    "combined_aabb": {
+      "max": [
+        0.468409478664398,
+        1.01627588272095,
+        0.0970577001571655
+      ],
+      "min": [
+        0.165754958987236,
+        -0.36606553196907,
+        -0.699822306632996
+      ],
+      "size": [
+        0.302654504776001,
+        1.3823413848877,
+        0.796880006790161
+      ]
+    },
+    "failures": [],
+    "forbidden_nodes": [],
+    "geometry_entirely_in_front_of_camera": false,
+    "godot_version": {
+      "build": "official",
+      "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+      "hex": 263938,
+      "major": 4,
+      "minor": 7,
+      "patch": 2,
+      "status": "stable",
+      "string": "4.7.2-stable (official)",
+      "timestamp": 0
+    },
+    "headless": true,
+    "materials": [
+      {
+        "albedo_color": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "albedo_texture": {
+          "class": "CompressedTexture2D",
+          "height": 1024,
+          "path": "res://SwordHold_Static_Arm_Leather_BaseColor.png",
+          "width": 1024
+        },
+        "class": "StandardMaterial3D",
+        "metallic_texture": null,
+        "name": "Reference matched arm leather",
+        "normal_texture": {
+          "class": "CompressedTexture2D",
+          "height": 1024,
+          "path": "res://SwordHold_Static_Arm_Leather_Normal.png",
+          "width": 1024
+        },
+        "path": "res://SwordHold_Static.glb::StandardMaterial3D_n6vq4",
+        "roughness_texture": null
+      },
+      {
+        "albedo_color": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "albedo_texture": {
+          "class": "CompressedTexture2D",
+          "height": 1024,
+          "path": "res://SwordHold_Static_Arm_Leather_BaseColor.png",
+          "width": 1024
+        },
+        "class": "StandardMaterial3D",
+        "metallic_texture": null,
+        "name": "Reference matched arm leather.001",
+        "normal_texture": {
+          "class": "CompressedTexture2D",
+          "height": 1024,
+          "path": "res://SwordHold_Static_Arm_Leather_Normal.png",
+          "width": 1024
+        },
+        "path": "res://SwordHold_Static.glb::StandardMaterial3D_4oe4j",
+        "roughness_texture": null
+      },
+      {
+        "albedo_color": [
+          0.527112782001495,
+          0.556393325328827,
+          0.583831548690796,
+          1.0
+        ],
+        "albedo_texture": null,
+        "class": "StandardMaterial3D",
+        "metallic_texture": null,
+        "name": "Brushed steel",
+        "normal_texture": null,
+        "path": "res://SwordHold_Static.glb::StandardMaterial3D_ocnnc",
+        "roughness_texture": null
+      },
+      {
+        "albedo_color": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "albedo_texture": {
+          "class": "CompressedTexture2D",
+          "height": 1024,
+          "path": "res://SwordHold_Static_Arm_Leather_BaseColor.png",
+          "width": 1024
+        },
+        "class": "StandardMaterial3D",
+        "metallic_texture": null,
+        "name": "Reference matched arm leather.002",
+        "normal_texture": {
+          "class": "CompressedTexture2D",
+          "height": 1024,
+          "path": "res://SwordHold_Static_Arm_Leather_Normal.png",
+          "width": 1024
+        },
+        "path": "res://SwordHold_Static.glb::StandardMaterial3D_e5nr0",
+        "roughness_texture": null
+      },
+      {
+        "albedo_color": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "albedo_texture": {
+          "class": "CompressedTexture2D",
+          "height": 1024,
+          "path": "res://SwordHold_Static_Arm_Leather_BaseColor.png",
+          "width": 1024
+        },
+        "class": "StandardMaterial3D",
+        "metallic_texture": null,
+        "name": "Reference matched arm leather.003",
+        "normal_texture": {
+          "class": "CompressedTexture2D",
+          "height": 1024,
+          "path": "res://SwordHold_Static_Arm_Leather_Normal.png",
+          "width": 1024
+        },
+        "path": "res://SwordHold_Static.glb::StandardMaterial3D_yl83i",
+        "roughness_texture": null
+      },
+      {
+        "albedo_color": [
+          0.303532063961029,
+          0.209065616130829,
+          0.142825692892075,
+          1.0
+        ],
+        "albedo_texture": null,
+        "class": "StandardMaterial3D",
+        "metallic_texture": null,
+        "name": "Leather edge",
+        "normal_texture": null,
+        "path": "res://SwordHold_Static.glb::StandardMaterial3D_wkiwt",
+        "roughness_texture": null
+      },
+      {
+        "albedo_color": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "albedo_texture": {
+          "class": "CompressedTexture2D",
+          "height": 2048,
+          "path": "res://SwordHold_Static_Glove_Reference_BaseColor.png",
+          "width": 2048
+        },
+        "class": "StandardMaterial3D",
+        "metallic_texture": {
+          "class": "CompressedTexture2D",
+          "height": 2048,
+          "path": "res://SwordHold_Static_Glove_Reference_Roughness.png",
+          "width": 2048
+        },
+        "name": "Reference matched leather",
+        "normal_texture": {
+          "class": "CompressedTexture2D",
+          "height": 2048,
+          "path": "res://SwordHold_Static_Glove_Reference_Normal.png",
+          "width": 2048
+        },
+        "path": "res://SwordHold_Static.glb::StandardMaterial3D_ibwpc",
+        "roughness_texture": {
+          "class": "CompressedTexture2D",
+          "height": 2048,
+          "path": "res://SwordHold_Static_Glove_Reference_Roughness.png",
+          "width": 2048
+        }
+      },
+      {
+        "albedo_color": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "albedo_texture": {
+          "class": "CompressedTexture2D",
+          "height": 1254,
+          "path": "res://SwordHold_Static_weapon_material_atlas_v2.png",
+          "width": 1254
+        },
+        "class": "StandardMaterial3D",
+        "metallic_texture": null,
+        "name": "FP_SwordFuller__GameMaterial",
+        "normal_texture": {
+          "class": "CompressedTexture2D",
+          "height": 1254,
+          "path": "res://SwordHold_Static_weapon_material_normal_v2.png",
+          "width": 1254
+        },
+        "path": "res://SwordHold_Static.glb::StandardMaterial3D_ccxbk",
+        "roughness_texture": null
+      },
+      {
+        "albedo_color": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "albedo_texture": {
+          "class": "CompressedTexture2D",
+          "height": 1254,
+          "path": "res://SwordHold_Static_weapon_material_atlas_v2.png",
+          "width": 1254
+        },
+        "class": "StandardMaterial3D",
+        "metallic_texture": null,
+        "name": "FP_SwordLeather__GameMaterial",
+        "normal_texture": {
+          "class": "CompressedTexture2D",
+          "height": 1254,
+          "path": "res://SwordHold_Static_weapon_material_normal_v2.png",
+          "width": 1254
+        },
+        "path": "res://SwordHold_Static.glb::StandardMaterial3D_yueau",
+        "roughness_texture": null
+      },
+      {
+        "albedo_color": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "albedo_texture": {
+          "class": "CompressedTexture2D",
+          "height": 1254,
+          "path": "res://SwordHold_Static_weapon_material_atlas_v2.png",
+          "width": 1254
+        },
+        "class": "StandardMaterial3D",
+        "metallic_texture": null,
+        "name": "FP_SwordEdge__GameMaterial",
+        "normal_texture": {
+          "class": "CompressedTexture2D",
+          "height": 1254,
+          "path": "res://SwordHold_Static_weapon_material_normal_v2.png",
+          "width": 1254
+        },
+        "path": "res://SwordHold_Static.glb::StandardMaterial3D_s531g",
+        "roughness_texture": null
+      },
+      {
+        "albedo_color": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "albedo_texture": {
+          "class": "CompressedTexture2D",
+          "height": 1254,
+          "path": "res://SwordHold_Static_weapon_material_atlas_v2.png",
+          "width": 1254
+        },
+        "class": "StandardMaterial3D",
+        "metallic_texture": null,
+        "name": "FP_SwordFurniture__GameMaterial",
+        "normal_texture": {
+          "class": "CompressedTexture2D",
+          "height": 1254,
+          "path": "res://SwordHold_Static_weapon_material_normal_v2.png",
+          "width": 1254
+        },
+        "path": "res://SwordHold_Static.glb::StandardMaterial3D_0c65f",
+        "roughness_texture": null
+      }
+    ],
+    "mesh_count": 11,
+    "meshes": [
+      {
+        "aabb_max": [
+          0.355875849723816,
+          -0.0682197511196136,
+          -0.23749053478241
+        ],
+        "aabb_min": [
+          0.228459790349007,
+          -0.213186234235764,
+          -0.496552348136902
+        ],
+        "bounds_method": "actual transformed vertices",
+        "conservative_transformed_aabb_max": [
+          0.452959716320038,
+          -0.0316879004240036,
+          -0.203451573848724
+        ],
+        "conservative_transformed_aabb_min": [
+          0.156620889902115,
+          -0.250658810138702,
+          -0.521723866462708
+        ],
+        "name": "RightArm_Forearm_Surface",
+        "skin": false,
+        "surfaces": 3,
+        "transform_determinant": 1.0,
+        "vertices": 3084,
+        "vertices_at_or_behind_camera": 0
+      },
+      {
+        "aabb_max": [
+          0.35057008266449,
+          -0.0682118237018585,
+          0.0970576703548431
+        ],
+        "aabb_min": [
+          0.165754958987236,
+          -0.26072958111763,
+          -0.30217182636261
+        ],
+        "bounds_method": "actual transformed vertices",
+        "conservative_transformed_aabb_max": [
+          0.490556836128235,
+          -0.0168219208717346,
+          0.143211364746094
+        ],
+        "conservative_transformed_aabb_min": [
+          0.0581838823854923,
+          -0.318354547023773,
+          -0.33798223733902
+        ],
+        "name": "RightArm_UpperArm_Surface",
+        "skin": false,
+        "surfaces": 1,
+        "transform_determinant": 1.0,
+        "vertices": 4158,
+        "vertices_at_or_behind_camera": 948
+      },
+      {
+        "aabb_max": [
+          0.351751983165741,
+          -0.0739988684654236,
+          -0.448462814092636
+        ],
+        "aabb_min": [
+          0.273936927318573,
+          -0.173640340566635,
+          -0.532468557357788
+        ],
+        "bounds_method": "actual transformed vertices",
+        "conservative_transformed_aabb_max": [
+          0.389527976512909,
+          -0.0578007251024246,
+          -0.426771610975266
+        ],
+        "conservative_transformed_aabb_min": [
+          0.241864532232285,
+          -0.189986601471901,
+          -0.552293062210083
+        ],
+        "name": "RightArm_WristCuff_Surface",
+        "skin": false,
+        "surfaces": 2,
+        "transform_determinant": 1.0,
+        "vertices": 1062,
+        "vertices_at_or_behind_camera": 0
+      },
+      {
+        "aabb_max": [
+          0.378652572631836,
+          -0.0486415922641754,
+          -0.489689946174622
+        ],
+        "aabb_min": [
+          0.270758032798767,
+          -0.179794877767563,
+          -0.655404031276703
+        ],
+        "bounds_method": "actual transformed vertices",
+        "conservative_transformed_aabb_max": [
+          0.424159586429596,
+          -0.0268740355968475,
+          -0.471730291843414
+        ],
+        "conservative_transformed_aabb_min": [
+          0.207182064652443,
+          -0.209237098693848,
+          -0.674137532711029
+        ],
+        "name": "RightHand_Glove",
+        "skin": false,
+        "surfaces": 1,
+        "transform_determinant": 1.0,
+        "vertices": 14177,
+        "vertices_at_or_behind_camera": 0
+      },
+      {
+        "aabb_max": [
+          0.46376633644104,
+          0.97023606300354,
+          -0.488939225673676
+        ],
+        "aabb_min": [
+          0.320875287055969,
+          0.0188795924186707,
+          -0.594378173351288
+        ],
+        "bounds_method": "actual transformed vertices",
+        "conservative_transformed_aabb_max": [
+          0.695373296737671,
+          0.971272468566895,
+          -0.406461775302887
+        ],
+        "conservative_transformed_aabb_min": [
+          0.100446313619614,
+          0.015047512948513,
+          -0.673763334751129
+        ],
+        "name": "Sword_FullerPolishedChannel",
+        "skin": false,
+        "surfaces": 1,
+        "transform_determinant": 1.0,
+        "vertices": 190,
+        "vertices_at_or_behind_camera": 0
+      },
+      {
+        "aabb_max": [
+          0.338419437408447,
+          -0.0271186232566834,
+          -0.573499202728271
+        ],
+        "aabb_min": [
+          0.285840451717377,
+          -0.174132138490677,
+          -0.622306287288666
+        ],
+        "bounds_method": "actual transformed vertices",
+        "conservative_transformed_aabb_max": [
+          0.377120047807693,
+          -0.0156773775815964,
+          -0.558343708515167
+        ],
+        "conservative_transformed_aabb_min": [
+          0.245080709457397,
+          -0.178845271468163,
+          -0.638069331645966
+        ],
+        "name": "Sword_GripBinding",
+        "skin": false,
+        "surfaces": 1,
+        "transform_determinant": 1.0,
+        "vertices": 8732,
+        "vertices_at_or_behind_camera": 0
+      },
+      {
+        "aabb_max": [
+          0.318394899368286,
+          -0.169600754976273,
+          -0.587887525558472
+        ],
+        "aabb_min": [
+          0.265815854072571,
+          -0.316614359617233,
+          -0.636694550514221
+        ],
+        "bounds_method": "actual transformed vertices",
+        "conservative_transformed_aabb_max": [
+          0.357095450162888,
+          -0.15815956890583,
+          -0.572731971740723
+        ],
+        "conservative_transformed_aabb_min": [
+          0.225056141614914,
+          -0.321327447891235,
+          -0.652457654476166
+        ],
+        "name": "Sword_GripBinding_Extension",
+        "skin": false,
+        "surfaces": 1,
+        "transform_determinant": 1.0,
+        "vertices": 8732,
+        "vertices_at_or_behind_camera": 0
+      },
+      {
+        "aabb_max": [
+          0.339302003383636,
+          -0.0255727171897888,
+          -0.573381662368774
+        ],
+        "aabb_min": [
+          0.285455644130707,
+          -0.174880117177963,
+          -0.622551918029785
+        ],
+        "bounds_method": "actual transformed vertices",
+        "conservative_transformed_aabb_max": [
+          0.377045452594757,
+          -0.0160642117261887,
+          -0.55821681022644
+        ],
+        "conservative_transformed_aabb_min": [
+          0.243165388703346,
+          -0.183292061090469,
+          -0.639086902141571
+        ],
+        "name": "Sword_GripLeather",
+        "skin": false,
+        "surfaces": 1,
+        "transform_determinant": 1.0,
+        "vertices": 1625,
+        "vertices_at_or_behind_camera": 0
+      },
+      {
+        "aabb_max": [
+          0.319277465343475,
+          -0.168054908514023,
+          -0.58776992559433
+        ],
+        "aabb_min": [
+          0.265431106090546,
+          -0.317362278699875,
+          -0.636940181255341
+        ],
+        "bounds_method": "actual transformed vertices",
+        "conservative_transformed_aabb_max": [
+          0.357020914554596,
+          -0.158546388149261,
+          -0.572605073451996
+        ],
+        "conservative_transformed_aabb_min": [
+          0.223140805959702,
+          -0.325774192810059,
+          -0.653475224971771
+        ],
+        "name": "Sword_GripLeather_Extension",
+        "skin": false,
+        "surfaces": 1,
+        "transform_determinant": 1.0,
+        "vertices": 1625,
+        "vertices_at_or_behind_camera": 0
+      },
+      {
+        "aabb_max": [
+          0.468409478664398,
+          1.01627588272095,
+          -0.485615730285645
+        ],
+        "aabb_min": [
+          0.302694380283356,
+          -0.0186233520507813,
+          -0.612569808959961
+        ],
+        "bounds_method": "actual transformed vertices",
+        "conservative_transformed_aabb_max": [
+          0.740773320198059,
+          1.0163391828537,
+          -0.388822376728058
+        ],
+        "conservative_transformed_aabb_min": [
+          0.0778294503688812,
+          -0.0296543315052986,
+          -0.689839243888855
+        ],
+        "name": "Sword_PittedBlade",
+        "skin": false,
+        "surfaces": 2,
+        "transform_determinant": 1.0,
+        "vertices": 726,
+        "vertices_at_or_behind_camera": 0
+      },
+      {
+        "aabb_max": [
+          0.43259334564209,
+          0.0444776713848114,
+          -0.475501120090485
+        ],
+        "aabb_min": [
+          0.221727594733238,
+          -0.36606553196907,
+          -0.699822306632996
+        ],
+        "bounds_method": "actual transformed vertices",
+        "conservative_transformed_aabb_max": [
+          0.482699930667877,
+          0.0991229116916656,
+          -0.473225712776184
+        ],
+        "conservative_transformed_aabb_min": [
+          0.042304515838623,
+          -0.388937085866928,
+          -0.72923618555069
+        ],
+        "name": "Sword_SwordsmanLongsword_Surface",
+        "skin": false,
+        "surfaces": 2,
+        "transform_determinant": 1.0,
+        "vertices": 1860,
+        "vertices_at_or_behind_camera": 0
+      }
+    ],
+    "original_game_modified": false,
+    "pass": true,
+    "root_name": "SwordHold_Static2"
+  },
+  "functional_import_pass": true,
+  "all_geometry_in_front": false,
+  "allowed_upper_arm_connection_tail": {
+    "actual_max_z_m": 0.0970576703548431,
+    "mesh": "RightArm_UpperArm_Surface",
+    "reason": "Intentional offscreen upper-arm connection tail for this FPS pose; visible hand, sword, cuff and forearm remain in front. No geometry was trimmed to satisfy the diagnostic.",
+    "vertices_at_or_behind_camera": 948
+  },
+  "scratch": "C:\\Users\\duq71\\Documents\\Codex\\2026-09-08\\d\\work\\new-motion\\first-person-four\\verification\\godot_2b94cc385f83"
+}

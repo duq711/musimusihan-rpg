@@ -1,0 +1,33 @@
+[HEADLESS] sword_edge_alignment_test.gd
+SWORD EDGE SHIELD RESAMPLE {"max_angle_degrees":0.0395646811852521,"max_position_m":0.000182841555215418,"samples":1736}
+SWORD EDGE ALIGNMENT PASS {"aesthetic_quality_evaluated":false,"baseline":"all_other_clips_preserved; original_shield_curve_within_1mm_0.1deg","contract":"inverse_preparation_and_cut; existing_pose_recovery_without_source_hold","correspondence":{"max_axis_error":0.00000038165595128703,"max_joint_m":0.0000000298023223876953,"max_position_m":0.0000000298023223876953,"samples":161},"left_reverse_wrist":{"exact_keys":174,"max_segment_length_m":0.0000000798702239901417,"max_wrist_m":0.0000000682857006495396},"recovery":{"idle_endpoint_checked":true,"matched_existing_pose_keys":141,"total_keys":141},"right_diagonal_wrist":{"exact_keys":141,"max_segment_length_m":0.0000000631809234374892,"max_wrist_m":0.0000000682857006495396},"sweep":{"blade_65cm":{"after_contact":89,"before_contact":48,"least_opposite_dot":-0.999999821186066,"max_velocity_sum_m_per_s":0.000188612611964345,"moving_samples":139},"center":{"after_contact":89,"before_contact":48,"least_opposite_dot":-0.999999761581421,"max_velocity_sum_m_per_s":0.000163501608767547,"moving_samples":139},"contact_grip_x_m_per_s":{"left_reverse":16.7436447143555,"right_diagonal":-16.7436294555664},"tip":{"after_contact":89,"before_contact":48,"least_opposite_dot":-0.99999988079071,"max_velocity_sum_m_per_s":0.000253413716563955,"moving_samples":139}}}
+[HEADLESS] sword_direct_entry_test.gd
+DIRECT ENTRY shield right_diagonal hold=0.00 duration_ms=145.0 held_pose_mm=0.0002384185791 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00045657157899 authored_mm=0.0 authored_deg=0.03956468118525 charge=0.0 spends=1
+DIRECT ENTRY shield right_diagonal hold=0.45 duration_ms=145.0 held_pose_mm=0.0002384185791 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.0003910064697 authored_mm=0.0 authored_deg=0.03956468118525 charge=0.21833333333333 spends=1
+DIRECT ENTRY shield left_reverse hold=0.00 duration_ms=100.0 held_pose_mm=0.0002384185791 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00050306320193 authored_mm=0.00002980232239 authored_deg=0.03956468118525 charge=0.0 spends=1
+DIRECT ENTRY shield left_reverse hold=0.45 duration_ms=100.0 held_pose_mm=0.0002384185791 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00049710273742 authored_mm=0.00002980232239 authored_deg=0.03956468118525 charge=0.21833333333333 spends=1
+DIRECT ENTRY shield overhead hold=0.00 duration_ms=100.0 held_pose_mm=0.0002384185791 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00051617622376 authored_mm=0.00000023283064 authored_deg=0.05595290968074 charge=0.0 spends=1
+DIRECT ENTRY shield overhead hold=0.45 duration_ms=100.0 held_pose_mm=0.0002384185791 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00048041343687 authored_mm=0.0 authored_deg=0.03956468118525 charge=0.21833333333333 spends=1
+DIRECT ENTRY two_hand right_diagonal hold=0.00 duration_ms=145.0 held_pose_mm=0.00029802322388 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00045061111448 authored_mm=0.0 authored_deg=0.03956468118525 charge=0.0 spends=1
+DIRECT ENTRY two_hand right_diagonal hold=0.45 duration_ms=145.0 held_pose_mm=0.00029802322388 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00054597854615 authored_mm=0.00002980232239 authored_deg=0.03956468118525 charge=0.21833333333333 spends=1
+DIRECT ENTRY two_hand left_reverse hold=0.00 duration_ms=100.0 held_pose_mm=0.00029802322388 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00048637390138 authored_mm=0.00002980232239 authored_deg=0.03956468118525 charge=0.0 spends=1
+DIRECT ENTRY two_hand left_reverse hold=0.45 duration_ms=100.0 held_pose_mm=0.00029802322388 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00046730041503 authored_mm=0.00002980232239 authored_deg=0.03956468118525 charge=0.21833333333333 spends=1
+DIRECT ENTRY two_hand overhead hold=0.00 duration_ms=100.0 held_pose_mm=0.00029802322388 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00041365623477 authored_mm=0.00002980232239 authored_deg=0.05595290968074 charge=0.0 spends=1
+DIRECT ENTRY two_hand overhead hold=0.45 duration_ms=100.0 held_pose_mm=0.00029802322388 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00045061111448 authored_mm=0.00002980232239 authored_deg=0.03956468118525 charge=0.21833333333333 spends=1
+SWORD DIRECT ENTRY PASS: held WINDUP, forehand 145ms / reverse-overhead 100ms entry, exact contact, release/charge/cost clocks and expedition preservation; target damage is covered by sword_attack_variants
+[HEADLESS] reference_sword_arm_player_test.gd
+REFERENCE SWORD ARM PLAYER PASS: analytical fixture only; actual_delivery_evaluated=false; actual meshes, 30/60/120Hz clocks, handoffs, blade clash, F2 and reset
+[HEADLESS] sword_recovery_continuity_test.gd
+RECOVERY METRIC true right_diagonal peak_deg=4.46282425934518 boundary_m=0.0001772637479
+RECOVERY METRIC true left_reverse peak_deg=11.9420034901406 boundary_m=0.00013100702199
+RECOVERY METRIC true overhead peak_deg=14.1934276471945 boundary_m=0.00013590096205
+RECOVERY METRIC false right_diagonal peak_deg=4.46282425934518 boundary_m=0.00016720865096
+RECOVERY METRIC false left_reverse peak_deg=11.9420034901406 boundary_m=0.00032122660195
+RECOVERY METRIC false overhead peak_deg=14.1934276471945 boundary_m=0.00026330872788
+SWORD RECOVERY CONTINUITY PASS
+[HEADLESS] reference_sword_motion_test_room_test.gd
+REFERENCE SWORD MOTION TEST ROOM PASS: five playable fixtures, two-hand basic/reverse target hits and grip, actual run/jump/landing/collision, repeated F2, reset and original expedition restoration
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2535)
+
+Headless validation: 5 passed, 0 failed.

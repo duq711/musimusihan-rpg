@@ -1,0 +1,57 @@
+[HEADLESS] sword_forehand_grip_test.gd
+FOREHAND GRIP shield/right_diagonal/hold=0.00 preserved_grip_mm=0.00026822090149 entry_grip_line_mm=0.1379893074045 post_contact_plane_error=0.00000008447871 first_ready_residual_degrees=0.02503467539608 entry_shortest_degrees=115.382548925498 actual_entry_degrees=115.382538822441 recovery_turn_degrees=180.000000106722
+FOREHAND GRIP shield/right_diagonal/hold=0.45 preserved_grip_mm=0.0002665600789 entry_grip_line_mm=0.09062651224667 post_contact_plane_error=0.000000059866 first_ready_residual_degrees=0.00163486981042 entry_shortest_degrees=115.382548925498 actual_entry_degrees=115.382538602404 recovery_turn_degrees=180.000000213443
+FOREHAND GRIP shield/left_reverse/hold=0.00 preserved_grip_mm=0.0 entry_grip_line_mm=0.0 post_contact_plane_error=0.0 first_ready_residual_degrees=0.00000032016512 entry_shortest_degrees=115.382548925498 actual_entry_degrees=0.0 recovery_turn_degrees=0.0
+FOREHAND GRIP shield/overhead/hold=0.00 preserved_grip_mm=0.0 entry_grip_line_mm=0.0 post_contact_plane_error=0.0 first_ready_residual_degrees=0.00000021344341 entry_shortest_degrees=172.595605967653 actual_entry_degrees=0.0 recovery_turn_degrees=0.0
+FOREHAND GRIP two_hand/right_diagonal/hold=0.00 preserved_grip_mm=0.00026822090149 entry_grip_line_mm=0.1379893074045 post_contact_plane_error=0.00000008437598 first_ready_residual_degrees=0.02503467539608 entry_shortest_degrees=115.382548925498 actual_entry_degrees=115.382538822441 recovery_turn_degrees=180.000000106722
+FOREHAND GRIP two_hand/right_diagonal/hold=0.45 preserved_grip_mm=0.0002665600789 entry_grip_line_mm=0.09062651224667 post_contact_plane_error=0.000000059866 first_ready_residual_degrees=0.00163486981042 entry_shortest_degrees=115.382548925498 actual_entry_degrees=115.382538602404 recovery_turn_degrees=180.000000213443
+FOREHAND GRIP two_hand/left_reverse/hold=0.00 preserved_grip_mm=0.0 entry_grip_line_mm=0.0 post_contact_plane_error=0.0 first_ready_residual_degrees=0.00000032016512 entry_shortest_degrees=115.382548925498 actual_entry_degrees=0.0 recovery_turn_degrees=0.0
+FOREHAND GRIP two_hand/overhead/hold=0.00 preserved_grip_mm=0.0 entry_grip_line_mm=0.0 post_contact_plane_error=0.0 first_ready_residual_degrees=0.00000021344341 entry_shortest_degrees=172.595605967653 actual_entry_degrees=0.0 recovery_turn_degrees=0.0
+ERROR: shield/right_diagonal/hold=0.00: immediate entry must follow the direct held-to-contact grip segment and rejoin the preserved contact endpoint.
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_forehand_grip_test.gd:417)
+       [1] _run (res://tests/sword_forehand_grip_test.gd:78)
+       [2] _test_f2 (res://tests/sword_forehand_grip_test.gd:355)
+ERROR: shield/right_diagonal/hold=0.45: immediate entry must follow the direct held-to-contact grip segment and rejoin the preserved contact endpoint.
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_forehand_grip_test.gd:417)
+       [1] _run (res://tests/sword_forehand_grip_test.gd:78)
+       [2] _test_f2 (res://tests/sword_forehand_grip_test.gd:355)
+ERROR: two_hand/right_diagonal/hold=0.00: immediate entry must follow the direct held-to-contact grip segment and rejoin the preserved contact endpoint.
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_forehand_grip_test.gd:417)
+       [1] _run (res://tests/sword_forehand_grip_test.gd:78)
+       [2] _test_f2 (res://tests/sword_forehand_grip_test.gd:355)
+ERROR: two_hand/right_diagonal/hold=0.45: immediate entry must follow the direct held-to-contact grip segment and rejoin the preserved contact endpoint.
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_forehand_grip_test.gd:417)
+       [1] _run (res://tests/sword_forehand_grip_test.gd:78)
+       [2] _test_f2 (res://tests/sword_forehand_grip_test.gd:355)
+SWORD FOREHAND GRIP FAIL: paired actual players; immediate release, direct grip approach and one shortest contact entry; preserved post-contact grip/charge/assets; reversed contact axes; fitted two-hand contacts; clash/cancel/F2 isolation; aesthetic quality not evaluated
+[HEADLESS] sword_direct_entry_test.gd
+DIRECT ENTRY shield right_diagonal hold=0.00 duration_ms=145.0 held_pose_mm=0.0 windup_deg=0.0 entry_mm=0.0 arm_length_mm=0.00048041343687 authored_mm=0.00005960464478 authored_deg=0.03956468118525 charge=0.0 spends=1
+DIRECT ENTRY shield right_diagonal hold=0.45 duration_ms=145.0 held_pose_mm=0.0002384185791 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00057578086854 authored_mm=0.00005960464478 authored_deg=0.03956468118525 charge=0.21833333333333 spends=1
+DIRECT ENTRY shield left_reverse hold=0.00 duration_ms=100.0 held_pose_mm=0.0002384185791 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00045657157899 authored_mm=0.00002980232239 authored_deg=0.03956468118525 charge=0.0 spends=1
+DIRECT ENTRY shield left_reverse hold=0.45 duration_ms=100.0 held_pose_mm=0.0002384185791 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00046730041503 authored_mm=0.00002980232239 authored_deg=0.03956468118525 charge=0.21833333333333 spends=1
+DIRECT ENTRY shield overhead hold=0.00 duration_ms=100.0 held_pose_mm=0.0002384185791 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00043749809264 authored_mm=0.00002980232239 authored_deg=0.05595290968074 charge=0.0 spends=1
+DIRECT ENTRY shield overhead hold=0.45 duration_ms=100.0 held_pose_mm=0.0002384185791 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00048637390138 authored_mm=0.0 authored_deg=0.03956468118525 charge=0.21833333333333 spends=1
+DIRECT ENTRY two_hand right_diagonal hold=0.00 duration_ms=145.0 held_pose_mm=0.0 windup_deg=0.0 entry_mm=0.0 arm_length_mm=0.00051021575925 authored_mm=0.00005960464478 authored_deg=0.03956468118525 charge=0.0 spends=1
+DIRECT ENTRY two_hand right_diagonal hold=0.45 duration_ms=145.0 held_pose_mm=0.00029802322388 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00046730041503 authored_mm=0.00005960464478 authored_deg=0.03956468118525 charge=0.21833333333333 spends=1
+DIRECT ENTRY two_hand left_reverse hold=0.00 duration_ms=100.0 held_pose_mm=0.00029802322388 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00051617622376 authored_mm=0.00002980232239 authored_deg=0.03956468118525 charge=0.0 spends=1
+DIRECT ENTRY two_hand left_reverse hold=0.45 duration_ms=100.0 held_pose_mm=0.00029802322388 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00043749809264 authored_mm=0.00002980232239 authored_deg=0.03956468118525 charge=0.21833333333333 spends=1
+DIRECT ENTRY two_hand overhead hold=0.00 duration_ms=100.0 held_pose_mm=0.00029802322388 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00040769577025 authored_mm=0.0 authored_deg=0.05595290968074 charge=0.0 spends=1
+DIRECT ENTRY two_hand overhead hold=0.45 duration_ms=100.0 held_pose_mm=0.00029802322388 windup_deg=0.03956468118525 entry_mm=0.0 arm_length_mm=0.00048041343687 authored_mm=0.00002980232239 authored_deg=0.03956468118525 charge=0.21833333333333 spends=1
+SWORD DIRECT ENTRY PASS: held WINDUP, forehand opposite contact axes at the original grip, unchanged reverse/overhead, actual wrist and arm lengths, release/charge/cost clocks and expedition preservation; target damage is covered by sword_attack_variants
+[HEADLESS] reference_sword_arm_player_test.gd
+REFERENCE SWORD ARM PLAYER PASS: analytical fixture only; actual_delivery_evaluated=false; actual meshes, 30/60/120Hz clocks, handoffs, blade clash, F2 and reset
+[HEADLESS] reference_sword_motion_test_room_test.gd
+REFERENCE SWORD MOTION TEST ROOM PASS: five playable fixtures, two-hand basic/reverse target hits and grip, actual run/jump/landing/collision, repeated F2, reset and original expedition restoration
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2535)
+
+Headless validation: 3 passed, 1 failed.
+FAILED: sword_forehand_grip_test.gd (1)

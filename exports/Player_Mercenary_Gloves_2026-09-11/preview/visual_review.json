@@ -1,0 +1,25 @@
+{
+  "status": "reviewed",
+  "reviewer": "finger_four_views agent",
+  "source_sha256": "7d883a0b3d997db5d1a760df1d6f0db31d698f5d615d94f2c821a00cb647d10b",
+  "render_report_sha256": "d94b3997075d2ca6185297b812ceba1f6e209dd14097fdfe180c07741ca51934",
+  "directly_viewed": [
+    "gloves_dorsal",
+    "gloves_palmar"
+  ],
+  "checks": {
+    "whole_bilateral_hands_with_all_ten_fingers_in_frame": true,
+    "both_hands_have_brown_leather_coverage": true,
+    "no_exposed_skin_or_standalone_nail_visible": true,
+    "previous_black_thumb_slit_absent": true,
+    "previous_palm_pseudo_nail_stitch_patterns_removed": true,
+    "actual_model_materials_no_clay_override": true,
+    "source_file_and_datablocks_unchanged": true
+  },
+  "limitations": [
+    "Shallow inherited fingertip nail-bed contours remain visible in close inspection.",
+    "The leather is visually smooth at this whole-hand scale; this review does not claim photoreal skin reproduction."
+  ],
+  "prior_iteration_rejected": "iteration_01 used unbaked right-hand UV regions and padding separated originally coincident vertices. Constant-grey render confirmed thumb cracks were geometry, and source-point audit measured up to 2.434 mm separation.",
+  "game_validation": "Handled separately by root; this report covers actual Blender visuals only."
+}

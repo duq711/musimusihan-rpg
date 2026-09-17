@@ -1,0 +1,40 @@
+{
+  "result": "Bandage change verified in isolated pre-splint integration snapshot",
+  "motion_source_identical_to_game": true,
+  "source_hashes": {
+    "res://scripts/bandage_use_visuals.gd": "f4c953dfe348caeae5b69ce43a751128d56c9a58b77ebac5aa36f304339a739f",
+    "res://scripts/player.gd": "09056d7da8f3c4c6663bc036cd5092ac04879b27083d63029a7ad7242acb83e4"
+  },
+  "tests": {
+    "final_motion": "final_motion_test.log: 1 passed, 0 failed",
+    "health_routes": "isolated_tests.log: BODY HEALTH ROUTES TEST PASS",
+    "test_room": "isolated_room_test.log: 1 passed, 0 failed"
+  },
+  "visual_review": {
+    "frames": 176,
+    "fps": 30,
+    "reviewed_frames": [
+      118,
+      119,
+      120,
+      123,
+      126
+    ],
+    "renderer": "vulkan",
+    "state_and_sources_preserved": true
+  },
+  "isolation": {
+    "player_and_room_baseline": "asset-staging/splint_20260915/baseline",
+    "only_test_exclusion": "New _check_splint_trial call and function excluded only in QA copy; all bandage/health/session checks retained",
+    "reason": "Concurrent splint integration referenced an unimported wood_linen_splint.glb. Live player and splint work were not changed."
+  },
+  "initial_failures": [
+    "Cloud dataless sources caused timeouts and incomplete reads; sources materialized through read-only access.",
+    "Initial torn-tail clearance assertion assumed 8cm; adjusted to 3cm for a 4.5cm tail.",
+    "First render obscured tear below receiving forearm; final finish lifts arm 12cm and moves roll toward camera."
+  ],
+  "limitations": [
+    "No OS input test",
+    "Current live full-project integration is not claimed verified because of concurrent splint asset import work."
+  ]
+}

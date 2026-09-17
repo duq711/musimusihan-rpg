@@ -1,0 +1,67 @@
+{
+  "date": "2026-09-13",
+  "request": "Keep the approved right-to-left forehand movement and reverse the held sword model direction.",
+  "implemented": [
+    "Final composed sword pose rotates around the actual GRIP_CENTER; contact local X/Y axes reversed and Z plane normal preserved.",
+    "Existing glove turns with the sword; original sleeve and support-hand fitting follow the final wrist and grip.",
+    "WINDUP unchanged; no added preparation; existing timing, charge, damage, stamina and shield rules preserved.",
+    "Recovery corrects toward the original upright idle, retaining the existing 100ms handoff."
+  ],
+  "latest_passed_suites": [
+    "sword_direct_entry",
+    "reference_sword_arm_player",
+    "sword_forehand_grip",
+    "sword_recovery_continuity",
+    "sword_two_hand_grip",
+    "reference_sword_motion_test_room",
+    "reference_sword_cut_preview",
+    "sword_edge_alignment"
+  ],
+  "suite_scope_note": "sword_edge_alignment checks preserved authored source curves. sword_forehand_grip independently compares actual corrected and uncorrected production players.",
+  "logs": [
+    "first_tests.log",
+    "final_regressions.log",
+    "forehand_grip_final.log"
+  ],
+  "initial_test_failure": {
+    "log": "final_regressions.log",
+    "cause": "The new test expected exact idle on the first READY frame, before the existing 100ms handoff had finished. Max measured residual rotation was 0.0250346754 degrees. Production was unchanged; the corrected test bounds the first READY residual and verifies exact idle after the full handoff.",
+    "final_result": "PASS in forehand_grip_final.log"
+  },
+  "actual_geometry": {
+    "max_grip_path_difference_mm": 0.00026822090149,
+    "full_contact_direction": "right, where prior production baseline pointed left",
+    "right_and_left_hand_contacts_checked": true,
+    "reverse_and_overhead_runtime_paths_unchanged": true,
+    "clash_cancel_f2_captured_pose_checked": true
+  },
+  "captures": {
+    "captures": {
+      "forehand_grip_direction_two_hand": {
+        "actual_frames": 182,
+        "unchanged_reverse_pngs": 91,
+        "current_source_hashes_match": true,
+        "expedition_and_cursor_preserved": true
+      },
+      "forehand_grip_direction_shield": {
+        "actual_frames": 182,
+        "unchanged_reverse_pngs": 91,
+        "current_source_hashes_match": true,
+        "expedition_and_cursor_preserved": true
+      }
+    },
+    "frames": 182,
+    "fps": 60,
+    "video": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/godot-game/artifacts/visual_qa/reference_sword_motion/forehand_grip_direction_comparison/forehand_grip_comparison.mp4"
+  },
+  "known_failure": {
+    "suite": "sword_clash",
+    "log": "clash_check.log",
+    "same_five_natural_contact_assertions_as_previous": true,
+    "previous_log": "../sword_forehand_from_reverse_20260913/final_clash.log",
+    "not_counted_as_pass": true
+  },
+  "source_preservation": "source_preservation.json",
+  "visual_review": "visual_review.json",
+  "aesthetic_user_approval": false
+}

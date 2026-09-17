@@ -1,0 +1,1469 @@
+{
+  "source": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/player_hands_realism_20260911/mac_output/iteration_04/bilateral_hands_realistic.blend",
+  "source_sha256": "cbf03527f6471047848cd17ac8b972e0fd4f2caee2c704b4e2c53304d8c86e67",
+  "scene": "Bilateral_Realistic_Review",
+  "sides": {
+    "left": {
+      "skin": "ContinuousAnatomicalHand.001",
+      "rig": "HandRig.001",
+      "vertices": 14988,
+      "physical_vertices": 12036,
+      "physical_triangles": 22706,
+      "trim_vertices": 2952,
+      "trim_triangles": 5528,
+      "physical_to_trim_crossing_faces": 0,
+      "material_triangle_counts": {
+        "Detailed_Skin": 11655,
+        "Detailed_Glove": 13931,
+        "Detailed_Trim": 2648
+      },
+      "physical_bounds": {
+        "min_m": [
+          -0.08961544930934906,
+          -0.02069675363600254,
+          -0.039377257227897644
+        ],
+        "max_m": [
+          0.10343863070011139,
+          0.20078308880329132,
+          0.043448712676763535
+        ]
+      },
+      "joint_keys": [
+        "Basis",
+        "Joint_thumb_0",
+        "Joint_thumb_1",
+        "Joint_thumb_2",
+        "Joint_index_0",
+        "Joint_index_1",
+        "Joint_index_2",
+        "Joint_middle_0",
+        "Joint_middle_1",
+        "Joint_middle_2",
+        "Joint_ring_0",
+        "Joint_ring_1",
+        "Joint_ring_2",
+        "Joint_little_0",
+        "Joint_little_1",
+        "Joint_little_2"
+      ],
+      "bone_count": 16,
+      "wrist_native": [
+        0.0,
+        -0.05624999850988388,
+        0.0
+      ],
+      "bone_heads_native": {
+        "wrist": [
+          0.0,
+          -0.05624999850988388,
+          0.0
+        ],
+        "index0": [
+          0.03750000149011612,
+          0.0899999812245369,
+          0.018623866140842438
+        ],
+        "index1": [
+          0.040500007569789886,
+          0.132999986410141,
+          0.02155831642448902
+        ],
+        "index2": [
+          0.042500000447034836,
+          0.16099996864795685,
+          0.013018413446843624
+        ],
+        "little0": [
+          -0.05375000089406967,
+          0.07499999552965164,
+          0.010122790932655334
+        ],
+        "little1": [
+          -0.06975001096725464,
+          0.1080000102519989,
+          0.01325787603855133
+        ],
+        "little2": [
+          -0.07775000482797623,
+          0.12799999117851257,
+          0.00894343201071024
+        ],
+        "middle0": [
+          0.005000001285225153,
+          0.10125000029802322,
+          0.023313142359256744
+        ],
+        "middle1": [
+          0.005999998655170202,
+          0.148250013589859,
+          0.0279347263276577
+        ],
+        "middle2": [
+          0.004999999422580004,
+          0.17624999582767487,
+          0.01826535351574421
+        ],
+        "ring0": [
+          -0.028750000521540642,
+          0.0937500074505806,
+          0.016456320881843567
+        ],
+        "ring1": [
+          -0.03175000101327896,
+          0.13874998688697815,
+          0.023298822343349457
+        ],
+        "ring2": [
+          -0.032750003039836884,
+          0.16475002467632294,
+          0.010118546895682812
+        ],
+        "thumb0": [
+          0.03750000521540642,
+          0.0062499940395355225,
+          -0.005316391587257385
+        ],
+        "thumb1": [
+          0.07500001788139343,
+          0.04374999180436134,
+          -0.015254771336913109
+        ],
+        "thumb2": [
+          0.08700000494718552,
+          0.07174999266862869,
+          -0.022325435653328896
+        ]
+      },
+      "finger_sections": {
+        "thumb": {
+          "joint_0": {
+            "width_mm": 28.602296885329935,
+            "thickness_mm": 52.85949827521108,
+            "intersection_points": 120,
+            "measured_center_native": [
+              0.033472899347543716,
+              0.009572708979249,
+              -0.007974229753017426
+            ],
+            "bone_plane_center_offset_mm": 5.858508340250529
+          },
+          "segment_0_mid": {
+            "width_mm": 47.48065193083864,
+            "thickness_mm": 52.97759082168341,
+            "intersection_points": 152,
+            "measured_center_native": [
+              0.0460975207388401,
+              0.035382866859436035,
+              -0.009416305460035801
+            ],
+            "bone_plane_center_offset_mm": 14.547603899347923
+          },
+          "joint_1": {
+            "width_mm": 49.41278750962311,
+            "thickness_mm": 43.216403617407195,
+            "intersection_points": 162,
+            "measured_center_native": [
+              0.05969999358057976,
+              0.051089804619550705,
+              -0.012155448086559772
+            ],
+            "bone_plane_center_offset_mm": 17.25019843372828
+          },
+          "segment_1_mid": {
+            "width_mm": 26.98755885183904,
+            "thickness_mm": 25.20658254798036,
+            "intersection_points": 132,
+            "measured_center_native": [
+              0.07416835427284241,
+              0.060743119567632675,
+              -0.01853165589272976
+            ],
+            "bone_plane_center_offset_mm": 7.463053177897339
+          },
+          "joint_2": {
+            "width_mm": 26.407260256307683,
+            "thickness_mm": 29.431851718982216,
+            "intersection_points": 140,
+            "measured_center_native": [
+              0.08046301454305649,
+              0.0743260458111763,
+              -0.021364698186516762
+            ],
+            "bone_plane_center_offset_mm": 7.091633978632993
+          },
+          "distal_60_percent": {
+            "width_mm": 22.478735245697553,
+            "thickness_mm": 28.022727266943548,
+            "intersection_points": 168,
+            "measured_center_native": [
+              0.08805889636278152,
+              0.09193672239780426,
+              -0.02545945905148983
+            ],
+            "bone_plane_center_offset_mm": 6.147075932566203
+          },
+          "distal_85_percent": {
+            "width_mm": 18.082465515720617,
+            "thickness_mm": 21.391013189713703,
+            "intersection_points": 162,
+            "measured_center_native": [
+              0.09458097815513611,
+              0.09806632995605469,
+              -0.0267744529992342
+            ],
+            "bone_plane_center_offset_mm": 2.418692907820451
+          },
+          "bone_head_distances_mm": [
+            53.95620864605083,
+            31.272899293118147
+          ],
+          "last_pivot_to_tip_projection_mm": 32.51753083895892
+        },
+        "index": {
+          "joint_0": {
+            "width_mm": 30.645365945097563,
+            "thickness_mm": 38.26267139538686,
+            "intersection_points": 128,
+            "measured_center_native": [
+              0.03523155674338341,
+              0.09000767767429352,
+              0.020830197259783745
+            ],
+            "bone_plane_center_offset_mm": 3.164458533411773
+          },
+          "segment_0_mid": {
+            "width_mm": 30.644406283677228,
+            "thickness_mm": 26.47060417530156,
+            "intersection_points": 132,
+            "measured_center_native": [
+              0.037236910313367844,
+              0.11150284856557846,
+              0.021851573139429092
+            ],
+            "bone_plane_center_offset_mm": 2.491547532700425
+          },
+          "joint_1": {
+            "width_mm": 26.997477444118942,
+            "thickness_mm": 27.9407979487587,
+            "intersection_points": 130,
+            "measured_center_native": [
+              0.043785691261291504,
+              0.13296954333782196,
+              0.022227982059121132
+            ],
+            "bone_plane_center_offset_mm": 3.353370902247659
+          },
+          "segment_1_mid": {
+            "width_mm": 24.1420121555373,
+            "thickness_mm": 21.615673416818026,
+            "intersection_points": 136,
+            "measured_center_native": [
+              0.045991525053977966,
+              0.14702807366847992,
+              0.01843232288956642
+            ],
+            "bone_plane_center_offset_mm": 4.634998201804438
+          },
+          "joint_2": {
+            "width_mm": 23.660651425672718,
+            "thickness_mm": 19.539934743079357,
+            "intersection_points": 136,
+            "measured_center_native": [
+              0.046577807515859604,
+              0.16082686185836792,
+              0.014465977437794209
+            ],
+            "bone_plane_center_offset_mm": 4.33057995978029
+          },
+          "distal_60_percent": {
+            "width_mm": 22.219703400870753,
+            "thickness_mm": 16.942176159773226,
+            "intersection_points": 168,
+            "measured_center_native": [
+              0.04621274024248123,
+              0.17319384217262268,
+              0.005983592476695776
+            ],
+            "bone_plane_center_offset_mm": 3.6335093142650017
+          },
+          "distal_85_percent": {
+            "width_mm": 17.211514678266504,
+            "thickness_mm": 13.350283366889926,
+            "intersection_points": 164,
+            "measured_center_native": [
+              0.04675448685884476,
+              0.1789187639951706,
+              0.004680786281824112
+            ],
+            "bone_plane_center_offset_mm": 3.1299924136777584
+          },
+          "bone_head_distances_mm": [
+            43.204299483085784,
+            29.34159041322592
+          ],
+          "last_pivot_to_tip_projection_mm": 23.497126530855894
+        },
+        "middle": {
+          "joint_0": {
+            "width_mm": 32.39844457478884,
+            "thickness_mm": 38.63113919692296,
+            "intersection_points": 80,
+            "measured_center_native": [
+              0.004354364704340696,
+              0.10122189670801163,
+              0.023738592863082886
+            ],
+            "bone_plane_center_offset_mm": 0.7737212341375874
+          },
+          "segment_0_mid": {
+            "width_mm": 25.220741413368568,
+            "thickness_mm": 25.77724692855554,
+            "intersection_points": 128,
+            "measured_center_native": [
+              0.0057030655443668365,
+              0.12442637979984283,
+              0.02887118235230446
+            ],
+            "bone_plane_center_offset_mm": 3.2696463829437823
+          },
+          "joint_1": {
+            "width_mm": 25.77669205320662,
+            "thickness_mm": 25.71465728192379,
+            "intersection_points": 136,
+            "measured_center_native": [
+              0.005814099218696356,
+              0.1483498215675354,
+              0.028242943808436394
+            ],
+            "bone_plane_center_offset_mm": 0.3735214140225653
+          },
+          "segment_1_mid": {
+            "width_mm": 23.645891578428774,
+            "thickness_mm": 21.76439528921037,
+            "intersection_points": 132,
+            "measured_center_native": [
+              0.005661622155457735,
+              0.16247211396694183,
+              0.023726461455225945
+            ],
+            "bone_plane_center_offset_mm": 0.6839985477385978
+          },
+          "joint_2": {
+            "width_mm": 23.01135644393071,
+            "thickness_mm": 19.294940850159037,
+            "intersection_points": 134,
+            "measured_center_native": [
+              0.005331868771463633,
+              0.1765669286251068,
+              0.019384710118174553
+            ],
+            "bone_plane_center_offset_mm": 1.2097696456594205
+          },
+          "distal_60_percent": {
+            "width_mm": 22.983872893746593,
+            "thickness_mm": 18.224330365228525,
+            "intersection_points": 168,
+            "measured_center_native": [
+              0.004888703115284443,
+              0.18992364406585693,
+              0.010996341705322266
+            ],
+            "bone_plane_center_offset_mm": 3.175918828694374
+          },
+          "distal_85_percent": {
+            "width_mm": 18.515158482841798,
+            "thickness_mm": 15.070850467054697,
+            "intersection_points": 170,
+            "measured_center_native": [
+              0.004604187794029713,
+              0.19644534587860107,
+              0.010710349306464195
+            ],
+            "bone_plane_center_offset_mm": 2.006254766716394
+          },
+          "bone_head_distances_mm": [
+            47.23727611503793,
+            29.63942898785266
+          ],
+          "last_pivot_to_tip_projection_mm": 25.26159440481024
+        },
+        "ring": {
+          "joint_0": {
+            "width_mm": 29.675064765122727,
+            "thickness_mm": 38.04058790410636,
+            "intersection_points": 82,
+            "measured_center_native": [
+              -0.02728639543056488,
+              0.09356760233640671,
+              0.018297644332051277
+            ],
+            "bone_plane_center_offset_mm": 2.3592125057542286
+          },
+          "segment_0_mid": {
+            "width_mm": 24.310994015524983,
+            "thickness_mm": 23.858918833866483,
+            "intersection_points": 138,
+            "measured_center_native": [
+              -0.025614360347390175,
+              0.11567496508359909,
+              0.025691725313663483
+            ],
+            "bone_plane_center_offset_mm": 7.458164118869054
+          },
+          "joint_1": {
+            "width_mm": 23.898593386656025,
+            "thickness_mm": 23.932329673698405,
+            "intersection_points": 144,
+            "measured_center_native": [
+              -0.030157318338751793,
+              0.13892081379890442,
+              0.023514950647950172
+            ],
+            "bone_plane_center_offset_mm": 1.6163326701603085
+          },
+          "segment_1_mid": {
+            "width_mm": 21.62452592306872,
+            "thickness_mm": 20.561840118716646,
+            "intersection_points": 136,
+            "measured_center_native": [
+              -0.03201031684875488,
+              0.1522889882326126,
+              0.01775374449789524
+            ],
+            "bone_plane_center_offset_mm": 1.200045126811105
+          },
+          "joint_2": {
+            "width_mm": 21.819014729960166,
+            "thickness_mm": 19.012494791240897,
+            "intersection_points": 128,
+            "measured_center_native": [
+              -0.03334479033946991,
+              0.16531012952327728,
+              0.011867556720972061
+            ],
+            "bone_plane_center_offset_mm": 1.9304200537079639
+          },
+          "distal_60_percent": {
+            "width_mm": 21.404144925865072,
+            "thickness_mm": 17.64591639766877,
+            "intersection_points": 168,
+            "measured_center_native": [
+              -0.03373816981911659,
+              0.17749278247356415,
+              0.0022762042935937643
+            ],
+            "bone_plane_center_offset_mm": 3.3857799658808982
+          },
+          "distal_85_percent": {
+            "width_mm": 17.39701938601763,
+            "thickness_mm": 14.187283267062867,
+            "intersection_points": 172,
+            "measured_center_native": [
+              -0.0336102731525898,
+              0.18367019295692444,
+              0.0015119339805096388
+            ],
+            "bone_plane_center_offset_mm": 2.1255054873072776
+          },
+          "bone_head_distances_mm": [
+            45.61598425715629,
+            29.167132076451058
+          ],
+          "last_pivot_to_tip_projection_mm": 24.346646870981203
+        },
+        "little": {
+          "joint_0": {
+            "width_mm": 25.455949063922734,
+            "thickness_mm": 34.56338113755919,
+            "intersection_points": 104,
+            "measured_center_native": [
+              -0.04882635176181793,
+              0.07728228718042374,
+              0.011227293871343136
+            ],
+            "bone_plane_center_offset_mm": 5.538149800978921
+          },
+          "segment_0_mid": {
+            "width_mm": 21.141368538178963,
+            "thickness_mm": 21.341059284168296,
+            "intersection_points": 102,
+            "measured_center_native": [
+              -0.05453260987997055,
+              0.09482996165752411,
+              0.013473249971866608
+            ],
+            "bone_plane_center_offset_mm": 8.146057246271106
+          },
+          "joint_1": {
+            "width_mm": 23.881880638250642,
+            "thickness_mm": 23.05636439996306,
+            "intersection_points": 136,
+            "measured_center_native": [
+              -0.06328293681144714,
+              0.1107586994767189,
+              0.01405454520136118
+            ],
+            "bone_plane_center_offset_mm": 7.0758813050527
+          },
+          "segment_1_mid": {
+            "width_mm": 20.90567664633436,
+            "thickness_mm": 19.3593978183344,
+            "intersection_points": 128,
+            "measured_center_native": [
+              -0.06953338533639908,
+              0.11978986114263535,
+              0.011579079553484917
+            ],
+            "bone_plane_center_offset_mm": 4.605688387694911
+          },
+          "joint_2": {
+            "width_mm": 19.481158000575682,
+            "thickness_mm": 17.779695939680096,
+            "intersection_points": 128,
+            "measured_center_native": [
+              -0.07484205067157745,
+              0.12947966158390045,
+              0.00970112718641758
+            ],
+            "bone_plane_center_offset_mm": 3.3495857989612188
+          },
+          "distal_60_percent": {
+            "width_mm": 18.895789746448955,
+            "thickness_mm": 15.222342306515202,
+            "intersection_points": 144,
+            "measured_center_native": [
+              -0.08009948581457138,
+              0.14311474561691284,
+              0.002684177365154028
+            ],
+            "bone_plane_center_offset_mm": 4.622952897473202
+          },
+          "distal_85_percent": {
+            "width_mm": 14.811925759210059,
+            "thickness_mm": 12.778901511410368,
+            "intersection_points": 168,
+            "measured_center_native": [
+              -0.08275070786476135,
+              0.1493104100227356,
+              0.0023754634894430637
+            ],
+            "bone_plane_center_offset_mm": 4.1191118031565574
+          },
+          "bone_head_distances_mm": [
+            36.80801591745664,
+            21.9684677138583
+          ],
+          "last_pivot_to_tip_projection_mm": 26.44606726244092
+        }
+      },
+      "palm_sections": {
+        "0.0": {
+          "width_mm": 88.70625868439674,
+          "thickness_mm": 60.6215912848711,
+          "intersection_points": 420,
+          "measured_center_native": [
+            -0.0003226418048143387,
+            0.0,
+            0.002196359448134899
+          ],
+          "bone_plane_center_offset_mm": 2.2199307760384115
+        },
+        "0.02": {
+          "width_mm": 116.71600863337517,
+          "thickness_mm": 69.72868368029594,
+          "intersection_points": 466,
+          "measured_center_native": [
+            0.006225096061825752,
+            0.019999999552965164,
+            -0.00043798796832561493
+          ],
+          "bone_plane_center_offset_mm": 6.240484984310687
+        },
+        "0.04": {
+          "width_mm": 139.61058109998703,
+          "thickness_mm": 70.56006789207458,
+          "intersection_points": 504,
+          "measured_center_native": [
+            0.012085352092981339,
+            0.03999999910593033,
+            0.000523347407579422
+          ],
+          "bone_plane_center_offset_mm": 12.096678557201097
+        },
+        "0.06": {
+          "width_mm": 148.67646619677544,
+          "thickness_mm": 70.011330768466,
+          "intersection_points": 628,
+          "measured_center_native": [
+            0.014141330495476723,
+            0.05999999865889549,
+            0.003809151239693165
+          ],
+          "bone_plane_center_offset_mm": 14.645369712640377
+        },
+        "0.08": {
+          "width_mm": 155.80331906676292,
+          "thickness_mm": 80.05685359239578,
+          "intersection_points": 600,
+          "measured_center_native": [
+            0.016726987436413765,
+            0.07999999821186066,
+            0.0017903149127960205
+          ],
+          "bone_plane_center_offset_mm": 16.82252497109561
+        }
+      },
+      "nails": {
+        "thumb": {
+          "object": "Nail_thumb",
+          "vertices": 322,
+          "triangles": 640,
+          "length_mm": 24.852482485584915,
+          "width_mm": 14.702728198379978,
+          "dorsal_envelope_mm": 11.377406772226095,
+          "bone_group_names": [
+            "thumb2"
+          ]
+        },
+        "index": {
+          "object": "Nail_index",
+          "vertices": 322,
+          "triangles": 640,
+          "length_mm": 17.945983912795782,
+          "width_mm": 13.25605064578684,
+          "dorsal_envelope_mm": 8.43170692678541,
+          "bone_group_names": [
+            "index2"
+          ]
+        },
+        "middle": {
+          "object": "Nail_middle",
+          "vertices": 322,
+          "triangles": 640,
+          "length_mm": 19.334733835421503,
+          "width_mm": 13.348674401640892,
+          "dorsal_envelope_mm": 6.686019823973766,
+          "bone_group_names": [
+            "middle2"
+          ]
+        },
+        "ring": {
+          "object": "Nail_ring",
+          "vertices": 322,
+          "triangles": 640,
+          "length_mm": 18.58974085189402,
+          "width_mm": 12.34273332976894,
+          "dorsal_envelope_mm": 7.847798347938806,
+          "bone_group_names": [
+            "ring2"
+          ]
+        },
+        "little": {
+          "object": "Nail_little",
+          "vertices": 322,
+          "triangles": 640,
+          "length_mm": 20.15255158767104,
+          "width_mm": 11.378582562128814,
+          "dorsal_envelope_mm": 7.992859464138746,
+          "bone_group_names": [
+            "little2"
+          ]
+        }
+      },
+      "arm_parts": {
+        "Forearm_Surface.001": {
+          "bounds": {
+            "min_m": [
+              -0.06671679019927979,
+              -0.2709999978542328,
+              -0.05437707528471947
+            ],
+            "max_m": [
+              0.06632827967405319,
+              -0.07699999958276749,
+              0.05395316705107689
+            ]
+          },
+          "vertices": 8229,
+          "custom_properties": {},
+          "parent": "Forearm.001",
+          "modifiers": []
+        },
+        "UpperArm_Surface.001": {
+          "bounds": {
+            "min_m": [
+              -0.08381537348031998,
+              -0.6060000061988831,
+              -0.07430573552846909
+            ],
+            "max_m": [
+              0.083602175116539,
+              -0.22395096719264984,
+              0.06991825252771378
+            ]
+          },
+          "vertices": 4986,
+          "custom_properties": {},
+          "parent": "UpperArm.001",
+          "modifiers": []
+        },
+        "WristCuff_Surface.001": {
+          "bounds": {
+            "min_m": [
+              -0.051228415220975876,
+              -0.09000000357627869,
+              -0.04126531630754471
+            ],
+            "max_m": [
+              0.05344469100236893,
+              -0.009999999776482582,
+              0.04297425225377083
+            ]
+          },
+          "vertices": 4608,
+          "custom_properties": {
+            "wrist_flex_version": 1,
+            "wrist_flex_start_z": 0.014,
+            "wrist_flex_end_z": 0.075
+          },
+          "parent": "WristCuff.001",
+          "modifiers": []
+        }
+      }
+    },
+    "right": {
+      "skin": "ContinuousAnatomicalHand.003",
+      "rig": "HandRig.003",
+      "vertices": 14988,
+      "physical_vertices": 12036,
+      "physical_triangles": 22706,
+      "trim_vertices": 2952,
+      "trim_triangles": 5528,
+      "physical_to_trim_crossing_faces": 0,
+      "material_triangle_counts": {
+        "Detailed_Skin": 11658,
+        "Detailed_Glove": 13928,
+        "Detailed_Trim": 2648
+      },
+      "physical_bounds": {
+        "min_m": [
+          -0.10343863070011139,
+          -0.02069675363600254,
+          -0.039377257227897644
+        ],
+        "max_m": [
+          0.08961544930934906,
+          0.20078308880329132,
+          0.04344700649380684
+        ]
+      },
+      "joint_keys": [
+        "Basis",
+        "Joint_thumb_0",
+        "Joint_thumb_1",
+        "Joint_thumb_2",
+        "Joint_index_0",
+        "Joint_index_1",
+        "Joint_index_2",
+        "Joint_middle_0",
+        "Joint_middle_1",
+        "Joint_middle_2",
+        "Joint_ring_0",
+        "Joint_ring_1",
+        "Joint_ring_2",
+        "Joint_little_0",
+        "Joint_little_1",
+        "Joint_little_2"
+      ],
+      "bone_count": 16,
+      "wrist_native": [
+        0.0,
+        -0.05624999850988388,
+        0.0
+      ],
+      "bone_heads_native": {
+        "wrist": [
+          0.0,
+          -0.05624999850988388,
+          0.0
+        ],
+        "index0": [
+          -0.03750000149011612,
+          0.0899999812245369,
+          0.018623866140842438
+        ],
+        "index1": [
+          -0.040500007569789886,
+          0.132999986410141,
+          0.02155831642448902
+        ],
+        "index2": [
+          -0.042500000447034836,
+          0.16099996864795685,
+          0.013018413446843624
+        ],
+        "little0": [
+          0.05375000089406967,
+          0.07499999552965164,
+          0.010122790932655334
+        ],
+        "little1": [
+          0.06975001096725464,
+          0.1080000102519989,
+          0.01325787603855133
+        ],
+        "little2": [
+          0.07775000482797623,
+          0.12799999117851257,
+          0.00894343201071024
+        ],
+        "middle0": [
+          -0.005000001285225153,
+          0.10125000029802322,
+          0.023313142359256744
+        ],
+        "middle1": [
+          -0.005999998655170202,
+          0.148250013589859,
+          0.0279347263276577
+        ],
+        "middle2": [
+          -0.004999999422580004,
+          0.17624999582767487,
+          0.01826535351574421
+        ],
+        "ring0": [
+          0.028750000521540642,
+          0.0937500074505806,
+          0.016456320881843567
+        ],
+        "ring1": [
+          0.03175000101327896,
+          0.13874998688697815,
+          0.023298822343349457
+        ],
+        "ring2": [
+          0.032750003039836884,
+          0.16475002467632294,
+          0.010118546895682812
+        ],
+        "thumb0": [
+          -0.03750000521540642,
+          0.0062499940395355225,
+          -0.005316391587257385
+        ],
+        "thumb1": [
+          -0.07500001788139343,
+          0.04374999180436134,
+          -0.015254771336913109
+        ],
+        "thumb2": [
+          -0.08700000494718552,
+          0.07174999266862869,
+          -0.022325435653328896
+        ]
+      },
+      "finger_sections": {
+        "thumb": {
+          "joint_0": {
+            "width_mm": 28.605012581153083,
+            "thickness_mm": 52.85890094819479,
+            "intersection_points": 134,
+            "measured_center_native": [
+              -0.033473823219537735,
+              0.009571709670126438,
+              -0.007974520325660706
+            ],
+            "bone_plane_center_offset_mm": 5.857438499169455
+          },
+          "segment_0_mid": {
+            "width_mm": 48.4787209363869,
+            "thickness_mm": 52.9824725817889,
+            "intersection_points": 144,
+            "measured_center_native": [
+              -0.04574524611234665,
+              0.03573574498295784,
+              -0.009414036758244038
+            ],
+            "bone_plane_center_offset_mm": 15.045466453887464
+          },
+          "joint_1": {
+            "width_mm": 49.41303221462234,
+            "thickness_mm": 43.16118143105996,
+            "intersection_points": 186,
+            "measured_center_native": [
+              -0.059703528881073,
+              0.05109841376543045,
+              -0.012115348130464554
+            ],
+            "bone_plane_center_offset_mm": 17.257978094799714
+          },
+          "segment_1_mid": {
+            "width_mm": 26.98785594375508,
+            "thickness_mm": 25.20831824222114,
+            "intersection_points": 132,
+            "measured_center_native": [
+              -0.07416831701993942,
+              0.06074340268969536,
+              -0.018530594184994698
+            ],
+            "bone_plane_center_offset_mm": 7.463237720234134
+          },
+          "joint_2": {
+            "width_mm": 26.425919529013218,
+            "thickness_mm": 29.43879406666383,
+            "intersection_points": 132,
+            "measured_center_native": [
+              -0.08047103136777878,
+              0.07432328164577484,
+              -0.02136283367872238
+            ],
+            "bone_plane_center_offset_mm": 7.083493252046786
+          },
+          "distal_60_percent": {
+            "width_mm": 22.47777598339993,
+            "thickness_mm": 28.020587204082403,
+            "intersection_points": 176,
+            "measured_center_native": [
+              -0.08805929124355316,
+              0.09193643182516098,
+              -0.02546052262187004
+            ],
+            "bone_plane_center_offset_mm": 6.146745145660908
+          },
+          "distal_85_percent": {
+            "width_mm": 18.095442986001707,
+            "thickness_mm": 21.39341161091579,
+            "intersection_points": 174,
+            "measured_center_native": [
+              -0.09458700567483902,
+              0.09806391596794128,
+              -0.026775643229484558
+            ],
+            "bone_plane_center_offset_mm": 2.4135045108758755
+          },
+          "bone_head_distances_mm": [
+            53.95620864605083,
+            31.272899293118147
+          ],
+          "last_pivot_to_tip_projection_mm": 32.51753083895892
+        },
+        "index": {
+          "joint_0": {
+            "width_mm": 29.465687506702015,
+            "thickness_mm": 38.268457465619576,
+            "intersection_points": 128,
+            "measured_center_native": [
+              -0.03581998124718666,
+              0.08996682614088058,
+              0.02082725428044796
+            ],
+            "bone_plane_center_offset_mm": 2.7710082031623005
+          },
+          "segment_0_mid": {
+            "width_mm": 30.643853441877166,
+            "thickness_mm": 26.38404227764113,
+            "intersection_points": 122,
+            "measured_center_native": [
+              -0.037236981093883514,
+              0.11149989813566208,
+              0.021894725039601326
+            ],
+            "bone_plane_center_offset_mm": 2.5221716317320637
+          },
+          "joint_1": {
+            "width_mm": 26.997620067440213,
+            "thickness_mm": 27.93714667313907,
+            "intersection_points": 150,
+            "measured_center_native": [
+              -0.0437857061624527,
+              0.13296887278556824,
+              0.022225821390748024
+            ],
+            "bone_plane_center_offset_mm": 3.3529607543939073
+          },
+          "segment_1_mid": {
+            "width_mm": 24.14230539118244,
+            "thickness_mm": 21.615599500364624,
+            "intersection_points": 128,
+            "measured_center_native": [
+              -0.045991674065589905,
+              0.14702802896499634,
+              0.01843225583434105
+            ],
+            "bone_plane_center_offset_mm": 4.635125793371132
+          },
+          "joint_2": {
+            "width_mm": 23.660541063947633,
+            "thickness_mm": 19.55281780101359,
+            "intersection_points": 128,
+            "measured_center_native": [
+              -0.04657735303044319,
+              0.16082333028316498,
+              0.014454096555709839
+            ],
+            "bone_plane_center_offset_mm": 4.326337595945229
+          },
+          "distal_60_percent": {
+            "width_mm": 22.21931247822026,
+            "thickness_mm": 16.942176159773226,
+            "intersection_points": 166,
+            "measured_center_native": [
+              -0.04621254652738571,
+              0.17319387197494507,
+              0.005983592476695776
+            ],
+            "bone_plane_center_offset_mm": 3.633408642315062
+          },
+          "distal_85_percent": {
+            "width_mm": 17.211514678266504,
+            "thickness_mm": 13.350283366889926,
+            "intersection_points": 172,
+            "measured_center_native": [
+              -0.04675448685884476,
+              0.1789187639951706,
+              0.004680786281824112
+            ],
+            "bone_plane_center_offset_mm": 3.1299924136777584
+          },
+          "bone_head_distances_mm": [
+            43.204299483085784,
+            29.34159041322592
+          ],
+          "last_pivot_to_tip_projection_mm": 23.497126530855894
+        },
+        "middle": {
+          "joint_0": {
+            "width_mm": 30.863984698892413,
+            "thickness_mm": 38.634260861272196,
+            "intersection_points": 78,
+            "measured_center_native": [
+              -0.005120310932397842,
+              0.10120546817779541,
+              0.023739971220493317
+            ],
+            "bone_plane_center_offset_mm": 0.4456909174656532
+          },
+          "segment_0_mid": {
+            "width_mm": 25.22491837689762,
+            "thickness_mm": 25.77724692855554,
+            "intersection_points": 128,
+            "measured_center_native": [
+              -0.005700767505913973,
+              0.12442642450332642,
+              0.02887118235230446
+            ],
+            "bone_plane_center_offset_mm": 3.2695000403874523
+          },
+          "joint_1": {
+            "width_mm": 25.776703361863383,
+            "thickness_mm": 25.707409869710318,
+            "intersection_points": 144,
+            "measured_center_native": [
+              -0.005814047995954752,
+              0.14835086464881897,
+              0.028245966881513596
+            ],
+            "bone_plane_center_offset_mm": 0.3763233595950287
+          },
+          "segment_1_mid": {
+            "width_mm": 23.640046234448,
+            "thickness_mm": 21.753974125658715,
+            "intersection_points": 132,
+            "measured_center_native": [
+              -0.0056645749136805534,
+              0.1624739021062851,
+              0.023731345310807228
+            ],
+            "bone_plane_center_offset_mm": 0.6897515873564032
+          },
+          "joint_2": {
+            "width_mm": 23.01134061144694,
+            "thickness_mm": 19.2995454267475,
+            "intersection_points": 130,
+            "measured_center_native": [
+              -0.005331868771463633,
+              0.17656654119491577,
+              0.01938343234360218
+            ],
+            "bone_plane_center_offset_mm": 1.2084858999580996
+          },
+          "distal_60_percent": {
+            "width_mm": 22.969827939050447,
+            "thickness_mm": 18.224330365228525,
+            "intersection_points": 168,
+            "measured_center_native": [
+              -0.004895718302577734,
+              0.18992331624031067,
+              0.010996341705322266
+            ],
+            "bone_plane_center_offset_mm": 3.174309850863474
+          },
+          "distal_85_percent": {
+            "width_mm": 18.515158482841798,
+            "thickness_mm": 15.07794284952979,
+            "intersection_points": 168,
+            "measured_center_native": [
+              -0.004604233428835869,
+              0.19644635915756226,
+              0.010713748633861542
+            ],
+            "bone_plane_center_offset_mm": 2.0035733079923346
+          },
+          "bone_head_distances_mm": [
+            47.23727611503793,
+            29.63942898785266
+          ],
+          "last_pivot_to_tip_projection_mm": 25.26159440481024
+        },
+        "ring": {
+          "joint_0": {
+            "width_mm": 30.0016392977327,
+            "thickness_mm": 37.966347197652794,
+            "intersection_points": 90,
+            "measured_center_native": [
+              0.027119066566228867,
+              0.09357297420501709,
+              0.018335683271288872
+            ],
+            "bone_plane_center_offset_mm": 2.494652111752033
+          },
+          "segment_0_mid": {
+            "width_mm": 24.310717350874782,
+            "thickness_mm": 23.849488057749113,
+            "intersection_points": 142,
+            "measured_center_native": [
+              0.025614449754357338,
+              0.11567424237728119,
+              0.025696437805891037
+            ],
+            "bone_plane_center_offset_mm": 7.461838576619251
+          },
+          "joint_1": {
+            "width_mm": 23.881903212419164,
+            "thickness_mm": 23.93328124890104,
+            "intersection_points": 136,
+            "measured_center_native": [
+              0.030149061232805252,
+              0.1389220803976059,
+              0.023516837507486343
+            ],
+            "bone_plane_center_offset_mm": 1.6248553556180911
+          },
+          "segment_1_mid": {
+            "width_mm": 21.625035698408027,
+            "thickness_mm": 20.56240631327455,
+            "intersection_points": 128,
+            "measured_center_native": [
+              0.032010048627853394,
+              0.15228863060474396,
+              0.017753010615706444
+            ],
+            "bone_plane_center_offset_mm": 1.1992990232844511
+          },
+          "joint_2": {
+            "width_mm": 21.81860681067215,
+            "thickness_mm": 19.020391806407133,
+            "intersection_points": 128,
+            "measured_center_native": [
+              0.03334452211856842,
+              0.16530881822109222,
+              0.011863650754094124
+            ],
+            "bone_plane_center_offset_mm": 1.9264182536870116
+          },
+          "distal_60_percent": {
+            "width_mm": 21.40414422009725,
+            "thickness_mm": 17.64591639766877,
+            "intersection_points": 176,
+            "measured_center_native": [
+              0.03373816981911659,
+              0.17749278247356415,
+              0.0022762042935937643
+            ],
+            "bone_plane_center_offset_mm": 3.3857799658808982
+          },
+          "distal_85_percent": {
+            "width_mm": 17.39701938601763,
+            "thickness_mm": 14.187283267062867,
+            "intersection_points": 180,
+            "measured_center_native": [
+              0.0336102731525898,
+              0.18367019295692444,
+              0.0015119339805096388
+            ],
+            "bone_plane_center_offset_mm": 2.1255054873072776
+          },
+          "bone_head_distances_mm": [
+            45.61598425715629,
+            29.167132076451058
+          ],
+          "last_pivot_to_tip_projection_mm": 24.346646870981203
+        },
+        "little": {
+          "joint_0": {
+            "width_mm": 25.4560221727457,
+            "thickness_mm": 34.565198118798435,
+            "intersection_points": 100,
+            "measured_center_native": [
+              0.04882628098130226,
+              0.07728224247694016,
+              0.011228214018046856
+            ],
+            "bone_plane_center_offset_mm": 5.538377851494984
+          },
+          "segment_0_mid": {
+            "width_mm": 21.140342919271884,
+            "thickness_mm": 21.360341532272287,
+            "intersection_points": 100,
+            "measured_center_native": [
+              0.05453343316912651,
+              0.0948304831981659,
+              0.013463525101542473
+            ],
+            "bone_plane_center_offset_mm": 8.143417826018473
+          },
+          "joint_1": {
+            "width_mm": 23.8756736239622,
+            "thickness_mm": 23.039220439386554,
+            "intersection_points": 136,
+            "measured_center_native": [
+              0.06328590959310532,
+              0.11075776815414429,
+              0.014055763371288776
+            ],
+            "bone_plane_center_offset_mm": 7.07293848670994
+          },
+          "segment_1_mid": {
+            "width_mm": 20.905684096912623,
+            "thickness_mm": 19.3636862677522,
+            "intersection_points": 136,
+            "measured_center_native": [
+              0.06953320652246475,
+              0.11978944391012192,
+              0.011576838791370392
+            ],
+            "bone_plane_center_offset_mm": 4.605457742285633
+          },
+          "joint_2": {
+            "width_mm": 19.481244380744528,
+            "thickness_mm": 17.74539618054405,
+            "intersection_points": 128,
+            "measured_center_native": [
+              0.07484281063079834,
+              0.1294812709093094,
+              0.00970822386443615
+            ],
+            "bone_plane_center_offset_mm": 3.3512498309804366
+          },
+          "distal_60_percent": {
+            "width_mm": 18.906446516723545,
+            "thickness_mm": 15.228605159791186,
+            "intersection_points": 156,
+            "measured_center_native": [
+              0.08009491115808487,
+              0.14311757683753967,
+              0.002687214408069849
+            ],
+            "bone_plane_center_offset_mm": 4.625780940481688
+          },
+          "distal_85_percent": {
+            "width_mm": 14.811925759210059,
+            "thickness_mm": 12.779390222931397,
+            "intersection_points": 168,
+            "measured_center_native": [
+              0.08275073021650314,
+              0.14931046962738037,
+              0.0023757005110383034
+            ],
+            "bone_plane_center_offset_mm": 4.119047564021819
+          },
+          "bone_head_distances_mm": [
+            36.80801591745664,
+            21.9684677138583
+          ],
+          "last_pivot_to_tip_projection_mm": 26.44606726244092
+        }
+      },
+      "palm_sections": {
+        "0.0": {
+          "width_mm": 88.70591223239899,
+          "thickness_mm": 60.62999553978443,
+          "intersection_points": 432,
+          "measured_center_native": [
+            0.0003224685788154602,
+            0.0,
+            0.002192157320678234
+          ],
+          "bone_plane_center_offset_mm": 2.2157480738839705
+        },
+        "0.02": {
+          "width_mm": 116.7159341275692,
+          "thickness_mm": 69.72858682274818,
+          "intersection_points": 464,
+          "measured_center_native": [
+            -0.006225133314728737,
+            0.019999999552965164,
+            -0.00043803639709949493
+          ],
+          "bone_plane_center_offset_mm": 6.240525692607617
+        },
+        "0.04": {
+          "width_mm": 139.61061462759972,
+          "thickness_mm": 70.55998966097832,
+          "intersection_points": 546,
+          "measured_center_native": [
+            -0.012085305526852608,
+            0.03999999910593033,
+            0.0005231443792581558
+          ],
+          "bone_plane_center_offset_mm": 12.096622858722235
+        },
+        "0.06": {
+          "width_mm": 148.67637678980827,
+          "thickness_mm": 70.01041620969772,
+          "intersection_points": 670,
+          "measured_center_native": [
+            -0.014141375198960304,
+            0.05999999865889549,
+            0.0038089826703071594
+          ],
+          "bone_plane_center_offset_mm": 14.64536909162859
+        },
+        "0.08": {
+          "width_mm": 155.80331906676292,
+          "thickness_mm": 80.05641773343086,
+          "intersection_points": 632,
+          "measured_center_native": [
+            -0.016726987436413765,
+            0.07999999821186066,
+            0.001789899542927742
+          ],
+          "bone_plane_center_offset_mm": 16.822480766876343
+        }
+      },
+      "nails": {
+        "thumb": {
+          "object": "Nail_thumb.001",
+          "vertices": 322,
+          "triangles": 640,
+          "length_mm": 24.852944537997246,
+          "width_mm": 14.70201107956698,
+          "dorsal_envelope_mm": 11.388282058760524,
+          "bone_group_names": [
+            "thumb2"
+          ]
+        },
+        "index": {
+          "object": "Nail_index.001",
+          "vertices": 322,
+          "triangles": 640,
+          "length_mm": 17.946409760043025,
+          "width_mm": 13.296058400980318,
+          "dorsal_envelope_mm": 8.343129185959697,
+          "bone_group_names": [
+            "index2"
+          ]
+        },
+        "middle": {
+          "object": "Nail_middle.001",
+          "vertices": 322,
+          "triangles": 640,
+          "length_mm": 19.329106697114184,
+          "width_mm": 13.355962932109833,
+          "dorsal_envelope_mm": 6.690388388960855,
+          "bone_group_names": [
+            "middle2"
+          ]
+        },
+        "ring": {
+          "object": "Nail_ring.001",
+          "vertices": 322,
+          "triangles": 640,
+          "length_mm": 18.59080244321376,
+          "width_mm": 12.349038383129889,
+          "dorsal_envelope_mm": 7.841180660761893,
+          "bone_group_names": [
+            "ring2"
+          ]
+        },
+        "little": {
+          "object": "Nail_little.001",
+          "vertices": 322,
+          "triangles": 640,
+          "length_mm": 20.163095789030194,
+          "width_mm": 11.371180410329904,
+          "dorsal_envelope_mm": 7.977884728461504,
+          "bone_group_names": [
+            "little2"
+          ]
+        }
+      },
+      "arm_parts": {
+        "Forearm.001_Surface.001": {
+          "bounds": {
+            "min_m": [
+              -0.0736331045627594,
+              -0.2709999978542328,
+              -0.05997928977012634
+            ],
+            "max_m": [
+              0.07324445992708206,
+              -0.07699999958276749,
+              0.059555329382419586
+            ]
+          },
+          "vertices": 8229,
+          "custom_properties": {},
+          "parent": "Forearm.003",
+          "modifiers": []
+        },
+        "UpperArm.001_Surface.001": {
+          "bounds": {
+            "min_m": [
+              -0.0917714312672615,
+              -0.6060000061988831,
+              -0.08263678848743439
+            ],
+            "max_m": [
+              0.09310531616210938,
+              -0.2239447385072708,
+              0.07762858271598816
+            ]
+          },
+          "vertices": 4986,
+          "custom_properties": {},
+          "parent": "UpperArm.003",
+          "modifiers": []
+        },
+        "WristCuff.001_Surface.001": {
+          "bounds": {
+            "min_m": [
+              -0.054089974611997604,
+              -0.09000000357627869,
+              -0.04360717535018921
+            ],
+            "max_m": [
+              0.0563330352306366,
+              -0.009999999776482582,
+              0.045307718217372894
+            ]
+          },
+          "vertices": 4608,
+          "custom_properties": {
+            "wrist_flex_version": 1,
+            "wrist_flex_start_z": 0.014,
+            "wrist_flex_end_z": 0.075
+          },
+          "parent": "WristCuff.003",
+          "modifiers": []
+        }
+      }
+    }
+  },
+  "coordinate_convention": "Native Blender: +Y fingers, +Z dorsal, -Y forearm; native Godot=(x,z,-y). All measurements in neutral geometry.",
+  "physical_vertex_range_evidence": "First 12036 vertices are retained original anatomical surface; appended ranges are joined glove rolls/stitches/panels from previous authored build. Confirm triangle partition below.",
+  "reference_limit": "The supplied two-view photo is uncalibrated and perspective/open-pose dependent. No metric body size is inferred from it.",
+  "source_unchanged": true
+}

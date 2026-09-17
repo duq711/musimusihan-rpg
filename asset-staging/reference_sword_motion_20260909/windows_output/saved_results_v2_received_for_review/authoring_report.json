@@ -1,0 +1,269 @@
+{
+  "status": "authored_preview",
+  "contract": {
+    "status": "NONCANONICAL_PREVIEW",
+    "received_schema_validated": false,
+    "reason": "Explicit --preview-only. Measured local grip anchors; Mac contracts unavailable or unapplied."
+  },
+  "blender_version": "5.2.1 LTS",
+  "elapsed_seconds": 2.131,
+  "source_hashes_unchanged": true,
+  "right_geometry_hashes_unchanged": true,
+  "actions": {
+    "idle": {
+      "duration_s": 1,
+      "loop": true,
+      "slots": {
+        "Sword_Control": "OBSword_Control",
+        "Shield_Control": "OBShield_Control"
+      }
+    },
+    "run": {
+      "duration_s": 1,
+      "loop": true,
+      "slots": {
+        "Sword_Control": "OBSword_Control",
+        "Shield_Control": "OBShield_Control"
+      }
+    },
+    "takeoff": {
+      "duration_s": 0.3,
+      "loop": false,
+      "slots": {
+        "Sword_Control": "OBSword_Control",
+        "Shield_Control": "OBShield_Control"
+      }
+    },
+    "air": {
+      "duration_s": 0.8,
+      "loop": true,
+      "slots": {
+        "Sword_Control": "OBSword_Control",
+        "Shield_Control": "OBShield_Control"
+      }
+    },
+    "land": {
+      "duration_s": 0.4,
+      "loop": false,
+      "slots": {
+        "Sword_Control": "OBSword_Control",
+        "Shield_Control": "OBShield_Control"
+      }
+    },
+    "right_diagonal": {
+      "duration_s": 1.59,
+      "loop": false,
+      "slots": {
+        "Sword_Control": "OBSword_Control",
+        "Shield_Control": "OBShield_Control"
+      }
+    },
+    "left_reverse": {
+      "duration_s": 1.47,
+      "loop": false,
+      "slots": {
+        "Sword_Control": "OBSword_Control",
+        "Shield_Control": "OBShield_Control"
+      }
+    },
+    "overhead": {
+      "duration_s": 1.55,
+      "loop": false,
+      "slots": {
+        "Sword_Control": "OBSword_Control",
+        "Shield_Control": "OBShield_Control"
+      }
+    }
+  },
+  "glb": {
+    "animation_count": 8,
+    "animations": [
+      {
+        "name": "air",
+        "channels": 4,
+        "tracks": [
+          [
+            "Shield_Control",
+            "rotation"
+          ],
+          [
+            "Shield_Control",
+            "translation"
+          ],
+          [
+            "Sword_Control",
+            "rotation"
+          ],
+          [
+            "Sword_Control",
+            "translation"
+          ]
+        ]
+      },
+      {
+        "name": "idle",
+        "channels": 4,
+        "tracks": [
+          [
+            "Shield_Control",
+            "rotation"
+          ],
+          [
+            "Shield_Control",
+            "translation"
+          ],
+          [
+            "Sword_Control",
+            "rotation"
+          ],
+          [
+            "Sword_Control",
+            "translation"
+          ]
+        ]
+      },
+      {
+        "name": "land",
+        "channels": 4,
+        "tracks": [
+          [
+            "Shield_Control",
+            "rotation"
+          ],
+          [
+            "Shield_Control",
+            "translation"
+          ],
+          [
+            "Sword_Control",
+            "rotation"
+          ],
+          [
+            "Sword_Control",
+            "translation"
+          ]
+        ]
+      },
+      {
+        "name": "left_reverse",
+        "channels": 4,
+        "tracks": [
+          [
+            "Shield_Control",
+            "rotation"
+          ],
+          [
+            "Shield_Control",
+            "translation"
+          ],
+          [
+            "Sword_Control",
+            "rotation"
+          ],
+          [
+            "Sword_Control",
+            "translation"
+          ]
+        ]
+      },
+      {
+        "name": "overhead",
+        "channels": 4,
+        "tracks": [
+          [
+            "Shield_Control",
+            "rotation"
+          ],
+          [
+            "Shield_Control",
+            "translation"
+          ],
+          [
+            "Sword_Control",
+            "rotation"
+          ],
+          [
+            "Sword_Control",
+            "translation"
+          ]
+        ]
+      },
+      {
+        "name": "right_diagonal",
+        "channels": 4,
+        "tracks": [
+          [
+            "Shield_Control",
+            "rotation"
+          ],
+          [
+            "Shield_Control",
+            "translation"
+          ],
+          [
+            "Sword_Control",
+            "rotation"
+          ],
+          [
+            "Sword_Control",
+            "translation"
+          ]
+        ]
+      },
+      {
+        "name": "run",
+        "channels": 4,
+        "tracks": [
+          [
+            "Shield_Control",
+            "rotation"
+          ],
+          [
+            "Shield_Control",
+            "translation"
+          ],
+          [
+            "Sword_Control",
+            "rotation"
+          ],
+          [
+            "Sword_Control",
+            "translation"
+          ]
+        ]
+      },
+      {
+        "name": "takeoff",
+        "channels": 4,
+        "tracks": [
+          [
+            "Shield_Control",
+            "rotation"
+          ],
+          [
+            "Shield_Control",
+            "translation"
+          ],
+          [
+            "Sword_Control",
+            "rotation"
+          ],
+          [
+            "Sword_Control",
+            "translation"
+          ]
+        ]
+      }
+    ],
+    "meshes": 17,
+    "skins": 0,
+    "embedded_images": 12,
+    "sha256": "47d4554bd2056c04af571f5220f06999a3feee44fa091eb67302ee184657a944"
+  },
+  "outputs": {
+    "blend": "C:\\Users\\duq71\\Documents\\Codex\\2026-09-08\\d\\outputs\\reference_sword_motion_20260909\\output\\iteration_02\\Reference_Sword_Motion.blend",
+    "glb": "C:\\Users\\duq71\\Documents\\Codex\\2026-09-08\\d\\outputs\\reference_sword_motion_20260909\\output\\iteration_02\\Reference_Sword_Motion.glb",
+    "samples": "C:\\Users\\duq71\\Documents\\Codex\\2026-09-08\\d\\outputs\\reference_sword_motion_20260909\\output\\iteration_02\\motion_samples_120hz.json"
+  },
+  "independent_reopen_and_render_validation": "pending coordinator checks"
+}

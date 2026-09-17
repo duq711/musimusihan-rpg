@@ -1,0 +1,73 @@
+--- exports/Two_Hand_Sword_Keep_Position_20260913/baseline/TEST_ROOM.md
++++ godot-game/TEST_ROOM.md
+@@ -584,6 +584,6 @@
+ 
+ ## 주무장 1번 · 방패 수납
+ 
+-검과 방패를 든 상태에서 **1**을 누르면 약 0.55초 동안 왼손과 방패가 함께 왼쪽으로 빠져 수납된다. 이어 약 0.48초 동안 왼손이 돌아와 오른손 아래의 검 손잡이를 잡는다. 파지 후에는 공격·이동 중에도 두 손이 검을 함께 따른다. 수납을 시작하면 방패 가드는 해제되며, 장착 물품은 가방에 보존한다. 재생 중 연타는 동작을 다시 시작하지 않고 F2는 시간을 멈춘다. 검을 양손으로 든 상태의 추가 1 입력은 이번 단계에서 변화가 없다. 방패를 다시 장착하거나 시험을 재선택하면 복원한다.
++검과 방패를 든 상태에서 **1**을 누르면 약 0.55초 동안 왼손과 방패가 함께 왼쪽으로 빠져 수납된다. 이어 약 0.48초 동안 왼손이 돌아와 오른손 아래의 검 손잡이를 잡는다. 검의 기존 위치는 유지하며, 양손 파지를 위해 검을 올리거나 중앙으로 옮기지 않는다. 파지 후에는 공격·이동 중에도 두 손이 검을 함께 따른다. 수납을 시작하면 방패 가드는 해제되며, 장착 물품은 가방에 보존한다. 재생 중 연타는 동작을 다시 시작하지 않고 F2는 시간을 멈춘다. 검을 양손으로 든 상태의 추가 1 입력은 이번 단계에서 변화가 없다. 방패를 다시 장착하거나 시험을 재선택하면 복원한다.
+ 
+ F2 → 기본 → **주무장 1번 · 방패 수납**에서 1 / RMB / LMB와 재시험을 확인한다. 같은 플레이어 코드로 연결되며, 시험 메뉴 재선택·초기화·원정 복원을 유지한다. 자동 검사: primary_shield_stow, reference_sword_motion_test_room, shield_guard. 비무장에서 1로 주무장을 꺼내는 기능과 전체 주/부무장 슬롯 개편은 후속 구현 대상이다.
+--- exports/Two_Hand_Sword_Keep_Position_20260913/baseline/README.md
++++ godot-game/README.md
+@@ -531,6 +531,6 @@
+ 
+ ## 주무장 1번 · 방패 수납
+ 
+-검과 방패를 든 상태에서 **1**을 누르면 약 0.55초 동안 왼손과 방패가 함께 왼쪽으로 빠져 수납된다. 이어 약 0.48초 동안 왼손이 돌아와 오른손 아래의 검 손잡이를 잡는다. 파지 후에는 공격·이동 중에도 두 손이 검을 함께 따른다. 수납을 시작하면 방패 가드는 해제되며, 장착 물품은 가방에 보존한다. 재생 중 연타는 동작을 다시 시작하지 않고 F2는 시간을 멈춘다. 검을 양손으로 든 상태의 추가 1 입력은 이번 단계에서 변화가 없다. 방패를 다시 장착하거나 시험을 재선택하면 복원한다.
++검과 방패를 든 상태에서 **1**을 누르면 약 0.55초 동안 왼손과 방패가 함께 왼쪽으로 빠져 수납된다. 이어 약 0.48초 동안 왼손이 돌아와 오른손 아래의 검 손잡이를 잡는다. 검의 기존 위치는 유지하며, 양손 파지를 위해 검을 올리거나 중앙으로 옮기지 않는다. 파지 후에는 공격·이동 중에도 두 손이 검을 함께 따른다. 수납을 시작하면 방패 가드는 해제되며, 장착 물품은 가방에 보존한다. 재생 중 연타는 동작을 다시 시작하지 않고 F2는 시간을 멈춘다. 검을 양손으로 든 상태의 추가 1 입력은 이번 단계에서 변화가 없다. 방패를 다시 장착하거나 시험을 재선택하면 복원한다.
+ 
+ F2 → 기본 → **주무장 1번 · 방패 수납**에서 1 / RMB / LMB와 재시험을 확인한다. 같은 플레이어 코드로 연결되며, 시험 메뉴 재선택·초기화·원정 복원을 유지한다. 자동 검사: primary_shield_stow, reference_sword_motion_test_room, shield_guard. 비무장에서 1로 주무장을 꺼내는 기능과 전체 주/부무장 슬롯 개편은 후속 구현 대상이다.
+--- exports/Two_Hand_Sword_Keep_Position_20260913/baseline/tests/primary_shield_stow_test.gd
++++ godot-game/tests/primary_shield_stow_test.gd
+@@ -35,6 +35,7 @@
+ 	var previous_x := p.shield_pivot.position.x
+ 	for i in 65:
+ 		p._update_viewmodel(.02)
++		_check(p.weapon_pivot.position.distance_to(sword_before.origin) < .02, "support hand must approach the existing sword position without lifting or recentering it")
+ 		_check(p.shield_pivot.position.x <= previous_x + .00001, "shield must travel left continuously")
+ 		previous_x = p.shield_pivot.position.x
+ 		if p._shield_stowing():
+@@ -50,7 +51,7 @@
+ 	_check(not p.shield_pivot.visible and not p.shield_arm.visible and p.weapon_pivot.visible and p.weapon_arm.visible, "completed stow must leave the sword only")
+ 	_check(p._left_hand_role() == "sword_support" and p.sword_support_arm.visible, "left hand must take the lower sword grip")
+ 	_check(p.shield_pivot.position.x < from.origin.x - 1.0, "shield must end well beyond the left edge")
+-	_check(p.weapon_pivot.position.distance_to(sword_before.origin) < .30 and p.camera.transform.is_equal_approx(aim), "two hand carry must preserve camera aim and remain within reach")
++	_check(p.weapon_pivot.position.distance_to(sword_before.origin) < .02 and p.camera.transform.is_equal_approx(aim), "two hand carry must preserve the existing sword position and camera aim")
+ 	bag.add_item("wooden_arrow", 1); p._update_viewmodel(.1)
+ 	_check(p._shield_stowed and not p.shield_pivot.visible, "unrelated inventory events must not restore a stowed shield")
+ 	_check(bag.equipment == equipment and bag.equipment_data == equipment_data, "stowing must not remove, duplicate or alter equipped items")
+--- exports/Two_Hand_Sword_Keep_Position_20260913/baseline/scripts/player.gd
++++ godot-game/scripts/player.gd
+@@ -2486,9 +2486,6 @@
+ 		_compose_reference_arm(target)
+ 		target = _apply_reference_pose_handoff(target, "sword")
+ 	weapon_pivot.transform = target
+-	if _sword_support_requested():
+-		# Bring the lower grip into reach while preserving the authored blade motion.
+-		weapon_pivot.position += Vector3(-0.16, 0.22, -0.08) * MOTION.smooth_phase(_sword_support_progress())
+ 	_update_flail_pose(delta)
+ 	_spell_visual_time += delta
+ 	if is_instance_valid(staff_crystal):
+--- exports/Two_Hand_Sword_Keep_Position_20260913/baseline/scripts/test_room.gd
++++ godot-game/scripts/test_room.gd
+@@ -1011,7 +1011,7 @@
+ 	else:
+ 		player._sword_draw_elapsed = player.SWORD_DRAW_DURATION
+ 	var guide := str({
+-		"shield_stow": "1 · 방패 왼쪽 수납 → 왼손으로 검 아래쪽 잡기 / RMB · 검 방어 / F2 재선택 · 방패 다시 준비",
++		"shield_stow": "1 · 방패 왼쪽 수납 → 검 위치 유지 · 왼손 파지 / RMB · 검 방어 / F2 재선택 · 방패 다시 준비",
+ 		"draw": "아래로 손 뻗기 → 비스듬히 검 뽑기 → 검·방패 대기 · LMB/RMB 전환 · F2 재선택으로 다시 꺼내기",
+ 		"run": "W 걷기 / W+Shift 달리기 / 놓아 멈추기 · 세운 검의 보폭별 흔들림 / 낮은 방패 / 멈춤 연결",
+ 		"jump": "Space 도약·공중·착지 · W+Shift+Space 이동 점프 · 실제 바닥과 기력 소모",
+--- exports/Two_Hand_Sword_Keep_Position_20260913/baseline/scripts/test_room_catalog.gd
++++ godot-game/scripts/test_room_catalog.gd
+@@ -29,7 +29,7 @@
+ 		_entry("player_hands_detailed", "기본", "캐릭터 그래픽 · 제공 모델 양손", "제공한 손 형상·손톱·소매 연결 · 기본 외형과 같은 양손 · 상자 E · I 활", "player_hands_detailed"),
+ 		_entry("player_finger_joints", "기본", "캐릭터 그래픽 · 손가락 마디별 관절", "제공 손의 15마디 굽힘 · 손등/손바닥/손목 옆면 · 펴기는 원본 자세로 복원 · F2 복귀", "player_finger_joints"),
+ 		_entry("motion_sword", "기본", "1인칭 모션 · 긴 손잡이 검 파지", "새 긴 손잡이·비스듬한 오른손 파지 · 실제 표적에 LMB 준비/타격/회수 · 길게 눌러 강공격 · F2 재시험", "first_person_motion", "sword"),
+-		_entry("motion_shield_stow", "기본", "주무장 1번 · 방패 수납", "1 · 방패 왼쪽 수납 → 검 양손 파지 · F2 재시험", "reference_sword_motion", "shield_stow"),
++		_entry("motion_shield_stow", "기본", "주무장 1번 · 방패 수납", "1 · 방패 왼쪽 수납 → 검 위치 유지 · 양손 파지 · F2 재시험", "reference_sword_motion", "shield_stow"),
+ 		_entry("motion_sword_draw", "기본", "영상 참고 검·방패 꺼내기", "멈춤 없이 좌측 하단으로 손 뻗기·이동 중 손가락 감기 → 왼쪽 허리에서 발검 → 검·방패 들기 · F2 반복 · LMB/RMB 전환", "reference_sword_motion", "draw"),
+ 		_entry("motion_sword_run", "기본", "영상 참고 검 모션 · 걷기와 달리기", "Mac 제작 9클립 · W 걷기 / Shift 달리기 / 놓아 멈추기 · 세운 검과 낮은 방패의 보폭·반동 비교 · F2 재시험", "reference_sword_motion", "run"),
+ 		_entry("motion_sword_jump", "기본", "영상 참고 검 모션 · 점프와 착지", "실제 충돌 바닥 · Space 도약·공중·착지의 손목·팔꿈치 연결 비교 · W / Shift 이동 점프 · F2 재시험", "reference_sword_motion", "jump"),

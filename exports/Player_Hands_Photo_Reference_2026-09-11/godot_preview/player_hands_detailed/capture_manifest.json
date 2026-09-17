@@ -1,0 +1,510 @@
+{
+	"actual_renderer": "vulkan",
+	"capture_kind": "Actual DungeonPlayer opt-in detailed arms and timed DungeonLootChest contact in an isolated SubViewport",
+	"captures": [
+		{
+			"arrow_count": 12,
+			"bare_hand_roles": {
+				"hands": [
+					{
+						"arm": "LeftSupportArm",
+						"cuff_surfaces": 1,
+						"forearm_surfaces": 2,
+						"nail_digits": [
+							"index",
+							"little",
+							"middle",
+							"ring",
+							"thumb"
+						],
+						"passed": true,
+						"skin_surfaces": 1,
+						"upperarm_surfaces": 2
+					},
+					{
+						"arm": "RightRelaxedArm",
+						"cuff_surfaces": 1,
+						"forearm_surfaces": 2,
+						"nail_digits": [
+							"index",
+							"little",
+							"middle",
+							"ring",
+							"thumb"
+						],
+						"passed": true,
+						"skin_surfaces": 1,
+						"upperarm_surfaces": 2
+					}
+				],
+				"passed": true
+			},
+			"bow_draw_ratio": 0.0,
+			"bow_drawing": false,
+			"chest_phase": "idle",
+			"detailed": {
+				"chest_detailed_count": 2,
+				"detailed_arm_count": 4,
+				"enabled": true,
+				"generic_arm_count": 4,
+				"profile": "detailed",
+				"sources_available": true
+			},
+			"image": "free_hands.png",
+			"image_sha256": "177cb046f03c3ca835d2f7c7089e65f78494fa65e973e0bbc7f1e70a9da29433",
+			"offhand": "",
+			"passed": true,
+			"pose": "free_hands",
+			"skin_cuff_joins": {
+				"hands": [
+					{
+						"arm": "LeftSupportArm",
+						"maximum_actual_nearest_outer_gap_m": 0.000401486622617991,
+						"maximum_cuff_surface_shift_m": 0.00000000456253035352461,
+						"maximum_fit_added_gap_m": 0.0,
+						"maximum_posed_correspondence_gap_m": 0.00040148664265871,
+						"maximum_same_finger_pose_fixed_cuff_gap_m": 0.000401488563511521,
+						"maximum_skin_boundary_motion_m": 0.0,
+						"maximum_source_gap_m": 0.000401488563511521,
+						"passed": true,
+						"sample_count": 118,
+						"skin_proximal_z_m": 0.0206967554986477,
+						"support_triangles_outside_fixed_span": 0
+					},
+					{
+						"arm": "RightRelaxedArm",
+						"maximum_actual_nearest_outer_gap_m": 0.000404753528716415,
+						"maximum_cuff_surface_shift_m": 0.0000000106289164136797,
+						"maximum_fit_added_gap_m": 0.00000000717409420758486,
+						"maximum_posed_correspondence_gap_m": 0.000404754362534732,
+						"maximum_same_finger_pose_fixed_cuff_gap_m": 0.000404747406719252,
+						"maximum_skin_boundary_motion_m": 0.0,
+						"maximum_source_gap_m": 0.000404747406719252,
+						"passed": true,
+						"sample_count": 116,
+						"skin_proximal_z_m": 0.0206967517733574,
+						"support_triangles_outside_fixed_span": 0
+					}
+				],
+				"passed": true
+			},
+			"weapon": ""
+		},
+		{
+			"greybox": {
+				"chest_greybox_count": 2,
+				"enabled": true,
+				"generic_arm_count": 4,
+				"greybox_arm_count": 4,
+				"profile": "greybox",
+				"sources_available": true
+			},
+			"image": "free_hands_greybox.png",
+			"image_sha256": "bc5cd128bf0969b90d2adffc93798107c3992a9a18e52506551ad998d7d0ac35",
+			"passed": true,
+			"pose": "free_hands",
+			"profile": "greybox",
+			"same_pose_and_camera": true,
+			"skin_cuff_joins": {
+				"applicable": false,
+				"reason": "Preserved greybox comparison has its original rigid cuff; detailed skin join is not active."
+			}
+		},
+		{
+			"arrow_count": 12,
+			"bare_hand_roles": {
+				"hands": [
+					{
+						"arm": "LeftSupportArm",
+						"cuff_surfaces": 1,
+						"forearm_surfaces": 2,
+						"nail_digits": [
+							"index",
+							"little",
+							"middle",
+							"ring",
+							"thumb"
+						],
+						"passed": true,
+						"skin_surfaces": 1,
+						"upperarm_surfaces": 2
+					},
+					{
+						"arm": "CharacterArm",
+						"cuff_surfaces": 1,
+						"forearm_surfaces": 2,
+						"nail_digits": [
+							"index",
+							"little",
+							"middle",
+							"ring",
+							"thumb"
+						],
+						"passed": true,
+						"skin_surfaces": 1,
+						"upperarm_surfaces": 2
+					}
+				],
+				"passed": true
+			},
+			"bow_draw_ratio": 1.0,
+			"bow_drawing": true,
+			"chest_phase": "idle",
+			"detailed": {
+				"chest_detailed_count": 2,
+				"detailed_arm_count": 4,
+				"enabled": true,
+				"generic_arm_count": 4,
+				"profile": "detailed",
+				"sources_available": true
+			},
+			"image": "bow_draw.png",
+			"image_sha256": "7ff142c0e017ec13cb573cf78e120bfb20b2fa564cce1953dbb896f1792aa704",
+			"offhand": "",
+			"passed": true,
+			"pose": "bow_draw",
+			"skin_cuff_joins": {
+				"hands": [
+					{
+						"arm": "LeftSupportArm",
+						"maximum_actual_nearest_outer_gap_m": 0.000401484675855981,
+						"maximum_cuff_surface_shift_m": 0.00000000426785629059623,
+						"maximum_fit_added_gap_m": 0.000000000640284270048141,
+						"maximum_posed_correspondence_gap_m": 0.000401484896428883,
+						"maximum_same_finger_pose_fixed_cuff_gap_m": 0.000401486991904676,
+						"maximum_skin_boundary_motion_m": 0.00000000298168711942992,
+						"maximum_source_gap_m": 0.000401488563511521,
+						"passed": true,
+						"sample_count": 118,
+						"skin_proximal_z_m": 0.0206967554986477,
+						"support_triangles_outside_fixed_span": 0
+					},
+					{
+						"arm": "CharacterArm",
+						"maximum_actual_nearest_outer_gap_m": 0.000404745769354796,
+						"maximum_cuff_surface_shift_m": 0.00000000336599348393918,
+						"maximum_fit_added_gap_m": 0.00000000279396772384644,
+						"maximum_posed_correspondence_gap_m": 0.000404747290303931,
+						"maximum_same_finger_pose_fixed_cuff_gap_m": 0.000404747464926913,
+						"maximum_skin_boundary_motion_m": 0.00000000419095158576965,
+						"maximum_source_gap_m": 0.000404747406719252,
+						"passed": true,
+						"sample_count": 116,
+						"skin_proximal_z_m": 0.0206967517733574,
+						"support_triangles_outside_fixed_span": 0
+					}
+				],
+				"passed": true
+			},
+			"weapon": "hunting_bow"
+		},
+		{
+			"arrow_count": 11,
+			"bare_hand_roles": {
+				"hands": [
+					{
+						"arm": "LeftSupportArm",
+						"cuff_surfaces": 1,
+						"forearm_surfaces": 2,
+						"nail_digits": [
+							"index",
+							"little",
+							"middle",
+							"ring",
+							"thumb"
+						],
+						"passed": true,
+						"skin_surfaces": 1,
+						"upperarm_surfaces": 2
+					},
+					{
+						"arm": "CharacterArm",
+						"cuff_surfaces": 1,
+						"forearm_surfaces": 2,
+						"nail_digits": [
+							"index",
+							"little",
+							"middle",
+							"ring",
+							"thumb"
+						],
+						"passed": true,
+						"skin_surfaces": 1,
+						"upperarm_surfaces": 2
+					}
+				],
+				"passed": true
+			},
+			"bow_draw_ratio": 0.0,
+			"bow_drawing": false,
+			"chest_phase": "idle",
+			"detailed": {
+				"chest_detailed_count": 2,
+				"detailed_arm_count": 4,
+				"enabled": true,
+				"generic_arm_count": 4,
+				"profile": "detailed",
+				"sources_available": true
+			},
+			"image": "bow_release.png",
+			"image_sha256": "1de128889451aad0aa3fbc73ae281d2a54c603169ae84070eafcc9fde578ce9c",
+			"offhand": "",
+			"passed": true,
+			"pose": "bow_release",
+			"skin_cuff_joins": {
+				"hands": [
+					{
+						"arm": "LeftSupportArm",
+						"maximum_actual_nearest_outer_gap_m": 0.000401492392057232,
+						"maximum_cuff_surface_shift_m": 0.00000000767988250771623,
+						"maximum_fit_added_gap_m": 0.00000000727595761418343,
+						"maximum_posed_correspondence_gap_m": 0.000401491939555854,
+						"maximum_same_finger_pose_fixed_cuff_gap_m": 0.000401485012844205,
+						"maximum_skin_boundary_motion_m": 0.00000000426785629059623,
+						"maximum_source_gap_m": 0.000401488563511521,
+						"passed": true,
+						"sample_count": 118,
+						"skin_proximal_z_m": 0.0206967554986477,
+						"support_triangles_outside_fixed_span": 0
+					},
+					{
+						"arm": "CharacterArm",
+						"maximum_actual_nearest_outer_gap_m": 0.000404741714063632,
+						"maximum_cuff_surface_shift_m": 0.00000000372529029846191,
+						"maximum_fit_added_gap_m": 0.00000000360887497663498,
+						"maximum_posed_correspondence_gap_m": 0.00040474344859831,
+						"maximum_same_finger_pose_fixed_cuff_gap_m": 0.000404743797844276,
+						"maximum_skin_boundary_motion_m": 0.00000000575991210283178,
+						"maximum_source_gap_m": 0.000404747406719252,
+						"passed": true,
+						"sample_count": 116,
+						"skin_proximal_z_m": 0.0206967517733574,
+						"support_triangles_outside_fixed_span": 0
+					}
+				],
+				"passed": true
+			},
+			"string_hook_amount": 0.228890936387263,
+			"weapon": "hunting_bow"
+		},
+		{
+			"arrow_count": 11,
+			"bare_hand_roles": {
+				"hands": [
+					{
+						"arm": "CharacterArm",
+						"cuff_surfaces": 1,
+						"forearm_surfaces": 2,
+						"nail_digits": [
+							"index",
+							"little",
+							"middle",
+							"ring",
+							"thumb"
+						],
+						"passed": true,
+						"skin_surfaces": 1,
+						"upperarm_surfaces": 2
+					},
+					{
+						"arm": "CharacterArm",
+						"cuff_surfaces": 1,
+						"forearm_surfaces": 2,
+						"nail_digits": [
+							"index",
+							"little",
+							"middle",
+							"ring",
+							"thumb"
+						],
+						"passed": true,
+						"skin_surfaces": 1,
+						"upperarm_surfaces": 2
+					}
+				],
+				"passed": true
+			},
+			"bow_draw_ratio": 0.0,
+			"bow_drawing": false,
+			"chest_phase": "fidget",
+			"detailed": {
+				"chest_detailed_count": 2,
+				"detailed_arm_count": 4,
+				"enabled": true,
+				"generic_arm_count": 4,
+				"profile": "detailed",
+				"sources_available": true
+			},
+			"hand_contact_distances": [
+				0.00429856684058905,
+				0.00917764287441969
+			],
+			"image": "chest_touch.png",
+			"image_sha256": "5086175e70ca986975db12aa9e574b3754bdd8b3773efe406e4f915a6fea38cd",
+			"offhand": "",
+			"passed": true,
+			"pose": "chest_touch",
+			"skin_cuff_joins": {
+				"hands": [
+					{
+						"arm": "CharacterArm",
+						"maximum_actual_nearest_outer_gap_m": 0.000401484835136864,
+						"maximum_cuff_surface_shift_m": 0.00000000263417798684884,
+						"maximum_fit_added_gap_m": 0.000000000320142135024071,
+						"maximum_posed_correspondence_gap_m": 0.000401485012844205,
+						"maximum_same_finger_pose_fixed_cuff_gap_m": 0.000401484867325053,
+						"maximum_skin_boundary_motion_m": 0.00000000526835597369768,
+						"maximum_source_gap_m": 0.000401488563511521,
+						"passed": true,
+						"sample_count": 118,
+						"skin_proximal_z_m": 0.0206967554986477,
+						"support_triangles_outside_fixed_span": 0
+					},
+					{
+						"arm": "CharacterArm",
+						"maximum_actual_nearest_outer_gap_m": 0.000404745751799511,
+						"maximum_cuff_surface_shift_m": 0.0,
+						"maximum_fit_added_gap_m": 0.0,
+						"maximum_posed_correspondence_gap_m": 0.000404747290303931,
+						"maximum_same_finger_pose_fixed_cuff_gap_m": 0.000404747290303931,
+						"maximum_skin_boundary_motion_m": 0.00000000267502042738954,
+						"maximum_source_gap_m": 0.000404747406719252,
+						"passed": true,
+						"sample_count": 116,
+						"skin_proximal_z_m": 0.0206967517733574,
+						"support_triangles_outside_fixed_span": 0
+					}
+				],
+				"passed": true
+			},
+			"weapon": "rusted_sword"
+		},
+		{
+			"arrow_count": 11,
+			"bare_hand_roles": {
+				"hands": [
+					{
+						"arm": "CharacterArm",
+						"cuff_surfaces": 1,
+						"forearm_surfaces": 2,
+						"nail_digits": [
+							"index",
+							"little",
+							"middle",
+							"ring",
+							"thumb"
+						],
+						"passed": true,
+						"skin_surfaces": 1,
+						"upperarm_surfaces": 2
+					},
+					{
+						"arm": "CharacterArm",
+						"cuff_surfaces": 1,
+						"forearm_surfaces": 2,
+						"nail_digits": [
+							"index",
+							"little",
+							"middle",
+							"ring",
+							"thumb"
+						],
+						"passed": true,
+						"skin_surfaces": 1,
+						"upperarm_surfaces": 2
+					}
+				],
+				"passed": true
+			},
+			"bow_draw_ratio": 0.0,
+			"bow_drawing": false,
+			"chest_phase": "lift",
+			"detailed": {
+				"chest_detailed_count": 2,
+				"detailed_arm_count": 4,
+				"enabled": true,
+				"generic_arm_count": 4,
+				"profile": "detailed",
+				"sources_available": true
+			},
+			"hand_contact_distances": [
+				0.0000000842936955791629,
+				0.000000188486438901236
+			],
+			"image": "chest_lift.png",
+			"image_sha256": "e6a2a72f218ccf554625c0712a7bf5e10e1e36dffed57966ae4437bdd23a1908",
+			"offhand": "",
+			"passed": true,
+			"pose": "chest_lift",
+			"skin_cuff_joins": {
+				"hands": [
+					{
+						"arm": "CharacterArm",
+						"maximum_actual_nearest_outer_gap_m": 0.000401484675855981,
+						"maximum_cuff_surface_shift_m": 0.00000000671586253275791,
+						"maximum_fit_added_gap_m": 0.00000000346335582435131,
+						"maximum_posed_correspondence_gap_m": 0.0004014847218059,
+						"maximum_same_finger_pose_fixed_cuff_gap_m": 0.000401485158363357,
+						"maximum_skin_boundary_motion_m": 0.00000000596337423885984,
+						"maximum_source_gap_m": 0.000401488563511521,
+						"passed": true,
+						"sample_count": 118,
+						"skin_proximal_z_m": 0.0206967554986477,
+						"support_triangles_outside_fixed_span": 0
+					},
+					{
+						"arm": "CharacterArm",
+						"maximum_actual_nearest_outer_gap_m": 0.000404747366882584,
+						"maximum_cuff_surface_shift_m": 0.00000000671586253275791,
+						"maximum_fit_added_gap_m": 0.00000000346335582435131,
+						"maximum_posed_correspondence_gap_m": 0.000404747028369457,
+						"maximum_same_finger_pose_fixed_cuff_gap_m": 0.000404747435823083,
+						"maximum_skin_boundary_motion_m": 0.00000000528889554374246,
+						"maximum_source_gap_m": 0.000404747406719252,
+						"passed": true,
+						"sample_count": 116,
+						"skin_proximal_z_m": 0.0206967517733574,
+						"support_triangles_outside_fixed_span": 0
+					}
+				],
+				"passed": true
+			},
+			"weapon": "rusted_sword"
+		}
+	],
+	"desktop_capture": false,
+	"display_driver": "embedded",
+	"expedition_inventory_and_cursor_preserved": true,
+	"external_input": false,
+	"failures": [],
+	"image_size": [
+		1280,
+		720
+	],
+	"source_sha256": {
+		"res://assets/3d/player/hands_detailed/left_hand_detailed.glb": "14dcb855d63ec80b93f15ee413cf01cf8fd52d7e7dc7c84f75d649ca35881bf2",
+		"res://assets/3d/player/hands_detailed/left_hand_detailed_reference_hands_basecolor.png": "a4fe7ce4c34f81ba3e174ddc6a7e14474e7d7bce8d1e16804915a47fce034237",
+		"res://assets/3d/player/hands_detailed/left_hand_detailed_reference_hands_basecolor.png.import": "d7a25cff4d7a0896f3e4629cd7c98a569886d08b1f23cb5ed363011166698339",
+		"res://assets/3d/player/hands_detailed/left_hand_detailed_reference_hands_normal.png": "5de10fb5c9b36a42d2c7fcbcf0ec9e6082adc85a4c818727a9d3f774eddb3c18",
+		"res://assets/3d/player/hands_detailed/left_hand_detailed_reference_hands_normal.png.import": "a91b27f8b675d71ed1ec5a02050ec929f97e990c8b477fdcba7c793ad668ce8b",
+		"res://assets/3d/player/hands_detailed/left_hand_detailed_reference_hands_roughness.png": "36193d1c19957564e2faa967a04529125f009bd937effb67e1cd38795ad28bc7",
+		"res://assets/3d/player/hands_detailed/left_hand_detailed_reference_hands_roughness.png.import": "5b58fdce8053c606651f6af8608eec79fa17aa367fe0b95ea840f6e3592aff1d",
+		"res://assets/3d/player/hands_detailed/right_hand_detailed.glb": "226b6c2abec53bce8dc6047dfdabf0cb268ef24b13d900a0987cbc6f090591a4",
+		"res://assets/3d/player/hands_detailed/right_hand_detailed_reference_hands_basecolor.png": "a4fe7ce4c34f81ba3e174ddc6a7e14474e7d7bce8d1e16804915a47fce034237",
+		"res://assets/3d/player/hands_detailed/right_hand_detailed_reference_hands_basecolor.png.import": "3516d63d52c3494c9e7154175eb833e2c472799ef8f5968622dfcd54dd1689e6",
+		"res://assets/3d/player/hands_detailed/right_hand_detailed_reference_hands_normal.png": "5de10fb5c9b36a42d2c7fcbcf0ec9e6082adc85a4c818727a9d3f774eddb3c18",
+		"res://assets/3d/player/hands_detailed/right_hand_detailed_reference_hands_normal.png.import": "d6caf28ff6616b52ba7003939b0370e93a1b6d03047fab16ae7fd55404215b7b",
+		"res://assets/3d/player/hands_detailed/right_hand_detailed_reference_hands_roughness.png": "36193d1c19957564e2faa967a04529125f009bd937effb67e1cd38795ad28bc7",
+		"res://assets/3d/player/hands_detailed/right_hand_detailed_reference_hands_roughness.png.import": "1972b5841b38ac3fd5d86a88b6dcaa0acb3ac64e97704492e2c2bca257a5bc05",
+		"res://assets/3d/player/hands_greybox/left_hand_greybox.glb": "d0b0b0752c942984e9763d44917ec7d20676b3e99bce1a94b532396bc6827e16",
+		"res://assets/3d/player/hands_greybox/right_hand_greybox.glb": "1edebacc2cbb8e39a7952338ed94a31fae327d05de15f92c30851dbb418f7c58",
+		"res://scripts/chest_hand_visuals.gd": "f4012bebd0fb03ab0fe76c57b7251dc56987fd35612ab1168d4fbe7498831bf3",
+		"res://scripts/greybox_arm_visual.gd": "6554f2e78a81d658a38acd6695a06aa86bcb98315fb6dbf3b4c4ef9e77781a65",
+		"res://scripts/player.gd": "ebee7766ac7702eb92ea175adb2484c1d6659aa7f879a2add4c941bcb31c7f40",
+		"res://scripts/player_arm_visual.gd": "38fa62b41f7a5e6d672fcefe4c9ceb71e736687132972b93ce4a874fde8b928a",
+		"res://scripts/wrist_cuff_deformer.gd": "ca9702206cf2485bf638047b7cddf66b404d86842a89b181295d4c1fc0203682",
+		"res://tests/player_arm_preview.gd": "2066f51f064a5b24cde5896c277d83602ae9784d26e10059bd4309b69b0c4d06",
+		"res://tests/player_hands_detailed_preview.gd": "b7f8692b671919d2e8fe29d6d1eb4b4e8dc2acfa4b29c5301e35765bfda9861e"
+	},
+	"sources_unchanged_during_capture": true
+}

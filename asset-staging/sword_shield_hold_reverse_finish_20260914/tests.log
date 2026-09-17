@@ -1,0 +1,35 @@
+[HEADLESS] sword_edge_alignment_test.gd
+SWORD EDGE SHIELD RESAMPLE {"max_angle_degrees":0.0559529096807445,"max_position_m":0.0,"samples":1769}
+SWORD EDGE ALIGNMENT PASS {"aesthetic_quality_evaluated":false,"baseline":"all_other_clips_preserved; original_shield_curve_within_1mm_0.1deg","contract":"retained_approach_and_contact; horizontal_followthrough_outside_view; shared_idle","correspondence":{"max_axis_error":0.000000547097897651838,"max_grip_m":0.0000000988431239079546,"samples":181},"left_reverse_followthrough":{"fixed_orientation_return_samples":221,"hidden_reset_samples":401,"max_cutting_plane_y_error":0.00204199552536011,"max_followthrough_1ms_angle_deg":1.843131243283},"left_reverse_recovery":{"idle_and_arm_endpoints_checked":true,"max_1ms_grip_step_m":0.0260203648358583,"max_visible_step_m":0.0110520124435425,"samples":621},"left_reverse_wrist":{"exact_keys":174,"max_segment_length_m":0.000000139474868765532,"max_wrist_m":0.000000126440539816031},"right_diagonal_followthrough":{"fixed_orientation_return_samples":221,"hidden_reset_samples":401,"max_cutting_plane_y_error":0.00204187631607056,"max_followthrough_1ms_angle_deg":1.843131243283},"right_diagonal_recovery":{"idle_and_arm_endpoints_checked":true,"max_1ms_grip_step_m":0.0260203648358583,"max_visible_step_m":0.0110520124435425,"samples":621},"right_diagonal_wrist":{"exact_keys":174,"max_segment_length_m":0.000000128746032723726,"max_wrist_m":0.000000121286660714759},"sweep":{"max_reflected_velocity_error_m_per_s":{"blade_65cm":0.000137266164529137,"center":0.000108335472759791,"tip":0.000253873586189002},"moving_samples":79}}
+[HEADLESS] sword_recovery_continuity_test.gd
+RECOVERY METRIC true right_diagonal peak_deg=16.6625333481912 boundary_m=0.00017173057131
+RECOVERY METRIC true left_reverse peak_deg=17.0559949330663 boundary_m=0.00013035893789
+RECOVERY METRIC true overhead peak_deg=14.1934276471945 boundary_m=0.00013590096205
+RECOVERY METRIC false right_diagonal peak_deg=16.6625333481912 boundary_m=0.00015989453823
+RECOVERY METRIC false left_reverse peak_deg=17.0559949330663 boundary_m=0.0003133463324
+RECOVERY METRIC false overhead peak_deg=14.1934276471945 boundary_m=0.00026330872788
+SWORD RECOVERY CONTINUITY PASS
+[HEADLESS] sword_forehand_grip_test.gd
+FOREHAND MIRROR shield/right_diagonal/hold=0.00 active_samples=5 grip_mm=0.00008940696716 axis_error=0.00000024575624 spends=1
+FOREHAND MIRROR shield/right_diagonal/hold=0.45 active_samples=5 grip_mm=0.00012644053982 axis_error=0.00000024575624 spends=1
+FOREHAND MIRROR shield/left_reverse/hold=0.00 active_samples=0 grip_mm=0.0 axis_error=0.0 spends=1
+FOREHAND MIRROR shield/left_reverse/hold=0.45 active_samples=0 grip_mm=0.0 axis_error=0.0 spends=1
+FOREHAND MIRROR shield/overhead/hold=0.00 active_samples=0 grip_mm=0.0 axis_error=0.0 spends=1
+FOREHAND MIRROR shield/overhead/hold=0.45 active_samples=0 grip_mm=0.0 axis_error=0.0 spends=1
+FOREHAND MIRROR two_hand/right_diagonal/hold=0.00 active_samples=5 grip_mm=0.00008940696716 axis_error=0.00000024575624 spends=1
+FOREHAND MIRROR two_hand/right_diagonal/hold=0.45 active_samples=5 grip_mm=0.00012644053982 axis_error=0.00000024575624 spends=1
+FOREHAND MIRROR two_hand/left_reverse/hold=0.00 active_samples=0 grip_mm=0.0 axis_error=0.0 spends=1
+FOREHAND MIRROR two_hand/left_reverse/hold=0.45 active_samples=0 grip_mm=0.0 axis_error=0.0 spends=1
+FOREHAND MIRROR two_hand/overhead/hold=0.00 active_samples=0 grip_mm=0.0 axis_error=0.0 spends=1
+FOREHAND MIRROR two_hand/overhead/hold=0.45 active_samples=0 grip_mm=0.0 axis_error=0.0 spends=1
+SWORD FOREHAND GRIP PASS: real clicks and held charge; shared 100ms entry; same-phase reverse camera-X reflection; original clips/assets and fitted two-hand contacts; clash/cancel/F2 isolation; aesthetic quality not evaluated
+[HEADLESS] shield_guard_test.gd
+SHIELD GUARD TEST PASS: full damage blocking with positive stamina, immediate exhaustion release and recovery, timed attacker stun, real attack and equipment boundaries, ailments/stress, F2/repeat/reset and original expedition restoration
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2535)
+[HEADLESS] reference_sword_motion_test_room_test.gd
+REFERENCE SWORD MOTION TEST ROOM PASS: five playable fixtures, two-hand basic/reverse target hits and grip, actual run/jump/landing/collision, repeated F2, reset and original expedition restoration
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2535)
+
+Headless validation: 5 passed, 0 failed.

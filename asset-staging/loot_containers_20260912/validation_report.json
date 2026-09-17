@@ -1,0 +1,153 @@
+{
+  "automated_checks": [
+    {
+      "asset": "wooden_barrel_01",
+      "glb_sha256": "b4e0c8ce3995f7c3492cd561843be5d1e5dd28bbd47cb5942a87c32f48e3a854",
+      "reimport": "passed",
+      "embedded_images": 3,
+      "pbr_normal_and_tangents": "passed",
+      "hierarchy_and_extras": "passed",
+      "ground_and_center": "passed",
+      "body_stable_lid_moves": "passed",
+      "texture_maximum": 2048,
+      "runtime_closed": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/loot_containers_20260912/qa/wooden_barrel_01_runtime_closed.png",
+      "runtime_open": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/loot_containers_20260912/qa/wooden_barrel_01_runtime_open.png"
+    },
+    {
+      "asset": "treasure_chest",
+      "glb_sha256": "e12c617ac3e82fea9b90fea091ceb5db81e2da386773f2d50113c3c51d513418",
+      "reimport": "passed",
+      "embedded_images": 3,
+      "pbr_normal_and_tangents": "passed",
+      "hierarchy_and_extras": "passed",
+      "ground_and_center": "passed",
+      "body_stable_lid_moves": "passed",
+      "texture_maximum": 2048,
+      "runtime_closed": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/loot_containers_20260912/qa/treasure_chest_runtime_closed.png",
+      "runtime_open": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/loot_containers_20260912/qa/treasure_chest_runtime_open.png"
+    },
+    {
+      "asset": "wooden_crate_01",
+      "glb_sha256": "21bea69ddfa8b9bee259d9ac99fd49317f70f9cb2fb14d37436027b8d99da5c2",
+      "reimport": "passed",
+      "embedded_images": 3,
+      "pbr_normal_and_tangents": "passed",
+      "hierarchy_and_extras": "passed",
+      "ground_and_center": "passed",
+      "body_stable_lid_moves": "passed",
+      "texture_maximum": 2048,
+      "runtime_closed": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/loot_containers_20260912/qa/wooden_crate_01_runtime_closed.png",
+      "runtime_open": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/loot_containers_20260912/qa/wooden_crate_01_runtime_open.png"
+    },
+    {
+      "asset": "wooden_crate_02",
+      "glb_sha256": "8088844718f719129eef6bac64759359bca58362d0b497729437d9e452140552",
+      "reimport": "passed",
+      "embedded_images": 3,
+      "pbr_normal_and_tangents": "passed",
+      "hierarchy_and_extras": "passed",
+      "ground_and_center": "passed",
+      "body_stable_lid_moves": "passed",
+      "texture_maximum": 2048,
+      "runtime_closed": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/loot_containers_20260912/qa/wooden_crate_02_runtime_closed.png",
+      "runtime_open": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/loot_containers_20260912/qa/wooden_crate_02_runtime_open.png"
+    }
+  ],
+  "visual_review": {
+    "status": "passed",
+    "reviewed_images": 12,
+    "method": "Direct inspection of same-camera source closed, runtime closed, runtime open Blender Cycles CPU renders for all four assets. Loose lids use the final rim resting pose.",
+    "findings": [
+      "Preserved wood color, aged surface details, metal/rope features and source silhouette.",
+      "Treasure chest reduction from 103330 to 31997 triangles retains decorative metal outlines and curved lid. Fine surface texture softening from 4K to 2K is acceptable at the model scale.",
+      "Body remains stationary and every actual lid moves independently. Both hinged lids reveal modeled interiors.",
+      "Loose barrel/crate02 lid resting poses expose the container interior and avoid an unsupported hovering lid.",
+      "No missing runtime texture, obvious UV break, clipped mesh, floor penetration or unwanted whole-container motion was observed."
+    ],
+    "limits": [
+      "This is asset-level Blender render QA. Godot renderer, anchor placement, gameplay opening/contact and test-room validation are handled by integration tests."
+    ]
+  },
+  "final_rest_poses": [
+    {
+      "asset": "wooden_barrel_01",
+      "rest_translation_godot": [
+        0,
+        0.044126,
+        0.324177
+      ],
+      "body_rim_height_m": 0.951074,
+      "lid_original_bottom_m": 0.912948,
+      "clearance_m": 0.006,
+      "note": "Raised over rim, translated backward, then supported across the rear rim; animation peak lift remains .32m."
+    },
+    {
+      "asset": "wooden_crate_02",
+      "rest_translation_godot": [
+        0,
+        0.05932,
+        0.232268
+      ],
+      "body_rim_height_m": 0.48868,
+      "lid_original_bottom_m": 0.435359,
+      "clearance_m": 0.006,
+      "note": "Raised over rim, translated backward, then supported across the rear rim; animation peak lift remains .32m."
+    }
+  ],
+  "source_preservation": {
+    "original_zip_count": 4,
+    "extracted_files_checked": 28,
+    "sha256_all_unchanged": true
+  },
+  "final_images": [
+    {
+      "path": "qa/treasure_chest_runtime_closed.png",
+      "sha256": "90a651d26b57414da2321346cf7b50068087e67ad319e7a530be1bab48c8de6c"
+    },
+    {
+      "path": "qa/treasure_chest_runtime_open.png",
+      "sha256": "e1ba708fc1687dad37ee1aec89a23a9022e3576ba8353fca65d2ac55337d8b6c"
+    },
+    {
+      "path": "qa/treasure_chest_source_closed.png",
+      "sha256": "9e0a27f312fbf7eb053b5a46a1f1e32809f1118a1ba05320842446586941dec1"
+    },
+    {
+      "path": "qa/wooden_barrel_01_runtime_closed.png",
+      "sha256": "5da9bbe6de55ae1214e936d1722975cd182751b7dd7284a39e1770eb30f773d6"
+    },
+    {
+      "path": "qa/wooden_barrel_01_runtime_open.png",
+      "sha256": "e94ab9fe3df5201f34e9f78a8194795a4f83bc1f202bda4b81dad2a5f3bc41ed"
+    },
+    {
+      "path": "qa/wooden_barrel_01_source_closed.png",
+      "sha256": "a96422ae1a9ce057c32f9d083d0c8e1be5ac1798fa989a8536a470e910b3bed1"
+    },
+    {
+      "path": "qa/wooden_crate_01_runtime_closed.png",
+      "sha256": "8b635126ae5b709a60f085426f43ef33a4cbe4d135ed90dece1042c5591bbe86"
+    },
+    {
+      "path": "qa/wooden_crate_01_runtime_open.png",
+      "sha256": "c0aaa1523241fb83dce024842d6cb25fa595d1efcf28ccb612ed350e95d52231"
+    },
+    {
+      "path": "qa/wooden_crate_01_source_closed.png",
+      "sha256": "385d728784c06e48556fa25bc54d70ba844c3477da9af76409a11ba955e463d8"
+    },
+    {
+      "path": "qa/wooden_crate_02_runtime_closed.png",
+      "sha256": "2cf120794395068ef11aec5a2cf2008d62e672c241373f976cb68aed82ec1f2d"
+    },
+    {
+      "path": "qa/wooden_crate_02_runtime_open.png",
+      "sha256": "61550a74f2cf0bd16e1f7f3722d4d4ee1b24018c9170be7382391c40e55f993f"
+    },
+    {
+      "path": "qa/wooden_crate_02_source_closed.png",
+      "sha256": "f2e262e53afbb5cd0cab79929ad693995586299330ad9e72861d798c5bfaee5a"
+    }
+  ],
+  "runtime_files_unchanged_after_handoff": true
+}

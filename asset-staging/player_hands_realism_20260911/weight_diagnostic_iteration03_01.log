@@ -1,0 +1,21 @@
+00:03.026  blend            | Read blend: "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/player_hands_realism_20260911/mac_output/iteration_03/bilateral_hands_realistic.blend"
+01:24:04 | INFO: Data are loaded, start creating Blender stuff
+01:24:04 | INFO: Blender create Mesh node FittedLeather.003
+01:24:04 | INFO: Blender create Mesh node ContinuousAnatomicalHandMesh.003
+01:24:05 | INFO: Blender create Mesh node Nail_indexMesh.001
+01:24:05 | INFO: Blender create Mesh node Nail_littleMesh.001
+01:24:05 | INFO: Blender create Mesh node Nail_middleMesh.001
+01:24:05 | INFO: Blender create Mesh node Nail_ringMesh.001
+01:24:05 | INFO: Blender create Mesh node Nail_thumbMesh.001
+01:24:05 | INFO: Blender create Mesh node TailoredClothSleeve.003
+01:24:05 | INFO: Blender create Mesh node WristTransitionMesh_v1.001
+01:24:05 | INFO: glTF import finished in 1.56s
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/player_hands_realism_20260911/tools/verify_hands_realistic.py", line 376, in compare_roundtrip
+    assert weights_max < .00002, f"{label} GLB skin weights changed: " + json.dumps(worst_weight)
+           ^^^^^^^^^^^^^^^^^^^^
+AssertionError: hand GLB skin weights changed: {"imported_vertex": 17818, "reference_vertex": 13436, "distance_m": 1.5861560953567277e-08, "point": [0.059852149337530136, 0.09333290159702301, 0.0037893003318458796], "imported_weights": {"little0": 1.0}, "reference_weights": {"little0": 0.999904215335846, "ring0": 9.579652396496385e-05}, "candidate_count": 1}
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 01:35:57)
+
+Blender quit

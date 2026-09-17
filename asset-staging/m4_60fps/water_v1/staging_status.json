@@ -1,0 +1,33 @@
+{
+  "status": "Applied after root baseline isolation. Two unit/regression tests pass; actual test-room water flow timed out during concurrent baseline load and awaits isolated rerun.",
+  "source_sha256": {
+    "godot-game/scripts/cave_water.gd": "aafa488bd643861a8e7b66b59c1d2626460c905348dffe3a3a2286de3281c445",
+    "godot-game/assets/3d/abandoned_mine/mine_water.gdshader": "fc51e30925a42affe457d5a1caa693775209b9c9a25f13354234da8d576e65a6"
+  },
+  "preserved": [
+    "24-slot public event ring",
+    "sample/shore/depth geometry and winding",
+    "contact walk run jump land logic",
+    "all ambient and interaction wave formulas",
+    "SSR loop/refinement/refraction/transmission",
+    "pause/scene isolation"
+  ],
+  "changes": [
+    "One material per six-pool system",
+    "Upload only active ripple prefix in original ring order",
+    "Skip ring reupload until live list changes",
+    "Per-fragment and per-vertex ripple loop bound uses compact active count"
+  ],
+  "applied_sha256": {
+    "godot-game/scripts/cave_water.gd": "d46463729f26f98197eb708e027ca6e332e57d987f2af43824a9abbe9e71411f",
+    "godot-game/assets/3d/abandoned_mine/mine_water.gdshader": "deb3deb0bc394a378c0ee76cb826a21f555427f10f360f0c523e37caec1690ed",
+    "godot-game/tests/cave_water_performance_test.gd": "8a38bd4688f714c62f0cb8a5137e233a140747bd44e6df227ad9dec8abbf6dca"
+  },
+  "validation": {
+    "cave_water_test": "PASS",
+    "cave_water_performance_test": "PASS",
+    "cave_water_flow_test": "TIMEOUT240s; rerun pending after measurement",
+    "log": "godot-game/artifacts/performance/water_optimization_tests.log",
+    "owned_water_Godot_processes_remaining": 0
+  }
+}

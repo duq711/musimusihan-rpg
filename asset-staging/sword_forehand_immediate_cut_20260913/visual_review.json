@@ -1,0 +1,24 @@
+{
+  "actual_renderer": "Vulkan Forward+ / embedded, Apple M4",
+  "before": {
+    "active_seconds": 0.233333333333333,
+    "first_moved_frame": 15
+  },
+  "after": {
+    "active_seconds": 0.0166666666666667,
+    "first_moved_frame": 2
+  },
+  "observations": [
+    "Frames 000/001 hold the captured pose; from frame 002 the blade directly approaches the contact orientation through 005/007/010.",
+    "No separate reverse-then-return flip or outward grip retreat found in reviewed entry frames.",
+    "Visible glove/handle/guard in full-size frames 005 and 010 show no new detached pieces, spikes or black triangles.",
+    "Frame 060 returns to the original upright idle."
+  ],
+  "limitations": [
+    "The tip and later recovery may leave the original first-person field of view.",
+    "Automated continuity and sampled images do not establish user aesthetic approval."
+  ],
+  "independent_review": "guard_tests inspected direct_entry_review.jpg and original PNGs 005, 010, 060 without modifying production.",
+  "motion_onset_threshold": "First frame exceeding 0.1 mm translation or 0.1 degree rotation from the initial pose.",
+  "shield_review": "Root inspected original shield frames 005/010 and before/after sheet; corrected entry and contact direction confirmed."
+}

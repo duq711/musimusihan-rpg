@@ -1,0 +1,61 @@
+{
+  "status": "complete",
+  "runtime_change": "Only shield camera-left travel changes from 0.26m to 0.95m. Existing 120ms opening, outward turn, height and return curve retained.",
+  "live_and_snapshot_shield_function_identical": true,
+  "original_assets_and_sword_clips_preserved": {
+    "manifest_sha256": "29445143c70ebbec3a411613e5258a0157e547410569a4b719db5f97eb4125ea",
+    "manifest_and_all_sword_clips_byte_identical": true,
+    "original_model_and_grip_hashes": {
+      "godot-game/assets/3d/player/sword_hold_long_grip/SwordHold_Static.glb": "2b94cc385f837fe253552cd654cb1f665246f61cdee5227814d63049da9f22fb",
+      "godot-game/assets/3d/player/sword_shield/left_arm.glb": "e3f7d9415bd89e24deaa83d05b05021563d84a4f2c5aa28f37d81a97beecd5cf",
+      "godot-game/assets/3d/player/sword_shield/right_arm.glb": "4234e0d9a9f2ccdb7399e13b909e458e359230a22ce3c3e13df4f4ea158ad56d",
+      "godot-game/scripts/sword_long_grip_visual.gd": "a5a0b949543247a5151542a2b58e11b91bb4797ea60781a60a9d7728a566e462",
+      "godot-game/scripts/sword_shield_arm_visual.gd": "0a64f25a0bfa4f7ce44a05e164bad1c3a79a488068cd2881cc7ac603fa951042"
+    }
+  },
+  "production_tests_before_concurrent_edits": [
+    "sword_forehand_grip",
+    "shield_guard",
+    "reference_sword_motion_test_room",
+    "reference_sword_cut_preview"
+  ],
+  "frozen_snapshot_tests_passed": [
+    "sword_forehand_grip",
+    "reference_sword_cut_preview"
+  ],
+  "visual_capture": {
+    "captures": {
+      "right_diagonal": {
+        "clear_time_seconds": 0.116666666666667,
+        "contact_time_seconds": 0.166666666666667,
+        "attack_sword_frames_exactly_preserved": true,
+        "changed_ready_sword_frames": [],
+        "max_shield_grip_error_m": 3.62560911071341e-07
+      },
+      "left_reverse": {
+        "clear_time_seconds": 0.116666666666667,
+        "contact_time_seconds": 0.383333333333333,
+        "attack_sword_frames_exactly_preserved": true,
+        "changed_ready_sword_frames": [],
+        "max_shield_grip_error_m": 3.62560911071341e-07
+      },
+      "overhead": {
+        "clear_time_seconds": 0.116666666666667,
+        "contact_time_seconds": 0.383333333333333,
+        "attack_sword_frames_exactly_preserved": true,
+        "changed_ready_sword_frames": [],
+        "max_shield_grip_error_m": 3.62560911071341e-07
+      }
+    },
+    "video": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/godot-game/artifacts/visual_qa/reference_sword_motion/shield_offscreen_comparison/shield_offscreen.mp4",
+    "fps": 60,
+    "encoded_frames": 819,
+    "duration_seconds": 13.65,
+    "presentation": "Actual Godot before/after frames from a frozen QA copy to isolate concurrent body-health edits; normal then labelled half speed. No pose retouching, mirroring or frame interpolation."
+  },
+  "concurrent_work": "Inventory, spells, expedition and body-health player edits were preserved. Two capture hash failures were resolved by freezing a QA copy; no external changes were reverted.",
+  "capture_log": "stable_shield_capture.log",
+  "snapshot_test_log": "stable_snapshot_tests.log",
+  "snapshot": "qa_project_stable",
+  "visual_review": "visual_review.json"
+}

@@ -1,0 +1,89 @@
+{
+  "date": "2026-09-13",
+  "request": "Make forehand similar to the accepted reverse cut with the opposite direction; preserve reverse, remove the invented flipping/entry.",
+  "changes": [
+    "Only right_diagonal is authored from the same-time left_reverse sword/grip path, using proper horizontal reflection M_world * R * M_local_X. Blade Y/Z preserve height and depth.",
+    "Source active interval and interpolation-neighbor keys remain exact reflected reverse; beginning and recovery blend into the original shared right idle.",
+    "Removed sword_forehand_grip runtime module and its grip half-turn/fixed-contact entry. Both cuts use the existing shared held-to-authored first .10s entry.",
+    "Immediate forehand release, held-charge calculation, .145s hit/.30s ACTIVE, damage, stamina and shield rules preserved.",
+    "Original hand and sword meshes preserved. Sleeve IK fits actual wrist with original arm lengths.",
+    "Existing playable F2 shield-stow fixture and its 2m target now describe reverse-based two-direction comparison; reset/session restoration tested."
+  ],
+  "passed_suites": [
+    "sword_edge_alignment",
+    "sword_recovery_continuity",
+    "sword_two_hand_grip",
+    "sword_direct_entry",
+    "reference_sword_arm_player",
+    "sword_forehand_grip",
+    "reference_sword_motion_test_room",
+    "reference_sword_cut_preview",
+    "sword_attack_variants"
+  ],
+  "test_logs": [
+    "source_tests.log",
+    "player_tests.log",
+    "player_boundary_recheck.log",
+    "combat_tests.log"
+  ],
+  "initial_test_expectation_corrections": {
+    "log": "player_tests.log",
+    "reason": "Repeated tick state_time can be just below .10; ownership is now tested by actual .10 +/-1us ticks. READY authored locomotion already removes generic breathing, so its expected pose uses authored idle alone after completed handoff.",
+    "strict_geometry_tolerances_preserved": true,
+    "production_modified_for_these_corrections": false,
+    "final_result": "both suites PASS in player_boundary_recheck.log"
+  },
+  "authoring": "candidate_01/Forehand_Mirror_Reverse.blend",
+  "authoring_qa": "candidate_01/qa.json",
+  "source_preservation": "source_preservation.json",
+  "actual_capture_verification": {
+    "captures": {
+      "forehand_mirror_reverse_two_hand": {
+        "actual_frames": 182,
+        "unchanged_reverse_pngs": 91,
+        "current_source_hashes_match": true,
+        "expedition_and_cursor_preserved": true,
+        "active_start_frames": [
+          1,
+          14
+        ],
+        "compared_frames": 77
+      },
+      "forehand_mirror_reverse_shield": {
+        "actual_frames": 182,
+        "unchanged_reverse_pngs": 91,
+        "current_source_hashes_match": true,
+        "expedition_and_cursor_preserved": true,
+        "active_start_frames": [
+          1,
+          14
+        ],
+        "compared_frames": 77
+      }
+    },
+    "video": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/godot-game/artifacts/visual_qa/reference_sword_motion/forehand_mirror_reverse_comparison/matched_cuts.mp4",
+    "encoded_frames": 462,
+    "fps": 60,
+    "presentation": "Actual ACTIVE start aligned by cropping; normal then explicitly labeled half speed; no mirrored or reversed pixels."
+  },
+  "visual_review": "visual_review.json",
+  "known_failure": {
+    "suite": "sword_clash",
+    "log": "combat_tests.log",
+    "same_as_previous_turn": true,
+    "failed_assertions": [
+      "natural close-range attacks must overlap their rendered blade models",
+      "natural blade contact must occur before either body's damage deadline",
+      "natural swing animation must cancel the player strike into clash recovery",
+      "natural swing animation must stagger the armed enemy"
+    ],
+    "not_counted_as_pass": true
+  },
+  "user_aesthetic_approval": false,
+  "process_cleanup": {
+    "owned_godot_or_blender_processes_remaining": false,
+    "preexisting_user_editor_pid": 1313,
+    "editor_manipulated": false,
+    "system_blender_thumbnail_extension_pid": 1868
+  }
+}

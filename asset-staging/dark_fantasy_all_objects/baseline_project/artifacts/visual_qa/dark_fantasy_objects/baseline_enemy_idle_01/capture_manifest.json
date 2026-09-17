@@ -1,0 +1,194 @@
+{
+	"actual_renderer": "vulkan",
+	"capture_kind": "Actual production geometry in the same isolated six-view viewport as the in-game test-room gallery",
+	"captured_count": 2,
+	"catalog_count": 126,
+	"complete_catalog": false,
+	"desktop_capture": false,
+	"display_driver": "embedded",
+	"expedition_and_cursor_preserved": true,
+	"external_input": false,
+	"gallery_ui": "gallery_ui.png",
+	"lighting": {
+		"ambient_energy": 0.48,
+		"background": "#171a1a",
+		"fill_energy": 0.48,
+		"key_energy": 1.15,
+		"rim_energy": 0.32,
+		"tonemap": "filmic"
+	},
+	"objects": [
+		{
+			"bounds": {
+				"position": [
+					-0.665836572647095,
+					-0.899677157402039,
+					-0.639999985694885
+				],
+				"size": [
+					1.33088266849518,
+					2.12070035934448,
+					1.27999997138977
+				]
+			},
+			"factory": "enemy.gd::_build_body",
+			"id": "sanctuary_warden",
+			"images": [
+				{
+					"file": "sanctuary_warden_front.png",
+					"sha256": "e83c3623fff319f65de168eadd50c16be0cd7e72dbd7cffb0d489f2e10b6d7fe",
+					"view": "front"
+				},
+				{
+					"file": "sanctuary_warden_back.png",
+					"sha256": "eca8c703f4efe6a97434c0932b81cdd58710e368584ada1fa4d6e927f69aa08f",
+					"view": "back"
+				},
+				{
+					"file": "sanctuary_warden_left.png",
+					"sha256": "67b9ff44d0c4f3546839fa950b9358172795385038118e1e4416e830146b5d66",
+					"view": "left"
+				},
+				{
+					"file": "sanctuary_warden_right.png",
+					"sha256": "9fa3f15db19b7788946b57cd26c5403a3db601d9e4a44b6c5981f573f8ff5f28",
+					"view": "right"
+				},
+				{
+					"file": "sanctuary_warden_top.png",
+					"sha256": "bf147f98b1967b3de309ff4e6ddfc05b6ef61709a138e51983cfbe534651049e",
+					"view": "top"
+				},
+				{
+					"file": "sanctuary_warden_bottom.png",
+					"sha256": "7cd0128d047aa3ec33686fba4a24345262cdc2e97bd0ad2462ba4a845309f9b3",
+					"view": "bottom"
+				}
+			],
+			"sheet": "sanctuary_warden_six_views.png",
+			"source_path": "res://scripts/enemy.gd",
+			"source_sha256": "f7731bfb7753013a6625876911c4426e45a7bf43d60797544456a9943a4bf99e",
+			"title": "성소 감시자"
+		},
+		{
+			"bounds": {
+				"position": [
+					-0.560000002384186,
+					-0.899937570095062,
+					-0.560000002384186
+				],
+				"size": [
+					1.12000012397766,
+					1.94314742088318,
+					1.12000012397766
+				]
+			},
+			"factory": "enemy.gd::_build_body",
+			"id": "ossuary_keeper",
+			"images": [
+				{
+					"file": "ossuary_keeper_front.png",
+					"sha256": "4366cc5395358c5f6d8272fddd5b120aaaa509fa83d37258a3ea5a298d84e177",
+					"view": "front"
+				},
+				{
+					"file": "ossuary_keeper_back.png",
+					"sha256": "8f6feb3f83789e6c775a42c9f1186688f978c5895f7ba0f687b4154d4894ec37",
+					"view": "back"
+				},
+				{
+					"file": "ossuary_keeper_left.png",
+					"sha256": "eb5596c8568052aabdb03ffc13216b368716d554f3343f32c3f16eef62cbfc21",
+					"view": "left"
+				},
+				{
+					"file": "ossuary_keeper_right.png",
+					"sha256": "ac5a30d11ca383930bfdd8e20ac83072ec6b2869fc3c542498a7fa96f88a189b",
+					"view": "right"
+				},
+				{
+					"file": "ossuary_keeper_top.png",
+					"sha256": "c2b775e2b174d4f6d179288447016f32746fee502535289b4e045281fed89ca5",
+					"view": "top"
+				},
+				{
+					"file": "ossuary_keeper_bottom.png",
+					"sha256": "5754c788616dc9fa73ca7ea0896856091d4f13451e17c1d599355ded197ba409",
+					"view": "bottom"
+				}
+			],
+			"sheet": "ossuary_keeper_six_views.png",
+			"source_path": "res://scripts/enemy.gd",
+			"source_sha256": "f7731bfb7753013a6625876911c4426e45a7bf43d60797544456a9943a4bf99e",
+			"title": "굶주린 납골당지기"
+		}
+	],
+	"sources": {
+		"res://scripts/archery_visuals.gd": "f46af171047c519cb257b9d2e5d450b53b48d6ce0769ca874e5f2fcd026c20e9",
+		"res://scripts/arrow_projectile.gd": "29774676ebf3e505a6cc21404a566f002d441787275f941413ef650f5a4a3100",
+		"res://scripts/bow_shot_profile.gd": "5ed81b6b50fdf0b85b9bb995d253be0924cd69c6a34b8caeaece91e9ebe33d89",
+		"res://scripts/camp_controller.gd": "0b88a2257be0ddfff9ca0959b42e6586c69dbf471223ba82b09ff569bebdbfc3",
+		"res://scripts/camp_cooking_catalog.gd": "8192ec76855e2ba9b5f6fdb131ec7b8d0eecab9b4758dc949bc81611fee76bb9",
+		"res://scripts/camp_overlay.gd": "78e41d34f8fbe53fe744206cf232af096c48fc1491d06f00b067fd55f7925b40",
+		"res://scripts/camp_visuals.gd": "50897e56fe1a7b6aea1add0ce4246ce2145fb852f12c3b6e095665a39764d0d2",
+		"res://scripts/cave_art_details.gd": "5448559a97be2d0ace1674c780eec3c7313590775f4dc1d364bb4dd860064fda",
+		"res://scripts/cave_art_direction.gd": "aa1103c860f697090fa8f18ddd5e1738f32301461ac5680e5fe4b6fde4c1cef7",
+		"res://scripts/cave_art_lighting.gd": "3f4a9cfdd0369af3571bfe7ffeca2b1c39e164998b5107845d48864e0ea39a06",
+		"res://scripts/cave_dungeon.gd": "800e1f0ef0e1efc66fa537288a26c111f4c3604fc379348ca84b5a5fe0805127",
+		"res://scripts/cave_geometry.gd": "deadb3226dc92be3cc91620cf27e9e3c636b4621374f8e3e810ce490ce1570e3",
+		"res://scripts/cave_layout.gd": "c2b1073a8670ce992a4d52f71382d5cd41a24c821ba5079c8535c07caa8e48ed",
+		"res://scripts/cave_water.gd": "bcfce3b248e89be749bc38ab60d7c0e5bc73375302d290cc82457158809ecfed",
+		"res://scripts/chest_hand_visuals.gd": "5ed1fd478b3ebd7208b5e4a6bd66ee63dff902e8470fe291469d2253baa191c2",
+		"res://scripts/dark_fantasy_gallery.gd": "450a67a7fe1771af44134300f2559d82f6d10014b77877ee122318c2c2d45dd7",
+		"res://scripts/dark_fantasy_object_catalog.gd": "c0f245d4823f4244c2ecb32084aa38bfd7bb40b34c069279017b6132c18bc501",
+		"res://scripts/enemy.gd": "f7731bfb7753013a6625876911c4426e45a7bf43d60797544456a9943a4bf99e",
+		"res://scripts/expedition_session.gd": "1e0a9963c30a68bfe0fe54e2b2f8ca9cdabd0b433038d953caee7ee17bb5f856",
+		"res://scripts/first_person_renderer.gd": "9458b32a7ddfffa9a8f67c37c2bdff93e08c5b096eb5b49e543b12ed3d0eaf25",
+		"res://scripts/flail_profile.gd": "11c7cf01204692fc0fbb673a3953743e4de07604ac0f01a0d5915c3b950d1220",
+		"res://scripts/flail_projectile.gd": "7e73f75ce89160cbd33f0f1719f110bd03f79fd786e183dd3823f9fd3daf7100",
+		"res://scripts/flail_visuals.gd": "661ca8652494131b81dcf038270c6616e4bddedc253b74c69f5e9d2af9462428",
+		"res://scripts/game.gd": "448a9caa49cb06e0918bce1d792a5c431006699f3d2bc5cb59bcb15784c8f261",
+		"res://scripts/hideout.gd": "b72a5340f442c8d15f132537adbf9ddc630829eca0aaed27fc9827f089527504",
+		"res://scripts/hideout_hud.gd": "5d8c664d03f7829e4a1ae7752e3693b0d965f21db9d74d8b4006aa3c0f81999c",
+		"res://scripts/hideout_interactable.gd": "32871dda0cfadc3450d2f35e80acf4505540aa9879876c574a81bf1c2bb40521",
+		"res://scripts/hud.gd": "8fd1eed87c988c73146dd960617f736fa33079cbb6bcc92fa57d9594153d2ea9",
+		"res://scripts/inventory_model.gd": "8451f7053cdc5eb0ba6e35a5a6ec1b9680afad17707d8f00ce527cdc3cf00104",
+		"res://scripts/inventory_overlay.gd": "58050ac5e16fec011530015ffde249ca6f7f7f205f45320b50aa11e22d2d31e7",
+		"res://scripts/loading_screen.gd": "9759788089232d95ec81852763b0a6be34667b0a92b17a366a0febaae1bc1e67",
+		"res://scripts/loot_chest.gd": "cd3ea00d8546555960df8ca835bc22dc364482d17eaad7606a1429b40152f9b6",
+		"res://scripts/loot_container.gd": "4473cf05648ad7b155c456fbafbc626285943e538c0b403e937a19211ef2e03d",
+		"res://scripts/magic_projectile.gd": "fbb24380efb8649f2238871f29e9fda2ca125e243a55c17d0a9be2d29cbd8463",
+		"res://scripts/main_menu.gd": "f00e74bc39cc934e6e7e55af5fb08e1180d55f489b3a5edc946f9c220750fd57",
+		"res://scripts/merchant.gd": "a396260eadb72349f377825c8a4d0f75500ceb9d7ded9dc0a71994ba452da5c8",
+		"res://scripts/player.gd": "e6d48a4d9d20ab7ab7df47ffafee386af0bf3900adf9b6d728fc17fee790065c",
+		"res://scripts/player_appearance.gd": "5746a2aa5da76eb88310d46416b23aba3ef0d5f20e8a792f7243db7d9a6710e2",
+		"res://scripts/player_portrait.gd": "6908d607f7e270f6d75103a0370fba1e4d9bb10b53ab83fadf8116649f7df2c1",
+		"res://scripts/spell_catalog.gd": "a1cada7c4833c021df62b15199e8eee8e01c4027e7e7375b5bb8a3aeb7df3427",
+		"res://scripts/stress_audio.gd": "a68cce48dca3e0d5ab07934c5cd5ea39f325104b622873dac44b230d778b8811",
+		"res://scripts/stress_perception.gd": "43513b7d7206bc3d377e1b64af7ff5ccf408d60b02be9ae1d4f3460cea6a1c3f",
+		"res://scripts/stress_profile.gd": "2b906dcf21a80aa9852503253d5a4f2a81d3ef3ad0a568036d2b16e2744766e6",
+		"res://scripts/sword_clash_geometry.gd": "778d86e43bf90e443f18a8c4b0c8a3ff09bceea0bac9ebdfc2ed53bf9e583782",
+		"res://scripts/test_room.gd": "7a68b7aefd92c88be8216a7e7898d3bad8513343fff90a3dcf8d106067c484fc",
+		"res://scripts/test_room_catalog.gd": "cf25f6cb6bef4eb92b2ffe08b96b0c64d979f76e3c0c5b85ec128986b8c51ca5",
+		"res://scripts/test_room_sandbox.gd": "b731b7a0d0ecc8693fe4a10e7a932f2f17c3786b31e9bb5cb1d349d11f53643e",
+		"res://scripts/test_room_status_controls.gd": "81adec3c6d90502d90f901a39192bdb8f36ba605145824d374e825fade8da42a",
+		"res://scripts/trap.gd": "e29d1e7bff75a9ae6635f7be89387d98dc91007b0eecb14b12174a09325f50f2",
+		"res://tests/dark_fantasy_gallery_preview.gd": "2bb9b10d58b42aaaaa6ae53149793ad7d089f6078ccdcbcbb4d9e98d05b8ad10"
+	},
+	"view_axes": {
+		"back": "+Z",
+		"bottom": "-Y",
+		"front": "-Z",
+		"left": "-X",
+		"right": "+X",
+		"top": "+Y"
+	},
+	"view_order": [
+		"front",
+		"back",
+		"left",
+		"right",
+		"top",
+		"bottom"
+	]
+}

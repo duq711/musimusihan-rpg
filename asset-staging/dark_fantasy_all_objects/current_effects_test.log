@@ -1,0 +1,30 @@
+[HEADLESS] dark_fantasy_effects_test.gd
+ERROR: element surfaces must have outward normals and renderer-facing winding from every side: fire_bolt
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/dark_fantasy_effects_test.gd:73)
+ERROR: element surfaces must have outward normals and renderer-facing winding from every side: water_bolt
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/dark_fantasy_effects_test.gd:73)
+ERROR: target concept must create individual timbers and both actual rear braces
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/dark_fantasy_effects_test.gd:73)
+ERROR: inlaid lane borders must remain decoration without affecting movement
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/dark_fantasy_effects_test.gd:73)
+ERROR: inlaid lane borders must remain decoration without affecting movement
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/dark_fantasy_effects_test.gd:73)
+[HEADLESS] magic_system_test.gd
+MAGIC SYSTEM TEST PASS: books, persistence, staff gate, unarmed state, attack cancellation, stamina, cooldown, swept-sphere physics, five spells, merchant, and dungeon loot
+[HEADLESS] stress_perception_test.gd
+STRESS INPUT CAPTURE MEASUREMENT: display=headless requested=2 actual=0
+STRESS PERCEPTION TEST PASS: bounded synthetic PCM/playback, thresholds, noncombat afterimage, RNG/session/aim isolation, wall/floor checks, pause/camp/safe-zone cleanup, and paced no-burst scheduling
+Headless fixture used a test-only capture adapter; the unmodified production capture guard was also verified.
+
+Headless validation: 2 passed, 1 failed.
+FAILED: dark_fantasy_effects_test.gd (1)

@@ -1,0 +1,47 @@
+/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/player_hands_greybox_20260910/tools/build_hands_greybox.py:145: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  material.use_nodes = True
+21:48:07 | INFO: Data are loaded, start creating Blender stuff
+21:48:07 | INFO: Blender create Mesh node FittedLeather
+21:48:07 | INFO: Blender create Mesh node ContinuousAnatomicalHandMesh.001
+21:48:07 | INFO: Blender create Mesh node FingerlessLeatherGloveMesh.001
+21:48:07 | INFO: Blender create Mesh node TailoredClothSleeve
+21:48:07 | INFO: Blender create Mesh node NarrowWristConnection
+21:48:07 | INFO: glTF import finished in 0.10s
+INFO Draco is available, use library at /Applications/Blender.app/Contents/Resources/5.2/scripts/addons_core/io_scene_gltf2/libbf_intern_draco_bridge.dylib
+INFO MeshOptimizer is available, use library at /Applications/Blender.app/Contents/Resources/5.2/scripts/addons_core/io_scene_gltf2/libbf_intern_meshopt_bridge.dylib
+21:48:08 | INFO: Starting glTF 2.0 export
+21:48:08 | INFO: Extracting primitive: FittedLeather.001
+21:48:08 | INFO: Primitives created: 1
+21:48:08 | INFO: Extracting primitive: ContinuousAnatomicalHandMesh.002
+21:48:08 | INFO: Primitives created: 1
+21:48:08 | WARNING: There are more than 4 joint vertex influences.The 4 with highest weight will be used (and normalized).
+21:48:08 | INFO: Extracting primitive: FingerlessLeatherGloveMesh.002
+21:48:08 | INFO: Primitives created: 1
+21:48:08 | INFO: Extracting primitive: TailoredClothSleeve.001
+21:48:08 | INFO: Primitives created: 1
+21:48:08 | INFO: Extracting primitive: NarrowWristConnection.001
+21:48:08 | INFO: Primitives created: 1
+21:48:08 | INFO: Extracting primitive: FittedLeather
+21:48:08 | INFO: Primitives created: 5
+21:48:08 | INFO: Extracting primitive: ContinuousAnatomicalHandMesh.001
+21:48:08 | INFO: Primitives created: 1
+21:48:08 | INFO: Extracting primitive: FingerlessLeatherGloveMesh.001
+21:48:08 | INFO: Primitives created: 2
+21:48:08 | INFO: Extracting primitive: TailoredClothSleeve
+21:48:08 | INFO: Primitives created: 1
+21:48:08 | INFO: Extracting primitive: NarrowWristConnection
+21:48:08 | INFO: Primitives created: 2
+21:48:08 | INFO: Finished glTF 2.0 export in 0.1258409023284912 s
+Traceback (most recent call last):
+  File "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/player_hands_greybox_20260910/tools/build_hands_greybox.py", line 385, in <module>
+    main()
+    ~~~~^^
+  File "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/asset-staging/player_hands_greybox_20260910/tools/build_hands_greybox.py", line 272, in main
+    raise RuntimeError(f"Export lost skeleton joints: {side}")
+RuntimeError: Export lost skeleton joints: left
+
+
+Error: script failed, file: 'asset-staging/player_hands_greybox_20260910/tools/build_hands_greybox.py', exiting.
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 01:35:57)
+
+Blender quit

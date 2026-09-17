@@ -1,0 +1,75 @@
+extends SceneTree
+const PREVIEW := preload("res://tests/bandage_motion_preview.gd")
+const FIXTURE := preload("res://tests/player_arm_preview.gd")
+var failures: Array[String] = []
+
+func _init() -> void:
+	call_deferred("_run")
+
+func _check(value: bool, message: String) -> void:
+	if not value: failures.append(message)
+
+func _run() -> void:
+	var snapshot := ExpeditionSession.capture_snapshot()
+	var cursor := Input.mouse_mode
+	var sandbox := root.get_node("TestRoomSandbox")
+	sandbox.begin()
+	var viewport := FIXTURE.create_viewport()
+	root.add_child(viewport)
+	var fixture := PREVIEW.create_fixture(viewport)
+	var player: DungeonPlayer = fixture.player
+	var inventory: ExpeditionInventory = fixture.inventory
+	var before := inventory.count_item("linen_bandage")
+	var result := player.use_consumable("linen_bandage", inventory)
+	_check(result.accepted and result.health_restored == 18.0, "actual selected-arm bandage must heal once")
+	_check(inventory.count_item("linen_bandage") == before - 1 and player.is_bandage_motion_active(), "successful use must spend one and start presentation")
+	_check(not player.weapon_pivot.visible and not player.support_arm_root.visible, "treatment owns both hands")
+	var healed := player.health
+	var previous_roll: Vector3 = player.bandage_hands.roll.position
+	var previous_basis: Basis = player.bandage_hands.right_arm.basis
+	var minimum_arm_clearance := INF
+	var left_mesh: MeshInstance3D = player.bandage_hands._forearm_mesh
+	var right_mesh: MeshInstance3D = player.bandage_hands.right_arm.arm_meshes.filter(func(part: MeshInstance3D) -> bool: return part.name.begins_with("Forearm_Surface"))[0]
+	var max_step := 0.0
+	var max_angle := 0.0
+	paused = true
+	player.advance_bandage_motion(1.0)
+	_check(player.bandage_hands.elapsed == 0.0, "paused inventory must defer animation until world resumes")
+	paused = false
+	for i in 287:
+		player._update_viewmodel(1.0 / 60.0)
+		if i > 39 and i < 219:
+			var closest := Geometry3D.get_closest_points_between_segments(left_mesh.global_transform * Vector3(0, 0, 0.077), left_mesh.global_transform * Vector3(0, 0, 0.271), right_mesh.global_transform * Vector3(0, 0, 0.077), right_mesh.global_transform * Vector3(0, 0, 0.271))
+			minimum_arm_clearance = minf(minimum_arm_clearance, closest[0].distance_to(closest[1]))
+		max_step = maxf(max_step, previous_roll.distance_to(player.bandage_hands.roll.position))
+		max_angle = maxf(max_angle, previous_basis.get_rotation_quaternion().angle_to(player.bandage_hands.right_arm.basis.get_rotation_quaternion()))
+		previous_roll = player.bandage_hands.roll.position
+		previous_basis = player.bandage_hands.right_arm.basis
+	print("Bandage forearm centreline clearance: ", minimum_arm_clearance)
+	_check(minimum_arm_clearance > 0.10, "winding forearms must remain separated rather than pass through one another")
+	_check(max_step < 0.05 and max_angle < 0.20, "continuous wrist/roll path must not snap between winding cycles")
+	_check(is_equal_approx(player.bandage_hands.winding, TAU * 3.0), "bandage must wind three continuous turns")
+	player._update_viewmodel(0.1)
+	_check(not player.is_bandage_motion_active() and player.weapon_pivot.visible, "completion must restore equipment")
+	_check(player.health == healed and inventory.count_item("linen_bandage") == before - 1, "presentation must never apply a second heal or spend")
+	player.apply_body_damage("left_arm", 20.0)
+	player.use_consumable("linen_bandage", inventory)
+	player.prepare_for_inventory()
+	_check(not player.is_bandage_motion_active(), "inventory/F2 preparation must clear both temporary hands and cloth")
+	player.use_consumable("linen_bandage", inventory)
+	player._set_combat_state(DungeonPlayer.CombatState.WINDUP)
+	_check(not player.is_bandage_motion_active(), "combat must immediately release presentation ownership")
+	player._set_combat_state(DungeonPlayer.CombatState.READY)
+	player.reset_body_health()
+	_check(not player.use_consumable("linen_bandage", inventory).accepted and not player.is_bandage_motion_active(), "rejected full-health use must not animate")
+	player.select_treatment_part("right_leg")
+	player.apply_body_damage("right_leg", 10.0)
+	inventory.add_item("linen_bandage", 1)
+	_check(player.use_consumable("linen_bandage", inventory).accepted and not player.is_bandage_motion_active(), "other body targets retain existing treatment without an incorrect forearm motion")
+	viewport.queue_free()
+	await process_frame
+	sandbox.finish()
+	_check(snapshot == ExpeditionSession.capture_snapshot() and cursor == Input.mouse_mode, "preview fixture must restore original expedition and cursor")
+	for failure in failures: push_error(failure)
+	print("BANDAGE MOTION TEST %s: real consumption, 3 wraps, continuous pose, pause, completion, interruption, isolation" % ("PASS" if failures.is_empty() else "FAIL"))
+	quit(0 if failures.is_empty() else 1)

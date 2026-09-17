@@ -1,0 +1,37 @@
+{
+  "feature": "왼팔 붕대 감기",
+  "duration_seconds": 4.8,
+  "wrap_turns": 3,
+  "production_entry": "use_consumable(linen_bandage) with selected_part left_arm",
+  "test_room_entry": "bandage_forearm",
+  "medical_effect": "Existing immediate heal/condition clear/item spend, unchanged; animation never applies medical effects.",
+  "pause": "Waits while paused; inventory/F2 preparation cancels existing presentation.",
+  "tests_passed": [
+    "bandage_motion",
+    "body_health_routes",
+    "body_health_test_room"
+  ],
+  "minimum_forearm_centerline_separation_m": 0.11265205591917,
+  "original_assets": "Supplied hand GLBs reused without modification; new cloth and roll geometry are separate runtime meshes.",
+  "source_sha256": {
+    "godot-game/scripts/bandage_use_visuals.gd": "b416d13ea782300154ba3c37a018f2f561f18b57d09e5c9204c2ef953be5e222",
+    "godot-game/scripts/player.gd": "ec937d4bd1136e2366c4cd3913b7c1078fc337c9a30d741433841be39d4c9926",
+    "godot-game/scripts/test_room.gd": "99c158d5d68cfe3882906b61818f1dfa43aaa1c74fc61a647141f6ce0b372050",
+    "godot-game/scripts/test_room_catalog.gd": "36f64ce086ad2f8a699233f43d46de8c8eda8ebbf5a85160b133cc8b2c049d61",
+    "godot-game/tests/bandage_motion_test.gd": "bd4cbc828ebd4df618c0ffe3c382e4f6a13684575a0571a2c79c3d2b700f64fe",
+    "godot-game/tests/body_health_test_room_test.gd": "017e2487b4af283a7e9a4ae7dc324ee59d8ff388b7f4b21f93f453160dd8c3f8",
+    "godot-game/tests/bandage_motion_preview.gd": "becd553472165344abeb4c2440309c0f3d82727b8bf70dd666693984b825da77"
+  },
+  "preview_manifest": "godot-game/artifacts/visual_qa/bandage_forearm/manifest.json",
+  "visual_checks": [
+    "roll held between fingers",
+    "cloth follows measured sleeve surface",
+    "continuous 3-turn path",
+    "real index fingertip finishes at final wrap",
+    "equipment restored after presentation"
+  ],
+  "notes": [
+    "Early discarded renders retained in staging; sleeve-pivot, wrist alignment, and arm intersections corrected before final capture.",
+    "Existing test-room suite emitted 17 ObjectDB leaked-instance warnings at exit; its assertions passed."
+  ]
+}
