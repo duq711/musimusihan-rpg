@@ -22,6 +22,16 @@ Codex용 개인 연결 스킬 `chat-on-steroids`와 이후 작업의 연속성 �
 
 A personal `chat-on-steroids` integration skill and persistent continuity preference are saved on this Mac. Its [shareable source](../skills/chat-on-steroids/SKILL.md) is included. This newly authored handoff skill does not embed the app inside Codex or automatically migrate conversations. See the [archive report](WORK_ARCHIVE_20260917.md) for historical materials.
 
+## 한국어 화면 / Korean interface
+
+2026-09-17: 이 Mac의 앱 2.1.13에 로컬 한국어 패치를 적용했습니다. 기존 번역 체계에 1,134개 한국어 문구를 추가하고 macOS 메뉴·파일 선택창도 번역했습니다. 실제 앱의 대화창·설정·사용량 화면과 터널 연결을 확인했으며, 기존 프로젝트·대화와 입력 초안을 유지했습니다. 안내의 영어 버튼 이름은 이제 한국어로 표시됩니다. 예: Settings → 설정, Setup → 연결 설정, Message ChatGPT → ChatGPT에 메시지 보내기, Send message → 메시지 보내기.
+
+On 2026-09-17, a local Korean patch was applied to app 2.1.13, adding 1,134 entries to its existing localization system and translating native menus/dialog titles. Korean chat/settings/usage screens and the tunnel connection were verified; existing projects, conversations and the unsent draft were retained. English button names used below now have Korean labels.
+
+언어 선택: **설정 → 에이전트 및 자동화 → 화면 모양 → 언어 → 한국어**. 패치 소스·검증·원복 방법은 [한국어 패치 안내](../tools/chat-on-steroids-korean/README.ko.md)를 확인합니다. 공식 앱 업데이트가 이 로컬 패치를 덮어쓸 수 있습니다. 모델 이름·외부 로그·안내 이미지의 영어는 원문을 유지합니다.
+
+Language: **Settings → Agents & automation → Appearance → Language → 한국어**. See the [patch guide](../tools/chat-on-steroids-korean/README.ko.md) for sources, validation and restore instructions. Official updates can overwrite the local patch. Model names, external logs and guide-image text retain their original language.
+
 ## 평소 사용하는 순서 / Everyday use
 
 1. 이 Mac에서 **Chat On Steroids**를 실행하고 터널 연결을 유지합니다. Chrome과 companion도 실행하고 ChatGPT 로그인을 유지합니다. Chrome은 백그라운드에 두고 앱 화면에서 작업할 수 있습니다. / Run **Chat On Steroids** and keep its tunnel connected. Keep Chrome, the companion, and the ChatGPT login available in the background while working in the app.
