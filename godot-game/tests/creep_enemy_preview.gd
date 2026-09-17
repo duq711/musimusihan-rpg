@@ -22,7 +22,11 @@ func run():
 	var creep:=CREEP.new();creep.position.y=.9;world.add_child(creep);creep.set_physics_process(false)
 	var cam:=Camera3D.new();world.add_child(cam);cam.position=Vector3(3,2.3,-4.5);cam.look_at(Vector3(0,1.0,0));cam.fov=40;cam.current=true
 	var captures=[]
-	var poses: Array = ["front","side","back","walk","bite","punch_right","punch_left","hit","death"]
+	var sequence := OS.get_environment("CREEP_QA_SEQUENCE") == "1"
+	if sequence:
+		captures = await capture_sequence(view, creep, cam, path)
+
+	var poses: Array = [] if sequence else ["front","side","back","walk","bite","punch_right","punch_left","hit","death"]
 	for pose: String in poses:
 		cam.position=Vector3(0,1.5,-4.6)
 		if pose=="side":cam.position=Vector3(4.6,1.8,0)
@@ -42,11 +46,11 @@ func run():
 		assert(view.get_texture().get_image().save_png(path.path_join(pose+".png"))==OK)
 		captures.append({"pose":pose,"state":creep.get_creep_snapshot()})
 	view.queue_free();await process_frame
-	await capture_mine(path)
+	if not sequence: await capture_mine(path)
 	sandbox.finish()
 	assert(before==ExpeditionSession.capture_snapshot() and cursor==Input.mouse_mode)
 	var file:=FileAccess.open(path.path_join("manifest.json"),FileAccess.WRITE)
-	file.store_string(JSON.stringify({"renderer":RenderingServer.get_current_rendering_driver_name(),"captures":captures,"preserved_session_cursor":true,"source_sha256":FileAccess.get_sha256(CREEP.MODEL_PATH)},"\t"))
+	file.store_string(JSON.stringify({"renderer":RenderingServer.get_current_rendering_driver_name(),"captures":captures,"sequence":sequence,"fps":30 if sequence else 0,"preserved_session_cursor":true,"source_sha256":FileAccess.get_sha256(CREEP.MODEL_PATH)},"\t"))
 	print("CREEP ENEMY PREVIEW PASS: ",path)
 	quit()
 
@@ -74,3 +78,52 @@ func capture_mine(path: String) -> void:
 	RenderingServer.force_draw(false)
 	assert(view.get_texture().get_image().save_png(path.path_join("mine_encounter.png"))==OK)
 	mine.suspend_stress_effects();view.queue_free();await process_frame
+
+
+func capture_sequence(view: SubViewport, actor: Node3D, camera: Camera3D, path: String) -> Array:
+	var reel := preload("res://tests/creep_motion_reel.gd")
+	var source_hash := FileAccess.get_sha256(CREEP.MODEL_PATH)
+	var code_hash := FileAccess.get_sha256("res://scripts/creep_enemy.gd")
+	view.size = Vector2i(1280, 720)
+	camera.position = Vector3(2.25, 1.65, -4.60)
+	camera.look_at(Vector3(0, 1.12, 0))
+	camera.fov = 37
+	actor.move_speed = 2.2 # Same authored movement setting as the live mine encounter.
+	var canvas := CanvasLayer.new()
+	view.add_child(canvas)
+	var heading := Label.new()
+	heading.position = Vector2(38, 24)
+	heading.add_theme_font_override("font", preload("res://assets/fonts/NotoSansKR-Variable.ttf"))
+	heading.add_theme_font_size_override("font_size", 25)
+	heading.text = "CREEP  |  게임에 적용된 모션"
+	canvas.add_child(heading)
+	var title := Label.new()
+	title.position = Vector2(38, 590)
+	title.add_theme_font_override("font", heading.get_theme_font("font"))
+	title.add_theme_font_size_override("font_size", 30)
+	canvas.add_child(title)
+	var note := Label.new()
+	note.position = Vector2(40, 638)
+	note.add_theme_font_override("font", heading.get_theme_font("font"))
+	note.add_theme_font_size_override("font_size", 19)
+	note.modulate = Color(.78, .84, .88)
+	canvas.add_child(note)
+	var directory := path.path_join("frames")
+	DirAccess.make_dir_recursive_absolute(directory)
+	var samples: Array = []
+	var frame_index := 0
+	for segment: Dictionary in reel.SEGMENTS:
+		title.text = segment.title
+		note.text = segment.note
+		for frame in ceili(float(segment.duration) * reel.FPS):
+			var pose := reel.sample(actor, segment.id, float(frame) / reel.FPS)
+			for settle in 2: await process_frame
+			RenderingServer.force_draw(false)
+			var filename := "%05d.png" % frame_index
+			assert(view.get_texture().get_image().save_png(directory.path_join(filename)) == OK)
+			samples.append({"frame": frame_index, "segment": segment.id, "pose": pose})
+			frame_index += 1
+		print("CREEP REEL SEGMENT: ", segment.id, " / frames: ", frame_index)
+	assert(source_hash == FileAccess.get_sha256(CREEP.MODEL_PATH))
+	assert(code_hash == FileAccess.get_sha256("res://scripts/creep_enemy.gd"))
+	return samples

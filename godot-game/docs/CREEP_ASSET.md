@@ -89,3 +89,6 @@ CREEP_QA_ITERATION=review_01 GODOT_PREVIEW_TIMEOUT_SECONDS=360 \
 출력은 `godot-game/artifacts/visual_qa/creep/<이름>/`입니다. PNG를 직접 열어 몸체·방향·공격 접촉·사망 자세와 실제 폐광 배치를 검토해야 합니다. 2026-09-17 설치·미설치 자동 검사와 GPU 화면 10장 검토를 완료했습니다. [최초 실패·수정·통과 및 제한 사항](../artifacts/validation/creep_20260917/README.md)을 확인하세요.
 
 Output is saved under `godot-game/artifacts/visual_qa/creep/<name>/`. Inspect the actual PNGs for shape, orientation, contacts, death pose, and mine placement. Installed and missing-asset checks and ten actual GPU renders were verified on 2026-09-17. The linked validation record retains the initial failure, correction, passing rerun and limitations.
+
+
+[현재 게임의 6개 모션 영상 / Six current gameplay motions](../artifacts/validation/creep_motion_reel_20260917/README.md): 22.53초, 30fps 실제 Godot 렌더. 걷기는 제자리로 표시한다. / Actual Godot rendering, with walking presented in place.
