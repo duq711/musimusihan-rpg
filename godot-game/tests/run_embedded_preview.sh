@@ -20,6 +20,7 @@ if [[ "$(/usr/bin/uname -s)" != Darwin || ! -x "$godot_executable" ]]; then
 	exit 2
 fi
 case "$preview_name" in
+	creep_ragdoll_preview.gd) preview_pass_marker="^CREEP RAGDOLL PREVIEW PASS:" ;;
 	creep_enemy_preview.gd) preview_pass_marker="^CREEP ENEMY PREVIEW PASS:" ;;
 	cave_store_enemy_preview.gd) preview_pass_marker="^CAVE STORE ENEMY PREVIEW PASS:" ;;
 	supplied_fp_arms_preview.gd) preview_pass_marker="^SUPPLIED FP ARMS PREVIEW PASS:" ;;
@@ -129,6 +130,9 @@ runner=("$godot_executable" --embedded --debug --audio-driver Dummy
 	--rendering-method forward_plus --rendering-driver "$preview_rendering_driver"
 	--disable-crash-handler --path "$project_dir"
 	--script "res://tests/$preview_name")
+if [[ "$preview_name" == "creep_ragdoll_preview.gd" ]]; then
+	runner+=(--fixed-fps 30)
+fi
 if [[ "$preview_name" == "performance_preview.gd" && "${PERFORMANCE_QA_SCHEDULING:-background}" == "normal" ]]; then
 	"${runner[@]}" >"$preview_log" 2>&1 &
 elif [[ -x /usr/sbin/taskpolicy ]]; then

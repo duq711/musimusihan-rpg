@@ -29,7 +29,7 @@ func run() -> void:
 			check(pose.clip == segment.id and pose.sample >= 0.0, "reel displays the labeled production clip")
 			for bone in first.size(): changed = changed or not first[bone].is_equal_approx(actor.skeleton.get_bone_global_pose(bone))
 		check(changed, "actual bones move in " + str(segment.id))
-	check(seen == ["idle", "walk", "bite", "punch", "hit", "death"], "all six current gameplay motions are included")
+	check(seen == ["idle", "walk", "bite", "punch", "hit", "death"], "five gameplay clips and retained source death are included")
 	check(is_equal_approx(REEL.sample(actor, "bite", 1.0).sample, 1.0), "bite contact retains production timing")
 	check(is_equal_approx(REEL.sample(actor, "punch", 0.64).sample, 0.64), "second punch retains production timing")
 	check(is_equal_approx(REEL.sample(actor, "death", 3.3).sample, 2.4), "death freezes at the source ending")
@@ -37,5 +37,5 @@ func run() -> void:
 	actor.queue_free()
 	await process_frame
 	for failure in failures: push_error(failure)
-	print("CREEP MOTION REEL TEST " + ("PASS" if failures.is_empty() else "FAIL") + ": six labeled production clips, moving bones, contact timing, death hold and preserved state")
+	print("CREEP MOTION REEL TEST " + ("PASS" if failures.is_empty() else "FAIL") + ": five gameplay clips and source death, moving bones, contact timing, death hold and preserved state")
 	quit(0 if failures.is_empty() else 1)

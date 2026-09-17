@@ -56,7 +56,7 @@ Only the mine's `store_guard` encounter changes when the asset is installed. Six
 | 물기 / Bite | `bite` |
 | 양손 연타 / Two-punch attack | `punch` |
 | 피격·저스트 가드 경직 / Hit and parry reaction | `hit` |
-| 사망 / Death | `death` |
+| 사망 / Death | `hit` 0.18초 반응 → 실제 래그돌 / 0.18 s reaction → physics ragdoll |
 
 GLB에는 나머지 11개 클립도 보존합니다: `idle_crouched`, `walk_calm`, `walk_crouched`, `eat`, `roar`, `sniff`, `spawn_jump`, `despawn_jump`, `sleep_start`, `sleep_loop`, `sleep_finish`. Godot 기본 가져오기는 `sleep_loop`를 `sleep`으로 바꾸고 반복 재생을 설정합니다. 현재 AI에서 이 추가 동작을 실행하는 기능은 연결하지 않았습니다.
 
@@ -91,4 +91,22 @@ CREEP_QA_ITERATION=review_01 GODOT_PREVIEW_TIMEOUT_SECONDS=360 \
 Output is saved under `godot-game/artifacts/visual_qa/creep/<name>/`. Inspect the actual PNGs for shape, orientation, contacts, death pose, and mine placement. Installed and missing-asset checks and ten actual GPU renders were verified on 2026-09-17. The linked validation record retains the initial failure, correction, passing rerun and limitations.
 
 
-[현재 게임의 6개 모션 영상 / Six current gameplay motions](../artifacts/validation/creep_motion_reel_20260917/README.md): 22.53초, 30fps 실제 Godot 렌더. 걷기는 제자리로 표시한다. / Actual Godot rendering, with walking presented in place.
+[래그돌 적용 전 모션 기록 / Pre-ragdoll animation record](../artifacts/validation/creep_motion_reel_20260917/README.md): 22.53초, 30fps 실제 Godot 렌더. 걷기는 제자리로 표시한다. / Actual Godot rendering, with walking presented in place.
+
+
+## 래그돌 사망 / Ragdoll death
+
+2026-09-17 사용자 요청으로 사망은 짧은 피격 반응 뒤 물리로 전환한다. 원본 `death` 클립은 비교·제작용으로 보존한다. 손·발이 독립된 IK 루트이고 가져오기 스케일이 있으므로, 20개 실물 크기 물리체와 19개 제한 관절을 명시적으로 연결하고 원본 뼈대에 결과를 적용한다. 원본 메시·스킨은 바꾸지 않는다. 손가락·턱은 전환 순간 형태를 유지한다.
+
+On request, death now hands off from a short hit reaction to physics. The source `death` clip is retained for reference. Twenty world-scale rigid bodies and nineteen limited joints explicitly connect the independent hand/foot IK roots and drive the untouched source skin. Fingers and jaw retain their handoff pose.
+
+치명타 방향을 반영하며 월드와 충돌한다. 플레이어·살아 있는 적의 이동이나 무기 판정을 막지 않는 시체 전용 충돌층 32를 사용한다. 바닥·벽에 지지되고 움직임이 작아지면 물리를 고정한다. 처치 보상·적 수·귀환문은 사망 순간 한 번만 처리하며 시체 추가 타격으로 재발동하지 않는다. 사망 후 밀기·차기 기능은 이번 범위에 없다.
+
+The impact direction influences collapse. Corpses collide with world geometry and other corpse bodies on physics layer 32, without blocking live actors or weapon queries. Once supported and quiet, the solved pose is frozen. Rewards/counts/extraction remain immediate and single-fire; corpse kicking is not included.
+
+자동 검사: `./godot-game/tests/run_headless_tests.sh creep_ragdoll creep_ragdoll_trial creep_enemy creep_motion_reel test_room`
+GPU 촬영: `CREEP_RAGDOLL_QA_ITERATION=<새 이름> GODOT_PREVIEW_TIMEOUT_SECONDS=600 ./godot-game/tests/run_embedded_preview.sh creep_ragdoll_preview.gd`
+
+Automatic checks and GPU capture commands are above. F2 front/side/wall demonstrations are documented in TEST_ROOM.md.
+
+[래그돌 실제 검증 영상·검사 결과 / Ragdoll video and verification](../artifacts/validation/creep_ragdoll_20260917/README.md).

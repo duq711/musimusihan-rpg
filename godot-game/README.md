@@ -662,3 +662,7 @@ The requested CGTrader Creep Creature is integrated as an enemy NPC. Once instal
 라이선스 에셋은 공개 저장소에 포함하지 않습니다. [출처·설치·검증 안내](docs/CREEP_ASSET.md)에 따라 로컬에 설치합니다. 미설치 복사본은 창고의 기존 검지기를 사용하며 F2 항목은 설치 안내를 표시합니다. 전투·테스트룸·폐광 및 미설치 대체 검사가 통과했고 실제 GPU 화면 10장을 검토했습니다. [검증 기록](artifacts/validation/creep_20260917/README.md)을 참고하세요.
 
 Licensed binaries are not distributed in the public repository. Follow the linked source, installation, and validation guide. Without installation, the store retains its original warden and F2 shows setup guidance. Installed and missing-asset checks passed, and ten actual GPU renders were inspected. See the linked validation record for scope and remaining warnings.
+
+`F2 → 기본 → 크리프 래그돌`에는 정면·측면·벽 충돌의 세 사망 시험이 있습니다. 선택하면 실제 크리프와 회복된 플레이어를 준비하고 1초 뒤 일반 피격 경로로 치명타를 적용합니다. `F2`로 대기·물리를 멈추고, 같은 항목 재선택으로 시체 제거·회복·재생성을 반복합니다. [테스트룸 안내](TEST_ROOM.md#크리프-래그돌--정면측면벽--creep-ragdoll--front-side-and-wall)를 참고하세요. 물리·전투·테스트룸 검사와 실제 렌더 검증을 완료했습니다. [검증 영상·범위](artifacts/validation/creep_ragdoll_20260917/README.md)를 참고하세요.
+
+`F2 → 기본 → 크리프 래그돌` provides front, side, and wall death trials. Each prepares a real Creep and healed player, then applies a fatal hit through the ordinary damage path after one second. `F2` pauses the countdown and physics; reselection removes the corpse, heals, and respawns. See the test-room guide. Physics, combat and test-room checks plus actual GPU rendering passed; see the linked validation record for scope and limits.

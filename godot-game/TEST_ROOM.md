@@ -846,10 +846,28 @@ Install the local model using the guide above. Selecting `F2 → 기본 → 크�
 - `RMB`: 방패 가드와 공격 직전 저스트 가드를 확인합니다. / Check shield blocking and just guard.
 - `F2`: 전투를 멈추고 메뉴로 돌아갑니다. 같은 항목 재선택은 회복·크리프 재생성, 초기화는 기존 적 두 명 복구입니다. / Pause and return; reselection heals and respawns Creep, while reset restores the two default enemies.
 
-크리프는 물기와 두 번의 주먹 타격을 번갈아 사용합니다. 주먹 두 접촉의 총 피해는 설정된 공격 한 번의 피해이며, 저스트 가드로 경직되면 남은 접촉이 취소됩니다. 원본의 17개 동작 중 전투에 연결한 것은 대기·걷기·물기·주먹·피격·사망 6개입니다. 기타 동작이 게임에서 실행된다고 표시하지 않습니다.
+크리프는 물기와 두 번의 주먹 타격을 번갈아 사용합니다. 주먹 두 접촉의 총 피해는 설정된 공격 한 번의 피해이며, 저스트 가드로 경직되면 남은 접촉이 취소됩니다. 살아 있는 동안 대기·걷기·물기·주먹·피격 클립을 사용하고, 사망은 실제 뼈대의 래그돌로 이어집니다. 원본 사망 동작을 포함한 17개 클립은 보존합니다.
 
-Creep alternates bite and a two-contact punch. Both punch contacts together equal one configured attack; a just guard interrupts the remaining contact. Six of the seventeen source clips are connected to combat: idle, walk, bite, punch, hit, and death.
+Creep alternates bite and a two-contact punch. Both punch contacts together equal one configured attack; a just guard interrupts the remaining contact. Living behavior uses idle, walk, bite, punch, and hit clips; death transitions into ragdoll simulation on the actual skeleton. All seventeen source clips, including the original death clip, remain preserved.
 
 공개 저장소 복사본에 에셋이 없으면 설치 안내만 표시하고 메뉴와 기존 시험 대상을 유지합니다. 원정과 인벤토리는 시험과 분리되며 시험을 나가면 복원됩니다. 관련 검사: 프로젝트 루트에서 `GODOT_TEST_TIMEOUT_SECONDS=600 ./godot-game/tests/run_headless_tests.sh creep_enemy cave_dungeon test_room`. 미설치 검사는 모델 검증을 **SKIPPED**로 구분합니다. 설치·미설치 자동 검사와 실제 GPU 화면 10장 검토를 완료했습니다. [검증 기록](artifacts/validation/creep_20260917/README.md)을 참고하세요.
 
 Without the licensed asset, the entry displays setup guidance and keeps the menu and current actors intact. The original expedition and inventory remain isolated and are restored on exit. Run the listed checks from the repository root; absent-asset runs mark model coverage **SKIPPED**. Installed and missing-asset checks passed, and ten actual GPU renders were inspected. See the linked validation record for scope and remaining warnings.
+
+## 크리프 래그돌 · 정면·측면·벽 / Creep ragdoll · front, side, and wall
+
+`F2 → 기본 → 크리프 래그돌`의 세 항목은 기존 크리프 준비 경로로 실제 적과 회복된 플레이어를 생성합니다. 재개 후 1초가 지나면 일반 `receive_hit()`에 치명타를 전달하므로 실제 사망 처리·보상·래그돌을 함께 시험합니다.
+
+The three `F2 → 기본 → 크리프 래그돌` entries reuse the Creep encounter setup and heal the player. One second after resuming, an ordinary fatal `receive_hit()` exercises actual death, rewards, and ragdoll simulation.
+
+| 항목 / Entry | 재현 내용 / Scenario |
+| --- | --- |
+| 정면 타격 / Front (`creep_ragdoll`) | 정면에서 받은 충격과 열린 바닥으로 낙하 / Frontal impact and a fall onto open floor |
+| 측면 타격 / Side (`creep_ragdoll:side`) | 왼쪽에서 오른쪽으로 받은 충격 / Impact from the left toward the right |
+| 벽 충돌 / Wall (`creep_ragdoll:wall`) | 북쪽 벽 앞에서 벽을 향한 충격, 벽·바닥 접촉 / Impact toward the north wall, with wall and floor contact |
+
+`F2`는 치명타 대기와 물리 진행을 일시정지하며 재개하면 이어집니다. 같은 항목을 다시 고르면 시체를 제거하고 회복·재생성합니다. 다른 항목 선택·초기화·장면 이동은 남은 치명타 예약을 취소합니다. 에셋 미설치 시 설치 안내를 표시하고, 시험 종료 시 `TestRoomSandbox`가 원래 원정과 인벤토리를 복원합니다.
+
+`F2` pauses both the pending fatal hit and physics, and resuming continues them. Reselection removes the corpse, heals, and respawns. Switching entries, resetting, or changing scenes cancels any pending hit. Missing assets show setup guidance; `TestRoomSandbox` restores the original expedition and inventory on exit.
+
+`creep_ragdoll`, `creep_ragdoll_trial`, `creep_enemy`, `creep_motion_reel`, `test_room` 검사 및 실제 GPU 촬영을 통과했습니다. [검증 영상·범위](artifacts/validation/creep_ragdoll_20260917/README.md). / The listed checks and real GPU capture passed; the linked record includes scope and remaining limits.

@@ -41,6 +41,9 @@ var flail_last_damage := 0.0
 var arm_motion_target: DungeonEnemy
 var arm_motion_chest: DungeonLootChest
 var finger_joint_controls: Control
+var creep_ragdoll_target: DungeonEnemy
+var creep_ragdoll_timer: Timer
+var creep_ragdoll_attacker_position := Vector3.ZERO
 
 
 func _ready() -> void:
@@ -418,6 +421,7 @@ func run_feature(feature_id: String) -> void:
 			break
 	if entry.is_empty():
 		return
+	_cancel_creep_ragdoll_trial()
 	hud.set_combat_interface_enabled(false)
 	_close_finger_joint_controls(false)
 	_close_art_gallery(false)
@@ -434,6 +438,9 @@ func run_feature(feature_id: String) -> void:
 	match str(entry.action):
 		"creep":
 			if _prepare_creep():
+				_hide_test_panel()
+		"creep_ragdoll":
+			if _prepare_creep_ragdoll_trial(payload):
 				_hide_test_panel()
 		"performance":
 			TestRoomSandbox.toggle_performance_monitor()
@@ -906,6 +913,7 @@ func _set_enemy_ai(enabled: bool) -> void:
 
 
 func _remove_test_actors(include_props := true) -> void:
+	_cancel_creep_ragdoll_trial()
 	cancel_camp("시험 대상 재설정", false)
 	suspend_stress_effects()
 	archery_power_target = null
@@ -1639,6 +1647,7 @@ func leave_room() -> void:
 func _begin_scene_loading(scene_path: String, title_text: String, detail_text: String, status_text: String, failure_text: String) -> void:
 	if is_instance_valid(loading_screen):
 		return
+	_cancel_creep_ragdoll_trial()
 	_close_finger_joint_controls(false)
 	if is_instance_valid(player):
 		player.set_hands_visual_profile("original")
@@ -1774,3 +1783,62 @@ func _prepare_creep() -> bool:
 	hud.update_objective(enemies_alive, loot_count, traps_disarmed)
 	_status("크리프 전투 · LMB 공격 / RMB 방어 · F2 재선택: 회복·재생성")
 	return true
+
+
+func _prepare_creep_ragdoll_trial(scenario: String) -> bool:
+	if not _prepare_creep():
+		return false
+	_set_enemy_ai(false)
+	for child in get_children():
+		if child is DungeonEnemy and child.get_meta("enemy_archetype", "") == "creep":
+			creep_ragdoll_target = child
+			break
+	if not is_instance_valid(creep_ragdoll_target):
+		return false
+	var label := "정면 타격 · 바닥 낙하"
+	var attacker_offset := Vector3(0, 0, 2)
+	if scenario == "side":
+		label = "측면 타격 · 왼쪽 → 오른쪽"
+		attacker_offset = Vector3(-2, 0, 0)
+	elif scenario == "wall":
+		label = "북쪽 벽 · 벽과 바닥 접촉"
+		creep_ragdoll_target.position = Vector3(0, 1, -15.6)
+		_teleport(Vector3(0, 1, -10.6))
+	creep_ragdoll_target.rotation.y = PI
+	creep_ragdoll_attacker_position = creep_ragdoll_target.global_position + attacker_offset
+	# The controller always processes for its menu. This child timer, like the
+	# actual enemy and its physical bones, must stop while F2 pauses the tree.
+	creep_ragdoll_timer = Timer.new()
+	creep_ragdoll_timer.name = "CreepRagdollTrialTimer"
+	creep_ragdoll_timer.process_mode = Node.PROCESS_MODE_PAUSABLE
+	creep_ragdoll_timer.process_callback = Timer.TIMER_PROCESS_PHYSICS
+	creep_ragdoll_timer.one_shot = true
+	creep_ragdoll_timer.wait_time = 1.0
+	creep_ragdoll_timer.add_to_group("test_fixture_prop")
+	add_child(creep_ragdoll_timer)
+	creep_ragdoll_timer.timeout.connect(_apply_creep_ragdoll_trial_hit)
+	creep_ragdoll_timer.start()
+	_status("크리프 래그돌 · %s · 재개 1초 뒤 치명타 / F2 일시정지·재선택" % label)
+	hud.show_event("%s · 1초 뒤 치명타 · F2 일시정지" % label, 1.0)
+	return true
+
+
+func _apply_creep_ragdoll_trial_hit() -> void:
+	if not is_instance_valid(creep_ragdoll_target) or creep_ragdoll_target.is_queued_for_deletion():
+		_cancel_creep_ragdoll_trial()
+		return
+	if creep_ragdoll_target.ai_state != DungeonEnemy.AIState.DEAD:
+		# Re-enable the real controller for its death-to-ragdoll handoff; the
+		# initial one-second wait has no AI attacks or alternate death path.
+		creep_ragdoll_target.set_physics_process(true)
+		creep_ragdoll_target.receive_hit(creep_ragdoll_target.health + 1.0, creep_ragdoll_attacker_position, 1.0, false)
+	_cancel_creep_ragdoll_trial()
+
+
+func _cancel_creep_ragdoll_trial() -> void:
+	if is_instance_valid(creep_ragdoll_timer):
+		creep_ragdoll_timer.stop()
+		creep_ragdoll_timer.queue_free()
+	creep_ragdoll_timer = null
+	creep_ragdoll_target = null
+	creep_ragdoll_attacker_position = Vector3.ZERO

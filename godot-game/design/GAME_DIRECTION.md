@@ -307,3 +307,13 @@ After removing the orc, the user requested the specified Creep Creature model an
 Implementation choice: integrate one eastern-store encounter and a dedicated test-room duel when installed. Reuse existing encounter count, stats, combat, shield, damage, reward, and extraction rules. Preserve all seventeen clips, connecting six to current behavior and using the first complete cycle of repeating attack clips. Missing-asset environments retain the original warden. No new boss, species lore, or additional combat system is established.
 
 실제 게임 연결과 설치·미설치 자동 검사, GPU 화면 10장 검토를 완료했다. [검증 기록](../artifacts/validation/creep_20260917/README.md)을 따른다. / Integration, installed/missing-asset checks and ten actual GPU renders are verified; see the validation record.
+
+### 2026-09-17 크리프 사망 래그돌 / Creep death ragdoll
+
+사용자 후속 요청에 따라 크리프의 사망을 실제 관절 물리로 연결한다. 구현 범위는 기존 Creep 뼈대의 사망 반응·래그돌 전환·바닥과 벽 접촉이며, 원본 모델과 17개 동작 클립을 보존한다. 살아 있는 적의 공격·방패·피격·처치 보상과 폐광 조우 수는 기존 규칙을 유지한다.
+
+The follow-up request connects Creep death to physical joints. The implementation covers a death reaction, ragdoll transition, and floor/wall contact on the existing skeleton while preserving the source model and all seventeen animation clips. Living attacks, shield interactions, damage, defeat rewards, and mine encounter counts retain their existing rules.
+
+테스트룸에 정면·측면·북쪽 벽 사망 시험을 연결한다. 회복·재생성 후 1초 뒤 실제 피격 함수로 치명타를 주고, F2 일시정지·재선택·초기화·원정 격리를 포함한다. 물리·테스트룸·관련 전투 검사와 실제 GPU 영상 검증을 완료했다. [검증 범위](../artifacts/validation/creep_ragdoll_20260917/README.md)를 따른다.
+
+The test room adds front, side, and north-wall death scenarios. Each heals and respawns, then sends a fatal hit through the real damage function after one second, including F2 pause, replay, reset, and expedition isolation. Physics, test-room, related combat checks and real GPU-video validation passed; see the linked scope and limitations.

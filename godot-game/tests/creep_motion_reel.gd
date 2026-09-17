@@ -8,7 +8,7 @@ const SEGMENTS := [
 	{"id": "bite", "title": "03  물기  /  BITE", "duration": 3.20, "note": "게임 적용 속도 · 공격 2회 반복"},
 	{"id": "punch", "title": "04  양손 연타  /  TWO-HAND ATTACK", "duration": 3.60, "note": "게임 적용 속도 · 공격 3회 반복"},
 	{"id": "hit", "title": "05  피격  /  HIT REACTION", "duration": 2.60, "note": "피격 2회 · 각 반응 뒤 잠시 정지"},
-	{"id": "death", "title": "06  사망  /  DEATH", "duration": 3.40, "note": "게임 적용 속도 · 마지막 자세 유지"},
+	{"id": "death", "title": "06  원본 사망 클립  /  SOURCE DEATH", "duration": 3.40, "note": "비교용 원본 · 실제 사망은 래그돌 사용"},
 ]
 
 static func sample(actor, id: String, seconds: float) -> Dictionary:

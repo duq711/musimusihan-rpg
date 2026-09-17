@@ -7,6 +7,7 @@ const WINDUPS := [0.82, 0.30]
 const ACTIVE_TIMES := [0.30, 0.45]
 const RECOVERIES := [0.48, 0.45]
 const CONTACTS := [[0.18], [0.06, 0.34]]
+const RAGDOLL := preload("res://scripts/creep_ragdoll.gd")
 
 var animation_player: AnimationPlayer
 var skeleton: Skeleton3D
@@ -14,6 +15,7 @@ var attack_index := -1
 var animation_clip := "idle"
 var animation_sample := 0.0
 var resolved_contacts := 0
+var ragdoll: Node3D
 
 static func is_available() -> bool:
 	return ResourceLoader.exists(MODEL_PATH)
@@ -42,6 +44,10 @@ func _build_body() -> void:
 	attack_range = 1.50
 	set_meta("enemy_archetype", "creep")
 	_update_visual_pose(0.0)
+	ragdoll = RAGDOLL.new()
+	ragdoll.name = "CreepRagdoll"
+	add_child(ragdoll)
+	ragdoll.configure(self, skeleton, animation_player)
 
 func _find_skeleton(node: Node) -> Skeleton3D:
 	if node is Skeleton3D:
@@ -55,7 +61,6 @@ func _find_skeleton(node: Node) -> Skeleton3D:
 func _physics_process(delta: float) -> void:
 	state_time += delta
 	if ai_state == AIState.DEAD:
-		_update_visual_pose(delta)
 		return
 	if not is_on_floor():
 		velocity.y -= gravity * delta
@@ -142,6 +147,8 @@ func _update_weapon_pose(_delta: float) -> void:
 func _update_visual_pose(_delta: float) -> void:
 	if not is_instance_valid(animation_player):
 		return
+	if is_instance_valid(ragdoll) and ragdoll.phase != "living":
+		return # The death reaction/physics controller exclusively owns the rig.
 	var clip := "idle"
 	var sample := state_time
 	match ai_state:
@@ -173,6 +180,9 @@ func _update_visual_pose(_delta: float) -> void:
 	animation_sample = sample
 
 func _die() -> void:
+	if ai_state == AIState.DEAD:
+		return
+	ragdoll.begin(velocity)
 	_set_state(AIState.DEAD)
 	velocity = Vector3.ZERO
 	collision_layer = 0
@@ -185,4 +195,4 @@ func _die() -> void:
 	defeated.emit(self)
 
 func get_creep_snapshot() -> Dictionary:
-	return {"archetype": "creep", "state": ai_state, "clip": animation_clip, "sample": animation_sample, "attack_index": attack_index, "resolved_contacts": resolved_contacts, "bones": skeleton.get_bone_count(), "meshes": visual_meshes.size(), "clips": animation_player.get_animation_list(), "source": MODEL_PATH}
+	return {"archetype": "creep", "state": ai_state, "clip": animation_clip, "sample": animation_sample, "attack_index": attack_index, "resolved_contacts": resolved_contacts, "bones": skeleton.get_bone_count(), "meshes": visual_meshes.size(), "clips": animation_player.get_animation_list(), "source": MODEL_PATH, "ragdoll": ragdoll.snapshot()}

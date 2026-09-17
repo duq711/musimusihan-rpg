@@ -95,7 +95,7 @@ func capture_sequence(view: SubViewport, actor: Node3D, camera: Camera3D, path: 
 	heading.position = Vector2(38, 24)
 	heading.add_theme_font_override("font", preload("res://assets/fonts/NotoSansKR-Variable.ttf"))
 	heading.add_theme_font_size_override("font_size", 25)
-	heading.text = "CREEP  |  게임에 적용된 모션"
+	heading.text = "CREEP  |  모션 비교 · 사망은 원본 클립"
 	canvas.add_child(heading)
 	var title := Label.new()
 	title.position = Vector2(38, 590)

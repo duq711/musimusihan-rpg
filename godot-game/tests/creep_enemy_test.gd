@@ -229,13 +229,15 @@ func _test_death(room, creep) -> void:
 	_check(creep.health == creep.max_health - 10.0 and creep.animation_clip == "hit", "player damage uses source hit reaction")
 	var loot: int = room.loot_count
 	creep.receive_hit(1000.0, room.player.global_position, 0.0, false)
-	_check(creep.ai_state == DungeonEnemy.AIState.DEAD and creep.animation_clip == "death" and creep.collision_layer == 0 and creep.collision_mask == 0, "death disables attacks/collision and starts the authored death clip")
+	var death_snapshot: Dictionary = creep.get_creep_snapshot()
+	_check(creep.ai_state == DungeonEnemy.AIState.DEAD and creep.collision_layer == 0 and creep.collision_mask == 0, "death disables attacks and the living collision body")
+	_check(death_snapshot.ragdoll.phase == "reaction" and creep.animation_clip == "hit" and death_snapshot.ragdoll.bodies == 0, "actual fatal damage begins the hit-to-ragdoll reaction without jumping to a death clip or creating bodies immediately")
 	_check(room.enemies_alive == 0 and room.loot_count == loot + 1, "actual death awards loot and releases the encounter seal")
+	var reaction_time: float = creep.ragdoll.reaction_time
+	var sample: float = creep.animation_sample
 	creep._physics_process(6.0)
-	var end: float = creep.animation_player.get_animation("death").length
-	_check(is_equal_approx(creep.animation_sample, end), "death reaches its authored final pose")
-	creep._physics_process(2.0)
-	_check(is_equal_approx(creep.animation_sample, end), "dead creature holds the final pose without looping")
+	creep._update_visual_pose(2.0)
+	_check(creep.ragdoll.phase == "reaction" and is_equal_approx(creep.ragdoll.reaction_time, reaction_time) and is_equal_approx(creep.animation_sample, sample), "dead enemy AI and ordinary animation updates cannot advance or overwrite the separate ragdoll controller")
 	creep.receive_hit(1000.0, Vector3.ZERO, 0.0, false)
 	_check(room.loot_count == loot + 1 and room.enemies_alive == 0, "repeated hits on corpse cannot duplicate rewards")
 
