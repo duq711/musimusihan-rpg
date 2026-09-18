@@ -13,7 +13,7 @@ const PITTED_IRON_TEXTURE := preload("res://assets/ai/materials/pitted_black_iro
 const WEATHERED_BONE_TEXTURE := preload("res://assets/3d/dark_fantasy/weathered_bone_albedo.png")
 const SWORD_CLASH_GEOMETRY := preload("res://scripts/sword_clash_geometry.gd")
 
-enum AIState { IDLE, CHASE, WINDUP, ACTIVE, RECOVERY, STAGGER, DEAD }
+enum AIState { IDLE, CHASE, WINDUP, ACTIVE, RECOVERY, STAGGER, DEAD, EXECUTION }
 
 var display_name := "망각의 감시자"
 var max_health := 82.0
@@ -28,6 +28,15 @@ var inflicted_condition := ""
 const ATTACK_HIT_TIME := 0.09
 const STAGGER_SECONDS := 0.72
 const JUST_GUARD_STUN_SECONDS := 1.15
+const EXECUTION_HEALTH_RATIO := 0.30
+const EXECUTION_SHIELD_SECONDS := 0.30
+const EXECUTION_CUT_START_SECONDS := 0.66
+const EXECUTION_HIT_SECONDS := 0.82
+
+var _execution_executor: Node3D
+var _execution_elapsed := 0.0
+var _execution_entry_visual := Transform3D.IDENTITY
+var _execution_entry_rotations: Dictionary = {}
 
 var target: DungeonPlayer
 var hud: DungeonHUD
@@ -430,6 +439,8 @@ func _apply_reference_bone_material() -> void:
 func _physics_process(delta: float) -> void:
 	if ai_state == AIState.DEAD:
 		return
+	if _process_execution_physics(delta):
+		return
 	state_time += delta
 	if not is_on_floor():
 		velocity.y -= gravity * delta
@@ -501,7 +512,7 @@ func _face_direction(direction: Vector3, weight: float) -> void:
 
 
 func _attempt_attack() -> bool:
-	if not is_instance_valid(target):
+	if ai_state in [AIState.EXECUTION, AIState.DEAD] or not is_instance_valid(target):
 		return false
 	var flat_to_target := target.global_position - global_position
 	flat_to_target.y = 0.0
@@ -580,16 +591,161 @@ func receive_hit(amount: float, attacker_position: Vector3, charge: float, heads
 	if ai_state == AIState.DEAD:
 		return
 	health = maxf(0.0, health - amount)
-	var knockback := attacker_position.direction_to(global_position)
-	knockback.y = 0.0
-	velocity += knockback.normalized() * lerpf(1.2, 3.2, charge)
+	if ai_state != AIState.EXECUTION:
+		var knockback := attacker_position.direction_to(global_position)
+		knockback.y = 0.0
+		velocity += knockback.normalized() * lerpf(1.2, 3.2, charge)
 	_flash_body()
 	if health <= 0.0:
 		_die()
 	else:
-		_set_state(AIState.STAGGER)
+		if ai_state != AIState.EXECUTION:
+			_set_state(AIState.STAGGER)
 		if hud:
 			hud.show_event("%s  -%d%s" % [display_name, roundi(amount), " · 치명타" if headshot else ""], 0.75)
+
+
+func get_execution_profile() -> String:
+	return "shield_cut"
+
+
+func is_execution_vulnerable() -> bool:
+	return not is_queued_for_deletion() and health > 0.0 and max_health > 0.0 \
+		and health <= max_health * EXECUTION_HEALTH_RATIO \
+		and ai_state == AIState.STAGGER and stagger_duration - state_time > 0.0 \
+		and not is_instance_valid(_execution_executor)
+
+
+func begin_execution(executor: Node3D) -> bool:
+	if not is_inside_tree() or not is_execution_vulnerable() or not _execution_executor_is_alive(executor):
+		return false
+	_execution_executor = executor
+	_execution_elapsed = 0.0
+	_capture_execution_pose()
+	var toward := executor.global_position - global_position
+	toward.y = 0.0
+	_face_direction(toward, 1.0)
+	velocity.x = 0.0
+	velocity.z = 0.0
+	_set_state(AIState.EXECUTION)
+	_apply_execution_pose()
+	return true
+
+
+func advance_execution_pose(elapsed: float) -> void:
+	if ai_state != AIState.EXECUTION:
+		return
+	if not is_instance_valid(_execution_executor) or not _execution_executor_is_alive(_execution_executor):
+		_release_execution()
+		return
+	if not is_finite(elapsed):
+		return
+	# The player supplies one monotonic clock; enemy physics never advances it.
+	_execution_elapsed = maxf(_execution_elapsed, clampf(elapsed, 0.0, EXECUTION_HIT_SECONDS))
+	state_time = _execution_elapsed
+	_apply_execution_pose()
+
+
+func finish_execution(executor: Node3D) -> bool:
+	if ai_state != AIState.EXECUTION or not is_instance_valid(executor) or executor != _execution_executor:
+		return false
+	if not _execution_executor_is_alive(executor):
+		_release_execution()
+		return false
+	# Eligibility is checked on reservation, never again after healing/damage.
+	# The player calls this at its 0.82-second contact frame, even on a long tick.
+	_execution_elapsed = EXECUTION_HIT_SECONDS
+	state_time = _execution_elapsed
+	_apply_execution_pose()
+	health = 0.0
+	_die()
+	return true
+
+
+func cancel_execution(executor: Node3D) -> void:
+	if ai_state == AIState.EXECUTION and is_instance_valid(executor) and executor == _execution_executor:
+		_release_execution()
+
+
+func _execution_executor_is_alive(executor: Node3D) -> bool:
+	if not is_instance_valid(executor) or executor == self or executor.is_queued_for_deletion() or not executor.is_inside_tree():
+		return false
+	if executor is DungeonPlayer:
+		return executor.health > 0.0 and executor.combat_state != DungeonPlayer.CombatState.DEAD
+	if executor is DungeonEnemy:
+		return executor.health > 0.0 and executor.ai_state != AIState.DEAD
+	return true
+
+
+func _release_execution() -> void:
+	if ai_state != AIState.EXECUTION:
+		return
+	if health <= 0.0:
+		_die()
+	else:
+		_set_state(AIState.STAGGER, STAGGER_SECONDS)
+
+
+func _process_execution_physics(delta: float) -> bool:
+	if ai_state != AIState.EXECUTION:
+		return false
+	if not is_instance_valid(_execution_executor) or not _execution_executor_is_alive(_execution_executor):
+		_release_execution()
+		return ai_state == AIState.DEAD
+	velocity.x = 0.0
+	velocity.z = 0.0
+	if not is_on_floor():
+		velocity.y -= gravity * delta
+	move_and_slide()
+	velocity.x = 0.0
+	velocity.z = 0.0
+	return true
+
+
+func _capture_execution_pose() -> void:
+	if is_instance_valid(visual_root):
+		_execution_entry_visual = visual_root.transform
+	_execution_entry_rotations.clear()
+	for pivot: Node3D in base_rotations:
+		if is_instance_valid(pivot):
+			_execution_entry_rotations[pivot] = pivot.rotation
+
+
+func _apply_execution_pose() -> void:
+	if not is_instance_valid(visual_root):
+		return
+	var press := smoothstep(0.0, EXECUTION_SHIELD_SECONDS, _execution_elapsed)
+	var kneel := smoothstep(EXECUTION_SHIELD_SECONDS, EXECUTION_CUT_START_SECONDS, _execution_elapsed)
+	var cut := smoothstep(EXECUTION_CUT_START_SECONDS, EXECUTION_HIT_SECONDS, _execution_elapsed)
+	var entry_blend := smoothstep(0.0, 0.12, _execution_elapsed)
+	var lowered := visual_base_position + Vector3(0.035 * cut, -0.22 * kneel - 0.035 * cut, 0.10 * press)
+	visual_root.position = _execution_entry_visual.origin.lerp(lowered, entry_blend)
+	_execution_pivot(pelvis_pivot, Vector3(-6.0 * kneel, 0.0, 3.0 * cut), entry_blend)
+	_execution_pivot(torso_pivot, Vector3(-20.0 * press + 35.0 * kneel + 16.0 * cut, 6.0 * press - 8.0 * cut, -6.0 * press + 11.0 * cut), entry_blend)
+	_execution_pivot(head_pivot, Vector3(14.0 * press - 20.0 * kneel + 8.0 * cut, -4.0 * press, 4.0 * press + 12.0 * cut), entry_blend)
+	_execution_pivot(shoulder_l_pivot, Vector3(3.0 * press, -4.0 * press, 8.0 * press), entry_blend)
+	_execution_pivot(shoulder_r_pivot, Vector3(3.0 * press, 4.0 * press, -8.0 * press), entry_blend)
+	_execution_pivot(arm_l_pivot, Vector3(20.0 * press + 12.0 * kneel, -15.0 * press, -25.0 * press), entry_blend)
+	_execution_pivot(arm_r_pivot, Vector3(27.0 * press + 18.0 * kneel, 15.0 * press, 30.0 * press + 12.0 * cut), entry_blend)
+	_execution_pivot(elbow_l_pivot, Vector3(18.0 * press, 0.0, 28.0 * press), entry_blend)
+	_execution_pivot(elbow_r_pivot, Vector3(18.0 * press, 0.0, -28.0 * press), entry_blend)
+	_execution_pivot(wrist_l_pivot, Vector3(0.0, 0.0, 20.0 * press), entry_blend)
+	_execution_pivot(wrist_r_pivot, Vector3(0.0, 0.0, -20.0 * press), entry_blend)
+	_execution_pivot(leg_l_pivot, Vector3(-38.0 * kneel, 0.0, -5.0 * kneel), entry_blend)
+	_execution_pivot(leg_r_pivot, Vector3(-64.0 * kneel, 0.0, 5.0 * kneel), entry_blend)
+	_execution_pivot(knee_l_pivot, Vector3(65.0 * kneel, 0.0, 0.0), entry_blend)
+	_execution_pivot(knee_r_pivot, Vector3(90.0 * kneel, 0.0, 0.0), entry_blend)
+	_execution_pivot(ankle_l_pivot, Vector3(-27.0 * kneel, 0.0, 0.0), entry_blend)
+	_execution_pivot(ankle_r_pivot, Vector3(-26.0 * kneel, 0.0, 0.0), entry_blend)
+	_execution_pivot(weapon_pivot, Vector3(35.0 * press, 18.0 * press, 45.0 * press), entry_blend)
+
+
+func _execution_pivot(pivot: Node3D, degrees: Vector3, weight: float) -> void:
+	if not is_instance_valid(pivot) or not base_rotations.has(pivot):
+		return
+	var entry: Vector3 = _execution_entry_rotations.get(pivot, base_rotations[pivot])
+	var goal: Vector3 = base_rotations[pivot] + _degrees(degrees)
+	pivot.rotation = Vector3(lerp_angle(entry.x, goal.x, weight), lerp_angle(entry.y, goal.y, weight), lerp_angle(entry.z, goal.z, weight))
 
 
 func get_aim_point() -> Vector3:
@@ -597,6 +753,8 @@ func get_aim_point() -> Vector3:
 
 
 func _die() -> void:
+	if ai_state == AIState.DEAD:
+		return
 	_set_state(AIState.DEAD)
 	collision_layer = 0
 	collision_mask = 0
@@ -621,6 +779,13 @@ func _die() -> void:
 
 
 func _set_state(next_state: AIState, stagger_seconds: float = STAGGER_SECONDS) -> void:
+	if ai_state == AIState.EXECUTION and next_state != AIState.EXECUTION:
+		# Death keeps the exact contact pose for the existing tween/ragdoll.
+		if next_state != AIState.DEAD and is_instance_valid(visual_root):
+			visual_root.transform = _execution_entry_visual
+		_execution_executor = null
+		_execution_elapsed = 0.0
+		_execution_entry_rotations.clear()
 	# A counterattack can extend hit stun, but must not shorten a just guard.
 	var remaining_stagger := maxf(0.0, stagger_duration - state_time) if ai_state == AIState.STAGGER else 0.0
 	stagger_duration = maxf(stagger_seconds, remaining_stagger) if next_state == AIState.STAGGER else STAGGER_SECONDS
@@ -631,6 +796,8 @@ func _set_state(next_state: AIState, stagger_seconds: float = STAGGER_SECONDS) -
 
 
 func _update_weapon_pose(delta: float) -> void:
+	if ai_state == AIState.EXECUTION:
+		return
 	var target_offset := Vector3(deg_to_rad(-18), 0, deg_to_rad(22))
 	var speed := 8.0
 	if ai_state == AIState.WINDUP:
@@ -664,6 +831,9 @@ func _update_weapon_pose(delta: float) -> void:
 
 func _update_visual_pose(delta: float) -> void:
 	if model_root == null or ai_state == AIState.DEAD:
+		return
+	if ai_state == AIState.EXECUTION:
+		_apply_execution_pose()
 		return
 	visual_time += delta
 	var time_value := visual_time + float(get_instance_id() % 17) * 0.17

@@ -1,0 +1,10 @@
+[HEADLESS] test_room_test.gd
+TEST ROOM PASS: catalog, actors, chest hands/equipment/repeat/cancellation, stress accumulation/recovery/perception/isolation, pause, camping, flail, archery, fixtures, results, reset, scene roundtrip and original session restoration
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2535)
+[HEADLESS] first_person_renderer_test.gd
+FIRST PERSON RENDERER TEST PASS: reproduced wall occlusion, separate equipment depth, all loadouts, real world anchors/lights/projectiles, chest/camp/safe-zone visibility, resize/pause/camera changes and cleanup
+[HEADLESS] creep_execution_test.gd
+CREEP EXECUTION TEST PASS: actual severance/grounded recovery, charge, one contact kill, missing limbs, ragdoll, cancellation, renderer/session restoration
+
+Headless validation: 3 passed, 0 failed.

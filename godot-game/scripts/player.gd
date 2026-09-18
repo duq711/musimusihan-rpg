@@ -7,6 +7,8 @@ signal attack_landed(damage: float, headshot: bool)
 signal spell_cast(spell_id: String, stamina_spent: float)
 signal arrow_fired(draw_ratio: float, stamina_spent: float)
 signal flail_thrown(charge: float)
+signal execution_started(enemy: DungeonEnemy)
+signal execution_finished(enemy: DungeonEnemy, killed: bool)
 signal timed_interaction_started(owner: Node, duration: float)
 signal timed_interaction_finished(owner: Node)
 signal timed_interaction_cancelled(owner: Node)
@@ -49,6 +51,8 @@ const MOTION := preload("res://scripts/first_person_motion.gd")
 const REFERENCE_MOTION := preload("res://scripts/reference_sword_motion.gd")
 const REFERENCE_ARM := preload("res://scripts/reference_sword_arm.gd")
 const BODY_HEALTH := preload("res://scripts/body_health.gd")
+const CREEP_EXECUTION_MOTION := preload("res://scripts/creep_execution_motion.gd")
+const EXECUTION_MOTION := preload("res://scripts/sword_shield_execution_motion.gd")
 
 const SWORD_CLASH_MARGIN := 0.02
 
@@ -63,7 +67,19 @@ const SWORD_CLASH_GRACE_END := 0.11
 const SWORD_ATTACK_VARIANTS: Array[String] = ["right_diagonal", "left_reverse", "overhead"]
 const SWORD_DIRECT_ENTRY_SECONDS := 0.10
 
-enum CombatState { READY, WINDUP, ACTIVE, RECOVERY, GUARD_BREAK, DEAD }
+enum CombatState { READY, WINDUP, ACTIVE, RECOVERY, GUARD_BREAK, DEAD, EXECUTION }
+
+var execution_elapsed := 0.0
+var _execution_target: DungeonEnemy
+var _execution_hit_committed := false
+var _execution_sword_entry := Transform3D.IDENTITY
+var _execution_shield_entry := Transform3D.IDENTITY
+var _execution_shield_rest := Transform3D.IDENTITY
+var _execution_weapon_identity := ""
+var _execution_profile := "shield_cut"
+var _execution_contact_point := Vector3.ZERO
+var _execution_stab_direction := Vector3.DOWN
+var _execution_blade_tip := Vector3.ZERO
 
 var _body_health_state: Dictionary = BODY_HEALTH.create_state()
 var _body_health_session_bound := false
@@ -288,6 +304,7 @@ func bind_inventory(model: ExpeditionInventory) -> void:
 
 
 func _exit_tree() -> void:
+	cancel_execution()
 	cancel_item_use()
 	cancel_timed_interaction()
 	set_chest_container_open(false)
@@ -298,6 +315,7 @@ func _exit_tree() -> void:
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_WINDOW_FOCUS_OUT:
+		cancel_execution()
 		cancel_item_use()
 		cancel_timed_interaction("상호작용을 중단했습니다")
 		cancel_bow_draw()
@@ -599,6 +617,8 @@ func _build_equipped_torch(_iron: StandardMaterial3D) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if combat_state == CombatState.DEAD or camping or is_paralyzed():
 		return
+	if is_execution_active():
+		return
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED and current_trap == null:
 		rotate_y(-event.relative.x * 0.00215)
 		_pitch = clampf(_pitch - event.relative.y * 0.00215, deg_to_rad(-82), deg_to_rad(78))
@@ -729,6 +749,9 @@ func advance_movement(delta: float, movement_input: Vector2, sprint_requested: b
 	# flags, landing events, resource costs or the result of move_and_slide.
 	if delta <= 0.0 or camping or combat_state == CombatState.DEAD or (is_inside_tree() and get_tree().paused):
 		return
+	if is_execution_active():
+		_advance_execution_movement(delta)
+		return
 	_movement_phase_time += delta
 	if not is_on_floor() and not _movement_jump_pending:
 		velocity.y -= gravity * delta
@@ -851,6 +874,9 @@ func advance_combat_state(delta: float, block_requested: bool = false) -> void:
 		cancel_flail_action()
 		cancel_sword_attack()
 		return
+	if is_execution_active():
+		advance_execution(delta)
+		return
 	state_time += delta
 	_update_flail(delta)
 	var wants_block := block_requested and not _is_bow_equipped() and not _is_flail_equipped() and current_trap == null and not is_timed_interacting()
@@ -969,7 +995,11 @@ func begin_sword_attack(variant: String = "") -> Dictionary:
 		return _sword_attack_failure("safe_zone")
 	if is_inside_tree() and get_tree().paused:
 		return _sword_attack_failure("paused")
-	if camping or combat_state != CombatState.READY or blocking or current_trap != null or is_timed_interacting():
+	if camping or combat_state != CombatState.READY or current_trap != null or is_timed_interacting() or is_item_use_active():
+		return _sword_attack_failure("busy")
+	# A parry can flow into a heavy counter without waiting another input tick
+	# for RMB release. Ordinary guarded attacks keep their existing restriction.
+	if blocking and get_execution_target() == null:
 		return _sword_attack_failure("busy")
 	if stamina < get_melee_stamina_cost(0.0):
 		return _sword_attack_failure("not_enough_stamina")
@@ -992,6 +1022,7 @@ func begin_sword_attack(variant: String = "") -> Dictionary:
 	attack_charge = 0.0
 	attack_release_requested = false
 	attack_hit_ids.clear()
+	blocking = false
 	_set_combat_state(CombatState.WINDUP)
 	return {"accepted": true, "variant": sword_attack_variant, "stamina_spent": 0.0}
 
@@ -1016,6 +1047,7 @@ func _try_begin_attack() -> void:
 
 
 func cancel_sword_attack(reset_cycle: bool = true) -> void:
+	cancel_execution()
 	_sword_direct_entry = false
 	_sword_entry_arm.clear()
 	_sword_clash_recovering = false
@@ -1048,12 +1080,238 @@ func _commit_attack() -> void:
 	if _sword_attack_had_shield and not _has_shield_equipped():
 		cancel_sword_attack()
 		return
+	if state_time >= EXECUTION_MOTION.CHARGE_SECONDS and _try_begin_execution():
+		return
 	var cost := get_melee_stamina_cost(attack_charge)
 	_consume_stamina(cost)
 	if _sword_attack_uses_cycle:
 		_sword_next_attack_index = (_sword_next_attack_index + 1) % SWORD_ATTACK_VARIANTS.size()
 	_sword_attack_uses_cycle = false
 	_set_combat_state(CombatState.ACTIVE)
+
+
+func is_execution_active() -> bool:
+	return combat_state == CombatState.EXECUTION
+
+
+func get_execution_target() -> DungeonEnemy:
+	if not is_inside_tree() or not is_instance_valid(camera) or not _has_melee_weapon_equipped():
+		return null
+	if safe_zone_mode or camping or is_paralyzed() or is_item_use_active() or is_timed_interacting() or current_trap != null:
+		return null
+	var best: DungeonEnemy
+	var best_score := INF
+	var forward := -camera.global_basis.z
+	for node in get_tree().get_nodes_in_group("enemy"):
+		var enemy := node as DungeonEnemy
+		if not is_instance_valid(enemy) or enemy.is_queued_for_deletion() or enemy.get_world_3d() != get_world_3d() or not enemy.is_execution_vulnerable():
+			continue
+		if enemy.get_execution_profile() != "crawl_stab" and not _has_shield_equipped():
+			continue
+		if enemy.get_execution_profile() == "crawl_stab":
+			var reach := enemy.get_aim_point() - global_position
+			reach.y = 0.0
+			if reach.length() < CREEP_EXECUTION_MOTION.MIN_DISTANCE or reach.length() > CREEP_EXECUTION_MOTION.MAX_DISTANCE:
+				continue
+		var offset := enemy.global_position - global_position
+		if absf(offset.y) > 0.8:
+			continue
+		offset.y = 0.0
+		var distance := offset.length()
+		var alignment := forward.dot(camera.global_position.direction_to(enemy.get_aim_point()))
+		if distance > EXECUTION_MOTION.MAX_DISTANCE or alignment < cos(deg_to_rad(25.0)) or not _execution_has_clear_path(enemy):
+			continue
+		var score := distance + (1.0 - alignment) * 4.0
+		if score < best_score:
+			best = enemy
+			best_score = score
+	return best
+
+
+func _execution_has_clear_path(enemy: DungeonEnemy) -> bool:
+	if enemy.get_execution_profile() != "crawl_stab" and not _has_clear_melee_path(enemy):
+		return false
+	var ray := PhysicsRayQueryParameters3D.create(camera.global_position, enemy.get_aim_point(), WORLD_LAYER | ENEMY_LAYER)
+	ray.collide_with_areas = false
+	var hit := get_world_3d().direct_space_state.intersect_ray(ray)
+	return hit.is_empty() or hit.get("collider") == enemy
+
+
+func _try_begin_execution() -> bool:
+	var cost := EXECUTION_MOTION.STAMINA_COST * get_body_attack_stamina_multiplier()
+	if stamina < cost:
+		return false
+	var enemy := get_execution_target()
+	if enemy == null or not enemy.begin_execution(self):
+		return false
+	_execution_target = enemy
+	_execution_profile = enemy.get_execution_profile()
+	_execution_hit_committed = false
+	execution_elapsed = 0.0
+	_execution_sword_entry = weapon_pivot.transform
+	_execution_shield_entry = shield_pivot.transform
+	_execution_shield_rest = CHOREOGRAPHY.shield(0, 0, "ready", 0, 0, "overhead")
+	_execution_shield_rest.origin += _shield_corner_offset()
+	_execution_weapon_identity = _displayed_weapon_identity
+	if _execution_profile == "crawl_stab":
+		_execution_contact_point = enemy.call("get_crawl_execution_contact")
+		_execution_blade_tip = _get_execution_blade_tip_local()
+		var raised_hand := camera.to_global(Vector3(.24, -.10, -.30))
+		_execution_stab_direction = raised_hand.direction_to(_execution_contact_point)
+		if is_instance_valid(viewmodel_renderer):
+			viewmodel_renderer.set_world_contact_enabled(true)
+	_sword_attack_uses_cycle = false
+	_sword_direct_entry = false
+	_sword_draw_elapsed = SWORD_DRAW_DURATION
+	_motion_equip_elapsed = MOTION.EQUIP_DURATION
+	blocking = false
+	block_time = 0.0
+	_shield_impact = 0.0
+	velocity.x = 0.0
+	velocity.z = 0.0
+	_consume_stamina(cost)
+	stamina_regen_delay = EXECUTION_MOTION.DURATION + 0.15
+	_set_combat_state(CombatState.EXECUTION)
+	if hud:
+		hud.set_prompt("")
+		hud.show_event("포복 크리프 · 내려찌르기" if _execution_profile == "crawl_stab" else "검·방패 처형", 0.7)
+	execution_started.emit(enemy)
+	return true
+
+
+func advance_execution(delta: float) -> void:
+	if not is_execution_active() or delta <= 0.0 or (is_inside_tree() and get_tree().paused):
+		return
+	var target_valid := is_instance_valid(_execution_target) and not _execution_target.is_queued_for_deletion() and _execution_target.is_inside_tree() and _execution_target.get_world_3d() == get_world_3d()
+	if not _has_melee_weapon_equipped() or (_execution_profile != "crawl_stab" and not _has_shield_equipped()) or safe_zone_mode or camping or is_paralyzed() or health <= 0.0 or current_trap != null or is_item_use_active() or _execution_weapon_identity != _displayed_weapon_identity:
+		cancel_execution()
+		return
+	if not _execution_hit_committed and (not target_valid or _execution_target.ai_state != DungeonEnemy.AIState.EXECUTION):
+		cancel_execution()
+		return
+	execution_elapsed = minf(EXECUTION_MOTION.DURATION, execution_elapsed + delta)
+	state_time = execution_elapsed
+	if not _execution_hit_committed:
+		_execution_target.advance_execution_pose(minf(execution_elapsed, EXECUTION_MOTION.HIT_SECONDS))
+		if execution_elapsed >= EXECUTION_MOTION.HIT_SECONDS:
+			var offset := _execution_target.global_position - global_position
+			if offset.length() > EXECUTION_MOTION.MAX_DISTANCE or not _execution_has_clear_path(_execution_target):
+				cancel_execution()
+				return
+			if _execution_profile == "crawl_stab":
+				# Resolve the actual blade pose on the gameplay clock, even if a long
+				# tick crosses contact without a render callback in between.
+				_apply_crawl_execution_view(EXECUTION_MOTION.HIT_SECONDS)
+				var tip := weapon_pivot.to_global(_execution_blade_tip)
+				var contact_hit: Dictionary = _execution_target.call("query_located_hit", tip - _execution_stab_direction * .30, tip, .025)
+				if contact_hit.is_empty():
+					cancel_execution()
+					return
+			var remaining_health := _execution_target.health
+			_execution_hit_committed = _execution_target.finish_execution(self)
+			if not _execution_hit_committed:
+				cancel_execution()
+				return
+			attack_landed.emit(remaining_health, true)
+			if hud:
+				hud.show_hit(true)
+				hud.show_event("처형 성공", 0.8)
+	if hud:
+		hud.update_weapon_state(_execution_phase(), Color(0.95, 0.62, 0.32))
+	if execution_elapsed >= EXECUTION_MOTION.DURATION or is_equal_approx(execution_elapsed, EXECUTION_MOTION.DURATION):
+		cancel_execution()
+
+
+func _advance_execution_movement(delta: float) -> void:
+	if not is_on_floor():
+		velocity.y -= gravity * delta
+	velocity.x = 0.0
+	velocity.z = 0.0
+	if is_instance_valid(_execution_target) and not _execution_hit_committed:
+		var toward := (_execution_contact_point if _execution_profile == "crawl_stab" else _execution_target.global_position) - global_position
+		toward.y = 0.0
+		var distance := toward.length()
+		if distance > 0.001:
+			rotation.y = lerp_angle(rotation.y, atan2(-toward.x, -toward.z), minf(1.0, delta * 12.0))
+			var contact_distance := CREEP_EXECUTION_MOTION.CONTACT_DISTANCE if _execution_profile == "crawl_stab" else EXECUTION_MOTION.CONTACT_DISTANCE
+			if execution_elapsed < 0.30 and distance > contact_distance:
+				var speed := minf(2.8, (distance - contact_distance) / maxf(delta, 0.30 - execution_elapsed))
+				velocity.x = toward.x / distance * speed
+				velocity.z = toward.z / distance * speed
+	var vertical_before_collision := velocity.y
+	move_and_slide()
+	_observe_movement_floor(vertical_before_collision)
+
+
+func cancel_execution() -> void:
+	if not is_execution_active() and _execution_target == null:
+		return
+	var enemy := _execution_target if is_instance_valid(_execution_target) else null
+	var killed := _execution_hit_committed
+	_execution_target = null
+	if is_instance_valid(enemy):
+		enemy.cancel_execution(self)
+	velocity.x = 0.0
+	velocity.z = 0.0
+	if is_instance_valid(camera):
+		camera.position = Vector3.ZERO
+		camera.rotation = Vector3.ZERO
+	if is_instance_valid(viewmodel_renderer):
+		viewmodel_renderer.set_world_contact_enabled(false)
+	if is_execution_active():
+		_set_combat_state(CombatState.READY)
+	# The existing 100ms handoff returns from the actual last pose after either
+	# interruption or completion; no teleporting of hands or forced mouse mode.
+	_reference_pose_key = "execution"
+	_reference_locomotion_valid = false
+	_reference_shield_valid = false
+	_shield_raise_progress = 0.0
+	execution_finished.emit(enemy, killed)
+
+
+func _update_execution_viewmodel() -> void:
+	if _execution_profile == "crawl_stab":
+		_apply_crawl_execution_view(execution_elapsed)
+	else:
+		weapon_pivot.transform = EXECUTION_MOTION.sword(execution_elapsed, _execution_sword_entry)
+		shield_pivot.transform = EXECUTION_MOTION.shield(execution_elapsed, _execution_shield_entry, _execution_shield_rest)
+		camera.position = EXECUTION_MOTION.camera_offset(execution_elapsed)
+		camera.rotation = EXECUTION_MOTION.camera_rotation(execution_elapsed)
+	_reference_arm_target = _reference_arm_for_pivot({}, weapon_pivot.transform)
+	_refresh_carried_visibility()
+	_update_character_arms()
+
+
+func _apply_crawl_execution_view(elapsed: float) -> void:
+	camera.position = CREEP_EXECUTION_MOTION.camera_offset(elapsed)
+	camera.rotation = CREEP_EXECUTION_MOTION.camera_rotation(elapsed)
+	var target_local := camera.to_local(_execution_contact_point)
+	var direction_local := camera.global_basis.inverse() * _execution_stab_direction
+	weapon_pivot.transform = CREEP_EXECUTION_MOTION.sword(elapsed, _execution_sword_entry, target_local, direction_local, _execution_blade_tip)
+	shield_pivot.transform = CREEP_EXECUTION_MOTION.shield(elapsed, _execution_shield_entry)
+
+
+func _get_execution_blade_tip_local() -> Vector3:
+	var blade_frame := weapon_pivot.global_transform.affine_inverse() * sword_blade.global_transform
+	var tip := Vector3.ZERO
+	var highest := -INF
+	for surface in sword_blade.mesh.get_surface_count():
+		var vertices: PackedVector3Array = sword_blade.mesh.surface_get_arrays(surface)[Mesh.ARRAY_VERTEX]
+		for vertex in vertices:
+			var point := blade_frame * vertex
+			if point.y > highest:
+				highest = point.y
+				tip = point
+	return tip
+
+
+func _execution_phase() -> String:
+	return CREEP_EXECUTION_MOTION.phase(execution_elapsed) if _execution_profile == "crawl_stab" else EXECUTION_MOTION.phase(execution_elapsed)
+
+
+func get_execution_snapshot() -> Dictionary:
+	var tip := weapon_pivot.to_global(_execution_blade_tip) if is_instance_valid(weapon_pivot) else Vector3.ZERO
+	return {"active": is_execution_active(), "elapsed": execution_elapsed, "phase": _execution_phase(), "profile": _execution_profile, "hit_committed": _execution_hit_committed, "target_id": _execution_target.get_instance_id() if is_instance_valid(_execution_target) else 0, "contact_point": _execution_contact_point, "blade_tip": tip, "contact_error": tip.distance_to(_execution_contact_point), "world_contact": is_instance_valid(viewmodel_renderer) and viewmodel_renderer.world_contact_enabled}
 
 
 func get_melee_hit_time() -> float:
@@ -1241,6 +1499,16 @@ func _check_wall_strike() -> void:
 
 
 func _update_interaction(delta: float) -> void:
+	if is_execution_active():
+		interaction_owner = null
+		if hud: hud.set_prompt("")
+		return
+	if combat_state in [CombatState.READY, CombatState.WINDUP] and get_execution_target() != null:
+		interaction_owner = null
+		if hud:
+			var enough_stamina := stamina >= EXECUTION_MOTION.STAMINA_COST * get_body_attack_stamina_multiplier()
+			hud.set_prompt("[LMB 길게 → 놓기] 처형" if enough_stamina else "처형 · 기력 부족")
+		return
 	if is_paralyzed():
 		if is_instance_valid(hud):
 			hud.set_prompt("")
@@ -2137,6 +2405,7 @@ func _sync_equipped_weapon() -> void:
 	var equipped_identity := "" if inventory_model == null else str(inventory_model.equipment.get("weapon", "")) + str(inventory_model.get_equipment_instance("weapon").get("uid", ""))
 	var equipped_offhand := "" if inventory_model == null else str(inventory_model.equipment.get("offhand", ""))
 	if equipped_identity != _displayed_weapon_identity or equipped_offhand != _displayed_offhand:
+		cancel_execution()
 		cancel_bandage_motion()
 		reset_shield_carry()
 	var weapon_type := _equipped_weapon_type()
@@ -2352,6 +2621,7 @@ func sync_body_health_from_session() -> void:
 	var actual_damage := maxf(0.0, _last_body_health - health)
 	_last_body_health = health
 	if actual_damage > 0.0:
+		cancel_execution()
 		ExpeditionSession.add_stress(StressProfile.damage_gain(actual_damage))
 		_camera_shake = maxf(_camera_shake, 0.16)
 		if is_instance_valid(hud):
@@ -2679,6 +2949,9 @@ func _set_combat_state(next_state: CombatState) -> void:
 
 func _update_viewmodel(delta: float) -> void:
 	if weapon_pivot == null or delta < 0.0 or (is_inside_tree() and get_tree().paused):
+		return
+	if is_execution_active():
+		_update_execution_viewmodel()
 		return
 	advance_bandage_motion(delta)
 	if is_bandage_motion_active():

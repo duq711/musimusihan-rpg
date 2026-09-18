@@ -355,3 +355,19 @@ The crawl follow-up moves the pelvis and surviving leg alongside the upper body.
 기존 F2 왼다리·오른다리·양다리 시험의 설명과 정지 검사를 확장하고 실제 크리프 추적 경로를 유지한다. 골반·남은 다리 관절을 포함해 F2 정지 시 자세가 고정되는지 확인했다. 관련 자동 검사 **6개와 마지막 조정 후 집중 검사, 실제 GPU 영상 60초 검증을 통과**했다. 새 [검수 기록](../artifacts/validation/creep_lower_body_20260918/README.md)과 [시연 영상](../artifacts/validation/creep_lower_body_20260918/creep_lower_body.mp4)은 이전 랙돌·포복 영상의 검증 완료와 구분한다. 평평한 바닥에서 확인했으며 경사·계단 접지는 미확인이다.
 
 Existing F2 left-leg, right-leg and both-leg descriptions and pause checks are expanded while retaining production Creep pursuit. Pose freezing includes the pelvis and surviving leg joints. **Six related suites, the focused check after the final adjustment, and a 60-second actual GPU video review passed**. The linked new validation record and video are separate from the earlier ragdoll/crawl video results. Validation used a flat floor; slopes and stairs remain unverified.
+
+
+## 2026-09-18 포복 크리프 검 처형 — 사용자 확정 / Crawling Creep sword execution — confirmed
+
+사용자는 다리가 절단되어 기어다니는 크리프를 처형하는 기능과, 검으로 찔러 넣는 동작 한 가지를 먼저 요청했다. 실제 다리 절단·랙돌 착지·포복 회복을 마친 살아 있는 크리프가 대상이며, 접촉 시 실제 사망·보상·시체 랙돌로 이어진다. 원본 모델과 기존 포복·절단·일반 공격은 보존한다.
+
+The user requested execution of a leg-severed crawling Creep, starting with one sword-stab motion. Eligible living crawlers first complete real severance, physical landing and prone recovery. Contact enters production death, reward and corpse ragdoll. Source models and existing crawl, severance and ordinary attacks are preserved.
+
+초기 제작 판단: 가까운 몸통 조준·LMB 0.4초 이상 누른 뒤 놓기, 검·방패 및 방패 수납 상태 모두 같은 찌르기, 포복 대상에는 추가 저체력·경직 조건 없음. 이는 조정 가능한 조작·밸런스 값이며 다른 적·모든 무기·추가 처형 모션을 확정한 것은 아니다. 같은 변경에서 `F2 → 기본 → 크리프 처형`의 한쪽·양쪽 다리 시험, 실제 플레이 경로와 정지·재시도·원정 복원을 연결한다. 구현·검증 상태는 [처형 안내](../docs/CREEP_EXECUTION.md)를 따른다.
+
+Initial implementation choices: aim at the nearby torso, hold LMB for at least 0.4 seconds and release; one stab with a carried or stowed shield; no extra low-health/stagger gate for crawlers. These are adjustable controls/balance values, not approval of all enemies, weapons or additional execution motions. The same change connects single/both-leg F2 fixtures to actual play, pause/replay and session restoration. The linked guide tracks implementation and verification separately.
+
+
+검증 완료: 서로 다른 자동 검사 7종과 실제 GPU `final_04`의 18초 시퀀스(540프레임)·정지 화면 39장을 확인했다. 한쪽 다리 1인칭·같은 절단 상태의 별도 측면 반복·양다리 1인칭 세 사례에서 피부 접촉과 단일 사망을 확인했다. 접근을 실제 충돌 이동으로 바꾼 뒤 오른쪽 어깨 이동 보정은 0m이고 기존 팔 길이는 유지한다. 영상 산출물은 `artifacts/validation/creep_execution_20260918/creep_execution.mp4`에 보존한다. 평평한 시험 바닥에서 검증했으며 경사·계단·다른 적 크기는 미확인이다. 파일 인코딩 검증과 GitHub 게시 상태는 최종 검수 기록을 따른다.
+
+Verified: seven distinct automated suites and actual GPU `final_04` output—an 18-second, 540-frame sequence and 39 stills. Single-leg first person, a separate side-view repeat and both-leg first person each confirmed skin contact and one defeat. Collision-aware approach removed right-shoulder correction while preserving arm lengths. The video artifact belongs at `artifacts/validation/creep_execution_20260918/creep_execution.mp4`. Validation used a flat inspection floor; slopes, stairs and differently sized enemies remain unverified. The final verification record separately tracks encoded-file checks and GitHub publication.

@@ -1,0 +1,40 @@
+{
+  "date": "2026-09-18",
+  "status": "local_implementation_and_runtime_render_verified",
+  "capture_iteration": "final_04",
+  "video": {
+    "file": "creep_execution.mp4",
+    "bytes": 962289,
+    "sha256": "c0f274af6317f3610a826134f6e178fec20c7284ceee0392d481d7e73301e3c8",
+    "frames": 540,
+    "fps": 30,
+    "duration_seconds": 18,
+    "resolution": [
+      960,
+      540
+    ],
+    "audio_streams": 0,
+    "complete_decode_passed": true
+  },
+  "stills": 39,
+  "render_failures": [],
+  "verified_distinct_suites": [
+    "creep_execution",
+    "creep_execution_trial",
+    "creep_dismemberment_trial",
+    "enemy_execution",
+    "sword_shield_execution",
+    "first_person_renderer",
+    "test_room"
+  ],
+  "scope": "Actual production charge/release, posed sword contact, death ragdoll in isolated GPU scene; side angle is a separate runtime repeat.",
+  "input_scope": "Production gameplay APIs at 60 Hz; no OS keyboard/mouse/focus, no desktop capture or audible playback.",
+  "unverified": [
+    "slopes",
+    "stairs",
+    "different enemy sizes",
+    "manual OS-input dungeon play"
+  ],
+  "existing_warning": "test_room: two ObjectDB instances at exit",
+  "publication": "Recorded separately after remote SHA and video LFS verification."
+}

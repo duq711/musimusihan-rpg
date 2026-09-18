@@ -21,6 +21,7 @@ var ragdoll: Node3D
 var dismemberment: Node3D
 var crawl: Node
 var knockdown_phase := "none"
+var _execution_entry_bones: Array[Transform3D] = []
 
 static func is_available() -> bool:
 	return ResourceLoader.exists(MODEL_PATH)
@@ -111,6 +112,8 @@ func _physics_process(delta: float) -> void:
 	if is_knocked_down():
 		_process_knockdown(delta)
 		return
+	if _process_execution_physics(delta):
+		return
 	state_time += delta
 	if not is_on_floor():
 		velocity.y -= gravity * delta
@@ -167,6 +170,8 @@ func _attack() -> int:
 
 func _set_state(next_state: AIState, stagger_seconds: float = STAGGER_SECONDS) -> void:
 	super._set_state(next_state, stagger_seconds)
+	if next_state != AIState.EXECUTION:
+		_execution_entry_bones.clear()
 	resolved_contacts = 0
 	if next_state == AIState.WINDUP:
 		attack_index = (attack_index + 1) % ATTACKS.size()
@@ -201,12 +206,15 @@ func _update_weapon_pose(_delta: float) -> void:
 	pass # This creature is unarmed; no rigid sword or sword-clash proxy.
 
 func _update_visual_pose(_delta: float) -> void:
-	if not is_instance_valid(animation_player):
+	if not is_inside_tree() or not is_instance_valid(animation_player):
 		return
 	if is_instance_valid(ragdoll) and ragdoll.phase != "living":
 		return # The death reaction/physics controller exclusively owns the rig.
 	if knockdown_phase == "recovering":
 		crawl.apply(_delta)
+		return
+	if ai_state == AIState.EXECUTION:
+		_apply_execution_pose()
 		return
 	var clip := "idle"
 	var sample := state_time
@@ -272,6 +280,92 @@ func receive_located_hit(amount: float, attacker_position: Vector3, charge: floa
 		var labels := {"left_arm": "왼팔", "right_arm": "오른팔", "left_leg": "왼다리", "right_leg": "오른다리", "head": "머리"}
 		hud.show_event("크리프 · %s 절단" % labels[cut], 1.0)
 
+func get_execution_profile() -> String:
+	return "crawl_stab" if is_crawling() else "shield_cut"
+
+func is_execution_vulnerable() -> bool:
+	if is_knocked_down():
+		return false
+	if is_crawling():
+		return health > 0.0 and not is_queued_for_deletion() and ai_state != AIState.DEAD \
+			and not is_instance_valid(_execution_executor) and ragdoll.phase == "living"
+	return super.is_execution_vulnerable()
+
+func begin_execution(executor: Node3D) -> bool:
+	if not is_crawling():
+		return super.begin_execution(executor)
+	if not is_inside_tree() or not is_execution_vulnerable() or not _execution_executor_is_alive(executor):
+		return false
+	# Keep the actual prone orientation and all planted limbs. A crawler must
+	# not swivel about its root or seek a standing reaction on reservation.
+	_execution_executor = executor
+	_execution_elapsed = 0.0
+	_capture_execution_pose()
+	velocity = Vector3.ZERO
+	_set_state(AIState.EXECUTION)
+	return true
+
+func get_crawl_execution_contact() -> Vector3:
+	var chest := get_aim_point()
+	var start := chest + Vector3.UP * .8
+	var end := chest - Vector3.UP * .25
+	var nearest := INF
+	var surface_point := chest
+	# The hit capsules select anatomy during combat; the authored stab also
+	# samples actual posed torso triangles once so its tip meets rendered skin.
+	for part: MeshInstance3D in visual_meshes:
+		if part.name != "CreepPart_torso" or not part.is_visible_in_tree():
+			continue
+		var baked: ArrayMesh = dismemberment._bake_world_mesh(part, Vector3.ZERO)
+		var faces := baked.get_faces()
+		for index in range(0, faces.size(), 3):
+			var hit = Geometry3D.segment_intersects_triangle(start, end, faces[index], faces[index + 1], faces[index + 2])
+			if hit is Vector3 and start.distance_squared_to(hit) < nearest:
+				nearest = start.distance_squared_to(hit)
+				surface_point = hit
+	set_meta("execution_contact_on_skin", nearest < INF)
+	if nearest < INF:
+		return surface_point
+	var fallback := query_located_hit(start, end)
+	return fallback.get("position", chest)
+
+func _capture_execution_pose() -> void:
+	super._capture_execution_pose()
+	_execution_entry_bones.clear()
+	if is_instance_valid(skeleton):
+		for bone in skeleton.get_bone_count():
+			_execution_entry_bones.append(skeleton.get_bone_pose(bone))
+
+func _apply_execution_pose() -> void:
+	if not is_instance_valid(animation_player) or not is_instance_valid(skeleton):
+		return
+	if is_instance_valid(ragdoll) and ragdoll.phase != "living":
+		return
+	if is_crawling() and is_instance_valid(crawl):
+		if _execution_entry_bones.size() == skeleton.get_bone_count():
+			for bone in skeleton.get_bone_count():
+				skeleton.set_bone_pose(bone, _execution_entry_bones[bone])
+		animation_clip = "crawl_execution_stab"
+		return
+	var press := smoothstep(0.0, EXECUTION_SHIELD_SECONDS, _execution_elapsed)
+	var kneel := smoothstep(EXECUTION_SHIELD_SECONDS, EXECUTION_CUT_START_SECONDS, _execution_elapsed)
+	var cut := smoothstep(EXECUTION_CUT_START_SECONDS, EXECUTION_HIT_SECONDS, _execution_elapsed)
+	var entry_blend := smoothstep(0.0, 0.12, _execution_elapsed)
+	var hit := animation_player.get_animation("hit")
+	# Sample the real source recoil without allowing its return-to-idle section.
+	var sample := hit.length * (0.28 * press + 0.12 * kneel + 0.08 * cut)
+	if animation_player.current_animation != "hit":
+		animation_player.play("hit")
+	animation_player.seek(sample, true)
+	if _execution_entry_bones.size() == skeleton.get_bone_count():
+		for bone in skeleton.get_bone_count():
+			var recoil := skeleton.get_bone_pose(bone)
+			skeleton.set_bone_pose(bone, _execution_entry_bones[bone].interpolate_with(recoil, entry_blend))
+	var lowered := visual_base_position + Vector3(0.025 * cut, -0.13 * kneel, 0.08 * press)
+	visual_root.position = _execution_entry_visual.origin.lerp(lowered, entry_blend)
+	visual_root.rotation = _execution_entry_visual.basis.get_euler() + _degrees(Vector3(-7.0 * press + 15.0 * kneel + 6.0 * cut, 0.0, 5.0 * cut)) * entry_blend
+	animation_clip = "hit"
+	animation_sample = sample
 
 func _die() -> void:
 	if ai_state == AIState.DEAD:

@@ -674,3 +674,14 @@ Licensed binaries are not distributed in the public repository. Follow the linke
 하체 보완에서는 포복 추적 중 남은 다리의 관절도 움직이고 골반이 팔의 당김에 맞춰 무게를 옮깁니다. 양다리를 잃은 경우 팔·골반을 사용하며 없어진 다리를 다시 표시하지 않습니다. 기존 왼다리·오른다리·양다리 F2 시험에서 확인하며, 이번 하체 동작의 검증 상태는 [절단 동작 안내](docs/CREEP_DISMEMBERMENT.md#하체-동작-보완--lower-body-motion-follow-up)를 따릅니다.
 
 The lower-body follow-up articulates the surviving leg and shifts pelvic weight with the pulling arms. With both legs missing, the arms and pelvis provide the motion without restoring severed legs. Use the existing left-leg, right-leg and both-leg F2 trials; see the linked motion guide for this follow-up's verification status.
+
+
+### 포복 크리프 처형 / Crawling Creep execution
+
+`F2 → 기본 → 크리프 처형 · 포복 찌르기 / 양다리 포복`은 실제 다리 절단과 랙돌 착지·회복 후 검으로 찌르는 처형을 시험합니다. 가까이서 몸통을 보고 **LMB 0.4초 이상 → 놓기**로 시작하며, `1`번으로 방패를 수납한 뒤에도 가능합니다. F2는 실행 중 동작도 정지·재개하고 재선택은 대상·체력을 초기화합니다. [조작·검증 안내](docs/CREEP_EXECUTION.md).
+
+The two F2 crawler execution entries use actual leg severance, physical landing and recovery before a sword stab. Aim at the nearby torso, hold LMB for at least 0.4 seconds and release. Stowing the shield with `1` preserves the action. F2 pauses/resumes the paired motion; replay restores the target and health. See the linked controls and validation guide.
+
+몸통에서 수평 거리 1.10–1.65m일 때 시작하며 처음 0.30초는 충돌을 처리하며 약 1.15m까지 접근합니다. 0.82초에 찌르고 검을 뽑는 것까지 1.55초입니다. 실제 몸통 피부의 접촉점과 월드 깊이를 사용하며 원래 손 파지·팔 길이를 보존합니다. 자동 검사 7종과 실제 GPU `final_04`의 18초 시퀀스(540프레임)·PNG 39장 검증을 통과했습니다. 세 사례 모두 실제 피부 접촉·오른쪽 어깨 이동 보정 0m·단일 처치를 확인했습니다.
+
+Start 1.10–1.65m horizontally from the torso. The first 0.30 seconds physically approach approximately 1.15m with collision; impact occurs at 0.82 seconds and withdrawal completes by 1.55 seconds. Actual torso-skin contact and world depth preserve the original grip and arm lengths. Seven suites and actual GPU `final_04` validation passed: an 18-second, 540-frame sequence and 39 PNG stills. All three cases confirmed skin contact, zero right-shoulder correction and a single defeat.

@@ -1,0 +1,11 @@
+[HEADLESS] sword_shield_execution_test.gd
+ERROR: full frame-by-frame action must finish exactly once
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/sword_shield_execution_test.gd:142)
+SWORD SHIELD EXECUTION TEST FAIL: production parry/charge, contact kill, gating, cancellation, pause, collision, arm contacts and session preservation
+[HEADLESS] enemy_execution_test.gd
+ENEMY EXECUTION TEST PASS: eligibility, reservation, owner loss, clock, gravity, one defeat and existing Creep death path
+
+Headless validation: 1 passed, 1 failed.
+FAILED: sword_shield_execution_test.gd (1)

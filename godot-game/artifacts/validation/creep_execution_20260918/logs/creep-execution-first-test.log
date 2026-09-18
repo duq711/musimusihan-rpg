@@ -1,0 +1,13 @@
+[HEADLESS] creep_execution_test.gd
+SCRIPT ERROR: Parse Error: Cannot infer the type of "before_hp" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/creep_execution_test.gd:204)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "untouched" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/creep_execution_test.gd:287)
+ERROR: Failed to load script "res://tests/creep_execution_test.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+Script error detected in creep_execution_test.gd, regardless of engine exit status.
+[HEADLESS] sword_shield_execution_test.gd
+SWORD SHIELD EXECUTION TEST PASS: production parry/charge, contact kill, gating, cancellation, pause, collision, arm contacts and session preservation
+
+Headless validation: 1 passed, 1 failed.
+FAILED: creep_execution_test.gd (1)

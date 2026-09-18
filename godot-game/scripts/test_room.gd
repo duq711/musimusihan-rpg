@@ -48,6 +48,9 @@ var creep_dismemberment_target: DungeonEnemy
 var creep_dismemberment_timer: Timer
 var creep_dismemberment_regions: Array[String] = []
 var creep_dismemberment_hit_count := 0
+var creep_execution_target: DungeonEnemy
+var creep_execution_timer: Timer
+var creep_execution_ready := false
 
 
 func _ready() -> void:
@@ -341,7 +344,10 @@ func _show_test_panel() -> void:
 		return
 	cancel_camp("시험 메뉴 열기", false)
 	suspend_stress_effects()
-	player.prepare_for_inventory()
+	# Execution owns both actors until contact/recovery; F2 pauses that shared
+	# clock instead of cancelling it as inventory normally does.
+	if not player.is_execution_active():
+		player.prepare_for_inventory()
 	# A connected scene can bind a dead session before its first physics tick.
 	if player.combat_state == DungeonPlayer.CombatState.DEAD or bool(player.get_body_health_snapshot().dead):
 		_recover_player()
@@ -427,6 +433,8 @@ func run_feature(feature_id: String) -> void:
 		return
 	_cancel_creep_ragdoll_trial()
 	_cancel_creep_dismemberment_trial()
+	_cancel_creep_execution_trial()
+	player.cancel_execution()
 	hud.set_combat_interface_enabled(false)
 	_close_finger_joint_controls(false)
 	_close_art_gallery(false)
@@ -449,6 +457,9 @@ func run_feature(feature_id: String) -> void:
 				_hide_test_panel()
 		"creep_dismemberment":
 			if _prepare_creep_dismemberment_trial(payload):
+				_hide_test_panel()
+		"creep_execution":
+			if _prepare_creep_execution_trial(payload):
 				_hide_test_panel()
 		"performance":
 			TestRoomSandbox.toggle_performance_monitor()
@@ -923,6 +934,7 @@ func _set_enemy_ai(enabled: bool) -> void:
 func _remove_test_actors(include_props := true) -> void:
 	_cancel_creep_ragdoll_trial()
 	_cancel_creep_dismemberment_trial()
+	_cancel_creep_execution_trial()
 	cancel_camp("시험 대상 재설정", false)
 	suspend_stress_effects()
 	archery_power_target = null
@@ -1658,6 +1670,7 @@ func _begin_scene_loading(scene_path: String, title_text: String, detail_text: S
 		return
 	_cancel_creep_ragdoll_trial()
 	_cancel_creep_dismemberment_trial()
+	_cancel_creep_execution_trial()
 	_close_finger_joint_controls(false)
 	if is_instance_valid(player):
 		player.set_hands_visual_profile("original")
@@ -1924,3 +1937,58 @@ func _cancel_creep_dismemberment_trial() -> void:
 	creep_dismemberment_target = null
 	creep_dismemberment_regions.clear()
 	creep_dismemberment_hit_count = 0
+
+
+func _prepare_creep_execution_trial(region: String) -> bool:
+	if region not in ["left_leg", "both_legs"] or not _prepare_creep_dismemberment_trial(region):
+		return false
+	creep_execution_target = creep_dismemberment_target
+	creep_execution_ready = false
+	creep_execution_timer = Timer.new()
+	creep_execution_timer.name = "CreepExecutionPreparationTimer"
+	creep_execution_timer.process_mode = Node.PROCESS_MODE_PAUSABLE
+	creep_execution_timer.process_callback = Timer.TIMER_PROCESS_PHYSICS
+	creep_execution_timer.wait_time = 0.1
+	creep_execution_timer.add_to_group("test_fixture_prop")
+	add_child(creep_execution_timer)
+	creep_execution_timer.timeout.connect(_check_creep_execution_trial_ready)
+	creep_execution_timer.start()
+	_status("포복 크리프 처형 · 실제 다리 타격 → 랙돌 착지·회복 대기 → 가까이서 LMB 0.4초 이상 누른 뒤 놓기")
+	hud.show_event("다리 절단·착지·포복 회복을 기다리세요\n이후 크리프를 향해 LMB 0.4초 이상 → 놓기", 5.0)
+	return true
+
+
+func _check_creep_execution_trial_ready() -> void:
+	if not is_instance_valid(creep_execution_target) or creep_execution_target.is_queued_for_deletion() or creep_execution_target.ai_state == DungeonEnemy.AIState.DEAD:
+		_cancel_creep_execution_trial()
+		return
+	if is_instance_valid(creep_dismemberment_timer) or not bool(creep_execution_target.call("is_crawling")) or bool(creep_execution_target.call("is_knocked_down")):
+		return
+	# Reframe only the trial player after the actual fall has settled. The
+	# creature keeps its physical landing and authored crawl, without root snaps.
+	var target_point: Vector3 = creep_execution_target.get_aim_point()
+	var player_at := creep_execution_target.global_position + Vector3(0.0, 0.0, 1.55)
+	player_at.y = 1.0
+	_teleport(player_at)
+	var aim: Vector3 = target_point - player.camera.global_position
+	player.rotation.y = atan2(-aim.x, -aim.z)
+	player._pitch = atan2(aim.y, Vector2(aim.x, aim.z).length())
+	player.head.rotation.x = player._pitch
+	player._sword_draw_elapsed = player.SWORD_DRAW_DURATION
+	player._motion_equip_elapsed = player.MOTION.EQUIP_DURATION
+	player._update_viewmodel(0.0)
+	creep_execution_ready = true
+	creep_execution_timer.stop()
+	creep_execution_timer.queue_free()
+	creep_execution_timer = null
+	_status("포복 크리프 처형 준비 · 몸통을 보며 LMB 0.4초 이상 → 놓기 · 1번: 방패 수납 후에도 가능 · F2 정지·재선택")
+	hud.show_event("LMB 0.4초 이상 누른 뒤 놓기 · 검으로 찌르기\nF2 정지·재선택 / 1번 방패 수납 후에도 가능", 6.0)
+
+
+func _cancel_creep_execution_trial() -> void:
+	if is_instance_valid(creep_execution_timer):
+		creep_execution_timer.stop()
+		creep_execution_timer.queue_free()
+	creep_execution_timer = null
+	creep_execution_target = null
+	creep_execution_ready = false

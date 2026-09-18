@@ -901,3 +901,23 @@ Follow-up: leg trials exercise physical landing, prone recovery and pursuit, inc
 2026-09-18 하체 보완: 기존 왼다리·오른다리·양다리 시험에서 포복 중 남은 다리 관절의 움직임과 골반의 무게 이동을 확인하도록 설명과 검사를 확장했습니다. 실제 절단·AI·추적 경로는 그대로 사용하며, F2 정지는 골반·남은 다리의 관절 자세도 포함합니다. 관련 자동 검사 **6개와 마지막 조정 후 집중 검사, 실제 GPU 영상 60초 검증을 통과**했습니다. 새 결과는 [하체 동작 검수 기록](artifacts/validation/creep_lower_body_20260918/README.md)과 [시연 영상](artifacts/validation/creep_lower_body_20260918/creep_lower_body.mp4)에 남깁니다. 평평한 바닥에서 검증했으며 경사·계단 접지는 미확인입니다.
 
 Lower-body follow-up: the existing left-leg, right-leg and both-leg trials now describe and check remaining-leg articulation and pelvic weight transfer during crawling. They retain the real severance, AI and pursuit paths; F2 pose checks include the pelvis and surviving leg joints. **Six related suites, the focused check after the final adjustment, and a 60-second actual GPU video review passed**. New results belong in the linked lower-body validation record and video. Validation used a flat floor; slopes and stairs remain unverified.
+
+
+## 포복 크리프 처형 / Crawling Creep execution
+
+| 항목 / Entry | 실제 시험 / Actual trial |
+|---|---|
+| `creep_execution` · 크리프 처형 · 포복 찌르기 | 왼다리 실제 타격 2회 → 랙돌 착지·포복 회복 → LMB 0.4초 이상 누르고 놓아 검 찌르기 / Two localized left-leg hits, physical landing/recovery, then charged-release sword stab |
+| `creep_execution:both_legs` · 크리프 처형 · 양다리 포복 | 체력 118 시험 대상에 다리마다 2회 타격 → 착지·회복 → 같은 처형, `1`번 방패 수납 비교 / Four ordinary leg hits against a 118-HP fixture, landing/recovery, then the same execution with optional shield stow |
+
+메뉴는 크리프를 직접 죽이거나 절단 상태로 순간 교체하지 않습니다. 기존 부위 타격과 실제 랙돌·포복을 사용하고, 준비가 끝나면 플레이어만 가까운 관찰 위치로 옮깁니다. **가까이서 몸통을 바라보고 LMB를 0.4초 이상 누른 뒤 놓아야 처형합니다.** 짧은 클릭은 일반 공격이며, 크리프는 준비 후 실제 추적·물기를 계속하므로 늦어지면 다시 몸통을 조준합니다. `1`번으로 방패를 수납한 뒤에도 같은 동작을 시험합니다.
+
+The menu never directly kills or swaps in a pre-severed creature. It uses ordinary localized hits and real ragdoll/crawl recovery, then positions only the player for inspection. **Aim at the nearby torso and hold LMB for at least 0.4 seconds before releasing.** Short clicks stay normal attacks. The live Creep resumes pursuit and bites; re-aim if it moves. Press `1` to compare the same stab after stowing the shield.
+
+`F2`는 타격 예약·착지·포복 회복·진행 중 처형 시간과 자세를 정지하고 재개합니다. 처형 중 메뉴 진입 자체로 치명타를 내지 않습니다. 재선택·다른 항목·초기화는 진행 중 처형과 예약 준비를 취소합니다. 같은 항목 재선택은 온전한 몸·시험 체력을 복구하며, 원정과 인벤토리는 시험을 나갈 때 복원합니다. 자동 검사는 `creep_execution_trial`, 관련 `creep_dismemberment_trial`, `test_room`입니다. 실제 실행·렌더 결과는 [처형 안내](docs/CREEP_EXECUTION.md#검증--validation)에 별도로 기록합니다.
+
+F2 pauses/resumes setup hits, landing, recovery and the active paired execution clock and pose. Opening the menu cannot commit damage. Reselecting, switching or resetting cancels active execution and pending setup, restores the fixture, and preserves original expedition data. Run the listed integration/regression tests; actual execution and rendering results belong in the linked validation record.
+
+거리 조건은 몸통 기준 수평 1.10–1.65m입니다. 시작 후 첫 0.30초 동안 약 1.15m까지 **충돌을 처리하는 실제 접근 이동**을 하며, 낮은 몸통으로 시선을 맞추고 0.82초에 찌릅니다. 전체 1.55초 동안 피부 삼각형에서 구한 접촉점과 월드 깊이를 사용하여 칼끝이 몸통에 들어갑니다. 자동 검사 7종 및 실제 GPU `final_04`의 18초 시퀀스(30fps·540프레임)와 PNG 39장 검증을 통과했습니다. 세 사례 모두 피부 접촉·오른쪽 어깨 이동 보정 0m·한 번의 처치를 확인했고 manifest에 실패가 없습니다. 자세한 결과는 위 처형 안내를 따릅니다.
+
+The torso's horizontal distance must be 1.10–1.65m. During the first 0.30 seconds, **actual collision-aware player movement** approaches approximately 1.15m and aims at the low torso. Impact occurs at 0.82 seconds within a 1.55-second action; an actual skin-triangle anchor and world depth place the tip inside the torso. Seven suites and actual GPU `final_04` validation passed: an 18-second sequence (540 frames at 30fps) and 39 PNG stills. All three cases recorded skin contact, zero right-shoulder correction and one defeat, with no manifest failures. See the linked execution guide for results.

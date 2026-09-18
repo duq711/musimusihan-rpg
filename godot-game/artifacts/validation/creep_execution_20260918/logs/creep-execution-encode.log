@@ -1,0 +1,56 @@
+ffmpeg version 6.0 Copyright (c) 2000-2023 the FFmpeg developers
+  built with Apple clang version 13.1.6 (clang-1316.0.21.2.5)
+  configuration: --prefix=/Volumes/tempdisk/sw --extra-cflags=-fno-stack-check --arch=arm64 --cc=/usr/bin/clang --enable-gpl --enable-libvmaf --enable-libbluray --enable-libopenjpeg --enable-libopus --enable-libmp3lame --enable-libx264 --enable-libx265 --enable-libvpx --enable-libwebp --enable-libass --enable-libfreetype --enable-fontconfig --enable-libtheora --enable-libvorbis --enable-libsnappy --enable-libaom --enable-libvidstab --enable-libzimg --enable-libsvtav1 --enable-libkvazaar --enable-version3 --pkg-config-flags=--static --enable-ffplay --enable-postproc --enable-nonfree --enable-neon --enable-runtime-cpudetect --disable-indev=qtkit --disable-indev=x11grab_xcb
+  libavutil      58.  2.100 / 58.  2.100
+  libavcodec     60.  3.100 / 60.  3.100
+  libavformat    60.  3.100 / 60.  3.100
+  libavdevice    60.  1.100 / 60.  1.100
+  libavfilter     9.  3.100 /  9.  3.100
+  libswscale      7.  1.100 /  7.  1.100
+  libswresample   4. 10.100 /  4. 10.100
+  libpostproc    57.  1.100 / 57.  1.100
+Input #0, image2, from 'godot-game/artifacts/visual_qa/creep_execution/final_04/frames/%05d.jpg':
+  Duration: 00:00:18.00, start: 0.000000, bitrate: N/A
+  Stream #0:0: Video: mjpeg (Baseline), yuvj420p(pc, bt470bg/unknown/unknown), 960x540 [SAR 1:1 DAR 16:9], 30 fps, 30 tbr, 30 tbn
+Stream mapping:
+  Stream #0:0 -> #0:0 (mjpeg (native) -> h264 (libx264))
+Press [q] to stop, [?] for help
+[swscaler @ 0x148128000] deprecated pixel format used, make sure you did set range correctly
+[swscaler @ 0x140008000] deprecated pixel format used, make sure you did set range correctly
+    Last message repeated 1 times
+[swscaler @ 0x128008000] deprecated pixel format used, make sure you did set range correctly
+[libx264 @ 0x156f05880] using SAR=1/1
+[libx264 @ 0x156f05880] using cpu capabilities: ARMv8 NEON
+[libx264 @ 0x156f05880] profile High, level 3.1, 4:2:0, 8-bit
+[libx264 @ 0x156f05880] 264 - core 164 r3075 66a5bc1 - H.264/MPEG-4 AVC codec - Copyleft 2003-2021 - http://www.videolan.org/x264.html - options: cabac=1 ref=3 deblock=1:0:0 analyse=0x3:0x113 me=hex subme=7 psy=1 psy_rd=1.00:0.00 mixed_ref=1 me_range=16 chroma_me=1 trellis=1 8x8dct=1 cqm=0 deadzone=21,11 fast_pskip=1 chroma_qp_offset=-2 threads=15 lookahead_threads=2 sliced_threads=0 nr=0 decimate=1 interlaced=0 bluray_compat=0 constrained_intra=0 bframes=3 b_pyramid=2 b_adapt=1 b_bias=0 direct=1 weightb=1 open_gop=0 weightp=2 keyint=250 keyint_min=25 scenecut=40 intra_refresh=0 rc_lookahead=40 rc=crf mbtree=1 crf=19.0 qcomp=0.60 qpmin=0 qpmax=69 qpstep=4 ip_ratio=1.40 aq=1:1.00
+Output #0, mp4, to 'godot-game/artifacts/validation/creep_execution_20260918/creep_execution.mp4':
+  Metadata:
+    encoder         : Lavf60.3.100
+  Stream #0:0: Video: h264 (avc1 / 0x31637661), yuv420p(tv, bt470bg/unknown/unknown, progressive), 960x540 [SAR 1:1 DAR 16:9], q=2-31, 30 fps, 15360 tbn
+    Metadata:
+      encoder         : Lavc60.3.100 libx264
+    Side data:
+      cpb: bitrate max/min/avg: 0/0/0 buffer size: 0 vbv_delay: N/A
+frame=    0 fps=0.0 q=0.0 size=       0kB time=-577014:32:22.77 bitrate=  -0.0kbits/s speed=N/A
+frame=  415 fps=0.0 q=25.0 size=     512kB time=00:00:13.76 bitrate= 304.7kbits/s speed=27.5x
+[mp4 @ 0x156e1e850] Starting second pass: moving the moov atom to the beginning of the file
+frame=  540 fps=0.0 q=-1.0 Lsize=     940kB time=00:00:17.90 bitrate= 430.1kbits/s speed=29.6x
+video:933kB audio:0kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.709148%
+[libx264 @ 0x156f05880] frame I:3     Avg QP: 9.70  size: 32304
+[libx264 @ 0x156f05880] frame P:164   Avg QP:16.02  size:  3501
+[libx264 @ 0x156f05880] frame B:373   Avg QP:22.60  size:   761
+[libx264 @ 0x156f05880] consecutive B-frames:  2.8%  3.0% 37.2% 57.0%
+[libx264 @ 0x156f05880] mb I  I16..4: 45.0% 41.3% 13.7%
+[libx264 @ 0x156f05880] mb P  I16..4:  0.6%  2.2%  0.7%  P16..4:  3.5%  1.7%  1.5%  0.0%  0.0%    skip:89.7%
+[libx264 @ 0x156f05880] mb B  I16..4:  0.1%  0.4%  0.1%  B16..8:  5.0%  1.0%  0.3%  direct: 0.2%  skip:92.9%  L0:48.0% L1:46.0% BI: 6.0%
+[libx264 @ 0x156f05880] 8x8 transform intra:57.9% inter:49.1%
+[libx264 @ 0x156f05880] coded y,uvDC,uvAC intra: 42.8% 42.7% 20.0% inter: 1.3% 0.8% 0.1%
+[libx264 @ 0x156f05880] i16 v,h,dc,p: 61% 31%  6%  2%
+[libx264 @ 0x156f05880] i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 10% 14% 46%  5%  6%  7%  5%  4%  5%
+[libx264 @ 0x156f05880] i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 23% 15% 23%  5%  7% 13%  5%  5%  4%
+[libx264 @ 0x156f05880] i8c dc,h,v,p: 62% 20% 15%  3%
+[libx264 @ 0x156f05880] Weighted P-Frames: Y:0.0% UV:0.0%
+[libx264 @ 0x156f05880] ref P L0: 66.9%  8.2% 17.0%  7.9%
+[libx264 @ 0x156f05880] ref B L0: 74.3% 23.1%  2.6%
+[libx264 @ 0x156f05880] ref B L1: 94.4%  5.6%
+[libx264 @ 0x156f05880] kb/s:424.37

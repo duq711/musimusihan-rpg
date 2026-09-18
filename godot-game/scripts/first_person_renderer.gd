@@ -17,6 +17,7 @@ var _carried_roots: Array[Node3D] = []
 var _source_viewport: Viewport
 var _source_environment: Environment
 var _original_cull_mask := 0
+var world_contact_enabled := false
 var _original_scaling_mode := Viewport.SCALING_3D_MODE_BILINEAR
 var _original_scaling_scale := 1.0
 
@@ -83,8 +84,8 @@ func sync_view() -> void:
 			carried_visible = true
 			break
 	var active := carried_visible and _source_viewport.get_camera_3d() == source_camera and source_camera.is_visible_in_tree()
-	overlay.visible = active
-	viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS if active else SubViewport.UPDATE_DISABLED
+	overlay.visible = active and not world_contact_enabled
+	viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS if active and not world_contact_enabled else SubViewport.UPDATE_DISABLED
 	# Match the source viewport's internal render dimensions, including stretch
 	# scaling and nested off-screen previews, rather than the native window size.
 	var view_size := RESOLUTION_BUDGET.render_size_for(_source_viewport)
@@ -115,6 +116,18 @@ func sync_view() -> void:
 	camera.far = source_camera.far
 	_sync_environment()
 	_sync_lights()
+
+
+func set_world_contact_enabled(enabled: bool) -> void:
+	# Execution blades share depth with the victim so the buried tip is hidden
+	# by actual skin. Ordinary carried gear keeps its original separate pass.
+	world_contact_enabled = enabled
+	if is_instance_valid(source_camera):
+		if enabled:
+			source_camera.cull_mask |= EQUIPMENT_LAYER
+		else:
+			source_camera.cull_mask &= ~EQUIPMENT_LAYER
+		sync_view()
 
 
 func _create_equipment_lights() -> void:
@@ -155,7 +168,7 @@ func _sync_lights() -> void:
 			light.visible = false
 			continue
 		light.global_transform = source.global_transform
-		light.visible = source.is_visible_in_tree()
+		light.visible = source.is_visible_in_tree() and not world_contact_enabled
 		light.light_color = source.light_color
 		light.light_energy = source.light_energy
 		light.light_specular = source.light_specular
