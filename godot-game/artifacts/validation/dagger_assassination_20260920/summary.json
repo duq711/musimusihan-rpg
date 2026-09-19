@@ -1,0 +1,70 @@
+{
+  "iteration": "verified_20260920",
+  "display_driver": "embedded",
+  "renderer": "vulkan",
+  "resolution": [
+    960,
+    540
+  ],
+  "fps": 30,
+  "physics_hz": 60,
+  "frame_count": 210,
+  "duration_seconds": 7.0,
+  "session_inventory_preserved": true,
+  "cursor_preserved": true,
+  "sources_preserved": true,
+  "failures": [],
+  "cases": [
+    {
+      "id": "rear_assassination",
+      "health_before": 118,
+      "health_after": 0.0,
+      "hits": 1,
+      "kills": 1,
+      "ragdoll_phase": "simulating",
+      "damage_events": [
+        {
+          "damage": 118.0,
+          "headshot": false,
+          "tick": 50
+        }
+      ],
+      "contact_region": "torso",
+      "blade_axis_depth_m": 0.212717711925507,
+      "blade_lateral_error_m": 0.0299544967710972
+    },
+    {
+      "id": "front_control",
+      "health_before": 118,
+      "health_after": 92.44,
+      "hits": 1,
+      "kills": 0,
+      "ragdoll_phase": "living",
+      "damage_events": [
+        {
+          "damage": 25.56,
+          "headshot": true,
+          "tick": 20
+        }
+      ],
+      "contact_region": "head",
+      "blade_axis_depth_m": 0.770077407360077,
+      "blade_lateral_error_m": 0.047635443508625
+    }
+  ],
+  "headless_passes": [
+    "dagger_assassination",
+    "dagger_assassination_trial",
+    "test_room",
+    "test_room_session",
+    "supplied_fp_arms",
+    "smithing_system",
+    "creep_enemy",
+    "creep_execution"
+  ],
+  "existing_baseline_failures": [
+    "sword_clash",
+    "sword_shield_choreography"
+  ],
+  "os_hardware_input_verified": false
+}

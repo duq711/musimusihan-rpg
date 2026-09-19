@@ -859,6 +859,23 @@ The follow-up blends the saved ending attack pose into walking over 0.28 seconds
 
 Without the licensed asset, the entry displays setup guidance and keeps the menu and current actors intact. The original expedition and inventory remain isolated and are restored on exit. Run the listed checks from the repository root; absent-asset runs mark model coverage **SKIPPED**. Installed and missing-asset checks passed, and ten actual GPU renders were inspected. See the linked validation record for scope and remaining warnings.
 
+## 단검 · 등 뒤 암살 / Dagger rear assassination
+
+`F2 → 기본`에서 아래 두 항목을 비교한다. 두 항목 모두 실제 `iron_dagger`와 빈 보조손, 온전한 체력 82의 크리프를 준비하며 적의 AI를 정지시키지 않는다. 조준은 머리 대신 실제 가슴뼈의 몸통 높이에 맞춘다.
+
+| 항목 | 직접 시험하는 방법 |
+|---|---|
+| `단검 · 등 뒤 암살` (`dagger_assassination`) | 뒤쪽 1.05m에서 시작한다. LMB를 짧게 눌러 놓으면 찌르기가 신체에 명중할 때 1회 처치·보상을 받는다. WASD로 각도·거리를 바꿔 뒤쪽 접근을 비교한다. |
+| `단검 · 정면 일반 공격 비교` (`dagger_assassination:front`) | 동일한 적을 정면에 놓는다. LMB 찌르기는 일반 피해이고, 적은 플레이어를 감지해 추적·공격한다. F2로 등 뒤 항목을 다시 선택해 비교한다. |
+
+현재 구현값은 뒤쪽 ±55°·수평 1.35m 이내, 조준 방향 1.05m의 신체 타격과 벽 가림 검사다. 크리프는 현재 자세의 부위별 판정을 사용하며, 뒤쪽 조건을 만족하면 머리·팔다리 명중도 암살로 처리한다. 몸통 조준은 시험의 시작 배치이며 암살 부위 제한이 아니다. 정면·측면 단검 피해는 기본 18에서 최대 차지 28이다. 적의 대기 감지는 전방 160° 또는 0.65m 근접이며, 이미 시작한 추적을 등 뒤로 돌아갔다고 초기화하지 않는다.
+
+F2를 열면 실제 전투·적 시간이 멈추고, 준비 중인 일반 찌르기는 취소된다. 항목 재선택은 회복·대상 재생성, 전체 초기화는 새 시험 가방·기본 표적 복원, 시험 종료는 원래 원정 복원을 사용한다. 크리프 모델이 로컬에 없으면 설치 안내를 표시하고 장비·대상을 변경하지 않는다. `dagger_assassination`과 `dagger_assassination_trial` 자동 검사는 최종 1.05m 사거리로 통과했다. 실제 GPU 검수는 후방 시험 체력 118→0의 1회 처치·랙돌과 정면 피격 후 생존을 확인했다. [검수 기록·영상](artifacts/validation/dagger_assassination_20260920/README.md)을 참고한다. 검증은 실제 공격 처리 함수를 직접 호출하며 OS 하드웨어 마우스 입력이나 포인터 캡처는 검증하지 않는다. 기존 검격·공격 동작 검사 실패는 작업 시작 전 기준본에서도 재현한 결과를 별도 기록한다. GitHub 상태는 최종 게시 기록을 따른다.
+
+In `F2 → 기본`, compare the rear-assassination and front-hit entries. Both equip the real dagger with an empty offhand and a healthy 82-HP Creep, keep its production AI enabled and aim at the actual chest bone. The rear entry starts 1.05m behind: tap/release LMB for one lethal contact and normal reward. The front entry uses ordinary damage and a live opponent that can detect, chase and attack. Current rear eligibility is ±55°/1.35m horizontally, with a 1.05m aimed body-hit query and wall occlusion; Creep uses hit regions in its current pose. Rear-qualified head/limb hits also count: the fixture’s chest aim is not an assassination-region restriction. Front/side damage is 18–28. Idle detection uses a 160° front cone or 0.65m proximity, without clearing established pursuit.
+
+F2 pauses combat/AI and cancels a pending ordinary stab. Reselection heals/respawns; reset restores a fresh test inventory and default targets; leaving restores the original expedition. Missing local Creep assets display installation guidance without replacing equipment or actors. Both dagger suites passed at the final 1.05m reach. Actual GPU review confirmed one rear defeat from 118 test HP to zero with ragdoll and survival after a front hit; see the linked report and video. Validation directly invokes production attack methods and does not verify OS hardware mouse routing or pointer capture. Existing sword-clash/choreography failures were reproduced on the task-start baseline and recorded separately. Publication status follows the final record.
+
 ## 크리프 래그돌 · 정면·측면·벽 / Creep ragdoll · front, side, and wall
 
 `F2 → 기본 → 크리프 래그돌`의 세 항목은 기존 크리프 준비 경로로 실제 적과 회복된 플레이어를 생성합니다. 재개 후 1초가 지나면 일반 `receive_hit()`에 치명타를 전달하므로 실제 사망 처리·보상·래그돌을 함께 시험합니다.

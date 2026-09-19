@@ -453,6 +453,9 @@ func run_feature(feature_id: String) -> void:
 		"creep":
 			if _prepare_creep():
 				_hide_test_panel()
+		"dagger_assassination":
+			if _prepare_dagger_assassination(payload):
+				_hide_test_panel()
 		"creep_ragdoll":
 			if _prepare_creep_ragdoll_trial(payload):
 				_hide_test_panel()
@@ -1832,6 +1835,46 @@ func _prepare_creep() -> bool:
 	_teleport(Vector3(0, 1, 2))
 	hud.update_objective(enemies_alive, loot_count, traps_disarmed)
 	_status("크리프 전투 · 물기·양손 연타 후 S 후퇴: 걷기 추격 관찰 · LMB 공격 / RMB 방어 · F2 재선택: 회복·재생성")
+	return true
+
+
+func _prepare_dagger_assassination(scenario: String = "rear") -> bool:
+	if not preload("res://scripts/creep_enemy.gd").is_available():
+		_status("크리프 에셋이 설치되지 않았습니다 · docs/CREEP_ASSET.md의 설치 안내를 확인해주세요")
+		return false
+	_remove_test_actors(true)
+	_recover_player()
+	inventory.equipment["offhand"] = ""
+	_equip_weapon("iron_dagger")
+	player.cancel_sword_attack()
+	_spawn_enemy("크리프", Vector3(0, 1, -3), 82, 21, 2.2, Color.WHITE, "fracture", "creep")
+	var target: DungeonEnemy
+	for child in get_children():
+		if child is DungeonEnemy and child.get_meta("enemy_archetype", "") == "creep":
+			target = child
+			break
+	if not is_instance_valid(target):
+		return false
+	target.rotation.y = PI if scenario == "front" else 0.0
+	_teleport(target.position + Vector3(0, 0, 1.05))
+	# Aim at the actual rig's torso, not the standing enemy's head-height aim
+	# point. The fixture never applies damage or bypasses the ordinary LMB hit.
+	var torso := target.global_position + Vector3(0, 0.25, 0)
+	var skeleton := target.get("skeleton") as Skeleton3D
+	if is_instance_valid(skeleton):
+		var chest := skeleton.find_bone("Chest")
+		if chest >= 0:
+			torso = (skeleton.global_transform * skeleton.get_bone_global_pose(chest)).origin
+	var aim: Vector3 = torso - player.camera.global_position
+	player.rotation.y = atan2(-aim.x, -aim.z)
+	player._pitch = atan2(aim.y, Vector2(aim.x, aim.z).length())
+	player.head.rotation.x = player._pitch
+	_set_enemy_ai(true)
+	hud.update_objective(enemies_alive, loot_count, traps_disarmed)
+	if scenario == "front":
+		_status("단검 정면 비교 · LMB 찌르기: 일반 피해 · 적은 플레이어를 감지하고 공격합니다 · F2 등 뒤 암살 / 재선택: 회복·재생성")
+	else:
+		_status("단검 등 뒤 암살 · LMB 찌르기 · 몸에 실제로 닿아야 즉사 · 들키기 전 뒤쪽 접근 / F2 정면 비교·재선택: 회복·재생성")
 	return true
 
 

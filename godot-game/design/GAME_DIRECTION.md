@@ -1,5 +1,13 @@
 # 게임 제작 기준서
 
+## 2026-09-20 단검 후방 암살 — 사용자 요청 / Dagger rear assassination — requested feature
+
+단검을 장착하고 가까운 적의 등 뒤를 실제로 찔러 즉사시키는 기능을 추가한다. 검·방패 처형과 포복 크리프 처형은 별도 동작으로 유지한다. 뒤에서 일반 공격 입력 LMB를 사용하며, 사망·보상은 기존 경로로 한 번만 처리한다. 정면·측면에는 일반 단검 피해를 적용한다.
+
+조정 가능한 구현값은 `iron_dagger` 기본 피해 18/최대 차지 28, 뒤쪽 ±55°·수평 1.35m 이내의 암살 조건, 조준 방향 1.05m의 신체 타격과 벽 가림 검사다. 크리프는 현재 자세의 부위별 판정을 사용하고, 뒤쪽 조건을 만족한 머리·팔다리 명중도 암살로 처리하며 몸통으로 제한하지 않는다. 대기 적은 전방 160° 시야 또는 0.65m 근접으로 감지하고, 이미 추적 중이면 기존 추적을 이어간다. 이는 후방 접근을 가능하게 하는 범위이며 별도 은신 수치·경보 전파 시스템을 추가하지 않는다. F2에 실제 단검·건강한 크리프의 등 뒤/정면 비교와 회복·재생성·원정 격리를 연결한다. **최종 1.05m 사거리로 단검 핵심·실제 F2 자동 검사 2종을 통과했으며, 실제 GPU에서 후방 118→0의 1회 사망·랙돌과 정면 피격 후 생존을 확인했다.** [검수 기록·영상](../artifacts/validation/dagger_assassination_20260920/README.md)에 범위를 보존한다. 검증은 실제 공격 처리 함수를 사용하며 OS 마우스 입력·포인터 캡처 검증은 포함하지 않는다. 기존 검격·공격 동작 검사 실패는 작업 시작 전 기준본에서도 재현하여 별도 기록한다. GitHub 반영은 최종 게시 기록을 따른다.
+
+Add a lethal dagger stab from close behind using ordinary LMB input and the existing single death/reward path. Front/side hits retain ordinary dagger damage; sword/shield and crawler executions remain separate. Tunable values are 18–28 damage, ±55° rear/1.35m horizontal eligibility and a 1.05m aimed body-hit query with wall checks. Creep uses hit regions in its current pose; rear-qualified head/limb hits also count, without a torso-only restriction. Idle detection uses a 160° front cone or 0.65m proximity; established pursuit continues. This enables rear approach without adding stealth stats or propagated alarms. F2 connects real healthy rear/front Creep trials, healing, respawning and isolated expedition restoration. **The core and real F2 suites passed at the final 1.05m reach; actual GPU review confirmed one rear defeat from 118 HP to zero with ragdoll and survival after a front hit.** See the linked validation report and video. Checks use production attack methods, without OS mouse routing or pointer capture. Existing sword-clash/choreography failures were reproduced on the task-start baseline and remain documented separately. GitHub status follows the final publication record.
+
 기준일: 2026-09-10. 출처: 사용자가 PD 역할을 지정하면서 설명한 게임 컨셉.
 
 이 문서의 **확정**은 사용자에게서 받은 제작 방향이라는 뜻이며, 구현 완료를 뜻하지 않는다. **제안**은 PD 검토안, **미정**은 추가 결정이 필요한 항목이다. 이후 사용자 지시가 우선하며, 변경할 때 관련 항목과 결정 기록을 함께 갱신한다.

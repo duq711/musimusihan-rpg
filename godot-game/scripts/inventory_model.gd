@@ -254,6 +254,12 @@ const ITEM_DEFINITIONS := {
 		"weight": 3.2, "value": 18, "stack_max": 1, "rarity": "common",
 		"summary": "피해 22 · 강공격 38", "description": "성소 입구에서 지급받은 무딘 장검입니다."
 	},
+	"iron_dagger": {
+		"name": "철제 단검", "glyph": "†", "category": "equipment", "equip_slot": "weapon", "weapon_type": "melee", "weapon_family": "dagger",
+		"icon_path": "res://assets/ui/iron_dagger.svg", "ui_span": Vector2i(1, 2),
+		"weight": 0.65, "value": 24, "stack_max": 1, "rarity": "common",
+		"summary": "피해 18~28 · 기력 -35% · 배후 암살", "description": "짧은 양날 칼날과 가죽 손잡이를 갖춘 단검입니다. 가까이 다가가 적의 뒤에서 실제로 맞히면 한 번에 처치합니다. 정면과 옆에서는 일반 공격 피해를 줍니다."
+	},
 	"hunting_bow": {
 		"name": "사냥꾼의 활", "glyph": "⌒", "category": "equipment", "equip_slot": "weapon", "weapon_type": "bow", "ammo_type": "wooden_arrow",
 		"icon_path": "res://assets/ui/hunting_bow.svg", "ui_span": Vector2i(2, 3),
@@ -805,6 +811,10 @@ static func smithing_stats(id: String, instance: Dictionary) -> Dictionary:
 		light = 29.0
 		heavy = 52.0
 		stamina_scale = 0.9
+	elif id == "iron_dagger":
+		light = 18.0
+		heavy = 28.0
+		stamina_scale = 0.65
 	var bonus := maxf(0.0, float(data.get("quality", 0.0)) / 100.0 * 8.0)
 	match str(data.get("grip", "")):
 		"leather_grip": stamina_scale *= 0.88

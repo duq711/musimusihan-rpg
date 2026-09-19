@@ -455,7 +455,7 @@ func _physics_process(delta: float) -> void:
 	match ai_state:
 		AIState.IDLE:
 			_slow_down(delta)
-			if distance <= detection_range and _has_line_of_sight():
+			if distance <= detection_range and _can_notice_target():
 				_set_state(AIState.CHASE)
 				if hud:
 					hud.show_event("%s가 당신을 발견했습니다" % display_name, 1.4)
@@ -574,6 +574,42 @@ func receive_sword_clash(defender_position: Vector3) -> bool:
 	if knockback_direction.length_squared() > 0.001:
 		velocity = knockback_direction.normalized() * 2.7
 	return true
+
+
+func _can_notice_target() -> bool:
+	if not is_instance_valid(target):
+		return false
+	var offset := target.global_position - global_position
+	offset.y = 0.0
+	var forward := -global_basis.z
+	forward.y = 0.0
+	# Idle actors see a 160-degree front cone; touching them alerts from any
+	# direction. Once alerted, the existing pursuit keeps tracking the player.
+	return (offset.length() <= .65 or forward.normalized().dot(offset.normalized()) >= cos(deg_to_rad(80.0))) and _has_line_of_sight()
+
+
+func can_receive_dagger_assassination(attacker_position: Vector3) -> bool:
+	if is_queued_for_deletion() or health <= 0.0 or ai_state in [AIState.DEAD, AIState.EXECUTION]:
+		return false
+	var offset := attacker_position - global_position
+	if absf(offset.y) > 1.25:
+		return false
+	offset.y = 0.0
+	if offset.length() > 1.35 or offset.length() < .05:
+		return false
+	var rear := global_basis.z
+	rear.y = 0.0
+	return rear.normalized().dot(offset.normalized()) >= cos(deg_to_rad(55.0))
+
+
+func receive_dagger_assassination(attacker_position: Vector3) -> bool:
+	# The caller verifies a real short-range blade contact and world occlusion.
+	# Recheck rear position at impact, not at windup. Use normal death/rewards
+	# exactly once without adding artificial limb-dismemberment damage.
+	if not can_receive_dagger_assassination(attacker_position):
+		return false
+	receive_hit(health, attacker_position, 0.25, false)
+	return ai_state == AIState.DEAD
 
 
 func _has_line_of_sight() -> bool:

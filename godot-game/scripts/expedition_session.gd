@@ -66,6 +66,7 @@ const DEFAULT_MERCHANT_STOCK := {
 	"edible_mushroom": {"quantity": 8, "price": 5},
 	"grave_key": {"quantity": 2, "price": 20},
 	"round_shield": {"quantity": 1, "price": 35},
+	"iron_dagger": {"quantity": 2, "price": 24},
 	"hunting_bow": {"quantity": 1, "price": 38},
 	"chain_flail": {"quantity": 1, "price": 64},
 	"wooden_arrow": {"quantity": 60, "price": 2},

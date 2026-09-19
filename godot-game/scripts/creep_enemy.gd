@@ -132,7 +132,7 @@ func _physics_process(delta: float) -> void:
 	match ai_state:
 		AIState.IDLE:
 			_slow_down(delta)
-			if distance <= detection_range and _has_line_of_sight():
+			if distance <= detection_range and _can_notice_target():
 				_set_state(AIState.CHASE)
 		AIState.CHASE:
 			if distance > detection_range * 1.55:

@@ -653,6 +653,14 @@ F2 → 기본 → **주무장 1번 · 방패 수납**은 검·방패와 2m 정�
 
 At the user’s request, the orc model, controller and F2 trial were removed. The eastern mine store uses the original warden again; encounter counts, stats, rewards and extraction rules are unchanged. Production sources are preserved outside the game.
 
+## 단검 · 등 뒤 암살 / Dagger rear assassination
+
+`iron_dagger`를 장착하고 적의 가까운 등 뒤에서 **LMB 찌르기가 신체에 명중하면 즉사**시킨다. 현재 판정은 뒤쪽 ±55°·수평 거리 1.35m 이내이며, 조준 방향 1.05m의 신체 타격과 벽 가림을 함께 검사한다. 크리프는 현재 자세의 부위별 판정을 사용하며, 뒤쪽 조건을 만족하면 몸통뿐 아니라 머리·팔다리 명중도 암살로 처리한다. 정면·측면은 일반 단검 피해(기본 18, 최대 차지 28)를 적용한다. 대기 중인 적은 전방 160° 시야 또는 0.65m 근접으로 감지하고, 이미 추적 중인 적은 기존 추적을 계속한다. [시험 조작](TEST_ROOM.md#단검--등-뒤-암살--dagger-rear-assassination).
+
+`F2 → 기본 → 단검 · 등 뒤 암살`은 실제 단검과 건강한 크리프를 뒤 1.05m에서 준비한다. `단검 · 정면 일반 공격 비교`는 같은 상대를 정면에 놓는다. 실제 AI를 유지하며 F2 재선택으로 회복·재생성한다. 최종 1.05m 사거리의 단검 핵심·실제 F2 자동 검사 2종을 통과했다. 실제 GPU에서 후방 체력 118→0의 1회 처치와 랙돌, 정면 피격 후 생존을 확인했다. [검수 기록·영상](artifacts/validation/dagger_assassination_20260920/README.md)에 결과를 보존한다. 검증은 실제 공격 처리 함수를 사용했으며 OS 마우스 입력·포인터 캡처 검증은 포함하지 않는다. 기존 검격·공격 동작 검사 실패는 작업 시작 전 기준본에서도 재현했으며 별도 기록한다. GitHub 반영 여부는 최종 게시 기록을 따른다.
+
+Equip `iron_dagger` and use **LMB to land a lethal stab from close behind**. Current eligibility is within ±55° of the rear and 1.35m horizontally, with a 1.05m aimed body-hit query and wall checks. Creep uses hit regions in its current pose; rear-qualified head and limb hits also count, without a torso-only restriction. Front/side hits use ordinary dagger damage, 18 base to 28 fully charged. Idle enemies detect a 160° front cone or proximity within 0.65m; alerted enemies retain existing pursuit. F2 provides healthy, live-AI rear and front Creep comparisons, with heal/respawn on reselection. The core and real F2 suites passed at the final 1.05m reach. Actual GPU review confirmed one rear defeat from 118 HP to zero with ragdoll, while the front-hit target survived. See the linked validation report and video. Checks invoke production attack methods, without OS mouse routing or pointer capture. Existing sword-clash/choreography failures were reproduced on the task-start baseline and remain documented separately. GitHub status follows the final publication record.
+
 ## 크리프 괴물 · 로컬 에셋 설치 / Creep creature · local asset installation
 
 사용자가 지정한 CGTrader **Creep Creature**를 적 NPC로 연결합니다. 에셋 설치 후 `F2 → 기본 → 크리프 · 괴물 근접 전투`에서 추적·물기·양손 연타·피격·사망을 시험합니다. 재선택하면 회복·재생성되며 원래 원정은 보존됩니다. 본편은 폐광 동쪽 창고 한 자리만 교체하며 적 여섯 명과 기존 수치·보상·귀환 조건을 유지합니다.

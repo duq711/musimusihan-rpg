@@ -20,6 +20,8 @@ const INTERACT_LAYER := 16
 const LOCATED_HIT_QUERY := preload("res://scripts/located_hit_query.gd")
 
 const SWORD_SCENE := preload("res://assets/3d/player/sword_hold_long_grip/SwordHold_Static.glb")
+const DAGGER_VISUAL := preload("res://scripts/dagger_visual.gd")
+const DAGGER_MOTION := preload("res://scripts/dagger_motion.gd")
 const SWORD_LONG_GRIP := preload("res://scripts/sword_long_grip_visual.gd")
 const SWORD_SHIELD_ARM := preload("res://scripts/sword_shield_arm_visual.gd")
 const SHIELD_SCENE := preload("res://assets/3d/player/sword_shield/round_shield.glb")
@@ -233,6 +235,8 @@ var _finger_joint_review_values: Dictionary = {}
 var _finger_joint_review_profile := "original"
 var _finger_joint_review_view := "dorsal"
 var weapon_pivot: Node3D
+var dagger_visual_root: Node3D
+var _dagger_contact_resolved := false
 var sword_visual_root: Node3D
 var sword_blade: MeshInstance3D
 var staff_visual_root: Node3D
@@ -502,6 +506,9 @@ func _build_sword_visual(dark_steel: StandardMaterial3D, blade_steel: StandardMa
 	sword_visual_root = SWORD_LONG_GRIP.create_sword()
 	sword_visual_root.name = "RustedLongswordVisual"
 	weapon_pivot.add_child(sword_visual_root)
+	dagger_visual_root = DAGGER_VISUAL.create_dagger()
+	weapon_pivot.add_child(dagger_visual_root)
+	dagger_visual_root.visible = false
 	sword_blade = sword_visual_root.find_child("PittedBlade", true, false) as MeshInstance3D
 
 
@@ -958,7 +965,7 @@ func advance_combat_state(delta: float, block_requested: bool = false) -> void:
 		CombatState.RECOVERY:
 			if hud:
 				hud.update_weapon_state("자세 회복 중", Color(0.58, 0.55, 0.5))
-			var recovery := lerpf(0.47, 0.68, attack_charge)
+			var recovery := DAGGER_MOTION.RECOVERY_SECONDS if is_dagger_equipped() else lerpf(0.47, 0.68, attack_charge)
 			if state_time >= recovery:
 				_set_combat_state(CombatState.READY)
 		CombatState.GUARD_BREAK:
@@ -991,6 +998,8 @@ func get_next_sword_attack_variant() -> String:
 
 
 func _uses_coordinated_sword_motion() -> bool:
+	if is_dagger_equipped():
+		return false
 	# Attack presentation/timing is independent of shield defense. Retain the
 	# chosen clock throughout a swing even if the support hand changes roles.
 	if combat_state in [CombatState.WINDUP, CombatState.ACTIVE, CombatState.RECOVERY]:
@@ -1037,6 +1046,7 @@ func begin_sword_attack(variant: String = "") -> Dictionary:
 	_sword_attack_uses_cycle = variant.is_empty() and sword_attack_mode == "cycle" and _sword_attack_coordinated
 	attack_charge = 0.0
 	attack_release_requested = false
+	_dagger_contact_resolved = false
 	attack_hit_ids.clear()
 	blocking = false
 	_set_combat_state(CombatState.WINDUP)
@@ -1044,6 +1054,8 @@ func begin_sword_attack(variant: String = "") -> Dictionary:
 
 
 func _sword_minimum_windup_seconds() -> float:
+	if is_dagger_equipped():
+		return DAGGER_MOTION.WINDUP_SECONDS
 	# A released forehand begins on this combat tick; held input still charges.
 	return 0.0 if _sword_direct_entry and sword_attack_variant == "right_diagonal" else 0.22
 
@@ -1096,7 +1108,7 @@ func _commit_attack() -> void:
 	if _sword_attack_had_shield and not _has_shield_equipped():
 		cancel_sword_attack()
 		return
-	if state_time >= EXECUTION_MOTION.CHARGE_SECONDS and _try_begin_execution():
+	if not is_dagger_equipped() and state_time >= EXECUTION_MOTION.CHARGE_SECONDS and _try_begin_execution():
 		return
 	var cost := get_melee_stamina_cost(attack_charge)
 	_consume_stamina(cost)
@@ -1111,6 +1123,8 @@ func is_execution_active() -> bool:
 
 
 func get_execution_target() -> DungeonEnemy:
+	if is_dagger_equipped():
+		return null
 	if not is_inside_tree() or not is_instance_valid(camera) or not _has_melee_weapon_equipped():
 		return null
 	if safe_zone_mode or camping or is_paralyzed() or is_item_use_active() or is_timed_interacting() or current_trap != null:
@@ -1357,10 +1371,14 @@ func get_execution_snapshot() -> Dictionary:
 
 
 func get_melee_hit_time() -> float:
+	if is_dagger_equipped():
+		return DAGGER_MOTION.HIT_SECONDS
 	return CHOREOGRAPHY.HIT_SECONDS if _uses_coordinated_sword_motion() else ATTACK_HIT_TIME
 
 
 func get_melee_active_duration() -> float:
+	if is_dagger_equipped():
+		return DAGGER_MOTION.ACTIVE_SECONDS
 	return CHOREOGRAPHY.ACTIVE_SECONDS if _uses_coordinated_sword_motion() else 0.16
 
 
@@ -1376,8 +1394,9 @@ func _resolve_active_attack() -> void:
 		return
 	# Keep the original solo hit timing, but give a nearby unresolved enemy sword
 	# enough of the shared active window to reach the rendered player blade.
-	var waiting_for_sword_clash := state_time < SWORD_CLASH_GRACE_END and _has_active_sword_opponent_in_melee_path()
-	if state_time >= get_melee_hit_time() and attack_hit_ids.is_empty() and not waiting_for_sword_clash:
+	var waiting_for_sword_clash := not is_dagger_equipped() and state_time < SWORD_CLASH_GRACE_END and _has_active_sword_opponent_in_melee_path()
+	if state_time >= get_melee_hit_time() and attack_hit_ids.is_empty() and not waiting_for_sword_clash and (not is_dagger_equipped() or not _dagger_contact_resolved):
+		_dagger_contact_resolved = is_dagger_equipped()
 		_perform_melee_hit()
 	if combat_state == CombatState.ACTIVE and state_time >= get_melee_active_duration():
 		_set_combat_state(CombatState.RECOVERY)
@@ -1395,7 +1414,7 @@ func _perform_melee_hit() -> void:
 			continue
 		if not _has_clear_melee_path(candidate):
 			continue
-		var contact := _located_melee_contact(candidate, lerpf(2.12, 2.40, attack_charge))
+		var contact := _located_melee_contact(candidate, get_melee_reach())
 		if candidate.has_method("query_located_hit") and contact.is_empty():
 			continue
 		attack_hit_ids[instance_id] = true
@@ -1407,7 +1426,16 @@ func _perform_melee_hit() -> void:
 		var damage := get_melee_damage(attack_charge)
 		if headshot:
 			damage *= 1.42
-		if not contact.is_empty() and candidate.has_method("receive_located_hit"):
+		var assassinated := false
+		if is_dagger_equipped() and candidate.has_method("receive_dagger_assassination"):
+			var remaining_health := float(candidate.get("health"))
+			assassinated = bool(candidate.call("receive_dagger_assassination", global_position))
+			if assassinated:
+				damage = remaining_health
+				headshot = false
+		if assassinated:
+			if hud: hud.show_event("후방 암살 · 한 번에 처치", 1.4)
+		elif not contact.is_empty() and candidate.has_method("receive_located_hit"):
 			candidate.call("receive_located_hit", damage, global_position, attack_charge, headshot, contact.position)
 		else:
 			candidate.call("receive_hit", damage, global_position, attack_charge, headshot)
@@ -1417,11 +1445,48 @@ func _perform_melee_hit() -> void:
 		if hud:
 			hud.show_hit(headshot)
 		_camera_shake = maxf(_camera_shake, 0.055)
+		if is_dagger_equipped():
+			break # A short thrust contacts the nearest target, never a cleaving sweep.
 	if not landed:
 		_check_wall_strike()
 
 
+func get_melee_reach() -> float:
+	return 1.05 if is_dagger_equipped() else lerpf(2.12, 2.40, attack_charge)
+
+
+func get_dagger_assassination_target() -> DungeonEnemy:
+	if not is_dagger_equipped() or safe_zone_mode or not is_inside_tree() or not is_instance_valid(camera):
+		return null
+	for hit: Dictionary in _query_dagger_hits():
+		var candidate := hit.get("collider") as DungeonEnemy
+		if candidate != null and candidate.can_receive_dagger_assassination(global_position) and _has_clear_melee_path(candidate):
+			return candidate
+	return null
+
+
+func _query_dagger_hits() -> Array[Dictionary]:
+	var from := camera.global_position
+	var to := from - camera.global_basis.z * get_melee_reach()
+	var excluded: Array[RID] = []
+	for actor in get_tree().get_nodes_in_group("enemy"):
+		if actor is CollisionObject3D and actor.get_world_3d() != get_world_3d():
+			excluded.append(actor.get_rid())
+	var located := LOCATED_HIT_QUERY.collect(get_tree(), from, to, .04, excluded)
+	# Exclude anatomical navigation capsules: only the actual posed body can
+	# receive a stab. A wall or a nearer ordinary enemy still blocks that ray.
+	var query := PhysicsRayQueryParameters3D.create(from, to, WORLD_LAYER | ENEMY_LAYER, located.excluded)
+	query.collide_with_areas = false
+	var hit := LOCATED_HIT_QUERY.nearer(get_world_3d().direct_space_state.intersect_ray(query), located.hit, from, to)
+	var hits: Array[Dictionary] = []
+	if not hit.is_empty() and hit.get("collider") is DungeonEnemy:
+		hits.append(hit)
+	return hits
+
+
 func _query_melee_hits() -> Array[Dictionary]:
+	if is_dagger_equipped():
+		return _query_dagger_hits()
 	var shape := SphereShape3D.new()
 	shape.radius = lerpf(0.7, 0.82, attack_charge)
 	var query := PhysicsShapeQueryParameters3D.new()
@@ -1440,7 +1505,7 @@ func _located_melee_contact(target: Node, reach: float) -> Dictionary:
 		return {}
 	var from := camera.global_position
 	var to := from - camera.global_basis.z * reach
-	var contact: Dictionary = target.call("query_located_hit", from, to, 0.10)
+	var contact: Dictionary = target.call("query_located_hit", from, to, 0.04 if is_dagger_equipped() else 0.10)
 	if not contact.is_empty():
 		var wall := PhysicsRayQueryParameters3D.create(from, contact.position, WORLD_LAYER)
 		wall.collide_with_areas = false
@@ -1463,7 +1528,7 @@ func _append_located_melee_hit(hits: Array[Dictionary], reach: float) -> void:
 
 
 func is_sword_attack_active() -> bool:
-	return combat_state == CombatState.ACTIVE and sword_blade != null and _has_melee_weapon_equipped()
+	return combat_state == CombatState.ACTIVE and sword_blade != null and _has_melee_weapon_equipped() and not is_dagger_equipped()
 
 
 func get_sword_clash_proxy() -> Dictionary:
@@ -1534,7 +1599,7 @@ func _has_clear_melee_path(candidate: Node) -> bool:
 
 func _check_wall_strike() -> void:
 	var from := camera.global_position
-	var to := from + (-camera.global_transform.basis.z * 2.05)
+	var to := from + (-camera.global_transform.basis.z * (get_melee_reach() if is_dagger_equipped() else 2.05))
 	var query := PhysicsRayQueryParameters3D.create(from, to, WORLD_LAYER)
 	if not get_world_3d().direct_space_state.intersect_ray(query).is_empty():
 		_camera_shake = maxf(_camera_shake, 0.025)
@@ -1550,6 +1615,10 @@ func _update_interaction(delta: float) -> void:
 		if hud:
 			var enough_stamina := stamina >= EXECUTION_MOTION.STAMINA_COST * get_body_attack_stamina_multiplier()
 			hud.set_prompt("[LMB 길게 → 놓기] 처형" if enough_stamina else "처형 · 기력 부족")
+		return
+	if combat_state == CombatState.READY and not is_paralyzed() and not camping and not is_timed_interacting() and current_trap == null and get_dagger_assassination_target() != null:
+		interaction_owner = null
+		if hud: hud.set_prompt("[LMB] 후방 암살" if stamina >= get_melee_stamina_cost(0.0) else "후방 암살 · 기력 부족")
 		return
 	if is_paralyzed():
 		if is_instance_valid(hud):
@@ -2418,6 +2487,12 @@ func _is_staff_equipped() -> bool:
 	return _equipped_weapon_type() == "staff"
 
 
+func is_dagger_equipped() -> bool:
+	if inventory_model == null:
+		return false
+	return str(ExpeditionInventory.get_item_definition(str(inventory_model.equipment.get("weapon", ""))).get("weapon_family", "")) == "dagger"
+
+
 func _has_melee_weapon_equipped() -> bool:
 	return _equipped_weapon_type() == "melee"
 
@@ -2524,7 +2599,12 @@ func _sync_equipped_weapon() -> void:
 		reset_shield_carry()
 	var weapon_type := _equipped_weapon_type()
 	if is_instance_valid(sword_visual_root):
-		sword_visual_root.visible = weapon_type == "melee"
+		sword_visual_root.visible = weapon_type == "melee" and not is_dagger_equipped()
+	if is_instance_valid(dagger_visual_root):
+		dagger_visual_root.visible = is_dagger_equipped()
+		var held_visual := dagger_visual_root if is_dagger_equipped() else sword_visual_root
+		sword_blade = held_visual.find_child("PittedBlade", true, false) as MeshInstance3D
+	if is_instance_valid(sword_visual_root) and not is_dagger_equipped():
 		_sync_smithing_weapon_visual()
 	if is_instance_valid(staff_visual_root):
 		staff_visual_root.visible = weapon_type == "staff"
@@ -2597,7 +2677,7 @@ func _shield_stowing() -> bool:
 
 
 func _sword_support_requested() -> bool:
-	return _shield_stowed and _suppress_automatic_torch_hand and not safe_zone_mode and _equipped_weapon_type() == "melee"
+	return _shield_stowed and _suppress_automatic_torch_hand and not safe_zone_mode and _equipped_weapon_type() == "melee" and not is_dagger_equipped()
 
 
 func _sword_support_progress() -> float:
@@ -3054,6 +3134,10 @@ func _set_combat_state(next_state: CombatState) -> void:
 		cancel_bandage_motion()
 	combat_state = next_state
 	state_time = 0.0
+	if is_instance_valid(viewmodel_renderer) and next_state != CombatState.EXECUTION:
+		# Let real skin occlude the dagger while it enters and leaves the body.
+		# Returning, cancelling or switching equipment restores the carried pass.
+		viewmodel_renderer.set_world_contact_enabled(is_dagger_equipped() and next_state in [CombatState.ACTIVE, CombatState.RECOVERY])
 	if next_state == CombatState.READY:
 		_sword_direct_entry = false
 		_sword_entry_arm.clear()
@@ -3097,10 +3181,10 @@ func _update_viewmodel(delta: float) -> void:
 	var phase := str(CombatState.keys()[combat_state]).to_lower()
 	var weapon := _equipped_weapon_type()
 	var bow_impulse := 0.0
-	var paired_sword := weapon == "melee" and _has_shield_equipped()
+	var paired_sword := weapon == "melee" and _has_shield_equipped() and not is_dagger_equipped()
 	var coordinated_sword := weapon == "melee" and _uses_coordinated_sword_motion()
 	_shield_raise_progress = move_toward(_shield_raise_progress, 1.0 if blocking and _has_shield_equipped() else 0.0, delta / (CHOREOGRAPHY.RAISE_SECONDS if blocking else CHOREOGRAPHY.LOWER_SECONDS))
-	var reference_enabled := weapon == "melee" and not safe_zone_mode and REFERENCE_MOTION.is_available()
+	var reference_enabled := weapon == "melee" and not is_dagger_equipped() and not safe_zone_mode and REFERENCE_MOTION.is_available()
 	var reference_guard_owned := blocking or _shield_raise_progress > 0.0
 	_advance_reference_pose_handoff(reference_enabled, phase, reference_guard_owned, delta)
 	var target := MOTION.sword(phase, state_time, attack_charge, blocking, paired_sword or (coordinated_sword and not blocking), sword_attack_variant)
@@ -3111,7 +3195,9 @@ func _update_viewmodel(delta: float) -> void:
 		var pulse := CHOREOGRAPHY.recoil(_shield_impact) if _shield_impact > 0.0 else 0.0
 		target.origin += Vector3(0.012, 0.018, 0.024) * pulse
 		target.basis = target.basis * Basis(Vector3.RIGHT, 0.045 * pulse)
-	if weapon == "bow":
+	if is_dagger_equipped():
+		target = DAGGER_MOTION.pose(phase, state_time, blocking)
+	elif weapon == "bow":
 		var draw := get_bow_draw_ratio() if bow_drawing else 0.0
 		var release_progress := 1.0 - bow_cooldown / BOW_SHOT_COOLDOWN if bow_cooldown > 0.0 and _bow_release_draw > 0.0 else 1.0
 		target = MOTION.bow(draw, release_progress, _bow_release_draw)
@@ -3151,9 +3237,13 @@ func _update_viewmodel(delta: float) -> void:
 	if _equipment_draw_active():
 		movement.position = Vector3.ZERO
 		movement.rotation = Vector3.ZERO
-		if _draw_sword:
+		if _draw_sword and not is_dagger_equipped():
 			target = REFERENCE_MOTION.sample("equip", _sword_draw_elapsed)
 			_reference_arm_target = REFERENCE_MOTION.sample_right_arm("equip", _sword_draw_elapsed)
+		elif _draw_sword and is_dagger_equipped():
+			var hidden := target
+			hidden.origin += Vector3(-.45, -.55, .10)
+			target = hidden.interpolate_with(target, MOTION.smooth_phase((_sword_draw_elapsed - .46) / (SWORD_DRAW_DURATION - .46)))
 	target.origin += movement.position
 	target.basis = target.basis * Basis.from_euler(movement.rotation)
 	var look := Vector2(rotation.y, _pitch)

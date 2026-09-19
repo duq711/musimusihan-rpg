@@ -1,0 +1,22 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+
+ERROR: SWORD CLASH TEST FAIL: natural close-range attacks must overlap their rendered blade models
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_clash_test.gd:253)
+       [1] _run (res://tests/sword_clash_test.gd:137)
+ERROR: SWORD CLASH TEST FAIL: natural blade contact must occur before either body's damage deadline
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_clash_test.gd:253)
+       [1] _run (res://tests/sword_clash_test.gd:137)
+ERROR: SWORD CLASH TEST FAIL: natural swing animation must cancel the player strike into clash recovery
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_clash_test.gd:253)
+       [1] _run (res://tests/sword_clash_test.gd:137)
+ERROR: SWORD CLASH TEST FAIL: natural swing animation must stagger the armed enemy
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _finish (res://tests/sword_clash_test.gd:253)
+       [1] _run (res://tests/sword_clash_test.gd:137)
