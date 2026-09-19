@@ -5,9 +5,9 @@ const ARMS := preload("res://tests/player_arm_preview.gd")
 const STAB_MOTION := preload("res://scripts/creep_execution_motion.gd")
 const OUTPUT := "res://artifacts/visual_qa/creep_execution"
 const EXECUTION_CASES := [
-	{"id": "left_leg_first_person", "legs": ["left_leg"], "observer": false, "title": "한 다리 · 찌르기 → 깊게 찌르며 움찔 → 잠시 유지 → 뽑기"},
-	{"id": "left_leg_side_repeat", "legs": ["left_leg"], "observer": true, "title": "측면 재실행 · 깊게 찌르며 움찔 → 잠시 유지 → 뽑기"},
-	{"id": "both_legs_first_person", "legs": ["left_leg", "right_leg"], "observer": false, "title": "양다리 · 찌르기 → 깊게 찌르며 움찔 → 잠시 유지 → 뽑기"},
+	{"id": "left_leg_first_person", "legs": ["left_leg"], "observer": false, "title": "한 다리 · 첫 찌르기 → 더 깊은 찌르기 → 유지 → 뽑기"},
+	{"id": "left_leg_side_repeat", "legs": ["left_leg"], "observer": true, "title": "측면 재실행 · 더 깊은 찌르기와 움찔 → 유지 → 뽑기"},
+	{"id": "both_legs_first_person", "legs": ["left_leg", "right_leg"], "observer": false, "title": "양다리 · 첫 찌르기 → 더 깊은 찌르기 → 유지 → 뽑기"},
 ]
 const EXECUTION_SOURCES := [
 	"res://scripts/player.gd", "res://scripts/enemy.gd", "res://scripts/creep_enemy.gd",
@@ -64,7 +64,9 @@ class ActionDriver extends Node:
 			for stage_id: String in stage_times:
 				if not stage_snapshots.has(stage_id) and player.execution_elapsed >= float(stage_times[stage_id]) - .00001:
 					var snap := player.get_execution_snapshot()
-					stage_snapshots[stage_id] = {"tick": tick, "requested_seconds": stage_times[stage_id], "snapshot": snap, "health": actor.health, "ragdoll_phase": actor.ragdoll.phase, "axis_depth_m": (snap.blade_tip - snap.contact_point).dot(player._execution_stab_direction), "reaction": actor.get_crawl_execution_reaction_snapshot(), "bone_world": capture_bone_world(), "creature_root": actor.global_transform}
+					var tip_offset: Vector3 = snap.blade_tip - snap.contact_point
+					var axis_depth: float = tip_offset.dot(player._execution_stab_direction)
+					stage_snapshots[stage_id] = {"tick": tick, "requested_seconds": stage_times[stage_id], "snapshot": snap, "health": actor.health, "ragdoll_phase": actor.ragdoll.phase, "axis_depth_m": axis_depth, "axis_offset_m": (tip_offset - player._execution_stab_direction * axis_depth).length(), "arm_joints": player.get_first_person_motion_snapshot().get("joint_landmarks", {}), "reaction": actor.get_crawl_execution_reaction_snapshot(), "bone_world": capture_bone_world(), "creature_root": actor.global_transform}
 		if player._execution_hit_committed and not had_hit:
 			contact = {"tick": tick, "snapshot": player.get_execution_snapshot(), "creature": actor.get_creep_snapshot(), "hands": player.get_first_person_motion_snapshot()}
 		if tick >= 360:
@@ -251,11 +253,14 @@ func _run() -> void:
 		if driver.stage_snapshots.has("shallow_hold") and driver.stage_snapshots.has("deepest"):
 			_check(absf(float(driver.stage_snapshots.shallow_hold.axis_depth_m) - STAB_MOTION.SHALLOW_PENETRATION) < .015, scenario.id + ": first stab is shallow")
 			_check(absf(float(driver.stage_snapshots.deepest.axis_depth_m) - STAB_MOTION.PENETRATION) < .015, scenario.id + ": final push reaches the deeper source-defined depth")
+			_check(float(driver.stage_snapshots.deepest.axis_depth_m) > .30, scenario.id + ": final blade insertion exceeds thirty centimeters")
+			_check(float(driver.stage_snapshots.deepest.axis_offset_m) < .005, scenario.id + ": deeper tip follows the same stab axis")
 			_check(float(driver.stage_snapshots.deepest.health) == 0, scenario.id + ": full depth commits death")
 			_check(float(driver.stage_snapshots.deepest.reaction.get("deep_weight", 0.0)) > .5, scenario.id + ": deeper push produces recoil before the death ragdoll")
 		for hold_id: String in ["buried_hold_mid", "buried_hold_end"]:
 			if driver.stage_snapshots.has(hold_id):
 				_check(absf(float(driver.stage_snapshots[hold_id].axis_depth_m) - STAB_MOTION.PENETRATION) < .015, scenario.id + ": sword stays at full depth during " + hold_id)
+				_check(float(driver.stage_snapshots[hold_id].axis_offset_m) < .005, scenario.id + ": deep hold preserves the stab axis during " + hold_id)
 		if driver.stage_snapshots.has("withdraw_end"):
 			_check(float(driver.stage_snapshots.withdraw_end.axis_depth_m) < -.25, scenario.id + ": blade exits after the buried hold")
 		if not driver.contact.is_empty():
@@ -278,7 +283,7 @@ func _run() -> void:
 	for path: String in hashes: _check(hashes[path] == FileAccess.get_sha256(path), "source unchanged: " + path)
 	var output := FileAccess.open(directory.path_join("manifest.json"), FileAccess.WRITE)
 	if output:
-		output.store_string(JSON.stringify(_json_safe({"fps": 30, "physics_hz": 60, "resolution": [960, 540], "stills_only": stills_only, "duration_seconds": 18.0, "execution_seconds": STAB_MOTION.DURATION, "first_contact_seconds": STAB_MOTION.FIRST_IMPACT_SECONDS, "lethal_contact_seconds": STAB_MOTION.HIT_SECONDS, "buried_hold_seconds": STAB_MOTION.WITHDRAW_START - STAB_MOTION.HIT_SECONDS, "capture_scope": "Actual production shallow stab without recoil, one stronger deep-push recoil, full-depth hold, withdrawal and ragdoll death in an isolated GPU scene; side angle is a separate runtime repeat.", "input_scope": "Production gameplay APIs at 60 Hz; no OS keyboard/mouse/focus, no desktop capture or audible playback.", "source_sha256": hashes, "outcomes": outcomes, "frames": records, "failures": failures}), "\t"))
+		output.store_string(JSON.stringify(_json_safe({"fps": 30, "physics_hz": 60, "resolution": [960, 540], "stills_only": stills_only, "duration_seconds": 18.0, "execution_seconds": STAB_MOTION.DURATION, "first_contact_seconds": STAB_MOTION.FIRST_IMPACT_SECONDS, "lethal_contact_seconds": STAB_MOTION.HIT_SECONDS, "buried_hold_seconds": STAB_MOTION.WITHDRAW_START - STAB_MOTION.HIT_SECONDS, "shallow_penetration_target_m": STAB_MOTION.SHALLOW_PENETRATION, "deep_penetration_target_m": STAB_MOTION.PENETRATION, "approach_contact_distance_m": STAB_MOTION.CONTACT_DISTANCE, "depth_measurement": "Blade-tip distance along the stab axis from the sampled torso entry point. This records insertion distance, not a proof of remaining inside the far skin surface; inspect the actual side view.", "capture_scope": "Actual production shallow stab without recoil, one stronger and deeper push, full-depth hold, withdrawal and ragdoll death in an isolated GPU scene; side angle is a separate runtime repeat.", "input_scope": "Production gameplay APIs at 60 Hz; no OS keyboard/mouse/focus, no desktop capture or audible playback.", "source_sha256": hashes, "outcomes": outcomes, "frames": records, "failures": failures}), "\t"))
 	else: _check(false, "manifest saved")
 	print("CREEP EXECUTION PREVIEW %s: %s" % ["PASS" if failures.is_empty() else "FAIL", directory])
 	quit(0 if failures.is_empty() else 1)

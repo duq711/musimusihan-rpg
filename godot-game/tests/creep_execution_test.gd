@@ -376,7 +376,16 @@ func _complete_stab(legs: Array) -> void:
 	_check(_mirror_lights_hidden(), "actual blade contact keeps all equipment mirror lights disabled")
 	var blade_tip: Vector3 = contact.blade_tip
 	var final_depth := (blade_tip - skin_point).dot(stab_axis)
-	_check(final_depth > initial_depth + .08 and final_depth < .35, "lethal contact is visibly deeper than the first shallow penetration without crossing the whole body")
+	_check(final_depth > .30 and absf(final_depth - MOTION.PENETRATION) < .002, "actual lethal blade depth exceeds thirty centimeters and matches the deeper authored target")
+	var torso_depth := _inspect_torso_penetration(skin_point, stab_axis, blade_tip)
+	var contact_hands: Dictionary = player.get_first_person_motion_snapshot()
+	var contact_joint: Dictionary = contact_hands.joint_landmarks.get("sword", {})
+	var contact_grip: Dictionary = contact_hands.hand_contacts.get("sword", {})
+	_check(not contact_grip.is_empty() and float(contact_grip.get("error", INF)) < .01, "deepest stab preserves the actual sword-hand grip contact")
+	_check(not contact_joint.is_empty(), "deep contact exposes actual arm joint landmarks for reach review")
+	# This synchronous clock fixture does not run move_and_slide approach.
+	# Report reach here; the embedded preview checks the 2.5cm shoulder limit
+	# after actual production movement, avoiding a fabricated headless approach.
 	_check(blade_tip.y < initial_tip.y - .025 and (blade_tip - initial_tip).slide(stab_axis).length() < .02, "lethal extra push travels down along the same insertion axis")
 	_check(actor.health == 0 and actor.ai_state == DungeonEnemy.AIState.DEAD and defeats == 1, "deep contact emits one lethal defeat through production death")
 	_check(actor.ragdoll.phase == "reaction" and _poses_close(actor.ragdoll.initial_pose, last_living_pose, .001), "corpse ragdoll begins continuously from the actual final living recoil pose")
@@ -436,7 +445,57 @@ func _complete_stab(legs: Array) -> void:
 	actor._die()
 	_check(defeats == 1 and not actor.finish_execution(player), "corpse hits and repeated finish/death cannot duplicate rewards")
 	_check(actor.animation_player.get_animation_list() == clips_before, "all imported clips remain unchanged")
-	report.append({"legs": legs, "shield_mode": shield_mode, "maximum_tip_step": motion_metrics.maximum_tip_step, "skin_contact_error": motion_metrics.minimum_skin_error, "first_chest_angle": motion_metrics.first_chest_angle, "first_head_angle": motion_metrics.first_head_angle, "deep_chest_angle": motion_metrics.deep_chest_angle, "deep_head_angle": motion_metrics.deep_head_angle, "reaction_episodes": motion_metrics.reaction_episodes, "buried_hold_seconds": held_seconds, "buried_hold_maximum_tip_drift": maximum_hold_tip_drift, "initial_contact": initial_contact, "initial_depth": initial_depth, "deep_push_depth": final_depth, "withdrawal_axis_error": maximum_withdrawal_axis_error, "withdrawal_rotation_error": maximum_withdrawal_rotation, "withdrawal_final_depth": previous_depth, "contact": contact, "defeats": defeats, "missing_parts": missing_before, "ragdoll_bodies": actor.ragdoll.parts.size()})
+	report.append({"legs": legs, "shield_mode": shield_mode, "maximum_tip_step": motion_metrics.maximum_tip_step, "skin_contact_error": motion_metrics.minimum_skin_error, "first_chest_angle": motion_metrics.first_chest_angle, "first_head_angle": motion_metrics.first_head_angle, "deep_chest_angle": motion_metrics.deep_chest_angle, "deep_head_angle": motion_metrics.deep_head_angle, "reaction_episodes": motion_metrics.reaction_episodes, "buried_hold_seconds": held_seconds, "buried_hold_maximum_tip_drift": maximum_hold_tip_drift, "initial_contact": initial_contact, "initial_depth": initial_depth, "deep_push_depth": final_depth, "posed_torso_penetration": torso_depth, "deep_contact_arm": contact_joint, "deep_contact_grip": contact_grip, "withdrawal_axis_error": maximum_withdrawal_axis_error, "withdrawal_rotation_error": maximum_withdrawal_rotation, "withdrawal_final_depth": previous_depth, "contact": contact, "defeats": defeats, "missing_parts": missing_before, "ragdoll_bodies": actor.ragdoll.parts.size()})
+
+
+func _inspect_torso_penetration(skin_point: Vector3, axis: Vector3, blade_tip: Vector3) -> Dictionary:
+	# Test the visible CPU-skinned torso at the actual deepest reaction pose,
+	# before any permanent ragdoll physics tick can change that pose. Capsule
+	# collision and a chosen numeric depth alone cannot establish skin exit.
+	var ray_start := skin_point - axis * .10
+	var ray_end := skin_point + axis * 1.0
+	var raw_hits: Array[Dictionary] = []
+	var mesh_count := 0
+	var triangle_count := 0
+	for part: MeshInstance3D in actor.visual_meshes:
+		if part.name != "CreepPart_torso" or not part.is_visible_in_tree(): continue
+		mesh_count += 1
+		var posed: ArrayMesh = actor.dismemberment._bake_world_mesh(part, Vector3.ZERO)
+		var faces := posed.get_faces()
+		triangle_count += faces.size() / 3
+		for index in range(0, faces.size(), 3):
+			var hit = Geometry3D.segment_intersects_triangle(ray_start, ray_end, faces[index], faces[index + 1], faces[index + 2])
+			if hit is Vector3:
+				var normal := (faces[index + 1] - faces[index]).cross(faces[index + 2] - faces[index]).normalized()
+				raw_hits.append({"depth_m": (hit - skin_point).dot(axis), "normal_dot_axis": normal.dot(axis), "position": hit})
+	raw_hits.sort_custom(func(first: Dictionary, second: Dictionary) -> bool: return float(first.depth_m) < float(second.depth_m))
+	var crossings: Array[Dictionary] = []
+	for hit: Dictionary in raw_hits:
+		if crossings.is_empty() or absf(float(hit.depth_m) - float(crossings.back().depth_m)) > .001:
+			crossings.append({"depth_m": hit.depth_m, "normal_dot_axis": hit.normal_dot_axis, "position": hit.position, "triangle_hits": 1, "consistent_winding": true})
+		else:
+			var crossing: Dictionary = crossings.back()
+			crossing.triangle_hits += 1
+			if float(crossing.normal_dot_axis) * float(hit.normal_dot_axis) <= 0:
+				crossing.consistent_winding = false
+	var result := {"verified_closed_segment": false, "unverified_reason": "", "mesh_count": mesh_count, "triangle_count": triangle_count, "raw_hit_count": raw_hits.size(), "crossings": crossings, "actual_tip_depth_m": (blade_tip - skin_point).dot(axis)}
+	_check(mesh_count > 0 and triangle_count > 0, "deep penetration inspection reads the actual visible posed torso triangles")
+	if crossings.size() != 2:
+		result.unverified_reason = "Expected two distinct torso surfaces; open, folded or missing geometry requires visual review."
+		return result
+	var entry: Dictionary = crossings[0]
+	var exit_surface: Dictionary = crossings[1]
+	var normal_product := float(entry.normal_dot_axis) * float(exit_surface.normal_dot_axis)
+	if not bool(entry.consistent_winding) or not bool(exit_surface.consistent_winding) or normal_product >= 0 or minf(absf(float(entry.normal_dot_axis)), absf(float(exit_surface.normal_dot_axis))) < .05 or absf(float(entry.depth_m)) > .08:
+		result.unverified_reason = "Near-contact entry and opposing exit normals are ambiguous; no inside-body claim is made."
+		return result
+	result.verified_closed_segment = true
+	result.entry_depth_m = entry.depth_m
+	result.exit_depth_m = exit_surface.depth_m
+	result.remaining_to_exit_m = float(exit_surface.depth_m) - float(result.actual_tip_depth_m)
+	_check(float(result.actual_tip_depth_m) > float(entry.depth_m) + .01, "deep blade tip passes the actual posed torso entry surface")
+	_check(float(result.actual_tip_depth_m) < float(exit_surface.depth_m) - .01, "deep blade tip stays inside the actual opposing torso surface with a one-centimeter margin")
+	return result
 
 
 func _sample_living_stab_until(stop_time: float, untouched: float, entry: Array[Transform3D], metrics: Dictionary) -> void:

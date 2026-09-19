@@ -11,11 +11,11 @@ const WITHDRAW_START := 1.46
 const WITHDRAW_END := 1.86
 const DURATION := 2.24
 const SHALLOW_PENETRATION := 0.045
-const PENETRATION := 0.22
+const PENETRATION := 0.36
 const FIRST_IMPACT_SECONDS := THRUST_START + (INITIAL_CONTACT - THRUST_START) * .28 / (.28 + SHALLOW_PENETRATION)
 const MIN_DISTANCE := 1.10
 const MAX_DISTANCE := 1.65
-const CONTACT_DISTANCE := 1.05
+const CONTACT_DISTANCE := 0.88
 
 static func phase(elapsed: float) -> String:
 	if elapsed < THRUST_START: return "포복 처형 · 찌를 자세 잡기"

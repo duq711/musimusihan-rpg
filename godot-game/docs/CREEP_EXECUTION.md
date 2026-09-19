@@ -4,9 +4,9 @@
 
 User request, 2026-09-18: first implement one sword-stab execution for a living Creep crawling after leg loss, separate from the existing standing sword-and-shield execution.
 
-2026-09-19 후속 요청: **찌를 자세 잡기 → 첫 찌르기 → 더 깊게 밀어 넣기 → 검 뽑기**가 구분되는 동작으로 다듬는다. 이후 요청으로 찌르기 전 멈춤을 없앴다. 최신 요청은 첫 찌르기를 조용히 받아들이고, 깊게 밀어 넣을 때 크게 움찔한 뒤 잠시 기다렸다가 칼을 뽑는 동작이다. 현재 구현 값과 검증 상태는 아래를 따른다.
+2026-09-19 후속 요청: **찌를 자세 잡기 → 첫 찌르기 → 더 깊게 밀어 넣기 → 검 뽑기**가 구분되는 동작으로 다듬는다. 이후 요청으로 찌르기 전 멈춤을 없앴다. 후속 요청에 따라 첫 찌르기는 조용히 받아들이고, 깊게 밀어 넣을 때 크게 움찔한 뒤 잠시 기다렸다가 칼을 뽑도록 했다. 최신 요청은 그 깊은 찌르기를 더 깊게 만드는 것이다. 현재 구현 값과 검증 상태는 아래를 따른다.
 
-Follow-up request, 2026-09-19: distinguish **preparing the stab → first thrust → deeper push → withdrawal**. A subsequent request removed the pause before the thrust. The latest request keeps the first stab quiet, puts a pronounced flinch on the deeper push, then briefly holds before withdrawing. Current implementation values and validation status are recorded below.
+Follow-up request, 2026-09-19: distinguish **preparing the stab → first thrust → deeper push → withdrawal**. A subsequent request removed the pause before the thrust. A follow-up kept the first stab quiet, added a pronounced flinch on the deeper push and held briefly before withdrawal. The latest request increases that deeper stab depth. Current implementation values and validation status are recorded below.
 
 ## 조작과 조건 / Input and eligibility
 
@@ -19,7 +19,7 @@ With a sword drawn, aim at a nearby crawling Creep's torso, hold LMB for at leas
 
 ## 접근과 찌르기 / Approach and stab
 
-몸통 기준 수평 거리 **1.10–1.65m**에서 시작한다. 시작 후 첫 0.30초 동안 충돌을 계산하며 몸통에서 약 **1.05m** 떨어진 위치로 접근하고, 시선도 낮은 몸통을 따라간다. 팔만 멀리 뻗어 어깨를 화면 중앙으로 끌어내는 것을 피하기 위한 실제 플레이어 이동이다. 순간 이동하거나 크리프를 플레이어 앞으로 끌어오지 않는다.
+몸통 기준 수평 거리 **1.10–1.65m**에서 시작한다. 시작 후 첫 0.30초 동안 충돌을 계산하며 몸통에서 약 **0.88m** 떨어진 위치로 접근하고, 시선도 낮은 몸통을 따라간다. 팔만 멀리 뻗어 어깨를 화면 중앙으로 끌어내는 것을 피하기 위한 실제 플레이어 이동이다. 순간 이동하거나 크리프를 플레이어 앞으로 끌어오지 않는다.
 
 총 **2.24초** 동작은 아래 순서로 구성한다. 시간은 LMB를 놓아 처형이 시작된 순간부터 계산한다.
 
@@ -27,13 +27,13 @@ With a sword drawn, aim at a nearby crawling Creep's torso, hold LMB for at leas
 |---|---|
 | 찌를 자세 잡기 / Prepare | 0–0.30초에 접근하며 몸통을 겨냥하고 멈춤 없이 첫 찌르기로 연결 / Approach and aim during 0–0.30s, continuing into the thrust without a hold |
 | 첫 찌르기 / Initial stab | 0.30–0.58초에 약 4.5cm 넣고 0.68초까지 유지 / Enter approximately 4.5cm during 0.30–0.58s, hold until 0.68s |
-| 깊게 밀기 / Deeper push | 0.68–1.02초에 약 22cm까지 밀고, 1.02초에 한 번만 결정타 처리 / Push to approximately 22cm during 0.68–1.02s, commit one lethal hit at 1.02s |
+| 깊게 밀기 / Deeper push | 0.68–1.02초에 약 36cm까지 밀고, 1.02초에 한 번만 결정타 처리 / Push to approximately 36cm during 0.68–1.02s, commit one lethal hit at 1.02s |
 | 결정타 후 유지 / Hold after finishing contact | 1.02–1.46초에 깊은 찌르기 위치를 0.44초 유지 / Hold the deeper stab position for 0.44s during 1.02–1.46s |
 | 검 뽑기 / Withdraw | 1.46–1.86초에 찌른 축을 따라 빼고 2.24초까지 준비 위치로 복귀 / Withdraw along the thrust axis during 1.46–1.86s, return to ready by 2.24s |
 
 시작할 때 현재 자세의 실제 피부가 적용된 몸통 삼각형에서 접촉 지점을 한 번 구하며, 검과 몸통이 같은 월드 깊이를 사용해 들어간 칼끝은 피부에 가려진다. 첫 찌르기·깊은 밀기·회수는 같은 축을 사용한다. 손은 기존 검 파지 위치를 유지하며 실제 팔 길이는 상완 0.34m·전완 0.26m를 보존한다. 위 깊이는 모션의 목표 값이며 실제 피부 가림·팔 자세·침투 깊이는 개정별 검수 기록으로 구분한다.
 
-Start at a horizontal torso distance of **1.10–1.65m**. During the first 0.30 seconds, the player advances through normal collision movement toward approximately **1.05m**, with the view following the low torso. This physical approach avoids pulling the shoulder cap into the center of the view; neither participant teleports. The **2.24-second** action prepares and immediately continues into the shallow stab, pushes deeper, holds briefly and withdraws as listed above. The anchor is sampled once from an actual posed torso-skin triangle. The initial thrust, deeper push and extraction share one axis; shared world depth lets the skin occlude the buried tip. The original sword grip and 0.34m upper arm / 0.26m forearm lengths are retained. Penetration distances are motion targets; verification of occlusion, arm pose and recorded depth is tracked separately for each revision.
+Start at a horizontal torso distance of **1.10–1.65m**. During the first 0.30 seconds, the player advances through normal collision movement toward approximately **0.88m**, with the view following the low torso. This physical approach avoids pulling the shoulder cap into the center of the view; neither participant teleports. The **2.24-second** action prepares and immediately continues into the shallow stab, pushes deeper, holds briefly and withdraws as listed above. The anchor is sampled once from an actual posed torso-skin triangle. The initial thrust, deeper push and extraction share one axis; shared world depth lets the skin occlude the buried tip. The original sword grip and 0.34m upper arm / 0.26m forearm lengths are retained. Penetration distances are motion targets; verification of occlusion, arm pose and recorded depth is tracked separately for each revision.
 
 ## 찔림 반응 / Contact reaction
 
@@ -51,7 +51,17 @@ Both F2 entries prepare a fresh actual Creep, sword/shield and healed player. Or
 
 ## 검증 / Validation
 
-### 현재 깊은 찌르기 반응·회수 대기 개정 / Current deeper-push recoil and delayed withdrawal
+### 현재 36cm 깊은 찌르기 개정 / Current 36cm deeper penetration
+
+깊은 찌르기를 **22cm에서 36cm로 14cm 늘렸다**. 팔 길이를 유지하도록 실제 접근 목표를 1.05m에서 **0.88m**로 17cm 가까이 옮겼다. 첫 찌르기 4.5cm, 큰 반응의 가슴 14°·머리 20°, 결정타 뒤 0.44초 유지와 전체 2.24초는 그대로다. `creep_execution`, `creep_execution_trial` 자동 검사 **2종을 통과**했다. 실제 변형된 몸통 피부의 교차 검사에서 세 절단 사례 모두 깊은 결정타 시점의 칼끝이 반대편 피부보다 31.6–33.3cm 앞에 남았다. 이 수치는 결정타 자세의 기하 검사이며 이후 랙돌 전체 구간에 대한 수치는 아니다.
+
+실제 GPU `deeper_20260919_01`은 manifest 실패 없이 **960×540·30fps·18초·540프레임의 무음 영상과 단계 PNG 39장**을 기록했다. 세 사례 모두 깊이 36cm, 어깨 이동 보정 0m, 기존 상완 0.34m·전완 0.26m를 유지했다. 한쪽·양쪽 다리 1인칭 결정타와 측면 결정타·유지 후반 화면에서 노출된 칼날이 줄었고 반대편으로 칼끝이 드러나지 않는 것을 직접 확인했다. MP4 인코딩·전체 540프레임 디코딩을 통과했고 원본 파일 14개의 해시도 보존했다. 영상은 `artifacts/validation/creep_execution_deeper_20260919/creep_execution_deeper.mp4`에 있다. 아래 이전 22cm 결과와 구분하며 GitHub 반영은 최종 게시 기록을 따른다. 경사·계단·다른 적 크기는 미확인이다.
+
+Deep penetration increased **14cm, from 22cm to 36cm**. Actual approach moves 17cm closer, from 1.05m to **0.88m**, preserving arm lengths. The 4.5cm initial stab, 14° chest/20° head reaction, 0.44-second post-impact hold and 2.24-second total remain. **Two suites passed:** `creep_execution` and `creep_execution_trial`. Ray intersections against the actual deformed torso skin show the tip remains 31.6–33.3cm before the far skin exit in all three severance cases at finishing contact. This geometric result covers that contact pose, not the entire subsequent ragdoll sequence.
+
+Actual GPU `deeper_20260919_01` has no manifest failures and records a **silent 960×540, 30fps, 18-second, 540-frame video and 39 stage PNGs**. All three cases retain 36cm penetration, zero shoulder translation correction and the original 0.34m upper arm / 0.26m forearm. Direct inspection of single/both-leg first-person impact and side impact/late-hold views shows less exposed blade and no visible tip protruding through the far side. MP4 encoding and full 540-frame decoding passed; fourteen source-file hashes are preserved. The video is at `artifacts/validation/creep_execution_deeper_20260919/creep_execution_deeper.mp4`. These results remain separate from the previous 22cm validation below; GitHub status follows the final publication record. Slopes, stairs and differently sized enemies remain unverified.
+
+### 이전 22cm 깊은 찌르기 반응·회수 대기 검수 / Previous 22cm deeper-push recoil and delayed withdrawal validation
 
 이번 2.24초 개정의 자동 검사 `creep_execution`, `creep_execution_trial` **2종이 통과**했다. 실제 GPU `deep_recoil_20260919_01`에서 **960×540·30fps·18초·540프레임의 무음 영상과 단계 PNG 39장**을 촬영했으며 manifest 실패는 없다. 1인칭·별도 측면 반복에서 조용한 첫 찌르기, 깊게 밀 때 큰 반응, 0.44초 유지와 회수를 직접 검토했다. 세 사례 모두 첫 찌르기 반응 강도는 0이고 해당 골격 자세는 같으며, 깊은 반응 강도는 1이고 개별 뼈 로컬 회전은 가슴 14°·머리 20°다. 이 값은 머리의 누적 세계 회전과 구분한다. 사망은 각각 한 번이고 원래 접촉점 기준 유지 깊이는 22cm다.
 

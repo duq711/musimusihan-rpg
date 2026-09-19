@@ -1,0 +1,202 @@
+{
+  "revision": "2026-09-19 deeper execution thrust",
+  "summary_ko": "깊은 찌르기를 22cm에서 36cm로 늘리고 실제 접근 목표를 1.05m에서 0.88m로 줄여 원래 팔 길이로 파지 유지",
+  "summary_en": "Increased deep insertion from 22cm to 36cm and moved the physical approach target from 1.05m to 0.88m, preserving the original arm lengths and grip.",
+  "headless_suites": {
+    "creep_execution": "PASS",
+    "creep_execution_trial": "PASS"
+  },
+  "deep_penetration_m": 0.36,
+  "previous_deep_penetration_m": 0.22,
+  "additional_penetration_m": 0.14,
+  "approach_contact_distance_m": 0.88,
+  "previous_approach_contact_distance_m": 1.05,
+  "timing_unchanged": {
+    "initial_stab_seconds": 0.58,
+    "deep_hit_seconds": 1.02,
+    "hold_seconds": 0.44,
+    "withdraw_start_seconds": 1.46,
+    "withdraw_end_seconds": 1.86,
+    "total_seconds": 2.24
+  },
+  "video": {
+    "file": "creep_execution_deeper.mp4",
+    "duration_seconds": 18,
+    "fps": 30,
+    "frames": 540,
+    "resolution": [
+      960,
+      540
+    ],
+    "audio": false,
+    "encode_exit": 0,
+    "full_decode_exit": 0,
+    "sha256": "6dc6e333dd973e23334346250f39161002c3791a0825736ca9597ad7f231f0ae",
+    "bytes": 1002116
+  },
+  "stage_png_count": 39,
+  "render_cases": [
+    {
+      "case": "left_leg_first_person",
+      "deep_depth_m": 0.36000007390976,
+      "deaths": 1,
+      "premature_death": false,
+      "arm_upper_m": 0.340000033378601,
+      "arm_forearm_m": 0.260000020265579,
+      "sampled_shoulder_adjustments_m": {
+        "initial_stab": 0.0,
+        "deepest": 0.0,
+        "buried_hold_end": 0.0,
+        "withdraw_end": 0.0
+      }
+    },
+    {
+      "case": "left_leg_side_repeat",
+      "deep_depth_m": 0.36000007390976,
+      "deaths": 1,
+      "premature_death": false,
+      "arm_upper_m": 0.340000033378601,
+      "arm_forearm_m": 0.260000020265579,
+      "sampled_shoulder_adjustments_m": {
+        "initial_stab": 0.0,
+        "deepest": 0.0,
+        "buried_hold_end": 0.0,
+        "withdraw_end": 0.0
+      }
+    },
+    {
+      "case": "both_legs_first_person",
+      "deep_depth_m": 0.360000044107437,
+      "deaths": 1,
+      "premature_death": false,
+      "arm_upper_m": 0.340000003576279,
+      "arm_forearm_m": 0.260000079870224,
+      "sampled_shoulder_adjustments_m": {
+        "initial_stab": 0.0,
+        "deepest": 0.0,
+        "buried_hold_end": 0.0,
+        "withdraw_end": 0.0
+      }
+    }
+  ],
+  "posed_skin_cases": [
+    {
+      "legs": [
+        "left_leg"
+      ],
+      "deep_push_depth": 0.360000193119049,
+      "posed_torso_penetration": {
+        "actual_tip_depth_m": 0.360000193119049,
+        "crossings": [
+          {
+            "consistent_winding": true,
+            "depth_m": -0.00476977089419961,
+            "normal_dot_axis": 0.842542827129364,
+            "position": "(0.05514, 0.542945, -2.465123)",
+            "triangle_hits": 1
+          },
+          {
+            "consistent_winding": true,
+            "depth_m": 0.692772924900055,
+            "normal_dot_axis": -0.861026287078857,
+            "position": "(-0.052778, 0.199652, -3.062676)",
+            "triangle_hits": 1
+          }
+        ],
+        "entry_depth_m": -0.00476977089419961,
+        "exit_depth_m": 0.692772924900055,
+        "mesh_count": 1,
+        "raw_hit_count": 2,
+        "remaining_to_exit_m": 0.332772731781006,
+        "triangle_count": 1902,
+        "unverified_reason": "",
+        "verified_closed_segment": true
+      }
+    },
+    {
+      "legs": [
+        "right_leg"
+      ],
+      "deep_push_depth": 0.359999984502792,
+      "posed_torso_penetration": {
+        "actual_tip_depth_m": 0.359999984502792,
+        "crossings": [
+          {
+            "consistent_winding": true,
+            "depth_m": -0.00588126108050346,
+            "normal_dot_axis": 0.813407182693481,
+            "position": "(0.022201, 0.530095, -1.494321)",
+            "triangle_hits": 1
+          },
+          {
+            "consistent_winding": true,
+            "depth_m": 0.675947427749634,
+            "normal_dot_axis": -0.873473942279816,
+            "position": "(-0.082834, 0.190092, -2.075919)",
+            "triangle_hits": 1
+          }
+        ],
+        "entry_depth_m": -0.00588126108050346,
+        "exit_depth_m": 0.675947427749634,
+        "mesh_count": 1,
+        "raw_hit_count": 2,
+        "remaining_to_exit_m": 0.315947443246841,
+        "triangle_count": 1902,
+        "unverified_reason": "",
+        "verified_closed_segment": true
+      }
+    },
+    {
+      "legs": [
+        "left_leg",
+        "right_leg"
+      ],
+      "deep_push_depth": 0.35999995470047,
+      "posed_torso_penetration": {
+        "actual_tip_depth_m": 0.35999995470047,
+        "crossings": [
+          {
+            "consistent_winding": true,
+            "depth_m": -0.00586657878011465,
+            "normal_dot_axis": 0.813459277153015,
+            "position": "(0.055331, 0.530085, -1.312748)",
+            "triangle_hits": 1
+          },
+          {
+            "consistent_winding": true,
+            "depth_m": 0.675933241844177,
+            "normal_dot_axis": -0.873065829277039,
+            "position": "(-0.0497, 0.190096, -1.89432)",
+            "triangle_hits": 1
+          }
+        ],
+        "entry_depth_m": -0.00586657878011465,
+        "exit_depth_m": 0.675933241844177,
+        "mesh_count": 1,
+        "raw_hit_count": 2,
+        "remaining_to_exit_m": 0.315933287143707,
+        "triangle_count": 1902,
+        "unverified_reason": "",
+        "verified_closed_segment": true
+      }
+    }
+  ],
+  "failures": [],
+  "verified": [
+    "36cm tip displacement from the original posed skin anchor",
+    "Actual CPU-skinned torso entry and opposing exit found; deepest tip stays inside in all three headless cases",
+    "GPU original upper arm 0.34m and forearm 0.26m retained",
+    "GPU shoulder correction 0m at initial, deepest, late hold and completed withdrawal",
+    "Quiet initial stab, strong deep flinch and 0.44-second hold preserved",
+    "One death/reward and existing ragdoll/cancel/session restoration preserved",
+    "Fourteen rendered-source hashes match current local files"
+  ],
+  "visual_review": "Opened actual left/both-leg first-person deepest images and side deepest/late-hold images. Less blade is exposed outside the torso than in the preceding 22cm revision; no far-side protrusion is visible in those views.",
+  "scope": "Production gameplay APIs at 60Hz in an isolated embedded Vulkan GPU scene; side camera is a separate runtime repeat. Geometric inside-body proof samples the deepest pre-simulation pose, not every subsequent corpse-physics frame.",
+  "unverified": [
+    "Slopes/stairs",
+    "Other enemy sizes",
+    "Manual OS-input dungeon playthrough"
+  ],
+  "publication": "Consult asset-staging/creep_execution_deeper_20260919/publication.json for confirmed remote commit and fresh LFS video verification."
+}
