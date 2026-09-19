@@ -5,6 +5,7 @@ render_mode cull_disabled;
 // The planks run along local Y; their exposed ends reveal X/Z growth rings.
 uniform float ring_spacing = 0.0048;
 uniform float relief_metres = 0.00032;
+uniform mat4 wood_coordinates = mat4(1.0);
 varying vec3 wood_position;
 
 float wood_hash(vec3 p) {
@@ -22,7 +23,7 @@ float wood_noise(vec3 p) {
 }
 
 void vertex() {
-	wood_position = VERTEX;
+	wood_position = (wood_coordinates * vec4(VERTEX, 1.0)).xyz;
 }
 
 void fragment() {

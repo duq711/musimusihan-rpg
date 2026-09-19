@@ -277,7 +277,7 @@ const ITEM_DEFINITIONS := {
 		"atlas_cell": Vector2i(3, 0), "ui_span": Vector2i(2, 2),
 		"weight": 4.4, "value": 24, "stack_max": 1, "rarity": "common",
 		"durability_max": 100.0,
-		"summary": "정면 방어 · 내구도에 따라 3단계 파손", "description": "낡은 참나무 판에 철테를 두른 원형 방패입니다. 막은 공격에 따라 판과 철테가 손상되며, 내구도가 0이어도 방어 기능은 유지됩니다."
+		"summary": "정면 방어 · 3단계 손상 후 완전 파괴", "description": "낡은 참나무 판에 철테를 두른 원형 방패입니다. 막은 공격에 따라 판과 철테가 손상됩니다. 내구도가 다하면 마지막 공격은 막지만 방패는 파편으로 부서져 사라집니다."
 	},
 	"wanderer_hood": {
 		"name": "방랑자의 두건", "glyph": "⌃", "category": "equipment", "equip_slot": "head",

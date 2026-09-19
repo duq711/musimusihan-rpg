@@ -1,0 +1,34 @@
+[HEADLESS] shield_shatter_test.gd
+SHIELD SHATTER PHYSICS: contacts=32/32 settled=29 lowest_center_y=-0.0255
+ERROR: fragment collider must not penetrate deeply below the floor (bottom -0.0559, floor 0.0000)
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/shield_shatter_test.gd:51)
+ERROR: fragment collider must not penetrate deeply below the floor (bottom -0.0632, floor 0.0000)
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/shield_shatter_test.gd:51)
+SHIELD SHATTER TEST FAIL: real final block and timed guard, item destruction, physical debris and floor contact, no duplicate break, hidden unusable zero-condition gear, F2/replay/reset and original session restoration
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2535)
+[HEADLESS] shield_damage_test.gd
+SHIELD DAMAGE TEST PASS: per-item durability, actual shield hits and timed guard, three first-person stages, exclusions, motion-safe signals, F2/reset and original expedition restoration
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2535)
+[HEADLESS] shield_guard_test.gd
+SHIELD GUARD TEST PASS: full damage blocking with positive stamina, immediate exhaustion release and recovery, timed attacker stun, real attack and equipment boundaries, ailments/stress, F2/repeat/reset and original expedition restoration
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2535)
+[HEADLESS] primary_shield_stow_test.gd
+PRIMARY SHIELD STOW PASS
+[HEADLESS] first_person_renderer_test.gd
+FIRST PERSON RENDERER TEST PASS: reproduced wall occlusion, separate equipment depth, all loadouts, real world anchors/lights/projectiles, chest/camp/safe-zone visibility, resize/pause/camera changes and cleanup
+[HEADLESS] test_room_test.gd
+TEST ROOM PASS: catalog, actors, chest hands/equipment/repeat/cancellation, stress accumulation/recovery/perception/isolation, pause, camping, flail, archery, fixtures, results, reset, scene roundtrip and original session restoration
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2535)
+[HEADLESS] test_room_session_test.gd
+TEST ROOM SESSION TEST PASS: inventory identity, stress accumulation/recovery isolation, camping supplies, bow and arrows, chain flail, wallet, deep stock copies, needs, ailments, magic, and unstarted-session restoration
+
+Headless validation: 6 passed, 1 failed.
+FAILED: shield_shatter_test.gd (1)

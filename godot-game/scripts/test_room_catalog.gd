@@ -17,6 +17,7 @@ static func entries() -> Array[Dictionary]:
 		_entry("shield_damage:medium", "기본", "방패 파손 · 중 (50)", "실제 장착 방패 내구도 50 · 1인칭 대기/RMB 가드에서 판·철테 비교 · F2 재선택", "shield_damage", "medium"),
 		_entry("shield_damage:low", "기본", "방패 파손 · 하 (20)", "실제 장착 방패 내구도 20 · 1인칭 대기/RMB 가드에서 판·철테 비교 · F2 재선택", "shield_damage", "low"),
 		_entry("shield_damage:wear", "기본", "방패 파손 · 실제 타격 마모", "내구도 75에서 실제 적 공격을 RMB로 막기 · 막은 피해의 25% 마모 · 상→중→하 · 기력 부족 시 F2 회복", "shield_damage", "wear"),
+		_entry("shield_damage:shatter", "기본", "방패 파손 · 완전 파괴와 파편", "내구도 5 · RMB로 실제 적 공격 1회 막기 → 방패 파괴·바닥 파편·검 양손 파지 · F2 정지/재선택 복구", "shield_damage", "shatter"),
 		_entry("flail", "기본", "사슬철퇴 · 회전 투척", "좌측 2m 근접 / 우측 8m 투척 · LMB 타격 / RMB 회전 후 놓기", "flail"),
 		_entry("archery", "기본", "활 · 화살 · 원거리 사격", "사냥활 + 화살 30개 · LMB 당기고 놓아 발사 / RMB 취소", "archery"),
 		_entry("archery_accuracy", "기본", "활 반동 · 당기기별 정확도", "8m 과녁 · 0.1초 이하 낙하 / 길게 당겨 사격 · 조준선 확장 → 축소", "archery_accuracy"),

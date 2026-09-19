@@ -24,6 +24,7 @@ const SWORD_LONG_GRIP := preload("res://scripts/sword_long_grip_visual.gd")
 const SWORD_SHIELD_ARM := preload("res://scripts/sword_shield_arm_visual.gd")
 const SHIELD_SCENE := preload("res://assets/3d/player/sword_shield/round_shield.glb")
 const SHIELD_DAMAGE := preload("res://scripts/shield_damage_visual.gd")
+const SHIELD_SHATTER := preload("res://scripts/shield_shatter.gd")
 const SHIELD_WEAR_PER_BLOCKED_DAMAGE := 0.25
 const TORCH_SCENE := preload("res://assets/3d/wooden_torch/wooden_torch.glb")
 const TORCH_GRIP := preload("res://scripts/torch_grip_pose.gd")
@@ -161,6 +162,9 @@ var support_arm_root: Node3D
 var left_support_arm: Node3D
 var right_relaxed_arm: Node3D
 var shield_model: Node3D
+var _shield_debris: Node3D
+var _shield_shatter_count := 0
+var _shield_wear_resolving := false
 const CHOREOGRAPHY := preload("res://scripts/sword_shield_choreography.gd")
 const SHIELD_CORNER_OFFSET := Vector3(-0.23, -0.40, 0.0)
 var _shield_raise_progress := 0.0
@@ -312,6 +316,7 @@ func bind_inventory(model: ExpeditionInventory) -> void:
 
 
 func _exit_tree() -> void:
+	clear_shield_fragments()
 	cancel_execution()
 	cancel_item_use()
 	cancel_timed_interaction()
@@ -568,6 +573,7 @@ func _build_shield(iron: StandardMaterial3D, leather: StandardMaterial3D) -> voi
 	camera.add_child(shield_pivot)
 
 	shield_model = SHIELD_SCENE.instantiate() as Node3D
+	SHIELD_SHATTER.prepare()
 	shield_model.name = "WeatheredRoundShieldVisual"
 	# The owner sees its actual rear straps; the boss faces the opponent.
 	shield_model.rotation.y = PI
@@ -2438,7 +2444,16 @@ func _on_inventory_changed() -> void:
 
 
 func _on_equipment_condition_changed(slot_name: String) -> void:
-	if slot_name == "offhand": _sync_shield_damage_visual()
+	if slot_name != "offhand": return
+	_sync_shield_damage_visual()
+	# A zero-condition item loaded/set outside a hit is unusable, but does not
+	# fabricate an impact burst. Finish the current real block before removal.
+	if not _shield_wear_resolving:
+		var condition := inventory_model.get_equipment_durability("offhand")
+		if not condition.is_empty() and float(condition.current) <= 0.0:
+			blocking = false
+			block_time = 0.0
+		_refresh_carried_visibility()
 
 
 func _sync_shield_damage_visual() -> void:
@@ -2450,6 +2465,53 @@ func get_shield_damage_snapshot() -> Dictionary:
 	var result := inventory_model.get_equipment_durability("offhand") if inventory_model != null else {}
 	result.merge(SHIELD_DAMAGE.snapshot(shield_model))
 	return result
+
+
+func get_shield_shatter_snapshot() -> Dictionary:
+	var result: Dictionary = _shield_debris.snapshot() if is_instance_valid(_shield_debris) else {"active": false, "fragment_count": 0, "age": 0.0, "bodies": []}
+	result["spawn_count"] = _shield_shatter_count
+	return result
+
+
+func clear_shield_fragments() -> void:
+	if is_instance_valid(_shield_debris):
+		if _shield_debris.get_parent() != null: _shield_debris.get_parent().remove_child(_shield_debris)
+		_shield_debris.queue_free()
+	_shield_debris = null
+	_shield_shatter_count = 0
+
+
+func _apply_shield_wear(amount: float) -> bool:
+	if inventory_model == null: return false
+	var before := inventory_model.get_equipment_durability("offhand")
+	_shield_wear_resolving = true
+	var after := inventory_model.damage_equipment_durability("offhand", amount * SHIELD_WEAR_PER_BLOCKED_DAMAGE)
+	_shield_wear_resolving = false
+	return not before.is_empty() and not after.is_empty() and float(before.current) > 0.0 and float(after.current) <= 0.0
+
+
+func _finish_shield_shatter() -> void:
+	# Called only after the breaking hit's block/parry has been resolved.
+	if inventory_model == null or str(inventory_model.equipment.get("offhand", "")) != "round_shield": return
+	var condition := inventory_model.get_equipment_durability("offhand")
+	if condition.is_empty() or float(condition.current) > 0.0: return
+	var previous_count := _shield_shatter_count
+	clear_shield_fragments()
+	_shield_debris = SHIELD_SHATTER.new()
+	_shield_debris.name = "ShieldShatterDebris"
+	add_child(_shield_debris)
+	_shield_debris.launch(shield_model.global_transform, velocity, -global_basis.z)
+	_shield_shatter_count = previous_count + 1
+	inventory_model.discard_equipment("offhand")
+	blocking = false
+	block_time = 0.0
+	_shield_raise_progress = 0.0
+	_shield_impact = 0.0
+	_shield_stowed = true
+	_suppress_automatic_torch_hand = true
+	_shield_stow_elapsed = SHIELD_STOW_DURATION
+	_refresh_carried_visibility()
+	if hud: hud.show_event("방패가 산산이 부서졌습니다", 1.5)
 
 
 func _sync_equipped_weapon() -> void:
@@ -2543,7 +2605,7 @@ func _sword_support_progress() -> float:
 
 
 func _shield_visible_in_hand() -> bool:
-	return inventory_model != null and str(inventory_model.equipment.get("offhand", "")) == "round_shield" and (not _shield_stowed or _shield_stowing())
+	return _shield_item_usable() and (not _shield_stowed or _shield_stowing())
 
 
 func begin_equipment_draw(sword: bool = true, shield: bool = true) -> bool:
@@ -2750,15 +2812,15 @@ func receive_attack(amount: float, attacker_position: Vector3, ailment_id := "",
 
 	var shield_guard := _has_shield_equipped()
 	if blocking and not is_paralyzed() and not _is_bow_equipped() and not _is_flail_equipped() and frontal and stamina > 0.0:
-		if shield_guard and inventory_model != null:
-			inventory_model.damage_equipment_durability("offhand", amount * SHIELD_WEAR_PER_BLOCKED_DAMAGE)
+		var shattered := _apply_shield_wear(amount) if shield_guard else false
 		if block_time <= JUST_GUARD_WINDOW:
 			stamina = minf(MAX_STAMINA, stamina + 8.0)
-			_shield_impact = CHOREOGRAPHY.IMPACT_SECONDS if _has_shield_equipped() else 0.13
+			_shield_impact = CHOREOGRAPHY.IMPACT_SECONDS if shield_guard else 0.13
 			_camera_shake = maxf(_camera_shake, 0.055)
 			if hud:
 				hud.update_stamina(stamina, MAX_STAMINA)
 				hud.show_event("방패 저스트 가드 · 적 스턴" if shield_guard else "무기 저스트 가드", 0.9)
+			if shattered: _finish_shield_shatter()
 			return {"parried": true, "blocked": true, "damage": 0.0, "shield_guard": shield_guard}
 		var stamina_damage := amount * 1.18
 		if shield_guard:
@@ -2769,6 +2831,7 @@ func receive_attack(amount: float, attacker_position: Vector3, ailment_id := "",
 			_camera_shake = maxf(_camera_shake, 0.035)
 			if hud:
 				hud.show_event("피해 차단 · 기력 고갈로 방패를 내립니다" if stamina <= 0.0 else "방패로 피해를 완전히 막았습니다", 0.9 if stamina <= 0.0 else 0.55)
+			if shattered: _finish_shield_shatter()
 			return {"parried": false, "blocked": true, "damage": 0.0, "condition": "", "shield_guard": true}
 		if stamina >= stamina_damage:
 			_consume_stamina(stamina_damage)
@@ -3936,7 +3999,11 @@ func _update_bow_hands() -> void:
 
 func _has_shield_equipped() -> bool:
 	# Combat uses the held shield; a packed shield stays assigned in inventory.
-	return not _shield_stowed and inventory_model != null and str(inventory_model.equipment.get("offhand", "")) == "round_shield"
+	return not _shield_stowed and _shield_item_usable()
+
+
+func _shield_item_usable() -> bool:
+	return inventory_model != null and str(inventory_model.equipment.get("offhand", "")) == "round_shield" and float(inventory_model.get_equipment_durability("offhand").get("current", 0.0)) > 0.0
 
 
 func _left_hand_role() -> String:

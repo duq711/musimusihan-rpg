@@ -1,0 +1,323 @@
+{
+  "created_at_utc": "2026-09-19T13:34:25.141921+00:00",
+  "iteration": "shield_shatter_20260919_04",
+  "result": "PASS",
+  "capture_directory": "godot-game/artifacts/visual_qa/shield_shatter/shield_shatter_20260919_04",
+  "source_verification": {
+    "count": 95,
+    "all_match_current_files": true,
+    "algorithm": "sha256"
+  },
+  "capture_manifest_sha256": "6883e80edaea08d642c8c4c5709b1b335f21f7aaccd952e6383a6dc09773fa4e",
+  "session_inventory_cursor_preserved": true,
+  "sources_unchanged_during_capture_and_packaging": true,
+  "video": {
+    "file": "shield_shatter.mp4",
+    "width": 1280,
+    "height": 720,
+    "fps": 30,
+    "frames": 240,
+    "duration_seconds": 8,
+    "audio_streams": 0,
+    "full_decode": "PASS",
+    "encoder": "libx264",
+    "crf": 19,
+    "threads": 2
+  },
+  "stills": [
+    "break.png",
+    "burst.png",
+    "floor.png",
+    "last_intact.png",
+    "ready.png",
+    "settled.png"
+  ],
+  "camera_motion": {
+    "curve": "smoothstep",
+    "debris_transforms_overridden": false,
+    "end_seconds": 1.7,
+    "from_pitch": -0.105,
+    "kind": "recorded inspection pitch only",
+    "start_seconds": 0.9,
+    "to_pitch": -1.2,
+    "translation": "fixed player location"
+  },
+  "production_behavior": {
+    "actual_last_block": {
+      "blocked": true,
+      "condition": "",
+      "damage": 0.0,
+      "parried": false,
+      "shield_guard": true
+    },
+    "fragment_count": 32,
+    "one_spawn": true,
+    "offhand_removed": true,
+    "collision_mask": 2,
+    "visual_layer": 1,
+    "lifetime_seconds": 24.0,
+    "cleanup": {
+      "active": false,
+      "age": 0.0,
+      "bodies": [],
+      "fragment_count": 0,
+      "spawn_count": 0
+    }
+  },
+  "floor_evidence": {
+    "unique_contacts": 32,
+    "settled": {
+      "below_floor": 0,
+      "maximum_linear_speed": 0.162489473819733,
+      "minimum_bottom_y": -0.0165499970316887,
+      "settled_count": 31
+    },
+    "headless_measurements": [
+      "SHIELD SHATTER PHYSICS: contacts=32/32 settled=32 lowest_center_y=-0.0157"
+    ]
+  },
+  "validation": {
+    "unique_suite_count": 7,
+    "suites_with_final_log_evidence": 1,
+    "suites": [
+      {
+        "suite": "shield_damage_test.gd",
+        "result": "PASS",
+        "evidence": "headless_initial.log",
+        "run_stage": "initial regression run, before final physics refinements"
+      },
+      {
+        "suite": "shield_guard_test.gd",
+        "result": "PASS",
+        "evidence": "headless_initial.log",
+        "run_stage": "initial regression run, before final physics refinements"
+      },
+      {
+        "suite": "primary_shield_stow_test.gd",
+        "result": "PASS",
+        "evidence": "headless_initial.log",
+        "run_stage": "initial regression run, before final physics refinements"
+      },
+      {
+        "suite": "first_person_renderer_test.gd",
+        "result": "PASS",
+        "evidence": "headless_initial.log",
+        "run_stage": "initial regression run, before final physics refinements"
+      },
+      {
+        "suite": "test_room_test.gd",
+        "result": "PASS",
+        "evidence": "headless_initial.log",
+        "run_stage": "initial regression run, before final physics refinements"
+      },
+      {
+        "suite": "test_room_session_test.gd",
+        "result": "PASS",
+        "evidence": "headless_initial.log",
+        "run_stage": "initial regression run, before final physics refinements"
+      },
+      {
+        "suite": "shield_shatter_test.gd",
+        "result": "PASS",
+        "evidence": "headless_final.log",
+        "run_stage": "final focused rerun"
+      }
+    ],
+    "gpu_preview": "PASS",
+    "initial_shatter_result": "FAIL",
+    "initial_failure_lines": [
+      "ERROR: fragment collider must not penetrate deeply below the floor (bottom -0.0559, floor 0.0000)",
+      "ERROR: fragment collider must not penetrate deeply below the floor (bottom -0.0632, floor 0.0000)",
+      "SHIELD SHATTER TEST FAIL: real final block and timed guard, item destruction, physical debris and floor contact, no duplicate break, hidden unusable zero-condition gear, F2/replay/reset and original session restoration"
+    ],
+    "initial_failure_note_ko": "첫 실행은 2개 파편의 바닥 침투로 실패했다. 이를 보존하고 최종 검사의 통과를 별도로 기록한다.",
+    "initial_failure_note_en": "The initial run failed on two penetrating fragment colliders. Its evidence is preserved separately from the passing final rerun."
+  },
+  "warning_lines": {
+    "initial": [
+      "WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details)."
+    ],
+    "final": [
+      "WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details)."
+    ],
+    "render": [
+      "WARNING: Integer division. Decimal part will be discarded.",
+      "WARNING: The class variable \"_cuff\" is declared but never used in the class.",
+      "WARNING: The class variable \"_forearm\" is declared but never used in the class.",
+      "WARNING: The class variable \"_upper_arm\" is declared but never used in the class.",
+      "WARNING: The function parameter \"seed\" has the same name as a built-in function.",
+      "WARNING: The local \"for\" iterator variable \"name\" is shadowing an already-declared property in the base class \"Node\".",
+      "WARNING: The local function parameter \"owner\" is shadowing an already-declared property in the base class \"Node\".",
+      "WARNING: The local function parameter \"shield\" is shadowing an already-declared function at line 118 in the current class.",
+      "WARNING: The local variable \"basis\" is shadowing an already-declared property in the base class \"Node3D\".",
+      "WARNING: The local variable \"rotation\" is shadowing an already-declared property in the base class \"Node3D\".",
+      "WARNING: The local variable \"scale\" is shadowing an already-declared property in the base class \"Node3D\".",
+      "WARNING: The local variable \"target\" is shadowing an already-declared variable at line 41 in the current class.",
+      "WARNING: The parameter \"blade_steel\" is never used in the function \"_build_sword_visual()\". If this is intended, prefix it with an underscore: \"_blade_steel\".",
+      "WARNING: The parameter \"dark_steel\" is never used in the function \"_build_sword_visual()\". If this is intended, prefix it with an underscore: \"_dark_steel\".",
+      "WARNING: The parameter \"iron\" is never used in the function \"_build_shield()\". If this is intended, prefix it with an underscore: \"_iron\".",
+      "WARNING: The parameter \"leather\" is never used in the function \"_build_shield()\". If this is intended, prefix it with an underscore: \"_leather\".",
+      "WARNING: The parameter \"preserve_authored_elbow\" is never used in the function \"fit_arm()\". If this is intended, prefix it with an underscore: \"_preserve_authored_elbow\".",
+      "WARNING: The parameter \"rusted_steel\" is never used in the function \"_build_sword_visual()\". If this is intended, prefix it with an underscore: \"_rusted_steel\".",
+      "WARNING: The variable \"axis\" is declared below in the parent block.",
+      "WARNING: The variable \"correction\" is declared below in the parent block.",
+      "WARNING: The variable \"delta\" is declared below in the parent block.",
+      "WARNING: The variable \"finger_axis\" is declared below in the parent block.",
+      "WARNING: The variable \"fitted\" is declared below in the parent block.",
+      "WARNING: The variable \"pole\" is declared below in the parent block.",
+      "WARNING: The variable \"result\" is declared below in the parent block.",
+      "WARNING: The variable \"seed\" has the same name as a built-in function.",
+      "WARNING: The variable \"shoulder\" is declared below in the parent block.",
+      "WARNING: The variable \"wrap\" has the same name as a built-in function.",
+      "WARNING: The variable \"wrist\" is declared below in the parent block.",
+      "WARNING: Values of the ternary operator are not mutually compatible."
+    ]
+  },
+  "model_validation": {
+    "source": "asset-staging/shield_shatter_20260919/manifest.json",
+    "preserved_copy": "model_manifest.json",
+    "sha256": "582efabe59c735a41822d57679c85eb5ac6d62fa258a0e9369407fe39efcac89",
+    "fragment_asset_sha256": "ca830afeeb98f5319a865adead2d2a5b61d00f2d56a51c87fa9b0605b5e879f4",
+    "count_by_kind": {
+      "wood": 21,
+      "metal": 9,
+      "leather": 2
+    }
+  },
+  "limits_ko": [
+    "0.9–1.7초의 아래보기는 촬영용 카메라 검사다. 실제 게임의 강제 카메라 모션이 아니며 파편 좌표를 덮어쓰지 않았다.",
+    "평평한 바닥 충돌을 검사했다. 경사면·계단은 미검증이다.",
+    "무음 MP4를 전체 디코딩했다. 수동 OS 입력·포커스·하드웨어 커서 동작은 시험하지 않았다.",
+    "7종 중 1종은 최종 로그, 6종은 초기 회귀 로그의 통과 근거를 사용한다.",
+    "8초 영상이므로 24초 자동 소멸 장면 자체는 촬영하지 않았다."
+  ],
+  "limits_en": [
+    "The 0.9–1.7 second look-down is an inspection camera move, not forced gameplay camera motion; debris transforms are not overridden.",
+    "Flat-floor collisions were tested; slopes and stairs remain unverified.",
+    "The silent MP4 was fully decoded; manual OS input, focus and hardware cursor behavior were not tested.",
+    "Of seven unique suites, 1 use passing evidence from the final log and 6 from the initial regression log.",
+    "The eight-second recording does not visually demonstrate the 24-second lifetime expiry."
+  ],
+  "encode_argv": [
+    "/Applications/Alt.app/Contents/Resources/app.asar.unpacked/node_modules/ffmpeg-static/ffmpeg",
+    "-hide_banner",
+    "-nostdin",
+    "-n",
+    "-threads",
+    "2",
+    "-framerate",
+    "30",
+    "-start_number",
+    "0",
+    "-i",
+    "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/godot-game/artifacts/visual_qa/shield_shatter/shield_shatter_20260919_04/frames/%05d.jpg",
+    "-frames:v",
+    "240",
+    "-c:v",
+    "libx264",
+    "-threads",
+    "2",
+    "-crf",
+    "19",
+    "-pix_fmt",
+    "yuv420p",
+    "-r",
+    "30",
+    "-an",
+    "-movflags",
+    "+faststart",
+    "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/godot-game/artifacts/validation/.shield-shatter-package-zeg9tt2m/shield_shatter.mp4"
+  ],
+  "decode_argv": [
+    "/Applications/Alt.app/Contents/Resources/app.asar.unpacked/node_modules/ffmpeg-static/ffmpeg",
+    "-hide_banner",
+    "-nostdin",
+    "-v",
+    "info",
+    "-xerror",
+    "-threads",
+    "2",
+    "-i",
+    "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/godot-game/artifacts/validation/.shield-shatter-package-zeg9tt2m/shield_shatter.mp4",
+    "-map",
+    "0:v:0",
+    "-an",
+    "-vsync",
+    "0",
+    "-f",
+    "framehash",
+    "-hash",
+    "sha256",
+    "-"
+  ],
+  "artifacts": {
+    "frame_sources.sha256": {
+      "sha256": "feb6c9647fcb2cbe86357b62543f2da0bd8c07538577bba233f74480a58489fb",
+      "bytes": 19920
+    },
+    "ready.png": {
+      "sha256": "440471dba0a22ccdbd7d64ad050e0c5c0bb4a141c87fc00ffd4aed690156ad8f",
+      "bytes": 509371
+    },
+    "capture_manifest.json": {
+      "sha256": "6883e80edaea08d642c8c4c5709b1b335f21f7aaccd952e6383a6dc09773fa4e",
+      "bytes": 3057399
+    },
+    "burst.png": {
+      "sha256": "11f6711a99afb4a5d0d877ce809516bab5633b5f935e918b25ebd3e38e3846d5",
+      "bytes": 548104
+    },
+    "headless_final.log": {
+      "sha256": "8b7bf763e2b1086facd4b836c4c61dad23aa4b7303357c38613ffd7ab3c2c2f4",
+      "bytes": 500
+    },
+    "shield_shatter.mp4": {
+      "sha256": "f2ff64986209fcb25f37e69f2bf0cd093907a6fb54dee01938ebe95ad53d2023",
+      "bytes": 962030
+    },
+    "decode.log": {
+      "sha256": "adf439e1fb2714db94e7339ffb42089968339716c02f7d28911deb74cd77a708",
+      "bytes": 1791
+    },
+    "floor.png": {
+      "sha256": "8fa2cb931685552db74bc1d5b1253cf82d5590cf40ad12e4a0783b8b0325e234",
+      "bytes": 887175
+    },
+    "decoded_frames.sha256": {
+      "sha256": "d7d2f71bb3efe40352260451272118c410f71e41055e2c1efe3121a7e9140ef1",
+      "bytes": 27098
+    },
+    "break.png": {
+      "sha256": "77a62a6c5983b40a354f7d4a9fa3c7929103940d86bae59068386243815ec3f7",
+      "bytes": 501045
+    },
+    "encode.log": {
+      "sha256": "34f053ee474b3a2d90d199a77ca64aa69fba9a188bed2d921d793684ca920f50",
+      "bytes": 4029
+    },
+    "last_intact.png": {
+      "sha256": "3303d2f47c75177a58ce0188699df82326ed045bf4299a4d9f810d8daf6a5976",
+      "bytes": 487665
+    },
+    "render_final.log": {
+      "sha256": "df8d09c0d694655549d4e1d350ead77f84bf83caf03f5a8a1e2218eef1af2f13",
+      "bytes": 7445
+    },
+    "headless_initial.log": {
+      "sha256": "efd4239ae75d9594a78d9388aa5182c858d2c01cda6738419f57da3378a70ef0",
+      "bytes": 2777
+    },
+    "settled.png": {
+      "sha256": "bee6bade473a43db64b0c8b349b66db176df8ad29e859325614a2d78a97d0bce",
+      "bytes": 890457
+    },
+    "model_manifest.json": {
+      "sha256": "582efabe59c735a41822d57679c85eb5ac6d62fa258a0e9369407fe39efcac89",
+      "bytes": 34701
+    }
+  },
+  "visual_review_ko": "최종 ready/break/1.30초 연속 프레임/settled 화면을 열어 1인칭 파괴·낙하·바닥 파편과 기존 단면 재질을 확인했다. 검수용 아래보기이며 파편 좌표는 물리로 계산했다.",
+  "visual_review_en": "Opened the final ready, break, 1.30-second continuous frame and settled images to inspect actual first-person shattering, falling and floor debris with the existing fracture material. The look-down is inspection-only; fragment transforms come from physics.",
+  "physics_revision_ko": "중앙 금속 파편에 잘못 합쳐진 긴 철테를 둘레 파편으로 나누고 장착 리벳을 원래 판재에 배분했다. 원본 정점 볼록체, 최소 회전 관성 및 바닥 접촉 회전 저항으로 착지를 안정화했다. 위치를 강제로 보정하지 않았다.",
+  "physics_revision_en": "Reassigned long rim arcs incorrectly grouped with the central boss to perimeter fragments and rear mounting hardware to its original planks. Full convex hulls, minimum rotational inertia and contact rolling resistance stabilize landing without overriding positions."
+}

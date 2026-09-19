@@ -431,6 +431,7 @@ func run_feature(feature_id: String) -> void:
 			break
 	if entry.is_empty():
 		return
+	player.clear_shield_fragments()
 	_cancel_creep_ragdoll_trial()
 	_cancel_creep_dismemberment_trial()
 	_cancel_creep_execution_trial()
@@ -1006,10 +1007,11 @@ func _prepare_shield_guard() -> void:
 
 func _prepare_shield_damage(stage: String) -> void:
 	# Stage previews and the wear trial both use the real equipped shield.
-	# Only the wear fixture enables the production attacker's combat AI.
-	_prepare_duel(false, stage == "wear", true)
+	# Wear and shatter fixtures enable the production attacker's combat AI.
+	player.clear_shield_fragments()
+	_prepare_duel(false, stage in ["wear", "shatter"], true)
 	inventory.equipment["offhand"] = "round_shield"
-	inventory.set_equipment_durability("offhand", float({"high": 75.0, "medium": 50.0, "low": 20.0, "wear": 75.0}.get(stage, 75.0)), false)
+	inventory.set_equipment_durability("offhand", float({"high": 75.0, "medium": 50.0, "low": 20.0, "wear": 75.0, "shatter": 5.0}.get(stage, 75.0)), false)
 	_equip_weapon("rusted_sword")
 	player.cancel_sword_attack()
 	player.set_sword_attack_mode("cycle")
@@ -1017,8 +1019,10 @@ func _prepare_shield_damage(stage: String) -> void:
 	var guide := "RMB 가드 / 놓기: 실제 방패의 판·철테 파손 비교 · F2 상·중·하 재선택"
 	if stage == "wear":
 		guide = "RMB로 실제 공격 막기: 내구도 75에서 상→중→하 · 막은 피해×0.25 마모 · F2 기력 회복 / 재선택"
-	hud.objective_label.text = "방패 파손 · 실제 타격 마모" if stage == "wear" else "방패 파손 · " + str({"high": "상 (75)", "medium": "중 (50)", "low": "하 (20)"}.get(stage, "상 (75)"))
-	_status(guide + " · 내구도 0에서도 방어 유지 · 시험 종료 시 원래 장비 복원")
+	elif stage == "shatter":
+		guide = "RMB로 실제 검지기 공격 1회 막기: 내구도 5→0 · 마지막 타격 차단 후 파괴 · 바닥 파편 / 검 양손 파지 · F2 정지·재선택 복구"
+	hud.objective_label.text = "방패 파손 · " + str({"high": "상 (75)", "medium": "중 (50)", "low": "하 (20)", "wear": "실제 타격 마모", "shatter": "완전 파괴와 파편"}.get(stage, "상 (75)"))
+	_status(guide + " · 내구도 0이면 방패 사용 불가 · 시험 종료 시 원래 장비 복원")
 	hud.show_event(guide, 7.0)
 
 
@@ -1662,6 +1666,7 @@ func _on_extraction_body_entered(body: Node3D) -> void:
 func reset_room() -> void:
 	if is_instance_valid(loading_screen):
 		return
+	player.clear_shield_fragments()
 	_close_finger_joint_controls(false)
 	_commit_test_status_edits()
 	suspend_stress_effects()
@@ -1694,6 +1699,7 @@ func _begin_scene_loading(scene_path: String, title_text: String, detail_text: S
 	_cancel_creep_execution_trial()
 	_close_finger_joint_controls(false)
 	if is_instance_valid(player):
+		player.clear_shield_fragments()
 		player.set_hands_visual_profile("original")
 	super._begin_scene_loading(scene_path, title_text, detail_text, status_text, failure_text)
 

@@ -1,0 +1,77 @@
+22:29:48 | INFO: Data are loaded, start creating Blender stuff
+22:29:48 | INFO: Blender create Mesh node ShieldDamage_low
+22:29:48 | INFO: glTF import finished in 0.06s
+Info: Saved as "shield_fragments.blend"
+INFO Draco is available, use library at /Applications/Blender.app/Contents/Resources/5.2/scripts/addons_core/io_scene_gltf2/libbf_intern_draco_bridge.dylib
+INFO MeshOptimizer is available, use library at /Applications/Blender.app/Contents/Resources/5.2/scripts/addons_core/io_scene_gltf2/libbf_intern_meshopt_bridge.dylib
+22:29:52 | INFO: Starting glTF 2.0 export
+22:29:52 | INFO: Extracting primitive: ShieldFragment_000_wood
+22:29:52 | INFO: Primitives created: 2
+22:29:52 | INFO: Extracting primitive: ShieldFragment_001_wood
+22:29:52 | INFO: Primitives created: 2
+22:29:52 | INFO: Extracting primitive: ShieldFragment_002_wood
+22:29:52 | INFO: Primitives created: 2
+22:29:52 | INFO: Extracting primitive: ShieldFragment_003_wood
+22:29:52 | INFO: Primitives created: 3
+22:29:52 | INFO: Extracting primitive: ShieldFragment_004_wood
+22:29:52 | INFO: Primitives created: 3
+22:29:52 | INFO: Extracting primitive: ShieldFragment_005_wood
+22:29:52 | INFO: Primitives created: 3
+22:29:52 | INFO: Extracting primitive: ShieldFragment_006_wood
+22:29:52 | INFO: Primitives created: 2
+22:29:52 | INFO: Extracting primitive: ShieldFragment_007_wood
+22:29:52 | INFO: Primitives created: 3
+22:29:52 | INFO: Extracting primitive: ShieldFragment_008_wood
+22:29:52 | INFO: Primitives created: 3
+22:29:52 | INFO: Extracting primitive: ShieldFragment_009_wood
+22:29:52 | INFO: Primitives created: 3
+22:29:52 | INFO: Extracting primitive: ShieldFragment_010_wood
+22:29:52 | INFO: Primitives created: 2
+22:29:52 | INFO: Extracting primitive: ShieldFragment_011_wood
+22:29:52 | INFO: Primitives created: 2
+22:29:52 | INFO: Extracting primitive: ShieldFragment_012_wood
+22:29:52 | INFO: Primitives created: 3
+22:29:52 | INFO: Extracting primitive: ShieldFragment_013_wood
+22:29:52 | INFO: Primitives created: 2
+22:29:52 | INFO: Extracting primitive: ShieldFragment_014_wood
+22:29:52 | INFO: Primitives created: 2
+22:29:52 | INFO: Extracting primitive: ShieldFragment_015_wood
+22:29:52 | INFO: Primitives created: 2
+22:29:52 | INFO: Extracting primitive: ShieldFragment_016_wood
+22:29:52 | INFO: Primitives created: 2
+22:29:52 | INFO: Extracting primitive: ShieldFragment_017_wood
+22:29:52 | INFO: Primitives created: 3
+22:29:52 | INFO: Extracting primitive: ShieldFragment_018_wood
+22:29:52 | INFO: Primitives created: 2
+22:29:52 | INFO: Extracting primitive: ShieldFragment_019_wood
+22:29:52 | INFO: Primitives created: 2
+22:29:52 | INFO: Extracting primitive: ShieldFragment_020_wood
+22:29:52 | INFO: Primitives created: 2
+22:29:52 | INFO: Extracting primitive: ShieldFragment_021_metal
+22:29:52 | INFO: Primitives created: 2
+22:29:52 | INFO: Extracting primitive: ShieldFragment_022_metal
+22:29:52 | INFO: Primitives created: 2
+22:29:52 | INFO: Extracting primitive: ShieldFragment_023_metal
+22:29:52 | INFO: Primitives created: 2
+22:29:52 | INFO: Extracting primitive: ShieldFragment_024_metal
+22:29:52 | INFO: Primitives created: 2
+22:29:52 | INFO: Extracting primitive: ShieldFragment_025_metal
+22:29:52 | INFO: Primitives created: 2
+22:29:52 | INFO: Extracting primitive: ShieldFragment_026_metal
+22:29:52 | INFO: Primitives created: 2
+22:29:52 | INFO: Extracting primitive: ShieldFragment_027_metal
+22:29:52 | INFO: Primitives created: 2
+22:29:52 | INFO: Extracting primitive: ShieldFragment_028_metal
+22:29:52 | INFO: Primitives created: 2
+22:29:52 | INFO: Extracting primitive: ShieldFragment_029_metal
+22:29:52 | INFO: Primitives created: 2
+22:29:52 | INFO: Extracting primitive: ShieldFragment_030_leather
+22:29:52 | INFO: Primitives created: 3
+22:29:52 | INFO: Extracting primitive: ShieldFragment_031_leather
+22:29:52 | INFO: Primitives created: 5
+22:29:53 | INFO: Finished glTF 2.0 export in 0.09545183181762695 s
+
+SHIELD FRAGMENTS BUILD PASS {"host": "MacBook", "blender_version": "5.2.1 LTS", "source": "godot-game/assets/3d/player/shield_damage/round_shield_low.glb", "source_sha256": "21cbee06e77724fada72e89d7695d170b80296c1a3f9e9df5f3dd7c5b9941d10", "output": "godot-game/assets/3d/player/shield_damage/round_shield_fragments.glb", "output_sha256": "ca830afeeb98f5319a865adead2d2a5b61d00f2d56a51c87fa9b0605b5e879f4", "output_bytes": 2727932, "fragment_count": 32, "count_by_kind": {"wood": 21, "metal": 9, "leather": 2}, "original_open_sheets_given_inward_0_8mm_backing": 128, "original_exterior_max_distance_m": 4.986519707017578e-05, "original_high_medium_low_preserved": true, "rim_classification": "Actual vertex-radius distribution, not component centroid; centre boss remains within 20cm envelope.", "rear_mount_hardware_attached_to_original_planks": 7, "metal_collision_bounds_verified": true, "coordinate_contract": "Each mesh is centered; identity rotation/scale; translation restores the source shield. Godot basis is (Blender X, Z, -Y).", "fracture_material": "FP_ShieldFractureOak", "shader_contract": "Pass the original shield-local mesh transform as wood_coordinates to preserve procedural grain.", "runtime_validation": "Pending parent integration and Godot renderer/physics checks.", "failures": []}
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 01:35:57)
+
+Blender quit

@@ -1,0 +1,46 @@
+Input #0, image2, from '/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/godot-game/artifacts/visual_qa/shield_shatter/shield_shatter_20260919_04/frames/%05d.jpg':
+  Duration: 00:00:08.00, start: 0.000000, bitrate: N/A
+  Stream #0:0: Video: mjpeg (Baseline), yuvj420p(pc, bt470bg/unknown/unknown), 1280x720 [SAR 1:1 DAR 16:9], 30 fps, 30 tbr, 30 tbn
+Stream mapping:
+  Stream #0:0 -> #0:0 (mjpeg (native) -> h264 (libx264))
+[swscaler @ 0x140048000] deprecated pixel format used, make sure you did set range correctly
+[swscaler @ 0x130738000] deprecated pixel format used, make sure you did set range correctly
+[swscaler @ 0x140058000] deprecated pixel format used, make sure you did set range correctly
+    Last message repeated 1 times
+[libx264 @ 0x13de1de30] using SAR=1/1
+[libx264 @ 0x13de1de30] using cpu capabilities: ARMv8 NEON
+[libx264 @ 0x13de1de30] profile High, level 3.1, 4:2:0, 8-bit
+[libx264 @ 0x13de1de30] 264 - core 164 r3075 66a5bc1 - H.264/MPEG-4 AVC codec - Copyleft 2003-2021 - http://www.videolan.org/x264.html - options: cabac=1 ref=3 deblock=1:0:0 analyse=0x3:0x113 me=hex subme=7 psy=1 psy_rd=1.00:0.00 mixed_ref=1 me_range=16 chroma_me=1 trellis=1 8x8dct=1 cqm=0 deadzone=21,11 fast_pskip=1 chroma_qp_offset=-2 threads=2 lookahead_threads=1 sliced_threads=0 nr=0 decimate=1 interlaced=0 bluray_compat=0 constrained_intra=0 bframes=3 b_pyramid=2 b_adapt=1 b_bias=0 direct=1 weightb=1 open_gop=0 weightp=2 keyint=250 keyint_min=25 scenecut=40 intra_refresh=0 rc_lookahead=40 rc=crf mbtree=1 crf=19.0 qcomp=0.60 qpmin=0 qpmax=69 qpstep=4 ip_ratio=1.40 aq=1:1.00
+Output #0, mp4, to '/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/godot-game/artifacts/validation/.shield-shatter-package-zeg9tt2m/shield_shatter.mp4':
+  Metadata:
+    encoder         : Lavf60.3.100
+  Stream #0:0: Video: h264 (avc1 / 0x31637661), yuv420p(tv, bt470bg/unknown/unknown, progressive), 1280x720 [SAR 1:1 DAR 16:9], q=2-31, 30 fps, 15360 tbn
+    Metadata:
+      encoder         : Lavc60.3.100 libx264
+    Side data:
+      cpb: bitrate max/min/avg: 0/0/0 buffer size: 0 vbv_delay: N/A
+frame=    0 fps=0.0 q=0.0 size=       0kB time=-577014:32:22.77 bitrate=  -0.0kbits/s speed=N/A
+frame=   39 fps=0.0 q=25.0 size=     256kB time=00:00:01.23 bitrate=1700.7kbits/s speed=2.38x
+frame=   82 fps= 80 q=25.0 size=     512kB time=00:00:02.66 bitrate=1573.0kbits/s speed=2.61x
+frame=  153 fps=100 q=25.0 size=     768kB time=00:00:05.03 bitrate=1250.0kbits/s speed= 3.3x
+[mp4 @ 0x13df04a50] Starting second pass: moving the moov atom to the beginning of the file
+frame=  240 fps=122 q=-1.0 Lsize=     939kB time=00:00:07.90 bitrate= 974.2kbits/s speed=4.02x
+video:936kB audio:0kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.390698%
+[libx264 @ 0x13de1de30] frame I:1     Avg QP:14.71  size: 47898
+[libx264 @ 0x13de1de30] frame P:62    Avg QP:15.82  size:  9743
+[libx264 @ 0x13de1de30] frame B:177   Avg QP:20.39  size:  1727
+[libx264 @ 0x13de1de30] consecutive B-frames:  0.8%  1.7%  2.5% 95.0%
+[libx264 @ 0x13de1de30] mb I  I16..4:  3.5% 92.8%  3.7%
+[libx264 @ 0x13de1de30] mb P  I16..4:  0.1%  2.6%  0.5%  P16..4: 25.4%  6.6%  4.9%  0.0%  0.0%    skip:59.9%
+[libx264 @ 0x13de1de30] mb B  I16..4:  0.0%  0.2%  0.1%  B16..8: 20.7%  1.1%  0.2%  direct: 0.4%  skip:77.3%  L0:43.6% L1:54.7% BI: 1.7%
+[libx264 @ 0x13de1de30] 8x8 transform intra:80.3% inter:78.0%
+[libx264 @ 0x13de1de30] coded y,uvDC,uvAC intra: 73.6% 37.0% 12.4% inter: 5.1% 3.9% 0.1%
+[libx264 @ 0x13de1de30] i16 v,h,dc,p:  6% 61% 18% 15%
+[libx264 @ 0x13de1de30] i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 22% 19% 24%  5%  6%  5%  8%  4%  7%
+[libx264 @ 0x13de1de30] i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 27% 15% 19%  6%  7%  7%  7%  6%  5%
+[libx264 @ 0x13de1de30] i8c dc,h,v,p: 69% 15% 15%  1%
+[libx264 @ 0x13de1de30] Weighted P-Frames: Y:1.6% UV:1.6%
+[libx264 @ 0x13de1de30] ref P L0: 63.3%  3.2% 19.7% 13.8%  0.1%
+[libx264 @ 0x13de1de30] ref B L0: 73.4% 20.1%  6.5%
+[libx264 @ 0x13de1de30] ref B L1: 83.5% 16.5%
+[libx264 @ 0x13de1de30] kb/s:957.60
