@@ -80,6 +80,8 @@ var _execution_profile := "shield_cut"
 var _execution_contact_point := Vector3.ZERO
 var _execution_stab_direction := Vector3.DOWN
 var _execution_blade_tip := Vector3.ZERO
+var _execution_blade_length := 0.0
+var _execution_penetration := 0.0
 
 var _body_health_state: Dictionary = BODY_HEALTH.create_state()
 var _body_health_session_bound := false
@@ -1153,9 +1155,14 @@ func _try_begin_execution() -> bool:
 	_execution_shield_rest = CHOREOGRAPHY.shield(0, 0, "ready", 0, 0, "overhead")
 	_execution_shield_rest.origin += _shield_corner_offset()
 	_execution_weapon_identity = _displayed_weapon_identity
+	_execution_blade_length = 0.0
+	_execution_penetration = 0.0
 	if _execution_profile == "crawl_stab":
 		_execution_contact_point = enemy.call("get_crawl_execution_contact")
-		_execution_blade_tip = _get_execution_blade_tip_local()
+		var blade_geometry := _get_execution_blade_geometry()
+		_execution_blade_tip = blade_geometry.tip
+		_execution_blade_length = blade_geometry.length
+		_execution_penetration = _execution_blade_length * CREEP_EXECUTION_MOTION.PENETRATION_RATIO
 		var raised_hand := camera.to_global(Vector3(.24, -.10, -.30))
 		_execution_stab_direction = raised_hand.direction_to(_execution_contact_point)
 		if is_instance_valid(viewmodel_renderer):
@@ -1289,22 +1296,24 @@ func _apply_crawl_execution_view(elapsed: float) -> void:
 	camera.rotation = CREEP_EXECUTION_MOTION.camera_rotation(elapsed)
 	var target_local := camera.to_local(_execution_contact_point)
 	var direction_local := camera.global_basis.inverse() * _execution_stab_direction
-	weapon_pivot.transform = CREEP_EXECUTION_MOTION.sword(elapsed, _execution_sword_entry, target_local, direction_local, _execution_blade_tip)
+	weapon_pivot.transform = CREEP_EXECUTION_MOTION.sword(elapsed, _execution_sword_entry, target_local, direction_local, _execution_blade_tip, _execution_penetration)
 	shield_pivot.transform = CREEP_EXECUTION_MOTION.shield(elapsed, _execution_shield_entry)
 
 
-func _get_execution_blade_tip_local() -> Vector3:
+func _get_execution_blade_geometry() -> Dictionary:
 	var blade_frame := weapon_pivot.global_transform.affine_inverse() * sword_blade.global_transform
 	var tip := Vector3.ZERO
 	var highest := -INF
+	var lowest := INF
 	for surface in sword_blade.mesh.get_surface_count():
 		var vertices: PackedVector3Array = sword_blade.mesh.surface_get_arrays(surface)[Mesh.ARRAY_VERTEX]
 		for vertex in vertices:
 			var point := blade_frame * vertex
+			lowest = minf(lowest, point.y)
 			if point.y > highest:
 				highest = point.y
 				tip = point
-	return tip
+	return {"tip": tip, "length": highest - lowest}
 
 
 func _execution_hit_time() -> float:
@@ -1321,7 +1330,7 @@ func _execution_phase() -> String:
 
 func get_execution_snapshot() -> Dictionary:
 	var tip := weapon_pivot.to_global(_execution_blade_tip) if is_instance_valid(weapon_pivot) else Vector3.ZERO
-	return {"active": is_execution_active(), "elapsed": execution_elapsed, "phase": _execution_phase(), "profile": _execution_profile, "hit_committed": _execution_hit_committed, "target_id": _execution_target.get_instance_id() if is_instance_valid(_execution_target) else 0, "contact_point": _execution_contact_point, "blade_tip": tip, "contact_error": tip.distance_to(_execution_contact_point), "world_contact": is_instance_valid(viewmodel_renderer) and viewmodel_renderer.world_contact_enabled}
+	return {"active": is_execution_active(), "elapsed": execution_elapsed, "phase": _execution_phase(), "profile": _execution_profile, "hit_committed": _execution_hit_committed, "target_id": _execution_target.get_instance_id() if is_instance_valid(_execution_target) else 0, "contact_point": _execution_contact_point, "blade_tip": tip, "blade_length_m": _execution_blade_length, "penetration_m": _execution_penetration, "blade_fraction": _execution_penetration / _execution_blade_length if _execution_blade_length > 0.0 else 0.0, "contact_error": tip.distance_to(_execution_contact_point), "world_contact": is_instance_valid(viewmodel_renderer) and viewmodel_renderer.world_contact_enabled}
 
 
 func get_melee_hit_time() -> float:

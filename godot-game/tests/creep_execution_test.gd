@@ -357,6 +357,7 @@ func _complete_stab(legs: Array) -> void:
 	_sample_living_stab_until(lerpf(MOTION.DEEP_THRUST_START, MOTION.HIT_SECONDS, .5), untouched, entry, motion_metrics)
 	var pushing: Dictionary = player.get_execution_snapshot()
 	var pushing_tip: Vector3 = pushing.blade_tip
+	var pushing_blade := _measure_actual_blade_world(skin_point, stab_axis)
 	_check((pushing_tip - skin_point).dot(stab_axis) > initial_depth + .025, "a second visible push moves the actual blade farther into the torso")
 	_check((pushing_tip - initial_tip).slide(stab_axis).length() < .02, "deeper push retains the initial entry axis")
 	_check(_poses_match(entry, _bone_poses()), "target keeps its prone pose during the early deep push before the single decisive contraction")
@@ -376,8 +377,18 @@ func _complete_stab(legs: Array) -> void:
 	_check(_mirror_lights_hidden(), "actual blade contact keeps all equipment mirror lights disabled")
 	var blade_tip: Vector3 = contact.blade_tip
 	var final_depth := (blade_tip - skin_point).dot(stab_axis)
-	_check(final_depth > .30 and absf(final_depth - MOTION.PENETRATION) < .002, "actual lethal blade depth exceeds thirty centimeters and matches the deeper authored target")
-	var torso_depth := _inspect_torso_penetration(skin_point, stab_axis, blade_tip)
+	var actual_blade := _measure_actual_blade_world(skin_point, stab_axis)
+	var measured_length := float(actual_blade.length_m)
+	_check(measured_length > .20 and measured_length < 3.0, "half-blade measurement reads a finite plausible span from the actual rendered blade vertices")
+	_check((actual_blade.tip_world as Vector3).distance_to(blade_tip) < .002, "execution blade-tip snapshot agrees with the actual furthest rendered blade vertex")
+	_check(absf(float(contact.get("blade_length_m", -1)) - measured_length) < .002, "reserved blade length agrees with independent world-vertex measurement")
+	_check(absf(final_depth - float(contact.get("penetration_m", -1))) < .002, "actual deep contact reaches the reserved insertion distance")
+	var torso_depth := _inspect_torso_penetration(skin_point, stab_axis, actual_blade.tip_world)
+	_check(bool(torso_depth.verified_closed_segment), "half-blade assessment has actual unambiguous torso entry and exit surfaces")
+	var skin_entry_depth := float(torso_depth.get("entry_depth_m", INF))
+	var buried_fraction := (float(actual_blade.tip_depth_m) - skin_entry_depth) / maxf(.001, measured_length)
+	_check(buried_fraction >= .50 and buried_fraction <= .60, "roughly half of the actual rendered blade lies beyond the real posed skin entry at deepest contact")
+	_check(float(pushing_blade.tip_depth_m) < float(actual_blade.tip_depth_m) - .05, "actual rendered blade continues appreciably farther in after the middle of the deep push")
 	var contact_hands: Dictionary = player.get_first_person_motion_snapshot()
 	var contact_joint: Dictionary = contact_hands.joint_landmarks.get("sword", {})
 	var contact_grip: Dictionary = contact_hands.hand_contacts.get("sword", {})
@@ -399,12 +410,20 @@ func _complete_stab(legs: Array) -> void:
 			_check(not actor.ragdoll.parts.has(bone), "missing leg has no recreated corpse body: " + bone)
 	var contact_time := player.execution_elapsed
 	var maximum_hold_tip_drift := 0.0
+	var minimum_held_blade_fraction := INF
+	var maximum_held_blade_fraction := -INF
 	while player.execution_elapsed < MOTION.WITHDRAW_START - .00001 and player.is_execution_active():
 		var step := minf(.01, MOTION.WITHDRAW_START - player.execution_elapsed)
 		player.advance_execution(step)
 		player._update_viewmodel(step)
 		var held: Dictionary = player.get_execution_snapshot()
 		var held_tip: Vector3 = held.blade_tip
+		var held_blade := _measure_actual_blade_world(skin_point, stab_axis)
+		var held_fraction := (float(held_blade.tip_depth_m) - skin_entry_depth) / maxf(.001, float(held_blade.length_m))
+		minimum_held_blade_fraction = minf(minimum_held_blade_fraction, held_fraction)
+		maximum_held_blade_fraction = maxf(maximum_held_blade_fraction, held_fraction)
+		_check(held_fraction >= .50 and held_fraction <= .60, "the actual rendered blade retains half-length insertion past the contact surface throughout the buried hold")
+		_check(absf(float(held_blade.length_m) - measured_length) < .002, "deep hold does not scale or stretch the blade to fabricate half-length insertion")
 		maximum_hold_tip_drift = maxf(maximum_hold_tip_drift, held_tip.distance_to(blade_tip))
 		_check(held_tip.distance_to(blade_tip) < .002, "actual sword remains buried at its deep world position during the post-impact pause")
 		_check(stab_axis.angle_to(player.weapon_pivot.global_basis.y.normalized()) < deg_to_rad(1.0), "buried pause keeps the sword on its insertion axis")
@@ -445,7 +464,31 @@ func _complete_stab(legs: Array) -> void:
 	actor._die()
 	_check(defeats == 1 and not actor.finish_execution(player), "corpse hits and repeated finish/death cannot duplicate rewards")
 	_check(actor.animation_player.get_animation_list() == clips_before, "all imported clips remain unchanged")
-	report.append({"legs": legs, "shield_mode": shield_mode, "maximum_tip_step": motion_metrics.maximum_tip_step, "skin_contact_error": motion_metrics.minimum_skin_error, "first_chest_angle": motion_metrics.first_chest_angle, "first_head_angle": motion_metrics.first_head_angle, "deep_chest_angle": motion_metrics.deep_chest_angle, "deep_head_angle": motion_metrics.deep_head_angle, "reaction_episodes": motion_metrics.reaction_episodes, "buried_hold_seconds": held_seconds, "buried_hold_maximum_tip_drift": maximum_hold_tip_drift, "initial_contact": initial_contact, "initial_depth": initial_depth, "deep_push_depth": final_depth, "posed_torso_penetration": torso_depth, "deep_contact_arm": contact_joint, "deep_contact_grip": contact_grip, "withdrawal_axis_error": maximum_withdrawal_axis_error, "withdrawal_rotation_error": maximum_withdrawal_rotation, "withdrawal_final_depth": previous_depth, "contact": contact, "defeats": defeats, "missing_parts": missing_before, "ragdoll_bodies": actor.ragdoll.parts.size()})
+	report.append({"legs": legs, "shield_mode": shield_mode, "maximum_tip_step": motion_metrics.maximum_tip_step, "skin_contact_error": motion_metrics.minimum_skin_error, "first_chest_angle": motion_metrics.first_chest_angle, "first_head_angle": motion_metrics.first_head_angle, "deep_chest_angle": motion_metrics.deep_chest_angle, "deep_head_angle": motion_metrics.deep_head_angle, "reaction_episodes": motion_metrics.reaction_episodes, "buried_hold_seconds": held_seconds, "buried_hold_maximum_tip_drift": maximum_hold_tip_drift, "initial_contact": initial_contact, "initial_depth": initial_depth, "deep_push_depth": final_depth, "posed_torso_penetration": torso_depth, "measured_blade": actual_blade, "mid_push_blade": pushing_blade, "actual_skin_buried_fraction": buried_fraction, "held_blade_fraction_min": minimum_held_blade_fraction, "held_blade_fraction_max": maximum_held_blade_fraction, "deep_contact_arm": contact_joint, "deep_contact_grip": contact_grip, "withdrawal_axis_error": maximum_withdrawal_axis_error, "withdrawal_rotation_error": maximum_withdrawal_rotation, "withdrawal_final_depth": previous_depth, "contact": contact, "defeats": defeats, "missing_parts": missing_before, "ragdoll_bodies": actor.ragdoll.parts.size()})
+
+
+func _measure_actual_blade_world(skin_point: Vector3, axis: Vector3) -> Dictionary:
+	# Project actual visible blade vertices onto the stabbing line in world
+	# space. Do not reuse the production tip/length helper or authored ratio.
+	var minimum := INF
+	var maximum := -INF
+	var tip := Vector3.ZERO
+	var base := Vector3.ZERO
+	var vertices_seen := 0
+	for surface in player.sword_blade.mesh.get_surface_count():
+		var vertices: PackedVector3Array = player.sword_blade.mesh.surface_get_arrays(surface)[Mesh.ARRAY_VERTEX]
+		for vertex: Vector3 in vertices:
+			var world_point := player.sword_blade.to_global(vertex)
+			var projection := (world_point - skin_point).dot(axis)
+			vertices_seen += 1
+			if projection < minimum:
+				minimum = projection
+				base = world_point
+			if projection > maximum:
+				maximum = projection
+				tip = world_point
+	_check(vertices_seen > 0 and is_finite(minimum) and is_finite(maximum), "independent blade measurement visits actual finite mesh vertices")
+	return {"length_m": maximum - minimum, "base_depth_m": minimum, "tip_depth_m": maximum, "base_world": base, "tip_world": tip, "vertices": vertices_seen}
 
 
 func _inspect_torso_penetration(skin_point: Vector3, axis: Vector3, blade_tip: Vector3) -> Dictionary:
