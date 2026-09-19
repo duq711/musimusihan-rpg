@@ -1,0 +1,26 @@
+20:31:33 | INFO: Data are loaded, start creating Blender stuff
+20:31:33 | INFO: Blender create Mesh node Sphere.142
+20:31:33 | INFO: glTF import finished in 0.29s
+$PROJECT/asset-staging/shield_damage_20260919/build_shield_damage.py:12: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m=bpy.data.materials.new(name); m.diffuse_color=(*color,1);m.use_nodes=True
+Info: Saved as "shield_medium.blend"
+INFO Draco is available, use library at /Applications/Blender.app/Contents/Resources/5.2/scripts/addons_core/io_scene_gltf2/libbf_intern_draco_bridge.dylib
+INFO MeshOptimizer is available, use library at /Applications/Blender.app/Contents/Resources/5.2/scripts/addons_core/io_scene_gltf2/libbf_intern_meshopt_bridge.dylib
+20:31:36 | INFO: Starting glTF 2.0 export
+20:31:37 | INFO: Extracting primitive: ShieldDamage_medium
+20:31:37 | INFO: Primitives created: 7
+20:31:37 | INFO: Finished glTF 2.0 export in 0.22512102127075195 s
+
+20:31:37 | INFO: Data are loaded, start creating Blender stuff
+20:31:37 | INFO: Blender create Mesh node Sphere.142
+20:31:37 | INFO: glTF import finished in 0.27s
+Info: Saved as "shield_low.blend"
+20:31:43 | INFO: Starting glTF 2.0 export
+20:31:43 | INFO: Extracting primitive: ShieldDamage_low
+20:31:43 | INFO: Primitives created: 7
+20:31:43 | INFO: Finished glTF 2.0 export in 0.1464707851409912 s
+
+SHIELD DAMAGE BUILD PASS: [{"stage": "medium", "file": "godot-game/assets/3d/player/shield_damage/round_shield_medium.glb", "vertices": 33232, "triangles": 63367, "bytes": 2028484, "materials": ["FP_ShieldLeatherEdge", "FP_ShieldOak", "FP_ShieldIron", "FP_ShieldEdge", "FP_ShieldEnarmes", "FP_ShieldStitch"], "sha256": "ed2deb0ee54dab9faf4f8b4de9f0f7566e2fdaeb9c2c03b9524f7d0c72f4c89d"}, {"stage": "low", "file": "godot-game/assets/3d/player/shield_damage/round_shield_low.glb", "vertices": 29968, "triangles": 56902, "bytes": 1854444, "materials": ["FP_ShieldLeatherEdge", "FP_ShieldOak", "FP_ShieldIron", "FP_ShieldEdge", "FP_ShieldEnarmes", "FP_ShieldStitch"], "sha256": "21cbee06e77724fada72e89d7695d170b80296c1a3f9e9df5f3dd7c5b9941d10"}]
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 01:35:57)
+
+Blender quit

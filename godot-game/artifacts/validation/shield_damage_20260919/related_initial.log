@@ -1,0 +1,19 @@
+[HEADLESS] shield_damage_test.gd
+ERROR: actual timed enemy strike must still resolve once and stun the attacker
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/shield_damage_test.gd:64)
+SHIELD DAMAGE TEST FAIL: per-item durability, actual shield hits and timed guard, three first-person stages, exclusions, motion-safe signals, F2/reset and original expedition restoration
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2535)
+[HEADLESS] shield_guard_test.gd
+SHIELD GUARD TEST PASS: full damage blocking with positive stamina, immediate exhaustion release and recovery, timed attacker stun, real attack and equipment boundaries, ailments/stress, F2/repeat/reset and original expedition restoration
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2535)
+[HEADLESS] primary_shield_stow_test.gd
+PRIMARY SHIELD STOW PASS
+[HEADLESS] first_person_renderer_test.gd
+FIRST PERSON RENDERER TEST PASS: reproduced wall occlusion, separate equipment depth, all loadouts, real world anchors/lights/projectiles, chest/camp/safe-zone visibility, resize/pause/camera changes and cleanup
+
+Headless validation: 3 passed, 1 failed.
+FAILED: shield_damage_test.gd (1)

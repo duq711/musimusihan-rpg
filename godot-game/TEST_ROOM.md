@@ -921,3 +921,19 @@ F2 pauses/resumes setup hits, landing, recovery and the active paired execution 
 몸통에서 수평 거리 1.10–1.65m일 때 시작하며 처음 0.30초는 충돌을 처리하며 약 **0.84m**까지 접근합니다. 깊이는 실측 칼날의 **55%인 약 57.5cm**입니다. **1.02초 결정타·사망 → 0.44초 검 유지 → 1.46초부터 발검 → 칼끝이 피부 진입점에서 1cm 빠져나올 때 랙돌 → 2.24초 복귀**로 이어집니다. 칼이 빠지기 전에는 죽은 크리프의 움찔한 자세가 유지됩니다. 랙돌은 고정 타이머가 아닌 칼끝 위치로 시작하며 현재 약 1.70초입니다. `F2`는 이 대기와 발검을 함께 정지·재개하고, 동작 취소는 시체 고정을 즉시 풉니다. 자동 검사 4종과 실제 GPU 18초 영상 540프레임·PNG 48장 검수를 통과했습니다. 세 사례 모두 약 1.70초 칼끝 이탈 직후 랙돌이 시작됐으며 1인칭·측면에서 유지→이탈→낙하를 확인했습니다. MP4 전체 540프레임 디코딩도 통과했으며 GitHub 상태는 최종 게시 기록을 따릅니다. 이전 칼날 절반 버전과 구분하며 경사·계단은 미확인입니다. [현재 검수 기록](docs/CREEP_EXECUTION.md#검증--validation).
 
 Start 1.10–1.65m horizontally from the torso. The first 0.30 seconds physically approach approximately **0.84m** with collision. Depth remains **55% of measured blade length, approximately 57.5cm**. The sequence is **finishing contact/defeat at 1.02s → 0.44s blade hold → withdrawal from 1.46s → ragdoll once the tip clears the skin-entry anchor by 1cm → ready at 2.24s**. The defeated Creep holds its recoil pose until extraction clears the body. Release follows actual tip position rather than a fixed timer, currently around 1.70s. F2 pauses/resumes that wait and extraction; cancellation immediately releases a held corpse. Four automated suites and actual GPU inspection passed, covering 18 seconds, 540 frames and 48 PNGs. All three cases start ragdoll immediately after tip clearance at approximately 1.70s; hold→clearance→fall was inspected from first-person and side views. Full 540-frame MP4 decoding also passed; GitHub status follows the final publication record. Previous half-blade validation remains separate; slopes and stairs remain unverified. See the linked verification record.
+
+
+## 방패 내구도·3단계 파손 / Shield durability and three damage stages
+
+`F2 → 기본`의 다음 항목은 실제 시험 방패와 같은 게임 외형·방어 판정을 사용합니다.
+
+| 항목 / Entry | 초기 상태·조작 / Initial state and controls |
+|---|---|
+| `shield_damage:high` · 방패 파손 · 상 (75) | 내구도 75, AI 정지 적 1명 · RMB로 대기/가드 비교 / 75 durability, one paused enemy; compare idle/guard with RMB |
+| `shield_damage:medium` · 방패 파손 · 중 (50) | 내구도 50, 중간 파손 모델 · RMB 비교 / 50 durability, moderately damaged model; compare with RMB |
+| `shield_damage:low` · 방패 파손 · 하 (20) | 내구도 20, 심한 파손 모델 · RMB 비교 / 20 durability, heavily damaged model; compare with RMB |
+| `shield_damage:wear` · 방패 파손 · 실제 타격 마모 | 내구도 75, 실제 검지기 AI · RMB로 피해 21을 막을 때마다 5.25 마모 / 75 durability, live warden AI; each 21-damage block consumes 5.25 condition |
+
+세 외형 비교는 적 AI를 정지하고 실제 마모 항목만 전투를 진행합니다. 저스트 가드도 같은 마모를 적용하며 기존 스턴·기력 규칙을 유지합니다. 마모 시험에서 F2로 기력을 회복한 뒤 다시 가드하며 상→중→하 변화를 확인합니다. 같은 항목 재선택은 해당 초기 내구도로 돌아가고 마모는 75에서 재시작합니다. 전체 초기화는 새 시험 가방의 최대 내구도 100으로 복구합니다. F2 메뉴가 열린 동안 전투와 마모가 정지하며, 나가면 원래 원정과 물품 개체·내구도를 복원합니다. 새 집중 검사와 관련 회귀 **6종**, 실제 GPU 비교·전환 PNG 16장과 8초·240프레임 검수를 통과했습니다. 기존 검사 2종의 동일한 기준본 실패와 영상 파일·GitHub 확인은 [검수 기록](docs/SHIELD_DAMAGE.md#검증-상태--validation-status)에 구분합니다.
+
+The three appearance entries pause enemy AI; only actual wear runs combat. Just guard has the same wear while preserving existing stun/stamina rules. Recover stamina with F2, resume guard and observe high→medium→low transitions. Reselecting restores each entry's initial condition, including 75 for wear; full reset creates a fresh trial inventory at maximum 100. F2 pauses combat/wear, and leaving restores original expedition, item instances and durability. The focused suite and related regressions **passed in six suites**, as did 16 actual comparison/transition PNGs and an eight-second, 240-frame sequence. The linked validation record separately tracks two unchanged baseline failures, video-file checks and GitHub status.

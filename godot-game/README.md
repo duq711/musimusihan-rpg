@@ -447,7 +447,7 @@ BodyParts3D 골격은 CC BY 4.0으로 배포되며, 상업적 이용과 수정�
 
 ## 다음 제작 단계
 
-이 프로젝트는 전투 감각과 던전 회수·상인 거래·3D 은신처 생활 루프를 함께 검증하는 실제 플레이 수직 슬라이스입니다. 현재 상인 인물 모델과 초상화는 교체 가능한 임시 실루엣이며, 횃불 연료와 내구도는 소모되지 않습니다. 다음 단계에서는 은신처 배수·복구 단계, 영구 창고 용량, 동료 NPC, 완성 상인 모델·일러스트, 실제 의뢰, 레이드 반입 제한, 사망 손실과 Steam용 저장/업적 연결을 붙일 수 있습니다.
+이 프로젝트는 전투 감각과 던전 회수·상인 거래·3D 은신처 생활 루프를 함께 검증하는 실제 플레이 수직 슬라이스입니다. 현재 상인 인물 모델과 초상화는 교체 가능한 임시 실루엣이며, 횃불의 연료와 내구도는 소모되지 않으며, 방패는 실제 방어 타격으로 내구도가 닳아 상·중·하 외형으로 바뀝니다. 다음 단계에서는 은신처 배수·복구 단계, 영구 창고 용량, 동료 NPC, 완성 상인 모델·일러스트, 실제 의뢰, 레이드 반입 제한, 사망 손실과 Steam용 저장/업적 연결을 붙일 수 있습니다.
 
 
 ## 플레이어 외형과 실제 렌더링
@@ -685,3 +685,10 @@ The two F2 crawler execution entries use actual leg severance, physical landing 
 몸통에서 수평 거리 1.10–1.65m일 때 시작하며 처음 0.30초는 충돌을 처리하며 약 **0.84m**까지 접근합니다. 깊이는 실측 칼날의 **55%인 약 57.5cm**입니다. **1.02초 결정타·사망 → 0.44초 검 유지 → 1.46초부터 발검 → 칼끝이 피부 진입점에서 1cm 빠져나올 때 랙돌 → 2.24초 복귀**로 이어집니다. 칼이 빠지기 전에는 죽은 크리프의 움찔한 자세가 유지됩니다. 랙돌은 고정 타이머가 아닌 칼끝 위치로 시작하며 현재 약 1.70초입니다. `F2`는 이 대기와 발검을 함께 정지·재개하고, 동작 취소는 시체 고정을 즉시 풉니다. 자동 검사 4종과 실제 GPU 18초 영상 540프레임·PNG 48장 검수를 통과했습니다. 세 사례 모두 약 1.70초 칼끝 이탈 직후 랙돌이 시작됐으며 1인칭·측면에서 유지→이탈→낙하를 확인했습니다. MP4 전체 540프레임 디코딩도 통과했으며 GitHub 상태는 최종 게시 기록을 따릅니다. 이전 칼날 절반 버전과 구분하며 경사·계단은 미확인입니다. [현재 검수 기록](docs/CREEP_EXECUTION.md#검증--validation).
 
 Start 1.10–1.65m horizontally from the torso. The first 0.30 seconds physically approach approximately **0.84m** with collision. Depth remains **55% of measured blade length, approximately 57.5cm**. The sequence is **finishing contact/defeat at 1.02s → 0.44s blade hold → withdrawal from 1.46s → ragdoll once the tip clears the skin-entry anchor by 1cm → ready at 2.24s**. The defeated Creep holds its recoil pose until extraction clears the body. Release follows actual tip position rather than a fixed timer, currently around 1.70s. F2 pauses/resumes that wait and extraction; cancellation immediately releases a held corpse. Four automated suites and actual GPU inspection passed, covering 18 seconds, 540 frames and 48 PNGs. All three cases start ragdoll immediately after tip clearance at approximately 1.70s; hold→clearance→fall was inspected from first-person and side views. Full 540-frame MP4 decoding also passed; GitHub status follows the final publication record. Previous half-blade validation remains separate; slopes and stairs remain unverified. See the linked verification record.
+
+
+### 방패 내구도·3단계 파손 / Shield durability and three damage stages
+
+방패의 개체별 내구도(기본 최대 100)에 따라 상·중·하의 실제 3D 외형을 사용합니다. 비율이 2/3보다 크면 상, 1/3보다 크면 중, 나머지는 하이며 0도 하 단계입니다. 방패로 막은 피해의 25%만큼 마모되고 저스트 가드도 포함합니다. 기존 완전 방어·기력·스턴 규칙은 유지하며 내구도 0에서 자동 삭제하지 않습니다. `F2 → 기본 → 방패 파손`의 상 (75)·중 (50)·하 (20)에서 RMB로 가드를 비교하고, `실제 타격 마모`에서 내구도 75부터 방어하며 상태 변화를 시험합니다. 자동 검사 6종과 실제 GPU 비교·전환 이미지 16장, 8초·240프레임 검수를 통과했습니다. 기존 검격·이전 손 모델 검사 2종의 동일한 실패는 별도로 남아 있습니다. 영상 파일 검증과 GitHub 상태는 [구현·검수 안내](docs/SHIELD_DAMAGE.md)를 따릅니다.
+
+Shield item instances use real high/medium/low 3D damage models according to durability, with a default maximum of 100. Ratios above two thirds are high, above one third are medium, and the remainder—including zero—is low. Blocked damage wears the shield by 25%, including just guard. Existing full blocking, stamina and stun rules remain; zero does not delete the item. Use F2 → 기본 → 방패 파손 for high (75), medium (50) and low (20) RMB comparisons; actual wear starts at 75 and runs live blocking. Six suites and actual GPU inspection passed, including 16 comparison/transition images and an eight-second, 240-frame sequence. Two legacy blade-clash/old-hand-model suites retain the same baseline failures. See the linked implementation guide for video-file validation and GitHub status.

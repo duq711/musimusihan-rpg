@@ -2,6 +2,7 @@ extends RefCounted
 class_name ExpeditionInventory
 
 signal changed
+signal equipment_condition_changed(slot_name: String)
 
 const MAX_SLOTS := 30
 const MAX_ITEM_TAG_LENGTH := 24
@@ -275,7 +276,8 @@ const ITEM_DEFINITIONS := {
 		"name": "철테 원형 방패", "glyph": "◉", "category": "equipment", "equip_slot": "offhand",
 		"atlas_cell": Vector2i(3, 0), "ui_span": Vector2i(2, 2),
 		"weight": 4.4, "value": 24, "stack_max": 1, "rarity": "common",
-		"summary": "정면 방어 · 내구도 3", "description": "낡은 참나무 판에 철테를 두른 원형 방패입니다."
+		"durability_max": 100.0,
+		"summary": "정면 방어 · 내구도에 따라 3단계 파손", "description": "낡은 참나무 판에 철테를 두른 원형 방패입니다. 막은 공격에 따라 판과 철테가 손상되며, 내구도가 0이어도 방어 기능은 유지됩니다."
 	},
 	"wanderer_hood": {
 		"name": "방랑자의 두건", "glyph": "⌃", "category": "equipment", "equip_slot": "head",
@@ -747,6 +749,44 @@ func get_equipment_instance(slot_name: String) -> Dictionary:
 		data = {"item_id": item_id}
 		equipment_data[slot_name] = data
 	return data
+
+
+func get_equipment_durability(slot_name: String = "offhand") -> Dictionary:
+	var definition := get_item_definition(str(equipment.get(slot_name, "")))
+	var maximum := float(definition.get("durability_max", 0.0))
+	if maximum <= 0.0:
+		return {}
+	var instance := get_equipment_instance(slot_name)
+	# Old equipment payloads are intact by default. Keep tags and upgrades on
+	# the same item; bag/equipment transfers already carry this payload intact.
+	var current := float(instance.get("durability", maximum))
+	if not is_finite(current):
+		current = maximum
+	current = clampf(current, 0.0, maximum)
+	var ratio := current / maximum
+	var stage := "high" if ratio > 2.0 / 3.0 else ("medium" if ratio > 1.0 / 3.0 else "low")
+	return {"current": current, "maximum": maximum, "ratio": ratio, "stage": stage}
+
+
+func set_equipment_durability(slot_name: String, value: float, notify: bool = true) -> Dictionary:
+	var before := get_equipment_durability(slot_name)
+	if before.is_empty() or not is_finite(value):
+		return before
+	var current := clampf(value, 0.0, float(before.maximum))
+	var instance := get_equipment_instance(slot_name)
+	instance["durability"] = current
+	# Combat wear must not trigger inventory-driven interruption of attacks,
+	# item use, equipment drawing or an execution already in progress.
+	if notify and current != float(before.current):
+		equipment_condition_changed.emit(slot_name)
+	return get_equipment_durability(slot_name)
+
+
+func damage_equipment_durability(slot_name: String, amount: float) -> Dictionary:
+	var before := get_equipment_durability(slot_name)
+	if before.is_empty() or not is_finite(amount) or amount <= 0.0:
+		return before
+	return set_equipment_durability(slot_name, float(before.current) - amount)
 
 
 func equipped_smithing_stats() -> Dictionary:

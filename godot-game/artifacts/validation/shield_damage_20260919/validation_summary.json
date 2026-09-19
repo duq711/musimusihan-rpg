@@ -1,0 +1,92 @@
+{
+  "summary_ko": "개별 방패 내구도에 따라 1인칭에서 보이는 실제 파손 3단계",
+  "summary_en": "Three real damage meshes selected by per-item shield durability and visible in first person.",
+  "passed_suites": [
+    "shield_damage",
+    "shield_guard",
+    "primary_shield_stow",
+    "first_person_renderer",
+    "test_room",
+    "test_room_session"
+  ],
+  "preexisting_failures": {
+    "sword_clash": {
+      "matching_error_lines_before_after": 4
+    },
+    "first_person_motion_test_room": {
+      "matching_error_lines_before_after": 64
+    }
+  },
+  "fixed_during_validation": [
+    "New trial action added to the existing test-room allowlist",
+    "Corrected new test assumption about resolved flags cleared by the just-guard stagger transition",
+    "Removed exterior boolean caps from the open metal rim after direct GPU image inspection; added per-vertex disk-bound checks"
+  ],
+  "stage_rule": {
+    "maximum": 100,
+    "high": ">2/3",
+    "medium": ">1/3 and <=2/3",
+    "low": "0 through 1/3",
+    "wear_per_blocked_damage": 0.25,
+    "zero_keeps_guard": true
+  },
+  "gpu": {
+    "iteration": "shield_damage_20260919_02",
+    "renderer": "vulkan",
+    "display": "embedded",
+    "comparison_stills": 12,
+    "transition_stills": 4,
+    "frames": 240,
+    "fps": 30,
+    "seconds": 8,
+    "resolution": [
+      1280,
+      720
+    ],
+    "source_hash_count": 88,
+    "failures": [],
+    "session_preserved": true,
+    "actual_blocked_hits": [
+      [
+        75.0,
+        65.0,
+        "medium"
+      ],
+      [
+        65.0,
+        55.0,
+        "medium"
+      ],
+      [
+        55.0,
+        45.0,
+        "medium"
+      ],
+      [
+        45.0,
+        35.0,
+        "medium"
+      ],
+      [
+        35.0,
+        25.0,
+        "low"
+      ]
+    ]
+  },
+  "video": {
+    "file": "shield_damage.mp4",
+    "sha256": "2daba91a1b6d324fd8f3801deba039383ef5b29213f682d133d87148f6a746ba",
+    "bytes": 631980,
+    "encode_exit": 0,
+    "full_decode_exit": 0,
+    "audio": false
+  },
+  "visual_review": "Opened actual high/medium/low first-person idle and guard images and front/rear inspectors. Damage reads in the existing framing; no cutter geometry remains in the final medium mesh. No camera or arm pose changes between comparison stages.",
+  "limitations": [
+    "No full manual dungeon playthrough or OS hardware input verification",
+    "No gradual fragment physics or fourth broken/unusable stage",
+    "Existing two-ObjectDB shutdown warning and unchanged legacy clash/old-hand assertions are retained"
+  ],
+  "publication": "See local asset-staging/shield_damage_20260919/publication.json for verified GitHub commit and fresh remote LFS checks."
+}

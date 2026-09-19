@@ -498,6 +498,9 @@ func run_feature(feature_id: String) -> void:
 				_prepare_duel(entry.action == "skeleton", true)
 				_equip_weapon("rusted_sword")
 			_hide_test_panel()
+		"shield_damage":
+			_prepare_shield_damage(payload)
+			_hide_test_panel()
 		"flail":
 			_prepare_flail()
 			_hide_test_panel()
@@ -999,6 +1002,24 @@ func _prepare_shield_guard() -> void:
 	hud.objective_label.text = "RMB 피해 차단 · 직전 가드로 적 스턴"
 	_status(guide + " · 기력 0이면 방패를 들 수 없음 · 막다가 고갈되면 해당 공격 차단 후 내림 · F2 수치 조절 / 회복 / 재시험")
 	hud.show_event("RMB 유지: 정면 피해 차단 · 직전 가드: 적 스턴\n기력 0: 방패를 들 수 없음 · F2 회복·재시험", 7.0)
+
+
+func _prepare_shield_damage(stage: String) -> void:
+	# Stage previews and the wear trial both use the real equipped shield.
+	# Only the wear fixture enables the production attacker's combat AI.
+	_prepare_duel(false, stage == "wear", true)
+	inventory.equipment["offhand"] = "round_shield"
+	inventory.set_equipment_durability("offhand", float({"high": 75.0, "medium": 50.0, "low": 20.0, "wear": 75.0}.get(stage, 75.0)), false)
+	_equip_weapon("rusted_sword")
+	player.cancel_sword_attack()
+	player.set_sword_attack_mode("cycle")
+	player.set_torch_enabled(true)
+	var guide := "RMB 가드 / 놓기: 실제 방패의 판·철테 파손 비교 · F2 상·중·하 재선택"
+	if stage == "wear":
+		guide = "RMB로 실제 공격 막기: 내구도 75에서 상→중→하 · 막은 피해×0.25 마모 · F2 기력 회복 / 재선택"
+	hud.objective_label.text = "방패 파손 · 실제 타격 마모" if stage == "wear" else "방패 파손 · " + str({"high": "상 (75)", "medium": "중 (50)", "low": "하 (20)"}.get(stage, "상 (75)"))
+	_status(guide + " · 내구도 0에서도 방어 유지 · 시험 종료 시 원래 장비 복원")
+	hud.show_event(guide, 7.0)
 
 
 func _prepare_wall_equipment() -> void:

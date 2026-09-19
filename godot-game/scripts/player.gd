@@ -23,6 +23,8 @@ const SWORD_SCENE := preload("res://assets/3d/player/sword_hold_long_grip/SwordH
 const SWORD_LONG_GRIP := preload("res://scripts/sword_long_grip_visual.gd")
 const SWORD_SHIELD_ARM := preload("res://scripts/sword_shield_arm_visual.gd")
 const SHIELD_SCENE := preload("res://assets/3d/player/sword_shield/round_shield.glb")
+const SHIELD_DAMAGE := preload("res://scripts/shield_damage_visual.gd")
+const SHIELD_WEAR_PER_BLOCKED_DAMAGE := 0.25
 const TORCH_SCENE := preload("res://assets/3d/wooden_torch/wooden_torch.glb")
 const TORCH_GRIP := preload("res://scripts/torch_grip_pose.gd")
 const TORCH_FIRE := preload("res://scripts/torch_flipbook_fire.gd")
@@ -295,6 +297,8 @@ func bind_inventory(model: ExpeditionInventory) -> void:
 	_body_health_state = _body_state().duplicate(true)
 	if inventory_model != null and inventory_model.changed.is_connected(_on_inventory_changed):
 		inventory_model.changed.disconnect(_on_inventory_changed)
+	if inventory_model != null and inventory_model.equipment_condition_changed.is_connected(_on_equipment_condition_changed):
+		inventory_model.equipment_condition_changed.disconnect(_on_equipment_condition_changed)
 	inventory_model = model
 	_body_health_session_bound = model != null and ExpeditionSession.journey_started and model == ExpeditionSession.get_inventory()
 	if _body_health_session_bound:
@@ -302,6 +306,8 @@ func bind_inventory(model: ExpeditionInventory) -> void:
 		_last_body_health = health
 	if inventory_model != null and not inventory_model.changed.is_connected(_on_inventory_changed):
 		inventory_model.changed.connect(_on_inventory_changed)
+	if inventory_model != null and not inventory_model.equipment_condition_changed.is_connected(_on_equipment_condition_changed):
+		inventory_model.equipment_condition_changed.connect(_on_equipment_condition_changed)
 	_sync_equipped_weapon()
 
 
@@ -313,6 +319,8 @@ func _exit_tree() -> void:
 	cancel_flail_action()
 	if inventory_model != null and inventory_model.changed.is_connected(_on_inventory_changed):
 		inventory_model.changed.disconnect(_on_inventory_changed)
+	if inventory_model != null and inventory_model.equipment_condition_changed.is_connected(_on_equipment_condition_changed):
+		inventory_model.equipment_condition_changed.disconnect(_on_equipment_condition_changed)
 
 
 func _notification(what: int) -> void:
@@ -2429,7 +2437,23 @@ func _on_inventory_changed() -> void:
 	_refresh_archery_hud()
 
 
+func _on_equipment_condition_changed(slot_name: String) -> void:
+	if slot_name == "offhand": _sync_shield_damage_visual()
+
+
+func _sync_shield_damage_visual() -> void:
+	var condition := inventory_model.get_equipment_durability("offhand") if inventory_model != null else {}
+	SHIELD_DAMAGE.apply(shield_model, str(condition.get("stage", "high")))
+
+
+func get_shield_damage_snapshot() -> Dictionary:
+	var result := inventory_model.get_equipment_durability("offhand") if inventory_model != null else {}
+	result.merge(SHIELD_DAMAGE.snapshot(shield_model))
+	return result
+
+
 func _sync_equipped_weapon() -> void:
+	_sync_shield_damage_visual()
 	var equipped_identity := "" if inventory_model == null else str(inventory_model.equipment.get("weapon", "")) + str(inventory_model.get_equipment_instance("weapon").get("uid", ""))
 	var equipped_offhand := "" if inventory_model == null else str(inventory_model.equipment.get("offhand", ""))
 	if equipped_identity != _displayed_weapon_identity or equipped_offhand != _displayed_offhand:
@@ -2726,6 +2750,8 @@ func receive_attack(amount: float, attacker_position: Vector3, ailment_id := "",
 
 	var shield_guard := _has_shield_equipped()
 	if blocking and not is_paralyzed() and not _is_bow_equipped() and not _is_flail_equipped() and frontal and stamina > 0.0:
+		if shield_guard and inventory_model != null:
+			inventory_model.damage_equipment_durability("offhand", amount * SHIELD_WEAR_PER_BLOCKED_DAMAGE)
 		if block_time <= JUST_GUARD_WINDOW:
 			stamina = minf(MAX_STAMINA, stamina + 8.0)
 			_shield_impact = CHOREOGRAPHY.IMPACT_SECONDS if _has_shield_equipped() else 0.13
