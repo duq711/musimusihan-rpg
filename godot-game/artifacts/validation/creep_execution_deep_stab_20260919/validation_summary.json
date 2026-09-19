@@ -1,0 +1,78 @@
+{
+  "date": "2026-09-19",
+  "request": "준비 자세 → 첫 찌르기 → 깊게 밀어 넣기 → 검 뽑기 / Prepare, stab, push deeper, withdraw",
+  "video": {
+    "file": "creep_execution_deep_stab.mp4",
+    "duration_seconds": 18,
+    "fps": 30,
+    "frames": 540,
+    "resolution": [
+      960,
+      540
+    ],
+    "audio_streams": 0,
+    "full_decode_passed": true,
+    "sha256": "6fa44600e0782e742e99bc9e8649b4bf2c7ae086b92ca0c9e9c2c9652b085397",
+    "bytes": 1143883
+  },
+  "current_automated_suites_passed": [
+    "creep_execution",
+    "creep_execution_trial",
+    "sword_shield_execution"
+  ],
+  "render_iteration": "deep_stab_20260919_final03",
+  "render_failures": [],
+  "published_stage_stills": 27,
+  "execution_seconds": 2.5,
+  "initial_contact_seconds": 1.03,
+  "deep_contact_seconds": 1.52,
+  "withdraw_seconds": [
+    1.72,
+    2.12
+  ],
+  "approach_distance_m": 1.05,
+  "cases": [
+    {
+      "case": "left_leg_first_person",
+      "defeats": 1,
+      "premature_death": false,
+      "shallow_depth_m": 0.0450001135468483,
+      "deep_depth_m": 0.219999939203262,
+      "initial_health": 82.0,
+      "deep_health": 0.0,
+      "shoulder_correction_m": 0.0,
+      "upper_arm_m": 0.340000003576279,
+      "forearm_m": 0.260000050067902
+    },
+    {
+      "case": "left_leg_side_repeat",
+      "defeats": 1,
+      "premature_death": false,
+      "shallow_depth_m": 0.0450001135468483,
+      "deep_depth_m": 0.219999939203262,
+      "initial_health": 82.0,
+      "deep_health": 0.0,
+      "shoulder_correction_m": 0.0,
+      "upper_arm_m": 0.340000003576279,
+      "forearm_m": 0.260000050067902
+    },
+    {
+      "case": "both_legs_first_person",
+      "defeats": 1,
+      "premature_death": false,
+      "shallow_depth_m": 0.0449998751282692,
+      "deep_depth_m": 0.219999924302101,
+      "initial_health": 46.0,
+      "deep_health": 0.0,
+      "shoulder_correction_m": 0.0,
+      "upper_arm_m": 0.340000003576279,
+      "forearm_m": 0.260000020265579
+    }
+  ],
+  "unverified": [
+    "slopes",
+    "stairs",
+    "different enemy sizes",
+    "manual OS-input dungeon play"
+  ]
+}

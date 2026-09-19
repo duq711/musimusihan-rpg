@@ -1170,7 +1170,7 @@ func _try_begin_execution() -> bool:
 	velocity.x = 0.0
 	velocity.z = 0.0
 	_consume_stamina(cost)
-	stamina_regen_delay = EXECUTION_MOTION.DURATION + 0.15
+	stamina_regen_delay = _execution_duration() + 0.15
 	_set_combat_state(CombatState.EXECUTION)
 	if hud:
 		hud.set_prompt("")
@@ -1189,11 +1189,13 @@ func advance_execution(delta: float) -> void:
 	if not _execution_hit_committed and (not target_valid or _execution_target.ai_state != DungeonEnemy.AIState.EXECUTION):
 		cancel_execution()
 		return
-	execution_elapsed = minf(EXECUTION_MOTION.DURATION, execution_elapsed + delta)
+	var hit_time := _execution_hit_time()
+	var duration := _execution_duration()
+	execution_elapsed = minf(duration, execution_elapsed + delta)
 	state_time = execution_elapsed
 	if not _execution_hit_committed:
-		_execution_target.advance_execution_pose(minf(execution_elapsed, EXECUTION_MOTION.HIT_SECONDS))
-		if execution_elapsed >= EXECUTION_MOTION.HIT_SECONDS:
+		_execution_target.advance_execution_pose(minf(execution_elapsed, hit_time))
+		if execution_elapsed >= hit_time:
 			var offset := _execution_target.global_position - global_position
 			if offset.length() > EXECUTION_MOTION.MAX_DISTANCE or not _execution_has_clear_path(_execution_target):
 				cancel_execution()
@@ -1201,7 +1203,7 @@ func advance_execution(delta: float) -> void:
 			if _execution_profile == "crawl_stab":
 				# Resolve the actual blade pose on the gameplay clock, even if a long
 				# tick crosses contact without a render callback in between.
-				_apply_crawl_execution_view(EXECUTION_MOTION.HIT_SECONDS)
+				_apply_crawl_execution_view(hit_time)
 				var tip := weapon_pivot.to_global(_execution_blade_tip)
 				var contact_hit: Dictionary = _execution_target.call("query_located_hit", tip - _execution_stab_direction * .30, tip, .025)
 				if contact_hit.is_empty():
@@ -1218,7 +1220,7 @@ func advance_execution(delta: float) -> void:
 				hud.show_event("처형 성공", 0.8)
 	if hud:
 		hud.update_weapon_state(_execution_phase(), Color(0.95, 0.62, 0.32))
-	if execution_elapsed >= EXECUTION_MOTION.DURATION or is_equal_approx(execution_elapsed, EXECUTION_MOTION.DURATION):
+	if execution_elapsed >= duration or is_equal_approx(execution_elapsed, duration):
 		cancel_execution()
 
 
@@ -1303,6 +1305,14 @@ func _get_execution_blade_tip_local() -> Vector3:
 				highest = point.y
 				tip = point
 	return tip
+
+
+func _execution_hit_time() -> float:
+	return CREEP_EXECUTION_MOTION.HIT_SECONDS if _execution_profile == "crawl_stab" else EXECUTION_MOTION.HIT_SECONDS
+
+
+func _execution_duration() -> float:
+	return CREEP_EXECUTION_MOTION.DURATION if _execution_profile == "crawl_stab" else EXECUTION_MOTION.DURATION
 
 
 func _execution_phase() -> String:
