@@ -1831,7 +1831,7 @@ func _prepare_creep() -> bool:
 	_set_enemy_ai(true)
 	_teleport(Vector3(0, 1, 2))
 	hud.update_objective(enemies_alive, loot_count, traps_disarmed)
-	_status("크리프 전투 · LMB 공격 / RMB 방어 · F2 재선택: 회복·재생성")
+	_status("크리프 전투 · 물기·양손 연타 후 S 후퇴: 걷기 추격 관찰 · LMB 공격 / RMB 방어 · F2 재선택: 회복·재생성")
 	return true
 
 

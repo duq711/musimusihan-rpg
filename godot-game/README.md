@@ -659,6 +659,10 @@ At the user’s request, the orc model, controller and F2 trial were removed. Th
 
 The requested CGTrader Creep Creature is integrated as an enemy NPC. Once installed, the F2 Creep trial offers pursuit, bite, two-punch attacks, hit reactions, and death, with recovery/replay and isolated expedition state. Only the eastern mine store encounter changes; the six-enemy count, existing stats, rewards, and extraction rules remain.
 
+공격 후 걷기 전환은 같은 F2 항목에서 확인합니다. 크리프의 물기 또는 양손 연타가 끝날 때 `S`로 뒷걸음쳐 거리를 벌리면 추격을 재개합니다. 공격 마지막 자세에서 걷기로 0.28초간 연결하고, 발 자세가 가까운 걷기 구간을 골라 실제 이동 속도에 보행을 맞추는 후속 수정입니다. `F2`로 멈추거나 재선택해 회복·재생성할 수 있습니다. 이번 수정의 자동 검사·실제 렌더 검증은 아직 미확인이며 [후속 검증 상태](docs/CREEP_ASSET.md#공격-후-추격-전환--attack-to-chase-transition)를 따릅니다.
+
+Use the same F2 entry to inspect attack-to-walk transitions: back away with `S` as Creep finishes a bite or two-punch attack, then observe resumed pursuit. The follow-up blends the final attack pose into walking over 0.28 seconds, selects a nearby foot pose in the walk cycle and matches gait to actual movement speed. F2 pauses or heals/respawns on reselection. Automated and actual-render validation of this follow-up remain unverified; see the linked status.
+
 라이선스 에셋은 공개 저장소에 포함하지 않습니다. [출처·설치·검증 안내](docs/CREEP_ASSET.md)에 따라 로컬에 설치합니다. 미설치 복사본은 창고의 기존 검지기를 사용하며 F2 항목은 설치 안내를 표시합니다. 전투·테스트룸·폐광 및 미설치 대체 검사가 통과했고 실제 GPU 화면 10장을 검토했습니다. [검증 기록](artifacts/validation/creep_20260917/README.md)을 참고하세요.
 
 Licensed binaries are not distributed in the public repository. Follow the linked source, installation, and validation guide. Without installation, the store retains its original warden and F2 shows setup guidance. Installed and missing-asset checks passed, and ten actual GPU renders were inspected. See the linked validation record for scope and remaining warnings.

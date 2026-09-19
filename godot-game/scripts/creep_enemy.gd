@@ -10,6 +10,7 @@ const CONTACTS := [[0.18], [0.06, 0.34]]
 const RAGDOLL := preload("res://scripts/creep_ragdoll.gd")
 const DISMEMBERMENT := preload("res://scripts/creep_dismemberment.gd")
 const CRAWL := preload("res://scripts/creep_crawl.gd")
+const LOCOMOTION_BLEND := preload("res://scripts/creep_locomotion_blend.gd")
 const EXECUTION_REACTION := preload("res://scripts/creep_execution_reaction.gd")
 
 var animation_player: AnimationPlayer
@@ -22,6 +23,7 @@ var ragdoll: Node3D
 var dismemberment: Node3D
 var crawl: Node
 var knockdown_phase := "none"
+var locomotion_blend := LOCOMOTION_BLEND.new()
 var _execution_entry_bones: Array[Transform3D] = []
 var _execution_skin_anchor := Vector3.ZERO
 var _execution_reaction_snapshot: Dictionary = {}
@@ -173,6 +175,16 @@ func _attack() -> int:
 	return maxi(0, attack_index)
 
 func _set_state(next_state: AIState, stagger_seconds: float = STAGGER_SECONDS) -> void:
+	# Capture what was actually rendered before super resets the combat clock.
+	# Never mix standing locomotion over crawl, execution, or physical collapse.
+	var standing: bool = is_instance_valid(skeleton) and not is_crawling() and knockdown_phase == "none" \
+		and (not is_instance_valid(ragdoll) or ragdoll.phase == "living")
+	if standing and next_state == AIState.CHASE and ai_state in [AIState.RECOVERY, AIState.STAGGER]:
+		locomotion_blend.begin_walk(skeleton, animation_player)
+	elif standing and next_state == AIState.WINDUP and ai_state == AIState.CHASE and locomotion_blend.clock_active:
+		locomotion_blend.begin_attack(skeleton)
+	elif not (standing and next_state in [AIState.ACTIVE, AIState.RECOVERY] and ai_state in [AIState.WINDUP, AIState.ACTIVE]):
+		locomotion_blend.cancel()
 	super._set_state(next_state, stagger_seconds)
 	if next_state != AIState.EXECUTION:
 		_execution_entry_bones.clear()
@@ -225,8 +237,11 @@ func _update_visual_pose(_delta: float) -> void:
 	match ai_state:
 		AIState.CHASE:
 			clip = "idle" if is_crawling() else "walk"
-			# The source strides are in place; body travel uses the common AI.
-			sample *= move_speed / 2.2
+			# Keep the source walk in step with actual acceleration/deceleration.
+			# Zero-delta offline clip inspection retains its direct sample contract.
+			sample *= move_speed / LOCOMOTION_BLEND.SOURCE_WALK_SPEED
+			if not is_crawling():
+				sample = locomotion_blend.sample_walk(_delta, Vector2(velocity.x, velocity.z).length(), sample, animation_player.get_animation("walk").length)
 		AIState.WINDUP, AIState.ACTIVE, AIState.RECOVERY:
 			clip = ATTACKS[_attack()]
 			if ai_state == AIState.ACTIVE:
@@ -249,6 +264,10 @@ func _update_visual_pose(_delta: float) -> void:
 	animation_player.seek(sample, true)
 	animation_clip = clip
 	animation_sample = sample
+	if is_crawling():
+		locomotion_blend.cancel()
+	else:
+		locomotion_blend.apply(skeleton, _delta)
 	if is_instance_valid(dismemberment):
 		dismemberment.apply_living_pose(_delta)
 
@@ -413,4 +432,4 @@ func _die() -> void:
 	defeated.emit(self)
 
 func get_creep_snapshot() -> Dictionary:
-	return {"archetype": "creep", "knockdown_phase": knockdown_phase, "state": ai_state, "clip": animation_clip, "sample": animation_sample, "attack_index": attack_index, "resolved_contacts": resolved_contacts, "bones": skeleton.get_bone_count(), "meshes": visual_meshes.size(), "clips": animation_player.get_animation_list(), "source": MODEL_PATH, "ragdoll": ragdoll.snapshot(), "dismemberment": dismemberment.snapshot(), "crawl": crawl.snapshot()}
+	return {"archetype": "creep", "knockdown_phase": knockdown_phase, "state": ai_state, "clip": animation_clip, "sample": animation_sample, "attack_index": attack_index, "resolved_contacts": resolved_contacts, "bones": skeleton.get_bone_count(), "meshes": visual_meshes.size(), "clips": animation_player.get_animation_list(), "source": MODEL_PATH, "ragdoll": ragdoll.snapshot(), "dismemberment": dismemberment.snapshot(), "crawl": crawl.snapshot(), "locomotion_transition": locomotion_blend.snapshot()}

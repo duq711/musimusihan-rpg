@@ -404,6 +404,9 @@ func optional_execution() -> void:
 		actor.call("advance_execution_pose", elapsed)
 		samples.append(low_pose(actor, "crawl/execution/" + str(elapsed)))
 		await physics_frame
+	# finish_execution samples the authored deep-contact reaction before death.
+	# Compare with that contact pose, not the pre-impact 0.7-second pose above.
+	actor.call("advance_execution_pose", actor.call("get_execution_hit_seconds"))
 	var prior := bone_world(actor, "Head")
 	check(bool(actor.call("finish_execution", f.victim)), "crawl/execution: finisher completes normally")
 	check(actor.ai_state == DungeonEnemy.AIState.DEAD, "crawl/execution: finish reaches actual death")

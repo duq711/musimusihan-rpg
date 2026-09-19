@@ -844,11 +844,16 @@ Install the local model using the guide above. Selecting `F2 → 기본 → 크�
 
 - `LMB`: 공격해 피격·사망·보상을 확인합니다. / Attack to exercise hit reactions, death, and rewards.
 - `RMB`: 방패 가드와 공격 직전 저스트 가드를 확인합니다. / Check shield blocking and just guard.
+- `S`: 크리프의 물기 또는 양손 연타가 끝날 때 뒷걸음쳐 거리를 벌립니다. 공격 마지막 자세에서 걷기 추격으로 이어지는 전환을 두 공격 모두 관찰합니다. / Back away as the bite or two-punch attack ends, and inspect both transitions from the last attack pose into walking pursuit.
 - `F2`: 전투를 멈추고 메뉴로 돌아갑니다. 같은 항목 재선택은 회복·크리프 재생성, 초기화는 기존 적 두 명 복구입니다. / Pause and return; reselection heals and respawns Creep, while reset restores the two default enemies.
 
 크리프는 물기와 두 번의 주먹 타격을 번갈아 사용합니다. 주먹 두 접촉의 총 피해는 설정된 공격 한 번의 피해이며, 저스트 가드로 경직되면 남은 접촉이 취소됩니다. 살아 있는 동안 대기·걷기·물기·주먹·피격 클립을 사용하고, 사망은 실제 뼈대의 래그돌로 이어집니다. 원본 사망 동작을 포함한 17개 클립은 보존합니다.
 
 Creep alternates bite and a two-contact punch. Both punch contacts together equal one configured attack; a just guard interrupts the remaining contact. Living behavior uses idle, walk, bite, punch, and hit clips; death transitions into ragdoll simulation on the actual skeleton. All seventeen source clips, including the original death clip, remain preserved.
+
+공격 후 추격 전환 보완은 공격 끝 자세를 보존한 채 걷기 자세로 0.28초간 연결하고, 현재 발 자세와 가까운 걷기 구간에서 시작해 실제 이동 속도에 보행을 맞춥니다. 이를 볼 때는 저스트 가드로 공격을 끊지 말고 두 공격이 끝나게 한 뒤 후퇴합니다. 기존 실제 AI 대련을 사용하며 시험용 걷기 영상을 대신 재생하지 않습니다. 이번 수정의 자동 검사·실제 화면 검증은 아직 미확인입니다. 아래의 최초 에셋 검증 완료와 구분하며 [후속 검증 상태](docs/CREEP_ASSET.md#공격-후-추격-전환--attack-to-chase-transition)를 따릅니다.
+
+The follow-up blends the saved ending attack pose into walking over 0.28 seconds, starts from a walk-cycle phase with a nearby foot pose and matches gait to actual travel speed. Let each attack finish before backing away; a just guard interrupts it. This remains the real AI duel, rather than a separately played demonstration. Automated and visual checks for this revision are unverified and separate from the original asset verification below; see the linked status.
 
 공개 저장소 복사본에 에셋이 없으면 설치 안내만 표시하고 메뉴와 기존 시험 대상을 유지합니다. 원정과 인벤토리는 시험과 분리되며 시험을 나가면 복원됩니다. 관련 검사: 프로젝트 루트에서 `GODOT_TEST_TIMEOUT_SECONDS=600 ./godot-game/tests/run_headless_tests.sh creep_enemy cave_dungeon test_room`. 미설치 검사는 모델 검증을 **SKIPPED**로 구분합니다. 설치·미설치 자동 검사와 실제 GPU 화면 10장 검토를 완료했습니다. [검증 기록](artifacts/validation/creep_20260917/README.md)을 참고하세요.
 

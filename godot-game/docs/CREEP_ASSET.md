@@ -70,6 +70,28 @@ The other eleven clips above remain in the GLB but are not connected to current 
 
 The source attack clips contain repeated actions; gameplay uses only their first complete cycle. Bite takes 1.6 seconds with one contact. Punch takes 1.2 seconds with two contacts, each delivering half the configured damage. Attacks alternate and use existing guard, parry, hit, death, and reward handling.
 
+## 공격 후 추격 전환 / Attack-to-chase transition
+
+2026-09-19 후속 수정은 서 있는 크리프의 물기·양손 연타가 끝난 뒤 걷기 자세로 갑자기 바뀌는 현상을 다룬다. 공격 끝의 실제 뼈 자세를 시작점으로 유지하고 **0.28초 동안 걷기 자세로 보간**한다. 걷기를 항상 첫 프레임에서 다시 시작하지 않고 현재 발 자세와 가까운 보행 구간을 고르며, 보행 진행을 실제 이동 속도에 맞춘다. 추격에서 공격 준비로 들어갈 때도 **0.12초** 동안 자세를 연결하며 기존 접촉 시점은 유지한다. 원본 모델과 17개 클립은 보존한다.
+
+The 2026-09-19 follow-up addresses abrupt standing Creep transitions from bite/two-punch attacks into walking. It preserves the actual ending skeletal pose and **blends into walking over 0.28 seconds**. Instead of restarting at the first walk frame, it selects a phase whose foot pose is close to the current pose, then matches gait progress to actual movement speed. Chase-to-windup also blends over **0.12 seconds**, retaining existing contact timing. The source model and all seventeen clips remain intact.
+
+`F2 → 기본 → 크리프 · 괴물 근접 전투`에서 물기와 양손 연타가 각각 끝날 때 `S`로 뒷걸음쳐 공격 거리 밖으로 나간다. 크리프가 추격을 재개할 때 발과 몸통이 이어지는 모습을 확인한다. 저스트 가드는 공격을 중단하므로 전환을 관찰할 차례에는 공격을 끝내게 한다. `F2`는 전투를 멈추며, 같은 항목 재선택은 플레이어 회복·크리프 재생성으로 두 공격을 다시 시험하게 한다. 기존 실제 AI 경로와 시험 종료 시 원정·인벤토리 복원을 유지한다.
+
+In the existing F2 Creep melee entry, back away with `S` as each bite and two-punch attack finishes. Watch the feet and torso as pursuit resumes. Let the attack finish when inspecting this transition, since a just guard interrupts it. F2 pauses combat; reselecting heals and respawns for another cycle. The production AI path and restoration of the original expedition/inventory on exit remain.
+
+**자동 검사 7종 통과:** `creep_locomotion_transition`, `creep_crawl`, `creep_enemy`, `creep_motion_reel`, `creep_ragdoll`, `creep_execution`, `test_room_session`. 실제 물기·양손 연타 끝 자세의 연결, 원본 걷기 자세로의 수렴, 정지/이동에 따른 보행 진행과 피격·처형·래그돌의 자세 제어를 확인했다. 최초 실행의 5종 통과와 수정 후 2종 재검사 통과를 합한 서로 다른 검사 7종이다.
+
+초기 검사 실패 2건은 검사 기준을 바로잡은 뒤 재실행했다. 전환 검사는 스켈레톤 로컬값 대신 가져오기 스케일 약 0.3513을 반영한 실제 월드 미터로 측정하며 **16cm 한도는 그대로** 유지했다. 최종 두 공격의 관절 프레임 이동 최대값은 약 **10.67cm**다. 포복 처형 검사는 기존 기준본에서도 같은 실패를 재현했으며, 결정타 전 0.7초 자세와 1.02초 깊은 찌르기 반응을 비교하던 것을 실제 접촉 시점 자세 기준으로 고쳤다. 게임의 처형 동작은 바꾸지 않았다.
+
+**실제 GPU 렌더·영상 검증 완료.** 같은 카메라에서 수정 전후 각각240프레임을 촬영했고 물기·연타→추격 전환 화면을 직접 확인했다. 오른발의 전환 순간 이동량은 약85cm에서3mm로 줄었으며 타격 횟수·추격 시작 시점은 동일하다. [8초 영상·전후 비교·검증 기록](../artifacts/validation/creep_transition_20260919/README.md).
+
+**Seven distinct automated suites passed:** `creep_locomotion_transition`, `creep_crawl`, `creep_enemy`, `creep_motion_reel`, `creep_ragdoll`, `creep_execution` and `test_room_session`. Coverage includes actual bite/punch ending-pose continuity, convergence to source walking, stopped/moving gait progression and hit/execution/ragdoll pose ownership. This combines five passes from the initial run with two passing reruns after correcting their checks.
+
+Two initial failures were addressed in the tests. Transition distances now use world metres with the imported approximately 0.3513 rig scale instead of skeleton-local units, retaining the **same 16cm limit**; the maximum final joint step across both attacks is approximately **10.67cm**. The crawl execution failure was reproduced on the unchanged baseline: it compared a 0.7s pre-contact pose against the 1.02s deep-stab recoil. The check now uses the actual contact pose, without changing gameplay execution motion.
+
+**Actual GPU-render/video validation is complete.** Both versions were recorded for 240 frames with the same camera, and bite/punch-to-chase frames were inspected. Right-foot displacement at the transition fell from about 85cm to 3mm, with unchanged contact counts and chase timing. See the linked eight-second videos, comparison and validation record.
+
 ## 검증 절차와 상태 / Validation procedure and status
 
 프로젝트 루트에서 관련 자동 검사를 실행합니다. / Run the relevant automated checks from the repository root:

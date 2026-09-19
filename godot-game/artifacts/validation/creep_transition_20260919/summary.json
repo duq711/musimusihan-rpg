@@ -1,0 +1,325 @@
+{
+  "fps": 30,
+  "duration_seconds": 8,
+  "frame_count": 240,
+  "headless_passed": [
+    "creep_locomotion_transition",
+    "creep_enemy",
+    "creep_motion_reel",
+    "creep_crawl",
+    "creep_ragdoll",
+    "creep_execution",
+    "test_room_session"
+  ],
+  "comparison": [
+    {
+      "case": "bite_to_walk",
+      "unchanged_chase_tick": 99,
+      "unchanged_contact_count": 1,
+      "before_boundary": {
+        "Chest": {
+          "actor_local_distance_m": 0.0533359050750732,
+          "local_angle_deg": 3.13050344073698,
+          "world_distance_m": 0.0533359050750732
+        },
+        "Foot.L": {
+          "actor_local_distance_m": 0.479033321142197,
+          "local_angle_deg": 7.19979973430611,
+          "world_distance_m": 0.479033321142197
+        },
+        "Foot.R": {
+          "actor_local_distance_m": 0.844188570976257,
+          "local_angle_deg": 67.100167726988,
+          "world_distance_m": 0.844188570976257
+        },
+        "Hand.L": {
+          "actor_local_distance_m": 0.444072991609573,
+          "local_angle_deg": 99.9308243501099,
+          "world_distance_m": 0.444072991609573
+        },
+        "Hand.R": {
+          "actor_local_distance_m": 0.39346444606781,
+          "local_angle_deg": 110.851156191369,
+          "world_distance_m": 0.39346444606781
+        },
+        "Head": {
+          "actor_local_distance_m": 0.0863147303462029,
+          "local_angle_deg": 5.78736570593214,
+          "world_distance_m": 0.0863147303462029
+        },
+        "Leg2.L": {
+          "actor_local_distance_m": 0.238441675901413,
+          "local_angle_deg": 19.8151762067926,
+          "world_distance_m": 0.238441675901413
+        },
+        "Leg2.R": {
+          "actor_local_distance_m": 0.533177137374878,
+          "local_angle_deg": 33.7472645946431,
+          "world_distance_m": 0.533177137374878
+        },
+        "Torso": {
+          "actor_local_distance_m": 0.0539269186556339,
+          "local_angle_deg": 0.0884693258953794,
+          "world_distance_m": 0.0539269186556339
+        }
+      },
+      "after_boundary": {
+        "Chest": {
+          "actor_local_distance_m": 0.000850994081702083,
+          "local_angle_deg": 0.0,
+          "world_distance_m": 0.000850994081702083
+        },
+        "Foot.L": {
+          "actor_local_distance_m": 0.000665601808577776,
+          "local_angle_deg": 0.2594431881582,
+          "world_distance_m": 0.000665626314003021
+        },
+        "Foot.R": {
+          "actor_local_distance_m": 0.00294944830238819,
+          "local_angle_deg": 0.523393340673257,
+          "world_distance_m": 0.00294944830238819
+        },
+        "Hand.L": {
+          "actor_local_distance_m": 0.00442068744450808,
+          "local_angle_deg": 1.03778609284602,
+          "world_distance_m": 0.00442068744450808
+        },
+        "Hand.R": {
+          "actor_local_distance_m": 0.00389903131872416,
+          "local_angle_deg": 1.15012039985623,
+          "world_distance_m": 0.00389903131872416
+        },
+        "Head": {
+          "actor_local_distance_m": 0.000833169964607805,
+          "local_angle_deg": 0.0,
+          "world_distance_m": 0.000833169964607805
+        },
+        "Leg2.L": {
+          "actor_local_distance_m": 0.0015047297347337,
+          "local_angle_deg": 0.0,
+          "world_distance_m": 0.0015047297347337
+        },
+        "Leg2.R": {
+          "actor_local_distance_m": 0.00178221124224365,
+          "local_angle_deg": 0.285305272563631,
+          "world_distance_m": 0.00178221124224365
+        },
+        "Torso": {
+          "actor_local_distance_m": 0.000854053650982678,
+          "local_angle_deg": 0.0,
+          "world_distance_m": 0.000854053650982678
+        }
+      },
+      "after_window": {
+        "Chest": {
+          "maximum_actor_local_step_m": 0.00825047120451927,
+          "maximum_local_angle_step_deg": 0.296075306945977,
+          "maximum_world_step_m": 0.0371615625917912
+        },
+        "Foot.L": {
+          "maximum_actor_local_step_m": 0.0545854642987251,
+          "maximum_local_angle_step_deg": 3.5828811701755,
+          "maximum_world_step_m": 0.0245764311403036
+        },
+        "Foot.R": {
+          "maximum_actor_local_step_m": 0.0460087470710278,
+          "maximum_local_angle_step_deg": 3.88534329096482,
+          "maximum_world_step_m": 0.0689162090420723
+        },
+        "Hand.L": {
+          "maximum_actor_local_step_m": 0.0408334545791149,
+          "maximum_local_angle_step_deg": 9.27493500133469,
+          "maximum_world_step_m": 0.0538421086966991
+        },
+        "Hand.R": {
+          "maximum_actor_local_step_m": 0.0364588350057602,
+          "maximum_local_angle_step_deg": 10.2767828799239,
+          "maximum_world_step_m": 0.0491866171360016
+        },
+        "Head": {
+          "maximum_actor_local_step_m": 0.0104075772687793,
+          "maximum_local_angle_step_deg": 1.23669720973266,
+          "maximum_world_step_m": 0.0397130660712719
+        },
+        "Leg2.L": {
+          "maximum_actor_local_step_m": 0.040737871080637,
+          "maximum_local_angle_step_deg": 3.17323651927917,
+          "maximum_world_step_m": 0.0179989207535982
+        },
+        "Leg2.R": {
+          "maximum_actor_local_step_m": 0.0411586575210094,
+          "maximum_local_angle_step_deg": 2.66741106548142,
+          "maximum_world_step_m": 0.057178471237421
+        },
+        "Torso": {
+          "maximum_actor_local_step_m": 0.00827365275472403,
+          "maximum_local_angle_step_deg": 0.0,
+          "maximum_world_step_m": 0.0371615625917912
+        }
+      }
+    },
+    {
+      "case": "punch_to_walk",
+      "unchanged_chase_tick": 76,
+      "unchanged_contact_count": 2,
+      "before_boundary": {
+        "Chest": {
+          "actor_local_distance_m": 0.0550935938954353,
+          "local_angle_deg": 3.13500261440932,
+          "world_distance_m": 0.0550935938954353
+        },
+        "Foot.L": {
+          "actor_local_distance_m": 0.479033201932907,
+          "local_angle_deg": 7.20001744658591,
+          "world_distance_m": 0.479033201932907
+        },
+        "Foot.R": {
+          "actor_local_distance_m": 0.849389731884003,
+          "local_angle_deg": 68.4415622384651,
+          "world_distance_m": 0.849389731884003
+        },
+        "Hand.L": {
+          "actor_local_distance_m": 0.445821106433868,
+          "local_angle_deg": 100.165058857506,
+          "world_distance_m": 0.445821106433868
+        },
+        "Hand.R": {
+          "actor_local_distance_m": 0.395082116127014,
+          "local_angle_deg": 110.990451069302,
+          "world_distance_m": 0.395082116127014
+        },
+        "Head": {
+          "actor_local_distance_m": 0.0893991887569427,
+          "local_angle_deg": 6.19346527520582,
+          "world_distance_m": 0.0893991887569427
+        },
+        "Leg2.L": {
+          "actor_local_distance_m": 0.237450376152992,
+          "local_angle_deg": 19.77837173245,
+          "world_distance_m": 0.237450376152992
+        },
+        "Leg2.R": {
+          "actor_local_distance_m": 0.532370626926422,
+          "local_angle_deg": 33.2597359369713,
+          "world_distance_m": 0.532370626926422
+        },
+        "Torso": {
+          "actor_local_distance_m": 0.0545435100793839,
+          "local_angle_deg": 0.068528041664785,
+          "world_distance_m": 0.0545435100793839
+        }
+      },
+      "after_boundary": {
+        "Chest": {
+          "actor_local_distance_m": 0.000889855378773063,
+          "local_angle_deg": 0.0,
+          "world_distance_m": 0.000889855378773063
+        },
+        "Foot.L": {
+          "actor_local_distance_m": 0.000471238454338163,
+          "local_angle_deg": 0.274112406782978,
+          "world_distance_m": 0.00047121083480306
+        },
+        "Foot.R": {
+          "actor_local_distance_m": 0.00306578772142529,
+          "local_angle_deg": 0.524886644141404,
+          "world_distance_m": 0.00306578772142529
+        },
+        "Hand.L": {
+          "actor_local_distance_m": 0.00447136024013162,
+          "local_angle_deg": 1.04305227541781,
+          "world_distance_m": 0.00447136024013162
+        },
+        "Hand.R": {
+          "actor_local_distance_m": 0.00394992157816887,
+          "local_angle_deg": 1.15555210779368,
+          "world_distance_m": 0.00394992157816887
+        },
+        "Head": {
+          "actor_local_distance_m": 0.000877889280673116,
+          "local_angle_deg": 0.0,
+          "world_distance_m": 0.000877889280673116
+        },
+        "Leg2.L": {
+          "actor_local_distance_m": 0.00139877747278661,
+          "local_angle_deg": 0.0,
+          "world_distance_m": 0.00139877747278661
+        },
+        "Leg2.R": {
+          "actor_local_distance_m": 0.00220356020145118,
+          "local_angle_deg": 0.311532985533068,
+          "world_distance_m": 0.00220356020145118
+        },
+        "Torso": {
+          "actor_local_distance_m": 0.000887117348611355,
+          "local_angle_deg": 0.0,
+          "world_distance_m": 0.000887117348611355
+        }
+      },
+      "after_window": {
+        "Chest": {
+          "maximum_actor_local_step_m": 0.0082383006811142,
+          "maximum_local_angle_step_deg": 1.17702846370002,
+          "maximum_world_step_m": 0.0371615886688232
+        },
+        "Foot.L": {
+          "maximum_actor_local_step_m": 0.0551385134458542,
+          "maximum_local_angle_step_deg": 3.68206277400008,
+          "maximum_world_step_m": 0.0330458097159863
+        },
+        "Foot.R": {
+          "maximum_actor_local_step_m": 0.0444601513445377,
+          "maximum_local_angle_step_deg": 3.87969472452122,
+          "maximum_world_step_m": 0.067621536552906
+        },
+        "Hand.L": {
+          "maximum_actor_local_step_m": 0.0412687174975872,
+          "maximum_local_angle_step_deg": 9.32405003788261,
+          "maximum_world_step_m": 0.0542081743478775
+        },
+        "Hand.R": {
+          "maximum_actor_local_step_m": 0.0368674471974373,
+          "maximum_local_angle_step_deg": 10.3207564915741,
+          "maximum_world_step_m": 0.0495524555444717
+        },
+        "Head": {
+          "maximum_actor_local_step_m": 0.0104145146906376,
+          "maximum_local_angle_step_deg": 1.13573858278512,
+          "maximum_world_step_m": 0.0397133864462376
+        },
+        "Leg2.L": {
+          "maximum_actor_local_step_m": 0.0405068658292294,
+          "maximum_local_angle_step_deg": 3.18419918634045,
+          "maximum_world_step_m": 0.0169002544134855
+        },
+        "Leg2.R": {
+          "maximum_actor_local_step_m": 0.0416776984930038,
+          "maximum_local_angle_step_deg": 2.66711758079052,
+          "maximum_world_step_m": 0.05655562505126
+        },
+        "Torso": {
+          "maximum_actor_local_step_m": 0.00821635220199823,
+          "maximum_local_angle_step_deg": 0.0,
+          "maximum_world_step_m": 0.0371615812182426
+        }
+      }
+    }
+  ],
+  "videos": {
+    "before_after.mp4": {
+      "sha256": "0c457daf586c2a39affddf756bdb69e778c613e946af931f631102007eaf29ef",
+      "bytes": 573740,
+      "decoded_frames": 240
+    },
+    "before.mp4": {
+      "sha256": "40ae67d3a89d5c3c765794362557d1c10bbbfe7acf12abb08c655ca084f23918",
+      "bytes": 1256065,
+      "decoded_frames": 240
+    },
+    "after.mp4": {
+      "sha256": "8377954a43abc061f6ae5a7230bd482d6c222b902637442cf428df3cafc6a516",
+      "bytes": 1273101,
+      "decoded_frames": 240
+    }
+  }
+}

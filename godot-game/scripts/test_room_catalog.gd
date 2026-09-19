@@ -23,7 +23,7 @@ static func entries() -> Array[Dictionary]:
 		_entry("archery_accuracy", "기본", "활 반동 · 당기기별 정확도", "8m 과녁 · 0.1초 이하 낙하 / 길게 당겨 사격 · 조준선 확장 → 축소", "archery_accuracy"),
 		_entry("archery_power", "기본", "활 피해 · 기력 유지", "0.1초 이하 낙하 · 피해 18 → 46 · 기력 초당 22 · 고갈 시 현재 힘으로 1발", "archery_power"),
 		_entry("skeleton", "기본", "해부학적 골격 · 적 AI", "무장 없는 성소지기 · 피격 / 경직 / 골절", "skeleton"),
-		_entry("creep", "기본", "크리프 · 괴물 근접 전투", "추적·물기·양손 연타·피격·사망 · LMB 공격 / RMB 방어 · F2 재선택: 회복·재생성", "creep"),
+		_entry("creep", "기본", "크리프 · 괴물 근접 전투", "물기·양손 연타 후 S 후퇴 → 걷기 추격 재개 · LMB 공격 / RMB 방어 · F2 재선택: 회복·재생성", "creep"),
 		_entry("creep_ragdoll", "기본", "크리프 래그돌 · 정면 타격", "회복·재생성 후 1초 뒤 실제 치명타 · 정면 충격과 바닥 낙하 · F2 일시정지 / 재선택", "creep_ragdoll", "front"),
 		_entry("creep_ragdoll:side", "기본", "크리프 래그돌 · 측면 타격", "회복·재생성 후 1초 뒤 실제 치명타 · 왼쪽에서 오른쪽으로 충격 · F2 일시정지 / 재선택", "creep_ragdoll", "side"),
 		_entry("creep_ragdoll:wall", "기본", "크리프 래그돌 · 벽 충돌", "북쪽 벽 앞에서 1초 뒤 실제 치명타 · 벽·바닥 접촉 · F2 일시정지 / 재선택", "creep_ragdoll", "wall"),
