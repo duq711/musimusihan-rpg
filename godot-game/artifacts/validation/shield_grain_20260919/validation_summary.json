@@ -1,0 +1,45 @@
+{
+  "summary_ko": "노출된 방패 나무 단면에 나이테·목섬유·기공과 미세 표면 요철 추가",
+  "summary_en": "Growth rings, fibres, pores and fine surface relief on exposed shield wood fracture faces.",
+  "scope": "Fracture-oak material only; geometry, outer materials, high stage, grips and durability rules unchanged.",
+  "passed_suites": [
+    "shield_damage",
+    "first_person_renderer"
+  ],
+  "gpu": {
+    "iteration": "shield_grain_20260919_02",
+    "failures": [],
+    "stills": 18,
+    "first_person": 6,
+    "closeups": 2,
+    "front_rear": 6,
+    "wear_transition": 4,
+    "source_hash_count": 89,
+    "sources_preserved": true,
+    "session_preserved": true,
+    "renderer": "vulkan",
+    "display": "embedded"
+  },
+  "original_high_images_byte_identical": {
+    "high_guard.png": true,
+    "high_idle.png": true
+  },
+  "video": {
+    "file": "shield_grain.mp4",
+    "sha256": "a087625b863b60d21fffbe2674bd1af8eba9c758fdd742ca20120b148ae4bf4b",
+    "bytes": 632489,
+    "width": 1280,
+    "height": 720,
+    "fps": 30,
+    "frames": 240,
+    "seconds": 8,
+    "audio": false,
+    "encode_exit": 0,
+    "full_decode_exit": 0
+  },
+  "visual_review": "Opened both closeups and actual low guard / medium idle views. Rings and irregular fibres visible. First iteration uniform bands refined before final capture.",
+  "limitations": [
+    "Existing sharp polygon fracture silhouette unchanged; fine relief is shading rather than new loose fibre geometry.",
+    "No new manual OS-input or full-dungeon-play verification. Existing warnings retained."
+  ]
+}

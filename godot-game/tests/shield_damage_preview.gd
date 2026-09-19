@@ -6,6 +6,7 @@ const STUDIO := preload("res://tests/sword_shield_preview.gd")
 const DAMAGE := preload("res://scripts/shield_damage_visual.gd")
 const IMAGE_SIZE := Vector2i(1280, 720)
 const OUTPUT_ROOT := "res://artifacts/visual_qa/shield_damage"
+const FRACTURE_SHADER := "res://shaders/shield_fracture_wood.gdshader"
 const CONDITIONS := [
 	{"stage": "high", "value": 75.0, "title": "상 · 온전한 방패"},
 	{"stage": "medium", "value": 50.0, "title": "중 · 갈라진 방패"},
@@ -15,6 +16,7 @@ const MARKERS := ["RearArmStrap", "RearGrip", "RearGripBottom", "RearGripTop"]
 const SOURCES := [
 	"res://tests/shield_damage_preview.gd", "res://tests/run_embedded_preview.sh",
 	"res://scripts/shield_damage_visual.gd", "res://scripts/inventory_model.gd",
+	FRACTURE_SHADER,
 	"res://assets/3d/player/shield_damage/round_shield_medium.glb",
 	"res://assets/3d/player/shield_damage/round_shield_low.glb",
 	"res://assets/3d/player/shield_damage/round_shield_medium.glb.import",
@@ -170,7 +172,7 @@ func _run() -> void:
 	for path: String in hashes:
 		if hashes[path] != FileAccess.get_sha256(path): sources_preserved = false
 	_check(sources_preserved, "capture source files stayed unchanged")
-	_check(captures.size() == 12, "six first-person and six inspector images captured")
+	_check(captures.size() == 14, "six first-person, six full-shield inspector and two fracture close-up images captured")
 	var manifest := {"display_driver": DisplayServer.get_name(), "actual_renderer": RenderingServer.get_current_rendering_driver_name(),
 		"image_size": [IMAGE_SIZE.x, IMAGE_SIZE.y], "desktop_capture": false, "source_sha256": hashes,
 		"sources_unchanged_during_capture": sources_preserved, "session_inventory_cursor_preserved": state_preserved,
@@ -179,7 +181,7 @@ func _run() -> void:
 	if report: report.store_string(JSON.stringify(manifest, "\t") + "\n")
 	else: _check(false, "manifest saved")
 	for failure: String in failures: push_error(failure)
-	print("SHIELD DAMAGE PREVIEW %s: 12 views, 5 actual shield blocks, %d sequence frames; %s" % ["PASS" if failures.is_empty() else "FAIL", 0 if stills_only else SEQUENCE_FRAMES, directory])
+	print("SHIELD DAMAGE PREVIEW %s: 14 views, 5 actual shield blocks, %d sequence frames; %s" % ["PASS" if failures.is_empty() else "FAIL", 0 if stills_only else SEQUENCE_FRAMES, directory])
 	quit(0 if failures.is_empty() else 1)
 
 
@@ -222,26 +224,45 @@ func _capture_inspector(viewport: SubViewport, fixture: Dictionary, condition: D
 	observer.far = 10
 	observer.cull_mask = 1
 	world.add_child(observer)
-	for side: String in ["front", "rear"]:
+	var views: Array[String] = ["front", "rear"]
+	if condition.stage != "high": views.append("fracture_top_closeup")
+	for side: String in views:
+		var target := Vector3(0, 1, 0)
+		var caption := "앞면 검사" if side == "front" else "뒷면 검사"
+		observer.size = 1.05
 		observer.position = Vector3(0, 1, 1.4 if side == "front" else -1.4)
-		observer.look_at(Vector3(0, 1, 0), Vector3.UP)
+		if side == "fracture_top_closeup":
+			# Verified source GLB coordinates: the principal damaged notch lies on
+			# the upper-left rim. The same top-oblique camera and scale reveal the
+			# actual 20 mm exposed edge of both variants without changing the mesh.
+			target = Vector3(-.185, 1.275, .015)
+			observer.position = target + Vector3(0, .55, .23)
+			observer.size = .26
+			caption = "윗면 단면 근접 · 나이테와 목섬유"
+		observer.look_at(target, Vector3.UP)
 		observer.make_current()
 		player.viewmodel_renderer.sync_view()
 		# CanvasLayer does not inherit Node3D visibility. The production renderer
 		# explicitly disables its overlay when the source player/camera is hidden
 		# or another camera is current; verify that path instead of hiding it by hand.
 		_check(_inspector_isolated(player, viewport, observer), "inspector disables the independent first-person overlay")
-		var label := _label(viewport, str(condition.title) + (" · 앞면 검사" if side == "front" else " · 뒷면 검사"))
+		var label := _label(viewport, str(condition.title) + " · " + caption)
 		var file := "%s_inspector_%s.png" % [condition.stage, side]
 		await _capture(viewport, directory.path_join(file))
 		var isolated := _inspector_isolated(player, viewport, observer)
 		_check(isolated, "inspector remains free of original arms, sword and overlay: " + file)
+		var materials := _materials(inspection)
+		_check(bool(materials.valid), "inspector active runtime materials are valid: " + file)
+		if side == "fracture_top_closeup":
+			_check(int(materials.fracture_shader_surfaces) > 0, "close-up displays the actual fracture wood shader: " + file)
+			for index in inspected_surface.mesh.get_surface_count():
+				_check(inspected_surface.get_active_material(index) == selected_surface.get_active_material(index), "close-up shares every selected runtime material")
 		captures.append({"file": file, "view": "runtime_selected_mesh_inspector", "side": side,
 			"durability": player.get_shield_damage_snapshot(), "shares_runtime_mesh": inspected_surface.mesh == selected_surface.mesh,
 			"original_player_and_equipment_hidden": isolated,
 			"inspection_fill": {"color": "white", "energy_per_light": .9, "front_yaw": 0.0, "rear_yaw": 180.0, "pitch": -20.0},
-			"camera": observer.global_transform, "projection": "orthographic", "size": observer.size,
-			"model_transform": inspection.global_transform, "materials": _materials(inspection)})
+			"camera": observer.global_transform, "target": target, "projection": "orthographic", "size": observer.size,
+			"model_transform": inspection.global_transform, "materials": materials})
 		label.get_parent().queue_free()
 	observer.queue_free()
 	inspection.queue_free()
@@ -376,17 +397,36 @@ static func _materials(model: Node3D) -> Dictionary:
 	var surface := model.find_child("SwordsmanRoundShield_Surface", true, false) as MeshInstance3D
 	var entries: Array[Dictionary] = []
 	var valid := surface != null and surface.mesh != null
+	var fracture_shader_surfaces := 0
 	if valid:
 		for index in surface.mesh.get_surface_count():
-			var material := surface.get_active_material(index) as StandardMaterial3D
+			var material := surface.get_active_material(index)
 			if material == null:
 				valid = false
 				continue
-			entries.append({"surface": index, "name": material.resource_name, "roughness": material.roughness,
-				"albedo": material.albedo_texture.resource_path if material.albedo_texture else "",
-				"normal": material.normal_texture.resource_path if material.normal_texture else "",
-				"normal_enabled": material.normal_enabled, "vertex_color": material.vertex_color_use_as_albedo})
-	return {"valid": valid, "surfaces": entries}
+			if material is ShaderMaterial:
+				var shader_material := material as ShaderMaterial
+				if shader_material.shader == null:
+					valid = false
+					continue
+				var shader_path := shader_material.shader.resource_path
+				if shader_path == FRACTURE_SHADER: fracture_shader_surfaces += 1
+				var parameters := {}
+				for uniform: Dictionary in shader_material.shader.get_shader_uniform_list():
+					var parameter_name := str(uniform.name)
+					var value: Variant = shader_material.get_shader_parameter(parameter_name)
+					parameters[parameter_name] = value.resource_path if value is Resource else value
+				entries.append({"surface": index, "name": material.resource_name,
+					"type": "ShaderMaterial", "shader": shader_path, "parameters": parameters})
+			elif material is StandardMaterial3D:
+				var standard := material as StandardMaterial3D
+				entries.append({"surface": index, "name": material.resource_name, "type": "StandardMaterial3D", "roughness": standard.roughness,
+					"albedo": standard.albedo_texture.resource_path if standard.albedo_texture else "",
+					"normal": standard.normal_texture.resource_path if standard.normal_texture else "",
+					"normal_enabled": standard.normal_enabled, "vertex_color": standard.vertex_color_use_as_albedo})
+			else:
+				valid = false
+	return {"valid": valid, "surfaces": entries, "fracture_shader_surfaces": fracture_shader_surfaces}
 
 
 static func _label(viewport: SubViewport, text: String) -> Label:
