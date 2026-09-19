@@ -1,0 +1,183 @@
+{
+  "revision": "2026-09-19 single deep-push recoil and delayed withdrawal",
+  "summary_ko": "첫 찌르기 반응 제거, 깊게 찌를 때 큰 움찔 한 번, 0.44초 후 검 회수",
+  "summary_en": "No shallow-stab flinch; one strong deep-push recoil followed by a 0.44-second buried hold before extraction.",
+  "headless_suites": {
+    "creep_execution": "PASS",
+    "creep_execution_trial": "PASS"
+  },
+  "timing_seconds": {
+    "prepare_end_and_thrust_start": 0.3,
+    "initial_stab": 0.58,
+    "deep_push_start": 0.68,
+    "deep_recoil_start": 0.88,
+    "lethal_contact_and_recoil_peak": 1.02,
+    "post_impact_hold": 0.44,
+    "withdraw_start": 1.46,
+    "withdraw_end": 1.86,
+    "complete": 2.24
+  },
+  "input_hold_seconds_unchanged": 0.4,
+  "video": {
+    "file": "creep_execution_deep_recoil.mp4",
+    "duration_seconds": 18,
+    "fps": 30,
+    "frames": 540,
+    "resolution": [
+      960,
+      540
+    ],
+    "audio": false,
+    "encode_exit": 0,
+    "full_decode_exit": 0,
+    "sha256": "8400e3c2d4d6e8f281ba7dc3c8bf8d29aae1c7ea28794de53bf0d4cef0380e2b",
+    "bytes": 1138186
+  },
+  "stage_png_count": 39,
+  "render_cases": [
+    {
+      "case": "left_leg_first_person",
+      "deaths": 1,
+      "premature_death": false,
+      "shallow_reaction": {
+        "chest_angle": 0.0,
+        "contact_anchor": [
+          0.0685859844088554,
+          0.527001261711121,
+          0.523147463798523
+        ],
+        "deep_weight": 0.0,
+        "first_weight": 0.0,
+        "head_angle": 0.0
+      },
+      "deep_reaction": {
+        "chest_angle": 0.244346095279206,
+        "contact_anchor": [
+          0.0685859844088554,
+          0.527001261711121,
+          0.523147463798523
+        ],
+        "deep_weight": 1.0,
+        "first_weight": 0.0,
+        "head_angle": 0.349065850398866
+      },
+      "hold_end_depth_from_original_contact_m": 0.219999939203262
+    },
+    {
+      "case": "left_leg_side_repeat",
+      "deaths": 1,
+      "premature_death": false,
+      "shallow_reaction": {
+        "chest_angle": 0.0,
+        "contact_anchor": [
+          0.0685859844088554,
+          0.527001261711121,
+          0.523147463798523
+        ],
+        "deep_weight": 0.0,
+        "first_weight": 0.0,
+        "head_angle": 0.0
+      },
+      "deep_reaction": {
+        "chest_angle": 0.244346095279206,
+        "contact_anchor": [
+          0.0685859844088554,
+          0.527001261711121,
+          0.523147463798523
+        ],
+        "deep_weight": 1.0,
+        "first_weight": 0.0,
+        "head_angle": 0.349065850398866
+      },
+      "hold_end_depth_from_original_contact_m": 0.219999939203262
+    },
+    {
+      "case": "both_legs_first_person",
+      "deaths": 1,
+      "premature_death": false,
+      "shallow_reaction": {
+        "chest_angle": 0.0,
+        "contact_anchor": [
+          0.0949296429753304,
+          0.526986122131348,
+          0.54709404706955
+        ],
+        "deep_weight": 0.0,
+        "first_weight": 0.0,
+        "head_angle": 0.0
+      },
+      "deep_reaction": {
+        "chest_angle": 0.244346095279206,
+        "contact_anchor": [
+          0.0949296429753304,
+          0.526986122131348,
+          0.54709404706955
+        ],
+        "deep_weight": 1.0,
+        "first_weight": 0.0,
+        "head_angle": 0.349065850398866
+      },
+      "hold_end_depth_from_original_contact_m": 0.219999924302101
+    }
+  ],
+  "physics_cases": [
+    {
+      "legs": [
+        "left_leg"
+      ],
+      "first_chest_angle_rad": 0.0,
+      "first_head_angle_rad": 0.0,
+      "deep_chest_angle_rad": 0.244308888912201,
+      "deep_head_angle_rad": 0.349012523889542,
+      "reaction_episodes": 1,
+      "buried_hold_seconds": 0.439,
+      "buried_hold_maximum_tip_drift_m": 1.49011611938477e-08
+    },
+    {
+      "legs": [
+        "right_leg"
+      ],
+      "first_chest_angle_rad": 0.0,
+      "first_head_angle_rad": 0.0,
+      "deep_chest_angle_rad": 0.244307905435562,
+      "deep_head_angle_rad": 0.349011838436127,
+      "reaction_episodes": 1,
+      "buried_hold_seconds": 0.439,
+      "buried_hold_maximum_tip_drift_m": 4.4703483581543e-08
+    },
+    {
+      "legs": [
+        "left_leg",
+        "right_leg"
+      ],
+      "first_chest_angle_rad": 0.0,
+      "first_head_angle_rad": 0.0,
+      "deep_chest_angle_rad": 0.244307905435562,
+      "deep_head_angle_rad": 0.349011838436127,
+      "reaction_episodes": 1,
+      "buried_hold_seconds": 0.439,
+      "buried_hold_maximum_tip_drift_m": 6.6640019724673e-08
+    }
+  ],
+  "verified": [
+    "Actual bones remain unchanged during shallow penetration",
+    "Exactly one living reaction episode during late deep push",
+    "Chest 14 degrees and Head 20 degrees additional local rotation at peak; inherited head world rotation is larger",
+    "Pelvis and leg world poses stay fixed while alive",
+    "Blade world tip remains within 2mm throughout the post-impact hold",
+    "Same-axis extraction after hold",
+    "Actual death ragdoll continues from final strong pose without standing",
+    "Shallow and deep-recoil cancellation do not leave a delayed kill",
+    "F2 actual fall/recovery, pause/reset and exact session restore",
+    "Fourteen rendered-source SHA256 values match current local files"
+  ],
+  "visual_review": "Opened actual first-person shallow, deepest and late hold images; opened side deepest, late hold and extracted images. Existing corpse ragdoll starts during the buried hold and the blade remains visually in contact through the reviewed hold. No ragdoll controller change was required.",
+  "failures": [],
+  "scope": "Actual production APIs at 60Hz in an isolated embedded Vulkan GPU scene; no OS input, native window or sound. Side view is a separate production-action repeat.",
+  "unverified": [
+    "Slopes/stairs",
+    "Different enemy sizes",
+    "Manual OS-input dungeon playthrough"
+  ],
+  "publication": "Consult asset-staging/creep_execution_deep_recoil_20260919/publication.json for confirmed remote commit and fresh LFS verification."
+}

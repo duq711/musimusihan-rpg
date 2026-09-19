@@ -1,13 +1,14 @@
 extends RefCounted
-## A short impact contraction around the stab point. Navigation, pelvis and
+## One strong contraction at the deeper push, with no shallow-stab flinch.
+## Navigation, pelvis and
 ## severed branches retain the reserved prone pose; no standing clip is played.
 const MOTION := preload("res://scripts/creep_execution_motion.gd")
 
 
 static func weights(elapsed: float) -> Vector2:
 	return Vector2(
-		_pulse(elapsed - MOTION.FIRST_IMPACT_SECONDS, .045, .20),
-		_pulse(elapsed - (MOTION.HIT_SECONDS - .09), .09, .22))
+		0.0,
+		_pulse(elapsed - (MOTION.HIT_SECONDS - .14), .14, .22))
 
 
 static func _pulse(time: float, rise: float, fall: float) -> float:
@@ -18,8 +19,8 @@ static func _pulse(time: float, rise: float, fall: float) -> float:
 
 static func apply(actor: Node3D, rig: Skeleton3D, elapsed: float, anchor: Vector3) -> Dictionary:
 	var weight := weights(elapsed)
-	var chest_angle := deg_to_rad(6.0 * weight.x + 8.0 * weight.y)
-	var head_angle := deg_to_rad(9.0 * weight.x + 12.0 * weight.y)
+	var chest_angle := deg_to_rad(14.0 * weight.y)
+	var head_angle := deg_to_rad(20.0 * weight.y)
 	var lateral := actor.global_basis.x.normalized()
 	var chest := rig.find_bone("Chest")
 	var head := rig.find_bone("Head")

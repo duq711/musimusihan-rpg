@@ -4,9 +4,9 @@
 
 User request, 2026-09-18: first implement one sword-stab execution for a living Creep crawling after leg loss, separate from the existing standing sword-and-shield execution.
 
-2026-09-19 후속 요청: **찌를 자세 잡기 → 첫 찌르기 → 더 깊게 밀어 넣기 → 검 뽑기**가 구분되는 동작으로 다듬는다. 이 단계 구분은 유지하되, 뒤이은 요청에 따라 찌르기 전 멈춤을 없애고 찔릴 때 크리프의 움찔 반응을 추가한다. 현재 구현 값과 검증 상태는 아래를 따른다.
+2026-09-19 후속 요청: **찌를 자세 잡기 → 첫 찌르기 → 더 깊게 밀어 넣기 → 검 뽑기**가 구분되는 동작으로 다듬는다. 이후 요청으로 찌르기 전 멈춤을 없앴다. 최신 요청은 첫 찌르기를 조용히 받아들이고, 깊게 밀어 넣을 때 크게 움찔한 뒤 잠시 기다렸다가 칼을 뽑는 동작이다. 현재 구현 값과 검증 상태는 아래를 따른다.
 
-Follow-up request, 2026-09-19: distinguish **preparing the stab → first thrust → deeper push → withdrawal**. A subsequent request removes the pause before the thrust and adds a Creep flinch on contact while retaining those stages. Current implementation values and validation status are recorded below.
+Follow-up request, 2026-09-19: distinguish **preparing the stab → first thrust → deeper push → withdrawal**. A subsequent request removed the pause before the thrust. The latest request keeps the first stab quiet, puts a pronounced flinch on the deeper push, then briefly holds before withdrawing. Current implementation values and validation status are recorded below.
 
 ## 조작과 조건 / Input and eligibility
 
@@ -21,24 +21,25 @@ With a sword drawn, aim at a nearby crawling Creep's torso, hold LMB for at leas
 
 몸통 기준 수평 거리 **1.10–1.65m**에서 시작한다. 시작 후 첫 0.30초 동안 충돌을 계산하며 몸통에서 약 **1.05m** 떨어진 위치로 접근하고, 시선도 낮은 몸통을 따라간다. 팔만 멀리 뻗어 어깨를 화면 중앙으로 끌어내는 것을 피하기 위한 실제 플레이어 이동이다. 순간 이동하거나 크리프를 플레이어 앞으로 끌어오지 않는다.
 
-총 **1.96초** 동작은 아래 순서로 구성한다. 시간은 LMB를 놓아 처형이 시작된 순간부터 계산한다.
+총 **2.24초** 동작은 아래 순서로 구성한다. 시간은 LMB를 놓아 처형이 시작된 순간부터 계산한다.
 
 | 단계 / Phase | 현재 구현 / Current implementation |
 |---|---|
 | 찌를 자세 잡기 / Prepare | 0–0.30초에 접근하며 몸통을 겨냥하고 멈춤 없이 첫 찌르기로 연결 / Approach and aim during 0–0.30s, continuing into the thrust without a hold |
 | 첫 찌르기 / Initial stab | 0.30–0.58초에 약 4.5cm 넣고 0.68초까지 유지 / Enter approximately 4.5cm during 0.30–0.58s, hold until 0.68s |
 | 깊게 밀기 / Deeper push | 0.68–1.02초에 약 22cm까지 밀고, 1.02초에 한 번만 결정타 처리 / Push to approximately 22cm during 0.68–1.02s, commit one lethal hit at 1.02s |
-| 검 뽑기 / Withdraw | 1.18–1.58초에 찌른 축을 따라 빼고 1.96초까지 준비 위치로 복귀 / Withdraw along the thrust axis during 1.18–1.58s, return to ready by 1.96s |
+| 결정타 후 유지 / Hold after finishing contact | 1.02–1.46초에 깊은 찌르기 위치를 0.44초 유지 / Hold the deeper stab position for 0.44s during 1.02–1.46s |
+| 검 뽑기 / Withdraw | 1.46–1.86초에 찌른 축을 따라 빼고 2.24초까지 준비 위치로 복귀 / Withdraw along the thrust axis during 1.46–1.86s, return to ready by 2.24s |
 
 시작할 때 현재 자세의 실제 피부가 적용된 몸통 삼각형에서 접촉 지점을 한 번 구하며, 검과 몸통이 같은 월드 깊이를 사용해 들어간 칼끝은 피부에 가려진다. 첫 찌르기·깊은 밀기·회수는 같은 축을 사용한다. 손은 기존 검 파지 위치를 유지하며 실제 팔 길이는 상완 0.34m·전완 0.26m를 보존한다. 위 깊이는 모션의 목표 값이며 실제 피부 가림·팔 자세·침투 깊이는 개정별 검수 기록으로 구분한다.
 
-Start at a horizontal torso distance of **1.10–1.65m**. During the first 0.30 seconds, the player advances through normal collision movement toward approximately **1.05m**, with the view following the low torso. This physical approach avoids pulling the shoulder cap into the center of the view; neither participant teleports. The **1.96-second** action prepares and immediately continues into the shallow stab, then pushes deeper and withdraws as listed above. The anchor is sampled once from an actual posed torso-skin triangle. The initial thrust, deeper push and extraction share one axis; shared world depth lets the skin occlude the buried tip. The original sword grip and 0.34m upper arm / 0.26m forearm lengths are retained. Penetration distances are motion targets; verification of occlusion, arm pose and recorded depth is tracked separately for each revision.
+Start at a horizontal torso distance of **1.10–1.65m**. During the first 0.30 seconds, the player advances through normal collision movement toward approximately **1.05m**, with the view following the low torso. This physical approach avoids pulling the shoulder cap into the center of the view; neither participant teleports. The **2.24-second** action prepares and immediately continues into the shallow stab, pushes deeper, holds briefly and withdraws as listed above. The anchor is sampled once from an actual posed torso-skin triangle. The initial thrust, deeper push and extraction share one axis; shared world depth lets the skin occlude the buried tip. The original sword grip and 0.34m upper arm / 0.26m forearm lengths are retained. Penetration distances are motion targets; verification of occlusion, arm pose and recorded depth is tracked separately for each revision.
 
 ## 찔림 반응 / Contact reaction
 
-첫 실제 피부 접촉에서 크리프의 가슴과 머리 골격을 짧게 움찔하게 하고, 깊은 결정타에는 더 강한 반응을 준 뒤 사망 랙돌로 넘긴다. 반응은 찌른 접촉점을 중심으로 상체에 적용하며, 대상의 루트와 하체를 움직여 칼끝에서 몸이 통째로 밀려나게 만들지 않는다. 첫 찌르기는 여전히 비치명 단계이고 사망·보상은 깊은 결정타에서 한 번만 발생한다. 처형 전 LMB 0.4초 입력 조건은 유지하며, 제거한 대기는 처형 시작 후 준비 자세에 멈춰 있던 구간이다.
+첫 얕은 찌르기에는 움찔 반응을 주지 않는다. 깊게 밀어 넣는 도중인 0.88초부터 가슴·머리 반응이 시작되어 1.02초 결정타에서 최대가 된다. 제작값은 가슴 14°·머리 20°이며, 이를 적용한 마지막 자세를 사망 랙돌로 넘긴다. 반응은 찌른 접촉점을 중심으로 상체에 적용하며 루트·골반·다리는 유지한다. 검은 결정타 뒤 0.44초 동안 깊은 위치에 머문 다음 찌른 축을 따라 빠진다. 첫 찌르기는 비치명 단계이고 사망·보상은 깊은 결정타에서 한 번만 발생한다. 처형 전 LMB 0.4초 입력 조건과 준비 후 멈추지 않고 찌르는 연결은 유지한다.
 
-The first actual skin contact briefly recoils the Chest and Head bones. The deeper finishing contact applies a stronger response before death ragdoll takes over. The upper-body reaction pivots around the stab contact; it does not move the actor root or lower body away from the blade. The first stab remains nonlethal, with one death/reward event at the deeper strike. The 0.4-second LMB input requirement is unchanged; the removed delay is the held preparation pose after execution begins.
+The first shallow stab has no flinch. Recoil starts at 0.88s during the deeper push and peaks at the 1.02s finishing contact. Production angles are 14° for the chest and 20° for the head; that final reaction pose transfers into death ragdoll. Upper-body recoil pivots around the stab contact while the root, pelvis and legs remain fixed. The blade holds at the deeper position for 0.44s after finishing contact, then withdraws along the thrust axis. The first stab stays nonlethal, with one death/reward event on the deeper strike. The 0.4-second LMB requirement and continuous preparation-to-thrust transition remain.
 
 ## 테스트룸 / Test room
 
@@ -50,7 +51,17 @@ Both F2 entries prepare a fresh actual Creep, sword/shield and healed player. Or
 
 ## 검증 / Validation
 
-### 현재 멈춤 제거·찔림 반응 개정 / Current no-hold and contact-recoil revision
+### 현재 깊은 찌르기 반응·회수 대기 개정 / Current deeper-push recoil and delayed withdrawal
+
+이번 2.24초 개정의 자동 검사 `creep_execution`, `creep_execution_trial` **2종이 통과**했다. 실제 GPU `deep_recoil_20260919_01`에서 **960×540·30fps·18초·540프레임의 무음 영상과 단계 PNG 39장**을 촬영했으며 manifest 실패는 없다. 1인칭·별도 측면 반복에서 조용한 첫 찌르기, 깊게 밀 때 큰 반응, 0.44초 유지와 회수를 직접 검토했다. 세 사례 모두 첫 찌르기 반응 강도는 0이고 해당 골격 자세는 같으며, 깊은 반응 강도는 1이고 개별 뼈 로컬 회전은 가슴 14°·머리 20°다. 이 값은 머리의 누적 세계 회전과 구분한다. 사망은 각각 한 번이고 원래 접촉점 기준 유지 깊이는 22cm다.
+
+유지 후반에는 사망 랙돌로 몸이 조금 내려가지만 측면에서 검과 몸의 접촉이 읽히는 것을 확인해 기존 랙돌 코드는 유지했다. MP4 인코딩·전체 540프레임 디코딩과 원본 파일 14개의 해시 보존을 확인했다. 영상 경로는 `artifacts/validation/creep_execution_deep_recoil_20260919/creep_execution_deep_recoil.mp4`다. 이전 1.96초의 4종 검사·첫 접촉 반응 검수와 구분한다. GitHub 반영은 최종 게시 기록을 따르며, 경사·계단·다른 적 크기는 미확인이다.
+
+**Two suites passed** for this 2.24-second revision: `creep_execution` and `creep_execution_trial`. Actual GPU `deep_recoil_20260919_01` produced a **silent 960×540, 30fps, 18-second, 540-frame video and 39 stage PNGs** with no manifest failures. First-person and separate side-view inspection confirmed a quiet first stab, pronounced deep-push recoil, the 0.44-second hold and extraction. All three cases have zero initial recoil and unchanged initial skeletal pose, followed by deep recoil weight 1 with individual local-bone rotations of 14° chest and 20° head. These are not cumulative head world-rotation values. Each case records one defeat and 22cm hold depth relative to the original contact anchor.
+
+The corpse settles slightly under ragdoll during the later hold, but blade/body contact remains readable from the side, so existing ragdoll code is retained. MP4 encoding, full 540-frame decoding and preservation of fourteen source-file hashes passed. The video is at `artifacts/validation/creep_execution_deep_recoil_20260919/creep_execution_deep_recoil.mp4`. These results remain separate from the previous 1.96-second revision's four suites and initial-contact recoil checks. GitHub status follows the final publication record; slopes, stairs and differently sized enemies remain unverified.
+
+### 이전 1.96초 멈춤 제거·찔림 반응 검수 이력 / Previous 1.96-second no-hold and contact-recoil validation
 
 자동 검사 **4종**(`creep_execution`, `creep_execution_trial`, `sword_shield_execution`, `enemy_execution`)을 통과했다. 테스트룸 검사는 설명의 `랙돌` 표기를 복구한 뒤 재실행해 통과했다. 핵심 검사는 첫 피부 접촉의 비치명 반응·깊은 결정타의 단일 사망, 골반·다리 9개 뼈 고정, 중도 취소 후 포복 복귀, 사망 랙돌의 최종 반응 자세 상속을 확인했다.
 

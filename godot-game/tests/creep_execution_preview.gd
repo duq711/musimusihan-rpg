@@ -1,13 +1,13 @@
 extends "res://tests/creep_ragdoll_preview.gd"
-## Continuous preparation-to-stab, contact recoil, deeper push and death at 60 Hz.
+## Shallow stab, one strong deep-push recoil, buried hold and withdrawal at 60 Hz.
 ## Observer views are separate runtime repeats, never a composited first-person hand.
 const ARMS := preload("res://tests/player_arm_preview.gd")
 const STAB_MOTION := preload("res://scripts/creep_execution_motion.gd")
 const OUTPUT := "res://artifacts/visual_qa/creep_execution"
 const EXECUTION_CASES := [
-	{"id": "left_leg_first_person", "legs": ["left_leg"], "observer": false, "title": "한 다리 절단 · 바로 찌르기 → 움찔 → 깊게 밀기 → 뽑기"},
-	{"id": "left_leg_side_repeat", "legs": ["left_leg"], "observer": true, "title": "같은 기능 재실행 · 측면 접촉 확인 / SIDE REPEAT"},
-	{"id": "both_legs_first_person", "legs": ["left_leg", "right_leg"], "observer": false, "title": "양다리 절단 · 접촉 순간 움찔 / CONTACT RECOIL"},
+	{"id": "left_leg_first_person", "legs": ["left_leg"], "observer": false, "title": "한 다리 · 찌르기 → 깊게 찌르며 움찔 → 잠시 유지 → 뽑기"},
+	{"id": "left_leg_side_repeat", "legs": ["left_leg"], "observer": true, "title": "측면 재실행 · 깊게 찌르며 움찔 → 잠시 유지 → 뽑기"},
+	{"id": "both_legs_first_person", "legs": ["left_leg", "right_leg"], "observer": false, "title": "양다리 · 찌르기 → 깊게 찌르며 움찔 → 잠시 유지 → 뽑기"},
 ]
 const EXECUTION_SOURCES := [
 	"res://scripts/player.gd", "res://scripts/enemy.gd", "res://scripts/creep_enemy.gd",
@@ -32,11 +32,13 @@ class ActionDriver extends Node:
 		"prepare_end": STAB_MOTION.PREPARE_END,
 		"pre_contact": STAB_MOTION.FIRST_IMPACT_SECONDS - 1.0 / 30.0,
 		"first_impact": STAB_MOTION.FIRST_IMPACT_SECONDS,
-		"first_recoil": STAB_MOTION.FIRST_IMPACT_SECONDS + .045,
+		"shallow_no_recoil": STAB_MOTION.FIRST_IMPACT_SECONDS + .045,
 		"initial_stab": STAB_MOTION.INITIAL_CONTACT,
 		"shallow_hold": (STAB_MOTION.INITIAL_CONTACT + STAB_MOTION.DEEP_THRUST_START) * .5,
 		"deeper_push": (STAB_MOTION.DEEP_THRUST_START + STAB_MOTION.HIT_SECONDS) * .5,
 		"deepest": STAB_MOTION.HIT_SECONDS,
+		"buried_hold_mid": (STAB_MOTION.HIT_SECONDS + STAB_MOTION.WITHDRAW_START) * .5,
+		"buried_hold_end": STAB_MOTION.WITHDRAW_START - 1.0 / 30.0,
 		"withdraw": (STAB_MOTION.WITHDRAW_START + STAB_MOTION.WITHDRAW_END) * .5,
 		"withdraw_end": STAB_MOTION.WITHDRAW_END,
 		"ready": STAB_MOTION.DURATION,
@@ -104,6 +106,7 @@ func _run() -> void:
 	var previous_hz := Engine.physics_ticks_per_second
 	var previous_steps := Engine.max_physics_steps_per_frame
 	_check(is_equal_approx(STAB_MOTION.PREPARE_END, STAB_MOTION.THRUST_START), "preparation flows directly into thrust without a held interval")
+	_check(STAB_MOTION.WITHDRAW_START - STAB_MOTION.HIT_SECONDS >= .4, "full-depth hold is visible before withdrawal")
 	Engine.physics_ticks_per_second = 60
 	Engine.max_physics_steps_per_frame = maxi(previous_steps, 8)
 	sandbox.begin()
@@ -221,25 +224,40 @@ func _run() -> void:
 		_check(not driver.premature_death, scenario.id + ": shallow stab and deeper push remain nonlethal until full depth")
 		for stage_id: String in driver.stage_times:
 			_check(driver.stage_snapshots.has(stage_id) and stage_stills.has(stage_id), scenario.id + ": phase state and GPU image captured: " + stage_id)
-		for stage_id: String in ["prepare_end", "first_recoil", "initial_stab", "shallow_hold", "deeper_push"]:
+		for stage_id: String in ["prepare_end", "shallow_no_recoil", "initial_stab", "shallow_hold", "deeper_push"]:
 			if driver.stage_snapshots.has(stage_id):
 				_check(float(driver.stage_snapshots[stage_id].health) > 0, scenario.id + ": creature remains alive at " + stage_id)
-		if driver.stage_snapshots.has("pre_contact") and driver.stage_snapshots.has("first_recoil"):
+		if driver.stage_snapshots.has("pre_contact") and driver.stage_snapshots.has("shallow_no_recoil"):
 			var before_recoil: Dictionary = driver.stage_snapshots.pre_contact
-			var first_recoil: Dictionary = driver.stage_snapshots.first_recoil
+			var shallow_pose: Dictionary = driver.stage_snapshots.shallow_no_recoil
 			_check(is_zero_approx(float(before_recoil.reaction.get("first_weight", 0.0))), scenario.id + ": no flinch before blade contact")
-			_check(float(first_recoil.reaction.get("first_weight", 0.0)) > .5, scenario.id + ": first contact produces a visible recoil pulse")
+			_check(is_zero_approx(float(shallow_pose.reaction.get("first_weight", 0.0))) and is_zero_approx(float(shallow_pose.reaction.get("deep_weight", 0.0))), scenario.id + ": first shallow stab has no recoil")
 			var before_root: Transform3D = before_recoil.creature_root
-			_check(before_root.is_equal_approx(first_recoil.creature_root), scenario.id + ": recoil changes bones without moving the creature root")
+			_check(before_root.is_equal_approx(shallow_pose.creature_root), scenario.id + ": shallow stab preserves the creature root")
 			for bone_name: String in ["Head", "Chest"]:
 				var before_pose: Transform3D = before_recoil.bone_world[bone_name]
-				var recoil_pose: Transform3D = first_recoil.bone_world[bone_name]
-				_check(before_pose.basis.get_rotation_quaternion().angle_to(recoil_pose.basis.get_rotation_quaternion()) > deg_to_rad(2.0), scenario.id + ": actual " + bone_name + " world pose recoils")
+				var after_pose: Transform3D = shallow_pose.bone_world[bone_name]
+				_check(before_pose.is_equal_approx(after_pose), scenario.id + ": actual " + bone_name + " world pose stays still during the shallow stab")
+		if driver.stage_snapshots.has("pre_contact") and driver.stage_snapshots.has("deepest"):
+			var before_deep: Dictionary = driver.stage_snapshots.pre_contact
+			var deep_recoil: Dictionary = driver.stage_snapshots.deepest
+			var before_root: Transform3D = before_deep.creature_root
+			_check(before_root.is_equal_approx(deep_recoil.creature_root), scenario.id + ": deep recoil changes bones without moving the creature root")
+			for bone_name: String in ["Head", "Chest"]:
+				var before_pose: Transform3D = before_deep.bone_world[bone_name]
+				var recoil_pose: Transform3D = deep_recoil.bone_world[bone_name]
+				var minimum_degrees := 15.0 if bone_name == "Head" else 10.0
+				_check(before_pose.basis.get_rotation_quaternion().angle_to(recoil_pose.basis.get_rotation_quaternion()) > deg_to_rad(minimum_degrees), scenario.id + ": actual " + bone_name + " world pose shows the stronger deep recoil")
 		if driver.stage_snapshots.has("shallow_hold") and driver.stage_snapshots.has("deepest"):
 			_check(absf(float(driver.stage_snapshots.shallow_hold.axis_depth_m) - STAB_MOTION.SHALLOW_PENETRATION) < .015, scenario.id + ": first stab is shallow")
 			_check(absf(float(driver.stage_snapshots.deepest.axis_depth_m) - STAB_MOTION.PENETRATION) < .015, scenario.id + ": final push reaches the deeper source-defined depth")
 			_check(float(driver.stage_snapshots.deepest.health) == 0, scenario.id + ": full depth commits death")
 			_check(float(driver.stage_snapshots.deepest.reaction.get("deep_weight", 0.0)) > .5, scenario.id + ": deeper push produces recoil before the death ragdoll")
+		for hold_id: String in ["buried_hold_mid", "buried_hold_end"]:
+			if driver.stage_snapshots.has(hold_id):
+				_check(absf(float(driver.stage_snapshots[hold_id].axis_depth_m) - STAB_MOTION.PENETRATION) < .015, scenario.id + ": sword stays at full depth during " + hold_id)
+		if driver.stage_snapshots.has("withdraw_end"):
+			_check(float(driver.stage_snapshots.withdraw_end.axis_depth_m) < -.25, scenario.id + ": blade exits after the buried hold")
 		if not driver.contact.is_empty():
 			var joint: Dictionary = driver.contact.hands.joint_landmarks.get("sword", {})
 			_check(float(joint.get("shoulder_adjustment_m", INF)) < .025, scenario.id + ": physical approach keeps shoulder attached with original arm lengths")
@@ -260,7 +278,7 @@ func _run() -> void:
 	for path: String in hashes: _check(hashes[path] == FileAccess.get_sha256(path), "source unchanged: " + path)
 	var output := FileAccess.open(directory.path_join("manifest.json"), FileAccess.WRITE)
 	if output:
-		output.store_string(JSON.stringify(_json_safe({"fps": 30, "physics_hz": 60, "resolution": [960, 540], "stills_only": stills_only, "duration_seconds": 18.0, "execution_seconds": STAB_MOTION.DURATION, "first_contact_seconds": STAB_MOTION.FIRST_IMPACT_SECONDS, "lethal_contact_seconds": STAB_MOTION.HIT_SECONDS, "capture_scope": "Actual production preparation directly into stab, contact recoil, deeper push, withdrawal and ragdoll death in an isolated GPU scene; side angle is a separate runtime repeat.", "input_scope": "Production gameplay APIs at 60 Hz; no OS keyboard/mouse/focus, no desktop capture or audible playback.", "source_sha256": hashes, "outcomes": outcomes, "frames": records, "failures": failures}), "\t"))
+		output.store_string(JSON.stringify(_json_safe({"fps": 30, "physics_hz": 60, "resolution": [960, 540], "stills_only": stills_only, "duration_seconds": 18.0, "execution_seconds": STAB_MOTION.DURATION, "first_contact_seconds": STAB_MOTION.FIRST_IMPACT_SECONDS, "lethal_contact_seconds": STAB_MOTION.HIT_SECONDS, "buried_hold_seconds": STAB_MOTION.WITHDRAW_START - STAB_MOTION.HIT_SECONDS, "capture_scope": "Actual production shallow stab without recoil, one stronger deep-push recoil, full-depth hold, withdrawal and ragdoll death in an isolated GPU scene; side angle is a separate runtime repeat.", "input_scope": "Production gameplay APIs at 60 Hz; no OS keyboard/mouse/focus, no desktop capture or audible playback.", "source_sha256": hashes, "outcomes": outcomes, "frames": records, "failures": failures}), "\t"))
 	else: _check(false, "manifest saved")
 	print("CREEP EXECUTION PREVIEW %s: %s" % ["PASS" if failures.is_empty() else "FAIL", directory])
 	quit(0 if failures.is_empty() else 1)

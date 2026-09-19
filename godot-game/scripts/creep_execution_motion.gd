@@ -7,9 +7,9 @@ const THRUST_START := PREPARE_END
 const INITIAL_CONTACT := 0.58
 const DEEP_THRUST_START := 0.68
 const HIT_SECONDS := 1.02
-const WITHDRAW_START := 1.18
-const WITHDRAW_END := 1.58
-const DURATION := 1.96
+const WITHDRAW_START := 1.46
+const WITHDRAW_END := 1.86
+const DURATION := 2.24
 const SHALLOW_PENETRATION := 0.045
 const PENETRATION := 0.22
 const FIRST_IMPACT_SECONDS := THRUST_START + (INITIAL_CONTACT - THRUST_START) * .28 / (.28 + SHALLOW_PENETRATION)
@@ -22,7 +22,7 @@ static func phase(elapsed: float) -> String:
 	if elapsed < INITIAL_CONTACT: return "포복 처형 · 첫 찌르기"
 	if elapsed < DEEP_THRUST_START: return "포복 처형 · 힘 싣기"
 	if elapsed < HIT_SECONDS: return "포복 처형 · 깊게 밀어 넣기"
-	if elapsed < WITHDRAW_START: return "포복 처형 · 결정타"
+	if elapsed < WITHDRAW_START: return "포복 처형 · 깊게 찌른 채 유지"
 	return "포복 처형 · 검 뽑기"
 
 static func sword(elapsed: float, entry: Transform3D, contact: Vector3, direction: Vector3, blade_tip: Vector3) -> Transform3D:
