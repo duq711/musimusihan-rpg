@@ -1,0 +1,19 @@
+[HEADLESS] creep_execution_test.gd
+CREEP EXECUTION TEST PASS: actual severance/grounded recovery, charge, immediate thrust, two actual-bone flinches, planted pelvis/legs, one contact kill, missing limbs, ragdoll, cancellation, renderer/session restoration
+[HEADLESS] creep_execution_trial_test.gd
+ERROR: CREEP EXECUTION TRIAL TEST FAIL: catalog describes real fall gate and hold-release input
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/creep_execution_trial_test.gd:58)
+ERROR: CREEP EXECUTION TRIAL TEST FAIL: catalog describes real fall gate and hold-release input
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/creep_execution_trial_test.gd:58)
+CREEP EXECUTION TRIAL TEST FAIL: real localized leg loss, grounded recovery, sword/shield and stowed shield, timed stab single kill/reward, F2 pause/resume, cancel/reset, exact session restore
+[HEADLESS] sword_shield_execution_test.gd
+SWORD SHIELD EXECUTION TEST PASS: production parry/charge, contact kill, gating, cancellation, pause, collision, arm contacts and session preservation
+[HEADLESS] enemy_execution_test.gd
+ENEMY EXECUTION TEST PASS: eligibility, reservation, owner loss, clock, gravity, one defeat and existing Creep death path
+
+Headless validation: 3 passed, 1 failed.
+FAILED: creep_execution_trial_test.gd (1)

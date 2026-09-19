@@ -10,6 +10,7 @@ const CONTACTS := [[0.18], [0.06, 0.34]]
 const RAGDOLL := preload("res://scripts/creep_ragdoll.gd")
 const DISMEMBERMENT := preload("res://scripts/creep_dismemberment.gd")
 const CRAWL := preload("res://scripts/creep_crawl.gd")
+const EXECUTION_REACTION := preload("res://scripts/creep_execution_reaction.gd")
 
 var animation_player: AnimationPlayer
 var skeleton: Skeleton3D
@@ -22,6 +23,8 @@ var dismemberment: Node3D
 var crawl: Node
 var knockdown_phase := "none"
 var _execution_entry_bones: Array[Transform3D] = []
+var _execution_skin_anchor := Vector3.ZERO
+var _execution_reaction_snapshot: Dictionary = {}
 
 static func is_available() -> bool:
 	return ResourceLoader.exists(MODEL_PATH)
@@ -283,6 +286,12 @@ func receive_located_hit(amount: float, attacker_position: Vector3, charge: floa
 func get_execution_profile() -> String:
 	return "crawl_stab" if is_crawling() else "shield_cut"
 
+func get_execution_hit_seconds() -> float:
+	return EXECUTION_REACTION.MOTION.HIT_SECONDS if is_crawling() else super.get_execution_hit_seconds()
+
+func get_crawl_execution_reaction_snapshot() -> Dictionary:
+	return _execution_reaction_snapshot.duplicate()
+
 func is_execution_vulnerable() -> bool:
 	if is_knocked_down():
 		return false
@@ -325,13 +334,16 @@ func get_crawl_execution_contact() -> Vector3:
 				surface_point = hit
 	set_meta("execution_contact_on_skin", nearest < INF)
 	if nearest < INF:
+		_execution_skin_anchor = surface_point
 		return surface_point
 	var fallback := query_located_hit(start, end)
-	return fallback.get("position", chest)
+	_execution_skin_anchor = fallback.get("position", chest)
+	return _execution_skin_anchor
 
 func _capture_execution_pose() -> void:
 	super._capture_execution_pose()
 	_execution_entry_bones.clear()
+	_execution_reaction_snapshot.clear()
 	if is_instance_valid(skeleton):
 		for bone in skeleton.get_bone_count():
 			_execution_entry_bones.append(skeleton.get_bone_pose(bone))
@@ -345,6 +357,7 @@ func _apply_execution_pose() -> void:
 		if _execution_entry_bones.size() == skeleton.get_bone_count():
 			for bone in skeleton.get_bone_count():
 				skeleton.set_bone_pose(bone, _execution_entry_bones[bone])
+		_execution_reaction_snapshot = EXECUTION_REACTION.apply(self, skeleton, _execution_elapsed, _execution_skin_anchor)
 		animation_clip = "crawl_execution_stab"
 		return
 	var press := smoothstep(0.0, EXECUTION_SHIELD_SECONDS, _execution_elapsed)

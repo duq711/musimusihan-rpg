@@ -609,6 +609,10 @@ func get_execution_profile() -> String:
 	return "shield_cut"
 
 
+func get_execution_hit_seconds() -> float:
+	return EXECUTION_HIT_SECONDS
+
+
 func is_execution_vulnerable() -> bool:
 	return not is_queued_for_deletion() and health > 0.0 and max_health > 0.0 \
 		and health <= max_health * EXECUTION_HEALTH_RATIO \
@@ -641,7 +645,7 @@ func advance_execution_pose(elapsed: float) -> void:
 	if not is_finite(elapsed):
 		return
 	# The player supplies one monotonic clock; enemy physics never advances it.
-	_execution_elapsed = maxf(_execution_elapsed, clampf(elapsed, 0.0, EXECUTION_HIT_SECONDS))
+	_execution_elapsed = maxf(_execution_elapsed, clampf(elapsed, 0.0, get_execution_hit_seconds()))
 	state_time = _execution_elapsed
 	_apply_execution_pose()
 
@@ -653,8 +657,8 @@ func finish_execution(executor: Node3D) -> bool:
 		_release_execution()
 		return false
 	# Eligibility is checked on reservation, never again after healing/damage.
-	# The player calls this at its 0.82-second contact frame, even on a long tick.
-	_execution_elapsed = EXECUTION_HIT_SECONDS
+	# The player calls this at the selected profile's contact, even on a long tick.
+	_execution_elapsed = get_execution_hit_seconds()
 	state_time = _execution_elapsed
 	_apply_execution_pose()
 	health = 0.0

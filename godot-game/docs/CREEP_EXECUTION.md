@@ -4,9 +4,9 @@
 
 User request, 2026-09-18: first implement one sword-stab execution for a living Creep crawling after leg loss, separate from the existing standing sword-and-shield execution.
 
-2026-09-19 후속 요청: **찌를 자세 잡기 → 첫 찌르기 → 더 깊게 밀어 넣기 → 검 뽑기**가 구분되는 동작으로 다듬는다. 현재 구현 값과 검증 상태는 아래를 따른다.
+2026-09-19 후속 요청: **찌를 자세 잡기 → 첫 찌르기 → 더 깊게 밀어 넣기 → 검 뽑기**가 구분되는 동작으로 다듬는다. 이 단계 구분은 유지하되, 뒤이은 요청에 따라 찌르기 전 멈춤을 없애고 찔릴 때 크리프의 움찔 반응을 추가한다. 현재 구현 값과 검증 상태는 아래를 따른다.
 
-Follow-up request, 2026-09-19: distinguish **preparing the stab → first thrust → deeper push → withdrawal**. Current implementation values and validation status are recorded below.
+Follow-up request, 2026-09-19: distinguish **preparing the stab → first thrust → deeper push → withdrawal**. A subsequent request removes the pause before the thrust and adds a Creep flinch on contact while retaining those stages. Current implementation values and validation status are recorded below.
 
 ## 조작과 조건 / Input and eligibility
 
@@ -21,18 +21,24 @@ With a sword drawn, aim at a nearby crawling Creep's torso, hold LMB for at leas
 
 몸통 기준 수평 거리 **1.10–1.65m**에서 시작한다. 시작 후 첫 0.30초 동안 충돌을 계산하며 몸통에서 약 **1.05m** 떨어진 위치로 접근하고, 시선도 낮은 몸통을 따라간다. 팔만 멀리 뻗어 어깨를 화면 중앙으로 끌어내는 것을 피하기 위한 실제 플레이어 이동이다. 순간 이동하거나 크리프를 플레이어 앞으로 끌어오지 않는다.
 
-총 **2.50초** 동작은 아래 순서로 구성한다. 시간은 LMB를 놓아 처형이 시작된 순간부터 계산한다.
+총 **1.96초** 동작은 아래 순서로 구성한다. 시간은 LMB를 놓아 처형이 시작된 순간부터 계산한다.
 
 | 단계 / Phase | 현재 구현 / Current implementation |
 |---|---|
-| 찌를 자세 잡기 / Prepare | 0–0.48초에 몸통을 겨냥하고, 0.75초까지 준비 자세를 유지 / Aim during 0–0.48s, hold until 0.75s |
-| 첫 찌르기 / Initial stab | 0.75–1.03초에 약 4.5cm 넣고 1.18초까지 잠시 유지 / Enter approximately 4.5cm during 0.75–1.03s, hold until 1.18s |
-| 깊게 밀기 / Deeper push | 1.18–1.52초에 약 22cm까지 밀고, 1.52초에 한 번만 결정타 처리 / Push to approximately 22cm during 1.18–1.52s, commit one lethal hit at 1.52s |
-| 검 뽑기 / Withdraw | 1.72–2.12초에 찌른 축을 따라 빼고 2.50초까지 준비 위치로 복귀 / Withdraw along the thrust axis during 1.72–2.12s, return to ready by 2.50s |
+| 찌를 자세 잡기 / Prepare | 0–0.30초에 접근하며 몸통을 겨냥하고 멈춤 없이 첫 찌르기로 연결 / Approach and aim during 0–0.30s, continuing into the thrust without a hold |
+| 첫 찌르기 / Initial stab | 0.30–0.58초에 약 4.5cm 넣고 0.68초까지 유지 / Enter approximately 4.5cm during 0.30–0.58s, hold until 0.68s |
+| 깊게 밀기 / Deeper push | 0.68–1.02초에 약 22cm까지 밀고, 1.02초에 한 번만 결정타 처리 / Push to approximately 22cm during 0.68–1.02s, commit one lethal hit at 1.02s |
+| 검 뽑기 / Withdraw | 1.18–1.58초에 찌른 축을 따라 빼고 1.96초까지 준비 위치로 복귀 / Withdraw along the thrust axis during 1.18–1.58s, return to ready by 1.96s |
 
-시작할 때 현재 자세의 실제 피부가 적용된 몸통 삼각형에서 접촉 지점을 한 번 구하며, 검과 몸통이 같은 월드 깊이를 사용해 들어간 칼끝은 피부에 가려진다. 첫 찌르기·깊은 밀기·회수는 같은 축을 사용한다. 손은 기존 검 파지 위치를 유지하며 실제 팔 길이는 상완 0.34m·전완 0.26m를 보존한다. 위 깊이는 모션의 목표 값이며, 실제 피부 가림·팔 자세와 기록된 침투 깊이는 아래 새 렌더 검수에서 확인했다.
+시작할 때 현재 자세의 실제 피부가 적용된 몸통 삼각형에서 접촉 지점을 한 번 구하며, 검과 몸통이 같은 월드 깊이를 사용해 들어간 칼끝은 피부에 가려진다. 첫 찌르기·깊은 밀기·회수는 같은 축을 사용한다. 손은 기존 검 파지 위치를 유지하며 실제 팔 길이는 상완 0.34m·전완 0.26m를 보존한다. 위 깊이는 모션의 목표 값이며 실제 피부 가림·팔 자세·침투 깊이는 개정별 검수 기록으로 구분한다.
 
-Start at a horizontal torso distance of **1.10–1.65m**. During the first 0.30 seconds, the player advances through normal collision movement toward approximately **1.05m**, with the view following the low torso. This physical approach avoids pulling the shoulder cap into the center of the view; neither participant teleports. The **2.50-second** action now visibly prepares, enters shallowly, pushes deeper and withdraws as listed above. The anchor is sampled once from an actual posed torso-skin triangle. The initial thrust, deeper push and extraction share one axis; shared world depth lets the skin occlude the buried tip. The original sword grip and 0.34m upper arm / 0.26m forearm lengths are retained. Penetration distances are motion targets; renewed rendering below verified occlusion, arm pose and recorded depth.
+Start at a horizontal torso distance of **1.10–1.65m**. During the first 0.30 seconds, the player advances through normal collision movement toward approximately **1.05m**, with the view following the low torso. This physical approach avoids pulling the shoulder cap into the center of the view; neither participant teleports. The **1.96-second** action prepares and immediately continues into the shallow stab, then pushes deeper and withdraws as listed above. The anchor is sampled once from an actual posed torso-skin triangle. The initial thrust, deeper push and extraction share one axis; shared world depth lets the skin occlude the buried tip. The original sword grip and 0.34m upper arm / 0.26m forearm lengths are retained. Penetration distances are motion targets; verification of occlusion, arm pose and recorded depth is tracked separately for each revision.
+
+## 찔림 반응 / Contact reaction
+
+첫 실제 피부 접촉에서 크리프의 가슴과 머리 골격을 짧게 움찔하게 하고, 깊은 결정타에는 더 강한 반응을 준 뒤 사망 랙돌로 넘긴다. 반응은 찌른 접촉점을 중심으로 상체에 적용하며, 대상의 루트와 하체를 움직여 칼끝에서 몸이 통째로 밀려나게 만들지 않는다. 첫 찌르기는 여전히 비치명 단계이고 사망·보상은 깊은 결정타에서 한 번만 발생한다. 처형 전 LMB 0.4초 입력 조건은 유지하며, 제거한 대기는 처형 시작 후 준비 자세에 멈춰 있던 구간이다.
+
+The first actual skin contact briefly recoils the Chest and Head bones. The deeper finishing contact applies a stronger response before death ragdoll takes over. The upper-body reaction pivots around the stab contact; it does not move the actor root or lower body away from the blade. The first stab remains nonlethal, with one death/reward event at the deeper strike. The 0.4-second LMB input requirement is unchanged; the removed delay is the held preparation pose after execution begins.
 
 ## 테스트룸 / Test room
 
@@ -44,13 +50,23 @@ Both F2 entries prepare a fresh actual Creep, sword/shield and healed player. Or
 
 ## 검증 / Validation
 
-### 현재 2.50초 개정 / Current 2.50-second revision
+### 현재 멈춤 제거·찔림 반응 개정 / Current no-hold and contact-recoil revision
+
+자동 검사 **4종**(`creep_execution`, `creep_execution_trial`, `sword_shield_execution`, `enemy_execution`)을 통과했다. 테스트룸 검사는 설명의 `랙돌` 표기를 복구한 뒤 재실행해 통과했다. 핵심 검사는 첫 피부 접촉의 비치명 반응·깊은 결정타의 단일 사망, 골반·다리 9개 뼈 고정, 중도 취소 후 포복 복귀, 사망 랙돌의 최종 반응 자세 상속을 확인했다.
+
+실제 GPU `recoil_20260919_01` 정지 화면과 `recoil_20260919_final02` 전체 시퀀스 모두 manifest 실패가 없다. 한쪽 다리 1인칭·동일 절단 조건의 별도 측면 반복·양다리 1인칭 세 사례에서 사망은 각각 한 번이며 실제 가슴·머리 뼈의 세계 회전 변화가 2°를 넘고 루트 위치는 유지된다. 첫 반응 강도는 약 0.9864, 깊은 결정타 반응은 1.0이고 얕은/깊은 목표 침투 깊이는 4.5/22cm다. **960×540·30fps·18초·540프레임의 무음 영상과 단계 PNG 33장**, MP4 인코딩·전체 540프레임 디코딩을 확인했다. 원본 파일 14개의 해시는 변경 전과 같다. 영상은 `artifacts/validation/creep_execution_recoil_20260919/creep_execution_recoil.mp4`에 보존한다. 경사·계단·다른 적 크기는 미확인이고, GitHub 원격 확인은 최종 게시 기록을 따른다.
+
+**Four automated suites passed:** `creep_execution`, `creep_execution_trial`, `sword_shield_execution` and `enemy_execution`. The trial suite passed after restoring the required ragdoll wording in its menu descriptions. Core checks cover nonlethal recoil on first skin contact, one lethal deeper strike, nine fixed pelvis/leg bones, crawl restoration after cancellation and transfer of the final reaction pose into death ragdoll.
+
+Actual GPU stills from `recoil_20260919_01` and the full `recoil_20260919_final02` sequence have no manifest failures. Single-leg first person, a separate side-view repeat with the same severance condition and both-leg first person each record one defeat, more than 2° of actual Chest/Head world-bone rotation and an unchanged actor root. Initial recoil weight is approximately 0.9864 and lethal recoil weight is 1.0; shallow/deep target penetration remains 4.5/22cm. The **silent 960×540, 30fps, 18-second, 540-frame video and 33 stage PNGs**, MP4 encoding and full 540-frame decoding passed. Fourteen source-file hashes match the baseline. The video is retained at `artifacts/validation/creep_execution_recoil_20260919/creep_execution_recoil.mp4`. Slopes, stairs and differently sized enemies remain unverified; remote GitHub confirmation follows the final publication record.
+
+### 이전 2.50초 개정 검수 이력 / Previous 2.50-second revision validation
 
 준비·첫 찌르기·깊은 밀기·회수와 1.52초 결정타를 반영했다. 새 `creep_execution`, `creep_execution_trial`, `sword_shield_execution` 자동 검사 **3종이 통과**했다. 실제 GPU `deep_stab_20260919_02`의 정지 화면에서 준비·첫 찌르기·깊은 밀기·회수를 정면과 측면에서 확인했으며 manifest 실패는 없다. 세 사례 모두 4.5cm의 첫 찌르기와 22cm의 깊은 찌르기를 기록하고, 오른쪽 어깨 이동 보정은 0m이며 기존 팔 길이를 유지했다. 실제 GPU `deep_stab_20260919_final03`의 전체 18초 영상(30fps·540프레임), 단계 이미지 27장(전체 PNG 66장), MP4 인코딩과 전체 디코딩도 통과했다. 세 사례에서 단일 사망과 어깨 보정 0m를 확인했고 manifest 실패는 없다. 초기 검수에서 깊은 찌르기에 필요했던 어깨 보정 7.3cm는 접근 목표를 1.15m에서 1.05m로 바꿔 해결했다. 평평한 시험 바닥의 현재 모델 검수이며 경사·계단·다른 적 크기는 미확인이다. GitHub 반영은 최종 게시 기록을 따른다. 새 산출물 경로는 `artifacts/validation/creep_execution_deep_stab_20260919/creep_execution_deep_stab.mp4`다. 아래 이전 버전 기록과 구분한다.
 
 The preparation, shallow stab, deeper push, extraction and 1.52-second lethal contact are implemented. Three updated suites passed: `creep_execution`, `creep_execution_trial` and `sword_shield_execution`. Actual GPU `deep_stab_20260919_02` stills verified the stages from front and side with no manifest failures. All three cases recorded 4.5cm shallow and 22cm deep penetration, zero right-shoulder correction and preserved arm lengths. The full actual GPU `deep_stab_20260919_final03` sequence passed: 18 seconds, 540 frames at 30fps, 27 stage images (66 PNGs total), MP4 encoding and full decoding. All three cases recorded one defeat and zero shoulder correction, with no manifest failures. The initial 7.3cm shoulder correction during deep penetration was removed by changing approach distance from 1.15m to 1.05m. Checks cover current models on a flat floor; slopes, stairs and different enemy sizes remain unverified. GitHub status follows the final publication record. Its artifact path is `artifacts/validation/creep_execution_deep_stab_20260919/creep_execution_deep_stab.mp4`. These results are separate from the previous-version record below.
 
-이번 개정 자동 검사: `./godot-game/tests/run_headless_tests.sh creep_execution creep_execution_trial sword_shield_execution`.
+이전 2.50초 개정 자동 검사: `./godot-game/tests/run_headless_tests.sh creep_execution creep_execution_trial sword_shield_execution`.
 
 새 `creep_execution_trial_test.gd`는 등록, 실제 한쪽/양쪽 다리 절단과 착지·회복 대기, 높은 체력에서도 포복 대상 선택, 검·방패/방패 수납, 접촉 전 생존과 한 번의 사망·보상, F2 실행 중 정지·재개, 준비 취소·초기화, 원정 완전 복원을 검사한다. 핵심 플레이어·크리프 처형 검사는 담당 구현의 집중 검사와 함께 실행한다. 실제 렌더링은 별도로 확인해야 하며, 자동 검사 통과만으로 화면 검증을 완료했다고 간주하지 않는다.
 

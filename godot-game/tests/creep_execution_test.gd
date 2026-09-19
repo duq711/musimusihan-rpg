@@ -55,7 +55,7 @@ func _run() -> void:
 	file.store_string(JSON.stringify({"cases": report, "failures": failures}, "\t") + "\n")
 	for failure in failures:
 		push_error("CREEP EXECUTION TEST FAIL: " + failure)
-	print("CREEP EXECUTION TEST %s: actual severance/grounded recovery, charge, one contact kill, missing limbs, ragdoll, cancellation, renderer/session restoration" % ("PASS" if failures.is_empty() else "FAIL"))
+	print("CREEP EXECUTION TEST %s: actual severance/grounded recovery, charge, immediate thrust, two actual-bone flinches, planted pelvis/legs, one contact kill, missing limbs, ragdoll, cancellation, renderer/session restoration" % ("PASS" if failures.is_empty() else "FAIL"))
 	quit(0 if failures.is_empty() else 1)
 
 
@@ -275,6 +275,18 @@ func _gates_and_interruptions() -> void:
 	player.advance_execution(MOTION.HIT_SECONDS + .01)
 	_check(not player.is_execution_active() and actor.health == before_hp, "target leaving valid contact range cancels before damage")
 	_aim_at_crawler("none")
+	_check(_charge_release(), "post-contact cancellation fixture starts")
+	player.advance_execution(MOTION.INITIAL_CONTACT + .02)
+	player._update_viewmodel(0)
+	var recoiling_pose := _bone_poses()
+	var active_recoil: Dictionary = actor.get_crawl_execution_reaction_snapshot()
+	_check(float(active_recoil.get("first_weight", 0)) > .1 and actor.health == before_hp, "post-contact cancellation samples a visible but nonlethal living flinch")
+	player.prepare_for_inventory()
+	_check(not player.is_execution_active() and actor.ai_state != DungeonEnemy.AIState.EXECUTION and actor.health == before_hp, "inventory cancellation after shallow contact releases both sides without killing")
+	_check(str(actor.animation_clip).begins_with("crawl") and not _poses_match(recoiling_pose, _bone_poses()), "cancelling a contact flinch returns bone ownership to the existing crawling animation")
+	player.advance_execution(MOTION.DURATION + 1)
+	_check(actor.health == before_hp and defeats == 0, "a cancelled shallow stab cannot dispatch a delayed second-stage kill")
+	_aim_at_crawler("none")
 	_check(_charge_release(), "removed-target fixture starts")
 	stage.remove_child(actor)
 	player.advance_execution(.2)
@@ -300,18 +312,26 @@ func _complete_stab(legs: Array) -> void:
 	_check(bool(actor.get_meta("execution_contact_on_skin", false)), "stab anchor comes from an actual posed torso skin triangle, not an anatomical capsule approximation")
 	_check(is_equal_approx(before_stamina - player.stamina, STANDING_MOTION.STAMINA_COST), "stab spends its stamina exactly once")
 	_check(_poses_match(entry, _bone_poses()), "reservation preserves the exact crawling entry pose")
-	var motion_metrics := {"maximum_tip_step": 0.0, "minimum_skin_error": INF, "previous_tip": Vector3.ZERO, "samples": 0}
+	var motion_metrics := {
+		"maximum_tip_step": 0.0, "minimum_skin_error": INF, "previous_tip": Vector3.ZERO, "samples": 0,
+		"actor_transform": actor.global_transform, "visual_transform": actor.visual_root.global_transform,
+		"lower_bones": _lower_bone_world_poses(), "contact_anchor": player.get_execution_snapshot().contact_point,
+		"first_chest_angle": 0.0, "first_head_angle": 0.0, "deep_chest_angle": 0.0, "deep_head_angle": 0.0,
+	}
 	_sample_living_stab_until(MOTION.PREPARE_END, untouched, entry, motion_metrics)
 	var prepared: Dictionary = player.get_execution_snapshot()
 	var prepared_tip: Vector3 = prepared.blade_tip
 	var skin_point: Vector3 = prepared.contact_point
 	_check(prepared_tip.distance_to(skin_point) > .12 and prepared_tip.y > skin_point.y, "preparation visibly raises the actual blade clear of the prone torso")
-	_sample_living_stab_until(MOTION.THRUST_START, untouched, entry, motion_metrics)
-	var chamber: Dictionary = player.get_execution_snapshot()
-	var chamber_tip: Vector3 = chamber.blade_tip
-	_check(chamber_tip.distance_to(prepared_tip) < .045, "prepared sword holds a readable aim before the first thrust")
+	var chamber_tip := prepared_tip
 	var stab_axis: Vector3 = player.weapon_pivot.global_basis.y.normalized()
 	_check(stab_axis.y < -.25, "prepared blade points down toward the crawling target")
+	_sample_living_stab_until(MOTION.PREPARE_END + .02, untouched, entry, motion_metrics)
+	var immediate_tip: Vector3 = player.get_execution_snapshot().blade_tip
+	_check((immediate_tip - prepared_tip).dot(stab_axis) > .006, "actual sword starts thrusting immediately after preparation without a held delay")
+	_sample_living_stab_until(MOTION.PREPARE_END + .04, untouched, entry, motion_metrics)
+	var continuing_tip: Vector3 = player.get_execution_snapshot().blade_tip
+	_check((continuing_tip - immediate_tip).dot(stab_axis) > .006, "the next early frame continues the thrust instead of stopping to aim again")
 	_sample_living_stab_until(MOTION.INITIAL_CONTACT, untouched, entry, motion_metrics)
 	var initial_contact: Dictionary = player.get_execution_snapshot()
 	var initial_tip: Vector3 = initial_contact.blade_tip
@@ -324,16 +344,21 @@ func _complete_stab(legs: Array) -> void:
 	var resisted: Dictionary = player.get_execution_snapshot()
 	var resisted_tip: Vector3 = resisted.blade_tip
 	_check(resisted_tip.distance_to(initial_tip) < .02, "shallow penetration pauses with resistance before the extra push")
+	_check(float(motion_metrics.first_chest_angle) > deg_to_rad(3.0) and float(motion_metrics.first_head_angle) > deg_to_rad(4.0), "the first actual skin contact visibly contracts the chest and head while the creature is alive")
 	_sample_living_stab_until(lerpf(MOTION.DEEP_THRUST_START, MOTION.HIT_SECONDS, .5), untouched, entry, motion_metrics)
 	var pushing: Dictionary = player.get_execution_snapshot()
 	var pushing_tip: Vector3 = pushing.blade_tip
 	_check((pushing_tip - skin_point).dot(stab_axis) > initial_depth + .025, "a second visible push moves the actual blade farther into the torso")
 	_check((pushing_tip - initial_tip).slide(stab_axis).length() < .02, "deeper push retains the initial entry axis")
+	_check(_poses_match(entry, _bone_poses()), "first contact recoil settles back to the reserved prone pose before the decisive contraction")
 	_check(not player.begin_sword_attack().accepted and not player.request_primary_weapon().accepted, "active stab excludes ordinary attacks and equipment transitions")
 	player._resolve_active_attack()
 	_check(actor.health == untouched, "ordinary attack resolver cannot add a second execution hit")
 	_sample_living_stab_until(MOTION.HIT_SECONDS - .001, untouched, entry, motion_metrics)
 	_check(actor.health == untouched and defeats == 0, "one millisecond before the deep contact target is still alive")
+	var last_living_pose := _bone_poses()
+	_check(float(motion_metrics.deep_chest_angle) > deg_to_rad(4.0) and float(motion_metrics.deep_head_angle) > deg_to_rad(6.0), "deeper penetration causes a second visible chest and head contraction before death")
+	_check(not _poses_match(entry, last_living_pose), "decisive stab preserves the visible recoil rather than resetting to the starting pose")
 	player.advance_execution(.002)
 	player._update_viewmodel(0)
 	var contact: Dictionary = player.get_execution_snapshot()
@@ -344,7 +369,8 @@ func _complete_stab(legs: Array) -> void:
 	_check(final_depth > initial_depth + .08 and final_depth < .35, "lethal contact is visibly deeper than the first shallow penetration without crossing the whole body")
 	_check(blade_tip.y < initial_tip.y - .025 and (blade_tip - initial_tip).slide(stab_axis).length() < .02, "lethal extra push travels down along the same insertion axis")
 	_check(actor.health == 0 and actor.ai_state == DungeonEnemy.AIState.DEAD and defeats == 1, "deep contact emits one lethal defeat through production death")
-	_check(actor.ragdoll.phase == "reaction" and _poses_match(actor.ragdoll.initial_pose, entry), "corpse ragdoll starts from the held crawling contact pose")
+	_check(actor.ragdoll.phase == "reaction" and _poses_close(actor.ragdoll.initial_pose, last_living_pose, .001), "corpse ragdoll begins continuously from the actual final living recoil pose")
+	_check(not _poses_match(actor.ragdoll.initial_pose, entry), "death does not discard the contact reaction and snap back to the reserved starting pose")
 	_check(actor.dismemberment.severed == missing_before, "execution does not recreate any detached limb")
 	actor.ragdoll.set_physics_process(false)
 	actor.ragdoll._physics_process(actor.ragdoll.REACTION_SECONDS)
@@ -388,7 +414,7 @@ func _complete_stab(legs: Array) -> void:
 	actor._die()
 	_check(defeats == 1 and not actor.finish_execution(player), "corpse hits and repeated finish/death cannot duplicate rewards")
 	_check(actor.animation_player.get_animation_list() == clips_before, "all imported clips remain unchanged")
-	report.append({"legs": legs, "shield_mode": shield_mode, "maximum_tip_step": motion_metrics.maximum_tip_step, "skin_contact_error": motion_metrics.minimum_skin_error, "initial_contact": initial_contact, "initial_depth": initial_depth, "deep_push_depth": final_depth, "withdrawal_axis_error": maximum_withdrawal_axis_error, "withdrawal_rotation_error": maximum_withdrawal_rotation, "withdrawal_final_depth": previous_depth, "contact": contact, "defeats": defeats, "missing_parts": missing_before, "ragdoll_bodies": actor.ragdoll.parts.size()})
+	report.append({"legs": legs, "shield_mode": shield_mode, "maximum_tip_step": motion_metrics.maximum_tip_step, "skin_contact_error": motion_metrics.minimum_skin_error, "first_chest_angle": motion_metrics.first_chest_angle, "first_head_angle": motion_metrics.first_head_angle, "deep_chest_angle": motion_metrics.deep_chest_angle, "deep_head_angle": motion_metrics.deep_head_angle, "initial_contact": initial_contact, "initial_depth": initial_depth, "deep_push_depth": final_depth, "withdrawal_axis_error": maximum_withdrawal_axis_error, "withdrawal_rotation_error": maximum_withdrawal_rotation, "withdrawal_final_depth": previous_depth, "contact": contact, "defeats": defeats, "missing_parts": missing_before, "ragdoll_bodies": actor.ragdoll.parts.size()})
 
 
 func _sample_living_stab_until(stop_time: float, untouched: float, entry: Array[Transform3D], metrics: Dictionary) -> void:
@@ -405,12 +431,69 @@ func _sample_living_stab_until(stop_time: float, untouched: float, entry: Array[
 		metrics.samples += 1
 		metrics.minimum_skin_error = minf(metrics.minimum_skin_error, float(snap.get("contact_error", INF)))
 		_check(actor.health == untouched and defeats == 0, "pre-deep-contact frames never deal lethal damage or award defeat")
-		_check(_poses_match(entry, _bone_poses()), "living target does not stand or swivel during preparation or the two thrusts")
+		_check_living_reaction(entry, metrics, snap)
 		_check(bool(snap.get("world_contact", false)), "stab uses actual world depth through preparation and both thrusts")
 		var hands: Dictionary = player.get_first_person_motion_snapshot().hand_contacts
 		var sword_contact: Dictionary = hands.get("sword", {})
 		_check(not sword_contact.is_empty() and float(sword_contact.get("error", INF)) < .01, "right hand remains physically attached to sword grip")
 	_check(player.is_execution_active() and absf(player.execution_elapsed - stop_time) < .0001, "production execution reaches the requested choreography stage: " + str(stop_time))
+
+
+func _check_living_reaction(entry: Array[Transform3D], metrics: Dictionary, sword_snapshot: Dictionary) -> void:
+	var poses := _bone_poses()
+	var reaction: Dictionary = actor.get_crawl_execution_reaction_snapshot()
+	var first_weight := float(reaction.get("first_weight", 0.0))
+	var deep_weight := float(reaction.get("deep_weight", 0.0))
+	var anchor: Vector3 = metrics.contact_anchor
+	var tip: Vector3 = sword_snapshot.blade_tip
+	var axis: Vector3 = player.weapon_pivot.global_basis.y.normalized()
+	# Read actual rig transforms: metadata alone cannot prove that the visible
+	# creature moved, stayed grounded, or transferred its pose into the corpse.
+	var chest: int = actor.skeleton.find_bone("Chest")
+	var head: int = actor.skeleton.find_bone("Head")
+	_check(chest >= 0 and head >= 0, "source rig contains the actual chest and head for impact verification")
+	if chest < 0 or head < 0: return
+	var chest_angle := entry[chest].basis.get_rotation_quaternion().angle_to(poses[chest].basis.get_rotation_quaternion())
+	var head_angle := entry[head].basis.get_rotation_quaternion().angle_to(poses[head].basis.get_rotation_quaternion())
+	if first_weight > .05:
+		metrics.first_chest_angle = maxf(metrics.first_chest_angle, chest_angle)
+		metrics.first_head_angle = maxf(metrics.first_head_angle, head_angle)
+	if deep_weight > .05:
+		metrics.deep_chest_angle = maxf(metrics.deep_chest_angle, chest_angle)
+		metrics.deep_head_angle = maxf(metrics.deep_head_angle, head_angle)
+	if player.execution_elapsed < MOTION.PREPARE_END or (tip - anchor).dot(axis) < -.001:
+		_check(_poses_match(entry, poses), "target cannot flinch before the real blade crosses its skin")
+	if first_weight + deep_weight <= .000001:
+		_check(_poses_match(entry, poses), "between impact pulses the living target retains its reserved prone pose")
+	elif first_weight + deep_weight > .05:
+		_check(chest_angle > .001 and head_angle > .001, "positive recoil visibly changes actual chest and head bones")
+	_check(actor.global_transform.is_equal_approx(metrics.actor_transform), "impact does not translate or swivel the creature navigation root")
+	_check(actor.visual_root.global_transform.is_equal_approx(metrics.visual_transform), "impact does not offset the entire model away from the grounded body")
+	var current_lower := _lower_bone_world_poses()
+	for name_value: String in metrics.lower_bones:
+		var before: Transform3D = metrics.lower_bones[name_value]
+		_check(before.is_equal_approx(current_lower[name_value]), "impact preserves the planted pelvis and lower limb in world space: " + name_value)
+	var reported_anchor: Vector3 = reaction.get("contact_anchor", Vector3(INF, INF, INF))
+	_check(reported_anchor.distance_to(anchor) < .001, "reaction stays centered on the original actual torso skin contact")
+
+
+func _lower_bone_world_poses() -> Dictionary:
+	var result := {}
+	for name_value: String in ["Torso", "Leg1.L", "Leg2.L", "Leg3.L", "Foot.L", "Leg1.R", "Leg2.R", "Leg3.R", "Foot.R"]:
+		var bone: int = actor.skeleton.find_bone(name_value)
+		_check(bone >= 0, "lower-body verification uses an existing source bone: " + name_value)
+		if bone >= 0:
+			result[name_value] = actor.skeleton.global_transform * actor.skeleton.get_bone_global_pose(bone)
+	return result
+
+
+func _poses_close(first: Array[Transform3D], second: Array[Transform3D], tolerance: float) -> bool:
+	if first.size() != second.size(): return false
+	for bone in first.size():
+		if first[bone].origin.distance_to(second[bone].origin) > tolerance: return false
+		if first[bone].basis.get_rotation_quaternion().angle_to(second[bone].basis.get_rotation_quaternion()) > tolerance: return false
+		if first[bone].basis.get_scale().distance_to(second[bone].basis.get_scale()) > tolerance: return false
+	return true
 
 
 func _wall() -> StaticBody3D:

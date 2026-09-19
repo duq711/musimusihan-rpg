@@ -1,17 +1,18 @@
 extends RefCounted
-## Brace, shallow stab, resisted deeper push, then axial withdrawal.
+## Move through preparation directly into the stab; no held pre-thrust delay.
 ## The shared gameplay clock commits death only at the end of the deeper push.
 const POSE := preload("res://scripts/sword_shield_choreography.gd")
-const PREPARE_END := 0.48
-const THRUST_START := 0.75
-const INITIAL_CONTACT := 1.03
-const DEEP_THRUST_START := 1.18
-const HIT_SECONDS := 1.52
-const WITHDRAW_START := 1.72
-const WITHDRAW_END := 2.12
-const DURATION := 2.50
+const PREPARE_END := 0.30
+const THRUST_START := PREPARE_END
+const INITIAL_CONTACT := 0.58
+const DEEP_THRUST_START := 0.68
+const HIT_SECONDS := 1.02
+const WITHDRAW_START := 1.18
+const WITHDRAW_END := 1.58
+const DURATION := 1.96
 const SHALLOW_PENETRATION := 0.045
 const PENETRATION := 0.22
+const FIRST_IMPACT_SECONDS := THRUST_START + (INITIAL_CONTACT - THRUST_START) * .28 / (.28 + SHALLOW_PENETRATION)
 const MIN_DISTANCE := 1.10
 const MAX_DISTANCE := 1.65
 const CONTACT_DISTANCE := 1.05
@@ -32,7 +33,6 @@ static func sword(elapsed: float, entry: Transform3D, contact: Vector3, directio
 	var buried := frame.translated(direction * PENETRATION)
 	var withdrawn := frame.translated(direction * -.34)
 	if elapsed < PREPARE_END: return POSE.mix(entry, chamber, elapsed / PREPARE_END)
-	if elapsed < THRUST_START: return chamber
 	# Each stroke and the extraction share one axis, with no re-aim inside skin.
 	if elapsed < INITIAL_CONTACT: return chamber.interpolate_with(shallow, (elapsed - THRUST_START) / (INITIAL_CONTACT - THRUST_START))
 	if elapsed < DEEP_THRUST_START: return shallow

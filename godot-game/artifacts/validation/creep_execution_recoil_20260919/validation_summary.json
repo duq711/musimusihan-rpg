@@ -1,0 +1,89 @@
+{
+  "revision": "2026-09-19 immediate crawl stab and contact recoil",
+  "summary_ko": "준비 후 정지 구간 제거, 첫 피부 접촉과 깊은 결정타의 실제 가슴·머리 골격 반응 추가",
+  "summary_en": "Removed the held preparation interval; added actual Chest/Head recoil on first skin contact and the deeper finishing thrust.",
+  "headless_suites": {
+    "creep_execution": "PASS",
+    "creep_execution_trial": "PASS",
+    "sword_shield_execution": "PASS",
+    "enemy_execution": "PASS"
+  },
+  "initial_test_issue": "Trial initially failed because both F2 descriptions omitted the word ragdoll; restored the descriptions and reran the trial successfully. No gameplay failure was reported.",
+  "timing_seconds": {
+    "prepare_end_and_thrust_start": 0.3,
+    "first_skin_contact": 0.541230769230769,
+    "initial_stab": 0.58,
+    "deep_push_start": 0.68,
+    "lethal_contact": 1.02,
+    "withdraw_start": 1.18,
+    "withdraw_end": 1.58,
+    "complete": 1.96
+  },
+  "input_hold_seconds_unchanged": 0.4,
+  "video": {
+    "file": "creep_execution_recoil.mp4",
+    "duration_seconds": 18,
+    "fps": 30,
+    "frames": 540,
+    "resolution": [
+      960,
+      540
+    ],
+    "audio": false,
+    "encode_exit": 0,
+    "full_decode_exit": 0,
+    "sha256": "54c2df9c873b81d4736be96d8a23b698716141c4c45a286cf6cf11b197b2797e",
+    "bytes": 1107957
+  },
+  "stage_png_count": 33,
+  "render_cases": [
+    {
+      "case": "left_leg_first_person",
+      "deaths": 1,
+      "premature_death": false,
+      "first_recoil_weight": 0.986433267593384,
+      "deep_recoil_weight": 1.0,
+      "root_unchanged_during_recoil": true,
+      "shallow_depth_m": 0.0450001135468483,
+      "deep_depth_m": 0.219999939203262
+    },
+    {
+      "case": "left_leg_side_repeat",
+      "deaths": 1,
+      "premature_death": false,
+      "first_recoil_weight": 0.986433267593384,
+      "deep_recoil_weight": 1.0,
+      "root_unchanged_during_recoil": true,
+      "shallow_depth_m": 0.0450001135468483,
+      "deep_depth_m": 0.219999939203262
+    },
+    {
+      "case": "both_legs_first_person",
+      "deaths": 1,
+      "premature_death": false,
+      "first_recoil_weight": 0.986433267593384,
+      "deep_recoil_weight": 1.0,
+      "root_unchanged_during_recoil": true,
+      "shallow_depth_m": 0.0449998751282692,
+      "deep_depth_m": 0.219999924302101
+    }
+  ],
+  "verified": [
+    "Continuous blade movement immediately after preparation",
+    "Actual Chest and Head bones recoil after skin contact",
+    "Pelvis and nine leg-branch world poses stay fixed during living recoil",
+    "Final reaction pose transfers to death ragdoll",
+    "Cancellation after shallow contact resumes crawl without a late kill",
+    "Production single death/reward, input gating, F2 pause/reset, session restoration",
+    "Standing enemy execution timing preserved",
+    "Fourteen rendered-source SHA256 values match current local files"
+  ],
+  "failures": [],
+  "scope": "Actual production APIs at 60Hz in an isolated embedded Vulkan GPU scene, no OS input or native window. Side view is a separate repeat of the same production action.",
+  "unverified": [
+    "Slopes/stairs",
+    "Different enemy sizes",
+    "Manual OS-input dungeon playthrough"
+  ],
+  "publication": "Consult asset-staging/creep_execution_recoil_20260919/publication.json for confirmed remote commit and fresh LFS verification."
+}
