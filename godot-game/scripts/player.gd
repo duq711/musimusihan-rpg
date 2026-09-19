@@ -1225,6 +1225,15 @@ func advance_execution(delta: float) -> void:
 			if hud:
 				hud.show_hit(true)
 				hud.show_event("처형 성공", 0.8)
+	if _execution_hit_committed and _execution_profile == "crawl_stab" and target_valid \
+			and is_instance_valid(_execution_target) and not _execution_target.is_queued_for_deletion() \
+			and execution_elapsed >= CREEP_EXECUTION_MOTION.WITHDRAW_START:
+		# Use the actual blade position on the gameplay clock, not a death timer.
+		# A long tick past extraction still releases exactly once.
+		_apply_crawl_execution_view(execution_elapsed)
+		var blade_depth := (weapon_pivot.to_global(_execution_blade_tip) - _execution_contact_point).dot(_execution_stab_direction)
+		if execution_elapsed >= CREEP_EXECUTION_MOTION.WITHDRAW_END or blade_depth <= -CREEP_EXECUTION_MOTION.WITHDRAW_CLEARANCE:
+			_execution_target.call("release_execution_ragdoll", self)
 	if hud:
 		hud.update_weapon_state(_execution_phase(), Color(0.95, 0.62, 0.32))
 	if execution_elapsed >= duration or is_equal_approx(execution_elapsed, duration):

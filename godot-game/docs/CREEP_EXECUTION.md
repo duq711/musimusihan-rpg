@@ -4,18 +4,18 @@
 
 User request, 2026-09-18: first implement one sword-stab execution for a living Creep crawling after leg loss, separate from the existing standing sword-and-shield execution.
 
-2026-09-19 후속 요청: **찌를 자세 잡기 → 첫 찌르기 → 더 깊게 밀어 넣기 → 검 뽑기**가 구분되는 동작으로 다듬는다. 이후 요청으로 찌르기 전 멈춤을 없앴다. 후속 요청에 따라 첫 찌르기는 조용히 받아들이고, 깊게 밀어 넣을 때 크게 움찔한 뒤 잠시 기다렸다가 칼을 뽑도록 했다. 그다음 깊이를 늘렸으며, 최신 요청은 실제 칼날의 절반 정도가 몸 안에 묻히도록 하는 것이다. 현재 구현 값과 검증 상태는 아래를 따른다.
+2026-09-19 후속 요청: **찌를 자세 잡기 → 첫 찌르기 → 더 깊게 밀어 넣기 → 검 뽑기**가 구분되는 동작으로 다듬는다. 이후 요청으로 찌르기 전 멈춤을 없앴다. 후속 요청에 따라 첫 찌르기는 조용히 받아들이고, 깊게 밀어 넣을 때 크게 움찔한 뒤 잠시 기다렸다가 칼을 뽑도록 했다. 그다음 실제 칼날의 절반 정도가 몸 안에 묻히도록 깊이를 늘렸다. 최신 요청은 검이 몸에서 빠져나오는 순간에 사망 랙돌을 시작하는 것이다. 현재 구현 값과 검증 상태는 아래를 따른다.
 
-Follow-up request, 2026-09-19: distinguish **preparing the stab → first thrust → deeper push → withdrawal**. A subsequent request removed the pause before the thrust. A follow-up kept the first stab quiet, added a pronounced flinch on the deeper push and held briefly before withdrawal. Depth was then increased; the latest request is to bury approximately half of the actual blade inside the body. Current implementation values and validation status are recorded below.
+Follow-up request, 2026-09-19: distinguish **preparing the stab → first thrust → deeper push → withdrawal**. A subsequent request removed the pause before the thrust. A follow-up kept the first stab quiet, added a pronounced flinch on the deeper push and held briefly before withdrawal. Depth was then increased to bury approximately half the actual blade. The latest request starts death ragdoll when the blade leaves the body. Current implementation values and validation status are recorded below.
 
 ## 조작과 조건 / Input and eligibility
 
 - 검을 든 상태에서 가까운 포복 크리프의 몸통을 바라보고 **LMB를 0.4초 이상 누른 뒤 놓는다**. 짧게 누르면 기존 일반 공격이다.
 - 실제 다리 절단 후 랙돌 착지·안정과 포복 회복을 마친 살아 있는 크리프가 대상이다. 포복 크리프는 낮은 체력이나 저스트 가드 경직을 별도로 요구하지 않는다. 떨어지거나 자세를 회복 중일 때, 죽은 상태, 거리·시야·장애물 조건을 벗어나면 시작하지 않는다.
 - 검과 방패를 함께 들거나 `1`번으로 방패를 수납한 상태 모두 같은 아래 방향 찌르기를 사용한다. 다른 적과 무기, 기존 일반 공격·서 있는 적 처형 조건은 유지한다.
-- 첫 얕은 찌르기에서는 대상을 유지하고, 더 깊이 밀어 넣는 결정타 시점에 한 번만 실제 치명타와 기존 처치 보상을 처리한다. 시체는 기존 랙돌로 이어진다. 동작 중 피해·장비 변경·대상 소멸·새 장애물 등으로 취소되면 예약 치명타가 나중에 발생하지 않는다.
+- 첫 얕은 찌르기에서는 대상을 유지하고, 더 깊이 밀어 넣는 결정타 시점에 한 번만 실제 치명타와 기존 처치 보상을 처리한다. 치명타 뒤에는 시체 자세를 유지하고 검이 몸에서 빠질 때 사망 랙돌을 시작한다. 치명타 전에 취소되면 예약 피해가 나중에 발생하지 않는다. 치명타 뒤 취소되면 사망은 유지하고 즉시 랙돌을 시작해 시체가 고정된 채 남지 않는다.
 
-With a sword drawn, aim at a nearby crawling Creep's torso, hold LMB for at least 0.4 seconds and release. Short clicks remain ordinary attacks. A living leg-severed Creep must finish its physical landing and prone recovery; no additional low-health or stagger requirement applies. Falling/recovering, dead, distant or obstructed targets remain invalid. The same downward stab works with a carried or stowed shield. The first shallow stab keeps the target alive; the deeper finishing push uses one production death/reward event and the existing ragdoll. Cancellation cannot leave a delayed lethal hit.
+With a sword drawn, aim at a nearby crawling Creep's torso, hold LMB for at least 0.4 seconds and release. Short clicks remain ordinary attacks. A living leg-severed Creep must finish its physical landing and prone recovery; no additional low-health or stagger requirement applies. Falling/recovering, dead, distant or obstructed targets remain invalid. The same downward stab works with a carried or stowed shield. The first shallow stab keeps the target alive; the deeper finishing push commits one production death/reward event, holds the corpse pose, then starts ragdoll when the blade leaves the body. Cancellation before impact cannot leave a delayed lethal hit; cancellation after impact preserves death and immediately releases the held corpse into ragdoll.
 
 ## 접근과 찌르기 / Approach and stab
 
@@ -28,8 +28,8 @@ With a sword drawn, aim at a nearby crawling Creep's torso, hold LMB for at leas
 | 찌를 자세 잡기 / Prepare | 0–0.30초에 접근하며 몸통을 겨냥하고 멈춤 없이 첫 찌르기로 연결 / Approach and aim during 0–0.30s, continuing into the thrust without a hold |
 | 첫 찌르기 / Initial stab | 0.30–0.58초에 약 4.5cm 넣고 0.68초까지 유지 / Enter approximately 4.5cm during 0.30–0.58s, hold until 0.68s |
 | 깊게 밀기 / Deeper push | 0.68–1.02초에 실측 칼날의 55%(현재 약 57.5cm)까지 밀고, 1.02초에 한 번만 결정타 처리 / Push to 55% of measured blade length (currently about 57.5cm) during 0.68–1.02s; commit one lethal hit at 1.02s |
-| 결정타 후 유지 / Hold after finishing contact | 1.02–1.46초에 깊은 찌르기 위치를 0.44초 유지 / Hold the deeper stab position for 0.44s during 1.02–1.46s |
-| 검 뽑기 / Withdraw | 1.46–1.86초에 찌른 축을 따라 빼고 2.24초까지 준비 위치로 복귀 / Withdraw along the thrust axis during 1.46–1.86s, return to ready by 2.24s |
+| 결정타 후 유지 / Hold after finishing contact | 1.02–1.46초에 검을 깊은 위치에서 0.44초 유지하며 사망한 몸의 자세도 고정 / Hold the blade at depth for 0.44s during 1.02–1.46s; keep the defeated body pose fixed |
+| 검 뽑기 / Withdraw | 1.46–1.86초에 같은 축을 따라 빼며, 칼끝이 피부 진입점보다 1cm 밖으로 나오면 랙돌 시작(현재 약 1.70초). 2.24초까지 준비 위치로 복귀 / Extract along the same axis during 1.46–1.86s; start ragdoll once the tip is 1cm outside the skin-entry anchor (currently about 1.70s), returning to ready by 2.24s |
 
 시작할 때 현재 자세의 실제 피부가 적용된 몸통 삼각형에서 접촉 지점을 한 번 구하며, 검과 몸통이 같은 월드 깊이를 사용해 들어간 칼끝은 피부에 가려진다. 첫 찌르기·깊은 밀기·회수는 같은 축을 사용한다. 손은 기존 검 파지 위치를 유지하며 실제 팔 길이는 상완 0.34m·전완 0.26m를 보존한다. 위 깊이는 모션의 목표 값이며 실제 피부 가림·팔 자세·침투 깊이는 개정별 검수 기록으로 구분한다.
 
@@ -41,9 +41,19 @@ Deep penetration now uses **55% of actual source blade length** rather than a fi
 
 ## 찔림 반응 / Contact reaction
 
-첫 얕은 찌르기에는 움찔 반응을 주지 않는다. 깊게 밀어 넣는 도중인 0.88초부터 가슴·머리 반응이 시작되어 1.02초 결정타에서 최대가 된다. 제작값은 가슴 14°·머리 20°이며, 이를 적용한 마지막 자세를 사망 랙돌로 넘긴다. 반응은 찌른 접촉점을 중심으로 상체에 적용하며 루트·골반·다리는 유지한다. 검은 결정타 뒤 0.44초 동안 깊은 위치에 머문 다음 찌른 축을 따라 빠진다. 첫 찌르기는 비치명 단계이고 사망·보상은 깊은 결정타에서 한 번만 발생한다. 처형 전 LMB 0.4초 입력 조건과 준비 후 멈추지 않고 찌르는 연결은 유지한다.
+첫 얕은 찌르기에는 움찔 반응을 주지 않는다. 깊게 밀어 넣는 도중인 0.88초부터 가슴·머리 반응이 시작되어 1.02초 결정타에서 최대가 된다. 제작값은 가슴 14°·머리 20°이며, 이를 적용한 마지막 자세를 사망 이후에도 유지한다. 발검 중 칼끝이 빠질 때 그 자세를 사망 랙돌로 넘긴다. 반응은 찌른 접촉점을 중심으로 상체에 적용하며 루트·골반·다리는 유지한다. 검은 결정타 뒤 0.44초 동안 깊은 위치에 머문 다음 찌른 축을 따라 빠진다. 첫 찌르기는 비치명 단계이고 사망·보상은 깊은 결정타에서 한 번만 발생한다. 처형 전 LMB 0.4초 입력 조건과 준비 후 멈추지 않고 찌르는 연결은 유지한다.
 
-The first shallow stab has no flinch. Recoil starts at 0.88s during the deeper push and peaks at the 1.02s finishing contact. Production angles are 14° for the chest and 20° for the head; that final reaction pose transfers into death ragdoll. Upper-body recoil pivots around the stab contact while the root, pelvis and legs remain fixed. The blade holds at the deeper position for 0.44s after finishing contact, then withdraws along the thrust axis. The first stab stays nonlethal, with one death/reward event on the deeper strike. The 0.4-second LMB requirement and continuous preparation-to-thrust transition remain.
+The first shallow stab has no flinch. Recoil starts at 0.88s during the deeper push and peaks at the 1.02s finishing contact. Production angles are 14° for the chest and 20° for the head. The final reaction pose stays fixed after defeat and transfers into death ragdoll only when the blade clears the body during withdrawal. Upper-body recoil pivots around the stab contact while the root, pelvis and legs remain fixed. The blade holds at the deeper position for 0.44s after finishing contact, then withdraws along the thrust axis. The first stab stays nonlethal, with one death/reward event on the deeper strike. The 0.4-second LMB requirement and continuous preparation-to-thrust transition remain.
+
+## 검이 빠질 때 랙돌 시작 / Release ragdoll when the blade clears
+
+1.02초 결정타에서 체력·사망·처치 보상은 한 번만 처리한다. 이후 `execution_hold` 상태에서는 그 골격 자세를 유지하고 아직 물리 몸체를 만들지 않는다. 검은 1.46초부터 빠지기 시작하며, 칼끝의 실제 위치가 시작 때 구한 피부 진입점보다 찌른 축 반대 방향으로 1cm 밖에 도달하면 즉시 `simulating`으로 넘어간다. 현재 검 길이·동작에서는 약 1.70초이며 고정 타이머만으로 판정하지 않는다. 랙돌 앞에 별도 0.18초 반응을 덧붙이지 않고, 그 순간의 자세에서 중력으로 무너진다.
+
+취소·장비 교체·플레이어 사망 또는 제거로 동작이 중단되면 사망한 대상의 고정을 즉시 풀어 영구 정지를 막는다. 이미 처리한 사망과 보상은 반복하지 않는다. 대상 자체가 장면 트리에서 분리되면 유효한 물리 월드가 없으므로 해제를 예약하고, 다시 들어온 첫 물리 프레임에 랙돌을 시작한다. 삭제 예약된 대상은 물리 몸체를 만들지 않고 정리한다. `F2` 일시정지는 취소가 아니며, 발검 시간·유지 자세와 랙돌 시작 판정을 함께 멈추고 같은 시점에서 재개한다.
+
+The 1.02-second finishing contact commits health, defeat and reward once. During `execution_hold`, the skeleton retains that pose and no physical bodies exist yet. Extraction begins at 1.46s; once the actual tip position reaches 1cm outside the original skin-entry anchor along the withdrawal axis, the corpse immediately enters `simulating`. This occurs around 1.70s for the current blade and motion and is not decided by a fixed timer alone. No additional 0.18-second reaction precedes physics; gravity collapses the body from its held pose.
+
+Cancellation, equipment changes or player death/removal immediately release a defeated held target, preventing a permanently frozen corpse. Defeat and reward are not repeated. If the target itself is detached from the scene tree, release remains pending until the first physics tick after re-entry, since no valid physics world exists while detached. A target queued for deletion is cleaned up without creating physical bodies. F2 pause is not cancellation: it freezes extraction time, the held pose and release evaluation, then resumes from the same point.
 
 ## 테스트룸 / Test room
 
@@ -55,7 +65,13 @@ Both F2 entries prepare a fresh actual Creep, sword/shield and healed player. Or
 
 ## 검증 / Validation
 
-### 현재 칼날 55% 깊이 개정 / Current 55%-of-blade penetration
+### 현재 발검 시점 랙돌 개정 / Current blade-clear ragdoll revision
+
+칼날 55% 깊이, 1.02초의 단일 사망·보상, 검의 0.44초 깊은 유지와 전체 2.24초는 유지한다. 랙돌만 칼끝이 원래 피부 진입점에서 1cm 빠져나오는 실제 위치로 지연한다. 새 포복 처형·F2 시험과 기존 일반 사망 랙돌·서 있는 적 처형 회귀의 자동 검사 **4종을 통과**했다. 최종 포복·F2 실행 로그의 엔진 오류는 0이며, 실제 대상 분리·재진입의 예약 해제 검사도 통과했다. 실제 GPU `withdraw_ragdoll_20260919_01`은 manifest 실패 없이 **960×540·30fps·18초·540프레임·PNG 48장**을 기록했다. 세 사례 모두 칼끝이 실제 피부 진입점 밖으로 나온 **1.70초**에 바로 `simulating`을 시작했고, 그 첫 표본의 이탈 거리는 1.80cm였다(판정 기준은 1cm). 추가 반응 지연은 0이며, 시작 0.15초 뒤 몸통 이동은 약 22.14cm다. 1인칭·측면에서 유지→칼끝 이탈→낙하를 직접 검토했다. MP4 인코딩과 전체 540프레임 디코딩을 통과했고 18초·30fps·960×540의 무음 영상과 원본 파일 16개의 해시 보존을 확인했다. 이전 칼날 절반 버전의 결과와 구분한다. 영상 경로는 `artifacts/validation/creep_execution_withdraw_ragdoll_20260919/creep_execution_withdraw_ragdoll.mp4`다. GitHub 상태는 최종 게시 기록을 따르며 경사·계단·다른 적 크기는 미확인이다.
+
+The revision retains 55% blade penetration, one defeat/reward at 1.02s, the 0.44-second blade hold and the 2.24-second total. Only ragdoll release waits for the actual tip to clear the original skin-entry anchor by 1cm. **Four automated suites passed:** the updated crawler execution/F2 trial and existing ordinary death-ragdoll/standing-execution regressions. Final crawler/trial runs have zero engine errors; real target detachment/re-entry with deferred release also passed. Actual GPU `withdraw_ragdoll_20260919_01` has no manifest failures and records **960×540, 30fps, 18 seconds, 540 frames and 48 PNGs**. All three cases immediately enter `simulating` at **1.70s**, after the actual tip clears the skin-entry anchor; the first recorded clearance is 1.80cm against the 1cm threshold. Added reaction delay is zero, and core-body movement is approximately 22.14cm after 0.15s. First-person and side views of hold→blade clearance→fall were directly inspected. MP4 encoding and full 540-frame decoding passed, confirming an 18-second, 30fps, 960×540 silent video and preservation of sixteen source-file hashes. Previous half-blade validation remains separate. The video path is `artifacts/validation/creep_execution_withdraw_ragdoll_20260919/creep_execution_withdraw_ragdoll.mp4`. GitHub status follows the final publication record; slopes, stairs and differently sized enemies remain unverified.
+
+### 이전 칼날 55% 깊이 검수 / Previous 55%-of-blade penetration validation
 
 최종 구현은 칼날 약 1.045m의 55%인 **0.57475m**, 접근 목표 **0.84m**, 기존 접근 속도 2.8m/s다. 깊게 밀 때 상체를 숙이며 기존 팔 길이를 유지한다. 첫 찌르기 4.5cm, 가슴 14°·머리 20° 반응, 결정타 뒤 0.44초 유지와 전체 2.24초는 보존한다. 최종 코드의 `creep_execution`, `creep_execution_trial` **2종을 통과**했고, 같은 작업에서 기존 `sword_shield_execution` 회귀 검사도 통과했다.
 

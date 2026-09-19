@@ -1,13 +1,13 @@
 extends "res://tests/creep_ragdoll_preview.gd"
-## Shallow stab, one strong deep-push recoil, buried hold and withdrawal at 60 Hz.
+## Deep stab holds the corpse until the actual blade tip clears the entry skin.
 ## Observer views are separate runtime repeats, never a composited first-person hand.
 const ARMS := preload("res://tests/player_arm_preview.gd")
 const STAB_MOTION := preload("res://scripts/creep_execution_motion.gd")
 const OUTPUT := "res://artifacts/visual_qa/creep_execution"
 const EXECUTION_CASES := [
-	{"id": "left_leg_first_person", "legs": ["left_leg"], "observer": false, "title": "한 다리 · 칼날 절반 이상 깊게 찌르기 → 유지 → 뽑기"},
-	{"id": "left_leg_side_repeat", "legs": ["left_leg"], "observer": true, "title": "측면 재실행 · 칼날 절반 이상 삽입과 몸통 접촉 확인"},
-	{"id": "both_legs_first_person", "legs": ["left_leg", "right_leg"], "observer": false, "title": "양다리 · 칼날 절반 이상 깊게 찌르기 → 유지 → 뽑기"},
+	{"id": "left_leg_first_person", "legs": ["left_leg"], "observer": false, "title": "한 다리 · 깊게 찌르기 → 몸 고정 → 검이 빠지며 쓰러짐"},
+	{"id": "left_leg_side_repeat", "legs": ["left_leg"], "observer": true, "title": "측면 재실행 · 검이 빠지는 순간 랙돌 시작"},
+	{"id": "both_legs_first_person", "legs": ["left_leg", "right_leg"], "observer": false, "title": "양다리 · 깊게 찌르기 → 몸 고정 → 검이 빠지며 쓰러짐"},
 ]
 const EXECUTION_SOURCES := [
 	"res://scripts/player.gd", "res://scripts/enemy.gd", "res://scripts/creep_enemy.gd",
@@ -29,6 +29,8 @@ class ActionDriver extends Node:
 	var contact: Dictionary = {}
 	var stage_snapshots: Dictionary = {}
 	var premature_death := false
+	var predicted_release_seconds := -1.0
+	var release_transition: Dictionary = {}
 	var stage_times := {
 		"prepare_end": STAB_MOTION.PREPARE_END,
 		"pre_contact": STAB_MOTION.FIRST_IMPACT_SECONDS - 1.0 / 30.0,
@@ -52,6 +54,7 @@ class ActionDriver extends Node:
 		if tick == 71:
 			player.attack_release_requested = true
 		var had_hit: bool = player._execution_hit_committed
+		var held_before: Dictionary = capture_physics_state() if actor.ragdoll.phase == "execution_hold" else {}
 		player.advance_combat_state(delta)
 		player.advance_movement(delta, Vector2.ZERO, false)
 		if actor.ai_state == DungeonEnemy.AIState.EXECUTION:
@@ -59,6 +62,10 @@ class ActionDriver extends Node:
 		player._update_viewmodel(delta)
 		player.viewmodel_renderer.sync_view()
 		reserved = reserved or player.is_execution_active()
+		if reserved and predicted_release_seconds < 0.0:
+			configure_release_capture(float(player.get_execution_snapshot().penetration_m))
+		if not held_before.is_empty() and actor.ragdoll.phase != "execution_hold" and release_transition.is_empty():
+			release_transition = {"before": held_before, "after": capture_physics_state()}
 		if reserved and player.execution_elapsed < STAB_MOTION.HIT_SECONDS - .00001 and actor.health <= 0:
 			premature_death = true
 		if reserved:
@@ -67,11 +74,33 @@ class ActionDriver extends Node:
 					var snap := player.get_execution_snapshot()
 					var tip_offset: Vector3 = snap.blade_tip - snap.contact_point
 					var axis_depth: float = tip_offset.dot(player._execution_stab_direction)
-					stage_snapshots[stage_id] = {"tick": tick, "requested_seconds": stage_times[stage_id], "snapshot": snap, "health": actor.health, "ragdoll_phase": actor.ragdoll.phase, "axis_depth_m": axis_depth, "axis_offset_m": (tip_offset - player._execution_stab_direction * axis_depth).length(), "actual_blade": capture_blade_geometry(snap.contact_point, player._execution_stab_direction), "arm_joints": player.get_first_person_motion_snapshot().get("joint_landmarks", {}), "reaction": actor.get_crawl_execution_reaction_snapshot(), "bone_world": capture_bone_world(), "creature_root": actor.global_transform}
+					stage_snapshots[stage_id] = {"tick": tick, "requested_seconds": stage_times[stage_id], "snapshot": snap, "health": actor.health, "ragdoll_phase": actor.ragdoll.phase, "ragdoll": actor.ragdoll.snapshot(), "axis_depth_m": axis_depth, "axis_offset_m": (tip_offset - player._execution_stab_direction * axis_depth).length(), "actual_blade": capture_blade_geometry(snap.contact_point, player._execution_stab_direction), "arm_joints": player.get_first_person_motion_snapshot().get("joint_landmarks", {}), "reaction": actor.get_crawl_execution_reaction_snapshot(), "bone_world": capture_bone_world(), "creature_root": actor.global_transform}
 		if player._execution_hit_committed and not had_hit:
 			contact = {"tick": tick, "snapshot": player.get_execution_snapshot(), "creature": actor.get_creep_snapshot(), "hands": player.get_first_person_motion_snapshot()}
 		if tick >= 360:
 			set_physics_process(false)
+
+	func configure_release_capture(penetration: float) -> void:
+		# Independently invert the cubic smoothstep used for extraction. Schedule
+		# the before-image two physics ticks early so a 30 Hz render cannot cross
+		# the release boundary while presenting itself as the "before" image.
+		var fraction := (penetration + STAB_MOTION.WITHDRAW_CLEARANCE) / (penetration + .34)
+		var low := 0.0
+		var high := 1.0
+		for iteration in 24:
+			var middle := (low + high) * .5
+			var smooth_fraction := middle * middle * (3.0 - 2.0 * middle)
+			if smooth_fraction < fraction: low = middle
+			else: high = middle
+		predicted_release_seconds = lerpf(STAB_MOTION.WITHDRAW_START, STAB_MOTION.WITHDRAW_END, (low + high) * .5)
+		var release_tick := ceilf(predicted_release_seconds * 60.0)
+		stage_times["blade_exit_before"] = (release_tick - 2.0) / 60.0
+		stage_times["blade_exit"] = release_tick / 60.0
+		stage_times["ragdoll_motion"] = release_tick / 60.0 + .15
+
+	func capture_physics_state() -> Dictionary:
+		var snap := player.get_execution_snapshot()
+		return {"tick": tick, "snapshot": snap, "health": actor.health, "ragdoll": actor.ragdoll.snapshot(), "bone_world": capture_bone_world(), "creature_root": actor.global_transform, "actual_blade": capture_blade_geometry(snap.contact_point, player._execution_stab_direction)}
 
 	func capture_bone_world() -> Dictionary:
 		var poses := {}
@@ -242,7 +271,7 @@ func _run() -> void:
 				for stage_id: String in pending_stages:
 					var filename: String = "%s_stage_%s.png" % [scenario.id, stage_id]
 					_check(rendered.save_png(directory.path_join(filename)) == OK, "actual GPU phase saved: " + stage_id)
-					stage_stills[stage_id] = {"file": filename, "global_frame": frame_number, "case_frame": frame, "physics_tick": driver.tick, "render_execution_seconds": player.execution_elapsed, "health": actor.health, "reaction": actor.get_crawl_execution_reaction_snapshot(), "bone_world": driver.capture_bone_world()}
+					stage_stills[stage_id] = {"file": filename, "global_frame": frame_number, "case_frame": frame, "physics_tick": driver.tick, "render_execution_seconds": player.execution_elapsed, "health": actor.health, "ragdoll_phase": actor.ragdoll.phase, "reaction": actor.get_crawl_execution_reaction_snapshot(), "bone_world": driver.capture_bone_world()}
 			records.append({"frame": frame_number, "case": scenario.id, "case_frame": frame, "physics_tick": driver.tick, "execution": player.get_execution_snapshot(), "reaction": actor.get_crawl_execution_reaction_snapshot(), "bone_world": driver.capture_bone_world(), "health": actor.health, "ragdoll_phase": actor.ragdoll.phase, "player_position": player.position, "creature_root": actor.global_transform, "chest": actor.get_aim_point(), "camera": viewport.get_camera_3d().global_transform})
 			frame_number += 1
 		_check(driver.began and driver.reserved, scenario.id + ": actual attack charge/release enters execution")
@@ -287,7 +316,7 @@ func _run() -> void:
 			_check(absf(float(full_depth.actual_blade.axis_depth_m) - float(full_depth.axis_depth_m)) < .002, scenario.id + ": displayed blade tip agrees with the gameplay contact snapshot")
 			_check(float(driver.stage_snapshots.deepest.axis_offset_m) < .005, scenario.id + ": deeper tip follows the same stab axis")
 			_check(float(driver.stage_snapshots.deepest.health) == 0, scenario.id + ": full depth commits death")
-			_check(float(driver.stage_snapshots.deepest.reaction.get("deep_weight", 0.0)) > .5, scenario.id + ": deeper push produces recoil before the death ragdoll")
+			_check(float(driver.stage_snapshots.deepest.reaction.get("deep_weight", 0.0)) > .5, scenario.id + ": deeper push produces recoil before the held death pose")
 		for full_depth_id: String in ["deepest", "buried_hold_mid", "buried_hold_end"]:
 			if driver.stage_snapshots.has(full_depth_id):
 				var actual: Dictionary = driver.stage_snapshots[full_depth_id].actual_blade
@@ -297,6 +326,44 @@ func _run() -> void:
 				var held_depth: Dictionary = driver.stage_snapshots[hold_id]
 				_check(absf(float(held_depth.axis_depth_m) - float(held_depth.actual_blade.length_m) * STAB_MOTION.PENETRATION_RATIO) < .015, scenario.id + ": sword stays at full depth during " + hold_id)
 				_check(float(driver.stage_snapshots[hold_id].axis_offset_m) < .005, scenario.id + ": deep hold preserves the stab axis during " + hold_id)
+		for held_id: String in ["deepest", "buried_hold_mid", "buried_hold_end", "withdraw", "blade_exit_before"]:
+			if driver.stage_snapshots.has(held_id) and driver.stage_snapshots.has("deepest"):
+				var held_pose: Dictionary = driver.stage_snapshots[held_id]
+				_check(held_pose.ragdoll_phase == "execution_hold" and bool(held_pose.ragdoll.get("execution_held", false)), scenario.id + ": corpse remains held until blade exit at " + held_id)
+				_check(int(held_pose.ragdoll.bodies) == 0, scenario.id + ": no simulated corpse bodies before blade exit at " + held_id)
+				for bone_name: String in ["Head", "Chest"]:
+					var hit_pose: Transform3D = driver.stage_snapshots.deepest.bone_world[bone_name]
+					var later_pose: Transform3D = held_pose.bone_world[bone_name]
+					_check(hit_pose.is_equal_approx(later_pose), scenario.id + ": actual " + bone_name + " stays at the deep-hit pose until blade exit at " + held_id)
+		_check(not driver.release_transition.is_empty(), scenario.id + ": actual hold-to-physics transition recorded")
+		if not driver.release_transition.is_empty():
+			var before_release: Dictionary = driver.release_transition.before
+			var after_release: Dictionary = driver.release_transition.after
+			_check(float(before_release.actual_blade.axis_depth_m) > -STAB_MOTION.WITHDRAW_CLEARANCE - .0001, scenario.id + ": previous physics tick still has blade inside clearance")
+			_check(float(after_release.actual_blade.axis_depth_m) <= -STAB_MOTION.WITHDRAW_CLEARANCE + .0001, scenario.id + ": physics starts after the displayed tip clears the skin")
+			_check(after_release.ragdoll.phase == "simulating" and int(after_release.ragdoll.bodies) > 0, scenario.id + ": blade exit starts real rigid bodies without another reaction delay")
+			_check(not bool(after_release.ragdoll.get("execution_held", true)), scenario.id + ": corpse hold released")
+			_check(not str(after_release.ragdoll.get("execution_release_reason", "")).is_empty(), scenario.id + ": release reason recorded")
+			_check(absf(float(after_release.snapshot.elapsed) - driver.predicted_release_seconds) <= 1.0 / 60.0 + .002, scenario.id + ": release matches independent smoothstep crossing within one physics tick")
+			if driver.stage_snapshots.has("ragdoll_motion"):
+				var moving: Dictionary = driver.stage_snapshots.ragdoll_motion
+				var max_body_displacement := 0.0
+				for body_name: String in ["Torso", "Chest", "Head"]:
+					if after_release.ragdoll.positions.has(body_name) and moving.ragdoll.positions.has(body_name):
+						var start_position: Vector3 = after_release.ragdoll.positions[body_name]
+						var moved_position: Vector3 = moving.ragdoll.positions[body_name]
+						max_body_displacement = maxf(max_body_displacement, start_position.distance_to(moved_position))
+				moving["max_core_body_displacement_m"] = max_body_displacement
+				_check(max_body_displacement > .003, scenario.id + ": actual corpse rigid bodies move after blade exit")
+				var changed_bones := 0
+				for bone_name: String in ["Head", "Chest"]:
+					var start_pose: Transform3D = after_release.bone_world[bone_name]
+					var moving_pose: Transform3D = moving.bone_world[bone_name]
+					if not start_pose.is_equal_approx(moving_pose): changed_bones += 1
+				_check(changed_bones > 0, scenario.id + ": actual displayed skeleton follows the released physics")
+		if stage_stills.has("blade_exit_before") and stage_stills.has("blade_exit"):
+			_check(stage_stills.blade_exit_before.ragdoll_phase == "execution_hold", scenario.id + ": before-exit GPU image is rendered before physical release")
+			_check(stage_stills.blade_exit.ragdoll_phase == "simulating", scenario.id + ": exit GPU image renders the released ragdoll")
 		if driver.stage_snapshots.has("withdraw_end"):
 			_check(float(driver.stage_snapshots.withdraw_end.axis_depth_m) < -.25, scenario.id + ": blade exits after the buried hold")
 		if not driver.contact.is_empty():
@@ -305,7 +372,7 @@ func _run() -> void:
 			_check(bool(actor.get_meta("execution_contact_on_skin", false)), scenario.id + ": rendered torso triangles own the stab point")
 		_check(not player.is_execution_active(), scenario.id + ": weapon recovers after execution")
 		_check(actor.ragdoll.phase in ["simulating", "settled"], scenario.id + ": actual corpse physics active")
-		outcomes.append({"case": scenario.id, "observer_repeat": scenario.observer, "fall_setup_phases": setup_phases, "phase_times": driver.stage_times, "phase_snapshots": driver.stage_snapshots, "phase_stills": stage_stills, "contact": driver.contact, "defeats": driver.defeats, "premature_death": driver.premature_death, "final_ragdoll": actor.ragdoll.snapshot(), "hands": player.get_first_person_motion_snapshot()})
+		outcomes.append({"case": scenario.id, "observer_repeat": scenario.observer, "fall_setup_phases": setup_phases, "phase_times": driver.stage_times, "phase_snapshots": driver.stage_snapshots, "phase_stills": stage_stills, "contact": driver.contact, "predicted_release_seconds": driver.predicted_release_seconds, "release_transition": driver.release_transition, "defeats": driver.defeats, "premature_death": driver.premature_death, "final_ragdoll": actor.ragdoll.snapshot(), "hands": player.get_first_person_motion_snapshot()})
 		player.cancel_sword_attack()
 		viewport.queue_free()
 		await process_frame
@@ -319,7 +386,7 @@ func _run() -> void:
 	for path: String in hashes: _check(hashes[path] == FileAccess.get_sha256(path), "source unchanged: " + path)
 	var output := FileAccess.open(directory.path_join("manifest.json"), FileAccess.WRITE)
 	if output:
-		output.store_string(JSON.stringify(_json_safe({"fps": 30, "physics_hz": 60, "resolution": [960, 540], "stills_only": stills_only, "duration_seconds": 18.0, "execution_seconds": STAB_MOTION.DURATION, "first_contact_seconds": STAB_MOTION.FIRST_IMPACT_SECONDS, "lethal_contact_seconds": STAB_MOTION.HIT_SECONDS, "buried_hold_seconds": STAB_MOTION.WITHDRAW_START - STAB_MOTION.HIT_SECONDS, "shallow_penetration_target_m": STAB_MOTION.SHALLOW_PENETRATION, "deep_penetration_ratio_target": STAB_MOTION.PENETRATION_RATIO, "approach_contact_distance_m": STAB_MOTION.CONTACT_DISTANCE, "depth_measurement": "Independently rescan the displayed blade vertices in world space, measure their axial length and divide actual tip-to-entry-anchor depth by that length. The anchor is sampled from rendered torso triangles. This confirms insertion past the entry skin, not containment inside the far skin surface; inspect the actual side view.", "capture_scope": "Actual production shallow stab without recoil, deeper push beyond half the measured blade, full-depth hold, withdrawal and ragdoll death in an isolated GPU scene; side angle is a separate runtime repeat.", "input_scope": "Production gameplay APIs at 60 Hz; no OS keyboard/mouse/focus, no desktop capture or audible playback.", "source_sha256": hashes, "outcomes": outcomes, "frames": records, "failures": failures}), "\t"))
+		output.store_string(JSON.stringify(_json_safe({"fps": 30, "physics_hz": 60, "resolution": [960, 540], "stills_only": stills_only, "duration_seconds": 18.0, "execution_seconds": STAB_MOTION.DURATION, "first_contact_seconds": STAB_MOTION.FIRST_IMPACT_SECONDS, "lethal_contact_seconds": STAB_MOTION.HIT_SECONDS, "buried_hold_seconds": STAB_MOTION.WITHDRAW_START - STAB_MOTION.HIT_SECONDS, "ragdoll_tip_clearance_m": STAB_MOTION.WITHDRAW_CLEARANCE, "shallow_penetration_target_m": STAB_MOTION.SHALLOW_PENETRATION, "deep_penetration_ratio_target": STAB_MOTION.PENETRATION_RATIO, "approach_contact_distance_m": STAB_MOTION.CONTACT_DISTANCE, "depth_measurement": "Independently rescan the displayed blade vertices in world space, measure their axial length and divide actual tip-to-entry-anchor depth by that length. The anchor is sampled from rendered torso triangles. This confirms insertion past the entry skin, not containment inside the far skin surface; inspect the actual side view.", "capture_scope": "Actual production shallow stab without recoil, deeper push beyond half the measured blade, held death pose until the displayed tip clears the skin, then immediate rigid-body ragdoll physics in an isolated GPU scene; side angle is a separate runtime repeat.", "input_scope": "Production gameplay APIs at 60 Hz; no OS keyboard/mouse/focus, no desktop capture or audible playback.", "source_sha256": hashes, "outcomes": outcomes, "frames": records, "failures": failures}), "\t"))
 	else: _check(false, "manifest saved")
 	print("CREEP EXECUTION PREVIEW %s: %s" % ["PASS" if failures.is_empty() else "FAIL", directory])
 	quit(0 if failures.is_empty() else 1)

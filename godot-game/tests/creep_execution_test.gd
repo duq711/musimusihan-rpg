@@ -42,6 +42,7 @@ func _run() -> void:
 		if legs.size() == 1 and legs[0] == "left_leg":
 			await _gates_and_interruptions()
 		await _complete_stab(legs)
+	await _held_corpse_cleanup_regressions()
 	player.cancel_sword_attack()
 	view.queue_free()
 	await process_frame
@@ -55,7 +56,7 @@ func _run() -> void:
 	file.store_string(JSON.stringify({"cases": report, "failures": failures}, "\t") + "\n")
 	for failure in failures:
 		push_error("CREEP EXECUTION TEST FAIL: " + failure)
-	print("CREEP EXECUTION TEST %s: actual severance/grounded recovery, charge, immediate thrust, one strong deep-contact flinch, buried hold, planted pelvis/legs, one contact kill, missing limbs, ragdoll, cancellation, renderer/session restoration" % ("PASS" if failures.is_empty() else "FAIL"))
+	print("CREEP EXECUTION TEST %s: actual severance/grounded recovery, charge, immediate thrust, one strong deep-contact flinch, buried hold, planted pelvis/legs, one contact kill, missing limbs, blade-clear ragdoll release, cancellation, renderer/session restoration" % ("PASS" if failures.is_empty() else "FAIL"))
 	quit(0 if failures.is_empty() else 1)
 
 
@@ -399,15 +400,12 @@ func _complete_stab(legs: Array) -> void:
 	# after actual production movement, avoiding a fabricated headless approach.
 	_check(blade_tip.y < initial_tip.y - .025 and (blade_tip - initial_tip).slide(stab_axis).length() < .02, "lethal extra push travels down along the same insertion axis")
 	_check(actor.health == 0 and actor.ai_state == DungeonEnemy.AIState.DEAD and defeats == 1, "deep contact emits one lethal defeat through production death")
-	_check(actor.ragdoll.phase == "reaction" and _poses_close(actor.ragdoll.initial_pose, last_living_pose, .001), "corpse ragdoll begins continuously from the actual final living recoil pose")
+	_check(actor.ragdoll.phase == "execution_hold" and _poses_close(actor.ragdoll.initial_pose, last_living_pose, .001), "lethal contact captures the actual final recoil pose without starting ragdoll physics")
+	_check(actor.ragdoll.parts.is_empty() and bool(actor.ragdoll.snapshot().get("execution_held", false)), "the buried blade holds the dead body before any physical corpse bodies are created")
+	var held_corpse_pose := _bone_poses()
 	_check(not _poses_match(actor.ragdoll.initial_pose, entry), "death does not discard the contact reaction and snap back to the reserved starting pose")
 	_check(actor.dismemberment.severed == missing_before, "execution does not recreate any detached limb")
 	actor.ragdoll.set_physics_process(false)
-	actor.ragdoll._physics_process(actor.ragdoll.REACTION_SECONDS)
-	_check(actor.ragdoll.phase == "simulating" and not actor.ragdoll.temporary, "death enters the existing permanent physical ragdoll")
-	for region: String in legs:
-		for bone: String in PARTS.REGION_BONES[region]:
-			_check(not actor.ragdoll.parts.has(bone), "missing leg has no recreated corpse body: " + bone)
 	var contact_time := player.execution_elapsed
 	var maximum_hold_tip_drift := 0.0
 	var minimum_held_blade_fraction := INF
@@ -428,6 +426,8 @@ func _complete_stab(legs: Array) -> void:
 		_check(held_tip.distance_to(blade_tip) < .002, "actual sword remains buried at its deep world position during the post-impact pause")
 		_check(stab_axis.angle_to(player.weapon_pivot.global_basis.y.normalized()) < deg_to_rad(1.0), "buried pause keeps the sword on its insertion axis")
 		_check(defeats == 1 and actor.health == 0 and bool(held.hit_committed), "post-impact pause cannot repeat the execution kill")
+		actor.ragdoll._physics_process(step)
+		_check(actor.ragdoll.phase == "execution_hold" and actor.ragdoll.parts.is_empty() and _poses_match(held_corpse_pose, _bone_poses()), "deep-contact hold retains the exact flinch pose even when the ragdoll controller ticks")
 	var held_seconds := player.execution_elapsed - contact_time
 	_check(held_seconds > .30 and held_seconds < .80, "deep contact is followed by a short readable hold before actual extraction begins")
 	var withdrawal_start: Dictionary = player.get_execution_snapshot()
@@ -435,6 +435,9 @@ func _complete_stab(legs: Array) -> void:
 	var previous_depth := (previous_tip - skin_point).dot(stab_axis)
 	var maximum_withdrawal_axis_error := 0.0
 	var maximum_withdrawal_rotation := 0.0
+	var release_elapsed := -1.0
+	var release_depth := INF
+	var release_snapshot: Dictionary = {}
 	while player.execution_elapsed < MOTION.WITHDRAW_END - .00001 and player.is_execution_active():
 		var step := minf(.01, MOTION.WITHDRAW_END - player.execution_elapsed)
 		player.advance_execution(step)
@@ -449,9 +452,24 @@ func _complete_stab(legs: Array) -> void:
 		_check(depth <= previous_depth + .002, "withdrawal pulls the actual blade out continuously instead of pushing it back in")
 		_check(tip.distance_to(previous_tip) < .08, "withdrawal has no per-frame blade teleport")
 		_check(defeats == 1 and actor.health == 0 and bool(withdrawal.hit_committed), "withdrawal preserves exactly one committed kill")
+		if actor.ragdoll.phase == "execution_hold":
+			_check(depth > -.011, "corpse hold ends once the real blade tip clears the contact surface")
+			_check(_poses_match(held_corpse_pose, _bone_poses()) and actor.ragdoll.parts.is_empty(), "partial withdrawal retains the held flinch pose while the tip remains in the body")
+		elif release_elapsed < 0:
+			release_elapsed = player.execution_elapsed
+			release_depth = depth
+			release_snapshot = actor.ragdoll.snapshot()
+			_check(actor.ragdoll.phase == "simulating" and not actor.ragdoll.temporary, "blade clearance starts permanent physics directly without a second canned reaction")
+			_check(depth <= -.009 and depth <= skin_entry_depth, "ragdoll starts only after the actual blade tip clears the original posed skin entry")
+			_check(_poses_close(actor.ragdoll.initial_pose, held_corpse_pose, .001), "released ragdoll starts continuously from the flinch pose held during extraction")
+			_check(not bool(release_snapshot.get("execution_held", true)) and not str(release_snapshot.get("execution_release_reason", "")).is_empty(), "ragdoll records one completed blade-clear release")
 		previous_tip = tip
 		previous_depth = depth
 	_check(previous_depth < -.15, "blade is visibly clear of the body before returning to ready")
+	_check(release_elapsed > MOTION.WITHDRAW_START and release_elapsed <= MOTION.WITHDRAW_END, "ragdoll release occurs during actual extraction, after the buried hold")
+	for region: String in legs:
+		for bone: String in PARTS.REGION_BONES[region]:
+			_check(not actor.ragdoll.parts.has(bone), "released corpse does not recreate a missing leg body: " + bone)
 	_check(maximum_withdrawal_axis_error < .02 and maximum_withdrawal_rotation < deg_to_rad(2.0), "blade withdrawal preserves its insertion line and orientation")
 	_check(float(motion_metrics.maximum_tip_step) < .25, "blade does not teleport during preparation and either thrust")
 	player.advance_execution(MOTION.DURATION + 1)
@@ -464,7 +482,55 @@ func _complete_stab(legs: Array) -> void:
 	actor._die()
 	_check(defeats == 1 and not actor.finish_execution(player), "corpse hits and repeated finish/death cannot duplicate rewards")
 	_check(actor.animation_player.get_animation_list() == clips_before, "all imported clips remain unchanged")
-	report.append({"legs": legs, "shield_mode": shield_mode, "maximum_tip_step": motion_metrics.maximum_tip_step, "skin_contact_error": motion_metrics.minimum_skin_error, "first_chest_angle": motion_metrics.first_chest_angle, "first_head_angle": motion_metrics.first_head_angle, "deep_chest_angle": motion_metrics.deep_chest_angle, "deep_head_angle": motion_metrics.deep_head_angle, "reaction_episodes": motion_metrics.reaction_episodes, "buried_hold_seconds": held_seconds, "buried_hold_maximum_tip_drift": maximum_hold_tip_drift, "initial_contact": initial_contact, "initial_depth": initial_depth, "deep_push_depth": final_depth, "posed_torso_penetration": torso_depth, "measured_blade": actual_blade, "mid_push_blade": pushing_blade, "actual_skin_buried_fraction": buried_fraction, "held_blade_fraction_min": minimum_held_blade_fraction, "held_blade_fraction_max": maximum_held_blade_fraction, "deep_contact_arm": contact_joint, "deep_contact_grip": contact_grip, "withdrawal_axis_error": maximum_withdrawal_axis_error, "withdrawal_rotation_error": maximum_withdrawal_rotation, "withdrawal_final_depth": previous_depth, "contact": contact, "defeats": defeats, "missing_parts": missing_before, "ragdoll_bodies": actor.ragdoll.parts.size()})
+	report.append({"legs": legs, "shield_mode": shield_mode, "maximum_tip_step": motion_metrics.maximum_tip_step, "skin_contact_error": motion_metrics.minimum_skin_error, "first_chest_angle": motion_metrics.first_chest_angle, "first_head_angle": motion_metrics.first_head_angle, "deep_chest_angle": motion_metrics.deep_chest_angle, "deep_head_angle": motion_metrics.deep_head_angle, "reaction_episodes": motion_metrics.reaction_episodes, "buried_hold_seconds": held_seconds, "buried_hold_maximum_tip_drift": maximum_hold_tip_drift, "initial_contact": initial_contact, "initial_depth": initial_depth, "deep_push_depth": final_depth, "posed_torso_penetration": torso_depth, "measured_blade": actual_blade, "mid_push_blade": pushing_blade, "actual_skin_buried_fraction": buried_fraction, "held_blade_fraction_min": minimum_held_blade_fraction, "held_blade_fraction_max": maximum_held_blade_fraction, "deep_contact_arm": contact_joint, "deep_contact_grip": contact_grip, "withdrawal_axis_error": maximum_withdrawal_axis_error, "withdrawal_rotation_error": maximum_withdrawal_rotation, "withdrawal_final_depth": previous_depth, "ragdoll_release_elapsed": release_elapsed, "ragdoll_release_tip_depth": release_depth, "ragdoll_release": release_snapshot, "contact": contact, "defeats": defeats, "missing_parts": missing_before, "ragdoll_bodies": actor.ragdoll.parts.size()})
+
+
+func _held_corpse_cleanup_regressions() -> void:
+	for mode: String in ["inventory", "incoming_damage", "equipment", "executor_detached", "executor_dead", "target_detached", "long_tick"]:
+		if not await _prepare_crawler(["left_leg"]): continue
+		_aim_at_crawler("stowed")
+		_check(_charge_release(), "held-corpse cleanup begins a real execution: " + mode)
+		if not player.is_execution_active(): continue
+		player.advance_execution(MOTION.HIT_SECONDS + .01)
+		player._update_viewmodel(0)
+		_check(actor.health == 0 and defeats == 1 and actor.ragdoll.phase == "execution_hold", "cleanup fixture reaches a dead, blade-held creature: " + mode)
+		var held_pose := _bone_poses()
+		var old_parent: Node = player.get_parent()
+		var target_parent: Node = actor.get_parent()
+		match mode:
+			"inventory": player.prepare_for_inventory()
+			"incoming_damage": player.receive_environment_damage(1, "held corpse interruption")
+			"equipment":
+				player.inventory_model.equipment.weapon = "hunting_bow"
+				player.inventory_model.changed.emit()
+				player.advance_execution(.01)
+			"executor_detached":
+				old_parent.remove_child(player)
+				actor.ragdoll._physics_process(.01)
+			"executor_dead":
+				player.health = 0
+				actor.ragdoll._physics_process(.01)
+			"target_detached":
+				target_parent.remove_child(actor)
+				player.cancel_execution()
+				var pending_release: Dictionary = actor.ragdoll.snapshot()
+				_check(actor.ragdoll.parts.is_empty() and actor.ragdoll.phase == "execution_hold" and bool(pending_release.get("execution_release_pending", false)), "detached target defers corpse physics while retaining a pending release")
+				_check(_poses_match(held_pose, _bone_poses()), "off-tree cancellation preserves the held corpse pose")
+				var release_reason := str(pending_release.get("execution_release_reason", ""))
+				_check(not release_reason.is_empty(), "off-tree release keeps its cancellation reason for reattachment")
+				target_parent.add_child(actor)
+				actor.ragdoll._physics_process(.01)
+				_check(not bool(actor.ragdoll.snapshot().get("execution_release_pending", true)) and str(actor.ragdoll.snapshot().get("execution_release_reason", "")) == release_reason, "reattached target consumes the pending release once without losing its reason")
+			"long_tick": player.advance_execution(MOTION.DURATION + 1)
+		_check(actor.ragdoll.phase == "simulating" and not bool(actor.ragdoll.snapshot().get("execution_held", true)), "cleanup cannot leave a corpse permanently held: " + mode)
+		_check(_poses_close(actor.ragdoll.initial_pose, held_pose, .001), "cleanup release preserves the held body pose: " + mode)
+		_check(actor.health == 0 and defeats == 1, "cleanup does not resurrect or reward the held corpse twice: " + mode)
+		if mode == "executor_detached": old_parent.add_child(player)
+		if mode == "executor_dead": player.health = player.MAX_HEALTH
+		player.cancel_execution()
+		actor.receive_hit(1000, player.global_position, 1, false)
+		player.advance_execution(MOTION.DURATION + 1)
+		_check(defeats == 1, "cleanup has no stale delayed defeat: " + mode)
 
 
 func _measure_actual_blade_world(skin_point: Vector3, axis: Vector3) -> Dictionary:

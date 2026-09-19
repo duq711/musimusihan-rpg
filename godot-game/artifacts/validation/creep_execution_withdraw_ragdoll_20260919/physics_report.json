@@ -1,0 +1,474 @@
+{
+	"cases": [
+		{
+			"actual_skin_buried_fraction": 0.554564675508525,
+			"buried_hold_maximum_tip_drift": 0.0000000149011611938477,
+			"buried_hold_seconds": 0.439,
+			"contact": {
+				"active": true,
+				"blade_fraction": 0.55,
+				"blade_length_m": 1.0450000166893,
+				"blade_tip": "(-0.034518, 0.257737, -2.961571)",
+				"contact_error": 0.574750363826752,
+				"contact_point": "(0.054402, 0.540598, -2.469209)",
+				"elapsed": 1.021,
+				"hit_committed": true,
+				"penetration_m": 0.574750009179115,
+				"phase": "포복 처형 · 깊게 찌른 채 유지",
+				"profile": "crawl_stab",
+				"target_id": 109739773339,
+				"world_contact": true
+			},
+			"deep_chest_angle": 0.244308888912201,
+			"deep_contact_arm": {
+				"authored_arm_active": true,
+				"elbow": "(0.178351, 0.964064, -1.777208)",
+				"exact_authored_sample": false,
+				"forearm_length": 0.259999990463257,
+				"shoulder": "(0.225124, 1.054819, -1.4529)",
+				"shoulder_adjustment_m": 0.563207685947418,
+				"upper_length": 0.340000063180923,
+				"wrist": "(0.142583, 0.894662, -2.025208)"
+			},
+			"deep_contact_grip": {
+				"actual": "(0.140852, 0.821405, -1.982809)",
+				"error": 0.0,
+				"target": "(0.140852, 0.821405, -1.982809)"
+			},
+			"deep_head_angle": 0.349012523889542,
+			"deep_push_depth": 0.574750423431396,
+			"defeats": 1,
+			"first_chest_angle": 0.0,
+			"first_head_angle": 0.0,
+			"held_blade_fraction_max": 0.554564675508525,
+			"held_blade_fraction_min": 0.554564675508525,
+			"initial_contact": {
+				"active": true,
+				"blade_fraction": 0.55,
+				"blade_length_m": 1.0450000166893,
+				"blade_tip": "(0.04744, 0.518451, -2.507759)",
+				"contact_error": 0.0450002774596214,
+				"contact_point": "(0.054402, 0.540598, -2.469209)",
+				"elapsed": 0.58,
+				"hit_committed": false,
+				"penetration_m": 0.574750009179115,
+				"phase": "포복 처형 · 힘 싣기",
+				"profile": "crawl_stab",
+				"target_id": 109739773339,
+				"world_contact": true
+			},
+			"initial_depth": 0.0450002774596214,
+			"legs": [
+				"left_leg"
+			],
+			"maximum_tip_step": 0.069477491080761,
+			"measured_blade": {
+				"base_depth_m": -0.470249772071838,
+				"base_world": "(0.134519, 0.773283, -2.068418)",
+				"length_m": 1.04500019550323,
+				"tip_depth_m": 0.574750423431396,
+				"tip_world": "(-0.034518, 0.257737, -2.961571)",
+				"vertices": 726
+			},
+			"mid_push_blade": {
+				"base_depth_m": -0.735124886035919,
+				"base_world": "(0.178976, 0.920047, -1.851565)",
+				"length_m": 1.04500013589859,
+				"tip_depth_m": 0.309875249862671,
+				"tip_world": "(0.006558, 0.388055, -2.73466)",
+				"vertices": 726
+			},
+			"missing_parts": [
+				"left_leg"
+			],
+			"posed_torso_penetration": {
+				"actual_tip_depth_m": 0.574750423431396,
+				"crossings": [
+					{
+						"consistent_winding": true,
+						"depth_m": -0.00476977089419961,
+						"normal_dot_axis": 0.842542827129364,
+						"position": "(0.05514, 0.542945, -2.465123)",
+						"triangle_hits": 1
+					},
+					{
+						"consistent_winding": true,
+						"depth_m": 0.692772924900055,
+						"normal_dot_axis": -0.861026287078857,
+						"position": "(-0.052778, 0.199652, -3.062676)",
+						"triangle_hits": 1
+					}
+				],
+				"entry_depth_m": -0.00476977089419961,
+				"exit_depth_m": 0.692772924900055,
+				"mesh_count": 1,
+				"raw_hit_count": 2,
+				"remaining_to_exit_m": 0.118022501468658,
+				"triangle_count": 1902,
+				"unverified_reason": "",
+				"verified_closed_segment": true
+			},
+			"ragdoll_bodies": 16,
+			"ragdoll_release": {
+				"bodies": 16,
+				"core_low": false,
+				"execution_held": false,
+				"execution_release_pending": false,
+				"execution_release_reason": "blade_clear",
+				"ground_point": "(-0.013484, 0.0, -1.137869)",
+				"ground_supported": false,
+				"impact_velocity": "(0.0, 0.0, 0.0)",
+				"joints": 15,
+				"max_speed": 0.0,
+				"mean_squared_speed": 0.00617811626966503,
+				"phase": "simulating",
+				"positions": {
+					"Arm1.L": "(-0.605988, 0.484919, -2.596051)",
+					"Arm1.R": "(0.439313, 0.62372, -2.963644)",
+					"Arm2.L": "(-0.628816, 0.287402, -2.707784)",
+					"Arm2.R": "(0.582759, 0.414037, -2.99542)",
+					"Chest": "(0.022142, 0.423232, -2.604865)",
+					"Foot.R": "(0.433485, 0.134363, -1.300418)",
+					"Hand.L": "(-0.434715, 0.132086, -2.921783)",
+					"Hand.R": "(0.525284, 0.132086, -3.231784)",
+					"Head": "(-0.155187, 0.493482, -3.12747)",
+					"Leg1.R": "(0.439494, 0.293365, -2.044691)",
+					"Leg2.R": "(0.576937, 0.304964, -1.916251)",
+					"Leg3.R": "(0.417785, 0.22, -1.616411)",
+					"Neck": "(-0.082652, 0.492095, -2.868049)",
+					"Shoulder.L": "(-0.199589, 0.49636, -2.622459)",
+					"Shoulder.R": "(0.114137, 0.508528, -2.857417)",
+					"Torso": "(0.04531, 0.315462, -2.318992)"
+				},
+				"quiet_time": 0.0,
+				"reaction_time": 0.0,
+				"settled_evidence": {},
+				"simulation_time": 0.0,
+				"support_normals": [],
+				"support_parts": [],
+				"temporary": false
+			},
+			"ragdoll_release_elapsed": 1.7,
+			"ragdoll_release_tip_depth": -0.0180077366530895,
+			"reaction_episodes": 1,
+			"shield_mode": "stowed",
+			"skin_contact_error": 0.00142831052653491,
+			"withdrawal_axis_error": 0.000000216964181731782,
+			"withdrawal_final_depth": -0.3399997651577,
+			"withdrawal_rotation_error": 0.000000152691470134414
+		},
+		{
+			"actual_skin_buried_fraction": 0.555628115322357,
+			"buried_hold_maximum_tip_drift": 0.000000044703483581543,
+			"buried_hold_seconds": 0.439,
+			"contact": {
+				"active": true,
+				"blade_fraction": 0.55,
+				"blade_length_m": 1.04499989654869,
+				"blade_tip": "(-0.067245, 0.240555, -1.989598)",
+				"contact_error": 0.574750125408173,
+				"contact_point": "(0.021295, 0.527162, -1.499338)",
+				"elapsed": 1.021,
+				"hit_committed": true,
+				"penetration_m": 0.574749943101779,
+				"phase": "포복 처형 · 깊게 찌른 채 유지",
+				"profile": "crawl_stab",
+				"target_id": 138193931675,
+				"world_contact": true
+			},
+			"deep_chest_angle": 0.244307905435562,
+			"deep_contact_arm": {
+				"authored_arm_active": true,
+				"elbow": "(0.143513, 0.956024, -0.81033)",
+				"exact_authored_sample": false,
+				"forearm_length": 0.259999960660934,
+				"shoulder": "(0.190663, 1.049262, -0.486782)",
+				"shoulder_adjustment_m": 0.568484842777252,
+				"upper_length": 0.340000063180923,
+				"wrist": "(0.107458, 0.884724, -1.05775)"
+			},
+			"deep_contact_grip": {
+				"actual": "(0.107347, 0.811646, -1.015008)",
+				"error": 0.0,
+				"target": "(0.107347, 0.811646, -1.015008)"
+			},
+			"deep_head_angle": 0.349011838436127,
+			"deep_push_depth": 0.574750125408173,
+			"defeats": 1,
+			"first_chest_angle": 0.0,
+			"first_head_angle": 0.0,
+			"held_blade_fraction_max": 0.555628140668406,
+			"held_blade_fraction_min": 0.555628115322357,
+			"initial_contact": {
+				"active": true,
+				"blade_fraction": 0.55,
+				"blade_length_m": 1.04499989654869,
+				"blade_tip": "(0.014363, 0.504722, -1.537723)",
+				"contact_error": 0.0450000315904617,
+				"contact_point": "(0.021295, 0.527162, -1.499338)",
+				"elapsed": 0.58,
+				"hit_committed": false,
+				"penetration_m": 0.574749943101779,
+				"phase": "포복 처형 · 힘 싣기",
+				"profile": "crawl_stab",
+				"target_id": 138193931675,
+				"world_contact": true
+			},
+			"initial_depth": 0.045000035315752,
+			"legs": [
+				"right_leg"
+			],
+			"maximum_tip_step": 0.0701714903116226,
+			"measured_blade": {
+				"base_depth_m": -0.470249980688095,
+				"base_world": "(0.091549, 0.752612, -1.092532)",
+				"length_m": 1.04500022530556,
+				"tip_depth_m": 0.574750244617462,
+				"tip_world": "(-0.067245, 0.240555, -1.989598)",
+				"vertices": 726
+			},
+			"mid_push_blade": {
+				"base_depth_m": -0.735125005245209,
+				"base_world": "(0.12522, 0.889897, -0.868347)",
+				"length_m": 1.04500019550323,
+				"tip_depth_m": 0.309875190258026,
+				"tip_world": "(-0.026245, 0.372564, -1.763652)",
+				"vertices": 726
+			},
+			"missing_parts": [
+				"right_leg"
+			],
+			"posed_torso_penetration": {
+				"actual_tip_depth_m": 0.574750244617462,
+				"crossings": [
+					{
+						"consistent_winding": true,
+						"depth_m": -0.00588126108050346,
+						"normal_dot_axis": 0.813407182693481,
+						"position": "(0.022201, 0.530095, -1.494321)",
+						"triangle_hits": 1
+					},
+					{
+						"consistent_winding": true,
+						"depth_m": 0.675947427749634,
+						"normal_dot_axis": -0.873473942279816,
+						"position": "(-0.082834, 0.190092, -2.075919)",
+						"triangle_hits": 1
+					}
+				],
+				"entry_depth_m": -0.00588126108050346,
+				"exit_depth_m": 0.675947427749634,
+				"mesh_count": 1,
+				"raw_hit_count": 2,
+				"remaining_to_exit_m": 0.101197183132172,
+				"triangle_count": 1902,
+				"unverified_reason": "",
+				"verified_closed_segment": true
+			},
+			"ragdoll_bodies": 16,
+			"ragdoll_release": {
+				"bodies": 16,
+				"core_low": false,
+				"execution_held": false,
+				"execution_release_pending": false,
+				"execution_release_reason": "blade_clear",
+				"ground_point": "(0.079374, 0.0, -1.139218)",
+				"ground_supported": false,
+				"impact_velocity": "(0.0, 0.0, 0.0)",
+				"joints": 15,
+				"max_speed": 0.0,
+				"mean_squared_speed": 0.0025728807851086,
+				"phase": "simulating",
+				"positions": {
+					"Arm1.L": "(-0.588559, 0.500315, -1.719179)",
+					"Arm1.R": "(0.410779, 0.62333, -2.016737)",
+					"Arm2.L": "(-0.607882, 0.299724, -2.010854)",
+					"Arm2.R": "(0.558461, 0.415258, -1.917285)",
+					"Chest": "(-0.010493, 0.423244, -1.631641)",
+					"Foot.L": "(-0.366905, 0.134362, -0.485544)",
+					"Hand.L": "(-0.458705, 0.132086, -2.30691)",
+					"Hand.R": "(0.501295, 0.132086, -1.99691)",
+					"Head": "(-0.188171, 0.496148, -2.153584)",
+					"Leg1.L": "(-0.386464, 0.289033, -1.153399)",
+					"Leg2.L": "(-0.517767, 0.305104, -1.088677)",
+					"Leg3.L": "(-0.351205, 0.22, -0.801537)",
+					"Neck": "(-0.115226, 0.493673, -1.894433)",
+					"Shoulder.L": "(-0.231169, 0.49968, -1.64841)",
+					"Shoulder.R": "(0.081826, 0.507161, -1.884536)",
+					"Torso": "(0.021295, 0.31286, -1.357388)"
+				},
+				"quiet_time": 0.0,
+				"reaction_time": 0.0,
+				"settled_evidence": {},
+				"simulation_time": 0.0,
+				"support_normals": [],
+				"support_parts": [],
+				"temporary": false
+			},
+			"ragdoll_release_elapsed": 1.7,
+			"ragdoll_release_tip_depth": -0.0180079117417336,
+			"reaction_episodes": 1,
+			"shield_mode": "stowed",
+			"skin_contact_error": 0.00142848002724349,
+			"withdrawal_axis_error": 0.000000266976257989882,
+			"withdrawal_final_depth": -0.339999973773956,
+			"withdrawal_rotation_error": 0.000000215423554550398
+		},
+		{
+			"actual_skin_buried_fraction": 0.555614030428996,
+			"buried_hold_maximum_tip_drift": 0.000000066640019724673,
+			"buried_hold_seconds": 0.439,
+			"contact": {
+				"active": true,
+				"blade_fraction": 0.55,
+				"blade_length_m": 1.04499989654869,
+				"blade_tip": "(-0.034112, 0.240552, -1.808012)",
+				"contact_error": 0.574750065803528,
+				"contact_point": "(0.054428, 0.52716, -1.317752)",
+				"elapsed": 1.021,
+				"hit_committed": true,
+				"penetration_m": 0.574749943101779,
+				"phase": "포복 처형 · 깊게 찌른 채 유지",
+				"profile": "crawl_stab",
+				"target_id": 162973879707,
+				"world_contact": true
+			},
+			"deep_chest_angle": 0.244307905435562,
+			"deep_contact_arm": {
+				"authored_arm_active": true,
+				"elbow": "(0.176646, 0.956022, -0.628745)",
+				"exact_authored_sample": false,
+				"forearm_length": 0.259999990463257,
+				"shoulder": "(0.223795, 1.049261, -0.305196)",
+				"shoulder_adjustment_m": 0.5684854388237,
+				"upper_length": 0.340000063180923,
+				"wrist": "(0.14059, 0.884722, -0.876164)"
+			},
+			"deep_contact_grip": {
+				"actual": "(0.14048, 0.811645, -0.833423)",
+				"error": 0.0,
+				"target": "(0.14048, 0.811645, -0.833423)"
+			},
+			"deep_head_angle": 0.349011838436127,
+			"deep_push_depth": 0.574750065803528,
+			"defeats": 1,
+			"first_chest_angle": 0.0,
+			"first_head_angle": 0.0,
+			"held_blade_fraction_max": 0.555614030428996,
+			"held_blade_fraction_min": 0.555614030428996,
+			"initial_contact": {
+				"active": true,
+				"blade_fraction": 0.55,
+				"blade_length_m": 1.04499989654869,
+				"blade_tip": "(0.047495, 0.50472, -1.356137)",
+				"contact_error": 0.0450000315904617,
+				"contact_point": "(0.054428, 0.52716, -1.317752)",
+				"elapsed": 0.58,
+				"hit_committed": false,
+				"penetration_m": 0.574749943101779,
+				"phase": "포복 처형 · 힘 싣기",
+				"profile": "crawl_stab",
+				"target_id": 162973879707,
+				"world_contact": true
+			},
+			"initial_depth": 0.0450000315904617,
+			"legs": [
+				"left_leg",
+				"right_leg"
+			],
+			"maximum_tip_step": 0.0701716095209122,
+			"measured_blade": {
+				"base_depth_m": -0.470249950885773,
+				"base_world": "(0.116634, 0.743798, -0.904342)",
+				"length_m": 1.04500007629395,
+				"tip_depth_m": 0.574750125408173,
+				"tip_world": "(-0.034049, 0.240622, -1.808064)",
+				"vertices": 726
+			},
+			"mid_push_blade": {
+				"base_depth_m": -0.735125005245209,
+				"base_world": "(0.185239, 0.906324, -0.701222)",
+				"length_m": 1.04500004649162,
+				"tip_depth_m": 0.309875041246414,
+				"tip_world": "(0.006755, 0.372706, -1.582126)",
+				"vertices": 726
+			},
+			"missing_parts": [
+				"left_leg",
+				"right_leg"
+			],
+			"posed_torso_penetration": {
+				"actual_tip_depth_m": 0.574750125408173,
+				"crossings": [
+					{
+						"consistent_winding": true,
+						"depth_m": -0.00586657878011465,
+						"normal_dot_axis": 0.813459277153015,
+						"position": "(0.055331, 0.530085, -1.312748)",
+						"triangle_hits": 1
+					},
+					{
+						"consistent_winding": true,
+						"depth_m": 0.675933241844177,
+						"normal_dot_axis": -0.873065829277039,
+						"position": "(-0.0497, 0.190096, -1.89432)",
+						"triangle_hits": 1
+					}
+				],
+				"entry_depth_m": -0.00586657878011465,
+				"exit_depth_m": 0.675933241844177,
+				"mesh_count": 1,
+				"raw_hit_count": 2,
+				"remaining_to_exit_m": 0.101183116436005,
+				"triangle_count": 1902,
+				"unverified_reason": "",
+				"verified_closed_segment": true
+			},
+			"ragdoll_bodies": 12,
+			"ragdoll_release": {
+				"bodies": 12,
+				"core_low": false,
+				"execution_held": false,
+				"execution_release_pending": false,
+				"execution_release_reason": "blade_clear",
+				"ground_point": "(-0.034613, 0.0, -1.402099)",
+				"ground_supported": false,
+				"impact_velocity": "(0.0, 0.0, 0.0)",
+				"joints": 11,
+				"max_speed": 0.0,
+				"mean_squared_speed": 0.000688856369003708,
+				"phase": "simulating",
+				"positions": {
+					"Arm1.L": "(-0.555426, 0.500315, -1.537593)",
+					"Arm1.R": "(0.443911, 0.62333, -1.835151)",
+					"Arm2.L": "(-0.57475, 0.299724, -1.829268)",
+					"Arm2.R": "(0.591593, 0.415258, -1.7357)",
+					"Chest": "(0.02264, 0.423244, -1.450054)",
+					"Hand.L": "(-0.425572, 0.132086, -2.125324)",
+					"Hand.R": "(0.534428, 0.132086, -1.815324)",
+					"Head": "(-0.155039, 0.496148, -1.971997)",
+					"Neck": "(-0.082094, 0.493673, -1.712847)",
+					"Shoulder.L": "(-0.198036, 0.49968, -1.466824)",
+					"Shoulder.R": "(0.114958, 0.507161, -1.70295)",
+					"Torso": "(0.054428, 0.31286, -1.175802)"
+				},
+				"quiet_time": 0.0,
+				"reaction_time": 0.0,
+				"settled_evidence": {},
+				"simulation_time": 0.0,
+				"support_normals": [],
+				"support_parts": [],
+				"temporary": false
+			},
+			"ragdoll_release_elapsed": 1.7,
+			"ragdoll_release_tip_depth": -0.0180080030113459,
+			"reaction_episodes": 1,
+			"shield_mode": "held",
+			"skin_contact_error": 0.00142866966780275,
+			"withdrawal_axis_error": 0.000000190827975643515,
+			"withdrawal_final_depth": -0.340000033378601,
+			"withdrawal_rotation_error": 0.000000213871899745754
+		}
+	],
+	"failures": []
+}

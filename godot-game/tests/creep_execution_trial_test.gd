@@ -41,6 +41,7 @@ func _run() -> void:
 		for feature_id in IDS:
 			await _test_trial(feature_id)
 		await _test_cancel_reset()
+		await _test_held_feature_cleanup()
 	else:
 		for feature_id in IDS:
 			room.run_feature(feature_id)
@@ -56,7 +57,7 @@ func _run() -> void:
 	_check(ExpeditionSession.get_inventory() == original and ExpeditionSession.capture_snapshot() == before, "exit restores exact original expedition and inventory identity")
 	for failure in failures:
 		push_error("CREEP EXECUTION TRIAL TEST FAIL: " + failure)
-	print("CREEP EXECUTION TRIAL TEST " + ("PASS" if failures.is_empty() else "FAIL") + ": " + ("real localized leg loss, grounded recovery, sword/shield and stowed shield, timed stab single kill/reward, F2 pause/resume, cancel/reset, exact session restore" if actual_checks else "catalog and session restore; asset-dependent execution SKIPPED"))
+	print("CREEP EXECUTION TRIAL TEST " + ("PASS" if failures.is_empty() else "FAIL") + ": " + ("real localized leg loss, grounded recovery, sword/shield and stowed shield, timed stab single kill/reward, blade-held corpse, F2 pause/resume, held cleanup/reset, exact session restore" if actual_checks else "catalog and session restore; asset-dependent execution SKIPPED"))
 	quit(0 if failures.is_empty() else 1)
 
 
@@ -131,9 +132,22 @@ func _test_trial(feature_id: String) -> void:
 	room.player.advance_execution(0.002)
 	_check(creep.health == 0.0 and creep.ai_state == DungeonEnemy.AIState.DEAD and defeats == before_defeats + 1, "blade contact performs one actual Creep death")
 	_check(room.enemies_alive == 0 and room.loot_count == before_loot + 1 and room.inventory.count_item("rune_fragment") == before_fragments + 1, "execution uses the ordinary single kill/reward path")
+	_check(creep.ragdoll.phase == "execution_hold" and creep.ragdoll.parts.is_empty(), "lethal contact reserves the corpse pose until the blade is extracted")
+	room.player._update_viewmodel(0)
+	var dead_held: Dictionary = room.player.get_execution_snapshot().duplicate(true)
+	var dead_weapon: Transform3D = room.player.weapon_pivot.transform
+	var dead_pose := _bone_poses(creep)
+	await _press_f2()
+	room.player.advance_execution(5.0)
+	await _frames(15)
+	_check(paused and room.player.get_execution_snapshot() == dead_held and room.player.weapon_pivot.transform == dead_weapon, "F2 also freezes the committed-death hold and blade extraction clock")
+	_check(creep.ragdoll.phase == "execution_hold" and _poses_match(dead_pose, _bone_poses(creep)) and defeats == before_defeats + 1, "F2 does not release or re-pose the held corpse and does not repeat its reward")
+	await _press_f2()
+	room.player.advance_execution(MOTION.WITHDRAW_START - room.player.execution_elapsed)
+	_check(creep.ragdoll.phase == "execution_hold", "resuming reaches extraction start with the corpse still held")
 	room.player.advance_execution(3.0)
 	await _frames(5)
-	_check(not room.player.is_execution_active() and defeats == before_defeats + 1 and creep.ragdoll.phase != "idle", "withdrawal releases combat and retains actual death ragdoll without another kill")
+	_check(not room.player.is_execution_active() and defeats == before_defeats + 1 and creep.ragdoll.phase in ["simulating", "settled"], "withdrawal releases combat and retains actual death ragdoll without another kill")
 
 
 func _test_cancel_reset() -> void:
@@ -156,6 +170,57 @@ func _test_cancel_reset() -> void:
 	room._hide_test_panel()
 	await _frames(70)
 	_check(_find_creep() == null and room.enemies_alive == 2 and room.loot_count == 0, "no stale execution or reward appears after reset")
+
+
+func _test_held_feature_cleanup() -> void:
+	for mode: String in ["feature_change", "room_reset"]:
+		room.run_feature("creep_execution")
+		var creep = _find_creep()
+		if creep == null:
+			_check(false, "held cleanup creates a real Creep: " + mode)
+			continue
+		var ready := false
+		for frame in 1500:
+			await _frames(1)
+			if room.creep_execution_ready:
+				ready = true
+				break
+		_check(ready, "held cleanup waits for real leg loss and recovery: " + mode)
+		if not ready: continue
+		creep.set_physics_process(false)
+		creep.defeated.connect(func(_actor: DungeonEnemy) -> void: defeats += 1)
+		var before_defeats := defeats
+		_check(_charge_release(), "held cleanup starts normal charged execution: " + mode)
+		room.player.advance_execution(MOTION.HIT_SECONDS + .01)
+		room.player._update_viewmodel(0)
+		_check(creep.health == 0 and creep.ragdoll.phase == "execution_hold" and defeats == before_defeats + 1, "menu cleanup begins with a dead blade-held body: " + mode)
+		if mode == "feature_change":
+			room.run_feature("torch")
+			_check(not room.player.is_execution_active(), "changing F2 feature cancels the committed execution")
+			if is_instance_valid(creep) and not creep.is_queued_for_deletion():
+				_check(creep.ragdoll.phase == "simulating" and not bool(creep.ragdoll.snapshot().get("execution_held", true)), "changing F2 feature releases a retained held corpse into physics")
+		else:
+			room.reset_room()
+			await _frames(1)
+			_check(not is_instance_valid(creep) and _find_creep() == null and not room.player.is_execution_active(), "reset removes the held corpse and its execution ownership")
+			_check(room.enemies_alive == 2 and room.loot_count == 0, "reset restores default encounters without orphan held corpses or loot")
+			room._hide_test_panel()
+		await _frames(30)
+		_check(defeats == before_defeats + 1, "menu cleanup cannot later repeat the held corpse reward: " + mode)
+
+
+func _bone_poses(creep) -> Array[Transform3D]:
+	var result: Array[Transform3D] = []
+	for bone in creep.skeleton.get_bone_count():
+		result.append(creep.skeleton.get_bone_pose(bone))
+	return result
+
+
+func _poses_match(first: Array[Transform3D], second: Array[Transform3D]) -> bool:
+	if first.size() != second.size(): return false
+	for bone in first.size():
+		if not first[bone].is_equal_approx(second[bone]): return false
+	return true
 
 
 func _charge_release() -> bool:

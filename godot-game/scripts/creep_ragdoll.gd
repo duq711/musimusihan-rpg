@@ -57,6 +57,8 @@ var support_parts: Array[String] = []
 var mean_squared_speed := 0.0
 var support_normals: Array[Vector3] = []
 var settled_evidence: Dictionary = {}
+var execution_owner: Node3D
+var execution_release_reason := ""
 
 func configure(owner_actor: Node3D, skeleton: Skeleton3D, animation: AnimationPlayer) -> void:
 	actor = owner_actor
@@ -69,7 +71,7 @@ func configure(owner_actor: Node3D, skeleton: Skeleton3D, animation: AnimationPl
 	driver.active = false
 	set_physics_process(false)
 
-func begin(death_velocity: Vector3) -> void:
+func begin(death_velocity: Vector3, hold_for_executor: Node3D = null) -> void:
 	if temporary and phase in ["simulating", "settled"]:
 		# A fatal hit during a living fall kills this physical body in place.
 		# No standing reaction, duplicate bodies, or pending recovery survives it.
@@ -91,6 +93,16 @@ func begin(death_velocity: Vector3) -> void:
 	initial_pose.clear()
 	for bone in rig.get_bone_count():
 		initial_pose.append(rig.get_bone_pose(bone))
+	execution_owner = hold_for_executor
+	execution_release_reason = ""
+	if is_instance_valid(execution_owner):
+		# Death/reward is already committed, but the embedded blade still supports
+		# the final contraction. No physical bodies can fall before withdrawal.
+		impact_velocity = Vector3.ZERO
+		phase = "execution_hold"
+		actor.animation_clip = "crawl_execution_stab"
+		set_physics_process(true)
+		return
 	impact_velocity = death_velocity.limit_length(3.2)
 	if impact_velocity.length_squared() < .01:
 		impact_velocity = actor.global_basis.z.normalized() * 1.2
@@ -122,8 +134,33 @@ func begin_knockdown(fall_velocity: Vector3) -> bool:
 func is_knockdown_active() -> bool:
 	return temporary and phase in ["simulating", "settled"]
 
+func release_execution_hold(executor: Node3D, reason := "blade_clear") -> bool:
+	if phase != "execution_hold" or not is_instance_valid(executor) or executor != execution_owner:
+		return false
+	_release_execution_hold(reason)
+	return true
+
+func _release_execution_hold(reason: String) -> void:
+	# Hand the exact held pose straight to gravity; do not play another hit
+	# reaction or add the ordinary death impulse after the blade is removed.
+	execution_owner = null
+	execution_release_reason = reason
+	# Reset/pooling can detach a target before cancelling the player's action.
+	# Avoid building world-space physics off-tree or on a queued corpse. If a
+	# pooled body returns, the active controller releases it on its next tick.
+	if not is_inside_tree() or not actor.is_inside_tree() or actor.is_queued_for_deletion():
+		return
+	_start_physics()
+
 func _physics_process(delta: float) -> void:
-	if phase == "reaction":
+	if phase == "execution_hold":
+		for bone in rig.get_bone_count(): rig.set_bone_pose(bone, initial_pose[bone])
+		# Cancellation normally releases explicitly. This also covers a removed
+		# executor or interrupted scene lifecycle without leaving a frozen corpse.
+		if not is_instance_valid(execution_owner) or not actor._execution_executor_is_alive(execution_owner) \
+				or (execution_owner is DungeonPlayer and not execution_owner.is_execution_active()):
+			_release_execution_hold(execution_release_reason if not execution_release_reason.is_empty() else "executor_unavailable")
+	elif phase == "reaction":
 		reaction_time = minf(reaction_time + delta, REACTION_SECONDS)
 		if actor.is_crawling():
 			# Never blend a prone death back into the standing source hit clip.
@@ -430,6 +467,8 @@ func snapshot() -> Dictionary:
 		positions[entry.name] = entry.body.global_position
 		max_speed = maxf(max_speed, entry.body.linear_velocity.length())
 	return {"phase": phase, "temporary": temporary, "reaction_time": reaction_time, "simulation_time": simulation_time,
+		"execution_held": phase == "execution_hold", "execution_release_reason": execution_release_reason,
+		"execution_release_pending": phase == "execution_hold" and not execution_release_reason.is_empty(),
 		"bodies": parts.size(), "joints": joints.size(), "max_speed": max_speed, "positions": positions, "impact_velocity": impact_velocity,
 		"ground_supported": ground_supported, "core_low": core_low, "ground_point": ground_point,
 		"support_parts": support_parts.duplicate(), "support_normals": support_normals.duplicate(),

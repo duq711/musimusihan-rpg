@@ -25,6 +25,7 @@ var knockdown_phase := "none"
 var _execution_entry_bones: Array[Transform3D] = []
 var _execution_skin_anchor := Vector3.ZERO
 var _execution_reaction_snapshot: Dictionary = {}
+var _hold_execution_death := false
 
 static func is_available() -> bool:
 	return ResourceLoader.exists(MODEL_PATH)
@@ -340,6 +341,21 @@ func get_crawl_execution_contact() -> Vector3:
 	_execution_skin_anchor = fallback.get("position", chest)
 	return _execution_skin_anchor
 
+func finish_execution(executor: Node3D) -> bool:
+	_hold_execution_death = is_crawling()
+	var completed := super.finish_execution(executor)
+	_hold_execution_death = false
+	return completed
+
+func release_execution_ragdoll(executor: Node3D, reason := "blade_clear") -> bool:
+	return ragdoll.release_execution_hold(executor, reason) if is_instance_valid(ragdoll) else false
+
+func cancel_execution(executor: Node3D) -> void:
+	# A cancelled dead execution must release its support even if the sword is
+	# packed away or the player leaves before completing the normal extraction.
+	release_execution_ragdoll(executor, "cancelled")
+	super.cancel_execution(executor)
+
 func _capture_execution_pose() -> void:
 	super._capture_execution_pose()
 	_execution_entry_bones.clear()
@@ -383,7 +399,7 @@ func _apply_execution_pose() -> void:
 func _die() -> void:
 	if ai_state == AIState.DEAD:
 		return
-	ragdoll.begin(velocity)
+	ragdoll.begin(velocity, _execution_executor if _hold_execution_death else null)
 	knockdown_phase = "none"
 	_set_state(AIState.DEAD)
 	velocity = Vector3.ZERO
