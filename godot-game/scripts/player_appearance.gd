@@ -3,7 +3,7 @@ extends RefCounted
 
 const MODEL_PATH := "res://assets/3d/player/gravebound_player.glb"
 const BODY_LAYER := 1 << 17
-const APPEARANCE_ID := "gravebound_wanderer_v1"
+const APPEARANCE_ID := "gravebound_fp_arms_v2"
 const CLOTH_COLOR := Color(0.19, 0.175, 0.15)
 const LEATHER_COLOR := Color(0.095, 0.075, 0.057)
 const SKIN_COLOR := Color(0.46, 0.365, 0.30)

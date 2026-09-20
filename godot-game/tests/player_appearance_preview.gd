@@ -193,6 +193,7 @@ func _add_inventory_overlay(viewport: SubViewport) -> InventoryOverlay:
 	viewport.add_child(overlay)
 	var status := {"health": 100.0, "max_health": 100.0, "stamina": 100.0, "max_stamina": 100.0}
 	overlay.open_inventory(isolated_inventory, func() -> Dictionary: return status)
+	overlay.open_appearance_view()
 	return overlay
 
 

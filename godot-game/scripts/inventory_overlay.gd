@@ -685,6 +685,17 @@ func open_health_tab() -> void:
 	_refresh()
 
 
+func open_appearance_view() -> void:
+	# Explicit full-body review keeps the ordinary unified inventory unchanged.
+	_ensure_built()
+	health_tab_active = false
+	_dismiss_item_details()
+	_hide_quantity_dialog()
+	_clear_selection()
+	_set_container_mode_layout(loot_container != null)
+	_refresh()
+
+
 func open_equipment_tab() -> void:
 	# Both historical entry points now open the same character/loadout page.
 	open_health_tab()

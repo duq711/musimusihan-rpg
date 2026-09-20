@@ -527,8 +527,9 @@ func run_feature(feature_id: String) -> void:
 			# appearance as DungeonPlayer, rather than a test-only mannequin.
 			_hide_test_panel()
 			_open_inventory()
+			inventory_overlay.open_appearance_view()
 			inventory_overlay.player_portrait.set_view_angle(0.0)
-			inventory_overlay.set_status("플레이어 3D 외형 · 회전하여 두건·누비옷·가죽 장비 확인 · F2로 시험 메뉴")
+			inventory_overlay.set_status("플레이어 3D 외형 · 1인칭 장갑·양팔의 전신 적용 확인 · 회전 · F2로 시험 메뉴")
 		"player_arm_motion":
 			_prepare_player_arm_motion()
 			_hide_test_panel()
