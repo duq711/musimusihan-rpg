@@ -324,25 +324,14 @@ func can_begin_rear_takedown(executor: Node3D, profile: String = "rear_sword") -
 	for name_value: String in ["Chest", "Neck", "Head"]:
 		if skeleton.find_bone(name_value) < 0:
 			return false
-	return not dismemberment.body_caps.get("head", []).is_empty()
+	return true # A torso withdrawal does not require a detachable neck cap.
 
 func get_rear_takedown_contacts() -> Dictionary:
 	if not is_inside_tree() or not is_instance_valid(skeleton) or not is_instance_valid(dismemberment) or not dismemberment.enabled or "head" in dismemberment.severed:
 		return {}
-	# The cut cap is the actual authored neck plane. Re-bake it after the
-	# reaction so the final slash aims at the current skin rather than an old
-	# head-capsule centre. Hidden caps still carry the original skin weights.
-	var neck := Vector3.ZERO
-	var neck_area := 0.0
-	for cap: MeshInstance3D in dismemberment.body_caps.get("head", []):
-		var faces: PackedVector3Array = dismemberment._bake_world_mesh(cap, Vector3.ZERO).get_faces()
-		for index in range(0, faces.size(), 3):
-			var area := (faces[index + 1] - faces[index]).cross(faces[index + 2] - faces[index]).length() * .5
-			neck += (faces[index] + faces[index + 1] + faces[index + 2]) / 3.0 * area
-			neck_area += area
-	if neck_area <= .000001:
-		return {}
-	neck /= neck_area
+	# Keep an upper-body focus for the camera, but do not use an amputation cap
+	# as an attack target. Only the torso's rendered back skin is struck.
+	var neck := (skeleton.global_transform * skeleton.get_bone_global_pose(skeleton.find_bone("Neck"))).origin
 	if not _rear_takedown_profile.is_empty() and not _rear_takedown_contacts.is_empty():
 		var current := _rear_takedown_contacts.duplicate()
 		current.neck = neck
@@ -364,7 +353,7 @@ func get_rear_takedown_contacts() -> Dictionary:
 				back = hit
 	if nearest == INF:
 		return {} # Do not pretend a capsule fallback is visible skin contact.
-	return {"back": back, "neck": neck, "direction": direction, "back_on_skin": true, "neck_on_cap": true}
+	return {"back": back, "neck": neck, "direction": direction, "back_on_skin": true}
 
 func finish_rear_takedown(executor: Node3D) -> bool:
 	if _rear_takedown_profile != "rear_sword" or ai_state != AIState.EXECUTION or health <= 0.0 or not is_inside_tree() or is_queued_for_deletion():
@@ -374,15 +363,20 @@ func finish_rear_takedown(executor: Node3D) -> bool:
 	if _execution_elapsed < REAR_REACTION.MOTION.CUT_HIT - .000001:
 		return false
 	_apply_execution_pose()
-	if not dismemberment.sever_for_execution("head", executor.global_position):
-		return false
-	# Baking precedes death; the corpse rig therefore excludes the detached
-	# head, and the exact slash pose goes directly into physical collapse.
+	# The sword tears out sideways through the torso. Preserve every remaining
+	# limb, including the head, and pass this exact reaction pose into physics.
+	# _die() retains the ordinary single defeated/reward path and rejects repeats.
+	velocity = _rear_exit_left() * 1.15 + global_basis.z.normalized() * .35
 	_rear_takedown_death = true
 	health = 0.0
 	_die()
 	_rear_takedown_death = false
 	return true
+
+func _rear_exit_left() -> Vector3:
+	var left := -_execution_executor.global_basis.x if is_instance_valid(_execution_executor) else -global_basis.x
+	left.y = 0.0
+	return left.normalized() if left.length_squared() > .000001 else -global_basis.x.normalized()
 
 func get_rear_takedown_reaction_snapshot() -> Dictionary:
 	return _rear_reaction_snapshot.duplicate()
@@ -471,7 +465,7 @@ func _apply_execution_pose() -> void:
 		if _execution_entry_bones.size() == skeleton.get_bone_count():
 			for bone in skeleton.get_bone_count():
 				skeleton.set_bone_pose(bone, _execution_entry_bones[bone])
-		_rear_reaction_snapshot = REAR_REACTION.apply(self, skeleton, _execution_elapsed, _rear_takedown_contacts.back)
+		_rear_reaction_snapshot = REAR_REACTION.apply(self, skeleton, _execution_elapsed, _rear_takedown_contacts.back, _rear_exit_left())
 		animation_clip = "rear_sword_takedown"
 		animation_sample = _execution_elapsed
 		return

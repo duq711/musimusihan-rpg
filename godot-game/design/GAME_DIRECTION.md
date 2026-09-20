@@ -1,12 +1,26 @@
 # 게임 제작 기준서
 
+## 2026-09-20 후방 검 제압 — 좌측으로 베어 빼기 / Rear sword takedown — lateral extraction
+
+**사용자 확정 변경:** 후방에서 머리를 자르는 동작은 취소한다. 검으로 깊게 찌른 뒤 **플레이어 기준 좌측으로 베면서 검을 빼고** 복귀한다. 별도의 목 베기 준비·두 번째 공격·머리 분리는 하지 않으며, 몸통을 베어 빼는 한 동작에서 한 번 사망하고 머리가 붙은 몸 전체가 랙돌로 쓰러진다. 일반 집중 공격에 따른 기존 부위 절단과 포복 처형은 변경하지 않는다. 이 요구가 아래의 이전 목 베기 순서보다 우선한다.
+
+현재 제작값은 0.62초 찌르기, 1.03–1.66초 좌측 발검(1.27초 몸통 베기 사망), 1.80초까지 여운, 2.28초 복귀다. 지원 검·미인지/뒤쪽 조건·E 입력·기존 F2 세 항목은 유지한다. 시작이 멀면 첫 0.28초 준비 중 충돌을 확인하며 1.15m까지 접근하지만 목 베기용 두 번째 전진은 없앤다. 실제 피부 기준 검날 약 55% 관입, 고정 그립과 자연스러운 손목 연결은 유지한다. 이 수치는 조정 가능한 구현 판단이다. **이번 변경의 핵심·실제 F2·포복 처형·검/방패 처형 자동 검사 4종과 실제 GPU 9초·270프레임 검수를 통과했다. 게시용 사본의 핵심·실제 F2 검사 2종도 통과했다.** [현재 검수 기록](../artifacts/validation/rear_sword_left_exit_20260920/README.md)에 전체 영상·최종 수치·측정 한계를 보존한다. 이전 손목 및 목 베기 검수는 새 동작의 통과 근거가 아니다. GitHub 반영 상태는 최종 게시 기록을 따른다.
+
+**User-confirmed change:** cancel the rear neck-cut sequence. Stab deeply, **cut the sword out toward the player's left**, then recover. Remove the separate neck windup, second strike and head separation; the lateral torso cut commits one death and a full-body ragdoll with the head attached. Existing focused-hit dismemberment and crawler execution are unchanged. This request supersedes the historical decapitation sequence below.
+
+Current tunable timing is 0.62s stab, 1.03–1.66s lateral extraction (fatal torso cut at 1.27s), follow-through until 1.80s and finish at 2.28s. Supported swords, unaware/rear eligibility, E and the three F2 fixtures remain. Distant starts approach toward 1.15m during the first 0.28s with collision checks; the second advance used by the neck strike is removed. Approximately 55% actual-skin blade penetration, fixed grip and natural wrist alignment remain. **Four final automated suites passed: core, actual F2, crawler execution and sword/shield execution, plus nine seconds/270 frames of actual GPU review. The scoped publication copy also passed core/actual F2 checks.** The [current report](../artifacts/validation/rear_sword_left_exit_20260920/README.md) preserves the full video, final measurements and limitations. Previous wrist/decapitation passes do not establish this revision's validation. GitHub status follows the final publication record.
+
 ## 2026-09-20 후방 검 제압 손목 보정 — 후속 제작 / Rear takedown wrist correction — follow-up
+
+**이전 제작·검수 기록. 위 좌측 발검 변경이 현재 동작 순서다. / Historical production and validation; lateral extraction above is the current sequence.**
 
 기존 검 제압의 팔 길이·도달 검사는 손목 방향이 자연스럽다는 근거로 충분하지 않았다. 실제 리그 축에 대한 손·전완 검사와 박힌 검의 월드 방향 고정을 추가했다. 준비 경로를 15cm 낮추고 아래 10cm·앞 20cm 방향 전환은 칼끝이 빠진 다음 시작하며, 시작·복귀 어깨는 실제 준비 자세와 연결한다. 이전 약 107°와 새 축 차이 값은 리그 기준이며 해부학적·임상적 손목 굽힘각을 뜻하지 않는다. 기존 F2 항목과 공개 E 경로를 유지한다. **최종 핵심·F2 검사 및 실제 GPU `wrist_final_20260920`의 9초·270프레임 검수를 통과했다.** GPU의 최대 활성 축 차이 30.516°(깊은 찌르기 29.247°), 최대 관절 이동 0.094880m·손 회전 13.005°, 박힌 칼의 월드 회전 변화 0°를 확인했다. 실제 진입 자세와 연속 표본의 12cm·45° 제한, 접근 차단 시 접촉 전 취소도 검사했다. 이전 검수와 이번 최신·이전 후보판 회귀 근거는 [현재 검수 기록](../artifacts/validation/rear_sword_wrist_20260920/README.md)에 구분한다. 참고 영상 2:09–2:14·OS 하드웨어 입력은 미확인이며 GitHub 상태는 최종 게시 기록을 따른다.
 
 Prior length/reach checks were insufficient to establish natural wrist orientation. The correction adds actual-rig-axis checks and a fixed embedded-world basis, lowers preparation 15cm and delays the 10cm-down/20cm-forward turn until tip clearance. Entry/recovery blend from the actual ready pose. Old approximately 107° and new axis measurements are rig-relative, not anatomical or clinical wrist angles. Existing F2/E controls remain. **Final core/F2 checks and nine seconds/270 frames of actual GPU `wrist_final_20260920` passed**, with maximum active axis mismatch 30.516° (deep stab 29.247°), joint step 0.094880m, hand rotation 13.005° and embedded world rotation change 0°. Actual pre-entry pose, consecutive-sample 12cm/45° limits and blocked-approach cancellation before contact were checked. The linked report separates earlier history, candidate regressions and latest evidence. Reference-video 2:09–2:14 and OS input remain unverified; GitHub status follows the final publication record.
 
 ## 2026-09-20 검으로 미인지 몬스터 후방 제압 — 사용자 요청 / Unaware rear sword takedown — requested feature
+
+**이전 요청·검수 기록. 목 베기·머리 절단은 같은 날 후속 사용자 요청으로 취소했다. / Historical request and validation; a later same-day user instruction cancels the neck strike and decapitation.**
 
 사용자는 미인지 몬스터 뒤에서 검으로 찌르고, 검을 뽑은 뒤 크게 휘둘러 목을 베는 제압을 요청했다. 찌르기와 발검 중에는 대상을 살아 있게 유지하고 마지막 베기에만 실제 머리 분리·사망·보상 1회를 연결한다. E 상호작용으로 시작하며 정면·경계 상태에서는 거절한다. 이 미인지 요구는 기존 단검 암살에도 우선 적용되어 이미 추적·공격 중인 적을 뒤에서 즉사시키던 범위를 제한한다.
 

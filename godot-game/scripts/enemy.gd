@@ -618,7 +618,7 @@ func is_unaware_of(attacker_position: Vector3) -> bool:
 
 
 func can_begin_rear_takedown(_executor: Node3D, _profile: String = "rear_sword") -> bool:
-	return false # An ordinary enemy has no authored detachable neck surface.
+	return false # An ordinary enemy has no authored rear torso contact/response.
 
 
 func _can_reserve_rear_takedown(executor: Node3D, profile: String) -> bool:
@@ -643,7 +643,7 @@ func begin_rear_takedown(executor: Node3D, profile: String = "rear_sword") -> bo
 	if not can_begin_rear_takedown(executor, profile):
 		return false
 	var contacts := get_rear_takedown_contacts()
-	if contacts.is_empty() or not bool(contacts.get("back_on_skin", false)) or not bool(contacts.get("neck_on_cap", false)):
+	if contacts.is_empty() or not bool(contacts.get("back_on_skin", false)):
 		return false
 	_rear_takedown_profile = profile
 	_rear_takedown_contacts = contacts.duplicate()
@@ -752,7 +752,7 @@ func advance_execution_pose(elapsed: float) -> void:
 
 func finish_execution(executor: Node3D) -> bool:
 	if not _rear_takedown_profile.is_empty():
-		return false # A rear takedown dies only at its explicit neck-cut contact.
+		return false # A rear takedown dies only at its explicit lateral torso contact.
 	if ai_state != AIState.EXECUTION or not is_instance_valid(executor) or executor != _execution_executor:
 		return false
 	if not _execution_executor_is_alive(executor):

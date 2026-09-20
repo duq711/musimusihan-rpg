@@ -1390,8 +1390,8 @@ func _advance_rear_takedown(delta: float) -> void:
 		cancel_execution()
 		return
 	var next_elapsed := minf(REAR_TAKEDOWN_MOTION.DURATION, execution_elapsed + delta)
-	# Close an initially longer gap before the first thrust, then finish the
-	# short step during extraction. Both phases use actual character collision.
+	# Close an initially longer gap before the thrust using character collision.
+	# The lateral extraction keeps that distance; there is no neck-cut step.
 	_move_rear_takedown_approach(minf(next_elapsed, REAR_TAKEDOWN_MOTION.STAB_HIT))
 	if _rear_approach_obstruction_m > .04:
 		cancel_execution()
@@ -1406,8 +1406,7 @@ func _advance_rear_takedown(delta: float) -> void:
 			cancel_execution()
 			return
 		_rear_stab_contact_committed = true
-	# Extraction leads into one short step, using character collision rather
-	# than moving the enemy or allowing the arm solver to detach the shoulder.
+	# Keep the initial body approach synchronized; extraction does not advance.
 	_move_rear_takedown_approach(next_elapsed)
 	if not _execution_hit_committed:
 		_execution_target.advance_execution_pose(minf(next_elapsed, REAR_TAKEDOWN_MOTION.CUT_HIT))
@@ -1422,10 +1421,12 @@ func _advance_rear_takedown(delta: float) -> void:
 				return
 			var tip := weapon_pivot.to_global(_execution_blade_tip)
 			var heel := weapon_pivot.to_global(_execution_blade_tip - Vector3.UP * _execution_blade_length)
-			var near := Geometry3D.get_closest_point_to_segment(_rear_neck_contact, heel, tip)
-			var wall := PhysicsRayQueryParameters3D.create(camera.global_position, _rear_neck_contact, WORLD_LAYER)
+			# The blade is still crossing the torso during the leftward extraction.
+			# Use the actual posed hit volumes; never target or sever the neck.
+			var torso_hit: Dictionary = _execution_target.call("query_located_hit", heel, tip, .045)
+			var wall := PhysicsRayQueryParameters3D.create(camera.global_position, _execution_contact_point, WORLD_LAYER)
 			wall.collide_with_areas = false
-			if near.distance_to(_rear_neck_contact) > .055 or not get_world_3d().direct_space_state.intersect_ray(wall).is_empty():
+			if torso_hit.is_empty() or str(torso_hit.get("region", "")) != "torso" or not get_world_3d().direct_space_state.intersect_ray(wall).is_empty():
 				cancel_execution()
 				return
 			var remaining_health := _execution_target.health
@@ -1444,9 +1445,7 @@ func _advance_rear_takedown(delta: float) -> void:
 
 
 func _move_rear_takedown_approach(elapsed: float) -> void:
-	var distance := _rear_approach_offset.length()
-	var first := maxf(0.0, distance - (REAR_TAKEDOWN_MOTION.STAB_DISTANCE - REAR_TAKEDOWN_MOTION.CUT_DISTANCE)) / maxf(distance, .000001)
-	var progress := first * smoothstep(0, REAR_TAKEDOWN_MOTION.PREPARE_END, elapsed) + (1.0 - first) * smoothstep(REAR_TAKEDOWN_MOTION.HOLD_END, REAR_TAKEDOWN_MOTION.CUT_START, elapsed)
+	var progress := smoothstep(0, REAR_TAKEDOWN_MOTION.PREPARE_END, elapsed)
 	if progress > _rear_approach_progress:
 		var step := _rear_approach_offset * (progress - _rear_approach_progress)
 		var before := global_position
@@ -1577,7 +1576,7 @@ func _execution_phase() -> String:
 
 func get_execution_snapshot() -> Dictionary:
 	var tip := weapon_pivot.to_global(_execution_blade_tip) if is_instance_valid(weapon_pivot) else Vector3.ZERO
-	return {"active": is_execution_active(), "elapsed": execution_elapsed, "phase": _execution_phase(), "profile": _execution_profile, "stab_contact_committed": _rear_stab_contact_committed, "stab_direction": _execution_stab_direction, "neck_contact": _rear_neck_contact, "hit_committed": _execution_hit_committed, "target_id": _execution_target.get_instance_id() if is_instance_valid(_execution_target) else 0, "contact_point": _execution_contact_point, "blade_tip": tip, "blade_length_m": _execution_blade_length, "penetration_m": _execution_penetration, "blade_fraction": _execution_penetration / _execution_blade_length if _execution_blade_length > 0.0 else 0.0, "contact_error": tip.distance_to(_execution_contact_point), "world_contact": is_instance_valid(viewmodel_renderer) and viewmodel_renderer.world_contact_enabled}
+	return {"active": is_execution_active(), "elapsed": execution_elapsed, "phase": _execution_phase(), "profile": _execution_profile, "stab_contact_committed": _rear_stab_contact_committed, "stab_direction": _execution_stab_direction, "neck_contact": _rear_neck_contact, "lateral_cut_contact": _execution_contact_point, "hit_committed": _execution_hit_committed, "target_id": _execution_target.get_instance_id() if is_instance_valid(_execution_target) else 0, "contact_point": _execution_contact_point, "blade_tip": tip, "blade_length_m": _execution_blade_length, "penetration_m": _execution_penetration, "blade_fraction": _execution_penetration / _execution_blade_length if _execution_blade_length > 0.0 else 0.0, "contact_error": tip.distance_to(_execution_contact_point), "world_contact": is_instance_valid(viewmodel_renderer) and viewmodel_renderer.world_contact_enabled}
 
 
 func get_melee_hit_time() -> float:

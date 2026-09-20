@@ -47,7 +47,7 @@ func _run() -> void:
 	_check(model_hash == FileAccess.get_sha256(DISMEMBERMENT.MODEL_PATH), "rear execution must preserve the licensed split model bytes")
 	for failure in failures: push_error("REAR TAKEDOWN: " + failure)
 	print("REAR TAKEDOWN REPORT: ", JSON.stringify(report))
-	print("REAR TAKEDOWN TEST %s: unaware rear gates, actual skin/half-blade/neck contact, ordered long tick, one severance/death/reward, cancellation and preserved session" % ("PASS" if failures.is_empty() else "FAIL"))
+	print("REAR TAKEDOWN TEST %s: unaware rear gates, actual skin/half-blade/leftward extraction, ordered long tick, intact head and one death/reward, cancellation and preserved session" % ("PASS" if failures.is_empty() else "FAIL"))
 	quit(0 if failures.is_empty() else 1)
 
 
@@ -119,7 +119,7 @@ func _eligibility_and_profiles() -> void:
 	var ordinary = _spawn(false)
 	ordinary.position.x = 5.0
 	_prepare_player(ordinary, Vector3(0, 0, 1.15))
-	_check(not ordinary.can_begin_rear_takedown(player), "unsupported enemy without authored detachable neck must fail explicitly")
+	_check(not ordinary.can_begin_rear_takedown(player), "unsupported enemy without authored rear-takedown support must fail explicitly")
 
 
 func _start_rear(actor) -> bool:
@@ -135,8 +135,8 @@ func _start_rear(actor) -> bool:
 		_check(actor.skeleton.get_bone_pose(bone).is_equal_approx(bones[bone]), "reservation must preserve actual source bone pose: " + actor.skeleton.get_bone_name(bone))
 	_check(actor.ai_state == DungeonEnemy.AIState.EXECUTION and actor._execution_executor == player and player.viewmodel_renderer.world_contact_enabled, "player and enemy must share one real reservation with world-depth rendering")
 	_check(is_equal_approx(stamina - player.stamina, REAR.STAMINA_COST * player.get_body_attack_stamina_multiplier()), "reservation spends one real execution stamina cost")
-	_check(not actor.finish_rear_takedown(player), "direct premature finish cannot sever a head before cut contact")
-	_check(not actor.finish_execution(player), "old execution finish cannot bypass the new neck-cut clock")
+	_check(not actor.finish_rear_takedown(player), "direct premature finish cannot kill before lateral cutting contact")
+	_check(not actor.finish_execution(player), "old execution finish cannot bypass the lateral-extraction clock")
 	return true
 
 
@@ -155,19 +155,21 @@ func _ordered_execution(weapon: String, long_tick: bool, initial_distance := 1.1
 	var before_lower := {}
 	for bone_name: String in ["Torso", "Leg1.L", "Leg1.R", "Foot.L", "Foot.R"]:
 		before_lower[bone_name] = actor.skeleton.get_bone_pose(actor.skeleton.find_bone(bone_name))
+	var held_blade := {}
+	var hold_camera_basis := Basis.IDENTITY
 	var geometry := _real_blade()
 	var actual_length: float = geometry.length
 	_check(actual_length > .40 and absf(actual_length - player.get_execution_snapshot().blade_length_m) < .002, "execution must measure the actual equipped blade vertices in world metres")
 	if long_tick:
 		player.advance_execution(REAR.CUT_HIT + .01)
 		player._update_viewmodel(0.0)
-		_check(bool(player.get_execution_snapshot().stab_contact_committed), "long frame must resolve real stab contact before the neck-cut event")
-		_check_execution_arm_reach("cut")
+		_check(bool(player.get_execution_snapshot().stab_contact_committed), "long frame must resolve real stab contact before lateral cutting death")
+		_check_execution_arm_reach("lateral_cut")
 	else:
-		for time: float in [REAR.PREPARE_END, REAR.STAB_HIT - .001, REAR.STAB_HIT, .82, REAR.HOLD_END, REAR.WITHDRAW_END, REAR.CUT_HIT - .001]:
+		for time: float in [REAR.PREPARE_END, REAR.STAB_HIT - .001, REAR.STAB_HIT, .82, REAR.HOLD_END, REAR.CUT_HIT - .001]:
 			_advance_rear_to(time)
 			_check(player.is_execution_active(), "valid staged rear execution remains active at %.3f" % time)
-			_check(actor.health == hp and actor.dismemberment.severed.is_empty() and actor.dismemberment.detached.is_empty() and _defeats(actor) == 0 and landed.size() == before_hits, "stab, hold and extraction must keep the target alive and head attached at %.3f" % time)
+			_check(actor.health == hp and actor.dismemberment.severed.is_empty() and actor.dismemberment.detached.is_empty() and _defeats(actor) == 0 and landed.size() == before_hits, "stab, hold and initial lateral slice keep the target alive and head attached at %.3f" % time)
 			_check(actor.ragdoll.phase == "living" and actor.ragdoll.parts.is_empty(), "no early physical death or held corpse during rear stab")
 			_check(actor.global_transform.is_equal_approx(entry_root), "standing reaction must keep navigation root planted")
 			for bone_name: String in before_lower:
@@ -175,45 +177,47 @@ func _ordered_execution(weapon: String, long_tick: bool, initial_distance := 1.1
 			if time >= REAR.STAB_HIT and time <= REAR.HOLD_END:
 				_check_half_blade_in_skin(actor, actual_length, time)
 				if is_equal_approx(time, REAR.STAB_HIT): _check_execution_arm_reach("deep_stab")
+				if is_equal_approx(time, REAR.HOLD_END):
+					held_blade = _real_blade()
+					hold_camera_basis = player.camera.global_basis
 			if time <= REAR.HOLD_END:
 				if is_equal_approx(initial_distance, 1.15):
-					_check(player.global_position.distance_to(entry_player_position) < .001, "near player must not start the short neck-cut step while the blade is buried")
+					_check(player.global_position.distance_to(entry_player_position) < .001, "near player remains planted while the blade is buried")
 				else:
 					var stab_distance := Vector2(player.global_position.x - actor.global_position.x, player.global_position.z - actor.global_position.z).length()
-					_check(absf(stab_distance - 1.15) < .015 and player.global_position.distance_to(entry_player_position) > .25, "far rear reservation must use actual collision-tested approach before the deep stab")
-			if is_equal_approx(time, REAR.WITHDRAW_END):
-				var state := player.get_execution_snapshot()
-				var blade := _real_blade()
-				var surfaces := _torso_surface_depths(actor, state.contact_point, state.stab_direction)
-				_check(not surfaces.is_empty(), "extraction clearance must use the actual posed back skin")
-				if not surfaces.is_empty():
-					var clearance: float = surfaces[0] - (blade.tip - state.contact_point).dot(state.stab_direction)
-					_check(clearance >= .03, "actual blade tip must clear posed back skin by at least three centimetres before wide neck slash")
-					report.append({"case": "actual_skin_extraction", "time": time, "clearance_m": clearance, "skin_entry_depth_m": surfaces[0]})
-			if time < REAR.CUT_HIT:
-				_check(not actor.finish_rear_takedown(player), "premature finish remains refused throughout live sequence")
-		var neck := _actual_neck_center(actor)
+					_check(absf(stab_distance - 1.15) < .015 and player.global_position.distance_to(entry_player_position) > .25, "far rear reservation uses actual collision-tested approach before the deep stab")
+			_check(not actor.finish_rear_takedown(player), "premature finish remains refused throughout live sequence")
 		var blade := _real_blade()
-		var closest := Geometry3D.get_closest_point_to_segment(neck, blade.heel, blade.tip)
-		var fraction: float = (closest - blade.heel).length() / actual_length
-		_check(neck.distance_to(closest) < .055 and fraction > .75 and fraction < .98, "actual forward cutting edge, clear of the tip and hilt, must approach the posed neck cap before death")
+		var torso_hit: Dictionary = actor.query_located_hit(blade.heel, blade.tip, .045)
+		_check(torso_hit.get("region", "") == "torso", "actual blade still crosses the torso during the lateral cutting contact")
+		var left_shift := -((blade.heel as Vector3) - (held_blade.heel as Vector3)).dot(hold_camera_basis.x)
+		_check(left_shift > .025, "actual blade heel starts moving left before the lethal slice")
 		var distance := Vector2(player.global_position.x - actor.global_position.x, player.global_position.z - actor.global_position.z).length()
-		_check(distance >= .78 and distance <= .88 and player.global_position.distance_to(entry_player_position) > .20, "actual collision-tested player step must bring the neck within arm reach without moving the target")
-		_check_execution_arm_reach("cut")
-		report.append({"case": "precut_geometry", "neck_edge_distance_m": neck.distance_to(closest), "blade_fraction_from_heel": fraction})
+		_check(absf(distance - REAR.STAB_DISTANCE) < .02, "lateral extraction retains the stabbing distance without the old neck-cut step")
+		_check_execution_arm_reach("lateral_cut")
+		report.append({"case": "precut_geometry", "actual_contact_region": torso_hit.get("region", ""), "blade_heel_left_shift_m": left_shift, "remaining_distance_m": distance})
 		_advance_rear_to(REAR.CUT_HIT)
 	actor.ragdoll.set_physics_process(false)
-	_check(actor.health == 0.0 and actor.ai_state == DungeonEnemy.AIState.DEAD and _defeats(actor) == 1, "neck-cut contact causes exactly one death")
-	_check(actor.dismemberment.severed == ["head"] and actor.dismemberment.detached.size() == 1, "one finishing slash must detach exactly the real head")
-	_check(actor.ragdoll.phase == "simulating" and not actor.ragdoll.parts.has("Head"), "decapitated body must enter immediate physics without a duplicate physical head")
-	_check(landed.size() == before_hits + 1 and bag.count_item("rune_fragment") == before_rewards + 1 and reward_game.loot_count == 1, "actual game reward receiver must grant exactly one rune and one landed event")
-	var count: int = actor.dismemberment.detached.size()
-	_check(not actor.finish_rear_takedown(player), "duplicate neck finish cannot create another head or reward")
+	_check(actor.health == 0.0 and actor.ai_state == DungeonEnemy.AIState.DEAD and _defeats(actor) == 1, "lateral cutting contact causes exactly one death")
+	_check(actor.dismemberment.severed.is_empty() and actor.dismemberment.detached.is_empty(), "lateral extraction must preserve the head and all body parts")
+	_check(actor.ragdoll.phase == "simulating" and actor.ragdoll.parts.has("Head"), "whole body enters immediate physics with its attached head")
+	_check(landed.size() == before_hits + 1 and bag.count_item("rune_fragment") == before_rewards + 1 and reward_game.loot_count == 1, "actual game reward receiver grants exactly one rune and one landed event")
+	_check(not actor.finish_rear_takedown(player), "duplicate lateral finish cannot create another death or reward")
+	if not long_tick:
+		_advance_rear_to(REAR.WITHDRAW_END)
+		var exited := _real_blade()
+		var left_shift := -((exited.heel as Vector3) - (held_blade.heel as Vector3)).dot(hold_camera_basis.x)
+		var state := player.get_execution_snapshot()
+		var retreat := -((exited.tip as Vector3) - (held_blade.tip as Vector3)).dot(state.stab_direction)
+		var tip_depth := ((exited.tip as Vector3) - (state.contact_point as Vector3)).dot(state.stab_direction)
+		_check(left_shift > .18 and retreat > .20 and tip_depth < -.03, "actual blade exits the original back-entry plane by moving left and backward")
+		_check(actor.dismemberment.severed.is_empty() and actor.ragdoll.parts.has("Head"), "head remains attached throughout the extraction follow-through")
+		report.append({"case": "lateral_extraction_geometry", "heel_left_shift_m": left_shift, "tip_retreat_m": retreat, "tip_entry_plane_depth_m": tip_depth})
 	player.cancel_execution()
 	player.cancel_execution()
 	player.advance_execution(REAR.DURATION)
-	_check(not player.is_execution_active() and not player.viewmodel_renderer.world_contact_enabled and actor.dismemberment.detached.size() == count and _defeats(actor) == 1 and bag.count_item("rune_fragment") == before_rewards + 1, "post-cut cancellation restores player and cannot duplicate death/reward")
-	report.append({"case": weapon, "long_tick": long_tick, "initial_distance_m": initial_distance, "blade_length_m": actual_length, "head_bodies": count, "defeats": _defeats(actor), "rune_rewards": bag.count_item("rune_fragment") - before_rewards})
+	_check(not player.is_execution_active() and not player.viewmodel_renderer.world_contact_enabled and actor.dismemberment.detached.is_empty() and _defeats(actor) == 1 and bag.count_item("rune_fragment") == before_rewards + 1, "post-cut cancellation restores player and cannot duplicate death/reward")
+	report.append({"case": weapon, "long_tick": long_tick, "initial_distance_m": initial_distance, "blade_length_m": actual_length, "head_bodies": actor.dismemberment.detached.size(), "attached_head_ragdoll": actor.ragdoll.parts.has("Head"), "defeats": _defeats(actor), "rune_rewards": bag.count_item("rune_fragment") - before_rewards})
 
 
 func _check_half_blade_in_skin(actor, length: float, time: float) -> void:
@@ -331,15 +335,15 @@ func _wrist_motion_sequence() -> void:
 		if strict_axis:
 			maximum_mismatch = maxf(maximum_mismatch, float(actual.axis_mismatch_degrees))
 			_check(float(actual.axis_mismatch_degrees) <= 45.0, "actual hand/forearm axis mismatch exceeds 45 degrees at %.5fs" % time)
-		if time >= REAR.PREPARE_END and time <= REAR.WITHDRAW_END:
+		if time >= REAR.PREPARE_END and time <= REAR.HOLD_END:
 			if not embedded_seen:
 				embedded_basis = weapon_basis
 				embedded_seen = true
 			var drift := basis_angle_degrees(embedded_basis, weapon_basis)
 			maximum_fixed_rotation = maxf(maximum_fixed_rotation, drift)
-			_check(drift <= .10, "thrust and axial extraction must preserve actual world blade rotation at %.5fs" % time)
-		if time >= REAR.STAB_HIT and time <= REAR.WITHDRAW_END:
-			_check(int(projection.in_frame_samples) >= 2 and float(projection.projected_span_px) > 1.0, "an exposed blade segment must project in front of the camera during stab/extraction")
+			_check(drift <= .10, "thrust and embedded hold must preserve actual world blade rotation at %.5fs" % time)
+		if time >= REAR.STAB_HIT and time <= REAR.CUT_HIT:
+			_check(int(projection.in_frame_samples) >= 2 and float(projection.projected_span_px) > 1.0, "an exposed blade segment must project in front of the camera through the lethal lateral cut")
 		samples.append({"time": time, "delta": delta, "actual": actual, "weapon_basis": weapon_basis, "projection": projection, "depth_m": depth})
 	var maximum_step := 0.0
 	var maximum_rotation := 0.0
@@ -363,7 +367,7 @@ func _wrist_motion_sequence() -> void:
 		for boundary in boundaries:
 			if absf(float(sample.time) - boundary) < .000001:
 				projection_stages.append({"time": sample.time, "projection": sample.projection, "axis_mismatch_degrees": sample.actual.axis_mismatch_degrees})
-	_check(samples.size() >= 160 and embedded_seen, "full 60Hz execution and explicit phase-boundary samples must be retained")
+	_check(samples.size() >= int(ceil(REAR.DURATION / STEP)) and embedded_seen, "full 60Hz execution and explicit phase-boundary samples must be retained")
 	report.append({"case": "full_wrist_continuity", "sample_count": samples.size(), "maximum_joint_step_m": maximum_step, "maximum_step_time": maximum_step_time, "maximum_hand_rotation_step_degrees": maximum_rotation, "maximum_embedded_axis_mismatch_degrees": maximum_mismatch, "maximum_fixed_blade_rotation_degrees": maximum_fixed_rotation, "projection_stages": projection_stages})
 
 
@@ -428,31 +432,29 @@ static func measure_blade_projection(camera: Camera3D, heel: Vector3, tip: Vecto
 
 func _blocked_approach() -> void:
 	var actor = await _new_rear_actor()
-	var original_root: Transform3D = actor.global_transform
 	var rewards := bag.count_item("rune_fragment")
 	var hits := landed.size()
 	if not _start_rear(actor): return
 	_advance_rear_to(.84)
-	# A low L-shaped corner leaves the eye-to-torso rays clear but blocks the
-	# real character capsule. It must not be bypassed by pose-only arm reach.
+	# A low corner formerly blocked an unnecessary post-stab step toward the
+	# neck. Lateral extraction must stay planted and finish without that step.
 	wall = _add_box(Vector3(1.4, .65, .10), actor.global_position + Vector3(0, -.25, .65))
 	var side_wall := _add_box(Vector3(.10, .65, 1.0), actor.global_position + Vector3(-.75, -.25, 1.10))
 	await physics_frame
 	await physics_frame
-	_check(player._rear_takedown_has_clear_path(actor), "low-corner fixture must isolate capsule obstruction from eye-line obstruction")
+	_check(player._rear_takedown_has_clear_path(actor), "low-corner fixture isolates capsule obstruction from eye-line obstruction")
 	var initial_position := player.global_position
 	var elapsed := player.execution_elapsed
 	while elapsed < REAR.CUT_HIT + .03 and player.is_execution_active():
 		player.advance_execution(STEP)
 		player._update_viewmodel(0.0)
 		elapsed += STEP
+		if actor.health <= 0.0: actor.ragdoll.set_physics_process(false)
 	var distance := Vector2(player.global_position.x - actor.global_position.x, player.global_position.z - actor.global_position.z).length()
-	_check(player.global_position.z >= wall.global_position.z + .05 + .36 - .015, "actual capsule must stop before the closed corner instead of moving through it")
-	_check(distance > .95 and player.global_position.distance_to(initial_position) < .20, "physical obstruction must prevent the short execution approach")
-	_check(not player.is_execution_active() and not player.viewmodel_renderer.world_contact_enabled, "unreachable neck cut must cancel and restore normal player rendering")
-	_check(actor.health == actor.max_health and actor.ai_state == DungeonEnemy.AIState.STAGGER and not is_instance_valid(actor._execution_executor), "blocked approach must release a living, alerted target")
-	_check(actor.global_transform.is_equal_approx(original_root) and actor.dismemberment.detached.is_empty() and _defeats(actor) == 0 and landed.size() == hits and bag.count_item("rune_fragment") == rewards, "blocked approach cannot move the victim, detach the head or grant a death/reward")
-	report.append({"case": "blocked_capsule_approach", "remaining_distance_m": distance, "actual_step_m": player.global_position.distance_to(initial_position), "cancelled": not player.is_execution_active()})
+	_check(player.global_position.distance_to(initial_position) < .005 and absf(distance - REAR.STAB_DISTANCE) < .02, "lateral finish must not move the capsule into a nearby low corner")
+	_check(actor.health == 0.0 and actor.ai_state == DungeonEnemy.AIState.DEAD and actor.ragdoll.parts.has("Head"), "planted lateral cut completes with an intact-head physical corpse")
+	_check(actor.dismemberment.detached.is_empty() and actor.dismemberment.severed.is_empty() and _defeats(actor) == 1 and landed.size() == hits + 1 and bag.count_item("rune_fragment") == rewards + 1, "low corner cannot revive old neck-cut movement or duplicate death/reward")
+	report.append({"case": "planted_lateral_finish_by_corner", "remaining_distance_m": distance, "actual_step_m": player.global_position.distance_to(initial_position), "defeats": _defeats(actor)})
 	side_wall.get_parent().remove_child(side_wall)
 	side_wall.queue_free()
 
@@ -519,19 +521,6 @@ func _real_blade() -> Dictionary:
 				maximum = distance
 				tip = point
 	return {"tip": tip, "heel": tip - axis * (maximum - minimum), "length": maximum - minimum}
-
-
-func _actual_neck_center(actor) -> Vector3:
-	var weighted := Vector3.ZERO
-	var total := 0.0
-	for cap: MeshInstance3D in actor.dismemberment.body_caps.head:
-		var faces: PackedVector3Array = actor.dismemberment._bake_world_mesh(cap, Vector3.ZERO).get_faces()
-		for index in range(0, faces.size(), 3):
-			var area := (faces[index + 1] - faces[index]).cross(faces[index + 2] - faces[index]).length() * .5
-			weighted += (faces[index] + faces[index + 1] + faces[index + 2]) * area / 3.0
-			total += area
-	_check(total > 0.0, "real authored neck cap must contain posed triangles")
-	return weighted / maxf(total, .0000001)
 
 
 func _torso_surface_depths(actor, anchor: Vector3, direction: Vector3) -> Array[float]:

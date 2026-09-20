@@ -1,0 +1,6227 @@
+{
+  "arm_measurement": "Actual fitted shoulder/elbow/wrist are recorded in world and camera space every physics tick. During the full active takedown, shoulder displacement from its anatomical rest anchor must stay within 4.5cm, its camera-space Z stays behind the camera, and upper/forearm lengths remain 34/26cm. These checks supplement, not replace, inspection of the rendered sleeve edge.",
+  "audio_driver_policy": "Dummy enforced by audited run_embedded_preview.sh",
+  "camera_motion": "Starts 1.15m behind the actual actor, aimed at back skin. Production aiming/lean and collision-tested initial approach own the active sequence. There is no additional post-stab neck-cut step. Only after the completed kill, a capture-only pitch tilt from 3.5 to 4.3 seconds ends at -47 degrees to inspect the intact corpse. Alerted control keeps its initial camera; live AI can turn and move.",
+  "capture_scope": "Actual DungeonPlayer sword and live Creep AI. One begin_rear_takedown call at .6 seconds per case; actual production stab, leftward slicing extraction and whole-body rigid-body death with attached head. No forced damage, death, pose, detached-part position or contact.",
+  "cursor_preserved": true,
+  "depth_measurement": "Displayed blade vertices are scanned independently in world space at every physics tick. Stab/hold stages additionally re-intersect posed torso triangles. Lateral extraction is measured against the original wound plane because the intact corpse is already physically falling. The final living physics sample (within two ticks of death) records actual torso contact; dead bodies intentionally no longer answer combat hit queries. Entry-skin insertion fraction is measured against actual blade length; this is not a claim that the tip cannot exit the far side.",
+  "display_driver": "embedded",
+  "duration_seconds": 9.0,
+  "failures": [],
+  "fps": 30,
+  "frame_count": 270,
+  "input_scope": "No OS keyboard/mouse/focus, hardware cursor change, desktop capture or audible playback. Labels are inspection subtitles. The alerted control is initialized in CHASE, then runs normal AI; the rear case starts unaware in IDLE.",
+  "iteration": "left_exit_verified_20260920",
+  "penetration_ratio_target": 0.55,
+  "physics_hz": 60,
+  "reference_scope": "Requested action sequence only. The linked reference video could not be played silently with the available tools and was not visually observed.",
+  "renderer": "vulkan",
+  "resolution": [
+    960,
+    540
+  ],
+  "scenarios": [
+    {
+      "alerted": false,
+      "attacks_landed": 1,
+      "before_begin": {
+        "actual_blade": {
+          "anchor_world": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "axis_depth_m": -2.22883892059326,
+          "axis_direction_dot": -0.974852442741394,
+          "axis_world": [
+            -0.0349432528018951,
+            0.974852442741394,
+            -0.220094725489616
+          ],
+          "base_world": [
+            0.359832406044006,
+            1.20932018756866,
+            0.737052023410797
+          ],
+          "inserted_fraction": -2.13285956876138,
+          "lateral_contact_world": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "lateral_error_m": 0.603425025939941,
+          "length_m": 1.04500031471252,
+          "located_contact": {},
+          "projection": {
+            "exposed_length_m": 1.04500031471252,
+            "in_frame_samples": 16,
+            "occlusion_verified": false,
+            "projected_span_px": 468.345825195312,
+            "projected_span_viewport_fraction": 0.487860234578451
+          },
+          "tip_world": [
+            0.32101184129715,
+            2.22883892059326,
+            0.510953187942505
+          ],
+          "torso_contact": false
+        },
+        "bone_world": {
+          "Chest": {
+            "basis": [
+              [
+                -0.351301938295364,
+                -2.72886033769737e-08,
+                -4.8750575132317e-08
+              ],
+              [
+                -1.0943199235669e-08,
+                0.334216713905334,
+                -0.108223147690296
+              ],
+              [
+                5.4786248426808e-08,
+                -0.108223147690296,
+                -0.334216713905334
+              ]
+            ],
+            "origin": [
+              -1.04779518395048e-09,
+              1.43629157543182,
+              0.0046697617508471
+            ]
+          },
+          "Head": {
+            "basis": [
+              [
+                -0.348017483949661,
+                -0.00145319022703916,
+                -0.0479036085307598
+              ],
+              [
+                0.0364267341792583,
+                -0.236206978559494,
+                -0.257473081350327
+              ],
+              [
+                -0.0311441794037819,
+                -0.260033011436462,
+                0.234149321913719
+              ]
+            ],
+            "origin": [
+              -3.26172120423962e-08,
+              1.80934274196625,
+              -0.400110095739365
+            ]
+          },
+          "Neck": {
+            "basis": [
+              [
+                -0.351301938295364,
+                -3.01813884107105e-07,
+                -1.17548736966455e-07
+              ],
+              [
+                -2.32375541031615e-08,
+                0.150651291012764,
+                -0.317359834909439
+              ],
+              [
+                3.23062408824626e-07,
+                -0.317359805107117,
+                -0.150651291012764
+              ]
+            ],
+            "origin": [
+              -8.04685917898951e-09,
+              1.65005028247833,
+              -0.0645478218793869
+            ]
+          }
+        },
+        "camera": {
+          "basis": [
+            [
+              1.0,
+              0.0,
+              -7.60625673557058e-10
+            ],
+            [
+              -1.33988611872304e-10,
+              0.984362304210663,
+              -0.176155775785446
+            ],
+            [
+              7.48731243671585e-10,
+              0.176155775785446,
+              0.984362304210663
+            ]
+          ],
+          "origin": [
+            0.0,
+            1.5699999332428,
+            1.14999997615814
+          ]
+        },
+        "candidate_is_actor": true,
+        "dagger_visible": false,
+        "defeats": 0,
+        "dismemberment": {
+          "damage": {
+            "head": 0.0,
+            "left_arm": 0.0,
+            "left_leg": 0.0,
+            "right_arm": 0.0,
+            "right_leg": 0.0
+          },
+          "detached_bodies": 0,
+          "enabled": true,
+          "hit_counts": {
+            "head": 0,
+            "left_arm": 0,
+            "left_leg": 0,
+            "right_arm": 0,
+            "right_leg": 0
+          },
+          "last_bake_ms": 0,
+          "last_region": "torso",
+          "move_speed": 2.2,
+          "positions": {},
+          "severed": [],
+          "visual_effects": 0
+        },
+        "enemy_ai_enabled": true,
+        "enemy_root": {
+          "basis": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "origin": [
+            0.0,
+            0.899999976158142,
+            0.0
+          ]
+        },
+        "enemy_state": 0,
+        "execution": {
+          "active": false,
+          "blade_fraction": 0.0,
+          "blade_length_m": 0.0,
+          "blade_tip": [
+            0.357228249311447,
+            1.21984934806824,
+            0.738666296005249
+          ],
+          "contact_error": 1.47012662887573,
+          "contact_point": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "elapsed": 0.0,
+          "hit_committed": false,
+          "lateral_cut_contact": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "neck_contact": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "penetration_m": 0.0,
+          "phase": "방패 밀치기",
+          "profile": "shield_cut",
+          "stab_contact_committed": false,
+          "stab_direction": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "target_id": 0,
+          "world_contact": false
+        },
+        "health": 118.0,
+        "initial_chest_distance_m": 0.0354953706264496,
+        "landed": 0,
+        "player_health": 440.0,
+        "player_state": 0,
+        "player_transform": {
+          "basis": [
+            [
+              1.0,
+              0.0,
+              -7.60625673557058e-10
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              7.60625673557058e-10,
+              0.0,
+              1.0
+            ]
+          ],
+          "origin": [
+            0.0,
+            0.899999976158142,
+            1.14999997615814
+          ]
+        },
+        "ragdoll": {
+          "bodies": 0,
+          "core_low": false,
+          "execution_held": false,
+          "execution_release_pending": false,
+          "execution_release_reason": "",
+          "ground_point": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "ground_supported": false,
+          "impact_velocity": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "joints": 0,
+          "max_speed": 0.0,
+          "mean_squared_speed": 0.0,
+          "phase": "living",
+          "positions": {},
+          "quiet_time": 0.0,
+          "reaction_time": 0.0,
+          "settled_evidence": {},
+          "simulation_time": 0.0,
+          "support_normals": [],
+          "support_parts": [],
+          "temporary": false
+        },
+        "reaction": {},
+        "right_arm": {
+          "actual_rig": {
+            "actual_forearm_axis_world": [
+              0.272680431604385,
+              -0.275429368019104,
+              0.921837329864502
+            ],
+            "available": true,
+            "axis_mismatch_degrees": 30.718902150632,
+            "elbow_world": [
+              0.468322277069092,
+              1.07322144508362,
+              1.08138263225555
+            ],
+            "hand_basis_world": "[X: (-0.17043, -0.39342, -0.903424), Y: (0.983125, -0.006039, -0.182835), Z: (0.066475, -0.919339, 0.38781)]",
+            "legacy_axis_mismatch_degrees": 29.4362506811115,
+            "measurement_scope": "Authored rig neutral axis versus posed forearm; not a clinical wrist angle.",
+            "neutral_hand_axis_world": [
+              0.192005798220634,
+              0.247397348284721,
+              0.949699103832245
+            ],
+            "shoulder_world": [
+              0.290000081062317,
+              1.25293397903442,
+              1.30832886695862
+            ],
+            "wrist_world": [
+              0.403541713953018,
+              1.13865506649017,
+              0.862382173538208
+            ]
+          },
+          "actual_shoulder_adjustment_m": 0.176468849182129,
+          "available": true,
+          "camera": {
+            "elbow": [
+              0.468322336673737,
+              -0.476922750473022,
+              -0.155054807662964
+            ],
+            "shoulder": [
+              0.290000051259995,
+              -0.339998364448547,
+              0.0999999046325684
+            ],
+            "wrist": [
+              0.393493711948395,
+              -0.375333666801453,
+              -0.382388114929199
+            ]
+          },
+          "forearm_length_m": 0.260000139474869,
+          "reported_shoulder_adjustment_m": 0.0,
+          "requested_reach_m": 0.525395154953003,
+          "requested_shoulder_camera": [
+            0.248202860355377,
+            -0.169864118099213,
+            0.0788199901580811
+          ],
+          "upper_length_m": 0.340000033378601,
+          "world": {
+            "elbow": [
+              0.468322336673737,
+              1.07322144508362,
+              1.08138263225555
+            ],
+            "shoulder": [
+              0.290000051259995,
+              1.25293397903442,
+              1.30832886695862
+            ],
+            "wrist": [
+              0.393493711948395,
+              1.13317573070526,
+              0.839708805084229
+            ]
+          }
+        },
+        "seconds": 0.6,
+        "shield_visible": false,
+        "stamina": 100.0,
+        "sword_visible": true,
+        "target_is_actual_player": true,
+        "tick": 36,
+        "weapon_transform": {
+          "basis": [
+            [
+              0.864709675312042,
+              0.139906316995621,
+              0.482393443584442
+            ],
+            [
+              -0.0349432490766048,
+              0.974852383136749,
+              -0.220094710588455
+            ],
+            [
+              -0.501055061817169,
+              0.173461630940437,
+              0.847853183746338
+            ]
+          ],
+          "origin": [
+            0.357228249311447,
+            1.21984934806824,
+            0.738666296005249
+          ]
+        },
+        "world_contact": false
+      },
+      "begin_result": {
+        "accepted": true,
+        "profile": "rear_sword",
+        "stamina_spent": 24.0
+      },
+      "camera_inspection_tilt": true,
+      "damage_events": [
+        {
+          "damage": 118.0,
+          "headshot": true,
+          "tick": 112
+        }
+      ],
+      "defeats": 1,
+      "final_creep": {
+        "archetype": "creep",
+        "attack_index": -1,
+        "bones": 55,
+        "clip": "ragdoll",
+        "clips": [
+          "bite",
+          "death",
+          "despawn_jump",
+          "eat",
+          "hit",
+          "idle",
+          "idle_crouched",
+          "punch",
+          "roar",
+          "sleep",
+          "sleep_finish",
+          "sleep_start",
+          "sniff",
+          "spawn_jump",
+          "walk",
+          "walk_calm",
+          "walk_crouched"
+        ],
+        "crawl": {
+          "active": false,
+          "blend": 0.0,
+          "feet": {},
+          "hands": {},
+          "movement_blend": 0.0,
+          "phase": 0.0,
+          "planted": {}
+        },
+        "dismemberment": {
+          "damage": {
+            "head": 0.0,
+            "left_arm": 0.0,
+            "left_leg": 0.0,
+            "right_arm": 0.0,
+            "right_leg": 0.0
+          },
+          "detached_bodies": 0,
+          "enabled": true,
+          "hit_counts": {
+            "head": 0,
+            "left_arm": 0,
+            "left_leg": 0,
+            "right_arm": 0,
+            "right_leg": 0
+          },
+          "last_bake_ms": 0,
+          "last_region": "torso",
+          "move_speed": 2.2,
+          "positions": {},
+          "severed": [],
+          "visual_effects": 0
+        },
+        "knockdown_phase": "none",
+        "locomotion_transition": {
+          "active": false,
+          "duration": 0.28,
+          "elapsed": 0.0,
+          "walk_sample": 0.0,
+          "walk_speed": 0.0
+        },
+        "meshes": 16,
+        "ragdoll": {
+          "bodies": 20,
+          "core_low": true,
+          "execution_held": false,
+          "execution_release_pending": false,
+          "execution_release_reason": "",
+          "ground_point": [
+            -1.47897779941559,
+            0.0,
+            1.09659850597382
+          ],
+          "ground_supported": true,
+          "impact_velocity": [
+            -1.14965629577637,
+            0.0,
+            0.378114610910416
+          ],
+          "joints": 19,
+          "max_speed": 0.0,
+          "mean_squared_speed": 0.00228912680262688,
+          "phase": "settled",
+          "positions": {
+            "Arm1.L": [
+              -1.17490780353546,
+              0.0899732708930969,
+              0.541657567024231
+            ],
+            "Arm1.R": [
+              -1.14092421531677,
+              0.505415618419647,
+              0.953353881835938
+            ],
+            "Arm2.L": [
+              -1.1347588300705,
+              0.0778225287795067,
+              0.0790024697780609
+            ],
+            "Arm2.R": [
+              -1.14218974113464,
+              0.339859426021576,
+              0.565287947654724
+            ],
+            "Chest": [
+              -1.24713206291199,
+              0.210189312696457,
+              1.08939790725708
+            ],
+            "Foot.L": [
+              -0.134115725755692,
+              0.0849098563194275,
+              0.183970212936401
+            ],
+            "Foot.R": [
+              -0.000346714979968965,
+              0.0582869052886963,
+              0.0283813644200563
+            ],
+            "Hand.L": [
+              -1.1012247800827,
+              0.0767479240894318,
+              -0.3027223944664
+            ],
+            "Hand.R": [
+              -1.36273014545441,
+              0.141755163669586,
+              0.307370573282242
+            ],
+            "Head": [
+              -1.71031320095062,
+              0.231471985578537,
+              1.1041556596756
+            ],
+            "Leg1.L": [
+              -0.905337274074554,
+              0.121079117059708,
+              0.505343556404114
+            ],
+            "Leg1.R": [
+              -0.613365888595581,
+              0.259292095899582,
+              0.704111754894257
+            ],
+            "Leg2.L": [
+              -0.710967302322388,
+              0.103550523519516,
+              0.298466086387634
+            ],
+            "Leg2.R": [
+              -0.24806073307991,
+              0.135320574045181,
+              0.48776039481163
+            ],
+            "Leg3.L": [
+              -0.340289890766144,
+              0.0659204050898552,
+              0.33450710773468
+            ],
+            "Leg3.R": [
+              0.00536651071161032,
+              0.0549663677811623,
+              0.260202378034592
+            ],
+            "Neck": [
+              -1.53191363811493,
+              0.18413819372654,
+              1.15650773048401
+            ],
+            "Shoulder.L": [
+              -1.30859684944153,
+              0.136770308017731,
+              0.938493192195892
+            ],
+            "Shoulder.R": [
+              -1.30431032180786,
+              0.384821563959122,
+              1.12688446044922
+            ],
+            "Torso": [
+              -1.03271806240082,
+              0.22442539036274,
+              0.954266428947449
+            ]
+          },
+          "quiet_time": 0.6,
+          "reaction_time": 0.0,
+          "settled_evidence": {
+            "core_low": true,
+            "ground_point": [
+              -1.47897779941559,
+              0.0,
+              1.09659850597382
+            ],
+            "ground_supported": true,
+            "mean_squared_speed": 0.00228912680262688,
+            "quiet_time": 0.6,
+            "simulation_time": 2.73333333333333,
+            "support_normals": [
+              [
+                0.0,
+                1.0,
+                0.0
+              ],
+              [
+                0.0,
+                1.0,
+                0.0
+              ]
+            ],
+            "support_parts": [
+              "Chest",
+              "Head"
+            ],
+            "temporary": false
+          },
+          "simulation_time": 2.73333333333333,
+          "support_normals": [
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ]
+          ],
+          "support_parts": [
+            "Chest",
+            "Head"
+          ],
+          "temporary": false
+        },
+        "resolved_contacts": 0,
+        "sample": 1.27,
+        "source": "res://assets/licensed/creep/creep.glb",
+        "state": 6
+      },
+      "first_death": {
+        "actual_blade": {
+          "anchor_world": [
+            -1.04779518395048e-09,
+            1.43629157543182,
+            0.219099104404449
+          ],
+          "axis_depth_m": 0.403735995292664,
+          "axis_direction_dot": 0.952679991722107,
+          "axis_world": [
+            -0.356421709060669,
+            0.18474292755127,
+            -0.915878653526306
+          ],
+          "base_world": [
+            -0.09587212651968,
+            1.38884294033051,
+            0.818493843078613
+          ],
+          "inserted_fraction": 0.386350173468026,
+          "lateral_contact_world": [
+            -1.04779518395048e-09,
+            1.43629157543182,
+            0.219099104404449
+          ],
+          "lateral_error_m": 0.450582832098007,
+          "length_m": 1.04500016570091,
+          "located_contact": {},
+          "projection": {
+            "exposed_length_m": 0.671676158905029,
+            "in_frame_samples": 25,
+            "occlusion_verified": false,
+            "projected_span_px": 204.025527954102,
+            "projected_span_viewport_fraction": 0.212526591618856
+          },
+          "tip_world": [
+            -0.464211672544479,
+            1.58349061012268,
+            -0.139882206916809
+          ],
+          "torso_contact": false
+        },
+        "bone_world": {
+          "Chest": {
+            "basis": [
+              [
+                -0.344405949115753,
+                -0.0549393445253372,
+                0.0421811938285828
+              ],
+              [
+                -0.0686961710453033,
+                0.298287153244019,
+                -0.172391191124916
+              ],
+              [
+                -0.00885576754808426,
+                -0.177255600690842,
+                -0.303175061941147
+              ]
+            ],
+            "origin": [
+              -0.0180600006133318,
+              1.38944840431213,
+              0.0106296641752124
+            ]
+          },
+          "Head": {
+            "basis": [
+              [
+                -0.34496146440506,
+                -0.0661769583821297,
+                0.00593217741698027
+              ],
+              [
+                0.0561353452503681,
+                -0.307064235210419,
+                -0.161162763834
+              ],
+              [
+                0.0355444476008415,
+                -0.15730619430542,
+                0.312096863985062
+              ]
+            ],
+            "origin": [
+              -0.118656292557716,
+              1.66035807132721,
+              -0.457881063222885
+            ]
+          },
+          "Neck": {
+            "basis": [
+              [
+                -0.344405919313431,
+                -0.0549396201968193,
+                0.0421811826527119
+              ],
+              [
+                -0.0535859614610672,
+                0.0757836624979973,
+                -0.338819235563278
+              ],
+              [
+                0.0438880659639835,
+                -0.338602393865585,
+                -0.0826762244105339
+              ]
+            ],
+            "origin": [
+              -0.0619967840611935,
+              1.58022725582123,
+              -0.0996285974979401
+            ]
+          }
+        },
+        "camera": {
+          "basis": [
+            [
+              0.999701142311096,
+              0.0,
+              -0.0244474858045578
+            ],
+            [
+              -0.0016775147523731,
+              0.997643113136292,
+              -0.0685965642333031
+            ],
+            [
+              0.0243898648768663,
+              0.0686170682311058,
+              0.99734491109848
+            ]
+          ],
+          "origin": [
+            -0.00154597591608763,
+            1.54948878288269,
+            1.08678221702576
+          ]
+        },
+        "dagger_visible": false,
+        "defeats": 1,
+        "dismemberment": {
+          "damage": {
+            "head": 0.0,
+            "left_arm": 0.0,
+            "left_leg": 0.0,
+            "right_arm": 0.0,
+            "right_leg": 0.0
+          },
+          "detached_bodies": 0,
+          "enabled": true,
+          "hit_counts": {
+            "head": 0,
+            "left_arm": 0,
+            "left_leg": 0,
+            "right_arm": 0,
+            "right_leg": 0
+          },
+          "last_bake_ms": 0,
+          "last_region": "torso",
+          "move_speed": 2.2,
+          "positions": {},
+          "severed": [],
+          "visual_effects": 0
+        },
+        "enemy_ai_enabled": true,
+        "enemy_root": {
+          "basis": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "origin": [
+            0.0,
+            0.899999976158142,
+            0.0
+          ]
+        },
+        "enemy_state": 6,
+        "execution": {
+          "active": true,
+          "blade_fraction": 0.55,
+          "blade_length_m": 1.0450000166893,
+          "blade_tip": [
+            -0.464211642742157,
+            1.58349061012268,
+            -0.139882206916809
+          ],
+          "contact_error": 0.605002164840698,
+          "contact_point": [
+            -1.04779518395048e-09,
+            1.43629157543182,
+            0.219099104404449
+          ],
+          "elapsed": 1.28333333333333,
+          "hit_committed": true,
+          "lateral_cut_contact": [
+            -1.04779518395048e-09,
+            1.43629157543182,
+            0.219099104404449
+          ],
+          "neck_contact": [
+            -0.0619967840611935,
+            1.58022654056549,
+            -0.0996289178729057
+          ],
+          "penetration_m": 0.574750009179115,
+          "phase": "후방 제압 · 좌측으로 베어 빼기",
+          "profile": "rear_sword",
+          "stab_contact_committed": true,
+          "stab_direction": [
+            -0.0693743377923965,
+            0.104528464376926,
+            -0.992099344730377
+          ],
+          "target_id": 149149454144,
+          "world_contact": true
+        },
+        "health": 0.0,
+        "initial_chest_distance_m": 0.026451587677002,
+        "landed": 1,
+        "player_health": 440.0,
+        "player_state": 6,
+        "player_transform": {
+          "basis": [
+            [
+              0.999701142311096,
+              0.0,
+              -0.0244474858045578
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0244474858045578,
+              0.0,
+              0.999701142311096
+            ]
+          ],
+          "origin": [
+            0.0,
+            0.899999976158142,
+            1.14999997615814
+          ]
+        },
+        "ragdoll": {
+          "bodies": 20,
+          "core_low": false,
+          "execution_held": false,
+          "execution_release_pending": false,
+          "execution_release_reason": "",
+          "ground_point": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "ground_supported": false,
+          "impact_velocity": [
+            -1.14965629577637,
+            0.0,
+            0.378114610910416
+          ],
+          "joints": 19,
+          "max_speed": 0.665631890296936,
+          "mean_squared_speed": 0.0,
+          "phase": "simulating",
+          "positions": {
+            "Arm1.L": [
+              -0.519895672798157,
+              1.24847555160522,
+              -0.0342347696423531
+            ],
+            "Arm1.R": [
+              0.477423757314682,
+              1.40756690502167,
+              -0.15638193488121
+            ],
+            "Arm2.L": [
+              -0.688864052295685,
+              0.952401101589203,
+              -0.165844634175301
+            ],
+            "Arm2.R": [
+              0.70479941368103,
+              1.04980289936066,
+              -0.240627855062485
+            ],
+            "Chest": [
+              -0.0400283932685852,
+              1.48483777046204,
+              -0.0444994680583477
+            ],
+            "Foot.L": [
+              -0.284177273511887,
+              0.0589381903409958,
+              -0.175640806555748
+            ],
+            "Foot.R": [
+              0.284177213907242,
+              0.0589382164180279,
+              -0.17564083635807
+            ],
+            "Hand.L": [
+              -0.773609519004822,
+              0.698666095733643,
+              -0.422902941703796
+            ],
+            "Hand.R": [
+              0.77362322807312,
+              0.698620915412903,
+              -0.422701358795166
+            ],
+            "Head": [
+              -0.104274988174438,
+              1.5816912651062,
+              -0.49916934967041
+            ],
+            "Leg1.L": [
+              -0.223878145217896,
+              0.863986015319824,
+              -0.121594101190567
+            ],
+            "Leg1.R": [
+              0.220054119825363,
+              0.863200783729553,
+              -0.122828170657158
+            ],
+            "Leg2.L": [
+              -0.299054145812988,
+              0.584283769130707,
+              -0.154138550162315
+            ],
+            "Leg2.R": [
+              0.29533576965332,
+              0.58354377746582,
+              -0.155514657497406
+            ],
+            "Leg3.L": [
+              -0.292561948299408,
+              0.282483279705048,
+              -0.0344749242067337
+            ],
+            "Leg3.R": [
+              0.292667627334595,
+              0.282528519630432,
+              -0.034617006778717
+            ],
+            "Neck": [
+              -0.0903265401721001,
+              1.62029266357422,
+              -0.278754830360413
+            ],
+            "Shoulder.L": [
+              -0.253563553094864,
+              1.50938379764557,
+              -0.113389559090137
+            ],
+            "Shoulder.R": [
+              0.133159413933754,
+              1.5710734128952,
+              -0.160753548145294
+            ],
+            "Torso": [
+              -0.00902999844402075,
+              1.24428570270538,
+              0.0311897136271
+            ]
+          },
+          "quiet_time": 0.0,
+          "reaction_time": 0.0,
+          "settled_evidence": {},
+          "simulation_time": 0.0,
+          "support_normals": [],
+          "support_parts": [],
+          "temporary": false
+        },
+        "reaction": {
+          "back_anchor": [
+            -1.04779518395048e-09,
+            1.43629157543182,
+            0.219099104404449
+          ],
+          "chest_angle": -0.226892802759263,
+          "exit_left": [
+            -0.999701142311096,
+            0.0,
+            0.0244474858045578
+          ],
+          "head_angle": -0.15707963267949,
+          "lateral_exit_weight": 1.0,
+          "recoil_weight": 1.0,
+          "side_angle": 0.15707963267949,
+          "twist_angle": 0.122173047639603,
+          "withdrawn_weight": 0.324802937047835
+        },
+        "right_arm": {
+          "actual_rig": {
+            "actual_forearm_axis_world": [
+              0.977254867553711,
+              -0.208587795495987,
+              -0.0382633805274963
+            ],
+            "available": true,
+            "axis_mismatch_degrees": 25.006772259068,
+            "elbow_world": [
+              0.259244799613953,
+              1.26407730579376,
+              0.853544592857361
+            ],
+            "hand_basis_world": "[X: (-0.773842, 0.301371, 0.557085), Y: (-0.385138, -0.922151, -0.036128), Z: (0.502829, -0.242513, 0.829669)]",
+            "legacy_axis_mismatch_degrees": 23.3528248760765,
+            "measurement_scope": "Authored rig neutral axis versus posed forearm; not a clinical wrist angle.",
+            "neutral_hand_axis_world": [
+              0.836579501628876,
+              -0.347592800855637,
+              -0.423454761505127
+            ],
+            "shoulder_world": [
+              0.248789995908737,
+              1.38543343544006,
+              1.1709771156311
+            ],
+            "wrist_world": [
+              0.0266761220991611,
+              1.31371736526489,
+              0.862650573253632
+            ]
+          },
+          "actual_shoulder_adjustment_m": 5.96046447753906e-08,
+          "available": true,
+          "camera": {
+            "elbow": [
+              0.266414940357208,
+              -0.269176959991455,
+              -0.245841801166534
+            ],
+            "shoulder": [
+              0.248202860355377,
+              -0.169864177703857,
+              0.0788199901580811
+            ],
+            "wrist": [
+              0.0145783331245184,
+              -0.206914186477661,
+              -0.228473603725433
+            ]
+          },
+          "forearm_length_m": 0.259999990463257,
+          "reported_shoulder_adjustment_m": 0.0,
+          "requested_reach_m": 0.387791812419891,
+          "requested_shoulder_camera": [
+            0.248202860355377,
+            -0.169864118099213,
+            0.0788199901580811
+          ],
+          "upper_length_m": 0.340000003576279,
+          "world": {
+            "elbow": [
+              0.259244829416275,
+              1.26407730579376,
+              0.853544592857361
+            ],
+            "shoulder": [
+              0.248790070414543,
+              1.38543343544006,
+              1.1709771156311
+            ],
+            "wrist": [
+              0.00780266337096691,
+              1.32738518714905,
+              0.87275242805481
+            ]
+          }
+        },
+        "seconds": 1.86666666666667,
+        "shield_visible": false,
+        "stamina": 76.0,
+        "sword_visible": true,
+        "target_is_actual_player": true,
+        "tick": 112,
+        "weapon_transform": {
+          "basis": [
+            [
+              0.259059131145477,
+              -0.922282874584198,
+              -0.286849677562714
+            ],
+            [
+              -0.356421709060669,
+              0.18474292755127,
+              -0.915878653526306
+            ],
+            [
+              0.897692620754242,
+              0.339506179094315,
+              -0.280862241983414
+            ]
+          ],
+          "origin": [
+            -0.0953968241810799,
+            1.39221811294556,
+            0.808071136474609
+          ]
+        },
+        "world_contact": true
+      },
+      "first_head_detach": {},
+      "id": "rear_sword",
+      "initial_contacts": {
+        "back": [
+          -7.1445654947766e-10,
+          1.40190804004669,
+          0.210698843002319
+        ],
+        "back_on_skin": true,
+        "direction": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "neck": [
+          -7.24820159447859e-09,
+          1.61470556259155,
+          -0.0762631818652153
+        ]
+      },
+      "initial_health": 118,
+      "last_alive_before_death": {
+        "actual_blade": {
+          "anchor_world": [
+            -1.04779518395048e-09,
+            1.43629157543182,
+            0.219099104404449
+          ],
+          "axis_depth_m": 0.426969647407532,
+          "axis_direction_dot": 0.962130546569824,
+          "axis_world": [
+            -0.326382488012314,
+            0.179279178380966,
+            -0.9280806183815
+          ],
+          "base_world": [
+            -0.082789845764637,
+            1.38891899585724,
+            0.80402934551239
+          ],
+          "inserted_fraction": 0.408583294904032,
+          "lateral_contact_world": [
+            -1.04779518395048e-09,
+            1.43629157543182,
+            0.219099104404449
+          ],
+          "lateral_error_m": 0.403573095798492,
+          "length_m": 1.04500025510788,
+          "located_contact": {
+            "fraction": 0.811436734882394,
+            "position": [
+              -0.345894008874893,
+              1.5246285200119,
+              -0.0244507789611816
+            ],
+            "region": "torso"
+          },
+          "projection": {
+            "exposed_length_m": 0.644791126251221,
+            "in_frame_samples": 25,
+            "occlusion_verified": false,
+            "projected_span_px": 193.830368041992,
+            "projected_span_viewport_fraction": 0.201906633377075
+          },
+          "tip_world": [
+            -0.419639647006989,
+            1.5776332616806,
+            -0.167034804821014
+          ],
+          "torso_contact": true
+        },
+        "bone_world": {
+          "Chest": {
+            "basis": [
+              [
+                -0.344413489103317,
+                -0.0549087002873421,
+                0.0421597398817539
+              ],
+              [
+                -0.068659283220768,
+                0.298285067081451,
+                -0.17240934073925
+              ],
+              [
+                -0.00884950254112482,
+                -0.177268475294113,
+                -0.303167670965195
+              ]
+            ],
+            "origin": [
+              -0.0180493853986263,
+              1.38944053649902,
+              0.0106305256485939
+            ]
+          },
+          "Head": {
+            "basis": [
+              [
+                -0.344966769218445,
+                -0.0661521777510643,
+                0.00590501027181745
+              ],
+              [
+                0.0561265088617802,
+                -0.30707061290741,
+                -0.161153584718704
+              ],
+              [
+                0.0355076901614666,
+                -0.157304003834724,
+                0.312102079391479
+              ]
+            ],
+            "origin": [
+              -0.118590481579304,
+              1.66033732891083,
+              -0.457899481058121
+            ]
+          },
+          "Neck": {
+            "basis": [
+              [
+                -0.344413429498672,
+                -0.0549089759588242,
+                0.042159728705883
+              ],
+              [
+                -0.0535560958087444,
+                0.0757728442549706,
+                -0.338826358318329
+              ],
+              [
+                0.0438655391335487,
+                -0.33860969543457,
+                -0.0826579555869102
+              ]
+            ],
+            "origin": [
+              -0.061962578445673,
+              1.58021795749664,
+              -0.0996393486857414
+            ]
+          }
+        },
+        "camera": {
+          "basis": [
+            [
+              0.999701499938965,
+              0.0,
+              -0.0244339052587748
+            ],
+            [
+              -0.00167665781918913,
+              0.997642874717712,
+              -0.0685996487736702
+            ],
+            [
+              0.0243763085454702,
+              0.0686201378703117,
+              0.99734503030777
+            ]
+          ],
+          "origin": [
+            -0.00163546670228243,
+            1.54828917980194,
+            1.08308565616608
+          ]
+        },
+        "dagger_visible": false,
+        "defeats": 0,
+        "dismemberment": {
+          "damage": {
+            "head": 0.0,
+            "left_arm": 0.0,
+            "left_leg": 0.0,
+            "right_arm": 0.0,
+            "right_leg": 0.0
+          },
+          "detached_bodies": 0,
+          "enabled": true,
+          "hit_counts": {
+            "head": 0,
+            "left_arm": 0,
+            "left_leg": 0,
+            "right_arm": 0,
+            "right_leg": 0
+          },
+          "last_bake_ms": 0,
+          "last_region": "torso",
+          "move_speed": 2.2,
+          "positions": {},
+          "severed": [],
+          "visual_effects": 0
+        },
+        "enemy_ai_enabled": true,
+        "enemy_root": {
+          "basis": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "origin": [
+            0.0,
+            0.899999976158142,
+            0.0
+          ]
+        },
+        "enemy_state": 7,
+        "execution": {
+          "active": true,
+          "blade_fraction": 0.55,
+          "blade_length_m": 1.0450000166893,
+          "blade_tip": [
+            -0.419665902853012,
+            1.57773399353027,
+            -0.167006075382233
+          ],
+          "contact_error": 0.587539494037628,
+          "contact_point": [
+            -1.04779518395048e-09,
+            1.43629157543182,
+            0.219099104404449
+          ],
+          "elapsed": 1.26666666666667,
+          "hit_committed": false,
+          "lateral_cut_contact": [
+            -1.04779518395048e-09,
+            1.43629157543182,
+            0.219099104404449
+          ],
+          "neck_contact": [
+            -0.061962578445673,
+            1.58021795749664,
+            -0.0996393486857414
+          ],
+          "penetration_m": 0.574750009179115,
+          "phase": "후방 제압 · 좌측으로 베어 빼기",
+          "profile": "rear_sword",
+          "stab_contact_committed": true,
+          "stab_direction": [
+            -0.0693743377923965,
+            0.104528464376926,
+            -0.992099344730377
+          ],
+          "target_id": 149149454144,
+          "world_contact": true
+        },
+        "health": 118.0,
+        "initial_chest_distance_m": 0.0264485292136669,
+        "landed": 0,
+        "player_health": 440.0,
+        "player_state": 6,
+        "player_transform": {
+          "basis": [
+            [
+              0.99970144033432,
+              0.0,
+              -0.0244339033961296
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0244339033961296,
+              0.0,
+              0.99970144033432
+            ]
+          ],
+          "origin": [
+            0.0,
+            0.899999976158142,
+            1.14999997615814
+          ]
+        },
+        "ragdoll": {
+          "bodies": 0,
+          "core_low": false,
+          "execution_held": false,
+          "execution_release_pending": false,
+          "execution_release_reason": "",
+          "ground_point": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "ground_supported": false,
+          "impact_velocity": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "joints": 0,
+          "max_speed": 0.0,
+          "mean_squared_speed": 0.0,
+          "phase": "living",
+          "positions": {},
+          "quiet_time": 0.0,
+          "reaction_time": 0.0,
+          "settled_evidence": {},
+          "simulation_time": 0.0,
+          "support_normals": [],
+          "support_parts": [],
+          "temporary": false
+        },
+        "reaction": {
+          "back_anchor": [
+            -1.04779518395048e-09,
+            1.43629157543182,
+            0.219099104404449
+          ],
+          "chest_angle": -0.226852775703801,
+          "exit_left": [
+            -0.999712288379669,
+            0.0,
+            0.0239884909242392
+          ],
+          "head_angle": -0.157049612387893,
+          "lateral_exit_weight": 0.999426654663923,
+          "recoil_weight": 1.0,
+          "side_angle": 0.1569895718047,
+          "twist_angle": 0.122103000292545,
+          "withdrawn_weight": 0.31733663700854
+        },
+        "right_arm": {
+          "actual_rig": {
+            "actual_forearm_axis_world": [
+              0.973193407058716,
+              -0.229988276958466,
+              0.000100892917544115
+            ],
+            "available": true,
+            "axis_mismatch_degrees": 25.510169153729,
+            "elbow_world": [
+              0.268262892961502,
+              1.25671243667603,
+              0.852712512016296
+            ],
+            "hand_basis_world": "[X: (-0.780973, 0.329124, 0.530809), Y: (-0.407173, -0.91275, -0.033125), Z: (0.473594, -0.242001, 0.846844)]",
+            "legacy_axis_mismatch_degrees": 23.8562234782848,
+            "measurement_scope": "Authored rig neutral axis versus posed forearm; not a clinical wrist angle.",
+            "neutral_hand_axis_world": [
+              0.838833808898926,
+              -0.374807000160217,
+              -0.394813448190689
+            ],
+            "shoulder_world": [
+              0.248699456453323,
+              1.38423407077789,
+              1.16728448867798
+            ],
+            "wrist_world": [
+              0.0365641787648201,
+              1.31146824359894,
+              0.852688491344452
+            ]
+          },
+          "actual_shoulder_adjustment_m": 5.96046447753906e-08,
+          "available": true,
+          "camera": {
+            "elbow": [
+              0.275446653366089,
+              -0.275538444519043,
+              -0.243190467357635
+            ],
+            "shoulder": [
+              0.248202860355377,
+              -0.169864058494568,
+              0.0788199901580811
+            ],
+            "wrist": [
+              0.0248022358864546,
+              -0.206878781318665,
+              -0.235238671302795
+            ]
+          },
+          "forearm_length_m": 0.260000020265579,
+          "reported_shoulder_adjustment_m": 0.0,
+          "requested_reach_m": 0.387183099985123,
+          "requested_shoulder_camera": [
+            0.248202860355377,
+            -0.169864118099213,
+            0.0788199901580811
+          ],
+          "upper_length_m": 0.340000092983246,
+          "world": {
+            "elbow": [
+              0.26826286315918,
+              1.25671243667603,
+              0.852712452411652
+            ],
+            "shoulder": [
+              0.248699456453323,
+              1.38423407077789,
+              1.16728448867798
+            ],
+            "wrist": [
+              0.0177719816565514,
+              1.32575595378876,
+              0.862057328224182
+            ]
+          }
+        },
+        "seconds": 1.85,
+        "shield_visible": false,
+        "stamina": 76.0,
+        "sword_visible": true,
+        "target_is_actual_player": true,
+        "tick": 111,
+        "weapon_transform": {
+          "basis": [
+            [
+              0.243450984358788,
+              -0.932781040668488,
+              -0.265802830457687
+            ],
+            [
+              -0.326382488012314,
+              0.179279178380966,
+              -0.9280806183815
+            ],
+            [
+              0.913348972797394,
+              0.312695562839508,
+              -0.260797739028931
+            ]
+          ],
+          "origin": [
+            -0.0819436982274055,
+            1.39211893081665,
+            0.793574929237366
+          ]
+        },
+        "world_contact": true
+      },
+      "maximum_requested_arm_reach_m": 0.493284046649933,
+      "maximum_shoulder_adjustment_m": 2.46207576992674e-07,
+      "minimum_shoulder_camera_z_m": 0.078819751739502,
+      "stages": {
+        "cut_end": {
+          "actual_blade": {
+            "anchor_world": [
+              -1.04779518395048e-09,
+              1.43629157543182,
+              0.219099104404449
+            ],
+            "axis_depth_m": -0.15020877122879,
+            "axis_direction_dot": 0.653411149978638,
+            "axis_world": [
+              -0.797404408454895,
+              0.131017327308655,
+              -0.589050590991974
+            ],
+            "base_world": [
+              -0.301537185907364,
+              1.35916233062744,
+              1.05981290340424
+            ],
+            "inserted_fraction": -0.14374041584639,
+            "lateral_contact_world": [
+              -1.04779518395048e-09,
+              1.43629157543182,
+              0.219099104404449
+            ],
+            "lateral_error_m": 1.16019344329834,
+            "length_m": 1.04500025510788,
+            "located_contact": {},
+            "projection": {
+              "exposed_length_m": 1.04500031471252,
+              "in_frame_samples": 0,
+              "occlusion_verified": false,
+              "projected_span_px": 0.0,
+              "projected_span_viewport_fraction": 0.0
+            },
+            "tip_world": [
+              -1.14249217510223,
+              1.5136706829071,
+              0.458547651767731
+            ],
+            "torso_contact": false
+          },
+          "bone_world": {
+            "Chest": {
+              "basis": [
+                [
+                  -0.336543560028076,
+                  -0.0201801992952824,
+                  0.0987130329012871
+                ],
+                [
+                  -0.0991622135043144,
+                  0.00538878329098225,
+                  -0.336973279714584
+                ],
+                [
+                  0.0178429055958986,
+                  -0.350680619478226,
+                  -0.0108586344867945
+                ]
+              ],
+              "origin": [
+                -0.522794246673584,
+                0.795962572097778,
+                0.252261370420456
+              ]
+            },
+            "Head": {
+              "basis": [
+                [
+                  -0.281251698732376,
+                  -0.200435429811478,
+                  -0.0643130093812943
+                ],
+                [
+                  0.194934904575348,
+                  -0.288506507873535,
+                  0.0466639064252377
+                ],
+                [
+                  -0.0794410184025764,
+                  0.00167224858887494,
+                  0.342198014259338
+                ]
+              ],
+              "origin": [
+                -0.483825713396072,
+                0.538650035858154,
+                -0.222148448228836
+              ]
+            },
+            "Neck": {
+              "basis": [
+                [
+                  -0.309259682893753,
+                  -0.161791175603867,
+                  0.0399392396211624
+                ],
+                [
+                  0.0942456051707268,
+                  -0.239237561821938,
+                  -0.239366456866264
+                ],
+                [
+                  0.137438237667084,
+                  -0.200005427002907,
+                  0.254011213779449
+                ]
+              ],
+              "origin": [
+                -0.58532178401947,
+                0.797318041324615,
+                0.0348966978490353
+              ]
+            }
+          },
+          "camera": {
+            "basis": [
+              [
+                0.999701142311096,
+                0.0,
+                -0.0244474858045578
+              ],
+              [
+                -0.0016775147523731,
+                0.997643113136292,
+                -0.0685965642333031
+              ],
+              [
+                0.0243898648768663,
+                0.0686170682311058,
+                0.99734491109848
+              ]
+            ],
+            "origin": [
+              0.0,
+              1.5699999332428,
+              1.14999997615814
+            ]
+          },
+          "dagger_visible": false,
+          "defeats": 1,
+          "dismemberment": {
+            "damage": {
+              "head": 0.0,
+              "left_arm": 0.0,
+              "left_leg": 0.0,
+              "right_arm": 0.0,
+              "right_leg": 0.0
+            },
+            "detached_bodies": 0,
+            "enabled": true,
+            "hit_counts": {
+              "head": 0,
+              "left_arm": 0,
+              "left_leg": 0,
+              "right_arm": 0,
+              "right_leg": 0
+            },
+            "last_bake_ms": 0,
+            "last_region": "torso",
+            "move_speed": 2.2,
+            "positions": {},
+            "severed": [],
+            "visual_effects": 0
+          },
+          "enemy_ai_enabled": true,
+          "enemy_root": {
+            "basis": [
+              [
+                1.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                1.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "origin": [
+              0.0,
+              0.899999976158142,
+              0.0
+            ]
+          },
+          "enemy_state": 6,
+          "execution": {
+            "active": true,
+            "blade_fraction": 0.55,
+            "blade_length_m": 1.0450000166893,
+            "blade_tip": [
+              -1.14253664016724,
+              1.51373481750488,
+              0.458622217178345
+            ],
+            "contact_error": 1.16993963718414,
+            "contact_point": [
+              -1.04779518395048e-09,
+              1.43629157543182,
+              0.219099104404449
+            ],
+            "elapsed": 1.8,
+            "hit_committed": true,
+            "lateral_cut_contact": [
+              -1.04779518395048e-09,
+              1.43629157543182,
+              0.219099104404449
+            ],
+            "neck_contact": [
+              -0.0619967840611935,
+              1.58022654056549,
+              -0.0996289178729057
+            ],
+            "penetration_m": 0.574750009179115,
+            "phase": "후방 제압 · 검 회수",
+            "profile": "rear_sword",
+            "stab_contact_committed": true,
+            "stab_direction": [
+              -0.0693743377923965,
+              0.104528464376926,
+              -0.992099344730377
+            ],
+            "target_id": 149149454144,
+            "world_contact": true
+          },
+          "expected_execution_seconds": 1.8,
+          "health": 0.0,
+          "initial_chest_distance_m": 0.840373575687408,
+          "landed": 1,
+          "player_health": 440.0,
+          "player_state": 6,
+          "player_transform": {
+            "basis": [
+              [
+                0.999701142311096,
+                0.0,
+                -0.0244474858045578
+              ],
+              [
+                0.0,
+                1.0,
+                0.0
+              ],
+              [
+                0.0244474858045578,
+                0.0,
+                0.999701142311096
+              ]
+            ],
+            "origin": [
+              0.0,
+              0.899999976158142,
+              1.14999997615814
+            ]
+          },
+          "ragdoll": {
+            "bodies": 20,
+            "core_low": false,
+            "execution_held": false,
+            "execution_release_pending": false,
+            "execution_release_reason": "",
+            "ground_point": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "ground_supported": false,
+            "impact_velocity": [
+              -1.14965629577637,
+              0.0,
+              0.378114610910416
+            ],
+            "joints": 19,
+            "max_speed": 2.41764664649963,
+            "mean_squared_speed": 3.6072777650918,
+            "phase": "simulating",
+            "positions": {
+              "Arm1.L": [
+                -0.883178055286407,
+                0.36820861697197,
+                0.276182562112808
+              ],
+              "Arm1.R": [
+                0.0243115462362766,
+                0.659573554992676,
+                0.0062511470168829
+              ],
+              "Arm2.L": [
+                -0.972557187080383,
+                0.151067689061165,
+                0.090722031891346
+              ],
+              "Arm2.R": [
+                0.396016657352448,
+                0.423449993133545,
+                -0.101245135068893
+              ],
+              "Chest": [
+                -0.554505348205566,
+                0.797685742378235,
+                0.14450041949749
+              ],
+              "Foot.L": [
+                -0.372457832098007,
+                0.125872731208801,
+                -0.0178477913141251
+              ],
+              "Foot.R": [
+                0.234807178378105,
+                0.076088547706604,
+                -0.130156993865967
+              ],
+              "Hand.L": [
+                -0.995558500289917,
+                0.0969614386558533,
+                -0.285411357879639
+              ],
+              "Hand.R": [
+                0.587876439094543,
+                0.145948871970177,
+                -0.319648712873459
+              ],
+              "Head": [
+                -0.433885276317596,
+                0.464737623929977,
+                -0.210193663835526
+              ],
+              "Leg1.L": [
+                -0.619106233119965,
+                0.416379481554031,
+                0.304321527481079
+              ],
+              "Leg1.R": [
+                -0.22549432516098,
+                0.481868386268616,
+                0.195884838700294
+              ],
+              "Leg2.L": [
+                -0.581173479557037,
+                0.190533354878426,
+                0.214749574661255
+              ],
+              "Leg2.R": [
+                -0.0374369099736214,
+                0.342370986938477,
+                0.0804287195205688
+              ],
+              "Leg3.L": [
+                -0.440204918384552,
+                0.12789198756218,
+                0.164164751768112
+              ],
+              "Leg3.R": [
+                0.169515520334244,
+                0.165409877896309,
+                0.0919681861996651
+              ],
+              "Neck": [
+                -0.535496294498444,
+                0.670838832855225,
+                -0.0916512683033943
+              ],
+              "Shoulder.L": [
+                -0.734852313995361,
+                0.691397488117218,
+                0.126099929213524
+              ],
+              "Shoulder.R": [
+                -0.383884787559509,
+                0.771855711936951,
+                0.00497742742300034
+              ],
+              "Torso": [
+                -0.489407122135162,
+                0.698416948318481,
+                0.35438272356987
+              ]
+            },
+            "quiet_time": 0.0,
+            "reaction_time": 0.0,
+            "settled_evidence": {},
+            "simulation_time": 0.516666666666667,
+            "support_normals": [],
+            "support_parts": [],
+            "temporary": false
+          },
+          "reaction": {
+            "back_anchor": [
+              -1.04779518395048e-09,
+              1.43629157543182,
+              0.219099104404449
+            ],
+            "chest_angle": -0.226892802759263,
+            "exit_left": [
+              -0.999701142311096,
+              0.0,
+              0.0244474858045578
+            ],
+            "head_angle": -0.15707963267949,
+            "lateral_exit_weight": 1.0,
+            "recoil_weight": 1.0,
+            "side_angle": 0.15707963267949,
+            "twist_angle": 0.122173047639603,
+            "withdrawn_weight": 0.324802937047835
+          },
+          "right_arm": {
+            "actual_rig": {
+              "actual_forearm_axis_world": [
+                0.908340096473694,
+                0.225068181753159,
+                -0.352508991956711
+              ],
+              "available": true,
+              "axis_mismatch_degrees": 31.4448146556209,
+              "elbow_world": [
+                0.0519327819347382,
+                1.41881620883942,
+                0.958386123180389
+              ],
+              "hand_basis_world": "[X: (-0.450542, -0.238995, 0.86017), Y: (0.028543, -0.966864, -0.25369), Z: (0.892299, -0.089746, 0.442434)]",
+              "legacy_axis_mismatch_degrees": 29.8543470507755,
+              "measurement_scope": "Authored rig neutral axis versus posed forearm; not a clinical wrist angle.",
+              "neutral_hand_axis_world": [
+                0.582619547843933,
+                0.209167212247849,
+                -0.785368502140045
+              ],
+              "shoulder_world": [
+                0.250336021184921,
+                1.40594458580017,
+                1.23419487476349
+              ],
+              "wrist_world": [
+                -0.164901614189148,
+                1.36508905887604,
+                1.04253530502319
+              ]
+            },
+            "actual_shoulder_adjustment_m": 5.96046447753906e-08,
+            "available": true,
+            "camera": {
+              "elbow": [
+                0.0566017106175423,
+                -0.137770533561707,
+                -0.200212240219116
+              ],
+              "shoulder": [
+                0.248202860355377,
+                -0.169864058494568,
+                0.0788199901580811
+              ],
+              "wrist": [
+                -0.177801474928856,
+                -0.198068261146545,
+                -0.105242371559143
+              ]
+            },
+            "forearm_length_m": 0.259999960660934,
+            "reported_shoulder_adjustment_m": 0.0,
+            "requested_reach_m": 0.464923799037933,
+            "requested_shoulder_camera": [
+              0.248202860355377,
+              -0.169864118099213,
+              0.0788199901580811
+            ],
+            "upper_length_m": 0.340000003576279,
+            "world": {
+              "elbow": [
+                0.0519327558577061,
+                1.41881620883942,
+                0.958386123180389
+              ],
+              "shoulder": [
+                0.250336050987244,
+                1.40594458580017,
+                1.23419487476349
+              ],
+              "wrist": [
+                -0.179982915520668,
+                1.36517703533173,
+                1.06297075748444
+              ]
+            }
+          },
+          "seconds": 2.38333333333333,
+          "shield_visible": false,
+          "stamina": 76.0,
+          "sword_visible": true,
+          "target_is_actual_player": true,
+          "tick": 143,
+          "weapon_transform": {
+            "basis": [
+              [
+                0.412718594074249,
+                -0.593729019165039,
+                -0.690759837627411
+              ],
+              [
+                -0.797404527664185,
+                0.131017342209816,
+                -0.589050650596619
+              ],
+              [
+                0.440238058567047,
+                0.793927133083344,
+                -0.419368952512741
+              ]
+            ],
+            "origin": [
+              -0.317253857851028,
+              1.37803339958191,
+              1.06830954551697
+            ]
+          },
+          "world_contact": true
+        },
+        "death": {
+          "actual_blade": {
+            "anchor_world": [
+              -1.04779518395048e-09,
+              1.43629157543182,
+              0.219099104404449
+            ],
+            "axis_depth_m": 0.403735995292664,
+            "axis_direction_dot": 0.952679991722107,
+            "axis_world": [
+              -0.356421709060669,
+              0.18474292755127,
+              -0.915878653526306
+            ],
+            "base_world": [
+              -0.09587212651968,
+              1.38884294033051,
+              0.818493843078613
+            ],
+            "inserted_fraction": 0.386350173468026,
+            "lateral_contact_world": [
+              -1.04779518395048e-09,
+              1.43629157543182,
+              0.219099104404449
+            ],
+            "lateral_error_m": 0.450582832098007,
+            "length_m": 1.04500016570091,
+            "located_contact": {},
+            "projection": {
+              "exposed_length_m": 0.671676158905029,
+              "in_frame_samples": 25,
+              "occlusion_verified": false,
+              "projected_span_px": 204.025527954102,
+              "projected_span_viewport_fraction": 0.212526591618856
+            },
+            "tip_world": [
+              -0.464211672544479,
+              1.58349061012268,
+              -0.139882206916809
+            ],
+            "torso_contact": false
+          },
+          "bone_world": {
+            "Chest": {
+              "basis": [
+                [
+                  -0.344405949115753,
+                  -0.0549393445253372,
+                  0.0421811938285828
+                ],
+                [
+                  -0.0686961710453033,
+                  0.298287153244019,
+                  -0.172391191124916
+                ],
+                [
+                  -0.00885576754808426,
+                  -0.177255600690842,
+                  -0.303175061941147
+                ]
+              ],
+              "origin": [
+                -0.0180600006133318,
+                1.38944840431213,
+                0.0106296641752124
+              ]
+            },
+            "Head": {
+              "basis": [
+                [
+                  -0.34496146440506,
+                  -0.0661769583821297,
+                  0.00593217741698027
+                ],
+                [
+                  0.0561353452503681,
+                  -0.307064235210419,
+                  -0.161162763834
+                ],
+                [
+                  0.0355444476008415,
+                  -0.15730619430542,
+                  0.312096863985062
+                ]
+              ],
+              "origin": [
+                -0.118656292557716,
+                1.66035807132721,
+                -0.457881063222885
+              ]
+            },
+            "Neck": {
+              "basis": [
+                [
+                  -0.344405919313431,
+                  -0.0549396201968193,
+                  0.0421811826527119
+                ],
+                [
+                  -0.0535859614610672,
+                  0.0757836624979973,
+                  -0.338819235563278
+                ],
+                [
+                  0.0438880659639835,
+                  -0.338602393865585,
+                  -0.0826762244105339
+                ]
+              ],
+              "origin": [
+                -0.0619967840611935,
+                1.58022725582123,
+                -0.0996285974979401
+              ]
+            }
+          },
+          "camera": {
+            "basis": [
+              [
+                0.999701142311096,
+                0.0,
+                -0.0244474858045578
+              ],
+              [
+                -0.0016775147523731,
+                0.997643113136292,
+                -0.0685965642333031
+              ],
+              [
+                0.0243898648768663,
+                0.0686170682311058,
+                0.99734491109848
+              ]
+            ],
+            "origin": [
+              -0.00154597591608763,
+              1.54948878288269,
+              1.08678221702576
+            ]
+          },
+          "dagger_visible": false,
+          "defeats": 1,
+          "dismemberment": {
+            "damage": {
+              "head": 0.0,
+              "left_arm": 0.0,
+              "left_leg": 0.0,
+              "right_arm": 0.0,
+              "right_leg": 0.0
+            },
+            "detached_bodies": 0,
+            "enabled": true,
+            "hit_counts": {
+              "head": 0,
+              "left_arm": 0,
+              "left_leg": 0,
+              "right_arm": 0,
+              "right_leg": 0
+            },
+            "last_bake_ms": 0,
+            "last_region": "torso",
+            "move_speed": 2.2,
+            "positions": {},
+            "severed": [],
+            "visual_effects": 0
+          },
+          "enemy_ai_enabled": true,
+          "enemy_root": {
+            "basis": [
+              [
+                1.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                1.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "origin": [
+              0.0,
+              0.899999976158142,
+              0.0
+            ]
+          },
+          "enemy_state": 6,
+          "execution": {
+            "active": true,
+            "blade_fraction": 0.55,
+            "blade_length_m": 1.0450000166893,
+            "blade_tip": [
+              -0.464211642742157,
+              1.58349061012268,
+              -0.139882206916809
+            ],
+            "contact_error": 0.605002164840698,
+            "contact_point": [
+              -1.04779518395048e-09,
+              1.43629157543182,
+              0.219099104404449
+            ],
+            "elapsed": 1.28333333333333,
+            "hit_committed": true,
+            "lateral_cut_contact": [
+              -1.04779518395048e-09,
+              1.43629157543182,
+              0.219099104404449
+            ],
+            "neck_contact": [
+              -0.0619967840611935,
+              1.58022654056549,
+              -0.0996289178729057
+            ],
+            "penetration_m": 0.574750009179115,
+            "phase": "후방 제압 · 좌측으로 베어 빼기",
+            "profile": "rear_sword",
+            "stab_contact_committed": true,
+            "stab_direction": [
+              -0.0693743377923965,
+              0.104528464376926,
+              -0.992099344730377
+            ],
+            "target_id": 149149454144,
+            "world_contact": true
+          },
+          "expected_execution_seconds": 1.27,
+          "health": 0.0,
+          "initial_chest_distance_m": 0.026451587677002,
+          "landed": 1,
+          "player_health": 440.0,
+          "player_state": 6,
+          "player_transform": {
+            "basis": [
+              [
+                0.999701142311096,
+                0.0,
+                -0.0244474858045578
+              ],
+              [
+                0.0,
+                1.0,
+                0.0
+              ],
+              [
+                0.0244474858045578,
+                0.0,
+                0.999701142311096
+              ]
+            ],
+            "origin": [
+              0.0,
+              0.899999976158142,
+              1.14999997615814
+            ]
+          },
+          "ragdoll": {
+            "bodies": 20,
+            "core_low": false,
+            "execution_held": false,
+            "execution_release_pending": false,
+            "execution_release_reason": "",
+            "ground_point": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "ground_supported": false,
+            "impact_velocity": [
+              -1.14965629577637,
+              0.0,
+              0.378114610910416
+            ],
+            "joints": 19,
+            "max_speed": 0.665631890296936,
+            "mean_squared_speed": 0.0,
+            "phase": "simulating",
+            "positions": {
+              "Arm1.L": [
+                -0.519895672798157,
+                1.24847555160522,
+                -0.0342347696423531
+              ],
+              "Arm1.R": [
+                0.477423757314682,
+                1.40756690502167,
+                -0.15638193488121
+              ],
+              "Arm2.L": [
+                -0.688864052295685,
+                0.952401101589203,
+                -0.165844634175301
+              ],
+              "Arm2.R": [
+                0.70479941368103,
+                1.04980289936066,
+                -0.240627855062485
+              ],
+              "Chest": [
+                -0.0400283932685852,
+                1.48483777046204,
+                -0.0444994680583477
+              ],
+              "Foot.L": [
+                -0.284177273511887,
+                0.0589381903409958,
+                -0.175640806555748
+              ],
+              "Foot.R": [
+                0.284177213907242,
+                0.0589382164180279,
+                -0.17564083635807
+              ],
+              "Hand.L": [
+                -0.773609519004822,
+                0.698666095733643,
+                -0.422902941703796
+              ],
+              "Hand.R": [
+                0.77362322807312,
+                0.698620915412903,
+                -0.422701358795166
+              ],
+              "Head": [
+                -0.104274988174438,
+                1.5816912651062,
+                -0.49916934967041
+              ],
+              "Leg1.L": [
+                -0.223878145217896,
+                0.863986015319824,
+                -0.121594101190567
+              ],
+              "Leg1.R": [
+                0.220054119825363,
+                0.863200783729553,
+                -0.122828170657158
+              ],
+              "Leg2.L": [
+                -0.299054145812988,
+                0.584283769130707,
+                -0.154138550162315
+              ],
+              "Leg2.R": [
+                0.29533576965332,
+                0.58354377746582,
+                -0.155514657497406
+              ],
+              "Leg3.L": [
+                -0.292561948299408,
+                0.282483279705048,
+                -0.0344749242067337
+              ],
+              "Leg3.R": [
+                0.292667627334595,
+                0.282528519630432,
+                -0.034617006778717
+              ],
+              "Neck": [
+                -0.0903265401721001,
+                1.62029266357422,
+                -0.278754830360413
+              ],
+              "Shoulder.L": [
+                -0.253563553094864,
+                1.50938379764557,
+                -0.113389559090137
+              ],
+              "Shoulder.R": [
+                0.133159413933754,
+                1.5710734128952,
+                -0.160753548145294
+              ],
+              "Torso": [
+                -0.00902999844402075,
+                1.24428570270538,
+                0.0311897136271
+              ]
+            },
+            "quiet_time": 0.0,
+            "reaction_time": 0.0,
+            "settled_evidence": {},
+            "simulation_time": 0.0,
+            "support_normals": [],
+            "support_parts": [],
+            "temporary": false
+          },
+          "reaction": {
+            "back_anchor": [
+              -1.04779518395048e-09,
+              1.43629157543182,
+              0.219099104404449
+            ],
+            "chest_angle": -0.226892802759263,
+            "exit_left": [
+              -0.999701142311096,
+              0.0,
+              0.0244474858045578
+            ],
+            "head_angle": -0.15707963267949,
+            "lateral_exit_weight": 1.0,
+            "recoil_weight": 1.0,
+            "side_angle": 0.15707963267949,
+            "twist_angle": 0.122173047639603,
+            "withdrawn_weight": 0.324802937047835
+          },
+          "right_arm": {
+            "actual_rig": {
+              "actual_forearm_axis_world": [
+                0.977254867553711,
+                -0.208587795495987,
+                -0.0382633805274963
+              ],
+              "available": true,
+              "axis_mismatch_degrees": 25.006772259068,
+              "elbow_world": [
+                0.259244799613953,
+                1.26407730579376,
+                0.853544592857361
+              ],
+              "hand_basis_world": "[X: (-0.773842, 0.301371, 0.557085), Y: (-0.385138, -0.922151, -0.036128), Z: (0.502829, -0.242513, 0.829669)]",
+              "legacy_axis_mismatch_degrees": 23.3528248760765,
+              "measurement_scope": "Authored rig neutral axis versus posed forearm; not a clinical wrist angle.",
+              "neutral_hand_axis_world": [
+                0.836579501628876,
+                -0.347592800855637,
+                -0.423454761505127
+              ],
+              "shoulder_world": [
+                0.248789995908737,
+                1.38543343544006,
+                1.1709771156311
+              ],
+              "wrist_world": [
+                0.0266761220991611,
+                1.31371736526489,
+                0.862650573253632
+              ]
+            },
+            "actual_shoulder_adjustment_m": 5.96046447753906e-08,
+            "available": true,
+            "camera": {
+              "elbow": [
+                0.266414940357208,
+                -0.269176959991455,
+                -0.245841801166534
+              ],
+              "shoulder": [
+                0.248202860355377,
+                -0.169864177703857,
+                0.0788199901580811
+              ],
+              "wrist": [
+                0.0145783331245184,
+                -0.206914186477661,
+                -0.228473603725433
+              ]
+            },
+            "forearm_length_m": 0.259999990463257,
+            "reported_shoulder_adjustment_m": 0.0,
+            "requested_reach_m": 0.387791812419891,
+            "requested_shoulder_camera": [
+              0.248202860355377,
+              -0.169864118099213,
+              0.0788199901580811
+            ],
+            "upper_length_m": 0.340000003576279,
+            "world": {
+              "elbow": [
+                0.259244829416275,
+                1.26407730579376,
+                0.853544592857361
+              ],
+              "shoulder": [
+                0.248790070414543,
+                1.38543343544006,
+                1.1709771156311
+              ],
+              "wrist": [
+                0.00780266337096691,
+                1.32738518714905,
+                0.87275242805481
+              ]
+            }
+          },
+          "seconds": 1.86666666666667,
+          "shield_visible": false,
+          "stamina": 76.0,
+          "sword_visible": true,
+          "target_is_actual_player": true,
+          "tick": 112,
+          "weapon_transform": {
+            "basis": [
+              [
+                0.259059131145477,
+                -0.922282874584198,
+                -0.286849677562714
+              ],
+              [
+                -0.356421709060669,
+                0.18474292755127,
+                -0.915878653526306
+              ],
+              [
+                0.897692620754242,
+                0.339506179094315,
+                -0.280862241983414
+              ]
+            ],
+            "origin": [
+              -0.0953968241810799,
+              1.39221811294556,
+              0.808071136474609
+            ]
+          },
+          "world_contact": true
+        },
+        "hold": {
+          "actual_blade": {
+            "anchor_world": [
+              -1.04779518395048e-09,
+              1.43629157543182,
+              0.219099104404449
+            ],
+            "axis_depth_m": 0.574750125408173,
+            "axis_direction_dot": 1.00000011920929,
+            "axis_world": [
+              -0.0693743377923965,
+              0.104528464376926,
+              -0.992099344730377
+            ],
+            "base_world": [
+              0.0392808243632317,
+              1.36426031589508,
+              0.682757914066315
+            ],
+            "inserted_fraction": 0.550000048482241,
+            "lateral_contact_world": [
+              -1.04779518395048e-09,
+              1.43629157543182,
+              0.219099104404449
+            ],
+            "lateral_error_m": 0.000107941756141372,
+            "length_m": 1.04500013589859,
+            "located_contact": {
+              "fraction": 0.400117354525312,
+              "position": [
+                0.00301085761748254,
+                1.4259831905365,
+                0.226058527827263
+              ],
+              "region": "torso"
+            },
+            "projection": {
+              "exposed_length_m": 0.470249980688095,
+              "in_frame_samples": 25,
+              "occlusion_verified": false,
+              "projected_span_px": 102.530158996582,
+              "projected_span_viewport_fraction": 0.106802248954773
+            },
+            "tip_world": [
+              -0.0398624911904335,
+              1.496262550354,
+              -0.35112202167511
+            ],
+            "torso_contact": true
+          },
+          "actual_skin": {
+            "depth_m": 0.574697196483612,
+            "entry_anchor_error_m": 5.29247809026856e-05,
+            "found": true,
+            "inserted_fraction": 0.549949398800253,
+            "position": [
+              -3.67313623428345e-06,
+              1.43629705905914,
+              0.219046592712402
+            ]
+          },
+          "bone_world": {
+            "Chest": {
+              "basis": [
+                [
+                  -0.351301938295364,
+                  -3.45789175071332e-08,
+                  -4.38815170866746e-08
+                ],
+                [
+                  -1.09431930184201e-08,
+                  0.31317213177681,
+                  -0.159173786640167
+                ],
+                [
+                  5.47862768485174e-08,
+                  -0.159173786640167,
+                  -0.31317213177681
+                ]
+              ],
+              "origin": [
+                -1.04779207532602e-09,
+                1.40274751186371,
+                0.0073097376152873
+              ]
+            },
+            "Head": {
+              "basis": [
+                [
+                  -0.348017483949661,
+                  -0.013802045956254,
+                  -0.0458952337503433
+                ],
+                [
+                  0.0364267528057098,
+                  -0.294797390699387,
+                  -0.187565013766289
+                ],
+                [
+                  -0.0311441849917173,
+                  -0.190570339560509,
+                  0.293472439050674
+                ]
+              ],
+              "origin": [
+                -3.26173612563707e-08,
+                1.70788443088531,
+                -0.450844764709473
+              ]
+            },
+            "Neck": {
+              "basis": [
+                [
+                  -0.351301938295364,
+                  -3.16486762130808e-07,
+                  -6.88874450816002e-08
+                ],
+                [
+                  -2.323753811595e-08,
+                  0.0991504937410355,
+                  -0.337019681930542
+                ],
+                [
+                  3.23062408824626e-07,
+                  -0.337019622325897,
+                  -0.0991504862904549
+                ]
+              ],
+              "origin": [
+                -8.04685296174057e-09,
+                1.60304665565491,
+                -0.0944949239492416
+              ]
+            }
+          },
+          "camera": {
+            "basis": [
+              [
+                1.0,
+                0.0,
+                -3.75245656769607e-09
+              ],
+              [
+                -2.24443283403097e-10,
+                0.998209655284882,
+                -0.0598123595118523
+              ],
+              [
+                3.74573838612946e-09,
+                0.0598123595118523,
+                0.998209655284882
+              ]
+            ],
+            "origin": [
+              -3.6896274924203e-10,
+              1.53906345367432,
+              1.05167436599731
+            ]
+          },
+          "dagger_visible": false,
+          "defeats": 0,
+          "dismemberment": {
+            "damage": {
+              "head": 0.0,
+              "left_arm": 0.0,
+              "left_leg": 0.0,
+              "right_arm": 0.0,
+              "right_leg": 0.0
+            },
+            "detached_bodies": 0,
+            "enabled": true,
+            "hit_counts": {
+              "head": 0,
+              "left_arm": 0,
+              "left_leg": 0,
+              "right_arm": 0,
+              "right_leg": 0
+            },
+            "last_bake_ms": 0,
+            "last_region": "torso",
+            "move_speed": 2.2,
+            "positions": {},
+            "severed": [],
+            "visual_effects": 0
+          },
+          "enemy_ai_enabled": true,
+          "enemy_root": {
+            "basis": [
+              [
+                1.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                1.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "origin": [
+              0.0,
+              0.899999976158142,
+              0.0
+            ]
+          },
+          "enemy_state": 7,
+          "execution": {
+            "active": true,
+            "blade_fraction": 0.55,
+            "blade_length_m": 1.0450000166893,
+            "blade_tip": [
+              -0.0398728996515274,
+              1.49636936187744,
+              -0.351109981536865
+            ],
+            "contact_error": 0.574750006198883,
+            "contact_point": [
+              -1.04779518395048e-09,
+              1.43629157543182,
+              0.219099104404449
+            ],
+            "elapsed": 0.983333333333335,
+            "hit_committed": false,
+            "lateral_cut_contact": [
+              -1.04779518395048e-09,
+              1.43629157543182,
+              0.219099104404449
+            ],
+            "neck_contact": [
+              -8.04685296174057e-09,
+              1.60304665565491,
+              -0.0944949239492416
+            ],
+            "penetration_m": 0.574750009179115,
+            "phase": "후방 제압 · 제압 유지",
+            "profile": "rear_sword",
+            "stab_contact_committed": true,
+            "stab_direction": [
+              -0.0693743377923965,
+              0.104528464376926,
+              -0.992099344730377
+            ],
+            "target_id": 149149454144,
+            "world_contact": true
+          },
+          "expected_execution_seconds": 0.98,
+          "health": 118.0,
+          "initial_chest_distance_m": 0.0114851053804159,
+          "landed": 0,
+          "player_health": 440.0,
+          "player_state": 6,
+          "player_transform": {
+            "basis": [
+              [
+                1.0,
+                0.0,
+                -3.75245656769607e-09
+              ],
+              [
+                0.0,
+                1.0,
+                0.0
+              ],
+              [
+                3.75245656769607e-09,
+                0.0,
+                1.0
+              ]
+            ],
+            "origin": [
+              0.0,
+              0.899999976158142,
+              1.14999997615814
+            ]
+          },
+          "ragdoll": {
+            "bodies": 0,
+            "core_low": false,
+            "execution_held": false,
+            "execution_release_pending": false,
+            "execution_release_reason": "",
+            "ground_point": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "ground_supported": false,
+            "impact_velocity": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "joints": 0,
+            "max_speed": 0.0,
+            "mean_squared_speed": 0.0,
+            "phase": "living",
+            "positions": {},
+            "quiet_time": 0.0,
+            "reaction_time": 0.0,
+            "settled_evidence": {},
+            "simulation_time": 0.0,
+            "support_normals": [],
+            "support_parts": [],
+            "temporary": false
+          },
+          "reaction": {
+            "back_anchor": [
+              -1.04779518395048e-09,
+              1.43629157543182,
+              0.219099104404449
+            ],
+            "chest_angle": -0.15707963267949,
+            "exit_left": [
+              -1.0,
+              0.0,
+              3.75245656769607e-09
+            ],
+            "head_angle": -0.10471975511966,
+            "lateral_exit_weight": 0.0,
+            "recoil_weight": 1.0,
+            "side_angle": 0.0,
+            "twist_angle": 0.0,
+            "withdrawn_weight": 0.0
+          },
+          "right_arm": {
+            "actual_rig": {
+              "actual_forearm_axis_world": [
+                0.861720502376556,
+                -0.367731988430023,
+                0.349586725234985
+              ],
+              "available": true,
+              "axis_mismatch_degrees": 31.0190684740865,
+              "elbow_world": [
+                0.321112304925919,
+                1.20852851867676,
+                0.85270893573761
+              ],
+              "hand_basis_world": "[X: (-0.792996, 0.53472, 0.291946), Y: (-0.570193, -0.820191, -0.046544), Z: (0.214563, -0.203375, 0.955302)]",
+              "legacy_axis_mismatch_degrees": 29.3676687516554,
+              "measurement_scope": "Authored rig neutral axis versus posed forearm; not a clinical wrist angle.",
+              "neutral_hand_axis_world": [
+                0.808696389198303,
+                -0.570747256278992,
+                -0.142329469323158
+              ],
+              "shoulder_world": [
+                0.2482028901577,
+                1.37421798706055,
+                1.1405131816864
+              ],
+              "wrist_world": [
+                0.115019902586937,
+                1.29647672176361,
+                0.769100427627563
+              ]
+            },
+            "actual_shoulder_adjustment_m": 5.96046447753906e-08,
+            "available": true,
+            "camera": {
+              "elbow": [
+                0.321112275123596,
+                -0.318042516708374,
+                -0.218379199504852
+              ],
+              "shoulder": [
+                0.248202860355377,
+                -0.169864177703857,
+                0.0788199901580811
+              ],
+              "wrist": [
+                0.0980099886655807,
+                -0.206876516342163,
+                -0.292322039604187
+              ]
+            },
+            "forearm_length_m": 0.260000109672546,
+            "reported_shoulder_adjustment_m": 0.0,
+            "requested_reach_m": 0.402087330818176,
+            "requested_shoulder_camera": [
+              0.248202860355377,
+              -0.169864118099213,
+              0.0788199901580811
+            ],
+            "upper_length_m": 0.340000063180923,
+            "world": {
+              "elbow": [
+                0.321112275123596,
+                1.20852851867676,
+                0.85270893573761
+              ],
+              "shoulder": [
+                0.248202860355377,
+                1.37421786785126,
+                1.1405131816864
+              ],
+              "wrist": [
+                0.0980099812150002,
+                1.31507277488708,
+                0.772249341011047
+              ]
+            }
+          },
+          "seconds": 1.56666666666667,
+          "shield_visible": false,
+          "stamina": 76.0,
+          "sword_visible": true,
+          "target_is_actual_player": true,
+          "tick": 94,
+          "weapon_transform": {
+            "basis": [
+              [
+                0.0970222055912018,
+                -0.989073932170868,
+                -0.110994160175323
+              ],
+              [
+                -0.0693743377923965,
+                0.104528464376926,
+                -0.992099344730377
+              ],
+              [
+                0.99286150932312,
+                0.103955805301666,
+                -0.0584747530519962
+              ]
+            ],
+            "origin": [
+              0.0318332090973854,
+              1.38814032077789,
+              0.675715088844299
+            ]
+          },
+          "world_contact": true
+        },
+        "prepare": {
+          "actual_blade": {
+            "anchor_world": [
+              -1.04779518395048e-09,
+              1.43629157543182,
+              0.219099104404449
+            ],
+            "axis_depth_m": -0.199778035283089,
+            "axis_direction_dot": 1.0,
+            "axis_world": [
+              -0.0693743899464607,
+              0.104528471827507,
+              -0.992099285125732
+            ],
+            "base_world": [
+              0.0892671197652817,
+              1.27547335624695,
+              1.45060408115387
+            ],
+            "inserted_fraction": -0.191175123067174,
+            "lateral_contact_world": [
+              -1.04779518395048e-09,
+              1.43629157543182,
+              0.219099104404449
+            ],
+            "lateral_error_m": 0.000108095046016388,
+            "length_m": 1.04500016570091,
+            "located_contact": {},
+            "projection": {
+              "exposed_length_m": 1.04500019550323,
+              "in_frame_samples": 12,
+              "occlusion_verified": false,
+              "projected_span_px": 201.5283203125,
+              "projected_span_viewport_fraction": 0.209925333658854
+            },
+            "tip_world": [
+              0.0138698071241379,
+              1.41530215740204,
+              0.41728675365448
+            ],
+            "torso_contact": false
+          },
+          "bone_world": {
+            "Chest": {
+              "basis": [
+                [
+                  -0.351301938295364,
+                  -2.72886069296874e-08,
+                  -4.87505893431717e-08
+                ],
+                [
+                  -1.09431974593122e-08,
+                  0.334216713905334,
+                  -0.108223162591457
+                ],
+                [
+                  5.47862626376627e-08,
+                  -0.108223162591457,
+                  -0.334216713905334
+                ]
+              ],
+              "origin": [
+                -1.04779618315121e-09,
+                1.43629157543182,
+                0.00466975662857294
+              ]
+            },
+            "Head": {
+              "basis": [
+                [
+                  -0.348017483949661,
+                  -0.0014531915076077,
+                  -0.0479036085307598
+                ],
+                [
+                  0.0364267379045486,
+                  -0.236207008361816,
+                  -0.257473021745682
+                ],
+                [
+                  -0.0311441831290722,
+                  -0.260033011436462,
+                  0.234149366617203
+                ]
+              ],
+              "origin": [
+                -3.26172120423962e-08,
+                1.80934274196625,
+                -0.400110155344009
+              ]
+            },
+            "Neck": {
+              "basis": [
+                [
+                  -0.351301938295364,
+                  -3.01813912528814e-07,
+                  -1.17548765388165e-07
+                ],
+                [
+                  -2.3237548774091e-08,
+                  0.150651291012764,
+                  -0.317359834909439
+                ],
+                [
+                  3.23062408824626e-07,
+                  -0.317359805107117,
+                  -0.150651276111603
+                ]
+              ],
+              "origin": [
+                -8.04685917898951e-09,
+                1.65005028247833,
+                -0.0645478293299675
+              ]
+            }
+          },
+          "camera": {
+            "basis": [
+              [
+                1.0,
+                0.0,
+                -3.79740772160631e-09
+              ],
+              [
+                -1.58731416899371e-10,
+                0.999126017093658,
+                -0.0417999401688576
+              ],
+              [
+                3.7940890429411e-09,
+                0.0417999401688576,
+                0.999126017093658
+              ]
+            ],
+            "origin": [
+              -1.07550964933024e-13,
+              1.56999158859253,
+              1.14997160434723
+            ]
+          },
+          "dagger_visible": false,
+          "defeats": 0,
+          "dismemberment": {
+            "damage": {
+              "head": 0.0,
+              "left_arm": 0.0,
+              "left_leg": 0.0,
+              "right_arm": 0.0,
+              "right_leg": 0.0
+            },
+            "detached_bodies": 0,
+            "enabled": true,
+            "hit_counts": {
+              "head": 0,
+              "left_arm": 0,
+              "left_leg": 0,
+              "right_arm": 0,
+              "right_leg": 0
+            },
+            "last_bake_ms": 0,
+            "last_region": "torso",
+            "move_speed": 2.2,
+            "positions": {},
+            "severed": [],
+            "visual_effects": 0
+          },
+          "enemy_ai_enabled": true,
+          "enemy_root": {
+            "basis": [
+              [
+                1.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                1.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "origin": [
+              0.0,
+              0.899999976158142,
+              0.0
+            ]
+          },
+          "enemy_state": 7,
+          "execution": {
+            "active": true,
+            "blade_fraction": 0.55,
+            "blade_length_m": 1.0450000166893,
+            "blade_tip": [
+              0.013859398663044,
+              1.41540896892548,
+              0.417298793792725
+            ],
+            "contact_error": 0.199778079986572,
+            "contact_point": [
+              -1.04779518395048e-09,
+              1.43629157543182,
+              0.219099104404449
+            ],
+            "elapsed": 0.283333333333333,
+            "hit_committed": false,
+            "lateral_cut_contact": [
+              -1.04779518395048e-09,
+              1.43629157543182,
+              0.219099104404449
+            ],
+            "neck_contact": [
+              -8.04685917898951e-09,
+              1.65005028247833,
+              -0.0645478293299675
+            ],
+            "penetration_m": 0.574750009179115,
+            "phase": "후방 제압 · 깊게 찌르기",
+            "profile": "rear_sword",
+            "stab_contact_committed": false,
+            "stab_direction": [
+              -0.0693743377923965,
+              0.104528464376926,
+              -0.992099344730377
+            ],
+            "target_id": 149149454144,
+            "world_contact": true
+          },
+          "expected_execution_seconds": 0.28,
+          "health": 118.0,
+          "initial_chest_distance_m": 0.0354953706264496,
+          "landed": 0,
+          "player_health": 440.0,
+          "player_state": 6,
+          "player_transform": {
+            "basis": [
+              [
+                1.0,
+                0.0,
+                -3.79740772160631e-09
+              ],
+              [
+                0.0,
+                1.0,
+                0.0
+              ],
+              [
+                3.79740772160631e-09,
+                0.0,
+                1.0
+              ]
+            ],
+            "origin": [
+              0.0,
+              0.899999976158142,
+              1.14999997615814
+            ]
+          },
+          "ragdoll": {
+            "bodies": 0,
+            "core_low": false,
+            "execution_held": false,
+            "execution_release_pending": false,
+            "execution_release_reason": "",
+            "ground_point": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "ground_supported": false,
+            "impact_velocity": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "joints": 0,
+            "max_speed": 0.0,
+            "mean_squared_speed": 0.0,
+            "phase": "living",
+            "positions": {},
+            "quiet_time": 0.0,
+            "reaction_time": 0.0,
+            "settled_evidence": {},
+            "simulation_time": 0.0,
+            "support_normals": [],
+            "support_parts": [],
+            "temporary": false
+          },
+          "reaction": {
+            "back_anchor": [
+              -1.04779518395048e-09,
+              1.43629157543182,
+              0.219099104404449
+            ],
+            "chest_angle": 0.0,
+            "exit_left": [
+              -1.0,
+              0.0,
+              3.77740505541624e-09
+            ],
+            "head_angle": 0.0,
+            "lateral_exit_weight": 0.0,
+            "recoil_weight": 0.0,
+            "side_angle": 0.0,
+            "twist_angle": 0.0,
+            "withdrawn_weight": 0.0
+          },
+          "right_arm": {
+            "actual_rig": {
+              "actual_forearm_axis_world": [
+                0.844281017780304,
+                -0.27219346165657,
+                -0.461627840995789
+              ],
+              "available": true,
+              "axis_mismatch_degrees": 25.3346452448907,
+              "elbow_world": [
+                0.370299696922302,
+                1.15053808689117,
+                1.42730903625488
+              ],
+              "hand_basis_world": "[X: (-0.792996, 0.53472, 0.291946), Y: (-0.570193, -0.820191, -0.046544), Z: (0.214563, -0.203375, 0.955302)]",
+              "legacy_axis_mismatch_degrees": 26.1053501304566,
+              "measurement_scope": "Authored rig neutral axis versus posed forearm; not a clinical wrist angle.",
+              "neutral_hand_axis_world": [
+                0.808696389198303,
+                -0.570747256278992,
+                -0.142329499125481
+              ],
+              "shoulder_world": [
+                0.248202800750732,
+                1.40357065200806,
+                1.23582315444946
+              ],
+              "wrist_world": [
+                0.168752253055573,
+                1.21551632881165,
+                1.53750920295715
+              ]
+            },
+            "actual_shoulder_adjustment_m": 1.33280039449346e-07,
+            "available": true,
+            "camera": {
+              "elbow": [
+                0.370299756526947,
+                -0.430679559707642,
+                0.259561896324158
+              ],
+              "shoulder": [
+                0.248202860355377,
+                -0.169864058494568,
+                0.0788201093673706
+              ],
+              "wrist": [
+                0.151742324233055,
+                -0.351916432380676,
+                0.376305341720581
+              ]
+            },
+            "forearm_length_m": 0.260000020265579,
+            "reported_shoulder_adjustment_m": 0.0,
+            "requested_reach_m": 0.361863523721695,
+            "requested_shoulder_camera": [
+              0.248202860355377,
+              -0.169864118099213,
+              0.0788199901580811
+            ],
+            "upper_length_m": 0.340000033378601,
+            "world": {
+              "elbow": [
+                0.370299756526947,
+                1.15053808689117,
+                1.42730903625488
+              ],
+              "shoulder": [
+                0.248202860355377,
+                1.40357065200806,
+                1.23582303524017
+              ],
+              "wrist": [
+                0.151742324233055,
+                1.23411226272583,
+                1.54065811634064
+              ]
+            }
+          },
+          "seconds": 0.866666666666667,
+          "shield_visible": false,
+          "stamina": 76.0,
+          "sword_visible": true,
+          "target_is_actual_player": true,
+          "tick": 52,
+          "weapon_transform": {
+            "basis": [
+              [
+                0.0970221757888794,
+                -0.989073812961578,
+                -0.110994152724743
+              ],
+              [
+                -0.0693743973970413,
+                0.104528486728668,
+                -0.992099404335022
+              ],
+              [
+                0.992861390113831,
+                0.103955708444118,
+                -0.0584747940301895
+              ]
+            ],
+            "origin": [
+              0.0855655670166016,
+              1.30717992782593,
+              1.44412386417389
+            ]
+          },
+          "world_contact": true
+        },
+        "recovered": {
+          "actual_blade": {
+            "anchor_world": [
+              -1.04779518395048e-09,
+              1.43629157543182,
+              0.219099104404449
+            ],
+            "axis_depth_m": -0.28523525595665,
+            "axis_direction_dot": 0.221135497093201,
+            "axis_world": [
+              -0.0374988578259945,
+              0.992576658725739,
+              -0.115695595741272
+            ],
+            "base_world": [
+              0.342795699834824,
+              1.25682711601257,
+              0.700500845909119
+            ],
+            "inserted_fraction": -0.272952315842237,
+            "lateral_contact_world": [
+              -1.04779518395048e-09,
+              1.43629157543182,
+              0.219099104404449
+            ],
+            "lateral_error_m": 0.935050308704376,
+            "length_m": 1.04500031471252,
+            "located_contact": {},
+            "projection": {
+              "exposed_length_m": 1.04500031471252,
+              "in_frame_samples": 16,
+              "occlusion_verified": false,
+              "projected_span_px": 467.828094482422,
+              "projected_span_viewport_fraction": 0.487320931752523
+            },
+            "tip_world": [
+              0.305774927139282,
+              2.2936806678772,
+              0.575559258460999
+            ],
+            "torso_contact": false
+          },
+          "bone_world": {
+            "Chest": {
+              "basis": [
+                [
+                  -0.0579021275043488,
+                  -0.231253415346146,
+                  -0.258035451173782
+                ],
+                [
+                  -0.345957458019257,
+                  0.0239831581711769,
+                  0.0561375804245472
+                ],
+                [
+                  -0.0193380452692509,
+                  0.263362467288971,
+                  -0.231688126921654
+                ]
+              ],
+              "origin": [
+                -1.03653168678284,
+                0.202329784631729,
+                1.0767867565155
+              ]
+            },
+            "Head": {
+              "basis": [
+                [
+                  0.199103266000748,
+                  -0.105180710554123,
+                  -0.269644051790237
+                ],
+                [
+                  0.110397882759571,
+                  0.330138951539993,
+                  -0.0472611971199512
+                ],
+                [
+                  0.267550557851791,
+                  -0.0579510070383549,
+                  0.220162361860275
+                ]
+              ],
+              "origin": [
+                -1.59097611904144,
+                0.284010112285614,
+                0.945647478103638
+              ]
+            },
+            "Neck": {
+              "basis": [
+                [
+                  0.0865466296672821,
+                  -0.218731477856636,
+                  -0.260920017957687
+                ],
+                [
+                  -0.3105109333992,
+                  0.0597263462841511,
+                  -0.15306481719017
+                ],
+                [
+                  0.139663070440292,
+                  0.268332540988922,
+                  -0.178619608283043
+                ]
+              ],
+              "origin": [
+                -1.26146185398102,
+                0.21764200925827,
+                1.11028230190277
+              ]
+            }
+          },
+          "camera": {
+            "basis": [
+              [
+                0.999701142311096,
+                0.0,
+                -0.0244474858045578
+              ],
+              [
+                -0.0016775147523731,
+                0.997643113136292,
+                -0.0685965642333031
+              ],
+              [
+                0.0243898648768663,
+                0.0686170682311058,
+                0.99734491109848
+              ]
+            ],
+            "origin": [
+              0.0,
+              1.5699999332428,
+              1.14999997615814
+            ]
+          },
+          "dagger_visible": false,
+          "defeats": 1,
+          "dismemberment": {
+            "damage": {
+              "head": 0.0,
+              "left_arm": 0.0,
+              "left_leg": 0.0,
+              "right_arm": 0.0,
+              "right_leg": 0.0
+            },
+            "detached_bodies": 0,
+            "enabled": true,
+            "hit_counts": {
+              "head": 0,
+              "left_arm": 0,
+              "left_leg": 0,
+              "right_arm": 0,
+              "right_leg": 0
+            },
+            "last_bake_ms": 0,
+            "last_region": "torso",
+            "move_speed": 2.2,
+            "positions": {},
+            "severed": [],
+            "visual_effects": 0
+          },
+          "enemy_ai_enabled": true,
+          "enemy_root": {
+            "basis": [
+              [
+                1.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                1.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "origin": [
+              0.0,
+              0.899999976158142,
+              0.0
+            ]
+          },
+          "enemy_state": 6,
+          "execution": {
+            "active": false,
+            "blade_fraction": 0.55,
+            "blade_length_m": 1.0450000166893,
+            "blade_tip": [
+              0.305679500102997,
+              2.29369735717773,
+              0.575734257698059
+            ],
+            "contact_error": 0.977636575698853,
+            "contact_point": [
+              -1.04779518395048e-09,
+              1.43629157543182,
+              0.219099104404449
+            ],
+            "elapsed": 2.28,
+            "hit_committed": true,
+            "lateral_cut_contact": [
+              -1.04779518395048e-09,
+              1.43629157543182,
+              0.219099104404449
+            ],
+            "neck_contact": [
+              -0.0619967840611935,
+              1.58022654056549,
+              -0.0996289178729057
+            ],
+            "penetration_m": 0.574750009179115,
+            "phase": "후방 제압 · 자세 회복",
+            "profile": "rear_sword",
+            "stab_contact_committed": true,
+            "stab_direction": [
+              -0.0693743377923965,
+              0.104528464376926,
+              -0.992099344730377
+            ],
+            "target_id": 0,
+            "world_contact": false
+          },
+          "expected_execution_seconds": 2.28,
+          "health": 0.0,
+          "initial_chest_distance_m": 1.91880142688751,
+          "landed": 1,
+          "player_health": 440.0,
+          "player_state": 0,
+          "player_transform": {
+            "basis": [
+              [
+                0.999701142311096,
+                0.0,
+                -0.0244474858045578
+              ],
+              [
+                0.0,
+                1.0,
+                0.0
+              ],
+              [
+                0.0244474858045578,
+                0.0,
+                0.999701142311096
+              ]
+            ],
+            "origin": [
+              0.0,
+              0.899999976158142,
+              1.14999997615814
+            ]
+          },
+          "ragdoll": {
+            "bodies": 20,
+            "core_low": true,
+            "execution_held": false,
+            "execution_release_pending": false,
+            "execution_release_reason": "",
+            "ground_point": [
+              -1.13547706604004,
+              0.0,
+              1.08023929595947
+            ],
+            "ground_supported": true,
+            "impact_velocity": [
+              -1.14965629577637,
+              0.0,
+              0.378114610910416
+            ],
+            "joints": 19,
+            "max_speed": 4.67229080200195,
+            "mean_squared_speed": 2.90705871318925,
+            "phase": "simulating",
+            "positions": {
+              "Arm1.L": [
+                -1.16582310199738,
+                0.089686706662178,
+                0.536527097225189
+              ],
+              "Arm1.R": [
+                -0.949319541454315,
+                0.470468312501907,
+                1.00064122676849
+              ],
+              "Arm2.L": [
+                -1.10434091091156,
+                0.0934460535645485,
+                0.0889274924993515
+              ],
+              "Arm2.R": [
+                -0.935924232006073,
+                0.3841373026371,
+                0.541722476482391
+              ],
+              "Chest": [
+                -1.14716565608978,
+                0.209999427199364,
+                1.09473896026611
+              ],
+              "Foot.L": [
+                -0.541166305541992,
+                0.173972114920616,
+                -0.0750356838107109
+              ],
+              "Foot.R": [
+                -0.0219499301165342,
+                0.0647645592689514,
+                -0.10754705965519
+              ],
+              "Hand.L": [
+                -1.13100624084473,
+                0.216264203190804,
+                -0.26330491900444
+              ],
+              "Hand.R": [
+                -1.10686564445496,
+                0.313854545354843,
+                0.1786228120327
+              ],
+              "Head": [
+                -1.56269335746765,
+                0.368588417768478,
+                0.933539628982544
+              ],
+              "Leg1.L": [
+                -0.832738280296326,
+                0.117993280291557,
+                0.573095917701721
+              ],
+              "Leg1.R": [
+                -0.620005667209625,
+                0.281682819128036,
+                0.719699442386627
+              ],
+              "Leg2.L": [
+                -0.718156099319458,
+                0.10202457010746,
+                0.324772596359253
+              ],
+              "Leg2.R": [
+                -0.389975547790527,
+                0.226977452635765,
+                0.391384959220886
+              ],
+              "Leg3.L": [
+                -0.49013552069664,
+                0.106749311089516,
+                0.147131115198135
+              ],
+              "Leg3.R": [
+                -0.101602599024773,
+                0.121253035962582,
+                0.168471798300743
+              ],
+              "Neck": [
+                -1.42562210559845,
+                0.249217674136162,
+                1.02936041355133
+              ],
+              "Shoulder.L": [
+                -1.27233493328094,
+                0.151525184512138,
+                0.919564366340637
+              ],
+              "Shoulder.R": [
+                -1.13958013057709,
+                0.378925144672394,
+                1.15535831451416
+              ],
+              "Torso": [
+                -0.903532087802887,
+                0.19936615228653,
+                1.00981545448303
+              ]
+            },
+            "quiet_time": 0.0,
+            "reaction_time": 0.0,
+            "settled_evidence": {},
+            "simulation_time": 1.0,
+            "support_normals": [
+              [
+                0.0,
+                1.0,
+                0.0
+              ],
+              [
+                0.0,
+                1.0,
+                0.0
+              ]
+            ],
+            "support_parts": [
+              "Chest"
+            ],
+            "temporary": false
+          },
+          "reaction": {
+            "back_anchor": [
+              -1.04779518395048e-09,
+              1.43629157543182,
+              0.219099104404449
+            ],
+            "chest_angle": -0.226892802759263,
+            "exit_left": [
+              -0.999701142311096,
+              0.0,
+              0.0244474858045578
+            ],
+            "head_angle": -0.15707963267949,
+            "lateral_exit_weight": 1.0,
+            "recoil_weight": 1.0,
+            "side_angle": 0.15707963267949,
+            "twist_angle": 0.122173047639603,
+            "withdrawn_weight": 0.324802937047835
+          },
+          "right_arm": {
+            "actual_rig": {
+              "actual_forearm_axis_world": [
+                0.310403913259506,
+                -0.365189254283905,
+                0.877659559249878
+              ],
+              "available": true,
+              "axis_mismatch_degrees": 30.548762138407,
+              "elbow_world": [
+                0.467691481113434,
+                1.08590614795685,
+                1.01701974868774
+              ],
+              "hand_basis_world": "[X: (-0.196663, -0.296435, -0.934586), Y: (0.977687, 0.012494, -0.209695), Z: (0.073838, -0.954971, 0.287363)]",
+              "legacy_axis_mismatch_degrees": 29.2968362748678,
+              "measurement_scope": "Authored rig neutral axis versus posed forearm; not a clinical wrist angle.",
+              "neutral_hand_axis_world": [
+                0.218981847167015,
+                0.146351337432861,
+                0.964690804481506
+              ],
+              "shoulder_world": [
+                0.292554765939713,
+                1.23761355876923,
+                1.26584112644196
+              ],
+              "wrist_world": [
+                0.393979519605637,
+                1.17262804508209,
+                0.808600962162018
+              ]
+            },
+            "actual_shoulder_adjustment_m": 0.176406607031822,
+            "available": true,
+            "camera": {
+              "elbow": [
+                0.47080272436142,
+                -0.474615335464478,
+                -0.154437303543091
+              ],
+              "shoulder": [
+                0.289635270833969,
+                -0.34004020690918,
+                0.0998615026473999
+              ],
+              "wrist": [
+                0.392081201076508,
+                -0.375151515007019,
+                -0.381395220756531
+              ]
+            },
+            "forearm_length_m": 0.260000020265579,
+            "reported_shoulder_adjustment_m": 0.0,
+            "requested_reach_m": 0.524062931537628,
+            "requested_shoulder_camera": [
+              0.248202860355377,
+              -0.169864118099213,
+              0.0788199901580811
+            ],
+            "upper_length_m": 0.340000092983246,
+            "world": {
+              "elbow": [
+                0.467691481113434,
+                1.08590614795685,
+                1.01701974868774
+              ],
+              "shoulder": [
+                0.29255473613739,
+                1.23761343955994,
+                1.26584112644196
+              ],
+              "wrist": [
+                0.383291155099869,
+                1.169562458992,
+                0.785766184329987
+              ]
+            }
+          },
+          "seconds": 2.86666666666667,
+          "shield_visible": false,
+          "stamina": 76.0,
+          "sword_visible": true,
+          "target_is_actual_player": true,
+          "tick": 172,
+          "weapon_transform": {
+            "basis": [
+              [
+                0.878166854381561,
+                0.0879826992750168,
+                0.47019350528717
+              ],
+              [
+                -0.0374988578259945,
+                0.992576658725739,
+                -0.115695595741272
+              ],
+              [
+                -0.476882308721542,
+                0.0839683189988136,
+                0.874947130680084
+              ]
+            ],
+            "origin": [
+              0.344566702842712,
+              1.26637506484985,
+              0.6954066157341
+            ]
+          },
+          "world_contact": false
+        },
+        "slash": {
+          "actual_blade": {
+            "anchor_world": [
+              -1.04779518395048e-09,
+              1.43629157543182,
+              0.219099104404449
+            ],
+            "axis_depth_m": 0.539857685565948,
+            "axis_direction_dot": 0.996576130390167,
+            "axis_world": [
+              -0.146442115306854,
+              0.132278725504875,
+              -0.980335175991058
+            ],
+            "base_world": [
+              -0.00416713114827871,
+              1.37801206111908,
+              0.718740344047546
+            ],
+            "inserted_fraction": 0.516610158238619,
+            "lateral_contact_world": [
+              -1.04779518395048e-09,
+              1.43629157543182,
+              0.219099104404449
+            ],
+            "lateral_error_m": 0.122135922312737,
+            "length_m": 1.04500013589859,
+            "located_contact": {
+              "fraction": 0.447693018931071,
+              "position": [
+                -0.0594973750412464,
+                1.44096863269806,
+                0.218210637569427
+              ],
+              "region": "torso"
+            },
+            "projection": {
+              "exposed_length_m": 0.508951961994171,
+              "in_frame_samples": 25,
+              "occlusion_verified": false,
+              "projected_span_px": 130.770614624023,
+              "projected_span_viewport_fraction": 0.136219390233358
+            },
+            "tip_world": [
+              -0.154213175177574,
+              1.52658104896545,
+              -0.304761171340942
+            ],
+            "torso_contact": true
+          },
+          "bone_world": {
+            "Chest": {
+              "basis": [
+                [
+                  -0.349566459655762,
+                  -0.027561504393816,
+                  0.0213695578277111
+                ],
+                [
+                  -0.034443411976099,
+                  0.306611359119415,
+                  -0.167976781725883
+                ],
+                [
+                  -0.00547238159924746,
+                  -0.169242158532143,
+                  -0.307799011468887
+                ]
+              ],
+              "origin": [
+                -0.00965446978807449,
+                1.39566707611084,
+                0.00877461023628712
+              ]
+            },
+            "Head": {
+              "basis": [
+                [
+                  -0.348326504230499,
+                  -0.0408129133284092,
+                  -0.0203952882438898
+                ],
+                [
+                  0.0455533936619759,
+                  -0.302287966012955,
+                  -0.173089385032654
+                ],
+                [
+                  0.0025591654703021,
+                  -0.174268022179604,
+                  0.305019974708557
+                ]
+              ],
+              "origin": [
+                -0.060886025428772,
+                1.68410348892212,
+                -0.457265734672546
+              ]
+            },
+            "Neck": {
+              "basis": [
+                [
+                  -0.349566459655762,
+                  -0.0275617856532335,
+                  0.0213695429265499
+                ],
+                [
+                  -0.0276181325316429,
+                  0.0873248726129532,
+                  -0.339152902364731
+                ],
+                [
+                  0.0212966855615377,
+                  -0.339157432317734,
+                  -0.0890602916479111
+                ]
+              ],
+              "origin": [
+                -0.0316838286817074,
+                1.59176993370056,
+                -0.0986602753400803
+              ]
+            }
+          },
+          "camera": {
+            "basis": [
+              [
+                0.999921858310699,
+                0.0,
+                -0.0125015694648027
+              ],
+              [
+                -0.000801770889665931,
+                0.997941315174103,
+                -0.0641286075115204
+              ],
+              [
+                0.0124758332967758,
+                0.0641336217522621,
+                0.997863352298737
+              ]
+            ],
+            "origin": [
+              -0.00111089553683996,
+              1.54161810874939,
+              1.06114637851715
+            ]
+          },
+          "dagger_visible": false,
+          "defeats": 0,
+          "dismemberment": {
+            "damage": {
+              "head": 0.0,
+              "left_arm": 0.0,
+              "left_leg": 0.0,
+              "right_arm": 0.0,
+              "right_leg": 0.0
+            },
+            "detached_bodies": 0,
+            "enabled": true,
+            "hit_counts": {
+              "head": 0,
+              "left_arm": 0,
+              "left_leg": 0,
+              "right_arm": 0,
+              "right_leg": 0
+            },
+            "last_bake_ms": 0,
+            "last_region": "torso",
+            "move_speed": 2.2,
+            "positions": {},
+            "severed": [],
+            "visual_effects": 0
+          },
+          "enemy_ai_enabled": true,
+          "enemy_root": {
+            "basis": [
+              [
+                1.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                1.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "origin": [
+              0.0,
+              0.899999976158142,
+              0.0
+            ]
+          },
+          "enemy_state": 7,
+          "execution": {
+            "active": true,
+            "blade_fraction": 0.55,
+            "blade_length_m": 1.0450000166893,
+            "blade_tip": [
+              -0.154134228825569,
+              1.52672648429871,
+              -0.304753303527832
+            ],
+            "contact_error": 0.553495407104492,
+            "contact_point": [
+              -1.04779518395048e-09,
+              1.43629157543182,
+              0.219099104404449
+            ],
+            "elapsed": 1.15,
+            "hit_committed": false,
+            "lateral_cut_contact": [
+              -1.04779518395048e-09,
+              1.43629157543182,
+              0.219099104404449
+            ],
+            "neck_contact": [
+              -0.0316838286817074,
+              1.59176993370056,
+              -0.0986602753400803
+            ],
+            "penetration_m": 0.574750009179115,
+            "phase": "후방 제압 · 좌측으로 베어 빼기",
+            "profile": "rear_sword",
+            "stab_contact_committed": true,
+            "stab_direction": [
+              -0.0693743377923965,
+              0.104528464376926,
+              -0.992099344730377
+            ],
+            "target_id": 149149454144,
+            "world_contact": true
+          },
+          "expected_execution_seconds": 1.15,
+          "health": 118.0,
+          "initial_chest_distance_m": 0.0172935146838427,
+          "landed": 0,
+          "player_health": 440.0,
+          "player_state": 6,
+          "player_transform": {
+            "basis": [
+              [
+                0.999921858310699,
+                0.0,
+                -0.0125015694648027
+              ],
+              [
+                0.0,
+                1.0,
+                0.0
+              ],
+              [
+                0.0125015694648027,
+                0.0,
+                0.999921858310699
+              ]
+            ],
+            "origin": [
+              0.0,
+              0.899999976158142,
+              1.14999997615814
+            ]
+          },
+          "ragdoll": {
+            "bodies": 0,
+            "core_low": false,
+            "execution_held": false,
+            "execution_release_pending": false,
+            "execution_release_reason": "",
+            "ground_point": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "ground_supported": false,
+            "impact_velocity": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "joints": 0,
+            "max_speed": 0.0,
+            "mean_squared_speed": 0.0,
+            "phase": "living",
+            "positions": {},
+            "quiet_time": 0.0,
+            "reaction_time": 0.0,
+            "settled_evidence": {},
+            "simulation_time": 0.0,
+            "support_normals": [],
+            "support_parts": [],
+            "temporary": false
+          },
+          "reaction": {
+            "back_anchor": [
+              -1.04779518395048e-09,
+              1.43629157543182,
+              0.219099104404449
+            ],
+            "chest_angle": -0.191986217719377,
+            "exit_left": [
+              -0.999950468540192,
+              0.0,
+              0.0099565302953124
+            ],
+            "head_angle": -0.130899693899575,
+            "lateral_exit_weight": 0.500000000000005,
+            "recoil_weight": 1.0,
+            "side_angle": 0.0785398163397456,
+            "twist_angle": 0.0610865238198021,
+            "withdrawn_weight": 0.0950221358384635
+          },
+          "right_arm": {
+            "actual_rig": {
+              "actual_forearm_axis_world": [
+                0.910528898239136,
+                -0.333681881427765,
+                0.244117796421051
+              ],
+              "available": true,
+              "axis_mismatch_degrees": 29.2746040091194,
+              "elbow_world": [
+                0.309522390365601,
+                1.22049951553345,
+                0.852128386497498
+              ],
+              "hand_basis_world": "[X: (-0.798787, 0.47743, 0.366061), Y: (-0.524916, -0.850379, -0.036332), Z: (0.293944, -0.221172, 0.929881)]",
+              "legacy_axis_mismatch_degrees": 27.6216862771453,
+              "measurement_scope": "Authored rig neutral axis versus posed forearm; not a clinical wrist angle.",
+              "neutral_hand_axis_world": [
+                0.827230334281921,
+                -0.517288327217102,
+                -0.219323515892029
+              ],
+              "shoulder_world": [
+                0.248192101716995,
+                1.37715864181519,
+                1.14758813381195
+              ],
+              "wrist_world": [
+                0.0920726135373116,
+                1.30018842220306,
+                0.793828904628754
+              ]
+            },
+            "actual_shoulder_adjustment_m": 2.46207576992674e-07,
+            "available": true,
+            "camera": {
+              "elbow": [
+                0.313222050666809,
+                -0.307302594184875,
+                -0.225290596485138
+              ],
+              "shoulder": [
+                0.248202845454216,
+                -0.169864177703857,
+                0.078819751739502
+              ],
+              "wrist": [
+                0.0786967203021049,
+                -0.206755876541138,
+                -0.275172889232635
+              ]
+            },
+            "forearm_length_m": 0.260000050067902,
+            "reported_shoulder_adjustment_m": 0.0,
+            "requested_reach_m": 0.394213497638702,
+            "requested_shoulder_camera": [
+              0.248202860355377,
+              -0.169864118099213,
+              0.0788199901580811
+            ],
+            "upper_length_m": 0.339999914169312,
+            "world": {
+              "elbow": [
+                0.309522390365601,
+                1.22049951553345,
+                0.852128386497498
+              ],
+              "shoulder": [
+                0.248192101716995,
+                1.37715864181519,
+                1.14758813381195
+              ],
+              "wrist": [
+                0.0743124336004257,
+                1.31764006614685,
+                0.798836708068848
+              ]
+            }
+          },
+          "seconds": 1.73333333333333,
+          "shield_visible": false,
+          "stamina": 76.0,
+          "sword_visible": true,
+          "target_is_actual_player": true,
+          "tick": 104,
+          "weapon_transform": {
+            "basis": [
+              [
+                0.144380941987038,
+                -0.977548480033875,
+                -0.153470352292061
+              ],
+              [
+                -0.146442115306854,
+                0.132278725504875,
+                -0.980335175991058
+              ],
+              [
+                0.978626012802124,
+                0.164016202092171,
+                -0.124055728316307
+              ]
+            ],
+            "origin": [
+              -0.0026600316632539,
+              1.38977026939392,
+              0.709901094436646
+            ]
+          },
+          "world_contact": true
+        },
+        "stab": {
+          "actual_blade": {
+            "anchor_world": [
+              -1.04779518395048e-09,
+              1.43629157543182,
+              0.219099104404449
+            ],
+            "axis_depth_m": 0.574750185012817,
+            "axis_direction_dot": 1.0,
+            "axis_world": [
+              -0.0693743303418159,
+              0.104528464376926,
+              -0.992099285125732
+            ],
+            "base_world": [
+              0.03603246062994,
+              1.3973742723465,
+              0.686473965644836
+            ],
+            "inserted_fraction": 0.550000105520171,
+            "lateral_contact_world": [
+              -1.04779518395048e-09,
+              1.43629157543182,
+              0.219099104404449
+            ],
+            "lateral_error_m": 0.000108063359220978,
+            "length_m": 1.04500013589859,
+            "located_contact": {
+              "fraction": 0.401273296905319,
+              "position": [
+                0.00294128083623946,
+                1.43167161941528,
+                0.224615544080734
+              ],
+              "region": "torso"
+            },
+            "projection": {
+              "exposed_length_m": 0.47024992108345,
+              "in_frame_samples": 25,
+              "occlusion_verified": false,
+              "projected_span_px": 104.317306518555,
+              "projected_span_viewport_fraction": 0.108663860956828
+            },
+            "tip_world": [
+              -0.0398624949157238,
+              1.49626243114471,
+              -0.351122081279755
+            ],
+            "torso_contact": true
+          },
+          "actual_skin": {
+            "depth_m": 0.574750125408173,
+            "entry_anchor_error_m": 5.99475526996684e-08,
+            "found": true,
+            "inserted_fraction": 0.550000048482241,
+            "position": [
+              -7.45058059692383e-09,
+              1.43629157543182,
+              0.219099044799805
+            ]
+          },
+          "bone_world": {
+            "Chest": {
+              "basis": [
+                [
+                  -0.351301938295364,
+                  -2.74391496191129e-08,
+                  -4.86660205467615e-08
+                ],
+                [
+                  -1.09431947947769e-08,
+                  0.333880633115768,
+                  -0.109255611896515
+                ],
+                [
+                  5.47862697430901e-08,
+                  -0.109255611896515,
+                  -0.333880633115768
+                ]
+              ],
+              "origin": [
+                -1.04779684928502e-09,
+                1.43562877178192,
+                0.00467077735811472
+              ]
+            },
+            "Head": {
+              "basis": [
+                [
+                  -0.348017483949661,
+                  -0.00169993017334491,
+                  -0.0478954836726189
+                ],
+                [
+                  0.0364267341792583,
+                  -0.237530156970024,
+                  -0.25625291466713
+                ],
+                [
+                  -0.0311441738158464,
+                  -0.258823424577713,
+                  0.235485687851906
+                ]
+              ],
+              "origin": [
+                -3.26170628284217e-08,
+                1.80742704868317,
+                -0.401260256767273
+              ]
+            },
+            "Neck": {
+              "basis": [
+                [
+                  -0.351301938295364,
+                  -3.02175777733282e-07,
+                  -1.1661539645047e-07
+                ],
+                [
+                  -2.32375452213773e-08,
+                  0.149669706821442,
+                  -0.317823946475983
+                ],
+                [
+                  3.23062408824626e-07,
+                  -0.31782391667366,
+                  -0.14966969192028
+                ]
+              ],
+              "origin": [
+                -8.04685917898951e-09,
+                1.64917254447937,
+                -0.0652071535587311
+              ]
+            }
+          },
+          "camera": {
+            "basis": [
+              [
+                1.0,
+                0.0,
+                -3.79640630043809e-09
+              ],
+              [
+                -1.59977017744062e-10,
+                0.999111771583557,
+                -0.0421390682458878
+              ],
+              [
+                3.7930343310677e-09,
+                0.0421390682458878,
+                0.999111771583557
+              ]
+            ],
+            "origin": [
+              -3.75304037847357e-10,
+              1.54080820083618,
+              1.05114221572876
+            ]
+          },
+          "dagger_visible": false,
+          "defeats": 0,
+          "dismemberment": {
+            "damage": {
+              "head": 0.0,
+              "left_arm": 0.0,
+              "left_leg": 0.0,
+              "right_arm": 0.0,
+              "right_leg": 0.0
+            },
+            "detached_bodies": 0,
+            "enabled": true,
+            "hit_counts": {
+              "head": 0,
+              "left_arm": 0,
+              "left_leg": 0,
+              "right_arm": 0,
+              "right_leg": 0
+            },
+            "last_bake_ms": 0,
+            "last_region": "torso",
+            "move_speed": 2.2,
+            "positions": {},
+            "severed": [],
+            "visual_effects": 0
+          },
+          "enemy_ai_enabled": true,
+          "enemy_root": {
+            "basis": [
+              [
+                1.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                1.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "origin": [
+              0.0,
+              0.899999976158142,
+              0.0
+            ]
+          },
+          "enemy_state": 7,
+          "execution": {
+            "active": true,
+            "blade_fraction": 0.55,
+            "blade_length_m": 1.0450000166893,
+            "blade_tip": [
+              -0.0398729033768177,
+              1.49636924266815,
+              -0.35111004114151
+            ],
+            "contact_error": 0.574750065803528,
+            "contact_point": [
+              -1.04779518395048e-09,
+              1.43629157543182,
+              0.219099104404449
+            ],
+            "elapsed": 0.633333333333334,
+            "hit_committed": false,
+            "lateral_cut_contact": [
+              -1.04779518395048e-09,
+              1.43629157543182,
+              0.219099104404449
+            ],
+            "neck_contact": [
+              -8.04685917898951e-09,
+              1.64917254447937,
+              -0.0652071535587311
+            ],
+            "penetration_m": 0.574750009179115,
+            "phase": "후방 제압 · 제압 유지",
+            "profile": "rear_sword",
+            "stab_contact_committed": true,
+            "stab_direction": [
+              -0.0693743377923965,
+              0.104528464376926,
+              -0.992099344730377
+            ],
+            "target_id": 149149454144,
+            "world_contact": true
+          },
+          "expected_execution_seconds": 0.62,
+          "health": 118.0,
+          "initial_chest_distance_m": 0.0348539724946022,
+          "landed": 0,
+          "player_health": 440.0,
+          "player_state": 6,
+          "player_transform": {
+            "basis": [
+              [
+                1.0,
+                0.0,
+                -3.79640630043809e-09
+              ],
+              [
+                0.0,
+                1.0,
+                0.0
+              ],
+              [
+                3.79640630043809e-09,
+                0.0,
+                1.0
+              ]
+            ],
+            "origin": [
+              0.0,
+              0.899999976158142,
+              1.14999997615814
+            ]
+          },
+          "ragdoll": {
+            "bodies": 0,
+            "core_low": false,
+            "execution_held": false,
+            "execution_release_pending": false,
+            "execution_release_reason": "",
+            "ground_point": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "ground_supported": false,
+            "impact_velocity": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "joints": 0,
+            "max_speed": 0.0,
+            "mean_squared_speed": 0.0,
+            "phase": "living",
+            "positions": {},
+            "quiet_time": 0.0,
+            "reaction_time": 0.0,
+            "settled_evidence": {},
+            "simulation_time": 0.0,
+            "support_normals": [],
+            "support_parts": [],
+            "temporary": false
+          },
+          "reaction": {
+            "back_anchor": [
+              -1.04779518395048e-09,
+              1.43629157543182,
+              0.219099104404449
+            ],
+            "chest_angle": -0.00309068721707343,
+            "exit_left": [
+              -1.0,
+              0.0,
+              3.79740772160631e-09
+            ],
+            "head_angle": -0.00206045814471562,
+            "lateral_exit_weight": 0.0,
+            "recoil_weight": 0.0196759259259268,
+            "side_angle": 0.0,
+            "twist_angle": 0.0,
+            "withdrawn_weight": 0.0
+          },
+          "right_arm": {
+            "actual_rig": {
+              "actual_forearm_axis_world": [
+                0.864287495613098,
+                -0.371945589780807,
+                0.338620066642761
+              ],
+              "available": true,
+              "axis_mismatch_degrees": 30.3406326140183,
+              "elbow_world": [
+                0.321601420640945,
+                1.20757436752319,
+                0.850037157535553
+              ],
+              "hand_basis_world": "[X: (-0.792996, 0.53472, 0.291946), Y: (-0.570193, -0.820191, -0.046544), Z: (0.214563, -0.203375, 0.955302)]",
+              "legacy_axis_mismatch_degrees": 28.6888538160883,
+              "measurement_scope": "Authored rig neutral axis versus posed forearm; not a clinical wrist angle.",
+              "neutral_hand_axis_world": [
+                0.808696389198303,
+                -0.570747256278992,
+                -0.142329484224319
+              ],
+              "shoulder_world": [
+                0.2482028901577,
+                1.37441635131836,
+                1.13705015182495
+              ],
+              "wrist_world": [
+                0.115019895136356,
+                1.29647660255432,
+                0.769100368022919
+              ]
+            },
+            "actual_shoulder_adjustment_m": 1.33280039449346e-07,
+            "available": true,
+            "camera": {
+              "elbow": [
+                0.321601390838623,
+                -0.324463605880737,
+                -0.21496844291687
+              ],
+              "shoulder": [
+                0.248202860355377,
+                -0.169864177703857,
+                0.0788201093673706
+              ],
+              "wrist": [
+                0.0980099886655807,
+                -0.213782906532288,
+                -0.288157522678375
+              ]
+            },
+            "forearm_length_m": 0.259999960660934,
+            "reported_shoulder_adjustment_m": 0.0,
+            "requested_reach_m": 0.398947685956955,
+            "requested_shoulder_camera": [
+              0.248202860355377,
+              -0.169864118099213,
+              0.0788199901580811
+            ],
+            "upper_length_m": 0.340000033378601,
+            "world": {
+              "elbow": [
+                0.321601390838623,
+                1.2075742483139,
+                0.850037276744843
+              ],
+              "shoulder": [
+                0.248202860355377,
+                1.37441635131836,
+                1.13705015182495
+              ],
+              "wrist": [
+                0.0980099812150002,
+                1.31507253646851,
+                0.772249221801758
+              ]
+            }
+          },
+          "seconds": 1.21666666666667,
+          "shield_visible": false,
+          "stamina": 76.0,
+          "sword_visible": true,
+          "target_is_actual_player": true,
+          "tick": 73,
+          "weapon_transform": {
+            "basis": [
+              [
+                0.0970222055912018,
+                -0.989073932170868,
+                -0.110994145274162
+              ],
+              [
+                -0.0693743377923965,
+                0.104528479278088,
+                -0.992099404335022
+              ],
+              [
+                0.99286150932312,
+                0.103955812752247,
+                -0.0584747530519962
+              ]
+            ],
+            "origin": [
+              0.0318332053720951,
+              1.3881402015686,
+              0.675715029239655
+            ]
+          },
+          "world_contact": true
+        },
+        "withdraw": {
+          "actual_blade": {
+            "anchor_world": [
+              -1.04779518395048e-09,
+              1.43629157543182,
+              0.219099104404449
+            ],
+            "axis_depth_m": -0.15020877122879,
+            "axis_direction_dot": 0.653411149978638,
+            "axis_world": [
+              -0.797404408454895,
+              0.131017327308655,
+              -0.589050590991974
+            ],
+            "base_world": [
+              -0.301537185907364,
+              1.35916233062744,
+              1.05981290340424
+            ],
+            "inserted_fraction": -0.14374041584639,
+            "lateral_contact_world": [
+              -1.04779518395048e-09,
+              1.43629157543182,
+              0.219099104404449
+            ],
+            "lateral_error_m": 1.16019344329834,
+            "length_m": 1.04500025510788,
+            "located_contact": {},
+            "projection": {
+              "exposed_length_m": 1.04500031471252,
+              "in_frame_samples": 0,
+              "occlusion_verified": false,
+              "projected_span_px": 0.0,
+              "projected_span_viewport_fraction": 0.0
+            },
+            "tip_world": [
+              -1.14249217510223,
+              1.5136706829071,
+              0.458547651767731
+            ],
+            "torso_contact": false
+          },
+          "bone_world": {
+            "Chest": {
+              "basis": [
+                [
+                  -0.350565940141678,
+                  -0.00698308553546667,
+                  0.0216282717883587
+                ],
+                [
+                  -0.0203493591398001,
+                  -0.0524442829191685,
+                  -0.346768945455551
+                ],
+                [
+                  0.0101217599585652,
+                  -0.347295165061951,
+                  0.0519299320876598
+                ]
+              ],
+              "origin": [
+                -0.365879774093628,
+                0.890007734298706,
+                0.114657141268253
+              ]
+            },
+            "Head": {
+              "basis": [
+                [
+                  -0.339241147041321,
+                  -0.0911064445972443,
+                  0.00529797747731209
+                ],
+                [
+                  0.0904140174388885,
+                  -0.332757353782654,
+                  0.0671632140874863
+                ],
+                [
+                  -0.0123997433111072,
+                  0.0662209317088127,
+                  0.344781309366226
+                ]
+              ],
+              "origin": [
+                -0.369924694299698,
+                0.535924255847931,
+                -0.329894810914993
+              ]
+            },
+            "Neck": {
+              "basis": [
+                [
+                  -0.346128016710281,
+                  -0.0387864597141743,
+                  0.0458695515990257
+                ],
+                [
+                  0.00663891714066267,
+                  -0.29131156206131,
+                  -0.196230962872505
+                ],
+                [
+                  0.05970199406147,
+                  -0.192473962903023,
+                  0.287754267454147
+                ]
+              ],
+              "origin": [
+                -0.378162264823914,
+                0.851381063461304,
+                -0.115391924977303
+              ]
+            }
+          },
+          "camera": {
+            "basis": [
+              [
+                0.999701142311096,
+                0.0,
+                -0.0244474858045578
+              ],
+              [
+                -0.0016775147523731,
+                0.997643113136292,
+                -0.0685965642333031
+              ],
+              [
+                0.0243898648768663,
+                0.0686170682311058,
+                0.99734491109848
+              ]
+            ],
+            "origin": [
+              0.0,
+              1.5699999332428,
+              1.14999997615814
+            ]
+          },
+          "dagger_visible": false,
+          "defeats": 1,
+          "dismemberment": {
+            "damage": {
+              "head": 0.0,
+              "left_arm": 0.0,
+              "left_leg": 0.0,
+              "right_arm": 0.0,
+              "right_leg": 0.0
+            },
+            "detached_bodies": 0,
+            "enabled": true,
+            "hit_counts": {
+              "head": 0,
+              "left_arm": 0,
+              "left_leg": 0,
+              "right_arm": 0,
+              "right_leg": 0
+            },
+            "last_bake_ms": 0,
+            "last_region": "torso",
+            "move_speed": 2.2,
+            "positions": {},
+            "severed": [],
+            "visual_effects": 0
+          },
+          "enemy_ai_enabled": true,
+          "enemy_root": {
+            "basis": [
+              [
+                1.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                1.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "origin": [
+              0.0,
+              0.899999976158142,
+              0.0
+            ]
+          },
+          "enemy_state": 6,
+          "execution": {
+            "active": true,
+            "blade_fraction": 0.55,
+            "blade_length_m": 1.0450000166893,
+            "blade_tip": [
+              -1.14253664016724,
+              1.51373481750488,
+              0.458622217178345
+            ],
+            "contact_error": 1.16993963718414,
+            "contact_point": [
+              -1.04779518395048e-09,
+              1.43629157543182,
+              0.219099104404449
+            ],
+            "elapsed": 1.66666666666667,
+            "hit_committed": true,
+            "lateral_cut_contact": [
+              -1.04779518395048e-09,
+              1.43629157543182,
+              0.219099104404449
+            ],
+            "neck_contact": [
+              -0.0619967840611935,
+              1.58022654056549,
+              -0.0996289178729057
+            ],
+            "penetration_m": 0.574750009179115,
+            "phase": "후방 제압 · 검 회수",
+            "profile": "rear_sword",
+            "stab_contact_committed": true,
+            "stab_direction": [
+              -0.0693743377923965,
+              0.104528464376926,
+              -0.992099344730377
+            ],
+            "target_id": 149149454144,
+            "world_contact": true
+          },
+          "expected_execution_seconds": 1.66,
+          "health": 0.0,
+          "initial_chest_distance_m": 0.640331029891968,
+          "landed": 1,
+          "lateral_extraction": {
+            "heel_left_shift_m": 0.341838032007217,
+            "reference": "original back-entry plane; victim is already a falling whole-body ragdoll",
+            "tip_entry_plane_depth_m": -0.15020877122879,
+            "tip_retreat_m": 0.724958896636963
+          },
+          "player_health": 440.0,
+          "player_state": 6,
+          "player_transform": {
+            "basis": [
+              [
+                0.999701142311096,
+                0.0,
+                -0.0244474858045578
+              ],
+              [
+                0.0,
+                1.0,
+                0.0
+              ],
+              [
+                0.0244474858045578,
+                0.0,
+                0.999701142311096
+              ]
+            ],
+            "origin": [
+              0.0,
+              0.899999976158142,
+              1.14999997615814
+            ]
+          },
+          "ragdoll": {
+            "bodies": 20,
+            "core_low": false,
+            "execution_held": false,
+            "execution_release_pending": false,
+            "execution_release_reason": "",
+            "ground_point": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "ground_supported": false,
+            "impact_velocity": [
+              -1.14965629577637,
+              0.0,
+              0.378114610910416
+            ],
+            "joints": 19,
+            "max_speed": 4.63157081604004,
+            "mean_squared_speed": 4.47720224170592,
+            "phase": "simulating",
+            "positions": {
+              "Arm1.L": [
+                -0.725110948085785,
+                0.426462203264236,
+                0.153149023652077
+              ],
+              "Arm1.R": [
+                0.237649455666542,
+                0.69722718000412,
+                -0.0118526257574558
+              ],
+              "Arm2.L": [
+                -0.90243661403656,
+                0.212639704346657,
+                0.02822445333004
+              ],
+              "Arm2.R": [
+                0.549291729927063,
+                0.482911735773087,
+                -0.138950750231743
+              ],
+              "Chest": [
+                -0.372387319803238,
+                0.873236417770386,
+                0.00376359536312521
+              ],
+              "Foot.L": [
+                -0.350759625434875,
+                0.118946336209774,
+                -0.0939219444990158
+              ],
+              "Foot.R": [
+                0.24442458152771,
+                0.0912176519632339,
+                -0.109247215092182
+              ],
+              "Hand.L": [
+                -0.98987203836441,
+                0.117142133414745,
+                -0.313575446605682
+              ],
+              "Hand.R": [
+                0.62220823764801,
+                0.156539663672447,
+                -0.354707539081573
+              ],
+              "Head": [
+                -0.346761494874954,
+                0.450675129890442,
+                -0.312688320875168
+              ],
+              "Leg1.L": [
+                -0.476175665855408,
+                0.545297980308533,
+                0.164517849683762
+              ],
+              "Leg1.R": [
+                -0.0835843905806541,
+                0.587537586688995,
+                0.157798752188683
+              ],
+              "Leg2.L": [
+                -0.491385281085968,
+                0.36057111620903,
+                0.0833511650562286
+              ],
+              "Leg2.R": [
+                0.0908387303352356,
+                0.384844958782196,
+                0.0706383883953094
+              ],
+              "Leg3.L": [
+                -0.404324591159821,
+                0.185567602515221,
+                0.10152405500412
+              ],
+              "Leg3.R": [
+                0.240301713347435,
+                0.188827410340309,
+                0.0808277279138565
+              ],
+              "Neck": [
+                -0.374652475118637,
+                0.697371363639832,
+                -0.219135209918022
+              ],
+              "Shoulder.L": [
+                -0.531662583351135,
+                0.742459893226624,
+                -0.0272822231054306
+              ],
+              "Shoulder.R": [
+                -0.181950271129608,
+                0.791358053684235,
+                -0.080612987279892
+              ],
+              "Torso": [
+                -0.331320643424988,
+                0.810853958129883,
+                0.23563751578331
+              ]
+            },
+            "quiet_time": 0.0,
+            "reaction_time": 0.0,
+            "settled_evidence": {},
+            "simulation_time": 0.383333333333333,
+            "support_normals": [],
+            "support_parts": [],
+            "temporary": false
+          },
+          "reaction": {
+            "back_anchor": [
+              -1.04779518395048e-09,
+              1.43629157543182,
+              0.219099104404449
+            ],
+            "chest_angle": -0.226892802759263,
+            "exit_left": [
+              -0.999701142311096,
+              0.0,
+              0.0244474858045578
+            ],
+            "head_angle": -0.15707963267949,
+            "lateral_exit_weight": 1.0,
+            "recoil_weight": 1.0,
+            "side_angle": 0.15707963267949,
+            "twist_angle": 0.122173047639603,
+            "withdrawn_weight": 0.324802937047835
+          },
+          "right_arm": {
+            "actual_rig": {
+              "actual_forearm_axis_world": [
+                0.908340096473694,
+                0.225068181753159,
+                -0.352508991956711
+              ],
+              "available": true,
+              "axis_mismatch_degrees": 31.4448146556209,
+              "elbow_world": [
+                0.0519327819347382,
+                1.41881620883942,
+                0.958386123180389
+              ],
+              "hand_basis_world": "[X: (-0.450542, -0.238995, 0.86017), Y: (0.028543, -0.966864, -0.25369), Z: (0.892299, -0.089746, 0.442434)]",
+              "legacy_axis_mismatch_degrees": 29.8543470507755,
+              "measurement_scope": "Authored rig neutral axis versus posed forearm; not a clinical wrist angle.",
+              "neutral_hand_axis_world": [
+                0.582619547843933,
+                0.209167212247849,
+                -0.785368502140045
+              ],
+              "shoulder_world": [
+                0.250336021184921,
+                1.40594458580017,
+                1.23419487476349
+              ],
+              "wrist_world": [
+                -0.164901614189148,
+                1.36508905887604,
+                1.04253530502319
+              ]
+            },
+            "actual_shoulder_adjustment_m": 5.96046447753906e-08,
+            "available": true,
+            "camera": {
+              "elbow": [
+                0.0566017106175423,
+                -0.137770533561707,
+                -0.200212240219116
+              ],
+              "shoulder": [
+                0.248202860355377,
+                -0.169864058494568,
+                0.0788199901580811
+              ],
+              "wrist": [
+                -0.177801474928856,
+                -0.198068261146545,
+                -0.105242371559143
+              ]
+            },
+            "forearm_length_m": 0.259999960660934,
+            "reported_shoulder_adjustment_m": 0.0,
+            "requested_reach_m": 0.464923799037933,
+            "requested_shoulder_camera": [
+              0.248202860355377,
+              -0.169864118099213,
+              0.0788199901580811
+            ],
+            "upper_length_m": 0.340000003576279,
+            "world": {
+              "elbow": [
+                0.0519327558577061,
+                1.41881620883942,
+                0.958386123180389
+              ],
+              "shoulder": [
+                0.250336050987244,
+                1.40594458580017,
+                1.23419487476349
+              ],
+              "wrist": [
+                -0.179982915520668,
+                1.36517703533173,
+                1.06297075748444
+              ]
+            }
+          },
+          "seconds": 2.25,
+          "shield_visible": false,
+          "stamina": 76.0,
+          "sword_visible": true,
+          "target_is_actual_player": true,
+          "tick": 135,
+          "weapon_transform": {
+            "basis": [
+              [
+                0.412718594074249,
+                -0.593729019165039,
+                -0.690759837627411
+              ],
+              [
+                -0.797404527664185,
+                0.131017342209816,
+                -0.589050650596619
+              ],
+              [
+                0.440238058567047,
+                0.793927133083344,
+                -0.419368952512741
+              ]
+            ],
+            "origin": [
+              -0.317253857851028,
+              1.37803339958191,
+              1.06830954551697
+            ]
+          },
+          "world_contact": true
+        }
+      },
+      "stills": {
+        "cut_end": {
+          "execution_elapsed": 1.81666666666667,
+          "file": "rear_sword_cut_end.png",
+          "frame": 71,
+          "tick": 144
+        },
+        "death": {
+          "execution_elapsed": 1.28333333333333,
+          "file": "rear_sword_death.png",
+          "frame": 55,
+          "tick": 112
+        },
+        "final": {
+          "execution_elapsed": 2.28,
+          "file": "rear_sword_final.png",
+          "frame": 179,
+          "tick": 360
+        },
+        "hold": {
+          "execution_elapsed": 0.983333333333335,
+          "file": "rear_sword_hold.png",
+          "frame": 46,
+          "tick": 94
+        },
+        "prepare": {
+          "execution_elapsed": 0.283333333333333,
+          "file": "rear_sword_prepare.png",
+          "frame": 25,
+          "tick": 52
+        },
+        "ready": {
+          "execution_elapsed": 0.0,
+          "file": "rear_sword_ready.png",
+          "frame": 0,
+          "tick": 2
+        },
+        "recovered": {
+          "execution_elapsed": 2.28,
+          "file": "rear_sword_recovered.png",
+          "frame": 85,
+          "tick": 172
+        },
+        "slash": {
+          "execution_elapsed": 1.15,
+          "file": "rear_sword_slash.png",
+          "frame": 51,
+          "tick": 104
+        },
+        "stab": {
+          "execution_elapsed": 0.65,
+          "file": "rear_sword_stab.png",
+          "frame": 36,
+          "tick": 74
+        },
+        "withdraw": {
+          "execution_elapsed": 1.68333333333333,
+          "file": "rear_sword_withdraw.png",
+          "frame": 67,
+          "tick": 136
+        }
+      },
+      "wrist_metrics": {
+        "axis_samples": 76,
+        "maximum_axis_mismatch_degrees": 31.4121595211991,
+        "maximum_embedded_blade_rotation_degrees": 0.0,
+        "maximum_hand_rotation_step_degrees": 11.6970797366931,
+        "maximum_joint_step_m": 0.0867971926927567,
+        "maximum_legacy_axis_mismatch_degrees": 29.8213879729356,
+        "maximum_step_time": 0.45,
+        "minimum_exposed_blade_projection_fraction": 0.106802248954773,
+        "projection_occlusion_verified": false
+      }
+    },
+    {
+      "alerted": true,
+      "attacks_landed": 0,
+      "before_begin": {
+        "actual_blade": {
+          "anchor_world": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "axis_depth_m": -2.22883892059326,
+          "axis_direction_dot": -0.974852442741394,
+          "axis_world": [
+            -0.0349432528018951,
+            0.974852442741394,
+            -0.220094725489616
+          ],
+          "base_world": [
+            0.359832406044006,
+            1.20932018756866,
+            0.737052023410797
+          ],
+          "inserted_fraction": -2.13285956876138,
+          "lateral_contact_world": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "lateral_error_m": 0.603425025939941,
+          "length_m": 1.04500031471252,
+          "located_contact": {},
+          "projection": {
+            "exposed_length_m": 1.04500031471252,
+            "in_frame_samples": 16,
+            "occlusion_verified": false,
+            "projected_span_px": 468.345825195312,
+            "projected_span_viewport_fraction": 0.487860234578451
+          },
+          "tip_world": [
+            0.32101184129715,
+            2.22883892059326,
+            0.510953187942505
+          ],
+          "torso_contact": false
+        },
+        "bone_world": {
+          "Chest": {
+            "basis": [
+              [
+                0.350216060876846,
+                -2.72276832191665e-08,
+                0.027597663924098
+              ],
+              [
+                0.000640670245047659,
+                0.351207286119461,
+                -0.0081297978758812
+              ],
+              [
+                -0.0275902263820171,
+                0.00815500691533089,
+                0.350121676921844
+              ]
+            ],
+            "origin": [
+              -0.00218809093348682,
+              1.44787669181824,
+              0.0277670882642269
+            ]
+          },
+          "Head": {
+            "basis": [
+              [
+                0.34715461730957,
+                0.0482957363128662,
+                0.0237511992454529
+              ],
+              [
+                0.0145628843456507,
+                -0.23354184627533,
+                0.262028694152832
+              ],
+              [
+                0.0518123283982277,
+                -0.257951021194458,
+                -0.232786819338799
+              ]
+            ],
+            "origin": [
+              -0.0281370542943478,
+              1.83186161518097,
+              0.357060879468918
+            ]
+          },
+          "Neck": {
+            "basis": [
+              [
+                0.350216031074524,
+                -2.63660268728927e-07,
+                0.0275978203862906
+              ],
+              [
+                -0.0249288976192474,
+                0.150714501738548,
+                0.316348880529404
+              ],
+              [
+                -0.0118401711806655,
+                -0.317329734563828,
+                0.150248602032661
+              ]
+            ],
+            "origin": [
+              -0.0017783367075026,
+              1.67250239849091,
+              0.0225675031542778
+            ]
+          }
+        },
+        "camera": {
+          "basis": [
+            [
+              1.0,
+              0.0,
+              -7.60625673557058e-10
+            ],
+            [
+              -1.33988611872304e-10,
+              0.984362304210663,
+              -0.176155775785446
+            ],
+            [
+              7.48731243671585e-10,
+              0.176155775785446,
+              0.984362304210663
+            ]
+          ],
+          "origin": [
+            0.0,
+            1.5699999332428,
+            1.14999997615814
+          ]
+        },
+        "candidate_is_actor": false,
+        "dagger_visible": false,
+        "defeats": 0,
+        "dismemberment": {
+          "damage": {
+            "head": 0.0,
+            "left_arm": 0.0,
+            "left_leg": 0.0,
+            "right_arm": 0.0,
+            "right_leg": 0.0
+          },
+          "detached_bodies": 0,
+          "enabled": true,
+          "hit_counts": {
+            "head": 0,
+            "left_arm": 0,
+            "left_leg": 0,
+            "right_arm": 0,
+            "right_leg": 0
+          },
+          "last_bake_ms": 0,
+          "last_region": "torso",
+          "move_speed": 2.2,
+          "positions": {},
+          "severed": [],
+          "visual_effects": 0
+        },
+        "enemy_ai_enabled": true,
+        "enemy_root": {
+          "basis": [
+            [
+              -0.996908962726593,
+              0.0,
+              -0.0785581097006798
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0785581097006798,
+              0.0,
+              -0.996908962726593
+            ]
+          ],
+          "origin": [
+            0.0,
+            0.899999976158142,
+            0.0
+          ]
+        },
+        "enemy_state": 2,
+        "execution": {
+          "active": false,
+          "blade_fraction": 0.0,
+          "blade_length_m": 0.0,
+          "blade_tip": [
+            0.357228249311447,
+            1.21984934806824,
+            0.738666296005249
+          ],
+          "contact_error": 1.47012662887573,
+          "contact_point": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "elapsed": 0.0,
+          "hit_committed": false,
+          "lateral_cut_contact": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "neck_contact": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "penetration_m": 0.0,
+          "phase": "방패 밀치기",
+          "profile": "shield_cut",
+          "stab_contact_committed": false,
+          "stab_direction": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "target_id": 0,
+          "world_contact": false
+        },
+        "health": 118.0,
+        "initial_chest_distance_m": 0.0560023486614227,
+        "landed": 0,
+        "player_health": 440.0,
+        "player_state": 0,
+        "player_transform": {
+          "basis": [
+            [
+              1.0,
+              0.0,
+              -7.60625673557058e-10
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              7.60625673557058e-10,
+              0.0,
+              1.0
+            ]
+          ],
+          "origin": [
+            0.0,
+            0.899999976158142,
+            1.14999997615814
+          ]
+        },
+        "ragdoll": {
+          "bodies": 0,
+          "core_low": false,
+          "execution_held": false,
+          "execution_release_pending": false,
+          "execution_release_reason": "",
+          "ground_point": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "ground_supported": false,
+          "impact_velocity": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "joints": 0,
+          "max_speed": 0.0,
+          "mean_squared_speed": 0.0,
+          "phase": "living",
+          "positions": {},
+          "quiet_time": 0.0,
+          "reaction_time": 0.0,
+          "settled_evidence": {},
+          "simulation_time": 0.0,
+          "support_normals": [],
+          "support_parts": [],
+          "temporary": false
+        },
+        "reaction": {},
+        "right_arm": {
+          "actual_rig": {
+            "actual_forearm_axis_world": [
+              0.272680431604385,
+              -0.275429368019104,
+              0.921837329864502
+            ],
+            "available": true,
+            "axis_mismatch_degrees": 30.718902150632,
+            "elbow_world": [
+              0.468322277069092,
+              1.07322144508362,
+              1.08138263225555
+            ],
+            "hand_basis_world": "[X: (-0.17043, -0.39342, -0.903424), Y: (0.983125, -0.006039, -0.182835), Z: (0.066475, -0.919339, 0.38781)]",
+            "legacy_axis_mismatch_degrees": 29.4362506811115,
+            "measurement_scope": "Authored rig neutral axis versus posed forearm; not a clinical wrist angle.",
+            "neutral_hand_axis_world": [
+              0.192005798220634,
+              0.247397348284721,
+              0.949699103832245
+            ],
+            "shoulder_world": [
+              0.290000081062317,
+              1.25293397903442,
+              1.30832886695862
+            ],
+            "wrist_world": [
+              0.403541713953018,
+              1.13865506649017,
+              0.862382173538208
+            ]
+          },
+          "actual_shoulder_adjustment_m": 0.176468849182129,
+          "available": true,
+          "camera": {
+            "elbow": [
+              0.468322336673737,
+              -0.476922750473022,
+              -0.155054807662964
+            ],
+            "shoulder": [
+              0.290000051259995,
+              -0.339998364448547,
+              0.0999999046325684
+            ],
+            "wrist": [
+              0.393493711948395,
+              -0.375333666801453,
+              -0.382388114929199
+            ]
+          },
+          "forearm_length_m": 0.260000139474869,
+          "reported_shoulder_adjustment_m": 0.0,
+          "requested_reach_m": 0.525395154953003,
+          "requested_shoulder_camera": [
+            0.248202860355377,
+            -0.169864118099213,
+            0.0788199901580811
+          ],
+          "upper_length_m": 0.340000033378601,
+          "world": {
+            "elbow": [
+              0.468322336673737,
+              1.07322144508362,
+              1.08138263225555
+            ],
+            "shoulder": [
+              0.290000051259995,
+              1.25293397903442,
+              1.30832886695862
+            ],
+            "wrist": [
+              0.393493711948395,
+              1.13317573070526,
+              0.839708805084229
+            ]
+          }
+        },
+        "seconds": 0.6,
+        "shield_visible": false,
+        "stamina": 100.0,
+        "sword_visible": true,
+        "target_is_actual_player": true,
+        "tick": 36,
+        "weapon_transform": {
+          "basis": [
+            [
+              0.864709675312042,
+              0.139906316995621,
+              0.482393443584442
+            ],
+            [
+              -0.0349432490766048,
+              0.974852383136749,
+              -0.220094710588455
+            ],
+            [
+              -0.501055061817169,
+              0.173461630940437,
+              0.847853183746338
+            ]
+          ],
+          "origin": [
+            0.357228249311447,
+            1.21984934806824,
+            0.738666296005249
+          ]
+        },
+        "world_contact": false
+      },
+      "begin_result": {
+        "accepted": false,
+        "reason": "unaware_rear_target_required"
+      },
+      "camera_inspection_tilt": false,
+      "damage_events": [],
+      "defeats": 0,
+      "final_creep": {
+        "archetype": "creep",
+        "attack_index": 0,
+        "bones": 55,
+        "clip": "bite",
+        "clips": [
+          "bite",
+          "death",
+          "despawn_jump",
+          "eat",
+          "hit",
+          "idle",
+          "idle_crouched",
+          "punch",
+          "roar",
+          "sleep",
+          "sleep_finish",
+          "sleep_start",
+          "sniff",
+          "spawn_jump",
+          "walk",
+          "walk_calm",
+          "walk_crouched"
+        ],
+        "crawl": {
+          "active": false,
+          "blend": 0.0,
+          "feet": {},
+          "hands": {},
+          "movement_blend": 0.0,
+          "phase": 0.0,
+          "planted": {}
+        },
+        "dismemberment": {
+          "damage": {
+            "head": 0.0,
+            "left_arm": 0.0,
+            "left_leg": 0.0,
+            "right_arm": 0.0,
+            "right_leg": 0.0
+          },
+          "detached_bodies": 0,
+          "enabled": true,
+          "hit_counts": {
+            "head": 0,
+            "left_arm": 0,
+            "left_leg": 0,
+            "right_arm": 0,
+            "right_leg": 0
+          },
+          "last_bake_ms": 0,
+          "last_region": "torso",
+          "move_speed": 2.2,
+          "positions": {},
+          "severed": [],
+          "visual_effects": 0
+        },
+        "knockdown_phase": "none",
+        "locomotion_transition": {
+          "active": false,
+          "duration": 0.28,
+          "elapsed": 0.0,
+          "walk_sample": 0.0,
+          "walk_speed": 0.0
+        },
+        "meshes": 16,
+        "ragdoll": {
+          "bodies": 0,
+          "core_low": false,
+          "execution_held": false,
+          "execution_release_pending": false,
+          "execution_release_reason": "",
+          "ground_point": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "ground_supported": false,
+          "impact_velocity": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "joints": 0,
+          "max_speed": 0.0,
+          "mean_squared_speed": 0.0,
+          "phase": "living",
+          "positions": {},
+          "quiet_time": 0.0,
+          "reaction_time": 0.0,
+          "settled_evidence": {},
+          "simulation_time": 0.0,
+          "support_normals": [],
+          "support_parts": [],
+          "temporary": false
+        },
+        "resolved_contacts": 0,
+        "sample": 0.133333333333333,
+        "source": "res://assets/licensed/creep/creep.glb",
+        "state": 2
+      },
+      "first_death": {},
+      "first_head_detach": {},
+      "id": "alerted_denial",
+      "initial_contacts": {
+        "back": [
+          -7.1445654947766e-10,
+          1.40190804004669,
+          0.210698843002319
+        ],
+        "back_on_skin": true,
+        "direction": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "neck": [
+          -7.24820159447859e-09,
+          1.61470556259155,
+          -0.0762631818652153
+        ]
+      },
+      "initial_health": 118,
+      "last_alive_before_death": {},
+      "maximum_requested_arm_reach_m": 0.0,
+      "maximum_shoulder_adjustment_m": 0.0,
+      "minimum_shoulder_camera_z_m": 0.0,
+      "stages": {},
+      "stills": {
+        "denied": {
+          "execution_elapsed": 0.0,
+          "file": "alerted_denial_denied.png",
+          "frame": 17,
+          "tick": 36
+        },
+        "final": {
+          "execution_elapsed": 0.0,
+          "file": "alerted_denial_final.png",
+          "frame": 89,
+          "tick": 180
+        },
+        "ready": {
+          "execution_elapsed": 0.0,
+          "file": "alerted_denial_ready.png",
+          "frame": 0,
+          "tick": 2
+        }
+      },
+      "wrist_metrics": {
+        "axis_samples": 0,
+        "maximum_axis_mismatch_degrees": 0.0,
+        "maximum_embedded_blade_rotation_degrees": 0.0,
+        "maximum_hand_rotation_step_degrees": 0.0,
+        "maximum_joint_step_m": 0.0,
+        "maximum_legacy_axis_mismatch_degrees": 0.0,
+        "maximum_step_time": 0.0,
+        "minimum_exposed_blade_projection_fraction": 0.0,
+        "projection_occlusion_verified": false
+      }
+    }
+  ],
+  "session_inventory_preserved": true,
+  "source_hashes_after": {
+    "res://assets/3d/player/fp_arms/rig.json": "3b5d0b72e8c2f76e17dbb8259878093950e243940c31f77773e0494fe2899530",
+    "res://assets/3d/player/fp_arms/right.scn": "497f7ef82205f4643e3906921fec956bcb15859679eb9a2cf95d0eb8a479dad5",
+    "res://assets/3d/player/sword_hold_long_grip/SwordHold_Static.glb": "2b94cc385f837fe253552cd654cb1f665246f61cdee5227814d63049da9f22fb",
+    "res://assets/licensed/creep/creep.glb": "6bc05636d9931b6a37e6534c8444dd7d4081672ed6a8ae2e69f2afdb5dc147a4",
+    "res://assets/licensed/creep/creep_dismembered.glb": "a1f943371cda70e142550dad67138a2443b4abe84f58f64c51d9adb66367d57f",
+    "res://project.godot": "e02dc8b021ab04cc05a1ee72225eee187f7694c190f9a1d396588fd198a9bc1d",
+    "res://scripts/creep_dismemberment.gd": "23cb6c2b1e0cb62a17012b335fe27092aab5a2fb230370e4894c0a5fd5632a0d",
+    "res://scripts/creep_enemy.gd": "3af858ece4304a1dea4aa7bb3b350b71bb5bce747a0fa28abcff8f6f7794c2e4",
+    "res://scripts/creep_locomotion_blend.gd": "861369e8ca7c83707018e9cb82defec225574d4beb063816721abebe718d15e2",
+    "res://scripts/creep_ragdoll.gd": "53454e430995e170fd93cbcb5d8eec3c1a3cf0feb943b5465f496d47ed668312",
+    "res://scripts/creep_ragdoll_pose.gd": "0e34e251c0f4d5c720bc4df8e493610b11b5527ae8eb4daa41c4df30a8b61d87",
+    "res://scripts/enemy.gd": "f4570e75bce2d69f953a79763ec683b6962ae5461375117f2378fcd95fea893e",
+    "res://scripts/expedition_session.gd": "e5a2f4a5c7c48f295dbe49046c88688b95e4c76db096ea0d70cb5cb08e017ea0",
+    "res://scripts/first_person_renderer.gd": "8d6fad67927145536d98fb1a79fe707b0e24e3dbce67f5377d5e448173b44621",
+    "res://scripts/inventory_model.gd": "5c6cd0b29a0ff388826b72dafa8755ad7f020c1564b452753934a41dd16728f0",
+    "res://scripts/located_hit_query.gd": "14480c3559ff2212a058ee4219581826319c0f0074c380726218b98dd54af3f3",
+    "res://scripts/player.gd": "853812d37c33652027e5bc3dc2c3058b169fc69ac7db207285c2f2c47c44e092",
+    "res://scripts/rear_sword_reaction.gd": "9b0db2259831cfc88aded2c233fe0febf2c8798c307911f47a79d4f55e946d33",
+    "res://scripts/rear_takedown_motion.gd": "b0ef07c11e92c424e7f7e010edb95c7728fdd3c2d3ca0f33687b6a49961f595b",
+    "res://scripts/reference_continuous_sleeve.gd": "2f16dffb4ad85701286c5e782ba5a638be9487651368e31d70d09e37507ff6c7",
+    "res://scripts/reference_sword_arm.gd": "e55f6cd6c5c3bc02cc4d347e9bbf8ba26a240d7d378048cfed52e76ec8a003f1",
+    "res://scripts/supplied_fp_arm.gd": "e824aeb90b05835feeecff1ffc44611dca75bacf4cb1f8485b3e385dece9b367",
+    "res://scripts/sword_long_grip_visual.gd": "2ca323945a6a3da007ebf07df6b7d450dbd05967e4194ad2646e25821ab64806",
+    "res://scripts/test_room_sandbox.gd": "ede652410b274a422ca2fbe28e379c0b253e6bb46be2f90238280cbf6b917b63",
+    "res://tests/creep_ragdoll_preview.gd": "562bc182669ba9fc66d5b48b4458dac4142794813132cec05ab4b4a6875c1add",
+    "res://tests/dagger_assassination_test.gd": "458a67829dd8b3e2ce30a6a80aade10a54e13c7f3fdda9ff7983cc9a3549ca99",
+    "res://tests/player_arm_preview.gd": "37370bbd41c7b05469df2c0ad086f0578d34392f022f507e00bd8ab0fd73b2cc",
+    "res://tests/rear_takedown_preview.gd": "f9b9e3a3eb7bed767ea80a5c4180292954d91d0371e7eca6d26b646eeaa158de",
+    "res://tests/rear_takedown_preview.gd.uid": "75b5236350e7f941a4777d441def099cc439bce1e561faf00d4a6ee771b9989c",
+    "res://tests/rear_takedown_test.gd": "f5575fad8637c2ac97831d5ca015dc2015c8fa392e3aa59893ea9bb8370b1648",
+    "res://tests/run_embedded_preview.sh": "5d69bd256ce01050636c640131012ee7e159c2b074a7fcf62d8911ae4994cd80"
+  },
+  "source_hashes_before": {
+    "res://assets/3d/player/fp_arms/rig.json": "3b5d0b72e8c2f76e17dbb8259878093950e243940c31f77773e0494fe2899530",
+    "res://assets/3d/player/fp_arms/right.scn": "497f7ef82205f4643e3906921fec956bcb15859679eb9a2cf95d0eb8a479dad5",
+    "res://assets/3d/player/sword_hold_long_grip/SwordHold_Static.glb": "2b94cc385f837fe253552cd654cb1f665246f61cdee5227814d63049da9f22fb",
+    "res://assets/licensed/creep/creep.glb": "6bc05636d9931b6a37e6534c8444dd7d4081672ed6a8ae2e69f2afdb5dc147a4",
+    "res://assets/licensed/creep/creep_dismembered.glb": "a1f943371cda70e142550dad67138a2443b4abe84f58f64c51d9adb66367d57f",
+    "res://project.godot": "e02dc8b021ab04cc05a1ee72225eee187f7694c190f9a1d396588fd198a9bc1d",
+    "res://scripts/creep_dismemberment.gd": "23cb6c2b1e0cb62a17012b335fe27092aab5a2fb230370e4894c0a5fd5632a0d",
+    "res://scripts/creep_enemy.gd": "3af858ece4304a1dea4aa7bb3b350b71bb5bce747a0fa28abcff8f6f7794c2e4",
+    "res://scripts/creep_locomotion_blend.gd": "861369e8ca7c83707018e9cb82defec225574d4beb063816721abebe718d15e2",
+    "res://scripts/creep_ragdoll.gd": "53454e430995e170fd93cbcb5d8eec3c1a3cf0feb943b5465f496d47ed668312",
+    "res://scripts/creep_ragdoll_pose.gd": "0e34e251c0f4d5c720bc4df8e493610b11b5527ae8eb4daa41c4df30a8b61d87",
+    "res://scripts/enemy.gd": "f4570e75bce2d69f953a79763ec683b6962ae5461375117f2378fcd95fea893e",
+    "res://scripts/expedition_session.gd": "e5a2f4a5c7c48f295dbe49046c88688b95e4c76db096ea0d70cb5cb08e017ea0",
+    "res://scripts/first_person_renderer.gd": "8d6fad67927145536d98fb1a79fe707b0e24e3dbce67f5377d5e448173b44621",
+    "res://scripts/inventory_model.gd": "5c6cd0b29a0ff388826b72dafa8755ad7f020c1564b452753934a41dd16728f0",
+    "res://scripts/located_hit_query.gd": "14480c3559ff2212a058ee4219581826319c0f0074c380726218b98dd54af3f3",
+    "res://scripts/player.gd": "853812d37c33652027e5bc3dc2c3058b169fc69ac7db207285c2f2c47c44e092",
+    "res://scripts/rear_sword_reaction.gd": "9b0db2259831cfc88aded2c233fe0febf2c8798c307911f47a79d4f55e946d33",
+    "res://scripts/rear_takedown_motion.gd": "b0ef07c11e92c424e7f7e010edb95c7728fdd3c2d3ca0f33687b6a49961f595b",
+    "res://scripts/reference_continuous_sleeve.gd": "2f16dffb4ad85701286c5e782ba5a638be9487651368e31d70d09e37507ff6c7",
+    "res://scripts/reference_sword_arm.gd": "e55f6cd6c5c3bc02cc4d347e9bbf8ba26a240d7d378048cfed52e76ec8a003f1",
+    "res://scripts/supplied_fp_arm.gd": "e824aeb90b05835feeecff1ffc44611dca75bacf4cb1f8485b3e385dece9b367",
+    "res://scripts/sword_long_grip_visual.gd": "2ca323945a6a3da007ebf07df6b7d450dbd05967e4194ad2646e25821ab64806",
+    "res://scripts/test_room_sandbox.gd": "ede652410b274a422ca2fbe28e379c0b253e6bb46be2f90238280cbf6b917b63",
+    "res://tests/creep_ragdoll_preview.gd": "562bc182669ba9fc66d5b48b4458dac4142794813132cec05ab4b4a6875c1add",
+    "res://tests/dagger_assassination_test.gd": "458a67829dd8b3e2ce30a6a80aade10a54e13c7f3fdda9ff7983cc9a3549ca99",
+    "res://tests/player_arm_preview.gd": "37370bbd41c7b05469df2c0ad086f0578d34392f022f507e00bd8ab0fd73b2cc",
+    "res://tests/rear_takedown_preview.gd": "f9b9e3a3eb7bed767ea80a5c4180292954d91d0371e7eca6d26b646eeaa158de",
+    "res://tests/rear_takedown_preview.gd.uid": "75b5236350e7f941a4777d441def099cc439bce1e561faf00d4a6ee771b9989c",
+    "res://tests/rear_takedown_test.gd": "f5575fad8637c2ac97831d5ca015dc2015c8fa392e3aa59893ea9bb8370b1648",
+    "res://tests/run_embedded_preview.sh": "5d69bd256ce01050636c640131012ee7e159c2b074a7fcf62d8911ae4994cd80"
+  },
+  "sources_preserved": true,
+  "stages_seconds": {
+    "cut_end": 1.8,
+    "death": 1.27,
+    "hold": 0.98,
+    "prepare": 0.28,
+    "recovered": 2.28,
+    "slash": 1.15,
+    "stab": 0.62,
+    "withdraw": 1.66
+  },
+  "wrist_measurement": "Actual supplied wrist/elbow bone poses and the authored neutral forearm axis independently measure hand-to-forearm axis mismatch, not a clinical wrist angle. Embedded stab and lateral-extraction keys require at most 45 degrees. All 60Hz samples retain real bone continuity; exposed-blade frustum projection is required through the lethal lateral cut, after which the leftward follow-through may leave the frame; projection does not prove that skin or sleeve does not occlude it. The blade world basis must remain fixed within 0.1 degrees during axial thrust and hold; controlled rotation is allowed during the leftward slice."
+}
