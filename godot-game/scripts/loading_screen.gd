@@ -4,20 +4,22 @@ class_name SanctuaryLoadingScreen
 signal load_failed(error_code: int)
 
 @export_file("*.tscn") var target_scene_path := ""
-@export var loading_title := "성소를 밝히는 중"
-@export_multiline var loading_detail := "기억과 길을 불러오고 있습니다"
+@export var loading_title := "잔향의 성소"
+@export_multiline var loading_detail := ""
 @export var status_message := "첫 화면을 준비하는 중"
 @export_range(0.0, 5.0, 0.05) var minimum_visible_time := 0.9
 @export var auto_start := true
 
-const COLOR_BACKGROUND := Color(0.004, 0.007, 0.009, 1.0)
-const COLOR_PANEL := Color(0.008, 0.016, 0.018, 0.97)
-const COLOR_IVORY := Color(0.92, 0.91, 0.87)
-const COLOR_TEXT := Color(0.68, 0.72, 0.69)
-const COLOR_MUTED := Color(0.42, 0.48, 0.46)
-const COLOR_TEAL := Color(0.47, 0.66, 0.61)
-const COLOR_TEAL_BRIGHT := Color(0.68, 0.84, 0.77)
-const COLOR_DANGER := Color(0.72, 0.36, 0.32)
+const BACKDROP := preload("res://assets/ui/main_menu_background.png")
+const BACKDROP_SHADER := preload("res://shaders/loading_backdrop.gdshader")
+const LOADING_FONT := preload("res://assets/fonts/NotoSerifKR-Variable.ttf")
+const COLOR_IVORY := Color(0.85, 0.83, 0.77)
+const COLOR_TEXT := Color(0.58, 0.58, 0.55)
+const TIPS := [
+	"체력이 0이 된 부위는 수술한 뒤 회복할 수 있습니다.",
+	"아이템을 사용하는 도중 F를 누르면 취소합니다.",
+	"출혈은 붕대로, 골절은 부목으로 치료합니다.",
+]
 const OVERLAY_LAYER := 1000
 const OVERLAY_HOST_META := &"sanctuary_loading_host"
 
@@ -25,12 +27,11 @@ var loading_spinner: Control
 var title_label: Label
 var detail_label: Label
 var activity_label: Label
-var elapsed_label: Label
-var progress_label: Label
 var progress_bar: ProgressBar
-var progress_glint: ColorRect
+var backdrop: TextureRect
+var content: Control
 
-var _loading_font: SystemFont
+var _loading_font: Font
 var _elapsed := 0.0
 var _displayed_progress := 0.0
 var _request_started := false
@@ -135,7 +136,7 @@ func _complete_loaded_request() -> void:
 	status_message = "준비를 마무리하는 중"
 	if _elapsed >= _effective_minimum_time():
 		_transition_committed = true
-		activity_label.text = "준비 완료 · 문을 여는 중"
+		activity_label.text = "불러오기 완료"
 		call_deferred("_finish_transition")
 
 
@@ -192,9 +193,11 @@ func _report_failure(error_code: int) -> void:
 	if is_instance_valid(detail_label):
 		detail_label.text = "게임 파일을 확인한 뒤 다시 시도해 주세요"
 	if is_instance_valid(activity_label):
-		activity_label.text = "준비가 중단되었습니다"
-	if is_instance_valid(elapsed_label):
-		elapsed_label.text = "오류 코드 · %d" % error_code
+		activity_label.text = "오류 코드 %d" % error_code
+	if is_instance_valid(loading_spinner):
+		loading_spinner.hide()
+	if is_instance_valid(progress_bar):
+		progress_bar.hide()
 	load_failed.emit(error_code)
 
 
@@ -222,216 +225,121 @@ func _set_progress(progress_value: float) -> void:
 	_displayed_progress = clampf(progress_value, 0.0, 1.0)
 	if is_instance_valid(progress_bar):
 		progress_bar.value = _displayed_progress * 100.0
-	if is_instance_valid(progress_label):
-		progress_label.text = "%d%%" % roundi(_displayed_progress * 100.0)
 
 
 func _animate_activity() -> void:
-	if is_instance_valid(loading_spinner):
-		loading_spinner.rotation = _elapsed * 2.35
-		var pulse := 1.0 + sin(_elapsed * 3.4) * 0.035
-		loading_spinner.scale = Vector2.ONE * pulse
-		loading_spinner.modulate.a = 0.88 + sin(_elapsed * 4.1) * 0.12
-	if is_instance_valid(progress_glint) and is_instance_valid(progress_bar):
-		progress_glint.position.x = fmod(_elapsed * 105.0, progress_bar.size.x + progress_glint.size.x) - progress_glint.size.x
 	if _request_failed:
 		return
-	if is_instance_valid(activity_label):
-		var dots := ""
-		var dot_count := 1 + (floori(_elapsed * 2.4) % 3)
-		for index in range(dot_count):
-			dots += "·"
-		activity_label.text = "%s %s" % [status_message, dots]
-	if is_instance_valid(elapsed_label):
-		elapsed_label.text = "계속 준비 중 · %02d초" % maxi(0, floori(_elapsed))
+	if is_instance_valid(loading_spinner):
+		loading_spinner.rotation = _elapsed * 1.7
+	if is_instance_valid(activity_label) and not _transition_committed:
+		activity_label.text = "불러오는 중" + ".".repeat(1 + floori(_elapsed * 1.5) % 3)
 
 
 func _apply_loading_copy() -> void:
-	if is_instance_valid(title_label):
-		title_label.text = loading_title
-	if is_instance_valid(detail_label):
-		detail_label.text = loading_detail
-	if is_instance_valid(activity_label):
-		activity_label.text = status_message
-	if is_instance_valid(elapsed_label):
-		elapsed_label.text = "계속 준비 중 · 00초"
+	if not _interface_ready:
+		return
+	# Callers retain their transition metadata; the screen uses concise place names.
+	var destination := "잔향의 성소"
+	match target_scene_path.get_file():
+		"hideout.tscn": destination = "은신처"
+		"main.tscn": destination = "검은 성물실"
+		"cave_dungeon.tscn": destination = "폐광"
+		"merchant.tscn": destination = "상인"
+		"test_room.tscn": destination = "테스트룸"
+	title_label.text = destination
+	detail_label.text = TIPS[absi(target_scene_path.hash()) % TIPS.size()]
+	activity_label.text = "불러오는 중..."
+	loading_spinner.show()
+	progress_bar.show()
 
 
 func _build_interface() -> void:
-	_loading_font = SystemFont.new()
-	_loading_font.font_names = PackedStringArray([
-		"Apple SD Gothic Neo",
-		"Noto Sans CJK KR",
-		"Malgun Gothic",
-		"Arial Unicode MS",
-		"sans-serif",
-	])
-	var loading_theme := Theme.new()
-	loading_theme.default_font = _loading_font
-	loading_theme.default_font_size = 14
-	theme = loading_theme
-
+	_loading_font = LOADING_FONT
 	var background := ColorRect.new()
 	background.name = "LoadingBackground"
-	background.color = COLOR_BACKGROUND
+	background.color = Color.BLACK
 	background.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	background.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(background)
 
-	var ambient_left := ColorRect.new()
-	ambient_left.color = Color(0.08, 0.21, 0.18, 0.16)
-	ambient_left.anchor_top = 0.5
-	ambient_left.anchor_bottom = 0.5
-	ambient_left.offset_left = 0.0
-	ambient_left.offset_top = -1.0
-	ambient_left.offset_right = 420.0
-	ambient_left.offset_bottom = 1.0
-	ambient_left.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	add_child(ambient_left)
+	backdrop = TextureRect.new()
+	backdrop.name = "LoadingScene"
+	backdrop.texture = BACKDROP
+	backdrop.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	backdrop.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+	backdrop.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	backdrop.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	var treatment := ShaderMaterial.new()
+	treatment.shader = BACKDROP_SHADER
+	backdrop.material = treatment
+	add_child(backdrop)
 
-	var ambient_right := ColorRect.new()
-	ambient_right.color = Color(0.08, 0.21, 0.18, 0.16)
-	ambient_right.anchor_left = 1.0
-	ambient_right.anchor_top = 0.5
-	ambient_right.anchor_right = 1.0
-	ambient_right.anchor_bottom = 0.5
-	ambient_right.offset_left = -420.0
-	ambient_right.offset_top = -1.0
-	ambient_right.offset_right = 0.0
-	ambient_right.offset_bottom = 1.0
-	ambient_right.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	add_child(ambient_right)
+	content = Control.new()
+	content.name = "LoadingCopy"
+	content.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(content)
 
-	var card := Panel.new()
-	card.name = "LoadingCard"
-	card.anchor_left = 0.5
-	card.anchor_top = 0.5
-	card.anchor_right = 0.5
-	card.anchor_bottom = 0.5
-	card.offset_left = -320.0
-	card.offset_top = -190.0
-	card.offset_right = 320.0
-	card.offset_bottom = 190.0
-	card.add_theme_stylebox_override("panel", _panel_style(COLOR_PANEL, Color(0.3, 0.43, 0.39, 0.82), 1, 3))
-	add_child(card)
-
-	var kicker := _label("잔향의 성소 · 원정 준비", 11, COLOR_TEAL)
-	kicker.name = "LoadingKicker"
-	kicker.position = Vector2(38, 30)
-	kicker.size = Vector2(564, 22)
-	kicker.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	card.add_child(kicker)
-
-	title_label = _label(loading_title, 27, COLOR_IVORY)
-	title_label.name = "LoadingTitle"
-	title_label.position = Vector2(38, 58)
-	title_label.size = Vector2(564, 42)
-	title_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	card.add_child(title_label)
-
-	detail_label = _label(loading_detail, 13, COLOR_TEXT)
-	detail_label.name = "LoadingDetail"
-	detail_label.position = Vector2(38, 102)
-	detail_label.size = Vector2(564, 28)
-	detail_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	card.add_child(detail_label)
+	title_label = _label("", 15, COLOR_TEXT)
+	title_label.name = "LoadingDestination"
+	content.add_child(title_label)
+	activity_label = _label("불러오는 중...", 23, COLOR_IVORY)
+	activity_label.name = "LoadingActivity"
+	content.add_child(activity_label)
+	detail_label = _label("", 13, COLOR_TEXT)
+	detail_label.name = "LoadingTip"
+	detail_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	content.add_child(detail_label)
 
 	loading_spinner = Control.new()
-	loading_spinner.name = "MovingLoadingSigil"
-	loading_spinner.position = Vector2(278, 138)
-	loading_spinner.size = Vector2(84, 84)
-	loading_spinner.pivot_offset = loading_spinner.size * 0.5
+	loading_spinner.name = "LoadingActivityRing"
 	loading_spinner.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	card.add_child(loading_spinner)
-	_build_spinner_marks()
-
-	progress_bar = ProgressBar.new()
-	progress_bar.name = "LoadingProgress"
-	progress_bar.position = Vector2(82, 242)
-	progress_bar.size = Vector2(476, 8)
-	progress_bar.min_value = 0.0
-	progress_bar.max_value = 100.0
-	progress_bar.value = 0.0
-	progress_bar.show_percentage = false
-	progress_bar.clip_contents = true
-	progress_bar.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	progress_bar.add_theme_stylebox_override("background", _panel_style(Color(0.035, 0.055, 0.052, 1), Color(0.19, 0.27, 0.25, 0.9), 1, 4))
-	progress_bar.add_theme_stylebox_override("fill", _panel_style(Color(0.42, 0.66, 0.59, 1), COLOR_TEAL_BRIGHT, 1, 4))
-	card.add_child(progress_bar)
-
-	progress_glint = ColorRect.new()
-	progress_glint.name = "LoadingProgressGlint"
-	progress_glint.position = Vector2(-40, 2)
-	progress_glint.size = Vector2(40, 4)
-	progress_glint.color = Color(0.83, 0.95, 0.89, 0.72)
-	progress_glint.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	progress_bar.add_child(progress_glint)
-
-	activity_label = _label(status_message, 12, COLOR_TEAL_BRIGHT)
-	activity_label.name = "LoadingActivity"
-	activity_label.position = Vector2(82, 270)
-	activity_label.size = Vector2(390, 24)
-	card.add_child(activity_label)
-
-	progress_label = _label("0%", 12, COLOR_TEAL_BRIGHT)
-	progress_label.name = "LoadingPercent"
-	progress_label.position = Vector2(478, 270)
-	progress_label.size = Vector2(80, 24)
-	progress_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
-	card.add_child(progress_label)
-
-	elapsed_label = _label("계속 준비 중 · 00초", 11, COLOR_MUTED)
-	elapsed_label.name = "LoadingElapsed"
-	elapsed_label.position = Vector2(82, 305)
-	elapsed_label.size = Vector2(476, 22)
-	elapsed_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	card.add_child(elapsed_label)
-
-	var footer := _label("표식과 시간이 움직이는 동안 게임은 정상적으로 준비되고 있습니다", 11, Color(0.46, 0.54, 0.51))
-	footer.name = "LoadingFooterHint"
-	footer.anchor_top = 1.0
-	footer.anchor_right = 1.0
-	footer.anchor_bottom = 1.0
-	footer.offset_top = -54.0
-	footer.offset_bottom = -24.0
-	footer.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	add_child(footer)
-
-
-func _build_spinner_marks() -> void:
-	for index in range(10):
-		var angle := TAU * float(index) / 10.0
+	content.add_child(loading_spinner)
+	for index in range(12):
+		var angle := TAU * float(index) / 12.0
 		var mark := ColorRect.new()
-		mark.name = "SpinnerMark%02d" % index
-		mark.size = Vector2(4, 13)
-		mark.position = Vector2(42, 42) + Vector2(cos(angle), sin(angle)) * 31.0 - mark.size * 0.5
+		mark.size = Vector2(1.5, 4)
+		mark.position = Vector2(cos(angle), sin(angle)) * 8.0 - mark.size * 0.5
 		mark.pivot_offset = mark.size * 0.5
 		mark.rotation = angle + PI * 0.5
-		mark.color = Color(COLOR_TEAL_BRIGHT, 0.18 + float(index + 1) * 0.075)
+		mark.color = Color(COLOR_IVORY, 0.12 + float(index + 1) * 0.065)
 		mark.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		loading_spinner.add_child(mark)
 
-	var diamond := Polygon2D.new()
-	diamond.name = "LoadingCoreDiamond"
-	diamond.polygon = PackedVector2Array([
-		Vector2(42, 29),
-		Vector2(55, 42),
-		Vector2(42, 55),
-		Vector2(29, 42),
-	])
-	diamond.color = Color(0.43, 0.68, 0.61, 0.72)
-	loading_spinner.add_child(diamond)
+	progress_bar = ProgressBar.new()
+	progress_bar.name = "LoadingProgress"
+	progress_bar.show_percentage = false
+	progress_bar.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	var track := StyleBoxFlat.new()
+	track.bg_color = Color(0.7, 0.68, 0.62, 0.12)
+	var fill := StyleBoxFlat.new()
+	fill.bg_color = Color(0.68, 0.65, 0.56, 0.65)
+	progress_bar.add_theme_stylebox_override("background", track)
+	progress_bar.add_theme_stylebox_override("fill", fill)
+	content.add_child(progress_bar)
+	resized.connect(_layout_interface)
+	_layout_interface()
 
-	var inner := Polygon2D.new()
-	inner.name = "LoadingCore"
-	inner.polygon = PackedVector2Array([
-		Vector2(42, 35),
-		Vector2(49, 42),
-		Vector2(42, 49),
-		Vector2(35, 42),
-	])
-	inner.color = Color(0.75, 0.9, 0.83, 0.92)
-	loading_spinner.add_child(inner)
+
+func _layout_interface() -> void:
+	if not is_instance_valid(content):
+		return
+	var factor := clampf(size.y / 720.0, 0.75, 1.5)
+	var width := minf(760.0, (size.x - 48.0) / factor)
+	content.scale = Vector2.ONE * factor
+	content.position = Vector2(size.x * 0.5, size.y - 142 * factor)
+	for label in [title_label, activity_label, detail_label]:
+		label.position.x = -width * 0.5
+		label.size.x = width
+	title_label.position.y = 0
+	title_label.size.y = 24
+	activity_label.position.y = 28
+	activity_label.size.y = 38
+	detail_label.position.y = 94
+	detail_label.size.y = 42
+	loading_spinner.position = Vector2(-106, 49)
+	progress_bar.position = Vector2(-110, 79)
+	progress_bar.size = Vector2(220, 1)
 
 
 func _label(text_value: String, font_size: int, color: Color) -> Label:
@@ -440,21 +348,7 @@ func _label(text_value: String, font_size: int, color: Color) -> Label:
 	label.add_theme_font_override("font", _loading_font)
 	label.add_theme_font_size_override("font_size", font_size)
 	label.add_theme_color_override("font_color", color)
+	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	return label
-
-
-func _panel_style(background: Color, border: Color, border_width: int, radius: int) -> StyleBoxFlat:
-	var style := StyleBoxFlat.new()
-	style.bg_color = background
-	style.border_color = border
-	style.border_width_left = border_width
-	style.border_width_top = border_width
-	style.border_width_right = border_width
-	style.border_width_bottom = border_width
-	style.corner_radius_top_left = radius
-	style.corner_radius_top_right = radius
-	style.corner_radius_bottom_left = radius
-	style.corner_radius_bottom_right = radius
-	return style

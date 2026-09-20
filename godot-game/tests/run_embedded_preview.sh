@@ -20,6 +20,7 @@ if [[ "$(/usr/bin/uname -s)" != Darwin || ! -x "$godot_executable" ]]; then
 	exit 2
 fi
 case "$preview_name" in
+	loading_preview.gd) preview_pass_marker="^LOADING PREVIEW PASS:" ;;
 	creep_crawl_preview.gd) preview_pass_marker="^CREEP CRAWL PREVIEW PASS:" ;;
 	creep_dismemberment_preview.gd) preview_pass_marker="^CREEP DISMEMBERMENT PREVIEW PASS:" ;;
 	creep_ragdoll_preview.gd) preview_pass_marker="^CREEP RAGDOLL PREVIEW PASS:" ;;

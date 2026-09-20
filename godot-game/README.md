@@ -15,7 +15,7 @@ Godot 4.7로 만든 Steam PC용 실시간 1인칭 다크 판타지 RPG 수직 �
 ## 실시간 액션
 
 - Noto Sans KR 한글 전용 UI를 사용한 타이틀 메인 메뉴와 `게임 시작`·음량/전체 화면 설정·조작법·정보·종료 확인
-- 실행 직후 정적 성소 문양에서 회전 표식·진행률·경과 시간 로딩 화면으로 이어지는 시작 연출과 장면별 백그라운드 로딩
+- 기존 성소 배경과 작은 로딩 표시를 사용하는 [차분한 로딩 화면](docs/LOADING_SCREEN.md) · 장면별 백그라운드 로딩 / Restrained loading screen using existing sanctuary artwork and a compact activity indicator.
 - `게임 시작` 후 폐허가 된 예배당 아래의 3D 침수 납골당 은신처에 진입
 - 중앙 저수 홀, 관리인 골방, 빈 저장고, 버려진 작업실, 봉인된 납골실과 배수 수로를 자유롭게 탐색
 - 방마다 다른 Blender 붕괴 소품·젖은 돌·이끼·곰팡이·국소 낙수로 구성한 은신처 폐허와 여덟 장소의 실제 1인칭 시험 항목
