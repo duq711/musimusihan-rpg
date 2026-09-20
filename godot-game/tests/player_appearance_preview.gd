@@ -101,6 +101,12 @@ func _capture_body() -> void:
 		portrait.camera.position = Vector3(-0.29, 0.84, -3.5)
 		portrait.camera.look_at(Vector3(-0.29, 0.84, 0.0))
 		await _capture(portrait.viewport, "player_wrist_detail.png")
+	if OS.get_environment("PLAYER_QA_ELBOW_DETAIL") == "1":
+		portrait.set_view_angle(0.0)
+		portrait.camera.size = 0.65
+		portrait.camera.position = Vector3(-0.26, 1.15, -3.5)
+		portrait.camera.look_at(Vector3(-0.26, 1.15, 0.0))
+		await _capture(portrait.viewport, "player_elbow_detail.png")
 	portrait.queue_free()
 	await process_frame
 

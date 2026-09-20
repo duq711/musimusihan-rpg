@@ -48,3 +48,11 @@ English: The user identified that shrinking the hands alone had not corrected th
 English: Shorten the glove wrist section to 62% and narrow its central width/depth to 73%, applying the same deformation to the sleeve junction. Preserve the lower palm and fingers at heights up to 0.795m. The glove wrist is about 6.9cm wide and the cuff about 3cm shorter. PLAYER_QA_WRIST_DETAIL=1 adds an actual-model wrist close-up.
 
 Production and validation: ../../asset-staging/player_fullbody_wrist_20260921/
+
+### 사용자 정정: 손목 복원, 팔꿈치 수정 / Restore wrists, refit elbows
+
+사용자가 지적 부위를 팔꿈치로 정정하고 손목 복원을 요청했다. 앞선 손목 축소는 취소하고 player_fullbody_anatomy_20260921의 양손 전체와 높이 0.98m 이하 소매를 복원한다. 팔꿈치 부근 소매 꺾임을 6cm 아래로 이동시키고 관절부 폭을 줄이며 위팔로 이어지는 윤곽을 조정했다. 손목 복원은 정점 비교로 검사하며 팔꿈치는 확대 렌더로 확인한다.
+
+English: The user clarified that the issue was the elbows and requested wrist restoration. Revert the wrist reduction: restore both complete hands and sleeves below 0.98m from player_fullbody_anatomy_20260921. Move the sleeve elbow crease down 6cm, narrow the joint region and reshape its transition into the upper arm. Audit restored vertices and inspect an elbow close-up.
+
+최신 제작 및 검증 / Latest production and validation: ../../asset-staging/player_fullbody_elbow_20260921/
