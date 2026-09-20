@@ -104,3 +104,13 @@ English: Use a separately graded skin albedo with lower brightness and orange sa
 English: Turn each hand 90° in opposite directions around the forearm axis so palms face the thighs. Move both hands outward by 1.5cm to clear the coat, applying the same transform to the wrist and lower cuff. Sleeve twist blends out toward the elbow between heights 0.95–1.135m. Preserve skin tone, finger curl, UVs and materials.
 
 제작·검증 / Production and validation: ../../asset-staging/player_inward_palms_20260921/
+
+### 후드 정수리 재설계 / Rebuilt hood crown
+
+360° 검수에서 드러난 정수리의 구멍과 방사형 갈라짐을 수정했다. 너무 작은 끝단 링에 큰 주름이 적용되어 뒤집히던 표면을, 정수리부터 뒤통수까지 이어지는 닫힌 둥근 곡면으로 교체했다. 얼굴 개구부를 유지하고 4mm 천 두께와 어두운 안감을 적용했다. 이마 위 천에는 두피와 안감이 겹치지 않도록 완만한 여유를 추가했다. 기존 의상 컨셉의 깨끗한 천 영역으로 새 UV 알베도를 베이크하여 정수리에서 무늬가 길게 늘어나는 현상을 없앴다.
+
+변경 대상은 `Gravebound_PointHood`이며 다른 27개 메시의 정점·면·UV·변환을 보존했다. 원본 제작 파일도 보존한다. 로컬 360° 뷰어에는 **후드 확대**와 **정수리** 버튼을 추가해 같은 게임 모델을 쉽게 검사할 수 있다.
+
+English: Replace the inverted, wrinkled tip ring with a closed rounded crown that continues into the back of the hood. Preserve the face opening, add a 4mm cloth shell and dark lining, and provide smooth brow clearance around the scalp. Bake a fresh UV albedo from a clean fabric area of the existing outfit concept to avoid stretched crown patterns. Only `Gravebound_PointHood` changes; preserve the other 27 meshes and source files. The local 360° viewer adds hood and crown focus buttons for inspecting the actual game model.
+
+제작·검증 / Production and validation: ../../asset-staging/player_hood_redesign_20260921/VALIDATION.md

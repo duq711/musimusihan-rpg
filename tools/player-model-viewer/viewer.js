@@ -20,6 +20,9 @@ document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',(
 document.querySelector('#reset').addEventListener('click',reset);
 document.querySelector('#spin').addEventListener('click',e=>{controls.autoRotate=!controls.autoRotate;e.currentTarget.setAttribute('aria-pressed',String(controls.autoRotate));});
 document.querySelector('#hand').addEventListener('click',()=>{if(!ready)return;const hand=model.getObjectByName('Gravebound_FP_L_Hand');if(!hand)return;const b=new THREE.Box3().setFromObject(hand);b.getCenter(controls.target);camera.position.copy(controls.target).add(new THREE.Vector3(-.34,.08,-.43));controls.update();});
+function focusHood(offset){if(!ready)return;const hood=model.getObjectByName('Gravebound_PointHood');if(!hood)return;new THREE.Box3().setFromObject(hood).getCenter(controls.target);camera.position.copy(controls.target).add(new THREE.Vector3(...offset));controls.update();}
+document.querySelector('#hood').addEventListener('click',()=>focusHood([-.28,.16,-.55]));
+document.querySelector('#hood-top').addEventListener('click',()=>focusHood([0,.60,-.015]));
 addEventListener('resize',()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight);});
 renderer.setAnimationLoop(()=>{controls.update();renderer.render(scene,camera);});
 try{

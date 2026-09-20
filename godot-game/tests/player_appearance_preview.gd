@@ -94,6 +94,8 @@ func _capture_body() -> void:
 	portrait.camera.position = Vector3(0.0, 1.50, -3.5)
 	portrait.camera.look_at(Vector3(0.0, 1.50, 0.0))
 	await _capture(portrait.viewport, "player_face_detail.png")
+	if OS.get_environment("PLAYER_QA_HOOD_DETAIL") == "1":
+		await _capture_hood_detail(portrait)
 	if OS.get_environment("PLAYER_QA_HAND_DETAIL") == "1":
 		await _capture_hand_detail(portrait)
 	# Optional close-up for wrist/cuff proportion reviews, using the actual mesh.
@@ -123,6 +125,48 @@ func _capture_body() -> void:
 			await _capture(portrait.viewport, "player_arm_structure_side.png")
 	portrait.queue_free()
 	await process_frame
+
+
+func _capture_hood_detail(portrait) -> void:
+	# Inspect the actual production crown from above, including a texture-free
+	# view so dark atlas seams cannot conceal missing or folded geometry.
+	var previous_angle := float(portrait.get_view_angle())
+	var previous_camera_transform: Transform3D = portrait.camera.transform
+	var previous_camera_size := float(portrait.camera.size)
+	portrait.set_view_angle(0.0)
+	var center := Vector3(0.0, 1.66, 0.0)
+	portrait.camera.size = 0.60
+	for shot in [
+		{"name": "top", "position": Vector3(0.0, 3.0, 0.0), "up": Vector3.BACK},
+		{"name": "high", "position": Vector3(0.48, 2.28, -0.70), "up": Vector3.UP},
+		{"name": "rear", "position": Vector3(0.0, 1.84, 0.90), "up": Vector3.UP},
+	]:
+		portrait.camera.position = shot.position
+		portrait.camera.look_at(center, shot.up)
+		await _capture(portrait.viewport, "player_hood_%s.png" % shot.name)
+	var hood := portrait.body.find_child("Gravebound_PointHood", true, false) as MeshInstance3D
+	if hood == null or hood.mesh == null:
+		push_error("Production hood is missing from the portrait model.")
+		failed = true
+	else:
+		var previous_override := hood.material_override
+		var previous_visibility: Dictionary = {}
+		for mesh: MeshInstance3D in portrait.body.find_children("*", "MeshInstance3D", true, false):
+			previous_visibility[mesh] = mesh.visible
+			mesh.visible = mesh == hood
+		var clay := StandardMaterial3D.new()
+		clay.albedo_color = Color(0.56, 0.59, 0.61)
+		clay.roughness = 0.9
+		hood.material_override = clay
+		portrait.camera.position = Vector3(0.0, 3.0, 0.0)
+		portrait.camera.look_at(center, Vector3.BACK)
+		await _capture(portrait.viewport, "player_hood_top_clay.png")
+		hood.material_override = previous_override
+		for mesh in previous_visibility:
+			mesh.visible = previous_visibility[mesh]
+	portrait.set_view_angle(previous_angle)
+	portrait.camera.transform = previous_camera_transform
+	portrait.camera.size = previous_camera_size
 
 
 func _capture_hand_detail(portrait) -> void:

@@ -18,12 +18,14 @@ English: Open http://127.0.0.1:8768. The server binds to localhost only; stop wi
 - 휠: 확대·축소 / Wheel: zoom.
 - 오른쪽 드래그 또는 Ctrl+왼쪽 드래그: 이동 / Right drag or Ctrl+left drag: pan.
 - 손 확대, 정면·후면·측면, 전신 맞춤, 자동 회전 / Hand focus, preset views, fit and auto-rotation.
+- 후드 확대: 실제 후드 중심을 앞쪽 사선에서 가까이 봅니다. / Hood focus: inspect the actual hood from a close front three-quarter view.
+- 정수리: 후드 중심을 위에서 내려다보며, 이후에도 자유롭게 회전·확대할 수 있습니다. / Crown: look down at the hood center, then continue to orbit and zoom freely.
 - 터치: 한 손가락 회전, 두 손가락 확대·이동 / Touch: one finger orbit, two fingers zoom/pan.
 
 Three.js 0.170.0의 필요한 파일만 vendor에 고정 포함했습니다(MIT, vendor/LICENSE). 런타임 외부 CDN 요청은 없습니다.
 
 English: Required Three.js 0.170.0 files are vendored under MIT (vendor/LICENSE), with no external CDN requests at runtime.
 
-검증 / Validation: Codex 실제 브라우저에서 현재 모델 로드, 드래그 회전, 휠 확대·축소, 손 확대 및 전신 맞춤을 확인했습니다. 양손을 안쪽으로 돌린 게임 모델 SHA256: d25370488882606be2f87159576a6a6b45fa00bda1606cb39a6ebd44769e9b0c. 범용 라이브러리의 오른쪽 드래그 이동 경로는 코드에서 확인했습니다.
+검증 / Validation: Codex 실제 브라우저에서 현재 모델 로드, 드래그 회전, 휠 확대·축소, 손 확대 및 전신 맞춤을 확인했습니다. 후드 재설계 모델의 최신 검증은 `../../asset-staging/player_hood_redesign_20260921/VALIDATION.md`에 기록했습니다. 범용 라이브러리의 오른쪽 드래그 이동 경로는 코드에서 확인했습니다.
 
 English: Verified loading, drag orbit, wheel zoom, hand focus and full-body reset in the live Codex browser. Right-drag pan uses the library's standard controls and was checked in code.
