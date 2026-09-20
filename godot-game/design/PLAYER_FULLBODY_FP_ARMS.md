@@ -64,3 +64,11 @@ English: The user clarified that the issue was the elbows and requested wrist re
 English: Following the supplied human-arm reference, replace the previous local elbow displacement with a full sleeve reconstruction. Starting from the restored-wrist model, sample 121 horizontal surface sections and remap them to continuous shoulder, upper-arm, elbow and forearm profiles. Replace the disconnected upper sleeve with a continuous loft, transferring UVs from the source surface and retaining fabric materials, complete hands and the lower cuff. This changes the static full-body shape; it does not add articulation or combat animation. Inspect both clothed and neutral-material views.
 
 최신 제작·검증 / Latest production and validation: ../../asset-staging/player_arm_structure_20260921/
+
+### 사용자 최종 방향: 곧게 뻗은 팔 / User direction: straight arms
+
+사용자가 굴곡 없이 일직선으로 뻗은 팔을 요청했다. 앞선 근육형 단면 강조를 제거하고, 보이는 소매 구간의 중심선과 폭 변화를 선형으로 만든다. 형상에 더하던 잔물결도 제거한다. 손·손목과 망토 안쪽 어깨 연결은 유지한다.
+
+English: At the user's request, replace the emphasized anatomical bulges with straight arm axes and a linear taper across the visible sleeve. Remove procedural surface ripples. Preserve hands, wrists and the tucked shoulder connection.
+
+최신 제작·검증 / Latest production and validation: ../../asset-staging/player_straight_arms_20260921/
