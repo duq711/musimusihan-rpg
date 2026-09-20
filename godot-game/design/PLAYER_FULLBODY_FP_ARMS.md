@@ -56,3 +56,11 @@ Production and validation: ../../asset-staging/player_fullbody_wrist_20260921/
 English: The user clarified that the issue was the elbows and requested wrist restoration. Revert the wrist reduction: restore both complete hands and sleeves below 0.98m from player_fullbody_anatomy_20260921. Move the sleeve elbow crease down 6cm, narrow the joint region and reshape its transition into the upper arm. Audit restored vertices and inspect an elbow close-up.
 
 최신 제작 및 검증 / Latest production and validation: ../../asset-staging/player_fullbody_elbow_20260921/
+
+### 팔 해부 구조 참고에 따른 전체 재형성 / Full sleeve reconstruction from the arm reference
+
+사용자가 제공한 사람 팔 참고 그림에 따라, 앞선 팔꿈치 국소 이동을 최종 형상으로 사용하지 않는다. 손목 복원본에서 시작해 소매 표면을 121개 높이에서 절단 측정하고, 어깨·위팔·팔꿈치·전완 상부·전완 하부의 중심선과 단면을 새 연속 프로필로 재형성한다. 어깨와 위팔 볼륨, 팔꿈치의 좁은 단면, 팔꿈치 아래 전완 볼륨과 손목으로 좁아지는 흐름을 구분한다. 손 전체·소매 하단은 보존하고 소매 상부는 연속 표면으로 교체한다. 기존 천 재질을 사용하며 새 표면의 UV는 원본 표면에서 보간한다. 이는 전신 정적 모델의 형상 수정이며 새로운 관절 리깅이나 전투 애니메이션이 아니다.
+
+English: Following the supplied human-arm reference, replace the previous local elbow displacement with a full sleeve reconstruction. Starting from the restored-wrist model, sample 121 horizontal surface sections and remap them to continuous shoulder, upper-arm, elbow and forearm profiles. Replace the disconnected upper sleeve with a continuous loft, transferring UVs from the source surface and retaining fabric materials, complete hands and the lower cuff. This changes the static full-body shape; it does not add articulation or combat animation. Inspect both clothed and neutral-material views.
+
+최신 제작·검증 / Latest production and validation: ../../asset-staging/player_arm_structure_20260921/

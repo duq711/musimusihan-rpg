@@ -107,6 +107,18 @@ func _capture_body() -> void:
 		portrait.camera.position = Vector3(-0.26, 1.15, -3.5)
 		portrait.camera.look_at(Vector3(-0.26, 1.15, 0.0))
 		await _capture(portrait.viewport, "player_elbow_detail.png")
+		if OS.get_environment("PLAYER_QA_ARM_STRUCTURE") == "1":
+			var clay := StandardMaterial3D.new()
+			clay.albedo_color = Color(0.56, 0.59, 0.61)
+			clay.roughness = 0.9
+			for mesh: MeshInstance3D in portrait.viewport.find_children("*", "MeshInstance3D", true, false):
+				if str(mesh.name).begins_with("Gravebound_FP_"):
+					mesh.material_override = clay
+			await _capture(portrait.viewport, "player_arm_structure_front.png")
+			portrait.set_view_angle(-90.0)
+			portrait.camera.position = Vector3(0.0, 1.15, -3.5)
+			portrait.camera.look_at(Vector3(0.0, 1.15, 0.0))
+			await _capture(portrait.viewport, "player_arm_structure_side.png")
 	portrait.queue_free()
 	await process_frame
 
