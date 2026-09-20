@@ -201,6 +201,23 @@ func register_hit(amount: float, point: Vector3, attacker_position: Vector3) -> 
 			return last_region
 	return ""
 
+func sever_for_execution(region: String, attacker_position: Vector3) -> bool:
+	# An authored finishing contact bypasses accumulated combat damage, never
+	# the existing posed-mesh bake, cut caps, or detached rigid-body ownership.
+	if not enabled or region != "head" or region in severed or not attacker_position.is_finite():
+		return false
+	if not is_instance_valid(actor) or not actor.is_inside_tree() or actor.is_queued_for_deletion() or actor.health <= 0.0 or actor.ai_state != DungeonEnemy.AIState.EXECUTION:
+		return false
+	if meshes.get(region, []).is_empty() or body_caps.get(region, []).is_empty() or part_caps.get(region, []).is_empty():
+		return false
+	var point := hit_point_for_region(region)
+	if not _sever(region, attacker_position):
+		return false
+	last_region = region
+	last_cut_point = point
+	last_cut_frame = Engine.get_physics_frames()
+	return true
+
 func _sever(region: String, attacker_position: Vector3) -> bool:
 	var start_ms := Time.get_ticks_msec()
 	var pieces: Array = meshes[region] + part_caps[region]

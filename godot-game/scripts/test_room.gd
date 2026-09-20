@@ -456,6 +456,9 @@ func run_feature(feature_id: String) -> void:
 		"dagger_assassination":
 			if _prepare_dagger_assassination(payload):
 				_hide_test_panel()
+		"rear_takedown":
+			if _prepare_rear_takedown(payload):
+				_hide_test_panel()
 		"creep_ragdoll":
 			if _prepare_creep_ragdoll_trial(payload):
 				_hide_test_panel()
@@ -1875,6 +1878,50 @@ func _prepare_dagger_assassination(scenario: String = "rear") -> bool:
 		_status("단검 정면 비교 · LMB 찌르기: 일반 피해 · 적은 플레이어를 감지하고 공격합니다 · F2 등 뒤 암살 / 재선택: 회복·재생성")
 	else:
 		_status("단검 등 뒤 암살 · LMB 찌르기 · 몸에 실제로 닿아야 즉사 · 들키기 전 뒤쪽 접근 / F2 정면 비교·재선택: 회복·재생성")
+	return true
+
+
+func _prepare_rear_takedown(scenario: String = "rear") -> bool:
+	if not preload("res://scripts/creep_enemy.gd").is_available():
+		_status("크리프 에셋이 설치되지 않았습니다 · docs/CREEP_ASSET.md의 설치 안내를 확인해주세요")
+		return false
+	_remove_test_actors(true)
+	_recover_player()
+	inventory.equipment["offhand"] = ""
+	_equip_weapon("rusted_sword")
+	player.cancel_sword_attack()
+	_spawn_enemy("크리프", Vector3(0, 1, -3), 82, 21, 2.2, Color.WHITE, "fracture", "creep")
+	var target: DungeonEnemy
+	for child in get_children():
+		if child is DungeonEnemy and child.get_meta("enemy_archetype", "") == "creep":
+			target = child
+			break
+	if not is_instance_valid(target):
+		return false
+	target.rotation.y = PI if scenario == "front" else 0.0
+	_teleport(target.position + Vector3(0, 0, 1.15))
+	var torso := target.global_position + Vector3(0, 0.25, 0)
+	var skeleton := target.get("skeleton") as Skeleton3D
+	if is_instance_valid(skeleton):
+		var chest := skeleton.find_bone("Chest")
+		if chest >= 0:
+			torso = (skeleton.global_transform * skeleton.get_bone_global_pose(chest)).origin
+	var aim: Vector3 = torso - player.camera.global_position
+	player.rotation.y = atan2(-aim.x, -aim.z)
+	player._pitch = atan2(aim.y, Vector2(aim.x, aim.z).length())
+	player.head.rotation.x = player._pitch
+	if scenario == "alerted":
+		# Seed the ordinary chase state for the denial comparison. Rejection
+		# must leave real pursuit running; no trial hit/freeze/death is applied.
+		target._set_state(DungeonEnemy.AIState.CHASE)
+	_set_enemy_ai(true)
+	hud.update_objective(enemies_alive, loot_count, traps_disarmed)
+	if scenario == "alerted":
+		_status("경계 상태 비교 · 이미 추적 중이므로 등 뒤 E 제압 불가 · 일반 전투는 계속 · F2 미인지 후방 / 회복·재선택")
+	elif scenario == "front":
+		_status("정면 비교 · E 후방 제압 불가 · 적이 감지하면 추적·공격 · F2 미인지 후방 / 회복·재선택")
+	else:
+		_status("미인지 후방 검 제압 · E: 찌르기 → 살아 있는 상태로 발검 → 넓게 목 베기 · F2 정지·회복·재선택")
 	return true
 
 

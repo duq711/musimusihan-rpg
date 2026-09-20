@@ -37,6 +37,8 @@ var _execution_executor: Node3D
 var _execution_elapsed := 0.0
 var _execution_entry_visual := Transform3D.IDENTITY
 var _execution_entry_rotations: Dictionary = {}
+var _rear_takedown_profile := ""
+var _rear_takedown_contacts: Dictionary = {}
 
 var target: DungeonPlayer
 var hud: DungeonHUD
@@ -589,7 +591,7 @@ func _can_notice_target() -> bool:
 
 
 func can_receive_dagger_assassination(attacker_position: Vector3) -> bool:
-	if is_queued_for_deletion() or health <= 0.0 or ai_state in [AIState.DEAD, AIState.EXECUTION]:
+	if not is_unaware_of(attacker_position):
 		return false
 	var offset := attacker_position - global_position
 	if absf(offset.y) > 1.25:
@@ -602,9 +604,71 @@ func can_receive_dagger_assassination(attacker_position: Vector3) -> bool:
 	return rear.normalized().dot(offset.normalized()) >= cos(deg_to_rad(55.0))
 
 
+func is_unaware_of(attacker_position: Vector3) -> bool:
+	# Eligibility belongs to the current AI state, not a stale windup selection.
+	# A nearby touch or the forward sight cone already counts as awareness even
+	# if this actor's next physics tick has not yet changed IDLE into CHASE.
+	if not is_inside_tree() or is_queued_for_deletion() or health <= 0.0 or ai_state != AIState.IDLE or is_instance_valid(_execution_executor) or not attacker_position.is_finite():
+		return false
+	var offset := attacker_position - global_position
+	offset.y = 0.0
+	var forward := -global_basis.z
+	forward.y = 0.0
+	return offset.length() > .65 and forward.normalized().dot(offset.normalized()) < cos(deg_to_rad(80.0))
+
+
+func can_begin_rear_takedown(_executor: Node3D, _profile: String = "rear_sword") -> bool:
+	return false # An ordinary enemy has no authored detachable neck surface.
+
+
+func _can_reserve_rear_takedown(executor: Node3D, profile: String) -> bool:
+	if profile != "rear_sword" or not _execution_executor_is_alive(executor) or not is_inside_tree() or executor.get_world_3d() != get_world_3d():
+		return false
+	if not is_unaware_of(executor.global_position):
+		return false
+	var offset := executor.global_position - global_position
+	if absf(offset.y) > .8:
+		return false
+	offset.y = 0.0
+	var rear := global_basis.z
+	rear.y = 0.0
+	if offset.length() < .85 or offset.length() > 1.50 or rear.normalized().dot(offset.normalized()) < cos(deg_to_rad(55.0)):
+		return false
+	var query := PhysicsRayQueryParameters3D.create(executor.global_position + Vector3.UP * .35, global_position + Vector3.UP * .35, WORLD_LAYER)
+	query.collide_with_areas = false
+	return get_world_3d().direct_space_state.intersect_ray(query).is_empty()
+
+
+func begin_rear_takedown(executor: Node3D, profile: String = "rear_sword") -> bool:
+	if not can_begin_rear_takedown(executor, profile):
+		return false
+	var contacts := get_rear_takedown_contacts()
+	if contacts.is_empty() or not bool(contacts.get("back_on_skin", false)) or not bool(contacts.get("neck_on_cap", false)):
+		return false
+	_rear_takedown_profile = profile
+	_rear_takedown_contacts = contacts.duplicate()
+	_execution_executor = executor
+	_execution_elapsed = 0.0
+	_capture_execution_pose()
+	velocity = Vector3.ZERO
+	# Keep the unaware actor facing away. Normal shield execution faces its
+	# executor, which would turn this rear stab into an unrelated frontal pose.
+	_set_state(AIState.EXECUTION)
+	_apply_execution_pose()
+	return true
+
+
+func get_rear_takedown_contacts() -> Dictionary:
+	return {}
+
+
+func finish_rear_takedown(_executor: Node3D) -> bool:
+	return false
+
+
 func receive_dagger_assassination(attacker_position: Vector3) -> bool:
 	# The caller verifies a real short-range blade contact and world occlusion.
-	# Recheck rear position at impact, not at windup. Use normal death/rewards
+	# Recheck rear position and unawareness at impact. Use normal death/rewards
 	# exactly once without adding artificial limb-dismemberment damage.
 	if not can_receive_dagger_assassination(attacker_position):
 		return false
@@ -675,7 +739,7 @@ func begin_execution(executor: Node3D) -> bool:
 func advance_execution_pose(elapsed: float) -> void:
 	if ai_state != AIState.EXECUTION:
 		return
-	if not is_instance_valid(_execution_executor) or not _execution_executor_is_alive(_execution_executor):
+	if not _execution_reservation_is_valid():
 		_release_execution()
 		return
 	if not is_finite(elapsed):
@@ -687,6 +751,8 @@ func advance_execution_pose(elapsed: float) -> void:
 
 
 func finish_execution(executor: Node3D) -> bool:
+	if not _rear_takedown_profile.is_empty():
+		return false # A rear takedown dies only at its explicit neck-cut contact.
 	if ai_state != AIState.EXECUTION or not is_instance_valid(executor) or executor != _execution_executor:
 		return false
 	if not _execution_executor_is_alive(executor):
@@ -717,6 +783,14 @@ func _execution_executor_is_alive(executor: Node3D) -> bool:
 	return true
 
 
+func _execution_reservation_is_valid() -> bool:
+	if not is_instance_valid(_execution_executor) or not _execution_executor_is_alive(_execution_executor):
+		return false
+	if not _rear_takedown_profile.is_empty():
+		return is_inside_tree() and not is_queued_for_deletion() and _execution_executor.get_world_3d() == get_world_3d()
+	return true
+
+
 func _release_execution() -> void:
 	if ai_state != AIState.EXECUTION:
 		return
@@ -729,7 +803,7 @@ func _release_execution() -> void:
 func _process_execution_physics(delta: float) -> bool:
 	if ai_state != AIState.EXECUTION:
 		return false
-	if not is_instance_valid(_execution_executor) or not _execution_executor_is_alive(_execution_executor):
+	if not _execution_reservation_is_valid():
 		_release_execution()
 		return ai_state == AIState.DEAD
 	velocity.x = 0.0
@@ -826,6 +900,8 @@ func _set_state(next_state: AIState, stagger_seconds: float = STAGGER_SECONDS) -
 		_execution_executor = null
 		_execution_elapsed = 0.0
 		_execution_entry_rotations.clear()
+		_rear_takedown_profile = ""
+		_rear_takedown_contacts.clear()
 	# A counterattack can extend hit stun, but must not shorten a just guard.
 	var remaining_stagger := maxf(0.0, stagger_duration - state_time) if ai_state == AIState.STAGGER else 0.0
 	stagger_duration = maxf(stagger_seconds, remaining_stagger) if next_state == AIState.STAGGER else STAGGER_SECONDS

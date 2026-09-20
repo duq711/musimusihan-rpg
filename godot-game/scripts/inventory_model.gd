@@ -202,12 +202,14 @@ const ITEM_DEFINITIONS := {
 	},
 	"forged_longsword": {
 		"name": "단조 장검", "glyph": "†", "category": "equipment", "equip_slot": "weapon", "weapon_type": "melee",
+		"rear_takedown_profile": "rear_sword",
 		"icon_path": "res://assets/ui/forged_longsword.svg", "ui_span": Vector2i(2, 3),
 		"weight": 3.0, "value": 48, "stack_max": 1, "rarity": "uncommon",
 		"summary": "피해 31~57 · 품질에 따른 추가 피해", "description": "은신처에서 직접 단조한 장검입니다. 품질과 개조는 무기마다 별도로 보존됩니다."
 	},
 	"forged_arming_sword": {
 		"name": "단조 한손검", "glyph": "†", "category": "equipment", "equip_slot": "weapon", "weapon_type": "melee",
+		"rear_takedown_profile": "rear_sword",
 		"icon_path": "res://assets/ui/forged_arming_sword.svg", "ui_span": Vector2i(2, 3),
 		"weight": 2.3, "value": 38, "stack_max": 1, "rarity": "uncommon",
 		"summary": "피해 29~52 · 기력 -10%", "description": "짧고 균형 잡힌 단조 한손검입니다. 손잡이·칼날·룬 개조를 지원합니다."
@@ -250,6 +252,7 @@ const ITEM_DEFINITIONS := {
 	},
 	"rusted_sword": {
 		"name": "녹슨 장검", "glyph": "†", "category": "equipment", "equip_slot": "weapon", "weapon_type": "melee",
+		"rear_takedown_profile": "rear_sword",
 		"atlas_cell": Vector2i(2, 0), "ui_span": Vector2i(2, 3),
 		"weight": 3.2, "value": 18, "stack_max": 1, "rarity": "common",
 		"summary": "피해 22 · 강공격 38", "description": "성소 입구에서 지급받은 무딘 장검입니다."
@@ -258,7 +261,7 @@ const ITEM_DEFINITIONS := {
 		"name": "철제 단검", "glyph": "†", "category": "equipment", "equip_slot": "weapon", "weapon_type": "melee", "weapon_family": "dagger",
 		"icon_path": "res://assets/ui/iron_dagger.svg", "ui_span": Vector2i(1, 2),
 		"weight": 0.65, "value": 24, "stack_max": 1, "rarity": "common",
-		"summary": "피해 18~28 · 기력 -35% · 배후 암살", "description": "짧은 양날 칼날과 가죽 손잡이를 갖춘 단검입니다. 가까이 다가가 적의 뒤에서 실제로 맞히면 한 번에 처치합니다. 정면과 옆에서는 일반 공격 피해를 줍니다."
+		"summary": "피해 18~28 · 기력 -35% · 배후 암살", "description": "짧은 양날 칼날과 가죽 손잡이를 갖춘 단검입니다. 플레이어를 발견하지 못한 적에게 가까이 다가가 뒤에서 실제로 맞히면 한 번에 처치합니다. 정면과 옆에서는 일반 공격 피해를 줍니다."
 	},
 	"hunting_bow": {
 		"name": "사냥꾼의 활", "glyph": "⌒", "category": "equipment", "equip_slot": "weapon", "weapon_type": "bow", "ammo_type": "wooden_arrow",

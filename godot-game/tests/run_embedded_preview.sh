@@ -20,6 +20,7 @@ if [[ "$(/usr/bin/uname -s)" != Darwin || ! -x "$godot_executable" ]]; then
 	exit 2
 fi
 case "$preview_name" in
+	rear_takedown_preview.gd) preview_pass_marker="^REAR_TAKEDOWN_PREVIEW_COMPLETE PASS:" ;;
 	dagger_assassination_preview.gd) preview_pass_marker="^DAGGER_ASSASSINATION_PREVIEW_COMPLETE PASS:" ;;
 	creep_transition_preview.gd) preview_pass_marker="^CREEP_TRANSITION_PREVIEW_COMPLETE PASS:" ;;
 	creep_execution_preview.gd) preview_pass_marker="^CREEP EXECUTION PREVIEW PASS:" ;;
@@ -137,7 +138,7 @@ runner=("$godot_executable" --embedded --debug --audio-driver Dummy
 	--rendering-method forward_plus --rendering-driver "$preview_rendering_driver"
 	--disable-crash-handler --path "$project_dir"
 	--script "res://tests/$preview_name")
-if [[ "$preview_name" == "dagger_assassination_preview.gd" || "$preview_name" == "creep_ragdoll_preview.gd" || "$preview_name" == "creep_execution_preview.gd" || "$preview_name" == "shield_damage_preview.gd" || "$preview_name" == "shield_shatter_preview.gd" || "$preview_name" == "creep_transition_preview.gd" ]]; then
+if [[ "$preview_name" == "rear_takedown_preview.gd" || "$preview_name" == "dagger_assassination_preview.gd" || "$preview_name" == "creep_ragdoll_preview.gd" || "$preview_name" == "creep_execution_preview.gd" || "$preview_name" == "shield_damage_preview.gd" || "$preview_name" == "shield_shatter_preview.gd" || "$preview_name" == "creep_transition_preview.gd" ]]; then
 	runner+=(--fixed-fps 30)
 elif [[ "$preview_name" == "creep_dismemberment_preview.gd" || "$preview_name" == "creep_crawl_preview.gd" ]]; then
 	runner+=(--fixed-fps 15)

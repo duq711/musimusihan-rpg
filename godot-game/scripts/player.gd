@@ -56,6 +56,7 @@ const MOTION := preload("res://scripts/first_person_motion.gd")
 const REFERENCE_MOTION := preload("res://scripts/reference_sword_motion.gd")
 const REFERENCE_ARM := preload("res://scripts/reference_sword_arm.gd")
 const BODY_HEALTH := preload("res://scripts/body_health.gd")
+const REAR_TAKEDOWN_MOTION := preload("res://scripts/rear_takedown_motion.gd")
 const CREEP_EXECUTION_MOTION := preload("res://scripts/creep_execution_motion.gd")
 const EXECUTION_MOTION := preload("res://scripts/sword_shield_execution_motion.gd")
 
@@ -87,6 +88,12 @@ var _execution_stab_direction := Vector3.DOWN
 var _execution_blade_tip := Vector3.ZERO
 var _execution_blade_length := 0.0
 var _execution_penetration := 0.0
+var _rear_neck_contact := Vector3.ZERO
+var _rear_stab_contact_committed := false
+var _rear_entry_yaw := 0.0
+var _rear_entry_pitch := 0.0
+var _rear_approach_offset := Vector3.ZERO
+var _rear_approach_progress := 0.0
 
 var _body_health_state: Dictionary = BODY_HEALTH.create_state()
 var _body_health_session_bound := false
@@ -1122,6 +1129,100 @@ func is_execution_active() -> bool:
 	return combat_state == CombatState.EXECUTION
 
 
+func get_rear_takedown_profile() -> String:
+	if inventory_model == null: return ""
+	var definition := ExpeditionInventory.get_item_definition(str(inventory_model.equipment.get("weapon", "")))
+	return REAR_TAKEDOWN_MOTION.weapon_profile(definition)
+
+
+func _rear_takedown_block_reason() -> String:
+	if get_rear_takedown_profile() != "rear_sword": return "unsupported_weapon"
+	if health <= 0.0 or combat_state == CombatState.DEAD: return "dead"
+	if not is_inside_tree() or get_tree().paused: return "paused"
+	if safe_zone_mode: return "safe_zone"
+	if combat_state != CombatState.READY or camping or chest_equipment_stowed or is_paralyzed() or current_trap != null or is_timed_interacting() or is_item_use_active(): return "busy"
+	return ""
+
+
+func get_rear_takedown_target() -> DungeonEnemy:
+	if not _rear_takedown_block_reason().is_empty() or not is_instance_valid(camera): return null
+	var best: DungeonEnemy
+	var best_score := INF
+	for node in get_tree().get_nodes_in_group("enemy"):
+		var enemy := node as DungeonEnemy
+		if enemy == null or not enemy.can_begin_rear_takedown(self, get_rear_takedown_profile()): continue
+		var direction := camera.global_position.direction_to(enemy.get_aim_point())
+		var alignment := (-camera.global_basis.z).dot(direction)
+		if alignment < cos(deg_to_rad(35.0)) or not _rear_takedown_has_clear_path(enemy): continue
+		var score := global_position.distance_to(enemy.global_position) + (1.0 - alignment) * 3.0
+		if score < best_score:
+			best = enemy
+			best_score = score
+	return best
+
+
+func _rear_takedown_has_clear_path(enemy: DungeonEnemy) -> bool:
+	if not is_instance_valid(enemy) or not enemy.is_inside_tree() or enemy.get_world_3d() != get_world_3d(): return false
+	if not _has_clear_melee_path(enemy): return false
+	var query := PhysicsRayQueryParameters3D.create(camera.global_position, enemy.get_aim_point(), WORLD_LAYER | ENEMY_LAYER)
+	query.collide_with_areas = false
+	var hit := get_world_3d().direct_space_state.intersect_ray(query)
+	return hit.is_empty() or hit.get("collider") == enemy
+
+
+func begin_rear_takedown() -> Dictionary:
+	var reason := _rear_takedown_block_reason()
+	if not reason.is_empty(): return {"accepted": false, "reason": reason}
+	var cost := REAR_TAKEDOWN_MOTION.STAMINA_COST * get_body_attack_stamina_multiplier()
+	if stamina < cost: return {"accepted": false, "reason": "not_enough_stamina"}
+	var enemy := get_rear_takedown_target()
+	if enemy == null: return {"accepted": false, "reason": "unaware_rear_target_required"}
+	if not enemy.begin_rear_takedown(self, get_rear_takedown_profile()): return {"accepted": false, "reason": "target_changed"}
+	var contacts := enemy.get_rear_takedown_contacts()
+	if contacts.is_empty():
+		enemy.cancel_execution(self)
+		return {"accepted": false, "reason": "contact_unavailable"}
+	_execution_target = enemy
+	_execution_profile = "rear_sword"
+	_execution_hit_committed = false
+	_rear_stab_contact_committed = false
+	execution_elapsed = 0.0
+	_execution_sword_entry = weapon_pivot.transform
+	_execution_shield_entry = shield_pivot.transform
+	_execution_weapon_identity = _displayed_weapon_identity
+	_execution_contact_point = contacts.back
+	_rear_neck_contact = contacts.neck
+	_execution_stab_direction = (contacts.direction as Vector3).normalized()
+	var geometry := _get_execution_blade_geometry()
+	_execution_blade_tip = geometry.tip
+	_execution_blade_length = geometry.length
+	_execution_penetration = geometry.length * REAR_TAKEDOWN_MOTION.PENETRATION_RATIO
+	_rear_entry_yaw = rotation.y
+	_rear_entry_pitch = _pitch
+	var approach := enemy.global_position - global_position
+	approach.y = 0.0
+	_rear_approach_offset = approach.normalized() * maxf(0.0, approach.length() - REAR_TAKEDOWN_MOTION.CUT_DISTANCE)
+	_rear_approach_progress = 0.0
+	_sword_attack_uses_cycle = false
+	_sword_direct_entry = false
+	_sword_draw_elapsed = SWORD_DRAW_DURATION
+	_motion_equip_elapsed = MOTION.EQUIP_DURATION
+	blocking = false
+	block_time = 0.0
+	_shield_impact = 0.0
+	velocity.x = 0.0
+	velocity.z = 0.0
+	_consume_stamina(cost)
+	stamina_regen_delay = REAR_TAKEDOWN_MOTION.DURATION + .15
+	_set_combat_state(CombatState.EXECUTION)
+	viewmodel_renderer.set_world_contact_enabled(true)
+	if hud:
+		hud.set_prompt("")
+		hud.show_event("검 · 후방 제압", .7)
+	execution_started.emit(enemy)
+	return {"accepted": true, "profile": _execution_profile, "stamina_spent": cost}
+
+
 func get_execution_target() -> DungeonEnemy:
 	if is_dagger_equipped():
 		return null
@@ -1217,6 +1318,9 @@ func _try_begin_execution() -> bool:
 func advance_execution(delta: float) -> void:
 	if not is_execution_active() or delta <= 0.0 or (is_inside_tree() and get_tree().paused):
 		return
+	if _execution_profile == "rear_sword":
+		_advance_rear_takedown(delta)
+		return
 	var target_valid := is_instance_valid(_execution_target) and not _execution_target.is_queued_for_deletion() and _execution_target.is_inside_tree() and _execution_target.get_world_3d() == get_world_3d()
 	if not _has_melee_weapon_equipped() or (_execution_profile != "crawl_stab" and not _has_shield_equipped()) or safe_zone_mode or camping or is_paralyzed() or health <= 0.0 or current_trap != null or is_item_use_active() or _execution_weapon_identity != _displayed_weapon_identity:
 		cancel_execution()
@@ -1268,12 +1372,96 @@ func advance_execution(delta: float) -> void:
 		cancel_execution()
 
 
+func _advance_rear_takedown(delta: float) -> void:
+	var valid := is_instance_valid(_execution_target) and not _execution_target.is_queued_for_deletion() and _execution_target.is_inside_tree() and _execution_target.get_world_3d() == get_world_3d()
+	if get_rear_takedown_profile() != "rear_sword" or safe_zone_mode or camping or chest_equipment_stowed or is_paralyzed() or health <= 0.0 or current_trap != null or is_item_use_active() or is_timed_interacting() or _execution_weapon_identity != _displayed_weapon_identity:
+		cancel_execution()
+		return
+	var offset := _execution_target.global_position - global_position if valid else Vector3(INF, INF, INF)
+	if not _execution_hit_committed and (not valid or _execution_target.ai_state != DungeonEnemy.AIState.EXECUTION or Vector2(offset.x, offset.z).length() > 1.65 or absf(offset.y) > .90 or not _rear_takedown_has_clear_path(_execution_target)):
+		cancel_execution()
+		return
+	var next_elapsed := minf(REAR_TAKEDOWN_MOTION.DURATION, execution_elapsed + delta)
+	# Close an initially longer gap before the first thrust, then finish the
+	# short step during extraction. Both phases use actual character collision.
+	_move_rear_takedown_approach(minf(next_elapsed, REAR_TAKEDOWN_MOTION.STAB_HIT))
+	# Cross contact events in order even on a long tick; no damage at windup.
+	if not _rear_stab_contact_committed and next_elapsed >= REAR_TAKEDOWN_MOTION.STAB_HIT:
+		_execution_target.advance_execution_pose(REAR_TAKEDOWN_MOTION.STAB_HIT)
+		_apply_rear_takedown_view(REAR_TAKEDOWN_MOTION.STAB_HIT)
+		var tip := weapon_pivot.to_global(_execution_blade_tip)
+		var hit: Dictionary = _execution_target.call("query_located_hit", _execution_contact_point - _execution_stab_direction * .10, tip, .035)
+		if hit.is_empty():
+			cancel_execution()
+			return
+		_rear_stab_contact_committed = true
+	# Extraction leads into one short step, using character collision rather
+	# than moving the enemy or allowing the arm solver to detach the shoulder.
+	_move_rear_takedown_approach(next_elapsed)
+	if not _execution_hit_committed:
+		_execution_target.advance_execution_pose(minf(next_elapsed, REAR_TAKEDOWN_MOTION.CUT_HIT))
+		var contacts := _execution_target.get_rear_takedown_contacts()
+		if not contacts.is_empty(): _rear_neck_contact = contacts.neck
+		if next_elapsed >= REAR_TAKEDOWN_MOTION.CUT_HIT:
+			_apply_rear_takedown_view(REAR_TAKEDOWN_MOTION.CUT_HIT)
+			var wrist := weapon_pivot.transform * SWORD_LONG_GRIP.REST_WRIST
+			var shoulder := SWORD_LONG_GRIP.SOURCE_READY * SWORD_LONG_GRIP.REST_SHOULDER
+			if wrist.distance_to(shoulder) > REFERENCE_ARM.MAX_REACH + .04:
+				cancel_execution()
+				return
+			var tip := weapon_pivot.to_global(_execution_blade_tip)
+			var heel := weapon_pivot.to_global(_execution_blade_tip - Vector3.UP * _execution_blade_length)
+			var near := Geometry3D.get_closest_point_to_segment(_rear_neck_contact, heel, tip)
+			var wall := PhysicsRayQueryParameters3D.create(camera.global_position, _rear_neck_contact, WORLD_LAYER)
+			wall.collide_with_areas = false
+			if near.distance_to(_rear_neck_contact) > .055 or not get_world_3d().direct_space_state.intersect_ray(wall).is_empty():
+				cancel_execution()
+				return
+			var remaining_health := _execution_target.health
+			_execution_hit_committed = _execution_target.finish_rear_takedown(self)
+			if not _execution_hit_committed:
+				cancel_execution()
+				return
+			attack_landed.emit(remaining_health, true)
+			if hud:
+				hud.show_hit(true)
+				hud.show_event("후방 제압 · 처치", 1.0)
+	execution_elapsed = next_elapsed
+	state_time = execution_elapsed
+	if hud: hud.update_weapon_state(_execution_phase(), Color(.95, .62, .32))
+	if execution_elapsed >= REAR_TAKEDOWN_MOTION.DURATION: cancel_execution()
+
+
+func _move_rear_takedown_approach(elapsed: float) -> void:
+	var distance := _rear_approach_offset.length()
+	var first := maxf(0.0, distance - (REAR_TAKEDOWN_MOTION.STAB_DISTANCE - REAR_TAKEDOWN_MOTION.CUT_DISTANCE)) / maxf(distance, .000001)
+	var progress := first * smoothstep(0, REAR_TAKEDOWN_MOTION.PREPARE_END, elapsed) + (1.0 - first) * smoothstep(REAR_TAKEDOWN_MOTION.HOLD_END, REAR_TAKEDOWN_MOTION.CUT_START, elapsed)
+	if progress > _rear_approach_progress:
+		move_and_collide(_rear_approach_offset * (progress - _rear_approach_progress))
+		_rear_approach_progress = progress
+
+
+func _apply_rear_takedown_view(elapsed: float) -> void:
+	# The actual character step is collision-tested by the coordinator; this
+	# function only aims the view and applies the sword/upper-body lean.
+	var focus := _execution_contact_point.lerp(_rear_neck_contact, .42)
+	var toward := focus - head.global_position
+	var blend := smoothstep(0, REAR_TAKEDOWN_MOTION.PREPARE_END, elapsed)
+	rotation.y = lerp_angle(_rear_entry_yaw, atan2(-toward.x, -toward.z), blend)
+	_pitch = lerpf(_rear_entry_pitch, atan2(toward.y, Vector2(toward.x, toward.z).length()), blend)
+	head.rotation.x = _pitch
+	camera.position = REAR_TAKEDOWN_MOTION.camera_offset(elapsed)
+	camera.rotation = Vector3.ZERO
+	weapon_pivot.transform = REAR_TAKEDOWN_MOTION.sword(elapsed, _execution_sword_entry, camera.to_local(_execution_contact_point), camera.global_basis.inverse() * _execution_stab_direction, camera.to_local(_rear_neck_contact), _execution_blade_tip, _execution_blade_length)
+	shield_pivot.transform = REAR_TAKEDOWN_MOTION.shield(elapsed, _execution_shield_entry)
+
+
 func _advance_execution_movement(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	velocity.x = 0.0
 	velocity.z = 0.0
-	if is_instance_valid(_execution_target) and not _execution_hit_committed:
+	if _execution_profile != "rear_sword" and is_instance_valid(_execution_target) and not _execution_hit_committed:
 		var toward := (_execution_contact_point if _execution_profile == "crawl_stab" else _execution_target.global_position) - global_position
 		toward.y = 0.0
 		var distance := toward.length()
@@ -1316,7 +1504,9 @@ func cancel_execution() -> void:
 
 
 func _update_execution_viewmodel() -> void:
-	if _execution_profile == "crawl_stab":
+	if _execution_profile == "rear_sword":
+		_apply_rear_takedown_view(execution_elapsed)
+	elif _execution_profile == "crawl_stab":
 		_apply_crawl_execution_view(execution_elapsed)
 	else:
 		weapon_pivot.transform = EXECUTION_MOTION.sword(execution_elapsed, _execution_sword_entry)
@@ -1354,20 +1544,23 @@ func _get_execution_blade_geometry() -> Dictionary:
 
 
 func _execution_hit_time() -> float:
+	if _execution_profile == "rear_sword": return REAR_TAKEDOWN_MOTION.CUT_HIT
 	return CREEP_EXECUTION_MOTION.HIT_SECONDS if _execution_profile == "crawl_stab" else EXECUTION_MOTION.HIT_SECONDS
 
 
 func _execution_duration() -> float:
+	if _execution_profile == "rear_sword": return REAR_TAKEDOWN_MOTION.DURATION
 	return CREEP_EXECUTION_MOTION.DURATION if _execution_profile == "crawl_stab" else EXECUTION_MOTION.DURATION
 
 
 func _execution_phase() -> String:
+	if _execution_profile == "rear_sword": return REAR_TAKEDOWN_MOTION.phase(execution_elapsed)
 	return CREEP_EXECUTION_MOTION.phase(execution_elapsed) if _execution_profile == "crawl_stab" else EXECUTION_MOTION.phase(execution_elapsed)
 
 
 func get_execution_snapshot() -> Dictionary:
 	var tip := weapon_pivot.to_global(_execution_blade_tip) if is_instance_valid(weapon_pivot) else Vector3.ZERO
-	return {"active": is_execution_active(), "elapsed": execution_elapsed, "phase": _execution_phase(), "profile": _execution_profile, "hit_committed": _execution_hit_committed, "target_id": _execution_target.get_instance_id() if is_instance_valid(_execution_target) else 0, "contact_point": _execution_contact_point, "blade_tip": tip, "blade_length_m": _execution_blade_length, "penetration_m": _execution_penetration, "blade_fraction": _execution_penetration / _execution_blade_length if _execution_blade_length > 0.0 else 0.0, "contact_error": tip.distance_to(_execution_contact_point), "world_contact": is_instance_valid(viewmodel_renderer) and viewmodel_renderer.world_contact_enabled}
+	return {"active": is_execution_active(), "elapsed": execution_elapsed, "phase": _execution_phase(), "profile": _execution_profile, "stab_contact_committed": _rear_stab_contact_committed, "stab_direction": _execution_stab_direction, "neck_contact": _rear_neck_contact, "hit_committed": _execution_hit_committed, "target_id": _execution_target.get_instance_id() if is_instance_valid(_execution_target) else 0, "contact_point": _execution_contact_point, "blade_tip": tip, "blade_length_m": _execution_blade_length, "penetration_m": _execution_penetration, "blade_fraction": _execution_penetration / _execution_blade_length if _execution_blade_length > 0.0 else 0.0, "contact_error": tip.distance_to(_execution_contact_point), "world_contact": is_instance_valid(viewmodel_renderer) and viewmodel_renderer.world_contact_enabled}
 
 
 func get_melee_hit_time() -> float:
@@ -1609,6 +1802,13 @@ func _update_interaction(delta: float) -> void:
 	if is_execution_active():
 		interaction_owner = null
 		if hud: hud.set_prompt("")
+		return
+	if get_rear_takedown_target() != null:
+		interaction_owner = null
+		var enough := stamina >= REAR_TAKEDOWN_MOTION.STAMINA_COST * get_body_attack_stamina_multiplier()
+		if hud: hud.set_prompt("[E] 검 · 후방 제압" if enough else "후방 제압 · 기력 부족")
+		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED and Input.is_action_just_pressed("interact"):
+			begin_rear_takedown()
 		return
 	if combat_state in [CombatState.READY, CombatState.WINDUP] and get_execution_target() != null:
 		interaction_owner = null

@@ -71,7 +71,7 @@ func configure(owner_actor: Node3D, skeleton: Skeleton3D, animation: AnimationPl
 	driver.active = false
 	set_physics_process(false)
 
-func begin(death_velocity: Vector3, hold_for_executor: Node3D = null) -> void:
+func begin(death_velocity: Vector3, hold_for_executor: Node3D = null, immediate: bool = false) -> void:
 	if temporary and phase in ["simulating", "settled"]:
 		# A fatal hit during a living fall kills this physical body in place.
 		# No standing reaction, duplicate bodies, or pending recovery survives it.
@@ -106,6 +106,12 @@ func begin(death_velocity: Vector3, hold_for_executor: Node3D = null) -> void:
 	impact_velocity = death_velocity.limit_length(3.2)
 	if impact_velocity.length_squared() < .01:
 		impact_velocity = actor.global_basis.z.normalized() * 1.2
+	if immediate:
+		# Authored neck-cut finish already contains its reaction. Start physics
+		# from these exact bones; ordinary deaths retain their original hit blend.
+		_start_physics()
+		set_physics_process(true)
+		return
 	phase = "reaction"
 	actor.animation_clip = "hit"
 	actor.animation_sample = 0.0

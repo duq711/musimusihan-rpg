@@ -45,7 +45,7 @@ func _run() -> void:
 		await _test_creep_assassination()
 	else:
 		print("DAGGER ASSASSINATION: licensed Creep absent; its anatomical-contact/ragdoll checks SKIPPED")
-	for scenario: String in ["rear", "front", "side", "wrong_weapon", "distance", "far_contact", "wall", "no_contact", "turn_before_contact"]:
+	for scenario: String in ["rear", "alerted_rear", "front", "side", "wrong_weapon", "distance", "far_contact", "wall", "no_contact", "turn_before_contact"]:
 		await _test_actual_strike(scenario)
 	await _test_single_target()
 	await _test_missed_contact_cannot_hit_late()
@@ -342,6 +342,9 @@ func _test_actual_strike(scenario: String) -> void:
 	if scenario == "distance": offset = Vector3(0, 0, 2.3)
 	if scenario == "far_contact": offset = Vector3(0, 0, 1.60)
 	_prepare_player(actor, offset)
+	if scenario == "alerted_rear":
+		actor._set_state(DungeonEnemy.AIState.CHASE)
+		_check(not actor.can_receive_dagger_assassination(player.global_position), "an alerted target cannot be instantly assassinated from behind")
 	if scenario == "wall": wall = _add_box(Vector3(2, 3, 0.15), actor.global_position + Vector3(0, 0.5, 0.53))
 	if scenario == "no_contact":
 		player.head.look_at(player.camera.global_position + Vector3.RIGHT * 4.0, Vector3.UP)
@@ -362,7 +365,7 @@ func _test_actual_strike(scenario: String) -> void:
 			surface_contact_distance = from.distance_to(contact.position)
 			_check(surface_contact_distance > 1.10 and surface_contact_distance < 1.30, "far-contact fixture must have measured first contact between 1.10m and 1.30m")
 		_check(not _query_contains(actor), "production dagger query must exclude actual anatomy beyond its visible 1.05m blade-tip reach")
-	if scenario in ["rear", "front", "side", "wrong_weapon", "turn_before_contact"]:
+	if scenario in ["rear", "alerted_rear", "front", "side", "wrong_weapon", "turn_before_contact"]:
 		_check(_query_contains(actor), "test must exercise a real candidate rather than an empty query: " + scenario)
 	if scenario == "wall":
 		_check(not _query_contains(actor) and not player._has_clear_melee_path(actor), "actual world collision must exclude the occluded dagger target")
