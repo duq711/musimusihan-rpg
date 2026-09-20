@@ -10,6 +10,7 @@ const REAR_CASES := [
 ]
 const REAR_STAGES := {
 	"prepare": REAR_MOTION.PREPARE_END,
+	"thrust_mid": (REAR_MOTION.PREPARE_END + REAR_MOTION.STAB_HIT) * .5,
 	"stab": REAR_MOTION.STAB_HIT,
 	"twist_start": REAR_MOTION.TWIST_START,
 	"twist_end": REAR_MOTION.TWIST_END,
@@ -322,18 +323,13 @@ func _run() -> void:
 			# Secondary cameras share this exact World3D and render the same physics
 			# sample. Neither the actor nor blade is reposed or mirrored for them.
 			var inspection_stage := ""
-			for candidate: String in ["stab", "hold"]:
+			for candidate: String in ["prepare", "thrust_mid", "stab", "hold"]:
 				if driver.stages.has(candidate) and not inspection_stills.has(candidate): inspection_stage = candidate
 			if not inspection_stage.is_empty():
-				var anchor: Vector3 = sample.execution.contact_point
-				var axis: Vector3 = sample.execution.stab_direction
-				var right := axis.cross(Vector3.UP).normalized()
-				var focus := anchor + axis * .20
 				for angle: String in inspections:
 					var inspection: Dictionary = inspections[angle]
 					var camera: Camera3D = inspection.camera
-					camera.global_position = focus + (right * 1.65 + Vector3.UP * .12 if angle == "side" else axis * 1.7 + right * .36 + Vector3.UP * .12)
-					camera.look_at(focus, Vector3.UP)
+					_frame_passage_inspection(camera, angle, sample)
 					inspection.viewport.render_target_update_mode = SubViewport.UPDATE_ONCE
 			viewport.render_target_update_mode = SubViewport.UPDATE_ONCE
 			await RenderingServer.frame_post_draw
@@ -376,7 +372,9 @@ func _run() -> void:
 			"minimum_shoulder_camera_z_m": driver.minimum_shoulder_camera_z_m if is_finite(driver.minimum_shoulder_camera_z_m) else 0.0,
 			"physics_samples": driver.records, "final_creep": actor.get_creep_snapshot()})
 		print("REAR TAKEDOWN CASE: ", scenario.id, " | accepted ", driver.began.get("accepted", false), " | defeats ", driver.defeats)
-		if not bool(scenario.alerted): _check(inspection_stills.has("stab") and inspection_stills.has("hold"), "same-pose side/front GPU inspection captured at deep stab and after twist")
+		if not bool(scenario.alerted):
+			for required: String in ["prepare", "thrust_mid", "stab", "hold"]:
+				_check(inspection_stills.has(required), "same-pose full-arm side/front and hand closeup captured: " + required)
 		for view: Dictionary in inspections.values(): view.viewport.queue_free()
 		viewport.queue_free()
 		await process_frame
@@ -401,11 +399,12 @@ func _run() -> void:
 		"session_inventory_preserved": session_preserved, "cursor_preserved": cursor_preserved,
 		"capture_scope": "Actual DungeonPlayer sword and live Creep AI. One begin_rear_takedown call at .6 seconds per case; actual production through-stab, single blade-axis twist, rightward slicing extraction and whole-body rigid-body death with attached head. No forced damage, death, pose, detached-part position or contact.",
 		"depth_measurement": "Displayed blade vertices are scanned independently in world space at every physics tick. Stab/hold stages additionally re-intersect posed torso triangles. Lateral extraction is measured against the original wound plane because the intact corpse is already physically falling. The final living physics sample (within two ticks of death) records actual torso contact; dead bodies intentionally no longer answer combat hit queries. Entry depth and opposite-side protrusion are measured independently against actual visible CreepPart skin triangles, including both triangle windings. The farthest forward intersection is the actual outer exit, and both entry and exit must belong to torso skin. No collision proxy or cap closes the skin. Side/front inspection cameras share the exact same world and physics pose.",
-		"arm_measurement": "Actual fitted shoulder/elbow/wrist are recorded in world and camera space every physics tick. During the full active takedown, shoulder displacement from its anatomical rest anchor must stay within 4.5cm, its camera-space Z stays behind the camera, and upper/forearm lengths remain 34/26cm. These checks supplement, not replace, inspection of the rendered sleeve edge.",
+		"arm_measurement": "Actual fitted shoulder/elbow/wrist are recorded in world and camera space every physics tick. The real rendered rig also measures blade-to-forearm angle, elbow behind/right of wrist, and palm-anchor/digit-bone position relative to the handle. Bone distances and a fixed palm anchor do not prove skin contact; separate GPU grip-side closeups inspect it. During the full active takedown, shoulder displacement from its anatomical rest anchor must stay within 4.5cm, its camera-space Z stays behind the camera, and upper/forearm lengths remain 34/26cm. Side inspection frames the whole shoulder/elbow/wrist and sword at preparation, mid-thrust, deepest stab and hold, in the same world pose.",
 		"wrist_measurement": "Actual supplied wrist/elbow bone poses and the authored neutral forearm axis independently measure hand-to-forearm axis mismatch, not a clinical wrist angle. Embedded stab and lateral-extraction keys require at most 45 degrees. All 60Hz samples retain real bone continuity; exposed-blade frustum projection is required through the lethal lateral cut, after which the rightward follow-through may leave the frame; projection does not prove that skin or sleeve does not occlude it. The blade world basis must remain fixed within 0.1 degrees during axial thrust and pre-twist hold; one monotonic 45-degree roll preserves blade axis and tip, followed by the rightward slice.",
 		"camera_motion": "Starts 1.15m behind the actual actor, aimed at back skin. Production aiming/lean and collision-tested initial approach own the active sequence. The actual capsule approaches to the deep-grip distance during thrust, with no post-stab neck-cut step. Only after the completed kill, a capture-only pitch tilt from 3.5 to 4.3 seconds ends at -47 degrees to inspect the intact corpse. Alerted control keeps its initial camera; live AI can turn and move.",
 		"input_scope": "No OS keyboard/mouse/focus, hardware cursor change, desktop capture or audible playback. Labels are inspection subtitles. The alerted control is initialized in CHASE, then runs normal AI; the rear case starts unaware in IDLE.",
-		"reference_scope": "Requested action sequence only. The linked reference video could not be played silently with the available tools and was not visually observed.",
+		"reference_scope": "The current attached martial-arts diagram was opened and visually inspected. Its middle-left straight thrust from middle guard informs the hand/forearm/point alignment and passing extension; the existing game shield/weapon design is retained. Earlier linked reference videos were not visually observed and are not claimed as a frame-matched source.",
+		"inspection_geometry_scope": "First-person arm geometry; the third-person avatar body layer is excluded just like the main first-person camera. All inspection views share the same live world, first-person arm, weapon and enemy pose; no actor or weapon is reposed or mirrored.",
 		"stages_seconds": REAR_STAGES, "penetration_ratio_target": REAR_MOTION.PENETRATION_RATIO,
 		"scenarios": outcomes, "frames": frames, "failures": failures}
 	var output := FileAccess.open(directory.path_join("capture_manifest.json"), FileAccess.WRITE)
@@ -431,6 +430,10 @@ func _check_rear_case(driver: RearDriver, scenario: Dictionary, rendered: Array[
 			_check(sample.execution.profile == "rear_sword" and sample.world_contact, prefix + "rear profile renders with world depth")
 			_check(bool(sample.right_arm.available), prefix + "actual fitted right-arm joints recorded")
 			if bool(sample.right_arm.available):
+				var actual: Dictionary = sample.right_arm.actual_rig
+				_check(absf(float(actual.thrust_grip_amount) - REAR_MOTION.grip_blend(float(sample.execution.elapsed))) < .0001, prefix + "rendered hand follows the rear-only diagonal grip clock")
+				_check(float(actual.actual_wrist_fit_error_m) < .001 and float(actual.actual_neutral_api_error_degrees) < .1, prefix + "real wrist/hand axis match the rear IK helper coordinates")
+				_check(float(actual.planned_grip_offset_error_m) < .001, prefix + "actual palm anchor follows the planned hand-to-hilt contact offset")
 				_check(float(sample.right_arm.actual_shoulder_adjustment_m) <= .045, prefix + "shoulder stays attached throughout takedown (maximum 4.5cm adjustment)")
 				_check((sample.right_arm.camera.shoulder as Vector3).z >= .015, prefix + "upper-arm origin remains behind the first-person camera")
 				_check(absf(float(sample.right_arm.upper_length_m) - .34) <= .004 and absf(float(sample.right_arm.forearm_length_m) - .26) <= .003, prefix + "actual arm segments retain anatomical lengths")
@@ -438,6 +441,8 @@ func _check_rear_case(driver: RearDriver, scenario: Dictionary, rendered: Array[
 				_check(float(sample.health) > 0.0 and not ("head" in sample.dismemberment.severed), prefix + "alive with attached head until actual lateral cutting contact")
 		elif int(sample.player_state) == DungeonPlayer.CombatState.READY:
 			_check(not sample.world_contact, prefix + "ready restores normal first-person rendering")
+			if bool(sample.right_arm.available):
+				_check(is_zero_approx(float(sample.right_arm.actual_rig.thrust_grip_amount)), prefix + "ready and refused actions retain the original non-thrust grip")
 	if bool(scenario.alerted):
 		_check(not bool(driver.began.get("accepted", false)) and not driver.before_begin.candidate_is_actor, prefix + "alerted target refuses rear takedown")
 		_check(int(driver.before_begin.enemy_state) != DungeonEnemy.AIState.IDLE, prefix + "refusal used a genuinely alerted AI state")
@@ -447,6 +452,11 @@ func _check_rear_case(driver: RearDriver, scenario: Dictionary, rendered: Array[
 	_check(bool(driver.began.get("accepted", false)) and driver.before_begin.candidate_is_actor, prefix + "actual unaware rear target accepted")
 	_check(int(driver.before_begin.enemy_state) == DungeonEnemy.AIState.IDLE, prefix + "enemy was unaware immediately before reservation")
 	_check(driver.defeats == 1 and driver.landed == 1 and is_zero_approx(float(last.health)), prefix + "one production lethal cut, defeat and reward event")
+	if driver.stages.has("stab"):
+		var actual: Dictionary = driver.stages.stab.right_arm.actual_rig
+		_check(float(actual.blade_forearm_angle_degrees) <= 45.0, prefix + "middle-guard deep thrust aligns the rendered blade within 45 degrees of forearm extension")
+		_check(float(actual.axis_mismatch_degrees) <= 20.0, prefix + "deep thrust keeps the actual hand/forearm neutral-axis mismatch within 20 degrees")
+		_check(float(actual.elbow_behind_wrist_along_blade_m) > .15, prefix + "deep thrust keeps the rendered elbow more than 15cm behind the wrist along the blade")
 	_check((last.dismemberment.severed as Array).is_empty() and int(last.dismemberment.detached_bodies) == 0, prefix + "head and all limbs remain attached")
 	_check(str(last.ragdoll.phase) in ["simulating", "settled"] and int(last.ragdoll.bodies) > 0, prefix + "actual rigid-body corpse simulation")
 	_check(float(last.initial_chest_distance_m) > .20, prefix + "corpse physically moved from standing pose")
@@ -511,6 +521,8 @@ func _check_wrist_sequence(driver: RearDriver, prefix: String) -> void:
 	var twist_start := {}
 	var previous_twist := 0.0
 	var maximum_twist := 0.0
+	var minimum_thrust_forearm_clearance := INF
+	var minimum_preparation_forearm_clearance := INF
 	for sample: Dictionary in driver.records:
 		if not bool(sample.execution.active):
 			previous = {}
@@ -520,6 +532,11 @@ func _check_wrist_sequence(driver: RearDriver, prefix: String) -> void:
 		if not bool(actual.get("available", false)): continue
 		var time := float(sample.execution.elapsed)
 		var depth := float(sample.actual_blade.axis_depth_m)
+		if time >= REAR_MOTION.PREPARE_END and time <= REAR_MOTION.HOLD_END:
+			minimum_thrust_forearm_clearance = minf(minimum_thrust_forearm_clearance, float(actual.camera_forearm_centerline_clearance_m))
+			_check(float(actual.camera_forearm_centerline_clearance_m) >= .14, prefix + "actual forearm centerline stays at least 14cm from camera during middle-guard thrust/hold at %.4fs" % time)
+		elif time < REAR_MOTION.PREPARE_END:
+			minimum_preparation_forearm_clearance = minf(minimum_preparation_forearm_clearance, float(actual.camera_forearm_centerline_clearance_m))
 		var strict_axis := (time >= REAR_MOTION.PREPARE_END and time <= REAR_MOTION.WITHDRAW_END and depth > 0.0) or (time >= REAR_MOTION.STAB_HIT and time <= REAR_MOTION.WITHDRAW_END) or absf(time - REAR_MOTION.CUT_HIT) <= 1.0 / 60.0
 		if strict_axis:
 			checked_axis_samples += 1
@@ -566,6 +583,9 @@ func _check_wrist_sequence(driver: RearDriver, prefix: String) -> void:
 		"maximum_step_time": maximum_step_time, "maximum_hand_rotation_step_degrees": maximum_hand_rotation,
 		"maximum_embedded_blade_rotation_degrees": maximum_blade_drift, "maximum_single_twist_degrees": maximum_twist,
 		"minimum_exposed_blade_projection_fraction": minimum_projection_fraction if is_finite(minimum_projection_fraction) else 0.0,
+		"minimum_thrust_forearm_camera_clearance_m": minimum_thrust_forearm_clearance if is_finite(minimum_thrust_forearm_clearance) else 0.0,
+		"minimum_preparation_forearm_camera_clearance_m": minimum_preparation_forearm_clearance if is_finite(minimum_preparation_forearm_clearance) else 0.0,
+		"forearm_clearance_scope": "Actual rendered elbow/wrist centerline versus camera origin; a 14cm proxy guard from preparation-end through post-twist hold. Preparation rotation is reported separately. Not a complete skin/sleeve collision proof.",
 		"projection_occlusion_verified": false}
 
 
@@ -601,7 +621,7 @@ func _rear_overlay(viewport: SubViewport, title: String) -> Label:
 
 func _create_passage_inspection_views(shared_world: World3D) -> Dictionary:
 	var result := {}
-	for angle: String in ["side", "front"]:
+	for angle: String in ["side", "front", "grip_side"]:
 		var inspection := SubViewport.new()
 		inspection.name = "PassageInspection_" + angle
 		inspection.size = Vector2i(960, 720)
@@ -615,9 +635,44 @@ func _create_passage_inspection_views(shared_world: World3D) -> Dictionary:
 		var camera := Camera3D.new()
 		camera.near = .025
 		camera.fov = 48.0
-		camera.cull_mask = (1 << 20) - 1
+		camera.cull_mask = ((1 << 20) - 1) & ~DungeonPlayer.PLAYER_APPEARANCE.BODY_LAYER
 		inspection.add_child(camera)
 		camera.make_current()
-		_rear_overlay(inspection, "동일 자세 · %s / SAME POSE · %s" % ["측면" if angle == "side" else "정면", angle.to_upper()])
+		var title: String = {"side": "전체 팔 측면", "front": "정면", "grip_side": "손·파지 확대"}[angle]
+		_rear_overlay(inspection, "1인칭 팔 · 동일 자세 · %s / FP ARM · SAME POSE · %s" % [title, angle.to_upper()])
 		result[angle] = {"viewport": inspection, "camera": camera}
 	return result
+
+
+func _frame_passage_inspection(camera: Camera3D, angle: String, sample: Dictionary) -> void:
+	var anchor: Vector3 = sample.execution.contact_point
+	var axis: Vector3 = sample.actual_blade.axis_world
+	var right := axis.cross(Vector3.UP).normalized()
+	var actual: Dictionary = sample.right_arm.actual_rig
+	if angle == "front":
+		var focus := anchor + axis * .20
+		camera.global_position = focus + axis * 1.7 + right * .36 + Vector3.UP * .12
+		camera.look_at(focus, Vector3.UP)
+		return
+	if angle == "grip_side":
+		var focus: Vector3 = (actual.wrist_world as Vector3).lerp(actual.handle_center_world, .6)
+		# A separate close view resolves the thumb/finger wrap that a whole-arm
+		# camera cannot show. It uses this same real rig, without any repose.
+		camera.global_position = focus + right * .56 - axis * .22 + Vector3.UP * .11
+		camera.look_at(focus, Vector3.UP)
+		return
+	var landmarks: Array[Vector3] = [actual.shoulder_world, actual.elbow_world, actual.wrist_world, sample.actual_blade.base_world, sample.actual_blade.tip_world]
+	var minimum := landmarks[0]
+	var maximum := landmarks[0]
+	for point in landmarks:
+		minimum = minimum.min(point)
+		maximum = maximum.max(point)
+	var center := (minimum + maximum) * .5
+	var radius := .25
+	for point in landmarks: radius = maxf(radius, point.distance_to(center))
+	# Fit the complete arm and blade inside the narrower vertical field of
+	# view. Keep a margin around actual landmarks for the sleeve's thickness.
+	var distance := (radius + .09) / sin(deg_to_rad(camera.fov * .5))
+	var offset := (right + Vector3.UP * .10 - axis * .05).normalized()
+	camera.global_position = center + offset * distance
+	camera.look_at(center, Vector3.UP)

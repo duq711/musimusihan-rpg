@@ -1921,7 +1921,7 @@ func _prepare_rear_takedown(scenario: String = "rear") -> bool:
 	elif scenario == "front":
 		_status("정면 비교 · E 후방 제압 불가 · 적이 감지하면 추적·공격 · F2 미인지 후방 / 회복·재선택")
 	else:
-		_status("미인지 후방 검 제압 · E: 깊게 관통 → 한 번 비틀기 → 플레이어 우측으로 베어 빼기 → 머리 유지 랙돌 · F2 정지·회복·재선택")
+		_status("미인지 후방 검 제압 · E: 대각 파지·중단 전진 찌르기 → 깊게 관통 → 한 번 비틀기 → 우측 발검 → 머리 유지 랙돌 · F2 정지·회복·재선택")
 	return true
 
 

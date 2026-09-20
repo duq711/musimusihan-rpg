@@ -29,15 +29,19 @@ func _run() -> void:
 	reward_game.inventory = bag
 	reward_game.hud = reward_hud
 	reward_game.portal_material = StandardMaterial3D.new()
+	_thrust_grip_adapter_regression()
 	await _fresh_idle_preparation_regression()
 	await _eligibility_and_profiles()
 	await _ordered_execution("rusted_sword", false)
 	await _ordered_execution("forged_longsword", true)
+	await _ordered_execution("rusted_sword", false, .86)
 	await _ordered_execution("rusted_sword", false, 1.49)
 	await _wrist_motion_sequence()
+	await _ordinary_attack_grip_restoration()
 	await _cancellation_boundaries()
 	await _blocked_approach()
 	await _blocked_initial_approach()
+	await _blocked_preparation_retreat()
 	await _clear_targets()
 	reward_game.free()
 	viewport.queue_free()
@@ -51,6 +55,81 @@ func _run() -> void:
 	print("REAR TAKEDOWN REPORT: ", JSON.stringify(report))
 	print("REAR TAKEDOWN TEST %s: unaware rear gates, actual back/front skin/full-blade/one twist/rightward extraction, ordered long tick, intact head and one death/reward, cancellation and preserved session" % ("PASS" if failures.is_empty() else "FAIL"))
 	quit(0 if failures.is_empty() else 1)
+
+
+func _thrust_grip_adapter_regression() -> void:
+	# Check the actual supplied rig under its adapter, not merely the two
+	# helper functions against one another. Changing grip cannot stretch the
+	# hand, move its palm anchor, or leave a residual pose on ordinary attacks.
+	var grip = player.SWORD_LONG_GRIP.new()
+	stage.add_child(grip)
+	grip.setup()
+	var adapter: Node3D = grip.get_node("SuppliedRightArm")
+	var rig := adapter.find_child("Skeleton3D", true, false) as Skeleton3D
+	var wrist_index := rig.find_bone("wrist")
+	var default_frame := adapter.transform
+	var default_bones: Array[Transform3D] = []
+	for index in rig.get_bone_count(): default_bones.append(rig.get_bone_pose(index))
+	var maximum_palm_error := 0.0
+	var maximum_wrist_error := 0.0
+	for amount: float in [-1.0, 0.0, .25, .5, .75, 1.0, 2.0, 0.0]:
+		grip.set_thrust_grip(amount)
+		var clamped := clampf(amount, 0.0, 1.0)
+		var palm: Vector3 = grip.to_local(adapter.to_global(adapter.GRIP_CENTER))
+		var wrist := grip.to_local(rig.to_global(rig.get_bone_global_pose(wrist_index).origin))
+		var expected_palm: Vector3 = grip.GRIP_CENTER + grip.THRUST_CONTACT_OFFSET * clamped
+		var palm_error: float = palm.distance_to(expected_palm)
+		var wrist_error: float = wrist.distance_to(grip.wrist_local(clamped))
+		maximum_palm_error = maxf(maximum_palm_error, palm_error)
+		maximum_wrist_error = maxf(maximum_wrist_error, wrist_error)
+		_check(palm_error < .0001 and wrist_error < .0001, "thrust grip keeps the planned palm offset and reports the true skinned wrist at blend %.2f" % amount)
+		_check(adapter.basis.get_scale().is_equal_approx(Vector3.ONE) and adapter.basis.determinant() > .9999, "thrust grip is a rigid rotation without hand stretch or reflection")
+		for index in rig.get_bone_count():
+			var pose := rig.get_bone_pose(index)
+			_check(pose.origin.is_equal_approx(default_bones[index].origin) and pose.basis.get_scale().is_equal_approx(default_bones[index].basis.get_scale()), "diagonal finger wrapping preserves bone lengths and scale")
+	_check(adapter.transform.is_equal_approx(default_frame) and is_zero_approx(grip.thrust_grip_amount), "returning grip amount to zero restores the exact normal hand frame")
+	for index in rig.get_bone_count():
+		_check(rig.get_bone_pose(index).is_equal_approx(default_bones[index]), "returning grip amount to zero restores every original finger bone rotation")
+	grip.set_thrust_grip(NAN)
+	_check(adapter.transform.is_equal_approx(default_frame), "nonfinite grip input cannot contaminate the actual rig")
+	report.append({"case": "thrust_grip_adapter", "maximum_actual_palm_anchor_error_m": maximum_palm_error, "maximum_actual_wrist_api_error_m": maximum_wrist_error, "ordinary_frame_restored": adapter.transform.is_equal_approx(default_frame), "contact_scope": "Anchor and bone consistency; skin contact checked in GPU closeups."})
+	grip.queue_free()
+
+
+func _check_restored_grip(subject: DungeonPlayer, context: String) -> void:
+	var adapter := subject.weapon_arm.get_node_or_null("SuppliedRightArm") as Node3D
+	_check(adapter != null, context + ": supplied right hand is retained")
+	if adapter == null: return
+	_check(is_zero_approx(float(subject.weapon_arm.get("thrust_grip_amount"))), context + ": no rear-thrust grip blend leaks into ordinary combat")
+	_check(adapter.transform.is_equal_approx(subject.SWORD_LONG_GRIP.grip_frame(0.0)), context + ": original non-thrust hand frame is restored exactly")
+
+
+func _ordinary_attack_grip_restoration() -> void:
+	await _clear_targets()
+	_check(_equip("rusted_sword"), "normal-attack restoration equips the real sword")
+	player.health = player.MAX_HEALTH
+	player.stamina = player.MAX_STAMINA
+	player._sword_draw_elapsed = player.SWORD_DRAW_DURATION
+	player._motion_equip_elapsed = player.MOTION.EQUIP_DURATION
+	player._update_viewmodel(0.0)
+	_check_restored_grip(player, "after completed rear execution")
+	var result := player.begin_sword_attack()
+	_check(bool(result.accepted), "ordinary attack remains available after the rear sequence")
+	player.attack_release_requested = true
+	var active_seen := false
+	var ready_seen := false
+	for frame in 80:
+		player.advance_combat_state(STEP)
+		player._update_viewmodel(STEP)
+		active_seen = active_seen or player.combat_state == DungeonPlayer.CombatState.ACTIVE
+		player._resolve_active_attack()
+		ready_seen = ready_seen or (active_seen and player.combat_state == DungeonPlayer.CombatState.READY)
+		_check_restored_grip(player, "ordinary attack tick %d" % frame)
+	_check(active_seen and ready_seen, "ordinary attack advances through active swing and recovery with the original grip")
+	player.cancel_sword_attack()
+	player._update_viewmodel(0.0)
+	_check_restored_grip(player, "after ordinary attack cancellation")
+	report.append({"case": "ordinary_attack_grip_restoration", "accepted": result.get("accepted", false), "samples": 80, "active_seen": active_seen, "ready_seen": ready_seen, "rear_grip_must_remain_zero": true})
 
 
 class FreshPreparationDriver extends Node:
@@ -173,6 +252,8 @@ func _fresh_idle_preparation_regression() -> void:
 		previous = sample
 	report.append({"case": "fresh_idle_preparation", "initialization": "same fresh ARM_PREVIEW fixture; completed draw/equip; actual back-skin aim; 35 idle physics ticks before begin at tick36", "before_begin": driver.before_begin, "begin_result": driver.begin_result, "sample_count": driver.samples.size(), "maximum_joint_step_m": maximum_step, "maximum_hand_rotation_degrees": maximum_rotation, "maximum_shoulder_adjustment_m": maximum_shoulder, "samples": driver.samples})
 	subject.cancel_execution()
+	subject._update_viewmodel(0.0)
+	_check_restored_grip(subject, "fresh preparation cancellation")
 	_check(actor.health == actor.max_health and actor.dismemberment.severed.is_empty(), "preparation-only regression does not commit a stab or kill")
 	fresh_viewport.queue_free()
 	await process_frame
@@ -358,6 +439,8 @@ func _ordered_execution(weapon: String, long_tick: bool, initial_distance := 1.1
 	player.cancel_execution()
 	player.cancel_execution()
 	player.advance_execution(REAR.DURATION)
+	player._update_viewmodel(0.0)
+	_check_restored_grip(player, "post-cut cancellation")
 	_check(not player.is_execution_active() and not player.viewmodel_renderer.world_contact_enabled and actor.dismemberment.detached.is_empty() and _defeats(actor) == 1 and bag.count_item("rune_fragment") == before_rewards + 1, "post-cut cancellation restores player and cannot duplicate death/reward")
 	report.append({"case": weapon, "long_tick": long_tick, "initial_distance_m": initial_distance, "blade_length_m": actual_length, "head_bodies": actor.dismemberment.detached.size(), "attached_head_ragdoll": actor.ragdoll.parts.has("Head"), "defeats": _defeats(actor), "rune_rewards": bag.count_item("rune_fragment") - before_rewards})
 
@@ -430,7 +513,7 @@ func _cancellation_boundaries() -> void:
 		var actor = await _new_rear_actor()
 		var rewards := bag.count_item("rune_fragment")
 		if not _start_rear(actor): continue
-		_advance_rear_to(.84)
+		_advance_rear_to(REAR.STAB_HIT + .04)
 		match mode:
 			"equipment": _check(_equip("iron_dagger"), "mid-execution equipment swap uses actual inventory")
 			"player_death":
@@ -447,6 +530,8 @@ func _cancellation_boundaries() -> void:
 				await physics_frame
 				await physics_frame
 		player.advance_execution(REAR.DURATION)
+		player._update_viewmodel(0.0)
+		_check_restored_grip(player, "cancel " + mode)
 		_check(not player.is_execution_active() and not player.viewmodel_renderer.world_contact_enabled, "cancelled rear execution releases player/render mode: " + mode)
 		_check(actor.health == actor.max_health and actor.ai_state == DungeonEnemy.AIState.STAGGER and not is_instance_valid(actor._execution_executor), "cancelled live target must be released and alerted: " + mode)
 		_check(actor.dismemberment.detached.is_empty() and actor.dismemberment.severed.is_empty() and actor.ragdoll.phase == "living" and _defeats(actor) == 0 and bag.count_item("rune_fragment") == rewards, "cancel before cut must not create delayed severance, dead hold or rewards: " + mode)
@@ -470,6 +555,10 @@ func _check_execution_arm_reach(phase: String) -> void:
 	_check(bool(wrist.get("available", false)), "actual supplied hand and forearm bones must be measurable: " + phase)
 	if bool(wrist.get("available", false)):
 		_check(float(wrist.axis_mismatch_degrees) <= 45.0, "authored hand axis must align with the actual posed forearm within 45 degrees: " + phase)
+		if phase == "deep_stab":
+			_check(float(wrist.blade_forearm_angle_degrees) <= 45.0, "middle-guard deep thrust keeps the real blade within 45 degrees of forearm extension")
+			_check(float(wrist.axis_mismatch_degrees) <= 20.0, "middle-guard deep thrust keeps the actual hand/forearm neutral-axis mismatch within 20 degrees")
+			_check(float(wrist.elbow_behind_wrist_along_blade_m) > .15, "deep thrust is supported by the real elbow at least 15cm behind the wrist along the blade")
 	report.append({"case": "execution_arm_reach", "phase": phase, "time": player.execution_elapsed, "shoulder_to_wrist_m": reach, "authored_shoulder_to_wrist_m": requested_reach, "shoulder_adjustment_m": adjustment, "grip_error_m": grip.error})
 	if not wrist.is_empty(): report.append({"case": "actual_wrist_axis", "phase": phase, "measurement": wrist})
 
@@ -494,6 +583,8 @@ func _wrist_motion_sequence() -> void:
 	var twist_start := {}
 	var previous_twist_angle := 0.0
 	var maximum_twist_angle := 0.0
+	var minimum_thrust_forearm_clearance := INF
+	var minimum_preparation_forearm_clearance := INF
 	for time in times:
 		if not samples.is_empty() and time <= elapsed + .0000001: continue
 		var delta := time - elapsed
@@ -504,6 +595,15 @@ func _wrist_motion_sequence() -> void:
 		var actual := measure_wrist_geometry(player)
 		_check(bool(actual.get("available", false)), "60Hz wrist check reads the actual supplied skeleton")
 		if not bool(actual.get("available", false)): continue
+		if player.is_execution_active():
+			_check(absf(float(actual.thrust_grip_amount) - REAR.grip_blend(time)) < .0001, "actual hand uses the rear-only diagonal grip blend at %.5fs" % time)
+			_check(float(actual.actual_wrist_fit_error_m) < .001 and float(actual.actual_neutral_api_error_degrees) < .1, "rear IK helpers must match the actual rendered wrist and neutral axis at %.5fs" % time)
+			_check(float(actual.planned_grip_offset_error_m) < .001, "diagonal grip follows the planned hand-to-handle contact offset")
+		if time >= REAR.PREPARE_END and time <= REAR.HOLD_END:
+			minimum_thrust_forearm_clearance = minf(minimum_thrust_forearm_clearance, float(actual.camera_forearm_centerline_clearance_m))
+			_check(float(actual.camera_forearm_centerline_clearance_m) >= .14, "middle-guard thrust keeps the real forearm centerline at least 14cm from the camera at %.5fs" % time)
+		elif time < REAR.PREPARE_END:
+			minimum_preparation_forearm_clearance = minf(minimum_preparation_forearm_clearance, float(actual.camera_forearm_centerline_clearance_m))
 		var blade := _real_blade()
 		var state := player.get_execution_snapshot()
 		var depth: float = (blade.tip - state.contact_point).dot(state.stab_direction)
@@ -555,7 +655,7 @@ func _wrist_motion_sequence() -> void:
 			if absf(float(sample.time) - boundary) < .000001:
 				projection_stages.append({"time": sample.time, "projection": sample.projection, "axis_mismatch_degrees": sample.actual.axis_mismatch_degrees})
 	_check(samples.size() >= int(ceil(REAR.DURATION / STEP)) and embedded_seen, "full 60Hz execution and explicit phase-boundary samples must be retained")
-	report.append({"case": "full_wrist_continuity", "sample_count": samples.size(), "preparation_samples": samples.filter(func(sample): return float(sample.time) <= REAR.PREPARE_END), "maximum_joint_step_m": maximum_step, "maximum_step_time": maximum_step_time, "maximum_hand_rotation_step_degrees": maximum_rotation, "maximum_embedded_axis_mismatch_degrees": maximum_mismatch, "maximum_fixed_blade_rotation_degrees": maximum_fixed_rotation, "maximum_twist_degrees": maximum_twist_angle, "projection_stages": projection_stages})
+	report.append({"case": "full_wrist_continuity", "sample_count": samples.size(), "preparation_samples": samples.filter(func(sample): return float(sample.time) <= REAR.PREPARE_END), "maximum_joint_step_m": maximum_step, "maximum_step_time": maximum_step_time, "maximum_hand_rotation_step_degrees": maximum_rotation, "maximum_embedded_axis_mismatch_degrees": maximum_mismatch, "maximum_fixed_blade_rotation_degrees": maximum_fixed_rotation, "maximum_twist_degrees": maximum_twist_angle, "minimum_thrust_forearm_camera_clearance_m": minimum_thrust_forearm_clearance, "minimum_preparation_forearm_camera_clearance_m": minimum_preparation_forearm_clearance, "forearm_clearance_scope": "Actual elbow-to-wrist centerline distance to camera; 14cm floor from preparation-end through post-twist hold. Preparation is reported separately. Proxy only, not an exact skin/sleeve collision proof.", "projection_stages": projection_stages})
 
 
 static func measure_wrist_geometry(subject: DungeonPlayer) -> Dictionary:
@@ -579,12 +679,53 @@ static func measure_wrist_geometry(subject: DungeonPlayer) -> Dictionary:
 	var hand_axis := (rig.global_basis * wrist_pose.basis * rest_wrist.basis.inverse() * neutral).normalized()
 	var actual_forearm := (elbow - wrist).normalized()
 	var legacy_axis := (subject.weapon_arm.global_basis * (subject.SWORD_LONG_GRIP.REST_ELBOW - subject.SWORD_LONG_GRIP.REST_WRIST)).normalized()
+	var blade_axis := subject.weapon_pivot.global_basis.y.normalized()
+	var handle_center: Vector3 = subject.weapon_pivot.to_global(subject.SWORD_LONG_GRIP.GRIP_CENTER)
+	var anatomical_grip_center: Vector3 = adapter.to_global(adapter.GRIP_CENTER)
+	var wrist_camera := subject.camera.to_local(wrist)
+	var elbow_camera := subject.camera.to_local(elbow)
+	var segment := wrist_camera - elbow_camera
+	var nearest_fraction := clampf(-elbow_camera.dot(segment) / maxf(segment.length_squared(), .00000001), 0.0, 1.0)
+	var nearest_forearm_point := elbow_camera + segment * nearest_fraction
+	var digit_landmarks := {}
+	for digit: String in ["index", "middle", "ring", "little", "thumb"]:
+		var points: Array[Dictionary] = []
+		for joint in 3:
+			var bone := rig.find_bone(digit + str(joint))
+			if bone < 0: continue
+			var point := rig.to_global(rig.get_bone_global_pose(bone).origin)
+			var axial := (point - handle_center).dot(blade_axis)
+			points.append({"joint": joint, "world": point, "handle_axis_distance_m": (point - handle_center - blade_axis * axial).length(), "handle_axis_offset_m": axial})
+		digit_landmarks[digit] = points
+	var grip_amount := float(subject.weapon_arm.get("thrust_grip_amount"))
+	var expected_palm: Vector3 = subject.weapon_pivot.to_global(subject.SWORD_LONG_GRIP.GRIP_CENTER + subject.SWORD_LONG_GRIP.THRUST_CONTACT_OFFSET * grip_amount)
+	var expected_wrist: Vector3 = subject.weapon_arm.to_global(subject.SWORD_LONG_GRIP.wrist_local(grip_amount))
+	var expected_neutral: Vector3 = (subject.weapon_arm.global_basis * subject.SWORD_LONG_GRIP.neutral_axis_local(grip_amount)).normalized()
 	return {"available": true, "wrist_world": wrist, "elbow_world": elbow, "shoulder_world": shoulder,
 		"hand_basis_world": hand.basis.orthonormalized(), "neutral_hand_axis_world": hand_axis,
 		"actual_forearm_axis_world": actual_forearm,
 		"axis_mismatch_degrees": rad_to_deg(hand_axis.angle_to(actual_forearm)),
 		"legacy_axis_mismatch_degrees": rad_to_deg(legacy_axis.angle_to(actual_forearm)),
-		"measurement_scope": "Authored rig neutral axis versus posed forearm; not a clinical wrist angle."}
+		"blade_forearm_angle_degrees": rad_to_deg(blade_axis.angle_to(-actual_forearm)),
+		"blade_hand_neutral_angle_degrees": rad_to_deg(blade_axis.angle_to(-hand_axis)),
+		"elbow_behind_wrist_along_blade_m": (wrist - elbow).dot(blade_axis),
+		"elbow_right_of_wrist_camera_m": elbow_camera.x - wrist_camera.x,
+		"elbow_above_wrist_camera_m": elbow_camera.y - wrist_camera.y,
+		"camera_forearm_centerline_clearance_m": nearest_forearm_point.length(),
+		"camera_forearm_nearest_point": nearest_forearm_point,
+		"camera_forearm_nearest_fraction": nearest_fraction,
+		"camera_forearm_clearance_scope": "Origin-to-segment distance in camera space using actual rendered elbow and wrist bones. Centerline proxy only; not an exact skin/sleeve intersection proof.",
+		"handle_center_world": handle_center, "anatomical_grip_center_world": anatomical_grip_center,
+		"grip_anchor_error_m": handle_center.distance_to(anatomical_grip_center),
+		"expected_palm_anchor_world": expected_palm,
+		"planned_grip_offset_m": subject.SWORD_LONG_GRIP.THRUST_CONTACT_OFFSET.length() * grip_amount,
+		"planned_grip_offset_error_m": anatomical_grip_center.distance_to(expected_palm),
+		"thrust_grip_amount": grip_amount,
+		"actual_wrist_fit_error_m": wrist.distance_to(expected_wrist),
+		"actual_neutral_api_error_degrees": rad_to_deg(hand_axis.angle_to(expected_neutral)),
+		"digit_bone_landmarks": digit_landmarks,
+		"grip_measurement_scope": "The palm anchor and digit bone distances are geometry diagnostics, not a skin/handle contact or penetration proof. Inspect the same-pose grip-side GPU closeup.",
+		"measurement_scope": "Actual posed wrist/elbow versus blade thrust axis, plus authored neutral hand axis versus forearm; not a clinical wrist angle."}
 
 
 static func actual_joint_step(a: Dictionary, b: Dictionary) -> float:
@@ -622,7 +763,7 @@ func _blocked_approach() -> void:
 	var rewards := bag.count_item("rune_fragment")
 	var hits := landed.size()
 	if not _start_rear(actor): return
-	_advance_rear_to(.84)
+	_advance_rear_to(REAR.STAB_HIT + .04)
 	# A low corner formerly blocked an unnecessary post-stab step toward the
 	# neck. Lateral extraction must stay planted and finish without that step.
 	wall = _add_box(Vector3(1.4, .65, .10), actor.global_position + Vector3(0, -.25, .25))
@@ -683,6 +824,48 @@ func _blocked_initial_approach() -> void:
 		report.append({"case": "blocked_initial_capsule_approach", "initial_distance_m": 1.49, "cancellation_time": elapsed, "actual_step_m": player.global_position.distance_to(initial_position), "deepest_tip_depth_m": deepest_tip, "stab_contact_committed": contact_committed})
 	side_wall.get_parent().remove_child(side_wall)
 	side_wall.queue_free()
+
+
+func _blocked_preparation_retreat() -> void:
+	for long_tick: bool in [false, true]:
+		await _blocked_preparation_retreat_variant(long_tick)
+
+
+func _blocked_preparation_retreat_variant(long_tick: bool) -> void:
+	var actor = await _new_rear_actor()
+	var initial_position := player.global_position
+	var original_root: Transform3D = actor.global_transform
+	var rewards := bag.count_item("rune_fragment")
+	var hits := landed.size()
+	# At the ordinary 1.15m start the middle guard now needs .25m of room
+	# behind the player. Leave .07m of real capsule clearance, then obstruct
+	# the rest without blocking any eye-to-back reservation ray.
+	wall = _add_box(Vector3(1.4, .65, .10), actor.global_position + Vector3(0, -.25, 1.63))
+	await physics_frame
+	await physics_frame
+	_check(actor.can_begin_rear_takedown(player) and player._rear_takedown_has_clear_path(actor), "rear-wall fixture permits reservation and isolates the new preparation retreat")
+	if _start_rear(actor):
+		var elapsed := 0.0
+		var contact_committed := false
+		var delta: float = REAR.CUT_HIT + .01 if long_tick else STEP
+		while elapsed < REAR.PREPARE_END + STEP and player.is_execution_active():
+			# One delayed update deliberately crosses the retreat, thrust and
+			# lethal-cut boundaries. It must sweep the retreat first, not reduce
+			# the reversing path to a net forward movement through the target.
+			player.advance_combat_state(delta)
+			player._update_viewmodel(delta)
+			elapsed += delta
+			contact_committed = contact_committed or bool(player.get_execution_snapshot().stab_contact_committed)
+		_check(not player.is_execution_active(), "blocked preparation retreat cancels even when one tick crosses the lethal-cut boundary: long_tick=%s" % long_tick)
+		if not long_tick: _check(elapsed < REAR.PREPARE_END, "60Hz blocked preparation retreat cancels before the forward thrust begins")
+		_check(not contact_committed, "blocked preparation retreat must never commit stabbing contact")
+		_check(player.global_position.z <= wall.global_position.z - .05 - .36 + .015 and player.global_position.distance_to(initial_position) < .12, "rearward capsule sweep stops before the wall instead of teleporting through it")
+		player.advance_execution(REAR.DURATION)
+		player._update_viewmodel(0.0)
+		_check_restored_grip(player, "blocked preparation retreat")
+		_check(not player.viewmodel_renderer.world_contact_enabled and actor.health == actor.max_health and actor.ai_state == DungeonEnemy.AIState.STAGGER and not is_instance_valid(actor._execution_executor), "blocked retreat releases a living alerted enemy and restores normal rendering")
+		_check(actor.global_transform.is_equal_approx(original_root) and actor.dismemberment.detached.is_empty() and actor.dismemberment.severed.is_empty() and actor.ragdoll.phase == "living" and _defeats(actor) == 0 and landed.size() == hits and bag.count_item("rune_fragment") == rewards, "blocked retreat cannot move the target, kill, or grant a reward")
+		report.append({"case": "blocked_middle_guard_retreat", "long_tick": long_tick, "requested_delta_seconds": delta, "initial_distance_m": 1.15, "requested_preparation_distance_m": REAR.STAB_DISTANCE, "requested_clock_at_cancellation": elapsed, "cancellation_before_stab": not contact_committed and actor.health == actor.max_health, "actual_retreat_m": player.global_position.distance_to(initial_position), "stab_contact_committed": contact_committed})
 
 
 func _advance_rear_to(time: float) -> void:

@@ -1195,9 +1195,10 @@ func begin_rear_takedown() -> Dictionary:
 	_execution_weapon_identity = _displayed_weapon_identity
 	_execution_contact_point = contacts.back
 	_rear_neck_contact = contacts.neck
-	# Aim through the torso below the forward-hanging head, keeping the rigid grip.
-	var forward := (contacts.direction as Vector3).normalized().rotated(Vector3.UP, deg_to_rad(4.0))
-	_execution_stab_direction = (forward * cos(deg_to_rad(-12.0)) + Vector3.UP * sin(deg_to_rad(-12.0))).normalized()
+	# Thrust from the right middle guard: the hilt stays below eye level and
+	# outside the face, instead of drawing the cuff through the camera.
+	var forward := (contacts.direction as Vector3).normalized().rotated(Vector3.UP, deg_to_rad(20.0))
+	_execution_stab_direction = (forward * cos(deg_to_rad(12.0)) + Vector3.UP * sin(deg_to_rad(12.0))).normalized()
 	_rear_stab_basis = REAR_TAKEDOWN_MOTION.stab_basis(_execution_stab_direction)
 	_rear_arm_entry = _reference_arm_rendered.duplicate(true)
 	var geometry := _get_execution_blade_geometry()
@@ -1392,6 +1393,12 @@ func _advance_rear_takedown(delta: float) -> void:
 	var next_elapsed := minf(REAR_TAKEDOWN_MOTION.DURATION, execution_elapsed + delta)
 	# Close an initially longer gap before the thrust using character collision.
 	# The thrust uses a short lunge; the later twist/extraction stays planted.
+	# A long tick must still sweep the preparation retreat before its lunge.
+	if execution_elapsed < REAR_TAKEDOWN_MOTION.PREPARE_END and next_elapsed >= REAR_TAKEDOWN_MOTION.PREPARE_END:
+		_move_rear_takedown_approach(REAR_TAKEDOWN_MOTION.PREPARE_END)
+		if _rear_approach_obstruction_m > .04:
+			cancel_execution()
+			return
 	_move_rear_takedown_approach(minf(next_elapsed, REAR_TAKEDOWN_MOTION.STAB_HIT))
 	if _rear_approach_obstruction_m > .04:
 		cancel_execution()
@@ -1414,7 +1421,7 @@ func _advance_rear_takedown(delta: float) -> void:
 		if not contacts.is_empty(): _rear_neck_contact = contacts.neck
 		if next_elapsed >= REAR_TAKEDOWN_MOTION.CUT_HIT:
 			_apply_rear_takedown_view(REAR_TAKEDOWN_MOTION.CUT_HIT)
-			var wrist := weapon_pivot.transform * SWORD_LONG_GRIP.REST_WRIST
+			var wrist := weapon_pivot.transform * SWORD_LONG_GRIP.wrist_local(REAR_TAKEDOWN_MOTION.grip_blend(REAR_TAKEDOWN_MOTION.CUT_HIT))
 			var shoulder := SWORD_LONG_GRIP.SOURCE_READY * SWORD_LONG_GRIP.REST_SHOULDER
 			if _rear_approach_obstruction_m > .04 or wrist.distance_to(shoulder) > REFERENCE_ARM.MAX_REACH + .04:
 				cancel_execution()
@@ -1446,10 +1453,13 @@ func _advance_rear_takedown(delta: float) -> void:
 
 func _move_rear_takedown_approach(elapsed: float) -> void:
 	var distance := _rear_approach_offset.length()
-	var preparation_distance := maxf(0.0, distance - (REAR_TAKEDOWN_MOTION.STAB_DISTANCE - REAR_TAKEDOWN_MOTION.CUT_DISTANCE))
+	# Establish room for the metre-long blade before the forward passing step.
+	# At close starts the capsule takes a short, collision-tested retreat rather
+	# than forcing the hand behind its elbow and folding the wrist backwards.
+	var preparation_distance := distance - (REAR_TAKEDOWN_MOTION.STAB_DISTANCE - REAR_TAKEDOWN_MOTION.CUT_DISTANCE)
 	var first := preparation_distance / maxf(distance, .000001)
 	var progress := first * smoothstep(0, REAR_TAKEDOWN_MOTION.PREPARE_END, elapsed) + (1.0 - first) * smoothstep(REAR_TAKEDOWN_MOTION.PREPARE_END, REAR_TAKEDOWN_MOTION.STAB_HIT, elapsed)
-	if progress > _rear_approach_progress:
+	if absf(progress - _rear_approach_progress) > .000001:
 		var step := _rear_approach_offset * (progress - _rear_approach_progress)
 		var before := global_position
 		move_and_collide(step)
@@ -1461,6 +1471,9 @@ func _apply_rear_takedown_view(elapsed: float) -> void:
 	# The actual character step is collision-tested by the coordinator; this
 	# function only aims the view and applies the sword/upper-body lean.
 	var focus := _execution_contact_point.lerp(_rear_neck_contact, .42)
+	# Turn the stance slightly left so the right shoulder follows the thrust
+	# line instead of folding the forearm across the centre of the chest.
+	focus -= Vector3(cos(_rear_entry_yaw), 0, -sin(_rear_entry_yaw)) * .16
 	var toward := focus - head.global_position
 	var blend := smoothstep(0, REAR_TAKEDOWN_MOTION.PREPARE_END, elapsed)
 	rotation.y = lerp_angle(_rear_entry_yaw, atan2(-toward.x, -toward.z), blend)
@@ -4110,16 +4123,19 @@ func _fit_sword_support() -> void:
 
 
 func _fit_sword_grip(grip_local: Vector3) -> void:
-	# The supplied hand is already closed around this exact grip. Its baked
-	# vertices share sword space; never re-curl or stretch the imported fingers.
+	# The normal supplied grip stays authored; the rear thrust alone uses the
+	# diagonal palm contact and individual finger pose on the same handle.
 	if weapon_arm.get_meta("imported_static_grip", false):
 		weapon_arm.transform = Transform3D.IDENTITY
-		var target := weapon_pivot.to_global(grip_local)
-		var actual := weapon_arm.to_global(SWORD_LONG_GRIP.GRIP_CENTER)
-		_hand_contacts["sword"] = {"target": target, "actual": actual, "error": actual.distance_to(target)}
+		var rear_grip := REAR_TAKEDOWN_MOTION.grip_blend(execution_elapsed) if is_execution_active() and _execution_profile == "rear_sword" else 0.0
+		weapon_arm.call("set_thrust_grip", rear_grip)
+		var target := weapon_pivot.to_global(grip_local + SWORD_LONG_GRIP.THRUST_CONTACT_OFFSET * rear_grip)
+		var actual: Vector3 = weapon_arm.call("get_palm_anchor_world")
+		_hand_contacts["sword"] = {"target": target, "actual": actual, "error": actual.distance_to(target), "scope": "posed palm anchor; skin contact audited separately"}
 		# The authored glove stays on the sword. Sleeve segments follow the
 		# shoulder, with the leather cuff rotating around the fixed wrist.
-		var wrist := weapon_arm.to_global(SWORD_LONG_GRIP.REST_WRIST)
+		var wrist_local := REAR_TAKEDOWN_MOTION.wrist_local(execution_elapsed) if is_execution_active() and _execution_profile == "rear_sword" else SWORD_LONG_GRIP.REST_WRIST
+		var wrist := weapon_arm.to_global(wrist_local)
 		if not _reference_arm_target.is_empty():
 			var local_wrist := camera.to_local(wrist)
 			var fitted := _reference_arm_target.duplicate(true)

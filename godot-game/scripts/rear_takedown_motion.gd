@@ -4,24 +4,34 @@ extends RefCounted
 const GRIP := preload("res://scripts/sword_long_grip_visual.gd")
 const ARM := preload("res://scripts/reference_sword_arm.gd")
 const POSE := preload("res://scripts/sword_shield_choreography.gd")
-const PREPARE_END := 0.28
-const STAB_HIT := 0.68
-const TWIST_START := 0.80
-const TWIST_END := 1.12
+const PREPARE_END := 0.55
+const STAB_HIT := 0.90
+const TWIST_START := 1.02
+const TWIST_END := 1.34
 const TWIST_DEGREES := -45.0
-const HOLD_END := 1.22
-const WITHDRAW_END := 1.98
+const HOLD_END := 1.44
+const WITHDRAW_END := 2.20
 const CUT_START := HOLD_END
-const CUT_HIT := 1.48
-const CUT_END := 2.10
-const DURATION := 2.62
+const CUT_HIT := 1.70
+const CUT_END := 2.32
+const DURATION := 2.84
 const PENETRATION_RATIO := 0.94
 const STAMINA_COST := 24.0
 const MIN_DISTANCE := 0.85
 const MAX_DISTANCE := 1.50
 const CUT_DISTANCE := .78
-const STAB_DISTANCE := 1.15
+const STAB_DISTANCE := 1.40
 const CUT_EDGE_FROM_TIP := .10
+
+static func grip_blend(elapsed: float) -> float:
+	# Set the diagonal thrust grip before extending the arm; restore the
+	# ordinary cutting grip only after the blade has left the body.
+	return smoothstep(0.0, PREPARE_END, elapsed) * (1.0 - smoothstep(CUT_END, DURATION, elapsed))
+
+static func wrist_local(elapsed: float) -> Vector3:
+	# The ordinary adapter still uses the authored legacy landmark. Blend its
+	# 2.5cm offset only during handoff, and solve the true wrist during thrust.
+	return GRIP.REST_WRIST.lerp(GRIP.wrist_local(grip_blend(elapsed)), grip_blend(elapsed))
 
 static func weapon_profile(definition: Dictionary) -> String:
 	# Unsupported weapons must never silently reuse a sword execution.
@@ -41,7 +51,7 @@ static func sword(elapsed: float, entry: Transform3D, back: Vector3, direction: 
 	# Keep the thrust axis fixed in world space, then intentionally roll once.
 	var frame := Transform3D(stab_basis, Vector3.ZERO)
 	frame.origin = back - frame.basis * blade_tip
-	var chamber := frame.translated(direction * -.20)
+	var chamber := frame.translated(direction * -.03)
 	var deep := frame.translated(direction * (blade_length * PENETRATION_RATIO))
 	if elapsed < PREPARE_END:
 		var t := elapsed / PREPARE_END
@@ -90,17 +100,28 @@ static func arm(pivot: Transform3D, elapsed: float, entry_arm: Dictionary, previ
 	if not entry_arm.is_empty():
 		if elapsed < PREPARE_END: shoulder = (entry_arm.shoulder as Vector3).lerp(shoulder, smoothstep(0, PREPARE_END, elapsed))
 		elif elapsed > CUT_END: shoulder = shoulder.lerp(entry_arm.shoulder, smoothstep(CUT_END, DURATION, elapsed))
-	var wrist := pivot * GRIP.REST_WRIST
+	var amount := grip_blend(elapsed)
+	var wrist := pivot * wrist_local(elapsed)
 	# The hand is rigidly holding the hilt. Its authored neutral forearm axis,
 	# not a generic down/right pole, defines the closest reachable elbow circle.
-	var neutral := (pivot.basis * (GRIP.REST_ELBOW - GRIP.REST_WRIST)).normalized()
+	var neutral := (pivot.basis * GRIP.neutral_axis_local(amount)).normalized()
 	var hint := wrist + neutral * ARM.FOREARM_LENGTH
 
 	if elapsed < PREPARE_END and not entry_arm.is_empty():
-		hint = (entry_arm.elbow as Vector3).lerp(hint, smoothstep(0, PREPARE_END, elapsed))
-		# Lead the preparation elbow out to the right instead of letting its
-		# hint cross the shoulder–wrist axis and flip the bend direction.
-		hint += Vector3.RIGHT * .30 * pow(sin(PI * elapsed / PREPARE_END), 2)
+		# Transport the initial elbow around the moving shoulder–wrist axis.
+		# Interpolating two elbow *positions* can cross that axis and reverse
+		# the IK pole, even though both endpoint poses are valid.
+		var axis := (wrist - shoulder).normalized()
+		var entry_axis := ((entry_arm.wrist as Vector3) - (entry_arm.shoulder as Vector3)).normalized()
+		var entry_bend := (entry_arm.elbow as Vector3) - (entry_arm.shoulder as Vector3)
+		entry_bend = (entry_bend - entry_axis * entry_bend.dot(entry_axis)).normalized()
+		var transported := (Basis(Quaternion(entry_axis, axis)) * entry_bend).normalized()
+		var desired := hint - shoulder
+		desired = (desired - axis * desired.dot(axis)).normalized()
+		if desired.length_squared() < .000001: desired = transported
+		var angle := atan2(axis.dot(transported.cross(desired)), transported.dot(desired))
+		var bend := transported.rotated(axis, angle * smoothstep(PREPARE_END * .5, PREPARE_END, elapsed))
+		hint = shoulder + bend
 
 	if elapsed > CUT_END:
 		var ready := ARM.solve(shoulder, shoulder + Vector3(.75, -.72, .28), wrist, previous_bend)
@@ -117,8 +138,8 @@ static func _rolled(pose: Transform3D, anchor: Vector3, angle: float) -> Transfo
 
 static func _roll_cost(pose: Transform3D) -> float:
 	var shoulder: Vector3 = GRIP.SOURCE_READY * GRIP.REST_SHOULDER
-	var wrist := pose * GRIP.REST_WRIST
-	var neutral := (pose.basis * (GRIP.REST_ELBOW - GRIP.REST_WRIST)).normalized()
+	var wrist := pose * GRIP.wrist_local(1.0)
+	var neutral := (pose.basis * GRIP.neutral_axis_local(1.0)).normalized()
 	var fitted := ARM.solve(shoulder, wrist + neutral * ARM.FOREARM_LENGTH, wrist)
 	var discrepancy := neutral.angle_to((fitted.elbow - wrist).normalized())
 	# Prefer a relaxed right elbow below the shoulder, without changing lengths
@@ -150,5 +171,5 @@ static func stab_basis(direction: Vector3) -> Basis:
 	# Gravity provides a stable roll reference even when the initial camera is
 	# looking directly along the blade. Initial view pitch must not twist a hand.
 	var y := direction.normalized()
-	var z := (Vector3.UP - y * y.dot(Vector3.UP)).normalized().rotated(y, deg_to_rad(130.0))
+	var z := (Vector3.UP - y * y.dot(Vector3.UP)).normalized().rotated(y, deg_to_rad(180.0))
 	return Basis(y.cross(z).normalized(), y, z)

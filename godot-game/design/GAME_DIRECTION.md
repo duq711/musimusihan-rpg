@@ -1,6 +1,22 @@
 # 게임 제작 기준서
 
+## 2026-09-20 후방 검 제압 — 중단 직선 찌르기 / Rear takedown — middle-guard straight thrust
+
+**최신 사용자 확정 변경:** 첨부 무술 도식의 가운데 왼쪽 중단 직선 찌르기를 참고하여, 손목을 비튼 망치식 파지 대신 손·전완·검이 목표 쪽으로 이어지게 한다. 방패·의상·도식의 모든 동작을 복제하는 요구로 확대하지 않는다. 깊은 관통·한 번 비틀기·플레이어 우측 베기·머리 유지 랙돌의 앞선 순서는 유지한다.
+
+확인한 제작 원인은 기존 검/손의 거의 90° 망치식 관계와 배치 원점/실제 손목 사이 약 2.54cm 차이다. 조정값은 후방 제압용 50° 대각 파지, 손잡이 접촉면 19mm 보정, 손가락별 굽힘·벌림, 실제 손목 기반 고정 길이 팔 풀이와 연속적인 준비 팔꿈치 방향이다. 준비 0.55초 동안 충돌을 확인하며 1.40m 공간을 확보하고 0.90초까지 0.78m로 전진 찌른다. 16cm 좌측 시선 보정으로 어깨·전완을 찌르기 선에 맞춘다. 최종 진행선은 적 전방축에서 좌향 20°·상향 12°, 검축 회전 기준 180°이며 준비 손잡이를 낮춰 소매가 카메라를 지나가지 않게 한다. 실제 등 피부 기준 칼날 94% 관입, 1.02–1.34초 45° 한 번 비틀기, 1.44–2.20초 우측 발검, 1.70초 단일 사망·보상, 2.32초 여운 끝·2.84초 복귀를 사용한다. 수치는 원본 리그에 맞춘 조정 가능한 제작 판단이다. 원본 에셋·피부 영향·팔다리 길이, E/F2 조건과 별도 원정 복원을 유지한다.
+
+**검증 상태: 최종 코드 자동 검사 5종(후방 제압·실제 F2·공급 팔·포복 처형·검/방패 처형)과 실제 GPU 9초·270프레임 검수를 통과했다. 준비·찌르기 중간·관통·비틀기 후·베기·발검의 실제 1인칭 및 정면·측면 스틸을 열어 확인했고, 최종 경로에서 후보판의 소매 내부 노출이 제거됨을 확인했다. 전체 영상 270프레임 디코딩도 통과했다. 원격 게시 상태는 최종 게시 기록을 따른다.** [중단 찌르기 검수 기록](../artifacts/validation/rear_sword_middle_thrust_20260920/README.md)에 근거를 보존한다. 아래 이전 개정의 통과 기록을 새 동작의 근거로 재사용하지 않는다. 도식의 역사적 기술이나 의학적 인체공학을 정확히 재현·검증했다는 주장은 하지 않는다. 최종 실제 GPU의 활성 손·전완 축 차이는 최대 26.6389°, 연속 관절 이동 0.083612m, 몸통 반대편 칼끝 돌출 약 0.30164m다. 자세별 실제 스틸·연속 프레임 독립 검토와 전체 9초 영상을 검수 기록에 보존한다.
+
+**Latest user-confirmed change:** use the middle-left drawing's straight thrust from middle guard, aligning the hand, forearm and blade toward the target instead of a twisted hammer grip. Do not expand this into copying the shield, clothing or every illustrated action. Preserve the earlier deep through-stab, one twist, player-right cut and intact-head ragdoll.
+
+The identified production issues are the previous nearly 90° hand/blade relationship and approximately 2.54cm placement-origin/actual-wrist discrepancy. Tunable changes are a rear-only 50° diagonal grip, 19mm handle-contact correction, individual finger curl/spread, a real-wrist fixed-length arm solve and continuous preparation elbow direction. Collision-tested preparation creates 1.40m of room by 0.55s before thrusting toward 0.78m by 0.90s; a 16cm leftward focus adjustment aligns shoulder and forearm with the thrust line. The final blade line is 20° left/12° up from enemy forward, with 180° roll reference and a lowered preparation hilt to clear the camera. Retain 94% actual-skin insertion, one 45° twist during 1.02–1.34s, right extraction during 1.44–2.20s, one death/reward at 1.70s, follow-through to 2.32s and recovery by 2.84s. Original assets, skin weights, limb lengths, E/F2 eligibility and isolated-session restoration remain.
+
+**Validation status: final code passed five automated suites and nine seconds/270 frames of actual GPU checks. Actual first-person and front/side stills were reviewed across preparation, mid-thrust, penetration, hold and extraction; the final path removes the earlier sleeve-interior exposure. Full 270-frame decoding passed. Remote publication follows the final record.** See the [middle-guard report](../artifacts/validation/rear_sword_middle_thrust_20260920/README.md). Historical passes below do not validate the new motion. Exact historical martial-technique reproduction or medical ergonomics are not claimed. Final actual GPU metrics are maximum active hand/forearm-axis mismatch 26.6389°, joint step 0.083612m and approximately 0.30164m of tip protrusion beyond the torso. The report preserves pose stills, independent sequence-frame review and the full nine-second video.
+
 ## 2026-09-20 후방 검 제압 — 깊은 관통·비틀기·우측 베기 / Rear takedown — through-stab, twist and right cut
+
+**이전 제작·검수 기록. 최신 중단 찌르기 수정은 위 섹션을 따른다. / Historical production and validation; the middle-guard revision above is the current change.**
 
 **최신 사용자 확정 변경:** 검을 거의 끝까지 밀어 넣어 칼끝이 반대편에서 보이게 한 뒤, 검을 한 번 비틀고 **플레이어 기준 우측으로 베어 빼기**로 변경한다. 이 요구가 아래의 좌측 발검을 대체한다. 목 베기·머리 절단 취소는 유지하며 우측 몸통 베기에서 한 번 사망·보상, 머리가 붙은 몸 전체의 랙돌로 연결한다. 일반 집중 공격 절단, 단검 암살, 포복 처형과 원본 에셋은 변경하지 않는다.
 

@@ -1,0 +1,98 @@
+{
+  "scope": "Actual Godot posed hand skin vertices against an elliptical approximation of the handle cross-section, not exact mesh-to-mesh collision. Both source textures and skin weights retained.",
+  "ellipse_radii_m": [
+    0.0225,
+    0.0154
+  ],
+  "source_probe": "/private/tmp/thrust_candidate_probe.gd",
+  "render_probe": "/private/tmp/thrust_grip_closeup.gd",
+  "recovery_check": "All actual hand/finger bone poses restored at amount 0; fitted arm segments excluded from hand-pose equality.",
+  "samples": [
+    {
+      "amount": 0.0,
+      "actual_wrist": "(0.088368, -0.108, 0.067603)",
+      "reported_wrist": "(0.088368, -0.108, 0.067603)",
+      "digits": {
+        "index": {
+          "vertex_count": 297,
+          "minimum_ellipse_radius": 0.6760928677642454,
+          "deep_penetration_vertex_count_below_0_8": 6,
+          "note": "Palm is reported separately; no exact closed hand/handle collision assertion."
+        },
+        "little": {
+          "vertex_count": 286,
+          "minimum_ellipse_radius": 0.053860770538120495,
+          "deep_penetration_vertex_count_below_0_8": 97,
+          "note": "Palm is reported separately; no exact closed hand/handle collision assertion."
+        },
+        "middle": {
+          "vertex_count": 306,
+          "minimum_ellipse_radius": 1.0992263294870437,
+          "deep_penetration_vertex_count_below_0_8": 0,
+          "note": "Palm is reported separately; no exact closed hand/handle collision assertion."
+        },
+        "palm": {
+          "vertex_count": 159,
+          "minimum_ellipse_radius": 0.04475242883579502,
+          "deep_penetration_vertex_count_below_0_8": 39,
+          "note": "Palm is reported separately; no exact closed hand/handle collision assertion."
+        },
+        "ring": {
+          "vertex_count": 296,
+          "minimum_ellipse_radius": 0.6637328171786886,
+          "deep_penetration_vertex_count_below_0_8": 9,
+          "note": "Palm is reported separately; no exact closed hand/handle collision assertion."
+        },
+        "thumb": {
+          "vertex_count": 315,
+          "minimum_ellipse_radius": 1.1597108233413627,
+          "deep_penetration_vertex_count_below_0_8": 0,
+          "note": "Palm is reported separately; no exact closed hand/handle collision assertion."
+        }
+      }
+    },
+    {
+      "amount": 1.0,
+      "actual_wrist": "(0.070745, -0.190409, 0.020899)",
+      "reported_wrist": "(0.070745, -0.190409, 0.020899)",
+      "digits": {
+        "index": {
+          "vertex_count": 297,
+          "minimum_ellipse_radius": 0.8855708847306676,
+          "deep_penetration_vertex_count_below_0_8": 0,
+          "note": "Palm is reported separately; no exact closed hand/handle collision assertion."
+        },
+        "little": {
+          "vertex_count": 286,
+          "minimum_ellipse_radius": 0.9608274292040857,
+          "deep_penetration_vertex_count_below_0_8": 0,
+          "note": "Palm is reported separately; no exact closed hand/handle collision assertion."
+        },
+        "middle": {
+          "vertex_count": 306,
+          "minimum_ellipse_radius": 0.9106600773289486,
+          "deep_penetration_vertex_count_below_0_8": 0,
+          "note": "Palm is reported separately; no exact closed hand/handle collision assertion."
+        },
+        "palm": {
+          "vertex_count": 159,
+          "minimum_ellipse_radius": 1.1093655925024202,
+          "deep_penetration_vertex_count_below_0_8": 0,
+          "note": "Palm is reported separately; no exact closed hand/handle collision assertion."
+        },
+        "ring": {
+          "vertex_count": 296,
+          "minimum_ellipse_radius": 0.9469763230471848,
+          "deep_penetration_vertex_count_below_0_8": 0,
+          "note": "Palm is reported separately; no exact closed hand/handle collision assertion."
+        },
+        "thumb": {
+          "vertex_count": 315,
+          "minimum_ellipse_radius": 0.9056492687454442,
+          "deep_penetration_vertex_count_below_0_8": 0,
+          "note": "Palm is reported separately; no exact closed hand/handle collision assertion."
+        }
+      }
+    }
+  ]
+}

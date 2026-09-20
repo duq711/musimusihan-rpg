@@ -126,6 +126,18 @@ func set_digit_flexion(digit: String, amounts: Vector3) -> bool:
 	for joint in 3: set_joint_flexion(digit,joint,amounts[joint])
 	return true
 
+func set_digit_contact_pose(digit: String, angles: Vector3, lateral_axis: Vector3, lateral_angle: float) -> bool:
+	# A diagonal handle needs individual MCP spread as well as flexion. Keep
+	# the original bone lengths, bind transforms and all skin weights intact.
+	if not DIGITS.has(digit) or not angles.is_finite() or not lateral_axis.is_finite() or not is_finite(lateral_angle): return false
+	_apply(digit, angles)
+	if lateral_axis.length_squared() > .000001:
+		var key := digit + "0"
+		var i := skeleton.find_bone(key)
+		var rest_rotation := skeleton.get_bone_rest(i).basis.get_rotation_quaternion()
+		skeleton.set_bone_pose_rotation(i, (rest_rotation * Quaternion(lateral_axis.normalized(), lateral_angle) * Quaternion(_axes[key], angles.x)).normalized())
+	return true
+
 func fit_arm(shoulder_world: Vector3, elbow_world: Vector3) -> void:
 	if skeleton == null: return
 	var shoulder := to_local(shoulder_world)
