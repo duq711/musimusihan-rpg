@@ -6,9 +6,9 @@ This revision combines a firmer handle grip and readable forward arm drive with 
 
 ## 검증 상태 / Validation status
 
-**최종 자동 검사 5종, 실제 GPU 9초·270프레임 검수, 전체 영상 디코딩을 통과했다.** 파지 네 방향과 준비·접촉·관통·비틀기·우측 발검·복귀의 실제 스틸을 확인했다. 별도 검토자도 동작 중 프레임 43–105 구간의 표본과 측면·파지 화면을 독립적으로 열어 검토했으며, 이전 소매 가림이 제거되고 큰 팔꿈치 튐이나 손·검 분리가 보이지 않음을 확인했다. 넓은 원본 소매와 검지 간격은 남아 있는 외형 한계로 명시한다. **GitHub 원격 반영은 아직 미확인**이며 최종 게시 기록을 따른다.
+**최종 자동 검사 5종, 실제 GPU 9초·270프레임 검수, 전체 영상 디코딩을 통과했다.** 파지 네 방향과 준비·접촉·관통·비틀기·우측 발검·복귀의 실제 스틸을 확인했다. 별도 검토자도 동작 중 프레임 43–105 구간의 표본과 측면·파지 화면을 독립적으로 열어 검토했으며, 이전 소매 가림이 제거되고 큰 팔꿈치 튐이나 손·검 분리가 보이지 않음을 확인했다. 넓은 원본 소매와 검지 간격은 남아 있는 외형 한계로 명시한다. **GitHub 커밋과 이미지·영상 45개를 새 저장소로 다시 받아 일치를 확인했다.** [원격 확인 기록](publication_verified.json).
 
-**Final validation passed five automated suites, actual nine-second/270-frame GPU review and full-video decoding.** Four grip views and actual preparation/contact/penetration/twist/right-extraction/recovery stills were inspected. An independent reviewer opened samples from frames 43–105 plus side/grip views, confirming removal of the prior sleeve obstruction without a large elbow snap or hand/weapon detachment. The original wide sleeve and index spacing remain visual limitations. **GitHub publication remains unconfirmed** until the final remote record.
+**Final validation passed five automated suites, actual nine-second/270-frame GPU review and full-video decoding.** Four grip views and actual preparation/contact/penetration/twist/right-extraction/recovery stills were inspected. An independent reviewer opened samples from frames 43–105 plus side/grip views, confirming removal of the prior sleeve obstruction without a large elbow snap or hand/weapon detachment. The original wide sleeve and index spacing remain visual limitations. **The GitHub commit and all 45 image/video files were verified using fresh remote storage.** See the [publication record](publication_verified.json).
 
 [전체 9초 영상 / Full nine-second video](rear_sword_force_thrust.mp4) · [핵심 검사 로그 / Core log](core_tests.log) · [관련 회귀 로그 / Regression log](regression_tests.log) · [핵심 측정 / Core measurements](core_report.json) · [실제 렌더 로그 / Render log](render.log) · [프레임별 실제 측정 / Capture manifest](capture_manifest.json) · [전체 디코딩 / Full decoding](video_decode.log)
 
