@@ -663,6 +663,22 @@ Equip `iron_dagger` and use **LMB to land a lethal stab from close behind an idl
 
 ## 검 제압 · 미인지 후방 / Sword takedown from an unaware rear
 
+**2026-09-21 최신 요청 — 피격 시 고개를 드는 반응:** 크리프가 찔리는 순간 목과 머리를 함께 뒤로 젖혀, 고개를 들며 비명을 지르는 듯한 자세를 만든다. 첫 실제 피부 접촉 이후부터 반응을 시작하고 깊게 찌를수록 크게 연결하며, 검이 박혀 있는 동안 자세를 유지한다. 이번 범위는 실제 목·머리 뼈의 움직임이며 비명 음향 추가는 포함하지 않는다.
+
+기존 첫 접촉 혈흔 1회, 깊은 찌르기, 검 축 20° 비틀기, 직선 회수, 칼끝이 빠진 뒤 머리 유지 랙돌과 E/F2 조작·시계는 유지한다. **후방 제압 핵심·실제 F2 자동 검사 2종과 실제 GPU 9초·270프레임 검수·전체 영상 디코딩을 통과했다. 실제 이미지·표본 프레임의 독립 시각 검토도 완료했다. GitHub 원격 반영은 아직 미확인이다.** [고개 반응 검수 기록](artifacts/validation/rear_stab_head_lift_20260921/README.md)과 [전체 영상](artifacts/validation/rear_stab_head_lift_20260921/rear_stab_head_lift.mp4)에 근거를 보존한다. 아래 혈흔 버전의 통과 기록을 이번 자세 변경의 완료 근거로 사용하지 않는다.
+
+**Latest request, September 21 — head lift on impact:** after actual first skin contact, blend the Creep's neck and head backward into a raised-head, scream-like pose, strengthen it through deep insertion and hold it while the blade remains embedded. This adds physical neck/head posing; scream audio is outside the requested scope.
+
+Keep the single contact-blood burst, deep stab, 20° axial twist, straight withdrawal, intact-head ragdoll after blade clearance and existing E/F2 controls/timing. **Both rear-takedown core and real F2 suites passed, along with nine seconds/270 frames of actual GPU checks, full-video decoding and independent still/sample-frame review. GitHub publication remains unverified.** The [head-response report](artifacts/validation/rear_stab_head_lift_20260921/README.md) preserves current evidence; the blood revision's passes below do not validate this new pose.
+
+실제 주둥이 방향은 접촉 전 아래 42.3177°에서 깊은 찌르기 때 위 16.6823°로 약 59° 올라가며 아래턱을 열어 반응을 표현한다. 정면·측면에서는 들린 고개와 열린 입이 보이고, 뒤에서 보는 1인칭에서는 들린 머리 윤곽이 주로 보인다. 입은 자연스럽게 가려지므로 1인칭에서 입 모양까지 선명하게 보인다고 주장하지 않는다. 검수 표본에서 목의 열린 틈이나 큰 치아 관통은 보이지 않았지만 정밀 입 메시 충돌 검증은 아니다.
+
+The measured snout direction rises about 59°, from 42.3177° below horizontal before contact to 16.6823° above it at deep stab, with the lower jaw opened. Front/side views show the raised head and open mouth; rear first-person views mainly show the raised-head silhouette, with the mouth naturally occluded. Reviewed samples show no open neck gap or gross tooth penetration; this is not exact mouth-mesh collision validation.
+
+### 직전 혈흔·몸 반응 검수 기록 / Previous blood and body-response validation
+
+**아래는 고개 반응 추가 전 버전의 제작·검수 기록이다. / The following records the revision before the added head response.**
+
 2026-09-21 후속 요청은 **첫 피부 접촉의 혈흔 → 깊은 찌르기에 강한 몸 반응 → 짧게 비틀 때 작은 몸 반응 → 검 축 그대로 회수 → 칼끝이 빠진 뒤 랙돌**이다. 직선 회수는 유지하되 박힌 검을 짧게 한 번 비트는 동작을 다시 넣는다. 이전 옆 베기·목 베기·머리 절단은 되살리지 않는다. 지원 검으로 서 있는 미인지 크리프의 가까운 뒤에서 일반 **E 상호작용**을 사용한다.
 
 혈흔은 첫 실제 피부 접촉 지점에서 3D 월드 효과로 한 번 발생하도록 연결한다. 화면에 붙은 이미지로 대체하지 않고, 깊이 도달이나 비틀기마다 같은 출혈을 다시 발생시키지 않는다. 접촉 전에는 찔림 반응이 없어야 하며, 깊이 찌를 때 충분히 움찔하고 짧은 비틀기에는 그보다 작은 추가 몸 반응을 준다. 몸은 검이 박힌 동안 유지하고 칼끝이 빠진 뒤 머리가 붙은 몸 전체의 랙돌로 넘긴다.

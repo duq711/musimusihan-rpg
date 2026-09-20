@@ -1,0 +1,45 @@
+Input #0, image2, from '/private/tmp/rear-wrist-publication-check/artifacts/visual_qa/rear_takedown/stab_head_lift_20260921/frames/%05d.jpg':
+  Duration: 00:00:09.00, start: 0.000000, bitrate: N/A
+  Stream #0:0: Video: mjpeg (Baseline), yuvj420p(pc, bt470bg/unknown/unknown), 960x540 [SAR 1:1 DAR 16:9], 30 fps, 30 tbr, 30 tbn
+Stream mapping:
+  Stream #0:0 -> #0:0 (mjpeg (native) -> h264 (libx264))
+Press [q] to stop, [?] for help
+[swscaler @ 0x1300d8000] deprecated pixel format used, make sure you did set range correctly
+[swscaler @ 0x1281b8000] deprecated pixel format used, make sure you did set range correctly
+[swscaler @ 0x1183a0000] deprecated pixel format used, make sure you did set range correctly
+[swscaler @ 0x128248000] deprecated pixel format used, make sure you did set range correctly
+[libx264 @ 0x12160a080] using SAR=1/1
+[libx264 @ 0x12160a080] using cpu capabilities: ARMv8 NEON
+[libx264 @ 0x12160a080] profile High, level 3.1, 4:2:0, 8-bit
+[libx264 @ 0x12160a080] 264 - core 164 r3075 66a5bc1 - H.264/MPEG-4 AVC codec - Copyleft 2003-2021 - http://www.videolan.org/x264.html - options: cabac=1 ref=3 deblock=1:0:0 analyse=0x3:0x113 me=hex subme=7 psy=1 psy_rd=1.00:0.00 mixed_ref=1 me_range=16 chroma_me=1 trellis=1 8x8dct=1 cqm=0 deadzone=21,11 fast_pskip=1 chroma_qp_offset=-2 threads=15 lookahead_threads=2 sliced_threads=0 nr=0 decimate=1 interlaced=0 bluray_compat=0 constrained_intra=0 bframes=3 b_pyramid=2 b_adapt=1 b_bias=0 direct=1 weightb=1 open_gop=0 weightp=2 keyint=250 keyint_min=25 scenecut=40 intra_refresh=0 rc_lookahead=40 rc=crf mbtree=1 crf=20.0 qcomp=0.60 qpmin=0 qpmax=69 qpstep=4 ip_ratio=1.40 aq=1:1.00
+Output #0, mp4, to 'godot-game/artifacts/validation/rear_stab_head_lift_20260921/rear_stab_head_lift.mp4':
+  Metadata:
+    encoder         : Lavf60.3.100
+  Stream #0:0: Video: h264 (avc1 / 0x31637661), yuv420p(tv, bt470bg/unknown/unknown, progressive), 960x540 [SAR 1:1 DAR 16:9], q=2-31, 30 fps, 15360 tbn
+    Metadata:
+      encoder         : Lavc60.3.100 libx264
+    Side data:
+      cpb: bitrate max/min/avg: 0/0/0 buffer size: 0 vbv_delay: N/A
+frame=    0 fps=0.0 q=0.0 size=       0kB time=-577014:32:22.77 bitrate=  -0.0kbits/s speed=N/A
+frame=  208 fps=0.0 q=26.0 size=    1024kB time=00:00:06.86 bitrate=1221.7kbits/s speed=13.7x
+[mp4 @ 0x121607a20] Starting second pass: moving the moov atom to the beginning of the file
+frame=  270 fps=0.0 q=-1.0 Lsize=    1840kB time=00:00:08.90 bitrate=1693.7kbits/s speed=14.1x
+video:1836kB audio:0kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.217643%
+[libx264 @ 0x12160a080] frame I:2     Avg QP:15.98  size: 32967
+[libx264 @ 0x12160a080] frame P:78    Avg QP:21.01  size: 11458
+[libx264 @ 0x12160a080] frame B:190   Avg QP:23.97  size:  4841
+[libx264 @ 0x12160a080] consecutive B-frames:  3.7%  5.9%  4.4% 85.9%
+[libx264 @ 0x12160a080] mb I  I16..4: 16.4% 61.2% 22.4%
+[libx264 @ 0x12160a080] mb P  I16..4:  2.0% 12.2%  5.3%  P16..4:  9.1%  5.7%  4.1%  0.0%  0.0%    skip:61.6%
+[libx264 @ 0x12160a080] mb B  I16..4:  0.2%  2.2%  1.4%  B16..8: 15.4%  5.6%  1.9%  direct: 1.2%  skip:72.0%  L0:44.3% L1:45.4% BI:10.3%
+[libx264 @ 0x12160a080] 8x8 transform intra:61.2% inter:52.4%
+[libx264 @ 0x12160a080] coded y,uvDC,uvAC intra: 64.5% 38.6% 6.0% inter: 6.9% 2.2% 0.1%
+[libx264 @ 0x12160a080] i16 v,h,dc,p: 27% 42%  9% 22%
+[libx264 @ 0x12160a080] i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 15% 19% 23%  6%  7%  7%  8%  7%  8%
+[libx264 @ 0x12160a080] i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 21% 14% 16%  6% 12% 12%  8%  6%  5%
+[libx264 @ 0x12160a080] i8c dc,h,v,p: 67% 17% 15%  1%
+[libx264 @ 0x12160a080] Weighted P-Frames: Y:0.0% UV:0.0%
+[libx264 @ 0x12160a080] ref P L0: 60.9% 13.7% 16.7%  8.7%
+[libx264 @ 0x12160a080] ref B L0: 86.4% 10.7%  2.9%
+[libx264 @ 0x12160a080] ref B L1: 95.4%  4.6%
+[libx264 @ 0x12160a080] kb/s:1670.63

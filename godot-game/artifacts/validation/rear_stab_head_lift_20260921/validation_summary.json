@@ -1,0 +1,37 @@
+{
+  "task_ko": "찌를 때 목과 머리를 위로 젖히고 아래턱을 벌리는 반응",
+  "task_en": "Lift neck/head and open the lower jaw on stab contact",
+  "headless_suites": {
+    "rear_takedown": "PASS",
+    "rear_takedown_trial": "PASS"
+  },
+  "gpu": {
+    "status": "PASS",
+    "frames": 270,
+    "duration_seconds": 9,
+    "fps": 30,
+    "png_views": 84,
+    "failures": [],
+    "renderer": "vulkan",
+    "display_driver": "embedded"
+  },
+  "bone_measurements": {
+    "rest_snout_world_elevation_degrees": -42.3177176,
+    "deep_stab_snout_world_elevation_degrees": 16.6822572,
+    "face_lift_degrees": 58.9999748,
+    "jaw_relative_rotation_degrees": 24,
+    "neck_head_length_error_m": 4.47e-07
+  },
+  "visual_review": "PASS in sampled actual GPU views; side/front show lifted head and opened mouth. First-person rear view shows raised head silhouette, not an unobstructed mouth. Slight skin stretching remains around the neck, without an observed open gap.",
+  "scope": "Rear sword takedown. Existing blood, twist, straight withdrawal and blade-clear ragdoll preserved. No scream audio added.",
+  "unverified": [
+    "Hardware keyboard/mouse input; validation uses direct production action calls."
+  ],
+  "publication": "pending",
+  "video": {
+    "file": "rear_stab_head_lift.mp4",
+    "full_decode": "PASS",
+    "decoded_frames": 270,
+    "bytes": 1884239
+  }
+}

@@ -119,11 +119,7 @@ class RearDriver extends Node:
 
 	func capture_state() -> Dictionary:
 		var execution: Dictionary = player.get_execution_snapshot()
-		var bone_world := {}
-		for bone_name: String in ["Chest", "Neck", "Head"]:
-			var index: int = actor.skeleton.find_bone(bone_name)
-			if index >= 0:
-				bone_world[bone_name] = actor.skeleton.global_transform * actor.skeleton.get_bone_global_pose(index)
+		var bone_world := WRIST_METRICS.capture_head_bones(actor)
 		var chest: Vector3 = (bone_world.get("Chest", Transform3D.IDENTITY) as Transform3D).origin
 		return {
 			"tick": tick, "seconds": float(tick) / 60.0, "execution": execution,
@@ -382,7 +378,7 @@ func _run() -> void:
 		print("REAR TAKEDOWN CASE: ", scenario.id, " | accepted ", driver.began.get("accepted", false), " | defeats ", driver.defeats)
 		if not bool(scenario.alerted):
 			for required: String in ["prepare", "before_contact", "first_contact", "impact", "recoil", "thrust_mid", "stab", "twist_mid", "twist_end", "hold", "withdraw_mid", "clear", "recover"]:
-				_check(inspection_stills.has(required), "same-pose full-arm side/front and hand closeup captured: " + required)
+				_check(inspection_stills.has(required), "same-pose full-arm, hand and head/neck side/front closeups captured: " + required)
 		for view: Dictionary in inspections.values(): view.viewport.queue_free()
 		viewport.queue_free()
 		await process_frame
@@ -415,6 +411,7 @@ func _run() -> void:
 		"inspection_geometry_scope": "First-person arm geometry; the third-person avatar body layer is excluded just like the main first-person camera. All inspection views share the same live world, first-person arm, weapon and enemy pose; no actor or weapon is reposed or mirrored.",
 		"visual_acceptance_scope": "Numerical tests alone do not approve the appearance. Separately inspect the actual first-person clip, complete-arm side silhouettes and grip closeups for thumb closure, fingers staying around the hilt, continuous shoulder/elbow/wrist, and hand size in the frame.",
 		"contact_reaction_measurement": "Before-contact, first-contact, early recoil and full-depth frames independently intersect visible posed torso skin. Blood begins once at the actual blade-contact event. Full-depth chest recoil and the later twist response are measured from actual bone transforms. The final twist pose is retained until real tip clearance; capsule hit queries are not substituted for visible skin evidence.",
+		"head_reaction_measurement": "Actual Head-to-native-Jaw1/Jaw2-pivot direction measures snout elevation, including the model's downward resting face. Actor forward and authored angle values are not substituted. Before-contact face and jaw must remain unchanged; deepest stab requires more than 30 degrees of real face lift and above 10 degrees world elevation, with rotation shared by Neck and Head and the actual lower jaw opening. Same-pose head_side/head_front images require independent visual inspection; no scream audio is claimed.",
 		"blood_measurement": "One target-owned pausable world-space effect emits 24 actual mesh droplets at the validated entry point. Every physics frame records burst count and effect age, real droplet positions, velocities, stains and visibility. Side/front/hand closeups at impact and twist use the same 3D scene; visual blood appearance must be inspected separately.",
 		"stages_seconds": REAR_STAGES, "penetration_ratio_target": REAR_MOTION.PENETRATION_RATIO,
 		"scenarios": outcomes, "frames": frames, "failures": failures}
@@ -501,6 +498,7 @@ func _check_rear_case(driver: RearDriver, scenario: Dictionary, rendered: Array[
 		_check(driver.stages.has(stage_name), prefix + "stage recorded: " + stage_name)
 	_check_physical_contact_recoil(driver, prefix)
 	_check_blood_and_twist_reaction(driver, prefix)
+	_check_actual_head_lift(driver, prefix)
 	for stage_name: String in ["stab", "hold"]:
 		if not driver.stages.has(stage_name): continue
 		var stage: Dictionary = driver.stages[stage_name]
@@ -563,6 +561,25 @@ func _check_physical_contact_recoil(driver: RearDriver, prefix: String) -> void:
 		if name_value == "stab":
 			_check(recoil > .95 and float(stage.reaction.get("contact_weight", -1.0)) > .99 and float(stage.reaction.get("penetration_weight", -1.0)) > .95 and chest_change > 5.0, prefix + "maximum-depth frame already contains full penetration recoil and real chest movement")
 		stage["contact_reaction_geometry"] = {"actual_skin_depth_m": depth, "actual_chest_rotation_degrees": chest_change, "recoil_weight": recoil, "actual_entry_mesh": skin.entry_mesh}
+
+
+func _check_actual_head_lift(driver: RearDriver, prefix: String) -> void:
+	for key: String in ["before_contact", "first_contact", "recoil", "stab", "twist_mid", "twist_end", "hold", "withdraw_mid"]:
+		if not driver.stages.has(key): continue
+		var sample: Dictionary = driver.stages[key]
+		var measured := WRIST_METRICS.measure_head_lift(driver.before_begin.bone_world, sample.bone_world)
+		sample["actual_head_lift"] = measured
+		_check(bool(measured.available), prefix + key + " actual head/neck/native jaw geometry available")
+		if not bool(measured.available): continue
+		_check(float(measured.neck_head_length_error_m) < .001 and float(measured.head_jaw_length_error_m) < .001, prefix + key + " head lift preserves bone lengths")
+		if key == "before_contact":
+			_check(float(measured.head_world_rotation_degrees) < .01 and absf(float(measured.face_lift_degrees)) < .01 and float(measured.lower_jaw_local_rotation_degrees) < .01, prefix + "face and lower jaw do not react before actual blade contact")
+		elif key in ["stab", "twist_mid", "twist_end", "hold", "withdraw_mid"]:
+			_check(float(measured.face_lift_degrees) > 30.0 and float(measured.face_elevation_after_degrees) > 10.0, prefix + key + " actual snout looks upward after the deep stab")
+			_check(float(measured.neck_local_rotation_degrees) > 5.0 and float(measured.head_local_rotation_degrees) > 20.0, prefix + key + " actual neck and head share the extension")
+			_check(float(measured.lower_jaw_local_rotation_degrees) > 15.0 and float(measured.upper_jaw_local_rotation_degrees) < .01, prefix + key + " actual lower jaw opens without rotating the upper jaw away from the head")
+		else:
+			_check(float(measured.face_lift_degrees) > .0 and float(sample.reaction.get("head_lift_weight", 0.0)) > .0, prefix + key + " actual head begins rising while steel advances after contact")
 
 
 func _check_blood_and_twist_reaction(driver: RearDriver, prefix: String) -> void:
@@ -708,7 +725,7 @@ func _rear_overlay(viewport: SubViewport, title: String) -> Label:
 
 func _create_passage_inspection_views(shared_world: World3D) -> Dictionary:
 	var result := {}
-	for angle: String in ["side", "front", "grip_side"]:
+	for angle: String in ["side", "front", "grip_side", "head_side", "head_front"]:
 		var inspection := SubViewport.new()
 		inspection.name = "PassageInspection_" + angle
 		inspection.size = Vector2i(960, 720)
@@ -725,13 +742,25 @@ func _create_passage_inspection_views(shared_world: World3D) -> Dictionary:
 		camera.cull_mask = ((1 << 20) - 1) & ~DungeonPlayer.PLAYER_APPEARANCE.BODY_LAYER
 		inspection.add_child(camera)
 		camera.make_current()
-		var title: String = {"side": "전체 팔 측면", "front": "정면", "grip_side": "손·파지 확대"}[angle]
+		var title: String = {"side": "전체 팔 측면", "front": "정면", "grip_side": "손·파지 확대", "head_side": "머리·목 측면", "head_front": "머리·목 정면"}[angle]
 		_rear_overlay(inspection, "1인칭 팔 · 동일 자세 · %s / FP ARM · SAME POSE · %s" % [title, angle.to_upper()])
 		result[angle] = {"viewport": inspection, "camera": camera}
 	return result
 
 
 func _frame_passage_inspection(camera: Camera3D, angle: String, sample: Dictionary) -> void:
+	if angle in ["head_side", "head_front"]:
+		# These cameras inspect the same real head/neck pose, never a separately
+		# posed face. Actor forward keeps framing independent of blade recovery.
+		var head: Transform3D = sample.bone_world.Head
+		var neck: Transform3D = sample.bone_world.Neck
+		var actor_basis: Basis = (sample.enemy_root as Transform3D).basis.orthonormalized()
+		var forward := -actor_basis.z
+		var focus := neck.origin.lerp(head.origin, .7) + Vector3.UP * .09
+		var offset := actor_basis.x * 1.10 + forward * .18 if angle == "head_side" else forward * 1.10 + actor_basis.x * .18
+		camera.global_position = focus + offset + Vector3.UP * .04
+		camera.look_at(focus, Vector3.UP)
+		return
 	var anchor: Vector3 = sample.execution.contact_point
 	var axis: Vector3 = sample.actual_blade.axis_world
 	var right := axis.cross(Vector3.UP).normalized()

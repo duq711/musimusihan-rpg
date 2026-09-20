@@ -1,0 +1,68 @@
+{
+  "scope": "Read-only direct GLB JSON, bone rest transforms, skinned bone membership and animation-channel inspection. No engine run.",
+  "source": "/Users/duq711gmail.com/Documents/ChatGPT/\ubb34\uc2dc\ubb34\uc2dc\ud55c rpg/godot-game/assets/licensed/creep/creep.glb",
+  "sha256": "6bc05636d9931b6a37e6534c8444dd7d4081672ed6a8ae2e69f2afdb5dc147a4",
+  "chain": [
+    "Chest",
+    "Neck",
+    "Head"
+  ],
+  "head_children": [
+    "Jaw1",
+    "Jaw2",
+    "Tongue"
+  ],
+  "morph_targets": false,
+  "actual_face_axis": {
+    "definition": "Head world origin toward mean Jaw1/Jaw2 world origins",
+    "head_local_direction": [
+      0,
+      1,
+      0
+    ],
+    "head_to_jaw_local_m_unscaled": [
+      0,
+      0.46012187004,
+      0
+    ],
+    "rest_world_direction": [
+      0,
+      -0.6732,
+      -0.7394
+    ],
+    "rest_elevation_degrees": -42.3,
+    "note": "The actor forward axis is horizontal and is not the anatomical muzzle direction."
+  },
+  "authored_roar": {
+    "duration_seconds": 4.84,
+    "sample_time_seconds": 1.6,
+    "local_x_degrees_at_start": {
+      "Neck": 45.75,
+      "Head": 67.6,
+      "Jaw1": -48.78,
+      "Jaw2": -1.31,
+      "Tongue": -8.3
+    },
+    "local_x_degrees_at_sample": {
+      "Neck": 31.11,
+      "Head": 50.17,
+      "Jaw1": -51.48,
+      "Jaw2": 23.04,
+      "Tongue": 19.6
+    },
+    "local_x_deltas_degrees": {
+      "Neck": -14.64,
+      "Head": -17.43,
+      "Jaw1": -2.7,
+      "Jaw2": 24.35,
+      "Tongue": 27.9
+    }
+  },
+  "recommendations": [
+    "Negative local-X rotation in Neck and Head lifts the head; in existing helper actor-lateral world rotation this has positive sign.",
+    "Jaw2 is the lower jaw; positive local-X rotation opens the mouth. Use approx +24 degrees of entry-relative local-X.",
+    "Do not replay full roar clip while blade embedded, because it would move the torso and skin contact. Apply only neck/head/jaw pose deltas with the existing preserved contact mechanism.",
+    "Tongue is a Head sibling of the jaws. It has independent motion in roar. Preserve initially and visually inspect within opened mouth; do not claim it follows Jaw2.",
+    "Root proposed +22 neck/+34 head world pitch minus existing 15-degree chest contraction yields approx 41-degree net lift, making the anatomical face axis nearly horizontal from the measured rest. Inspect actual posed baseline rather than relying on this rest-only estimate."
+  ]
+}

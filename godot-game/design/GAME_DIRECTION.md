@@ -1,6 +1,26 @@
 # 게임 제작 기준서
 
+## 2026-09-21 후방 검 제압 — 피격 시 고개를 드는 반응 / Rear takedown — raised-head impact response
+
+**최신 사용자 확정 변경:** 크리프가 검에 찔릴 때 고개를 위로 들며 비명을 지르는 듯한 반응을 추가한다. 목과 머리 뼈를 함께 뒤로 젖히고 첫 실제 피부 접촉부터 깊은 찌르기까지 부드럽게 강화한다. 검이 박힌 동안 고개를 든 자세를 유지하며 기존 몸 반응과 연결한다. 이번 요청은 자세 표현이며 비명 음향을 새로 추가하는 범위로 확대하지 않는다.
+
+첫 접촉 혈흔 1회, 깊이 약 94%, 20° 한 번 비틀기, 직선 회수와 칼끝이 빠진 뒤 머리 유지 랙돌을 유지한다. 기존 접촉 0.61초·최대 깊이 0.90초·회수 1.30초·칼끝 빠짐 1.90초·종료 2.46초 시계와 E/F2 조건·시험 원정 복원은 변경하지 않는다. 실제 주둥이 축은 접촉 전 아래 42.3177°에서 깊게 찌를 때 위 16.6823°로 약 59° 올라가고 아래턱은 기준 자세에서 24° 열린다. 수치는 해당 리그의 제작·측정값이며 의학적 관절 각도가 아니다.
+
+**후방 제압 핵심·실제 F2 자동 검사 2종과 실제 GPU 9초·270프레임 검수·전체 영상 디코딩을 통과했다. 실제 이미지·표본 프레임의 독립 시각 검토도 완료했다. GitHub 원격 반영은 아직 미확인이다.** [고개 반응 검수 기록](../artifacts/validation/rear_stab_head_lift_20260921/README.md)에 결과를 보존한다. 아래 혈흔 버전의 결과는 이전 버전의 근거로 보존하며 새 자세의 완료 근거로 재사용하지 않는다.
+
+**Latest user-confirmed change:** make Creep lift its head as if screaming when stabbed. Extend the neck and head together, blend the response from actual first skin contact through full depth, and hold the raised-head pose while the blade remains embedded, alongside the existing body reaction. This requests a physical pose, not new scream audio.
+
+Keep one contact-blood burst, approximately 94% depth, one 20° twist, axial extraction and intact-head ragdoll after blade clearance. Existing contact at 0.61s, full depth at 0.90s, extraction from 1.30s, clearance at 1.90s, completion at 2.46s and E/F2/session rules remain unchanged. The actual snout axis rises about 59°, from 42.3177° below horizontal before contact to 16.6823° above it at deep stab, with a 24° lower-jaw opening relative to its baseline. These are asset-specific settings/measurements, not medical joint angles.
+
+**Both rear-takedown core and real F2 suites passed, along with nine seconds/270 frames of actual GPU checks, full-video decoding and independent still/sample-frame review. GitHub publication remains unverified.** See the [head-response report](../artifacts/validation/rear_stab_head_lift_20260921/README.md). The blood revision below remains historical evidence and does not validate the new pose.
+
+실제 주둥이 방향은 접촉 전 아래 42.3177°에서 깊은 찌르기 때 위 16.6823°로 약 59° 올라가며 아래턱을 열어 반응을 표현한다. 정면·측면에서는 들린 고개와 열린 입이 보이고, 뒤에서 보는 1인칭에서는 들린 머리 윤곽이 주로 보인다. 입은 자연스럽게 가려지므로 1인칭에서 입 모양까지 선명하게 보인다고 주장하지 않는다. 검수 표본에서 목의 열린 틈이나 큰 치아 관통은 보이지 않았지만 정밀 입 메시 충돌 검증은 아니다.
+
+The measured snout direction rises about 59°, from 42.3177° below horizontal before contact to 16.6823° above it at deep stab, with the lower jaw opened. Front/side views show the raised head and open mouth; rear first-person views mainly show the raised-head silhouette, with the mouth naturally occluded. Reviewed samples show no open neck gap or gross tooth penetration; this is not exact mouth-mesh collision validation.
+
 ## 2026-09-21 후방 검 제압 — 찌르기·비틀기 반응과 혈흔 / Rear takedown — stab/twist response and blood
+
+**이전 제작·검수 기록. 최신 요청은 이 순서를 유지하며 피격 시 목·머리를 들어 올리는 반응을 추가한다. / Historical production and validation. The latest request retains this sequence and adds a raised-neck/head impact response.**
 
 **최신 사용자 확정 변경:** 찌르기와 짧은 비틀기에 몬스터 몸 반응을 주고, 최초 실제 피부 접촉에서 3D 월드 혈흔을 한 번 발생시킨다. 깊은 찌르기에 강한 반응, 짧은 비틀기에 그보다 작은 반응을 구분한다. 직선 회수는 유지하지만 비틀기 없음 조건은 짧은 20° 한 번 비틀기로 대체한다. 옆 베기·목 베기·머리 절단은 되살리지 않는다.
 

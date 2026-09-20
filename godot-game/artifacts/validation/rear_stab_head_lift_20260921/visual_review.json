@@ -1,0 +1,61 @@
+{
+  "reviewer": "thrust_audit",
+  "scope": "Independent read-only inspection of listed actual Godot PNGs and chronological frame samples. No engine run or synthesized images.",
+  "artifact_directory": "/private/tmp/rear-wrist-publication-check/artifacts/visual_qa/rear_takedown/stab_head_lift_20260921",
+  "manifest_sha256": "9e240718b599db473910e9e77564a09fff1c13db042ea6bd6b9e9142acfc8482",
+  "manifest_failures": [],
+  "inspected_files": [
+    "rear_sword_before_contact_head_side.png",
+    "rear_sword_stab_head_side.png",
+    "rear_sword_stab_head_front.png",
+    "rear_sword_twist_mid_head_side.png",
+    "rear_sword_twist_mid_head_front.png",
+    "rear_sword_stab.png",
+    "rear_sword_before_contact.png",
+    "rear_sword_impact.png",
+    "rear_sword_recoil.png",
+    "rear_sword_hold.png",
+    "rear_sword_clear_head_side.png",
+    "rear_sword_recover_head_side.png",
+    "frames/00040.jpg",
+    "frames/00042.jpg",
+    "frames/00044.jpg",
+    "frames/00078.jpg",
+    "frames/00082.jpg",
+    "frames/00086.jpg"
+  ],
+  "sha256": {
+    "rear_sword_before_contact_head_side.png": "ad8ce920a9546772aa0d336c12a1fab0d2b115c77b15c3ec9c3ef57ec2abeebb",
+    "rear_sword_stab_head_side.png": "b755fecf35d01fec83dbb7c70083dd07cedb34b3422af8be77ef6446940116d2",
+    "rear_sword_stab_head_front.png": "efbed4352b65a51eea1e56d2576ae59f7bd437c9c3ce006a27cb049a980696a5",
+    "rear_sword_twist_mid_head_side.png": "eff8807e01d4ffecabf98e2c52e80d0f4f1a2300575ea12b8dee10462556e3d6",
+    "rear_sword_twist_mid_head_front.png": "cc0e5aff85f429dd1f097495d077f3238dd639b9302ee306c840f86ad9b56bbd",
+    "rear_sword_stab.png": "843dfd5420e6b8a09a57712f6fb9e6df55e4cfd1687925eeff578a605b7e9710",
+    "rear_sword_before_contact.png": "6ac86496ba57ea86ba2ce9311424830d02dac830b5d89f4fe619ddf61150e3bc",
+    "rear_sword_impact.png": "498d2aad1abbe53c735fda4d8614eba7aa319a46f01e7bcf205753c7f6716a4e",
+    "rear_sword_recoil.png": "2de03ebb387f3ededc1d8563bf6bfe4ffe8a65d0e3187ebbf179b33196b96436",
+    "rear_sword_hold.png": "9ff445466e79cc2f5a77b75bac2a4c0ba441f0ed55f2701eb12d1ef8d2423c28",
+    "rear_sword_clear_head_side.png": "1b7a43084b144966650433d34f9a8471d2274b00f2675c9f7e6ac10f73e6fb03",
+    "rear_sword_recover_head_side.png": "46f39f5aa6f227eadb0d91a6d105bbf2b50223551c3178976e8221dcb1febb43",
+    "frames/00040.jpg": "fff44473c35d823fe70cfacce350e377eb42c356b996cb7c9d56b64b7a10b80c",
+    "frames/00042.jpg": "2ec71c23d0a9c81db991d1e33a318c4110ab0b30df64341051b86ccbebc54276",
+    "frames/00044.jpg": "500ba28e39b8fb4709ffecc964214eed598b08a9eef31f423fea8855fc83bbaa",
+    "frames/00078.jpg": "a7ecfda3418a23931fb521e2c0a474fd29e55f9d545c475290de585c2d8bb6ac",
+    "frames/00082.jpg": "6c14b6b979b2354fccd5ef586d6655113363dddcf3f4f9c51f0f5a93546d7898",
+    "frames/00086.jpg": "0b7aa0b133064a1d1a0107298d2547cc3450fe93d937ac6031276c51d50bab74"
+  },
+  "observations": [
+    "Before-contact side has a lower muzzle and narrower jaw opening. Full-depth stab and twist side/front views clearly show the muzzle tilted upward and the lower jaw opened into a scream-like pose.",
+    "The visible tongue remains inside the mouth; no detached floating tongue or gross upper/lower tooth interpenetration is apparent in these views. This is visual inspection, not exact mouth mesh collision analysis.",
+    "Head and neck silhouette remain connected. Small stretched/folded areas under the side skin flaps are visible, but no open neck seam or detached head is apparent.",
+    "First-person rear view reveals a rising head/muzzle silhouette above the upper back. The mouth itself is naturally occluded from this camera and should not be described as clearly visible in first person.",
+    "Chronological 1.33/1.40/1.47-second samples show the head rising with penetration. 2.60/2.73/2.87-second samples show the held pose passing into collapse without an obvious isolated head snap.",
+    "The initial upward head reaction is visually stronger than the additional twist pulse. Blood and sword grip remain visible."
+  ],
+  "limitations": [
+    "Only listed stills and sample frames were independently inspected; full real-time playback and hardware input were not exercised.",
+    "The pose communicates a scream visually, but this review did not verify or hear an audio scream.",
+    "Original model skin topology, sleeve and finger art limitations were not newly solved by this change."
+  ],
+  "conclusion": "No observed blocker in upward-head/lower-jaw direction, visible neck connection or sampled transition. Front/side images give stronger evidence than the rear first-person view."
+}

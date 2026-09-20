@@ -400,6 +400,7 @@ func _ordered_execution(weapon: String, long_tick: bool, initial_distance := 1.1
 	if not _start_rear(actor): return
 	var entry_root: Transform3D = actor.global_transform
 	var initial_chest_basis: Basis = actor.skeleton.get_bone_global_pose(actor.skeleton.find_bone("Chest")).basis.orthonormalized()
+	var initial_head_bones := capture_head_bones(actor)
 	var before_lower := {}
 	for bone_name: String in ["Torso", "Leg1.L", "Leg1.R", "Foot.L", "Foot.R"]:
 		before_lower[bone_name] = actor.skeleton.get_bone_pose(actor.skeleton.find_bone(bone_name))
@@ -420,6 +421,7 @@ func _ordered_execution(weapon: String, long_tick: bool, initial_distance := 1.1
 			for bone_name: String in before_lower:
 				_check(actor.skeleton.get_bone_pose(actor.skeleton.find_bone(bone_name)).is_equal_approx(before_lower[bone_name]), "standing rear reaction preserves lower body: " + bone_name)
 			if time >= REAR.STAB_CONTACT - .001: _check_skin_contact_reaction(actor, time, initial_chest_basis)
+			_check_head_lift(actor, initial_head_bones, time)
 			_check_contact_blood(actor, time)
 			if is_equal_approx(time, REAR.PREPARE_END):
 				var distance := Vector2(player.global_position.x - actor.global_position.x, player.global_position.z - actor.global_position.z).length()
@@ -428,9 +430,10 @@ func _ordered_execution(weapon: String, long_tick: bool, initial_distance := 1.1
 		_advance_rear_to(REAR.STAB_HIT)
 		_check(actor.health == 0.0 and actor.ai_state == DungeonEnemy.AIState.DEAD and actor.ragdoll.phase == "execution_hold" and actor.ragdoll.parts.is_empty(), "deep actual stab kills once but holds the intact final recoil pose while steel remains inside")
 		_check_skin_contact_reaction(actor, REAR.STAB_HIT, initial_chest_basis)
+		_check_head_lift(actor, initial_head_bones, REAR.STAB_HIT)
 		_check_through_blade_in_skin(actor, actual_length, REAR.STAB_HIT)
 		_check_execution_arm_reach("deep_stab")
-		_check_held_twist_reaction(actor)
+		_check_held_twist_reaction(actor, initial_head_bones)
 		var held_pose: Array[Transform3D] = []
 		for bone in actor.skeleton.get_bone_count(): held_pose.append(actor.skeleton.get_bone_pose(bone))
 		var held := _real_blade()
@@ -518,7 +521,7 @@ func _check_contact_blood(actor, time: float) -> void:
 	report.append({"case": "rear_stab_blood", "time": time, "snapshot": blood})
 
 
-func _check_held_twist_reaction(actor) -> void:
+func _check_held_twist_reaction(actor, initial_head_bones: Dictionary) -> void:
 	var deep_blade := _real_blade()
 	var deep_basis := player.weapon_pivot.global_basis.orthonormalized()
 	var chest_index: int = actor.skeleton.find_bone("Chest")
@@ -545,7 +548,63 @@ func _check_held_twist_reaction(actor) -> void:
 		for bone in actor.skeleton.get_bone_count():
 			_check(actor.ragdoll.initial_pose[bone].is_equal_approx(actor.skeleton.get_bone_pose(bone)), "held ragdoll stores the current reacted pose for a continuous later release")
 		_check_contact_blood(actor, time)
+		_check_head_lift(actor, initial_head_bones, time)
 		report.append({"case": "held_twist_reaction", "time": time, "actual_chest_change_degrees": changed, "reaction": reaction})
+
+
+static func capture_head_bones(actor) -> Dictionary:
+	var result := {}
+	for name_value: String in ["Chest", "Neck", "Head", "Jaw1", "Jaw2"]:
+		var index: int = actor.skeleton.find_bone(name_value)
+		if index >= 0: result[name_value] = actor.skeleton.global_transform * actor.skeleton.get_bone_global_pose(index)
+	return result
+
+
+static func measure_head_lift(initial: Dictionary, current: Dictionary) -> Dictionary:
+	for name_value: String in ["Chest", "Neck", "Head", "Jaw1", "Jaw2"]:
+		if not initial.has(name_value) or not current.has(name_value): return {"available": false}
+	var before: Transform3D = initial.Head
+	var after: Transform3D = current.Head
+	# Audited native GLB: both jaw pivots lie on Head local +Y, 0.46012 units
+	# from its origin. They locate the actual snout, which starts pitched down.
+	# Actor -Z would erase that rest pitch and falsely report a skyward face.
+	var initial_jaw := ((initial.Jaw1 as Transform3D).origin + (initial.Jaw2 as Transform3D).origin) * .5
+	var current_jaw := ((current.Jaw1 as Transform3D).origin + (current.Jaw2 as Transform3D).origin) * .5
+	var initial_forward := (initial_jaw - before.origin).normalized()
+	var current_forward := (current_jaw - after.origin).normalized()
+	var initial_elevation := rad_to_deg(asin(clampf(initial_forward.y, -1.0, 1.0)))
+	var current_elevation := rad_to_deg(asin(clampf(current_forward.y, -1.0, 1.0)))
+	var neck_before: Transform3D = initial.Neck
+	var neck_after: Transform3D = current.Neck
+	return {"available": true, "face_forward_before": initial_forward, "face_forward_after": current_forward,
+		"face_elevation_before_degrees": initial_elevation, "face_elevation_after_degrees": current_elevation,
+		"face_lift_degrees": current_elevation - initial_elevation,
+		"head_world_rotation_degrees": basis_angle_degrees(before.basis.orthonormalized(), after.basis.orthonormalized()),
+		"neck_local_rotation_degrees": basis_angle_degrees((initial.Chest as Transform3D).basis.inverse() * neck_before.basis, (current.Chest as Transform3D).basis.inverse() * neck_after.basis),
+		"head_local_rotation_degrees": basis_angle_degrees(neck_before.basis.inverse() * before.basis, neck_after.basis.inverse() * after.basis),
+		"lower_jaw_local_rotation_degrees": basis_angle_degrees(before.basis.inverse() * (initial.Jaw2 as Transform3D).basis, after.basis.inverse() * (current.Jaw2 as Transform3D).basis),
+		"upper_jaw_local_rotation_degrees": basis_angle_degrees(before.basis.inverse() * (initial.Jaw1 as Transform3D).basis, after.basis.inverse() * (current.Jaw1 as Transform3D).basis),
+		"neck_head_length_error_m": absf(before.origin.distance_to(neck_before.origin) - after.origin.distance_to(neck_after.origin)),
+		"head_jaw_length_error_m": absf(before.origin.distance_to(initial_jaw) - after.origin.distance_to(current_jaw)),
+		"scope": "Actual Head-to-native-jaw-pivot direction and posed bone transforms; no authored angle or actor-forward proxy. Mouth appearance still requires same-pose GPU inspection."}
+
+
+func _check_head_lift(actor, initial: Dictionary, time: float) -> void:
+	var measured := measure_head_lift(initial, capture_head_bones(actor))
+	var reaction: Dictionary = actor.get_rear_takedown_reaction_snapshot()
+	_check(bool(measured.available), "head reaction measures actual native Head/Neck/Jaw bones")
+	if not bool(measured.available): return
+	_check(float(measured.neck_head_length_error_m) < .001 and float(measured.head_jaw_length_error_m) < .001, "head lift preserves neck/head and head/jaw lengths")
+	if time <= REAR.STAB_CONTACT:
+		_check(float(measured.head_world_rotation_degrees) < .01 and absf(float(measured.face_lift_degrees)) < .01 and is_zero_approx(float(reaction.get("head_lift_weight", -1.0))), "actual face cannot tilt upward before physical blade contact")
+		_check(float(measured.lower_jaw_local_rotation_degrees) < .01, "actual lower jaw cannot open before blade contact")
+	elif time >= REAR.STAB_HIT - .001:
+		_check(float(measured.face_lift_degrees) > 30.0 and float(measured.face_elevation_after_degrees) > 10.0, "deep stab makes the actual snout face visibly upward, not merely less downward")
+		_check(float(measured.neck_local_rotation_degrees) > 5.0 and float(measured.head_local_rotation_degrees) > 20.0, "head lift is distributed through actual neck and head joints")
+		_check(float(measured.lower_jaw_local_rotation_degrees) > 15.0 and float(measured.upper_jaw_local_rotation_degrees) < .01, "actual lower jaw opens relative to the raised head while upper jaw stays attached")
+	else:
+		_check(float(measured.face_lift_degrees) > .0 and float(reaction.get("head_lift_weight", 0.0)) > .0, "actual head starts rising after contact while the blade is still advancing")
+	report.append({"case": "actual_head_lift", "time": time, "measurement": measured, "reaction": reaction})
 
 
 static func expected_rear_blade_basis(initial: Basis, axis: Vector3, time: float) -> Basis:
