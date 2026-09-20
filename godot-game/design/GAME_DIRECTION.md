@@ -1,5 +1,11 @@
 # 게임 제작 기준서
 
+## 2026-09-20 후방 검 제압 손목 보정 — 후속 제작 / Rear takedown wrist correction — follow-up
+
+기존 검 제압의 팔 길이·도달 검사는 손목 방향이 자연스럽다는 근거로 충분하지 않았다. 실제 리그 축에 대한 손·전완 검사와 박힌 검의 월드 방향 고정을 추가했다. 준비 경로를 15cm 낮추고 아래 10cm·앞 20cm 방향 전환은 칼끝이 빠진 다음 시작하며, 시작·복귀 어깨는 실제 준비 자세와 연결한다. 이전 약 107°와 새 축 차이 값은 리그 기준이며 해부학적·임상적 손목 굽힘각을 뜻하지 않는다. 기존 F2 항목과 공개 E 경로를 유지한다. **최종 핵심·F2 검사 및 실제 GPU `wrist_final_20260920`의 9초·270프레임 검수를 통과했다.** GPU의 최대 활성 축 차이 30.516°(깊은 찌르기 29.247°), 최대 관절 이동 0.094880m·손 회전 13.005°, 박힌 칼의 월드 회전 변화 0°를 확인했다. 실제 진입 자세와 연속 표본의 12cm·45° 제한, 접근 차단 시 접촉 전 취소도 검사했다. 이전 검수와 이번 최신·이전 후보판 회귀 근거는 [현재 검수 기록](../artifacts/validation/rear_sword_wrist_20260920/README.md)에 구분한다. 참고 영상 2:09–2:14·OS 하드웨어 입력은 미확인이며 GitHub 상태는 최종 게시 기록을 따른다.
+
+Prior length/reach checks were insufficient to establish natural wrist orientation. The correction adds actual-rig-axis checks and a fixed embedded-world basis, lowers preparation 15cm and delays the 10cm-down/20cm-forward turn until tip clearance. Entry/recovery blend from the actual ready pose. Old approximately 107° and new axis measurements are rig-relative, not anatomical or clinical wrist angles. Existing F2/E controls remain. **Final core/F2 checks and nine seconds/270 frames of actual GPU `wrist_final_20260920` passed**, with maximum active axis mismatch 30.516° (deep stab 29.247°), joint step 0.094880m, hand rotation 13.005° and embedded world rotation change 0°. Actual pre-entry pose, consecutive-sample 12cm/45° limits and blocked-approach cancellation before contact were checked. The linked report separates earlier history, candidate regressions and latest evidence. Reference-video 2:09–2:14 and OS input remain unverified; GitHub status follows the final publication record.
+
 ## 2026-09-20 검으로 미인지 몬스터 후방 제압 — 사용자 요청 / Unaware rear sword takedown — requested feature
 
 사용자는 미인지 몬스터 뒤에서 검으로 찌르고, 검을 뽑은 뒤 크게 휘둘러 목을 베는 제압을 요청했다. 찌르기와 발검 중에는 대상을 살아 있게 유지하고 마지막 베기에만 실제 머리 분리·사망·보상 1회를 연결한다. E 상호작용으로 시작하며 정면·경계 상태에서는 거절한다. 이 미인지 요구는 기존 단검 암살에도 우선 적용되어 이미 추적·공격 중인 적을 뒤에서 즉사시키던 범위를 제한한다.

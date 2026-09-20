@@ -32,8 +32,10 @@ func _run() -> void:
 	await _ordered_execution("rusted_sword", false)
 	await _ordered_execution("forged_longsword", true)
 	await _ordered_execution("rusted_sword", false, 1.49)
+	await _wrist_motion_sequence()
 	await _cancellation_boundaries()
 	await _blocked_approach()
+	await _blocked_initial_approach()
 	await _clear_targets()
 	reward_game.free()
 	viewport.queue_free()
@@ -182,7 +184,12 @@ func _ordered_execution(weapon: String, long_tick: bool, initial_distance := 1.1
 			if is_equal_approx(time, REAR.WITHDRAW_END):
 				var state := player.get_execution_snapshot()
 				var blade := _real_blade()
-				_check((blade.tip - state.contact_point).dot(state.stab_direction) < -.15, "actual blade tip must exit the back before wide neck slash")
+				var surfaces := _torso_surface_depths(actor, state.contact_point, state.stab_direction)
+				_check(not surfaces.is_empty(), "extraction clearance must use the actual posed back skin")
+				if not surfaces.is_empty():
+					var clearance: float = surfaces[0] - (blade.tip - state.contact_point).dot(state.stab_direction)
+					_check(clearance >= .03, "actual blade tip must clear posed back skin by at least three centimetres before wide neck slash")
+					report.append({"case": "actual_skin_extraction", "time": time, "clearance_m": clearance, "skin_entry_depth_m": surfaces[0]})
 			if time < REAR.CUT_HIT:
 				_check(not actor.finish_rear_takedown(player), "premature finish remains refused throughout live sequence")
 		var neck := _actual_neck_center(actor)
@@ -280,7 +287,143 @@ func _check_execution_arm_reach(phase: String) -> void:
 	_check(reach <= .601 and requested_reach <= .641 and adjustment <= .041, "execution must stay within fixed arm length and four-centimetre shoulder correction: " + phase)
 	_check(absf(float(arm.upper_length) - .34) < .004 and absf(float(arm.forearm_length) - .26) < .004, "execution cannot lengthen the rendered upper arm or forearm: " + phase)
 	_check(float(grip.get("error", INF)) < .01, "execution must preserve the actual sword-hand grip: " + phase)
+	var wrist := measure_wrist_geometry(player)
+	_check(bool(wrist.get("available", false)), "actual supplied hand and forearm bones must be measurable: " + phase)
+	if bool(wrist.get("available", false)):
+		_check(float(wrist.axis_mismatch_degrees) <= 45.0, "authored hand axis must align with the actual posed forearm within 45 degrees: " + phase)
 	report.append({"case": "execution_arm_reach", "phase": phase, "time": player.execution_elapsed, "shoulder_to_wrist_m": reach, "authored_shoulder_to_wrist_m": requested_reach, "shoulder_adjustment_m": adjustment, "grip_error_m": grip.error})
+	if not wrist.is_empty(): report.append({"case": "actual_wrist_axis", "phase": phase, "measurement": wrist})
+
+
+func _wrist_motion_sequence() -> void:
+	var actor = await _new_rear_actor()
+	if not _start_rear(actor): return
+	var times: Array[float] = [0.0]
+	for frame in range(1, int(ceil(REAR.DURATION / STEP)) + 1): times.append(minf(REAR.DURATION, frame * STEP))
+	var boundaries: Array[float] = [REAR.PREPARE_END, REAR.STAB_HIT, REAR.HOLD_END, REAR.WITHDRAW_END, REAR.CUT_START, REAR.CUT_HIT, REAR.CUT_END, REAR.DURATION]
+	for boundary in boundaries:
+		times.append(boundary - .0001)
+		times.append(boundary)
+		if boundary < REAR.DURATION: times.append(boundary + .0001)
+	times.sort()
+	var samples: Array[Dictionary] = []
+	var elapsed := 0.0
+	var embedded_basis := Basis.IDENTITY
+	var embedded_seen := false
+	var maximum_mismatch := 0.0
+	var maximum_fixed_rotation := 0.0
+	for time in times:
+		if not samples.is_empty() and time <= elapsed + .0000001: continue
+		var delta := time - elapsed
+		player.advance_combat_state(delta)
+		player._update_viewmodel(delta)
+		if actor.health <= 0.0: actor.ragdoll.set_physics_process(false)
+		elapsed = time
+		var actual := measure_wrist_geometry(player)
+		_check(bool(actual.get("available", false)), "60Hz wrist check reads the actual supplied skeleton")
+		if not bool(actual.get("available", false)): continue
+		var blade := _real_blade()
+		var state := player.get_execution_snapshot()
+		var depth: float = (blade.tip - state.contact_point).dot(state.stab_direction)
+		var projection := measure_blade_projection(player.camera, blade.heel, blade.tip, state.contact_point, state.stab_direction)
+		var weapon_basis := player.weapon_pivot.global_basis.orthonormalized()
+		var strict_axis := (time >= REAR.PREPARE_END and time <= REAR.WITHDRAW_END and depth > 0.0) or (time >= REAR.STAB_HIT and time <= REAR.WITHDRAW_END) or absf(time - REAR.CUT_HIT) < .001
+		if strict_axis:
+			maximum_mismatch = maxf(maximum_mismatch, float(actual.axis_mismatch_degrees))
+			_check(float(actual.axis_mismatch_degrees) <= 45.0, "actual hand/forearm axis mismatch exceeds 45 degrees at %.5fs" % time)
+		if time >= REAR.PREPARE_END and time <= REAR.WITHDRAW_END:
+			if not embedded_seen:
+				embedded_basis = weapon_basis
+				embedded_seen = true
+			var drift := basis_angle_degrees(embedded_basis, weapon_basis)
+			maximum_fixed_rotation = maxf(maximum_fixed_rotation, drift)
+			_check(drift <= .10, "thrust and axial extraction must preserve actual world blade rotation at %.5fs" % time)
+		if time >= REAR.STAB_HIT and time <= REAR.WITHDRAW_END:
+			_check(int(projection.in_frame_samples) >= 2 and float(projection.projected_span_px) > 1.0, "an exposed blade segment must project in front of the camera during stab/extraction")
+		samples.append({"time": time, "delta": delta, "actual": actual, "weapon_basis": weapon_basis, "projection": projection, "depth_m": depth})
+	var maximum_step := 0.0
+	var maximum_rotation := 0.0
+	var maximum_step_time := 0.0
+	for index in range(1, samples.size()):
+		var previous: Dictionary = samples[index - 1]
+		var current: Dictionary = samples[index]
+		var step := actual_joint_step(previous.actual, current.actual)
+		var rotation := basis_angle_degrees(previous.actual.hand_basis_world, current.actual.hand_basis_world)
+		if step > maximum_step:
+			maximum_step = step
+			maximum_step_time = current.time
+		maximum_rotation = maxf(maximum_rotation, rotation)
+		# These are discontinuity guards, not a universal animation speed limit:
+		# bound the fitted joints to 12cm and the hand to 45 degrees per tick.
+		_check(step < .12 and rotation < 45.0, "actual bone continuity must not snap at %.5fs (%.4fm / %.2fdeg)" % [current.time, step, rotation])
+		if float(current.delta) <= .00011:
+			_check(step < .004 and rotation < .75, "real joint pose must join continuously across a phase boundary at %.5fs" % current.time)
+	var projection_stages: Array[Dictionary] = []
+	for sample in samples:
+		for boundary in boundaries:
+			if absf(float(sample.time) - boundary) < .000001:
+				projection_stages.append({"time": sample.time, "projection": sample.projection, "axis_mismatch_degrees": sample.actual.axis_mismatch_degrees})
+	_check(samples.size() >= 160 and embedded_seen, "full 60Hz execution and explicit phase-boundary samples must be retained")
+	report.append({"case": "full_wrist_continuity", "sample_count": samples.size(), "maximum_joint_step_m": maximum_step, "maximum_step_time": maximum_step_time, "maximum_hand_rotation_step_degrees": maximum_rotation, "maximum_embedded_axis_mismatch_degrees": maximum_mismatch, "maximum_fixed_blade_rotation_degrees": maximum_fixed_rotation, "projection_stages": projection_stages})
+
+
+static func measure_wrist_geometry(subject: DungeonPlayer) -> Dictionary:
+	# Inspect actual hand/deform bones. Never substitute the animation solver's
+	# requested elbow or its reported angle for the rendered rig's result.
+	var adapter := subject.weapon_arm.get_node_or_null("SuppliedRightArm")
+	if adapter == null: return {"available": false}
+	var rig := adapter.find_child("Skeleton3D", true, false) as Skeleton3D
+	if rig == null: return {"available": false}
+	var wrist_index := rig.find_bone("wrist")
+	var elbow_index := rig.find_bone("elbow")
+	var shoulder_index := rig.find_bone("upper")
+	if mini(wrist_index, mini(elbow_index, shoulder_index)) < 0: return {"available": false}
+	var rest_wrist := rig.get_bone_global_rest(wrist_index)
+	var neutral := rig.get_bone_global_rest(elbow_index).origin - rest_wrist.origin
+	var wrist_pose := rig.get_bone_global_pose(wrist_index)
+	var hand: Transform3D = rig.global_transform * wrist_pose
+	var wrist := hand.origin
+	var elbow := rig.to_global(rig.get_bone_global_pose(elbow_index).origin)
+	var shoulder := rig.to_global(rig.get_bone_global_pose(shoulder_index).origin)
+	var hand_axis := (rig.global_basis * wrist_pose.basis * rest_wrist.basis.inverse() * neutral).normalized()
+	var actual_forearm := (elbow - wrist).normalized()
+	var legacy_axis := (subject.weapon_arm.global_basis * (subject.SWORD_LONG_GRIP.REST_ELBOW - subject.SWORD_LONG_GRIP.REST_WRIST)).normalized()
+	return {"available": true, "wrist_world": wrist, "elbow_world": elbow, "shoulder_world": shoulder,
+		"hand_basis_world": hand.basis.orthonormalized(), "neutral_hand_axis_world": hand_axis,
+		"actual_forearm_axis_world": actual_forearm,
+		"axis_mismatch_degrees": rad_to_deg(hand_axis.angle_to(actual_forearm)),
+		"legacy_axis_mismatch_degrees": rad_to_deg(legacy_axis.angle_to(actual_forearm)),
+		"measurement_scope": "Authored rig neutral axis versus posed forearm; not a clinical wrist angle."}
+
+
+static func actual_joint_step(a: Dictionary, b: Dictionary) -> float:
+	var maximum := 0.0
+	for joint: String in ["wrist_world", "elbow_world", "shoulder_world"]:
+		maximum = maxf(maximum, (a[joint] as Vector3).distance_to(b[joint]))
+	return maximum
+
+
+static func basis_angle_degrees(a: Basis, b: Basis) -> float:
+	if a.is_equal_approx(b): return 0.0
+	return rad_to_deg(a.get_rotation_quaternion().angle_to(b.get_rotation_quaternion()))
+
+
+static func measure_blade_projection(camera: Camera3D, heel: Vector3, tip: Vector3, entry: Vector3, axis: Vector3) -> Dictionary:
+	# Visible-in-frustum geometry only. Skin, hand and sleeve occlusion still
+	# requires the actual GPU images; do not call this a rendered visibility test.
+	var depth := maxf(0.0, (tip - entry).dot(axis))
+	var exposed_end := tip - axis * depth
+	var rect := camera.get_viewport().get_visible_rect()
+	var points: Array[Vector2] = []
+	for index in 25:
+		var point := heel.lerp(exposed_end, float(index) / 24.0)
+		if camera.to_local(point).z >= -camera.near: continue
+		var projected := camera.unproject_position(point)
+		if rect.has_point(projected): points.append(projected)
+	var span := 0.0
+	for a in points:
+		for b in points: span = maxf(span, a.distance_to(b))
+	return {"in_frame_samples": points.size(), "projected_span_px": span, "projected_span_viewport_fraction": span / maxf(rect.size.x, 1.0), "exposed_length_m": heel.distance_to(exposed_end), "occlusion_verified": false}
 
 
 func _blocked_approach() -> void:
@@ -310,6 +453,45 @@ func _blocked_approach() -> void:
 	_check(actor.health == actor.max_health and actor.ai_state == DungeonEnemy.AIState.STAGGER and not is_instance_valid(actor._execution_executor), "blocked approach must release a living, alerted target")
 	_check(actor.global_transform.is_equal_approx(original_root) and actor.dismemberment.detached.is_empty() and _defeats(actor) == 0 and landed.size() == hits and bag.count_item("rune_fragment") == rewards, "blocked approach cannot move the victim, detach the head or grant a death/reward")
 	report.append({"case": "blocked_capsule_approach", "remaining_distance_m": distance, "actual_step_m": player.global_position.distance_to(initial_position), "cancelled": not player.is_execution_active()})
+	side_wall.get_parent().remove_child(side_wall)
+	side_wall.queue_free()
+
+
+func _blocked_initial_approach() -> void:
+	var actor = await _new_rear_actor()
+	_prepare_player(actor, Vector3(0, 0, 1.49))
+	var original_root: Transform3D = actor.global_transform
+	var rewards := bag.count_item("rune_fragment")
+	var hits := landed.size()
+	# The far fixture needs an initial step before thrusting. This low corner
+	# blocks that first step while preserving all eye/back reservation rays.
+	wall = _add_box(Vector3(1.4, .65, .10), actor.global_position + Vector3(0, -.25, 1.02))
+	var side_wall := _add_box(Vector3(.10, .65, 1.0), actor.global_position + Vector3(-.75, -.25, 1.45))
+	await physics_frame
+	await physics_frame
+	_check(actor.can_begin_rear_takedown(player) and player._rear_takedown_has_clear_path(actor), "far low-corner fixture must permit rear reservation and isolate the blocked initial body step")
+	if _start_rear(actor):
+		var initial_position := player.global_position
+		var state := player.get_execution_snapshot()
+		var anchor: Vector3 = state.contact_point
+		var direction: Vector3 = state.stab_direction
+		var elapsed := 0.0
+		var deepest_tip := -INF
+		var contact_committed := false
+		while elapsed < REAR.STAB_HIT + STEP and player.is_execution_active():
+			player.advance_combat_state(STEP)
+			player._update_viewmodel(STEP)
+			elapsed += STEP
+			var blade := _real_blade()
+			deepest_tip = maxf(deepest_tip, (blade.tip - anchor).dot(direction))
+			contact_committed = contact_committed or bool(player.get_execution_snapshot().stab_contact_committed)
+		_check(not player.is_execution_active() and elapsed < REAR.STAB_HIT, "blocked initial approach must cancel before the first deep stab event")
+		_check(not contact_committed and deepest_tip < .03, "blocked initial approach must never commit a stab or display a deeply buried blade")
+		_check(player.global_position.z >= wall.global_position.z + .05 + .36 - .015 and player.global_position.distance_to(initial_position) < .15, "far executor capsule must stop at the initial low corner")
+		player.advance_execution(REAR.DURATION)
+		_check(not player.viewmodel_renderer.world_contact_enabled and actor.health == actor.max_health and actor.ai_state == DungeonEnemy.AIState.STAGGER and not is_instance_valid(actor._execution_executor), "early obstruction must release a living alerted enemy and normal player rendering")
+		_check(actor.global_transform.is_equal_approx(original_root) and actor.dismemberment.detached.is_empty() and actor.dismemberment.severed.is_empty() and actor.ragdoll.phase == "living" and _defeats(actor) == 0 and landed.size() == hits and bag.count_item("rune_fragment") == rewards, "failed initial approach must not leave a held target, delayed cut, death or reward")
+		report.append({"case": "blocked_initial_capsule_approach", "initial_distance_m": 1.49, "cancellation_time": elapsed, "actual_step_m": player.global_position.distance_to(initial_position), "deepest_tip_depth_m": deepest_tip, "stab_contact_committed": contact_committed})
 	side_wall.get_parent().remove_child(side_wall)
 	side_wall.queue_free()
 

@@ -92,6 +92,9 @@ var _rear_neck_contact := Vector3.ZERO
 var _rear_stab_contact_committed := false
 var _rear_entry_yaw := 0.0
 var _rear_entry_pitch := 0.0
+var _rear_stab_basis := Basis.IDENTITY
+var _rear_arm_entry: Dictionary = {}
+var _rear_approach_obstruction_m := 0.0
 var _rear_approach_offset := Vector3.ZERO
 var _rear_approach_progress := 0.0
 
@@ -1192,7 +1195,11 @@ func begin_rear_takedown() -> Dictionary:
 	_execution_weapon_identity = _displayed_weapon_identity
 	_execution_contact_point = contacts.back
 	_rear_neck_contact = contacts.neck
-	_execution_stab_direction = (contacts.direction as Vector3).normalized()
+	# A small diagonal reveals the blade without twisting the rigid sword grip.
+	var forward := (contacts.direction as Vector3).normalized().rotated(Vector3.UP, deg_to_rad(4.0))
+	_execution_stab_direction = (forward * cos(deg_to_rad(6.0)) + Vector3.UP * sin(deg_to_rad(6.0))).normalized()
+	_rear_stab_basis = REAR_TAKEDOWN_MOTION.stab_basis(_execution_stab_direction)
+	_rear_arm_entry = _reference_arm_rendered.duplicate(true)
 	var geometry := _get_execution_blade_geometry()
 	_execution_blade_tip = geometry.tip
 	_execution_blade_length = geometry.length
@@ -1203,6 +1210,7 @@ func begin_rear_takedown() -> Dictionary:
 	approach.y = 0.0
 	_rear_approach_offset = approach.normalized() * maxf(0.0, approach.length() - REAR_TAKEDOWN_MOTION.CUT_DISTANCE)
 	_rear_approach_progress = 0.0
+	_rear_approach_obstruction_m = 0.0
 	_sword_attack_uses_cycle = false
 	_sword_direct_entry = false
 	_sword_draw_elapsed = SWORD_DRAW_DURATION
@@ -1385,6 +1393,9 @@ func _advance_rear_takedown(delta: float) -> void:
 	# Close an initially longer gap before the first thrust, then finish the
 	# short step during extraction. Both phases use actual character collision.
 	_move_rear_takedown_approach(minf(next_elapsed, REAR_TAKEDOWN_MOTION.STAB_HIT))
+	if _rear_approach_obstruction_m > .04:
+		cancel_execution()
+		return
 	# Cross contact events in order even on a long tick; no damage at windup.
 	if not _rear_stab_contact_committed and next_elapsed >= REAR_TAKEDOWN_MOTION.STAB_HIT:
 		_execution_target.advance_execution_pose(REAR_TAKEDOWN_MOTION.STAB_HIT)
@@ -1406,7 +1417,7 @@ func _advance_rear_takedown(delta: float) -> void:
 			_apply_rear_takedown_view(REAR_TAKEDOWN_MOTION.CUT_HIT)
 			var wrist := weapon_pivot.transform * SWORD_LONG_GRIP.REST_WRIST
 			var shoulder := SWORD_LONG_GRIP.SOURCE_READY * SWORD_LONG_GRIP.REST_SHOULDER
-			if wrist.distance_to(shoulder) > REFERENCE_ARM.MAX_REACH + .04:
+			if _rear_approach_obstruction_m > .04 or wrist.distance_to(shoulder) > REFERENCE_ARM.MAX_REACH + .04:
 				cancel_execution()
 				return
 			var tip := weapon_pivot.to_global(_execution_blade_tip)
@@ -1437,7 +1448,10 @@ func _move_rear_takedown_approach(elapsed: float) -> void:
 	var first := maxf(0.0, distance - (REAR_TAKEDOWN_MOTION.STAB_DISTANCE - REAR_TAKEDOWN_MOTION.CUT_DISTANCE)) / maxf(distance, .000001)
 	var progress := first * smoothstep(0, REAR_TAKEDOWN_MOTION.PREPARE_END, elapsed) + (1.0 - first) * smoothstep(REAR_TAKEDOWN_MOTION.HOLD_END, REAR_TAKEDOWN_MOTION.CUT_START, elapsed)
 	if progress > _rear_approach_progress:
-		move_and_collide(_rear_approach_offset * (progress - _rear_approach_progress))
+		var step := _rear_approach_offset * (progress - _rear_approach_progress)
+		var before := global_position
+		move_and_collide(step)
+		_rear_approach_obstruction_m += maxf(0.0, step.length() - (global_position - before).dot(step.normalized()))
 		_rear_approach_progress = progress
 
 
@@ -1452,7 +1466,7 @@ func _apply_rear_takedown_view(elapsed: float) -> void:
 	head.rotation.x = _pitch
 	camera.position = REAR_TAKEDOWN_MOTION.camera_offset(elapsed)
 	camera.rotation = Vector3.ZERO
-	weapon_pivot.transform = REAR_TAKEDOWN_MOTION.sword(elapsed, _execution_sword_entry, camera.to_local(_execution_contact_point), camera.global_basis.inverse() * _execution_stab_direction, camera.to_local(_rear_neck_contact), _execution_blade_tip, _execution_blade_length)
+	weapon_pivot.transform = REAR_TAKEDOWN_MOTION.sword(elapsed, _execution_sword_entry, camera.to_local(_execution_contact_point), camera.global_basis.inverse() * _execution_stab_direction, camera.to_local(_rear_neck_contact), _execution_blade_tip, _execution_blade_length, camera.global_basis.inverse() * _rear_stab_basis)
 	shield_pivot.transform = REAR_TAKEDOWN_MOTION.shield(elapsed, _execution_shield_entry)
 
 
@@ -1513,7 +1527,10 @@ func _update_execution_viewmodel() -> void:
 		shield_pivot.transform = EXECUTION_MOTION.shield(execution_elapsed, _execution_shield_entry, _execution_shield_rest)
 		camera.position = EXECUTION_MOTION.camera_offset(execution_elapsed)
 		camera.rotation = EXECUTION_MOTION.camera_rotation(execution_elapsed)
-	_reference_arm_target = _reference_arm_for_pivot({}, weapon_pivot.transform)
+	if _execution_profile == "rear_sword":
+		_reference_arm_target = REAR_TAKEDOWN_MOTION.arm(weapon_pivot.transform, execution_elapsed, _rear_arm_entry, _reference_arm_previous_bend)
+	else:
+		_reference_arm_target = _reference_arm_for_pivot({}, weapon_pivot.transform)
 	_refresh_carried_visibility()
 	_update_character_arms()
 
