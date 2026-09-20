@@ -1,0 +1,193 @@
+{
+	"captures": [
+		{
+			"failures": [],
+			"health": {
+				"conditions": {
+					"curse": 180.0
+				},
+				"dead": false,
+				"health": 395.0,
+				"max_health": 440.0,
+				"parts": {
+					"head": {
+						"blacked": false,
+						"conditions": {},
+						"health": 35.0,
+						"max_health": 35.0,
+						"name": "머리"
+					},
+					"left_arm": {
+						"blacked": false,
+						"conditions": {},
+						"health": 15.0,
+						"max_health": 60.0,
+						"name": "왼팔"
+					},
+					"left_leg": {
+						"blacked": false,
+						"conditions": {},
+						"health": 65.0,
+						"max_health": 65.0,
+						"name": "왼다리"
+					},
+					"right_arm": {
+						"blacked": false,
+						"conditions": {},
+						"health": 60.0,
+						"max_health": 60.0,
+						"name": "오른팔"
+					},
+					"right_leg": {
+						"blacked": false,
+						"conditions": {},
+						"health": 65.0,
+						"max_health": 65.0,
+						"name": "오른다리"
+					},
+					"stomach": {
+						"blacked": false,
+						"conditions": {},
+						"health": 70.0,
+						"max_health": 70.0,
+						"name": "복부"
+					},
+					"thorax": {
+						"blacked": false,
+						"conditions": {},
+						"health": 85.0,
+						"max_health": 85.0,
+						"name": "가슴"
+					}
+				},
+				"selected_part": ""
+			},
+			"image": "07_mine_warnings.png",
+			"item_use": {},
+			"items": [
+				"rusted_sword",
+				"hunting_bow",
+				"field_torch",
+				"healing_draught",
+				"linen_bandage",
+				"pilgrim_ration",
+				"boiled_rainwater",
+				"antidote",
+				"purifying_salt",
+				"weathered_staff"
+			],
+			"responses": [],
+			"timer_visible": false,
+			"warnings": [
+				"hunger",
+				"thirst",
+				"fatigue",
+				"dizziness",
+				"curse"
+			]
+		},
+		{
+			"failures": [],
+			"health": {
+				"conditions": {},
+				"dead": false,
+				"health": 440.0,
+				"max_health": 440.0,
+				"parts": {
+					"head": {
+						"blacked": false,
+						"conditions": {},
+						"health": 35.0,
+						"max_health": 35.0,
+						"name": "머리"
+					},
+					"left_arm": {
+						"blacked": false,
+						"conditions": {},
+						"health": 60.0,
+						"max_health": 60.0,
+						"name": "왼팔"
+					},
+					"left_leg": {
+						"blacked": false,
+						"conditions": {},
+						"health": 65.0,
+						"max_health": 65.0,
+						"name": "왼다리"
+					},
+					"right_arm": {
+						"blacked": false,
+						"conditions": {},
+						"health": 60.0,
+						"max_health": 60.0,
+						"name": "오른팔"
+					},
+					"right_leg": {
+						"blacked": false,
+						"conditions": {},
+						"health": 65.0,
+						"max_health": 65.0,
+						"name": "오른다리"
+					},
+					"stomach": {
+						"blacked": false,
+						"conditions": {},
+						"health": 70.0,
+						"max_health": 70.0,
+						"name": "복부"
+					},
+					"thorax": {
+						"blacked": false,
+						"conditions": {},
+						"health": 85.0,
+						"max_health": 85.0,
+						"name": "가슴"
+					}
+				},
+				"selected_part": ""
+			},
+			"image": "08_test_room_default.png",
+			"item_use": {},
+			"items": [
+				"rusted_sword",
+				"hunting_bow",
+				"field_torch",
+				"healing_draught",
+				"linen_bandage",
+				"pilgrim_ration",
+				"boiled_rainwater",
+				"antidote",
+				"purifying_salt",
+				"weathered_staff"
+			],
+			"responses": [],
+			"timer_visible": false,
+			"warnings": []
+		}
+	],
+	"desktop_capture": false,
+	"display_driver": "embedded",
+	"external_input": false,
+	"failures": [],
+	"preserved": true,
+	"renderer": "vulkan",
+	"source_sha256": {
+		"res://scripts/bandage_use_visuals.gd": "b84c3b425b52fa41e1fd6302280c2e4295f8cb93703aa3ac37579c7839672bc3",
+		"res://scripts/cave_dungeon.gd": "0f91682857940470cc04c8c202a48072a64d25d160a5c518055ac9e67b4dda5e",
+		"res://scripts/dungeon_combat_hud.gd": "095322dba70f4f59c615451b1e0cf6d2fa60c9ed5408771b548bf3d35e9d8c4c",
+		"res://scripts/game.gd": "8f2f0632c1fe5bcdd3af469c69790708a3181143563a998991bcf54e795b3d54",
+		"res://scripts/hud.gd": "a47fefdb25d9fccf31236f9bccbe6d5d89bd15493c1aea19354a16297a658865",
+		"res://scripts/inventory_model.gd": "5c6cd0b29a0ff388826b72dafa8755ad7f020c1564b452753934a41dd16728f0",
+		"res://scripts/inventory_overlay.gd": "8e9ae1a865c60829a6607926f72e71bee7937c053338760c75fd8e5f3c6ffc4e",
+		"res://scripts/item_use_progress.gd": "49529176914f718b5f006c054c449bc9f9af57cbd25a39ffb78ddb50a088539b",
+		"res://scripts/player.gd": "97087d7f5d691ffaecfcf9f3ed8ce151035a4231956029d4c1ceea31ddc4869d",
+		"res://scripts/splint_use_visuals.gd": "28247eb816919d31936325b3c4b098f5f11e6139d1749f2c79894c6a33704b8f",
+		"res://scripts/test_room.gd": "53de0664cae33b80a80d9f76bdc1b5a39580e970deb39e7ff3ffd4ef2993df65",
+		"res://tests/combat_hud_room_scene.gd": "624f88d2be5aa333ff0fec33716f83495b4e1bdc6570f8334478c9580b861ae1",
+		"res://tests/dungeon_combat_hud_preview.gd": "7e685589cee5e12ab2cfb8a152aa5a2e379da64d9723bdde0ac86a6e8aee2e4f",
+		"res://tests/item_detail_preview.gd": "f84afd14b41128db9f258e5ad7208a003fe59440e7412df7a9221bfb3a2205c6",
+		"res://tests/performance_mine_scene.gd": "b530c0453467b8523332fa556d168f86d59b37d90434713ddd635b3a9973c21b",
+		"res://tests/performance_preview.gd": "049dd8eb33ea4126ab3363b724bc99f2906cb25aab57651baa5ff56e16f5945a",
+		"res://tests/performance_scene_factory.gd": "497a2c775e78603ab665bba54603ed41f2d2f53f94034e0fa4a2f2bdf36dab25"
+	}
+}

@@ -427,7 +427,7 @@ func run_feature(feature_id: String) -> void:
 		return
 	_cancel_creep_ragdoll_trial()
 	_cancel_creep_dismemberment_trial()
-	hud.set_combat_interface_enabled(false)
+	hud.set_combat_interface_enabled(true)
 	_close_finger_joint_controls(false)
 	_close_art_gallery(false)
 	_commit_test_status_edits()
@@ -1241,7 +1241,7 @@ func _prepare_first_person_motion(family: String) -> void:
 		"shield_impact": "막힘 충격 · RMB 정면 피해 100% 차단 · 공격 직전 0.20초 가드로 적 1.15초 스턴 · 기력 고갈 시 방패 내림",
 		"bow": "활 · LMB 반쯤/끝까지 당겨 놓기 · RMB 취소 · 실제 화살 30개",
 		"flail": "철퇴 · LMB 근접 · RMB 회전 후 놓기 · 실제 투척과 자동 회수",
-		"staff": "지팡이 · 화염탄 선택 완료 · LMB 실제 시전 · 1~5 주문 변경",
+		"staff": "지팡이 · 화염탄 선택 완료 · LMB 실제 시전 · Alt+숫자 주문 변경",
 		"torch": "횃불 전용 파지 · 손바닥 부피·엄지 감김·자루 밀착 확인 · 검·방패는 가방에 보관 · WASD 걷기 / Shift 달리기 / F 켜기·끄기 · I 장비 변경",
 		"chest": "손 동작 없이 · E로 실제 상자 조사와 열기 · 시선 이동/E 재입력 취소",
 	}.get(family, "1인칭 모션"))

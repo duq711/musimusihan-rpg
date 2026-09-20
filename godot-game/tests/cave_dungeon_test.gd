@@ -32,6 +32,12 @@ func _run() -> void:
 		_finish()
 		return
 	player.set_physics_process(false)
+	_check(cave.hud.combat_enabled and is_instance_valid(cave.hud.combat_panel), "actual cave entry must enable the shared body-health and quick-slot HUD")
+	if is_instance_valid(cave.hud.combat_panel):
+		var panel: Control = cave.hud.combat_panel
+		_check(panel.is_visible_in_tree() and panel.player == player and panel.bag == cave.inventory, "cave combat HUD must be visible and bound to its real player and inventory")
+		for legacy: Control in cave.hud.legacy_panels:
+			_check(not legacy.visible, "actual cave entry must replace every legacy HUD panel")
 	_check(player.position.is_equal_approx(LAYOUT.spawn_position()), "the cave must spawn at its authored southern entry")
 	for _frame in range(30):
 		await physics_frame

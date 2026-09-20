@@ -52,6 +52,7 @@ func _spawn_player() -> void:
 	player.setup(self, hud, inventory)
 	player.died.connect(_on_player_died)
 	add_child(player)
+	hud.enable_combat_interface(player, inventory, inventory_overlay._item_texture)
 	configure_player_lighting(player)
 	if is_instance_valid(cave_geometry.water_system):
 		cave_geometry.water_system.bind_player(player)

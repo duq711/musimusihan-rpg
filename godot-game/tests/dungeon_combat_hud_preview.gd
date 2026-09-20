@@ -5,6 +5,11 @@ const PERFORMANCE := preload("res://tests/performance_preview.gd")
 const OUTPUT_ROOT := "res://artifacts/visual_qa/dungeon_combat_hud"
 func _init() -> void: call_deferred("_run")
 static func shots() -> Array[Dictionary]:
+	if OS.get_environment("COMBAT_HUD_QA_SCOPE") == "routes":
+		return [
+			{"id":"07_mine_warnings","size":Vector2i(1280,720),"action":"warnings","scene":"mine"},
+			{"id":"08_test_room_default","size":Vector2i(960,540),"action":"healthy","scene":"test_room"}
+		]
 	return [
 		{"id":"01_dungeon_healthy","size":Vector2i(1280,720),"action":"healthy"},
 		{"id":"02_dungeon_warnings","size":Vector2i(1280,720),"action":"warnings"},
@@ -18,14 +23,20 @@ static func create_fixture(viewport: SubViewport, shot: Dictionary) -> Dictionar
 	ExpeditionSession.hunger = 100
 	ExpeditionSession.thirst = 100
 	ExpeditionSession.stress = 0
-	var game := FACTORY.create("dungeon")
+	var scene_id := str(shot.get("scene", "dungeon"))
+	var game: Node = load("res://tests/combat_hud_room_scene.gd").new() if scene_id == "test_room" else FACTORY.create(scene_id)
 	viewport.add_child(game)
 	HELPERS.stop_external_execution(game)
 	var player: DungeonPlayer = game.player
 	var bag: ExpeditionInventory = game.inventory
 	for id in ["healing_draught","linen_bandage","pilgrim_ration","boiled_rainwater","antidote","purifying_salt"]:
 		bag.add_item(id,3)
-	PERFORMANCE.position_player(game,{"position":Vector3(0,1.72,13),"target":Vector3(0,1.4,3)},true)
+	var eye := Vector3(0,1.72,13)
+	var target := Vector3(0,1.4,3)
+	if scene_id == "mine":
+		eye = preload("res://scripts/cave_layout.gd").spawn_position() + Vector3(0, 0.72, -1)
+		target = eye + Vector3(0, -0.1, -10)
+	PERFORMANCE.position_player(game,{"position":eye,"target":target},true)
 	for frame in 30:
 		player._update_viewmodel(1.0/60.0)
 		player._update_torch(1.0/60.0)
@@ -69,6 +80,8 @@ static func inspect_fixture(viewport: SubViewport, fixture: Dictionary, shot: Di
 	var panel: Control = fixture.panel
 	var game: Node = fixture.game
 	if not game.hud.combat_enabled or not panel.is_visible_in_tree(): failures.append("Actual dungeon entry failed to enable combat HUD")
+	for legacy in game.hud.legacy_panels:
+		if legacy.is_visible_in_tree(): failures.append("Legacy HUD overlaps the new combat HUD")
 	if panel.bag != game.inventory or panel.player != game.player: failures.append("HUD not bound to production state")
 	if not Rect2(Vector2.ZERO,Vector2(viewport.size)).encloses(panel.get_global_rect()): failures.append("HUD exceeds viewport")
 	if panel.textures.size()!=10: failures.append("Missing shortcut textures")
@@ -87,6 +100,8 @@ static func inspect_fixture(viewport: SubViewport, fixture: Dictionary, shot: Di
 	return {"item_use":game.player.get_item_use_snapshot(),"timer_visible":game.hud.item_use_progress.visible,"warnings":panel.warnings.duplicate(),"health":panel.body_snapshot,"items":panel.item_ids,"responses":fixture.responses,"failures":failures}
 static func collect_hashes() -> Dictionary:
 	var result := {}
+	for path in ["scripts/cave_dungeon.gd", "scripts/test_room.gd", "tests/combat_hud_room_scene.gd", "tests/performance_mine_scene.gd"]:
+		result["res://"+path] = FileAccess.get_sha256("res://"+path)
 	for path in ["scripts/item_use_progress.gd","scripts/bandage_use_visuals.gd","scripts/splint_use_visuals.gd","scripts/dungeon_combat_hud.gd","scripts/hud.gd","scripts/player.gd","scripts/game.gd","scripts/inventory_model.gd","scripts/inventory_overlay.gd","tests/dungeon_combat_hud_preview.gd","tests/performance_scene_factory.gd","tests/performance_preview.gd","tests/item_detail_preview.gd"]:
 		result["res://"+path] = FileAccess.get_sha256("res://"+path)
 	return result

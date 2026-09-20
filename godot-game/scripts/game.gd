@@ -556,8 +556,7 @@ func _spawn_player() -> void:
 	player.setup(self, hud, inventory)
 	player.died.connect(_on_player_died)
 	add_child(player)
-	if not has_method("_show_test_panel"):
-		hud.enable_combat_interface(player, inventory, inventory_overlay._item_texture)
+	hud.enable_combat_interface(player, inventory, inventory_overlay._item_texture)
 
 
 func _spawn_encounters() -> void:
