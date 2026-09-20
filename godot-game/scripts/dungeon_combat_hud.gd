@@ -10,8 +10,8 @@ const PART_SHAPES := {
  "head": [Vector2(49,4),Vector2(59,0),Vector2(70,4),Vector2(74,14),Vector2(71,28),Vector2(65,34),Vector2(65,41),Vector2(54,41),Vector2(54,33),Vector2(48,27),Vector2(45,14)],
  "thorax": [Vector2(53,38),Vector2(66,38),Vector2(78,43),Vector2(83,55),Vector2(77,85),Vector2(69,95),Vector2(50,95),Vector2(42,85),Vector2(36,55),Vector2(42,44)],
  "stomach": [Vector2(45,88),Vector2(74,88),Vector2(76,112),Vector2(81,132),Vector2(67,145),Vector2(60,134),Vector2(52,145),Vector2(38,132),Vector2(43,111)],
- "right_arm": [Vector2(39,45),Vector2(44,57),Vector2(35,87),Vector2(28,104),Vector2(25,128),Vector2(18,152),Vector2(10,158),Vector2(6,151),Vector2(12,130),Vector2(14,101),Vector2(22,84),Vector2(23,63),Vector2(29,49)],
- "left_arm": [Vector2(80,45),Vector2(90,49),Vector2(97,63),Vector2(97,84),Vector2(106,101),Vector2(107,130),Vector2(114,151),Vector2(110,158),Vector2(102,152),Vector2(94,128),Vector2(92,104),Vector2(85,87),Vector2(76,57)],
+ "right_arm": [Vector2(42,44),Vector2(36,55),Vector2(35,87),Vector2(28,104),Vector2(25,128),Vector2(18,152),Vector2(10,158),Vector2(6,151),Vector2(12,130),Vector2(14,101),Vector2(22,84),Vector2(23,63),Vector2(29,49)],
+ "left_arm": [Vector2(78,43),Vector2(90,49),Vector2(97,63),Vector2(97,84),Vector2(106,101),Vector2(107,130),Vector2(114,151),Vector2(110,158),Vector2(102,152),Vector2(94,128),Vector2(92,104),Vector2(85,87),Vector2(83,55)],
  "right_leg": [Vector2(39,133),Vector2(56,141),Vector2(57,164),Vector2(52,188),Vector2(51,210),Vector2(44,239),Vector2(45,250),Vector2(35,257),Vector2(20,256),Vector2(20,251),Vector2(31,241),Vector2(33,211),Vector2(32,190),Vector2(33,162)],
  "left_leg": [Vector2(64,141),Vector2(81,133),Vector2(87,162),Vector2(88,190),Vector2(87,211),Vector2(89,241),Vector2(100,251),Vector2(100,256),Vector2(85,257),Vector2(75,250),Vector2(76,239),Vector2(69,210),Vector2(68,188),Vector2(63,164)]
 }
@@ -136,9 +136,8 @@ func _draw() -> void:
   var tone := Color(0.32,0.76,0.31) if ratio > 0.65 else Color(0.88,0.64,0.2) if ratio > 0.3 else Color(0.83,0.18,0.12)
   if ratio <= 0: tone = Color(0.28,0.28,0.25)
   var points := PackedVector2Array()
-  # Leave a visible gap between arm and torso outlines, including their glow.
-  var arm_offset := Vector2(-18, 0) if part == "right_arm" else Vector2(18, 0) if part == "left_arm" else Vector2.ZERO
-  for p in PART_SHAPES[part]: points.append(base + (p + arm_offset) * 0.84)
+  # Arms share the shoulder edges with the torso without overlapping its fill.
+  for p in PART_SHAPES[part]: points.append(base + p * 0.84)
   draw_colored_polygon(points, Color(tone, 0.12))
   points.append(points[0])
   draw_polyline(points, Color(tone,0.16), 5, true)

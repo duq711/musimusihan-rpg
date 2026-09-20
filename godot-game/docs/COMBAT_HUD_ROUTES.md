@@ -34,3 +34,13 @@ Reviewed the actual mine and default test-room GPU renders: separated arms, tota
 [촬영 기록](../artifacts/visual_qa/dungeon_combat_hud/routes_fixed_20260920/capture_manifest.json)은 `embedded`, `vulkan`, `preserved: true`, 빈 실패 목록을 기록합니다. 사용자 창·커서·외부 입력·소리 없이 검증했으며 실제 하드웨어 조작 검증은 아닙니다. 촬영 후 추가된 변경은 지팡이 안내문과 입력 회귀검사뿐입니다. 소스 해시는 촬영 시점의 로컬 상태를 보존합니다.
 
 The manifest records embedded/Vulkan rendering, preserved state and no failures. No native window, cursor, external input or audio was used; this does not claim hardware-input validation. Only staff help text and an input regression check were added after capture; source hashes describe the captured local state.
+
+## 양팔을 몸통에 연결 / Arms joined to the torso
+
+2026-09-20 후속 요청에 따라 양팔의 바깥쪽 이동을 제거하고 어깨 경계를 흉부와 맞췄습니다. 양팔은 몸통에 붙어 보이며, 몸통 면적을 침범하지 않아 부위별 피해 색을 구분할 수 있습니다. 공통 HUD를 쓰는 성물실·폐광·테스트룸에 함께 적용됩니다.
+
+Following the user's feedback, removed the outward arm offsets and aligned their shoulder edges with the thorax. Arms now join the torso without overlapping its filled area, retaining separate injury colors across the sanctuary, mine and test room.
+
+검증: 기존 `dungeon_combat_hud` 헤드리스 검사 통과. 새 [폐광 화면](../artifacts/visual_qa/dungeon_combat_hud/arms_joined_20260920/07_mine_warnings.png)과 [작은 테스트룸 화면](../artifacts/visual_qa/dungeon_combat_hud/arms_joined_20260920/08_test_room_default.png), [촬영 기록](../artifacts/visual_qa/dungeon_combat_hud/arms_joined_20260920/capture_manifest.json)은 이전 촬영과 별도로 보존합니다.
+
+Validation: existing combat HUD headless check passed. The new mine and small test-room renders and capture manifest are stored separately from the previous captures.
