@@ -878,27 +878,29 @@ F2 pauses combat/AI and cancels a pending ordinary stab. Reselection heals/respa
 
 ## 검 제압 · 미인지 후방 / Sword takedown from an unaware rear
 
-`F2 → 기본`의 다음 항목은 실제 `rusted_sword`, 빈 보조손, 건강하고 온전한 크리프를 준비한다. `forged_longsword`와 `forged_arming_sword`도 같은 제압 프로필을 지원한다. 일반 **E 상호작용**으로 시작하며 LMB 일반 공격이나 포복 처형과 구분한다.
+`F2 → 기본`의 다음 항목은 실제 `rusted_sword`, 빈 보조손, 건강하고 온전한 크리프를 준비한다. `forged_longsword`와 `forged_arming_sword`도 같은 후방 제압을 지원한다. 일반 **E 상호작용**으로 시작하며 LMB 일반 공격과 포복 처형은 별도다.
 
 | 항목 | 직접 시험하는 방법 |
 |---|---|
-| `검 제압 · 미인지 후방` (`rear_takedown`) | 미인지 적 뒤 1.15m에서 E. 먼저 중단 찌르기 공간을 확보하고 손·전완·검이 목표 쪽으로 이어지는 자세로 깊게 찌르는지 확인한다. 한 번 비튼 뒤 플레이어 우측으로 베어 빼며 머리를 유지한 랙돌로 연결한다. |
-| `검 제압 · 경계 상태 비교` (`rear_takedown:alerted`) | 같은 뒤쪽 배치지만 적은 실제 추적 상태다. E가 거절되어도 적의 추적·공격이 계속되는지 비교한다. |
-| `검 제압 · 정면 비교` (`rear_takedown:front`) | 같은 적을 정면에 둔다. E 제압은 불가하고 실제 인지·전투는 유지한다. |
+| `검 제압 · 미인지 후방` (`rear_takedown`) | 미인지 적 뒤에서 E. 엄지·손가락이 손잡이를 감싼 채 팔이 앞으로 나가는지, 피부 첫 접촉에서 작은 반응이 시작되고 깊이 찌를수록 반응이 커지는지 본다. 이후 한 번 비틀기·우측 발검·머리 유지 랙돌을 확인한다. |
+| `검 제압 · 경계 상태 비교` (`rear_takedown:alerted`) | 같은 뒤쪽 배치지만 적은 실제 추적 상태다. E가 거절되어도 추적·공격이 계속되는지 비교한다. |
+| `검 제압 · 정면 비교` (`rear_takedown:front`) | 같은 적을 정면에 둔다. 후방 E 제압은 불가하고 실제 인지·전투는 유지한다. |
 
-제압 조건은 대기·미인지, 뒤쪽 ±55°, 수평 0.85–1.50m, 높이 차 0.8m 이하와 벽 가림 검사다. 서 있는 크리프의 머리·다리가 온전해야 한다. 새 중단 찌르기는 사용자 도식 가운데 왼쪽 그림을 참고하여 후방 제압에만 50° 대각 파지와 손가락별 굽힘·벌림을 적용한다. 실제 손목을 기준으로 팔을 풀고, 준비 팔꿈치 방향을 연속적으로 연결한다. 파지량을 해제하면 대기·일반 공격 자세로 돌아간다.
+조건은 대기·미인지, 뒤쪽 ±55°, 수평 0.85–1.50m, 높이 차 0.8m 이하와 벽 가림 검사다. 서 있는 크리프의 머리·다리가 온전해야 한다. 이번 후속 제작은 손잡이 접촉과 전진 팔의 연결, 접촉 직후 반응, 1인칭 구도를 다듬는다. 제압 전용 파지와 손가락 접촉을 조정했고, 일반 파지와는 분리해 적용한다. 충돌을 확인하며 준비 공간을 확보한 뒤 팔을 앞으로 밀며, 필요한 후퇴·전진이 막히면 접촉 전에 취소한다. 카메라 전진을 줄이고 적과의 간격을 늘린 구도에서 전진 동작과 손잡이가 가려지지 않는지 본다. 깊게 찌르는 동안 팔꿈치는 우측 아래로 연결하고, 회수 시 안정된 굽힘 방향을 이어 받아 팔이 갑자기 뒤집히지 않는지도 확인한다.
 
-첫 0.55초 준비 동안 충돌을 검사하며 약 1.40m 공간을 확보한 뒤 0.90초까지 적과 0.78m 간격으로 전진 찌른다. 가까운 시작에서는 먼저 물러나며 필요한 후퇴나 전진이 막히면 찌르기 접촉 전에 취소한다. 시선 목표를 16cm 좌측으로 조정해 어깨·전완을 찌르기 선 쪽으로 향하게 한다. 최종 검 진행선은 적 전방축에서 좌향 20°·상향 12°, 검축 회전 기준 180°이며 준비 손잡이를 낮춰 카메라에서 소매 내부가 보이지 않게 한다. 실제 등 피부 기준 칼날 94% 관입, 1.02–1.34초 45° 한 번 비틀기, 1.44–2.20초 우측 발검을 유지한다. 1.70초 실제 몸통 베기에서 사망·보상을 한 번 확정하며 머리는 분리하지 않는다. 2.32초까지 여운, 2.84초 복귀다. 수치는 원본 리그에 맞춘 조정 가능한 제작값이다.
+찌르기 전에는 찔림 반응이 없어야 하고, 실제 첫 피부 접촉에서 작은 움찔을 시작한 뒤 관입 깊이에 따라 몸 반응이 커져야 한다. 깊은 관통·반대편 칼끝, 한 번 비틀기·플레이어 우측 발검과 한 번 사망·보상은 유지한다. 머리는 분리하지 않고 몸 전체의 랙돌로 연결한다. 일반 대기·공격으로 복귀할 때 제압 전용 파지가 남지 않아야 한다.
 
-진행 중 F2는 양쪽 배우와 공유 시계를 보존하며 멈춘다. 치명적 베기 전에 취소하면 살아 있는 적을 풀어 주고 지연된 사망·보상을 남기지 않는다. 재선택은 회복·재생성, 전체 초기화는 기본 표적 복원, 종료는 원래 원정 복원을 사용한다. 미설치 에셋은 설치 안내를 표시하며 대상·장비를 대체하지 않는다.
+진행 중 F2는 배우와 공유 시계를 보존하며 멈춘다. 치명적 베기 전에 취소하면 살아 있는 적을 풀어 주고 지연 사망·보상을 남기지 않는다. 재선택은 회복·재생성, 전체 초기화는 기본 표적 복원, 종료는 원래 원정 복원을 사용한다. 에셋 미설치는 안내를 표시하며 대상·장비를 대신 만들어 시험하지 않는다.
 
-**최종 코드 자동 검사 5종(후방 제압·실제 F2·공급 팔·포복 처형·검/방패 처형)과 실제 GPU 9초·270프레임 검수를 통과했다. 준비·찌르기 중간·관통·비틀기 후·베기·발검의 실제 1인칭 및 정면·측면 스틸을 열어 확인했고, 최종 경로에서 후보판의 소매 내부 노출이 제거됨을 확인했다. 전체 영상 270프레임 디코딩도 통과했다. 원격 게시 상태는 최종 게시 기록을 따른다.** [중단 찌르기 검수 기록](artifacts/validation/rear_sword_middle_thrust_20260920/README.md)에 이번 코드의 근거와 한계를 보존한다. 새 대기 진입부터 준비 34표본, 전체 동작 193표본, 접근·후퇴 차단 취소와 일반 공격 파지 복원을 검사했다. 이전 관통·손목·목 베기 검수는 각 과거 버전의 기록이다. 공개 E API 검사는 OS 하드웨어 E/마우스 입력 검증이 아니며, 도식의 역사적 정확 복제나 의료적 검증은 주장하지 않는다.
+**최종 자동 검사 5종과 실제 GPU 9초·270프레임 검수·전체 영상 디코딩을 통과했다. 파지·측면 화면과 동작 표본의 독립 검토도 완료했다. GitHub 원격 반영은 아직 미확인이다.** [이번 검수 기록](artifacts/validation/rear_sword_force_thrust_20260920/README.md)과 [전체 영상](artifacts/validation/rear_sword_force_thrust_20260920/rear_sword_force_thrust.mp4)에 최종 근거를 보존한다. [이전 중단 찌르기 검수](artifacts/validation/rear_sword_middle_thrust_20260920/README.md)는 과거 버전만 입증한다. 공개 E API 검사와 OS 하드웨어 입력 검증은 구분하며, 하드웨어 E/마우스 입력은 미확인이다.
 
-The three F2 entries prepare a supported sword, empty offhand and healthy intact Creep with live AI. Use **E** behind an unaware target; alerted-rear and front comparisons reject without freezing normal combat. Eligibility remains idle/unaware, ±55° rear, 0.85–1.50m horizontally, at most 0.8m height difference, clear line of sight and intact head/legs. The middle-left reference drawing guides a rear-only 50° diagonal grip, individual finger curl/spread and a real-wrist arm solve with continuous preparation elbow direction. Ordinary ready/attack poses restore their original grip.
+The three F2 entries prepare a supported sword, empty offhand and healthy intact Creep with live AI. Use **E** from the unaware rear; alerted-rear and front cases reject while normal combat continues. Eligibility stays idle/unaware, ±55° rear, 0.85–1.50m horizontally, at most 0.8m height difference, clear line of sight and intact head/legs.
 
-Collision-tested preparation creates about 1.40m of space by 0.55s, retreating first if needed, then thrusts toward 0.78m by 0.90s. Blocked retreat or approach cancels before stab contact. A 16cm leftward focus offset aligns the arm with the thrust. The final blade line is 20° left/12° up from enemy forward, with a 180° roll reference and lowered preparation hilt to clear the camera. Retain 94% actual-back-skin insertion, one 45° twist during 1.02–1.34s, right extraction during 1.44–2.20s, a single fatal torso cut/reward at 1.70s, intact-head ragdoll, follow-through to 2.32s and recovery by 2.84s. These are adjustable asset-specific values. F2 pause, pre-fatal cancellation, replay/heal/respawn, reset and exact expedition restoration remain.
+Inspect the thumb/fingers around the handle, readable forward arm extension and the first-contact response. Rear-only grip and finger contact are updated independently of ordinary grip. Create preparation space with collision checks and cancel before contact if required retreat/advance is blocked. Reduced camera advance and increased final target spacing should keep the arm drive visible. Follow the elbow down/right while embedded and carry its stable bend through withdrawal without a sudden flip. Reaction must start at actual skin contact, then build with insertion depth; preserve deep penetration, one twist, player-right extraction, one death/reward and intact-head ragdoll. Restore ordinary ready/attack grip afterward. Existing F2 pause, pre-fatal cancellation, replay/healing, reset and exact expedition restoration remain. **Final validation passed five automated suites, actual nine-second/270-frame GPU review and full-video decoding, with independent side/grip and sampled-frame inspection. GitHub publication remains unconfirmed.** Use the [current report](artifacts/validation/rear_sword_force_thrust_20260920/README.md) and [full video](artifacts/validation/rear_sword_force_thrust_20260920/rear_sword_force_thrust.mp4) for final evidence. Earlier reports validate only earlier revisions; public E API checks are not OS hardware keyboard/mouse validation.
 
-**Final code passed five automated suites: rear takedown, real F2, supplied arms, crawler execution and sword/shield execution. Actual nine-second/270-frame GPU review and full-video decoding passed; the final thrust path removes the earlier sleeve-interior exposure.** The [middle-guard report](artifacts/validation/rear_sword_middle_thrust_20260920/README.md) records the 34-sample fresh-idle preparation, 193-sample complete action, blocked retreat/approach and ordinary-grip restoration checks. Historical reports validate only their own revisions. Public E API checks are not OS keyboard/mouse validation; exact historical-technique reproduction and medical assessment are not claimed.
+선정한 다섯 손가락 쌍의 표면 교차는 0개지만 손 전체의 완전한 충돌 검사는 아니다. 손바닥 정점 한 개가 손잡이 타원 근사 안쪽 약 3.19mm에 남으며 정확한 손잡이 메시 관통량을 뜻하지는 않는다. 검지 간격이 남는 점을 포함해 접촉이 완벽하다고 보고하지 않는다.
+
+Five selected digit pairs have zero measured surface crossings, but this is not an exhaustive hand collision proof. One palm vertex remains approximately 3.19mm inside the elliptical handle proxy, which is not an exact penetration depth into the true handle mesh. Index spacing remains; flawless contact is not claimed.
 
 ### 검 제압 손목 후속 검수 / Takedown wrist follow-up checks
 

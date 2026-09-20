@@ -5,7 +5,11 @@ const MOTION := preload("res://scripts/rear_takedown_motion.gd")
 
 
 static func apply(actor: Node3D, rig: Skeleton3D, elapsed: float, anchor: Vector3, exit_right: Vector3) -> Dictionary:
-	var recoil := smoothstep(MOTION.STAB_HIT, MOTION.STAB_HIT + .16, elapsed)
+	# React at first surface contact, then contract with the remaining thrust.
+	# The old clock waited until the entire blade had already entered.
+	var contact := smoothstep(MOTION.STAB_CONTACT, MOTION.STAB_CONTACT + .06, elapsed)
+	var penetration := smoothstep(MOTION.STAB_CONTACT, MOTION.STAB_HIT, elapsed)
+	var recoil := .25 * contact + .75 * penetration
 	var withdrawn := smoothstep(MOTION.HOLD_END, MOTION.WITHDRAW_END, elapsed)
 	# The blade turns only after the deep stab. A single restrained contraction
 	# follows that turn, then the body follows the rightward extraction.
@@ -31,4 +35,4 @@ static func apply(actor: Node3D, rig: Skeleton3D, elapsed: float, anchor: Vector
 		var world_pose := rig.global_transform * rig.get_bone_global_pose(head)
 		world_pose.basis = Basis(lateral, head_angle) * world_pose.basis
 		rig.set_bone_global_pose(head, rig.global_transform.affine_inverse() * world_pose)
-	return {"recoil_weight": recoil, "withdrawn_weight": withdrawn, "lateral_exit_weight": lateral_exit, "blade_twist_weight": blade_twist, "twist_recoil_weight": twist_recoil, "chest_angle": chest_angle, "head_angle": head_angle, "side_angle": side_angle, "twist_angle": twist_angle, "exit_right": exit_right, "back_anchor": anchor}
+	return {"contact_weight": contact, "penetration_weight": penetration, "recoil_weight": recoil, "withdrawn_weight": withdrawn, "lateral_exit_weight": lateral_exit, "blade_twist_weight": blade_twist, "twist_recoil_weight": twist_recoil, "chest_angle": chest_angle, "head_angle": head_angle, "side_angle": side_angle, "twist_angle": twist_angle, "exit_right": exit_right, "back_anchor": anchor}

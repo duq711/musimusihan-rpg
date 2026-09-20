@@ -284,9 +284,31 @@ func _new_rear_actor(weapon := "rusted_sword"):
 	reward_game.loot_count = 0
 	actor.defeated.connect(reward_game._on_enemy_defeated)
 	_prepare_player(actor, Vector3(0, 0, 1.15))
+	_settle_rear_idle(actor)
 	await physics_frame
 	await physics_frame
 	return actor
+
+
+func _settle_rear_idle(actor) -> void:
+	# The inherited dagger fixture updates once with delta=0 after cancelling
+	# the previous action. Let the real 100ms pose handoff finish, as it does
+	# in a fresh gameplay idle, instead of carrying a prior extraction pose.
+	player._sword_draw_elapsed = player.SWORD_DRAW_DURATION
+	player._motion_equip_elapsed = player.MOTION.EQUIP_DURATION
+	player.velocity = Vector3.ZERO
+	var contacts: Dictionary = actor.get_rear_takedown_contacts()
+	if not contacts.is_empty():
+		var aim: Vector3 = (contacts.back as Vector3) - player.camera.global_position
+		player.rotation.y = atan2(-aim.x, -aim.z)
+		player._pitch = atan2(aim.y, Vector2(aim.x, aim.z).length())
+		player.head.rotation.x = player._pitch
+	for tick in 36:
+		player.advance_combat_state(STEP)
+		player._update_viewmodel(STEP)
+		player._resolve_active_attack()
+	_check(player.combat_state == DungeonPlayer.CombatState.READY and not player.is_execution_active(), "rear fixture settles through the real idle coordinator without starting an attack")
+	_check_restored_grip(player, "settled rear fixture idle")
 
 
 func _eligibility_and_profiles() -> void:
@@ -367,6 +389,7 @@ func _ordered_execution(weapon: String, long_tick: bool, initial_distance := 1.1
 	var actor = await _new_rear_actor(weapon)
 	if not is_equal_approx(initial_distance, 1.15):
 		_prepare_player(actor, Vector3(0, 0, initial_distance))
+		_settle_rear_idle(actor)
 		await physics_frame
 		await physics_frame
 	var hp: float = actor.health
@@ -375,6 +398,7 @@ func _ordered_execution(weapon: String, long_tick: bool, initial_distance := 1.1
 	if not _start_rear(actor): return
 	var entry_root: Transform3D = actor.global_transform
 	var entry_player_position := player.global_position
+	var initial_chest_basis: Basis = actor.skeleton.get_bone_global_pose(actor.skeleton.find_bone("Chest")).basis.orthonormalized()
 	var before_lower := {}
 	for bone_name: String in ["Torso", "Leg1.L", "Leg1.R", "Foot.L", "Foot.R"]:
 		before_lower[bone_name] = actor.skeleton.get_bone_pose(actor.skeleton.find_bone(bone_name))
@@ -389,7 +413,7 @@ func _ordered_execution(weapon: String, long_tick: bool, initial_distance := 1.1
 		_check(bool(player.get_execution_snapshot().stab_contact_committed), "long frame must resolve real stab contact before lateral cutting death")
 		_check_execution_arm_reach("lateral_cut")
 	else:
-		for time: float in [REAR.PREPARE_END, REAR.STAB_HIT - .001, REAR.STAB_HIT, REAR.TWIST_START, REAR.TWIST_END, REAR.HOLD_END, REAR.CUT_HIT - .001]:
+		for time: float in [REAR.PREPARE_END, REAR.STAB_CONTACT - .001, REAR.STAB_CONTACT, REAR.STAB_CONTACT + STEP, REAR.STAB_CONTACT + .08, REAR.STAB_HIT - .001, REAR.STAB_HIT, REAR.TWIST_START, REAR.TWIST_END, REAR.HOLD_END, REAR.CUT_HIT - .001]:
 			_advance_rear_to(time)
 			_check(player.is_execution_active(), "valid staged rear execution remains active at %.3f" % time)
 			_check(actor.health == hp and actor.dismemberment.severed.is_empty() and actor.dismemberment.detached.is_empty() and _defeats(actor) == 0 and landed.size() == before_hits, "stab, hold and initial lateral slice keep the target alive and head attached at %.3f" % time)
@@ -397,6 +421,8 @@ func _ordered_execution(weapon: String, long_tick: bool, initial_distance := 1.1
 			_check(actor.global_transform.is_equal_approx(entry_root), "standing reaction must keep navigation root planted")
 			for bone_name: String in before_lower:
 				_check(actor.skeleton.get_bone_pose(actor.skeleton.find_bone(bone_name)).is_equal_approx(before_lower[bone_name]), "standing rear reaction must preserve lower body: " + bone_name)
+			if time >= REAR.STAB_CONTACT - .001 and time <= REAR.STAB_HIT:
+				_check_skin_contact_reaction(actor, time, initial_chest_basis)
 			if time >= REAR.STAB_HIT and time <= REAR.HOLD_END:
 				_check_through_blade_in_skin(actor, actual_length, time)
 				if is_equal_approx(time, REAR.STAB_HIT): _check_execution_arm_reach("deep_stab")
@@ -462,6 +488,28 @@ func _check_through_blade_in_skin(actor, length: float, time: float) -> void:
 	report.append({"case": "through_skin", "time": time, "blade_length_m": length, "measurement": skin})
 
 
+func _check_skin_contact_reaction(actor, time: float, initial_chest_basis: Basis) -> void:
+	var state := player.get_execution_snapshot()
+	var blade := _real_blade()
+	var skin := measure_skin_passage(actor, blade.heel, blade.tip, state.contact_point, state.stab_direction)
+	var reaction: Dictionary = actor.get_rear_takedown_reaction_snapshot()
+	_check(bool(skin.get("found", false)) and skin.get("entry_mesh", "") == "CreepPart_torso", "contact clock is checked against actual posed torso skin, never a capsule")
+	if not bool(skin.get("found", false)): return
+	var depth := float(skin.depth_m)
+	var recoil := float(reaction.get("recoil_weight", -1.0))
+	var chest_basis: Basis = actor.skeleton.get_bone_global_pose(actor.skeleton.find_bone("Chest")).basis.orthonormalized()
+	var chest_change := basis_angle_degrees(initial_chest_basis, chest_basis)
+	if time < REAR.STAB_CONTACT:
+		_check(depth < 0.0 and is_zero_approx(recoil) and chest_change < .01, "victim cannot recoil before the real sword tip reaches back skin")
+	elif is_equal_approx(time, REAR.STAB_CONTACT):
+		_check(absf(depth) < .003 and is_zero_approx(recoil), "first-contact key places the actual tip on torso skin before starting recoil")
+	else:
+		_check(depth > .0 and recoil > .0 and chest_change > .01, "after physical skin contact the victim must already react while the sword is advancing")
+	if time >= REAR.STAB_HIT - .001:
+		_check(recoil > .95 and float(reaction.get("contact_weight", -1.0)) > .99 and float(reaction.get("penetration_weight", -1.0)) > .95 and chest_change > 5.0, "deepest thrust already includes substantial actual chest recoil instead of starting it afterward")
+	report.append({"case": "physical_skin_contact_and_recoil", "time": time, "actual_skin_depth_m": depth, "actual_chest_rotation_degrees": chest_change, "reaction": reaction, "entry_skin_world": skin.entry_world, "entry_mesh": skin.entry_mesh})
+
+
 static func measure_skin_passage(actor, heel: Vector3, tip: Vector3, anchor: Vector3, direction: Vector3) -> Dictionary:
 	# Intersect only actual visible body skin: no collision capsule, AABB, caps,
 	# inferred thickness or fabricated closing face can prove a far-side exit.
@@ -507,6 +555,29 @@ static func measure_skin_passage(actor, heel: Vector3, tip: Vector3, anchor: Vec
 		"heel_depth_m": (heel - entry).dot(direction), "body_thickness_m": (exit - entry).dot(direction), "exit_protrusion_m": (tip - exit).dot(direction),
 		"off_axis_m": (tip - anchor - direction * (tip - anchor).dot(direction)).length()})
 	return result
+
+
+static func measure_visible_skin_segment(actor, from: Vector3, to: Vector3) -> Dictionary:
+	# After cancellation the sword has a different axis. Intersect its actual
+	# finite blade segment with the displayed posed skin instead of projecting
+	# the idle-returning tip onto the obsolete thrust axis.
+	var hits: Array[Dictionary] = []
+	var blade_length := from.distance_to(to)
+	for part: MeshInstance3D in actor.visual_meshes:
+		if not str(part.name).begins_with("CreepPart_") or not part.is_visible_in_tree(): continue
+		var baked = actor.dismemberment._bake_world_mesh(part, Vector3.ZERO)
+		var faces: PackedVector3Array = baked.get_faces()
+		for index in range(0, faces.size(), 3):
+			for reverse in 2:
+				var hit = Geometry3D.segment_intersects_triangle(from, to, faces[index], faces[index + 1 + reverse], faces[index + 2 - reverse])
+				if not hit is Vector3: continue
+				var duplicate := false
+				for existing: Dictionary in hits:
+					if (existing.position as Vector3).distance_to(hit) < .0001: duplicate = true
+				if not duplicate: hits.append({"position": hit, "mesh": str(part.name), "fraction": from.distance_to(hit) / maxf(blade_length, .000001)})
+	hits.sort_custom(func(a: Dictionary, b: Dictionary) -> bool: return float(a.fraction) < float(b.fraction))
+	return {"intersects": not hits.is_empty(), "crossings": hits, "heel_world": from, "tip_world": to, "measurement_scope": "Actual finite rendered blade centerline against visible posed skin triangles, both windings. No old-axis projection or anatomical capsule. Does not certify full blade-volume clearance."}
+
 
 func _cancellation_boundaries() -> void:
 	for mode: String in ["equipment", "player_death", "menu", "explicit", "target_detached", "new_wall"]:
@@ -556,7 +627,8 @@ func _check_execution_arm_reach(phase: String) -> void:
 	if bool(wrist.get("available", false)):
 		_check(float(wrist.axis_mismatch_degrees) <= 45.0, "authored hand axis must align with the actual posed forearm within 45 degrees: " + phase)
 		if phase == "deep_stab":
-			_check(float(wrist.blade_forearm_angle_degrees) <= 45.0, "middle-guard deep thrust keeps the real blade within 45 degrees of forearm extension")
+			_check(float(wrist.blade_forearm_angle_degrees) <= 25.0, "middle-guard deep thrust keeps the real blade within 25 degrees of forearm extension")
+			_check(float(wrist.elbow_extension_angle_degrees) >= 120.0, "deep thrust extends the actual elbow to at least 120 degrees instead of leaving the hand near the chest")
 			_check(float(wrist.axis_mismatch_degrees) <= 20.0, "middle-guard deep thrust keeps the actual hand/forearm neutral-axis mismatch within 20 degrees")
 			_check(float(wrist.elbow_behind_wrist_along_blade_m) > .15, "deep thrust is supported by the real elbow at least 15cm behind the wrist along the blade")
 	report.append({"case": "execution_arm_reach", "phase": phase, "time": player.execution_elapsed, "shoulder_to_wrist_m": reach, "authored_shoulder_to_wrist_m": requested_reach, "shoulder_adjustment_m": adjustment, "grip_error_m": grip.error})
@@ -568,7 +640,7 @@ func _wrist_motion_sequence() -> void:
 	if not _start_rear(actor): return
 	var times: Array[float] = [0.0]
 	for frame in range(1, int(ceil(REAR.DURATION / STEP)) + 1): times.append(minf(REAR.DURATION, frame * STEP))
-	var boundaries: Array[float] = [REAR.PREPARE_END, REAR.STAB_HIT, REAR.TWIST_START, REAR.TWIST_END, REAR.HOLD_END, REAR.WITHDRAW_END, REAR.CUT_START, REAR.CUT_HIT, REAR.CUT_END, REAR.DURATION]
+	var boundaries: Array[float] = [REAR.PREPARE_END, REAR.STAB_CONTACT, REAR.STAB_HIT, REAR.TWIST_START, REAR.TWIST_END, REAR.HOLD_END, REAR.WITHDRAW_END, REAR.CUT_START, REAR.CUT_HIT, REAR.CUT_END, REAR.DURATION]
 	for boundary in boundaries:
 		times.append(boundary - .0001)
 		times.append(boundary)
@@ -707,6 +779,8 @@ static func measure_wrist_geometry(subject: DungeonPlayer) -> Dictionary:
 		"axis_mismatch_degrees": rad_to_deg(hand_axis.angle_to(actual_forearm)),
 		"legacy_axis_mismatch_degrees": rad_to_deg(legacy_axis.angle_to(actual_forearm)),
 		"blade_forearm_angle_degrees": rad_to_deg(blade_axis.angle_to(-actual_forearm)),
+		"elbow_extension_angle_degrees": rad_to_deg((shoulder - elbow).angle_to(wrist - elbow)),
+		"elbow_extension_measurement_scope": "Actual shoulder-elbow-wrist interior angle; 180 degrees is fully straight. Not a clinical joint-limit diagnosis.",
 		"blade_hand_neutral_angle_degrees": rad_to_deg(blade_axis.angle_to(-hand_axis)),
 		"elbow_behind_wrist_along_blade_m": (wrist - elbow).dot(blade_axis),
 		"elbow_right_of_wrist_camera_m": elbow_camera.x - wrist_camera.x,
@@ -790,6 +864,12 @@ func _blocked_approach() -> void:
 func _blocked_initial_approach() -> void:
 	var actor = await _new_rear_actor()
 	_prepare_player(actor, Vector3(0, 0, 1.49))
+	var unsettled_blade := _real_blade()
+	var unsettle_geometry := {"weapon_world": player.weapon_pivot.global_transform, "skin_segment": measure_visible_skin_segment(actor, unsettled_blade.heel, unsettled_blade.tip)}
+	_settle_rear_idle(actor)
+	var idle_blade := _real_blade()
+	var idle_geometry := {"weapon_world": player.weapon_pivot.global_transform, "skin_segment": measure_visible_skin_segment(actor, idle_blade.heel, idle_blade.tip), "settle_ticks": 36, "aim": "actual back skin as in fresh GPU fixture"}
+	_check(not bool(idle_geometry.skin_segment.intersects), "settled real idle blade must be clear of the actual target skin before a blocked-approach attempt")
 	var original_root: Transform3D = actor.global_transform
 	var rewards := bag.count_item("rune_fragment")
 	var hits := landed.size()
@@ -808,20 +888,46 @@ func _blocked_initial_approach() -> void:
 		var elapsed := 0.0
 		var deepest_tip := -INF
 		var contact_committed := false
+		var obstruction_samples: Array[Dictionary] = []
+		var cancellation_geometry := {}
+		var preparation_skin_samples := 0
 		while elapsed < REAR.STAB_HIT + STEP and player.is_execution_active():
 			player.advance_combat_state(STEP)
 			player._update_viewmodel(STEP)
 			elapsed += STEP
 			var blade := _real_blade()
-			deepest_tip = maxf(deepest_tip, (blade.tip - anchor).dot(direction))
+			var actual_axis: Vector3 = (blade.tip - blade.heel).normalized()
+			var projected_depth: float = (blade.tip - anchor).dot(direction)
+			var lateral: float = ((blade.tip as Vector3) - anchor - direction * projected_depth).length()
+			var sample := {"requested_elapsed": elapsed, "execution_elapsed": player.execution_elapsed, "active": player.is_execution_active(), "weapon_world": player.weapon_pivot.global_transform, "tip_world": blade.tip, "heel_world": blade.heel, "axis_world": actual_axis, "old_thrust_axis_tip_depth_m": projected_depth, "old_thrust_axis_lateral_error_m": lateral, "actual_axis_vs_old_thrust_dot": actual_axis.dot(direction)}
+			if player.is_execution_active():
+				if player.execution_elapsed >= REAR.PREPARE_END:
+					deepest_tip = maxf(deepest_tip, projected_depth)
+					sample["geometry_phase"] = "axial_thrust"
+				else:
+					# Preparation rotates the sword beside the torso. Its tip can
+					# project beyond the future wound plane while remaining far
+					# to one side; inspect the actual finite segment every frame.
+					var skin_segment := measure_visible_skin_segment(actor, blade.heel, blade.tip)
+					sample["geometry_phase"] = "preparation_rotation"
+					sample["actual_skin_segment"] = skin_segment
+					preparation_skin_samples += 1
+					_check(not bool(skin_segment.intersects), "blocked-approach preparation's actual rotating blade segment must not cross posed skin at %.5fs" % player.execution_elapsed)
+			else:
+				cancellation_geometry = sample.duplicate(true)
+				cancellation_geometry["actual_skin_segment"] = measure_visible_skin_segment(actor, blade.heel, blade.tip)
+			obstruction_samples.append(sample)
 			contact_committed = contact_committed or bool(player.get_execution_snapshot().stab_contact_committed)
 		_check(not player.is_execution_active() and elapsed < REAR.STAB_HIT, "blocked initial approach must cancel before the first deep stab event")
-		_check(not contact_committed and deepest_tip < .03, "blocked initial approach must never commit a stab or display a deeply buried blade")
+		_check(not contact_committed and deepest_tip < .03, "blocked initial approach must never commit a stab or exceed 3cm depth during its actual axial thrust")
+		_check(not cancellation_geometry.is_empty(), "initial obstruction retains the actual post-cancellation sword pose")
+		if not cancellation_geometry.is_empty():
+			_check(not bool(cancellation_geometry.actual_skin_segment.intersects), "after initial obstruction the idle-returning actual blade segment must not cross visible posed skin")
 		_check(player.global_position.z >= wall.global_position.z + .05 + .36 - .015 and player.global_position.distance_to(initial_position) < .15, "far executor capsule must stop at the initial low corner")
 		player.advance_execution(REAR.DURATION)
 		_check(not player.viewmodel_renderer.world_contact_enabled and actor.health == actor.max_health and actor.ai_state == DungeonEnemy.AIState.STAGGER and not is_instance_valid(actor._execution_executor), "early obstruction must release a living alerted enemy and normal player rendering")
 		_check(actor.global_transform.is_equal_approx(original_root) and actor.dismemberment.detached.is_empty() and actor.dismemberment.severed.is_empty() and actor.ragdoll.phase == "living" and _defeats(actor) == 0 and landed.size() == hits and bag.count_item("rune_fragment") == rewards, "failed initial approach must not leave a held target, delayed cut, death or reward")
-		report.append({"case": "blocked_initial_capsule_approach", "initial_distance_m": 1.49, "cancellation_time": elapsed, "actual_step_m": player.global_position.distance_to(initial_position), "deepest_tip_depth_m": deepest_tip, "stab_contact_committed": contact_committed})
+		report.append({"case": "blocked_initial_capsule_approach", "initial_distance_m": 1.49, "cancellation_time": elapsed, "actual_step_m": player.global_position.distance_to(initial_position), "deepest_axial_thrust_tip_depth_m": deepest_tip if is_finite(deepest_tip) else null, "preparation_actual_skin_samples": preparation_skin_samples, "stab_contact_committed": contact_committed, "unsettled_inherited_fixture": unsettle_geometry, "settled_idle_geometry": idle_geometry, "samples": obstruction_samples, "cancellation_geometry": cancellation_geometry, "geometry_scope": "The 3cm penetration limit applies from preparation-end onward to the active axial thrust. Every prior preparation rotation and the post-cancellation returning pose independently test their current finite blade segment against actual visible posed skin triangles."})
 	side_wall.get_parent().remove_child(side_wall)
 	side_wall.queue_free()
 

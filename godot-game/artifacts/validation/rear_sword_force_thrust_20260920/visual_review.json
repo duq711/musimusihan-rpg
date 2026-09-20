@@ -1,0 +1,56 @@
+{
+  "reviewer": "thrust_audit",
+  "timestamp": "2026-09-20T23:23:10.070595+09:00",
+  "render_directory": "/private/tmp/rear-wrist-publication-check/artifacts/visual_qa/rear_takedown/force_thrust_verified_20260920",
+  "scope": "Independent visual review of actual GPU05 rendered stills and ordered 30 fps frames; no engine run or production-file modification. Contact sheets are resized inspection aids, not replacement render evidence.",
+  "ordered_frame_range_inclusive": [
+    43,
+    105
+  ],
+  "capture_time_seconds": [
+    1.4333333333333333,
+    3.5
+  ],
+  "frame_count_reviewed": 63,
+  "full_resolution_release_frames": [
+    65,
+    68,
+    71
+  ],
+  "full_resolution_stills": [
+    "rear_sword_stab.png",
+    "rear_sword_hold.png",
+    "rear_sword_withdraw.png",
+    "rear_sword_stab_side.png",
+    "rear_sword_hold_side.png",
+    "rear_sword_hold_grip_side.png"
+  ],
+  "verdict": "no_new_visual_blocker_found",
+  "observations_ko": [
+    "기존 비틀기/유지 구간에서 소매가 파지를 통째로 덮던 현상은 해소됨.",
+    "찌르기와 유지 중 소매가 화면 우측으로 이어지며 검 가드, 손가락, 진입 위치를 읽을 수 있음.",
+    "발검과 복귀 연속 프레임에서 큰 팔꿈치 반전, 손-검 분리, 경로 불연속을 발견하지 못함.",
+    "측면과 파지 확대에서 손목/검의 연결이 유지됨."
+  ],
+  "observations_en": [
+    "Previous gross sleeve occlusion of the held grip is resolved.",
+    "The sleeve extends from the right while the guard, fingers and entry location remain readable during stab/hold.",
+    "No gross elbow flip, hand/sword separation or path discontinuity was found through ordered extraction/recovery frames.",
+    "Side and grip closeups retain the wrist/weapon relationship."
+  ],
+  "remaining_qualifications": [
+    "The source sleeve is visually broad and still occupies the lower-right foreground; this is an aesthetic characteristic rather than the prior whole-grip occlusion.",
+    "Previously disclosed index-to-middle spacing remains; this review does not claim perfect anatomy.",
+    "Ordered still review is not real-time video playback or physical-input validation.",
+    "This review makes no new exact mesh-contact, penetration, or collision claim."
+  ],
+  "sha256": {
+    "rear_sword_stab.png": "4d2cee1319ec950cc1dee442b28eb8d8d16e2d074fd477a046398e4ed732fa2e",
+    "rear_sword_hold.png": "cbcd7ef97fee1de9548bd66a4b8d1ed3b4813ea2504376d65d58891f4f1130b0",
+    "rear_sword_withdraw.png": "e1aedd69a5d6c441327c8eb8c9c24bbde0a765c4b653c34f153f3829f7d41921",
+    "rear_sword_stab_side.png": "ebc7e69b9634a330593bc66d6f4903cf1361b7b525dc4f07cf893a2793739928",
+    "rear_sword_hold_side.png": "cfff5050e76f9d5b7edfd33b168f5c7aea49139f871b98ca0044c2a26f0aa783",
+    "rear_sword_hold_grip_side.png": "1e4087ec8de2fed63a0815fceb62ebfe0b023b7ddfa2e4701212b74c067bc454"
+  },
+  "manifest_sha256": "c999d3aa0f64b1c9f55268e89a0233982be094aa63b720505e55b9a0ce6cb3b2"
+}

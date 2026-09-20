@@ -5,6 +5,7 @@ const GRIP := preload("res://scripts/sword_long_grip_visual.gd")
 const ARM := preload("res://scripts/reference_sword_arm.gd")
 const POSE := preload("res://scripts/sword_shield_choreography.gd")
 const PREPARE_END := 0.55
+const STAB_CONTACT := 0.61
 const STAB_HIT := 0.90
 const TWIST_START := 1.02
 const TWIST_END := 1.34
@@ -19,7 +20,7 @@ const PENETRATION_RATIO := 0.94
 const STAMINA_COST := 24.0
 const MIN_DISTANCE := 0.85
 const MAX_DISTANCE := 1.50
-const CUT_DISTANCE := .78
+const CUT_DISTANCE := .985
 const STAB_DISTANCE := 1.40
 const CUT_EDGE_FROM_TIP := .10
 
@@ -51,7 +52,12 @@ static func sword(elapsed: float, entry: Transform3D, back: Vector3, direction: 
 	# Keep the thrust axis fixed in world space, then intentionally roll once.
 	var frame := Transform3D(stab_basis, Vector3.ZERO)
 	frame.origin = back - frame.basis * blade_tip
-	var chamber := frame.translated(direction * -.03)
+	# Derive the preparation gap from the same continuous cubic stroke, so
+	# the blade first crosses the skin at STAB_CONTACT for every blade length.
+	# There is no extra key or artificial stop at the contact point.
+	var contact_weight := smoothstep(PREPARE_END, STAB_HIT, STAB_CONTACT)
+	var chamber_gap := blade_length * PENETRATION_RATIO * contact_weight / (1.0 - contact_weight)
+	var chamber := frame.translated(direction * -chamber_gap)
 	var deep := frame.translated(direction * (blade_length * PENETRATION_RATIO))
 	if elapsed < PREPARE_END:
 		var t := elapsed / PREPARE_END
@@ -92,10 +98,10 @@ static func shield(elapsed: float, entry: Transform3D) -> Transform3D:
 
 static func camera_offset(elapsed: float) -> Vector3:
 	var lean := smoothstep(PREPARE_END, STAB_HIT, elapsed) * (1.0 - smoothstep(HOLD_END, WITHDRAW_END, elapsed))
-	return Vector3(0, -.025, -.10) * lean
+	return Vector3(0, -.015, -.025) * lean
 
 
-static func arm(pivot: Transform3D, elapsed: float, entry_arm: Dictionary, previous_bend := Vector3.ZERO) -> Dictionary:
+static func arm(pivot: Transform3D, elapsed: float, entry_arm: Dictionary, previous_bend := Vector3.ZERO, hold_pivot := Transform3D.IDENTITY) -> Dictionary:
 	var shoulder: Vector3 = GRIP.SOURCE_READY * GRIP.REST_SHOULDER
 	if not entry_arm.is_empty():
 		if elapsed < PREPARE_END: shoulder = (entry_arm.shoulder as Vector3).lerp(shoulder, smoothstep(0, PREPARE_END, elapsed))
@@ -106,6 +112,32 @@ static func arm(pivot: Transform3D, elapsed: float, entry_arm: Dictionary, previ
 	# not a generic down/right pole, defines the closest reachable elbow circle.
 	var neutral := (pivot.basis * GRIP.neutral_axis_local(amount)).normalized()
 	var hint := wrist + neutral * ARM.FOREARM_LENGTH
+	# Rotate on the joint circle instead of interpolating positions through
+	# its axis. Once extraction starts, transport the valid held bend: the
+	# neutral hint passes through an IK singularity during the lateral turn.
+	var reach_axis := (wrist - shoulder).normalized()
+	if elapsed >= HOLD_END:
+		var held_wrist := hold_pivot * wrist_local(HOLD_END)
+		var held_shoulder: Vector3 = GRIP.SOURCE_READY * GRIP.REST_SHOULDER
+		var held_axis := (held_wrist - held_shoulder).normalized()
+		var held_neutral := (hold_pivot.basis * GRIP.neutral_axis_local(1.0)).normalized()
+		var held_bend := _clearance_bend(held_shoulder, held_wrist, held_neutral, .8)
+		# Transport the *endpoint* pole back to the held plane, then blend on
+		# that circle. Never resample the singular mid-extraction neutral pole.
+		var exit_pose := lateral_exit(hold_pivot, Vector3.ZERO, 0.0, 1.0)
+		var exit_wrist := exit_pose * wrist_local(HOLD_END)
+		var exit_axis := (exit_wrist - held_shoulder).normalized()
+		var exit_neutral := (exit_pose.basis * GRIP.neutral_axis_local(1.0)).normalized()
+		var exit_bend := _clearance_bend(held_shoulder, exit_wrist, exit_neutral, 0.0)
+		var exit_in_held := (Basis(Quaternion(exit_axis, held_axis)) * exit_bend).normalized()
+		var exit_turn := atan2(held_axis.dot(held_bend.cross(exit_in_held)), held_bend.dot(exit_in_held))
+		held_bend = held_bend.rotated(held_axis, exit_turn * smoothstep(HOLD_END, WITHDRAW_END, elapsed))
+		var transported := (Basis(Quaternion(held_axis, reach_axis)) * held_bend).normalized()
+		transported = (transported - reach_axis * transported.dot(reach_axis)).normalized()
+		hint = shoulder + transported
+	else:
+		var clearance := smoothstep(PREPARE_END, STAB_HIT, elapsed) * (.25 + .55 * smoothstep(TWIST_START, TWIST_END, elapsed))
+		hint = shoulder + _clearance_bend(shoulder, wrist, neutral, clearance)
 
 	if elapsed < PREPARE_END and not entry_arm.is_empty():
 		# Transport the initial elbow around the moving shoulder–wrist axis.
@@ -125,10 +157,25 @@ static func arm(pivot: Transform3D, elapsed: float, entry_arm: Dictionary, previ
 
 	if elapsed > CUT_END:
 		var ready := ARM.solve(shoulder, shoulder + Vector3(.75, -.72, .28), wrist, previous_bend)
-		hint = hint.lerp(ready.elbow, smoothstep(CUT_END, DURATION, elapsed))
+		var current := hint - shoulder
+		current = (current - reach_axis * current.dot(reach_axis)).normalized()
+		var desired := (ready.elbow as Vector3) - shoulder
+		desired = (desired - reach_axis * desired.dot(reach_axis)).normalized()
+		var turn := atan2(reach_axis.dot(current.cross(desired)), current.dot(desired))
+		hint = shoulder + current.rotated(reach_axis, turn * smoothstep(CUT_END, DURATION, elapsed))
 	var result := ARM.solve(shoulder, hint, wrist, previous_bend)
 	result.merge({"raw_sword": pivot, "requested_shoulder": shoulder, "exact_sample": false, "fitted_pose": true})
 	return result
+
+
+static func _clearance_bend(shoulder: Vector3, wrist: Vector3, neutral: Vector3, weight: float) -> Vector3:
+	var axis := (wrist - shoulder).normalized()
+	var bend := wrist + neutral * ARM.FOREARM_LENGTH - shoulder
+	bend = (bend - axis * bend.dot(axis)).normalized()
+	var outside := Vector3(.55, -.60, 0)
+	outside = (outside - axis * outside.dot(axis)).normalized()
+	var turn := atan2(axis.dot(bend.cross(outside)), bend.dot(outside))
+	return bend.rotated(axis, turn * weight)
 
 
 static func _rolled(pose: Transform3D, anchor: Vector3, angle: float) -> Transform3D:
@@ -171,5 +218,5 @@ static func stab_basis(direction: Vector3) -> Basis:
 	# Gravity provides a stable roll reference even when the initial camera is
 	# looking directly along the blade. Initial view pitch must not twist a hand.
 	var y := direction.normalized()
-	var z := (Vector3.UP - y * y.dot(Vector3.UP)).normalized().rotated(y, deg_to_rad(180.0))
+	var z := (Vector3.UP - y * y.dot(Vector3.UP)).normalized().rotated(y, deg_to_rad(330.0))
 	return Basis(y.cross(z).normalized(), y, z)

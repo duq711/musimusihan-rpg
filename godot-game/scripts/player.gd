@@ -1209,7 +1209,7 @@ func begin_rear_takedown() -> Dictionary:
 	_rear_entry_pitch = _pitch
 	var approach := enemy.global_position - global_position
 	approach.y = 0.0
-	_rear_approach_offset = approach.normalized() * maxf(0.0, approach.length() - REAR_TAKEDOWN_MOTION.CUT_DISTANCE)
+	_rear_approach_offset = approach
 	_rear_approach_progress = 0.0
 	_rear_approach_obstruction_m = 0.0
 	_sword_attack_uses_cycle = false
@@ -1452,19 +1452,18 @@ func _advance_rear_takedown(delta: float) -> void:
 
 
 func _move_rear_takedown_approach(elapsed: float) -> void:
-	var distance := _rear_approach_offset.length()
-	# Establish room for the metre-long blade before the forward passing step.
-	# At close starts the capsule takes a short, collision-tested retreat rather
-	# than forcing the hand behind its elbow and folding the wrist backwards.
-	var preparation_distance := distance - (REAR_TAKEDOWN_MOTION.STAB_DISTANCE - REAR_TAKEDOWN_MOTION.CUT_DISTANCE)
-	var first := preparation_distance / maxf(distance, .000001)
-	var progress := first * smoothstep(0, REAR_TAKEDOWN_MOTION.PREPARE_END, elapsed) + (1.0 - first) * smoothstep(REAR_TAKEDOWN_MOTION.PREPARE_END, REAR_TAKEDOWN_MOTION.STAB_HIT, elapsed)
-	if absf(progress - _rear_approach_progress) > .000001:
-		var step := _rear_approach_offset * (progress - _rear_approach_progress)
+	# Store the original target vector, and accumulate travelled metres. This
+	# works when starting closer than the final stance as well as farther away.
+	var initial_distance := _rear_approach_offset.length()
+	var preparation := initial_distance - REAR_TAKEDOWN_MOTION.STAB_DISTANCE
+	var lunge := REAR_TAKEDOWN_MOTION.STAB_DISTANCE - REAR_TAKEDOWN_MOTION.CUT_DISTANCE
+	var travelled := preparation * smoothstep(0, REAR_TAKEDOWN_MOTION.PREPARE_END, elapsed) + lunge * smoothstep(REAR_TAKEDOWN_MOTION.PREPARE_END, REAR_TAKEDOWN_MOTION.STAB_HIT, elapsed)
+	if absf(travelled - _rear_approach_progress) > .000001:
+		var step := _rear_approach_offset.normalized() * (travelled - _rear_approach_progress)
 		var before := global_position
 		move_and_collide(step)
 		_rear_approach_obstruction_m += maxf(0.0, step.length() - (global_position - before).dot(step.normalized()))
-		_rear_approach_progress = progress
+		_rear_approach_progress = travelled
 
 
 func _apply_rear_takedown_view(elapsed: float) -> void:
@@ -1543,7 +1542,8 @@ func _update_execution_viewmodel() -> void:
 		camera.position = EXECUTION_MOTION.camera_offset(execution_elapsed)
 		camera.rotation = EXECUTION_MOTION.camera_rotation(execution_elapsed)
 	if _execution_profile == "rear_sword":
-		_reference_arm_target = REAR_TAKEDOWN_MOTION.arm(weapon_pivot.transform, execution_elapsed, _rear_arm_entry, _reference_arm_previous_bend)
+		var held_pose := REAR_TAKEDOWN_MOTION.sword(REAR_TAKEDOWN_MOTION.HOLD_END, _execution_sword_entry, camera.to_local(_execution_contact_point), camera.global_basis.inverse() * _execution_stab_direction, camera.to_local(_rear_neck_contact), _execution_blade_tip, _execution_blade_length, camera.global_basis.inverse() * _rear_stab_basis)
+		_reference_arm_target = REAR_TAKEDOWN_MOTION.arm(weapon_pivot.transform, execution_elapsed, _rear_arm_entry, _reference_arm_previous_bend, held_pose)
 	else:
 		_reference_arm_target = _reference_arm_for_pivot({}, weapon_pivot.transform)
 	_refresh_carried_visibility()

@@ -1,6 +1,26 @@
 # 게임 제작 기준서
 
+## 2026-09-20 후방 검 제압 — 전진 찌르기와 접촉 반응 / Rear takedown — forward thrust and contact response
+
+**최신 후속 제작:** 파지와 팔 전진, 실제 첫 접촉에서 시작하는 적의 반응, 1인칭 화면 구도를 함께 수정한다. 손목 회전 하나만 바꾸는 방식으로 마치지 않는다. 엄지·손가락이 손잡이에 맞게 연결되고 팔의 전진이 읽히며, 찌르기 전에는 반응하지 않고 실제 피부 접촉부터 반응해야 한다.
+
+제압 전용 파지는 62° 제작값과 손가락별 접촉 조정으로 구현한다. 카메라 전진을 2.5cm로 줄이고 최종 적과의 간격을 약 0.985m로 두어 손·검·전완의 흐름을 볼 수 있게 한다. 찌르기·유지 중 팔꿈치를 우측 아래로 연결하고, 회수 시 안정된 굽힘 방향을 현재 팔 축으로 이어 받아 갑작스러운 뒤집힘을 억제한다. 첫 실제 피부 접촉에서 작은 움찔을 시작하고 관입 깊이에 따라 반응을 키운다. 구현상 첫 접촉 0.61초·최대 깊이 0.90초로 구분한다. 기존 깊은 관통과 반대편 칼끝, 한 번 비틀기·플레이어 우측 발검, 머리 유지와 단일 사망·보상을 유지한다. 후퇴·전진의 충돌 취소, 일반 파지 복원, E/F2·시험 원정 복원도 유지한다. 이 값은 원본 리그에 맞춘 제작 판단이며 의학적 관절 각도를 뜻하지 않는다. 최종 실제 렌더와 독립 표본 프레임 검토로 이전 소매 가림과 큰 팔꿈치 튐·손/검 분리가 보이지 않음을 확인했다. 원본 넓은 소매와 검지 간격은 외형 한계로 남는다.
+
+**최종 자동 검사 5종과 실제 GPU 9초·270프레임 검수·전체 영상 디코딩을 통과했다. 파지·측면 화면과 동작 표본의 독립 검토도 완료했다. GitHub 원격 반영은 아직 미확인이다.** [이번 전진 찌르기 검수 기록](../artifacts/validation/rear_sword_force_thrust_20260920/README.md)과 [전체 영상](../artifacts/validation/rear_sword_force_thrust_20260920/rear_sword_force_thrust.mp4)에 최종 근거를 보존한다. 아래 중단 찌르기와 이전 검수 결과는 해당 과거 버전의 기록이며 이번 수정의 완료 근거로 재사용하지 않는다. 역사적 무술 동작을 정확히 복제했다거나 의학적 인체공학을 검증했다고 주장하지 않는다.
+
+**Latest follow-up:** refine grip, readable forward arm extension, the enemy's response at actual first contact and first-person framing together, rather than changing wrist rotation alone. Thumb/fingers should meet the handle naturally; the arm drive must remain readable and the enemy must not react before actual skin contact.
+
+A rear-only 62° diagonal grip and individual finger contacts are implemented. Reduce camera advance to 2.5cm and use approximately 0.985m final target spacing to expose hand/blade/forearm motion. Guide the embedded elbow down/right and transport the stable held bend onto the current arm axis during withdrawal to suppress sudden flips. Begin a small flinch at actual skin contact and build the response with insertion depth. Authored first contact is 0.61s and maximum depth 0.90s. Preserve deep through-penetration and the opposite tip, one twist, player-right extraction, an attached head and one death/reward. Collision cancellation, ordinary-grip restoration and E/F2/expedition restoration remain. These are asset-specific production settings, not medical joint angles; actual renders and independent sampled-frame review confirm removal of the earlier sleeve obstruction without a large elbow snap or hand/weapon detachment. The original wide sleeve and index spacing remain visual limitations.
+
+**Final validation passed five automated suites, actual nine-second/270-frame GPU review and full-video decoding, with independent side/grip and sampled-frame inspection. GitHub publication remains unconfirmed.** The [current report](../artifacts/validation/rear_sword_force_thrust_20260920/README.md) and [full video](../artifacts/validation/rear_sword_force_thrust_20260920/rear_sword_force_thrust.mp4) are the final evidence locations. Historical middle-guard and earlier reports do not establish this revision's completion. Exact historical technique reproduction and medical ergonomics are not claimed.
+
+선정한 다섯 손가락 쌍의 표면 교차는 0개지만 손 전체의 완전한 충돌 검사는 아니다. 손바닥 정점 한 개가 손잡이 타원 근사 안쪽 약 3.19mm에 남으며 정확한 손잡이 메시 관통량을 뜻하지는 않는다. 검지 간격이 남는 점을 포함해 접촉이 완벽하다고 보고하지 않는다.
+
+Five selected digit pairs have zero measured surface crossings, but this is not an exhaustive hand collision proof. One palm vertex remains approximately 3.19mm inside the elliptical handle proxy, which is not an exact penetration depth into the true handle mesh. Index spacing remains; flawless contact is not claimed.
+
 ## 2026-09-20 후방 검 제압 — 중단 직선 찌르기 / Rear takedown — middle-guard straight thrust
+
+**이전 제작·검수 기록. 현재 파지·전진·첫 접촉 반응·구도 수정은 위 섹션을 따른다. / Historical production and validation; the grip/extension/first-contact/framing revision above is current.**
 
 **최신 사용자 확정 변경:** 첨부 무술 도식의 가운데 왼쪽 중단 직선 찌르기를 참고하여, 손목을 비튼 망치식 파지 대신 손·전완·검이 목표 쪽으로 이어지게 한다. 방패·의상·도식의 모든 동작을 복제하는 요구로 확대하지 않는다. 깊은 관통·한 번 비틀기·플레이어 우측 베기·머리 유지 랙돌의 앞선 순서는 유지한다.
 

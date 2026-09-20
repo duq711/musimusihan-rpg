@@ -7,14 +7,14 @@ const SOURCE := preload("res://assets/3d/player/sword_hold_long_grip/SwordHold_S
 const CONTINUOUS_SLEEVE := preload("res://scripts/reference_continuous_sleeve.gd")
 const SOURCE_SHA256 := "2b94cc385f837fe253552cd654cb1f665246f61cdee5227814d63049da9f22fb"
 const GRIP_CENTER := Vector3(0.0, -0.108, 0.002)
-const THRUST_GRIP_DEGREES := 50.0
-const THRUST_CONTACT_OFFSET := Vector3(.0077, 0.0, -.0178)
+const THRUST_GRIP_DEGREES := 62.0
+const THRUST_CONTACT_OFFSET := Vector3(0.009518662, -0.000034105, -0.008808593)
 const THRUST_DIGIT_POSES := {
-	"index": [Vector3(-.133824, .678782, .464757), Vector3(-.470408, -.840199, .269782), .477410],
-	"middle": [Vector3(.042208, .651728, .184039), Vector3(-.551525, -.822777, .137325), .165051],
-	"ring": [Vector3(.315370, .584814, .043891), Vector3(-.504054, -.857530, .102819), -.326250],
-	"little": [Vector3(.900201, .440514, .236998), Vector3(-.365537, -.929537, -.048404), -.076064],
-	"thumb": [Vector3(-.083122, .296122, .695989), Vector3(.813310, -.108853, -.571557), .048823],
+	"index": [Vector3(-0.579398602, 0.579461357, 0.437374544), Vector3(-0.260821508, -0.923964250, 0.279753830), 0.539190444],
+	"middle": [Vector3(0.239519880, 0.395983060, 0.212811001), Vector3(0.073162040, -0.961455987, 0.265046601), 0.566113402],
+	"ring": [Vector3(0.739176340, -0.167605431, 0.972264392), Vector3(0.977555813, 0.188728737, 0.093627429), 0.156875467],
+	"little": [Vector3(1.277188423, -0.471000000, -0.109488111), Vector3(0.944393755, 0.094085983, 0.315068665), 0.348971794],
+	"thumb": [Vector3(1.015279663, -0.462000000, 0.809181076), Vector3(-0.023229368, 0.708795913, 0.705031028), 1.342125606],
 }
 # The supplied hand is enlarged around its palm, so its real wrist is not the
 # old static glove's REST_WRIST. These are source-rig coordinates after build.
@@ -74,7 +74,9 @@ func setup(side: int = 1) -> void:
 
 
 static func grip_frame(amount: float) -> Transform3D:
-	# A thrust uses a diagonal handshake grip. Turn around the palm then let
+	# The rear thrust uses a closed diagonal grip. The thumb opposes the
+	# index root while the four fingers curl at their own joints. Turn around
+	# the palm then let
 	# the handle sit diagonally across it; the small contact offset keeps the
 	# index knuckle clear. Never rotate the blade or stretch the hand skin.
 	var x := Vector3.DOWN

@@ -1,0 +1,197 @@
+{
+  "created_at": "2026-09-20T13:58:46.021590+00:00",
+  "status": "Local rear-only grip implementation and standalone rendering reviewed; parent owns integrated motion verification.",
+  "summary_ko": "62도 대각선 파지를 선정하고 엄지 대향·손가락별 감김을 수정했다. 4방향 실제 렌더를 확인했으며 일반 파지 복원과 선정한 손가락 표면 검사를 재현했다. 손 전체의 완전한 충돌 없음 또는 통합 모션 완성을 뜻하지 않는다.",
+  "summary_en": "Selected the 62-degree diagonal rear-only grip, adjusted thumb opposition and individual finger wrap, and reviewed four real rendered views. This records scoped surface checks and ordinary-pose restoration, not complete collision clearance or integrated-motion completion.",
+  "selection": {
+    "tilt_degrees": 62,
+    "rejected_70_degree_reason": "Four fingers spread lengthwise like a climbing hand despite better blade/forearm alignment.",
+    "selection_58_vs_62": "Both rendered from four identical cameras; 62 degrees provided the stronger diagonal wrap and supports the parent arm alignment.",
+    "refinement": "Retained the original 62-degree ring/little transverse wrap, fitted thumb against the index-root exterior, and removed measured adjacent-digit triangle crossings without changing wrist/neutral/anchor coordinates.",
+    "remaining_visual_limit": "The index grips farther toward the guard and remains separated from the middle finger; this is a diagonal grip, not a tightly parallel vertical fist."
+  },
+  "production_scripts": [
+    {
+      "path": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/godot-game/scripts/sword_long_grip_visual.gd",
+      "sha256": "d358d6905498c97d665bed75bbb90be76b1ba47c82729a2aa7a804aa4cc74e81"
+    },
+    {
+      "path": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/godot-game/scripts/supplied_fp_arm.gd",
+      "sha256": "0677e29c11af0b14b05c543dfacc13e14fb1084dc88646a31949d96979f129b9"
+    }
+  ],
+  "rendered_candidate": {
+    "path": "/private/tmp/thrust_closed_adapter_mixed.gd",
+    "sha256": "7fd1e083e58ec3725adad087fd3a076d7222a15173f6fccd82a622ef140d2df0",
+    "code_identical_to_production_ignoring_comment_and_blank_lines": true
+  },
+  "source_assets": [
+    {
+      "path": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/godot-game/assets/3d/player/fp_arms/right.scn",
+      "sha256": "497f7ef82205f4643e3906921fec956bcb15859679eb9a2cf95d0eb8a479dad5"
+    },
+    {
+      "path": "/Users/duq711gmail.com/Documents/ChatGPT/무시무시한 rpg/godot-game/assets/3d/player/fp_arms/rig.json",
+      "sha256": "3b5d0b72e8c2f76e17dbb8259878093950e243940c31f77773e0494fe2899530"
+    }
+  ],
+  "render": {
+    "renderer": "Godot 4.7 Forward+ / Vulkan, embedded display, Apple M4",
+    "images": [
+      {
+        "path": "/private/tmp/thrust-closed-render-mixed/grip_1_view_0.png",
+        "sha256": "615d78bfe1aeea993f9c71165c21f5a9ac7564ea7c2ec02a41078f4654e15594",
+        "fixed_pose": true,
+        "camera_position": [
+          0.35,
+          -0.13,
+          0.3
+        ]
+      },
+      {
+        "path": "/private/tmp/thrust-closed-render-mixed/grip_1_view_1.png",
+        "sha256": "5948fcfba9023066437e488edf016f0e5beb8aaa377c04b497e79726f9006016",
+        "fixed_pose": true,
+        "camera_position": [
+          -0.35,
+          -0.13,
+          -0.24
+        ]
+      },
+      {
+        "path": "/private/tmp/thrust-closed-render-mixed/grip_1_view_2.png",
+        "sha256": "6ba30f9efac2e3159a4f03f1fe394b794f676c12ee9edadd6a404a81bd37a83e",
+        "fixed_pose": true,
+        "camera_position": [
+          -0.35,
+          -0.13,
+          0.26
+        ]
+      },
+      {
+        "path": "/private/tmp/thrust-closed-render-mixed/grip_1_view_3.png",
+        "sha256": "044121bf4c530745af95c966cd3c753321cca031af88b0079252907775f327d5",
+        "fixed_pose": true,
+        "camera_position": [
+          0.35,
+          -0.13,
+          -0.27
+        ]
+      }
+    ],
+    "actual_image_count": 4,
+    "pose": "amount = 1.0; same sword/hand pose, camera only moves",
+    "lighting": "Fixed neutral ambient plus key/fill directional lights",
+    "cursor_preserved": true,
+    "ordinary_hand_pose_restored": true,
+    "restore_scope": "All source hand bone poses compared before/after amount=1 then amount=0. Upper/elbow/forearm bones excluded because the standalone preview fits the arm separately.",
+    "log_note": "The reused render driver prints images=8 although this final invocation captures amount=1 only: actual file count is four. Restore and cursor booleans were actually evaluated.",
+    "input_scope": "No OS window, mouse capture, hardware input, or game control validation."
+  },
+  "metrics": {
+    "selected_tilt_degrees": 62.0,
+    "contact_offset": [
+      0.009518662,
+      -3.4105e-05,
+      -0.008808593
+    ],
+    "source_script_sha256": "d358d6905498c97d665bed75bbb90be76b1ba47c82729a2aa7a804aa4cc74e81",
+    "wrist_local": [
+      0.06027658229895058,
+      -0.20301885732170677,
+      0.015867046016142916
+    ],
+    "neutral_axis_local": [
+      0.32407781452125245,
+      -0.8707170755781328,
+      0.3698991003392586
+    ],
+    "dominant_digit_triangle_crossings": {
+      "index__middle": 0,
+      "middle__ring": 0,
+      "ring__little": 0,
+      "thumb__index": 0,
+      "thumb__middle": 0
+    },
+    "handle_ellipse": {
+      "index": {
+        "minimum_normalized_radius": 0.8817834070295205,
+        "vertices_below_0_8": 0,
+        "sample_count": 297
+      },
+      "middle": {
+        "minimum_normalized_radius": 0.9361897601801398,
+        "vertices_below_0_8": 0,
+        "sample_count": 306
+      },
+      "ring": {
+        "minimum_normalized_radius": 0.8799740295824847,
+        "vertices_below_0_8": 0,
+        "sample_count": 296
+      },
+      "little": {
+        "minimum_normalized_radius": 0.9160940151278026,
+        "vertices_below_0_8": 0,
+        "sample_count": 286
+      },
+      "thumb": {
+        "minimum_normalized_radius": 0.9526745494325931,
+        "vertices_below_0_8": 0,
+        "sample_count": 315
+      },
+      "palm": {
+        "minimum_normalized_radius": 0.7931096801648689,
+        "vertices_below_0_8": 1,
+        "sample_count": 159
+      }
+    },
+    "serialized_profile_vs_optimizer_max_vertex_difference_m": 5.941500449315332e-07
+  },
+  "check_scope": {
+    "lbs": "Actual exported source vertices, skin binds, weights and rig hierarchy are transformed by the serialized production digit profiles. Earlier export-versus-Godot global-pose comparison max error was 2.4915e-7. This final computation does not launch Godot.",
+    "triangle_crossings": "At the final amount=1 pose only: index-middle, middle-ring, ring-little, thumb-index, thumb-middle. Triangles are included only when all three vertices have a dominant bone in the selected digit. Non-coplanar segment-triangle intersections are counted; epsilon edges, coplanar overlap, mixed/web triangles, self-intersection within one finger and every transition frame are not covered.",
+    "handle_approximation": "Infinite elliptical handle proxy around local Y, X radius .0225m and Z radius .0154m. rho<.8 is a heuristic penetration count, not exact contact with the sword triangle mesh. Five digits have zero vertices below .8.",
+    "palm_exception": "One palm-dominant vertex has rho=.79310968 at local (.00080844,-.13288027,-.01220135); radial distance to the ellipse surface is about 3.19mm. The exact mesh clearance at that location is unverified. Do not claim whole-hand penetration is zero."
+  },
+  "reproduce": {
+    "python": "Python 3 with NumPy; used the bundled Codex Python runtime.",
+    "command": "python3 validator.py --source /absolute/path/to/godot-game/scripts/sword_long_grip_visual.gd --rig-export rig_export.json --selected-pose selected_pose.json",
+    "support_directory": "/private/tmp/rear-grip-final-review-support",
+    "support_files": [
+      {
+        "name": "validator.py",
+        "sha256": "8d04e13ce60193187b28cec563e5920021806b81fc60a7aadc566c9dc80b6798"
+      },
+      {
+        "name": "rig_export.json",
+        "sha256": "5eb4c2a530a6fc4e3382b618a5788386041a41f22e32a8a0077e8de429d9d88f"
+      },
+      {
+        "name": "selected_pose.json",
+        "sha256": "41982ee1912fd3384df18558f694d0eed13363e183409f68d0774191c0c070ef"
+      },
+      {
+        "name": "metrics.json",
+        "sha256": "d29c0229ae076bf9a8d879217f4a8abf5b7cda1c47a196b05f5d9b4006abc3d1"
+      },
+      {
+        "name": "rendered_adapter.gd",
+        "sha256": "7fd1e083e58ec3725adad087fd3a076d7222a15173f6fccd82a622ef140d2df0"
+      },
+      {
+        "name": "render_driver.gd",
+        "sha256": "9f73b1295aec9aa0f5209e59ec04228ed6180a7f3afacabb8af92d662143d7e2"
+      },
+      {
+        "name": "render.log",
+        "sha256": "e01e61677d217cbcfc6e7a7a642daacba2a0a4284fbd82764c1756c38fe18482"
+      }
+    ]
+  },
+  "not_verified": [
+    "Exact complete hand/handle triangle collision",
+    "Every intermediate grip-blend surface",
+    "Hardware keyboard/mouse input",
+    "Parent integrated player motion in this review"
+  ]
+}

@@ -10,6 +10,9 @@ const REAR_CASES := [
 ]
 const REAR_STAGES := {
 	"prepare": REAR_MOTION.PREPARE_END,
+	"before_contact": REAR_MOTION.STAB_CONTACT - .03,
+	"first_contact": REAR_MOTION.STAB_CONTACT,
+	"recoil": REAR_MOTION.STAB_CONTACT + .08,
 	"thrust_mid": (REAR_MOTION.PREPARE_END + REAR_MOTION.STAB_HIT) * .5,
 	"stab": REAR_MOTION.STAB_HIT,
 	"twist_start": REAR_MOTION.TWIST_START,
@@ -96,7 +99,7 @@ class RearDriver extends Node:
 			if bool(began.get("accepted", false)) and not stages.has(stage_name) and max_elapsed + .000001 >= float(REAR_STAGES[stage_name]):
 				var stage: Dictionary = sample.duplicate(true)
 				stage["expected_execution_seconds"] = REAR_STAGES[stage_name]
-				if stage_name in ["stab", "hold"]:
+				if stage_name in ["before_contact", "first_contact", "recoil", "stab", "hold"]:
 					stage["actual_skin"] = measure_back_skin(stage.actual_blade, stage.execution)
 				stages[stage_name] = stage
 		records.append(sample)
@@ -323,7 +326,7 @@ func _run() -> void:
 			# Secondary cameras share this exact World3D and render the same physics
 			# sample. Neither the actor nor blade is reposed or mirrored for them.
 			var inspection_stage := ""
-			for candidate: String in ["prepare", "thrust_mid", "stab", "hold"]:
+			for candidate: String in ["prepare", "before_contact", "first_contact", "recoil", "thrust_mid", "stab", "hold"]:
 				if driver.stages.has(candidate) and not inspection_stills.has(candidate): inspection_stage = candidate
 			if not inspection_stage.is_empty():
 				for angle: String in inspections:
@@ -373,7 +376,7 @@ func _run() -> void:
 			"physics_samples": driver.records, "final_creep": actor.get_creep_snapshot()})
 		print("REAR TAKEDOWN CASE: ", scenario.id, " | accepted ", driver.began.get("accepted", false), " | defeats ", driver.defeats)
 		if not bool(scenario.alerted):
-			for required: String in ["prepare", "thrust_mid", "stab", "hold"]:
+			for required: String in ["prepare", "before_contact", "first_contact", "recoil", "thrust_mid", "stab", "hold"]:
 				_check(inspection_stills.has(required), "same-pose full-arm side/front and hand closeup captured: " + required)
 		for view: Dictionary in inspections.values(): view.viewport.queue_free()
 		viewport.queue_free()
@@ -405,6 +408,8 @@ func _run() -> void:
 		"input_scope": "No OS keyboard/mouse/focus, hardware cursor change, desktop capture or audible playback. Labels are inspection subtitles. The alerted control is initialized in CHASE, then runs normal AI; the rear case starts unaware in IDLE.",
 		"reference_scope": "The current attached martial-arts diagram was opened and visually inspected. Its middle-left straight thrust from middle guard informs the hand/forearm/point alignment and passing extension; the existing game shield/weapon design is retained. Earlier linked reference videos were not visually observed and are not claimed as a frame-matched source.",
 		"inspection_geometry_scope": "First-person arm geometry; the third-person avatar body layer is excluded just like the main first-person camera. All inspection views share the same live world, first-person arm, weapon and enemy pose; no actor or weapon is reposed or mirrored.",
+		"visual_acceptance_scope": "Numerical tests alone do not approve the appearance. Separately inspect the actual first-person clip, complete-arm side silhouettes and grip closeups for thumb closure, fingers staying around the hilt, continuous shoulder/elbow/wrist, and hand size in the frame.",
+		"contact_reaction_measurement": "Before-contact, first-contact, early recoil and full-depth frames independently intersect actual posed torso skin triangles. The actual tip must reach that skin before any recoil; at full depth the chest must already be visibly rotated. Located-hit capsule queries are gameplay diagnostics and are not substituted for skin intersection.",
 		"stages_seconds": REAR_STAGES, "penetration_ratio_target": REAR_MOTION.PENETRATION_RATIO,
 		"scenarios": outcomes, "frames": frames, "failures": failures}
 	var output := FileAccess.open(directory.path_join("capture_manifest.json"), FileAccess.WRITE)
@@ -439,6 +444,8 @@ func _check_rear_case(driver: RearDriver, scenario: Dictionary, rendered: Array[
 				_check(absf(float(sample.right_arm.upper_length_m) - .34) <= .004 and absf(float(sample.right_arm.forearm_length_m) - .26) <= .003, prefix + "actual arm segments retain anatomical lengths")
 			if float(sample.execution.elapsed) < REAR_MOTION.CUT_HIT - .000001:
 				_check(float(sample.health) > 0.0 and not ("head" in sample.dismemberment.severed), prefix + "alive with attached head until actual lateral cutting contact")
+			if float(sample.execution.elapsed) <= REAR_MOTION.STAB_CONTACT:
+				_check(is_zero_approx(float(sample.reaction.get("recoil_weight", -1.0))), prefix + "no victim recoil before the first physical blade-contact clock")
 		elif int(sample.player_state) == DungeonPlayer.CombatState.READY:
 			_check(not sample.world_contact, prefix + "ready restores normal first-person rendering")
 			if bool(sample.right_arm.available):
@@ -454,7 +461,8 @@ func _check_rear_case(driver: RearDriver, scenario: Dictionary, rendered: Array[
 	_check(driver.defeats == 1 and driver.landed == 1 and is_zero_approx(float(last.health)), prefix + "one production lethal cut, defeat and reward event")
 	if driver.stages.has("stab"):
 		var actual: Dictionary = driver.stages.stab.right_arm.actual_rig
-		_check(float(actual.blade_forearm_angle_degrees) <= 45.0, prefix + "middle-guard deep thrust aligns the rendered blade within 45 degrees of forearm extension")
+		_check(float(actual.blade_forearm_angle_degrees) <= 25.0, prefix + "middle-guard deep thrust aligns the rendered blade within 25 degrees of forearm extension")
+		_check(float(actual.elbow_extension_angle_degrees) >= 120.0, prefix + "deep thrust extends the rendered elbow to at least 120 degrees")
 		_check(float(actual.axis_mismatch_degrees) <= 20.0, prefix + "deep thrust keeps the actual hand/forearm neutral-axis mismatch within 20 degrees")
 		_check(float(actual.elbow_behind_wrist_along_blade_m) > .15, prefix + "deep thrust keeps the rendered elbow more than 15cm behind the wrist along the blade")
 	_check((last.dismemberment.severed as Array).is_empty() and int(last.dismemberment.detached_bodies) == 0, prefix + "head and all limbs remain attached")
@@ -478,6 +486,7 @@ func _check_rear_case(driver: RearDriver, scenario: Dictionary, rendered: Array[
 
 	for stage_name: String in REAR_STAGES:
 		_check(driver.stages.has(stage_name), prefix + "stage recorded: " + stage_name)
+	_check_physical_contact_recoil(driver, prefix)
 	for stage_name: String in ["stab", "hold"]:
 		if not driver.stages.has(stage_name): continue
 		var stage: Dictionary = driver.stages[stage_name]
@@ -504,6 +513,32 @@ func _check_rear_case(driver: RearDriver, scenario: Dictionary, rendered: Array[
 		driver.stages.withdraw["lateral_extraction"] = {"heel_right_shift_m": right_shift, "tip_retreat_m": retreat, "tip_entry_plane_depth_m": exit_depth, "reference": "original back-entry plane; victim is already a falling whole-body ragdoll"}
 
 	_check(int(last.player_state) == DungeonPlayer.CombatState.READY and not last.execution.active, prefix + "player recovers to ready")
+
+
+func _check_physical_contact_recoil(driver: RearDriver, prefix: String) -> void:
+	if driver.before_begin.is_empty(): return
+	var initial_chest: Transform3D = driver.before_begin.bone_world.Chest
+	for name_value: String in ["before_contact", "first_contact", "recoil", "stab"]:
+		if not driver.stages.has(name_value): continue
+		var stage: Dictionary = driver.stages[name_value]
+		var skin: Dictionary = stage.get("actual_skin", {})
+		_check(bool(skin.get("found", false)) and skin.get("entry_mesh", "") == "CreepPart_torso", prefix + name_value + " contact timing independently resolves real posed torso skin")
+		if not bool(skin.get("found", false)): continue
+		var depth := float(skin.depth_m)
+		var recoil := float(stage.reaction.get("recoil_weight", -1.0))
+		var chest: Transform3D = stage.bone_world.Chest
+		var chest_change := WRIST_METRICS.basis_angle_degrees(initial_chest.basis.orthonormalized(), chest.basis.orthonormalized())
+		if name_value == "before_contact":
+			_check(depth < 0.0 and is_zero_approx(recoil) and chest_change < .01, prefix + "victim remains unreactive before actual steel reaches its back skin")
+		else:
+			_check(depth >= -.002 and recoil > 0.0 and chest_change > .01, prefix + name_value + " rendered recoil begins only after actual blade/skin contact")
+		if name_value == "first_contact":
+			_check(depth < .08 and float(stage.execution.elapsed) - REAR_MOTION.STAB_CONTACT <= 1.0 / 60.0 + .00001, prefix + "first-contact evidence is the first actual physics sample after entry, not a later buried frame")
+		if name_value == "recoil":
+			_check(recoil > .20, prefix + "victim has a visible early reaction while the thrust is still advancing")
+		if name_value == "stab":
+			_check(recoil > .95 and float(stage.reaction.get("contact_weight", -1.0)) > .99 and float(stage.reaction.get("penetration_weight", -1.0)) > .95 and chest_change > 5.0, prefix + "maximum-depth frame already contains full penetration recoil and real chest movement")
+		stage["contact_reaction_geometry"] = {"actual_skin_depth_m": depth, "actual_chest_rotation_degrees": chest_change, "recoil_weight": recoil, "actual_entry_mesh": skin.entry_mesh}
 
 
 func _check_wrist_sequence(driver: RearDriver, prefix: String) -> void:
