@@ -1,0 +1,94 @@
+{
+  "reviewer": "thrust_audit",
+  "scope": "Independent read-only inspection of actual Godot key PNGs and sampled chronological frames. No engine run, image synthesis or input playback by reviewer.",
+  "artifact_directory": "/private/tmp/rear-wrist-publication-check/artifacts/visual_qa/rear_takedown/stab_reaction_blood_20260921",
+  "manifest_sha256": "c7fce9d8b1ab31a506fec121076691e39baabf79be292c68fa6365e5a482b2ed",
+  "manifest_failures": [],
+  "inspected_files": [
+    "rear_sword_before_contact.png",
+    "rear_sword_first_contact.png",
+    "rear_sword_impact.png",
+    "rear_sword_recoil.png",
+    "rear_sword_stab.png",
+    "rear_sword_twist_mid.png",
+    "rear_sword_hold.png",
+    "rear_sword_withdraw_mid.png",
+    "rear_sword_clear.png",
+    "rear_sword_recover.png",
+    "rear_sword_recovered.png",
+    "rear_sword_final.png",
+    "rear_sword_stab_front.png",
+    "rear_sword_twist_mid_front.png",
+    "rear_sword_twist_end_front.png",
+    "rear_sword_stab_side.png",
+    "rear_sword_twist_mid_side.png",
+    "rear_sword_twist_end_side.png",
+    "rear_sword_clear_side.png",
+    "frames/00060.jpg",
+    "frames/00066.jpg",
+    "frames/00072.jpg",
+    "frames/00074.jpg",
+    "frames/00078.jpg",
+    "frames/00082.jpg"
+  ],
+  "sha256": {
+    "rear_sword_before_contact.png": "6ac86496ba57ea86ba2ce9311424830d02dac830b5d89f4fe619ddf61150e3bc",
+    "rear_sword_first_contact.png": "d6a2ffd3df3aab12c6022ee4bf265c72e0158e4c97bb592e41d544fd6a3db67e",
+    "rear_sword_impact.png": "722f8191bf61e3304a566ce05ff9560e10c022d29d5292e97565875df3e21339",
+    "rear_sword_recoil.png": "4ead6d52ada2d20ec40236b1077e0da300ed48a6a572475c58a3682f5bfe30e0",
+    "rear_sword_stab.png": "62c283fe319d0e53c1b042d042fb2ed9fe63fb0c2ec9b5537b810adac47997c7",
+    "rear_sword_twist_mid.png": "1eca06d8c573b5d0c025cb840b95bbb1011619777f3e5b465a6bbdefb4dd4028",
+    "rear_sword_hold.png": "e1a8b0fbf4de84325a2f85a6eb0191add7f01ccf69492e5b577fa96152698b4d",
+    "rear_sword_withdraw_mid.png": "98dd94bcee1380643e88aebac1e856a1b008665566129bbcbc0228cb2c8d7eb8",
+    "rear_sword_clear.png": "459d89520873ddecbf07027b2ce663886bb9f5781f1f288f961b61b2392f64b5",
+    "rear_sword_recover.png": "3c83d57c4a50fab9ce602771afb5877007565a9e22fcf615b1aa065ad31c3c73",
+    "rear_sword_recovered.png": "b46db6645ddfd2b85bde01115b72b7d411a00aa806fe72ff0b174fe6a1127d1a",
+    "rear_sword_final.png": "c9bdd4a1c6472483c47fcf020c900457b88f3ceb322b36f85d92395950c51331",
+    "rear_sword_stab_front.png": "4a782765509943afd25b4f6ab2da71999547f114ddbac6378ef45121d4f5bc57",
+    "rear_sword_twist_mid_front.png": "2ae600067bf020cb885e21240de734385ee9b9e00e24fb627ce91dbfe7f8e753",
+    "rear_sword_twist_end_front.png": "495567829d959e085fca7908b2d81fb9a3840bc9dc5c56ef69511f72a52276b6",
+    "rear_sword_stab_side.png": "7db0ad190287524a03661e3882d0289c8beeadf6f4e2a0d2aa590bc235bf3fc7",
+    "rear_sword_twist_mid_side.png": "72a4194a4e34f98ddac370aac696c11efad276a3a8a49181dd047311c658929a",
+    "rear_sword_twist_end_side.png": "13a3aed3b9d058d502584e3d43950cbd9e320f5e7312a20df1d1501c057b76d6",
+    "rear_sword_clear_side.png": "6740e76dc7349ac5f9c0078ed4e0199ddcc3f8641d0cbce79eec6eff43c88f26",
+    "frames/00060.jpg": "8f44fa0ad64ed8e041f3981c7228ff259c562597b1e46cebe2371ffe35278357",
+    "frames/00066.jpg": "83c09d5459ee09b68ebc72ae4f6e5b63babcff2aca5395ba8c7e75127be8d347",
+    "frames/00072.jpg": "6f0f4df4a031d603fcf24ca336096a78fba365b69a56017738c6c650b1e88a0f",
+    "frames/00074.jpg": "0b133a20813ed0c718e4397495eca0cc0e515f6fd1d527a38fa967dc36ee4612",
+    "frames/00078.jpg": "91f44e1fedd151883cdc45d0a16109ab932cbe712b1988bc5727567a1e02f280",
+    "frames/00082.jpg": "05a5f6b24d84c8392c623578a6694d5fe07f04b6175ab3051b435a1ee59e9e00"
+  },
+  "observations": [
+    "No blood before contact. Small dark-red droplets appear at the back entry in 1.17-1.20s contact images. At 1.27s recoil, droplets spread on both sides of the blade and are visible in first person.",
+    "By 1.47s droplets fall downward. Same actual particles are visible from alternate angles. Additional torso/head reaction during twist is clearest in front/side views and more restrained in first person.",
+    "2.00, 2.20, 2.40 and 2.47s samples show axial withdrawal without a lateral slice. The subsequent rise of the blade belongs to recovery after extraction.",
+    "The torso remains standing through the 2.47s sample. At 2.60-2.73s the body drops, and the final image shows an attached-head corpse on the floor.",
+    "No gross arm flip or sleeve completely hiding hand and sword is visible in the inspected samples."
+  ],
+  "telemetry_ragdoll_transitions": [
+    {
+      "frame": 0,
+      "seconds": 0.0333333333333333,
+      "phase": "living",
+      "blade_depth_m": -2.22996044158936
+    },
+    {
+      "frame": 44,
+      "seconds": 1.5,
+      "phase": "execution_hold",
+      "blade_depth_m": 0.982299983501434
+    },
+    {
+      "frame": 74,
+      "seconds": 2.5,
+      "phase": "simulating",
+      "blade_depth_m": -0.0599998459219933
+    }
+  ],
+  "limitations": [
+    "Blood is discrete bead/drop-shaped 3D particles, not a continuous fluid sheet or realistic fluid simulation.",
+    "Existing finger and sword-handle artistic limitations were not changed by this effect/reaction task.",
+    "Only listed key stills and sampled chronological frames were independently inspected. Full real-time playback and hardware keyboard/mouse input were not performed by this reviewer."
+  ],
+  "conclusion": "No observed blocker within the reviewed blood/reaction/straight-withdraw scope; this is not a claim of perfect anatomy or fluid simulation."
+}

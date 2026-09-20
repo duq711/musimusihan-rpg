@@ -53,7 +53,7 @@ func _run() -> void:
 	_check(model_hash == FileAccess.get_sha256(DISMEMBERMENT.MODEL_PATH), "rear execution must preserve the licensed split model bytes")
 	for failure in failures: push_error("REAR TAKEDOWN: " + failure)
 	print("REAR TAKEDOWN REPORT: ", JSON.stringify(report))
-	print("REAR TAKEDOWN TEST %s: unaware rear gates, actual back/front skin/full-blade/straight extraction and blade-clear ragdoll, ordered long tick, intact head and one death/reward, cancellation and preserved session" % ("PASS" if failures.is_empty() else "FAIL"))
+	print("REAR TAKEDOWN TEST %s: unaware rear gates, actual back/front skin/contact blood/full-blade/single twist reaction/straight extraction and blade-clear ragdoll, ordered long tick, intact head and one death/reward, cancellation and preserved session" % ("PASS" if failures.is_empty() else "FAIL"))
 	quit(0 if failures.is_empty() else 1)
 
 
@@ -382,6 +382,8 @@ func _start_rear(actor) -> bool:
 	_check(is_equal_approx(stamina - player.stamina, REAR.STAMINA_COST * player.get_body_attack_stamina_multiplier()), "reservation spends one real execution stamina cost")
 	_check(not actor.finish_rear_takedown(player), "direct premature finish cannot kill before deep-stab contact")
 	_check(not actor.finish_execution(player), "old execution finish cannot bypass the deep-stab clock")
+	_check(not actor.commit_rear_stab_contact(player, player._execution_contact_point), "early direct contact commit cannot emit blood before steel reaches the target")
+	_check(int(actor.get_rear_takedown_blood_snapshot().burst_count) == 0, "reservation alone does not create a blood burst")
 	return true
 
 
@@ -418,6 +420,7 @@ func _ordered_execution(weapon: String, long_tick: bool, initial_distance := 1.1
 			for bone_name: String in before_lower:
 				_check(actor.skeleton.get_bone_pose(actor.skeleton.find_bone(bone_name)).is_equal_approx(before_lower[bone_name]), "standing rear reaction preserves lower body: " + bone_name)
 			if time >= REAR.STAB_CONTACT - .001: _check_skin_contact_reaction(actor, time, initial_chest_basis)
+			_check_contact_blood(actor, time)
 			if is_equal_approx(time, REAR.PREPARE_END):
 				var distance := Vector2(player.global_position.x - actor.global_position.x, player.global_position.z - actor.global_position.z).length()
 				_check(absf(distance - REAR.STAB_DISTANCE) < .02, "preparation reaches chamber distance before the thrust")
@@ -427,6 +430,7 @@ func _ordered_execution(weapon: String, long_tick: bool, initial_distance := 1.1
 		_check_skin_contact_reaction(actor, REAR.STAB_HIT, initial_chest_basis)
 		_check_through_blade_in_skin(actor, actual_length, REAR.STAB_HIT)
 		_check_execution_arm_reach("deep_stab")
+		_check_held_twist_reaction(actor)
 		var held_pose: Array[Transform3D] = []
 		for bone in actor.skeleton.get_bone_count(): held_pose.append(actor.skeleton.get_bone_pose(bone))
 		var held := _real_blade()
@@ -440,7 +444,7 @@ func _ordered_execution(weapon: String, long_tick: bool, initial_distance := 1.1
 			var shift: Vector3 = blade.tip - held.tip
 			var lateral := (shift - (state.stab_direction as Vector3) * shift.dot(state.stab_direction)).length()
 			_check(actor.ragdoll.phase == "execution_hold" and actor.ragdoll.parts.is_empty(), "body stays held until actual tip clears the wound by the required margin")
-			for bone in held_pose.size(): _check(actor.skeleton.get_bone_pose(bone).is_equal_approx(held_pose[bone]), "held death preserves final penetration recoil without twist or side movement")
+			for bone in held_pose.size(): _check(actor.skeleton.get_bone_pose(bone).is_equal_approx(held_pose[bone]), "held death preserves final twist reaction once its authored twist is complete")
 			_check(basis_angle_degrees(held_basis, player.weapon_pivot.global_basis.orthonormalized()) <= .10 and lateral < .002, "straight extraction cannot roll the blade or sweep it sideways")
 			_check(depth <= previous_depth + .0001, "extraction tip moves monotonically backward on the original thrust axis")
 			previous_depth = depth
@@ -457,6 +461,7 @@ func _ordered_execution(weapon: String, long_tick: bool, initial_distance := 1.1
 		var returned_distance := Vector2(player.global_position.x - actor.global_position.x, player.global_position.z - actor.global_position.z).length()
 		_check(absf(returned_distance - REAR.STAB_DISTANCE) < .02, "body reverses its lunge during straight extraction without stretching the arm")
 		report.append({"case": "straight_extraction_geometry", "lateral_tip_shift_m": lateral, "tip_retreat_m": -shift.dot(state.stab_direction), "tip_entry_plane_depth_m": tip_depth, "returned_stance_distance_m": returned_distance})
+	_check_contact_blood(actor, player.execution_elapsed)
 	actor.ragdoll.set_physics_process(false)
 	_check(actor.health == 0.0 and actor.ai_state == DungeonEnemy.AIState.DEAD and _defeats(actor) == 1, "deep stab causes exactly one death")
 	_check(actor.dismemberment.severed.is_empty() and actor.dismemberment.detached.is_empty(), "straight pull-out preserves the head and all limbs")
@@ -473,7 +478,78 @@ func _ordered_execution(weapon: String, long_tick: bool, initial_distance := 1.1
 	player._update_viewmodel(0.0)
 	_check_restored_grip(player, "post-withdrawal cancellation")
 	_check(not player.is_execution_active() and not player.viewmodel_renderer.world_contact_enabled and _defeats(actor) == 1 and bag.count_item("rune_fragment") == before_rewards + 1, "post-withdrawal cancellation restores player without duplicate death or reward")
+	if long_tick:
+		# Advance the real effect callback across its bounded lifetime without
+		# adding six wall-clock seconds to every physics fixture. F2 separately
+		# verifies real paused/resumed physics ticks and target reset cleanup.
+		var effect = actor._rear_stab_blood
+		var before_expiry: Dictionary = actor.get_rear_takedown_blood_snapshot()
+		_check(is_instance_valid(effect), "expiry fixture retains the actual contact effect")
+		if is_instance_valid(effect):
+			effect.set_physics_process(false)
+			effect._physics_process(maxf(0.0, 6.01 - float(effect.age)))
+			_check(effect.is_queued_for_deletion(), "real blood effect queues cleanup after six seconds of simulation")
+			await process_frame
+			var expired: Dictionary = actor.get_rear_takedown_blood_snapshot()
+			_check(not is_instance_valid(effect) and expired.effect.is_empty(), "blood droplets and stains are freed after the bounded lifetime")
+			_check(int(expired.burst_count) == 1 and (expired.contact_point as Vector3).is_equal_approx(before_expiry.contact_point), "effect expiry preserves one-shot contact evidence without restarting emission")
+			report.append({"case": "rear_blood_expiry", "simulation_seconds": 6.01, "effect_freed": not is_instance_valid(effect), "snapshot": expired})
 	report.append({"case": weapon, "long_tick": long_tick, "initial_distance_m": initial_distance, "blade_length_m": actual_length, "attached_head_ragdoll": actor.ragdoll.parts.has("Head"), "defeats": _defeats(actor), "rune_rewards": bag.count_item("rune_fragment") - before_rewards})
+
+
+func _check_contact_blood(actor, time: float) -> void:
+	var blood: Dictionary = actor.get_rear_takedown_blood_snapshot()
+	if time < REAR.STAB_CONTACT - .000001:
+		_check(int(blood.get("burst_count", -1)) == 0 and not is_instance_valid(actor._rear_stab_blood), "no blood before actual blade/skin contact")
+		return
+	_check(int(blood.get("burst_count", 0)) == 1, "one real contact creates exactly one blood burst, including delayed ticks")
+	var point: Vector3 = blood.get("contact_point", Vector3(INF, INF, INF))
+	_check(point.is_finite() and point.distance_to(player._execution_contact_point) < .025, "blood originates at the actual back-entry contact in world space")
+	var effect = actor._rear_stab_blood
+	_check(is_instance_valid(effect) and effect is Node3D and effect.is_inside_tree(), "contact blood is an actual in-world 3D effect")
+	if is_instance_valid(effect):
+		_check(effect.is_set_as_top_level() and effect.global_position.distance_to(point) < .001 and effect.process_mode == Node.PROCESS_MODE_PAUSABLE, "blood retains its wound world position and obeys game pause")
+		if time <= REAR.STAB_CONTACT + STEP + .000001:
+			_check(not effect.droplets.is_empty(), "initial contact owns real renderable droplets")
+		for drop: Dictionary in effect.droplets:
+			_check(drop.mesh is MeshInstance3D and is_instance_valid(drop.mesh.mesh) and drop.mesh.is_visible_in_tree() and drop.mesh.global_position.is_finite(), "blood droplet is finite visible 3D mesh geometry")
+	_check(not actor.commit_rear_stab_contact(player, point), "duplicate public contact cannot replay the burst")
+	_check(int(actor.get_rear_takedown_blood_snapshot().burst_count) == 1, "duplicate contact leaves exactly one burst")
+	report.append({"case": "rear_stab_blood", "time": time, "snapshot": blood})
+
+
+func _check_held_twist_reaction(actor) -> void:
+	var deep_blade := _real_blade()
+	var deep_basis := player.weapon_pivot.global_basis.orthonormalized()
+	var chest_index: int = actor.skeleton.find_bone("Chest")
+	var deep_chest: Basis = actor.skeleton.get_bone_global_pose(chest_index).basis.orthonormalized()
+	for time: float in [REAR.TWIST_START - .001, REAR.TWIST_START, (REAR.TWIST_START + REAR.TWIST_END) * .5, REAR.TWIST_END]:
+		_advance_rear_to(time)
+		var reaction: Dictionary = actor.get_rear_takedown_reaction_snapshot()
+		var blood: Dictionary = actor.get_rear_takedown_blood_snapshot()
+		_check((reaction.back_anchor as Vector3).distance_to(player._execution_contact_point) < .001, "held twist retains the original cached skin anchor after death")
+		_check((blood.contact_point as Vector3).distance_to(reaction.back_anchor) < .003, "blood contact and held reaction share the same measured wound anchor")
+		var blade := _real_blade()
+		var axis: Vector3 = (blade.tip - blade.heel).normalized()
+		var chest: Basis = actor.skeleton.get_bone_global_pose(chest_index).basis.orthonormalized()
+		var changed := basis_angle_degrees(deep_chest, chest)
+		_check(actor.health == 0.0 and actor.ragdoll.phase == "execution_hold" and actor.ragdoll.parts.is_empty(), "twist reacts within the dead held body without starting early ragdoll")
+		_check((blade.tip as Vector3).distance_to(deep_blade.tip) < .002 and axis.dot((deep_blade.tip - deep_blade.heel).normalized()) > .9999, "the single twist rolls around the planted steel axis without moving the tip sideways")
+		var expected := expected_rear_blade_basis(deep_basis, axis, time)
+		_check(basis_angle_degrees(expected, player.weapon_pivot.global_basis.orthonormalized()) < .10, "actual blade follows the requested 20-degree single twist")
+		if time <= REAR.TWIST_START:
+			_check(changed < .01 and is_zero_approx(float(reaction.get("twist_weight", -1.0))), "victim does not twist before the sword twist starts")
+		else:
+			_check(changed > 1.0 and float(reaction.get("twist_weight", 0.0)) > .0 and absf(float(reaction.get("chest_twist_angle", 0.0))) > deg_to_rad(1.0), "actual chest bones visibly react while the sword twists")
+			if time < REAR.TWIST_END: _check(float(reaction.get("twist_reaction_weight", 0.0)) > .2, "twist adds a second visible recoil pulse")
+		for bone in actor.skeleton.get_bone_count():
+			_check(actor.ragdoll.initial_pose[bone].is_equal_approx(actor.skeleton.get_bone_pose(bone)), "held ragdoll stores the current reacted pose for a continuous later release")
+		_check_contact_blood(actor, time)
+		report.append({"case": "held_twist_reaction", "time": time, "actual_chest_change_degrees": changed, "reaction": reaction})
+
+
+static func expected_rear_blade_basis(initial: Basis, axis: Vector3, time: float) -> Basis:
+	return Basis(axis.normalized(), REAR.TWIST_RADIANS * smoothstep(REAR.TWIST_START, REAR.TWIST_END, time)) * initial
 
 
 func _check_through_blade_in_skin(actor, length: float, time: float) -> void:
@@ -666,7 +742,7 @@ func _wrist_motion_sequence() -> void:
 	if not _start_rear(actor): return
 	var times: Array[float] = [0.0]
 	for frame in range(1, int(ceil(REAR.DURATION / STEP)) + 1): times.append(minf(REAR.DURATION, frame * STEP))
-	var boundaries: Array[float] = [REAR.PREPARE_END, REAR.STAB_CONTACT, REAR.STAB_HIT, REAR.HOLD_END, REAR.WITHDRAW_END, REAR.RECOVER_START, REAR.DURATION]
+	var boundaries: Array[float] = [REAR.PREPARE_END, REAR.STAB_CONTACT, REAR.STAB_HIT, REAR.TWIST_START, REAR.TWIST_END, REAR.HOLD_END, REAR.WITHDRAW_END, REAR.RECOVER_START, REAR.DURATION]
 	for boundary in boundaries:
 		times.append(boundary - .0001)
 		times.append(boundary)
@@ -714,9 +790,10 @@ func _wrist_motion_sequence() -> void:
 			if not embedded_seen:
 				embedded_basis = weapon_basis
 				embedded_seen = true
-			var drift := basis_angle_degrees(embedded_basis, weapon_basis)
+			var expected_basis := expected_rear_blade_basis(embedded_basis, state.stab_direction, time)
+			var drift := basis_angle_degrees(expected_basis, weapon_basis)
 			maximum_fixed_rotation = maxf(maximum_fixed_rotation, drift)
-			_check(drift <= .10, "thrust, hold and straight pull-out must preserve actual world blade rotation at %.5fs" % time)
+			_check(drift <= .10, "blade must match the single timed axial twist and fixed-roll straight withdrawal at %.5fs" % time)
 		if time >= REAR.PREPARE_END and time <= REAR.WITHDRAW_END:
 			var offset: Vector3 = blade.tip - state.contact_point
 			var lateral := (offset - (state.stab_direction as Vector3) * depth).length()
@@ -751,7 +828,7 @@ func _wrist_motion_sequence() -> void:
 			if absf(float(sample.time) - boundary) < .000001:
 				projection_stages.append({"time": sample.time, "projection": sample.projection, "axis_mismatch_degrees": sample.actual.axis_mismatch_degrees})
 	_check(samples.size() >= int(ceil(REAR.DURATION / STEP)) and embedded_seen, "full 60Hz execution and explicit phase-boundary samples must be retained")
-	report.append({"case": "full_wrist_continuity", "sample_count": samples.size(), "preparation_samples": samples.filter(func(sample): return float(sample.time) <= REAR.PREPARE_END), "maximum_joint_step_m": maximum_step, "maximum_step_time": maximum_step_time, "maximum_hand_rotation_step_degrees": maximum_rotation, "maximum_embedded_axis_mismatch_degrees": maximum_mismatch, "maximum_fixed_blade_rotation_degrees": maximum_fixed_rotation, "maximum_lateral_tip_shift_m": maximum_lateral_shift, "minimum_thrust_forearm_camera_clearance_m": minimum_thrust_forearm_clearance, "minimum_preparation_forearm_camera_clearance_m": minimum_preparation_forearm_clearance, "forearm_clearance_scope": "Actual elbow-to-wrist centerline distance to camera; 14cm floor from preparation-end through deep-stab hold. Preparation is reported separately. Proxy only, not an exact skin/sleeve collision proof.", "projection_stages": projection_stages})
+	report.append({"case": "full_wrist_continuity", "sample_count": samples.size(), "preparation_samples": samples.filter(func(sample): return float(sample.time) <= REAR.PREPARE_END), "maximum_joint_step_m": maximum_step, "maximum_step_time": maximum_step_time, "maximum_hand_rotation_step_degrees": maximum_rotation, "maximum_embedded_axis_mismatch_degrees": maximum_mismatch, "maximum_expected_blade_rotation_error_degrees": maximum_fixed_rotation, "maximum_lateral_tip_shift_m": maximum_lateral_shift, "minimum_thrust_forearm_camera_clearance_m": minimum_thrust_forearm_clearance, "minimum_preparation_forearm_camera_clearance_m": minimum_preparation_forearm_clearance, "forearm_clearance_scope": "Actual elbow-to-wrist centerline distance to camera; 14cm floor from preparation-end through deep-stab hold. Preparation is reported separately. Proxy only, not an exact skin/sleeve collision proof.", "projection_stages": projection_stages})
 
 
 static func measure_wrist_geometry(subject: DungeonPlayer) -> Dictionary:

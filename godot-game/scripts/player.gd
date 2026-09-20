@@ -1398,6 +1398,19 @@ func _advance_rear_takedown(delta: float) -> void:
 		if _rear_approach_obstruction_m > .04:
 			cancel_execution()
 			return
+	if execution_elapsed < REAR_TAKEDOWN_MOTION.STAB_CONTACT and next_elapsed >= REAR_TAKEDOWN_MOTION.STAB_CONTACT:
+		_move_rear_takedown_approach(REAR_TAKEDOWN_MOTION.STAB_CONTACT)
+		if _rear_approach_obstruction_m > .04:
+			cancel_execution()
+			return
+		_execution_target.advance_execution_pose(REAR_TAKEDOWN_MOTION.STAB_CONTACT)
+		var first_contacts := _execution_target.get_rear_takedown_contacts()
+		if not first_contacts.is_empty(): _rear_neck_contact = first_contacts.neck
+		_apply_rear_takedown_view(REAR_TAKEDOWN_MOTION.STAB_CONTACT)
+		if _execution_target.has_method("commit_rear_stab_contact"):
+			if not _execution_target.call("commit_rear_stab_contact", self, _execution_contact_point):
+				cancel_execution()
+				return
 	if not _rear_stab_contact_committed and next_elapsed >= REAR_TAKEDOWN_MOTION.STAB_HIT:
 		_move_rear_takedown_approach(REAR_TAKEDOWN_MOTION.STAB_HIT)
 		if _rear_approach_obstruction_m > .04:
@@ -1433,7 +1446,9 @@ func _advance_rear_takedown(delta: float) -> void:
 		_execution_target.advance_execution_pose(next_elapsed)
 		var contacts := _execution_target.get_rear_takedown_contacts()
 		if not contacts.is_empty(): _rear_neck_contact = contacts.neck
-	elif valid and next_elapsed >= REAR_TAKEDOWN_MOTION.HOLD_END:
+	elif valid:
+		_execution_target.call("advance_rear_takedown_reaction", self, next_elapsed)
+	if _execution_hit_committed and valid and next_elapsed >= REAR_TAKEDOWN_MOTION.HOLD_END:
 		_apply_rear_takedown_view(next_elapsed)
 		var depth := (weapon_pivot.to_global(_execution_blade_tip) - _execution_contact_point).dot(_execution_stab_direction)
 		if depth <= -REAR_TAKEDOWN_MOTION.WITHDRAW_CLEARANCE + .002:

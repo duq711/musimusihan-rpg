@@ -12,6 +12,7 @@ const DISMEMBERMENT := preload("res://scripts/creep_dismemberment.gd")
 const CRAWL := preload("res://scripts/creep_crawl.gd")
 const LOCOMOTION_BLEND := preload("res://scripts/creep_locomotion_blend.gd")
 const EXECUTION_REACTION := preload("res://scripts/creep_execution_reaction.gd")
+const REAR_STAB_BLOOD := preload("res://scripts/rear_stab_blood_effect.gd")
 const REAR_REACTION := preload("res://scripts/rear_sword_reaction.gd")
 
 var animation_player: AnimationPlayer
@@ -31,6 +32,11 @@ var _execution_reaction_snapshot: Dictionary = {}
 var _hold_execution_death := false
 var _rear_takedown_death := false
 var _rear_reaction_snapshot: Dictionary = {}
+var _rear_stab_blood: Node3D
+var _rear_blood_burst_count := 0
+var _rear_blood_contact_point := Vector3.ZERO
+var _rear_reaction_anchor := Vector3.ZERO
+var _rear_reaction_entry_bones: Array[Transform3D] = []
 
 static func is_available() -> bool:
 	return ResourceLoader.exists(MODEL_PATH)
@@ -363,8 +369,9 @@ func finish_rear_takedown(executor: Node3D) -> bool:
 	if _execution_elapsed < REAR_REACTION.MOTION.STAB_HIT - .000001:
 		return false
 	_apply_execution_pose()
-	# The deep stab is fatal once. Hold this exact contraction until the
-	# blade leaves the wound; cancellation also releases the held corpse.
+	_rear_reaction_entry_bones.assign(_execution_entry_bones)
+	# The deep stab is fatal once. The reserved hold accepts the brief twist
+	# reaction until the blade leaves; cancellation also releases the corpse.
 	velocity = Vector3.ZERO
 	_hold_execution_death = true
 	health = 0.0
@@ -377,6 +384,62 @@ func _rear_exit_right() -> Vector3:
 	var right := _execution_executor.global_basis.x if is_instance_valid(_execution_executor) else global_basis.x
 	right.y = 0.0
 	return right.normalized() if right.length_squared() > .000001 else global_basis.x.normalized()
+
+func commit_rear_stab_contact(executor: Node3D, point: Vector3) -> bool:
+	# First contact is cosmetic, not a second damage event. Validate the real
+	# posed skin and blade segment rather than emitting on a timer alone.
+	if _rear_blood_burst_count > 0 or _rear_takedown_profile != "rear_sword" or ai_state != AIState.EXECUTION:
+		return false
+	if executor != _execution_executor or not _execution_executor_is_alive(executor) or not executor is DungeonPlayer:
+		return false
+	if _execution_elapsed < REAR_REACTION.MOTION.STAB_CONTACT - .000001 or _rear_takedown_contacts.is_empty():
+		return false
+	if point.distance_to(_rear_takedown_contacts.back) > .03:
+		return false
+	var tip: Vector3 = executor.weapon_pivot.to_global(executor._execution_blade_tip)
+	var direction: Vector3 = executor._execution_stab_direction.normalized()
+	var heel: Vector3 = tip - direction * executor._execution_blade_length
+	var nearest := INF
+	var skin_point := point
+	for part: MeshInstance3D in visual_meshes:
+		if part.name != "CreepPart_torso" or not part.is_visible_in_tree(): continue
+		var faces: PackedVector3Array = dismemberment._bake_world_mesh(part, Vector3.ZERO).get_faces()
+		for index in range(0, faces.size(), 3):
+			var hit = Geometry3D.segment_intersects_triangle(heel, tip + direction * .004, faces[index], faces[index + 1], faces[index + 2])
+			if not hit is Vector3:
+				hit = Geometry3D.segment_intersects_triangle(heel, tip + direction * .004, faces[index], faces[index + 2], faces[index + 1])
+			if hit is Vector3 and point.distance_squared_to(hit) < nearest:
+				nearest = point.distance_squared_to(hit)
+				skin_point = hit
+	if nearest > .03 * .03: return false
+	_rear_blood_contact_point = skin_point
+	_rear_blood_burst_count = 1
+	_rear_stab_blood = REAR_STAB_BLOOD.new()
+	_rear_stab_blood.name = "RearStabBlood"
+	add_child(_rear_stab_blood)
+	_rear_stab_blood.configure(skin_point, -direction, "rear_stab")
+	return true
+
+
+func get_rear_takedown_blood_snapshot() -> Dictionary:
+	return {"burst_count": _rear_blood_burst_count, "contact_point": _rear_blood_contact_point,
+		"effect": _rear_stab_blood.snapshot() if is_instance_valid(_rear_stab_blood) else {}}
+
+
+func advance_rear_takedown_reaction(executor: Node3D, elapsed: float) -> void:
+	# Death awards its reward once at deep contact; this small involuntary
+	# reaction remains visual and belongs only to the reserved rear stab.
+	if not is_instance_valid(ragdoll) or ragdoll.phase != "execution_hold" or ragdoll.execution_owner != executor:
+		return
+	if animation_clip != "rear_sword_takedown" or _rear_reaction_entry_bones.size() != skeleton.get_bone_count(): return
+	for bone in skeleton.get_bone_count(): skeleton.set_bone_pose(bone, _rear_reaction_entry_bones[bone])
+	var sample := clampf(elapsed, REAR_REACTION.MOTION.STAB_HIT, REAR_REACTION.MOTION.TWIST_END)
+	_rear_reaction_snapshot = REAR_REACTION.apply(self, skeleton, sample, _rear_reaction_anchor, executor.global_basis.x.normalized())
+	# The hold controller restores these poses each physics tick. Update its
+	# source as well so it cannot overwrite the reaction or snap on release.
+	for bone in skeleton.get_bone_count(): ragdoll.initial_pose[bone] = skeleton.get_bone_pose(bone)
+	animation_sample = sample
+
 
 func get_rear_takedown_reaction_snapshot() -> Dictionary:
 	return _rear_reaction_snapshot.duplicate()
@@ -452,6 +515,12 @@ func _capture_execution_pose() -> void:
 	_execution_entry_bones.clear()
 	_execution_reaction_snapshot.clear()
 	_rear_reaction_snapshot.clear()
+	if is_instance_valid(_rear_stab_blood): _rear_stab_blood.queue_free()
+	_rear_stab_blood = null
+	_rear_blood_burst_count = 0
+	_rear_blood_contact_point = Vector3.ZERO
+	_rear_reaction_anchor = Vector3.ZERO
+	_rear_reaction_entry_bones.clear()
 	if is_instance_valid(skeleton):
 		for bone in skeleton.get_bone_count():
 			_execution_entry_bones.append(skeleton.get_bone_pose(bone))
@@ -465,7 +534,8 @@ func _apply_execution_pose() -> void:
 		if _execution_entry_bones.size() == skeleton.get_bone_count():
 			for bone in skeleton.get_bone_count():
 				skeleton.set_bone_pose(bone, _execution_entry_bones[bone])
-		_rear_reaction_snapshot = REAR_REACTION.apply(self, skeleton, _execution_elapsed, _rear_takedown_contacts.back, _rear_exit_right())
+		_rear_reaction_anchor = _rear_takedown_contacts.back
+		_rear_reaction_snapshot = REAR_REACTION.apply(self, skeleton, _execution_elapsed, _rear_reaction_anchor, _rear_exit_right())
 		animation_clip = "rear_sword_takedown"
 		animation_sample = _execution_elapsed
 		return

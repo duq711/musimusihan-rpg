@@ -878,25 +878,27 @@ F2 pauses combat/AI and cancels a pending ordinary stab. Reselection heals/respa
 
 ## 검 제압 · 미인지 후방 / Sword takedown from an unaware rear
 
-`F2 → 기본`의 다음 항목은 실제 `rusted_sword`, 빈 보조손, 건강하고 온전한 크리프를 준비한다. `forged_longsword`와 `forged_arming_sword`도 같은 후방 제압을 지원한다. 일반 **E 상호작용**으로 시작하며 LMB 일반 공격과 포복 처형은 별도다.
+`F2 → 기본`의 세 항목은 실제 `rusted_sword`, 빈 보조손, 건강하고 온전한 크리프를 준비한다. `forged_longsword`와 `forged_arming_sword`도 같은 후방 제압을 지원한다. 일반 **E 상호작용**을 사용하며 LMB 일반 공격과 포복 처형은 별도다.
 
 | 항목 | 직접 시험하는 방법 |
 |---|---|
-| `검 제압 · 미인지 후방` (`rear_takedown`) | 미인지 적 뒤에서 E. 첫 접촉부터 반응하며 깊게 찌른 뒤, 비틀거나 옆으로 베지 않고 검 방향 그대로 뽑는지 본다. 플레이어가 함께 물러나며 파지를 유지하고, 칼끝이 빠진 뒤 머리 유지 랙돌로 쓰러지는지 확인한다. |
-| `검 제압 · 경계 상태 비교` (`rear_takedown:alerted`) | 같은 뒤쪽 배치지만 실제 추적 상태다. E가 거절되어도 추적·공격이 계속되는지 비교한다. |
-| `검 제압 · 정면 비교` (`rear_takedown:front`) | 같은 적을 정면에 둔다. 후방 E 제압은 불가하고 실제 인지·전투는 유지한다. |
+| `검 제압 · 미인지 후방` (`rear_takedown`) | 미인지 적 뒤에서 E. 첫 피부 접촉 지점의 3D 혈흔이 한 번 나오는지, 깊게 찌를 때 강한 반응·짧게 비틀 때 작은 반응이 이어지는지 본다. 이후 직선 회수와 칼끝이 빠진 뒤 머리 유지 랙돌을 확인한다. |
+| `검 제압 · 경계 상태 비교` (`rear_takedown:alerted`) | 실제 추적 상태에서 E를 눌러 거절되며 제압용 혈흔이 생기지 않는지 비교한다. 정상 추적·공격은 계속된다. |
+| `검 제압 · 정면 비교` (`rear_takedown:front`) | 정면에서는 후방 E 제압이 불가하고 실제 인지·전투는 유지된다. 제압 시작 없이 제압용 혈흔이 생기지 않아야 한다. |
 
-조건은 대기·미인지, 뒤쪽 ±55°, 수평 0.85–1.50m, 높이 차 0.8m 이하와 벽 가림 검사다. 서 있는 크리프의 머리·다리가 온전해야 한다. 최신 순서는 **깊게 찌르기 → 같은 검 축을 따라 회수 → 복귀**이며 이전 비틀기·우측 베기를 사용하지 않는다. 파지·전진 팔·첫 접촉 반응과 칼날 약 94% 관입은 유지한다. 회수 중 플레이어도 충돌을 확인하며 뒤로 물러나 팔이 닿는 범위에서 검을 잡도록 한다.
+조건은 대기·미인지, 뒤쪽 ±55°, 수평 0.85–1.50m, 높이 차 0.8m 이하와 벽 가림 검사다. 서 있는 크리프의 머리·다리가 온전해야 한다. 혈흔은 실제 첫 접촉의 월드 지점에서 한 번 발생하고 접촉 전에는 나오지 않아야 한다. 최대 깊이·비틀기·회수로 이어져도 최초 접촉 출혈을 중복 생성하지 않는다. 피부 접촉 전 무반응, 깊은 찌르기의 강한 반응, 짧은 비틀기의 작은 반응을 구분한다.
 
-현재 제작 시계는 준비 0.55초, 첫 접촉 0.61초, 최대 깊이·사망 0.90초, 직선 회수 시작 1.10초, 칼끝 빠짐·랙돌 1.70초, 복귀 시작 1.76초, 종료 2.26초다. 최대 깊이에서 사망·보상은 한 번만 확정하고, 검이 아직 박혀 있을 때 시체가 먼저 떨어지지 않게 유지한다. 머리는 분리하지 않는다. 이 시점들은 조정 가능한 제작값이며 실제 GPU의 랙돌 해제는 1.70초 칼끝이 입구보다 약 6cm 빠진 뒤다.
+제작 시계는 준비 0.55초, 접촉·혈흔 0.61초, 최대 깊이·사망 0.90초, 1.00–1.22초 20° 한 번 비틀기, 회수 시작 1.30초, 칼끝 빠짐·랙돌 1.90초, 복귀 시작 1.96초, 종료 2.46초다. 깊이 약 94%와 단일 사망·보상을 유지한다. 회수는 같은 검 축으로 진행하며 플레이어도 충돌을 검사하며 물러나 파지를 유지한다. 시체는 박힌 동안 유지하고 칼끝이 빠진 뒤 떨어져야 한다. 옆 베기·머리 절단은 하지 않는다. 이 시점과 값은 원본 리그의 제작 설정이며 실제 첫 혈흔 표본은 동작 약 0.616667초다.
 
-F2는 진행 중 배우와 공유 시계를 보존하며 멈춘다. 치명적 찌르기 전 취소는 살아 있는 적을 풀어 주고 지연 사망·보상을 남기지 않아야 한다. 재선택은 회복·재생성, 전체 초기화는 기본 표적 복원, 종료는 원래 원정 복원을 사용한다. 일반 대기·공격으로 돌아오면 제압 전용 파지가 남지 않아야 한다. 에셋 미설치는 안내를 표시하며 대상·장비를 대신 만들어 시험하지 않는다.
+F2 일시정지는 배우와 공유 시계를 보존한다. 치명적 찌르기 전 취소는 적을 살려 풀어 주며 지연 사망·보상을 남기지 않아야 한다. 재선택은 회복·재생성, 초기화는 기본 표적 복원, 종료는 원래 원정 복원을 사용한다. 기존 공개 E 경로를 사용하며 시험 전용 가짜 접촉·피해로 효과를 만들지 않는다. **로컬 최종 핵심 검사와 실제 GPU 9초·270프레임 검수·전체 영상 디코딩을 통과했다. 실제 F2와 관련 회귀 3종의 통과는 실행 시점을 구분해 검수 기록에 남겼다. GitHub 원격 반영은 아직 미확인이다.** [새 검수 기록](artifacts/validation/rear_stab_reaction_blood_20260921/README.md)에 근거를 보존한다. 이전 동작의 검사 결과나 공개 E API 실행을 이번 렌더·OS 하드웨어 입력 검증으로 확대하지 않는다.
 
-**자동 검사 5종과 실제 GPU 9초·270프레임 검수·전체 영상 디코딩을 통과했다. 실제 1인칭·측면에서 직선 회수와 연결된 손·팔, 칼끝이 빠진 뒤 랙돌을 확인했다. GitHub 브랜치의 커밋과 검수 이미지·영상 47개를 다시 내려받아 일치를 확인했다.** 최종 산출물은 [검수 기록](artifacts/validation/rear_sword_straight_withdraw_20260920/README.md)과 [전체 영상](artifacts/validation/rear_sword_straight_withdraw_20260920/rear_sword_straight_withdraw.mp4)에 보존한다. [이전 비틀기·우측 발검 검수](artifacts/validation/rear_sword_force_thrust_20260920/README.md)는 해당 과거 동작의 기록이다. 공개 E API와 OS 하드웨어 입력 검증은 구분하며 하드웨어 E/마우스는 미확인이다.
+The three F2 entries prepare the supported sword, empty offhand and healthy Creep through the existing public **E interaction**. Inspect one real 3D blood emission at actual first skin contact, a strong deep-stab reaction, a smaller short-twist reaction, axial withdrawal and intact-head ragdoll only after clearance. Alerted-rear and front cases reject without triggering takedown blood while ordinary AI continues. Existing rear/distance/height/line-of-sight/intact-limb gates remain.
 
-The three F2 entries prepare a supported sword, empty offhand and healthy intact Creep with live AI. Use **E** from the unaware rear; alerted-rear/front cases reject while ordinary combat continues. Existing rear, distance, height, line-of-sight and intact-head/legs gates remain. The new sequence is **deep stab → withdraw along the same blade axis → recover**, removing twist and sideways cutting. Retain the grip, forward arm drive, first-contact response and approximately 94% insertion. The player retreats with collision checks during extraction to keep the hand within reach.
+The authored clock is preparation 0.55s, contact/blood 0.61s, full-depth/death 0.90s, one 20° twist during 1.00–1.22s, withdrawal 1.30s, clearance/ragdoll 1.90s, recovery 1.96s and end 2.46s. Preserve approximately 94% insertion and one death/reward; the player retreats with collision checks while extracting along the blade axis. Hold the corpse until clearance. No lateral cutting or decapitation. No reaction/blood before contact and no duplicate first-contact blood at depth, twist or extraction. F2 pause, pre-fatal cancellation, replay/healing, reset and expedition restoration remain. **Local final core checks, actual nine-second/270-frame GPU review and full-video decoding passed. Real F2 and three related regression passes are recorded at their actual run points. GitHub publication remains unconfirmed.** The [new report](artifacts/validation/rear_stab_reaction_blood_20260921/README.md) distinguishes actual evidence from earlier revisions and OS hardware input, which remains unverified.
 
-Verified sequence timings are preparation 0.55s, contact 0.61s, full-depth/death 0.90s, withdrawal start 1.10s, tip clearance/ragdoll 1.70s, recovery start 1.76s and finish 2.26s. Commit death/reward once at full depth, keep the corpse held while the blade remains inserted and release the intact-head ragdoll after clearance. Actual GPU ragdoll release occurs at 1.70s with the tip approximately 6cm behind the entry. F2 pause, cancellation before the fatal stab, replay/healing, reset, ordinary-grip restoration and exact expedition restoration remain. **Five automated suites, actual nine-second/270-frame GPU review and full-video decoding passed. Actual first-person/side views confirm axial withdrawal and blade-clear ragdoll. The GitHub branch SHA and all 47 inspection images/video files were verified through fresh remote downloads.** See the intended [report](artifacts/validation/rear_sword_straight_withdraw_20260920/README.md) and [video](artifacts/validation/rear_sword_straight_withdraw_20260920/rear_sword_straight_withdraw.mp4). Historical passes do not validate this changed sequence, and public E API checks do not verify OS hardware input.
+혈흔은 작은 짙은 붉은 3D 물방울·얼룩이며 연속 유체막은 아니다. 비틀기 반응은 측면에서 더 잘 읽힌다. 검수 화면은 실제 시험 스튜디오이며 동굴 수동 플레이나 OS 하드웨어 입력 검증으로 보고하지 않는다.
+
+Blood uses small dark-red 3D droplets/stains rather than a continuous fluid film. Twist response reads more clearly from the side. Evidence comes from the actual test studio, not a manually played cave scene or OS hardware input validation.
 
 ### 검 제압 손목 후속 검수 / Takedown wrist follow-up checks
 

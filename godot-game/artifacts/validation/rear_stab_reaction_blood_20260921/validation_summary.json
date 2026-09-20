@@ -1,0 +1,82 @@
+{
+  "status": "local_verified_publication_pending",
+  "tests": [
+    {
+      "name": "rear_takedown",
+      "pass": true,
+      "log": "core_pass.log",
+      "run": "core04 final code"
+    },
+    {
+      "name": "rear_takedown_trial",
+      "pass": true,
+      "log": "trial_pass.log",
+      "run": "core03 F2 suite; final adjustment changes only torso reaction yaw"
+    },
+    {
+      "name": "creep_execution",
+      "pass": true,
+      "log": "regression_pass.log",
+      "run": "tests02 related suite; subsequent fixes scoped to rear takedown"
+    },
+    {
+      "name": "supplied_fp_arms",
+      "pass": true,
+      "log": "regression_pass.log",
+      "run": "tests02 related suite"
+    },
+    {
+      "name": "sword_shield_execution",
+      "pass": true,
+      "log": "regression_pass.log",
+      "run": "tests02 related suite"
+    }
+  ],
+  "gpu": {
+    "frame_count": 270,
+    "duration_seconds": 9.0,
+    "fps": 30,
+    "physics_hz": 60,
+    "resolution": [
+      960,
+      540
+    ],
+    "renderer": "vulkan",
+    "failures": [],
+    "sources_preserved": true,
+    "session_inventory_preserved": true,
+    "cursor_preserved": true
+  },
+  "png_count": 58,
+  "first_blood_sample_seconds": 0.616666666666667,
+  "blood_contact_checkpoint_seconds": 0.61,
+  "fatal_stab_seconds": 0.900000000000001,
+  "ragdoll_release_seconds": 1.9,
+  "blood_once": 1,
+  "wrist_metrics": {
+    "axis_samples": 78,
+    "forearm_clearance_scope": "Actual rendered elbow/wrist centerline versus camera origin; a 14cm proxy guard from preparation-end through deep-stab hold. Preparation rotation is reported separately. Not a complete skin/sleeve collision proof.",
+    "maximum_axis_mismatch_degrees": 38.5685790165392,
+    "maximum_expected_blade_rotation_error_degrees": 0.0,
+    "maximum_hand_rotation_step_degrees": 2.26796708866708,
+    "maximum_joint_step_m": 0.0927714556455612,
+    "maximum_lateral_tip_shift_m": 0.00016578653594479,
+    "maximum_legacy_axis_mismatch_degrees": 74.3819894954895,
+    "maximum_step_time": 0.700000000000001,
+    "minimum_exposed_blade_projection_fraction": 0.0164173116286596,
+    "minimum_preparation_forearm_camera_clearance_m": 0.604890406131744,
+    "minimum_thrust_forearm_camera_clearance_m": 0.396538615226746,
+    "projection_occlusion_verified": false
+  },
+  "video_full_decode_exit_code": 0,
+  "limitations_ko": [
+    "숨김 시험 장면의 실제 렌더이며 OS 하드웨어 조작은 미확인",
+    "혈흔은 개별 3D 방울·바닥 얼룩이며 연속 유체 시뮬레이션이 아님",
+    "기존 소매와 손가락 간격, 손 전체 정밀 충돌 검증의 한계는 유지"
+  ],
+  "limitations_en": [
+    "Actual hidden studio GPU rendering; hardware input unverified",
+    "Discrete 3D droplets and floor marks, not a continuous fluid simulation",
+    "Existing sleeve/finger spacing and full hand-skin collision limitations remain"
+  ]
+}

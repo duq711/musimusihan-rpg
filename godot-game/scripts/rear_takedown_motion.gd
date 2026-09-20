@@ -1,5 +1,5 @@
 extends RefCounted
-## One shared clock: reserve an unaware target, stab through, then withdraw along the same axis.
+## One shared clock: reserve an unaware target, stab, briefly twist, then withdraw along the same axis.
 ## Contact coordinates are sampled from the actual posed target in world space.
 const GRIP := preload("res://scripts/sword_long_grip_visual.gd")
 const ARM := preload("res://scripts/reference_sword_arm.gd")
@@ -7,10 +7,13 @@ const POSE := preload("res://scripts/sword_shield_choreography.gd")
 const PREPARE_END := 0.55
 const STAB_CONTACT := 0.61
 const STAB_HIT := 0.90
-const HOLD_END := 1.10
-const WITHDRAW_END := 1.70
-const RECOVER_START := 1.76
-const DURATION := 2.26
+const TWIST_START := 1.00
+const TWIST_END := 1.22
+const TWIST_RADIANS := deg_to_rad(20.0)
+const HOLD_END := 1.30
+const WITHDRAW_END := 1.90
+const RECOVER_START := 1.96
+const DURATION := 2.46
 const WITHDRAW_CLEARANCE := .06
 const PENETRATION_RATIO := 0.94
 const STAMINA_COST := 24.0
@@ -36,12 +39,13 @@ static func weapon_profile(definition: Dictionary) -> String:
 static func phase(elapsed: float) -> String:
 	if elapsed < PREPARE_END: return "후방 제압 · 검 겨누기"
 	if elapsed < STAB_HIT: return "후방 제압 · 깊게 찌르기"
-	if elapsed < HOLD_END: return "후방 제압 · 찌른 검 유지"
+	if elapsed < TWIST_START: return "후방 제압 · 찌른 검 유지"
+	if elapsed < HOLD_END: return "후방 제압 · 짧게 비틀기"
 	if elapsed < WITHDRAW_END: return "후방 제압 · 곧게 뽑기"
 	return "후방 제압 · 자세 회복"
 
 static func sword(elapsed: float, entry: Transform3D, back: Vector3, direction: Vector3, _neck: Vector3, blade_tip: Vector3, blade_length: float, stab_basis: Basis) -> Transform3D:
-	# Keep the same world-space blade axis and roll until the tip is clear.
+	# Keep the same wound channel. Only a brief axial roll follows the stab.
 	var frame := Transform3D(stab_basis, Vector3.ZERO)
 	frame.origin = back - frame.basis * blade_tip
 	# Derive the preparation gap from the same continuous cubic stroke, so
@@ -59,6 +63,7 @@ static func sword(elapsed: float, entry: Transform3D, back: Vector3, direction: 
 		# reach sphere and snap the elbow while the blade turns into line.
 		return POSE.mix(entry, chamber, t).translated((Vector3(0, -.30, 0) - direction * .10) * pow(sin(PI * t), 2))
 	if elapsed < STAB_HIT: return POSE.mix(chamber, deep, (elapsed - PREPARE_END) / (STAB_HIT - PREPARE_END))
+	deep = _twist_about_blade(deep, blade_tip, smoothstep(TWIST_START, TWIST_END, elapsed))
 	if elapsed < HOLD_END: return deep
 	if elapsed < WITHDRAW_END:
 		return axial_exit(deep, blade_length, (elapsed - HOLD_END) / (WITHDRAW_END - HOLD_END))
@@ -66,8 +71,15 @@ static func sword(elapsed: float, entry: Transform3D, back: Vector3, direction: 
 	if elapsed < RECOVER_START: return exited
 	return POSE.mix(exited, POSE.ready(), (elapsed - RECOVER_START) / (DURATION - RECOVER_START))
 
+static func _twist_about_blade(deep: Transform3D, blade_tip: Vector3, weight: float) -> Transform3D:
+	# Rotate around the actual blade line, not the hilt node origin. The tip
+	# and wound stay fixed while the forearm rolls by a restrained 20 degrees.
+	var tip := deep * blade_tip
+	var rotated_basis := Basis(deep.basis.y.normalized(), TWIST_RADIANS * weight) * deep.basis
+	return Transform3D(rotated_basis, tip - rotated_basis * blade_tip)
+
 static func axial_exit(deep: Transform3D, blade_length: float, progress: float) -> Transform3D:
-	# Retrace the wound channel without a sideways sweep or wrist roll.
+	# Retrace the wound channel with the completed twist held fixed.
 	var distance := blade_length * PENETRATION_RATIO + WITHDRAW_CLEARANCE
 	return deep.translated(-deep.basis.y.normalized() * distance * smoothstep(0.0, 1.0, progress))
 
@@ -95,7 +107,7 @@ static func arm(pivot: Transform3D, elapsed: float, entry_arm: Dictionary, previ
 	var neutral := (pivot.basis * GRIP.neutral_axis_local(amount)).normalized()
 	var hint := wrist + neutral * ARM.FOREARM_LENGTH
 	# The blade and grip keep their thrust orientation during withdrawal.
-	# Follow the same elbow circle back; no twist or lateral-extraction pole.
+	# Follow the same elbow circle back without a lateral-extraction pole.
 	var reach_axis := (wrist - shoulder).normalized()
 	var clearance := .25 * smoothstep(PREPARE_END, STAB_HIT, elapsed)
 	hint = shoulder + _clearance_bend(shoulder, wrist, neutral, clearance)
