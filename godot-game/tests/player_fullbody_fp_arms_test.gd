@@ -20,18 +20,25 @@ func _run() -> void:
 		if not part_name.begins_with("Gravebound_FP_"): continue
 		var bounds := AABB()
 		var first := true
+		var forearm := AABB()
+		var forearm_first := true
 		for surface in part.mesh.get_surface_count():
 			for vertex: Vector3 in part.mesh.surface_get_arrays(surface)[Mesh.ARRAY_VERTEX]:
 				var point := body.to_local(part.to_global(vertex))
+				if part_name.ends_with("_Arm") and point.y > 1.02 and point.y < 1.12:
+					if forearm_first: forearm = AABB(point, Vector3.ZERO); forearm_first = false
+					else: forearm = forearm.expand(point)
 				if first: bounds = AABB(point,Vector3.ZERO); first = false
 				else: bounds = bounds.expand(point)
 			var material := part.get_active_material(surface) as BaseMaterial3D
 			check(material != null and material.albedo_texture != null and material.normal_texture != null, "FP material maps retained")
 		check(bounds.size.x < (.33 if part_name.ends_with("_Arm") else .15) and bounds.size.z < .24, "FP parts fitted to body; sloping upper sleeves include their shoulder inset: "+part_name+" "+str(bounds))
 		if part_name.ends_with("_Arm"):
+			check(not forearm_first and forearm.size.x < .14 and forearm.size.z < .13, "forearm no longer inflated by first-person proportions")
 			check(bounds.end.y > 1.42 and bounds.end.y < 1.46, "sleeve opening reaches under shoulder mantle")
-			check(bounds.position.y > .92 and bounds.position.y < .97, "wrist seam remains at original body fit")
+			check(bounds.position.y > .86 and bounds.position.y < .89, "wrist sits below the pelvis at the refitted arm length")
 		else:
+			check(bounds.position.y > .67 and bounds.position.y < .70, "relaxed fingertips reach the upper thigh")
 			check(bounds.size.y > .20 and bounds.size.y < .22, "full-body glove and fingers use the reduced proportion")
 	for side in ["L", "R"]:
 		for section in ["Arm", "Hand"]:

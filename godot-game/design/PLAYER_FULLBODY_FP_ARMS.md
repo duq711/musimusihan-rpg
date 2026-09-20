@@ -32,3 +32,11 @@ The sleeve tops are extended 12.5cm beneath the original mantle and tapered to f
 English: Reduce both full-body hands to 82% around their wrist anchors. Match the lower sleeve and blend back into its existing shape over heights 0.975–1.115m. The relaxed glove/finger vertical extent is about 21cm. Preserve the other 24 body meshes and first-person source assets. The existing F2 appearance entry displays the updated shared model.
 
 제작·검증 자료 / Production and validation: `../../asset-staging/player_fullbody_proportions_20260921/`. 이전 제작 모델도 보존한다 / Previous production models are retained.
+
+### 같은 날 재수정: 팔 전체 / Follow-up: the entire arm
+
+사용자가 손 축소 후에도 팔 비율이 맞지 않는다고 지적했다. 앞선 82% 손 축소만으로 완료되었다는 판단을 정정한다. 전신용 소매의 전완 부풀림을 줄이고, 손목 높이를 0.94m에서 0.87m로 낮추며 팔꿈치 기준 높이를 1.135m로 맞춘다. 어깨 아래 연결을 유지하며 손목은 몸 쪽으로 2cm 옮긴다. 손 크기는 앞선 82%를 유지한다. 변경은 전신 전용이며 1인칭 전투 모델에는 적용하지 않는다.
+
+English: The user identified that shrinking the hands alone had not corrected the arm proportions. Refit the entire sleeve: reduce forearm inflation, lower the wrist from 0.94m to 0.87m, place the elbow reference at 1.135m, and move the wrist 2cm inward while retaining the shoulder connection. Keep the previous 82% hand scale. These changes affect only the full-body model, preserving first-person combat assets.
+
+최신 제작·검증 / Latest production and validation: `../../asset-staging/player_fullbody_anatomy_20260921/`.
