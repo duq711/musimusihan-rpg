@@ -6,13 +6,13 @@
 
 혈흔은 화면 오버레이가 아니라 실제 접촉 월드 지점의 효과이며, 접촉 전에는 나오지 않고 깊이·비틀기·회수에서 중복 생성하지 않는다. 제작 시계는 준비 0.55초, 접촉·혈흔 0.61초, 최대 깊이·사망 확정 0.90초, 1.00–1.22초 20° 비틀기, 유지 종료·회수 시작 1.30초, 칼끝 빠짐·랙돌 1.90초, 복귀 시작 1.96초, 종료 2.46초다. 깊이 약 94%와 사망·보상 한 번, 박힌 동안 몸 유지·빠진 뒤 머리 유지 랙돌, 후퇴하며 같은 축으로 빼는 파지, E/F2 조건·시험 원정 복원은 유지한다.
 
-**로컬 최종 핵심 검사와 실제 GPU 9초·270프레임 검수·전체 영상 디코딩을 통과했다. 실제 F2와 관련 회귀 3종의 통과는 실행 시점을 구분해 검수 기록에 남겼다. GitHub 원격 반영은 아직 미확인이다.** [새 검수 기록](../artifacts/validation/rear_stab_reaction_blood_20260921/README.md)에 최종 근거를 보존한다. 수치들은 제작 설정이며 이전 개정의 통과를 이번 검증으로 대신하지 않는다. 기존 외형·정밀 충돌·하드웨어 입력 검증 한계는 유지한다.
+**로컬 최종 핵심 검사와 실제 GPU 9초·270프레임 검수·전체 영상 디코딩을 통과했다. 실제 F2와 관련 회귀 3종의 통과는 실행 시점을 구분해 검수 기록에 남겼다. GitHub 원격 커밋 `6efb02a`와 새 저장소로 다시 받은 영상·이미지 59개 파일의 해시 일치를 확인했다.** [새 검수 기록](../artifacts/validation/rear_stab_reaction_blood_20260921/README.md)에 최종 근거를 보존한다. 수치들은 제작 설정이며 이전 개정의 통과를 이번 검증으로 대신하지 않는다. 기존 외형·정밀 충돌·하드웨어 입력 검증 한계는 유지한다.
 
 **Latest user-confirmed change:** add a strong monster response to the deep stab, a smaller response to one brief twist and one 3D world-space blood emission at actual first skin contact. Retain straight withdrawal, replacing the no-twist rule with a short 20° twist. Do not restore lateral cutting, neck strikes or decapitation.
 
 Blood originates at the real contact point rather than a screen overlay, with no pre-contact emission or duplication at depth, twist or extraction. The authored clock is preparation 0.55s, contact/blood 0.61s, full-depth/death 0.90s, one 20° twist during 1.00–1.22s, hold end/withdrawal 1.30s, clearance/ragdoll 1.90s, recovery 1.96s and completion 2.46s. Retain approximately 94% depth, one death/reward, held-body then intact-head ragdoll, retreat-assisted axial extraction and existing E/F2/session rules.
 
-**Local final core checks, actual nine-second/270-frame GPU review and full-video decoding passed. Real F2 and three related regression passes are recorded at their actual run points. GitHub publication remains unconfirmed.** The [new report](../artifacts/validation/rear_stab_reaction_blood_20260921/README.md) records evidence; authored settings and earlier revision passes are not substitutes for current validation. Existing appearance, exhaustive-collision and hardware-input limitations remain.
+**Local final core checks, actual nine-second/270-frame GPU review and full-video decoding passed. Real F2 and three related regression passes are recorded at their actual run points. GitHub commit `6efb02a` and fresh remote-download hashes for all 59 image/video files were verified.** The [new report](../artifacts/validation/rear_stab_reaction_blood_20260921/README.md) records evidence; authored settings and earlier revision passes are not substitutes for current validation. Existing appearance, exhaustive-collision and hardware-input limitations remain.
 
 혈흔은 작은 짙은 붉은 3D 물방울·얼룩이며 연속 유체막은 아니다. 비틀기 반응은 측면에서 더 잘 읽힌다. 검수 화면은 실제 시험 스튜디오이며 동굴 수동 플레이나 OS 하드웨어 입력 검증으로 보고하지 않는다.
 

@@ -1,5 +1,5 @@
 {
-  "status": "local_verified_publication_pending",
+  "status": "local_verified_and_github_verified",
   "tests": [
     {
       "name": "rear_takedown",
@@ -78,5 +78,10 @@
     "Actual hidden studio GPU rendering; hardware input unverified",
     "Discrete 3D droplets and floor marks, not a continuous fluid simulation",
     "Existing sleeve/finger spacing and full hand-skin collision limitations remain"
-  ]
+  ],
+  "publication": {
+    "implementation_commit": "6efb02a27ac1411ebd5c1a0f852a05379394f725",
+    "branch": "codex/rear-stab-reaction-blood-20260921",
+    "remote_lfs_verified_files": 59
+  }
 }

@@ -1,8 +1,8 @@
 # 후방 제압: 찌르기·비틀기 반응과 혈흔 / Rear takedown: stab/twist response and blood
 
-**로컬 최종 핵심 검사와 실제 GPU 9초·270프레임 검수, 전체 영상 디코딩을 통과했다.** 실제 F2 및 관련 회귀의 통과 기록은 아래 실행 시점을 구분한다. **실제 이미지 25장·연속 표본의 독립 시각 검수도 완료했다. GitHub 원격 반영은 확인 대기다.** [시각 검수 기록](visual_review.json)
+**로컬 최종 핵심 검사와 실제 GPU 9초·270프레임 검수, 전체 영상 디코딩을 통과했다.** 실제 F2 및 관련 회귀의 통과 기록은 아래 실행 시점을 구분한다. **실제 이미지 25장·연속 표본의 독립 시각 검수도 완료했다. GitHub 원격 커밋 `6efb02a`와 새 저장소로 다시 받은 영상·이미지 59개 파일의 해시 일치를 확인했다.** [시각 검수 기록](visual_review.json)
 
-**Local final core checks, actual nine-second/270-frame GPU checks and full-video decoding passed.** Real F2 and related regressions are distinguished by run below. **Independent review of 25 actual images and sequence samples is complete; GitHub publication remains pending.** [Visual review](visual_review.json)
+**Local final core checks, actual nine-second/270-frame GPU checks and full-video decoding passed.** Real F2 and related regressions are distinguished by run below. **Independent review of 25 actual images and sequence samples is complete; GitHub commit `6efb02a` and fresh remote-download hashes for all 59 image/video files were verified.** [Visual review](visual_review.json)
 
 [전체 영상 / Full video](rear_stab_reaction_blood.mp4) · [GPU 측정 / Capture manifest](capture_manifest.json) · [렌더 로그 / GPU log](gpu_preview.log) · [270프레임 디코딩 / Full decode](video_decode.log) · [검증 코드 일치 / Validated-source match](source_validation_match.json)
 
@@ -48,6 +48,6 @@ Small dark-red droplets are visible at approximately video time 1.20–1.47s. Tw
 
 ## 한계 / Limits
 
-혈흔은 짧은 3D 물방울·얼룩 효과이며 연속적인 유체막 시뮬레이션이 아니다. 실제 시험 스튜디오 렌더를 검증했으며 동굴 실게임 수동 촬영이나 하드웨어 E/마우스 조작 검증은 하지 않았다. 기존 넓은 소매·검지 간격·손 전체 정밀 충돌 검사의 한계는 유지한다. 독립 검토·원격 게시 상태는 위 상태 항목을 따른다.
+혈흔은 짧은 3D 물방울·얼룩 효과이며 연속적인 유체막 시뮬레이션이 아니다. 실제 시험 스튜디오 렌더를 검증했으며 동굴 실게임 수동 촬영이나 하드웨어 E/마우스 조작 검증은 하지 않았다. 기존 넓은 소매·검지 간격·손 전체 정밀 충돌 검사의 한계는 유지한다. 독립 검토와 원격 게시를 완료했다. [원격 검증 기록](publication_verified.json).
 
-Blood is a brief 3D droplet/stain effect, not continuous fluid-film simulation. Verification uses the actual test studio, not a manually controlled cave capture or OS hardware E/mouse test. Existing wide-sleeve/index-spacing and exhaustive hand-collision limits remain. Independent-review/publication status follows the status above.
+Blood is a brief 3D droplet/stain effect, not continuous fluid-film simulation. Verification uses the actual test studio, not a manually controlled cave capture or OS hardware E/mouse test. Existing wide-sleeve/index-spacing and exhaustive hand-collision limits remain. Independent review and publication are complete. [Remote verification](publication_verified.json).
