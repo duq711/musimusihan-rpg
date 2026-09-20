@@ -22,9 +22,14 @@ func _run() -> void:
 		var first := true
 		var forearm := AABB()
 		var forearm_first := true
+		var wrist_section := AABB()
+		var wrist_first := true
 		for surface in part.mesh.get_surface_count():
 			for vertex: Vector3 in part.mesh.surface_get_arrays(surface)[Mesh.ARRAY_VERTEX]:
 				var point := body.to_local(part.to_global(vertex))
+				if part_name.ends_with("_Hand") and point.y > .827 and point.y < .843:
+					if wrist_first: wrist_section = AABB(point, Vector3.ZERO); wrist_first = false
+					else: wrist_section = wrist_section.expand(point)
 				if part_name.ends_with("_Arm") and point.y > 1.02 and point.y < 1.12:
 					if forearm_first: forearm = AABB(point, Vector3.ZERO); forearm_first = false
 					else: forearm = forearm.expand(point)
@@ -36,10 +41,11 @@ func _run() -> void:
 		if part_name.ends_with("_Arm"):
 			check(not forearm_first and forearm.size.x < .14 and forearm.size.z < .13, "forearm no longer inflated by first-person proportions")
 			check(bounds.end.y > 1.42 and bounds.end.y < 1.46, "sleeve opening reaches under shoulder mantle")
-			check(bounds.position.y > .86 and bounds.position.y < .89, "wrist sits below the pelvis at the refitted arm length")
+			check(bounds.position.y > .83 and bounds.position.y < .85, "sleeve cuff meets the shortened glove wrist")
 		else:
+			check(not wrist_first and wrist_section.size.x > .05 and wrist_section.size.x < .08 and wrist_section.size.z < .06, "glove wrist narrows before the palm")
 			check(bounds.position.y > .67 and bounds.position.y < .70, "relaxed fingertips reach the upper thigh")
-			check(bounds.size.y > .20 and bounds.size.y < .22, "full-body glove and fingers use the reduced proportion")
+			check(bounds.size.y > .17 and bounds.size.y < .19, "short glove cuff preserves palm and fingers")
 	for side in ["L", "R"]:
 		for section in ["Arm", "Hand"]:
 			check(names.count("Gravebound_FP_"+side+"_"+section) == 1, "one actual arm/hand per side")

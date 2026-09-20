@@ -40,3 +40,11 @@ English: Reduce both full-body hands to 82% around their wrist anchors. Match th
 English: The user identified that shrinking the hands alone had not corrected the arm proportions. Refit the entire sleeve: reduce forearm inflation, lower the wrist from 0.94m to 0.87m, place the elbow reference at 1.135m, and move the wrist 2cm inward while retaining the shoulder connection. Keep the previous 82% hand scale. These changes affect only the full-body model, preserving first-person combat assets.
 
 최신 제작·검증 / Latest production and validation: `../../asset-staging/player_fullbody_anatomy_20260921/`.
+
+### 손목 접합부 재조정 / Wrist-junction refit
+
+장갑의 손목 구간을 길이 62%, 중심 단면 폭과 깊이 73%로 조정하고 같은 변형을 소매 끝에도 적용한다. 손바닥 아래쪽과 손가락(높이 0.795m 이하)은 보존한다. 손목 폭은 약 6.9cm, 장갑 손목 구간은 약 3cm 짧아졌다. PLAYER_QA_WRIST_DETAIL=1로 손목 확대 렌더를 추가한다.
+
+English: Shorten the glove wrist section to 62% and narrow its central width/depth to 73%, applying the same deformation to the sleeve junction. Preserve the lower palm and fingers at heights up to 0.795m. The glove wrist is about 6.9cm wide and the cuff about 3cm shorter. PLAYER_QA_WRIST_DETAIL=1 adds an actual-model wrist close-up.
+
+Production and validation: ../../asset-staging/player_fullbody_wrist_20260921/

@@ -94,6 +94,13 @@ func _capture_body() -> void:
 	portrait.camera.position = Vector3(0.0, 1.50, -3.5)
 	portrait.camera.look_at(Vector3(0.0, 1.50, 0.0))
 	await _capture(portrait.viewport, "player_face_detail.png")
+	# Optional close-up for wrist/cuff proportion reviews, using the actual mesh.
+	if OS.get_environment("PLAYER_QA_WRIST_DETAIL") == "1":
+		portrait.set_view_angle(0.0)
+		portrait.camera.size = 0.40
+		portrait.camera.position = Vector3(-0.29, 0.84, -3.5)
+		portrait.camera.look_at(Vector3(-0.29, 0.84, 0.0))
+		await _capture(portrait.viewport, "player_wrist_detail.png")
 	portrait.queue_free()
 	await process_frame
 
