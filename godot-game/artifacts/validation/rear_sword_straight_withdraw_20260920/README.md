@@ -1,8 +1,8 @@
 # 후방 검 제압: 찌른 뒤 직선 회수 / Rear sword takedown: stab and axial withdrawal
 
-**자동 검사 5종, 실제 GPU 9초·270프레임 검수와 전체 영상 디코딩을 통과했다. GitHub 원격 반영은 아직 확인 대기다.** 이전 비틀기·우측 베기 개정의 검수 결과를 이번 직선 회수의 완료 근거로 재사용하지 않는다.
+**자동 검사 5종, 실제 GPU 9초·270프레임 검수와 전체 영상 디코딩을 통과했다. GitHub 브랜치의 커밋과 검수 이미지·영상 47개를 다시 내려받아 일치를 확인했다.** 이전 비틀기·우측 베기 개정의 검수 결과를 이번 직선 회수의 완료 근거로 재사용하지 않는다.
 
-**Five automated suites, actual nine-second/270-frame GPU review and full-video decoding passed. GitHub publication remains pending.** Earlier twist/right-cut evidence does not validate this changed sequence.
+**Five automated suites, actual nine-second/270-frame GPU review and full-video decoding passed. The GitHub branch SHA and all 47 inspection images/video files were verified through fresh remote downloads.** Earlier twist/right-cut evidence does not validate this changed sequence.
 
 ## 변경 / Change
 
@@ -45,6 +45,6 @@ Actual GPU review records nine seconds/270 frames with zero failures. Opened dee
 
 ## 한계 / Limitations
 
-손·전완 축 수치는 리그 기준이며 의학적 손목 각도가 아니다. 기존 원본 소매의 넓은 외형과 검지 간격, 손 전체와 손잡이의 정밀 충돌 검사는 이번 순서 변경만으로 해소됐다고 주장하지 않는다. 공개 E API·F2 검사는 OS 하드웨어 E/마우스 입력 검증이 아니며 하드웨어 입력은 미확인이다. GitHub 게시 여부도 원격 확인 전까지 미확인이다.
+손·전완 축 수치는 리그 기준이며 의학적 손목 각도가 아니다. 기존 원본 소매의 넓은 외형과 검지 간격, 손 전체와 손잡이의 정밀 충돌 검사는 이번 순서 변경만으로 해소됐다고 주장하지 않는다. 공개 E API·F2 검사는 OS 하드웨어 E/마우스 입력 검증이 아니며 하드웨어 입력은 미확인이다. GitHub 확인 결과는 [원격 검증 기록](publication_verified.json)에 보존했다.
 
 Hand/forearm axes are rig-relative, not clinical joint angles. This sequence change does not claim to fix the original wide sleeve, index spacing or exhaustive hand/handle collision. Public E API/F2 checks do not validate OS hardware input. Remote publication remains unverified until checked.
