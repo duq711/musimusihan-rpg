@@ -27,12 +27,12 @@ func _run() -> void:
 				else: bounds = bounds.expand(point)
 			var material := part.get_active_material(surface) as BaseMaterial3D
 			check(material != null and material.albedo_texture != null and material.normal_texture != null, "FP material maps retained")
-		check(bounds.size.x < (.33 if part_name.ends_with("_Arm") else .24) and bounds.size.z < .24, "FP parts fitted to body; sloping upper sleeves include their shoulder inset: "+part_name+" "+str(bounds))
+		check(bounds.size.x < (.33 if part_name.ends_with("_Arm") else .15) and bounds.size.z < .24, "FP parts fitted to body; sloping upper sleeves include their shoulder inset: "+part_name+" "+str(bounds))
 		if part_name.ends_with("_Arm"):
 			check(bounds.end.y > 1.42 and bounds.end.y < 1.46, "sleeve opening reaches under shoulder mantle")
 			check(bounds.position.y > .92 and bounds.position.y < .97, "wrist seam remains at original body fit")
 		else:
-			check(bounds.size.y > .16 and bounds.size.y < .27, "relaxed glove and fingers retain anatomical length")
+			check(bounds.size.y > .20 and bounds.size.y < .22, "full-body glove and fingers use the reduced proportion")
 	for side in ["L", "R"]:
 		for section in ["Arm", "Hand"]:
 			check(names.count("Gravebound_FP_"+side+"_"+section) == 1, "one actual arm/hand per side")

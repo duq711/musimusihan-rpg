@@ -24,3 +24,11 @@ FP arms: DJMaesen, CC BY 4.0. 원본 출처·가공 내역은 [에셋 표기](..
 The sleeve tops are extended 12.5cm beneath the original mantle and tapered to fit the body, preserving the hands and wrist seam. Blender bone reorientation is compensated; baked vertices are checked against actual Godot skinning before the sleeve fit.
 
 `player_fullbody_fp_arms`는 소매 상단·손목·장갑 크기·재질·구형 손 제거를, `player_appearance`는 실제 F2·본편 연결·회전·초기화·원정 보존을 검사한다. 최종 상태는 제작 폴더의 `VALIDATION.md`를 따른다. / Asset and integration tests cover sleeve attachment, glove proportions, material maps, old-hand removal, F2, rotation and session restoration. Final validation status is recorded in the production folder's `VALIDATION.md`.
+
+## 2026-09-21 전신 손 비율 / Full-body hand proportions
+
+사용자 피드백에 따라 전신의 양손을 기존 크기의 82%로 조정했다. 손목 중심을 고정하고 소매 하단도 같은 비율로 줄인 뒤 높이 0.975–1.115m 구간에서 기존 소매 폭으로 부드럽게 연결한다. 장갑과 손가락의 세로 범위는 약 21cm다. 나머지 24개 몸 메시와 1인칭 원본은 보존한다. 기존 F2 외형 시험에서 수정된 공용 모델을 확인할 수 있다.
+
+English: Reduce both full-body hands to 82% around their wrist anchors. Match the lower sleeve and blend back into its existing shape over heights 0.975–1.115m. The relaxed glove/finger vertical extent is about 21cm. Preserve the other 24 body meshes and first-person source assets. The existing F2 appearance entry displays the updated shared model.
+
+제작·검증 자료 / Production and validation: `../../asset-staging/player_fullbody_proportions_20260921/`. 이전 제작 모델도 보존한다 / Previous production models are retained.
