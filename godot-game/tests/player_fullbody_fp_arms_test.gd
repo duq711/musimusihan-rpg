@@ -24,6 +24,7 @@ func _run() -> void:
 		var forearm_first := true
 		var wrist_section := AABB()
 		var wrist_first := true
+		var uses_outfit_material := false
 		for surface in part.mesh.get_surface_count():
 			for vertex: Vector3 in part.mesh.surface_get_arrays(surface)[Mesh.ARRAY_VERTEX]:
 				var point := body.to_local(part.to_global(vertex))
@@ -36,9 +37,11 @@ func _run() -> void:
 				if first: bounds = AABB(point,Vector3.ZERO); first = false
 				else: bounds = bounds.expand(point)
 			var material := part.get_active_material(surface) as BaseMaterial3D
-			check(material != null and material.albedo_texture != null and material.normal_texture != null, "FP material maps retained")
+			uses_outfit_material = uses_outfit_material or material.resource_name == "Gravebound_Matched_Sleeve_Cloth"
+			check(material != null and material.albedo_texture != null and (material.resource_name == "Gravebound_Matched_Sleeve_Cloth" or material.normal_texture != null), "matched outfit cloth or preserved FP skin/hand maps")
 		check(bounds.size.x < (.33 if part_name.ends_with("_Arm") else .15) and bounds.size.z < .24, "FP parts fitted to body; sloping upper sleeves include their shoulder inset: "+part_name+" "+str(bounds))
 		if part_name.ends_with("_Arm"):
+			check(uses_outfit_material, "sleeve cloth uses the matched outfit material")
 			check(not forearm_first and forearm.size.x < .14 and forearm.size.z < .13, "forearm no longer inflated by first-person proportions")
 			check(bounds.end.y > 1.42 and bounds.end.y < 1.46, "sleeve opening reaches under shoulder mantle")
 			check(bounds.position.y > .86 and bounds.position.y < .89, "pre-wrist-edit sleeve cuff restored")

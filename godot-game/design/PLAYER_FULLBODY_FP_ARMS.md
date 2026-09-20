@@ -80,3 +80,11 @@ English: At the user's request, replace the emphasized anatomical bulges with st
 English: Revise the previous single-axis interpretation following the user's clarification. Keep each limb segment straight while joining distinct upper-arm and forearm axes through a local 6cm elbow transition. Retain the restrained sleeve taper, without repeated bulges or waves, and preserve hands/wrists. Use an authored relaxed static pose.
 
 최신 제작·검증 / Latest production and validation: ../../asset-staging/player_relaxed_elbows_20260921/
+
+### 소매 의상 색조 통일 / Match sleeve outfit colors
+
+소매 천의 기존 UV와 직조 무늬를 보존하고, 별도 천 재질의 알베도 채도를 80% 줄이고 밝기를 72%로 조정해 몸통의 어두운 회갈색에 맞췄다. 거칠기는 0.9로 맞춘다. 피부와 장갑의 원본 재질 및 전체 형상은 유지한다.
+
+English: Preserve the sleeve UVs and weave, grading a separate cloth albedo with 80% desaturation and 72% brightness to match the dark gray-brown outfit. Set roughness to 0.9. Preserve original skin/glove materials and all geometry.
+
+제작·검증 / Production and validation: ../../asset-staging/player_matching_sleeves_20260921/
