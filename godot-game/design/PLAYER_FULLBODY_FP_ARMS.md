@@ -72,3 +72,11 @@ English: Following the supplied human-arm reference, replace the previous local 
 English: At the user's request, replace the emphasized anatomical bulges with straight arm axes and a linear taper across the visible sleeve. Remove procedural surface ripples. Preserve hands, wrists and the tucked shoulder connection.
 
 최신 제작·검증 / Latest production and validation: ../../asset-staging/player_straight_arms_20260921/
+
+### 위팔·아래팔 축 분리 / Separate upper-arm and forearm axes
+
+사용자 후속 지시에 따라 팔 전체를 하나의 직선으로 만든 이전 해석을 수정한다. 위팔과 아래팔은 각각 곧게 유지하되 팔꿈치에서 서로 다른 방향을 갖도록 하고, 관절 주변 6cm 구간에서만 부드럽게 연결한다. 부풀림이나 물결형 윤곽을 다시 넣지 않으며 손과 손목은 보존한다. 편안하게 내려놓은 정지 자세로 제작한다.
+
+English: Revise the previous single-axis interpretation following the user's clarification. Keep each limb segment straight while joining distinct upper-arm and forearm axes through a local 6cm elbow transition. Retain the restrained sleeve taper, without repeated bulges or waves, and preserve hands/wrists. Use an authored relaxed static pose.
+
+최신 제작·검증 / Latest production and validation: ../../asset-staging/player_relaxed_elbows_20260921/
