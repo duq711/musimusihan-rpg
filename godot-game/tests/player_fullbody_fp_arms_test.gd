@@ -38,6 +38,8 @@ func _run() -> void:
 				else: bounds = bounds.expand(point)
 			var material := part.get_active_material(surface) as BaseMaterial3D
 			uses_outfit_material = uses_outfit_material or material.resource_name == "Gravebound_Matched_Sleeve_Cloth"
+			if material.resource_name != "Gravebound_Matched_Sleeve_Cloth":
+				check(material.resource_name.begins_with("Gravebound_Natural_Hands_"), "both hands and wrist skin use the graded skin texture")
 			check(material != null and material.albedo_texture != null and (material.resource_name == "Gravebound_Matched_Sleeve_Cloth" or material.normal_texture != null), "matched outfit cloth or preserved FP skin/hand maps")
 		check(bounds.size.x < (.33 if part_name.ends_with("_Arm") else .15) and bounds.size.z < .24, "FP parts fitted to body; sloping upper sleeves include their shoulder inset: "+part_name+" "+str(bounds))
 		if part_name.ends_with("_Arm"):

@@ -88,3 +88,11 @@ English: Revise the previous single-axis interpretation following the user's cla
 English: Preserve the sleeve UVs and weave, grading a separate cloth albedo with 80% desaturation and 72% brightness to match the dark gray-brown outfit. Set roughness to 0.9. Preserve original skin/glove materials and all geometry.
 
 제작·검증 / Production and validation: ../../asset-staging/player_matching_sleeves_20260921/
+
+### 자연스러운 손 피부와 손바닥 / Natural hand skin and palm
+
+손 피부의 밝기와 주황색 기운을 낮춘 별도 알베도를 적용하고 기존 가죽 장갑과 소매 색은 보존한다. 원본 손 리그의 관절·스키닝을 이용해 손가락을 편안하게 굽히고 손바닥의 완만한 오목한 형태를 만든다. 손목 연결과 소매 형상은 유지한다. 변경 범위는 현재 전신 모델이며 일인칭 장비 동작과 원본 에셋은 보존한다.
+
+English: Use a separately graded skin albedo with lower brightness and orange saturation, preserving the leather gloves and matched sleeves. Use the original hand joints and skin weights for relaxed finger flexion and gentle palm cupping. Preserve the wrist seam and sleeve geometry. This updates the current full-body model while preserving first-person equipment behavior and source assets.
+
+제작·검증 / Production and validation: ../../asset-staging/player_natural_hands_20260921/

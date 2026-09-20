@@ -94,6 +94,8 @@ func _capture_body() -> void:
 	portrait.camera.position = Vector3(0.0, 1.50, -3.5)
 	portrait.camera.look_at(Vector3(0.0, 1.50, 0.0))
 	await _capture(portrait.viewport, "player_face_detail.png")
+	if OS.get_environment("PLAYER_QA_HAND_DETAIL") == "1":
+		await _capture_hand_detail(portrait)
 	# Optional close-up for wrist/cuff proportion reviews, using the actual mesh.
 	if OS.get_environment("PLAYER_QA_WRIST_DETAIL") == "1":
 		portrait.set_view_angle(0.0)
@@ -121,6 +123,72 @@ func _capture_body() -> void:
 			await _capture(portrait.viewport, "player_arm_structure_side.png")
 	portrait.queue_free()
 	await process_frame
+
+
+func _capture_hand_detail(portrait) -> void:
+	# Isolate the actual static production hand so the torso cannot hide its palm.
+	# Reuse the portrait's material resources, world-space light locations and
+	# environment; only the optional final clay view overrides its duplicate.
+	var previous_angle := float(portrait.get_view_angle())
+	portrait.set_view_angle(0.0)
+	var source := portrait.body.find_child("Gravebound_FP_L_Hand", true, false) as MeshInstance3D
+	if source == null or source.mesh == null:
+		push_error("Production left hand is missing from the portrait model.")
+		failed = true
+		portrait.set_view_angle(previous_angle)
+		return
+	var viewport := _viewport(Vector2i(1024, 1024))
+	viewport.transparent_bg = false
+	for node in portrait.viewport.get_children():
+		if node is WorldEnvironment or node is Light3D:
+			viewport.add_child(node.duplicate(0))
+	var hand := source.duplicate(0) as MeshInstance3D
+	viewport.add_child(hand)
+	hand.global_transform = source.global_transform
+	var corners: Array[Vector3] = []
+	var bounds := source.get_aabb()
+	for index in range(8):
+		corners.append(source.global_transform * bounds.get_endpoint(index))
+	var center := source.global_transform * bounds.get_center()
+	var camera := Camera3D.new()
+	camera.projection = Camera3D.PROJECTION_ORTHOGONAL
+	camera.keep_aspect = Camera3D.KEEP_HEIGHT
+	camera.cull_mask = portrait.camera.cull_mask
+	viewport.add_child(camera)
+	camera.current = true
+	# The current production rest pose exposes the hand's back toward world -Z.
+	# The thumb is on the inward X side of this hand; +Z exposes the palm.
+	var thumb_side := Vector3(-1.0 if center.x > 0.0 else 1.0, 0.0, 0.0)
+	for shot in [
+		{"name": "dorsal", "direction": Vector3(0.0, 0.0, -1.0)},
+		{"name": "palm", "direction": Vector3(0.0, 0.0, 1.0)},
+		{"name": "side", "direction": thumb_side},
+	]:
+		_fit_hand_camera(camera, center, corners, shot.direction)
+		await _capture(viewport, "player_hand_%s.png" % shot.name)
+	var clay := StandardMaterial3D.new()
+	clay.albedo_color = Color(0.56, 0.59, 0.61)
+	clay.roughness = 0.9
+	hand.material_override = clay
+	_fit_hand_camera(camera, center, corners, Vector3(0.0, 0.0, 1.0))
+	await _capture(viewport, "player_hand_palm_clay.png")
+	viewport.queue_free()
+	portrait.set_view_angle(previous_angle)
+	await process_frame
+
+
+func _fit_hand_camera(camera: Camera3D, center: Vector3, corners: Array[Vector3], direction: Vector3) -> void:
+	camera.global_position = center + direction.normalized() * 1.0
+	camera.look_at(center, Vector3.UP)
+	var half_width := 0.0
+	var half_height := 0.0
+	for corner in corners:
+		var local_corner := camera.global_transform.affine_inverse() * corner
+		half_width = maxf(half_width, absf(local_corner.x))
+		half_height = maxf(half_height, absf(local_corner.y))
+	var viewport_size := camera.get_viewport().get_visible_rect().size
+	var aspect := viewport_size.x / viewport_size.y
+	camera.size = maxf(half_height, half_width / aspect) * 2.0 * 1.18
 
 
 func _capture_first_person() -> void:
