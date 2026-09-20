@@ -138,3 +138,15 @@ English: The user's subsequent request is to remove the hood instead of continui
 English: Clothing artwork was also projected onto the formerly hidden head. Restore the original `Mercenary_Male_HeadNeck_LOD0` facial, ear, neck and scalp UVs/materials on the 35,366 position-matched triangles. Do not use the scalp-only intermediate approach. Preserve source assets and cap only packed texture copies at 2048. Convert front/back facial projection materials to light-reactive PBR with the same albedo/UVs and roughness 0.88. Final export, Godot automated checks and front/rear/full-body 360° inspection are complete. Twelve embedded/Vulkan views also passed. Existing head UV boundaries remain; review covers hood removal and outfit preservation. Production and validation evidence is recorded below.
 
 제작·검증 / Production and validation: ../../asset-staging/player_no_hood_20260921/VALIDATION.md
+
+### 노출된 얼굴·눈·머리 수정 / Repair exposed face, eyes and hair
+
+후드 제거 후 드러난 얼굴 재질을 수정했다. 코의 잘못 분류된 72개 면을 얼굴 UV로 복원하고, 얼굴 사진에 남아 이중 눈처럼 보이던 1,120개 픽셀을 주변 피부로 정리했다. 중복 안구는 정리하고 눈꺼풀에 맞춘 갈색 홍채·동공과 음영이 있는 흰자를 적용했다. 두피는 짧은 머리 질감과 연속 앞머리 경계로 정돈했다. 귀 앞·볼 옆·귀 위 머리의 9,085개 면은 원래 앞얼굴과 측면 피부를 공간 기준으로 섞은 1K 재질로 연결해 큰 톱니 색 경계를 줄였다.
+
+English: Repaired the exposed facial materials: restored 72 nose faces to facial UVs, cleaned 1,120 projected eye pixels that looked like a second pair of eyes, removed redundant eye shells, and added aligned brown irises, pupils and shaded sclera. Replaced stretched scalp patterns with short hair and a continuous fringe. A 1K spatial blend connects 9,085 outer-cheek, side-skin and lower-temple hair faces to soften the large jagged color boundary.
+
+머리 형상·다른 25개 메시·전체 27개 메시 구성과 기존 망토·손·팔을 보존했다. 제작·내보내기와 Godot 에셋 검사 3개는 통과했다. 최종 통합 검사와 실제 Godot 10개 시점·360° 뷰어 검수도 완료했다. 검증 결과와 남은 원본 텍스처 품질 한계는 아래 문서에 기록한다.
+
+English: Preserved head geometry, the other 25 meshes, the 27-mesh model, and the existing mantle, hands and arms. Production/export and all three Godot asset checks passed. Final integration, ten actual Godot views and 360° viewer inspection also passed. Results and remaining source-texture limitations are recorded below.
+
+제작·검증 / Production and validation: ../../asset-staging/player_face_repair_20260921/VALIDATION.md

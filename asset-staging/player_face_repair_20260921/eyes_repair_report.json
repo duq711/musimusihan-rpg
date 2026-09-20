@@ -1,0 +1,147 @@
+{
+  "eye_centers_world": [
+    [
+      -0.03045034222304821,
+      0.09065906703472137,
+      1.6193256378173828
+    ],
+    [
+      0.03045014850795269,
+      0.09065906703472137,
+      1.6193253993988037
+    ]
+  ],
+  "eye_radii_m": [
+    [
+      0.016306405887007713,
+      0.01305416226387024,
+      0.01554173231124878
+    ],
+    [
+      0.016306405887007713,
+      0.01305416226387024,
+      0.01554173231124878
+    ]
+  ],
+  "iris_radius_m": 0.0056,
+  "pupil_radius_m": 0.00225,
+  "iris_forward_separation_m": 0.00016,
+  "iris_center_z_offset_m": -0.0025,
+  "iris_centers_world": [
+    [
+      -0.03045034222304821,
+      0.10370323389250624,
+      1.6168256378173829
+    ],
+    [
+      0.03045014850795269,
+      0.10370323389250624,
+      1.6168253993988038
+    ]
+  ],
+  "sclera_linear_color": [
+    0.22,
+    0.2,
+    0.17
+  ],
+  "source_overlapping_shells": 4,
+  "rebuilt_sclera_shells": 2,
+  "other_meshes_unchanged": 26,
+  "eye_transform_unchanged": true,
+  "mesh_node_count": 27,
+  "vertices": 5638,
+  "faces": 5760,
+  "materials": [
+    "Gravebound_Eye_Warm_Sclera",
+    "Gravebound_Eye_Brown_Iris",
+    "Gravebound_Eye_Pupil"
+  ],
+  "iris_texture_size": [
+    256,
+    256
+  ],
+  "iris_texture_packed": true,
+  "sclera_texture_size": [
+    256,
+    256
+  ],
+  "sclera_texture_packed": true,
+  "sclera_shading": "soft upper-lid proximity shadow; subtle lower-lid shade; faint nasal warmth; no painted highlights",
+  "sclera_roughness": 0.32,
+  "socket_probes": [
+    {
+      "side": "left",
+      "part": "pupil",
+      "hit": [
+        -0.03045034222304821,
+        0.10370324552059174,
+        1.6168255805969238
+      ],
+      "material": 2,
+      "front_normal_y": 0.9970341920852661,
+      "visible_through_socket": true
+    },
+    {
+      "side": "left",
+      "part": "iris",
+      "hit": [
+        -0.03425034135580063,
+        0.10333842039108276,
+        1.6168255805969238
+      ],
+      "material": 1,
+      "front_normal_y": 0.9738677740097046,
+      "visible_through_socket": true
+    },
+    {
+      "side": "left",
+      "part": "sclera",
+      "hit": [
+        -0.03945034369826317,
+        0.1013234406709671,
+        1.6168255805969238
+      ],
+      "material": 0,
+      "front_normal_y": 0.8589237332344055,
+      "visible_through_socket": true
+    },
+    {
+      "side": "right",
+      "part": "pupil",
+      "hit": [
+        0.03045014850795269,
+        0.10370324552059174,
+        1.6168253421783447
+      ],
+      "material": 2,
+      "front_normal_y": 0.9970341920852661,
+      "visible_through_socket": true
+    },
+    {
+      "side": "right",
+      "part": "iris",
+      "hit": [
+        0.03425014764070511,
+        0.10333843529224396,
+        1.6168253421783447
+      ],
+      "material": 1,
+      "front_normal_y": 0.9710910320281982,
+      "visible_through_socket": true
+    },
+    {
+      "side": "right",
+      "part": "sclera",
+      "hit": [
+        0.03945014998316765,
+        0.1013234555721283,
+        1.6168253421783447
+      ],
+      "material": 0,
+      "front_normal_y": 0.8589238524436951,
+      "visible_through_socket": true
+    }
+  ],
+  "helper_sha256": "eb2fb82b6329b41caa99f05ff5f10d30bb851408f5cec6be8e30aa9a430f7192",
+  "pass": true
+}

@@ -94,6 +94,8 @@ func _capture_body() -> void:
 	portrait.camera.position = Vector3(0.0, 1.50, -3.5)
 	portrait.camera.look_at(Vector3(0.0, 1.50, 0.0))
 	await _capture(portrait.viewport, "player_face_detail.png")
+	if OS.get_environment("PLAYER_QA_FACE_DETAIL") == "1":
+		await _capture_face_detail(portrait)
 	if OS.get_environment("PLAYER_QA_UPPER_BODY_DETAIL") == "1":
 		await _capture_upper_body_detail(portrait)
 	if OS.get_environment("PLAYER_QA_HAND_DETAIL") == "1":
@@ -125,6 +127,28 @@ func _capture_body() -> void:
 			await _capture(portrait.viewport, "player_arm_structure_side.png")
 	portrait.queue_free()
 	await process_frame
+
+
+func _capture_face_detail(portrait) -> void:
+	var previous_angle := float(portrait.get_view_angle())
+	var previous_transform: Transform3D = portrait.camera.transform
+	var previous_size := float(portrait.camera.size)
+	portrait.set_view_angle(0.0)
+	portrait.camera.size = 0.43
+	var center := Vector3(0.0, 1.61, 0.0)
+	for shot in [
+		{"name": "front", "position": Vector3(0.0, 1.62, -1.0), "up": Vector3.UP},
+		{"name": "left", "position": Vector3(-0.55, 1.65, -0.85), "up": Vector3.UP},
+		{"name": "right", "position": Vector3(0.55, 1.65, -0.85), "up": Vector3.UP},
+		{"name": "rear", "position": Vector3(0.0, 1.68, 1.0), "up": Vector3.UP},
+		{"name": "crown", "position": Vector3(0.0, 2.50, 0.0), "up": Vector3.BACK},
+	]:
+		portrait.camera.position = shot.position
+		portrait.camera.look_at(center, shot.up)
+		await _capture(portrait.viewport, "player_face_%s_close.png" % shot.name)
+	portrait.set_view_angle(previous_angle)
+	portrait.camera.transform = previous_transform
+	portrait.camera.size = previous_size
 
 
 func _capture_upper_body_detail(portrait) -> void:
