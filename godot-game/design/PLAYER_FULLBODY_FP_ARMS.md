@@ -96,3 +96,11 @@ English: Preserve the sleeve UVs and weave, grading a separate cloth albedo with
 English: Use a separately graded skin albedo with lower brightness and orange saturation, preserving the leather gloves and matched sleeves. Use the original hand joints and skin weights for relaxed finger flexion and gentle palm cupping. Preserve the wrist seam and sleeve geometry. This updates the current full-body model while preserving first-person equipment behavior and source assets.
 
 제작·검증 / Production and validation: ../../asset-staging/player_natural_hands_20260921/
+
+### 손바닥을 몸 안쪽으로 / Palms facing the body
+
+사용자 요청에 따라 양손을 전완 축 기준으로 서로 반대 방향 90° 돌려 손바닥이 허벅지를 향하게 했다. 옷자락 관통을 피하도록 양손을 1.5cm 바깥으로 옮기고, 손목·소매 하단은 같은 변환으로 연결했다. 소매의 회전은 높이 0.95–1.135m 구간에서 팔꿈치 쪽으로 점차 사라진다. 피부색, 손가락 굽힘, UV와 재질은 보존한다.
+
+English: Turn each hand 90° in opposite directions around the forearm axis so palms face the thighs. Move both hands outward by 1.5cm to clear the coat, applying the same transform to the wrist and lower cuff. Sleeve twist blends out toward the elbow between heights 0.95–1.135m. Preserve skin tone, finger curl, UVs and materials.
+
+제작·검증 / Production and validation: ../../asset-staging/player_inward_palms_20260921/

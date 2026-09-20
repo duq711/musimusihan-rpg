@@ -28,9 +28,15 @@ func _run() -> void:
 		for surface in part.mesh.get_surface_count():
 			for vertex: Vector3 in part.mesh.surface_get_arrays(surface)[Mesh.ARRAY_VERTEX]:
 				var point := body.to_local(part.to_global(vertex))
-				if part_name.ends_with("_Hand") and point.y > .841 and point.y < .859:
-					if wrist_first: wrist_section = AABB(point, Vector3.ZERO); wrist_first = false
-					else: wrist_section = wrist_section.expand(point)
+				if part_name.ends_with("_Hand"):
+					# Measure the same cuff section in its original frame after palm rotation.
+					var side_sign := -1.0 if "_L_" in part_name else 1.0
+					var pivot := Vector3(side_sign * .29, .87, -.075)
+					var elbow := Vector3(side_sign * .268, 1.155, -.004)
+					var wrist_point := pivot + Basis((elbow-pivot).normalized(), deg_to_rad(side_sign*90.0)) * (point - Vector3(side_sign*.015, 0, 0) - pivot)
+					if wrist_point.y > .841 and wrist_point.y < .859:
+						if wrist_first: wrist_section = AABB(wrist_point, Vector3.ZERO); wrist_first = false
+						else: wrist_section = wrist_section.expand(wrist_point)
 				if part_name.ends_with("_Arm") and point.y > 1.02 and point.y < 1.12:
 					if forearm_first: forearm = AABB(point, Vector3.ZERO); forearm_first = false
 					else: forearm = forearm.expand(point)
@@ -48,7 +54,8 @@ func _run() -> void:
 			check(bounds.end.y > 1.42 and bounds.end.y < 1.46, "sleeve opening reaches under shoulder mantle")
 			check(bounds.position.y > .86 and bounds.position.y < .89, "pre-wrist-edit sleeve cuff restored")
 		else:
-			check(not wrist_first and wrist_section.size.x > .08 and wrist_section.size.x < .10 and wrist_section.size.z < .08, "pre-wrist-edit glove width restored")
+			check(bounds.size.z > bounds.size.x * 1.15, "relaxed hands face the thighs instead of the rear")
+			check(not wrist_first and wrist_section.size.x > .08 and wrist_section.size.x < .10 and wrist_section.size.z < .08, "glove cuff dimensions preserved in the original frame")
 			check(bounds.position.y > .67 and bounds.position.y < .70, "relaxed fingertips reach the upper thigh")
 			check(bounds.size.y > .20 and bounds.size.y < .22, "pre-wrist-edit glove length restored")
 	for side in ["L", "R"]:

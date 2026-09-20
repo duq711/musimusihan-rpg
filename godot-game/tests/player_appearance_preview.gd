@@ -156,13 +156,16 @@ func _capture_hand_detail(portrait) -> void:
 	camera.cull_mask = portrait.camera.cull_mask
 	viewport.add_child(camera)
 	camera.current = true
-	# The current production rest pose exposes the hand's back toward world -Z.
-	# The thumb is on the inward X side of this hand; +Z exposes the palm.
-	var thumb_side := Vector3(-1.0 if center.x > 0.0 else 1.0, 0.0, 0.0)
+	# Inward-facing hands are deeper than they are wide from the front. Keep
+	# palm/dorsal labels correct for both that pose and the earlier broad pose.
+	var inward := Vector3(-1.0 if center.x > 0.0 else 1.0, 0.0, 0.0)
+	var inward_pose := bounds.size.z > bounds.size.x
+	var palm_direction := inward if inward_pose else Vector3.BACK
+	var side_direction := Vector3.FORWARD if inward_pose else inward
 	for shot in [
-		{"name": "dorsal", "direction": Vector3(0.0, 0.0, -1.0)},
-		{"name": "palm", "direction": Vector3(0.0, 0.0, 1.0)},
-		{"name": "side", "direction": thumb_side},
+		{"name": "dorsal", "direction": -palm_direction},
+		{"name": "palm", "direction": palm_direction},
+		{"name": "side", "direction": side_direction},
 	]:
 		_fit_hand_camera(camera, center, corners, shot.direction)
 		await _capture(viewport, "player_hand_%s.png" % shot.name)
@@ -170,7 +173,7 @@ func _capture_hand_detail(portrait) -> void:
 	clay.albedo_color = Color(0.56, 0.59, 0.61)
 	clay.roughness = 0.9
 	hand.material_override = clay
-	_fit_hand_camera(camera, center, corners, Vector3(0.0, 0.0, 1.0))
+	_fit_hand_camera(camera, center, corners, palm_direction)
 	await _capture(viewport, "player_hand_palm_clay.png")
 	viewport.queue_free()
 	portrait.set_view_angle(previous_angle)
