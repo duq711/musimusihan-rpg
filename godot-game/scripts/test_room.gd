@@ -75,8 +75,8 @@ func _refresh_survival_hud(snapshot := {}) -> void:
 	if is_instance_valid(sign) and not sign.is_queued_for_deletion():
 		# Fixture labels follow custom edits and ordinary recovery, not only the
 		# initial preset, so they never contradict the real stress HUD.
-		sign.text = "스트레스 %d / 100 · %s\n60 환청 · 80 환영\nC 야영 · F2 수치 조절" % [roundi(ExpeditionSession.stress), StressProfile.stage_name(ExpeditionSession.stress)]
-		hud.objective_label.text = "스트레스 %d · C 야영 / F2 수치 조절" % roundi(ExpeditionSession.stress)
+		sign.text = "스트레스 %d / 100 · %s\n60 환청 · 80 환영\n가방 설치 → 텐트 E · F2 수치 조절" % [roundi(ExpeditionSession.stress), StressProfile.stage_name(ExpeditionSession.stress)]
+		hud.objective_label.text = "스트레스 %d · 가방 설치 → 텐트 E / F2 수치 조절" % roundi(ExpeditionSession.stress)
 
 
 func _on_test_actor_added(child: Node) -> void:
@@ -432,6 +432,8 @@ func run_feature(feature_id: String) -> void:
 	_close_art_gallery(false)
 	_commit_test_status_edits()
 	cancel_camp("시험 항목 변경", false)
+	if str(entry.action) != "survival_controls":
+		_clear_camp_placement_fixture()
 	suspend_stress_effects()
 	player.cancel_timed_interaction()
 	player.cancel_item_use()
@@ -492,6 +494,9 @@ func run_feature(feature_id: String) -> void:
 			_hide_test_panel()
 		"camping":
 			_prepare_camping()
+			_hide_test_panel()
+		"camp_placement":
+			_prepare_camp_placement()
 			_hide_test_panel()
 		"cooking":
 			_prepare_cooking()
@@ -1346,7 +1351,7 @@ func _prepare_camping() -> void:
 	_refresh_survival_hud()
 	var sign := Label3D.new()
 	sign.name = "CampingInstructions"
-	sign.text = "안전 지대 · C 야영\n휴식 / 식사 / 붕대 처치\n야영 도구·식량·물·붕대 각 2개\nEsc 중단 · F2 재보급"
+	sign.text = "가방의 야영 도구 → 설치\n초록 LMB 설치 · 빨강 불가 · F 취소\n텐트 E → 휴식 / 식사 / 처치\n야영 도구·식량·물·붕대 각 2개\nEsc 중단 · F2 재보급"
 	sign.font = room_font
 	sign.font_size = 30
 	sign.pixel_size = 0.003
@@ -1355,12 +1360,44 @@ func _prepare_camping() -> void:
 	sign.position = Vector3(0, 2.6, 9.5)
 	sign.add_to_group("test_fixture_prop")
 	add_child(sign)
-	hud.objective_label.text = "C 야영 · 휴식 / 식사 / 응급처치"
-	var message := "야영 시험 · C로 실제 야영 열기 · 체력 220 / 기력 20 / 포만감·수분 25 · 왼팔 출혈·골절·저주 · 도구와 보급 각 2개 · F2 재시험"
+	hud.objective_label.text = "가방 설치 → 텐트 E · 휴식 / 식사 / 응급처치"
+	var message := "야영 시험 · 가방의 야영 도구 설치 → 초록 LMB → 텐트 E · 체력 220 / 기력 20 / 포만감·수분 25 · 왼팔 출혈·골절·저주 · 도구와 보급 각 2개 · F2 재시험"
 	if replaced_stacks > 0:
 		message += " · 가방의 마지막 시험용 스택 %d개를 보급품으로 교체했습니다" % replaced_stacks
 	_status(message)
-	hud.show_event("안전 지대 · C로 야영 시작\n휴식·식사·붕대 처치 · F2 재보급", 6.0)
+	hud.show_event("안전 지대 · 가방의 야영 도구로 설치\n휴식·식사·붕대 처치 · F2 재보급", 6.0)
+
+
+func _clear_camp_placement_fixture() -> void:
+	for node_name in ["CampPlacementInstructions", "CampPlacementObstacle", "CampPlacementBlockedLabel"]:
+		var fixture_node := get_node_or_null(NodePath(node_name))
+		if is_instance_valid(fixture_node):
+			remove_child(fixture_node)
+			fixture_node.queue_free()
+
+
+func _prepare_camp_placement() -> void:
+	_prepare_cooking()
+	var instructions := get_node("CookingInstructions") as Label3D
+	instructions.name = "CampPlacementInstructions"
+	instructions.text = "가방의 야영 도구 → 설치\n열린 바닥: 초록 · 상자/벽/위쪽: 빨강\nLMB 설치 · F 취소 · 텐트 E 착석\nF2 재보급 · 원정 물품은 보존"
+	instructions.position = Vector3(0, 2.6, 7.5)
+	var obstacle := _add_static_box("CampPlacementObstacle", Vector3(-3.2, 0.7, 9.0), Vector3(1.8, 1.4, 2.0), stone_material)
+	obstacle.add_to_group("test_fixture_prop")
+	var marker := Label3D.new()
+	marker.name = "CampPlacementBlockedLabel"
+	marker.text = "설치 불가 · 장애물"
+	marker.font = room_font
+	marker.font_size = 26
+	marker.pixel_size = 0.003
+	marker.outline_size = 8
+	marker.modulate = Color(0.95, 0.42, 0.34)
+	marker.position = Vector3(-3.2, 1.9, 9.0)
+	marker.add_to_group("test_fixture_prop")
+	add_child(marker)
+	hud.objective_label.text = "가방 설치 · 초록 LMB / 빨강 불가 · F 취소 · 텐트 E"
+	_status("야영 설치 비교 · 정면 바닥은 초록, 왼쪽 상자·벽·바닥 없는 위쪽은 빨강 · LMB 설치 / F 취소 · 텐트 E로 앉아서 요리 · F2 재시험")
+	hud.show_event("가방의 야영 도구 → 설치\n초록 LMB · 빨강 불가 · F 취소 · 텐트 E", 6.0)
 
 
 func _cooking_fixture_supplies() -> Dictionary:
@@ -1393,7 +1430,7 @@ func _prepare_cooking() -> void:
 	_refresh_survival_hud()
 	var sign := Label3D.new()
 	sign.name = "CookingInstructions"
-	sign.text = "C 야영 → 요리\n재료는 시작할 때 소비\n완성하면 바로 먹고 회복\nF2 재보급 · 중단 시 반환 없음"
+	sign.text = "가방 설치 → 텐트 E → 요리\n재료는 시작할 때 소비\n완성하면 바로 먹고 회복\nF2 재보급 · 중단 시 반환 없음"
 	sign.font = room_font
 	sign.font_size = 30
 	sign.pixel_size = 0.003
@@ -1402,12 +1439,12 @@ func _prepare_cooking() -> void:
 	sign.position = Vector3(0, 2.6, 9.5)
 	sign.add_to_group("test_fixture_prop")
 	add_child(sign)
-	hud.objective_label.text = "C 야영 → 요리 · 완성 즉시 식사"
+	hud.objective_label.text = "가방 설치 → 텐트 E → 요리 · 완성 즉시 식사"
 	var message := "요리 시험 · 야영 도구 2개 / 전체 조리법 재료와 여분 1개씩 · 체력35 기력20 포만감15 수분20 스트레스55 · 온기 부족 시 야영을 새로 설치"
 	if replaced_stacks > 0:
 		message += " · 마지막 시험용 스택 %d개를 재료로 교체" % replaced_stacks
 	_status(message)
-	hud.show_event("C 야영 → 요리 · 완성 즉시 식사\n재료는 시작 때 소비 · F2 재보급", 6.0)
+	hud.show_event("가방 설치 → 텐트 E → 요리 · 완성 즉시 식사\n재료는 시작 때 소비 · F2 재보급", 6.0)
 
 
 func _prepare_stress(value: float) -> void:
@@ -1431,7 +1468,7 @@ func _prepare_stress(value: float) -> void:
 	_refresh_survival_hud()
 	var sign := Label3D.new()
 	sign.name = "StressInstructions"
-	sign.text = "스트레스 %d / 100\n%s\nC 야영 · F2 회복 / 재시험" % [int(value), "허기·출혈로 누적 · F 소등" if value < 40.0 else "잠시 기다려 소리·주변 확인"]
+	sign.text = "스트레스 %d / 100\n%s\n가방 설치 → 텐트 E · F2 회복 / 재시험" % [int(value), "허기·출혈로 누적 · F 소등" if value < 40.0 else "잠시 기다려 소리·주변 확인"]
 	sign.font = room_font
 	sign.font_size = 30
 	sign.pixel_size = 0.003
@@ -1440,12 +1477,12 @@ func _prepare_stress(value: float) -> void:
 	sign.position = Vector3(0, 2.6, 9.5)
 	sign.add_to_group("test_fixture_prop")
 	add_child(sign)
-	hud.objective_label.text = "스트레스 %d · C 야영 / F2 회복" % int(value)
+	hud.objective_label.text = "스트레스 %d · 가방 설치 → 텐트 E / F2 회복" % int(value)
 	var message := "스트레스 %d · %s · 야영 도구·식량·물·붕대 각 2개" % [int(value), "허기·갈증·출혈로 누적 / F 소등 비교" if value < 40.0 else "건강·보급 회복 / 잠시 기다려 실제 환청·환영 확인"]
 	if replaced_stacks > 0:
 		message += " · 마지막 시험용 스택 %d개를 보급으로 교체" % replaced_stacks
 	_status(message)
-	hud.show_event("스트레스 %d · %s\nC 야영 · F2 회복 / 재시험" % [int(value), "F 소등으로 누적 비교" if value < 40.0 else "잠시 기다려 주변 확인"], 5.0)
+	hud.show_event("스트레스 %d · %s\n가방 설치 → 텐트 E · F2 회복 / 재시험" % [int(value), "F 소등으로 누적 비교" if value < 40.0 else "잠시 기다려 주변 확인"], 5.0)
 
 
 func _prepare_archery(accuracy_test := false, power_test := false) -> void:

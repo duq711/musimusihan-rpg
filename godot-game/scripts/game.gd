@@ -10,6 +10,7 @@ const LOOT_CHEST_SCRIPT := preload("res://scripts/loot_chest.gd")
 const LOOT_SPAWN_CATALOG := preload("res://scripts/loot_spawn_catalog.gd")
 const LOADING_SCREEN_SCRIPT := preload("res://scripts/loading_screen.gd")
 const CAMP_CONTROLLER_SCRIPT := preload("res://scripts/camp_controller.gd")
+const CAMP_PLACEMENT_OVERLAY := preload("res://scripts/camp_placement_overlay.gd")
 const STRESS_PERCEPTION_SCRIPT := preload("res://scripts/stress_perception.gd")
 const GAME_SCENE_PATH := "res://main.tscn"
 const MERCHANT_SCENE_PATH := "res://merchant.tscn"
@@ -40,6 +41,8 @@ var player: DungeonPlayer
 var inventory: ExpeditionInventory
 var inventory_overlay: InventoryOverlay
 var camp: Node
+var camp_placement_overlay: CanvasLayer
+var _camp_input_guard_frame := -1
 var stress_effects: Node
 var _stress_warning_stage := 0
 var _window_focused := true
@@ -102,9 +105,7 @@ func _process(delta: float) -> void:
 		elapsed += delta
 		_advance_survival(delta)
 		if Input.is_action_just_pressed("torch") and is_instance_valid(player):
-			var cancelling := player.is_item_use_active()
-			var torch_on := player.handle_torch_action()
-			if not cancelling: hud.show_event("횃불을 밝혔습니다" if torch_on else "횃불을 껐습니다", 0.8)
+			handle_torch_action()
 	_update_stress_presentation()
 	if portal_visual:
 		portal_visual.rotation.z = sin(elapsed * 0.43) * 0.018
@@ -212,9 +213,12 @@ func _physics_process(_delta: float) -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	if handle_camp_placement_input(event):
+		get_viewport().set_input_as_handled()
+		return
 	if event is InputEventKey and event.pressed and not event.echo and not event.alt_pressed and not event.ctrl_pressed and not event.meta_pressed:
 		var key: int = event.physical_keycode if event.physical_keycode != 0 else event.keycode
-		if key == KEY_B and game_mode in [GameMode.RUNNING, GameMode.INVENTORY]:
+		if key == KEY_B and game_mode in [GameMode.RUNNING, GameMode.INVENTORY, GameMode.CAMPING]:
 			if game_mode == GameMode.INVENTORY: _close_inventory()
 			else: _open_inventory()
 			get_viewport().set_input_as_handled()
@@ -224,11 +228,11 @@ func _unhandled_input(event: InputEvent) -> void:
 			get_viewport().set_input_as_handled()
 			return
 	if game_mode == GameMode.CAMPING:
-		if event.is_action_pressed("camp") or event.is_action_pressed("pause"):
-			cancel_camp("야영을 정리했습니다")
+		if event.is_action_pressed("pause"):
+			camp.leave_camp()
 			get_viewport().set_input_as_handled()
 		elif event.is_action_pressed("inventory"):
-			cancel_camp("가방을 열어 야영을 중단했습니다")
+			camp.leave_camp("가방을 열어 자리에서 일어났습니다")
 			_open_inventory()
 			get_viewport().set_input_as_handled()
 		return
@@ -267,10 +271,6 @@ func _unhandled_input(event: InputEvent) -> void:
 			)
 		return
 	if game_mode == GameMode.RUNNING:
-		if event.is_action_pressed("camp"):
-			open_camp()
-			get_viewport().set_input_as_handled()
-			return
 		if event.is_action_pressed("inventory"):
 			_open_inventory()
 			get_viewport().set_input_as_handled()
@@ -324,15 +324,91 @@ func _spawn_camp() -> void:
 	camp.rest_finished.connect(_on_camp_rest_finished)
 	camp.closed.connect(_on_camp_closed)
 	add_child(camp)
+	camp_placement_overlay = CAMP_PLACEMENT_OVERLAY.new()
+	add_child(camp_placement_overlay)
+	camp.placement_started.connect(_on_camp_placement_started)
+	camp.placement_updated.connect(camp_placement_overlay.set_snapshot)
+	camp.deployed.connect(_on_camp_deployed)
+	camp_placement_overlay.hide_placement()
 
 
 func open_camp() -> Dictionary:
 	if not is_instance_valid(camp):
 		return {"accepted": false, "reason": "unavailable", "message": "이곳에서는 야영할 수 없습니다"}
-	var result: Dictionary = camp.open_camp()
+	var result: Dictionary = camp.begin_placement()
 	if not bool(result.get("accepted", false)) and is_instance_valid(hud):
 		hud.show_event(str(result.get("message", "지금은 야영할 수 없습니다")), 1.8)
 	return result
+
+
+func is_camp_placement_active() -> bool:
+	return is_instance_valid(camp) and camp.state == "placing"
+
+
+func camp_input_blocked() -> bool:
+	return is_camp_placement_active() or _camp_input_guard_frame == Engine.get_process_frames()
+
+
+func _on_camp_placement_started() -> void:
+	_camp_input_guard_frame = Engine.get_process_frames()
+	camp_placement_overlay.show_placement()
+	hud.set_prompt("")
+	player.cancel_item_use()
+	player.cancel_bow_draw()
+	player.cancel_flail_action()
+	player.cancel_sword_attack()
+	player.blocking = false
+
+
+func _on_camp_deployed() -> void:
+	_camp_input_guard_frame = Engine.get_process_frames()
+	camp_placement_overlay.hide_placement()
+	hud.show_event("텐트에 다가가 E · 모닥불 앞에 앉기", 2.5)
+
+
+func handle_camp_placement_input(event: InputEvent) -> bool:
+	if not is_camp_placement_active():
+		return _camp_input_guard_frame == Engine.get_process_frames() and (event.is_action_pressed("attack") or event.is_action_pressed("torch"))
+	if event is InputEventKey and event.echo:
+		return false
+	if event.is_action_pressed("torch"):
+		handle_torch_action()
+		return true
+	if event.is_action_pressed("pause"):
+		_camp_input_guard_frame = Engine.get_process_frames()
+		cancel_camp("설치를 취소했습니다")
+		return true
+	if event.is_action_pressed("attack"):
+		_camp_input_guard_frame = Engine.get_process_frames()
+		var result: Dictionary = camp.confirm_placement()
+		if not bool(result.get("accepted", false)):
+			hud.show_event(str(result.get("message", "이곳에는 설치할 수 없습니다")), 1.2)
+		return true
+	return false
+
+
+func handle_torch_action() -> bool:
+	if is_camp_placement_active():
+		_camp_input_guard_frame = Engine.get_process_frames()
+		cancel_camp("설치를 취소했습니다")
+		return player.torch_enabled
+	if _camp_input_guard_frame == Engine.get_process_frames():
+		return player.torch_enabled
+	var cancelling := player.is_item_use_active()
+	var torch_on := player.handle_torch_action()
+	if not cancelling:
+		hud.show_event("횃불을 밝혔습니다" if torch_on else "횃불을 껐습니다", 0.8)
+	return torch_on
+
+
+func _on_camp_placement_requested() -> void:
+	if game_mode != GameMode.INVENTORY or inventory.count_item("camp_kit") <= 0:
+		return
+	inventory_overlay._dismiss_item_details()
+	inventory_overlay._hide_quantity_dialog()
+	_close_inventory()
+	if game_mode == GameMode.RUNNING:
+		open_camp()
 
 
 func _camp_open_failure() -> String:
@@ -368,7 +444,7 @@ func _on_camp_opened() -> void:
 	_camp_hud_was_visible = hud_root.visible
 	hud_root.hide()
 	get_tree().paused = true
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	_set_camp_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	hud.set_prompt("")
 
 
@@ -378,30 +454,36 @@ func _on_camp_rest_started() -> void:
 	# The UI stays usable, but nearby enemies and projectiles remain live.
 	# Survival time is advanced only by the camp action's authored time scale.
 	get_tree().paused = false
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	_set_camp_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 
 func _on_camp_rest_finished(_result: Dictionary) -> void:
 	if game_mode != GameMode.CAMPING or player.combat_state == DungeonPlayer.CombatState.DEAD:
 		return
 	get_tree().paused = true
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	_set_camp_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	_refresh_survival_hud()
 
 
 func _on_camp_closed(reason: String, restore_controls: bool) -> void:
+	if is_instance_valid(camp_placement_overlay):
+		camp_placement_overlay.hide_placement()
 	if is_instance_valid(player) and player.is_inside_tree():
 		player.set_camping(false)
 	if game_mode == GameMode.CAMPING:
 		game_mode = GameMode.RUNNING
 		if restore_controls and is_inside_tree():
 			get_tree().paused = false
-			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+			_set_camp_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	if is_instance_valid(hud) and hud.is_inside_tree():
 		(hud.get_node("HUDRoot") as Control).visible = _camp_hud_was_visible
 		_refresh_survival_hud()
 		if not reason.is_empty():
 			hud.show_event(reason, 1.8)
+
+
+func _set_camp_mouse_mode(mode: int) -> void:
+	Input.mouse_mode = mode
 
 
 func _notification(what: int) -> void:
@@ -439,7 +521,9 @@ func _resume_game() -> void:
 
 func _open_inventory() -> void:
 	if game_mode == GameMode.CAMPING:
-		cancel_camp("가방을 열어 야영을 중단했습니다")
+		camp.leave_camp("가방을 열어 자리에서 일어났습니다")
+	if is_camp_placement_active():
+		cancel_camp("가방을 열어 설치를 취소했습니다")
 	if game_mode != GameMode.RUNNING or inventory_overlay == null:
 		return
 	if is_instance_valid(player) and player.current_trap != null:
@@ -540,6 +624,7 @@ func _spawn_inventory_overlay() -> void:
 	inventory_overlay.name = "InventoryOverlay"
 	inventory_overlay.closed.connect(_on_inventory_closed)
 	inventory_overlay.consumable_requested.connect(_on_consumable_requested)
+	inventory_overlay.camp_placement_requested.connect(_on_camp_placement_requested)
 	inventory_overlay.treatment_part_selected.connect(_on_treatment_part_selected)
 	inventory_overlay.item_discarded.connect(_on_item_discarded)
 	add_child(inventory_overlay)
@@ -1132,7 +1217,6 @@ func _register_inputs() -> void:
 	_register_key("interact", KEY_E)
 	_register_key("torch", KEY_F)
 	_register_key("inventory", KEY_I)
-	_register_key("camp", KEY_C)
 	_register_key("restart", KEY_R)
 	_register_key("pause", KEY_ESCAPE)
 	_register_key("primary_weapon", KEY_1)

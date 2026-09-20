@@ -25,14 +25,14 @@ func _run() -> void:
 func _snapshot() -> Dictionary:
 	return {
 		"state": "planning", "health": 35.0, "max_health": 100.0, "stamina": 25.0, "max_stamina": 100.0,
-		"hunger": 20.0, "thirst": 25.0, "stress": 60.0, "conditions": "안정", "warmth": 3, "kit_spent": false,
+		"hunger": 20.0, "thirst": 25.0, "stress": 60.0, "conditions": "안정", "warmth": 3, "kit_spent": true,
 		"inventory_counts": {"camp_kit": 1, "raw_meat": 2, "edible_mushroom": 1, "boiled_rainwater": 0},
 		"active_action_id": "", "action_title": "", "is_cooking": false, "recipe_id": "", "progress": 0.0, "status": "",
 		"actions": [
 			{"id": "rest", "category": "rest", "title": "경계 휴식", "description": "체력 20", "cost": "온기 1", "duration": 8.0, "enabled": true, "reason": ""},
 			{"id": "meal", "category": "rest", "title": "식사 휴식", "description": "체력 45", "cost": "온기 2", "duration": 14.0, "enabled": true, "reason": ""},
 			{"id": "treat", "category": "rest", "title": "응급처치", "description": "체력 18", "cost": "온기 1", "duration": 6.0, "enabled": false, "reason": "붕대 부족"},
-			{"id": "cook:roast_meat", "category": "cooking", "recipe_id": "roast_meat", "title": "고기구이", "description": "체력 12 · 포만감 35 · 스트레스 8 완화", "cost": "온기 1", "duration": 12.0, "ingredient_text": "생고기 2 / 1 · 야영 도구 1 / 1", "enabled": true, "reason": ""},
+			{"id": "cook:roast_meat", "category": "cooking", "recipe_id": "roast_meat", "title": "고기구이", "description": "체력 12 · 포만감 35 · 스트레스 8 완화", "cost": "온기 1", "duration": 12.0, "ingredient_text": "생고기 2 / 1", "enabled": true, "reason": ""},
 			{"id": "cook:mushroom_soup", "category": "cooking", "recipe_id": "mushroom_soup", "title": "버섯수프", "description": "수분 40 · 포만감 24", "cost": "온기 1", "duration": 16.0, "ingredient_text": "식용 버섯 1 / 1 · 물 0 / 1", "enabled": false, "reason": "물이 부족합니다."},
 			{"id": "cook:trail_stew", "category": "cooking", "recipe_id": "trail_stew", "title": "고기·버섯 스튜", "description": "체력 32 · 포만감 60", "cost": "온기 2", "duration": 20.0, "ingredient_text": "생고기 2 / 1 · 식용 버섯 1 / 1", "enabled": true, "reason": ""},
 		],
@@ -67,7 +67,7 @@ func _test_recipe_ui() -> void:
 	_check(requested == ["cook:roast_meat"], "cooking selection must emit only its available real action ID")
 	var previous_button: Button = overlay.action_buttons["cook:roast_meat"]
 	snapshot.inventory_counts.raw_meat = 1
-	snapshot.actions[3].ingredient_text = "생고기 1 / 1 · 야영 도구 1 / 1"
+	snapshot.actions[3].ingredient_text = "생고기 1 / 1"
 	overlay.set_snapshot(snapshot)
 	_check(overlay.action_buttons["cook:roast_meat"] == previous_button and overlay.action_ingredients["cook:roast_meat"].text.contains("생고기 1 / 1"), "resource refresh must preserve buttons and their current focus")
 	snapshot.state = "resting"
@@ -149,7 +149,7 @@ func _test_progress_driven_visuals() -> void:
 	_check(not tools.visible, "unknown recipe cannot leave a previous visual running")
 	VISUALS.animate(camp, 1.0, 2)
 	_check(camp.get_node("Flame").visible and camp.get_node("CampfireLight").light_energy > 0.0, "existing campfire animation must still work after cooking cleanup")
-	_check(_collision_count(camp) == 0, "cooking visuals must not add physics, hazards or gameplay collisions")
+	_check(_collision_count(tools) == 0 and _collision_count(camp) == 1 and camp.get_node("Tent/TentBody") is StaticBody3D, "only the placed tent footprint may collide; cooking tools must remain presentation-only")
 	camp.free()
 
 

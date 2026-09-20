@@ -1,0 +1,1150 @@
+{
+	"captures": [
+		{
+			"camera_position": "(-2.0, 1.560137, 14.2)",
+			"camp": {
+				"action_title": "",
+				"actions": [
+					{
+						"category": "rest",
+						"cost": "온기 1",
+						"description": "체력 20 · 기력 70 회복. 게임 시간 60초가 지나며 상태이상 시간도 흐릅니다. 스트레스 18 완화.",
+						"duration": 8.0,
+						"enabled": false,
+						"id": "rest",
+						"ingredient_text": "보유 / 필요 · ",
+						"reason": "먼저 야영 계획을 여세요.",
+						"recipe_id": "",
+						"resources": {},
+						"title": "경계 휴식"
+					},
+					{
+						"category": "rest",
+						"cost": "온기 2 · 마른 순례자 식량 1 · 끓인 빗물병 1",
+						"description": "체력 45 · 기력 최대 · 포만감/수분 회복. 게임 시간 180초와 상태이상 시간이 흐릅니다. 스트레스 30 완화.",
+						"duration": 14.0,
+						"enabled": false,
+						"id": "meal",
+						"ingredient_text": "보유 / 필요 · 마른 순례자 식량 1 / 1 · 끓인 빗물병 4 / 1",
+						"reason": "먼저 야영 계획을 여세요.",
+						"recipe_id": "",
+						"resources": {
+							"boiled_rainwater": 1,
+							"pilgrim_ration": 1
+						},
+						"title": "식사 휴식"
+					},
+					{
+						"category": "rest",
+						"cost": "온기 1 · 누런 붕대 1",
+						"description": "체력 18 회복 · 출혈 해소. 게임 시간 30초와 나머지 상태이상 시간이 흐릅니다. 스트레스 6 완화.",
+						"duration": 6.0,
+						"enabled": false,
+						"id": "treat",
+						"ingredient_text": "보유 / 필요 · 누런 붕대 1 / 1",
+						"reason": "먼저 야영 계획을 여세요.",
+						"recipe_id": "",
+						"resources": {
+							"linen_bandage": 1
+						},
+						"title": "응급처치"
+					},
+					{
+						"category": "cooking",
+						"cost": "온기 1 · 손질한 생고기 1",
+						"description": "생고기를 꼬치에 꿰어 구운 뒤 바로 먹습니다. 체력 18 · 기력 35 · 포만감 40 회복, 스트레스 12 완화. 게임 시간 60초가 흐릅니다.",
+						"duration": 8.0,
+						"enabled": false,
+						"id": "cook:roast_meat",
+						"ingredient_text": "보유 / 필요 · 손질한 생고기 4 / 1",
+						"reason": "먼저 야영 계획을 여세요.",
+						"recipe_id": "roast_meat",
+						"resources": {
+							"raw_meat": 1
+						},
+						"title": "모닥불 고기구이"
+					},
+					{
+						"category": "cooking",
+						"cost": "온기 1 · 식용 버섯 2 · 끓인 빗물병 1",
+						"description": "식용 버섯을 물에 푹 끓여 바로 먹습니다. 체력 12 · 기력 30 · 포만감 30 · 수분 45 회복, 스트레스 16 완화. 게임 시간 90초가 흐릅니다.",
+						"duration": 10.0,
+						"enabled": false,
+						"id": "cook:mushroom_soup",
+						"ingredient_text": "보유 / 필요 · 식용 버섯 6 / 2 · 끓인 빗물병 4 / 1",
+						"reason": "먼저 야영 계획을 여세요.",
+						"recipe_id": "mushroom_soup",
+						"resources": {
+							"boiled_rainwater": 1,
+							"edible_mushroom": 2
+						},
+						"title": "따뜻한 버섯수프"
+					},
+					{
+						"category": "cooking",
+						"cost": "온기 2 · 손질한 생고기 1 · 식용 버섯 1 · 끓인 빗물병 1",
+						"description": "고기와 버섯을 함께 끓여 든든하게 먹습니다. 체력 35 · 기력 65 · 포만감 65 · 수분 35 회복, 스트레스 24 완화. 게임 시간 120초가 흐릅니다.",
+						"duration": 14.0,
+						"enabled": false,
+						"id": "cook:trail_stew",
+						"ingredient_text": "보유 / 필요 · 손질한 생고기 4 / 1 · 식용 버섯 6 / 1 · 끓인 빗물병 4 / 1",
+						"reason": "먼저 야영 계획을 여세요.",
+						"recipe_id": "trail_stew",
+						"resources": {
+							"boiled_rainwater": 1,
+							"edible_mushroom": 1,
+							"raw_meat": 1
+						},
+						"title": "고기·버섯 스튜"
+					}
+				],
+				"active_action_id": "",
+				"conditions": "안정",
+				"health": 440.0,
+				"hunger": 45.0,
+				"inventory_counts": {
+					"boiled_rainwater": 4,
+					"camp_kit": 3,
+					"edible_mushroom": 6,
+					"linen_bandage": 1,
+					"pilgrim_ration": 1,
+					"raw_meat": 4
+				},
+				"is_cooking": false,
+				"kit_spent": false,
+				"max_health": 440.0,
+				"max_stamina": 100.0,
+				"max_stress": 100.0,
+				"progress": 0.0,
+				"recipe_id": "",
+				"stamina": 100.0,
+				"state": "placing",
+				"status": "평평하고 안전한 곳에서 짧게 쉬어갑니다.",
+				"stress": 0.0,
+				"stress_stage": "안정",
+				"thirst": 65.0,
+				"warmth": 3
+			},
+			"failures": [],
+			"id": "01_valid_ground",
+			"image": "01_valid_ground.png",
+			"on_floor": true,
+			"placement": {
+				"accepted": true,
+				"message": "천막과 모닥불 설치 · 야영 도구 1개",
+				"position": "(-2.0, 0.0, 11.3)",
+				"reason": "",
+				"yaw": 0.0
+			},
+			"responses": [
+				{
+					"accepted": true,
+					"message": "야영할 바닥을 조준하세요 · 왼쪽 클릭 설치 · F 취소",
+					"placing": true
+				},
+				{
+					"accepted": true,
+					"message": "천막과 모닥불 설치 · 야영 도구 1개",
+					"position": "(-2.0, 0.0, 11.3)",
+					"reason": "",
+					"yaw": 0.0
+				}
+			],
+			"reused_preview": true,
+			"seated": false,
+			"size": [
+				1280,
+				720
+			],
+			"source_sha256_after": {
+				"res://assets/ai/materials/concept_ember_coal.png": "495d9ebe23f4cd001802cf85a44bef39079fd1fa3da48e8f6540216c9b60b785",
+				"res://assets/ai/vfx/torch_flame.png": "b95b70fd852372e153827455b5e97c5671cec59fb3d458b6aa99d24dedbf8f4b",
+				"res://assets/fonts/NotoSansKR-Variable.ttf": "194018e6b2b293a7964f037b25c0249ce1418bc9ab3c971060a03aa57861e252",
+				"res://scripts/camp_controller.gd": "0d047e766eae516af12c205cc63946f581bdde481ffa04bee98e04361109db0f",
+				"res://scripts/camp_cooking_catalog.gd": "8192ec76855e2ba9b5f6fdb131ec7b8d0eecab9b4758dc949bc81611fee76bb9",
+				"res://scripts/camp_overlay.gd": "81d942c1102209761d56979c67cdf4f20480e6610f90e6029b103c3646de1a28",
+				"res://scripts/camp_placement_overlay.gd": "0d6286a6fef456feaf9fe9d3baa227f3f53443f518eaa271b8255d928b999923",
+				"res://scripts/camp_placement_probe.gd": "49f4aa3f762b1baa3d79b9a8bcbf17abf4385d7d603581bbc19376ad29538a3c",
+				"res://scripts/camp_visuals.gd": "064a044272aa4ee685d033952f23c74f2f3ad94b681fcd538f0edade1ec0e59e",
+				"res://scripts/dark_fantasy_materials.gd": "f48764a210f67c7434ab589238422fa37dec066a7e2c671a7213148b74b1c85c",
+				"res://scripts/dungeon_combat_hud.gd": "beba8653c0184af14b04f0c7e3502420798b3c891d23ecb569c8a4d004241abb",
+				"res://scripts/expedition_session.gd": "e5a2f4a5c7c48f295dbe49046c88688b95e4c76db096ea0d70cb5cb08e017ea0",
+				"res://scripts/flame_visuals.gd": "c232561989a50418bdae46f510cc1bd87267e30646aca8229b1e423fdf736bc2",
+				"res://scripts/game.gd": "14933227768fd0047f6204545bf0875d5206ab1c5630070381bdebf2c74f18c6",
+				"res://scripts/hud.gd": "ef66ff25fbffe01a40d1141fdb903cf7bd1bca787a81d39a4c9a8b96a7bc9092",
+				"res://scripts/inventory_model.gd": "730f71c40f1d831e046f5b7142d5b4bf2ec33792c51f9951fa193e5b2f81a19c",
+				"res://scripts/inventory_overlay.gd": "ffe2483fb2d802674a20fb167f0a57ccecc147ab620f853cb4bc5ef19dfc2e42",
+				"res://scripts/player.gd": "9e5b31893a1df5d6bd7d764731d2025d9603555013553794c066691d6af32535",
+				"res://tests/camp_placement_preview.gd": "71bb06d6d9ef3dc3dd9ea637aa035fbde30674ff6e73ecbd3021d5b9bdc0cce9",
+				"res://tests/camp_placement_preview_scene.gd": "c3dd6c2876d54595e3e8c06e91dee710402e3e127c262e6694f7efce9b686394",
+				"res://tests/camp_placement_preview_test.gd": "c70f475f656d3a4ef33ad2eb8bf2ae9022933a01a74ec994d7ddc8f7709aa891",
+				"res://tests/hideout_ruin_preview.gd": "acf3f691d61549d103982c5ddab668ecdf5c37a7bf79b6768de4a2161bfa8c3e",
+				"res://tests/item_detail_preview.gd": "f84afd14b41128db9f258e5ad7208a003fe59440e7412df7a9221bfb3a2205c6",
+				"res://tests/performance_preview.gd": "049dd8eb33ea4126ab3363b724bc99f2906cb25aab57651baa5ff56e16f5945a",
+				"res://tests/performance_scene_factory.gd": "497a2c775e78603ab665bba54603ed41f2d2f53f94034e0fa4a2f2bdf36dab25",
+				"res://tests/run_embedded_preview.sh": "56cbada135d3face1ccd9a91b3c36ae9700c2532ab697a5c32cf9ab4a214f96a"
+			},
+			"source_sha256_before": {
+				"res://assets/ai/materials/concept_ember_coal.png": "495d9ebe23f4cd001802cf85a44bef39079fd1fa3da48e8f6540216c9b60b785",
+				"res://assets/ai/vfx/torch_flame.png": "b95b70fd852372e153827455b5e97c5671cec59fb3d458b6aa99d24dedbf8f4b",
+				"res://assets/fonts/NotoSansKR-Variable.ttf": "194018e6b2b293a7964f037b25c0249ce1418bc9ab3c971060a03aa57861e252",
+				"res://scripts/camp_controller.gd": "0d047e766eae516af12c205cc63946f581bdde481ffa04bee98e04361109db0f",
+				"res://scripts/camp_cooking_catalog.gd": "8192ec76855e2ba9b5f6fdb131ec7b8d0eecab9b4758dc949bc81611fee76bb9",
+				"res://scripts/camp_overlay.gd": "81d942c1102209761d56979c67cdf4f20480e6610f90e6029b103c3646de1a28",
+				"res://scripts/camp_placement_overlay.gd": "0d6286a6fef456feaf9fe9d3baa227f3f53443f518eaa271b8255d928b999923",
+				"res://scripts/camp_placement_probe.gd": "49f4aa3f762b1baa3d79b9a8bcbf17abf4385d7d603581bbc19376ad29538a3c",
+				"res://scripts/camp_visuals.gd": "064a044272aa4ee685d033952f23c74f2f3ad94b681fcd538f0edade1ec0e59e",
+				"res://scripts/dark_fantasy_materials.gd": "f48764a210f67c7434ab589238422fa37dec066a7e2c671a7213148b74b1c85c",
+				"res://scripts/dungeon_combat_hud.gd": "beba8653c0184af14b04f0c7e3502420798b3c891d23ecb569c8a4d004241abb",
+				"res://scripts/expedition_session.gd": "e5a2f4a5c7c48f295dbe49046c88688b95e4c76db096ea0d70cb5cb08e017ea0",
+				"res://scripts/flame_visuals.gd": "c232561989a50418bdae46f510cc1bd87267e30646aca8229b1e423fdf736bc2",
+				"res://scripts/game.gd": "14933227768fd0047f6204545bf0875d5206ab1c5630070381bdebf2c74f18c6",
+				"res://scripts/hud.gd": "ef66ff25fbffe01a40d1141fdb903cf7bd1bca787a81d39a4c9a8b96a7bc9092",
+				"res://scripts/inventory_model.gd": "730f71c40f1d831e046f5b7142d5b4bf2ec33792c51f9951fa193e5b2f81a19c",
+				"res://scripts/inventory_overlay.gd": "ffe2483fb2d802674a20fb167f0a57ccecc147ab620f853cb4bc5ef19dfc2e42",
+				"res://scripts/player.gd": "9e5b31893a1df5d6bd7d764731d2025d9603555013553794c066691d6af32535",
+				"res://tests/camp_placement_preview.gd": "71bb06d6d9ef3dc3dd9ea637aa035fbde30674ff6e73ecbd3021d5b9bdc0cce9",
+				"res://tests/camp_placement_preview_scene.gd": "c3dd6c2876d54595e3e8c06e91dee710402e3e127c262e6694f7efce9b686394",
+				"res://tests/camp_placement_preview_test.gd": "c70f475f656d3a4ef33ad2eb8bf2ae9022933a01a74ec994d7ddc8f7709aa891",
+				"res://tests/hideout_ruin_preview.gd": "acf3f691d61549d103982c5ddab668ecdf5c37a7bf79b6768de4a2161bfa8c3e",
+				"res://tests/item_detail_preview.gd": "f84afd14b41128db9f258e5ad7208a003fe59440e7412df7a9221bfb3a2205c6",
+				"res://tests/performance_preview.gd": "049dd8eb33ea4126ab3363b724bc99f2906cb25aab57651baa5ff56e16f5945a",
+				"res://tests/performance_scene_factory.gd": "497a2c775e78603ab665bba54603ed41f2d2f53f94034e0fa4a2f2bdf36dab25",
+				"res://tests/run_embedded_preview.sh": "56cbada135d3face1ccd9a91b3c36ae9700c2532ab697a5c32cf9ab4a214f96a"
+			},
+			"state": "placing"
+		},
+		{
+			"camera_position": "(2.8, 1.560137, 12.7)",
+			"camp": {
+				"action_title": "",
+				"actions": [
+					{
+						"category": "rest",
+						"cost": "온기 1",
+						"description": "체력 20 · 기력 70 회복. 게임 시간 60초가 지나며 상태이상 시간도 흐릅니다. 스트레스 18 완화.",
+						"duration": 8.0,
+						"enabled": false,
+						"id": "rest",
+						"ingredient_text": "보유 / 필요 · ",
+						"reason": "먼저 야영 계획을 여세요.",
+						"recipe_id": "",
+						"resources": {},
+						"title": "경계 휴식"
+					},
+					{
+						"category": "rest",
+						"cost": "온기 2 · 마른 순례자 식량 1 · 끓인 빗물병 1",
+						"description": "체력 45 · 기력 최대 · 포만감/수분 회복. 게임 시간 180초와 상태이상 시간이 흐릅니다. 스트레스 30 완화.",
+						"duration": 14.0,
+						"enabled": false,
+						"id": "meal",
+						"ingredient_text": "보유 / 필요 · 마른 순례자 식량 1 / 1 · 끓인 빗물병 4 / 1",
+						"reason": "먼저 야영 계획을 여세요.",
+						"recipe_id": "",
+						"resources": {
+							"boiled_rainwater": 1,
+							"pilgrim_ration": 1
+						},
+						"title": "식사 휴식"
+					},
+					{
+						"category": "rest",
+						"cost": "온기 1 · 누런 붕대 1",
+						"description": "체력 18 회복 · 출혈 해소. 게임 시간 30초와 나머지 상태이상 시간이 흐릅니다. 스트레스 6 완화.",
+						"duration": 6.0,
+						"enabled": false,
+						"id": "treat",
+						"ingredient_text": "보유 / 필요 · 누런 붕대 1 / 1",
+						"reason": "먼저 야영 계획을 여세요.",
+						"recipe_id": "",
+						"resources": {
+							"linen_bandage": 1
+						},
+						"title": "응급처치"
+					},
+					{
+						"category": "cooking",
+						"cost": "온기 1 · 손질한 생고기 1",
+						"description": "생고기를 꼬치에 꿰어 구운 뒤 바로 먹습니다. 체력 18 · 기력 35 · 포만감 40 회복, 스트레스 12 완화. 게임 시간 60초가 흐릅니다.",
+						"duration": 8.0,
+						"enabled": false,
+						"id": "cook:roast_meat",
+						"ingredient_text": "보유 / 필요 · 손질한 생고기 4 / 1",
+						"reason": "먼저 야영 계획을 여세요.",
+						"recipe_id": "roast_meat",
+						"resources": {
+							"raw_meat": 1
+						},
+						"title": "모닥불 고기구이"
+					},
+					{
+						"category": "cooking",
+						"cost": "온기 1 · 식용 버섯 2 · 끓인 빗물병 1",
+						"description": "식용 버섯을 물에 푹 끓여 바로 먹습니다. 체력 12 · 기력 30 · 포만감 30 · 수분 45 회복, 스트레스 16 완화. 게임 시간 90초가 흐릅니다.",
+						"duration": 10.0,
+						"enabled": false,
+						"id": "cook:mushroom_soup",
+						"ingredient_text": "보유 / 필요 · 식용 버섯 6 / 2 · 끓인 빗물병 4 / 1",
+						"reason": "먼저 야영 계획을 여세요.",
+						"recipe_id": "mushroom_soup",
+						"resources": {
+							"boiled_rainwater": 1,
+							"edible_mushroom": 2
+						},
+						"title": "따뜻한 버섯수프"
+					},
+					{
+						"category": "cooking",
+						"cost": "온기 2 · 손질한 생고기 1 · 식용 버섯 1 · 끓인 빗물병 1",
+						"description": "고기와 버섯을 함께 끓여 든든하게 먹습니다. 체력 35 · 기력 65 · 포만감 65 · 수분 35 회복, 스트레스 24 완화. 게임 시간 120초가 흐릅니다.",
+						"duration": 14.0,
+						"enabled": false,
+						"id": "cook:trail_stew",
+						"ingredient_text": "보유 / 필요 · 손질한 생고기 4 / 1 · 식용 버섯 6 / 1 · 끓인 빗물병 4 / 1",
+						"reason": "먼저 야영 계획을 여세요.",
+						"recipe_id": "trail_stew",
+						"resources": {
+							"boiled_rainwater": 1,
+							"edible_mushroom": 1,
+							"raw_meat": 1
+						},
+						"title": "고기·버섯 스튜"
+					}
+				],
+				"active_action_id": "",
+				"conditions": "안정",
+				"health": 440.0,
+				"hunger": 45.0,
+				"inventory_counts": {
+					"boiled_rainwater": 4,
+					"camp_kit": 3,
+					"edible_mushroom": 6,
+					"linen_bandage": 1,
+					"pilgrim_ration": 1,
+					"raw_meat": 4
+				},
+				"is_cooking": false,
+				"kit_spent": false,
+				"max_health": 440.0,
+				"max_stamina": 100.0,
+				"max_stress": 100.0,
+				"progress": 0.0,
+				"recipe_id": "",
+				"stamina": 100.0,
+				"state": "placing",
+				"status": "평평하고 안전한 곳에서 짧게 쉬어갑니다.",
+				"stress": 0.0,
+				"stress_stage": "안정",
+				"thirst": 65.0,
+				"warmth": 3
+			},
+			"failures": [],
+			"id": "02_blocked_wall",
+			"image": "02_blocked_wall.png",
+			"on_floor": true,
+			"placement": {
+				"accepted": false,
+				"message": "앞쪽 야영 공간이 막혀 있습니다.",
+				"position": "(2.8, 0.0, 9.8)",
+				"reason": "blocked_space",
+				"yaw": 0.0
+			},
+			"responses": [
+				{
+					"accepted": true,
+					"message": "야영할 바닥을 조준하세요 · 왼쪽 클릭 설치 · F 취소",
+					"placing": true
+				},
+				{
+					"accepted": false,
+					"message": "앞쪽 야영 공간이 막혀 있습니다.",
+					"position": "(2.8, 0.0, 9.8)",
+					"reason": "blocked_space",
+					"yaw": 0.0
+				}
+			],
+			"reused_preview": true,
+			"seated": false,
+			"size": [
+				1280,
+				720
+			],
+			"source_sha256_after": {
+				"res://assets/ai/materials/concept_ember_coal.png": "495d9ebe23f4cd001802cf85a44bef39079fd1fa3da48e8f6540216c9b60b785",
+				"res://assets/ai/vfx/torch_flame.png": "b95b70fd852372e153827455b5e97c5671cec59fb3d458b6aa99d24dedbf8f4b",
+				"res://assets/fonts/NotoSansKR-Variable.ttf": "194018e6b2b293a7964f037b25c0249ce1418bc9ab3c971060a03aa57861e252",
+				"res://scripts/camp_controller.gd": "0d047e766eae516af12c205cc63946f581bdde481ffa04bee98e04361109db0f",
+				"res://scripts/camp_cooking_catalog.gd": "8192ec76855e2ba9b5f6fdb131ec7b8d0eecab9b4758dc949bc81611fee76bb9",
+				"res://scripts/camp_overlay.gd": "81d942c1102209761d56979c67cdf4f20480e6610f90e6029b103c3646de1a28",
+				"res://scripts/camp_placement_overlay.gd": "0d6286a6fef456feaf9fe9d3baa227f3f53443f518eaa271b8255d928b999923",
+				"res://scripts/camp_placement_probe.gd": "49f4aa3f762b1baa3d79b9a8bcbf17abf4385d7d603581bbc19376ad29538a3c",
+				"res://scripts/camp_visuals.gd": "064a044272aa4ee685d033952f23c74f2f3ad94b681fcd538f0edade1ec0e59e",
+				"res://scripts/dark_fantasy_materials.gd": "f48764a210f67c7434ab589238422fa37dec066a7e2c671a7213148b74b1c85c",
+				"res://scripts/dungeon_combat_hud.gd": "beba8653c0184af14b04f0c7e3502420798b3c891d23ecb569c8a4d004241abb",
+				"res://scripts/expedition_session.gd": "e5a2f4a5c7c48f295dbe49046c88688b95e4c76db096ea0d70cb5cb08e017ea0",
+				"res://scripts/flame_visuals.gd": "c232561989a50418bdae46f510cc1bd87267e30646aca8229b1e423fdf736bc2",
+				"res://scripts/game.gd": "14933227768fd0047f6204545bf0875d5206ab1c5630070381bdebf2c74f18c6",
+				"res://scripts/hud.gd": "ef66ff25fbffe01a40d1141fdb903cf7bd1bca787a81d39a4c9a8b96a7bc9092",
+				"res://scripts/inventory_model.gd": "730f71c40f1d831e046f5b7142d5b4bf2ec33792c51f9951fa193e5b2f81a19c",
+				"res://scripts/inventory_overlay.gd": "ffe2483fb2d802674a20fb167f0a57ccecc147ab620f853cb4bc5ef19dfc2e42",
+				"res://scripts/player.gd": "9e5b31893a1df5d6bd7d764731d2025d9603555013553794c066691d6af32535",
+				"res://tests/camp_placement_preview.gd": "71bb06d6d9ef3dc3dd9ea637aa035fbde30674ff6e73ecbd3021d5b9bdc0cce9",
+				"res://tests/camp_placement_preview_scene.gd": "c3dd6c2876d54595e3e8c06e91dee710402e3e127c262e6694f7efce9b686394",
+				"res://tests/camp_placement_preview_test.gd": "c70f475f656d3a4ef33ad2eb8bf2ae9022933a01a74ec994d7ddc8f7709aa891",
+				"res://tests/hideout_ruin_preview.gd": "acf3f691d61549d103982c5ddab668ecdf5c37a7bf79b6768de4a2161bfa8c3e",
+				"res://tests/item_detail_preview.gd": "f84afd14b41128db9f258e5ad7208a003fe59440e7412df7a9221bfb3a2205c6",
+				"res://tests/performance_preview.gd": "049dd8eb33ea4126ab3363b724bc99f2906cb25aab57651baa5ff56e16f5945a",
+				"res://tests/performance_scene_factory.gd": "497a2c775e78603ab665bba54603ed41f2d2f53f94034e0fa4a2f2bdf36dab25",
+				"res://tests/run_embedded_preview.sh": "56cbada135d3face1ccd9a91b3c36ae9700c2532ab697a5c32cf9ab4a214f96a"
+			},
+			"source_sha256_before": {
+				"res://assets/ai/materials/concept_ember_coal.png": "495d9ebe23f4cd001802cf85a44bef39079fd1fa3da48e8f6540216c9b60b785",
+				"res://assets/ai/vfx/torch_flame.png": "b95b70fd852372e153827455b5e97c5671cec59fb3d458b6aa99d24dedbf8f4b",
+				"res://assets/fonts/NotoSansKR-Variable.ttf": "194018e6b2b293a7964f037b25c0249ce1418bc9ab3c971060a03aa57861e252",
+				"res://scripts/camp_controller.gd": "0d047e766eae516af12c205cc63946f581bdde481ffa04bee98e04361109db0f",
+				"res://scripts/camp_cooking_catalog.gd": "8192ec76855e2ba9b5f6fdb131ec7b8d0eecab9b4758dc949bc81611fee76bb9",
+				"res://scripts/camp_overlay.gd": "81d942c1102209761d56979c67cdf4f20480e6610f90e6029b103c3646de1a28",
+				"res://scripts/camp_placement_overlay.gd": "0d6286a6fef456feaf9fe9d3baa227f3f53443f518eaa271b8255d928b999923",
+				"res://scripts/camp_placement_probe.gd": "49f4aa3f762b1baa3d79b9a8bcbf17abf4385d7d603581bbc19376ad29538a3c",
+				"res://scripts/camp_visuals.gd": "064a044272aa4ee685d033952f23c74f2f3ad94b681fcd538f0edade1ec0e59e",
+				"res://scripts/dark_fantasy_materials.gd": "f48764a210f67c7434ab589238422fa37dec066a7e2c671a7213148b74b1c85c",
+				"res://scripts/dungeon_combat_hud.gd": "beba8653c0184af14b04f0c7e3502420798b3c891d23ecb569c8a4d004241abb",
+				"res://scripts/expedition_session.gd": "e5a2f4a5c7c48f295dbe49046c88688b95e4c76db096ea0d70cb5cb08e017ea0",
+				"res://scripts/flame_visuals.gd": "c232561989a50418bdae46f510cc1bd87267e30646aca8229b1e423fdf736bc2",
+				"res://scripts/game.gd": "14933227768fd0047f6204545bf0875d5206ab1c5630070381bdebf2c74f18c6",
+				"res://scripts/hud.gd": "ef66ff25fbffe01a40d1141fdb903cf7bd1bca787a81d39a4c9a8b96a7bc9092",
+				"res://scripts/inventory_model.gd": "730f71c40f1d831e046f5b7142d5b4bf2ec33792c51f9951fa193e5b2f81a19c",
+				"res://scripts/inventory_overlay.gd": "ffe2483fb2d802674a20fb167f0a57ccecc147ab620f853cb4bc5ef19dfc2e42",
+				"res://scripts/player.gd": "9e5b31893a1df5d6bd7d764731d2025d9603555013553794c066691d6af32535",
+				"res://tests/camp_placement_preview.gd": "71bb06d6d9ef3dc3dd9ea637aa035fbde30674ff6e73ecbd3021d5b9bdc0cce9",
+				"res://tests/camp_placement_preview_scene.gd": "c3dd6c2876d54595e3e8c06e91dee710402e3e127c262e6694f7efce9b686394",
+				"res://tests/camp_placement_preview_test.gd": "c70f475f656d3a4ef33ad2eb8bf2ae9022933a01a74ec994d7ddc8f7709aa891",
+				"res://tests/hideout_ruin_preview.gd": "acf3f691d61549d103982c5ddab668ecdf5c37a7bf79b6768de4a2161bfa8c3e",
+				"res://tests/item_detail_preview.gd": "f84afd14b41128db9f258e5ad7208a003fe59440e7412df7a9221bfb3a2205c6",
+				"res://tests/performance_preview.gd": "049dd8eb33ea4126ab3363b724bc99f2906cb25aab57651baa5ff56e16f5945a",
+				"res://tests/performance_scene_factory.gd": "497a2c775e78603ab665bba54603ed41f2d2f53f94034e0fa4a2f2bdf36dab25",
+				"res://tests/run_embedded_preview.sh": "56cbada135d3face1ccd9a91b3c36ae9700c2532ab697a5c32cf9ab4a214f96a"
+			},
+			"state": "placing"
+		},
+		{
+			"camera_position": "(-2.0, 1.560137, 14.2)",
+			"camp": {
+				"action_title": "",
+				"actions": [
+					{
+						"category": "rest",
+						"cost": "온기 1",
+						"description": "체력 20 · 기력 70 회복. 게임 시간 60초가 지나며 상태이상 시간도 흐릅니다. 스트레스 18 완화.",
+						"duration": 8.0,
+						"enabled": false,
+						"id": "rest",
+						"ingredient_text": "보유 / 필요 · ",
+						"reason": "먼저 야영 계획을 여세요.",
+						"recipe_id": "",
+						"resources": {},
+						"title": "경계 휴식"
+					},
+					{
+						"category": "rest",
+						"cost": "온기 2 · 마른 순례자 식량 1 · 끓인 빗물병 1",
+						"description": "체력 45 · 기력 최대 · 포만감/수분 회복. 게임 시간 180초와 상태이상 시간이 흐릅니다. 스트레스 30 완화.",
+						"duration": 14.0,
+						"enabled": false,
+						"id": "meal",
+						"ingredient_text": "보유 / 필요 · 마른 순례자 식량 1 / 1 · 끓인 빗물병 4 / 1",
+						"reason": "먼저 야영 계획을 여세요.",
+						"recipe_id": "",
+						"resources": {
+							"boiled_rainwater": 1,
+							"pilgrim_ration": 1
+						},
+						"title": "식사 휴식"
+					},
+					{
+						"category": "rest",
+						"cost": "온기 1 · 누런 붕대 1",
+						"description": "체력 18 회복 · 출혈 해소. 게임 시간 30초와 나머지 상태이상 시간이 흐릅니다. 스트레스 6 완화.",
+						"duration": 6.0,
+						"enabled": false,
+						"id": "treat",
+						"ingredient_text": "보유 / 필요 · 누런 붕대 1 / 1",
+						"reason": "먼저 야영 계획을 여세요.",
+						"recipe_id": "",
+						"resources": {
+							"linen_bandage": 1
+						},
+						"title": "응급처치"
+					},
+					{
+						"category": "cooking",
+						"cost": "온기 1 · 손질한 생고기 1",
+						"description": "생고기를 꼬치에 꿰어 구운 뒤 바로 먹습니다. 체력 18 · 기력 35 · 포만감 40 회복, 스트레스 12 완화. 게임 시간 60초가 흐릅니다.",
+						"duration": 8.0,
+						"enabled": false,
+						"id": "cook:roast_meat",
+						"ingredient_text": "보유 / 필요 · 손질한 생고기 4 / 1",
+						"reason": "먼저 야영 계획을 여세요.",
+						"recipe_id": "roast_meat",
+						"resources": {
+							"raw_meat": 1
+						},
+						"title": "모닥불 고기구이"
+					},
+					{
+						"category": "cooking",
+						"cost": "온기 1 · 식용 버섯 2 · 끓인 빗물병 1",
+						"description": "식용 버섯을 물에 푹 끓여 바로 먹습니다. 체력 12 · 기력 30 · 포만감 30 · 수분 45 회복, 스트레스 16 완화. 게임 시간 90초가 흐릅니다.",
+						"duration": 10.0,
+						"enabled": false,
+						"id": "cook:mushroom_soup",
+						"ingredient_text": "보유 / 필요 · 식용 버섯 6 / 2 · 끓인 빗물병 4 / 1",
+						"reason": "먼저 야영 계획을 여세요.",
+						"recipe_id": "mushroom_soup",
+						"resources": {
+							"boiled_rainwater": 1,
+							"edible_mushroom": 2
+						},
+						"title": "따뜻한 버섯수프"
+					},
+					{
+						"category": "cooking",
+						"cost": "온기 2 · 손질한 생고기 1 · 식용 버섯 1 · 끓인 빗물병 1",
+						"description": "고기와 버섯을 함께 끓여 든든하게 먹습니다. 체력 35 · 기력 65 · 포만감 65 · 수분 35 회복, 스트레스 24 완화. 게임 시간 120초가 흐릅니다.",
+						"duration": 14.0,
+						"enabled": false,
+						"id": "cook:trail_stew",
+						"ingredient_text": "보유 / 필요 · 손질한 생고기 4 / 1 · 식용 버섯 6 / 1 · 끓인 빗물병 4 / 1",
+						"reason": "먼저 야영 계획을 여세요.",
+						"recipe_id": "trail_stew",
+						"resources": {
+							"boiled_rainwater": 1,
+							"edible_mushroom": 1,
+							"raw_meat": 1
+						},
+						"title": "고기·버섯 스튜"
+					}
+				],
+				"active_action_id": "",
+				"conditions": "안정",
+				"health": 440.0,
+				"hunger": 45.0,
+				"inventory_counts": {
+					"boiled_rainwater": 4,
+					"camp_kit": 2,
+					"edible_mushroom": 6,
+					"linen_bandage": 1,
+					"pilgrim_ration": 1,
+					"raw_meat": 4
+				},
+				"is_cooking": false,
+				"kit_spent": true,
+				"max_health": 440.0,
+				"max_stamina": 100.0,
+				"max_stress": 100.0,
+				"progress": 0.0,
+				"recipe_id": "",
+				"stamina": 100.0,
+				"state": "deployed",
+				"status": "야영지를 설치했습니다. 천막을 바라보고 E로 앉으세요.",
+				"stress": 0.0,
+				"stress_stage": "안정",
+				"thirst": 65.0,
+				"warmth": 3
+			},
+			"failures": [],
+			"id": "03_deployed_tent",
+			"image": "03_deployed_tent.png",
+			"on_floor": true,
+			"placement": {
+				"accepted": true,
+				"message": "천막과 모닥불 설치 · 야영 도구 1개",
+				"position": "(-2.0, 0.0, 11.3)",
+				"reason": "",
+				"yaw": 0.0
+			},
+			"responses": [
+				{
+					"accepted": true,
+					"message": "야영할 바닥을 조준하세요 · 왼쪽 클릭 설치 · F 취소",
+					"placing": true
+				},
+				{
+					"accepted": true,
+					"message": "천막과 모닥불 설치 · 야영 도구 1개",
+					"position": "(-2.0, 0.0, 11.3)",
+					"reason": "",
+					"yaw": 0.0
+				},
+				{
+					"accepted": true,
+					"kit_spent": true,
+					"message": "야영지를 설치했습니다. 천막을 바라보고 E로 앉으세요.",
+					"position": "(-2.0, 0.0, 11.3)"
+				}
+			],
+			"reused_preview": true,
+			"seated": false,
+			"size": [
+				1280,
+				720
+			],
+			"source_sha256_after": {
+				"res://assets/ai/materials/concept_ember_coal.png": "495d9ebe23f4cd001802cf85a44bef39079fd1fa3da48e8f6540216c9b60b785",
+				"res://assets/ai/vfx/torch_flame.png": "b95b70fd852372e153827455b5e97c5671cec59fb3d458b6aa99d24dedbf8f4b",
+				"res://assets/fonts/NotoSansKR-Variable.ttf": "194018e6b2b293a7964f037b25c0249ce1418bc9ab3c971060a03aa57861e252",
+				"res://scripts/camp_controller.gd": "0d047e766eae516af12c205cc63946f581bdde481ffa04bee98e04361109db0f",
+				"res://scripts/camp_cooking_catalog.gd": "8192ec76855e2ba9b5f6fdb131ec7b8d0eecab9b4758dc949bc81611fee76bb9",
+				"res://scripts/camp_overlay.gd": "81d942c1102209761d56979c67cdf4f20480e6610f90e6029b103c3646de1a28",
+				"res://scripts/camp_placement_overlay.gd": "0d6286a6fef456feaf9fe9d3baa227f3f53443f518eaa271b8255d928b999923",
+				"res://scripts/camp_placement_probe.gd": "49f4aa3f762b1baa3d79b9a8bcbf17abf4385d7d603581bbc19376ad29538a3c",
+				"res://scripts/camp_visuals.gd": "064a044272aa4ee685d033952f23c74f2f3ad94b681fcd538f0edade1ec0e59e",
+				"res://scripts/dark_fantasy_materials.gd": "f48764a210f67c7434ab589238422fa37dec066a7e2c671a7213148b74b1c85c",
+				"res://scripts/dungeon_combat_hud.gd": "beba8653c0184af14b04f0c7e3502420798b3c891d23ecb569c8a4d004241abb",
+				"res://scripts/expedition_session.gd": "e5a2f4a5c7c48f295dbe49046c88688b95e4c76db096ea0d70cb5cb08e017ea0",
+				"res://scripts/flame_visuals.gd": "c232561989a50418bdae46f510cc1bd87267e30646aca8229b1e423fdf736bc2",
+				"res://scripts/game.gd": "14933227768fd0047f6204545bf0875d5206ab1c5630070381bdebf2c74f18c6",
+				"res://scripts/hud.gd": "ef66ff25fbffe01a40d1141fdb903cf7bd1bca787a81d39a4c9a8b96a7bc9092",
+				"res://scripts/inventory_model.gd": "730f71c40f1d831e046f5b7142d5b4bf2ec33792c51f9951fa193e5b2f81a19c",
+				"res://scripts/inventory_overlay.gd": "ffe2483fb2d802674a20fb167f0a57ccecc147ab620f853cb4bc5ef19dfc2e42",
+				"res://scripts/player.gd": "9e5b31893a1df5d6bd7d764731d2025d9603555013553794c066691d6af32535",
+				"res://tests/camp_placement_preview.gd": "71bb06d6d9ef3dc3dd9ea637aa035fbde30674ff6e73ecbd3021d5b9bdc0cce9",
+				"res://tests/camp_placement_preview_scene.gd": "c3dd6c2876d54595e3e8c06e91dee710402e3e127c262e6694f7efce9b686394",
+				"res://tests/camp_placement_preview_test.gd": "c70f475f656d3a4ef33ad2eb8bf2ae9022933a01a74ec994d7ddc8f7709aa891",
+				"res://tests/hideout_ruin_preview.gd": "acf3f691d61549d103982c5ddab668ecdf5c37a7bf79b6768de4a2161bfa8c3e",
+				"res://tests/item_detail_preview.gd": "f84afd14b41128db9f258e5ad7208a003fe59440e7412df7a9221bfb3a2205c6",
+				"res://tests/performance_preview.gd": "049dd8eb33ea4126ab3363b724bc99f2906cb25aab57651baa5ff56e16f5945a",
+				"res://tests/performance_scene_factory.gd": "497a2c775e78603ab665bba54603ed41f2d2f53f94034e0fa4a2f2bdf36dab25",
+				"res://tests/run_embedded_preview.sh": "56cbada135d3face1ccd9a91b3c36ae9700c2532ab697a5c32cf9ab4a214f96a"
+			},
+			"source_sha256_before": {
+				"res://assets/ai/materials/concept_ember_coal.png": "495d9ebe23f4cd001802cf85a44bef39079fd1fa3da48e8f6540216c9b60b785",
+				"res://assets/ai/vfx/torch_flame.png": "b95b70fd852372e153827455b5e97c5671cec59fb3d458b6aa99d24dedbf8f4b",
+				"res://assets/fonts/NotoSansKR-Variable.ttf": "194018e6b2b293a7964f037b25c0249ce1418bc9ab3c971060a03aa57861e252",
+				"res://scripts/camp_controller.gd": "0d047e766eae516af12c205cc63946f581bdde481ffa04bee98e04361109db0f",
+				"res://scripts/camp_cooking_catalog.gd": "8192ec76855e2ba9b5f6fdb131ec7b8d0eecab9b4758dc949bc81611fee76bb9",
+				"res://scripts/camp_overlay.gd": "81d942c1102209761d56979c67cdf4f20480e6610f90e6029b103c3646de1a28",
+				"res://scripts/camp_placement_overlay.gd": "0d6286a6fef456feaf9fe9d3baa227f3f53443f518eaa271b8255d928b999923",
+				"res://scripts/camp_placement_probe.gd": "49f4aa3f762b1baa3d79b9a8bcbf17abf4385d7d603581bbc19376ad29538a3c",
+				"res://scripts/camp_visuals.gd": "064a044272aa4ee685d033952f23c74f2f3ad94b681fcd538f0edade1ec0e59e",
+				"res://scripts/dark_fantasy_materials.gd": "f48764a210f67c7434ab589238422fa37dec066a7e2c671a7213148b74b1c85c",
+				"res://scripts/dungeon_combat_hud.gd": "beba8653c0184af14b04f0c7e3502420798b3c891d23ecb569c8a4d004241abb",
+				"res://scripts/expedition_session.gd": "e5a2f4a5c7c48f295dbe49046c88688b95e4c76db096ea0d70cb5cb08e017ea0",
+				"res://scripts/flame_visuals.gd": "c232561989a50418bdae46f510cc1bd87267e30646aca8229b1e423fdf736bc2",
+				"res://scripts/game.gd": "14933227768fd0047f6204545bf0875d5206ab1c5630070381bdebf2c74f18c6",
+				"res://scripts/hud.gd": "ef66ff25fbffe01a40d1141fdb903cf7bd1bca787a81d39a4c9a8b96a7bc9092",
+				"res://scripts/inventory_model.gd": "730f71c40f1d831e046f5b7142d5b4bf2ec33792c51f9951fa193e5b2f81a19c",
+				"res://scripts/inventory_overlay.gd": "ffe2483fb2d802674a20fb167f0a57ccecc147ab620f853cb4bc5ef19dfc2e42",
+				"res://scripts/player.gd": "9e5b31893a1df5d6bd7d764731d2025d9603555013553794c066691d6af32535",
+				"res://tests/camp_placement_preview.gd": "71bb06d6d9ef3dc3dd9ea637aa035fbde30674ff6e73ecbd3021d5b9bdc0cce9",
+				"res://tests/camp_placement_preview_scene.gd": "c3dd6c2876d54595e3e8c06e91dee710402e3e127c262e6694f7efce9b686394",
+				"res://tests/camp_placement_preview_test.gd": "c70f475f656d3a4ef33ad2eb8bf2ae9022933a01a74ec994d7ddc8f7709aa891",
+				"res://tests/hideout_ruin_preview.gd": "acf3f691d61549d103982c5ddab668ecdf5c37a7bf79b6768de4a2161bfa8c3e",
+				"res://tests/item_detail_preview.gd": "f84afd14b41128db9f258e5ad7208a003fe59440e7412df7a9221bfb3a2205c6",
+				"res://tests/performance_preview.gd": "049dd8eb33ea4126ab3363b724bc99f2906cb25aab57651baa5ff56e16f5945a",
+				"res://tests/performance_scene_factory.gd": "497a2c775e78603ab665bba54603ed41f2d2f53f94034e0fa4a2f2bdf36dab25",
+				"res://tests/run_embedded_preview.sh": "56cbada135d3face1ccd9a91b3c36ae9700c2532ab697a5c32cf9ab4a214f96a"
+			},
+			"state": "deployed"
+		},
+		{
+			"camera_position": "(-2.0, 1.02, 12.4)",
+			"camp": {
+				"action_title": "모닥불 고기구이",
+				"actions": [
+					{
+						"category": "rest",
+						"cost": "온기 1",
+						"description": "체력 20 · 기력 70 회복. 게임 시간 60초가 지나며 상태이상 시간도 흐릅니다. 스트레스 18 완화.",
+						"duration": 8.0,
+						"enabled": false,
+						"id": "rest",
+						"ingredient_text": "보유 / 필요 · ",
+						"reason": "현재 동작이 끝난 뒤 야영하세요.",
+						"recipe_id": "",
+						"resources": {},
+						"title": "경계 휴식"
+					},
+					{
+						"category": "rest",
+						"cost": "온기 2 · 마른 순례자 식량 1 · 끓인 빗물병 1",
+						"description": "체력 45 · 기력 최대 · 포만감/수분 회복. 게임 시간 180초와 상태이상 시간이 흐릅니다. 스트레스 30 완화.",
+						"duration": 14.0,
+						"enabled": false,
+						"id": "meal",
+						"ingredient_text": "보유 / 필요 · 마른 순례자 식량 1 / 1 · 끓인 빗물병 4 / 1",
+						"reason": "현재 동작이 끝난 뒤 야영하세요.",
+						"recipe_id": "",
+						"resources": {
+							"boiled_rainwater": 1,
+							"pilgrim_ration": 1
+						},
+						"title": "식사 휴식"
+					},
+					{
+						"category": "rest",
+						"cost": "온기 1 · 누런 붕대 1",
+						"description": "체력 18 회복 · 출혈 해소. 게임 시간 30초와 나머지 상태이상 시간이 흐릅니다. 스트레스 6 완화.",
+						"duration": 6.0,
+						"enabled": false,
+						"id": "treat",
+						"ingredient_text": "보유 / 필요 · 누런 붕대 1 / 1",
+						"reason": "현재 동작이 끝난 뒤 야영하세요.",
+						"recipe_id": "",
+						"resources": {
+							"linen_bandage": 1
+						},
+						"title": "응급처치"
+					},
+					{
+						"category": "cooking",
+						"cost": "온기 1 · 손질한 생고기 1",
+						"description": "생고기를 꼬치에 꿰어 구운 뒤 바로 먹습니다. 체력 18 · 기력 35 · 포만감 40 회복, 스트레스 12 완화. 게임 시간 60초가 흐릅니다.",
+						"duration": 8.0,
+						"enabled": false,
+						"id": "cook:roast_meat",
+						"ingredient_text": "보유 / 필요 · 손질한 생고기 3 / 1",
+						"reason": "현재 동작이 끝난 뒤 야영하세요.",
+						"recipe_id": "roast_meat",
+						"resources": {
+							"raw_meat": 1
+						},
+						"title": "모닥불 고기구이"
+					},
+					{
+						"category": "cooking",
+						"cost": "온기 1 · 식용 버섯 2 · 끓인 빗물병 1",
+						"description": "식용 버섯을 물에 푹 끓여 바로 먹습니다. 체력 12 · 기력 30 · 포만감 30 · 수분 45 회복, 스트레스 16 완화. 게임 시간 90초가 흐릅니다.",
+						"duration": 10.0,
+						"enabled": false,
+						"id": "cook:mushroom_soup",
+						"ingredient_text": "보유 / 필요 · 식용 버섯 6 / 2 · 끓인 빗물병 4 / 1",
+						"reason": "현재 동작이 끝난 뒤 야영하세요.",
+						"recipe_id": "mushroom_soup",
+						"resources": {
+							"boiled_rainwater": 1,
+							"edible_mushroom": 2
+						},
+						"title": "따뜻한 버섯수프"
+					},
+					{
+						"category": "cooking",
+						"cost": "온기 2 · 손질한 생고기 1 · 식용 버섯 1 · 끓인 빗물병 1",
+						"description": "고기와 버섯을 함께 끓여 든든하게 먹습니다. 체력 35 · 기력 65 · 포만감 65 · 수분 35 회복, 스트레스 24 완화. 게임 시간 120초가 흐릅니다.",
+						"duration": 14.0,
+						"enabled": false,
+						"id": "cook:trail_stew",
+						"ingredient_text": "보유 / 필요 · 손질한 생고기 3 / 1 · 식용 버섯 6 / 1 · 끓인 빗물병 4 / 1",
+						"reason": "현재 동작이 끝난 뒤 야영하세요.",
+						"recipe_id": "trail_stew",
+						"resources": {
+							"boiled_rainwater": 1,
+							"edible_mushroom": 1,
+							"raw_meat": 1
+						},
+						"title": "고기·버섯 스튜"
+					}
+				],
+				"active_action_id": "cook:roast_meat",
+				"conditions": "안정",
+				"health": 440.0,
+				"hunger": 44.3055555555556,
+				"inventory_counts": {
+					"boiled_rainwater": 4,
+					"camp_kit": 2,
+					"edible_mushroom": 6,
+					"linen_bandage": 1,
+					"pilgrim_ration": 1,
+					"raw_meat": 3
+				},
+				"is_cooking": true,
+				"kit_spent": true,
+				"max_health": 440.0,
+				"max_stamina": 100.0,
+				"max_stress": 100.0,
+				"progress": 0.625,
+				"recipe_id": "roast_meat",
+				"stamina": 100.0,
+				"state": "resting",
+				"status": "모닥불 고기구이 조리 중 · 위험이 다가오면 즉시 중단됩니다.",
+				"stress": 0.0,
+				"stress_stage": "안정",
+				"thirst": 63.9583333333333,
+				"warmth": 2
+			},
+			"failures": [],
+			"id": "04_seated_cooking",
+			"image": "04_seated_cooking.png",
+			"on_floor": true,
+			"placement": {
+				"accepted": true,
+				"message": "천막과 모닥불 설치 · 야영 도구 1개",
+				"position": "(-2.0, 0.0, 11.3)",
+				"reason": "",
+				"yaw": 0.0
+			},
+			"responses": [
+				{
+					"accepted": true,
+					"message": "야영할 바닥을 조준하세요 · 왼쪽 클릭 설치 · F 취소",
+					"placing": true
+				},
+				{
+					"accepted": true,
+					"message": "천막과 모닥불 설치 · 야영 도구 1개",
+					"position": "(-2.0, 0.0, 11.3)",
+					"reason": "",
+					"yaw": 0.0
+				},
+				{
+					"accepted": true,
+					"kit_spent": true,
+					"message": "야영지를 설치했습니다. 천막을 바라보고 E로 앉으세요.",
+					"position": "(-2.0, 0.0, 11.3)"
+				},
+				{
+					"accepted": true,
+					"message": "천막에 앉았습니다. 요리·휴식을 마치면 일어서거나 야영지를 정리할 수 있습니다.",
+					"position": "(-2.0, 0.0, 11.3)",
+					"seat_position": "(-2.0, 0.9, 12.4)"
+				},
+				{
+					"accepted": true,
+					"action_id": "cook:roast_meat",
+					"duration": 8.0,
+					"message": "모닥불 고기구이 조리 중 · 위험이 다가오면 즉시 중단됩니다.",
+					"resources_spent": {
+						"raw_meat": 1
+					},
+					"warmth_spent": 1
+				}
+			],
+			"reused_preview": true,
+			"seated": true,
+			"size": [
+				1280,
+				720
+			],
+			"source_sha256_after": {
+				"res://assets/ai/materials/concept_ember_coal.png": "495d9ebe23f4cd001802cf85a44bef39079fd1fa3da48e8f6540216c9b60b785",
+				"res://assets/ai/vfx/torch_flame.png": "b95b70fd852372e153827455b5e97c5671cec59fb3d458b6aa99d24dedbf8f4b",
+				"res://assets/fonts/NotoSansKR-Variable.ttf": "194018e6b2b293a7964f037b25c0249ce1418bc9ab3c971060a03aa57861e252",
+				"res://scripts/camp_controller.gd": "0d047e766eae516af12c205cc63946f581bdde481ffa04bee98e04361109db0f",
+				"res://scripts/camp_cooking_catalog.gd": "8192ec76855e2ba9b5f6fdb131ec7b8d0eecab9b4758dc949bc81611fee76bb9",
+				"res://scripts/camp_overlay.gd": "81d942c1102209761d56979c67cdf4f20480e6610f90e6029b103c3646de1a28",
+				"res://scripts/camp_placement_overlay.gd": "0d6286a6fef456feaf9fe9d3baa227f3f53443f518eaa271b8255d928b999923",
+				"res://scripts/camp_placement_probe.gd": "49f4aa3f762b1baa3d79b9a8bcbf17abf4385d7d603581bbc19376ad29538a3c",
+				"res://scripts/camp_visuals.gd": "064a044272aa4ee685d033952f23c74f2f3ad94b681fcd538f0edade1ec0e59e",
+				"res://scripts/dark_fantasy_materials.gd": "f48764a210f67c7434ab589238422fa37dec066a7e2c671a7213148b74b1c85c",
+				"res://scripts/dungeon_combat_hud.gd": "beba8653c0184af14b04f0c7e3502420798b3c891d23ecb569c8a4d004241abb",
+				"res://scripts/expedition_session.gd": "e5a2f4a5c7c48f295dbe49046c88688b95e4c76db096ea0d70cb5cb08e017ea0",
+				"res://scripts/flame_visuals.gd": "c232561989a50418bdae46f510cc1bd87267e30646aca8229b1e423fdf736bc2",
+				"res://scripts/game.gd": "14933227768fd0047f6204545bf0875d5206ab1c5630070381bdebf2c74f18c6",
+				"res://scripts/hud.gd": "ef66ff25fbffe01a40d1141fdb903cf7bd1bca787a81d39a4c9a8b96a7bc9092",
+				"res://scripts/inventory_model.gd": "730f71c40f1d831e046f5b7142d5b4bf2ec33792c51f9951fa193e5b2f81a19c",
+				"res://scripts/inventory_overlay.gd": "ffe2483fb2d802674a20fb167f0a57ccecc147ab620f853cb4bc5ef19dfc2e42",
+				"res://scripts/player.gd": "9e5b31893a1df5d6bd7d764731d2025d9603555013553794c066691d6af32535",
+				"res://tests/camp_placement_preview.gd": "71bb06d6d9ef3dc3dd9ea637aa035fbde30674ff6e73ecbd3021d5b9bdc0cce9",
+				"res://tests/camp_placement_preview_scene.gd": "c3dd6c2876d54595e3e8c06e91dee710402e3e127c262e6694f7efce9b686394",
+				"res://tests/camp_placement_preview_test.gd": "c70f475f656d3a4ef33ad2eb8bf2ae9022933a01a74ec994d7ddc8f7709aa891",
+				"res://tests/hideout_ruin_preview.gd": "acf3f691d61549d103982c5ddab668ecdf5c37a7bf79b6768de4a2161bfa8c3e",
+				"res://tests/item_detail_preview.gd": "f84afd14b41128db9f258e5ad7208a003fe59440e7412df7a9221bfb3a2205c6",
+				"res://tests/performance_preview.gd": "049dd8eb33ea4126ab3363b724bc99f2906cb25aab57651baa5ff56e16f5945a",
+				"res://tests/performance_scene_factory.gd": "497a2c775e78603ab665bba54603ed41f2d2f53f94034e0fa4a2f2bdf36dab25",
+				"res://tests/run_embedded_preview.sh": "56cbada135d3face1ccd9a91b3c36ae9700c2532ab697a5c32cf9ab4a214f96a"
+			},
+			"source_sha256_before": {
+				"res://assets/ai/materials/concept_ember_coal.png": "495d9ebe23f4cd001802cf85a44bef39079fd1fa3da48e8f6540216c9b60b785",
+				"res://assets/ai/vfx/torch_flame.png": "b95b70fd852372e153827455b5e97c5671cec59fb3d458b6aa99d24dedbf8f4b",
+				"res://assets/fonts/NotoSansKR-Variable.ttf": "194018e6b2b293a7964f037b25c0249ce1418bc9ab3c971060a03aa57861e252",
+				"res://scripts/camp_controller.gd": "0d047e766eae516af12c205cc63946f581bdde481ffa04bee98e04361109db0f",
+				"res://scripts/camp_cooking_catalog.gd": "8192ec76855e2ba9b5f6fdb131ec7b8d0eecab9b4758dc949bc81611fee76bb9",
+				"res://scripts/camp_overlay.gd": "81d942c1102209761d56979c67cdf4f20480e6610f90e6029b103c3646de1a28",
+				"res://scripts/camp_placement_overlay.gd": "0d6286a6fef456feaf9fe9d3baa227f3f53443f518eaa271b8255d928b999923",
+				"res://scripts/camp_placement_probe.gd": "49f4aa3f762b1baa3d79b9a8bcbf17abf4385d7d603581bbc19376ad29538a3c",
+				"res://scripts/camp_visuals.gd": "064a044272aa4ee685d033952f23c74f2f3ad94b681fcd538f0edade1ec0e59e",
+				"res://scripts/dark_fantasy_materials.gd": "f48764a210f67c7434ab589238422fa37dec066a7e2c671a7213148b74b1c85c",
+				"res://scripts/dungeon_combat_hud.gd": "beba8653c0184af14b04f0c7e3502420798b3c891d23ecb569c8a4d004241abb",
+				"res://scripts/expedition_session.gd": "e5a2f4a5c7c48f295dbe49046c88688b95e4c76db096ea0d70cb5cb08e017ea0",
+				"res://scripts/flame_visuals.gd": "c232561989a50418bdae46f510cc1bd87267e30646aca8229b1e423fdf736bc2",
+				"res://scripts/game.gd": "14933227768fd0047f6204545bf0875d5206ab1c5630070381bdebf2c74f18c6",
+				"res://scripts/hud.gd": "ef66ff25fbffe01a40d1141fdb903cf7bd1bca787a81d39a4c9a8b96a7bc9092",
+				"res://scripts/inventory_model.gd": "730f71c40f1d831e046f5b7142d5b4bf2ec33792c51f9951fa193e5b2f81a19c",
+				"res://scripts/inventory_overlay.gd": "ffe2483fb2d802674a20fb167f0a57ccecc147ab620f853cb4bc5ef19dfc2e42",
+				"res://scripts/player.gd": "9e5b31893a1df5d6bd7d764731d2025d9603555013553794c066691d6af32535",
+				"res://tests/camp_placement_preview.gd": "71bb06d6d9ef3dc3dd9ea637aa035fbde30674ff6e73ecbd3021d5b9bdc0cce9",
+				"res://tests/camp_placement_preview_scene.gd": "c3dd6c2876d54595e3e8c06e91dee710402e3e127c262e6694f7efce9b686394",
+				"res://tests/camp_placement_preview_test.gd": "c70f475f656d3a4ef33ad2eb8bf2ae9022933a01a74ec994d7ddc8f7709aa891",
+				"res://tests/hideout_ruin_preview.gd": "acf3f691d61549d103982c5ddab668ecdf5c37a7bf79b6768de4a2161bfa8c3e",
+				"res://tests/item_detail_preview.gd": "f84afd14b41128db9f258e5ad7208a003fe59440e7412df7a9221bfb3a2205c6",
+				"res://tests/performance_preview.gd": "049dd8eb33ea4126ab3363b724bc99f2906cb25aab57651baa5ff56e16f5945a",
+				"res://tests/performance_scene_factory.gd": "497a2c775e78603ab665bba54603ed41f2d2f53f94034e0fa4a2f2bdf36dab25",
+				"res://tests/run_embedded_preview.sh": "56cbada135d3face1ccd9a91b3c36ae9700c2532ab697a5c32cf9ab4a214f96a"
+			},
+			"state": "resting"
+		},
+		{
+			"camera_position": "(-2.0, 1.02, 12.4)",
+			"camp": {
+				"action_title": "",
+				"actions": [
+					{
+						"category": "rest",
+						"cost": "온기 1",
+						"description": "체력 20 · 기력 70 회복. 게임 시간 60초가 지나며 상태이상 시간도 흐릅니다. 스트레스 18 완화.",
+						"duration": 8.0,
+						"enabled": false,
+						"id": "rest",
+						"ingredient_text": "보유 / 필요 · ",
+						"reason": "회복할 상태가 없습니다.",
+						"recipe_id": "",
+						"resources": {},
+						"title": "경계 휴식"
+					},
+					{
+						"category": "rest",
+						"cost": "온기 2 · 마른 순례자 식량 1 · 끓인 빗물병 1",
+						"description": "체력 45 · 기력 최대 · 포만감/수분 회복. 게임 시간 180초와 상태이상 시간이 흐릅니다. 스트레스 30 완화.",
+						"duration": 14.0,
+						"enabled": true,
+						"id": "meal",
+						"ingredient_text": "보유 / 필요 · 마른 순례자 식량 1 / 1 · 끓인 빗물병 4 / 1",
+						"reason": "",
+						"recipe_id": "",
+						"resources": {
+							"boiled_rainwater": 1,
+							"pilgrim_ration": 1
+						},
+						"title": "식사 휴식"
+					},
+					{
+						"category": "rest",
+						"cost": "온기 1 · 누런 붕대 1",
+						"description": "체력 18 회복 · 출혈 해소. 게임 시간 30초와 나머지 상태이상 시간이 흐릅니다. 스트레스 6 완화.",
+						"duration": 6.0,
+						"enabled": false,
+						"id": "treat",
+						"ingredient_text": "보유 / 필요 · 누런 붕대 1 / 1",
+						"reason": "회복할 상태가 없습니다.",
+						"recipe_id": "",
+						"resources": {
+							"linen_bandage": 1
+						},
+						"title": "응급처치"
+					},
+					{
+						"category": "cooking",
+						"cost": "온기 1 · 손질한 생고기 1",
+						"description": "생고기를 꼬치에 꿰어 구운 뒤 바로 먹습니다. 체력 18 · 기력 35 · 포만감 40 회복, 스트레스 12 완화. 게임 시간 60초가 흐릅니다.",
+						"duration": 8.0,
+						"enabled": true,
+						"id": "cook:roast_meat",
+						"ingredient_text": "보유 / 필요 · 손질한 생고기 4 / 1",
+						"reason": "",
+						"recipe_id": "roast_meat",
+						"resources": {
+							"raw_meat": 1
+						},
+						"title": "모닥불 고기구이"
+					},
+					{
+						"category": "cooking",
+						"cost": "온기 1 · 식용 버섯 2 · 끓인 빗물병 1",
+						"description": "식용 버섯을 물에 푹 끓여 바로 먹습니다. 체력 12 · 기력 30 · 포만감 30 · 수분 45 회복, 스트레스 16 완화. 게임 시간 90초가 흐릅니다.",
+						"duration": 10.0,
+						"enabled": true,
+						"id": "cook:mushroom_soup",
+						"ingredient_text": "보유 / 필요 · 식용 버섯 6 / 2 · 끓인 빗물병 4 / 1",
+						"reason": "",
+						"recipe_id": "mushroom_soup",
+						"resources": {
+							"boiled_rainwater": 1,
+							"edible_mushroom": 2
+						},
+						"title": "따뜻한 버섯수프"
+					},
+					{
+						"category": "cooking",
+						"cost": "온기 2 · 손질한 생고기 1 · 식용 버섯 1 · 끓인 빗물병 1",
+						"description": "고기와 버섯을 함께 끓여 든든하게 먹습니다. 체력 35 · 기력 65 · 포만감 65 · 수분 35 회복, 스트레스 24 완화. 게임 시간 120초가 흐릅니다.",
+						"duration": 14.0,
+						"enabled": true,
+						"id": "cook:trail_stew",
+						"ingredient_text": "보유 / 필요 · 손질한 생고기 4 / 1 · 식용 버섯 6 / 1 · 끓인 빗물병 4 / 1",
+						"reason": "",
+						"recipe_id": "trail_stew",
+						"resources": {
+							"boiled_rainwater": 1,
+							"edible_mushroom": 1,
+							"raw_meat": 1
+						},
+						"title": "고기·버섯 스튜"
+					}
+				],
+				"active_action_id": "",
+				"conditions": "안정",
+				"health": 440.0,
+				"hunger": 45.0,
+				"inventory_counts": {
+					"boiled_rainwater": 4,
+					"camp_kit": 2,
+					"edible_mushroom": 6,
+					"linen_bandage": 1,
+					"pilgrim_ration": 1,
+					"raw_meat": 4
+				},
+				"is_cooking": false,
+				"kit_spent": true,
+				"max_health": 440.0,
+				"max_stamina": 100.0,
+				"max_stress": 100.0,
+				"progress": 0.0,
+				"recipe_id": "",
+				"stamina": 100.0,
+				"state": "planning",
+				"status": "천막에 앉았습니다. 요리·휴식을 마치면 일어서거나 야영지를 정리할 수 있습니다.",
+				"stress": 0.0,
+				"stress_stage": "안정",
+				"thirst": 65.0,
+				"warmth": 3
+			},
+			"failures": [],
+			"id": "05_seated_recipes_small",
+			"image": "05_seated_recipes_small.png",
+			"on_floor": true,
+			"placement": {
+				"accepted": true,
+				"message": "천막과 모닥불 설치 · 야영 도구 1개",
+				"position": "(-2.0, 0.0, 11.3)",
+				"reason": "",
+				"yaw": 0.0
+			},
+			"responses": [
+				{
+					"accepted": true,
+					"message": "야영할 바닥을 조준하세요 · 왼쪽 클릭 설치 · F 취소",
+					"placing": true
+				},
+				{
+					"accepted": true,
+					"message": "천막과 모닥불 설치 · 야영 도구 1개",
+					"position": "(-2.0, 0.0, 11.3)",
+					"reason": "",
+					"yaw": 0.0
+				},
+				{
+					"accepted": true,
+					"kit_spent": true,
+					"message": "야영지를 설치했습니다. 천막을 바라보고 E로 앉으세요.",
+					"position": "(-2.0, 0.0, 11.3)"
+				},
+				{
+					"accepted": true,
+					"message": "천막에 앉았습니다. 요리·휴식을 마치면 일어서거나 야영지를 정리할 수 있습니다.",
+					"position": "(-2.0, 0.0, 11.3)",
+					"seat_position": "(-2.0, 0.9, 12.4)"
+				}
+			],
+			"reused_preview": true,
+			"seated": true,
+			"size": [
+				960,
+				540
+			],
+			"source_sha256_after": {
+				"res://assets/ai/materials/concept_ember_coal.png": "495d9ebe23f4cd001802cf85a44bef39079fd1fa3da48e8f6540216c9b60b785",
+				"res://assets/ai/vfx/torch_flame.png": "b95b70fd852372e153827455b5e97c5671cec59fb3d458b6aa99d24dedbf8f4b",
+				"res://assets/fonts/NotoSansKR-Variable.ttf": "194018e6b2b293a7964f037b25c0249ce1418bc9ab3c971060a03aa57861e252",
+				"res://scripts/camp_controller.gd": "0d047e766eae516af12c205cc63946f581bdde481ffa04bee98e04361109db0f",
+				"res://scripts/camp_cooking_catalog.gd": "8192ec76855e2ba9b5f6fdb131ec7b8d0eecab9b4758dc949bc81611fee76bb9",
+				"res://scripts/camp_overlay.gd": "81d942c1102209761d56979c67cdf4f20480e6610f90e6029b103c3646de1a28",
+				"res://scripts/camp_placement_overlay.gd": "0d6286a6fef456feaf9fe9d3baa227f3f53443f518eaa271b8255d928b999923",
+				"res://scripts/camp_placement_probe.gd": "49f4aa3f762b1baa3d79b9a8bcbf17abf4385d7d603581bbc19376ad29538a3c",
+				"res://scripts/camp_visuals.gd": "064a044272aa4ee685d033952f23c74f2f3ad94b681fcd538f0edade1ec0e59e",
+				"res://scripts/dark_fantasy_materials.gd": "f48764a210f67c7434ab589238422fa37dec066a7e2c671a7213148b74b1c85c",
+				"res://scripts/dungeon_combat_hud.gd": "beba8653c0184af14b04f0c7e3502420798b3c891d23ecb569c8a4d004241abb",
+				"res://scripts/expedition_session.gd": "e5a2f4a5c7c48f295dbe49046c88688b95e4c76db096ea0d70cb5cb08e017ea0",
+				"res://scripts/flame_visuals.gd": "c232561989a50418bdae46f510cc1bd87267e30646aca8229b1e423fdf736bc2",
+				"res://scripts/game.gd": "14933227768fd0047f6204545bf0875d5206ab1c5630070381bdebf2c74f18c6",
+				"res://scripts/hud.gd": "ef66ff25fbffe01a40d1141fdb903cf7bd1bca787a81d39a4c9a8b96a7bc9092",
+				"res://scripts/inventory_model.gd": "730f71c40f1d831e046f5b7142d5b4bf2ec33792c51f9951fa193e5b2f81a19c",
+				"res://scripts/inventory_overlay.gd": "ffe2483fb2d802674a20fb167f0a57ccecc147ab620f853cb4bc5ef19dfc2e42",
+				"res://scripts/player.gd": "9e5b31893a1df5d6bd7d764731d2025d9603555013553794c066691d6af32535",
+				"res://tests/camp_placement_preview.gd": "71bb06d6d9ef3dc3dd9ea637aa035fbde30674ff6e73ecbd3021d5b9bdc0cce9",
+				"res://tests/camp_placement_preview_scene.gd": "c3dd6c2876d54595e3e8c06e91dee710402e3e127c262e6694f7efce9b686394",
+				"res://tests/camp_placement_preview_test.gd": "c70f475f656d3a4ef33ad2eb8bf2ae9022933a01a74ec994d7ddc8f7709aa891",
+				"res://tests/hideout_ruin_preview.gd": "acf3f691d61549d103982c5ddab668ecdf5c37a7bf79b6768de4a2161bfa8c3e",
+				"res://tests/item_detail_preview.gd": "f84afd14b41128db9f258e5ad7208a003fe59440e7412df7a9221bfb3a2205c6",
+				"res://tests/performance_preview.gd": "049dd8eb33ea4126ab3363b724bc99f2906cb25aab57651baa5ff56e16f5945a",
+				"res://tests/performance_scene_factory.gd": "497a2c775e78603ab665bba54603ed41f2d2f53f94034e0fa4a2f2bdf36dab25",
+				"res://tests/run_embedded_preview.sh": "56cbada135d3face1ccd9a91b3c36ae9700c2532ab697a5c32cf9ab4a214f96a"
+			},
+			"source_sha256_before": {
+				"res://assets/ai/materials/concept_ember_coal.png": "495d9ebe23f4cd001802cf85a44bef39079fd1fa3da48e8f6540216c9b60b785",
+				"res://assets/ai/vfx/torch_flame.png": "b95b70fd852372e153827455b5e97c5671cec59fb3d458b6aa99d24dedbf8f4b",
+				"res://assets/fonts/NotoSansKR-Variable.ttf": "194018e6b2b293a7964f037b25c0249ce1418bc9ab3c971060a03aa57861e252",
+				"res://scripts/camp_controller.gd": "0d047e766eae516af12c205cc63946f581bdde481ffa04bee98e04361109db0f",
+				"res://scripts/camp_cooking_catalog.gd": "8192ec76855e2ba9b5f6fdb131ec7b8d0eecab9b4758dc949bc81611fee76bb9",
+				"res://scripts/camp_overlay.gd": "81d942c1102209761d56979c67cdf4f20480e6610f90e6029b103c3646de1a28",
+				"res://scripts/camp_placement_overlay.gd": "0d6286a6fef456feaf9fe9d3baa227f3f53443f518eaa271b8255d928b999923",
+				"res://scripts/camp_placement_probe.gd": "49f4aa3f762b1baa3d79b9a8bcbf17abf4385d7d603581bbc19376ad29538a3c",
+				"res://scripts/camp_visuals.gd": "064a044272aa4ee685d033952f23c74f2f3ad94b681fcd538f0edade1ec0e59e",
+				"res://scripts/dark_fantasy_materials.gd": "f48764a210f67c7434ab589238422fa37dec066a7e2c671a7213148b74b1c85c",
+				"res://scripts/dungeon_combat_hud.gd": "beba8653c0184af14b04f0c7e3502420798b3c891d23ecb569c8a4d004241abb",
+				"res://scripts/expedition_session.gd": "e5a2f4a5c7c48f295dbe49046c88688b95e4c76db096ea0d70cb5cb08e017ea0",
+				"res://scripts/flame_visuals.gd": "c232561989a50418bdae46f510cc1bd87267e30646aca8229b1e423fdf736bc2",
+				"res://scripts/game.gd": "14933227768fd0047f6204545bf0875d5206ab1c5630070381bdebf2c74f18c6",
+				"res://scripts/hud.gd": "ef66ff25fbffe01a40d1141fdb903cf7bd1bca787a81d39a4c9a8b96a7bc9092",
+				"res://scripts/inventory_model.gd": "730f71c40f1d831e046f5b7142d5b4bf2ec33792c51f9951fa193e5b2f81a19c",
+				"res://scripts/inventory_overlay.gd": "ffe2483fb2d802674a20fb167f0a57ccecc147ab620f853cb4bc5ef19dfc2e42",
+				"res://scripts/player.gd": "9e5b31893a1df5d6bd7d764731d2025d9603555013553794c066691d6af32535",
+				"res://tests/camp_placement_preview.gd": "71bb06d6d9ef3dc3dd9ea637aa035fbde30674ff6e73ecbd3021d5b9bdc0cce9",
+				"res://tests/camp_placement_preview_scene.gd": "c3dd6c2876d54595e3e8c06e91dee710402e3e127c262e6694f7efce9b686394",
+				"res://tests/camp_placement_preview_test.gd": "c70f475f656d3a4ef33ad2eb8bf2ae9022933a01a74ec994d7ddc8f7709aa891",
+				"res://tests/hideout_ruin_preview.gd": "acf3f691d61549d103982c5ddab668ecdf5c37a7bf79b6768de4a2161bfa8c3e",
+				"res://tests/item_detail_preview.gd": "f84afd14b41128db9f258e5ad7208a003fe59440e7412df7a9221bfb3a2205c6",
+				"res://tests/performance_preview.gd": "049dd8eb33ea4126ab3363b724bc99f2906cb25aab57651baa5ff56e16f5945a",
+				"res://tests/performance_scene_factory.gd": "497a2c775e78603ab665bba54603ed41f2d2f53f94034e0fa4a2f2bdf36dab25",
+				"res://tests/run_embedded_preview.sh": "56cbada135d3face1ccd9a91b3c36ae9700c2532ab697a5c32cf9ab4a214f96a"
+			},
+			"state": "planning"
+		}
+	],
+	"desktop_capture": false,
+	"display_driver": "embedded",
+	"external_input": false,
+	"failures": [],
+	"hardware_input_verified": false,
+	"native_mouse_hook_bypassed": true,
+	"preserved": true,
+	"renderer": "vulkan",
+	"source_sha256": {
+		"res://assets/ai/materials/concept_ember_coal.png": "495d9ebe23f4cd001802cf85a44bef39079fd1fa3da48e8f6540216c9b60b785",
+		"res://assets/ai/vfx/torch_flame.png": "b95b70fd852372e153827455b5e97c5671cec59fb3d458b6aa99d24dedbf8f4b",
+		"res://assets/fonts/NotoSansKR-Variable.ttf": "194018e6b2b293a7964f037b25c0249ce1418bc9ab3c971060a03aa57861e252",
+		"res://scripts/camp_controller.gd": "0d047e766eae516af12c205cc63946f581bdde481ffa04bee98e04361109db0f",
+		"res://scripts/camp_cooking_catalog.gd": "8192ec76855e2ba9b5f6fdb131ec7b8d0eecab9b4758dc949bc81611fee76bb9",
+		"res://scripts/camp_overlay.gd": "81d942c1102209761d56979c67cdf4f20480e6610f90e6029b103c3646de1a28",
+		"res://scripts/camp_placement_overlay.gd": "0d6286a6fef456feaf9fe9d3baa227f3f53443f518eaa271b8255d928b999923",
+		"res://scripts/camp_placement_probe.gd": "49f4aa3f762b1baa3d79b9a8bcbf17abf4385d7d603581bbc19376ad29538a3c",
+		"res://scripts/camp_visuals.gd": "064a044272aa4ee685d033952f23c74f2f3ad94b681fcd538f0edade1ec0e59e",
+		"res://scripts/dark_fantasy_materials.gd": "f48764a210f67c7434ab589238422fa37dec066a7e2c671a7213148b74b1c85c",
+		"res://scripts/dungeon_combat_hud.gd": "beba8653c0184af14b04f0c7e3502420798b3c891d23ecb569c8a4d004241abb",
+		"res://scripts/expedition_session.gd": "e5a2f4a5c7c48f295dbe49046c88688b95e4c76db096ea0d70cb5cb08e017ea0",
+		"res://scripts/flame_visuals.gd": "c232561989a50418bdae46f510cc1bd87267e30646aca8229b1e423fdf736bc2",
+		"res://scripts/game.gd": "14933227768fd0047f6204545bf0875d5206ab1c5630070381bdebf2c74f18c6",
+		"res://scripts/hud.gd": "ef66ff25fbffe01a40d1141fdb903cf7bd1bca787a81d39a4c9a8b96a7bc9092",
+		"res://scripts/inventory_model.gd": "730f71c40f1d831e046f5b7142d5b4bf2ec33792c51f9951fa193e5b2f81a19c",
+		"res://scripts/inventory_overlay.gd": "ffe2483fb2d802674a20fb167f0a57ccecc147ab620f853cb4bc5ef19dfc2e42",
+		"res://scripts/player.gd": "9e5b31893a1df5d6bd7d764731d2025d9603555013553794c066691d6af32535",
+		"res://tests/camp_placement_preview.gd": "71bb06d6d9ef3dc3dd9ea637aa035fbde30674ff6e73ecbd3021d5b9bdc0cce9",
+		"res://tests/camp_placement_preview_scene.gd": "c3dd6c2876d54595e3e8c06e91dee710402e3e127c262e6694f7efce9b686394",
+		"res://tests/camp_placement_preview_test.gd": "c70f475f656d3a4ef33ad2eb8bf2ae9022933a01a74ec994d7ddc8f7709aa891",
+		"res://tests/hideout_ruin_preview.gd": "acf3f691d61549d103982c5ddab668ecdf5c37a7bf79b6768de4a2161bfa8c3e",
+		"res://tests/item_detail_preview.gd": "f84afd14b41128db9f258e5ad7208a003fe59440e7412df7a9221bfb3a2205c6",
+		"res://tests/performance_preview.gd": "049dd8eb33ea4126ab3363b724bc99f2906cb25aab57651baa5ff56e16f5945a",
+		"res://tests/performance_scene_factory.gd": "497a2c775e78603ab665bba54603ed41f2d2f53f94034e0fa4a2f2bdf36dab25",
+		"res://tests/run_embedded_preview.sh": "56cbada135d3face1ccd9a91b3c36ae9700c2532ab697a5c32cf9ab4a214f96a"
+	}
+}

@@ -7,10 +7,15 @@ const FLAME_VISUALS := preload("res://scripts/flame_visuals.gd")
 const FLAME: Texture2D = preload("res://assets/ai/vfx/torch_flame.png")
 const AGED_SURFACES := preload("res://scripts/dark_fantasy_materials.gd")
 const COAL: Texture2D = preload("res://assets/ai/materials/concept_ember_coal.png")
+const TENT_POSITION := Vector3(1.05, 0.0, -0.35)
+const TENT_SIZE := Vector3(1.10, 1.0, 1.70)
+const SEAT_POSITION := Vector3(0.0, 0.0, 1.10)
+const WORLD_LAYER := 2
+const INTERACT_LAYER := 16
 static var _food_noise: NoiseTexture2D
 
 
-static func create_camp() -> Node3D:
+static func create_camp(interaction_owner: Node = null) -> Node3D:
 	var camp := Node3D.new()
 	camp.name = "CampVisual"
 	var stone_material := AGED_SURFACES.stone(Color(0.19, 0.205, 0.20), 3.2)
@@ -50,8 +55,7 @@ static func create_camp() -> Node3D:
 	bed.name = "Bedroll"
 	bed.mesh = create_folded_pad(Vector3(0.34, 0.07, 0.82))
 	bed.material_override = cloth_material
-	bed.position = Vector3(0.66, 0.065, 0.1)
-	bed.rotation.y = 0.12
+	bed.position = TENT_POSITION + Vector3(0.0, 0.065, 0.14)
 	camp.add_child(bed)
 	_add_bedroll_stitches(bed, Vector3(0.34, 0.07, 0.82))
 	var carrying_strap := MeshInstance3D.new()
@@ -75,7 +79,7 @@ static func create_camp() -> Node3D:
 	roll.radial_segments = 24
 	pillow.mesh = roll
 	pillow.material_override = cloth_material
-	pillow.position = Vector3(0.69, 0.12, -0.23)
+	pillow.position = TENT_POSITION + Vector3(0.0, 0.12, -0.29)
 	pillow.rotation.z = PI / 2.0
 	camp.add_child(pillow)
 	for side in [-1.0, 1.0]:
@@ -112,7 +116,159 @@ static func create_camp() -> Node3D:
 	light.shadow_enabled = true
 	camp.add_child(light)
 	_create_cooking_tools(camp)
+	_create_tent(camp, interaction_owner)
+	var seat := Marker3D.new()
+	seat.name = "CampSeat"
+	seat.position = SEAT_POSITION
+	camp.add_child(seat)
 	return camp
+
+
+static func _create_tent(camp: Node3D, interaction_owner: Node) -> Node3D:
+	var tent := Node3D.new()
+	tent.name = "Tent"
+	tent.position = TENT_POSITION
+	camp.add_child(tent)
+	var cloth := AGED_SURFACES.linen(Color(0.35, 0.30, 0.22), 5.0)
+	cloth.cull_mode = BaseMaterial3D.CULL_DISABLED
+	var canvas := MeshInstance3D.new()
+	canvas.name = "WeatheredCanvas"
+	canvas.mesh = _tent_canvas_mesh()
+	canvas.material_override = cloth
+	tent.add_child(canvas)
+	var poles := AGED_SURFACES.old_oak(Color(0.28, 0.22, 0.14), 3.0)
+	var seam := AGED_SURFACES.linen(Color(0.20, 0.17, 0.12), 6.0)
+	for end: float in [-0.81, 0.81]:
+		_cooking_rod(tent, "TentPoleBack" if end < 0.0 else "TentPoleFront", Vector3(0.0, 0.02, end), Vector3(0.0, 0.985, end), 0.018, poles)
+		for side: float in [-1.0, 1.0]:
+			_cooking_rod(tent, "CanvasHem_%s_%s" % [str(end), str(side)], Vector3(0.0, 0.992, end), Vector3(side * 0.54, 0.04, end), 0.006, seam)
+			_cooking_rod(tent, "TentStake_%s_%s" % [str(end), str(side)], Vector3(side * 0.525, 0.01, end), Vector3(side * 0.535, 0.115, end - 0.025), 0.012, poles)
+	_cooking_rod(tent, "TentRidgePole", Vector3(0.0, 0.97, -0.82), Vector3(0.0, 0.97, 0.82), 0.016, poles)
+	# The box matches the reserved placement volume. The interaction area is
+	# separate so the player can aim at any canvas panel to sit by the fire.
+	var body := StaticBody3D.new()
+	body.name = "TentBody"
+	body.collision_layer = WORLD_LAYER
+	body.collision_mask = 0
+	var collider := CollisionShape3D.new()
+	collider.name = "TentCollision"
+	var shape := BoxShape3D.new()
+	shape.size = TENT_SIZE
+	collider.shape = shape
+	collider.position.y = TENT_SIZE.y * 0.5
+	body.add_child(collider)
+	tent.add_child(body)
+	if is_instance_valid(interaction_owner):
+		var area := Area3D.new()
+		area.name = "TentInteraction"
+		area.collision_layer = INTERACT_LAYER
+		area.collision_mask = 0
+		area.monitoring = false
+		area.monitorable = false
+		area.set_meta("interaction_owner", interaction_owner)
+		var interaction_shape := CollisionShape3D.new()
+		var interaction_box := BoxShape3D.new()
+		interaction_box.size = TENT_SIZE + Vector3(0.10, 0.06, 0.10)
+		interaction_shape.shape = interaction_box
+		interaction_shape.position.y = TENT_SIZE.y * 0.5
+		area.add_child(interaction_shape)
+		tent.add_child(area)
+	return tent
+
+
+static func _tent_canvas_mesh() -> ArrayMesh:
+	var surface := SurfaceTool.new()
+	surface.begin(Mesh.PRIMITIVE_TRIANGLES)
+	# Low A-frame canvas with small uneven folds, rather than a rigid prism.
+	for side: float in [-1.0, 1.0]:
+		for row in 12:
+			for column in 8:
+				var u0 := float(column) / 8.0
+				var u1 := float(column + 1) / 8.0
+				var v0 := float(row) / 12.0
+				var v1 := float(row + 1) / 12.0
+				_cloth_quad(surface, _tent_point(side, u0, v0), _tent_point(side, u1, v0), _tent_point(side, u1, v1), _tent_point(side, u0, v1), side < 0.0)
+	# Closed back, and two tied-back door flaps facing the camp seat (+Z).
+	_tent_triangle(surface, Vector3(-0.54, 0.035, -0.84), Vector3(0.0, 0.992, -0.84), Vector3(0.54, 0.035, -0.84))
+	for side: float in [-1.0, 1.0]:
+		_tent_triangle(surface, Vector3(0.0, 0.992, 0.84), Vector3(side * 0.54, 0.035, 0.84), Vector3(side * 0.29, 0.035, 0.805))
+	surface.generate_normals()
+	return surface.commit()
+
+
+static func _tent_point(side: float, u: float, v: float) -> Vector3:
+	var sag := sin(u * PI) * sin(v * PI) * 0.06
+	var fold := sin(v * 39.0 + u * 5.0) * sin(u * PI) * 0.013
+	return Vector3(side * u * 0.55, lerpf(0.998, 0.025, u) - sag + fold, lerpf(-0.85, 0.85, v))
+
+
+static func _tent_triangle(surface: SurfaceTool, a: Vector3, b: Vector3, c: Vector3) -> void:
+	for vertex: Vector3 in [a, b, c]:
+		surface.set_uv(Vector2(vertex.x, vertex.y))
+		surface.add_vertex(vertex)
+
+
+static func create_preview() -> Node3D:
+	var preview := Node3D.new()
+	preview.name = "CampPlacementPreview"
+	var fill := _preview_material(0.24)
+	var outline := _preview_material(0.84)
+	preview.set_meta("fill_material", fill)
+	preview.set_meta("outline_material", outline)
+	var canvas := MeshInstance3D.new()
+	canvas.name = "TentGhost"
+	canvas.mesh = _tent_canvas_mesh()
+	canvas.material_override = fill
+	canvas.position = TENT_POSITION
+	canvas.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	preview.add_child(canvas)
+	for end: float in [-0.85, 0.85]:
+		for side: float in [-1.0, 1.0]:
+			_cooking_rod(preview, "TentOutline_%s_%s" % [str(end), str(side)], TENT_POSITION + Vector3(0.0, 1.0, end), TENT_POSITION + Vector3(side * 0.55, 0.025, end), 0.012, outline)
+	_cooking_rod(preview, "RidgeOutline", TENT_POSITION + Vector3(0.0, 1.0, -0.85), TENT_POSITION + Vector3(0.0, 1.0, 0.85), 0.012, outline)
+	for side: float in [-1.0, 1.0]:
+		_cooking_rod(preview, "GroundOutline_%s" % str(side), TENT_POSITION + Vector3(side * 0.55, 0.025, -0.85), TENT_POSITION + Vector3(side * 0.55, 0.025, 0.85), 0.01, outline)
+	var ring := MeshInstance3D.new()
+	ring.name = "FireRingGhost"
+	var torus := TorusMesh.new()
+	torus.inner_radius = 0.28
+	torus.outer_radius = 0.40
+	torus.rings = 32
+	torus.ring_segments = 6
+	ring.mesh = torus
+	ring.position.y = 0.065
+	ring.material_override = fill
+	preview.add_child(ring)
+	for side: float in [-1.0, 1.0]:
+		_cooking_rod(preview, "FirewoodGhost_%s" % str(side), Vector3(-0.18, 0.08, side * 0.18), Vector3(0.18, 0.08, -side * 0.18), 0.04, outline)
+	for child in preview.get_children():
+		if child is GeometryInstance3D:
+			child.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	set_preview_valid(preview, false)
+	return preview
+
+
+static func _preview_material(alpha: float) -> StandardMaterial3D:
+	var material := StandardMaterial3D.new()
+	material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	material.cull_mode = BaseMaterial3D.CULL_DISABLED
+	material.albedo_color = Color(0.82, 0.13, 0.09, alpha)
+	return material
+
+
+static func set_preview_valid(preview: Node3D, valid: bool) -> void:
+	if not is_instance_valid(preview):
+		return
+	if preview.has_meta("placement_valid") and bool(preview.get_meta("placement_valid")) == valid:
+		return
+	preview.set_meta("placement_valid", valid)
+	var tint := Color(0.25, 0.88, 0.37) if valid else Color(0.94, 0.19, 0.14)
+	for key: String in ["fill_material", "outline_material"]:
+		var material := preview.get_meta(key, null) as StandardMaterial3D
+		if material != null:
+			tint.a = material.albedo_color.a
+			material.albedo_color = tint
 
 
 static func _fractured_stone(source: SphereMesh, index: int) -> ArrayMesh:

@@ -211,3 +211,11 @@ For a motion reel, run `creep_motion_reel` first, then use `CREEP_QA_SEQUENCE=1`
 `creep_ragdoll`, `creep_ragdoll_trial`, `creep_enemy` 자동 검사 후 `CREEP_RAGDOLL_QA_ITERATION=<새 이름> GODOT_PREVIEW_TIMEOUT_SECONDS=600 ./tests/run_embedded_preview.sh creep_ragdoll_preview.gd`를 사용한다. 실행기가 `--fixed-fps 30`을 지정하고 실제 60 Hz 물리를 프레임마다 2회 진행한다. 실제 `receive_hit()`로 사망시켜 반응·낙하·벽/바닥 접촉·안정화 과정을 1280×720 연속 프레임으로 기록한다. 스튜디오 시험 장면이며 본편 수동 조작 영상으로 표현하지 않는다. 포즈를 수동 샘플하거나 생성 이미지로 대체하지 않는다. 원정·커서·원본 해시를 보존하고 출력은 `artifacts/visual_qa/creep_ragdoll/<이름>/`에 저장한다. 성공 표식은 `CREEP RAGDOLL PREVIEW PASS:`다.
 
 After the relevant headless checks, the audited embedded runner captures continuous production death at 60 Hz physics and fixed 30 fps. Each saved frame spans exactly two physics ticks. The isolated studio uses real fatal hits, floor/wall collision and settling, preserves session/cursor/source hashes, and produces actual GPU frames rather than sampled death-animation poses.
+
+## 야영 배치와 텐트 요리 / Camp placement and tent cooking
+
+`camp_placement`, `camp_placement_room`, `camp_placement_preview` 및 관련 야영·요리 헤드리스 검사 후 `CAMP_PLACEMENT_QA_ITERATION=<새 이름> ./tests/run_embedded_preview.sh camp_placement_preview.gd`를 실행합니다. 실제 게임의 조준 검사·설치·텐트 상호작용·조리 상태를 사용해 1280×720 초록/빨강 미리보기·설치된 텐트·진행 중인 요리와 960×540 요리 메뉴 등 5장을 저장합니다. 출력은 `artifacts/visual_qa/camp_placement/<이름>/`, 완료 표식은 `CAMP PLACEMENT PREVIEW PASS:`입니다.
+
+게임 진입과 네이티브 커서·포커스 경계만 대체하고 본편 캠프 신호·코드를 사용합니다. SubViewport의 외부 입력·자동 처리·오디오를 차단하고 실제 물리 접지, 원정·가방·샌드박스·커서 보존 및 각 촬영 전후 소스 해시를 검사합니다. OS 입력을 주입하거나 인터랙티브 옵션을 쓰지 않으며, 수동 하드웨어 조작 검증으로 보고하지 않습니다.
+
+After the related headless checks, the audited embedded runner captures five production states: green/red placement, deployed tent, active cooking at 1280×720, and recipes at 960×540. Only native entry/focus/cursor boundaries are replaced. Actual floor contact, camp signals, resource transactions, source hashes and expedition/inventory/sandbox/cursor preservation are verified. No desktop input is injected; these captures do not establish manual hardware-input coverage.

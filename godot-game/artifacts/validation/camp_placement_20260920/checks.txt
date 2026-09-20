@@ -1,0 +1,50 @@
+Final passing runs, selected by test name from sequential validation logs.
+
+[HEADLESS] camp_placement_test.gd
+CAMP PLACEMENT TEST PASS: live preview, no-spend cancellation, commit revalidation, water/obstacles, one kit, tent access and persistent seated camp
+
+[HEADLESS] camp_placement_room_test.gd
+CAMP PLACEMENT ROOM PASS: actual inventory action, physics red/green preview, confirm/F cancellation, tent interaction, seated cooking, stand-up, F2 and sandbox restore
+
+[HEADLESS] camp_system_test.gd
+CAMP SYSTEM TEST PASS: real grounded player and camp model, three actual rewards, atomic resources/warmth, one kit per camp, time-scaled survival, pause/one-shot completion, placement/combat/enemy gates and interruption without refunds
+
+[HEADLESS] camp_flow_test.gd
+CAMP FLOW TEST PASS: removed C shortcut, real placement/tent and action UI, paused plan/live rest, player locks, atomic costs, one survival clock, rewards, inventory/pause/focus/damage/approach cleanup
+
+[HEADLESS] cooking_system_test.gd
+COOKING CHECK: real recipe transactions and recovery at 4771 ms
+COOKING CHECK: reentrancy, stale actions and interruptions at 41996 ms
+COOKING CHECK: real scene controls and seeded supply site at 59247 ms
+COOKING SYSTEM PASS: three catalog recipes, actual ingredient transactions/eating/recovery, caps, no stored output, one kit/warmth, atomic failures, reentrancy, rebind, pause/interruptions, Esc/F2, scene cleanup and supply availability
+
+[HEADLESS] camp_hud_test.gd
+CAMP HUD TEST PASS: data-driven actions, costs, resources, progress, risk/refund warnings, pure UI signals, small-viewport scroll and weapon control legends
+
+[HEADLESS] cooking_hud_test.gd
+COOKING HUD TEST PASS: rest/cooking categories, exact ingredients/recovery/duration, recipe-only signals, real progress/interrupt messages, responsive layout, deterministic pot/spit/steam and cleanup
+
+[HEADLESS] stress_system_test.gd
+STRESS SYSTEM TEST PASS: bounded persistent stress, exact gain/expiry/need thresholds, actual dungeon damage and pause gates, safe-zone recovery and three finite camp relief actions without partial or repeated rewards
+
+[HEADLESS] test_room_test.gd
+TEST ROOM PASS: catalog, actors, chest hands/equipment/repeat/cancellation, stress accumulation/recovery/perception/isolation, pause, camping, flail, archery, fixtures, results, reset, scene roundtrip and original session restoration
+WARNING: 1 ObjectDB instance was leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2535)
+
+[HEADLESS] inventory_model_test.gd
+INVENTORY MODEL TEST PASS: visual metadata, texture assets, stacking, equipment, archery, chain flail, capacity, transfer, and value
+
+[HEADLESS] item_details_test.gd
+ITEM DETAILS TEST PASS: actual inspection, exact-stack tags/equip/discard, ownership, typed quantity and modal cancellation
+
+[HEADLESS] item_detail_input_test.gd
+ITEM DETAIL INPUT TEST PASS: actual viewport mouse routing, Korean typing, save/Enter/Esc, equip/discard, 1280 and 960 layouts, background isolation
+
+[HEADLESS] test_room_session_test.gd
+TEST ROOM SESSION TEST PASS: inventory identity, stress accumulation/recovery isolation, camping supplies, bow and arrows, chain flail, wallet, deep stock copies, needs, ailments, magic, and unstarted-session restoration
+
+[HEADLESS] camp_placement_preview_test.gd
+CAMP PLACEMENT PREVIEW TEST PASS: actual floor contact, red/green placement, deployed tent, seated cooking and responsive menus
+
+14 distinct suites passed.

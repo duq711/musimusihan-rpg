@@ -25,7 +25,7 @@ func _snapshot() -> Dictionary:
 	return {
 		"state": "planning", "health": 51.0, "max_health": 100.0,
 		"stamina": 27.0, "max_stamina": 100.0, "hunger": 62.0, "thirst": 44.0,
-		"conditions": "출혈", "warmth": 3, "kit_spent": false, "progress": 0.0,
+		"conditions": "출혈", "warmth": 3, "kit_spent": true, "progress": 0.0,
 		"inventory_counts": {"camp_kit": 1, "pilgrim_ration": 2, "boiled_rainwater": 1, "linen_bandage": 0},
 		"status": "보급과 주변을 확인하세요.",
 		"actions": [
@@ -47,12 +47,12 @@ func _test_snapshot_and_signals() -> void:
 	overlay.show_camp()
 	await process_frame
 	_check(overlay.stats_label.text.contains("51/100") and overlay.stats_label.text.contains("27/100") and overlay.stats_label.text.contains("출혈"), "camp must display actual player status")
-	_check(overlay.resources_label.text.contains("온기 3") and overlay.resources_label.text.contains("야영 도구 1") and overlay.resources_label.text.contains("첫 휴식"), "resources must show actual quantities and deferred kit consumption")
+	_check(overlay.resources_label.text.contains("온기 3") and overlay.resources_label.text.contains("야영 도구 1") and overlay.resources_label.text.contains("사용 완료"), "resources must show actual quantities and the already-paid installation")
 	_check(overlay.action_buttons.size() == 3 and overlay.action_buttons.treat.disabled, "camp must build all provided actions and respect availability")
 	_check(overlay.action_costs.meal.text.contains("식량 1 · 물 1 · 온기 1") and overlay.action_costs.meal.text.contains("6.0초"), "action card must show supplied costs and durations without guessing")
 	_check(overlay.action_reasons.treat.text == "붕대가 부족합니다.", "disabled action must show the actual reason")
 	_check(overlay.risk_label.text.contains("시간이 멈춥니다"), "planning UI must distinguish paused preparation")
-	_check(overlay.leave_button.text == "야영 정리 · C / Esc", "planning leave button must expose both keyboard exit shortcuts")
+	_check(overlay.leave_button.text == "일어서기 · Esc", "planning leave button must explain standing up without removing the camp")
 	var requested: Array[String] = []
 	var left: Array[bool] = []
 	overlay.action_requested.connect(func(id: String) -> void: requested.append(id))
@@ -136,7 +136,7 @@ func _test_control_legends() -> void:
 		hud.update_magic([], "", weapon == "staff")
 		hud.update_archery(weapon == "bow", 12, 0.0, false, 0.0, 12.0)
 		hud.update_flail(weapon == "flail", "ready", 0.0, 0.0)
-		_check(hud.control_legend_label.text.contains("C 야영"), "every weapon legend must explain camp input")
+		_check(not hud.control_legend_label.text.contains("C 야영"), "weapon legends must not advertise the removed direct C installation")
 		_check(hud.control_legend_label.get_minimum_size().x <= 577.0, "camp shortcut must fit the existing weapon legend width: " + weapon)
 	hud.free()
 

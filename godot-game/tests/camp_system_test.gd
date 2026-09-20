@@ -1,5 +1,7 @@
 extends SceneTree
 
+const CAMP_TEST := preload("res://tests/camp_test_helpers.gd")
+
 const CAMP := preload("res://scripts/camp_controller.gd")
 
 var failures: Array[String] = []
@@ -118,14 +120,14 @@ func _test_planning_and_actual_actions() -> void:
 		if id == "treat":
 			ExpeditionSession.apply_condition("bleeding", 180.0, "left_arm")
 		var before := inventory.slots.duplicate(true)
-		_check(bool(camp.open_camp().accepted) and camp.is_open() and camp.state == "planning" and paused, "opening must enter the real paused planning state")
-		_check(inventory.slots == before and camp.warmth == 3 and not camp.kit_spent, "planning alone must consume neither kit nor warmth")
-		_check(is_instance_valid(camp.camp_visual) and camp.camp_visual.get_node_or_null("Flame") != null and camp.camp_visual.get_node_or_null("Bedroll") != null and camp.camp_visual.get_node_or_null("FireRingStone0") != null, "planning must show an actual campfire, bedroll and stone-ring model")
+		_check(bool(CAMP_TEST.deploy_and_open(camp).accepted) and camp.is_open() and camp.state == "planning" and paused, "opening must enter the real paused planning state")
+		_check(inventory.count_item("camp_kit") == 1 and inventory.slots != before and camp.warmth == 3 and camp.kit_spent, "confirmed installation must spend one kit before tent planning without spending warmth")
+		_check(is_instance_valid(camp.camp_visual) and camp.camp_visual.get_node_or_null("Flame") != null and camp.camp_visual.get_node_or_null("Bedroll") != null and camp.camp_visual.get_node_or_null("FireRingStone0") != null, "planning must retain the deployed campfire, bedroll and stone-ring model")
 		_check(is_instance_valid(camp.overlay) and camp.get_snapshot().actions.size() == CAMP.ordered_action_ids().size(), "controller must expose the three existing activities plus every catalog cooking recipe")
 		var completions: Array[Dictionary] = []
 		camp.rest_finished.connect(func(result: Dictionary) -> void: completions.append(result))
 		var started := camp.start_action(id)
-		_check(bool(started.accepted) and camp.state == "resting" and not paused and inventory.count_item("camp_kit") == 1 and camp.kit_spent, "starting the first action must consume exactly one kit and resume the live world")
+		_check(bool(started.accepted) and camp.state == "resting" and not paused and inventory.count_item("camp_kit") == 1 and camp.kit_spent, "starting the first action must reuse the installed kit and resume the live world")
 		_check(camp.warmth == 3 - int(CAMP.ACTIONS[id].warmth), "action warmth must be committed at start")
 		if id == "meal":
 			_check(inventory.count_item("pilgrim_ration") == 1 and inventory.count_item("boiled_rainwater") == 1, "meal must consume exactly one ration and water together at start")
@@ -157,7 +159,7 @@ func _test_planning_and_actual_actions() -> void:
 
 
 func _test_atomic_resources_and_no_effect() -> void:
-	for failure: String in ["no_kit", "meal_supply", "bandage", "no_effect", "blacked_only", "invalid_action", "late_transaction"]:
+	for failure: String in ["meal_supply", "bandage", "no_effect", "blacked_only", "invalid_action", "late_transaction"]:
 		var model: ExpeditionInventory = RejectingSupplies.new() if failure == "late_transaction" else null
 		var fixture := await _fixture(model)
 		var camp: DungeonCamp = fixture.camp
@@ -166,7 +168,7 @@ func _test_atomic_resources_and_no_effect() -> void:
 		if failure == "blacked_only":
 			player.reset_body_health()
 			player.apply_body_damage("left_arm", 60.0)
-		_check(bool(camp.open_camp().accepted), "resource failure fixture must open planning")
+		_check(bool(CAMP_TEST.deploy_and_open(camp).accepted), "resource failure fixture must open planning")
 		var action := "meal"
 		match failure:
 			"no_kit": inventory.remove_item("camp_kit", 2)
@@ -185,24 +187,24 @@ func _test_atomic_resources_and_no_effect() -> void:
 		var changed: Array[bool] = []
 		inventory.changed.connect(func() -> void: changed.append(true))
 		var result := camp.start_action(action)
-		_check(not bool(result.accepted) and camp.state == "planning" and camp.warmth == 3 and not camp.kit_spent, "invalid or unaffordable action must not commit state or warmth: " + failure)
+		_check(not bool(result.accepted) and camp.state == "planning" and camp.warmth == 3 and camp.kit_spent, "invalid or unaffordable action must not commit state or warmth: " + failure)
 		_check(inventory.slots == slots_before and changed.is_empty(), "all resource removal, including a late rejected transaction, must be atomic and silent: " + failure)
 		camp.cancel_camp()
-		_check(inventory.slots == slots_before, "leaving planning must remain free of item consumption")
+		_check(inventory.slots == slots_before, "cleaning a paid camp must not consume or refund more items")
 		_cleanup(fixture)
 
 
 func _test_warmth_and_one_kit() -> void:
 	var fixture := await _fixture()
 	var camp: DungeonCamp = fixture.camp
-	_check(bool(camp.open_camp().accepted), "warmth test must open planning")
+	_check(bool(CAMP_TEST.deploy_and_open(camp).accepted), "warmth test must open planning")
 	for _action in range(3):
 		_check(bool(camp.start_action("rest").accepted), "remaining warmth must allow another useful rest")
 		camp.advance_rest(8.0)
 		_check(fixture.inventory.count_item("camp_kit") == 1, "later actions in the same camp must never consume another kit")
 	var before: Array = fixture.inventory.slots.duplicate(true)
 	_check(camp.warmth == 0 and str(camp.start_action("rest").reason) == "no_warmth" and fixture.inventory.slots == before, "spent warmth must block further rest without further resource use")
-	_check(camp.is_open() and is_instance_valid(camp.camp_visual), "an exhausted camp must retain its result and props until the user leaves")
+	_check(camp.is_open() and is_instance_valid(camp.camp_visual), "an exhausted camp must retain its result and props until explicitly dismantled")
 	_cleanup(fixture)
 
 
@@ -222,18 +224,18 @@ func _test_rebind_reentrancy_and_condition_only_rest() -> void:
 			refresh_connections += 1
 	_check(refresh_connections == 1, "repeated setup must not duplicate inventory-to-overlay notifications")
 	var original_slots := old_inventory.slots.duplicate(true)
-	camp.open_camp()
+	CAMP_TEST.deploy_and_open(camp)
 	_check(bool(camp.start_action("rest").accepted) and old_inventory.slots == original_slots and next_inventory.count_item("camp_kit") == 0, "rest after a rebind must consume only the new session's kit")
 	_cleanup(fixture)
 	fixture = await _fixture()
 	camp = fixture.camp
-	camp.open_camp()
+	CAMP_TEST.deploy_and_open(camp)
 	var starts: Array[bool] = []
 	camp.rest_started.connect(func() -> void: starts.append(true))
 	fixture.inventory.changed.connect(func() -> void: camp.cancel_camp("inventory observer interruption"))
-	var started := camp.start_action("rest")
+	var started := camp.start_action("meal")
 	_check(bool(started.get("interrupted", false)) and starts.is_empty() and not camp.is_open(), "a synchronous inventory observer that cancels after commit must prevent a misleading rest-started signal")
-	_check(fixture.inventory.count_item("camp_kit") == 1 and camp.warmth == 2 and is_equal_approx(fixture.player.health, 30.0), "observer interruption must retain committed cost without granting any rewards")
+	_check(fixture.inventory.count_item("camp_kit") == 1 and camp.warmth == 1 and is_equal_approx(fixture.player.health, 30.0), "observer interruption must retain committed cost without granting any rewards")
 	_cleanup(fixture)
 	for id: String in ["rest", "meal"]:
 		fixture = await _fixture()
@@ -243,14 +245,14 @@ func _test_rebind_reentrancy_and_condition_only_rest() -> void:
 		ExpeditionSession.hunger = 100.0
 		ExpeditionSession.thirst = 100.0
 		ExpeditionSession.apply_condition("curse", 50.0)
-		camp.open_camp()
+		CAMP_TEST.deploy_and_open(camp)
 		_check(bool(camp.start_action(id).accepted), "rest must remain useful at full stats when a timed condition can expire: " + id)
 		camp.advance_rest(camp.rest_duration)
 		_check(not ExpeditionSession.has_condition("curse") and str(camp.get_snapshot().conditions) == "안정", "condition-only rest must advance actual condition timers and display the stable state afterward")
 		_cleanup(fixture)
 	fixture = await _fixture()
 	camp = fixture.camp
-	camp.open_camp()
+	CAMP_TEST.deploy_and_open(camp)
 	fixture.player.position.x += 1.0
 	var before: Array = fixture.inventory.slots.duplicate(true)
 	_check(str(camp.start_action("rest").reason) == "moving" and fixture.inventory.slots == before and camp.warmth == 3, "action start must revalidate that the player has not moved away during planning")
@@ -262,7 +264,7 @@ func _test_time_scale_and_pause() -> void:
 		var fixture := await _fixture()
 		var camp: DungeonCamp = fixture.camp
 		ExpeditionSession.apply_condition("curse", 20.0)
-		camp.open_camp()
+		CAMP_TEST.deploy_and_open(camp)
 		camp.start_action("rest")
 		for _frame in range(4 * fps):
 			camp.advance_rest(1.0 / fps)
@@ -307,8 +309,8 @@ func _test_open_guards_and_placement() -> void:
 				await physics_frame
 				await process_frame
 		var before: Array = fixture.inventory.slots.duplicate(true)
-		var result: Dictionary = fixture.camp.open_camp()
-		_check(not bool(result.accepted) and fixture.camp.state == "closed" and fixture.camp.camp_visual == null and fixture.inventory.slots == before, "unsafe opening must fail without a camp model or resource cost: " + gate)
+		var result: Dictionary = CAMP_TEST.deploy_and_open(fixture.camp)
+		_check(not bool(result.accepted) and fixture.camp.state in ["closed", "placing"] and fixture.camp.camp_visual == null and fixture.inventory.slots == before, "unsafe opening must fail without a camp model or resource cost: " + gate)
 		if gate == "trap":
 			player.current_trap.free()
 			player.current_trap = null
@@ -319,15 +321,15 @@ func _test_enemy_approach_and_interruption() -> void:
 	var fixture := await _fixture()
 	var enemy := _enemy(fixture, Vector3(-7.0, 0.9, 0.0))
 	fixture.world.add_child(_body(Vector3(-3.0, 1.0, 0), Vector3(0.2, 2, 5)))
-	_check(str(fixture.camp.open_camp().reason) == "enemy_nearby", "an actual living enemy inside 8m must block camping even behind a wall")
+	_check(str(CAMP_TEST.deploy_and_open(fixture.camp).reason) == "enemy_nearby", "an actual living enemy inside 8m must block camping even behind a wall")
 	enemy.health = 0.0
 	enemy.ai_state = DungeonEnemy.AIState.DEAD
-	_check(bool(fixture.camp.open_camp().accepted), "a dead enemy must not block camping")
+	_check(bool(CAMP_TEST.deploy_and_open(fixture.camp).accepted), "a dead enemy must not block camping")
 	fixture.camp.cancel_camp()
 	enemy.health = 80.0
 	enemy.ai_state = DungeonEnemy.AIState.IDLE
 	enemy.position = Vector3(-10, 0.9, 0)
-	fixture.camp.open_camp()
+	CAMP_TEST.deploy_and_open(fixture.camp)
 	fixture.camp.start_action("meal")
 	fixture.camp.advance_rest(2.0)
 	var needs_before := ExpeditionSession.get_survival_snapshot()
@@ -338,7 +340,7 @@ func _test_enemy_approach_and_interruption() -> void:
 	_cleanup(fixture)
 	for interruption: String in ["damage", "death", "movement"]:
 		fixture = await _fixture()
-		fixture.camp.open_camp()
+		CAMP_TEST.deploy_and_open(fixture.camp)
 		fixture.camp.start_action("treat")
 		fixture.camp.advance_rest(1.0)
 		match interruption:
@@ -360,12 +362,12 @@ func _test_actual_trap_placement_guard() -> void:
 		trap.set_process(false)
 		trap.state = trap_state
 		var slots_before: Array = fixture.inventory.slots.duplicate(true)
-		var result: Dictionary = fixture.camp.open_camp()
+		var result: Dictionary = CAMP_TEST.deploy_and_open(fixture.camp)
 		if trap_state in [RuneTrap.TrapState.ARMED, RuneTrap.TrapState.INSPECTING, RuneTrap.TrapState.DISARMING]:
 			_check(not bool(result.accepted) and str(result.reason) == "unsafe_ground" and fixture.camp.camp_visual == null, "actual active/inspecting/disarming rune plates must block camp placement despite using Area3D collisions")
 		else:
 			_check(bool(result.accepted), "disarmed or already-triggered rune plates must not permanently block a safe camp")
-		_check(fixture.inventory.slots == slots_before, "trap placement checks must not consume the kit or other supplies")
+		_check((fixture.inventory.slots == slots_before if not bool(result.accepted) else fixture.inventory.count_item("camp_kit") == 1), "rejected trap placement must be free; confirmed safe placement must consume one kit")
 		_cleanup(fixture)
 	var fixture := await _fixture()
 	var trap := RuneTrap.new()
@@ -374,9 +376,9 @@ func _test_actual_trap_placement_guard() -> void:
 	fixture.world.add_child(trap)
 	trap.set_process(false)
 	trap.state = RuneTrap.TrapState.DISARMED
-	_check(bool(fixture.camp.open_camp().accepted), "a cleared trap must initially allow planning")
+	_check(bool(CAMP_TEST.deploy_and_open(fixture.camp).accepted), "a cleared trap must initially allow planning")
 	trap.state = RuneTrap.TrapState.ARMED
-	_check(str(fixture.camp.start_action("rest").reason) == "unsafe_ground" and fixture.inventory.count_item("camp_kit") == 2, "action start must recheck newly armed nearby traps before any resource commitment")
+	_check(str(fixture.camp.start_action("rest").reason) == "unsafe_ground" and fixture.inventory.count_item("camp_kit") == 1, "action start must recheck newly armed nearby traps without consuming more than the installed kit")
 	trap.state = RuneTrap.TrapState.DISARMED
 	fixture.camp.start_action("rest")
 	fixture.camp.advance_rest(1.0)

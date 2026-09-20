@@ -1,5 +1,7 @@
 extends SceneTree
 
+const CAMP_TEST := preload("res://tests/camp_test_helpers.gd")
+
 var room: Node3D
 var failures: Array[String] = []
 
@@ -33,8 +35,8 @@ func _run() -> void:
 	await process_frame
 	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path("res://artifacts/visual_qa"))
 	await _capture("cooking_test_fixture.png")
-	await _key(KEY_C)
-	_check(room.camp.is_open() and paused and room.player.camping, "native C must open the actual paused camp")
+	CAMP_TEST.deploy_and_open(room.camp)
+	_check(room.camp.is_open() and paused and room.player.camping, "real placement and tent interaction must open the actual paused camp")
 	if not room.camp.is_open():
 		await _finish()
 		return
@@ -65,11 +67,11 @@ func _run() -> void:
 	_check(tools_root.get_node("SoupPot").is_visible_in_tree() and not tools_root.get_node("RoastingSpit").is_visible_in_tree(), "soup must use an actual pot instead of the meat spit")
 	_check_visual_in_view(tools_root.get_node("SoupPot/CookingPot"))
 	room.camp.advance_rest(5.0)
-	_check(room.camp.warmth == 1 and room.inventory.count_item("edible_mushroom") == 2 and room.inventory.count_item("boiled_rainwater") == 2 and room.inventory.count_item("camp_kit") == initial_kit - 1, "soup must spend two mushrooms and one water, without buying another camp kit")
+	_check(room.camp.warmth == 1 and room.inventory.count_item("edible_mushroom") == 2 and room.inventory.count_item("boiled_rainwater") == 2 and room.inventory.count_item("camp_kit") == initial_kit, "soup must spend two mushrooms and one water, without buying another camp kit")
 	_check(overlay.action_buttons["cook:trail_stew"].disabled, "insufficient warmth must visibly disable the costly stew")
 	await _capture("cooking_remaining_warmth.png")
-	await _key(KEY_C)
-	await _key(KEY_C)
+	room.cancel_camp("새 야영지 설치")
+	CAMP_TEST.deploy_and_open(room.camp)
 	await _click(overlay.category_buttons.cooking.get_global_rect().get_center())
 	await _click_action("cook:trail_stew")
 	room.camp.advance_rest(7.0)
@@ -88,13 +90,13 @@ func _run() -> void:
 	await _capture("cooking_small_viewport.png")
 	_check(root.get_visible_rect().encloses(overlay.leave_button.get_global_rect()), "small-screen leave control must stay reachable")
 	_check(overlay.action_buttons["cook:mushroom_soup"].disabled, "missing mushrooms must prevent another recipe")
-	await _key(KEY_C)
-	_check(not room.camp.is_open() and room.camp.camp_visual == null and room.player.weapon_pivot.visible, "native C must clean all cooking props and restore equipment")
+	await _key(KEY_ESCAPE)
+	_check(not room.camp.is_open() and room.camp.state == "deployed" and room.player.weapon_pivot.visible, "Escape must stand up and preserve the installed camp")
 	root.content_scale_size = Vector2i(1280, 720)
 	root.size = Vector2i(1280, 720)
 	await process_frame
 	room.run_feature("cooking")
-	await _key(KEY_C)
+	CAMP_TEST.deploy_and_open(room.camp)
 	await _click(overlay.category_buttons.cooking.get_global_rect().get_center())
 	await _click_action("cook:roast_meat")
 	room.camp.advance_rest(2.0)
@@ -109,7 +111,7 @@ func _run() -> void:
 	root.grab_focus()
 	await process_frame
 	await process_frame
-	await _key(KEY_C)
+	CAMP_TEST.deploy_and_open(room.camp)
 	_check(room.camp.is_open() and paused, "repeat fixture must reopen actual camp before real-time verification")
 	await _click(overlay.category_buttons.cooking.get_global_rect().get_center())
 	room.camp.set_process(true)
@@ -200,7 +202,7 @@ func _finish() -> void:
 	paused = false
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	if failures.is_empty():
-		print("COOKING PREVIEW PASS: actual C, recipe tab/clicks, rendered roasting and boiling, three meals, finite resources, small viewport, F2 cancellation and frame-driven cooking")
+		print("COOKING PREVIEW PASS: actual placement/tent entry, recipe tab/clicks, rendered roasting and boiling, three meals, finite resources, small viewport, F2 cancellation and frame-driven cooking")
 		quit(0)
 	else:
 		for failure in failures:

@@ -413,7 +413,7 @@ const ITEM_DEFINITIONS := {
 		"name": "손질한 생고기", "glyph": "◖", "category": "supply",
 		"icon_path": "res://assets/ui/raw_meat.svg", "ui_span": Vector2i(1, 1),
 		"weight": 0.45, "value": 10, "stack_max": 6, "rarity": "common",
-		"summary": "야영 요리 재료 · 구이 / 스튜", "description": "원정용으로 손질해 싸 둔 생고기입니다. 안전한 곳에서 C로 야영한 뒤 요리 탭에서 고기구이나 스튜로 조리해 먹습니다. 생으로 먹거나 가방에서 바로 사용하는 물품은 아닙니다."
+		"summary": "야영 요리 재료 · 구이 / 스튜", "description": "원정용으로 손질해 싸 둔 생고기입니다. 야영 도구를 설치한 뒤 텐트에 E로 상호작용하고 요리 탭에서 고기구이나 스튜로 조리해 먹습니다. 생으로 먹거나 가방에서 바로 사용하는 물품은 아닙니다."
 	},
 	"edible_mushroom": {
 		"name": "식용 버섯", "glyph": "♧", "category": "supply",
@@ -425,7 +425,7 @@ const ITEM_DEFINITIONS := {
 		"name": "휴대 야영 도구", "glyph": "♨", "category": "supply",
 		"icon_path": "res://assets/ui/camp_kit.svg", "ui_span": Vector2i(1, 2),
 		"weight": 0.5, "value": 18, "stack_max": 3, "rarity": "common",
-		"summary": "C · 야영 준비 · 모닥불 온기 3", "description": "부싯돌과 마른 불쏘시개, 접은 방수포를 묶은 야영 도구입니다. 던전에서 C로 야영을 준비하고 첫 휴식 때 1개를 소비해 모닥불 온기 3을 마련합니다. 인벤토리에서 직접 사용하는 물품은 아닙니다. 실제 휴식 중에는 던전의 시간이 흐르며 적 접근이나 피격으로 즉시 중단됩니다. 이미 소비한 물품은 반환되지 않습니다."
+		"summary": "설치 · 텐트와 모닥불 · 온기 3", "description": "가방에서 설치를 선택하고 바닥을 조준하세요. 초록색이면 LMB로 설치 확정: 야영 도구 1개를 소비해 온기 3의 텐트와 모닥불을 만듭니다. 빨간색 위치에는 설치할 수 없고 F로 취소하면 소비하지 않습니다. 텐트에 E로 상호작용하면 모닥불 앞에 앉아 쉬거나 음식을 조리합니다. 휴식·조리 중에는 적과 시간이 움직이며, 사용한 재료는 중단해도 반환되지 않습니다."
 	},
 	"black_salt": {
 		"name": "검은 소금", "glyph": "✦", "category": "treasure", "raid_loot": true,

@@ -1,5 +1,7 @@
 extends SceneTree
 
+const CAMP_TEST := preload("res://tests/camp_test_helpers.gd")
+
 const COOKING := preload("res://scripts/camp_cooking_catalog.gd")
 const EXPECTED := {
 	"roast_meat": {"resources": {"raw_meat": 1}, "duration": 8.0, "survival": 60.0, "warmth": 1, "health": 18.0, "stamina": 35.0, "hunger": 40.0, "thirst": 0.0, "stress": 12.0},
@@ -53,7 +55,7 @@ func _run() -> void:
 	paused = false
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	if failures.is_empty():
-		print("COOKING SYSTEM PASS: three catalog recipes, actual ingredient transactions/eating/recovery, caps, no stored output, one kit/warmth, atomic failures, reentrancy, rebind, pause/interruptions, C/F2, scene cleanup and supply availability")
+		print("COOKING SYSTEM PASS: three catalog recipes, actual ingredient transactions/eating/recovery, caps, no stored output, one kit/warmth, atomic failures, reentrancy, rebind, pause/interruptions, Esc/F2, scene cleanup and supply availability")
 		quit(0)
 		return
 	for failure in failures:
@@ -156,10 +158,10 @@ func _test_all_actual_recipes(capped: bool) -> void:
 		while bag.slots.size() < ExpeditionInventory.MAX_SLOTS:
 			bag.add_item("reliquary")
 		var before := _actual_values(player)
-		var before_slots := bag.slots.duplicate(true)
 		var before_equipment := bag.equipment.duplicate(true)
+		var kit_count := bag.count_item("camp_kit")
+		_check(bool(CAMP_TEST.deploy_and_open(camp).accepted) and paused and bag.count_item("camp_kit") == kit_count - 1, "confirmed installation must consume one kit before paused tent planning")
 		var counts := _item_counts(bag)
-		_check(bool(camp.open_camp().accepted) and paused and bag.slots == before_slots, "opening cooking plans must not consume or move items")
 		var actions: Array = camp.get_snapshot().actions
 		var visible_recipe_ids: Array[String] = []
 		for action: Dictionary in actions:
@@ -179,7 +181,6 @@ func _test_all_actual_recipes(capped: bool) -> void:
 		var started := camp.start_action(COOKING.action_id(id))
 		_check(bool(started.accepted) and camp.state == "resting" and not paused and player.camping, "cooking must run as a real live camp activity")
 		var costs: Dictionary = recipe.resources.duplicate(true)
-		costs.camp_kit = 1
 		_check(started.resources_spent == costs and camp.warmth == 3 - int(recipe.warmth), "cooking must commit exact authored ingredient quantities and warmth once")
 		_check_counts_after_costs(bag, counts, costs, id)
 		var snapshot := camp.get_snapshot()
@@ -212,11 +213,11 @@ func _test_all_actual_recipes(capped: bool) -> void:
 
 
 func _test_atomic_failures_and_unhelpful_cooking() -> void:
-	for missing: String in ["camp_kit", "raw_meat", "edible_mushroom", "boiled_rainwater", "soup_second_mushroom", "late_rejection", "warmth", "unknown", "no_effect"]:
+	for missing: String in [ "raw_meat", "edible_mushroom", "boiled_rainwater", "soup_second_mushroom", "late_rejection", "warmth", "unknown", "no_effect"]:
 		var fixture := await _fixture(RejectingIngredient.new() if missing == "late_rejection" else null)
 		var camp: DungeonCamp = fixture.camp
 		var bag: ExpeditionInventory = fixture.inventory
-		_check(bool(camp.open_camp().accepted), "invalid cooking fixture must still open the real planning screen")
+		_check(bool(CAMP_TEST.deploy_and_open(camp).accepted), "invalid cooking fixture must still open the real planning screen")
 		var action_id := "cook:trail_stew"
 		if missing in SUPPLIES:
 			_set_count(bag, missing, 0)
@@ -239,8 +240,8 @@ func _test_atomic_failures_and_unhelpful_cooking() -> void:
 		var notifications: Array[bool] = []
 		bag.changed.connect(func() -> void: notifications.append(true))
 		var result := camp.start_action(action_id)
-		_check(not bool(result.accepted) and camp.state == "planning" and camp.warmth == warmth and not camp.kit_spent, "invalid cooking must reject without committing state: " + missing)
-		_check(bag.slots == slots and notifications.is_empty() and _actual_values(fixture.player) == values, "missing or rejected ingredient must roll back all resources silently, including the kit: " + missing)
+		_check(not bool(result.accepted) and camp.state == "planning" and camp.warmth == warmth and camp.kit_spent, "invalid cooking must reject without committing state: " + missing)
+		_check(bag.slots == slots and notifications.is_empty() and _actual_values(fixture.player) == values, "missing or rejected ingredient must roll back all resources silently, without touching the already paid kit: " + missing)
 		_cleanup(fixture)
 	for benefit: String in ["stress", "hunger", "thirst", "condition", "roast_thirst_only"]:
 		var fixture := await _fixture()
@@ -251,7 +252,7 @@ func _test_atomic_failures_and_unhelpful_cooking() -> void:
 		ExpeditionSession.set_stress(10.0 if benefit == "stress" else 0.0)
 		if benefit == "condition":
 			ExpeditionSession.apply_condition("curse", 20.0)
-		fixture.camp.open_camp()
+		CAMP_TEST.deploy_and_open(fixture.camp)
 		var slots: Array = fixture.inventory.slots.duplicate(true)
 		var result: Dictionary = fixture.camp.start_action("cook:roast_meat" if benefit == "roast_thirst_only" else "cook:mushroom_soup")
 		if benefit in ["condition", "roast_thirst_only"]:
@@ -264,7 +265,7 @@ func _test_atomic_failures_and_unhelpful_cooking() -> void:
 func _test_warmth_and_one_kit() -> void:
 	var fixture := await _fixture()
 	var camp: DungeonCamp = fixture.camp
-	camp.open_camp()
+	CAMP_TEST.deploy_and_open(camp)
 	for id: String in ["roast_meat", "mushroom_soup"]:
 		_check(bool(camp.start_action(COOKING.action_id(id)).accepted), "remaining warmth must allow repeated distinct recipes")
 		camp.advance_rest(100.0)
@@ -278,7 +279,7 @@ func _test_reentrant_start_and_observer_cancel() -> void:
 	for interrupt in [false, true]:
 		var fixture := await _fixture()
 		var camp: DungeonCamp = fixture.camp
-		camp.open_camp()
+		CAMP_TEST.deploy_and_open(camp)
 		var nested: Array[Dictionary] = []
 		var starts: Array[bool] = []
 		camp.rest_started.connect(func() -> void: starts.append(true))
@@ -300,7 +301,7 @@ func _test_rebind_and_stale_actions() -> void:
 	var fixture := await _fixture()
 	var camp: DungeonCamp = fixture.camp
 	var old_inventory: ExpeditionInventory = fixture.inventory
-	camp.open_camp()
+	CAMP_TEST.deploy_and_open(camp)
 	camp.start_action("cook:roast_meat")
 	camp.advance_rest(2.0)
 	var old_slots := old_inventory.slots.duplicate(true)
@@ -319,7 +320,7 @@ func _test_rebind_and_stale_actions() -> void:
 	camp.advance_rest(100.0)
 	_check(_actual_values(fixture.player) == values and old_inventory.slots == old_slots, "a stale cooking completion must not affect either old or rebound inventory")
 	paused = false
-	camp.open_camp()
+	CAMP_TEST.deploy_and_open(camp)
 	_check(bool(camp.start_action("cook:roast_meat").accepted) and fresh.count_item("raw_meat") == 0 and fresh.count_item("camp_kit") == 0 and old_inventory.slots == old_slots, "cooking after rebind must consume only the fresh inventory ingredients and kit")
 	_cleanup(fixture)
 
@@ -328,7 +329,7 @@ func _test_pause_time_and_interruptions() -> void:
 	for cause: String in ["manual", "damage", "enemy", "movement", "safe_zone", "scene_exit"]:
 		var fixture := await _fixture()
 		var camp: DungeonCamp = fixture.camp
-		camp.open_camp()
+		CAMP_TEST.deploy_and_open(camp)
 		camp.start_action("cook:trail_stew")
 		camp.advance_rest(3.5)
 		var values := _actual_values(fixture.player)
@@ -403,11 +404,11 @@ func _test_real_scene_controls_and_supplies() -> void:
 		if room.player.is_on_floor():
 			break
 	room.player.set_physics_process(false)
-	for key: Key in [KEY_C, KEY_F2]:
+	for key: Key in [KEY_ESCAPE, KEY_F2]:
 		if room.panel_open:
 			room._hide_test_panel()
-		_key(room, KEY_C)
-		_check(room.camp.is_open() and paused, "real C input must open cooking plans on a valid test-room floor")
+		room.cancel_camp("", true)
+		_check(bool(CAMP_TEST.deploy_and_open(room.camp).accepted) and room.camp.is_open() and paused, "real placement and tent entry must open cooking plans on the test-room floor")
 		room.camp.overlay.category_buttons["cooking"].pressed.emit()
 		_check(room.camp.overlay.selected_category == "cooking" and room.camp.overlay.action_cards["cook:roast_meat"].visible, "actual cooking tab must expose the real recipe button")
 		room.camp.overlay.action_buttons["cook:roast_meat"].pressed.emit()
@@ -416,7 +417,7 @@ func _test_real_scene_controls_and_supplies() -> void:
 		var paid_slots: Array = room.inventory.slots.duplicate(true)
 		var before := _actual_values(room.player)
 		_key(room, key)
-		_check(not room.camp.is_open() and not room.player.camping and room.inventory.slots == paid_slots, "actual C/F2 controls must cancel cooking without refunding ingredients")
+		_check(not room.camp.is_open() and not room.player.camping and room.inventory.slots == paid_slots, "actual Esc/F2 controls must cancel cooking without refunding ingredients")
 		room.camp.advance_rest(100.0)
 		_check(_actual_values(room.player) == before, "actual menu/camp cancellation must suppress every delayed cooking reward")
 	sandbox.finish()

@@ -156,7 +156,7 @@ func _draw() -> void:
   draw_rect(Rect2(pos,Vector2(28,28)),Color(0.018,0.016,0.012,0.9))
   draw_rect(Rect2(pos,Vector2(28,28)),GOLD,false)
   _warning_icon(warnings[i],pos+Vector2(14,14))
- var hints := [["B / I","소지품"],["L / F","횃불"],["C","야영"],["Esc","일시정지"]]
+ var hints := [["B / I","소지품"],["L / F","횃불"],["Esc","일시정지"]]
  for i in hints.size():
   var pos := Vector2(1142,544+i*36)
   draw_rect(Rect2(pos,Vector2(43,28)),Color(0.012,0.011,0.009,0.7))

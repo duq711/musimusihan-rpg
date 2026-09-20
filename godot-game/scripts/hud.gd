@@ -266,7 +266,7 @@ func _build_interface() -> void:
 	controls.offset_bottom = -24
 	controls.add_theme_stylebox_override("panel", _panel_style(Color(0.018, 0.022, 0.027, 0.83), Color(0.17, 0.22, 0.23, 0.7)))
 	root.add_child(controls)
-	control_legend_label = _label("WASD 이동   SHIFT 달리기   SPACE 도약   C 야영\nLMB 공격/차지   RMB 방패   E 상호작용   I 인벤토리", 13, Color(0.65, 0.69, 0.67))
+	control_legend_label = _label("WASD 이동   SHIFT 달리기   SPACE 도약\nLMB 공격/차지   RMB 방패   E 상호작용   I 인벤토리", 13, Color(0.65, 0.69, 0.67))
 	control_legend_label.position = Vector2(15, 10)
 	control_legend_label.size = Vector2(577, 48)
 	controls.add_child(control_legend_label)
@@ -672,9 +672,9 @@ func _set_label_color(label: Label, color: Color) -> void:
 func update_magic(learned_spell_ids: Array, selected_spell: String, staff_equipped: bool) -> void:
 	if is_instance_valid(control_legend_label):
 		control_legend_label.text = (
-			"WASD 이동   SHIFT 달리기   SPACE 도약   C 야영   1~%d 주문\nLMB 마법 시전   RMB 방패   E 상호작용   I 인벤토리" % SpellCatalog.SPELL_ORDER.size()
+			"WASD 이동   SHIFT 달리기   SPACE 도약   1~%d 주문\nLMB 마법 시전   RMB 방패   E 상호작용   I 인벤토리" % SpellCatalog.SPELL_ORDER.size()
 			if staff_equipped
-			else "WASD 이동   SHIFT 달리기   SPACE 도약   C 야영\nLMB 공격/차지   RMB 방패   E 상호작용   I 인벤토리"
+			else "WASD 이동   SHIFT 달리기   SPACE 도약\nLMB 공격/차지   RMB 방패   E 상호작용   I 인벤토리"
 		)
 	if not is_instance_valid(magic_panel):
 		return
@@ -724,7 +724,7 @@ func update_archery(equipped: bool, arrows: int, draw_ratio: float, drawing: boo
 		magic_panel.visible = false
 	if is_instance_valid(flail_panel):
 		flail_panel.visible = false
-	control_legend_label.text = "WASD 이동   SHIFT 달리기   SPACE 도약   C 야영\nLMB 활 당기기/발사   RMB 취소   E 상호작용   I 인벤토리"
+	control_legend_label.text = "WASD 이동   SHIFT 달리기   SPACE 도약\nLMB 활 당기기/발사   RMB 취소   E 상호작용   I 인벤토리"
 	arrow_count_label.text = "화살 %d발" % arrows
 	_set_label_color(arrow_count_label, Color(0.91, 0.77, 0.5) if arrows > 0 else Color(0.95, 0.36, 0.23))
 	var charge := clampf(draw_ratio, 0.0, 1.0)
@@ -774,7 +774,7 @@ func update_flail(equipped: bool, state: String, charge: float, cooldown: float)
 	_archery_drawing = false
 	_update_archery_reticle_geometry()
 	_refresh_archery_reticle_visibility()
-	control_legend_label.text = "WASD 이동   SHIFT 달리기   SPACE 도약   C 야영\nLMB 철퇴 휘두르기   RMB 회전/투척   E 상호작용   I 인벤토리"
+	control_legend_label.text = "WASD 이동   SHIFT 달리기   SPACE 도약\nLMB 철퇴 휘두르기   RMB 회전/투척   E 상호작용   I 인벤토리"
 	var power := clampf(charge, 0.0, 1.0)
 	flail_charge_bar.visible = state == "spinning"
 	flail_charge_bar.value = power * 100.0 if state == "spinning" else 0.0

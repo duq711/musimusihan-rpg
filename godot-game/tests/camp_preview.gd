@@ -1,5 +1,7 @@
 extends SceneTree
 
+const CAMP_TEST := preload("res://tests/camp_test_helpers.gd")
+
 var room: Node3D
 var failures: Array[String] = []
 
@@ -34,8 +36,8 @@ func _run() -> void:
 		return
 	room.set_process(false)
 	room.camp.set_process(false)
-	_key(KEY_C)
-	_check(room.camp.is_open() and paused and room.player.camping, "real C input must open the camp plan")
+	var installed := CAMP_TEST.deploy_and_open(room.camp)
+	_check(bool(installed.accepted) and room.camp.is_open() and paused and room.player.camping, "real placement and tent interaction must open the seated camp plan")
 	if not room.camp.is_open():
 		_fail_and_exit()
 		return
@@ -46,6 +48,7 @@ func _run() -> void:
 	var fire_point: Vector2 = room.player.camera.unproject_position(visual.global_position + Vector3(0, 0.35, 0))
 	_check(not panel.get_global_rect().has_point(fire_point) and root.get_visible_rect().has_point(fire_point), "real campfire must remain visible beside its menu")
 	var initial_kit: int = room.inventory.count_item("camp_kit")
+	var initial_health: float = room.player.health
 	room.camp.overlay.action_buttons["treat"].pressed.emit()
 	_check(room.camp.state == "resting" and not paused, "actual treatment button must start live rest")
 	room.camp.advance_rest(3.0)
@@ -54,19 +57,19 @@ func _run() -> void:
 	_check(room.camp.overlay.progress_bar.value > 0.4 and room.camp.overlay.action_buttons["meal"].disabled, "rendered progress and disabled actions must reflect active rest")
 	room.camp.advance_rest(3.0)
 	await _capture("camp_treated.png")
-	_check(paused and room.camp.state == "planning" and not ExpeditionSession.has_condition("bleeding") and is_equal_approx(room.player.health, 53.0), "completed treatment must heal the real player and clear bleeding")
+	_check(paused and room.camp.state == "planning" and not ExpeditionSession.has_condition("bleeding") and is_equal_approx(room.player.health, initial_health - 15.0 + 9.0), "completed treatment must heal the real player and clear bleeding")
 	room.camp.overlay.action_buttons["meal"].pressed.emit()
 	room.camp.advance_rest(7.0)
 	CampVisuals.animate(visual, 10.0, room.camp.warmth)
 	await _capture("camp_meal_rest.png")
 	room.camp.advance_rest(7.0)
 	await _capture("camp_recovered.png")
-	_check(paused and room.camp.warmth == 0 and is_equal_approx(room.player.health, 98.0) and is_equal_approx(room.player.stamina, 100.0), "meal must recover health and stamina and exhaust the remaining warmth")
-	_check(room.inventory.count_item("camp_kit") == initial_kit - 1 and room.inventory.count_item("pilgrim_ration") == 1 and room.inventory.count_item("boiled_rainwater") == 1 and room.inventory.count_item("linen_bandage") == 1, "two activities must spend one kit total and each selected supply once")
+	_check(paused and room.camp.warmth == 0 and is_equal_approx(room.player.health, initial_health - 15.0 + 9.0 + 22.5) and is_equal_approx(room.player.stamina, 100.0), "meal must recover health and stamina and exhaust the remaining warmth")
+	_check(room.inventory.count_item("camp_kit") == initial_kit and room.inventory.count_item("pilgrim_ration") == 1 and room.inventory.count_item("boiled_rainwater") == 1 and room.inventory.count_item("linen_bandage") == 1, "two activities must spend one kit total and each selected supply once")
 	_check(room.camp.overlay.action_buttons["rest"].disabled, "spent warmth must visibly prevent unlimited recovery")
 	room.camp.overlay.leave_button.pressed.emit()
 	await _capture("camp_return_to_dungeon.png")
-	_check(not paused and not room.player.camping and room.player.weapon_pivot.visible and room.camp.camp_visual == null, "leave button must remove camp and restore exploration")
+	_check(not paused and not room.player.camping and room.player.weapon_pivot.visible and room.camp.state == "deployed" and room.camp.camp_visual == visual, "leave button must preserve the camp and restore exploration")
 	room._show_test_panel()
 	room._select_category("생존")
 	await _capture("camp_test_menu.png")
@@ -93,7 +96,7 @@ func _check(condition: bool, message: String) -> void:
 
 func _fail_and_exit() -> void:
 	if failures.is_empty():
-		print("CAMP PREVIEW PASS: actual C and UI actions, rendered campfire, treatment, live rest progress, meal recovery, finite supplies/warmth and safe dungeon return")
+		print("CAMP PREVIEW PASS: actual placement, tent entry and UI actions, rendered campfire, treatment, live rest progress, meal recovery, finite supplies/warmth and safe dungeon return")
 		quit(0)
 	else:
 		for failure in failures:

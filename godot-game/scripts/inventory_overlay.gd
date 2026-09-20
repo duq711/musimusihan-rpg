@@ -3,6 +3,7 @@ class_name InventoryOverlay
 
 signal closed
 signal consumable_requested(item_id: String)
+signal camp_placement_requested
 signal treatment_part_selected(part_id: String)
 signal item_discarded(stack: Dictionary)
 
@@ -638,6 +639,7 @@ func _build_item_detail_window() -> void:
 	item_detail_window.tag_requested.connect(_on_item_tag_requested)
 	item_detail_window.discard_requested.connect(_on_item_discard_requested)
 	item_detail_window.equip_requested.connect(_on_item_equip_requested)
+	item_detail_window.deploy_requested.connect(_on_item_deploy_requested)
 
 
 func _build_health_panel() -> void:
@@ -704,6 +706,9 @@ func _return_to_container() -> void:
 func _on_quick_use_requested(item_id: String) -> void:
 	if item_id.is_empty() or item_detail_window.is_open() or quantity_dialog_root.visible:
 		return
+	if item_id == "camp_kit":
+		_request_camp_placement()
+		return
 	var definition := ExpeditionInventory.get_item_definition(item_id)
 	if str(definition.get("category", "")) != "consumable":
 		return
@@ -720,6 +725,19 @@ func _on_health_consumable_requested(item_id: String) -> void:
 		return
 	consumable_requested.emit(item_id)
 	refresh_status_readout()
+
+
+func _request_camp_placement() -> void:
+	if not is_open() or inventory_model == null or inventory_model.count_item("camp_kit") <= 0:
+		return
+	_dismiss_item_details()
+	camp_placement_requested.emit()
+
+
+func _on_item_deploy_requested() -> void:
+	var context := _inspected_context()
+	if str(context.get("source", "")) == "inventory" and str(context.get("id", "")) == "camp_kit":
+		_request_camp_placement()
 
 
 func _apply_health_tab_layout() -> void:
@@ -1445,8 +1463,8 @@ func _refresh_action_buttons() -> void:
 	detail_button.disabled = item_id.is_empty() or bool(context.get("concealed", false))
 	equip_button.disabled = selected_source != "inventory" or str(definition.get("equip_slot", "")).is_empty()
 	unequip_button.disabled = selected_source != "equipment" or item_id.is_empty()
-	use_button.disabled = selected_source != "inventory" or category != "consumable"
-	use_button.text = "학습" if str(definition.get("effect", "")) == "learn_spell" else "사용"
+	use_button.disabled = selected_source != "inventory" or (category != "consumable" and item_id != "camp_kit")
+	use_button.text = "설치" if item_id == "camp_kit" else "학습" if str(definition.get("effect", "")) == "learn_spell" else "사용"
 	transfer_button.visible = loot_container != null or selected_source == "equipment"
 	if selected_source == "equipment":
 		transfer_button.disabled = item_id.is_empty() or inventory_model == null
@@ -2124,6 +2142,9 @@ func _unequip_selected() -> void:
 func _request_selected_consumable() -> void:
 	var context := _selected_context()
 	var item_id := str(context.get("id", ""))
+	if selected_source == "inventory" and item_id == "camp_kit":
+		_request_camp_placement()
+		return
 	var definition := ExpeditionInventory.get_item_definition(item_id)
 	if selected_source != "inventory" or str(definition.get("category", "")) != "consumable":
 		return

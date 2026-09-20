@@ -108,6 +108,7 @@ var current_trap: Node = null
 @export var safe_zone_mode := false
 var camping := false
 var _pre_camp_pitch := 0.0
+var _pre_camp_head_y := 0.67
 var timed_interaction_owner: Node = null
 var timed_interaction_duration := 0.0
 var timed_interaction_elapsed := 0.0
@@ -337,11 +338,13 @@ func set_camping(enabled: bool) -> void:
 	if enabled:
 		prepare_for_inventory()
 		_pre_camp_pitch = _pitch
+		_pre_camp_head_y = head.position.y if is_instance_valid(head) else 0.67
 	camping = enabled
 	velocity = Vector3.ZERO
 	_pitch = deg_to_rad(-26.0) if camping else _pre_camp_pitch
 	if is_instance_valid(head):
 		head.rotation.x = _pitch
+		head.position.y = 0.12 if camping else _pre_camp_head_y
 	_refresh_carried_visibility()
 	if is_instance_valid(hud) and hud.is_inside_tree():
 		hud.crosshair.visible = not camping
@@ -349,8 +352,16 @@ func set_camping(enabled: bool) -> void:
 
 
 func _interrupt_camp(reason: String) -> void:
-	if camping and is_instance_valid(game) and game.has_method("cancel_camp"):
+	if (camping or is_camp_placement_active()) and is_instance_valid(game) and game.has_method("cancel_camp"):
 		game.cancel_camp(reason)
+
+
+func is_camp_placement_active() -> bool:
+	return is_instance_valid(game) and game.has_method("is_camp_placement_active") and bool(game.is_camp_placement_active())
+
+
+func _camp_input_blocked() -> bool:
+	return is_instance_valid(game) and game.has_method("camp_input_blocked") and bool(game.camp_input_blocked())
 
 
 func _ready() -> void:
@@ -609,6 +620,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		if combat_state in [CombatState.WINDUP, CombatState.ACTIVE, CombatState.RECOVERY]:
 			cancel_sword_attack()
 		return
+	if _camp_input_blocked():
+		return
 	if is_item_use_active():
 		return
 	if safe_zone_mode:
@@ -831,7 +844,7 @@ func reset_reference_movement_motion(reset_landing_count: bool = false) -> void:
 
 
 func _update_combat(delta: float) -> void:
-	if is_paralyzed():
+	if is_paralyzed() or _camp_input_blocked():
 		blocking = false
 		return
 	advance_combat_state(delta, Input.is_action_pressed("block") and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED)
@@ -1241,6 +1254,10 @@ func _check_wall_strike() -> void:
 
 
 func _update_interaction(delta: float) -> void:
+	if _camp_input_blocked():
+		interaction_owner = null
+		if hud: hud.set_prompt("")
+		return
 	if is_paralyzed():
 		if is_instance_valid(hud):
 			hud.set_prompt("")
@@ -3943,6 +3960,8 @@ func get_item_use_snapshot() -> Dictionary:
 
 
 func begin_item_use(item_id: String, inventory: ExpeditionInventory, from_inventory := false) -> Dictionary:
+	if is_camp_placement_active():
+		return _consumable_failure("busy", "야영 도구 설치를 먼저 마치거나 취소하세요.")
 	if is_item_use_active() or is_bandage_motion_active() or camping or (is_paralyzed() and not _item_treats_paralysis(item_id)) or combat_state != CombatState.READY or is_timed_interacting() or current_trap != null or blocking or bow_drawing or _is_flail_busy():
 		return _consumable_failure("busy", "현재 행동을 마친 뒤 사용하세요.")
 	if is_inside_tree() and get_tree().paused and not from_inventory:

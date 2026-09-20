@@ -5,6 +5,7 @@ signal closed
 signal tag_requested(text: String)
 signal discard_requested(quantity: int)
 signal equip_requested
+signal deploy_requested
 
 const WINDOW_SIZE := Vector2(620.0, 610.0)
 const UI_FONT := preload("res://assets/fonts/NotoSansKR-Variable.ttf")
@@ -36,6 +37,7 @@ var close_button: Button
 var tag_button: Button
 var discard_button: Button
 var equip_button: Button
+var deploy_button: Button
 var tag_editor: Panel
 var tag_edit: LineEdit
 var tag_save_button: Button
@@ -105,6 +107,8 @@ func present(item_id: String, quantity: int, instance: Dictionary, texture: Text
 	equip_button.visible = not equipment_slot.is_empty()
 	equip_button.disabled = not owned or equipped
 	equip_button.text = "장착 중" if equipped else "장착하기"
+	deploy_button.visible = item_id == "camp_kit"
+	deploy_button.disabled = not owned
 	_layout_action_buttons()
 	discard_quantity.max_value = _quantity
 	discard_quantity.value = 1
@@ -189,6 +193,10 @@ func _ensure_built() -> void:
 	tag_label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 	var actions := _panel(window_root, "Actions", Vector2(1, 322), Vector2(618, 44), Color(0.057, 0.062, 0.053), false)
 	equip_button = _button(actions, "Equip", "장착하기", Vector2(12, 6), Vector2(193, 32))
+	deploy_button = _button(actions, "Install", "설치", Vector2(12, 6), Vector2(193, 32))
+	deploy_button.visible = false
+	deploy_button.pressed.connect(func() -> void:
+		if _owned and deploy_button.visible: deploy_requested.emit())
 	tag_button = _button(actions, "Tag", "이름표", Vector2(213, 6), Vector2(193, 32))
 	discard_button = _button(actions, "Discard", "버리기", Vector2(414, 6), Vector2(192, 32))
 	equip_button.pressed.connect(_equip_requested)
@@ -272,7 +280,7 @@ func _layout_window() -> void:
 
 
 func _layout_action_buttons() -> void:
-	if equip_button.visible:
+	if equip_button.visible or deploy_button.visible:
 		tag_button.position.x = 213
 		tag_button.size.x = 193
 		discard_button.position.x = 414

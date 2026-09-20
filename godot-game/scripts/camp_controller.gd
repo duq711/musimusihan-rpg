@@ -5,9 +5,13 @@ signal opened()
 signal rest_started()
 signal rest_finished(result: Dictionary)
 signal closed(reason: String, restore_controls: bool)
+signal placement_started()
+signal placement_updated(snapshot: Dictionary)
+signal deployed()
 
 const VISUALS := preload("res://scripts/camp_visuals.gd")
 const COOKING := preload("res://scripts/camp_cooking_catalog.gd")
+const PLACEMENT := preload("res://scripts/camp_placement_probe.gd")
 const ACTIONS := {
 	"rest": {"title": "경계 휴식", "duration": 8.0, "survival": 60.0, "health": 20.0, "stamina": 70.0, "warmth": 1, "resources": {}, "description": "체력 20 · 기력 70 회복. 게임 시간 60초가 지나며 상태이상 시간도 흐릅니다."},
 	"meal": {"title": "식사 휴식", "duration": 14.0, "survival": 180.0, "health": 45.0, "stamina": 100.0, "warmth": 2, "resources": {"pilgrim_ration": 1, "boiled_rainwater": 1}, "description": "체력 45 · 기력 최대 · 포만감/수분 회복. 게임 시간 180초와 상태이상 시간이 흐릅니다."},
@@ -29,10 +33,15 @@ var overlay: Node
 var game: Node
 var player: DungeonPlayer
 var inventory: ExpeditionInventory
+var placement_snapshot: Dictionary = {}
+var preview_visual: Node3D
 
 var _action_id := ""
 var _camp_position := Vector3.ZERO
+var _camp_yaw := 0.0
 var _player_position := Vector3.ZERO
+var _return_transform := Transform3D.IDENTITY
+var _has_return_position := false
 var _rest_start_health := 0.0
 var _survival_advanced := 0.0
 var _visual_time := 0.0
@@ -40,7 +49,7 @@ var _status := "평평하고 안전한 곳에서 짧게 쉬어갑니다."
 
 
 func setup(game_ref: Node, player_ref: DungeonPlayer, inventory_ref: ExpeditionInventory) -> void:
-	if inventory != inventory_ref and is_open():
+	if inventory != inventory_ref and state != "closed":
 		cancel_camp("", false)
 	if inventory != null and inventory.changed.is_connected(refresh):
 		inventory.changed.disconnect(refresh)
@@ -59,7 +68,9 @@ func _ready() -> void:
 		overlay = overlay_script.new()
 		add_child(overlay)
 		overlay.action_requested.connect(start_action)
-		overlay.leave_requested.connect(cancel_camp)
+		overlay.leave_requested.connect(leave_camp)
+		if overlay.has_signal("pack_requested"):
+			overlay.pack_requested.connect(cancel_camp)
 		overlay.hide_camp()
 	if inventory != null and not inventory.changed.is_connected(refresh):
 		inventory.changed.connect(refresh)
@@ -74,6 +85,9 @@ func _exit_tree() -> void:
 func _process(delta: float) -> void:
 	if state == "closed":
 		return
+	if state == "placing":
+		if not get_tree().paused: update_placement()
+		return
 	if not get_tree().paused:
 		_visual_time += maxf(0.0, delta)
 		VISUALS.animate(camp_visual, _visual_time, warmth)
@@ -81,45 +95,146 @@ func _process(delta: float) -> void:
 
 
 func is_open() -> bool:
-	return state != "closed"
+	return state in ["placing", "planning", "resting"]
 
 
-func open_camp() -> Dictionary:
+func begin_placement() -> Dictionary:
 	if state != "closed":
-		return _failure("already_open")
+		return _failure("already_deployed" if state == "deployed" else "already_open")
 	if not is_inside_tree() or get_tree().paused:
 		return _failure("paused")
-	if is_instance_valid(game) and game.has_method("_camp_open_failure"):
-		var scene_reason := str(game.call("_camp_open_failure"))
-		if not scene_reason.is_empty():
-			return _failure(scene_reason)
+	var scene_reason := _scene_failure()
+	if not scene_reason.is_empty(): return _failure(scene_reason)
 	var reason := _player_failure()
-	if not reason.is_empty():
-		return _failure(reason)
-	if _enemy_near(OPEN_ENEMY_RADIUS):
-		return _failure("enemy_nearby")
-	var placement := _find_placement()
-	if not bool(placement.get("accepted", false)):
-		return _failure(str(placement.get("reason", "blocked_space")))
-	_camp_position = placement.position
-	_player_position = player.global_position
-	warmth = 3
+	if not reason.is_empty(): return _failure(reason)
+	if inventory == null or inventory.count_item("camp_kit") < 1: return _failure("no_kit")
+	state = "placing"
 	kit_spent = false
+	last_result = {}
+	preview_visual = VISUALS.create_preview()
+	game.add_child(preview_visual)
+	update_placement()
+	placement_started.emit()
+	return {"accepted": true, "placing": true, "message": "야영할 바닥을 조준하세요 · 왼쪽 클릭 설치 · F 취소"}
+
+
+func update_placement() -> Dictionary:
+	if state != "placing": return _failure("not_placing")
+	if not is_instance_valid(player):
+		cancel_camp("", false)
+		return _failure("unavailable")
+	placement_snapshot = _find_placement()
+	var reason := "paused" if get_tree().paused else _scene_failure()
+	if reason.is_empty(): reason = _player_failure()
+	if reason.is_empty() and (inventory == null or inventory.count_item("camp_kit") < 1): reason = "no_kit"
+	if not reason.is_empty():
+		placement_snapshot["accepted"] = false
+		placement_snapshot["reason"] = reason
+	placement_snapshot["message"] = "천막과 모닥불 설치 · 야영 도구 1개" if placement_snapshot.accepted else _reason_message(str(placement_snapshot.reason))
+	if is_instance_valid(preview_visual):
+		preview_visual.global_position = placement_snapshot.position
+		preview_visual.global_rotation.y = float(placement_snapshot.yaw)
+		VISUALS.set_preview_valid(preview_visual, bool(placement_snapshot.accepted))
+	placement_updated.emit(placement_snapshot.duplicate(true))
+	return placement_snapshot.duplicate(true)
+
+
+func confirm_placement() -> Dictionary:
+	if state != "placing": return _failure("not_placing")
+	if get_tree().paused: return _failure("paused")
+	var scene_reason := _scene_failure()
+	if not scene_reason.is_empty(): return _failure(scene_reason)
+	# Never trust a green preview from an earlier frame or a changed bag.
+	var placement := update_placement()
+	if not bool(placement.accepted): return _failure(str(placement.reason))
+	if not inventory.remove_item("camp_kit", 1, false): return _failure("no_kit")
+	_camp_position = placement.position
+	_camp_yaw = float(placement.yaw)
+	warmth = 3
+	kit_spent = true
+	state = "deployed"
 	rest_elapsed = 0.0
 	rest_duration = 0.0
 	_action_id = ""
-	last_result = {}
-	_status = "첫 휴식·요리 시작 때 야영 도구 1개를 사용합니다. 요리는 완료하면 바로 먹으며, 중단하면 사용한 재료는 반환되지 않습니다."
-	state = "planning"
-	camp_visual = VISUALS.create_camp()
+	_status = "야영지를 설치했습니다. 천막을 바라보고 E로 앉으세요."
+	_dispose_preview()
+	placement_snapshot.clear()
+	camp_visual = VISUALS.create_camp(self)
 	game.add_child(camp_visual)
 	camp_visual.global_position = _camp_position
-	camp_visual.global_rotation.y = player.global_rotation.y
+	camp_visual.global_rotation.y = _camp_yaw
+	# Commit before observers are notified so repeated requests cannot spend twice.
+	inventory.changed.emit()
+	if state == "deployed":
+		refresh()
+		deployed.emit()
+	return {"accepted": true, "position": _camp_position, "kit_spent": true, "message": _status}
+
+
+func get_interaction_prompt() -> String:
+	return "E · 천막에 앉기" if state == "deployed" else ""
+
+
+func interact(actor: Node) -> Dictionary:
+	if actor != player: return _failure("unavailable")
+	var result := open_camp()
+	if not bool(result.get("accepted", false)) and is_instance_valid(player.hud):
+		player.hud.show_event(str(result.get("message", "지금은 천막에 앉을 수 없습니다.")), 1.8)
+	return result
+
+
+func open_camp() -> Dictionary:
+	if state != "deployed": return _failure("not_deployed")
+	if not is_inside_tree() or get_tree().paused: return _failure("paused")
+	var scene_reason := _scene_failure()
+	if not scene_reason.is_empty(): return _failure(scene_reason)
+	var reason := _player_failure()
+	if not reason.is_empty(): return _failure(reason)
+	var seat := PLACEMENT.seat_position(_camp_position, _camp_yaw)
+	if player.global_position.distance_to(seat) > 3.5: return _failure("out_of_reach")
+	var placement := _validate_fixed_placement()
+	if not bool(placement.get("accepted", false)):
+		return _failure(str(placement.get("reason", "blocked_space")))
+	if not PLACEMENT.walking_path_clear(player, game, player.global_position, seat):
+		return _failure("blocked_access")
+	_return_transform = player.global_transform
+	_has_return_position = true
+	player.global_position = seat
+	player.global_rotation.y = _camp_yaw
+	player.velocity = Vector3.ZERO
+	_player_position = seat
+	_status = "천막에 앉았습니다. 요리·휴식을 마치면 일어서거나 야영지를 정리할 수 있습니다."
+	state = "planning"
 	refresh()
-	if is_instance_valid(overlay):
-		overlay.show_camp()
+	if is_instance_valid(overlay): overlay.show_camp()
 	opened.emit()
-	return {"accepted": true, "position": _camp_position, "message": "야영 계획을 펼쳤습니다."}
+	return {"accepted": true, "position": _camp_position, "seat_position": seat, "message": _status}
+
+
+func _scene_failure() -> String:
+	if is_instance_valid(game) and game.has_method("_camp_open_failure"):
+		return str(game.call("_camp_open_failure"))
+	return ""
+
+
+func _validate_fixed_placement() -> Dictionary:
+	var placement := PLACEMENT.validate(player, game, _camp_position, _camp_yaw, _camp_exclusions())
+	return _validate_dangers(placement)
+
+
+func _validate_dangers(placement: Dictionary) -> Dictionary:
+	if not bool(placement.accepted): return placement
+	var center: Vector3 = placement.position
+	if _enemy_near(OPEN_ENEMY_RADIUS, center):
+		placement["accepted"] = false
+		placement["reason"] = "enemy_nearby"
+	var basis := Basis(Vector3.UP, float(placement.yaw))
+	for offset: Vector3 in PLACEMENT.floor_samples():
+		if _unsafe_trap_near(center + basis * offset):
+			placement["accepted"] = false
+			placement["reason"] = "unsafe_ground"
+			break
+	return placement
 
 
 func start_action(id: String) -> Dictionary:
@@ -160,16 +275,16 @@ func advance_rest(delta: float) -> void:
 		cancel_camp("사망하여 야영을 중단했습니다.", false)
 		return
 	if player.health < _rest_start_health - 0.00001:
-		cancel_camp("피격으로 야영을 중단했습니다.")
+		leave_camp("피격으로 야영을 중단했습니다.")
 		return
-	if _enemy_near(REST_ENEMY_RADIUS):
-		cancel_camp("적이 가까이 다가와 야영을 중단했습니다.")
+	if _enemy_near(REST_ENEMY_RADIUS, _camp_position):
+		leave_camp("적이 가까이 다가와 야영을 중단했습니다.")
 		return
 	if _unsafe_trap_near(_camp_position):
-		cancel_camp("가까운 함정이 활성화되어 야영을 중단했습니다.")
+		leave_camp("가까운 함정이 활성화되어 야영을 중단했습니다.")
 		return
 	if player.global_position.distance_to(_player_position) > 0.5 or player.current_trap != null or player.safe_zone_mode:
-		cancel_camp("야영 장소를 벗어나 휴식을 중단했습니다.")
+		leave_camp("야영 장소를 벗어나 휴식을 중단했습니다.")
 		return
 	var elapsed := minf(maxf(0.0, delta), maxf(0.0, rest_duration - rest_elapsed))
 	if elapsed <= 0.0:
@@ -225,17 +340,45 @@ func _finish_rest() -> void:
 	rest_finished.emit(last_result.duplicate(true))
 
 
+func leave_camp(reason := "", restore_controls := true) -> void:
+	if state not in ["planning", "resting"]: return
+	_record_interruption(reason)
+	state = "deployed"
+	if is_instance_valid(overlay): overlay.hide_camp()
+	_restore_player_position()
+	refresh()
+	closed.emit(reason, restore_controls)
+
+
 func cancel_camp(reason := "", restore_controls := true) -> void:
 	if state == "closed":
 		return
-	var was_resting := state == "resting"
+	_record_interruption(reason)
 	state = "closed"
-	if was_resting:
-		last_result = {"accepted": false, "cancelled": true, "action_id": _action_id, "survival_seconds": _survival_advanced, "elapsed": rest_elapsed, "message": reason if not reason.is_empty() else "휴식을 중단했습니다. 이미 사용한 물품과 온기는 반환되지 않습니다."}
 	if is_instance_valid(overlay):
 		overlay.hide_camp()
+	_restore_player_position()
 	_dispose_visual()
+	placement_snapshot.clear()
 	closed.emit(reason, restore_controls)
+
+
+func _record_interruption(reason: String) -> void:
+	if state == "resting":
+		last_result = {"accepted": false, "cancelled": true, "action_id": _action_id, "survival_seconds": _survival_advanced, "elapsed": rest_elapsed, "message": reason if not reason.is_empty() else "휴식을 중단했습니다. 이미 사용한 물품과 온기는 반환되지 않습니다."}
+	_action_id = ""
+	rest_elapsed = 0.0
+	rest_duration = 0.0
+
+
+func _restore_player_position() -> void:
+	if not _has_return_position: return
+	_has_return_position = false
+	if not is_instance_valid(player) or not player.is_inside_tree(): return
+	# A newly introduced obstacle cannot turn standing up into a wall teleport.
+	if PLACEMENT.walking_path_clear(player, game, player.global_position, _return_transform.origin):
+		player.global_transform = _return_transform
+	player.velocity = Vector3.ZERO
 
 
 func refresh() -> void:
@@ -253,10 +396,13 @@ func get_snapshot() -> Dictionary:
 	for id: String in ExpeditionSession.active_conditions:
 		conditions.append(ExpeditionSession.get_condition_display_name(id))
 	var actions: Array[Dictionary] = []
+	# One presentation snapshot shares its physical eligibility calculation.
+	# start_action calls _action_failure without this value and revalidates.
+	var common_reason := _common_action_failure()
 	for id: String in ordered_action_ids():
 		var definition := get_action_definition(id)
 		var cooking := id.begins_with("cook:")
-		var reason := _action_failure(id)
+		var reason := _action_failure(id, common_reason)
 		var cost_parts: Array[String] = ["온기 %d" % int(definition.warmth)]
 		var resources := _required_resources(id)
 		var ingredient_parts: Array[String] = []
@@ -283,22 +429,26 @@ static func get_action_definition(id: String) -> Dictionary:
 	return (ACTIONS.get(id, {}) as Dictionary).duplicate(true)
 
 
-func _action_failure(id: String) -> String:
+func _common_action_failure() -> String:
 	if state != "planning":
 		return "busy" if state == "resting" else "not_open"
-	var action := get_action_definition(id)
-	if action.is_empty():
-		return "invalid_action"
+	if not kit_spent: return "not_deployed"
 	var reason := _player_failure()
 	if not reason.is_empty():
 		return reason
 	if player.global_position.distance_to(_player_position) > 0.3 or Vector2(player.velocity.x, player.velocity.z).length() > 0.2:
 		return "moving"
-	if _enemy_near(OPEN_ENEMY_RADIUS):
-		return "enemy_nearby"
-	var placement := _find_placement()
+	var placement := _validate_fixed_placement()
 	if not bool(placement.get("accepted", false)):
 		return str(placement.get("reason", "blocked_space"))
+	return ""
+
+
+func _action_failure(id: String, common_reason := "_revalidate") -> String:
+	var reason := _common_action_failure() if common_reason == "_revalidate" else common_reason
+	if not reason.is_empty(): return reason
+	var action := get_action_definition(id)
+	if action.is_empty(): return "invalid_action"
 	if warmth < int(action.warmth):
 		return "no_warmth"
 	var useful: bool = player.get_healable_health_capacity() > 0.0
@@ -321,10 +471,7 @@ func _action_failure(id: String) -> String:
 
 
 func _required_resources(id: String) -> Dictionary:
-	var resources: Dictionary = (get_action_definition(id).get("resources", {}) as Dictionary).duplicate(true)
-	if not kit_spent:
-		resources["camp_kit"] = 1
-	return resources
+	return (get_action_definition(id).get("resources", {}) as Dictionary).duplicate(true)
 
 
 func _player_failure() -> String:
@@ -334,56 +481,36 @@ func _player_failure() -> String:
 		return "safe_zone"
 	if player.current_trap != null or player.is_timed_interacting():
 		return "trapped"
-	if player.combat_state != DungeonPlayer.CombatState.READY or player.blocking or player.bow_drawing or player._is_flail_busy():
+	if player.combat_state != DungeonPlayer.CombatState.READY or player.blocking or player.bow_drawing or player._is_flail_busy() or player.is_item_use_active() or player.is_paralyzed():
 		return "busy"
 	if not player.is_on_floor():
 		return "airborne"
 	return ""
 
 
-func _enemy_near(radius: float) -> bool:
+func _enemy_near(radius: float, center := Vector3.INF) -> bool:
 	if not is_instance_valid(player) or not is_inside_tree():
 		return false
 	for candidate in get_tree().get_nodes_in_group("enemy"):
 		if candidate is DungeonEnemy and is_instance_valid(candidate) and not candidate.is_queued_for_deletion() and candidate.health > 0.0 and candidate.ai_state != DungeonEnemy.AIState.DEAD:
-			if player.global_position.distance_to(candidate.global_position) < radius:
+			if player.global_position.distance_to(candidate.global_position) < radius or (center != Vector3.INF and center.distance_to(candidate.global_position) < radius):
 				return true
 	return false
 
 
 func _find_placement() -> Dictionary:
-	var feet := player.global_position - Vector3.UP * 0.9
-	var forward := -player.global_basis.z
-	forward.y = 0.0
-	forward = forward.normalized()
-	# Leave the right-hand camp menu clear while keeping both fire and bedroll
-	# in the player's resting view. Placement checks use this same real center.
-	var center := feet + forward * 1.6 - player.global_basis.x * 0.55
-	var floor_height := 0.0
-	for offset: Vector3 in [Vector3.ZERO, Vector3(-0.7, 0, 0), Vector3(0.7, 0, 0), Vector3(0, 0, -0.7), Vector3(0, 0, 0.7)]:
-		var query := PhysicsRayQueryParameters3D.create(center + offset + Vector3.UP * 0.65, center + offset + Vector3.DOWN * 0.85, WORLD_LAYER, [player.get_rid()])
-		var hit := player.get_world_3d().direct_space_state.intersect_ray(query)
-		if hit.is_empty() or (hit.normal as Vector3).y < 0.85:
-			return {"accepted": false, "reason": "uneven_ground"}
-		var hit_height := float((hit.position as Vector3).y)
-		if offset == Vector3.ZERO:
-			floor_height = hit_height
-		if absf(hit_height - floor_height) > 0.1 or absf(hit_height - feet.y) > 0.3:
-			return {"accepted": false, "reason": "uneven_ground"}
-	center.y = floor_height
-	if _unsafe_trap_near(center):
-		return {"accepted": false, "reason": "unsafe_ground"}
-	var shape := SphereShape3D.new()
-	shape.radius = 0.6
-	var space_query := PhysicsShapeQueryParameters3D.new()
-	space_query.shape = shape
-	space_query.transform = Transform3D(Basis.IDENTITY, center + Vector3.UP * 0.65)
-	space_query.collision_mask = WORLD_LAYER | 4
-	space_query.exclude = [player.get_rid()]
-	space_query.collide_with_areas = false
-	if not player.get_world_3d().direct_space_state.intersect_shape(space_query, 16).is_empty():
-		return {"accepted": false, "reason": "blocked_space"}
-	return {"accepted": true, "position": center}
+	return _validate_dangers(PLACEMENT.aim(player, game))
+
+
+func _camp_exclusions() -> Array[RID]:
+	var result: Array[RID] = []
+	if is_instance_valid(camp_visual): _collect_collision_rids(camp_visual, result)
+	return result
+
+
+func _collect_collision_rids(node: Node, result: Array[RID]) -> void:
+	if node is CollisionObject3D: result.append(node.get_rid())
+	for child in node.get_children(): _collect_collision_rids(child, result)
 
 
 func _unsafe_trap_near(center: Vector3) -> bool:
@@ -405,10 +532,18 @@ func _refresh_player_hud() -> void:
 
 
 func _dispose_visual() -> void:
+	_dispose_preview()
 	if is_instance_valid(camp_visual):
 		camp_visual.hide()
 		camp_visual.queue_free()
 	camp_visual = null
+
+
+func _dispose_preview() -> void:
+	if is_instance_valid(preview_visual):
+		preview_visual.hide()
+		preview_visual.queue_free()
+	preview_visual = null
 
 
 func _failure(reason: String) -> Dictionary:
@@ -416,6 +551,13 @@ func _failure(reason: String) -> Dictionary:
 
 
 func _reason_message(reason: String) -> String:
+	if reason == "no_ground": return "5m 안의 바닥을 조준하세요."
+	if reason == "wet_ground": return "물에 잠긴 곳에는 야영할 수 없습니다."
+	if reason == "not_placing": return "가방에서 야영 도구를 먼저 사용하세요."
+	if reason == "not_deployed": return "먼저 야영 도구로 천막을 설치하세요."
+	if reason == "already_deployed": return "설치한 야영지를 먼저 정리하세요."
+	if reason == "out_of_reach": return "천막 가까이 다가가세요."
+	if reason == "blocked_access": return "천막 좌석으로 가는 길이 막혀 있습니다."
 	if reason == "unsafe_ground":
 		return "야영 자리 가까이에 아직 해제되지 않은 함정이 있습니다."
 	if reason == "resources_missing":

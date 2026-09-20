@@ -1,5 +1,7 @@
 extends SceneTree
 
+const CAMP_TEST := preload("res://tests/camp_test_helpers.gd")
+
 var failures: Array[String] = []
 var room: Node3D
 
@@ -148,28 +150,38 @@ func _test_actual_camp_relief() -> void:
 			ExpeditionSession.hunger = 100.0
 			ExpeditionSession.thirst = 100.0
 			ExpeditionSession.clear_conditions()
-		var opened: Dictionary = room.camp.open_camp()
+		var opened: Dictionary = CAMP_TEST.deploy_and_open(room.camp)
 		_check(bool(opened.accepted), "real grounded camp must open: " + id)
 		var started: Dictionary = room.camp.start_action(id)
 		_check(bool(started.accepted), "real action must accept stress-only recovery or injury: " + id)
 		if not bool(started.accepted):
 			continue
+		# Treatment keeps the fixture's actual bleeding until completion. Camp
+		# time has no exploration stress, but its wounds still cause damage stress.
+		var bleed_damage_per_half := float(room.camp.get_action_definition(id).survival) * 0.5 * 0.5 if id == "treat" else 0.0
+		var wound_stress_per_half := StressProfile.damage_gain(bleed_damage_per_half)
 		room.camp.advance_rest(room.camp.rest_duration / 2.0)
-		_close(ExpeditionSession.stress, 80.0, "no partial relief and no stress gain during accelerated camp time: " + id)
+		_close(ExpeditionSession.stress, 80.0 + wound_stress_per_half, "partial rest grants no relief and retains only actual wound stress: " + id)
 		room.camp.advance_rest(room.camp.rest_duration)
 		var expected := float(StressProfile.CAMP_RELIEF[id])
-		_close(ExpeditionSession.stress, 80.0 - expected, "completion applies authored relief: " + id)
+		var completed_stress := 80.0 + wound_stress_per_half * 2.0 - expected
+		_close(ExpeditionSession.stress, completed_stress, "completion applies authored relief after actual wound stress: " + id)
 		_close(float(room.camp.last_result.get("stress_relieved", -1)), expected, "actual completion reports stress recovered")
+		if id == "treat": _check(not ExpeditionSession.has_condition("bleeding"), "Treatment completion actually stops the wound producing stress")
 		room.camp.advance_rest(300.0)
-		_close(ExpeditionSession.stress, 80.0 - expected, "relief cannot repeat after completion")
+		_close(ExpeditionSession.stress, completed_stress, "relief cannot repeat after completion")
 		room.cancel_camp()
 	await _reset_fixture("camping")
 	ExpeditionSession.set_stress(80.0)
-	room.camp.open_camp()
+	CAMP_TEST.deploy_and_open(room.camp)
 	room.camp.start_action("rest")
 	room.camp.advance_rest(4.0)
+	# Four real seconds of this rest advance thirty survival seconds: the
+	# prepared bleeding inflicts 15 damage before cancellation, with no reward.
+	var before_cancel := ExpeditionSession.stress
+	_close(before_cancel, 80.0 + StressProfile.damage_gain(15.0), "Interrupted rest retains the stress from ongoing bleeding")
 	room.cancel_camp()
-	_close(ExpeditionSession.stress, 80.0, "cancelling rest grants no free stress relief")
+	_close(ExpeditionSession.stress, before_cancel, "cancelling rest grants no free stress relief")
 
 
 func _reset_fixture(id: String) -> void:

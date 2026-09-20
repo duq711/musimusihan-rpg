@@ -1,5 +1,7 @@
 extends SceneTree
 
+const CAMP_TEST := preload("res://tests/camp_test_helpers.gd")
+
 # Headless cannot capture a pointer. Replace only that platform input boundary;
 # all timers, audio generation, 3D placement, thresholds and cleanup stay real.
 class CapturedStressPerception extends StressPerception:
@@ -88,7 +90,7 @@ func _test_catalog() -> void:
 	for entry in room.feature_entries:
 		_check(not ids.has(entry.id), "feature IDs must be unique: " + entry.id)
 		ids[entry.id] = true
-		_check(entry.action in ["creep_dismemberment", "creep_ragdoll", "creep", "movement", "performance", "armed", "wall_equipment", "skeleton", "flail", "camping", "cooking", "hideout_cooking", "hideout_ruin", "stress", "survival_controls", "body_health", "archery", "archery_accuracy", "archery_power", "torch", "inventory", "inventory_details", "player_appearance", "player_arm_motion", "player_hands_greybox", "player_hands_detailed", "player_finger_joints", "reference_sword_motion", "first_person_motion", "dark_fantasy_gallery", "chest", "loot_container", "traps", "ai", "respawn", "extraction", "death", "spell", "learn_books", "needs", "wounded", "time", "cleanse", "condition", "item", "scene", "cave_zone", "smithing", "alchemy", "distilling", "bandage_forearm", "splint_forearm", "potion_drink", "jerky_eat", "timed_item_use", "dungeon_combat_hud", "storage_equipment"], "every entry must have an executable action: %s / %s" % [entry.id, entry.action])
+		_check(entry.action in ["creep_dismemberment", "creep_ragdoll", "creep", "movement", "performance", "armed", "wall_equipment", "skeleton", "flail", "camping", "camp_placement", "cooking", "hideout_cooking", "hideout_ruin", "stress", "survival_controls", "body_health", "archery", "archery_accuracy", "archery_power", "torch", "inventory", "inventory_details", "player_appearance", "player_arm_motion", "player_hands_greybox", "player_hands_detailed", "player_finger_joints", "reference_sword_motion", "first_person_motion", "dark_fantasy_gallery", "chest", "loot_container", "traps", "ai", "respawn", "extraction", "death", "spell", "learn_books", "needs", "wounded", "time", "cleanse", "condition", "item", "scene", "cave_zone", "smithing", "alchemy", "distilling", "bandage_forearm", "splint_forearm", "potion_drink", "jerky_eat", "timed_item_use", "dungeon_combat_hud", "storage_equipment"], "every entry must have an executable action: %s / %s" % [entry.id, entry.action])
 	_check(not ids.has("orc"), "withdrawn orc trial must not remain in the catalog")
 	_check(ids.has("survival_controls"), "actual status controls must have an executable catalog entry")
 	_check(ids.has("cave_dungeon"), "the 131m by 139m cave must have an executable real-scene entry")
@@ -99,7 +101,7 @@ func _test_catalog() -> void:
 	_check(ids.has("archery_accuracy"), "draw-dependent accuracy must have an explicit playable comparison fixture")
 	_check(ids.has("archery_power"), "draw-dependent damage and sustained stamina must have an explicit playable fixture")
 	_check(ids.has("flail") and ids.has("item:chain_flail"), "flail actions need an explicit fixture while the weapon itself remains automatically catalogued")
-	_check(ids.has("camping") and ids.has("item:camp_kit"), "camping needs an executable survival fixture and automatic kit registration")
+	_check(ids.has("camping") and ids.has("camp_placement") and ids.has("item:camp_kit"), "camping needs an executable survival fixture and automatic kit registration")
 	_check(ids.has("cooking") and ids.has("item:raw_meat") and ids.has("item:edible_mushroom"), "cooking needs an actual camp fixture while ingredients remain automatically catalogued")
 	_check(ids.has("stress_meter") and ids.has("stress_audio") and ids.has("stress_vision"), "stress needs actual accumulation, audio and visual perception fixtures")
 	var stocked: Dictionary = {}
@@ -670,7 +672,7 @@ func _test_camping_fixture() -> void:
 	_check_station_label_in_view(room.get_node("CampingInstructions") as Label3D, "camping instructions")
 	var health_before: float = room.player.health
 	var stamina_before: float = room.player.stamina
-	var opened: Dictionary = room.open_camp()
+	var opened: Dictionary = CAMP_TEST.deploy_and_open(room.camp)
 	_check(bool(opened.get("accepted", false)), "camping fixture must open the actual installed camp after the player reaches the floor: " + str(opened.get("reason", "")))
 	_check(room.camp.state == "planning" and paused and room.game_mode == room.GameMode.CAMPING, "camp planning must pause the real world")
 	var planning_hunger := ExpeditionSession.hunger
@@ -678,7 +680,7 @@ func _test_camping_fixture() -> void:
 	await create_timer(0.05, true).timeout
 	_check(is_equal_approx(ExpeditionSession.hunger, planning_hunger), "planning must not advance ordinary dungeon survival time")
 	_check(bool(room.camp.start_action("rest").get("accepted", false)), "rest must start through the real camp controller")
-	_check(room.camp.state == "resting" and not paused and room.inventory.count_item("camp_kit") == 1 and room.camp.warmth == 2, "starting the first rest must consume one kit and one warmth immediately")
+	_check(room.camp.state == "resting" and not paused and room.inventory.count_item("camp_kit") == 1 and room.camp.warmth == 2, "starting rest must spend one warmth and retain the one kit already consumed by installation")
 	var resting_hunger := ExpeditionSession.hunger
 	room._process(20.0)
 	_check(is_equal_approx(ExpeditionSession.hunger, resting_hunger), "ordinary game processing must not double-count survival time during a camp activity")
@@ -699,9 +701,9 @@ func _test_camping_fixture() -> void:
 	_check(room.camp.state == "closed" and paused and room.panel_open, "F2 test menu must close the installed camp and retain the test pause")
 	room.run_feature("camping")
 	await _settle_camping_player()
-	room.open_camp()
+	CAMP_TEST.deploy_and_open(room.camp)
 	room.inventory.remove_item("pilgrim_ration", 2)
-	_check(not bool(room.camp.start_action("meal").get("accepted", false)) and room.inventory.count_item("camp_kit") == 2 and room.camp.warmth == 3, "missing meal resources must reject before consuming a kit or warmth")
+	_check(not bool(room.camp.start_action("meal").get("accepted", false)) and room.inventory.count_item("camp_kit") == 1 and room.camp.warmth == 3, "missing meal resources must preserve the paid installation and untouched warmth")
 	room.inventory.add_item("pilgrim_ration", 2)
 	var meal_health: float = room.player.health
 	var meal_hunger := ExpeditionSession.hunger
@@ -715,7 +717,7 @@ func _test_camping_fixture() -> void:
 	room._show_test_panel()
 	room.run_feature("camping")
 	await _settle_camping_player()
-	room.open_camp()
+	CAMP_TEST.deploy_and_open(room.camp)
 	var interrupted_health: float = room.player.health
 	room.camp.start_action("rest")
 	room.camp.advance_rest(3.0)
@@ -728,16 +730,16 @@ func _test_camping_fixture() -> void:
 	_check(room.inventory.count_item("camp_kit") == 1 and is_equal_approx(ExpeditionSession.hunger, interrupted_hunger), "cancelled rest must not refund its kit or continue advancing survival time")
 	room.run_feature("camping")
 	await _settle_camping_player()
-	room.open_camp()
+	CAMP_TEST.deploy_and_open(room.camp)
 	room.camp.start_action("rest")
 	room._spawn_enemy("굶주린 야영 습격자", room.player.position + Vector3(0, 0, -5), 200, 18, 2.65, Color(0.21, 0.125, 0.105))
 	room._set_enemy_ai(false)
 	room.camp.advance_rest(0.1)
-	_check(room.camp.state == "closed" and room.inventory.count_item("camp_kit") == 1, "an actual nearby enemy must interrupt ongoing camping without refunding the kit")
+	_check(room.camp.state == "deployed" and not room.player.camping and not paused and is_instance_valid(room.camp.camp_visual) and room.inventory.count_item("camp_kit") == 1 and bool(room.camp.last_result.get("cancelled", false)), "an actual nearby enemy must interrupt rest and restore control while retaining the installed camp and paid kit")
 	room._show_test_panel()
 	room.run_feature("camping")
 	await _settle_camping_player()
-	room.open_camp()
+	CAMP_TEST.deploy_and_open(room.camp)
 	room.camp.start_action("rest")
 	room._on_player_died()
 	_check(room.camp.state == "closed" and not room.player.camping and paused and room.game_mode == room.GameMode.DEAD, "the test-room death callback must explicitly cancel camping even when invoked directly")
@@ -766,7 +768,7 @@ func _test_cooking_fixture() -> void:
 	_check("교체" in room.status_label.text and room.inventory.slots.size() == ExpeditionInventory.MAX_SLOTS, "full-bag recipe restocking must disclose bounded trial-only stack replacement")
 	await _settle_camping_player()
 	_check_station_label_in_view(room.get_node("CookingInstructions") as Label3D, "cooking instructions")
-	_check(bool(room.open_camp().get("accepted", false)), "prepared cooking fixture must open the actual camp")
+	_check(bool(CAMP_TEST.deploy_and_open(room.camp).get("accepted", false)), "prepared cooking fixture must open the actual camp")
 	(room.camp.overlay.category_buttons.cooking as Button).pressed.emit()
 	_check(room.camp.overlay.selected_category == "cooking" and room.camp.overlay.cooking_hint_label.visible, "actual cooking tab must expose its recipe guidance")
 	var offered: Dictionary = {}
@@ -782,7 +784,7 @@ func _test_cooking_fixture() -> void:
 			var before_rejection := _cooking_inventory_counts()
 			_check(not bool(room.camp.start_action(action_id).get("accepted", false)) and _cooking_inventory_counts() == before_rejection, "insufficient warmth must reject a real recipe without spending its ingredients")
 			room.cancel_camp()
-			_check(bool(room.open_camp().get("accepted", false)), "finite fixture warmth must permit a second actual camp using the spare kit")
+			_check(bool(CAMP_TEST.deploy_and_open(room.camp).get("accepted", false)), "finite fixture warmth must permit a second actual camp using the spare kit")
 		var health_before: float = room.player.health
 		var stamina_before: float = room.player.stamina
 		var hunger_before := ExpeditionSession.hunger
@@ -821,14 +823,14 @@ func _test_cooking_fixture() -> void:
 	room._show_test_panel()
 	room.run_feature("cooking")
 	await _settle_camping_player()
-	room.open_camp()
+	CAMP_TEST.deploy_and_open(room.camp)
 	room.inventory.remove_item("raw_meat", room.inventory.count_item("raw_meat"))
 	var missing_before := _cooking_inventory_counts()
 	_check(not bool(room.camp.start_action("cook:roast_meat").get("accepted", false)) and _cooking_inventory_counts() == missing_before and room.camp.warmth == 3, "missing actual cooking ingredients must reject before consuming kit or warmth")
 	room._show_test_panel()
 	room.run_feature("cooking")
 	await _settle_camping_player()
-	room.open_camp()
+	CAMP_TEST.deploy_and_open(room.camp)
 	var cancelled_health: float = room.player.health
 	var cancelled_stamina: float = room.player.stamina
 	var cancelled_stress := ExpeditionSession.stress
@@ -842,7 +844,7 @@ func _test_cooking_fixture() -> void:
 	_check(room.player.health == cancelled_health and room.player.stamina == cancelled_stamina and ExpeditionSession.stress == cancelled_stress and ExpeditionSession.hunger == cancelled_hunger and _cooking_inventory_counts() == cancelled_counts, "cancelled cooking must neither auto-eat nor continue timers or create output food")
 	room.run_feature("cooking")
 	await _settle_camping_player()
-	room.open_camp()
+	CAMP_TEST.deploy_and_open(room.camp)
 	room.camp.start_action("cook:mushroom_soup")
 	room.camp.advance_rest(2.0)
 	var old_inventory: ExpeditionInventory = room.inventory
@@ -920,7 +922,7 @@ func _test_stress_fixtures() -> void:
 	_check(ExpeditionSession.stress == 0.0 and room.hud.stress_bar.value == 0.0, "recovery must immediately clear both actual stress and HUD")
 	room.run_feature("stress_vision")
 	await _settle_camping_player()
-	_check(bool(room.open_camp().get("accepted", false)), "stress fixture must allow actual camping at its prepared floor")
+	_check(bool(CAMP_TEST.deploy_and_open(room.camp).get("accepted", false)), "stress fixture must allow actual camping at its prepared floor")
 	_check_stress_silent(effects, "planning camp")
 	_check(bool(room.camp.start_action("rest").get("accepted", false)), "a healthy but stressed player must be able to take a real recovery rest")
 	room.camp.advance_rest(8.0)
@@ -928,7 +930,7 @@ func _test_stress_fixtures() -> void:
 	room._show_test_panel()
 	room.run_feature("stress_vision")
 	await _settle_camping_player()
-	room.open_camp()
+	CAMP_TEST.deploy_and_open(room.camp)
 	room.camp.start_action("rest")
 	room.camp.advance_rest(3.0)
 	room._show_test_panel()
@@ -1119,7 +1121,7 @@ func _test_scene_roundtrip() -> void:
 	room.run_feature("cooking")
 	await _settle_camping_player()
 	ExpeditionSession.set_stress(65.0)
-	room.open_camp()
+	CAMP_TEST.deploy_and_open(room.camp)
 	room.camp.start_action("cook:roast_meat")
 	room.camp.advance_rest(2.0)
 	var cooking_health: float = room.player.health
@@ -1182,7 +1184,7 @@ func _test_scene_roundtrip() -> void:
 	camping_player.set_physics_process(false)
 	camping_player.health = 35.0
 	camping_player.stamina = 20.0
-	_check(bool(camping_dungeon.open_camp().get("accepted", false)), "connected dungeon must open real camping at its safe entry floor")
+	_check(bool(CAMP_TEST.deploy_and_open(camping_dungeon.camp).get("accepted", false)), "connected dungeon must open real camping at its safe entry floor")
 	_check(bool(camping_dungeon.camp.start_action("rest").get("accepted", false)), "connected dungeon must start an actual resource-consuming rest")
 	camping_dungeon.camp.advance_rest(3.0)
 	var kits_after_start: int = ExpeditionSession.get_inventory().count_item("camp_kit")

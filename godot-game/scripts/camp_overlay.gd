@@ -3,6 +3,7 @@ class_name CampOverlay
 
 signal action_requested(action_id: String)
 signal leave_requested
+signal pack_requested
 
 const PANEL_COLOR := Color(0.018, 0.022, 0.019, 0.96)
 const BORDER_COLOR := Color(0.47, 0.41, 0.28)
@@ -32,6 +33,7 @@ var selected_category := "rest"
 var cooking_hint_label: Label
 var activity_label: Label
 var leave_button: Button
+var pack_button: Button
 var _snapshot: Dictionary = {}
 var _action_ids: Array[String] = []
 
@@ -84,7 +86,7 @@ func _ensure_built() -> void:
 	var content := VBoxContainer.new()
 	content.add_theme_constant_override("separation", 8)
 	margin.add_child(content)
-	title_label = _label("잿불 곁의 야영", 23, TEXT_COLOR)
+	title_label = _label("모닥불 곁", 23, TEXT_COLOR)
 	content.add_child(title_label)
 	category_tabs = HBoxContainer.new()
 	category_tabs.name = "CampActivityTabs"
@@ -131,6 +133,7 @@ func _ensure_built() -> void:
 	progress_bar.name = "CampProgress"
 	progress_bar.min_value = 0.0
 	progress_bar.max_value = 1.0
+	progress_bar.step = 0.0
 	progress_bar.show_percentage = false
 	progress_bar.custom_minimum_size = Vector2(0.0, 10.0)
 	progress_bar.add_theme_font_size_override("font_size", 1)
@@ -139,10 +142,22 @@ func _ensure_built() -> void:
 	body.add_child(progress_bar)
 	status_label = _label("", 12, MUTED_COLOR)
 	body.add_child(status_label)
-	leave_button = _button("야영 정리")
+	var exit_actions := HBoxContainer.new()
+	exit_actions.name = "CampExitActions"
+	exit_actions.add_theme_constant_override("separation", 8)
+	content.add_child(exit_actions)
+	leave_button = _button("일어서기 · Esc")
+	leave_button.name = "StandUpButton"
 	leave_button.custom_minimum_size.y = 34.0
+	leave_button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	leave_button.pressed.connect(_on_leave_requested)
-	content.add_child(leave_button)
+	exit_actions.add_child(leave_button)
+	pack_button = _button("야영지 정리")
+	pack_button.name = "PackCampButton"
+	pack_button.custom_minimum_size = Vector2(120.0, 34.0)
+	pack_button.tooltip_text = "천막과 모닥불을 정리합니다. 사용한 야영 도구는 돌아오지 않습니다."
+	pack_button.pressed.connect(_on_pack_requested)
+	exit_actions.add_child(pack_button)
 	if is_inside_tree():
 		get_viewport().size_changed.connect(_update_layout)
 	_update_layout()
@@ -153,7 +168,9 @@ func _update_layout() -> void:
 		return
 	var viewport_size := get_viewport().get_visible_rect().size
 	var inset := 40.0 if viewport_size.x >= 1000.0 else 12.0
-	var width := minf(510.0, maxf(0.0, viewport_size.x - inset * 2.0))
+	# Keep the fire at the center of the seated view visible, including at
+	# smaller window sizes. Long recipe text remains in the existing scroll.
+	var width := minf(510.0, maxf(0.0, viewport_size.x * 0.44))
 	var vertical_inset := 70.0 if viewport_size.y >= 680.0 else 12.0
 	panel_root.position = Vector2(viewport_size.x - inset - width, vertical_inset)
 	panel_root.size = Vector2(width, maxf(0.0, viewport_size.y - vertical_inset * 2.0))
@@ -174,7 +191,7 @@ func _refresh() -> void:
 	action_list.visible = not resting
 	if was_resting != resting:
 		action_scroll.scroll_vertical = 0
-	title_label.text = "잿불 곁의 야영 · 조리 중" if cooking else ("잿불 곁의 야영 · 휴식 중" if resting else "잿불 곁의 야영 · 준비")
+	title_label.text = "모닥불 곁 · 조리 중" if cooking else ("모닥불 곁 · 휴식 중" if resting else "모닥불 곁")
 	category_tabs.visible = has_cooking and not resting
 	for category: String in category_buttons:
 		(category_buttons[category] as Button).set_pressed_no_signal(category == selected_category)
@@ -187,9 +204,9 @@ func _refresh() -> void:
 	stress_label.text = "스트레스 %d/%d · %s · 높을수록 불안정" % [roundi(stress), roundi(stress_maximum), stage]
 	stress_label.add_theme_color_override("font_color", DungeonHUD.stress_color(stress / stress_maximum * StressProfile.MAX_STRESS).lightened(0.2))
 	var counts: Dictionary = _snapshot.get("inventory_counts", {})
-	resources_label.text = "온기 %d · 야영 도구 %d · 식량 %d · 물 %d · 붕대 %d\n%s" % [int(_snapshot.get("warmth", 3)), int(counts.get("camp_kit", 0)), int(counts.get("pilgrim_ration", 0)), int(counts.get("boiled_rainwater", 0)), int(counts.get("linen_bandage", 0)), "야영 도구 사용 완료" if bool(_snapshot.get("kit_spent", false)) else "첫 휴식을 시작할 때 야영 도구 1개 소비"]
+	resources_label.text = "온기 %d · 야영 도구 %d · 식량 %d · 물 %d · 붕대 %d\n%s" % [int(_snapshot.get("warmth", 3)), int(counts.get("camp_kit", 0)), int(counts.get("pilgrim_ration", 0)), int(counts.get("boiled_rainwater", 0)), int(counts.get("linen_bandage", 0)), "야영 도구 사용 완료 · 일어서도 야영지는 유지됩니다." if bool(_snapshot.get("kit_spent", false)) else "설치를 확정하면 야영 도구 1개 소비"]
 	if has_cooking:
-		resources_label.text = "온기 %d · 야영 도구 %d · 식량 %d · 물 %d · 붕대 %d\n생고기 %d · 식용 버섯 %d\n%s" % [int(_snapshot.get("warmth", 3)), int(counts.get("camp_kit", 0)), int(counts.get("pilgrim_ration", 0)), int(counts.get("boiled_rainwater", 0)), int(counts.get("linen_bandage", 0)), int(counts.get("raw_meat", 0)), int(counts.get("edible_mushroom", 0)), "야영 도구 사용 완료" if bool(_snapshot.get("kit_spent", false)) else "첫 활동을 시작할 때 야영 도구 1개 소비"]
+		resources_label.text = "온기 %d · 야영 도구 %d · 식량 %d · 물 %d · 붕대 %d\n생고기 %d · 식용 버섯 %d\n%s" % [int(_snapshot.get("warmth", 3)), int(counts.get("camp_kit", 0)), int(counts.get("pilgrim_ration", 0)), int(counts.get("boiled_rainwater", 0)), int(counts.get("linen_bandage", 0)), int(counts.get("raw_meat", 0)), int(counts.get("edible_mushroom", 0)), "야영 도구 사용 완료 · 일어서도 야영지는 유지됩니다." if bool(_snapshot.get("kit_spent", false)) else "설치를 확정하면 야영 도구 1개 소비"]
 	risk_label.text = "휴식 중에는 던전이 진행됩니다. 적 접근·피격 시 즉시 중단됩니다." if resting else "준비 중에는 시간이 멈춥니다. 휴식을 시작하면 적도 움직입니다."
 	if cooking:
 		risk_label.text = "조리 중에도 던전이 진행됩니다. 적 접근·피격 시 즉시 중단되며 재료는 반환되지 않습니다."
@@ -208,7 +225,9 @@ func _refresh() -> void:
 	status_label.text = str(_snapshot.get("status", ""))
 	if status_label.text.is_empty():
 		status_label.text = "중단해도 이미 소비한 물품은 반환되지 않습니다." if resting else ("필요한 요리를 선택하세요." if selected_category == "cooking" else "필요한 휴식을 선택하세요.")
-	leave_button.text = "조리 중단 · 재료 반환 없음" if cooking else ("휴식 중단 · 소모품 반환 없음" if resting else "야영 정리 · C / Esc")
+	leave_button.text = "조리 중단 · 일어서기 · 재료 반환 없음" if cooking else ("휴식 중단 · 일어서기 · 소모품 반환 없음" if resting else "일어서기 · Esc")
+	pack_button.visible = not resting
+	pack_button.disabled = resting
 	var ids: Array[String] = []
 	for action: Dictionary in actions:
 		ids.append(str(action.get("id", "")))
@@ -299,6 +318,11 @@ func _action_category(action: Dictionary) -> String:
 func _on_leave_requested() -> void:
 	if overlay_root.visible:
 		leave_requested.emit()
+
+
+func _on_pack_requested() -> void:
+	if overlay_root.visible and str(_snapshot.get("state", "planning")) != "resting":
+		pack_requested.emit()
 
 
 func _label(text_value: String, size: int, color: Color) -> Label:

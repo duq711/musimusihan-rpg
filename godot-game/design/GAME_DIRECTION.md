@@ -355,3 +355,13 @@ The crawl follow-up moves the pelvis and surviving leg alongside the upper body.
 기존 F2 왼다리·오른다리·양다리 시험의 설명과 정지 검사를 확장하고 실제 크리프 추적 경로를 유지한다. 골반·남은 다리 관절을 포함해 F2 정지 시 자세가 고정되는지 확인했다. 관련 자동 검사 **6개와 마지막 조정 후 집중 검사, 실제 GPU 영상 60초 검증을 통과**했다. 새 [검수 기록](../artifacts/validation/creep_lower_body_20260918/README.md)과 [시연 영상](../artifacts/validation/creep_lower_body_20260918/creep_lower_body.mp4)은 이전 랙돌·포복 영상의 검증 완료와 구분한다. 평평한 바닥에서 확인했으며 경사·계단 접지는 미확인이다.
 
 Existing F2 left-leg, right-leg and both-leg descriptions and pause checks are expanded while retaining production Creep pursuit. Pose freezing includes the pelvis and surviving leg joints. **Six related suites, the focused check after the final adjustment, and a 60-second actual GPU video review passed**. The linked new validation record and video are separate from the earlier ragdoll/crawl video results. Validation used a flat floor; slopes and stairs remain unverified.
+
+## 2026-09-20 야영 배치와 텐트 요리 — 사용자 확정 / Camp placement and tent cooking — confirmed request
+
+사용자는 C로 모닥불을 바로 설치하는 조작을 없애고, 설치 불가 방향은 빨강·가능한 방향은 초록으로 표시하도록 요청했다. 설치한 텐트에 상호작용하면 모닥불 앞에 앉아 음식을 요리하는 흐름이 확정 요구다.
+
+구현 선택: 가방의 야영 도구에서 설치 시작 → 실제 공간 검사에 따른 미리보기 → LMB 확정, F/Esc 취소 → 텐트 E 착석으로 연결한다. 도구 1개는 설치 확정 때만 소비하고, 일어서면 야영지를 유지하며 명시적 정리·시험 메뉴·장면 이탈은 제거한다. 조준 사거리 5m, 전체 바닥·장애물·물·좌석 접근 검사, 야영지 한 개와 온기 3은 조정 가능한 구현값이다. 기존 세 조리법과 실제 꼬치·냄비 진행, 재료 소비·완료 즉시 식사·회복을 사용하며 자유 조리 조작·완성 음식 저장 기능까지 확정한 것은 아니다. F2 설치 비교 및 기존 야영·요리 시험에 연결한다. 파일·검증 경로는 [야영 설치 기록](../docs/CAMP_PLACEMENT.md)을 따르며 최종 검증·GitHub 상태는 작업 결과에 별도로 기록한다.
+
+The user requested replacing direct C-key camp installation with red invalid and green valid placement feedback, then interacting with the tent to sit by the fire and cook.
+
+Implementation choices connect inventory Install → physical placement preview → LMB confirmation, F/Esc cancellation → E tent interaction. Confirmation spends one kit; standing up retains the campsite, while explicit dismantling, test-menu cleanup and scene exit remove it. A five-meter aim range, full floor/obstacle/water/seat-access checks, one camp and three warmth are tunable implementation values. The existing three recipes retain real spit/pot progress, ingredient costs and immediate eating/recovery on completion; freeform cooking manipulation and stored finished meals are not part of the confirmed scope. F2 placement and existing camp/cooking trials share the production flow. See the camp placement record for files and verification paths; final validation and GitHub publication are recorded separately.

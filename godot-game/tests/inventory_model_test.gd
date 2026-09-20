@@ -162,7 +162,7 @@ func _test_camp_kit_inventory() -> void:
 	_check(str(definition.get("name", "")) == "휴대 야영 도구" and str(definition.get("category", "")) == "supply", "camp kit must be a catalog-backed supply item")
 	_check(int(definition.get("stack_max", 0)) == 3 and is_equal_approx(float(definition.get("weight", 0.0)), 0.5) and int(definition.get("value", 0)) == 18, "camp kit must have the authored stack cap, weight and value")
 	_check(definition.get("ui_span") == Vector2i(1, 2) and not definition.has("equip_slot") and not definition.has("effect"), "camp kit must be a one-by-two supply, not directly usable equipment or medicine")
-	_check(str(definition.get("description", "")).contains("첫 휴식 때 1개") and str(definition.get("description", "")).contains("온기 3"), "camp kit description must explain first-rest consumption and warmth")
+	_check(str(definition.get("description", "")).contains("설치 확정") and str(definition.get("description", "")).contains("온기 3"), "camp kit description must explain confirmed-placement consumption and warmth")
 	var inventory := ExpeditionInventory.new()
 	inventory.seed_default_loadout()
 	_check(inventory.count_item("camp_kit") == 1 and str(inventory.equipment.weapon) == "rusted_sword", "starter bag must contain one kit without changing equipment")
