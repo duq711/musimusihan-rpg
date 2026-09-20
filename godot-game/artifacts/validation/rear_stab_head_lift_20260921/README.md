@@ -1,8 +1,8 @@
 # 후방 검 제압 · 고개 들기 반응 / Rear takedown · raised-head response
 
-2026-09-21. **로컬 핵심·실제 F2 검사 2종, 실제 GPU 9초·270프레임, 전체 영상 디코딩·독립 시각 검토를 통과했다. GitHub 원격 반영은 아직 미확인이다.**
+2026-09-21. **로컬 핵심·실제 F2 검사 2종, 실제 GPU 9초·270프레임, 전체 영상 디코딩·독립 시각 검토를 통과했다. GitHub 구현 커밋 [`a8fddf8`](https://github.com/duq711/musimusihan-rpg/commit/a8fddf87cee30ce5b64607603c095acd3bbf8c45)의 원격 일치와 PNG·영상 LFS 85개를 새 저장소로 다시 받아 확인했다.**
 
-September 21, 2026. **Local core/real F2 suites, nine seconds/270 frames of actual GPU checks, full-video decoding and independent visual review passed. GitHub publication remains unverified.**
+September 21, 2026. **Local core/real F2 suites, nine seconds/270 frames of actual GPU checks, full-video decoding and independent visual review passed. GitHub implementation commit [`a8fddf8`](https://github.com/duq711/musimusihan-rpg/commit/a8fddf87cee30ce5b64607603c095acd3bbf8c45) matches the remote; all 85 PNG/video LFS references were fetched into fresh storage and verified.**
 
 ## 변경 / Change
 
