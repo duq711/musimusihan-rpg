@@ -1391,60 +1391,53 @@ func _advance_rear_takedown(delta: float) -> void:
 		cancel_execution()
 		return
 	var next_elapsed := minf(REAR_TAKEDOWN_MOTION.DURATION, execution_elapsed + delta)
-	# Close an initially longer gap before the thrust using character collision.
-	# The thrust uses a short lunge; the later twist/extraction stays planted.
-	# A long tick must still sweep the preparation retreat before its lunge.
+	# Sweep preparation and deep contact in order, including a long frame
+	# crossing both insertion and withdrawal. Never skip a blocked retreat.
 	if execution_elapsed < REAR_TAKEDOWN_MOTION.PREPARE_END and next_elapsed >= REAR_TAKEDOWN_MOTION.PREPARE_END:
 		_move_rear_takedown_approach(REAR_TAKEDOWN_MOTION.PREPARE_END)
 		if _rear_approach_obstruction_m > .04:
 			cancel_execution()
 			return
-	_move_rear_takedown_approach(minf(next_elapsed, REAR_TAKEDOWN_MOTION.STAB_HIT))
-	if _rear_approach_obstruction_m > .04:
-		cancel_execution()
-		return
-	# Cross contact events in order even on a long tick; no damage at windup.
 	if not _rear_stab_contact_committed and next_elapsed >= REAR_TAKEDOWN_MOTION.STAB_HIT:
+		_move_rear_takedown_approach(REAR_TAKEDOWN_MOTION.STAB_HIT)
+		if _rear_approach_obstruction_m > .04:
+			cancel_execution()
+			return
 		_execution_target.advance_execution_pose(REAR_TAKEDOWN_MOTION.STAB_HIT)
+		var contacts := _execution_target.get_rear_takedown_contacts()
+		if not contacts.is_empty(): _rear_neck_contact = contacts.neck
 		_apply_rear_takedown_view(REAR_TAKEDOWN_MOTION.STAB_HIT)
 		var tip := weapon_pivot.to_global(_execution_blade_tip)
-		var hit: Dictionary = _execution_target.call("query_located_hit", _execution_contact_point - _execution_stab_direction * .10, tip, .035)
-		if hit.is_empty():
+		var heel := weapon_pivot.to_global(_execution_blade_tip - Vector3.UP * _execution_blade_length)
+		var torso_hit: Dictionary = _execution_target.call("query_located_hit", heel, tip, .045)
+		var wrist := weapon_pivot.transform * SWORD_LONG_GRIP.wrist_local(1.0)
+		var shoulder := SWORD_LONG_GRIP.SOURCE_READY * SWORD_LONG_GRIP.REST_SHOULDER
+		if torso_hit.is_empty() or str(torso_hit.get("region", "")) != "torso" or wrist.distance_to(shoulder) > REFERENCE_ARM.MAX_REACH + .04:
 			cancel_execution()
 			return
 		_rear_stab_contact_committed = true
-	# Keep the initial body approach synchronized; extraction does not advance.
+		var remaining_health := _execution_target.health
+		_execution_hit_committed = _execution_target.finish_rear_takedown(self)
+		if not _execution_hit_committed:
+			cancel_execution()
+			return
+		attack_landed.emit(remaining_health, true)
+		if hud:
+			hud.show_hit(true)
+			hud.show_event("후방 제압 · 처치", 1.0)
 	_move_rear_takedown_approach(next_elapsed)
+	if _rear_approach_obstruction_m > .04:
+		cancel_execution()
+		return
 	if not _execution_hit_committed:
-		_execution_target.advance_execution_pose(minf(next_elapsed, REAR_TAKEDOWN_MOTION.CUT_HIT))
+		_execution_target.advance_execution_pose(next_elapsed)
 		var contacts := _execution_target.get_rear_takedown_contacts()
 		if not contacts.is_empty(): _rear_neck_contact = contacts.neck
-		if next_elapsed >= REAR_TAKEDOWN_MOTION.CUT_HIT:
-			_apply_rear_takedown_view(REAR_TAKEDOWN_MOTION.CUT_HIT)
-			var wrist := weapon_pivot.transform * SWORD_LONG_GRIP.wrist_local(REAR_TAKEDOWN_MOTION.grip_blend(REAR_TAKEDOWN_MOTION.CUT_HIT))
-			var shoulder := SWORD_LONG_GRIP.SOURCE_READY * SWORD_LONG_GRIP.REST_SHOULDER
-			if _rear_approach_obstruction_m > .04 or wrist.distance_to(shoulder) > REFERENCE_ARM.MAX_REACH + .04:
-				cancel_execution()
-				return
-			var tip := weapon_pivot.to_global(_execution_blade_tip)
-			var heel := weapon_pivot.to_global(_execution_blade_tip - Vector3.UP * _execution_blade_length)
-			# The blade is still crossing the torso during the rightward extraction.
-			# Use the actual posed hit volumes; never target or sever the neck.
-			var torso_hit: Dictionary = _execution_target.call("query_located_hit", heel, tip, .045)
-			var wall := PhysicsRayQueryParameters3D.create(camera.global_position, _execution_contact_point, WORLD_LAYER)
-			wall.collide_with_areas = false
-			if torso_hit.is_empty() or str(torso_hit.get("region", "")) != "torso" or not get_world_3d().direct_space_state.intersect_ray(wall).is_empty():
-				cancel_execution()
-				return
-			var remaining_health := _execution_target.health
-			_execution_hit_committed = _execution_target.finish_rear_takedown(self)
-			if not _execution_hit_committed:
-				cancel_execution()
-				return
-			attack_landed.emit(remaining_health, true)
-			if hud:
-				hud.show_hit(true)
-				hud.show_event("후방 제압 · 처치", 1.0)
+	elif valid and next_elapsed >= REAR_TAKEDOWN_MOTION.HOLD_END:
+		_apply_rear_takedown_view(next_elapsed)
+		var depth := (weapon_pivot.to_global(_execution_blade_tip) - _execution_contact_point).dot(_execution_stab_direction)
+		if depth <= -REAR_TAKEDOWN_MOTION.WITHDRAW_CLEARANCE + .002:
+			_execution_target.call("release_execution_ragdoll", self)
 	execution_elapsed = next_elapsed
 	state_time = execution_elapsed
 	if hud: hud.update_weapon_state(_execution_phase(), Color(.95, .62, .32))
@@ -1456,8 +1449,8 @@ func _move_rear_takedown_approach(elapsed: float) -> void:
 	# works when starting closer than the final stance as well as farther away.
 	var initial_distance := _rear_approach_offset.length()
 	var preparation := initial_distance - REAR_TAKEDOWN_MOTION.STAB_DISTANCE
-	var lunge := REAR_TAKEDOWN_MOTION.STAB_DISTANCE - REAR_TAKEDOWN_MOTION.CUT_DISTANCE
-	var travelled := preparation * smoothstep(0, REAR_TAKEDOWN_MOTION.PREPARE_END, elapsed) + lunge * smoothstep(REAR_TAKEDOWN_MOTION.PREPARE_END, REAR_TAKEDOWN_MOTION.STAB_HIT, elapsed)
+	var lunge := REAR_TAKEDOWN_MOTION.STAB_DISTANCE - REAR_TAKEDOWN_MOTION.CONTACT_DISTANCE
+	var travelled := preparation * smoothstep(0, REAR_TAKEDOWN_MOTION.PREPARE_END, elapsed) + lunge * (smoothstep(REAR_TAKEDOWN_MOTION.PREPARE_END, REAR_TAKEDOWN_MOTION.STAB_HIT, elapsed) - smoothstep(REAR_TAKEDOWN_MOTION.HOLD_END, REAR_TAKEDOWN_MOTION.WITHDRAW_END, elapsed))
 	if absf(travelled - _rear_approach_progress) > .000001:
 		var step := _rear_approach_offset.normalized() * (travelled - _rear_approach_progress)
 		var before := global_position
@@ -1542,8 +1535,7 @@ func _update_execution_viewmodel() -> void:
 		camera.position = EXECUTION_MOTION.camera_offset(execution_elapsed)
 		camera.rotation = EXECUTION_MOTION.camera_rotation(execution_elapsed)
 	if _execution_profile == "rear_sword":
-		var held_pose := REAR_TAKEDOWN_MOTION.sword(REAR_TAKEDOWN_MOTION.HOLD_END, _execution_sword_entry, camera.to_local(_execution_contact_point), camera.global_basis.inverse() * _execution_stab_direction, camera.to_local(_rear_neck_contact), _execution_blade_tip, _execution_blade_length, camera.global_basis.inverse() * _rear_stab_basis)
-		_reference_arm_target = REAR_TAKEDOWN_MOTION.arm(weapon_pivot.transform, execution_elapsed, _rear_arm_entry, _reference_arm_previous_bend, held_pose)
+		_reference_arm_target = REAR_TAKEDOWN_MOTION.arm(weapon_pivot.transform, execution_elapsed, _rear_arm_entry, _reference_arm_previous_bend)
 	else:
 		_reference_arm_target = _reference_arm_for_pivot({}, weapon_pivot.transform)
 	_refresh_carried_visibility()
@@ -1576,7 +1568,7 @@ func _get_execution_blade_geometry() -> Dictionary:
 
 
 func _execution_hit_time() -> float:
-	if _execution_profile == "rear_sword": return REAR_TAKEDOWN_MOTION.CUT_HIT
+	if _execution_profile == "rear_sword": return REAR_TAKEDOWN_MOTION.STAB_HIT
 	return CREEP_EXECUTION_MOTION.HIT_SECONDS if _execution_profile == "crawl_stab" else EXECUTION_MOTION.HIT_SECONDS
 
 

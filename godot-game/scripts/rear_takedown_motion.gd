@@ -1,5 +1,5 @@
 extends RefCounted
-## One shared clock: reserve an unaware target, stab through, twist once, then slice out to the right.
+## One shared clock: reserve an unaware target, stab through, then withdraw along the same axis.
 ## Contact coordinates are sampled from the actual posed target in world space.
 const GRIP := preload("res://scripts/sword_long_grip_visual.gd")
 const ARM := preload("res://scripts/reference_sword_arm.gd")
@@ -7,27 +7,22 @@ const POSE := preload("res://scripts/sword_shield_choreography.gd")
 const PREPARE_END := 0.55
 const STAB_CONTACT := 0.61
 const STAB_HIT := 0.90
-const TWIST_START := 1.02
-const TWIST_END := 1.34
-const TWIST_DEGREES := -45.0
-const HOLD_END := 1.44
-const WITHDRAW_END := 2.20
-const CUT_START := HOLD_END
-const CUT_HIT := 1.70
-const CUT_END := 2.32
-const DURATION := 2.84
+const HOLD_END := 1.10
+const WITHDRAW_END := 1.70
+const RECOVER_START := 1.76
+const DURATION := 2.26
+const WITHDRAW_CLEARANCE := .06
 const PENETRATION_RATIO := 0.94
 const STAMINA_COST := 24.0
 const MIN_DISTANCE := 0.85
 const MAX_DISTANCE := 1.50
-const CUT_DISTANCE := .985
+const CONTACT_DISTANCE := .985
 const STAB_DISTANCE := 1.40
-const CUT_EDGE_FROM_TIP := .10
 
 static func grip_blend(elapsed: float) -> float:
 	# Set the diagonal thrust grip before extending the arm; restore the
 	# ordinary cutting grip only after the blade has left the body.
-	return smoothstep(0.0, PREPARE_END, elapsed) * (1.0 - smoothstep(CUT_END, DURATION, elapsed))
+	return smoothstep(0.0, PREPARE_END, elapsed) * (1.0 - smoothstep(RECOVER_START, DURATION, elapsed))
 
 static func wrist_local(elapsed: float) -> Vector3:
 	# The ordinary adapter still uses the authored legacy landmark. Blend its
@@ -41,15 +36,12 @@ static func weapon_profile(definition: Dictionary) -> String:
 static func phase(elapsed: float) -> String:
 	if elapsed < PREPARE_END: return "후방 제압 · 검 겨누기"
 	if elapsed < STAB_HIT: return "후방 제압 · 깊게 찌르기"
-	if elapsed < TWIST_START: return "후방 제압 · 깊게 관통"
-	if elapsed < TWIST_END: return "후방 제압 · 검 비틀기"
-	if elapsed < HOLD_END: return "후방 제압 · 비튼 검 유지"
-	if elapsed < WITHDRAW_END: return "후방 제압 · 우측으로 베어 빼기"
-	if elapsed < CUT_END: return "후방 제압 · 검 회수"
+	if elapsed < HOLD_END: return "후방 제압 · 찌른 검 유지"
+	if elapsed < WITHDRAW_END: return "후방 제압 · 곧게 뽑기"
 	return "후방 제압 · 자세 회복"
 
 static func sword(elapsed: float, entry: Transform3D, back: Vector3, direction: Vector3, _neck: Vector3, blade_tip: Vector3, blade_length: float, stab_basis: Basis) -> Transform3D:
-	# Keep the thrust axis fixed in world space, then intentionally roll once.
+	# Keep the same world-space blade axis and roll until the tip is clear.
 	var frame := Transform3D(stab_basis, Vector3.ZERO)
 	frame.origin = back - frame.basis * blade_tip
 	# Derive the preparation gap from the same continuous cubic stroke, so
@@ -67,77 +59,46 @@ static func sword(elapsed: float, entry: Transform3D, back: Vector3, direction: 
 		# reach sphere and snap the elbow while the blade turns into line.
 		return POSE.mix(entry, chamber, t).translated((Vector3(0, -.30, 0) - direction * .10) * pow(sin(PI * t), 2))
 	if elapsed < STAB_HIT: return POSE.mix(chamber, deep, (elapsed - PREPARE_END) / (STAB_HIT - PREPARE_END))
-	var twisted := _rolled(deep, blade_tip, deg_to_rad(TWIST_DEGREES))
-	if elapsed < TWIST_START: return deep
-	if elapsed < TWIST_END: return _rolled(deep, blade_tip, deg_to_rad(TWIST_DEGREES) * smoothstep(TWIST_START, TWIST_END, elapsed))
-	if elapsed < HOLD_END: return twisted
+	if elapsed < HOLD_END: return deep
 	if elapsed < WITHDRAW_END:
-		return lateral_exit(twisted, blade_tip, blade_length, (elapsed - HOLD_END) / (WITHDRAW_END - HOLD_END))
-	var exited := lateral_exit(twisted, blade_tip, blade_length, 1.0)
-	if elapsed < CUT_END: return exited
-	return POSE.mix(exited, POSE.ready(), (elapsed - CUT_END) / (DURATION - CUT_END))
+		return axial_exit(deep, blade_length, (elapsed - HOLD_END) / (WITHDRAW_END - HOLD_END))
+	var exited := axial_exit(deep, blade_length, 1.0)
+	if elapsed < RECOVER_START: return exited
+	return POSE.mix(exited, POSE.ready(), (elapsed - RECOVER_START) / (DURATION - RECOVER_START))
 
-static func lateral_exit(deep: Transform3D, _blade_tip: Vector3, _blade_length: float, progress: float) -> Transform3D:
-	# One continuous diagonal extraction. The grip travels right/back while the
-	# blade opens right around the hand: no separate neck-height windup or strike.
-	var t := smoothstep(0.0, 1.0, progress)
-	var grip := deep * POSE.SWORD_GRIP
-	var end_basis := Basis(Vector3.UP, deg_to_rad(-80.0)) * deep.basis
-	var end_grip := grip + Vector3(.28, -.10, .26)
-	var end_pose := _natural_roll(Transform3D(end_basis, end_grip - end_basis * POSE.SWORD_GRIP), POSE.SWORD_GRIP)
-	var basis := Basis(deep.basis.get_rotation_quaternion().slerp(end_pose.basis.get_rotation_quaternion(), t))
-	return Transform3D(basis, grip.lerp(end_grip, t) - basis * POSE.SWORD_GRIP)
-
+static func axial_exit(deep: Transform3D, blade_length: float, progress: float) -> Transform3D:
+	# Retrace the wound channel without a sideways sweep or wrist roll.
+	var distance := blade_length * PENETRATION_RATIO + WITHDRAW_CLEARANCE
+	return deep.translated(-deep.basis.y.normalized() * distance * smoothstep(0.0, 1.0, progress))
 
 
 static func shield(elapsed: float, entry: Transform3D) -> Transform3D:
 	var lowered := entry.translated(Vector3(-.12, -.30, .08))
 	if elapsed < PREPARE_END: return POSE.mix(entry, lowered, elapsed / PREPARE_END)
-	if elapsed < CUT_END: return lowered
-	return POSE.mix(lowered, entry, (elapsed - CUT_END) / (DURATION - CUT_END))
+	if elapsed < RECOVER_START: return lowered
+	return POSE.mix(lowered, entry, (elapsed - RECOVER_START) / (DURATION - RECOVER_START))
 
 static func camera_offset(elapsed: float) -> Vector3:
 	var lean := smoothstep(PREPARE_END, STAB_HIT, elapsed) * (1.0 - smoothstep(HOLD_END, WITHDRAW_END, elapsed))
 	return Vector3(0, -.015, -.025) * lean
 
 
-static func arm(pivot: Transform3D, elapsed: float, entry_arm: Dictionary, previous_bend := Vector3.ZERO, hold_pivot := Transform3D.IDENTITY) -> Dictionary:
+static func arm(pivot: Transform3D, elapsed: float, entry_arm: Dictionary, previous_bend := Vector3.ZERO) -> Dictionary:
 	var shoulder: Vector3 = GRIP.SOURCE_READY * GRIP.REST_SHOULDER
 	if not entry_arm.is_empty():
 		if elapsed < PREPARE_END: shoulder = (entry_arm.shoulder as Vector3).lerp(shoulder, smoothstep(0, PREPARE_END, elapsed))
-		elif elapsed > CUT_END: shoulder = shoulder.lerp(entry_arm.shoulder, smoothstep(CUT_END, DURATION, elapsed))
+		elif elapsed > RECOVER_START: shoulder = shoulder.lerp(entry_arm.shoulder, smoothstep(RECOVER_START, DURATION, elapsed))
 	var amount := grip_blend(elapsed)
 	var wrist := pivot * wrist_local(elapsed)
 	# The hand is rigidly holding the hilt. Its authored neutral forearm axis,
 	# not a generic down/right pole, defines the closest reachable elbow circle.
 	var neutral := (pivot.basis * GRIP.neutral_axis_local(amount)).normalized()
 	var hint := wrist + neutral * ARM.FOREARM_LENGTH
-	# Rotate on the joint circle instead of interpolating positions through
-	# its axis. Once extraction starts, transport the valid held bend: the
-	# neutral hint passes through an IK singularity during the lateral turn.
+	# The blade and grip keep their thrust orientation during withdrawal.
+	# Follow the same elbow circle back; no twist or lateral-extraction pole.
 	var reach_axis := (wrist - shoulder).normalized()
-	if elapsed >= HOLD_END:
-		var held_wrist := hold_pivot * wrist_local(HOLD_END)
-		var held_shoulder: Vector3 = GRIP.SOURCE_READY * GRIP.REST_SHOULDER
-		var held_axis := (held_wrist - held_shoulder).normalized()
-		var held_neutral := (hold_pivot.basis * GRIP.neutral_axis_local(1.0)).normalized()
-		var held_bend := _clearance_bend(held_shoulder, held_wrist, held_neutral, .8)
-		# Transport the *endpoint* pole back to the held plane, then blend on
-		# that circle. Never resample the singular mid-extraction neutral pole.
-		var exit_pose := lateral_exit(hold_pivot, Vector3.ZERO, 0.0, 1.0)
-		var exit_wrist := exit_pose * wrist_local(HOLD_END)
-		var exit_axis := (exit_wrist - held_shoulder).normalized()
-		var exit_neutral := (exit_pose.basis * GRIP.neutral_axis_local(1.0)).normalized()
-		var exit_bend := _clearance_bend(held_shoulder, exit_wrist, exit_neutral, 0.0)
-		var exit_in_held := (Basis(Quaternion(exit_axis, held_axis)) * exit_bend).normalized()
-		var exit_turn := atan2(held_axis.dot(held_bend.cross(exit_in_held)), held_bend.dot(exit_in_held))
-		held_bend = held_bend.rotated(held_axis, exit_turn * smoothstep(HOLD_END, WITHDRAW_END, elapsed))
-		var transported := (Basis(Quaternion(held_axis, reach_axis)) * held_bend).normalized()
-		transported = (transported - reach_axis * transported.dot(reach_axis)).normalized()
-		hint = shoulder + transported
-	else:
-		var clearance := smoothstep(PREPARE_END, STAB_HIT, elapsed) * (.25 + .55 * smoothstep(TWIST_START, TWIST_END, elapsed))
-		hint = shoulder + _clearance_bend(shoulder, wrist, neutral, clearance)
+	var clearance := .25 * smoothstep(PREPARE_END, STAB_HIT, elapsed)
+	hint = shoulder + _clearance_bend(shoulder, wrist, neutral, clearance)
 
 	if elapsed < PREPARE_END and not entry_arm.is_empty():
 		# Transport the initial elbow around the moving shoulder–wrist axis.
@@ -155,14 +116,14 @@ static func arm(pivot: Transform3D, elapsed: float, entry_arm: Dictionary, previ
 		var bend := transported.rotated(axis, angle * smoothstep(PREPARE_END * .5, PREPARE_END, elapsed))
 		hint = shoulder + bend
 
-	if elapsed > CUT_END:
+	if elapsed > RECOVER_START:
 		var ready := ARM.solve(shoulder, shoulder + Vector3(.75, -.72, .28), wrist, previous_bend)
 		var current := hint - shoulder
 		current = (current - reach_axis * current.dot(reach_axis)).normalized()
 		var desired := (ready.elbow as Vector3) - shoulder
 		desired = (desired - reach_axis * desired.dot(reach_axis)).normalized()
 		var turn := atan2(reach_axis.dot(current.cross(desired)), current.dot(desired))
-		hint = shoulder + current.rotated(reach_axis, turn * smoothstep(CUT_END, DURATION, elapsed))
+		hint = shoulder + current.rotated(reach_axis, turn * smoothstep(RECOVER_START, DURATION, elapsed))
 	var result := ARM.solve(shoulder, hint, wrist, previous_bend)
 	result.merge({"raw_sword": pivot, "requested_shoulder": shoulder, "exact_sample": false, "fitted_pose": true})
 	return result
@@ -176,42 +137,6 @@ static func _clearance_bend(shoulder: Vector3, wrist: Vector3, neutral: Vector3,
 	outside = (outside - axis * outside.dot(axis)).normalized()
 	var turn := atan2(axis.dot(bend.cross(outside)), bend.dot(outside))
 	return bend.rotated(axis, turn * weight)
-
-
-static func _rolled(pose: Transform3D, anchor: Vector3, angle: float) -> Transform3D:
-	var basis := Basis(pose.basis.y.normalized(), angle) * pose.basis
-	return Transform3D(basis, pose * anchor - basis * anchor)
-
-
-static func _roll_cost(pose: Transform3D) -> float:
-	var shoulder: Vector3 = GRIP.SOURCE_READY * GRIP.REST_SHOULDER
-	var wrist := pose * GRIP.wrist_local(1.0)
-	var neutral := (pose.basis * GRIP.neutral_axis_local(1.0)).normalized()
-	var fitted := ARM.solve(shoulder, wrist + neutral * ARM.FOREARM_LENGTH, wrist)
-	var discrepancy := neutral.angle_to((fitted.elbow - wrist).normalized())
-	# Prefer a relaxed right elbow below the shoulder, without changing lengths
-	# or moving the hand away from its measured weapon contact.
-	return discrepancy * discrepancy + pow(float(fitted.shoulder_adjustment_m) * 60.0, 2) + pow(maxf(0, fitted.elbow.y - shoulder.y) * 3.0, 2) + pow(maxf(0, shoulder.x - fitted.elbow.x) * 2.0, 2)
-
-
-static func _natural_roll(pose: Transform3D, anchor: Vector3) -> Transform3D:
-	var best := 0.0
-	var best_cost := INF
-	for i in 72:
-		var angle := TAU * float(i) / 72.0
-		var cost := _roll_cost(_rolled(pose, anchor, angle))
-		if cost < best_cost:
-			best_cost = cost
-			best = angle
-	# Refine a continuous minimum; coarse angular steps must not show as snaps.
-	var low := best - TAU / 72.0
-	var high := best + TAU / 72.0
-	for i in 12:
-		var a := lerpf(low, high, 1.0 / 3.0)
-		var b := lerpf(low, high, 2.0 / 3.0)
-		if _roll_cost(_rolled(pose, anchor, a)) < _roll_cost(_rolled(pose, anchor, b)): high = b
-		else: low = a
-	return _rolled(pose, anchor, (low + high) * .5)
 
 
 static func stab_basis(direction: Vector3) -> Basis:

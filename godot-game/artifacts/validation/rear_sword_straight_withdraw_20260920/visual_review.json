@@ -1,0 +1,83 @@
+{
+  "reviewer": "thrust_audit",
+  "timestamp": "2026-09-20T23:48:44.291434+09:00",
+  "render_directory": "/private/tmp/rear-wrist-publication-check/artifacts/visual_qa/rear_takedown/straight_withdraw_20260920",
+  "scope": "Read-only independent review of actual unmodified render PNGs and ordered raw JPEG frames. No engine run, image synthesis, realtime playback, or physical-input test.",
+  "verdict": "no_new_visual_blocker_found_in_reviewed_frames",
+  "stills_reviewed": [
+    "rear_sword_stab.png",
+    "rear_sword_hold.png",
+    "rear_sword_withdraw_mid.png",
+    "rear_sword_clear.png",
+    "rear_sword_recover.png",
+    "rear_sword_hold_side.png",
+    "rear_sword_withdraw_mid_side.png",
+    "rear_sword_clear_side.png",
+    "rear_sword_recover_side.png"
+  ],
+  "raw_jpeg_stems_reviewed": [
+    "00051.jpg",
+    "00054.jpg",
+    "00057.jpg",
+    "00060.jpg",
+    "00063.jpg",
+    "00066.jpg",
+    "00067.jpg",
+    "00068.jpg",
+    "00069.jpg",
+    "00070.jpg",
+    "00071.jpg",
+    "00072.jpg",
+    "00073.jpg",
+    "00074.jpg",
+    "00075.jpg",
+    "00078.jpg",
+    "00081.jpg",
+    "00084.jpg",
+    "00087.jpg",
+    "00090.jpg"
+  ],
+  "displayed_time_range_seconds": [
+    1.7,
+    3.0
+  ],
+  "observations_ko": [
+    "찌른 방향을 유지하며 검을 곧게 뒤로 빼는 동작으로 읽힘. 기존 비틀기와 우측 베기 동작은 검수 구간에서 보이지 않음.",
+    "찌르기와 유지 중 손과 가드가 보이고, 인출하면서 팔은 우하단으로 자연스럽게 빠짐. 소매가 파지를 통째로 가리거나 팔꿈치가 크게 반전하는 현상을 발견하지 못함.",
+    "크리프는 인출 도중 움찔한 자세를 유지하며, 측면 clear 이미지에서 검끝과 등 사이 간격이 확인된 뒤 연속 프레임에서 몸이 아래로 쓰러짐.",
+    "회복 시 검이 다시 올라오는 것은 검이 몸에서 빠진 뒤이며 추가 베기 동작으로 보이지 않음."
+  ],
+  "observations_en": [
+    "The blade reads as a straight pull-out along its established thrust direction; no retained twist or side-slice appeared in the reviewed interval.",
+    "Grip and guard remain readable during stab/hold; the arm exits toward the lower right during extraction without gross sleeve occlusion or elbow flipping.",
+    "The creature remains in its recoil pose during extraction. The clear-side image shows blade-tip separation, followed by downward collapse in the ordered frames.",
+    "The later sword raise occurs after clearance and reads as recovery, not an additional cut."
+  ],
+  "manifest_crosscheck": {
+    "last_execution_hold_frame": 67,
+    "last_execution_hold_manifest_seconds": 2.26666666666667,
+    "first_simulating_frame": 68,
+    "first_simulating_manifest_seconds": 2.3,
+    "first_simulating_blade_depth_m": -0.0600000284612179,
+    "first_simulating_defeats": 1,
+    "source": "capture_manifest.json; telemetry is distinguished from visual observation"
+  },
+  "qualifications": [
+    "The arm and grip are largely below the first-person frame late in extraction; side PNGs corroborate their pose at the sampled moments, not all-time skin clearance.",
+    "The original broad sleeve proportions and previously disclosed finger spacing remain.",
+    "Sequential still inspection cannot establish playback smoothness at all speeds or physical-input behavior.",
+    "No new exact contact/penetration or clinical-anatomy claim."
+  ],
+  "sha256": {
+    "rear_sword_stab.png": "1c5f3baad171374e8da3aece9f0103943b18fd511a42e50ad9feb13005ce53a7",
+    "rear_sword_hold.png": "7968881f8d6fd2e917e8478816b9cbfd4116b0aa6da48cc5e6b99c8440e1e96f",
+    "rear_sword_withdraw_mid.png": "575307dd1dcfda3f2131b1c845f571d5f401a0c6a2357690381332226fb50e4d",
+    "rear_sword_clear.png": "77f323d52f98b949e603c5bf42266e15630c19ae436312baf5be1e523120ee10",
+    "rear_sword_recover.png": "d590797273280b93f2cce9310b8eb34f493dde63329ca0767590e15552e07f64",
+    "rear_sword_hold_side.png": "79ea27a4340ba350350a30ee5f0a568943065aed13e9ce38e70771193d4e08fe",
+    "rear_sword_withdraw_mid_side.png": "5c7b0e288ef6d10e766f66bf7d4d06be4ea6bfcdab9b6dcc5bf07f1a89ddf0c1",
+    "rear_sword_clear_side.png": "e6ab6715f129b7905705c32340ebaee91bdc49d243389438817425f651d8c7a1",
+    "rear_sword_recover_side.png": "686d2ef853d0f87e78368ac4f55e2c9b44a3e7984eef5b72f79196e9d762729e"
+  },
+  "manifest_sha256": "3f2aace7b90d8c8fe97b36ed277ba38bd8ab22b13f960b3e63c500028acc66ad"
+}

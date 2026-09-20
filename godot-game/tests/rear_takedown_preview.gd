@@ -5,7 +5,7 @@ const ARMS := preload("res://tests/player_arm_preview.gd")
 const REAR_MOTION := preload("res://scripts/rear_takedown_motion.gd")
 const WRIST_METRICS := preload("res://tests/rear_takedown_test.gd")
 const REAR_CASES := [
-	{"id": "rear_sword", "alerted": false, "frames": 180, "title": "후방 제압 · 관통 → 비틀기 → 우측으로 베기 / THROUGH → TWIST → SLICE RIGHT"},
+	{"id": "rear_sword", "alerted": false, "frames": 180, "title": "후방 제압 · 찌르기 → 직선으로 뽑기 / STAB → STRAIGHT PULL-OUT"},
 	{"id": "alerted_denial", "alerted": true, "frames": 90, "title": "경계 중인 적 · 제압 거부 / ALERTED TARGET · TAKEDOWN REFUSED"},
 ]
 const REAR_STAGES := {
@@ -15,13 +15,10 @@ const REAR_STAGES := {
 	"recoil": REAR_MOTION.STAB_CONTACT + .08,
 	"thrust_mid": (REAR_MOTION.PREPARE_END + REAR_MOTION.STAB_HIT) * .5,
 	"stab": REAR_MOTION.STAB_HIT,
-	"twist_start": REAR_MOTION.TWIST_START,
-	"twist_end": REAR_MOTION.TWIST_END,
 	"hold": REAR_MOTION.HOLD_END - .05,
-	"withdraw": REAR_MOTION.WITHDRAW_END,
-	"slash": (REAR_MOTION.CUT_START + REAR_MOTION.CUT_HIT) * .5,
-	"death": REAR_MOTION.CUT_HIT,
-	"cut_end": REAR_MOTION.CUT_END,
+	"withdraw_mid": (REAR_MOTION.HOLD_END + REAR_MOTION.WITHDRAW_END) * .5,
+	"clear": REAR_MOTION.WITHDRAW_END,
+	"recover": REAR_MOTION.RECOVER_START,
 	"recovered": REAR_MOTION.DURATION,
 }
 const REAR_SOURCES := [
@@ -57,6 +54,7 @@ class RearDriver extends Node:
 	var records: Array[Dictionary] = []
 	var stages: Dictionary = {}
 	var first_death: Dictionary = {}
+	var first_release: Dictionary = {}
 	var last_alive_before_death: Dictionary = {}
 	var first_head_detach: Dictionary = {}
 	var initial_chest := Vector3.ZERO
@@ -94,6 +92,7 @@ class RearDriver extends Node:
 			max_requested_arm_reach_m = maxf(max_requested_arm_reach_m, float(sample.right_arm.requested_reach_m))
 			minimum_shoulder_camera_z_m = minf(minimum_shoulder_camera_z_m, (sample.right_arm.camera.shoulder as Vector3).z)
 		if actor.health <= 0.0 and first_death.is_empty(): first_death = sample.duplicate(true)
+		if actor.health <= 0.0 and str(sample.ragdoll.phase) in ["simulating", "settled"] and first_release.is_empty(): first_release = sample.duplicate(true)
 		if "head" in sample.dismemberment.severed and first_head_detach.is_empty(): first_head_detach = sample.duplicate(true)
 		for stage_name: String in REAR_STAGES:
 			if bool(began.get("accepted", false)) and not stages.has(stage_name) and max_elapsed + .000001 >= float(REAR_STAGES[stage_name]):
@@ -156,7 +155,7 @@ class RearDriver extends Node:
 		var elapsed := player.execution_elapsed
 		if player.is_execution_active() and not player._rear_arm_entry.is_empty():
 			if elapsed < REAR_MOTION.PREPARE_END: requested = (player._rear_arm_entry.shoulder as Vector3).lerp(requested, smoothstep(0, REAR_MOTION.PREPARE_END, elapsed))
-			elif elapsed > REAR_MOTION.CUT_END: requested = requested.lerp(player._rear_arm_entry.shoulder, smoothstep(REAR_MOTION.CUT_END, REAR_MOTION.DURATION, elapsed))
+			elif elapsed > REAR_MOTION.RECOVER_START: requested = requested.lerp(player._rear_arm_entry.shoulder, smoothstep(REAR_MOTION.RECOVER_START, REAR_MOTION.DURATION, elapsed))
 		return {"available": true, "world": world_joints, "camera": camera_joints,
 			"actual_rig": WRIST_METRICS.measure_wrist_geometry(player),
 			"requested_shoulder_camera": requested,
@@ -191,14 +190,13 @@ class RearDriver extends Node:
 		var contact: Vector3 = execution.get("contact_point", Vector3.ZERO)
 		var offset := tip - contact
 		var depth := offset.dot(direction)
-		var lateral_contact: Vector3 = execution.get("lateral_cut_contact", contact)
 		var torso_hit: Dictionary = actor.query_located_hit(tip - axis * length_m, tip, .045)
 		var projection := WRIST_METRICS.measure_blade_projection(player.camera, tip - axis * length_m, tip, contact, direction)
 		return {"length_m": length_m, "tip_world": tip, "base_world": base,
 			"projection": projection,
 			"axis_world": axis, "axis_depth_m": depth, "inserted_fraction": depth / maxf(length_m, .000001),
 			"anchor_world": contact, "lateral_error_m": (offset - direction * depth).length(),
-			"axis_direction_dot": axis.dot(direction), "lateral_contact_world": lateral_contact,
+			"axis_direction_dot": axis.dot(direction),
 			"located_contact": torso_hit, "torso_contact": torso_hit.get("region", "") == "torso"}
 
 	func measure_back_skin(blade: Dictionary, execution: Dictionary) -> Dictionary:
@@ -326,7 +324,7 @@ func _run() -> void:
 			# Secondary cameras share this exact World3D and render the same physics
 			# sample. Neither the actor nor blade is reposed or mirrored for them.
 			var inspection_stage := ""
-			for candidate: String in ["prepare", "before_contact", "first_contact", "recoil", "thrust_mid", "stab", "hold"]:
+			for candidate: String in ["prepare", "before_contact", "first_contact", "recoil", "thrust_mid", "stab", "hold", "withdraw_mid", "clear", "recover"]:
 				if driver.stages.has(candidate) and not inspection_stills.has(candidate): inspection_stage = candidate
 			if not inspection_stage.is_empty():
 				for angle: String in inspections:
@@ -367,7 +365,7 @@ func _run() -> void:
 		outcomes.append({"id": scenario.id, "alerted": scenario.alerted, "initial_health": 118,
 			"initial_contacts": driver.initial_contacts, "before_begin": driver.before_begin,
 			"begin_result": driver.began, "attacks_landed": driver.landed, "defeats": driver.defeats,
-			"damage_events": driver.damage_events, "first_death": driver.first_death, "last_alive_before_death": driver.last_alive_before_death, "first_head_detach": driver.first_head_detach,
+			"damage_events": driver.damage_events, "first_death": driver.first_death, "first_release": driver.first_release, "last_alive_before_death": driver.last_alive_before_death, "first_head_detach": driver.first_head_detach,
 			"stages": driver.stages, "stills": stills, "passage_inspection_stills": inspection_stills, "camera_inspection_tilt": driver.changed_camera,
 			"maximum_shoulder_adjustment_m": driver.max_shoulder_adjustment_m,
 			"maximum_requested_arm_reach_m": driver.max_requested_arm_reach_m,
@@ -376,7 +374,7 @@ func _run() -> void:
 			"physics_samples": driver.records, "final_creep": actor.get_creep_snapshot()})
 		print("REAR TAKEDOWN CASE: ", scenario.id, " | accepted ", driver.began.get("accepted", false), " | defeats ", driver.defeats)
 		if not bool(scenario.alerted):
-			for required: String in ["prepare", "before_contact", "first_contact", "recoil", "thrust_mid", "stab", "hold"]:
+			for required: String in ["prepare", "before_contact", "first_contact", "recoil", "thrust_mid", "stab", "hold", "withdraw_mid", "clear", "recover"]:
 				_check(inspection_stills.has(required), "same-pose full-arm side/front and hand closeup captured: " + required)
 		for view: Dictionary in inspections.values(): view.viewport.queue_free()
 		viewport.queue_free()
@@ -400,11 +398,11 @@ func _run() -> void:
 		"renderer": RenderingServer.get_current_rendering_driver_name(), "audio_driver_policy": "Dummy enforced by audited run_embedded_preview.sh",
 		"source_hashes_before": hashes, "source_hashes_after": hashes_after, "sources_preserved": hashes == hashes_after,
 		"session_inventory_preserved": session_preserved, "cursor_preserved": cursor_preserved,
-		"capture_scope": "Actual DungeonPlayer sword and live Creep AI. One begin_rear_takedown call at .6 seconds per case; actual production through-stab, single blade-axis twist, rightward slicing extraction and whole-body rigid-body death with attached head. No forced damage, death, pose, detached-part position or contact.",
-		"depth_measurement": "Displayed blade vertices are scanned independently in world space at every physics tick. Stab/hold stages additionally re-intersect posed torso triangles. Lateral extraction is measured against the original wound plane because the intact corpse is already physically falling. The final living physics sample (within two ticks of death) records actual torso contact; dead bodies intentionally no longer answer combat hit queries. Entry depth and opposite-side protrusion are measured independently against actual visible CreepPart skin triangles, including both triangle windings. The farthest forward intersection is the actual outer exit, and both entry and exit must belong to torso skin. No collision proxy or cap closes the skin. Side/front inspection cameras share the exact same world and physics pose.",
+		"capture_scope": "Actual DungeonPlayer sword and live Creep AI. One begin_rear_takedown call at .6 seconds per case. Production straight deep stab kills once, preserves the held final recoil pose, withdraws on the same line, and releases attached-head ragdoll only after actual steel clears. No forced damage, death, pose, detached-part position or contact.",
+		"depth_measurement": "Displayed blade vertices are scanned independently at every physics tick. Actual visible torso triangles establish entry and far-side exit at contact, deep stab and held death. Pull-out must remain on the same axis with fixed world roll and monotonic decreasing penetration. The first physical release records actual clearance beyond the original held entry plane. Dead targets intentionally stop answering combat hit queries; held-skin triangles and pre-death samples provide independent geometry evidence.",
 		"arm_measurement": "Actual fitted shoulder/elbow/wrist are recorded in world and camera space every physics tick. The real rendered rig also measures blade-to-forearm angle, elbow behind/right of wrist, and palm-anchor/digit-bone position relative to the handle. Bone distances and a fixed palm anchor do not prove skin contact; separate GPU grip-side closeups inspect it. During the full active takedown, shoulder displacement from its anatomical rest anchor must stay within 4.5cm, its camera-space Z stays behind the camera, and upper/forearm lengths remain 34/26cm. Side inspection frames the whole shoulder/elbow/wrist and sword at preparation, mid-thrust, deepest stab and hold, in the same world pose.",
-		"wrist_measurement": "Actual supplied wrist/elbow bone poses and the authored neutral forearm axis independently measure hand-to-forearm axis mismatch, not a clinical wrist angle. Embedded stab and lateral-extraction keys require at most 45 degrees. All 60Hz samples retain real bone continuity; exposed-blade frustum projection is required through the lethal lateral cut, after which the rightward follow-through may leave the frame; projection does not prove that skin or sleeve does not occlude it. The blade world basis must remain fixed within 0.1 degrees during axial thrust and pre-twist hold; one monotonic 45-degree roll preserves blade axis and tip, followed by the rightward slice.",
-		"camera_motion": "Starts 1.15m behind the actual actor, aimed at back skin. Production aiming/lean and collision-tested initial approach own the active sequence. The actual capsule approaches to the deep-grip distance during thrust, with no post-stab neck-cut step. Only after the completed kill, a capture-only pitch tilt from 3.5 to 4.3 seconds ends at -47 degrees to inspect the intact corpse. Alerted control keeps its initial camera; live AI can turn and move.",
+		"wrist_measurement": "Actual supplied wrist/elbow bones independently measure hand-to-forearm neutral-axis mismatch, not a clinical wrist angle. Embedded and withdrawal samples retain the existing 45-degree limit, actual 60Hz joint continuity, and fixed-length arm checks. Actual sword world rotation must stay within 0.1 degrees and lateral tip displacement within 2mm through the entire thrust, hold and straight withdrawal. Deep-stab exposed-steel projection does not prove that skin or sleeve does not occlude it.",
+		"camera_motion": "Starts 1.15m behind the actual actor, aimed at back skin. Production aiming, lean and collision-tested preparation/lunge own the active sequence. During straight withdrawal the capsule reverses the lunge to keep the hand reachable. Only after completion, capture-only pitch tilt inspects the intact corpse. Alerted control keeps its initial camera and runs live AI.",
 		"input_scope": "No OS keyboard/mouse/focus, hardware cursor change, desktop capture or audible playback. Labels are inspection subtitles. The alerted control is initialized in CHASE, then runs normal AI; the rear case starts unaware in IDLE.",
 		"reference_scope": "The current attached martial-arts diagram was opened and visually inspected. Its middle-left straight thrust from middle guard informs the hand/forearm/point alignment and passing extension; the existing game shield/weapon design is retained. Earlier linked reference videos were not visually observed and are not claimed as a frame-matched source.",
 		"inspection_geometry_scope": "First-person arm geometry; the third-person avatar body layer is excluded just like the main first-person camera. All inspection views share the same live world, first-person arm, weapon and enemy pose; no actor or weapon is reposed or mirrored.",
@@ -442,8 +440,14 @@ func _check_rear_case(driver: RearDriver, scenario: Dictionary, rendered: Array[
 				_check(float(sample.right_arm.actual_shoulder_adjustment_m) <= .045, prefix + "shoulder stays attached throughout takedown (maximum 4.5cm adjustment)")
 				_check((sample.right_arm.camera.shoulder as Vector3).z >= .015, prefix + "upper-arm origin remains behind the first-person camera")
 				_check(absf(float(sample.right_arm.upper_length_m) - .34) <= .004 and absf(float(sample.right_arm.forearm_length_m) - .26) <= .003, prefix + "actual arm segments retain anatomical lengths")
-			if float(sample.execution.elapsed) < REAR_MOTION.CUT_HIT - .000001:
-				_check(float(sample.health) > 0.0 and not ("head" in sample.dismemberment.severed), prefix + "alive with attached head until actual lateral cutting contact")
+			if float(sample.execution.elapsed) < REAR_MOTION.STAB_HIT - .000001:
+				_check(float(sample.health) > 0.0 and not ("head" in sample.dismemberment.severed), prefix + "alive with attached head until actual deep-stab contact")
+			if float(sample.health) <= 0.0 and float(sample.execution.elapsed) <= REAR_MOTION.WITHDRAW_END:
+				var depth := float(sample.actual_blade.axis_depth_m)
+				if str(sample.ragdoll.phase) == "execution_hold":
+					_check(int(sample.ragdoll.bodies) == 0 and depth > -REAR_MOTION.WITHDRAW_CLEARANCE - .002, prefix + "embedded sword supports held corpse before physics starts")
+				elif driver.first_release.is_empty() or int(sample.tick) == int(driver.first_release.tick):
+					_check(depth <= -REAR_MOTION.WITHDRAW_CLEARANCE + .002, prefix + "first rigid-body frame requires actual blade clearance")
 			if float(sample.execution.elapsed) <= REAR_MOTION.STAB_CONTACT:
 				_check(is_zero_approx(float(sample.reaction.get("recoil_weight", -1.0))), prefix + "no victim recoil before the first physical blade-contact clock")
 		elif int(sample.player_state) == DungeonPlayer.CombatState.READY:
@@ -458,7 +462,7 @@ func _check_rear_case(driver: RearDriver, scenario: Dictionary, rendered: Array[
 		return
 	_check(bool(driver.began.get("accepted", false)) and driver.before_begin.candidate_is_actor, prefix + "actual unaware rear target accepted")
 	_check(int(driver.before_begin.enemy_state) == DungeonEnemy.AIState.IDLE, prefix + "enemy was unaware immediately before reservation")
-	_check(driver.defeats == 1 and driver.landed == 1 and is_zero_approx(float(last.health)), prefix + "one production lethal cut, defeat and reward event")
+	_check(driver.defeats == 1 and driver.landed == 1 and is_zero_approx(float(last.health)), prefix + "one production lethal stab, defeat and reward event")
 	if driver.stages.has("stab"):
 		var actual: Dictionary = driver.stages.stab.right_arm.actual_rig
 		_check(float(actual.blade_forearm_angle_degrees) <= 25.0, prefix + "middle-guard deep thrust aligns the rendered blade within 25 degrees of forearm extension")
@@ -470,7 +474,7 @@ func _check_rear_case(driver: RearDriver, scenario: Dictionary, rendered: Array[
 	_check(float(last.initial_chest_distance_m) > .20, prefix + "corpse physically moved from standing pose")
 	_check(not driver.first_death.is_empty() and driver.first_head_detach.is_empty(), prefix + "lethal contact is recorded without any head-detachment event")
 	if not driver.first_death.is_empty():
-		_check(absf(float(driver.first_death.execution.elapsed) - REAR_MOTION.CUT_HIT) <= 1.0 / 60.0 + .00001, prefix + "death occurs at lateral cut contact, not at stab")
+		_check(absf(float(driver.first_death.execution.elapsed) - REAR_MOTION.STAB_HIT) <= 1.0 / 60.0 + .00001, prefix + "death occurs at the actual deep-stab contact")
 		# Dead targets deliberately stop answering located-hit queries. Read the
 		# last actual living physics sample instead of querying the new corpse.
 		for sample: Dictionary in driver.records:
@@ -481,7 +485,7 @@ func _check_rear_case(driver: RearDriver, scenario: Dictionary, rendered: Array[
 			var live: Dictionary = driver.last_alive_before_death
 			var ticks := int(driver.first_death.tick) - int(live.tick)
 			_check(ticks >= 1 and ticks <= 2, prefix + "torso-contact evidence is within two actual physics ticks before death")
-			_check(bool(live.actual_blade.torso_contact) and float(live.execution.elapsed) >= REAR_MOTION.CUT_HIT - 2.0 / 60.0 - .00001, prefix + "displayed cutting blade intersects the actual live torso immediately before lethal contact")
+			_check(bool(live.actual_blade.torso_contact) and float(live.execution.elapsed) >= REAR_MOTION.STAB_HIT - 2.0 / 60.0 - .00001, prefix + "displayed thrusting blade intersects the actual live torso immediately before lethal contact")
 		_check((driver.first_death.dismemberment.severed as Array).is_empty() and int(driver.first_death.dismemberment.detached_bodies) == 0, prefix + "lethal contact preserves the complete physical body")
 
 	for stage_name: String in REAR_STAGES:
@@ -499,18 +503,28 @@ func _check_rear_case(driver: RearDriver, scenario: Dictionary, rendered: Array[
 			_check(stage.actual_skin.entry_mesh == "CreepPart_torso" and stage.actual_skin.exit_mesh == "CreepPart_torso", prefix + stage_name + " entry and farthest opposite exit both belong to actual torso skin, not the head")
 			_check(float(stage.actual_skin.exit_protrusion_m) > .03 and float(stage.actual_skin.heel_depth_m) < -.008, prefix + stage_name + " actual blade protrudes beyond opposite skin while guard remains outside entry")
 			_check(float(stage.actual_skin.inserted_fraction) >= .89 and float(stage.actual_skin.inserted_fraction) <= .99, prefix + stage_name + " near-full insertion measured from actual posed skin")
-	if driver.stages.has("hold") and driver.stages.has("withdraw"):
+	_check(not driver.first_release.is_empty(), prefix + "actual blade-clear ragdoll release was recorded")
+	if not driver.first_release.is_empty():
+		var release: Dictionary = driver.first_release
+		_check(float(release.actual_blade.axis_depth_m) <= -REAR_MOTION.WITHDRAW_CLEARANCE + .002 and float(release.execution.elapsed) > REAR_MOTION.HOLD_END and float(release.execution.elapsed) <= REAR_MOTION.WITHDRAW_END + 1.0 / 60.0, prefix + "ragdoll starts only after straight blade clearance")
+		_check(not bool(release.ragdoll.execution_held) and not str(release.ragdoll.execution_release_reason).is_empty(), prefix + "corpse records its one completed physical release")
+		_check(int(release.defeats) == 1 and int(release.landed) == 1, prefix + "release cannot create a second kill or reward")
+	if driver.stages.has("hold") and driver.stages.has("clear"):
 		var held: Dictionary = driver.stages.hold
-		var exited: Dictionary = driver.stages.withdraw
-		var right := (held.camera as Transform3D).basis.x.normalized()
+		var exited: Dictionary = driver.stages.clear
 		var axis: Vector3 = held.execution.stab_direction
-		var held_heel: Vector3 = (held.actual_blade.tip_world as Vector3) - (held.actual_blade.axis_world as Vector3) * float(held.actual_blade.length_m)
-		var exited_heel: Vector3 = (exited.actual_blade.tip_world as Vector3) - (exited.actual_blade.axis_world as Vector3) * float(exited.actual_blade.length_m)
-		var right_shift := (exited_heel - held_heel).dot(right)
-		var retreat := -((exited.actual_blade.tip_world as Vector3) - (held.actual_blade.tip_world as Vector3)).dot(axis)
+		var shift: Vector3 = (exited.actual_blade.tip_world as Vector3) - (held.actual_blade.tip_world as Vector3)
+		var lateral := (shift - axis * shift.dot(axis)).length()
 		var exit_depth := ((exited.actual_blade.tip_world as Vector3) - (held.execution.contact_point as Vector3)).dot(axis)
-		_check(right_shift > .15 and retreat > .20 and exit_depth < -.03, prefix + "actual blade exits the initial wound plane rightward and backward")
-		driver.stages.withdraw["lateral_extraction"] = {"heel_right_shift_m": right_shift, "tip_retreat_m": retreat, "tip_entry_plane_depth_m": exit_depth, "reference": "original back-entry plane; victim is already a falling whole-body ragdoll"}
+		_check(lateral < .002 and exit_depth <= -REAR_MOTION.WITHDRAW_CLEARANCE + .002, prefix + "actual sword leaves the wound on the same straight line without a sideways slice")
+		_check(str(held.ragdoll.phase) == "execution_hold" and int(held.ragdoll.bodies) == 0, prefix + "deep hold supports dead body instead of starting early ragdoll")
+		exited["straight_extraction"] = {"lateral_tip_shift_m": lateral, "tip_retreat_m": -shift.dot(axis), "tip_entry_plane_depth_m": exit_depth, "reference": "original held back-entry plane; first physical release requires actual tip clearance"}
+	if driver.stages.has("withdraw_mid"):
+		var middle: Dictionary = driver.stages.withdraw_mid
+		_check(middle.ragdoll.phase == "execution_hold" and int(middle.ragdoll.bodies) == 0, prefix + "partly withdrawn blade still holds the corpse")
+		if not driver.first_death.is_empty():
+			for bone: String in ["Chest", "Neck", "Head"]:
+				_check((middle.bone_world[bone] as Transform3D).is_equal_approx(driver.first_death.bone_world[bone]), prefix + "corpse retains its exact final recoil pose until steel is clear: " + bone)
 
 	_check(int(last.player_state) == DungeonPlayer.CombatState.READY and not last.execution.active, prefix + "player recovers to ready")
 
@@ -553,9 +567,8 @@ func _check_wrist_sequence(driver: RearDriver, prefix: String) -> void:
 	var minimum_projection_fraction := INF
 	var checked_axis_samples := 0
 	var maximum_step_time := 0.0
-	var twist_start := {}
-	var previous_twist := 0.0
-	var maximum_twist := 0.0
+	var maximum_lateral_shift := 0.0
+	var previous_withdrawal_depth := INF
 	var minimum_thrust_forearm_clearance := INF
 	var minimum_preparation_forearm_clearance := INF
 	for sample: Dictionary in driver.records:
@@ -572,33 +585,30 @@ func _check_wrist_sequence(driver: RearDriver, prefix: String) -> void:
 			_check(float(actual.camera_forearm_centerline_clearance_m) >= .14, prefix + "actual forearm centerline stays at least 14cm from camera during middle-guard thrust/hold at %.4fs" % time)
 		elif time < REAR_MOTION.PREPARE_END:
 			minimum_preparation_forearm_clearance = minf(minimum_preparation_forearm_clearance, float(actual.camera_forearm_centerline_clearance_m))
-		var strict_axis := (time >= REAR_MOTION.PREPARE_END and time <= REAR_MOTION.WITHDRAW_END and depth > 0.0) or (time >= REAR_MOTION.STAB_HIT and time <= REAR_MOTION.WITHDRAW_END) or absf(time - REAR_MOTION.CUT_HIT) <= 1.0 / 60.0
+		var strict_axis := (time >= REAR_MOTION.PREPARE_END and time <= REAR_MOTION.WITHDRAW_END and depth > 0.0) or (time >= REAR_MOTION.STAB_HIT and time <= REAR_MOTION.WITHDRAW_END)
 		if strict_axis:
 			checked_axis_samples += 1
 			maximum_mismatch = maxf(maximum_mismatch, float(actual.axis_mismatch_degrees))
 			maximum_legacy_mismatch = maxf(maximum_legacy_mismatch, float(actual.legacy_axis_mismatch_degrees))
 			_check(float(actual.axis_mismatch_degrees) <= 45.0, prefix + "hand-to-forearm authored axis mismatch at %.4fs stays within 45 degrees (actual %.3f)" % [time, actual.axis_mismatch_degrees])
-		if time >= REAR_MOTION.PREPARE_END and time <= REAR_MOTION.TWIST_START:
+		if time >= REAR_MOTION.PREPARE_END and time <= REAR_MOTION.WITHDRAW_END:
 			var basis := (sample.weapon_transform as Transform3D).basis.orthonormalized()
 			if not fixed_basis_seen:
 				fixed_basis = basis
 				fixed_basis_seen = true
 			var drift := WRIST_METRICS.basis_angle_degrees(fixed_basis, basis)
 			maximum_blade_drift = maxf(maximum_blade_drift, drift)
-			_check(drift <= .10, prefix + "axial thrust and pre-twist hold keep real world blade rotation fixed")
-		if time >= REAR_MOTION.TWIST_START - .000001 and time <= REAR_MOTION.HOLD_END:
-			var basis := (sample.weapon_transform as Transform3D).basis.orthonormalized()
-			if twist_start.is_empty(): twist_start = {"basis": fixed_basis, "tip": sample.actual_blade.tip_world, "axis": sample.actual_blade.axis_world}
-			var angle := WRIST_METRICS.basis_angle_degrees(twist_start.basis, basis)
-			maximum_twist = maxf(maximum_twist, angle)
-			_check((sample.actual_blade.axis_world as Vector3).dot(twist_start.axis) > .9999 and (sample.actual_blade.tip_world as Vector3).distance_to(twist_start.tip) < .005, prefix + "one twist preserves real blade axis and tip")
-			_check(angle + .05 >= previous_twist and angle <= absf(REAR_MOTION.TWIST_DEGREES) + .1, prefix + "blade roll is a single monotonic twist")
-			if time >= REAR_MOTION.TWIST_END: _check(absf(angle - absf(REAR_MOTION.TWIST_DEGREES)) < .1, prefix + "actual blade completed its single requested twist")
-			previous_twist = angle
-		if time >= REAR_MOTION.STAB_HIT and time <= REAR_MOTION.CUT_HIT:
+			_check(drift <= .10, prefix + "thrust, hold and straight pull-out keep real world blade rotation fixed")
+		if time >= REAR_MOTION.PREPARE_END and time <= REAR_MOTION.WITHDRAW_END:
+			maximum_lateral_shift = maxf(maximum_lateral_shift, float(sample.actual_blade.lateral_error_m))
+			_check(float(sample.actual_blade.lateral_error_m) < .002, prefix + "actual blade stays on its original line with no sideways slice")
+		if time >= REAR_MOTION.HOLD_END and time <= REAR_MOTION.WITHDRAW_END:
+			_check(depth <= previous_withdrawal_depth + .0001, prefix + "actual tip retreats monotonically during straight extraction")
+			previous_withdrawal_depth = depth
+		if time >= REAR_MOTION.STAB_HIT and time <= REAR_MOTION.HOLD_END:
 			var projection: Dictionary = sample.actual_blade.projection
 			minimum_projection_fraction = minf(minimum_projection_fraction, float(projection.projected_span_viewport_fraction))
-			_check(int(projection.in_frame_samples) >= 2 and float(projection.projected_span_px) > 1.0, prefix + "exposed steel has a non-degenerate on-screen projection through the lethal lateral cut")
+			_check(int(projection.in_frame_samples) >= 2 and float(projection.projected_span_px) > 1.0, prefix + "exposed steel has an on-screen projection during deepest stab and hold")
 		if previous.is_empty() and not driver.before_begin.is_empty():
 			var entry_rig: Dictionary = driver.before_begin.right_arm.get("actual_rig", {})
 			if bool(entry_rig.get("available", false)): previous = {"actual": entry_rig, "time": 0.0}
@@ -612,15 +622,15 @@ func _check_wrist_sequence(driver: RearDriver, prefix: String) -> void:
 			_check(step < .12 and rotation < 45.0, prefix + "actual 60Hz hand/arm joints stay below 12cm / 45deg per tick at %.4fs" % time)
 		previous = {"actual": actual, "time": time}
 	if bool(driver.began.get("accepted", false)):
-		_check(checked_axis_samples >= 40 and fixed_basis_seen, prefix + "complete embedded and lateral-extraction interval was measured at actual 60Hz")
+		_check(checked_axis_samples >= 40 and fixed_basis_seen, prefix + "complete embedded and straight-extraction interval was measured at actual 60Hz")
 	driver.wrist_summary = {"axis_samples": checked_axis_samples, "maximum_axis_mismatch_degrees": maximum_mismatch,
 		"maximum_legacy_axis_mismatch_degrees": maximum_legacy_mismatch, "maximum_joint_step_m": maximum_step,
 		"maximum_step_time": maximum_step_time, "maximum_hand_rotation_step_degrees": maximum_hand_rotation,
-		"maximum_embedded_blade_rotation_degrees": maximum_blade_drift, "maximum_single_twist_degrees": maximum_twist,
+		"maximum_embedded_blade_rotation_degrees": maximum_blade_drift, "maximum_lateral_tip_shift_m": maximum_lateral_shift,
 		"minimum_exposed_blade_projection_fraction": minimum_projection_fraction if is_finite(minimum_projection_fraction) else 0.0,
 		"minimum_thrust_forearm_camera_clearance_m": minimum_thrust_forearm_clearance if is_finite(minimum_thrust_forearm_clearance) else 0.0,
 		"minimum_preparation_forearm_camera_clearance_m": minimum_preparation_forearm_clearance if is_finite(minimum_preparation_forearm_clearance) else 0.0,
-		"forearm_clearance_scope": "Actual rendered elbow/wrist centerline versus camera origin; a 14cm proxy guard from preparation-end through post-twist hold. Preparation rotation is reported separately. Not a complete skin/sleeve collision proof.",
+		"forearm_clearance_scope": "Actual rendered elbow/wrist centerline versus camera origin; a 14cm proxy guard from preparation-end through deep-stab hold. Preparation rotation is reported separately. Not a complete skin/sleeve collision proof.",
 		"projection_occlusion_verified": false}
 
 

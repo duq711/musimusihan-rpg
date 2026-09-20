@@ -313,7 +313,7 @@ func get_execution_profile() -> String:
 
 func get_execution_hit_seconds() -> float:
 	if not _rear_takedown_profile.is_empty():
-		return REAR_REACTION.MOTION.CUT_HIT
+		return REAR_REACTION.MOTION.STAB_HIT
 	return EXECUTION_REACTION.MOTION.HIT_SECONDS if is_crawling() else super.get_execution_hit_seconds()
 
 func can_begin_rear_takedown(executor: Node3D, profile: String = "rear_sword") -> bool:
@@ -360,17 +360,17 @@ func finish_rear_takedown(executor: Node3D) -> bool:
 		return false
 	if executor != _execution_executor or not _execution_executor_is_alive(executor) or executor.get_world_3d() != get_world_3d():
 		return false
-	if _execution_elapsed < REAR_REACTION.MOTION.CUT_HIT - .000001:
+	if _execution_elapsed < REAR_REACTION.MOTION.STAB_HIT - .000001:
 		return false
 	_apply_execution_pose()
-	# The sword tears out sideways through the torso. Preserve every remaining
-	# limb, including the head, and pass this exact reaction pose into physics.
-	# _die() retains the ordinary single defeated/reward path and rejects repeats.
-	velocity = _rear_exit_right() * 1.15 + global_basis.z.normalized() * .35
-	_rear_takedown_death = true
+	# The deep stab is fatal once. Hold this exact contraction until the
+	# blade leaves the wound; cancellation also releases the held corpse.
+	velocity = Vector3.ZERO
+	_hold_execution_death = true
 	health = 0.0
 	_die()
-	_rear_takedown_death = false
+	_hold_execution_death = false
+	animation_clip = "rear_sword_takedown"
 	return true
 
 func _rear_exit_right() -> Vector3:

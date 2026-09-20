@@ -1,6 +1,22 @@
 # 게임 제작 기준서
 
+## 2026-09-20 후방 검 제압 — 찌른 뒤 직선 회수 / Rear takedown — stab and axial withdrawal
+
+**최신 사용자 확정 변경:** 검을 깊게 찌른 뒤 박힌 검 방향 그대로 뒤로 뽑는다. 앞선 검 비틀기와 플레이어 우측 옆 베기만 취소하며 대각 파지·팔 전진·첫 접촉부터 깊이에 따라 커지는 반응·깊은 관통·머리 유지 요구는 이어간다.
+
+검 회수는 같은 축에서 진행하고 플레이어도 충돌을 검사하며 물러나 팔이 닿는 범위와 고정 파지를 유지한다. 최대 깊이에서 사망·보상을 한 번 확정하되 검이 박힌 동안 몸을 유지하고 칼끝이 몸에서 빠진 뒤 랙돌로 넘긴다. 머리 절단은 없다. 현재 제작 시계는 준비 0.55초, 접촉 0.61초, 최대 깊이·사망 0.90초, 회수 시작 1.10초, 칼끝 빠짐·랙돌 1.70초, 복귀 시작 1.76초, 종료 2.26초이며 칼날 약 94% 관입은 유지한다. 이 수치는 조정 가능한 제작값이며 실제 GPU의 랙돌 해제는 1.70초, 칼끝이 입구보다 약 6cm 빠진 뒤다.
+
+**현재 상태: 자동 검사 5종과 실제 GPU 9초·270프레임 검수·전체 영상 디코딩 통과. 실제 1인칭·측면에서 직선 회수와 칼끝이 빠진 뒤 랙돌을 확인했다. GitHub 원격 반영은 아직 미확인이다.** 최종 산출물은 [검수 기록](../artifacts/validation/rear_sword_straight_withdraw_20260920/README.md)과 [전체 영상](../artifacts/validation/rear_sword_straight_withdraw_20260920/rear_sword_straight_withdraw.mp4)에 보존한다. 아래 이전 동작의 검사·게시 통과는 해당 버전의 기록이며 이번 변경의 완료 근거로 재사용하지 않는다. 기존 원본 소매·검지 간격·손 전체 정밀 충돌 검사의 한계를 해소했다고 주장하지 않는다.
+
+**Latest user-confirmed change:** after the deep stab, pull back along the embedded blade's axis. Cancel only the previous twist and player-right lateral cut; retain diagonal grip, forward arm drive, contact/depth-linked reaction, deep penetration and an attached head.
+
+The player retreats with collision checks during axial extraction to maintain fixed grip and arm reach. Commit one death/reward at maximum depth, hold the body while the blade remains inserted and release the intact-head ragdoll after tip clearance. Planned timings are preparation 0.55s, contact 0.61s, maximum-depth/death 0.90s, withdrawal 1.10s, clearance/ragdoll 1.70s, recovery 1.76s and completion 2.26s, retaining approximately 94% insertion. These are adjustable production settings; actual GPU release occurs at 1.70s with the tip approximately 6cm behind the entry.
+
+**Status: five automated suites, actual nine-second/270-frame GPU review and full-video decoding passed. Actual first-person/side views confirm axial withdrawal and blade-clear ragdoll. GitHub publication remains unconfirmed.** The [report](../artifacts/validation/rear_sword_straight_withdraw_20260920/README.md) and [full video](../artifacts/validation/rear_sword_straight_withdraw_20260920/rear_sword_straight_withdraw.mp4) are intended evidence locations. Earlier passes/publication records validate only earlier sequences. Existing source-sleeve, index-spacing and exhaustive hand-collision limitations are not claimed fixed.
+
 ## 2026-09-20 후방 검 제압 — 전진 찌르기와 접촉 반응 / Rear takedown — forward thrust and contact response
+
+**이전 제작·검수 기록. 위 직선 회수 요청이 비틀기·우측 발검을 대체한다. 파지·전진·첫 접촉 반응은 이어간다. / Historical production and validation. Axial withdrawal above supersedes twist/right extraction while retaining grip, forward drive and first-contact response.**
 
 **최신 후속 제작:** 파지와 팔 전진, 실제 첫 접촉에서 시작하는 적의 반응, 1인칭 화면 구도를 함께 수정한다. 손목 회전 하나만 바꾸는 방식으로 마치지 않는다. 엄지·손가락이 손잡이에 맞게 연결되고 팔의 전진이 읽히며, 찌르기 전에는 반응하지 않고 실제 피부 접촉부터 반응해야 한다.
 
