@@ -1,22 +1,25 @@
 extends RefCounted
-## One shared clock: reserve an unaware target, stab, then slice out to the left.
+## One shared clock: reserve an unaware target, stab through, twist once, then slice out to the right.
 ## Contact coordinates are sampled from the actual posed target in world space.
 const GRIP := preload("res://scripts/sword_long_grip_visual.gd")
 const ARM := preload("res://scripts/reference_sword_arm.gd")
 const POSE := preload("res://scripts/sword_shield_choreography.gd")
 const PREPARE_END := 0.28
-const STAB_HIT := 0.62
-const HOLD_END := 1.03
-const WITHDRAW_END := 1.66
+const STAB_HIT := 0.68
+const TWIST_START := 0.80
+const TWIST_END := 1.12
+const TWIST_DEGREES := -45.0
+const HOLD_END := 1.22
+const WITHDRAW_END := 1.98
 const CUT_START := HOLD_END
-const CUT_HIT := 1.27
-const CUT_END := 1.80
-const DURATION := 2.28
-const PENETRATION_RATIO := 0.55
+const CUT_HIT := 1.48
+const CUT_END := 2.10
+const DURATION := 2.62
+const PENETRATION_RATIO := 0.94
 const STAMINA_COST := 24.0
 const MIN_DISTANCE := 0.85
 const MAX_DISTANCE := 1.50
-const CUT_DISTANCE := 1.15
+const CUT_DISTANCE := .78
 const STAB_DISTANCE := 1.15
 const CUT_EDGE_FROM_TIP := .10
 
@@ -27,35 +30,44 @@ static func weapon_profile(definition: Dictionary) -> String:
 static func phase(elapsed: float) -> String:
 	if elapsed < PREPARE_END: return "후방 제압 · 검 겨누기"
 	if elapsed < STAB_HIT: return "후방 제압 · 깊게 찌르기"
-	if elapsed < HOLD_END: return "후방 제압 · 제압 유지"
-	if elapsed < WITHDRAW_END: return "후방 제압 · 좌측으로 베어 빼기"
+	if elapsed < TWIST_START: return "후방 제압 · 깊게 관통"
+	if elapsed < TWIST_END: return "후방 제압 · 검 비틀기"
+	if elapsed < HOLD_END: return "후방 제압 · 비튼 검 유지"
+	if elapsed < WITHDRAW_END: return "후방 제압 · 우측으로 베어 빼기"
 	if elapsed < CUT_END: return "후방 제압 · 검 회수"
 	return "후방 제압 · 자세 회복"
 
 static func sword(elapsed: float, entry: Transform3D, back: Vector3, direction: Vector3, _neck: Vector3, blade_tip: Vector3, blade_length: float, stab_basis: Basis) -> Transform3D:
-	# Keep the real blade orientation fixed in world space while it is embedded.
+	# Keep the thrust axis fixed in world space, then intentionally roll once.
 	var frame := Transform3D(stab_basis, Vector3.ZERO)
 	frame.origin = back - frame.basis * blade_tip
 	var chamber := frame.translated(direction * -.20)
 	var deep := frame.translated(direction * (blade_length * PENETRATION_RATIO))
 	if elapsed < PREPARE_END:
 		var t := elapsed / PREPARE_END
-		return POSE.mix(entry, chamber, t).translated(Vector3(0, -.15, 0) * pow(sin(PI * t), 2))
+		# Carry the hilt through a compact preparation arc. Anchoring a rotating
+		# metre-long sword at its tip would pull the gripping arm out of reach.
+		# Pass below the shoulder so the wrist does not cross the IK minimum
+		# reach sphere and snap the elbow while the blade turns into line.
+		return POSE.mix(entry, chamber, t).translated((Vector3(0, -.30, 0) - direction * .10) * pow(sin(PI * t), 2))
 	if elapsed < STAB_HIT: return POSE.mix(chamber, deep, (elapsed - PREPARE_END) / (STAB_HIT - PREPARE_END))
-	if elapsed < HOLD_END: return deep
+	var twisted := _rolled(deep, blade_tip, deg_to_rad(TWIST_DEGREES))
+	if elapsed < TWIST_START: return deep
+	if elapsed < TWIST_END: return _rolled(deep, blade_tip, deg_to_rad(TWIST_DEGREES) * smoothstep(TWIST_START, TWIST_END, elapsed))
+	if elapsed < HOLD_END: return twisted
 	if elapsed < WITHDRAW_END:
-		return lateral_exit(deep, blade_tip, blade_length, (elapsed - HOLD_END) / (WITHDRAW_END - HOLD_END))
-	var exited := lateral_exit(deep, blade_tip, blade_length, 1.0)
+		return lateral_exit(twisted, blade_tip, blade_length, (elapsed - HOLD_END) / (WITHDRAW_END - HOLD_END))
+	var exited := lateral_exit(twisted, blade_tip, blade_length, 1.0)
 	if elapsed < CUT_END: return exited
 	return POSE.mix(exited, POSE.ready(), (elapsed - CUT_END) / (DURATION - CUT_END))
 
 static func lateral_exit(deep: Transform3D, _blade_tip: Vector3, _blade_length: float, progress: float) -> Transform3D:
-	# One continuous diagonal extraction. The grip travels left/back while the
-	# blade opens left around the hand: no separate neck-height windup or strike.
+	# One continuous diagonal extraction. The grip travels right/back while the
+	# blade opens right around the hand: no separate neck-height windup or strike.
 	var t := smoothstep(0.0, 1.0, progress)
 	var grip := deep * POSE.SWORD_GRIP
-	var end_basis := Basis(Vector3.UP, deg_to_rad(50.0)) * deep.basis
-	var end_grip := grip + Vector3(-.28, -.035, .34)
+	var end_basis := Basis(Vector3.UP, deg_to_rad(-80.0)) * deep.basis
+	var end_grip := grip + Vector3(.28, -.10, .26)
 	var end_pose := _natural_roll(Transform3D(end_basis, end_grip - end_basis * POSE.SWORD_GRIP), POSE.SWORD_GRIP)
 	var basis := Basis(deep.basis.get_rotation_quaternion().slerp(end_pose.basis.get_rotation_quaternion(), t))
 	return Transform3D(basis, grip.lerp(end_grip, t) - basis * POSE.SWORD_GRIP)
@@ -86,6 +98,10 @@ static func arm(pivot: Transform3D, elapsed: float, entry_arm: Dictionary, previ
 
 	if elapsed < PREPARE_END and not entry_arm.is_empty():
 		hint = (entry_arm.elbow as Vector3).lerp(hint, smoothstep(0, PREPARE_END, elapsed))
+		# Lead the preparation elbow out to the right instead of letting its
+		# hint cross the shoulder–wrist axis and flip the bend direction.
+		hint += Vector3.RIGHT * .30 * pow(sin(PI * elapsed / PREPARE_END), 2)
+
 	if elapsed > CUT_END:
 		var ready := ARM.solve(shoulder, shoulder + Vector3(.75, -.72, .28), wrist, previous_bend)
 		hint = hint.lerp(ready.elbow, smoothstep(CUT_END, DURATION, elapsed))
@@ -134,5 +150,5 @@ static func stab_basis(direction: Vector3) -> Basis:
 	# Gravity provides a stable roll reference even when the initial camera is
 	# looking directly along the blade. Initial view pitch must not twist a hand.
 	var y := direction.normalized()
-	var z := (Vector3.UP - y * y.dot(Vector3.UP)).normalized().rotated(y, deg_to_rad(84.0))
+	var z := (Vector3.UP - y * y.dot(Vector3.UP)).normalized().rotated(y, deg_to_rad(130.0))
 	return Basis(y.cross(z).normalized(), y, z)

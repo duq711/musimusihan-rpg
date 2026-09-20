@@ -1195,9 +1195,9 @@ func begin_rear_takedown() -> Dictionary:
 	_execution_weapon_identity = _displayed_weapon_identity
 	_execution_contact_point = contacts.back
 	_rear_neck_contact = contacts.neck
-	# A small diagonal reveals the blade without twisting the rigid sword grip.
+	# Aim through the torso below the forward-hanging head, keeping the rigid grip.
 	var forward := (contacts.direction as Vector3).normalized().rotated(Vector3.UP, deg_to_rad(4.0))
-	_execution_stab_direction = (forward * cos(deg_to_rad(6.0)) + Vector3.UP * sin(deg_to_rad(6.0))).normalized()
+	_execution_stab_direction = (forward * cos(deg_to_rad(-12.0)) + Vector3.UP * sin(deg_to_rad(-12.0))).normalized()
 	_rear_stab_basis = REAR_TAKEDOWN_MOTION.stab_basis(_execution_stab_direction)
 	_rear_arm_entry = _reference_arm_rendered.duplicate(true)
 	var geometry := _get_execution_blade_geometry()
@@ -1391,7 +1391,7 @@ func _advance_rear_takedown(delta: float) -> void:
 		return
 	var next_elapsed := minf(REAR_TAKEDOWN_MOTION.DURATION, execution_elapsed + delta)
 	# Close an initially longer gap before the thrust using character collision.
-	# The lateral extraction keeps that distance; there is no neck-cut step.
+	# The thrust uses a short lunge; the later twist/extraction stays planted.
 	_move_rear_takedown_approach(minf(next_elapsed, REAR_TAKEDOWN_MOTION.STAB_HIT))
 	if _rear_approach_obstruction_m > .04:
 		cancel_execution()
@@ -1421,7 +1421,7 @@ func _advance_rear_takedown(delta: float) -> void:
 				return
 			var tip := weapon_pivot.to_global(_execution_blade_tip)
 			var heel := weapon_pivot.to_global(_execution_blade_tip - Vector3.UP * _execution_blade_length)
-			# The blade is still crossing the torso during the leftward extraction.
+			# The blade is still crossing the torso during the rightward extraction.
 			# Use the actual posed hit volumes; never target or sever the neck.
 			var torso_hit: Dictionary = _execution_target.call("query_located_hit", heel, tip, .045)
 			var wall := PhysicsRayQueryParameters3D.create(camera.global_position, _execution_contact_point, WORLD_LAYER)
@@ -1445,7 +1445,10 @@ func _advance_rear_takedown(delta: float) -> void:
 
 
 func _move_rear_takedown_approach(elapsed: float) -> void:
-	var progress := smoothstep(0, REAR_TAKEDOWN_MOTION.PREPARE_END, elapsed)
+	var distance := _rear_approach_offset.length()
+	var preparation_distance := maxf(0.0, distance - (REAR_TAKEDOWN_MOTION.STAB_DISTANCE - REAR_TAKEDOWN_MOTION.CUT_DISTANCE))
+	var first := preparation_distance / maxf(distance, .000001)
+	var progress := first * smoothstep(0, REAR_TAKEDOWN_MOTION.PREPARE_END, elapsed) + (1.0 - first) * smoothstep(REAR_TAKEDOWN_MOTION.PREPARE_END, REAR_TAKEDOWN_MOTION.STAB_HIT, elapsed)
 	if progress > _rear_approach_progress:
 		var step := _rear_approach_offset * (progress - _rear_approach_progress)
 		var before := global_position

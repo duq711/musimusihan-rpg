@@ -26,7 +26,7 @@ static func entries() -> Array[Dictionary]:
 		_entry("creep", "기본", "크리프 · 괴물 근접 전투", "물기·양손 연타 후 S 후퇴 → 걷기 추격 재개 · LMB 공격 / RMB 방어 · F2 재선택: 회복·재생성", "creep"),
 		_entry("dagger_assassination", "기본", "단검 · 등 뒤 암살", "미인지 크리프 등 뒤에서 LMB 찌르기 · 들키지 않고 접근해야 암살 · 정면 비교 항목 / F2 재선택: 회복·재생성", "dagger_assassination", "rear"),
 		_entry("dagger_assassination:front", "기본", "단검 · 정면 일반 공격 비교", "같은 단검으로 정면에서 LMB 찌르기: 일반 피해 · 실제 적 AI 활성 · F2 등 뒤 암살과 비교·재선택", "dagger_assassination", "front"),
-		_entry("rear_takedown", "기본", "검 제압 · 미인지 후방", "건강한 크리프 등 뒤에서 E 제압 · 깊게 찌르기→플레이어 좌측으로 베어 빼기 · 머리 유지 랙돌 · F2 정지·회복·재선택", "rear_takedown", "rear"),
+		_entry("rear_takedown", "기본", "검 제압 · 미인지 후방", "건강한 크리프 등 뒤에서 E 제압 · 깊게 관통→한 번 비틀기→플레이어 우측으로 베어 빼기 · 머리 유지 랙돌 · F2 정지·회복·재선택", "rear_takedown", "rear"),
 		_entry("rear_takedown:alerted", "기본", "검 제압 · 경계 상태 비교", "이미 추적 중인 실제 크리프 · 등 뒤여도 E 제압 불가 · F2 미인지 후방과 비교·재선택", "rear_takedown", "alerted"),
 		_entry("rear_takedown:front", "기본", "검 제압 · 정면 비교", "건강한 크리프 정면 · E 제압 불가·일반 전투 유지 · F2 미인지 후방과 비교·재선택", "rear_takedown", "front"),
 		_entry("creep_ragdoll", "기본", "크리프 래그돌 · 정면 타격", "회복·재생성 후 1초 뒤 실제 치명타 · 정면 충격과 바닥 낙하 · F2 일시정지 / 재선택", "creep_ragdoll", "front"),

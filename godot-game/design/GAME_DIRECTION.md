@@ -1,6 +1,18 @@
 # 게임 제작 기준서
 
+## 2026-09-20 후방 검 제압 — 깊은 관통·비틀기·우측 베기 / Rear takedown — through-stab, twist and right cut
+
+**최신 사용자 확정 변경:** 검을 거의 끝까지 밀어 넣어 칼끝이 반대편에서 보이게 한 뒤, 검을 한 번 비틀고 **플레이어 기준 우측으로 베어 빼기**로 변경한다. 이 요구가 아래의 좌측 발검을 대체한다. 목 베기·머리 절단 취소는 유지하며 우측 몸통 베기에서 한 번 사망·보상, 머리가 붙은 몸 전체의 랙돌로 연결한다. 일반 집중 공격 절단, 단검 암살, 포복 처형과 원본 에셋은 변경하지 않는다.
+
+현재 제작값은 0.68초 찌르기, 0.80–1.12초 검날 축 45° 비틀기, 1.22–1.98초 우측 발검(1.48초 치명적 몸통 베기), 2.10초까지 여운, 2.62초 복귀다. 실제 등 피부 기준 칼날 94% 관입을 적용한다. 핵심 검사에서 약 1.045m 검날 중 0.9823m 관입과 변형된 몸통 피부 밖 0.37184–0.40671m 칼끝 돌출을 확인했다. 준비 중 1.15m까지 접근하고 찌르며 0.78m까지 전진한다. 이 수치는 조정 가능한 구현 판단이며 충돌·팔 도달·고정 그립 조건을 유지한다. 반대편 피부 밖 칼끝은 실제 메시로 측정했고 동일한 자세의 정면·측면 실제 렌더에서도 몸통 반대편 칼끝을 확인했다. 지원 검·미인지/뒤쪽 조건·E 입력·F2 세 항목은 유지한다. **최종 코드의 핵심·실제 F2 검사 2종과 실제 GPU 9초·270프레임 검수를 통과했다. 준비 자세를 새로 생성한 상태에서도 연속성을 검사했고, 정면·측면 렌더로 반대편 칼끝을 확인했다. 핵심·F2·포복 처형·검/방패 처형 4종 회귀는 앞선 후보판에서 통과한 기록으로 구분한다.** [새 검수 기록](../artifacts/validation/rear_sword_through_twist_20260920/README.md)에 최종 결과와 전체 영상을 보존하며 아래 이전 검증과 구분한다. 파크라이 동작의 정확한 프레임 일치와 OS 하드웨어 입력은 미확인이다.
+
+**Latest user-confirmed change:** drive nearly the whole blade through until its tip is visible on the opposite side, twist once, then **cut out toward the player's right**. This supersedes leftward extraction below. The neck strike and decapitation remain cancelled; the right torso cut commits one death/reward and intact-head full-body ragdoll. Other dismemberment, dagger assassination, crawler execution and source assets remain unchanged.
+
+Current tunable timing is 0.68s stab, one 45° blade-axis twist during 0.80–1.12s, right extraction during 1.22–1.98s (fatal torso cut at 1.48s), follow-through to 2.10s and finish at 2.62s. Core checks measure 94% past actual back skin: 0.9823m of the approximately 1.045m blade and 0.37184–0.40671m of tip protrusion beyond the posed torso skin. Preparation approaches 1.15m and the thrust closes toward 0.78m with collision/reach checks and fixed grip. Opposite-side tip protrusion is measured from the actual mesh; actual front/side renders of the same pose also confirm the torso exit tip. Supported swords, unaware/rear eligibility and E/F2 controls remain. **Final code passed core/actual F2 checks and nine seconds/270 frames of actual GPU review, including fresh-idle preparation continuity and front/side confirmation of the exit tip. The four-suite core/F2/crawler/sword-shield regression pass belongs to an earlier candidate and is recorded separately.** The [new report](../artifacts/validation/rear_sword_through_twist_20260920/README.md) records this revision separately from historical passes. Exact Far Cry frame matching and OS hardware input remain unverified.
+
 ## 2026-09-20 후방 검 제압 — 좌측으로 베어 빼기 / Rear sword takedown — lateral extraction
+
+**이전 제작·검수 기록. 위 관통·비틀기·우측 발검이 현재 요구다. / Historical production and validation; through-stab, twist and right extraction above are the current request.**
 
 **사용자 확정 변경:** 후방에서 머리를 자르는 동작은 취소한다. 검으로 깊게 찌른 뒤 **플레이어 기준 좌측으로 베면서 검을 빼고** 복귀한다. 별도의 목 베기 준비·두 번째 공격·머리 분리는 하지 않으며, 몸통을 베어 빼는 한 동작에서 한 번 사망하고 머리가 붙은 몸 전체가 랙돌로 쓰러진다. 일반 집중 공격에 따른 기존 부위 절단과 포복 처형은 변경하지 않는다. 이 요구가 아래의 이전 목 베기 순서보다 우선한다.
 
@@ -12,7 +24,7 @@ Current tunable timing is 0.62s stab, 1.03–1.66s lateral extraction (fatal tor
 
 ## 2026-09-20 후방 검 제압 손목 보정 — 후속 제작 / Rear takedown wrist correction — follow-up
 
-**이전 제작·검수 기록. 위 좌측 발검 변경이 현재 동작 순서다. / Historical production and validation; lateral extraction above is the current sequence.**
+**이전 제작·검수 기록. 위 관통·비틀기·우측 발검이 현재 동작 순서다. / Historical production and validation; through-stab, twist and right extraction above are the current sequence.**
 
 기존 검 제압의 팔 길이·도달 검사는 손목 방향이 자연스럽다는 근거로 충분하지 않았다. 실제 리그 축에 대한 손·전완 검사와 박힌 검의 월드 방향 고정을 추가했다. 준비 경로를 15cm 낮추고 아래 10cm·앞 20cm 방향 전환은 칼끝이 빠진 다음 시작하며, 시작·복귀 어깨는 실제 준비 자세와 연결한다. 이전 약 107°와 새 축 차이 값은 리그 기준이며 해부학적·임상적 손목 굽힘각을 뜻하지 않는다. 기존 F2 항목과 공개 E 경로를 유지한다. **최종 핵심·F2 검사 및 실제 GPU `wrist_final_20260920`의 9초·270프레임 검수를 통과했다.** GPU의 최대 활성 축 차이 30.516°(깊은 찌르기 29.247°), 최대 관절 이동 0.094880m·손 회전 13.005°, 박힌 칼의 월드 회전 변화 0°를 확인했다. 실제 진입 자세와 연속 표본의 12cm·45° 제한, 접근 차단 시 접촉 전 취소도 검사했다. 이전 검수와 이번 최신·이전 후보판 회귀 근거는 [현재 검수 기록](../artifacts/validation/rear_sword_wrist_20260920/README.md)에 구분한다. 참고 영상 2:09–2:14·OS 하드웨어 입력은 미확인이며 GitHub 상태는 최종 게시 기록을 따른다.
 

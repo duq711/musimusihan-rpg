@@ -56,7 +56,7 @@ func _run() -> void:
 	_check(Input.mouse_mode == cursor_before, "exit restores original cursor mode")
 	for failure in failures:
 		push_error("REAR TAKEDOWN TRIAL TEST FAIL: " + failure)
-	print("REAR TAKEDOWN TRIAL TEST " + ("PASS" if failures.is_empty() else "FAIL") + ": " + ("real F2 unaware/alerted/front fixtures, public E action API, live stab/leftward extraction, attached-head death and single reward, pause/cancel/replay/reset, exact expedition restore; no OS hardware input" if actual_checks else "catalog, missing-asset guidance and session restore; actual Creep sequence SKIPPED"))
+	print("REAR TAKEDOWN TRIAL TEST " + ("PASS" if failures.is_empty() else "FAIL") + ": " + ("real F2 unaware/alerted/front fixtures, public E action API, live through-stab/one twist/rightward extraction, attached-head death and single reward, pause/cancel/replay/reset, exact expedition restore; no OS hardware input" if actual_checks else "catalog, missing-asset guidance and session restore; actual Creep sequence SKIPPED"))
 	quit(0 if failures.is_empty() else 1)
 
 

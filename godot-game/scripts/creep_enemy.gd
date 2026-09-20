@@ -366,17 +366,17 @@ func finish_rear_takedown(executor: Node3D) -> bool:
 	# The sword tears out sideways through the torso. Preserve every remaining
 	# limb, including the head, and pass this exact reaction pose into physics.
 	# _die() retains the ordinary single defeated/reward path and rejects repeats.
-	velocity = _rear_exit_left() * 1.15 + global_basis.z.normalized() * .35
+	velocity = _rear_exit_right() * 1.15 + global_basis.z.normalized() * .35
 	_rear_takedown_death = true
 	health = 0.0
 	_die()
 	_rear_takedown_death = false
 	return true
 
-func _rear_exit_left() -> Vector3:
-	var left := -_execution_executor.global_basis.x if is_instance_valid(_execution_executor) else -global_basis.x
-	left.y = 0.0
-	return left.normalized() if left.length_squared() > .000001 else -global_basis.x.normalized()
+func _rear_exit_right() -> Vector3:
+	var right := _execution_executor.global_basis.x if is_instance_valid(_execution_executor) else global_basis.x
+	right.y = 0.0
+	return right.normalized() if right.length_squared() > .000001 else global_basis.x.normalized()
 
 func get_rear_takedown_reaction_snapshot() -> Dictionary:
 	return _rear_reaction_snapshot.duplicate()
@@ -465,7 +465,7 @@ func _apply_execution_pose() -> void:
 		if _execution_entry_bones.size() == skeleton.get_bone_count():
 			for bone in skeleton.get_bone_count():
 				skeleton.set_bone_pose(bone, _execution_entry_bones[bone])
-		_rear_reaction_snapshot = REAR_REACTION.apply(self, skeleton, _execution_elapsed, _rear_takedown_contacts.back, _rear_exit_left())
+		_rear_reaction_snapshot = REAR_REACTION.apply(self, skeleton, _execution_elapsed, _rear_takedown_contacts.back, _rear_exit_right())
 		animation_clip = "rear_sword_takedown"
 		animation_sample = _execution_elapsed
 		return
