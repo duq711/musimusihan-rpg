@@ -9,7 +9,9 @@ func _run() -> void:
 	var body := APPEARANCE.create_body()
 	root.add_child(body)
 	var parts := body.find_children("*", "MeshInstance3D", true, false)
-	check(parts.size() == 28, "24 retained body meshes and four FP parts")
+	check(parts.size() == 27, "23 retained body meshes and four FP parts; hood removed")
+	check(body.find_child("Gravebound_PointHood", true, false) == null, "hood physically removed from the imported model")
+	check(body.find_child("Gravebound_AnatomicalHead", true, false) != null, "head retained")
 	var names: Array[String] = []
 	for part: MeshInstance3D in parts:
 		var part_name := str(part.name)

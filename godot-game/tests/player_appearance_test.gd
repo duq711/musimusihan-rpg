@@ -127,7 +127,7 @@ func _inspect_shared_model(scene: Node3D) -> void:
 	_inspect_supplied_body_hands(portrait_meshes)
 	# This checks the real imported mesh bounds, not a synthetic success flag.
 	var bounds := _body_bounds(body, body_meshes)
-	_check(bounds.size.y > 1.72 and bounds.size.y < 1.84 and bounds.size.x > 0.4 and bounds.size.x < 0.9 and bounds.size.z > 0.2 and bounds.size.z < 0.65, "the actual model must fit human proportions and the player capsule without oversized primitive parts")
+	_check(bounds.size.y > 1.70 and bounds.size.y < 1.84 and bounds.size.x > 0.4 and bounds.size.x < 0.9 and bounds.size.z > 0.2 and bounds.size.z < 0.65, "the actual model must fit human proportions and the player capsule without oversized primitive parts")
 	_check(absf(bounds.position.y) < 0.02, "the actual model feet must meet the shared local ground origin")
 	_inspect_first_person_materials(player)
 	await process_frame
@@ -156,7 +156,7 @@ func _inspect_supplied_body_hands(parts: Array[MeshInstance3D]) -> void:
 				for vertex: Vector3 in part.mesh.surface_get_arrays(surface)[Mesh.ARRAY_VERTEX]:
 					highest = maxf(highest, (to_body * vertex).y)
 			_check(highest > 1.42 and highest < 1.46, "FP sleeve opening must reach inside the unchanged shoulder mantle")
-	_check(parts.size() == 28, "fullbody must contain 24 retained body parts and four new FP arm/hand meshes")
+	_check(parts.size() == 27, "fullbody must contain 23 retained body parts and four FP arm/hand meshes after hood removal")
 	for side: String in ["L", "R"]:
 		for section: String in ["Arm", "Hand"]:
 			_check(names.count("Gravebound_FP_" + side + "_" + section) == 1, "each anatomical arm and hand must occur exactly once")

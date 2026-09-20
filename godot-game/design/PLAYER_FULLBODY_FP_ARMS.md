@@ -114,3 +114,27 @@ English: Turn each hand 90° in opposite directions around the forearm axis so p
 English: Replace the inverted, wrinkled tip ring with a closed rounded crown that continues into the back of the hood. Preserve the face opening, add a 4mm cloth shell and dark lining, and provide smooth brow clearance around the scalp. Bake a fresh UV albedo from a clean fabric area of the existing outfit concept to avoid stretched crown patterns. Only `Gravebound_PointHood` changes; preserve the other 27 meshes and source files. The local 360° viewer adds hood and crown focus buttons for inspecting the actual game model.
 
 제작·검증 / Production and validation: ../../asset-staging/player_hood_redesign_20260921/VALIDATION.md
+
+### 후드 아래 어깨 연결 보완 / Close the shoulder gaps below the hood
+
+사용자가 추가로 보여준 후측상방 시점에서는 앞·뒤 망토 사이의 연결 천이 빠져 몸 안쪽이 드러났다. 양쪽 망토의 실제 상단 경계를 측정해 목 옆부터 어깨 바깥쪽까지 이어지는 천을 추가했다. 기존 패널 아래로 8mm 겹치고 중앙은 완만한 곡면으로 연결하며, 4mm 두께와 별도 천 알베도를 적용했다. 새 천은 기존 MantleBack에 통합하여 28개 메시 구성을 유지한다. 앞·뒤 기존 패널과 수정된 후드·손·팔은 보존한다.
+
+English: The user's elevated rear/side view exposed missing cloth between the front and rear mantle. Add continuous shoulder fabric along the measured panel edges, extending beneath the neck cowl and overlapping the existing panels by 8mm. Use gentle curvature, 4mm cloth thickness and a separate fabric albedo. Join the additions into MantleBack, retaining 28 mesh nodes and preserving the existing panels, hood, arms and hands.
+
+이전 모델에서 실패하고 수정 모델에서 통과하는 Godot 어깨 광선 검사와 양쪽 고각·무채색 렌더를 추가했다. 360° 뷰어의 **어깨 연결** 버튼으로 해당 부위를 바로 확인한다.
+
+English: Add an imported-mesh regression that fails on the former gaps and passes on the corrected model, plus elevated shoulder and clay renders. The viewer's **어깨 연결** button opens this inspection angle.
+
+제작·검증 / Production and validation: ../../asset-staging/player_hood_shoulder_closure_20260921/VALIDATION.md
+
+### 사용자 최종 방향: 후드 제거 / Final user direction: remove the hood
+
+사용자의 후속 요청은 후드 디자인을 더 수정하는 대신 후드를 없애는 것이다. `Gravebound_PointHood`를 제거하고, 어깨 연결 천·목 카울·망토·손과 팔은 유지한다. 이에 따라 전신 모델은 27개 메시 구성이 된다. 머리 외 다른 26개 메시를 보존하며 기존 머리의 형상도 변경하지 않는다.
+
+English: The user's subsequent request is to remove the hood instead of continuing its redesign. Remove `Gravebound_PointHood`, retaining the shoulder closure, neck cowl, mantle, arms and hands. The full-body model therefore contains 27 meshes. Preserve the other 26 meshes and the existing head geometry.
+
+후드 아래에 가려졌던 머리 표면에도 후드 그림이 투영되어 있어, 원본 `Mercenary_Male_HeadNeck_LOD0`의 얼굴·귀·목·두피 UV와 사용 재질을 좌표가 일치하는 35,366개 면에 복원한다. 두피만 바꾸는 중간 방식은 사용하지 않는다. 원본 에셋은 보존하고 패킹용 텍스처 복사본만 최대 2048 해상도로 준비한다. 앞·뒤 얼굴 투영 재질은 같은 알베도와 UV를 사용하면서 조명에 반응하는 PBR(거칠기 0.88)로 전환했다. 최종 내보내기, Godot 자동 검사 및 360° 정면·후면·전신 검증을 완료했다. Godot embedded/Vulkan 12개 시점 검증도 완료했다. 기존 머리 UV 경계는 남아 있으며 후드 제거·의상 보존 범위로 검수했다. 제작·검증 근거는 아래 문서에 기록한다.
+
+English: Clothing artwork was also projected onto the formerly hidden head. Restore the original `Mercenary_Male_HeadNeck_LOD0` facial, ear, neck and scalp UVs/materials on the 35,366 position-matched triangles. Do not use the scalp-only intermediate approach. Preserve source assets and cap only packed texture copies at 2048. Convert front/back facial projection materials to light-reactive PBR with the same albedo/UVs and roughness 0.88. Final export, Godot automated checks and front/rear/full-body 360° inspection are complete. Twelve embedded/Vulkan views also passed. Existing head UV boundaries remain; review covers hood removal and outfit preservation. Production and validation evidence is recorded below.
+
+제작·검증 / Production and validation: ../../asset-staging/player_no_hood_20260921/VALIDATION.md

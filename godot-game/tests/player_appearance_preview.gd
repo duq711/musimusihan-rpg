@@ -94,8 +94,8 @@ func _capture_body() -> void:
 	portrait.camera.position = Vector3(0.0, 1.50, -3.5)
 	portrait.camera.look_at(Vector3(0.0, 1.50, 0.0))
 	await _capture(portrait.viewport, "player_face_detail.png")
-	if OS.get_environment("PLAYER_QA_HOOD_DETAIL") == "1":
-		await _capture_hood_detail(portrait)
+	if OS.get_environment("PLAYER_QA_UPPER_BODY_DETAIL") == "1":
+		await _capture_upper_body_detail(portrait)
 	if OS.get_environment("PLAYER_QA_HAND_DETAIL") == "1":
 		await _capture_hand_detail(portrait)
 	# Optional close-up for wrist/cuff proportion reviews, using the actual mesh.
@@ -127,9 +127,9 @@ func _capture_body() -> void:
 	await process_frame
 
 
-func _capture_hood_detail(portrait) -> void:
-	# Inspect the actual production crown from above, including a texture-free
-	# view so dark atlas seams cannot conceal missing or folded geometry.
+func _capture_upper_body_detail(portrait) -> void:
+	# Inspect the preserved production head and its exposed scalp, including a
+	# texture-free view to distinguish surface geometry from material artifacts.
 	var previous_angle := float(portrait.get_view_angle())
 	var previous_camera_transform: Transform3D = portrait.camera.transform
 	var previous_camera_size := float(portrait.camera.size)
@@ -143,30 +143,56 @@ func _capture_hood_detail(portrait) -> void:
 	]:
 		portrait.camera.position = shot.position
 		portrait.camera.look_at(center, shot.up)
-		await _capture(portrait.viewport, "player_hood_%s.png" % shot.name)
-	var hood := portrait.body.find_child("Gravebound_PointHood", true, false) as MeshInstance3D
-	if hood == null or hood.mesh == null:
-		push_error("Production hood is missing from the portrait model.")
+		await _capture(portrait.viewport, "player_head_%s.png" % shot.name)
+	var head := portrait.body.find_child("Gravebound_AnatomicalHead", true, false) as MeshInstance3D
+	if head == null or head.mesh == null:
+		push_error("Production anatomical head is missing from the portrait model.")
 		failed = true
 	else:
-		var previous_override := hood.material_override
+		var previous_override := head.material_override
 		var previous_visibility: Dictionary = {}
 		for mesh: MeshInstance3D in portrait.body.find_children("*", "MeshInstance3D", true, false):
 			previous_visibility[mesh] = mesh.visible
-			mesh.visible = mesh == hood
+			mesh.visible = mesh == head
 		var clay := StandardMaterial3D.new()
 		clay.albedo_color = Color(0.56, 0.59, 0.61)
 		clay.roughness = 0.9
-		hood.material_override = clay
+		head.material_override = clay
 		portrait.camera.position = Vector3(0.0, 3.0, 0.0)
 		portrait.camera.look_at(center, Vector3.BACK)
-		await _capture(portrait.viewport, "player_hood_top_clay.png")
-		hood.material_override = previous_override
+		await _capture(portrait.viewport, "player_head_top_clay.png")
+		head.material_override = previous_override
 		for mesh in previous_visibility:
 			mesh.visible = previous_visibility[mesh]
+	await _capture_upper_shoulders(portrait)
 	portrait.set_view_angle(previous_angle)
 	portrait.camera.transform = previous_camera_transform
 	portrait.camera.size = previous_camera_size
+
+
+func _capture_upper_shoulders(portrait) -> void:
+	# Keep the whole production body visible: these high rear-side views expose
+	# the relationship between the head, neck cowl, mantle and shoulders.
+	var center := Vector3(0.0, 1.42, 0.0)
+	portrait.camera.size = 0.68
+	for shot in [
+		{"name": "left", "position": Vector3(-0.65, 2.08, 0.35)},
+		{"name": "right", "position": Vector3(0.65, 2.08, 0.35)},
+	]:
+		portrait.camera.position = shot.position
+		portrait.camera.look_at(center, Vector3.UP)
+		await _capture(portrait.viewport, "player_upper_shoulder_%s.png" % shot.name)
+	var previous_overrides: Dictionary = {}
+	var clay := StandardMaterial3D.new()
+	clay.albedo_color = Color(0.56, 0.59, 0.61)
+	clay.roughness = 0.9
+	for mesh: MeshInstance3D in portrait.body.find_children("*", "MeshInstance3D", true, false):
+		previous_overrides[mesh] = mesh.material_override
+		mesh.material_override = clay
+	# Repeat the right-side view with matching framing and no texture shading.
+	await _capture(portrait.viewport, "player_upper_shoulder_right_clay.png")
+	for mesh in previous_overrides:
+		mesh.material_override = previous_overrides[mesh]
 
 
 func _capture_hand_detail(portrait) -> void:
