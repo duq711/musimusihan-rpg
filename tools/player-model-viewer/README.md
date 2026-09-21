@@ -26,6 +26,6 @@ Three.js 0.170.0의 필요한 파일만 vendor에 고정 포함했습니다(MIT,
 
 English: Required Three.js 0.170.0 files are vendored under MIT (vendor/LICENSE), with no external CDN requests at runtime.
 
-검증 / Validation: Codex 실제 브라우저에서 현재 모델 로드, 드래그 회전, 휠 확대·축소, 손 확대 및 전신 맞춤을 확인했습니다. 눈·코·머리 재질을 수정한 최신 모델의 검증은 `../../asset-staging/player_face_repair_20260921/VALIDATION.md`에 기록했습니다. 범용 라이브러리의 오른쪽 드래그 이동 경로는 코드에서 확인했습니다.
+검증 / Validation: Codex 실제 브라우저에서 모델 로드, 드래그 회전, 휠 확대·축소, 손 확대 및 전신 맞춤을 확인했습니다. 사용자가 제공한 머리·눈 모델로 교체하는 최신 작업의 검증 상태는 [제공 모델 검증 기록](../../asset-staging/player_supplied_face_20260921/VALIDATION.md)에 기록합니다. 범용 라이브러리의 오른쪽 드래그 이동 경로는 코드에서 확인했습니다.
 
-English: Verified loading, drag orbit, wheel zoom, hand focus and full-body reset in the live Codex browser. Right-drag pan uses the library's standard controls and was checked in code.
+English: Verified loading, drag orbit, wheel zoom, hand focus and full-body reset in the live Codex browser. Current supplied-head replacement status is recorded in the [validation document](../../asset-staging/player_supplied_face_20260921/VALIDATION.md). Right-drag pan uses the library's standard controls and was checked in code.

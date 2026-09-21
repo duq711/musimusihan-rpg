@@ -18,7 +18,8 @@ func _run() -> void:
 			found.append(material.resource_name)
 			if material.resource_name.contains("Garment"): failures.append("clothing texture must not cover the eyes")
 			if material.shading_mode == BaseMaterial3D.SHADING_MODE_UNSHADED: failures.append("eyes must respond to real lighting")
-		for expected: String in ["Gravebound_Eye_Warm_Sclera", "Gravebound_Eye_Brown_Iris", "Gravebound_Eye_Pupil"]:
+			if material.albedo_texture == null: failures.append("supplied eyes require their original atlas")
+		for expected: String in ["Gravebound_UserSupplied_Eyes_PBR"]:
 			if expected not in found: failures.append("missing visible eye surface: " + expected)
 		# Inspect triangles on the upper nose in the head's authored local frame.
 		# Those used scalp material before the repair, making a black patch.

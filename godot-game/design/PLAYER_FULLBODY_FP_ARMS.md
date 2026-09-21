@@ -150,3 +150,11 @@ English: Repaired the exposed facial materials: restored 72 nose faces to facial
 English: Preserved head geometry, the other 25 meshes, the 27-mesh model, and the existing mantle, hands and arms. Production/export and all three Godot asset checks passed. Final integration, ten actual Godot views and 360° viewer inspection also passed. Results and remaining source-texture limitations are recorded below.
 
 제작·검증 / Production and validation: ../../asset-staging/player_face_repair_20260921/VALIDATION.md
+
+### 제공 머리·눈 모델 적용 / Use the supplied head and eye model
+
+사용자가 제공한 `Untitled.Obj`·`Untitled.mtl`·색상 TGA ZIP을 기준으로 머리와 눈을 교체한다. 기존 머리·머리카락·눈을 제거하고 제공 모델의 6,236개 정점·12,234개 삼각형과 원래 UV를 사용한다. 약 `0.00222755`의 균일 배율과 축 변환·이동으로 몸에 배치하며, 다른 25개 메시는 보존하고 전체 27개 메시 구성을 유지한다. 제공한 세 원본 파일과 4K 아틀라스를 보존하고 게임용 색상 복사본만 2K로 준비한다. 제공되지 않은 선택적 노멀 맵은 생략한다. 제작·Godot 에셋 3개·외형 통합 검사를 통과했고, 실제 렌더 10개 시점과 360° 뷰어에서 원본 얼굴과 목 연결을 확인했다.
+
+English: Replace the old head, hair and eyes with the supplied OBJ/MTL and color atlas, retaining the supplied model's 6,236 vertices, 12,234 triangles and native UVs. Fit it with a uniform scale of approximately `0.00222755`, axis conversion and translation. Preserve the other 25 meshes and the 27-mesh total. Keep all three original files and the 4K atlas; prepare only a 2K runtime color copy. Omit the optional normal map that was not supplied. Production, three Godot asset checks and appearance integration passed; ten actual renders and the 360° viewer confirm the original face and neck join.
+
+제작·검증 / Production and validation: ../../asset-staging/player_supplied_face_20260921/VALIDATION.md
