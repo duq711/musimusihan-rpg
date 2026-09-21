@@ -155,8 +155,10 @@ func _inspect_supplied_body_hands(parts: Array[MeshInstance3D]) -> void:
 			for surface in part.mesh.get_surface_count():
 				for vertex: Vector3 in part.mesh.surface_get_arrays(surface)[Mesh.ARRAY_VERTEX]:
 					highest = maxf(highest, (to_body * vertex).y)
-			_check(highest > 1.42 and highest < 1.46, "FP sleeve opening must reach inside the unchanged shoulder mantle")
-	_check(parts.size() == 27, "fullbody must contain 23 retained body parts and four FP arm/hand meshes after hood removal")
+			_check(highest > 1.42 and highest < 1.46, "FP sleeve upper end must retain its fitted shoulder height")
+	_check(parts.size() == 23, "fullbody must contain 19 retained body parts and four FP arm/hand meshes after hood and neck cowl removal")
+	for retired: String in ["Gravebound_PointHood", "Gravebound_InnerNeckCowl", "Gravebound_Mantle_L", "Gravebound_Mantle_R", "Gravebound_MantleBack"]:
+		_check(not retired in names, "world body and portrait must omit removed hood and neck cloth: " + retired)
 	for side: String in ["L", "R"]:
 		for section: String in ["Arm", "Hand"]:
 			_check(names.count("Gravebound_FP_" + side + "_" + section) == 1, "each anatomical arm and hand must occur exactly once")

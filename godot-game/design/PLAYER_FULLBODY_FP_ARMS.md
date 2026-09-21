@@ -158,3 +158,12 @@ English: Preserved head geometry, the other 25 meshes, the 27-mesh model, and th
 English: Replace the old head, hair and eyes with the supplied OBJ/MTL and color atlas, retaining the supplied model's 6,236 vertices, 12,234 triangles and native UVs. Fit it with a uniform scale of approximately `0.00222755`, axis conversion and translation. Preserve the other 25 meshes and the 27-mesh total. Keep all three original files and the 4K atlas; prepare only a 2K runtime color copy. Omit the optional normal map that was not supplied. Production, three Godot asset checks and appearance integration passed; ten actual renders and the 360° viewer confirm the original face and neck join.
 
 제작·검증 / Production and validation: ../../asset-staging/player_supplied_face_20260921/VALIDATION.md
+
+
+## 2026-09-22 목·어깨 후드 제거 / Remove the draped neck hood
+
+사용자 요청에 따라 `Gravebound_InnerNeckCowl`, `Gravebound_Mantle_L`, `Gravebound_Mantle_R`, `Gravebound_MantleBack`을 실제 모델에서 제거했다. 이전의 목 천·어깨 망토 유지 결정은 이 요청으로 대체한다. 제공한 얼굴·눈과 몸통·양팔·손을 포함한 나머지 23개 메시의 형상·UV·변환·재질은 보존한다. 닫힌 기존 몸통과 소매에 목이 연결되며 별도의 천을 새로 덧대지 않는다.
+
+English: Remove the four neck-cowl and shoulder-mantle meshes at the user's request, superseding the earlier retained-cowl direction. Preserve the other 23 meshes' geometry, UVs, transforms and materials, including the supplied head/eyes, torso and both arms/hands. The existing closed torso and sleeves provide the exposed joins without adding replacement cloth.
+
+제작 원본·검증 / Production source and validation: `asset-staging/player_cowl_removed_20260922/Gravebound_No_Cowl.blend`, `build.py`, `VALIDATION.md`. 게임 대상 / Runtime: `assets/3d/player/gravebound_player.glb`.

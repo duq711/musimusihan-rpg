@@ -9,8 +9,9 @@ func _run() -> void:
 	var body := APPEARANCE.create_body()
 	root.add_child(body)
 	var parts := body.find_children("*", "MeshInstance3D", true, false)
-	check(parts.size() == 27, "23 retained body meshes and four FP parts; hood removed")
-	check(body.find_child("Gravebound_PointHood", true, false) == null, "hood physically removed from the imported model")
+	check(parts.size() == 23, "19 retained body meshes and four FP parts; hood and neck cowl removed")
+	for retired: String in ["Gravebound_PointHood", "Gravebound_InnerNeckCowl", "Gravebound_Mantle_L", "Gravebound_Mantle_R", "Gravebound_MantleBack"]:
+		check(body.find_child(retired, true, false) == null, "hood and neck cloth physically removed from the imported model: " + retired)
 	check(body.find_child("Gravebound_AnatomicalHead", true, false) != null, "head retained")
 	var names: Array[String] = []
 	for part: MeshInstance3D in parts:
@@ -53,7 +54,7 @@ func _run() -> void:
 		if part_name.ends_with("_Arm"):
 			check(uses_outfit_material, "sleeve cloth uses the matched outfit material")
 			check(not forearm_first and forearm.size.x < .14 and forearm.size.z < .13, "forearm no longer inflated by first-person proportions")
-			check(bounds.end.y > 1.42 and bounds.end.y < 1.46, "sleeve opening reaches under shoulder mantle")
+			check(bounds.end.y > 1.42 and bounds.end.y < 1.46, "sleeve upper end retains its fitted shoulder height")
 			check(bounds.position.y > .86 and bounds.position.y < .89, "pre-wrist-edit sleeve cuff restored")
 		else:
 			check(bounds.size.z > bounds.size.x * 1.15, "relaxed hands face the thighs instead of the rear")
