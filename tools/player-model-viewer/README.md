@@ -38,3 +38,5 @@ English: Verified loading, drag orbit, wheel zoom, hand focus and full-body rese
 - 형태 확인: 색상과 무늬를 잠시 끄고 무채색으로 형태를 봅니다. 다시 누르면 원래 재질로 돌아옵니다. 게임 에셋은 변경하지 않습니다. / Shape inspection toggles neutral clay shading and restores the original materials, without modifying the game asset.
 
 코트 자락 제거 및 바지 완성 / Coat-tail removal and completed trousers: [하의 검증 기록](../../asset-staging/player_trousers_only_20260922/VALIDATION.md). 전신 맞춤으로 변경된 복장을 확인합니다. Use Fit body to inspect the updated outfit.
+
+가슴·등·어깨·위팔 형태 수정 / Resculpted chest-to-arm transitions: [형태 검증 기록](../../asset-staging/player_shoulder_form_20260922/VALIDATION.md). 상체 비율과 형태 확인 버튼으로 검토합니다. Use Upper-body view and Shape inspection for review.

@@ -1,0 +1,1765 @@
+{
+  "model_sha256": "d5fb5f81c684a2afd5b4b4d5dfd833c33b7f601b541a2f83c1538c11036e0ef6",
+  "source_glb_sha256": "f7ad57eddd4ac751daee53fcdb05bf627a749007f0989d9f344f735dfb2e2a77",
+  "mesh_count": 20,
+  "modified_meshes": [
+    "Gravebound_QuiltedTorso",
+    "Gravebound_FP_L_Arm",
+    "Gravebound_FP_R_Arm"
+  ],
+  "unexpected_mesh_set_changes": [],
+  "preserved_meshes": {
+    "Gravebound_AnatomicalHead": true,
+    "Gravebound_BeltBuckle": true,
+    "Gravebound_BeltTongue": true,
+    "Gravebound_Boot_L": true,
+    "Gravebound_Boot_R": true,
+    "Gravebound_BootCuff_L": true,
+    "Gravebound_BootCuff_R": true,
+    "Gravebound_Eyes": true,
+    "Gravebound_FP_L_Hand": true,
+    "Gravebound_FP_R_Hand": true,
+    "Gravebound_LeatherBelt": true,
+    "Gravebound_Pouch_L": true,
+    "Gravebound_Pouch_R": true,
+    "Gravebound_PouchFlap_L": true,
+    "Gravebound_PouchFlap_R": true,
+    "Gravebound_Trousers_L": true,
+    "Gravebound_Trousers_R": true
+  },
+  "preserved_mesh_count": 17,
+  "preservation_basis": "Exact exported POSITION, NORMAL, UV, indices, node transform and material name for all 17 non-target meshes; derived tangents are reported separately.",
+  "embedded_images_preserved": true,
+  "embedded_image_count": 6,
+  "geometry_preserved_below_1_18m": {
+    "Gravebound_QuiltedTorso": {
+      "source_triangle_count": 2750,
+      "result_triangle_count": 2750,
+      "missing_source_triangles": 0,
+      "new_triangles": 0,
+      "includes_uv": false,
+      "pass": true
+    },
+    "Gravebound_FP_L_Arm": {
+      "source_triangle_count": 4607,
+      "result_triangle_count": 4607,
+      "missing_source_triangles": 0,
+      "new_triangles": 0,
+      "includes_uv": false,
+      "pass": true
+    },
+    "Gravebound_FP_R_Arm": {
+      "source_triangle_count": 4607,
+      "result_triangle_count": 4607,
+      "missing_source_triangles": 0,
+      "new_triangles": 0,
+      "includes_uv": false,
+      "pass": true
+    }
+  },
+  "preserved_mesh_tangent_max_delta": {
+    "Gravebound_AnatomicalHead": 0.0,
+    "Gravebound_BeltBuckle": 0.0,
+    "Gravebound_BeltTongue": 0.0,
+    "Gravebound_Boot_L": 0.0,
+    "Gravebound_Boot_R": 0.0,
+    "Gravebound_BootCuff_L": 0.0,
+    "Gravebound_BootCuff_R": 0.0,
+    "Gravebound_Eyes": 0.0,
+    "Gravebound_FP_L_Hand": 0.0,
+    "Gravebound_FP_R_Hand": 0.0,
+    "Gravebound_LeatherBelt": 0.0,
+    "Gravebound_Pouch_L": 0.0,
+    "Gravebound_Pouch_R": 0.0,
+    "Gravebound_PouchFlap_L": 0.0,
+    "Gravebound_PouchFlap_R": 0.0,
+    "Gravebound_Trousers_L": 0.0,
+    "Gravebound_Trousers_R": 0.00010001659393310547
+  },
+  "cross_section_analysis": {
+    "axis": "Blender world coordinates: X lateral, Y front/rear, Z up",
+    "absolute_x_samples_m": [
+      0.14,
+      0.155,
+      0.17,
+      0.185,
+      0.2,
+      0.215,
+      0.23,
+      0.245
+    ],
+    "sample_rows_per_model": 24,
+    "samples": {
+      "source": [
+        {
+          "height_m": 1.29,
+          "side": -1,
+          "surface": "front",
+          "depth_m": [
+            0.083594,
+            0.062892,
+            0.03438,
+            0.026163,
+            0.046521,
+            0.05625,
+            0.060541,
+            0.060364
+          ],
+          "secondary_lobe_rise_m": 0.034378
+        },
+        {
+          "height_m": 1.29,
+          "side": -1,
+          "surface": "rear",
+          "depth_m": [
+            0.08458,
+            0.064314,
+            0.032631,
+            0.030112,
+            0.050256,
+            0.060115,
+            0.0646,
+            0.064825
+          ],
+          "secondary_lobe_rise_m": 0.034713
+        },
+        {
+          "height_m": 1.29,
+          "side": 1,
+          "surface": "front",
+          "depth_m": [
+            0.084459,
+            0.063768,
+            0.031817,
+            0.026191,
+            0.046546,
+            0.056266,
+            0.060499,
+            0.060358
+          ],
+          "secondary_lobe_rise_m": 0.034308
+        },
+        {
+          "height_m": 1.29,
+          "side": 1,
+          "surface": "rear",
+          "depth_m": [
+            0.082898,
+            0.062589,
+            0.032001,
+            0.030038,
+            0.050216,
+            0.060107,
+            0.064594,
+            0.064814
+          ],
+          "secondary_lobe_rise_m": 0.034776
+        },
+        {
+          "height_m": 1.31,
+          "side": -1,
+          "surface": "front",
+          "depth_m": [
+            0.085655,
+            0.067291,
+            0.047486,
+            0.040783,
+            0.055085,
+            0.063249,
+            0.066124,
+            0.064893
+          ],
+          "secondary_lobe_rise_m": 0.025342
+        },
+        {
+          "height_m": 1.31,
+          "side": -1,
+          "surface": "rear",
+          "depth_m": [
+            0.085234,
+            0.07015,
+            0.044104,
+            0.043261,
+            0.058764,
+            0.067133,
+            0.070243,
+            0.069257
+          ],
+          "secondary_lobe_rise_m": 0.026982
+        },
+        {
+          "height_m": 1.31,
+          "side": 1,
+          "surface": "front",
+          "depth_m": [
+            0.084673,
+            0.068761,
+            0.042056,
+            0.039707,
+            0.055077,
+            0.063249,
+            0.066124,
+            0.064893
+          ],
+          "secondary_lobe_rise_m": 0.026418
+        },
+        {
+          "height_m": 1.31,
+          "side": 1,
+          "surface": "rear",
+          "depth_m": [
+            0.084899,
+            0.066338,
+            0.046065,
+            0.043497,
+            0.058765,
+            0.067133,
+            0.070243,
+            0.069257
+          ],
+          "secondary_lobe_rise_m": 0.026746
+        },
+        {
+          "height_m": 1.33,
+          "side": -1,
+          "surface": "front",
+          "depth_m": [
+            0.086359,
+            0.070991,
+            0.054161,
+            0.051146,
+            0.062588,
+            0.069065,
+            0.070178,
+            0.067619
+          ],
+          "secondary_lobe_rise_m": 0.019032
+        },
+        {
+          "height_m": 1.33,
+          "side": -1,
+          "surface": "rear",
+          "depth_m": [
+            0.084942,
+            0.073462,
+            0.054061,
+            0.053613,
+            0.066343,
+            0.072881,
+            0.074466,
+            0.071823
+          ],
+          "secondary_lobe_rise_m": 0.020853
+        },
+        {
+          "height_m": 1.33,
+          "side": 1,
+          "surface": "front",
+          "depth_m": [
+            0.084449,
+            0.072456,
+            0.052111,
+            0.050126,
+            0.062585,
+            0.069065,
+            0.070178,
+            0.067619
+          ],
+          "secondary_lobe_rise_m": 0.020051
+        },
+        {
+          "height_m": 1.33,
+          "side": 1,
+          "surface": "rear",
+          "depth_m": [
+            0.086019,
+            0.070505,
+            0.053639,
+            0.053605,
+            0.066343,
+            0.072881,
+            0.074466,
+            0.071824
+          ],
+          "secondary_lobe_rise_m": 0.020861
+        },
+        {
+          "height_m": 1.35,
+          "side": -1,
+          "surface": "front",
+          "depth_m": [
+            0.083981,
+            0.070884,
+            0.056031,
+            0.056575,
+            0.066359,
+            0.070433,
+            0.069838,
+            0.064923
+          ],
+          "secondary_lobe_rise_m": 0.014403
+        },
+        {
+          "height_m": 1.35,
+          "side": -1,
+          "surface": "rear",
+          "depth_m": [
+            0.082319,
+            0.072423,
+            0.05781,
+            0.059808,
+            0.070188,
+            0.074572,
+            0.074236,
+            0.068885
+          ],
+          "secondary_lobe_rise_m": 0.016762
+        },
+        {
+          "height_m": 1.35,
+          "side": 1,
+          "surface": "front",
+          "depth_m": [
+            0.082407,
+            0.07246,
+            0.05731,
+            0.056451,
+            0.066358,
+            0.070433,
+            0.069838,
+            0.064923
+          ],
+          "secondary_lobe_rise_m": 0.013982
+        },
+        {
+          "height_m": 1.35,
+          "side": 1,
+          "surface": "rear",
+          "depth_m": [
+            0.084403,
+            0.07145,
+            0.056691,
+            0.059802,
+            0.070188,
+            0.074572,
+            0.074236,
+            0.068885
+          ],
+          "secondary_lobe_rise_m": 0.01788
+        },
+        {
+          "height_m": 1.37,
+          "side": -1,
+          "surface": "front",
+          "depth_m": [
+            0.079599,
+            0.067881,
+            0.055258,
+            0.05926,
+            0.06706,
+            0.068825,
+            0.065473,
+            0.053823
+          ],
+          "secondary_lobe_rise_m": 0.013567
+        },
+        {
+          "height_m": 1.37,
+          "side": -1,
+          "surface": "rear",
+          "depth_m": [
+            0.077816,
+            0.068964,
+            0.057857,
+            0.062867,
+            0.070976,
+            0.073045,
+            0.069616,
+            0.057565
+          ],
+          "secondary_lobe_rise_m": 0.015188
+        },
+        {
+          "height_m": 1.37,
+          "side": 1,
+          "surface": "front",
+          "depth_m": [
+            0.078451,
+            0.069596,
+            0.057409,
+            0.059352,
+            0.06706,
+            0.068825,
+            0.065473,
+            0.053823
+          ],
+          "secondary_lobe_rise_m": 0.011417
+        },
+        {
+          "height_m": 1.37,
+          "side": 1,
+          "surface": "rear",
+          "depth_m": [
+            0.080336,
+            0.068858,
+            0.0565,
+            0.062804,
+            0.070976,
+            0.073045,
+            0.069616,
+            0.057565
+          ],
+          "secondary_lobe_rise_m": 0.016544
+        },
+        {
+          "height_m": 1.39,
+          "side": -1,
+          "surface": "front",
+          "depth_m": [
+            0.07279,
+            0.062021,
+            0.052662,
+            0.058702,
+            0.062836,
+            0.061881,
+            0.053006,
+            0.021352
+          ],
+          "secondary_lobe_rise_m": 0.010174
+        },
+        {
+          "height_m": 1.39,
+          "side": -1,
+          "surface": "rear",
+          "depth_m": [
+            0.071084,
+            0.063129,
+            0.055786,
+            0.06242,
+            0.066917,
+            0.066177,
+            0.056846,
+            0.025108
+          ],
+          "secondary_lobe_rise_m": 0.01113
+        },
+        {
+          "height_m": 1.39,
+          "side": 1,
+          "surface": "front",
+          "depth_m": [
+            0.071805,
+            0.063935,
+            0.054579,
+            0.058773,
+            0.062836,
+            0.061881,
+            0.053006,
+            0.021353
+          ],
+          "secondary_lobe_rise_m": 0.008257
+        },
+        {
+          "height_m": 1.39,
+          "side": 1,
+          "surface": "rear",
+          "depth_m": [
+            0.073278,
+            0.062904,
+            0.054849,
+            0.062383,
+            0.066917,
+            0.066177,
+            0.056846,
+            0.025108
+          ],
+          "secondary_lobe_rise_m": 0.012067
+        }
+      ],
+      "result": [
+        {
+          "height_m": 1.29,
+          "side": -1,
+          "surface": "front",
+          "depth_m": [
+            0.08501,
+            0.078143,
+            0.071444,
+            0.06709,
+            0.06468,
+            0.059325,
+            0.052917,
+            0.044959
+          ],
+          "secondary_lobe_rise_m": 0
+        },
+        {
+          "height_m": 1.29,
+          "side": -1,
+          "surface": "rear",
+          "depth_m": [
+            0.08411,
+            0.077136,
+            0.071225,
+            0.068186,
+            0.065155,
+            0.059957,
+            0.053625,
+            0.045709
+          ],
+          "secondary_lobe_rise_m": 0
+        },
+        {
+          "height_m": 1.29,
+          "side": 1,
+          "surface": "front",
+          "depth_m": [
+            0.083836,
+            0.076685,
+            0.069822,
+            0.066733,
+            0.064611,
+            0.059525,
+            0.05303,
+            0.045201
+          ],
+          "secondary_lobe_rise_m": 0
+        },
+        {
+          "height_m": 1.29,
+          "side": 1,
+          "surface": "rear",
+          "depth_m": [
+            0.084311,
+            0.077482,
+            0.070839,
+            0.067387,
+            0.064439,
+            0.059169,
+            0.05295,
+            0.045045
+          ],
+          "secondary_lobe_rise_m": 0
+        },
+        {
+          "height_m": 1.31,
+          "side": -1,
+          "surface": "front",
+          "depth_m": [
+            0.086289,
+            0.080348,
+            0.076542,
+            0.071872,
+            0.066475,
+            0.060245,
+            0.052977,
+            0.043788
+          ],
+          "secondary_lobe_rise_m": 0
+        },
+        {
+          "height_m": 1.31,
+          "side": -1,
+          "surface": "rear",
+          "depth_m": [
+            0.085649,
+            0.080065,
+            0.076075,
+            0.071345,
+            0.066018,
+            0.059945,
+            0.052756,
+            0.043591
+          ],
+          "secondary_lobe_rise_m": 0
+        },
+        {
+          "height_m": 1.31,
+          "side": 1,
+          "surface": "front",
+          "depth_m": [
+            0.08516,
+            0.079566,
+            0.075564,
+            0.070843,
+            0.065619,
+            0.059567,
+            0.052419,
+            0.043336
+          ],
+          "secondary_lobe_rise_m": 0
+        },
+        {
+          "height_m": 1.31,
+          "side": 1,
+          "surface": "rear",
+          "depth_m": [
+            0.085614,
+            0.079739,
+            0.076067,
+            0.071442,
+            0.066021,
+            0.059845,
+            0.052613,
+            0.043458
+          ],
+          "secondary_lobe_rise_m": 0
+        },
+        {
+          "height_m": 1.33,
+          "side": -1,
+          "surface": "front",
+          "depth_m": [
+            0.086219,
+            0.080376,
+            0.076121,
+            0.071107,
+            0.06531,
+            0.058739,
+            0.050969,
+            0.040449
+          ],
+          "secondary_lobe_rise_m": 0
+        },
+        {
+          "height_m": 1.33,
+          "side": -1,
+          "surface": "rear",
+          "depth_m": [
+            0.085044,
+            0.079548,
+            0.075065,
+            0.070033,
+            0.06432,
+            0.057919,
+            0.05021,
+            0.039902
+          ],
+          "secondary_lobe_rise_m": 0
+        },
+        {
+          "height_m": 1.33,
+          "side": 1,
+          "surface": "front",
+          "depth_m": [
+            0.084661,
+            0.079159,
+            0.074806,
+            0.069738,
+            0.064037,
+            0.057595,
+            0.049955,
+            0.039643
+          ],
+          "secondary_lobe_rise_m": 0
+        },
+        {
+          "height_m": 1.33,
+          "side": 1,
+          "surface": "rear",
+          "depth_m": [
+            0.085961,
+            0.080229,
+            0.075986,
+            0.071023,
+            0.065175,
+            0.058644,
+            0.050823,
+            0.040385
+          ],
+          "secondary_lobe_rise_m": 0
+        },
+        {
+          "height_m": 1.35,
+          "side": -1,
+          "surface": "front",
+          "depth_m": [
+            0.083901,
+            0.078162,
+            0.073203,
+            0.067743,
+            0.061368,
+            0.053994,
+            0.04502,
+            0.030375
+          ],
+          "secondary_lobe_rise_m": 0
+        },
+        {
+          "height_m": 1.35,
+          "side": -1,
+          "surface": "rear",
+          "depth_m": [
+            0.082452,
+            0.076898,
+            0.071894,
+            0.066467,
+            0.06021,
+            0.052981,
+            0.044232,
+            0.030043
+          ],
+          "secondary_lobe_rise_m": 0
+        },
+        {
+          "height_m": 1.35,
+          "side": 1,
+          "surface": "front",
+          "depth_m": [
+            0.082522,
+            0.076967,
+            0.071942,
+            0.066523,
+            0.060238,
+            0.05299,
+            0.044232,
+            0.030084
+          ],
+          "secondary_lobe_rise_m": 0
+        },
+        {
+          "height_m": 1.35,
+          "side": 1,
+          "surface": "rear",
+          "depth_m": [
+            0.084193,
+            0.078531,
+            0.073512,
+            0.068078,
+            0.061675,
+            0.054272,
+            0.045279,
+            0.030519
+          ],
+          "secondary_lobe_rise_m": 0
+        },
+        {
+          "height_m": 1.37,
+          "side": -1,
+          "surface": "front",
+          "depth_m": [
+            0.079383,
+            0.073576,
+            0.067985,
+            0.061727,
+            0.054304,
+            0.044993,
+            0.029576,
+            null
+          ],
+          "secondary_lobe_rise_m": 0
+        },
+        {
+          "height_m": 1.37,
+          "side": -1,
+          "surface": "rear",
+          "depth_m": [
+            0.077813,
+            0.07212,
+            0.066511,
+            0.060376,
+            0.053096,
+            0.044144,
+            0.029516,
+            null
+          ],
+          "secondary_lobe_rise_m": 0
+        },
+        {
+          "height_m": 1.37,
+          "side": 1,
+          "surface": "front",
+          "depth_m": [
+            0.078359,
+            0.072618,
+            0.067002,
+            0.060795,
+            0.05349,
+            0.044442,
+            0.029766,
+            null
+          ],
+          "secondary_lobe_rise_m": 0
+        },
+        {
+          "height_m": 1.37,
+          "side": 1,
+          "surface": "rear",
+          "depth_m": [
+            0.07998,
+            0.074152,
+            0.068556,
+            0.062216,
+            0.05474,
+            0.045404,
+            0.029837,
+            null
+          ],
+          "secondary_lobe_rise_m": 0
+        },
+        {
+          "height_m": 1.39,
+          "side": -1,
+          "surface": "front",
+          "depth_m": [
+            0.072387,
+            0.066253,
+            0.059802,
+            0.052531,
+            0.04308,
+            0.02652,
+            null,
+            null
+          ],
+          "secondary_lobe_rise_m": 0
+        },
+        {
+          "height_m": 1.39,
+          "side": -1,
+          "surface": "rear",
+          "depth_m": [
+            0.070877,
+            0.064917,
+            0.058519,
+            0.051345,
+            0.042315,
+            0.026512,
+            null,
+            null
+          ],
+          "secondary_lobe_rise_m": 0
+        },
+        {
+          "height_m": 1.39,
+          "side": 1,
+          "surface": "front",
+          "depth_m": [
+            0.071528,
+            0.065514,
+            0.059114,
+            0.051814,
+            0.042661,
+            0.026726,
+            null,
+            null
+          ],
+          "secondary_lobe_rise_m": 0
+        },
+        {
+          "height_m": 1.39,
+          "side": 1,
+          "surface": "rear",
+          "depth_m": [
+            0.072834,
+            0.066707,
+            0.060176,
+            0.052869,
+            0.043448,
+            0.026735,
+            null,
+            null
+          ],
+          "secondary_lobe_rise_m": 0
+        }
+      ]
+    },
+    "required_chest_to_arm_samples_present": true,
+    "maximum_secondary_lobe_rise_source_m": 0.034776,
+    "maximum_secondary_lobe_rise_result_m": 0,
+    "maximum_secondary_lobe_rise_reduction_percent": 100.0
+  },
+  "lateral_shoulder_ridge_analysis": {
+    "method": "Side rays compare Y=0 lateral extent with a parabola through average Y=+/-0.02m and +/-0.04m extents; positive residual denotes an isolated center fin.",
+    "samples": {
+      "source": [
+        {
+          "height_m": 1.38,
+          "side": -1,
+          "depth_samples_m": [
+            -0.04,
+            -0.02,
+            0,
+            0.02,
+            0.04
+          ],
+          "lateral_extent_m": [
+            0.24613,
+            0.252542,
+            0.255301,
+            0.25337,
+            0.247628
+          ],
+          "smooth_center_estimate_m": 0.254982,
+          "center_ridge_residual_m": 0.000319
+        },
+        {
+          "height_m": 1.38,
+          "side": 1,
+          "depth_samples_m": [
+            -0.04,
+            -0.02,
+            0,
+            0.02,
+            0.04
+          ],
+          "lateral_extent_m": [
+            0.24613,
+            0.252542,
+            0.255301,
+            0.25337,
+            0.247628
+          ],
+          "smooth_center_estimate_m": 0.254982,
+          "center_ridge_residual_m": 0.000319
+        },
+        {
+          "height_m": 1.385,
+          "side": -1,
+          "depth_samples_m": [
+            -0.04,
+            -0.02,
+            0,
+            0.02,
+            0.04
+          ],
+          "lateral_extent_m": [
+            0.243025,
+            0.248901,
+            0.2513,
+            0.249631,
+            0.244458
+          ],
+          "smooth_center_estimate_m": 0.251108,
+          "center_ridge_residual_m": 0.000192
+        },
+        {
+          "height_m": 1.385,
+          "side": 1,
+          "depth_samples_m": [
+            -0.04,
+            -0.02,
+            0,
+            0.02,
+            0.04
+          ],
+          "lateral_extent_m": [
+            0.243025,
+            0.248901,
+            0.2513,
+            0.249631,
+            0.244458
+          ],
+          "smooth_center_estimate_m": 0.251108,
+          "center_ridge_residual_m": 0.000192
+        },
+        {
+          "height_m": 1.39,
+          "side": -1,
+          "depth_samples_m": [
+            -0.04,
+            -0.02,
+            0,
+            0.02,
+            0.04
+          ],
+          "lateral_extent_m": [
+            0.239747,
+            0.245248,
+            0.247258,
+            0.245867,
+            0.241227
+          ],
+          "smooth_center_estimate_m": 0.247248,
+          "center_ridge_residual_m": 1e-05
+        },
+        {
+          "height_m": 1.39,
+          "side": 1,
+          "depth_samples_m": [
+            -0.04,
+            -0.02,
+            0,
+            0.02,
+            0.04
+          ],
+          "lateral_extent_m": [
+            0.239747,
+            0.245248,
+            0.247258,
+            0.245867,
+            0.241227
+          ],
+          "smooth_center_estimate_m": 0.247248,
+          "center_ridge_residual_m": 1e-05
+        },
+        {
+          "height_m": 1.395,
+          "side": -1,
+          "depth_samples_m": [
+            -0.04,
+            -0.02,
+            0,
+            0.02,
+            0.04
+          ],
+          "lateral_extent_m": [
+            0.234224,
+            0.241505,
+            0.243229,
+            0.242064,
+            0.236283
+          ],
+          "smooth_center_estimate_m": 0.243961,
+          "center_ridge_residual_m": 0
+        },
+        {
+          "height_m": 1.395,
+          "side": 1,
+          "depth_samples_m": [
+            -0.04,
+            -0.02,
+            0,
+            0.02,
+            0.04
+          ],
+          "lateral_extent_m": [
+            0.234224,
+            0.241505,
+            0.243229,
+            0.242064,
+            0.236283
+          ],
+          "smooth_center_estimate_m": 0.243961,
+          "center_ridge_residual_m": 0
+        },
+        {
+          "height_m": 1.4,
+          "side": -1,
+          "depth_samples_m": [
+            -0.04,
+            -0.02,
+            0,
+            0.02,
+            0.04
+          ],
+          "lateral_extent_m": [
+            0.227123,
+            0.235532,
+            0.238407,
+            0.236467,
+            0.229299
+          ],
+          "smooth_center_estimate_m": 0.238596,
+          "center_ridge_residual_m": 0
+        },
+        {
+          "height_m": 1.4,
+          "side": 1,
+          "depth_samples_m": [
+            -0.04,
+            -0.02,
+            0,
+            0.02,
+            0.04
+          ],
+          "lateral_extent_m": [
+            0.227122,
+            0.235532,
+            0.238407,
+            0.236467,
+            0.229299
+          ],
+          "smooth_center_estimate_m": 0.238596,
+          "center_ridge_residual_m": 0
+        },
+        {
+          "height_m": 1.405,
+          "side": -1,
+          "depth_samples_m": [
+            -0.04,
+            -0.02,
+            0,
+            0.02,
+            0.04
+          ],
+          "lateral_extent_m": [
+            0.217414,
+            0.227484,
+            0.2305,
+            0.228492,
+            0.220332
+          ],
+          "smooth_center_estimate_m": 0.231027,
+          "center_ridge_residual_m": 0
+        },
+        {
+          "height_m": 1.405,
+          "side": 1,
+          "depth_samples_m": [
+            -0.04,
+            -0.02,
+            0,
+            0.02,
+            0.04
+          ],
+          "lateral_extent_m": [
+            0.217414,
+            0.227484,
+            0.2305,
+            0.228492,
+            0.220332
+          ],
+          "smooth_center_estimate_m": 0.231026,
+          "center_ridge_residual_m": 0
+        },
+        {
+          "height_m": 1.41,
+          "side": -1,
+          "depth_samples_m": [
+            -0.04,
+            -0.02,
+            0,
+            0.02,
+            0.04
+          ],
+          "lateral_extent_m": [
+            0.194083,
+            0.21862,
+            0.222605,
+            0.220015,
+            0.200166
+          ],
+          "smooth_center_estimate_m": 0.226715,
+          "center_ridge_residual_m": 0
+        },
+        {
+          "height_m": 1.41,
+          "side": 1,
+          "depth_samples_m": [
+            -0.04,
+            -0.02,
+            0,
+            0.02,
+            0.04
+          ],
+          "lateral_extent_m": [
+            0.194075,
+            0.21862,
+            0.222605,
+            0.220015,
+            0.20017
+          ],
+          "smooth_center_estimate_m": 0.226716,
+          "center_ridge_residual_m": 0
+        },
+        {
+          "height_m": 1.415,
+          "side": -1,
+          "depth_samples_m": [
+            -0.04,
+            -0.02,
+            0,
+            0.02,
+            0.04
+          ],
+          "lateral_extent_m": [
+            0.185166,
+            0.205753,
+            0.214679,
+            0.210582,
+            0.187686
+          ],
+          "smooth_center_estimate_m": 0.215415,
+          "center_ridge_residual_m": 0
+        },
+        {
+          "height_m": 1.415,
+          "side": 1,
+          "depth_samples_m": [
+            -0.04,
+            -0.02,
+            0,
+            0.02,
+            0.04
+          ],
+          "lateral_extent_m": [
+            0.185124,
+            0.205754,
+            0.214679,
+            0.210582,
+            0.18772
+          ],
+          "smooth_center_estimate_m": 0.215416,
+          "center_ridge_residual_m": 0
+        },
+        {
+          "height_m": 1.42,
+          "side": -1,
+          "depth_samples_m": [
+            -0.04,
+            -0.02,
+            0,
+            0.02,
+            0.04
+          ],
+          "lateral_extent_m": [
+            0.173081,
+            0.190013,
+            0.204887,
+            0.193568,
+            0.179592
+          ],
+          "smooth_center_estimate_m": 0.196942,
+          "center_ridge_residual_m": 0.007945
+        },
+        {
+          "height_m": 1.42,
+          "side": 1,
+          "depth_samples_m": [
+            -0.04,
+            -0.02,
+            0,
+            0.02,
+            0.04
+          ],
+          "lateral_extent_m": [
+            0.172778,
+            0.190026,
+            0.204888,
+            0.193562,
+            0.17981
+          ],
+          "smooth_center_estimate_m": 0.196961,
+          "center_ridge_residual_m": 0.007927
+        },
+        {
+          "height_m": 1.425,
+          "side": -1,
+          "depth_samples_m": [
+            -0.04,
+            -0.02,
+            0,
+            0.02,
+            0.04
+          ],
+          "lateral_extent_m": [
+            0.154176,
+            0.182062,
+            0.192413,
+            0.184043,
+            0.155278
+          ],
+          "smooth_center_estimate_m": 0.192494,
+          "center_ridge_residual_m": 0
+        },
+        {
+          "height_m": 1.425,
+          "side": 1,
+          "depth_samples_m": [
+            -0.04,
+            -0.02,
+            0,
+            0.02,
+            0.04
+          ],
+          "lateral_extent_m": [
+            0.154827,
+            0.182119,
+            0.192411,
+            0.183996,
+            0.153898
+          ],
+          "smooth_center_estimate_m": 0.192622,
+          "center_ridge_residual_m": 0
+        }
+      ],
+      "result": [
+        {
+          "height_m": 1.38,
+          "side": -1,
+          "depth_samples_m": [
+            -0.04,
+            -0.02,
+            0,
+            0.02,
+            0.04
+          ],
+          "lateral_extent_m": [
+            0.212822,
+            0.227866,
+            0.233056,
+            0.227866,
+            0.212108
+          ],
+          "smooth_center_estimate_m": 0.232999,
+          "center_ridge_residual_m": 5.6e-05
+        },
+        {
+          "height_m": 1.38,
+          "side": 1,
+          "depth_samples_m": [
+            -0.04,
+            -0.02,
+            0,
+            0.02,
+            0.04
+          ],
+          "lateral_extent_m": [
+            0.212527,
+            0.227937,
+            0.233012,
+            0.22794,
+            0.213232
+          ],
+          "smooth_center_estimate_m": 0.232958,
+          "center_ridge_residual_m": 5.4e-05
+        },
+        {
+          "height_m": 1.385,
+          "side": -1,
+          "depth_samples_m": [
+            -0.04,
+            -0.02,
+            0,
+            0.02,
+            0.04
+          ],
+          "lateral_extent_m": [
+            0.208393,
+            0.223602,
+            0.228869,
+            0.223602,
+            0.207664
+          ],
+          "smooth_center_estimate_m": 0.228793,
+          "center_ridge_residual_m": 7.6e-05
+        },
+        {
+          "height_m": 1.385,
+          "side": 1,
+          "depth_samples_m": [
+            -0.04,
+            -0.02,
+            0,
+            0.02,
+            0.04
+          ],
+          "lateral_extent_m": [
+            0.208091,
+            0.223671,
+            0.228831,
+            0.223671,
+            0.208787
+          ],
+          "smooth_center_estimate_m": 0.228748,
+          "center_ridge_residual_m": 8.3e-05
+        },
+        {
+          "height_m": 1.39,
+          "side": -1,
+          "depth_samples_m": [
+            -0.04,
+            -0.02,
+            0,
+            0.02,
+            0.04
+          ],
+          "lateral_extent_m": [
+            0.203678,
+            0.219039,
+            0.224407,
+            0.219036,
+            0.20299
+          ],
+          "smooth_center_estimate_m": 0.224272,
+          "center_ridge_residual_m": 0.000135
+        },
+        {
+          "height_m": 1.39,
+          "side": 1,
+          "depth_samples_m": [
+            -0.04,
+            -0.02,
+            0,
+            0.02,
+            0.04
+          ],
+          "lateral_extent_m": [
+            0.203374,
+            0.219113,
+            0.224371,
+            0.219108,
+            0.204071
+          ],
+          "smooth_center_estimate_m": 0.22424,
+          "center_ridge_residual_m": 0.000131
+        },
+        {
+          "height_m": 1.395,
+          "side": -1,
+          "depth_samples_m": [
+            -0.04,
+            -0.02,
+            0,
+            0.02,
+            0.04
+          ],
+          "lateral_extent_m": [
+            0.198564,
+            0.214067,
+            0.219526,
+            0.214068,
+            0.197865
+          ],
+          "smooth_center_estimate_m": 0.219352,
+          "center_ridge_residual_m": 0.000175
+        },
+        {
+          "height_m": 1.395,
+          "side": 1,
+          "depth_samples_m": [
+            -0.04,
+            -0.02,
+            0,
+            0.02,
+            0.04
+          ],
+          "lateral_extent_m": [
+            0.198267,
+            0.214135,
+            0.219495,
+            0.214141,
+            0.198909
+          ],
+          "smooth_center_estimate_m": 0.219321,
+          "center_ridge_residual_m": 0.000173
+        },
+        {
+          "height_m": 1.4,
+          "side": -1,
+          "depth_samples_m": [
+            -0.04,
+            -0.02,
+            0,
+            0.02,
+            0.04
+          ],
+          "lateral_extent_m": [
+            0.192765,
+            0.20866,
+            0.214195,
+            0.20865,
+            0.192098
+          ],
+          "smooth_center_estimate_m": 0.214063,
+          "center_ridge_residual_m": 0.000133
+        },
+        {
+          "height_m": 1.4,
+          "side": 1,
+          "depth_samples_m": [
+            -0.04,
+            -0.02,
+            0,
+            0.02,
+            0.04
+          ],
+          "lateral_extent_m": [
+            0.192455,
+            0.208715,
+            0.214168,
+            0.208702,
+            0.193067
+          ],
+          "smooth_center_estimate_m": 0.214024,
+          "center_ridge_residual_m": 0.000144
+        },
+        {
+          "height_m": 1.405,
+          "side": -1,
+          "depth_samples_m": [
+            -0.04,
+            -0.02,
+            0,
+            0.02,
+            0.04
+          ],
+          "lateral_extent_m": [
+            0.186361,
+            0.20299,
+            0.208635,
+            0.202984,
+            0.18575
+          ],
+          "smooth_center_estimate_m": 0.208631,
+          "center_ridge_residual_m": 4e-06
+        },
+        {
+          "height_m": 1.405,
+          "side": 1,
+          "depth_samples_m": [
+            -0.04,
+            -0.02,
+            0,
+            0.02,
+            0.04
+          ],
+          "lateral_extent_m": [
+            0.186102,
+            0.203032,
+            0.208612,
+            0.203026,
+            0.186536
+          ],
+          "smooth_center_estimate_m": 0.208599,
+          "center_ridge_residual_m": 1.3e-05
+        },
+        {
+          "height_m": 1.41,
+          "side": -1,
+          "depth_samples_m": [
+            -0.04,
+            -0.02,
+            0,
+            0.02,
+            0.04
+          ],
+          "lateral_extent_m": [
+            0.179976,
+            0.197418,
+            0.203275,
+            0.197418,
+            0.17956
+          ],
+          "smooth_center_estimate_m": 0.203301,
+          "center_ridge_residual_m": 0
+        },
+        {
+          "height_m": 1.41,
+          "side": 1,
+          "depth_samples_m": [
+            -0.04,
+            -0.02,
+            0,
+            0.02,
+            0.04
+          ],
+          "lateral_extent_m": [
+            0.179788,
+            0.197436,
+            0.203255,
+            0.197439,
+            0.180067
+          ],
+          "smooth_center_estimate_m": 0.203274,
+          "center_ridge_residual_m": 0
+        },
+        {
+          "height_m": 1.415,
+          "side": -1,
+          "depth_samples_m": [
+            -0.04,
+            -0.02,
+            0,
+            0.02,
+            0.04
+          ],
+          "lateral_extent_m": [
+            0.173776,
+            0.192058,
+            0.198333,
+            0.192051,
+            0.173597
+          ],
+          "smooth_center_estimate_m": 0.198177,
+          "center_ridge_residual_m": 0.000156
+        },
+        {
+          "height_m": 1.415,
+          "side": 1,
+          "depth_samples_m": [
+            -0.04,
+            -0.02,
+            0,
+            0.02,
+            0.04
+          ],
+          "lateral_extent_m": [
+            0.173721,
+            0.192027,
+            0.198302,
+            0.192022,
+            0.17374
+          ],
+          "smooth_center_estimate_m": 0.198122,
+          "center_ridge_residual_m": 0.00018
+        },
+        {
+          "height_m": 1.42,
+          "side": -1,
+          "depth_samples_m": [
+            -0.04,
+            -0.02,
+            0,
+            0.02,
+            0.04
+          ],
+          "lateral_extent_m": [
+            0.167159,
+            0.186391,
+            0.193302,
+            0.186392,
+            0.167413
+          ],
+          "smooth_center_estimate_m": 0.19276,
+          "center_ridge_residual_m": 0.000542
+        },
+        {
+          "height_m": 1.42,
+          "side": 1,
+          "depth_samples_m": [
+            -0.04,
+            -0.02,
+            0,
+            0.02,
+            0.04
+          ],
+          "lateral_extent_m": [
+            0.167317,
+            0.186269,
+            0.193223,
+            0.186277,
+            0.166933
+          ],
+          "smooth_center_estimate_m": 0.192655,
+          "center_ridge_residual_m": 0.000568
+        },
+        {
+          "height_m": 1.425,
+          "side": -1,
+          "depth_samples_m": [
+            -0.04,
+            -0.02,
+            0,
+            0.02,
+            0.04
+          ],
+          "lateral_extent_m": [
+            0.158651,
+            0.179427,
+            0.187055,
+            0.179424,
+            0.159501
+          ],
+          "smooth_center_estimate_m": 0.186208,
+          "center_ridge_residual_m": 0.000847
+        },
+        {
+          "height_m": 1.425,
+          "side": 1,
+          "depth_samples_m": [
+            -0.04,
+            -0.02,
+            0,
+            0.02,
+            0.04
+          ],
+          "lateral_extent_m": [
+            0.159059,
+            0.179137,
+            0.186851,
+            0.179139,
+            0.158026
+          ],
+          "smooth_center_estimate_m": 0.186003,
+          "center_ridge_residual_m": 0.000848
+        }
+      ]
+    },
+    "all_required_samples_present": true,
+    "maximum_result_center_ridge_residual_m": 0.000848,
+    "limit_m": 0.0025,
+    "pass": true
+  },
+  "neck_opening_probes": [
+    {
+      "x_m": -0.035,
+      "depth_m": -0.035,
+      "highest_garment_hit_m": 1.43,
+      "pass": true
+    },
+    {
+      "x_m": -0.035,
+      "depth_m": 0,
+      "highest_garment_hit_m": 1.43,
+      "pass": true
+    },
+    {
+      "x_m": -0.035,
+      "depth_m": 0.035,
+      "highest_garment_hit_m": 1.43,
+      "pass": true
+    },
+    {
+      "x_m": 0,
+      "depth_m": -0.035,
+      "highest_garment_hit_m": 1.43,
+      "pass": true
+    },
+    {
+      "x_m": 0,
+      "depth_m": 0,
+      "highest_garment_hit_m": 1.43,
+      "pass": true
+    },
+    {
+      "x_m": 0,
+      "depth_m": 0.035,
+      "highest_garment_hit_m": 1.43,
+      "pass": true
+    },
+    {
+      "x_m": 0.035,
+      "depth_m": -0.035,
+      "highest_garment_hit_m": 1.43,
+      "pass": true
+    },
+    {
+      "x_m": 0.035,
+      "depth_m": 0,
+      "highest_garment_hit_m": 1.43,
+      "pass": true
+    },
+    {
+      "x_m": 0.035,
+      "depth_m": 0.035,
+      "highest_garment_hit_m": 1.43,
+      "pass": true
+    }
+  ],
+  "pass": true,
+  "visual_review": {
+    "status": "accepted",
+    "capture_directory": "godot-game/artifacts/visual_qa/player_appearance/shoulder_form_final_20260922",
+    "capture_model_sha256": "d5fb5f81c684a2afd5b4b4d5dfd833c33b7f601b541a2f83c1538c11036e0ef6",
+    "actual_renderer": "vulkan",
+    "reviewed_images": [
+      "player_shoulder_form_front_clay.png",
+      "player_shoulder_form_oblique_clay.png",
+      "player_shoulder_form_side_clay.png",
+      "player_shoulder_form_rear_clay.png",
+      "player_shoulder_form_front.png",
+      "player_shoulder_form_oblique.png",
+      "player_shoulder_form_side.png",
+      "player_shoulder_form_rear.png"
+    ],
+    "findings": [
+      "The previously detached spherical deltoid masses now flow continuously from the chest and back into the upper arms.",
+      "Front and rear shoulder silhouettes have no separate cap peaks or sharp ledges.",
+      "The earlier side-view oval ledge and short vertical fin are no longer visible as distinct sculpting defects.",
+      "The underarm corners now form rounded garment transitions instead of sharply pinched points.",
+      "The cloth reads continuously over the torso and upper arms without the earlier circumferential shoulder stripe; the central chest transition has no hard seam."
+    ],
+    "scope": "Static shoulder and upper-arm garment appearance in the eight listed actual Godot renders; no animation behavior changed in this asset review."
+  }
+}

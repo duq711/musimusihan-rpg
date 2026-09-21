@@ -98,6 +98,8 @@ func _capture_body() -> void:
 		await _capture_face_detail(portrait)
 	if OS.get_environment("PLAYER_QA_UPPER_BODY_DETAIL") == "1":
 		await _capture_upper_body_detail(portrait)
+	if OS.get_environment("PLAYER_QA_SHOULDER_FORM") == "1":
+		await _capture_shoulder_form(portrait)
 	if OS.get_environment("PLAYER_QA_TROUSERS_DETAIL") == "1":
 		await _capture_trousers_detail(portrait)
 	if OS.get_environment("PLAYER_QA_HAND_DETAIL") == "1":
@@ -129,6 +131,44 @@ func _capture_body() -> void:
 			await _capture(portrait.viewport, "player_arm_structure_side.png")
 	portrait.queue_free()
 	await process_frame
+
+
+func _capture_shoulder_form(portrait) -> void:
+	# Matching textured/clay views expose chest-to-arm and underarm volume while
+	# retaining the whole production body and the portrait's existing lighting.
+	var previous_angle := float(portrait.get_view_angle())
+	var previous_transform: Transform3D = portrait.camera.transform
+	var previous_size := float(portrait.camera.size)
+	var previous_viewport_size: Vector2i = portrait.viewport.size
+	var previous_overrides: Dictionary = {}
+	for mesh: MeshInstance3D in portrait.body.find_children("*", "MeshInstance3D", true, false):
+		previous_overrides[mesh] = mesh.material_override
+	var clay := StandardMaterial3D.new()
+	clay.albedo_color = Color(0.56, 0.59, 0.61)
+	clay.roughness = 0.9
+	portrait.set_view_angle(0.0)
+	# A square frame keeps both upper arms inside the 0.82 m orthographic width.
+	portrait.viewport.size = Vector2i(1024, 1024)
+	portrait.camera.size = 0.82
+	var center := Vector3(0.0, 1.33, 0.0)
+	for shot in [
+		{"name": "front", "position": Vector3(0.0, 1.33, -1.5)},
+		{"name": "oblique", "position": Vector3(-0.90, 1.38, -1.20)},
+		{"name": "side", "position": Vector3(-1.5, 1.33, 0.0)},
+		{"name": "rear", "position": Vector3(0.0, 1.33, 1.5)},
+	]:
+		portrait.camera.position = shot.position
+		portrait.camera.look_at(center, Vector3.UP)
+		await _capture(portrait.viewport, "player_shoulder_form_%s.png" % shot.name)
+		for mesh in previous_overrides:
+			mesh.material_override = clay
+		await _capture(portrait.viewport, "player_shoulder_form_%s_clay.png" % shot.name)
+		for mesh in previous_overrides:
+			mesh.material_override = previous_overrides[mesh]
+	portrait.set_view_angle(previous_angle)
+	portrait.camera.transform = previous_transform
+	portrait.camera.size = previous_size
+	portrait.viewport.size = previous_viewport_size
 
 
 func _capture_trousers_detail(portrait) -> void:

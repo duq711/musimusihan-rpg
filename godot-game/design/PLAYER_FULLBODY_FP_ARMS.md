@@ -190,3 +190,17 @@ English: Remove the three long coat-tail meshes. Complete the two trouser legs w
 제작·검증 / Production and validation: `asset-staging/player_trousers_only_20260922/`. 원본 이전 모델은 보존한다. 360° 뷰어는 같은 게임 GLB를 읽는다. 실제 하의 검사 프리뷰는 `PLAYER_QA_TROUSERS_DETAIL=1`로 앞·뒤·아래쪽을 추가 촬영한다.
 
 English: Preserve earlier models. Production assets and validation live in the folder above. The 360° viewer reads the same game GLB; `PLAYER_QA_TROUSERS_DETAIL=1` adds front, rear and low-angle trouser captures.
+
+## 2026-09-22 — 가슴·등·겨드랑이·위팔 통합 조형 / Resculpt the upper-body transitions
+
+사용자가 어깨와 몸통 접합의 어색함을 다시 지적했다. 기존 메시에서 가슴 외측이 깊게 패였다가 소매 캡에서 다시 솟는 앞뒤 단면을 확인했다. 단순 외곽선 정리와 메시 연결 검사는 인체 형태의 시각적 완성도를 보장하지 못했다.
+
+English: The user identified an unnatural chest-to-arm junction. Cross-sections showed a deep outer-chest valley followed by a separate sleeve-cap bulge. Smooth outer silhouettes and seam tests alone did not establish natural-looking anatomy.
+
+현재 작업은 `asset-staging/player_shoulder_form_20260922/`에서 가슴·등·양쪽 위팔을 한 표면으로 다룬다. 접합 골을 채우고 어깨 바깥쪽 부피를 줄이며, 고정된 수직 경계를 풀어 겨드랑이와 어깨 상단을 다듬는다. 기존 직물의 연속 UV로 어깨 아래 띠 경계도 정리한다. 목 개구부·손목 피부와 다른 17개 메시를 보존하며, 1.18m 이하 기하는 유지한다. 피부/옷감 비트맵과 일인칭 에셋은 수정하지 않는다.
+
+English: Sculpt the chest, back and both upper sleeves together, filling the junction valley, reducing the lateral shoulder cap and releasing the fixed vertical seam to round the underarms and upper shoulders. Continuous cloth UVs remove the shoulder band. Preserve the neck opening, cuff skin, 17 other meshes and geometry below 1.18m. Bitmap sources and first-person assets remain unchanged.
+
+검토 도구 / Review tooling: `PLAYER_QA_SHOULDER_FORM=1`은 정면·사선·측면·후면의 재질/무채색 8장을 같은 카메라로 촬영한다. 원래 화면과 재질·카메라 상태는 복원한다. 최종 해시와 검증 결과는 제작 폴더 `VALIDATION.md`에 기록한다.
+
+English: `PLAYER_QA_SHOULDER_FORM=1` adds eight matching textured/clay views, restoring materials and camera state afterward. The production folder's `VALIDATION.md` records the accepted model hash and validation.
