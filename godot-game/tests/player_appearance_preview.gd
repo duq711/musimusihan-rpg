@@ -98,6 +98,8 @@ func _capture_body() -> void:
 		await _capture_face_detail(portrait)
 	if OS.get_environment("PLAYER_QA_UPPER_BODY_DETAIL") == "1":
 		await _capture_upper_body_detail(portrait)
+	if OS.get_environment("PLAYER_QA_TROUSERS_DETAIL") == "1":
+		await _capture_trousers_detail(portrait)
 	if OS.get_environment("PLAYER_QA_HAND_DETAIL") == "1":
 		await _capture_hand_detail(portrait)
 	# Optional close-up for wrist/cuff proportion reviews, using the actual mesh.
@@ -127,6 +129,28 @@ func _capture_body() -> void:
 			await _capture(portrait.viewport, "player_arm_structure_side.png")
 	portrait.queue_free()
 	await process_frame
+
+
+func _capture_trousers_detail(portrait) -> void:
+	# Keep the production outfit visible so the open coat removal can be checked
+	# at the waist, both thighs and the underside of the joined trouser crotch.
+	var previous_angle := float(portrait.get_view_angle())
+	var previous_transform: Transform3D = portrait.camera.transform
+	var previous_size := float(portrait.camera.size)
+	portrait.set_view_angle(0.0)
+	portrait.camera.size = 0.86
+	var center := Vector3(0.0, 0.84, 0.0)
+	for shot in [
+		{"name": "front", "position": Vector3(0.0, 0.84, -1.4)},
+		{"name": "rear", "position": Vector3(0.0, 0.84, 1.4)},
+		{"name": "low", "position": Vector3(0.30, 0.26, -1.2)},
+	]:
+		portrait.camera.position = shot.position
+		portrait.camera.look_at(center, Vector3.UP)
+		await _capture(portrait.viewport, "player_trousers_%s.png" % shot.name)
+	portrait.set_view_angle(previous_angle)
+	portrait.camera.transform = previous_transform
+	portrait.camera.size = previous_size
 
 
 func _capture_face_detail(portrait) -> void:

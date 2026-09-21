@@ -36,3 +36,5 @@ English: Verified loading, drag orbit, wheel zoom, hand focus and full-body rese
 
 - 상체 비율: 목·어깨·가슴을 사선 정면에서 확인합니다. / Upper-body view: inspect neck, shoulders and chest from the front oblique.
 - 형태 확인: 색상과 무늬를 잠시 끄고 무채색으로 형태를 봅니다. 다시 누르면 원래 재질로 돌아옵니다. 게임 에셋은 변경하지 않습니다. / Shape inspection toggles neutral clay shading and restores the original materials, without modifying the game asset.
+
+코트 자락 제거 및 바지 완성 / Coat-tail removal and completed trousers: [하의 검증 기록](../../asset-staging/player_trousers_only_20260922/VALIDATION.md). 전신 맞춤으로 변경된 복장을 확인합니다. Use Fit body to inspect the updated outfit.

@@ -180,3 +180,13 @@ English: Replace the broad torso cap and inward-folded sleeve caps with a contin
 English: Preserve the other 20 meshes, including the supplied head/eyes, hands/wrists and lower body, plus torso geometry and sleeve geometry/UVs below 1.24m; torso UVs are intentionally remapped throughout. This request supersedes the prior all-23-mesh preservation only for the three upper garment parts. First-person source assets and gameplay behavior are unchanged.
 
 제작·검증 / Production and validation: `asset-staging/player_natural_shoulders_20260922/` (`build.py`, `Gravebound_Natural_Shoulders.blend`, `VALIDATION.md`, `geometry_audit.json`).
+
+## 2026-09-22 — 코트 자락 제거, 바지만 유지 / Trousers without coat tails
+
+사용자 요청에 따라 `Gravebound_CoatBackAndSides`, `Gravebound_CoatSkirt_L/R`를 제거했다. 기존 바지는 코트에 가려진 두 다리만 있어 골반과 허리 연결이 비어 있었으므로, `Gravebound_Trousers_L/R`를 허리까지 연결된 완전한 바지로 보완했다. 원래 무릎 좌표와 부츠를 유지하고 밑단을 부츠 안에 넣었다. 바지 원단을 상의와 어울리는 기존 어두운 직물로 맞췄다. 머리·상체·팔·손·벨트·주머니·부츠 등 나머지 18개 메시를 보존했으며 최종 구성은 20개 메시다.
+
+English: Remove the three long coat-tail meshes. Complete the two trouser legs with joined hips, crotch and a waist hidden under the shirt/belt, since the coat previously concealed missing upper trousers. Retain the original knee geometry, tuck the trouser hems into the boots and use existing dark cloth. Preserve the other 18 meshes, including the head, upper body, hands, belt, pouches and boots; the model now has 20 meshes.
+
+제작·검증 / Production and validation: `asset-staging/player_trousers_only_20260922/`. 원본 이전 모델은 보존한다. 360° 뷰어는 같은 게임 GLB를 읽는다. 실제 하의 검사 프리뷰는 `PLAYER_QA_TROUSERS_DETAIL=1`로 앞·뒤·아래쪽을 추가 촬영한다.
+
+English: Preserve earlier models. Production assets and validation live in the folder above. The 360° viewer reads the same game GLB; `PLAYER_QA_TROUSERS_DETAIL=1` adds front, rear and low-angle trouser captures.

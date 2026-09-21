@@ -9,9 +9,9 @@ func _run() -> void:
 	var body := APPEARANCE.create_body()
 	root.add_child(body)
 	var parts := body.find_children("*", "MeshInstance3D", true, false)
-	check(parts.size() == 23, "19 retained body meshes and four FP parts; hood and neck cowl removed")
-	for retired: String in ["Gravebound_PointHood", "Gravebound_InnerNeckCowl", "Gravebound_Mantle_L", "Gravebound_Mantle_R", "Gravebound_MantleBack"]:
-		check(body.find_child(retired, true, false) == null, "hood and neck cloth physically removed from the imported model: " + retired)
+	check(parts.size() == 20, "16 body meshes and four FP parts; hood, neck cowl and long coat tails removed")
+	for retired: String in ["Gravebound_PointHood", "Gravebound_InnerNeckCowl", "Gravebound_Mantle_L", "Gravebound_Mantle_R", "Gravebound_MantleBack", "Gravebound_CoatBackAndSides", "Gravebound_CoatSkirt_L", "Gravebound_CoatSkirt_R"]:
+		check(body.find_child(retired, true, false) == null, "retired hood, neck cloth or long coat tail physically removed from the imported model: " + retired)
 	check(body.find_child("Gravebound_AnatomicalHead", true, false) != null, "head retained")
 	var names: Array[String] = []
 	for part: MeshInstance3D in parts:
@@ -64,6 +64,17 @@ func _run() -> void:
 	for side in ["L", "R"]:
 		for section in ["Arm", "Hand"]:
 			check(names.count("Gravebound_FP_"+side+"_"+section) == 1, "one actual arm/hand per side")
+		var trouser_name: String = "Gravebound_Trousers_" + side
+		check(names.count(trouser_name) == 1, "one actual trouser half per side")
+		var trousers := body.find_child(trouser_name, true, false) as MeshInstance3D
+		if trousers == null or trousers.mesh == null:
+			check(false, "complete trousers must remain after the coat tails are removed: " + trouser_name)
+			continue
+		var highest := -INF
+		for surface in trousers.mesh.get_surface_count():
+			for vertex: Vector3 in trousers.mesh.surface_get_arrays(surface)[Mesh.ARRAY_VERTEX]:
+				highest = maxf(highest, body.to_local(trousers.to_global(vertex)).y)
+		check(highest >= 1.08, "trousers must extend through the exposed pelvis to the waist: " + trouser_name)
 	body.free()
 	for failure in failures: push_error(failure)
 	print("PLAYER FULLBODY FP ARMS "+("PASS" if failures.is_empty() else "FAIL"))
