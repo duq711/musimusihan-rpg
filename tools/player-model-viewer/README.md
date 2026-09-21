@@ -40,3 +40,5 @@ English: Verified loading, drag orbit, wheel zoom, hand focus and full-body rese
 코트 자락 제거 및 바지 완성 / Coat-tail removal and completed trousers: [하의 검증 기록](../../asset-staging/player_trousers_only_20260922/VALIDATION.md). 전신 맞춤으로 변경된 복장을 확인합니다. Use Fit body to inspect the updated outfit.
 
 가슴·등·어깨·위팔 형태 수정 / Resculpted chest-to-arm transitions: [형태 검증 기록](../../asset-staging/player_shoulder_form_20260922/VALIDATION.md). 상체 비율과 형태 확인 버튼으로 검토합니다. Use Upper-body view and Shape inspection for review.
+
+2026-09-22 복원 / Restoration: 사용자 요청으로 마지막 어깨 조형을 철회하고 `f279eec` 모델로 복귀했습니다. 현재 게임 GLB SHA256: `f7ad57eddd4ac751daee53fcdb05bf627a749007f0989d9f344f735dfb2e2a77`. The viewer serves the restored previous model, preserving the face, hands and trousers. Evidence: [복원 기록](../../asset-staging/player_shoulder_rollback_20260922/VALIDATION.md).

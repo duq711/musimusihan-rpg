@@ -191,7 +191,7 @@ English: Remove the three long coat-tail meshes. Complete the two trouser legs w
 
 English: Preserve earlier models. Production assets and validation live in the folder above. The 360° viewer reads the same game GLB; `PLAYER_QA_TROUSERS_DETAIL=1` adds front, rear and low-angle trouser captures.
 
-## 2026-09-22 — 가슴·등·겨드랑이·위팔 통합 조형 / Resculpt the upper-body transitions
+## 2026-09-22 — 가슴·등·겨드랑이·위팔 통합 조형 (철회됨) / Resculpt the upper-body transitions (reverted)
 
 사용자가 어깨와 몸통 접합의 어색함을 다시 지적했다. 기존 메시에서 가슴 외측이 깊게 패였다가 소매 캡에서 다시 솟는 앞뒤 단면을 확인했다. 단순 외곽선 정리와 메시 연결 검사는 인체 형태의 시각적 완성도를 보장하지 못했다.
 
@@ -204,3 +204,9 @@ English: Sculpt the chest, back and both upper sleeves together, filling the jun
 검토 도구 / Review tooling: `PLAYER_QA_SHOULDER_FORM=1`은 정면·사선·측면·후면의 재질/무채색 8장을 같은 카메라로 촬영한다. 원래 화면과 재질·카메라 상태는 복원한다. 최종 해시와 검증 결과는 제작 폴더 `VALIDATION.md`에 기록한다.
 
 English: `PLAYER_QA_SHOULDER_FORM=1` adds eight matching textured/clay views, restoring materials and camera state afterward. The production folder's `VALIDATION.md` records the accepted model hash and validation.
+
+## 2026-09-22 — 사용자 요청으로 직전 팔 복원 / Restore the previous arms at the user’s request
+
+사용자가 마지막 어깨·팔 조형 결과가 더 부자연스럽다고 지적해 되돌리기를 요청했다. `9081104`의 모델을 철회하고, 바로 이전 `f279eec`의 바지만 남긴 전신 모델을 바이트 단위로 복원했다. 원본은 `asset-staging/player_trousers_only_20260922/gravebound_player_trousers_only.glb`, SHA256은 `f7ad57eddd4ac751daee53fcdb05bf627a749007f0989d9f344f735dfb2e2a77`이다. 얼굴·손·바지와 후드/코트 제거 상태는 그대로 유지한다. 마지막 조형 자료는 이력으로 보존하며 현재 게임에 사용하지 않는다.
+
+English: The user rejected the latest shoulder/arm sculpt as less natural. Restore the immediate predecessor from `f279eec` byte for byte, retaining the supplied face, hands, trousers and hood/coat removal. Keep the rejected sculpt as historical production material, not the active game model. Restoration evidence: `asset-staging/player_shoulder_rollback_20260922/`.

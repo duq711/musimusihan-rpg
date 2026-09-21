@@ -105,10 +105,9 @@ func _shoulder_seam(body: Node3D, part: MeshInstance3D) -> Dictionary:
 		var normals: PackedVector3Array = arrays[Mesh.ARRAY_NORMAL]
 		for index in vertices.size():
 			var point := body.to_local(part.to_global(vertices[index]))
-			if point.y < 1.30 or absf(point.x) < .10:
+			if point.y < 1.30 or absf(absf(point.x) - .175) > .000001:
 				continue
-			# Match the curved join by position; its sculpted seam need not lie on X=0.175.
-			# UV or material splits must not hide a real gap.
+			# Weld by position so UV or material splits do not hide a real gap.
 			var key := Vector3i(roundi(point.x * 1000000), roundi(point.y * 1000000), roundi(point.z * 1000000))
 			result[key] = [point, (normal_basis * normals[index]).normalized()]
 	return result

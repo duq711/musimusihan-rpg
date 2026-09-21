@@ -1,5 +1,7 @@
 # 어깨·겨드랑이 재조형 / Resculpt shoulder and underarm transitions
 
+**현재 미사용 / Reverted:** 사용자가 결과를 거부해 직전 `f279eec` 모델로 복원했습니다. 아래 내용은 당시 검토 기록이며 사용자 수용을 뜻하지 않습니다. The user rejected this revision; the prior model is restored. The review below is historical and does not represent user acceptance. See [복원 기록 / Restoration](../player_shoulder_rollback_20260922/VALIDATION.md).
+
 요청: 어깨가 과도하게 둥글고 팔이 몸통에 따로 붙어 보이는 형태를 개선한다. 이전에는 접합부의 구멍·법선과 윗윤곽을 검사했지만, 가슴·등 외측의 골과 별도로 부푼 소매 캡이 남아 있었다.
 
 English: Address the oversized rounded shoulders and detached-looking arms. Previous seam and roof checks did not catch the deep chest/back valley followed by a separate sleeve-cap bulge.
