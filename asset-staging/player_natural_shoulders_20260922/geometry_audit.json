@@ -1,0 +1,283 @@
+{
+  "oldsha": "c90f433596d8f7c60f0d22d93277e1077324a4b7e299626156d3d2ea82e622e1",
+  "newsha": "5a70869278947f6ec5a332ac16409f9763071e1d0d98b14f511f81721bd409cc",
+  "unchanged_other_meshes": 20,
+  "lower_geometry": {
+    "Gravebound_QuiltedTorso": {
+      "includes_uv": false,
+      "below_y_m": 1.24,
+      "before": 3390,
+      "after": 3390,
+      "missing_original_triangles": 0,
+      "new_triangles": 0
+    },
+    "Gravebound_FP_L_Arm": {
+      "includes_uv": true,
+      "below_y_m": 1.24,
+      "before": 5667,
+      "after": 5667,
+      "missing_original_triangles": 0,
+      "new_triangles": 0
+    },
+    "Gravebound_FP_R_Arm": {
+      "includes_uv": true,
+      "below_y_m": 1.24,
+      "before": 5667,
+      "after": 5667,
+      "missing_original_triangles": 0,
+      "new_triangles": 0
+    }
+  },
+  "seams": {
+    "Gravebound_FP_L_Arm": {
+      "shared_positions": 156,
+      "minimum_normal_dot": 0.9999997507745204,
+      "extents": [
+        1.6837473471031927e-08,
+        0.11599266529083252,
+        0.1115095466375351
+      ]
+    },
+    "Gravebound_FP_R_Arm": {
+      "shared_positions": 161,
+      "minimum_normal_dot": 0.99999990111304,
+      "extents": [
+        7.030412196296076e-07,
+        0.12247812747955322,
+        0.11175704374909401
+      ]
+    }
+  },
+  "runtime_sha256": "5a70869278947f6ec5a332ac16409f9763071e1d0d98b14f511f81721bd409cc",
+  "runtime_matches_audited_model": true,
+  "coordinate_frame": "Imported Godot body local, Y up, metres",
+  "preservation_method": "Compare exported arrays for 20 unmodified meshes. Compare unordered triangles below Y=1.24 m at 1e-6 resolution: torso positions only, because torso UV/material deliberately replaced to remove the bib edge; sleeves positions and UVs.",
+  "seam_method": "Only vertices within 1e-6 m of X=+/-0.175 m; match XYZ at 1e-6 m resolution to avoid conflating nearby vertices at the UV split.",
+  "neck_opening_probes": {
+    "count": 9,
+    "radius_m": 0.035,
+    "highest_torso_hits_y_m": [
+      1.4299999475479126,
+      1.4299999475479126,
+      1.4299999475479126,
+      1.4299999475479128,
+      1.4299999475479126,
+      1.4299999475479126,
+      1.4299999475479126,
+      1.4299999475479126,
+      1.4299999475479126
+    ],
+    "clear_above_y_m": 1.445,
+    "pass": true
+  },
+  "shoulder_roof_contours": [
+    {
+      "side": -1,
+      "z_m": -0.025,
+      "x_absolute_m": [
+        0.08,
+        0.1,
+        0.12,
+        0.14,
+        0.16,
+        0.18,
+        0.2,
+        0.22,
+        0.24,
+        0.26
+      ],
+      "top_y_m": [
+        1.4581506638268182,
+        1.448376426179287,
+        1.4478834487606045,
+        1.4400539181974943,
+        1.4318656579946958,
+        1.4246324121753917,
+        1.414162736568865,
+        1.4081686060726215,
+        1.395655989490188,
+        1.368131649992203
+      ],
+      "maximum_outward_rise_m": -0.0004929774186825941,
+      "pass": true
+    },
+    {
+      "side": -1,
+      "z_m": 0,
+      "x_absolute_m": [
+        0.08,
+        0.1,
+        0.12,
+        0.14,
+        0.16,
+        0.18,
+        0.2,
+        0.22,
+        0.24,
+        0.26
+      ],
+      "top_y_m": [
+        1.4617146807365307,
+        1.450955361596186,
+        1.4509558780252274,
+        1.443989038216099,
+        1.4369504866675404,
+        1.429926025076448,
+        1.4219600789565623,
+        1.4116377820512065,
+        1.3987441008149104,
+        1.374175072070084
+      ],
+      "maximum_outward_rise_m": 5.164290413084416e-07,
+      "pass": true
+    },
+    {
+      "side": -1,
+      "z_m": 0.025,
+      "x_absolute_m": [
+        0.08,
+        0.1,
+        0.12,
+        0.14,
+        0.16,
+        0.18,
+        0.2,
+        0.22,
+        0.24,
+        0.26
+      ],
+      "top_y_m": [
+        1.4585753678258173,
+        1.448922447519495,
+        1.448125492966167,
+        1.4403190209824395,
+        1.4325054895520846,
+        1.425824721205266,
+        1.4157997191265292,
+        1.409028798187398,
+        1.3965551843974953,
+        1.3696377480158066
+      ],
+      "maximum_outward_rise_m": -0.0007969545533279554,
+      "pass": true
+    },
+    {
+      "side": 1,
+      "z_m": -0.025,
+      "x_absolute_m": [
+        0.08,
+        0.1,
+        0.12,
+        0.14,
+        0.16,
+        0.18,
+        0.2,
+        0.22,
+        0.24,
+        0.26
+      ],
+      "top_y_m": [
+        1.4586453000684254,
+        1.4491579953510578,
+        1.4484570984276972,
+        1.4408462293653672,
+        1.4327587581751937,
+        1.424696033301728,
+        1.4141626557305527,
+        1.408168591696795,
+        1.3956560058259875,
+        1.3681316038272313
+      ],
+      "maximum_outward_rise_m": -0.0007008969233606166,
+      "pass": true
+    },
+    {
+      "side": 1,
+      "z_m": 0,
+      "x_absolute_m": [
+        0.08,
+        0.1,
+        0.12,
+        0.14,
+        0.16,
+        0.18,
+        0.2,
+        0.22,
+        0.24,
+        0.26
+      ],
+      "top_y_m": [
+        1.4617406899232914,
+        1.4511843981726709,
+        1.4512394701392837,
+        1.4443833586960617,
+        1.4373779959717967,
+        1.4300162913808458,
+        1.4219600566087958,
+        1.4116376772617247,
+        1.398744099132743,
+        1.3741751010805365
+      ],
+      "maximum_outward_rise_m": 5.5071966612807444e-05,
+      "pass": true
+    },
+    {
+      "side": 1,
+      "z_m": 0.025,
+      "x_absolute_m": [
+        0.08,
+        0.1,
+        0.12,
+        0.14,
+        0.16,
+        0.18,
+        0.2,
+        0.22,
+        0.24,
+        0.26
+      ],
+      "top_y_m": [
+        1.4583807183122048,
+        1.4487165866443144,
+        1.4483020107993776,
+        1.4404857127930555,
+        1.4322189243529921,
+        1.4257510781723066,
+        1.4157997957601376,
+        1.40902884844691,
+        1.396555296628216,
+        1.369637718453168
+      ],
+      "maximum_outward_rise_m": -0.0004145758449367598,
+      "pass": true
+    }
+  ],
+  "visual_acceptance": {
+    "status": "PASS",
+    "model_sha256": "5a70869278947f6ec5a332ac16409f9763071e1d0d98b14f511f81721bd409cc",
+    "actual_renderer": "vulkan",
+    "capture_directory": "godot-game/artifacts/visual_qa/player_appearance/natural_shoulders_final_20260922",
+    "reviewed_images": [
+      "player_front.png",
+      "player_three_quarter.png",
+      "player_back.png",
+      "player_upper_shoulder_left.png",
+      "player_upper_shoulder_right.png",
+      "player_upper_shoulder_right_clay.png"
+    ],
+    "findings_ko": [
+      "정면과 사선에서 목부터 어깨와 위팔로 내려가는 윤곽이 이어지며 이전의 이중 봉우리와 분리된 소매 캡이 해소되었습니다.",
+      "목둘레가 정돈되어 이전의 거친 톱니 윤곽과 넓은 목 캡이 보이지 않습니다.",
+      "앞의 사각 턱받이 경계와 등 쪽 검은 삼각 이음이 사라지고 상의 천이 연속적으로 보입니다.",
+      "검토한 실제 화면에서 요청 범위의 진행을 막는 잔여 변형이나 구멍이 보이지 않습니다."
+    ],
+    "findings_en": [
+      "Front and three-quarter views show a continuous neck-to-shoulder-to-upper-arm silhouette; the former double peaks and detached sleeve caps are resolved.",
+      "The neckline is orderly without the former coarse sawtooth rim or broad neck cap.",
+      "The rectangular front bib boundary and black triangular back joins are gone; the upper garment reads continuously.",
+      "No remaining blocking deformation or opening within the requested scope is visible in the reviewed actual renders."
+    ],
+    "blocking_findings": []
+  },
+  "pass": true
+}

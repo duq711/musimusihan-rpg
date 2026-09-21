@@ -167,3 +167,16 @@ English: Replace the old head, hair and eyes with the supplied OBJ/MTL and color
 English: Remove the four neck-cowl and shoulder-mantle meshes at the user's request, superseding the earlier retained-cowl direction. Preserve the other 23 meshes' geometry, UVs, transforms and materials, including the supplied head/eyes, torso and both arms/hands. The existing closed torso and sleeves provide the exposed joins without adding replacement cloth.
 
 제작 원본·검증 / Production source and validation: `asset-staging/player_cowl_removed_20260922/Gravebound_No_Cowl.blend`, `build.py`, `VALIDATION.md`. 게임 대상 / Runtime: `assets/3d/player/gravebound_player.glb`.
+
+
+## 2026-09-22 노출된 목·어깨 구조 수정 / Rebuild the exposed neck and shoulders
+
+후드 아래 남아 있던 넓은 몸통 캡과 안쪽으로 접힌 소매 캡을 교체한다. 상부 몸통과 양쪽 소매를 연속된 표면으로 만들고, 실제 목둘레 개구부와 목에서 어깨 끝으로 내려오는 경사를 적용했다. 상의와 소매의 경계는 좌표와 법선을 공유한다. 몸통과 새 어깨의 옷감은 기존 소매 아틀라스의 직물 영역으로 UV를 연속되게 맞추고, 전신 옷감 노멀 강도를 0.25로 줄여 과장된 요철을 제거했다. 후드는 다시 추가하지 않는다.
+
+English: Replace the broad torso cap and inward-folded sleeve caps with a continuous upper garment, a real neck opening and sloping shoulders. The chest and sleeves share seam positions and normals. Remap the torso and new shoulders continuously to the existing sleeve atlas's woven cloth region and reduce full-body cloth normal strength to 0.25. The hood remains removed.
+
+사용자가 제공한 얼굴·눈, 양손·손목과 하체를 포함한 다른 20개 메시, 높이 1.24m 아래 몸통 좌표와 소매 좌표·UV를 보존했다. 몸통 UV는 옷감 연결을 위해 전체적으로 다시 배치했다. 이전 전체 의상 23개 메시 불변 원칙 중 몸통·소매 상단 3개 부위만 이번 요청으로 수정한다. 일인칭 팔 원본과 게임 동작은 변경하지 않는다.
+
+English: Preserve the other 20 meshes, including the supplied head/eyes, hands/wrists and lower body, plus torso geometry and sleeve geometry/UVs below 1.24m; torso UVs are intentionally remapped throughout. This request supersedes the prior all-23-mesh preservation only for the three upper garment parts. First-person source assets and gameplay behavior are unchanged.
+
+제작·검증 / Production and validation: `asset-staging/player_natural_shoulders_20260922/` (`build.py`, `Gravebound_Natural_Shoulders.blend`, `VALIDATION.md`, `geometry_audit.json`).

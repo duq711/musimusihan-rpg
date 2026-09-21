@@ -22,6 +22,9 @@ document.querySelector('#spin').addEventListener('click',e=>{controls.autoRotate
 document.querySelector('#hand').addEventListener('click',()=>{if(!ready)return;const hand=model.getObjectByName('Gravebound_FP_L_Hand');if(!hand)return;const b=new THREE.Box3().setFromObject(hand);b.getCenter(controls.target);camera.position.copy(controls.target).add(new THREE.Vector3(-.34,.08,-.43));controls.update();});
 document.querySelector('#head').addEventListener('click',()=>{if(!ready)return;const head=model.getObjectByName('Gravebound_AnatomicalHead');if(!head)return;new THREE.Box3().setFromObject(head).getCenter(controls.target);camera.position.copy(controls.target).add(new THREE.Vector3(-.20,.10,-.60));controls.update();});
 document.querySelector('#shoulder').addEventListener('click',()=>{if(!ready)return;controls.target.set(0,1.44,0);camera.position.set(-.65,2.08,.35);controls.update();});
+document.querySelector('#upper').addEventListener('click',()=>{if(!ready)return;controls.target.set(0,1.43,0);camera.position.set(-.42,1.64,-1.38);controls.update();});
+const originalMaterials=new Map(),clay=new THREE.MeshStandardMaterial({color:0x9da4a5,roughness:.88,metalness:0});let shapeMode=false;
+document.querySelector('#shape').addEventListener('click',e=>{if(!ready)return;shapeMode=!shapeMode;model.traverse(n=>{if(!n.isMesh)return;if(!originalMaterials.has(n))originalMaterials.set(n,n.material);n.material=shapeMode?clay:originalMaterials.get(n);});e.currentTarget.setAttribute('aria-pressed',String(shapeMode));});
 addEventListener('resize',()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight);});
 renderer.setAnimationLoop(()=>{controls.update();renderer.render(scene,camera);});
 try{

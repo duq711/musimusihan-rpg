@@ -31,3 +31,8 @@ English: Required Three.js 0.170.0 files are vendored under MIT (vendor/LICENSE)
 English: Verified loading, drag orbit, wheel zoom, hand focus and full-body reset in the live Codex browser. Current supplied-head replacement status is recorded in the [validation document](../../asset-staging/player_supplied_face_20260921/VALIDATION.md). Right-drag pan uses the library's standard controls and was checked in code.
 
 최신 의상 변경 / Latest outfit change: [목·어깨 후드 제거 검증](../../asset-staging/player_cowl_removed_20260922/VALIDATION.md).
+
+목·어깨 연결 재구성 / Rebuilt neck and shoulder joins: [구조·화면 검증](../../asset-staging/player_natural_shoulders_20260922/VALIDATION.md).
+
+- 상체 비율: 목·어깨·가슴을 사선 정면에서 확인합니다. / Upper-body view: inspect neck, shoulders and chest from the front oblique.
+- 형태 확인: 색상과 무늬를 잠시 끄고 무채색으로 형태를 봅니다. 다시 누르면 원래 재질로 돌아옵니다. 게임 에셋은 변경하지 않습니다. / Shape inspection toggles neutral clay shading and restores the original materials, without modifying the game asset.
