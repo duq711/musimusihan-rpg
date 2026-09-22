@@ -1,0 +1,732 @@
+{
+  "source_blend_sha256": "6bf73c006907120971f3e9bad6e20f8af1125cf853145912d09ddc8ba533bb5e",
+  "result_blend_sha256": "50a9a29d3205da6c482626a3a3a2e4690ebe89f65218b5bb984332597d0e5476",
+  "source_glb_sha256": "f587e61d3ccb94c5856b3af3104ac8ebb667539aa7d46d01a395a53ed805fda9",
+  "result_glb_sha256": "40eda135a75a5a5ce7cdbf841c1b4ce4f0f64529011b727349da58f4e739c272",
+  "mesh_count": 20,
+  "entirely_preserved_meshes": [
+    "Gravebound_BeltBuckle",
+    "Gravebound_BeltTongue",
+    "Gravebound_BootCuff_L",
+    "Gravebound_BootCuff_R",
+    "Gravebound_Boot_L",
+    "Gravebound_Boot_R",
+    "Gravebound_Eyes",
+    "Gravebound_FP_L_Hand",
+    "Gravebound_FP_R_Hand",
+    "Gravebound_LeatherBelt",
+    "Gravebound_PouchFlap_L",
+    "Gravebound_PouchFlap_R",
+    "Gravebound_Pouch_L",
+    "Gravebound_Pouch_R",
+    "Gravebound_Trousers_L",
+    "Gravebound_Trousers_R"
+  ],
+  "all_topology_preserved": true,
+  "original_material_assignments_preserved_except_authorized_upper_sleeves": true,
+  "baked_upper_sleeves": {
+    "Gravebound_FP_L_Arm": {
+      "new_material": "Gravebound_Sleeve_Flow_L",
+      "new_uv": "SleeveBlendBake",
+      "new_material_face_count": 25996,
+      "lowest_selected_vertex_z_m": 1.176300048828125,
+      "selection_rule": "Source matched-cloth faces with at least one vertex above 1.18m; crossing boundary faces are included."
+    },
+    "Gravebound_FP_R_Arm": {
+      "new_material": "Gravebound_Sleeve_Flow_R",
+      "new_uv": "SleeveBlendBake",
+      "new_material_face_count": 26027,
+      "lowest_selected_vertex_z_m": 1.176300048828125,
+      "selection_rule": "Source matched-cloth faces with at least one vertex above 1.18m; crossing boundary faces are included."
+    }
+  },
+  "head_protected_regions": {
+    "face_and_scalp_at_or_above_1_51m": {
+      "vertex_count": 5248,
+      "maximum_displacement_m": 0.0
+    },
+    "neck_base_at_or_below_1_445m": {
+      "vertex_count": 10,
+      "maximum_displacement_m": 0.0
+    }
+  },
+  "maximum_neck_displacement_m": 0.002325662068164372,
+  "garment_protected_regions": {
+    "Gravebound_QuiltedTorso": {
+      "protected_vertex_count": 1856,
+      "maximum_displacement_below_1_275m": 0.0,
+      "maximum_normal_difference_below_1_275m": 0.0005832476764715751,
+      "maximum_total_displacement_m": 0.007544383403563479
+    },
+    "Gravebound_FP_L_Arm": {
+      "protected_vertex_count": 3152,
+      "maximum_displacement_below_1_275m": 0.0,
+      "maximum_normal_difference_below_1_275m": 0.00040717127800881167,
+      "maximum_total_displacement_m": 0.0075767748148461754
+    },
+    "Gravebound_FP_R_Arm": {
+      "protected_vertex_count": 3152,
+      "maximum_displacement_below_1_275m": 0.0,
+      "maximum_normal_difference_below_1_275m": 0.0005268626066513251,
+      "maximum_total_displacement_m": 0.007576708019838063
+    }
+  },
+  "lower_sleeve_uv_preservation": {
+    "Gravebound_FP_L_Arm": {
+      "original_layers_all_corners_exact": true,
+      "unselected_face_count": 4607,
+      "unselected_corner_count": 13821,
+      "unselected_new_uv_maximum_error": 0.0,
+      "baked_uv_active_for_tangent_export": true
+    },
+    "Gravebound_FP_R_Arm": {
+      "original_layers_all_corners_exact": true,
+      "unselected_face_count": 4607,
+      "unselected_corner_count": 13821,
+      "unselected_new_uv_maximum_error": 0.0,
+      "baked_uv_active_for_tangent_export": true
+    }
+  },
+  "shoulder_joins": {
+    "Gravebound_FP_L_Arm": {
+      "shared_pairs": 188,
+      "maximum_gap_m": 1.666000468656264e-08,
+      "minimum_normal_dot": 0.9999993946403265
+    },
+    "Gravebound_FP_R_Arm": {
+      "shared_pairs": 193,
+      "maximum_gap_m": 1.666000468656264e-08,
+      "minimum_normal_dot": 0.9999995529651642
+    }
+  },
+  "shoulder_valley_profiles": [
+    {
+      "height_m": 1.3,
+      "body_side": -1,
+      "front_back_ray": -1,
+      "source": {
+        "root_depth_m": 0.025044228553771974,
+        "cap_depth_m": 0.0658546347618103,
+        "cap_minus_root_m": 0.04081040620803833
+      },
+      "result": {
+        "root_depth_m": 0.030550207614898683,
+        "cap_depth_m": 0.06258543920516968,
+        "cap_minus_root_m": 0.032035231590270996
+      },
+      "valley_reduction_m": 0.008775174617767334
+    },
+    {
+      "height_m": 1.3,
+      "body_side": -1,
+      "front_back_ray": 1,
+      "source": {
+        "root_depth_m": 0.025628898620605467,
+        "cap_depth_m": 0.06595370578765869,
+        "cap_minus_root_m": 0.04032480716705322
+      },
+      "result": {
+        "root_depth_m": 0.03128883647918701,
+        "cap_depth_m": 0.06268147039413452,
+        "cap_minus_root_m": 0.03139263391494751
+      },
+      "valley_reduction_m": 0.008932173252105713
+    },
+    {
+      "height_m": 1.3,
+      "body_side": 1,
+      "front_back_ray": -1,
+      "source": {
+        "root_depth_m": 0.025132681846618654,
+        "cap_depth_m": 0.0658546347618103,
+        "cap_minus_root_m": 0.04072195291519165
+      },
+      "result": {
+        "root_depth_m": 0.030660118579864504,
+        "cap_depth_m": 0.06258549880981445,
+        "cap_minus_root_m": 0.03192538022994995
+      },
+      "valley_reduction_m": 0.0087965726852417
+    },
+    {
+      "height_m": 1.3,
+      "body_side": 1,
+      "front_back_ray": 1,
+      "source": {
+        "root_depth_m": 0.02278116750717163,
+        "cap_depth_m": 0.06595376539230347,
+        "cap_minus_root_m": 0.043172597885131836
+      },
+      "result": {
+        "root_depth_m": 0.027660522937774656,
+        "cap_depth_m": 0.06268147039413452,
+        "cap_minus_root_m": 0.03502094745635986
+      },
+      "valley_reduction_m": 0.008151650428771973
+    },
+    {
+      "height_m": 1.33,
+      "body_side": -1,
+      "front_back_ray": -1,
+      "source": {
+        "root_depth_m": 0.05143239688873291,
+        "cap_depth_m": 0.07221844387054444,
+        "cap_minus_root_m": 0.020786046981811523
+      },
+      "result": {
+        "root_depth_m": 0.058924939155578615,
+        "cap_depth_m": 0.07047083568572998,
+        "cap_minus_root_m": 0.011545896530151367
+      },
+      "valley_reduction_m": 0.009240150451660156
+    },
+    {
+      "height_m": 1.33,
+      "body_side": -1,
+      "front_back_ray": 1,
+      "source": {
+        "root_depth_m": 0.04731008815765381,
+        "cap_depth_m": 0.0723756890296936,
+        "cap_minus_root_m": 0.025065600872039795
+      },
+      "result": {
+        "root_depth_m": 0.05488434839248657,
+        "cap_depth_m": 0.07030472564697265,
+        "cap_minus_root_m": 0.015420377254486084
+      },
+      "valley_reduction_m": 0.009645223617553711
+    },
+    {
+      "height_m": 1.33,
+      "body_side": 1,
+      "front_back_ray": -1,
+      "source": {
+        "root_depth_m": 0.04808261585235596,
+        "cap_depth_m": 0.07221844387054444,
+        "cap_minus_root_m": 0.024135828018188477
+      },
+      "result": {
+        "root_depth_m": 0.05565759134292603,
+        "cap_depth_m": 0.07047095489501953,
+        "cap_minus_root_m": 0.014813363552093506
+      },
+      "valley_reduction_m": 0.00932246446609497
+    },
+    {
+      "height_m": 1.33,
+      "body_side": 1,
+      "front_back_ray": 1,
+      "source": {
+        "root_depth_m": 0.04755893754959106,
+        "cap_depth_m": 0.07237574863433838,
+        "cap_minus_root_m": 0.024816811084747314
+      },
+      "result": {
+        "root_depth_m": 0.055131648063659666,
+        "cap_depth_m": 0.0703046064376831,
+        "cap_minus_root_m": 0.015172958374023438
+      },
+      "valley_reduction_m": 0.009643852710723877
+    },
+    {
+      "height_m": 1.36,
+      "body_side": -1,
+      "front_back_ray": -1,
+      "source": {
+        "root_depth_m": 0.056036378860473635,
+        "cap_depth_m": 0.07187375020980835,
+        "cap_minus_root_m": 0.015837371349334717
+      },
+      "result": {
+        "root_depth_m": 0.0635738034248352,
+        "cap_depth_m": 0.07294919681549072,
+        "cap_minus_root_m": 0.009375393390655518
+      },
+      "valley_reduction_m": 0.006461977958679199
+    },
+    {
+      "height_m": 1.36,
+      "body_side": -1,
+      "front_back_ray": 1,
+      "source": {
+        "root_depth_m": 0.05425742673873901,
+        "cap_depth_m": 0.07216993379592895,
+        "cap_minus_root_m": 0.01791250705718994
+      },
+      "result": {
+        "root_depth_m": 0.06179491090774536,
+        "cap_depth_m": 0.072887216091156,
+        "cap_minus_root_m": 0.011092305183410645
+      },
+      "valley_reduction_m": 0.006820201873779297
+    },
+    {
+      "height_m": 1.36,
+      "body_side": 1,
+      "front_back_ray": -1,
+      "source": {
+        "root_depth_m": 0.056745376110076906,
+        "cap_depth_m": 0.07187380981445313,
+        "cap_minus_root_m": 0.01512843370437622
+      },
+      "result": {
+        "root_depth_m": 0.06431820583343506,
+        "cap_depth_m": 0.07294931602478028,
+        "cap_minus_root_m": 0.008631110191345215
+      },
+      "valley_reduction_m": 0.006497323513031006
+    },
+    {
+      "height_m": 1.36,
+      "body_side": 1,
+      "front_back_ray": 1,
+      "source": {
+        "root_depth_m": 0.053781662464141844,
+        "cap_depth_m": 0.07216993379592895,
+        "cap_minus_root_m": 0.01838827133178711
+      },
+      "result": {
+        "root_depth_m": 0.06131902742385864,
+        "cap_depth_m": 0.07288709688186645,
+        "cap_minus_root_m": 0.011568069458007812
+      },
+      "valley_reduction_m": 0.006820201873779297
+    },
+    {
+      "height_m": 1.39,
+      "body_side": -1,
+      "front_back_ray": -1,
+      "source": {
+        "root_depth_m": 0.054640199661254885,
+        "cap_depth_m": 0.06500359964370728,
+        "cap_minus_root_m": 0.010363399982452393
+      },
+      "result": {
+        "root_depth_m": 0.06199785661697388,
+        "cap_depth_m": 0.0692065019607544,
+        "cap_minus_root_m": 0.007208645343780518
+      },
+      "valley_reduction_m": 0.003154754638671875
+    },
+    {
+      "height_m": 1.39,
+      "body_side": -1,
+      "front_back_ray": 1,
+      "source": {
+        "root_depth_m": 0.05390170621871948,
+        "cap_depth_m": 0.06514540719985962,
+        "cap_minus_root_m": 0.011243700981140137
+      },
+      "result": {
+        "root_depth_m": 0.06111690807342529,
+        "cap_depth_m": 0.06908986377716064,
+        "cap_minus_root_m": 0.007972955703735352
+      },
+      "valley_reduction_m": 0.003270745277404785
+    },
+    {
+      "height_m": 1.39,
+      "body_side": 1,
+      "front_back_ray": -1,
+      "source": {
+        "root_depth_m": 0.05599632453918457,
+        "cap_depth_m": 0.0650037784576416,
+        "cap_minus_root_m": 0.009007453918457031
+      },
+      "result": {
+        "root_depth_m": 0.06335094165802002,
+        "cap_depth_m": 0.06921097230911255,
+        "cap_minus_root_m": 0.005860030651092529
+      },
+      "valley_reduction_m": 0.003147423267364502
+    },
+    {
+      "height_m": 1.39,
+      "body_side": 1,
+      "front_back_ray": 1,
+      "source": {
+        "root_depth_m": 0.05305073070526123,
+        "cap_depth_m": 0.06514546680450439,
+        "cap_minus_root_m": 0.012094736099243164
+      },
+      "result": {
+        "root_depth_m": 0.05997184324264526,
+        "cap_depth_m": 0.06908771800994873,
+        "cap_minus_root_m": 0.009115874767303467
+      },
+      "valley_reduction_m": 0.0029788613319396973
+    }
+  ],
+  "preserved_armpit_openings": [
+    {
+      "x_m": -0.19,
+      "z_m": 1.24,
+      "source_open": true,
+      "result_open": true
+    },
+    {
+      "x_m": -0.195,
+      "z_m": 1.24,
+      "source_open": true,
+      "result_open": true
+    },
+    {
+      "x_m": -0.2,
+      "z_m": 1.24,
+      "source_open": true,
+      "result_open": true
+    },
+    {
+      "x_m": -0.19,
+      "z_m": 1.25,
+      "source_open": true,
+      "result_open": true
+    },
+    {
+      "x_m": -0.195,
+      "z_m": 1.25,
+      "source_open": true,
+      "result_open": true
+    },
+    {
+      "x_m": -0.2,
+      "z_m": 1.25,
+      "source_open": true,
+      "result_open": true
+    },
+    {
+      "x_m": -0.19,
+      "z_m": 1.26,
+      "source_open": true,
+      "result_open": true
+    },
+    {
+      "x_m": -0.195,
+      "z_m": 1.26,
+      "source_open": true,
+      "result_open": true
+    },
+    {
+      "x_m": -0.2,
+      "z_m": 1.26,
+      "source_open": true,
+      "result_open": true
+    },
+    {
+      "x_m": -0.19,
+      "z_m": 1.27,
+      "source_open": true,
+      "result_open": true
+    },
+    {
+      "x_m": -0.195,
+      "z_m": 1.27,
+      "source_open": true,
+      "result_open": true
+    },
+    {
+      "x_m": -0.2,
+      "z_m": 1.27,
+      "source_open": true,
+      "result_open": true
+    },
+    {
+      "x_m": 0.19,
+      "z_m": 1.24,
+      "source_open": true,
+      "result_open": true
+    },
+    {
+      "x_m": 0.195,
+      "z_m": 1.24,
+      "source_open": true,
+      "result_open": true
+    },
+    {
+      "x_m": 0.2,
+      "z_m": 1.24,
+      "source_open": true,
+      "result_open": true
+    },
+    {
+      "x_m": 0.19,
+      "z_m": 1.25,
+      "source_open": true,
+      "result_open": true
+    },
+    {
+      "x_m": 0.195,
+      "z_m": 1.25,
+      "source_open": true,
+      "result_open": true
+    },
+    {
+      "x_m": 0.2,
+      "z_m": 1.25,
+      "source_open": true,
+      "result_open": true
+    },
+    {
+      "x_m": 0.19,
+      "z_m": 1.26,
+      "source_open": true,
+      "result_open": true
+    },
+    {
+      "x_m": 0.195,
+      "z_m": 1.26,
+      "source_open": true,
+      "result_open": true
+    },
+    {
+      "x_m": 0.2,
+      "z_m": 1.26,
+      "source_open": true,
+      "result_open": true
+    },
+    {
+      "x_m": 0.19,
+      "z_m": 1.27,
+      "source_open": true,
+      "result_open": true
+    },
+    {
+      "x_m": 0.195,
+      "z_m": 1.27,
+      "source_open": true,
+      "result_open": true
+    },
+    {
+      "x_m": 0.2,
+      "z_m": 1.27,
+      "source_open": true,
+      "result_open": true
+    }
+  ],
+  "neck_interior_probes": [
+    {
+      "x_m": 0,
+      "y_m": 0.007,
+      "floor_z_m": 1.4299999475479126
+    },
+    {
+      "x_m": 0.035,
+      "y_m": 0.007,
+      "floor_z_m": 1.4299999475479126
+    },
+    {
+      "x_m": 0.024748737341529166,
+      "y_m": 0.031748737341529165,
+      "floor_z_m": 1.4299999475479126
+    },
+    {
+      "x_m": 2.1431318985078684e-18,
+      "y_m": 0.042,
+      "floor_z_m": 1.4299999475479126
+    },
+    {
+      "x_m": -0.024748737341529162,
+      "y_m": 0.031748737341529165,
+      "floor_z_m": 1.4299999475479126
+    },
+    {
+      "x_m": -0.035,
+      "y_m": 0.0070000000000000045,
+      "floor_z_m": 1.4299999475479126
+    },
+    {
+      "x_m": -0.024748737341529173,
+      "y_m": -0.017748737341529163,
+      "floor_z_m": 1.4299999475479126
+    },
+    {
+      "x_m": -6.429395695523605e-18,
+      "y_m": -0.028000000000000004,
+      "floor_z_m": 1.4299999475479126
+    },
+    {
+      "x_m": 0.02474873734152916,
+      "y_m": -0.017748737341529174,
+      "floor_z_m": 1.4299999475479126
+    },
+    {
+      "x_m": 0.05,
+      "y_m": 0.007,
+      "floor_z_m": 1.4299999475479126
+    },
+    {
+      "x_m": 0.03535533905932738,
+      "y_m": 0.042355339059327375,
+      "floor_z_m": 1.4299999475479126
+    },
+    {
+      "x_m": 3.061616997868383e-18,
+      "y_m": 0.057,
+      "floor_z_m": 1.4299999475479126
+    },
+    {
+      "x_m": -0.035355339059327376,
+      "y_m": 0.04235533905932738,
+      "floor_z_m": 1.4299999475479126
+    },
+    {
+      "x_m": -0.05,
+      "y_m": 0.007000000000000006,
+      "floor_z_m": 1.4299999475479126
+    },
+    {
+      "x_m": -0.03535533905932738,
+      "y_m": -0.028355339059327377,
+      "floor_z_m": 1.4299999475479126
+    },
+    {
+      "x_m": -9.184850993605149e-18,
+      "y_m": -0.043000000000000003,
+      "floor_z_m": 1.4299999475479126
+    },
+    {
+      "x_m": 0.03535533905932737,
+      "y_m": -0.028355339059327384,
+      "floor_z_m": 1.4299999475479126
+    }
+  ],
+  "exported_preserved_position_normal_uv_indices_match": true,
+  "exported_recomputed_tangents": {
+    "Gravebound_BeltBuckle": {
+      "vector_count": 124,
+      "different_vectors": 0,
+      "maximum_component_error": 0.0
+    },
+    "Gravebound_BeltTongue": {
+      "vector_count": 138,
+      "different_vectors": 0,
+      "maximum_component_error": 0.0
+    },
+    "Gravebound_BootCuff_L": {
+      "vector_count": 1217,
+      "different_vectors": 0,
+      "maximum_component_error": 0.0
+    },
+    "Gravebound_BootCuff_R": {
+      "vector_count": 1217,
+      "different_vectors": 0,
+      "maximum_component_error": 0.0
+    },
+    "Gravebound_Boot_L": {
+      "vector_count": 4776,
+      "different_vectors": 0,
+      "maximum_component_error": 0.0
+    },
+    "Gravebound_Boot_R": {
+      "vector_count": 4750,
+      "different_vectors": 0,
+      "maximum_component_error": 0.0
+    },
+    "Gravebound_Eyes": {
+      "vector_count": 762,
+      "different_vectors": 0,
+      "maximum_component_error": 0.0
+    },
+    "Gravebound_FP_L_Hand": {
+      "vector_count": 2031,
+      "different_vectors": 0,
+      "maximum_component_error": 0.0
+    },
+    "Gravebound_FP_R_Hand": {
+      "vector_count": 2031,
+      "different_vectors": 0,
+      "maximum_component_error": 0.0
+    },
+    "Gravebound_LeatherBelt": {
+      "vector_count": 1216,
+      "different_vectors": 0,
+      "maximum_component_error": 0.0
+    },
+    "Gravebound_PouchFlap_L": {
+      "vector_count": 162,
+      "different_vectors": 0,
+      "maximum_component_error": 0.0
+    },
+    "Gravebound_PouchFlap_R": {
+      "vector_count": 152,
+      "different_vectors": 0,
+      "maximum_component_error": 0.0
+    },
+    "Gravebound_Pouch_L": {
+      "vector_count": 222,
+      "different_vectors": 0,
+      "maximum_component_error": 0.0
+    },
+    "Gravebound_Pouch_R": {
+      "vector_count": 263,
+      "different_vectors": 0,
+      "maximum_component_error": 0.0
+    },
+    "Gravebound_Trousers_L": {
+      "vector_count": 44323,
+      "different_vectors": 0,
+      "maximum_component_error": 0.0
+    },
+    "Gravebound_Trousers_R": {
+      "vector_count": 44240,
+      "different_vectors": 12,
+      "maximum_component_error": 0.00010001659393310547
+    }
+  },
+  "all_original_embedded_texture_bytes_retained": true,
+  "new_embedded_image_count": 4,
+  "original_material_settings_unchanged": true,
+  "new_baked_material_names": [
+    "Gravebound_Sleeve_Flow_L",
+    "Gravebound_Sleeve_Flow_R"
+  ],
+  "rebaked_normal_tangent_alignment": {
+    "Gravebound_Sleeve_Flow_L": {
+      "normal_uv_attribute": "TEXCOORD_1",
+      "sampled_triangles": 25996,
+      "mean_direction_dot": 0.999931040103175,
+      "fraction_direction_dot_above_0_95": 1.0
+    },
+    "Gravebound_Sleeve_Flow_R": {
+      "normal_uv_attribute": "TEXCOORD_1",
+      "sampled_triangles": 26027,
+      "mean_direction_dot": 0.999914075687753,
+      "fraction_direction_dot_above_0_95": 1.0
+    }
+  },
+  "scope_note_ko": "\uc811\ud569\ubd80 \ubcc0\uc704\ub294 9mm \uc774\ub0b4\uc774\uba70 \ub0ae\uc740 \ud314\uacfc \uaca8\ub4dc\ub791\uc774 \ube48 \uacf5\uac04\uc744 \ubcf4\uc874\ud588\uc2b5\ub2c8\ub2e4. \uc774 \uae30\ud558 \uac80\uc0ac\ub294 \uc790\uc5f0\uc2a4\ub7ec\uc6b4 \uc678\uad00 \ud310\uc815\uc744 \ub300\uc2e0\ud558\uc9c0 \uc54a\uc2b5\ub2c8\ub2e4.",
+  "scope_note_en": "Join changes stay below 9mm; the lower arms and armpit clearances are preserved. This geometry audit does not replace visual acceptance.",
+  "failures": [],
+  "pass": true,
+  "visual_review": {
+    "reviewer": "independent_shoulder_flow_review",
+    "model_sha256": "40eda135a75a5a5ce7cdbf841c1b4ce4f0f64529011b727349da58f4e739c272",
+    "renderer": "vulkan",
+    "capture_directory": "godot-game/artifacts/visual_qa/player_appearance/neck_arm_flow_20260922",
+    "capture_count": 13,
+    "compared_to": "godot-game/artifacts/visual_qa/player_appearance/sturdy_neck_shoulders_20260922",
+    "reviewed_image_sha256": {
+      "player_front.png": "8f5bde2957725d6ecc289c7e131d6e350eb0b6c3f98e633a211147ac2ca4c490",
+      "player_face_detail.png": "a1254b7f4f49053e8183d2031a42b873b41fb9377d930f14745754aa3356dae4",
+      "player_shoulder_form_front.png": "45d6f668275a493482cf793cedd76f9feaaf6311172d0c13c194e729a5d7016d",
+      "player_shoulder_form_oblique.png": "3a7d6ebd451f16bf767f845681fc8f2e8d6848aca54f3739f923b4a698e5d281",
+      "player_shoulder_form_side.png": "612bdcc23a385109b913337c1031322d100749bfd9948deaf10befab335772c8",
+      "player_shoulder_form_rear.png": "772c6d89b70f38626b484cb1ddbf85eb721ed73df346019e510c78f952ddd1d8",
+      "player_shoulder_form_side_clay.png": "5fea4eca0fabcf59b9725c9c10aad091d17280c42bd40bddd23c7b44124aaa1d"
+    },
+    "localized_geometry_accepted": true,
+    "final_appearance_accepted": true,
+    "findings_ko": [
+      "\uc815\uba74\u00b7\uc0ac\uc120\u00b7\uce21\uba74\u00b7\ud6c4\uba74\uc5d0\uc11c \uc774\uc804 \ud6c4\ubcf4\uc5d0 \uc0dd\uacbc\ub358 \uc218\ud3c9 UV \ub298\uc5b4\uc9d0 \ub760\uac00 \uc81c\uac70\ub418\uc5c8\uc2b5\ub2c8\ub2e4. \uc5b4\uae68 \uc6d0\ub2e8\uc774 \uae30\uc874 \uc18c\ub9e4\ub85c \ub354 \uc644\ub9cc\ud558\uac8c \uc774\uc5b4\uc9d1\ub2c8\ub2e4.",
+      "\ubca0\uc774\ud06c\uc640 \uae30\uc874 \uc7ac\uc9c8\uc774 \ub9cc\ub098\ub294 \uc57d 1.1763m \uacbd\uacc4\uc5d0\uc11c \uc0c8 \uac80\uc740 \uc120, \ubc8c\uc5b4\uc9c4 \ud2c8 \ub610\ub294 \ubc18\uc804\ub41c \ub178\uba40 \uc74c\uc601\uc740 \uac80\ud1a0\ud55c \ub80c\ub354\uc5d0\uc11c \ubcf4\uc774\uc9c0 \uc54a\uc2b5\ub2c8\ub2e4.",
+      "\ubaa9 \uadfc\uc721\uc758 \ud750\ub984\uc740 \ubbf8\uc138\ud55c \uc218\uc900\uc73c\ub85c \ucd94\uac00\ub418\uba70 \uc5bc\uad74\uacfc \ubaa9 \ubc11\ub3d9 \uc5f0\uacb0, \uc190\uacfc \ud314\uafc8\uce58\u00b7\uc804\uc644 \uc2e4\ub8e8\uc5e3\uc740 \uc720\uc9c0\ub429\ub2c8\ub2e4. \uc5b4\uae68 \uc811\ud569 \uace8\uc744 \uc18c\ud3ed \uc644\ud654\ud55c \uacb0\uacfc\uc774\uba70 \uc774\uc804 \uac70\ubd80\ub41c \ud1b5\uc9dc \ud314\ub85c \ub3cc\uc544\uac00\uc9c0 \uc54a\uc558\uc2b5\ub2c8\ub2e4.",
+      "\uae30\uc874 \uce21\uba74 \uc5b4\uae68 \uc0c1\ub2e8\uc758 \uc791\uc740 \uac01\uc9c4 \ub2a5\uc120\uc740 \ub0a8\uc544 \uc788\uc2b5\ub2c8\ub2e4. \uc774\ubc88 \uc2b9\uc778\uc740 \uad6d\uc18c\uc801\uc778 \uc5f0\uacb0 \ud615\ud0dc\u00b7\uc6d0\ub2e8 \uac1c\uc120 \ubc94\uc704\uc5d0 \ud55c\uc815\ud558\uba70 \uc644\uc804\ud55c \ud574\ubd80\ud559\uc801 \uc7ac\uc81c\uc791\uc774\ub098 \uc778\uccb4 \ud45c\ud604\uc758 \uc644\ubcbd\ud568\uc744 \ub73b\ud558\uc9c0 \uc54a\uc2b5\ub2c8\ub2e4."
+    ],
+    "findings_en": [
+      "Front, oblique, side and rear views no longer show the horizontal UV stretching bands introduced by the rejected candidate. Shoulder cloth blends more gradually into the original sleeve.",
+      "No new black seam, opening or inverted normal shading is visible at the approximately 1.1763m boundary between the bake and original material in the reviewed renders.",
+      "Neck muscle flow is subtle; the face, neck base, hands and elbow/forearm silhouettes remain. The shoulder valley is locally softened without returning to the previously rejected solid-looking arm.",
+      "A pre-existing small angular upper-shoulder ridge remains in side view. Acceptance is limited to the localized join and cloth improvement, not a complete anatomical rebuild or a claim of perfect human realism."
+    ]
+  }
+}

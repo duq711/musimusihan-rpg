@@ -218,3 +218,13 @@ English: The user rejected the latest shoulder/arm sculpt as less natural. Resto
 English: Start from the restored `f279eec` model. Thicken the lower neck by up to 16% in width and 12% in depth, fading to no change at 1.51m before the facial geometry. Expand the neckline accordingly. Translate each original sleeve and hand outward by 18mm without resculpting them, widening the shoulder frame by 36mm while blending the upper torso and lifting the trapezius silhouette by up to 9mm. Preserve the face, eyes, trousers, bitmap materials and first-person assets.
 
 제작·검증 / Production and validation: `asset-staging/player_sturdy_neck_shoulders_20260922/`. 360° 뷰어는 실제 게임 GLB를 공유한다. The interactive viewer uses the same game GLB.
+
+## 2026-09-22 — 목·어깨 흐름과 소매 원단 연결 / Neck, shoulder and sleeve flow
+
+직전 목·어깨 보강본을 기준으로 듬직한 체격을 유지하며 접합부를 국소적으로 조정한다. 목에는 과장된 힘줄 대신 최대 약 2.3mm의 넓고 완만한 입체감을 더했다. 어깨와 가슴 사이 골을 완화하고 둥근 소매 캡을 소폭 줄였으며, 실제 겨드랑이 공간과 팔꿈치·전완·손목 형상은 보존한다. 상체 옷 기하 변화는 1.275m 위에 한정하며 최대 약 7.6mm다. 철회된 팔 전체 재조형본은 사용하지 않는다.
+
+English: Preserve the sturdy source build while making localized corrections. Add broad, subtle neck form up to about 2.3mm, soften the chest-to-shoulder valley and slightly reduce the sleeve cap. Retain the real underarm opening and original elbow, forearm and wrist geometry. Upper garment geometry changes are limited to above 1.275m, up to about 7.6mm; the rejected broad arm resculpt is not reused.
+
+원단 연결은 UV 좌표 보간 대신 표면의 색과 노멀을 혼합해 상부 소매 전용 PBR 텍스처로 베이크한다. 기존 UV와 하단 소매·피부 재질은 보존한다. 얼굴 1.51m 위와 다른 16개 메시도 유지한다. 원본 비트맵과 일인칭 원본 에셋은 변경하지 않는다. 제작·검증과 실제 렌더 근거는 `asset-staging/player_neck_arm_flow_20260922/VALIDATION.md`에 기록한다.
+
+English: Bake a surface-color and normal blend into standard PBR maps for the upper sleeves. Preserve original UVs, lower-sleeve and skin materials, the face above 1.51m and the other sixteen meshes. Source bitmaps and first-person assets remain unchanged. See the production folder above for validation and actual-render evidence.

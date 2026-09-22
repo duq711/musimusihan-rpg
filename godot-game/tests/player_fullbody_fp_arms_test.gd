@@ -28,9 +28,23 @@ func _run() -> void:
 		var wrist_section := AABB()
 		var wrist_first := true
 		var uses_outfit_material := false
+		var uses_blended_sleeve := false
 		for surface in part.mesh.get_surface_count():
+			var material := part.get_active_material(surface) as BaseMaterial3D
+			if material == null:
+				check(false, "FP surfaces require a material")
+				continue
+			var is_blended_sleeve := material.resource_name in ["Gravebound_Sleeve_Flow_L", "Gravebound_Sleeve_Flow_R"]
+			var is_cloth := material.resource_name == "Gravebound_Matched_Sleeve_Cloth" or is_blended_sleeve
+			uses_blended_sleeve = uses_blended_sleeve or is_blended_sleeve
+			if is_blended_sleeve:
+				check(part_name.ends_with("_Arm"), "blended cloth must not replace hand or wrist skin")
+				check(material.shading_mode != BaseMaterial3D.SHADING_MODE_UNSHADED and material.roughness > .8, "baked cloth retains lit rough PBR shading")
+				check(material.normal_enabled and material.normal_texture != null, "baked textile retains its tangent-space surface detail")
 			for vertex: Vector3 in part.mesh.surface_get_arrays(surface)[Mesh.ARRAY_VERTEX]:
 				var point := body.to_local(part.to_global(vertex))
+				if is_blended_sleeve:
+					check(point.y > 1.17, "textile blend is confined above the lower sleeve")
 				if part_name.ends_with("_Hand"):
 					# Measure the same cuff section in its original frame after palm rotation.
 					var side_sign := -1.0 if "_L_" in part_name else 1.0
@@ -46,14 +60,14 @@ func _run() -> void:
 					else: forearm = forearm.expand(point)
 				if first: bounds = AABB(point,Vector3.ZERO); first = false
 				else: bounds = bounds.expand(point)
-			var material := part.get_active_material(surface) as BaseMaterial3D
-			uses_outfit_material = uses_outfit_material or material.resource_name == "Gravebound_Matched_Sleeve_Cloth"
-			if material.resource_name != "Gravebound_Matched_Sleeve_Cloth":
+			uses_outfit_material = uses_outfit_material or is_cloth
+			if not is_cloth:
 				check(material.resource_name.begins_with("Gravebound_Natural_Hands_"), "both hands and wrist skin use the graded skin texture")
-			check(material != null and material.albedo_texture != null and (material.resource_name == "Gravebound_Matched_Sleeve_Cloth" or material.normal_texture != null), "matched outfit cloth or preserved FP skin/hand maps")
+			check(material.albedo_texture != null and (is_cloth or material.normal_texture != null), "matched outfit cloth or preserved FP skin/hand maps")
 		check(bounds.size.x < (.33 if part_name.ends_with("_Arm") else .15) and bounds.size.z < .24, "FP parts fitted to body; sloping upper sleeves include their shoulder inset: "+part_name+" "+str(bounds))
 		if part_name.ends_with("_Arm"):
 			check(uses_outfit_material, "sleeve cloth uses the matched outfit material")
+			check(uses_blended_sleeve, "upper sleeve uses the baked textile transition")
 			check(not forearm_first and forearm.size.x < .14 and forearm.size.z < .13, "forearm no longer inflated by first-person proportions")
 			check(bounds.end.y > 1.42 and bounds.end.y < 1.46, "sleeve upper end retains its fitted shoulder height")
 			check(bounds.position.y > .86 and bounds.position.y < .89, "pre-wrist-edit sleeve cuff restored")

@@ -44,3 +44,5 @@ English: Verified loading, drag orbit, wheel zoom, hand focus and full-body rese
 2026-09-22 복원 / Restoration: 사용자 요청으로 마지막 어깨 조형을 철회하고 `f279eec` 모델로 복귀했습니다. 복원 시점 게임 GLB SHA256: `f7ad57eddd4ac751daee53fcdb05bf627a749007f0989d9f344f735dfb2e2a77`. The viewer serves the restored previous model, preserving the face, hands and trousers. Evidence: [복원 기록](../../asset-staging/player_shoulder_rollback_20260922/VALIDATION.md).
 
 2026-09-22 목·어깨 보강 / Sturdier neck and shoulders: 복원본에서 목 두께와 어깨 폭만 보강했습니다. 팔·손의 원래 형상을 유지합니다. Thicken the neck and broaden the shoulder frame on the restored model while preserving the original arm/hand shapes. [제작·검증 / Production and validation](../../asset-staging/player_sturdy_neck_shoulders_20260922/VALIDATION.md).
+
+2026-09-22 목·어깨 흐름과 소매 연결 / Neck, shoulder and sleeve flow: 듬직한 체격과 기존 팔꿈치·전완을 보존하고 목·어깨 접합부와 상부 소매 원단을 다듬었습니다. 상체 비율에서 재질을 확인하고 형태 확인으로 조형을 살펴봅니다. Preserve the sturdy build and lower-arm shape while refining the neck, shoulder joins and upper-sleeve fabric. [제작·검증 / Production and validation](../../asset-staging/player_neck_arm_flow_20260922/VALIDATION.md).

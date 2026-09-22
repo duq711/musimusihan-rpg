@@ -1,0 +1,87 @@
+{
+  "source": "asset-staging/player_sturdy_neck_shoulders_20260922/Gravebound_Sturdy_Neck_Shoulders.blend",
+  "source_sha256": "6bf73c006907120971f3e9bad6e20f8af1125cf853145912d09ddc8ba533bb5e",
+  "preserved_meshes": {
+    "Gravebound_FP_L_Hand": "b86e6d12acd23bea93422df2cb9b0fa45226260c1a5bc703c1e52265116f43b2",
+    "Gravebound_FP_R_Hand": "1b44bc96302131612491059cc423c1d3dbe9310a861e224c234cbcff8df73edc",
+    "Gravebound_BeltBuckle": "a286cfc04eb732c3a844d9e4e3b9fdb5591735896070603973655e325a48d605",
+    "Gravebound_BeltTongue": "dbb4fe43a00938da41f6ce3f4cd0ecfce44940fdcc56a13ee4a39d593bc8782c",
+    "Gravebound_Boot_L": "92507faa0bac7377e4a5b51a9d2357839ef03a46b8df93e58679886a2e87a0ec",
+    "Gravebound_Boot_R": "ad61c72b9a3645f8fab239e438d465c58dcd7afca3776595672e8af49cee03a6",
+    "Gravebound_BootCuff_L": "d8b1676353aa897279d4d7cadae296e631088163833ba94a84e16eb3312bff47",
+    "Gravebound_BootCuff_R": "26e2cce1be3a76bb1614823a0ca890c7004f621b5398790c2e6702a22234d224",
+    "Gravebound_Eyes": "97c789bed8cea4b7f68c8d365aaa2607b1e40667724ef1c1f03450e25c19aba3",
+    "Gravebound_LeatherBelt": "87c38bb3791cf7af6a9b1def3c2334b09a75389bd044e924c070be17b6a7bf2b",
+    "Gravebound_Pouch_L": "3d865c54f8f8c1e29dd72d264a14b4555d5b16da86b200561b98536350449f07",
+    "Gravebound_Pouch_R": "d07d5c6916d6e57a7b030f831a3391f96d39177cba22d6c0b70fd569d2d6b09b",
+    "Gravebound_PouchFlap_L": "c5d20541e47c1475f600674a31f53e2ee0fa5b3a927921026dd821156b54cde4",
+    "Gravebound_PouchFlap_R": "25635dfa2e132deb9a86696760a8c9fc38da0c13f8ab1616226ddc4e06d023f2",
+    "Gravebound_Trousers_L": "02b1be817a37b87b781abdac54db19fca1be8824a4007dcc5d80cf04455aedd4",
+    "Gravebound_Trousers_R": "cb7c08e7ef490ac8cf66c56ce3045ad64df34339bf52ffb697d55c19916a7c01"
+  },
+  "modified_meshes": [
+    "Gravebound_AnatomicalHead",
+    "Gravebound_QuiltedTorso",
+    "Gravebound_FP_L_Arm",
+    "Gravebound_FP_R_Arm"
+  ],
+  "parts": {
+    "Gravebound_AnatomicalHead": {
+      "changed_vertices": 176,
+      "max_displacement_m": 0.002325662068164372,
+      "minimum_jacobian_determinant": 0.9731225371360779,
+      "textile_bake": null
+    },
+    "Gravebound_QuiltedTorso": {
+      "changed_vertices": 13375,
+      "max_displacement_m": 0.007544383403563479,
+      "minimum_jacobian_determinant": 0.9565141797065735,
+      "textile_bake": null
+    },
+    "Gravebound_FP_L_Arm": {
+      "changed_vertices": 12303,
+      "max_displacement_m": 0.0075767748148461754,
+      "minimum_jacobian_determinant": 0.8606154322624207,
+      "textile_bake": {
+        "upper_material": "Gravebound_Sleeve_Flow_L",
+        "destination_uv": "SleeveBlendBake",
+        "baked_image": "asset-staging/player_neck_arm_flow_20260922/textures/gravebound_sleeve_blend_l.png",
+        "resolution": 2048,
+        "baked_normal_image": "asset-staging/player_neck_arm_flow_20260922/textures/gravebound_sleeve_blend_l_normal.png",
+        "new_material_face_count": 25996,
+        "original_uv_exact": true,
+        "lower_materials_exact": true,
+        "lower_destination_uv_exact": true,
+        "export_tangent_uv": "SleeveBlendBake",
+        "source_normal_connected": true,
+        "source_normal_strength": 0.25,
+        "blend_start_z_m": 1.18,
+        "blend_end_z_m": 1.285
+      }
+    },
+    "Gravebound_FP_R_Arm": {
+      "changed_vertices": 12317,
+      "max_displacement_m": 0.007576708019838063,
+      "minimum_jacobian_determinant": 0.8606154322624207,
+      "textile_bake": {
+        "upper_material": "Gravebound_Sleeve_Flow_R",
+        "destination_uv": "SleeveBlendBake",
+        "baked_image": "asset-staging/player_neck_arm_flow_20260922/textures/gravebound_sleeve_blend_r.png",
+        "resolution": 2048,
+        "baked_normal_image": "asset-staging/player_neck_arm_flow_20260922/textures/gravebound_sleeve_blend_r_normal.png",
+        "new_material_face_count": 26027,
+        "original_uv_exact": true,
+        "lower_materials_exact": true,
+        "lower_destination_uv_exact": true,
+        "export_tangent_uv": "SleeveBlendBake",
+        "source_normal_connected": true,
+        "source_normal_strength": 0.25,
+        "blend_start_z_m": 1.18,
+        "blend_end_z_m": 1.285
+      }
+    }
+  },
+  "output_sha256": "40eda135a75a5a5ce7cdbf841c1b4ce4f0f64529011b727349da58f4e739c272",
+  "preserved_mesh_count": 16,
+  "pass_build": true
+}
