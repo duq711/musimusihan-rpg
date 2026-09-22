@@ -1,0 +1,278 @@
+{
+  "model_sha256": "3f4638ee9fe2e7f0925969eb63d4aba669316892ea21373f280f2a4d0b8e2af9",
+  "method": "Longest foreground run; subtract median side-image alignment at upper thighs y800/820/840; positive residual is forward. Side poses and photographed near/far-leg overlap limit exact skeletal interpretation.",
+  "views": {
+    "right": {
+      "pelvis_anchor_rows": [
+        800,
+        820,
+        840
+      ],
+      "anchor_center_offset_px": -3.5,
+      "rows": [
+        {
+          "pixel_y": 800,
+          "reference_span": [
+            439,
+            613
+          ],
+          "model_span": [
+            452,
+            597
+          ],
+          "raw_center_delta_px": -1.5,
+          "pelvis_anchored_forward_residual_px": 2.0,
+          "equivalent_residual_m": 0.002509
+        },
+        {
+          "pixel_y": 820,
+          "reference_span": [
+            439,
+            611
+          ],
+          "model_span": [
+            452,
+            591
+          ],
+          "raw_center_delta_px": -3.5,
+          "pelvis_anchored_forward_residual_px": 0.0,
+          "equivalent_residual_m": 0.0
+        },
+        {
+          "pixel_y": 840,
+          "reference_span": [
+            439,
+            608
+          ],
+          "model_span": [
+            452,
+            584
+          ],
+          "raw_center_delta_px": -5.5,
+          "pelvis_anchored_forward_residual_px": -2.0,
+          "equivalent_residual_m": -0.002509
+        },
+        {
+          "pixel_y": 1000,
+          "reference_span": [
+            425,
+            577
+          ],
+          "model_span": [
+            439,
+            557
+          ],
+          "raw_center_delta_px": -3.0,
+          "pelvis_anchored_forward_residual_px": 0.5,
+          "equivalent_residual_m": 0.000627
+        },
+        {
+          "pixel_y": 1060,
+          "reference_span": [
+            411,
+            555
+          ],
+          "model_span": [
+            433,
+            548
+          ],
+          "raw_center_delta_px": 7.5,
+          "pelvis_anchored_forward_residual_px": 11.0,
+          "equivalent_residual_m": 0.013798
+        },
+        {
+          "pixel_y": 1100,
+          "reference_span": [
+            410,
+            550
+          ],
+          "model_span": [
+            419,
+            553
+          ],
+          "raw_center_delta_px": 6.0,
+          "pelvis_anchored_forward_residual_px": 9.5,
+          "equivalent_residual_m": 0.011917
+        },
+        {
+          "pixel_y": 1180,
+          "reference_span": [
+            410,
+            551
+          ],
+          "model_span": [
+            435,
+            542
+          ],
+          "raw_center_delta_px": 8.0,
+          "pelvis_anchored_forward_residual_px": 11.5,
+          "equivalent_residual_m": 0.014425
+        },
+        {
+          "pixel_y": 1220,
+          "reference_span": [
+            417,
+            556
+          ],
+          "model_span": [
+            441,
+            543
+          ],
+          "raw_center_delta_px": 5.5,
+          "pelvis_anchored_forward_residual_px": 9.0,
+          "equivalent_residual_m": 0.011289
+        },
+        {
+          "pixel_y": 1260,
+          "reference_span": [
+            418,
+            590
+          ],
+          "model_span": [
+            446,
+            551
+          ],
+          "raw_center_delta_px": -5.5,
+          "pelvis_anchored_forward_residual_px": -2.0,
+          "equivalent_residual_m": -0.002509
+        }
+      ]
+    },
+    "left": {
+      "pelvis_anchor_rows": [
+        800,
+        820,
+        840
+      ],
+      "anchor_center_offset_px": 5.5,
+      "rows": [
+        {
+          "pixel_y": 800,
+          "reference_span": [
+            456,
+            622
+          ],
+          "model_span": [
+            469,
+            614
+          ],
+          "raw_center_delta_px": 2.5,
+          "pelvis_anchored_forward_residual_px": 3.0,
+          "equivalent_residual_m": 0.003763
+        },
+        {
+          "pixel_y": 820,
+          "reference_span": [
+            459,
+            619
+          ],
+          "model_span": [
+            475,
+            614
+          ],
+          "raw_center_delta_px": 5.5,
+          "pelvis_anchored_forward_residual_px": -0.0,
+          "equivalent_residual_m": -0.0
+        },
+        {
+          "pixel_y": 840,
+          "reference_span": [
+            459,
+            617
+          ],
+          "model_span": [
+            482,
+            614
+          ],
+          "raw_center_delta_px": 10.0,
+          "pelvis_anchored_forward_residual_px": -4.5,
+          "equivalent_residual_m": -0.005645
+        },
+        {
+          "pixel_y": 1000,
+          "reference_span": [
+            496,
+            628
+          ],
+          "model_span": [
+            509,
+            627
+          ],
+          "raw_center_delta_px": 6.0,
+          "pelvis_anchored_forward_residual_px": -0.5,
+          "equivalent_residual_m": -0.000627
+        },
+        {
+          "pixel_y": 1060,
+          "reference_span": [
+            518,
+            639
+          ],
+          "model_span": [
+            518,
+            633
+          ],
+          "raw_center_delta_px": -3.0,
+          "pelvis_anchored_forward_residual_px": 8.5,
+          "equivalent_residual_m": 0.010662
+        },
+        {
+          "pixel_y": 1100,
+          "reference_span": [
+            524,
+            636
+          ],
+          "model_span": [
+            514,
+            647
+          ],
+          "raw_center_delta_px": 0.5,
+          "pelvis_anchored_forward_residual_px": 5.0,
+          "equivalent_residual_m": 0.006272
+        },
+        {
+          "pixel_y": 1180,
+          "reference_span": [
+            526,
+            648
+          ],
+          "model_span": [
+            524,
+            631
+          ],
+          "raw_center_delta_px": -9.5,
+          "pelvis_anchored_forward_residual_px": 15.0,
+          "equivalent_residual_m": 0.018816
+        },
+        {
+          "pixel_y": 1220,
+          "reference_span": [
+            525,
+            634
+          ],
+          "model_span": [
+            523,
+            625
+          ],
+          "raw_center_delta_px": -5.5,
+          "pelvis_anchored_forward_residual_px": 11.0,
+          "equivalent_residual_m": 0.013798
+        },
+        {
+          "pixel_y": 1260,
+          "reference_span": [
+            497,
+            634
+          ],
+          "model_span": [
+            515,
+            620
+          ],
+          "raw_center_delta_px": 2.0,
+          "pelvis_anchored_forward_residual_px": 3.5,
+          "equivalent_residual_m": 0.00439
+        }
+      ]
+    }
+  }
+}

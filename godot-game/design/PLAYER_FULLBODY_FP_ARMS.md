@@ -238,3 +238,13 @@ English: The supplied reference broadens the task from local neck/shoulder polis
 제작 원본과 수치·화면 검증: `asset-staging/player_reference_anatomy_20260922/VALIDATION.md`. 실제 렌더 13장과 별도 360° 뷰어는 현재 게임 GLB `6fc422a8…`를 확인했습니다. 사진은 큰 체형을 위한 참고이며 머리·헤어·상의 교체 요청으로 해석하지 않습니다.
 
 English: Production sources and numeric/visual evidence live in the validation folder above. Thirteen actual renders and the interactive viewer use current game GLB `6fc422a8…`. The photograph guides body proportions; it does not request replacing the supplied face, hair or outfit.
+
+## 2026-09-22 — 4방향 사진 기준 전신 비율 / Four-view full-body reference fit
+
+새 정면·후면·양측면 사진을 기준으로 전신을 함께 조정했습니다. 앞선 얼굴·손·하체 치수 유지 조건은 이 요청으로 대체하며, 기존 인물·복장·재질을 유지합니다. 머리 폭, 어깨 경사, 흉곽과 허리, 팔 길이·각도, 골반 높이, 다리 간격과 부츠 크기·옆모습을 맞췄습니다. 가랑이 연결부와 소매 끝의 급격한 단차도 연속되게 정리했습니다.
+
+English: Refit the whole body from four supplied reference views, superseding prior dimension locks while preserving the character, outfit and materials. Adjust head width, shoulder slope, chest/waist, arm lengths and stance, pelvis height, legs and boots, with continuous crotch and cuff transitions.
+
+현재 GLB: `3f4638ee…`. 제작 원본·비교 사진·실측·게임 검사와 실제 렌더는 `asset-staging/player_multiview_proportions_20260922/VALIDATION.md`에 기록합니다. 360° 뷰어의 **사진 비율 비교**에서 네 방향의 사진과 모델을 겹쳐 살펴볼 수 있습니다. 사진은 정사영 스캔이 아니므로 남은 비율 차이를 문서에 수치로 명시하며 완전 복제라고 간주하지 않습니다.
+
+English: Production, reference measurements, checks and actual captures are documented in the validation folder above. The viewer's photo-comparison link supports four-view wipe and silhouette overlays. Quantify remaining differences rather than claiming exact reconstruction from uncalibrated photographs.

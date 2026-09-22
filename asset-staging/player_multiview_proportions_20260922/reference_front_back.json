@@ -1,0 +1,4076 @@
+{
+  "schema_version": 1,
+  "purpose": "Read-only front/back reference proportions for whole-body 3D refit; not anatomy ground truth",
+  "coordinate_convention": {
+    "pixels": "origin upper left; x right; y down",
+    "normalized": "x=(pixel_x-image_center_x)/visible_height; z=(sole_y-pixel_y)/visible_height; lengths/visible_height",
+    "visible_height": "visible hair crown to lowest boot sole; not barefoot anatomical height",
+    "sides": "image_left / image_right; not anatomical left / right"
+  },
+  "method": {
+    "landmarks": "Manual visual estimates on original 1086x1448 images; uncertainty reported per point",
+    "silhouette": "Warm/dark foreground mask: min(R,G,B)<165 OR (R-B>14 AND mean(R,G,B)<225), union of row y-1..y+1; contiguous runs of >=4 pixels",
+    "silhouette_uncertainty_px": 3,
+    "limitations": [
+      "Hair adds approximately 1-2% of visible height relative to bald skull. Do not blindly enforce hair-crown head length on a bald model.",
+      "Clothed knees, hips, crotch and boot ankles are surface/clothing estimates, not skeletal measurements.",
+      "Foreground runs at upper-body heights can merge torso and arms. Central torso width is supplied only where runs are separated.",
+      "These images are close front/back views but not calibrated orthographic scans. Perspective and relaxed pose affect projected arm widths and segment lengths.",
+      "Front/back elbow surface centres differ by roughly 1% height; use a target band, not exact shared joint pixels.",
+      "Wrist/foot lateral separation describes reference pose as well as body proportion."
+    ]
+  },
+  "views": {
+    "front": {
+      "source_file": "codex-clipboard-e8980fc4-063c-4d63-a616-496c03b5c21c.png",
+      "source_sha256": "ba0bc2ea30b927c4db49e89a9caaf15579a57acdead8e343af1a045284271c10",
+      "image_size_px": [
+        1086,
+        1448
+      ],
+      "center_x_px": 533.5,
+      "crown_y_px": 12,
+      "sole_y_px": 1401,
+      "visible_height_px": 1389,
+      "landmarks": {
+        "hair_crown": {
+          "pixel_xy": [
+            533,
+            12
+          ],
+          "normalized_xz": [
+            -0.00036,
+            1.0
+          ],
+          "uncertainty_px": 3,
+          "uncertainty_normalized": 0.00216,
+          "note": "visible hair extremity, not anatomical skull"
+        },
+        "skull_crown_inferred": {
+          "pixel_xy": [
+            533,
+            32
+          ],
+          "normalized_xz": [
+            -0.00036,
+            0.985601
+          ],
+          "uncertainty_px": 14,
+          "uncertainty_normalized": 0.010079,
+          "note": "skull hidden by hair; low confidence"
+        },
+        "chin": {
+          "pixel_xy": [
+            534,
+            203
+          ],
+          "normalized_xz": [
+            0.00036,
+            0.862491
+          ],
+          "uncertainty_px": 5,
+          "uncertainty_normalized": 0.0036,
+          "note": "beard partly obscures chin underside"
+        },
+        "sternal_notch": {
+          "pixel_xy": [
+            533,
+            267
+          ],
+          "normalized_xz": [
+            -0.00036,
+            0.816415
+          ],
+          "uncertainty_px": 8,
+          "uncertainty_normalized": 0.00576,
+          "note": "visible central neck-to-chest attachment"
+        },
+        "acromion_image_left": {
+          "pixel_xy": [
+            378,
+            280
+          ],
+          "normalized_xz": [
+            -0.111951,
+            0.807055
+          ],
+          "uncertainty_px": 15,
+          "uncertainty_normalized": 0.010799,
+          "note": "surface/shoulder-top proxy; not joint centre"
+        },
+        "acromion_image_right": {
+          "pixel_xy": [
+            688,
+            280
+          ],
+          "normalized_xz": [
+            0.111231,
+            0.807055
+          ],
+          "uncertainty_px": 15,
+          "uncertainty_normalized": 0.010799,
+          "note": "surface/shoulder-top proxy; not joint centre"
+        },
+        "shoulder_joint_inferred_image_left": {
+          "pixel_xy": [
+            367,
+            312
+          ],
+          "normalized_xz": [
+            -0.11987,
+            0.784017
+          ],
+          "uncertainty_px": 20,
+          "uncertainty_normalized": 0.014399,
+          "note": "joint centre inferred beneath deltoid"
+        },
+        "shoulder_joint_inferred_image_right": {
+          "pixel_xy": [
+            697,
+            312
+          ],
+          "normalized_xz": [
+            0.117711,
+            0.784017
+          ],
+          "uncertainty_px": 20,
+          "uncertainty_normalized": 0.014399,
+          "note": "joint centre inferred beneath deltoid"
+        },
+        "elbow_image_left": {
+          "pixel_xy": [
+            323,
+            484
+          ],
+          "normalized_xz": [
+            -0.151548,
+            0.660187
+          ],
+          "uncertainty_px": 15,
+          "uncertainty_normalized": 0.010799,
+          "note": "surface crease/joint estimate"
+        },
+        "elbow_image_right": {
+          "pixel_xy": [
+            746,
+            483
+          ],
+          "normalized_xz": [
+            0.152988,
+            0.660907
+          ],
+          "uncertainty_px": 15,
+          "uncertainty_normalized": 0.010799,
+          "note": "surface crease/joint estimate"
+        },
+        "wrist_image_left": {
+          "pixel_xy": [
+            232,
+            665
+          ],
+          "normalized_xz": [
+            -0.217063,
+            0.529878
+          ],
+          "uncertainty_px": 8,
+          "uncertainty_normalized": 0.00576,
+          "note": "narrow transition before palm"
+        },
+        "wrist_image_right": {
+          "pixel_xy": [
+            836,
+            665
+          ],
+          "normalized_xz": [
+            0.217783,
+            0.529878
+          ],
+          "uncertainty_px": 8,
+          "uncertainty_normalized": 0.00576,
+          "note": "narrow transition before palm"
+        },
+        "fingertip_image_left": {
+          "pixel_xy": [
+            228,
+            813
+          ],
+          "normalized_xz": [
+            -0.219942,
+            0.423326
+          ],
+          "uncertainty_px": 4,
+          "uncertainty_normalized": 0.00288,
+          "note": "lowest visible fingertip, relaxed hand"
+        },
+        "fingertip_image_right": {
+          "pixel_xy": [
+            839,
+            813
+          ],
+          "normalized_xz": [
+            0.219942,
+            0.423326
+          ],
+          "uncertainty_px": 4,
+          "uncertainty_normalized": 0.00288,
+          "note": "lowest visible fingertip, relaxed hand"
+        },
+        "navel": {
+          "pixel_xy": [
+            535,
+            539
+          ],
+          "normalized_xz": [
+            0.00108,
+            0.62059
+          ],
+          "uncertainty_px": 4,
+          "uncertainty_normalized": 0.00288,
+          "note": "visible navel"
+        },
+        "belt_center": {
+          "pixel_xy": [
+            534,
+            623
+          ],
+          "normalized_xz": [
+            0.00036,
+            0.560115
+          ],
+          "uncertainty_px": 8,
+          "uncertainty_normalized": 0.00576,
+          "note": "clothing feature, not anatomical waist"
+        },
+        "crotch": {
+          "pixel_xy": [
+            533,
+            784
+          ],
+          "normalized_xz": [
+            -0.00036,
+            0.444204
+          ],
+          "uncertainty_px": 8,
+          "uncertainty_normalized": 0.00576,
+          "note": "first visible gap between trouser legs; cloth affects height"
+        },
+        "knee_inferred_image_left": {
+          "pixel_xy": [
+            415,
+            980
+          ],
+          "normalized_xz": [
+            -0.085313,
+            0.303096
+          ],
+          "uncertainty_px": 25,
+          "uncertainty_normalized": 0.017999,
+          "note": "hidden by loose trousers"
+        },
+        "knee_inferred_image_right": {
+          "pixel_xy": [
+            649,
+            980
+          ],
+          "normalized_xz": [
+            0.083153,
+            0.303096
+          ],
+          "uncertainty_px": 25,
+          "uncertainty_normalized": 0.017999,
+          "note": "hidden by loose trousers"
+        },
+        "boot_top_image_left": {
+          "pixel_xy": [
+            398,
+            1060
+          ],
+          "normalized_xz": [
+            -0.097552,
+            0.2455
+          ],
+          "uncertainty_px": 12,
+          "uncertainty_normalized": 0.008639,
+          "note": "cloth-to-boot transition"
+        },
+        "boot_top_image_right": {
+          "pixel_xy": [
+            667,
+            1060
+          ],
+          "normalized_xz": [
+            0.096112,
+            0.2455
+          ],
+          "uncertainty_px": 12,
+          "uncertainty_normalized": 0.008639,
+          "note": "cloth-to-boot transition"
+        },
+        "ankle_image_left": {
+          "pixel_xy": [
+            365,
+            1320
+          ],
+          "normalized_xz": [
+            -0.12131,
+            0.058315
+          ],
+          "uncertainty_px": 14,
+          "uncertainty_normalized": 0.010079,
+          "note": "boot-covered ankle estimate"
+        },
+        "ankle_image_right": {
+          "pixel_xy": [
+            697,
+            1320
+          ],
+          "normalized_xz": [
+            0.117711,
+            0.058315
+          ],
+          "uncertainty_px": 14,
+          "uncertainty_normalized": 0.010079,
+          "note": "boot-covered ankle estimate"
+        },
+        "sole_image_left": {
+          "pixel_xy": [
+            336,
+            1401
+          ],
+          "normalized_xz": [
+            -0.142189,
+            0.0
+          ],
+          "uncertainty_px": 4,
+          "uncertainty_normalized": 0.00288,
+          "note": "lowest visible boot pixels"
+        },
+        "sole_image_right": {
+          "pixel_xy": [
+            729,
+            1400
+          ],
+          "normalized_xz": [
+            0.140749,
+            0.00072
+          ],
+          "uncertainty_px": 4,
+          "uncertainty_normalized": 0.00288,
+          "note": "lowest visible boot pixels"
+        }
+      },
+      "silhouette_profile": [
+        {
+          "pixel_y": 30,
+          "normalized_z": 0.987041,
+          "foreground_runs_px": [
+            [
+              491,
+              577
+            ],
+            [
+              581,
+              586
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.030598,
+              0.031317
+            ],
+            [
+              0.034197,
+              0.037797
+            ]
+          ],
+          "overall_extent_px": [
+            491,
+            586
+          ],
+          "overall_width_over_height": 0.068395
+        },
+        {
+          "pixel_y": 80,
+          "normalized_z": 0.951044,
+          "foreground_runs_px": [
+            [
+              465,
+              603
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.049316,
+              0.050036
+            ]
+          ],
+          "overall_extent_px": [
+            465,
+            603
+          ],
+          "overall_width_over_height": 0.099352
+        },
+        {
+          "pixel_y": 130,
+          "normalized_z": 0.915047,
+          "foreground_runs_px": [
+            [
+              462,
+              604
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.051476,
+              0.050756
+            ]
+          ],
+          "overall_extent_px": [
+            462,
+            604
+          ],
+          "overall_width_over_height": 0.102232
+        },
+        {
+          "pixel_y": 190,
+          "normalized_z": 0.87185,
+          "foreground_runs_px": [
+            [
+              484,
+              581
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.035637,
+              0.034197
+            ]
+          ],
+          "overall_extent_px": [
+            484,
+            581
+          ],
+          "overall_width_over_height": 0.069834
+        },
+        {
+          "pixel_y": 210,
+          "normalized_z": 0.857451,
+          "foreground_runs_px": [
+            [
+              482,
+              584
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.037077,
+              0.036357
+            ]
+          ],
+          "overall_extent_px": [
+            482,
+            584
+          ],
+          "overall_width_over_height": 0.073434
+        },
+        {
+          "pixel_y": 230,
+          "normalized_z": 0.843053,
+          "foreground_runs_px": [
+            [
+              451,
+              614
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.059395,
+              0.057955
+            ]
+          ],
+          "overall_extent_px": [
+            451,
+            614
+          ],
+          "overall_width_over_height": 0.117351
+        },
+        {
+          "pixel_y": 260,
+          "normalized_z": 0.821454,
+          "foreground_runs_px": [
+            [
+              380,
+              686
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.110511,
+              0.109791
+            ]
+          ],
+          "overall_extent_px": [
+            380,
+            686
+          ],
+          "overall_width_over_height": 0.220302
+        },
+        {
+          "pixel_y": 280,
+          "normalized_z": 0.807055,
+          "foreground_runs_px": [
+            [
+              354,
+              710
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.12923,
+              0.12707
+            ]
+          ],
+          "overall_extent_px": [
+            354,
+            710
+          ],
+          "overall_width_over_height": 0.256299
+        },
+        {
+          "pixel_y": 310,
+          "normalized_z": 0.785457,
+          "foreground_runs_px": [
+            [
+              338,
+              726
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.140749,
+              0.138589
+            ]
+          ],
+          "overall_extent_px": [
+            338,
+            726
+          ],
+          "overall_width_over_height": 0.279338
+        },
+        {
+          "pixel_y": 335,
+          "normalized_z": 0.767459,
+          "foreground_runs_px": [
+            [
+              330,
+              733
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.146508,
+              0.143629
+            ]
+          ],
+          "overall_extent_px": [
+            330,
+            733
+          ],
+          "overall_width_over_height": 0.290137
+        },
+        {
+          "pixel_y": 350,
+          "normalized_z": 0.756659,
+          "foreground_runs_px": [
+            [
+              328,
+              736
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.147948,
+              0.145788
+            ]
+          ],
+          "overall_extent_px": [
+            328,
+            736
+          ],
+          "overall_width_over_height": 0.293737
+        },
+        {
+          "pixel_y": 380,
+          "normalized_z": 0.735061,
+          "foreground_runs_px": [
+            [
+              322,
+              742
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.152268,
+              0.150108
+            ]
+          ],
+          "overall_extent_px": [
+            322,
+            742
+          ],
+          "overall_width_over_height": 0.302376
+        },
+        {
+          "pixel_y": 400,
+          "normalized_z": 0.720662,
+          "foreground_runs_px": [
+            [
+              314,
+              750
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.158027,
+              0.155868
+            ]
+          ],
+          "overall_extent_px": [
+            314,
+            750
+          ],
+          "overall_width_over_height": 0.313895,
+          "central_torso_or_pelvis_width_over_height": 0.313895,
+          "central_note": "torso"
+        },
+        {
+          "pixel_y": 420,
+          "normalized_z": 0.706263,
+          "foreground_runs_px": [
+            [
+              308,
+              388
+            ],
+            [
+              394,
+              668
+            ],
+            [
+              675,
+              756
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.162347,
+              -0.104752
+            ],
+            [
+              -0.100432,
+              0.096832
+            ],
+            [
+              0.101872,
+              0.160187
+            ]
+          ],
+          "overall_extent_px": [
+            308,
+            756
+          ],
+          "overall_width_over_height": 0.322534,
+          "central_torso_or_pelvis_width_over_height": 0.197264,
+          "central_note": "torso"
+        },
+        {
+          "pixel_y": 460,
+          "normalized_z": 0.677466,
+          "foreground_runs_px": [
+            [
+              292,
+              369
+            ],
+            [
+              407,
+              656
+            ],
+            [
+              696,
+              774
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.173866,
+              -0.118431
+            ],
+            [
+              -0.091073,
+              0.088193
+            ],
+            [
+              0.116991,
+              0.173146
+            ]
+          ],
+          "overall_extent_px": [
+            292,
+            774
+          ],
+          "overall_width_over_height": 0.347012,
+          "central_torso_or_pelvis_width_over_height": 0.179266,
+          "central_note": "torso"
+        },
+        {
+          "pixel_y": 480,
+          "normalized_z": 0.663067,
+          "foreground_runs_px": [
+            [
+              278,
+              358
+            ],
+            [
+              414,
+              650
+            ],
+            [
+              708,
+              787
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.183945,
+              -0.12635
+            ],
+            [
+              -0.086033,
+              0.083873
+            ],
+            [
+              0.12563,
+              0.182505
+            ]
+          ],
+          "overall_extent_px": [
+            278,
+            787
+          ],
+          "overall_width_over_height": 0.366451,
+          "central_torso_or_pelvis_width_over_height": 0.169906,
+          "central_note": "torso"
+        },
+        {
+          "pixel_y": 520,
+          "normalized_z": 0.634269,
+          "foreground_runs_px": [
+            [
+              260,
+              345
+            ],
+            [
+              414,
+              651
+            ],
+            [
+              721,
+              806
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.196904,
+              -0.135709
+            ],
+            [
+              -0.086033,
+              0.084593
+            ],
+            [
+              0.134989,
+              0.196184
+            ]
+          ],
+          "overall_extent_px": [
+            260,
+            806
+          ],
+          "overall_width_over_height": 0.393089,
+          "central_torso_or_pelvis_width_over_height": 0.170626,
+          "central_note": "torso"
+        },
+        {
+          "pixel_y": 540,
+          "normalized_z": 0.61987,
+          "foreground_runs_px": [
+            [
+              251,
+              334
+            ],
+            [
+              412,
+              654
+            ],
+            [
+              732,
+              815
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.203384,
+              -0.143629
+            ],
+            [
+              -0.087473,
+              0.086753
+            ],
+            [
+              0.142909,
+              0.202664
+            ]
+          ],
+          "overall_extent_px": [
+            251,
+            815
+          ],
+          "overall_width_over_height": 0.406048,
+          "central_torso_or_pelvis_width_over_height": 0.174226,
+          "central_note": "torso"
+        },
+        {
+          "pixel_y": 580,
+          "normalized_z": 0.591073,
+          "foreground_runs_px": [
+            [
+              239,
+              312
+            ],
+            [
+              403,
+              664
+            ],
+            [
+              755,
+              827
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.212023,
+              -0.159467
+            ],
+            [
+              -0.093952,
+              0.093952
+            ],
+            [
+              0.159467,
+              0.211303
+            ]
+          ],
+          "overall_extent_px": [
+            239,
+            827
+          ],
+          "overall_width_over_height": 0.423326,
+          "central_torso_or_pelvis_width_over_height": 0.187905,
+          "central_note": "belt/trousers; clothing included"
+        },
+        {
+          "pixel_y": 600,
+          "normalized_z": 0.576674,
+          "foreground_runs_px": [
+            [
+              233,
+              296
+            ],
+            [
+              400,
+              669
+            ],
+            [
+              772,
+              833
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.216343,
+              -0.170986
+            ],
+            [
+              -0.096112,
+              0.097552
+            ],
+            [
+              0.171706,
+              0.215623
+            ]
+          ],
+          "overall_extent_px": [
+            233,
+            833
+          ],
+          "overall_width_over_height": 0.431965,
+          "central_torso_or_pelvis_width_over_height": 0.193665,
+          "central_note": "belt/trousers; clothing included"
+        },
+        {
+          "pixel_y": 630,
+          "normalized_z": 0.555076,
+          "foreground_runs_px": [
+            [
+              223,
+              272
+            ],
+            [
+              393,
+              674
+            ],
+            [
+              795,
+              844
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.223542,
+              -0.188265
+            ],
+            [
+              -0.101152,
+              0.101152
+            ],
+            [
+              0.188265,
+              0.223542
+            ]
+          ],
+          "overall_extent_px": [
+            223,
+            844
+          ],
+          "overall_width_over_height": 0.447084,
+          "central_torso_or_pelvis_width_over_height": 0.202304,
+          "central_note": "belt/trousers; clothing included"
+        },
+        {
+          "pixel_y": 660,
+          "normalized_z": 0.533477,
+          "foreground_runs_px": [
+            [
+              210,
+              252
+            ],
+            [
+              382,
+              685
+            ],
+            [
+              815,
+              857
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.232901,
+              -0.202664
+            ],
+            [
+              -0.109071,
+              0.109071
+            ],
+            [
+              0.202664,
+              0.232901
+            ]
+          ],
+          "overall_extent_px": [
+            210,
+            857
+          ],
+          "overall_width_over_height": 0.465803,
+          "central_torso_or_pelvis_width_over_height": 0.218143,
+          "central_note": "belt/trousers; clothing included"
+        },
+        {
+          "pixel_y": 690,
+          "normalized_z": 0.511879,
+          "foreground_runs_px": [
+            [
+              203,
+              254
+            ],
+            [
+              376,
+              692
+            ],
+            [
+              812,
+              863
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.237941,
+              -0.201224
+            ],
+            [
+              -0.113391,
+              0.114111
+            ],
+            [
+              0.200504,
+              0.237221
+            ]
+          ],
+          "overall_extent_px": [
+            203,
+            863
+          ],
+          "overall_width_over_height": 0.475162,
+          "central_torso_or_pelvis_width_over_height": 0.227502,
+          "central_note": "belt/trousers; clothing included"
+        },
+        {
+          "pixel_y": 720,
+          "normalized_z": 0.490281,
+          "foreground_runs_px": [
+            [
+              195,
+              256
+            ],
+            [
+              374,
+              694
+            ],
+            [
+              811,
+              871
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.243701,
+              -0.199784
+            ],
+            [
+              -0.114831,
+              0.115551
+            ],
+            [
+              0.199784,
+              0.242981
+            ]
+          ],
+          "overall_extent_px": [
+            195,
+            871
+          ],
+          "overall_width_over_height": 0.486681,
+          "central_torso_or_pelvis_width_over_height": 0.230382,
+          "central_note": "belt/trousers; clothing included"
+        },
+        {
+          "pixel_y": 760,
+          "normalized_z": 0.461483,
+          "foreground_runs_px": [
+            [
+              194,
+              222
+            ],
+            [
+              241,
+              256
+            ],
+            [
+              370,
+              701
+            ],
+            [
+              810,
+              824
+            ],
+            [
+              845,
+              871
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.24442,
+              -0.224262
+            ],
+            [
+              -0.210583,
+              -0.199784
+            ],
+            [
+              -0.117711,
+              0.12059
+            ],
+            [
+              0.199064,
+              0.209143
+            ],
+            [
+              0.224262,
+              0.242981
+            ]
+          ],
+          "overall_extent_px": [
+            194,
+            871
+          ],
+          "overall_width_over_height": 0.487401,
+          "central_torso_or_pelvis_width_over_height": 0.238301,
+          "central_note": "belt/trousers; clothing included"
+        },
+        {
+          "pixel_y": 785,
+          "normalized_z": 0.443485,
+          "foreground_runs_px": [
+            [
+              201,
+              227
+            ],
+            [
+              367,
+              529
+            ],
+            [
+              538,
+              704
+            ],
+            [
+              837,
+              863
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.239381,
+              -0.220662
+            ],
+            [
+              -0.11987,
+              -0.00324
+            ],
+            [
+              0.00324,
+              0.12275
+            ],
+            [
+              0.218503,
+              0.237221
+            ]
+          ],
+          "overall_extent_px": [
+            201,
+            863
+          ],
+          "overall_width_over_height": 0.476602
+        },
+        {
+          "pixel_y": 810,
+          "normalized_z": 0.425486,
+          "foreground_runs_px": [
+            [
+              217,
+              233
+            ],
+            [
+              362,
+              525
+            ],
+            [
+              542,
+              706
+            ],
+            [
+              833,
+              842
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.227862,
+              -0.216343
+            ],
+            [
+              -0.12347,
+              -0.00612
+            ],
+            [
+              0.00612,
+              0.12419
+            ],
+            [
+              0.215623,
+              0.222102
+            ]
+          ],
+          "overall_extent_px": [
+            217,
+            842
+          ],
+          "overall_width_over_height": 0.449964
+        },
+        {
+          "pixel_y": 860,
+          "normalized_z": 0.389489,
+          "foreground_runs_px": [
+            [
+              357,
+              510
+            ],
+            [
+              556,
+              712
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.12707,
+              -0.016919
+            ],
+            [
+              0.016199,
+              0.12851
+            ]
+          ],
+          "overall_extent_px": [
+            357,
+            712
+          ],
+          "overall_width_over_height": 0.25558
+        },
+        {
+          "pixel_y": 920,
+          "normalized_z": 0.346292,
+          "foreground_runs_px": [
+            [
+              354,
+              498
+            ],
+            [
+              570,
+              711
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.12923,
+              -0.025558
+            ],
+            [
+              0.026278,
+              0.12779
+            ]
+          ],
+          "overall_extent_px": [
+            354,
+            711
+          ],
+          "overall_width_over_height": 0.257019
+        },
+        {
+          "pixel_y": 970,
+          "normalized_z": 0.310295,
+          "foreground_runs_px": [
+            [
+              349,
+              479
+            ],
+            [
+              580,
+              707
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.132829,
+              -0.039237
+            ],
+            [
+              0.033477,
+              0.12491
+            ]
+          ],
+          "overall_extent_px": [
+            349,
+            707
+          ],
+          "overall_width_over_height": 0.257739
+        },
+        {
+          "pixel_y": 1020,
+          "normalized_z": 0.274298,
+          "foreground_runs_px": [
+            [
+              344,
+              468
+            ],
+            [
+              601,
+              716
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.136429,
+              -0.047156
+            ],
+            [
+              0.048596,
+              0.131389
+            ]
+          ],
+          "overall_extent_px": [
+            344,
+            716
+          ],
+          "overall_width_over_height": 0.267819
+        },
+        {
+          "pixel_y": 1060,
+          "normalized_z": 0.2455,
+          "foreground_runs_px": [
+            [
+              347,
+              452
+            ],
+            [
+              616,
+              714
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.134269,
+              -0.058675
+            ],
+            [
+              0.059395,
+              0.12995
+            ]
+          ],
+          "overall_extent_px": [
+            347,
+            714
+          ],
+          "overall_width_over_height": 0.264219
+        },
+        {
+          "pixel_y": 1100,
+          "normalized_z": 0.216703,
+          "foreground_runs_px": [
+            [
+              341,
+              443
+            ],
+            [
+              618,
+              720
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.138589,
+              -0.065155
+            ],
+            [
+              0.060835,
+              0.134269
+            ]
+          ],
+          "overall_extent_px": [
+            341,
+            720
+          ],
+          "overall_width_over_height": 0.272858
+        },
+        {
+          "pixel_y": 1160,
+          "normalized_z": 0.173506,
+          "foreground_runs_px": [
+            [
+              339,
+              429
+            ],
+            [
+              634,
+              724
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.140029,
+              -0.075234
+            ],
+            [
+              0.072354,
+              0.137149
+            ]
+          ],
+          "overall_extent_px": [
+            339,
+            724
+          ],
+          "overall_width_over_height": 0.277178
+        },
+        {
+          "pixel_y": 1220,
+          "normalized_z": 0.13031,
+          "foreground_runs_px": [
+            [
+              335,
+              426
+            ],
+            [
+              649,
+              721
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.142909,
+              -0.077394
+            ],
+            [
+              0.083153,
+              0.134989
+            ]
+          ],
+          "overall_extent_px": [
+            335,
+            721
+          ],
+          "overall_width_over_height": 0.277898
+        },
+        {
+          "pixel_y": 1280,
+          "normalized_z": 0.087113,
+          "foreground_runs_px": [
+            [
+              336,
+              410
+            ],
+            [
+              658,
+              726
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.142189,
+              -0.088913
+            ],
+            [
+              0.089633,
+              0.138589
+            ]
+          ],
+          "overall_extent_px": [
+            336,
+            726
+          ],
+          "overall_width_over_height": 0.280778
+        },
+        {
+          "pixel_y": 1320,
+          "normalized_z": 0.058315,
+          "foreground_runs_px": [
+            [
+              331,
+              402
+            ],
+            [
+              664,
+              733
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.145788,
+              -0.094672
+            ],
+            [
+              0.093952,
+              0.143629
+            ]
+          ],
+          "overall_extent_px": [
+            331,
+            733
+          ],
+          "overall_width_over_height": 0.289417
+        },
+        {
+          "pixel_y": 1360,
+          "normalized_z": 0.029518,
+          "foreground_runs_px": [
+            [
+              303,
+              404
+            ],
+            [
+              661,
+              762
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.165947,
+              -0.093233
+            ],
+            [
+              0.091793,
+              0.164507
+            ]
+          ],
+          "overall_extent_px": [
+            303,
+            762
+          ],
+          "overall_width_over_height": 0.330454
+        },
+        {
+          "pixel_y": 1390,
+          "normalized_z": 0.007919,
+          "foreground_runs_px": [
+            [
+              292,
+              371
+            ],
+            [
+              688,
+              772
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.173866,
+              -0.116991
+            ],
+            [
+              0.111231,
+              0.171706
+            ]
+          ],
+          "overall_extent_px": [
+            292,
+            772
+          ],
+          "overall_width_over_height": 0.345572
+        }
+      ],
+      "key_ratios": {
+        "outer_deltoid_width": 0.293737,
+        "narrow_waist_width": 0.170626,
+        "trouser_hip_width": 0.230382,
+        "wrist_center_separation": 0.434845,
+        "head_visible_height_including_hair": 0.137509
+      }
+    },
+    "back": {
+      "source_file": "codex-clipboard-a04aec78-ce3b-4418-9570-901596d7d664.png",
+      "source_sha256": "2b10413f41230fd6a3060e0b25437303cedd33ffef7e327958dede96c4fda8a8",
+      "image_size_px": [
+        1086,
+        1448
+      ],
+      "center_x_px": 533.5,
+      "crown_y_px": 10,
+      "sole_y_px": 1396,
+      "visible_height_px": 1386,
+      "landmarks": {
+        "hair_crown": {
+          "pixel_xy": [
+            535,
+            10
+          ],
+          "normalized_xz": [
+            0.001082,
+            1.0
+          ],
+          "uncertainty_px": 3,
+          "uncertainty_normalized": 0.002165,
+          "note": "visible hair extremity, not anatomical skull"
+        },
+        "skull_crown_inferred": {
+          "pixel_xy": [
+            535,
+            32
+          ],
+          "normalized_xz": [
+            0.001082,
+            0.984127
+          ],
+          "uncertainty_px": 14,
+          "uncertainty_normalized": 0.010101,
+          "note": "skull hidden by hair; low confidence"
+        },
+        "nape_hairline": {
+          "pixel_xy": [
+            534,
+            165
+          ],
+          "normalized_xz": [
+            0.000361,
+            0.888167
+          ],
+          "uncertainty_px": 8,
+          "uncertainty_normalized": 0.005772,
+          "note": "hairline, not chin or vertebral landmark"
+        },
+        "neck_base_inferred": {
+          "pixel_xy": [
+            534,
+            228
+          ],
+          "normalized_xz": [
+            0.000361,
+            0.842713
+          ],
+          "uncertainty_px": 12,
+          "uncertainty_normalized": 0.008658,
+          "note": "central neck-to-trapezius surface transition"
+        },
+        "acromion_image_left": {
+          "pixel_xy": [
+            376,
+            276
+          ],
+          "normalized_xz": [
+            -0.113636,
+            0.808081
+          ],
+          "uncertainty_px": 15,
+          "uncertainty_normalized": 0.010823,
+          "note": "surface/shoulder-top proxy; not joint centre"
+        },
+        "acromion_image_right": {
+          "pixel_xy": [
+            691,
+            276
+          ],
+          "normalized_xz": [
+            0.113636,
+            0.808081
+          ],
+          "uncertainty_px": 15,
+          "uncertainty_normalized": 0.010823,
+          "note": "surface/shoulder-top proxy; not joint centre"
+        },
+        "shoulder_joint_inferred_image_left": {
+          "pixel_xy": [
+            367,
+            313
+          ],
+          "normalized_xz": [
+            -0.12013,
+            0.781385
+          ],
+          "uncertainty_px": 20,
+          "uncertainty_normalized": 0.01443,
+          "note": "joint centre inferred beneath deltoid"
+        },
+        "shoulder_joint_inferred_image_right": {
+          "pixel_xy": [
+            702,
+            313
+          ],
+          "normalized_xz": [
+            0.121573,
+            0.781385
+          ],
+          "uncertainty_px": 20,
+          "uncertainty_normalized": 0.01443,
+          "note": "joint centre inferred beneath deltoid"
+        },
+        "elbow_image_left": {
+          "pixel_xy": [
+            312,
+            497
+          ],
+          "normalized_xz": [
+            -0.159812,
+            0.648629
+          ],
+          "uncertainty_px": 15,
+          "uncertainty_normalized": 0.010823,
+          "note": "olecranon region/surface estimate"
+        },
+        "elbow_image_right": {
+          "pixel_xy": [
+            750,
+            497
+          ],
+          "normalized_xz": [
+            0.156205,
+            0.648629
+          ],
+          "uncertainty_px": 15,
+          "uncertainty_normalized": 0.010823,
+          "note": "olecranon region/surface estimate"
+        },
+        "wrist_image_left": {
+          "pixel_xy": [
+            233,
+            674
+          ],
+          "normalized_xz": [
+            -0.216811,
+            0.520924
+          ],
+          "uncertainty_px": 8,
+          "uncertainty_normalized": 0.005772,
+          "note": "narrow transition before palm"
+        },
+        "wrist_image_right": {
+          "pixel_xy": [
+            831,
+            674
+          ],
+          "normalized_xz": [
+            0.214646,
+            0.520924
+          ],
+          "uncertainty_px": 8,
+          "uncertainty_normalized": 0.005772,
+          "note": "narrow transition before palm"
+        },
+        "fingertip_image_left": {
+          "pixel_xy": [
+            236,
+            813
+          ],
+          "normalized_xz": [
+            -0.214646,
+            0.420635
+          ],
+          "uncertainty_px": 4,
+          "uncertainty_normalized": 0.002886,
+          "note": "lowest visible fingertip, relaxed hand"
+        },
+        "fingertip_image_right": {
+          "pixel_xy": [
+            825,
+            812
+          ],
+          "normalized_xz": [
+            0.210317,
+            0.421356
+          ],
+          "uncertainty_px": 4,
+          "uncertainty_normalized": 0.002886,
+          "note": "lowest visible fingertip, relaxed hand"
+        },
+        "belt_center": {
+          "pixel_xy": [
+            533,
+            599
+          ],
+          "normalized_xz": [
+            -0.000361,
+            0.575036
+          ],
+          "uncertainty_px": 8,
+          "uncertainty_normalized": 0.005772,
+          "note": "clothing feature; back belt appears higher than front"
+        },
+        "crotch": {
+          "pixel_xy": [
+            535,
+            780
+          ],
+          "normalized_xz": [
+            0.001082,
+            0.444444
+          ],
+          "uncertainty_px": 8,
+          "uncertainty_normalized": 0.005772,
+          "note": "first gap between trouser legs; cloth affects height"
+        },
+        "knee_inferred_image_left": {
+          "pixel_xy": [
+            414,
+            979
+          ],
+          "normalized_xz": [
+            -0.086219,
+            0.300866
+          ],
+          "uncertainty_px": 25,
+          "uncertainty_normalized": 0.018038,
+          "note": "hidden by loose trousers"
+        },
+        "knee_inferred_image_right": {
+          "pixel_xy": [
+            651,
+            979
+          ],
+          "normalized_xz": [
+            0.084776,
+            0.300866
+          ],
+          "uncertainty_px": 25,
+          "uncertainty_normalized": 0.018038,
+          "note": "hidden by loose trousers"
+        },
+        "boot_top_image_left": {
+          "pixel_xy": [
+            399,
+            1056
+          ],
+          "normalized_xz": [
+            -0.097042,
+            0.24531
+          ],
+          "uncertainty_px": 12,
+          "uncertainty_normalized": 0.008658,
+          "note": "cloth-to-boot transition"
+        },
+        "boot_top_image_right": {
+          "pixel_xy": [
+            668,
+            1056
+          ],
+          "normalized_xz": [
+            0.097042,
+            0.24531
+          ],
+          "uncertainty_px": 12,
+          "uncertainty_normalized": 0.008658,
+          "note": "cloth-to-boot transition"
+        },
+        "ankle_image_left": {
+          "pixel_xy": [
+            370,
+            1318
+          ],
+          "normalized_xz": [
+            -0.117965,
+            0.056277
+          ],
+          "uncertainty_px": 14,
+          "uncertainty_normalized": 0.010101,
+          "note": "boot-covered ankle estimate"
+        },
+        "ankle_image_right": {
+          "pixel_xy": [
+            693,
+            1318
+          ],
+          "normalized_xz": [
+            0.115079,
+            0.056277
+          ],
+          "uncertainty_px": 14,
+          "uncertainty_normalized": 0.010101,
+          "note": "boot-covered ankle estimate"
+        },
+        "sole_image_left": {
+          "pixel_xy": [
+            371,
+            1396
+          ],
+          "normalized_xz": [
+            -0.117244,
+            0.0
+          ],
+          "uncertainty_px": 4,
+          "uncertainty_normalized": 0.002886,
+          "note": "lowest visible boot pixels"
+        },
+        "sole_image_right": {
+          "pixel_xy": [
+            692,
+            1395
+          ],
+          "normalized_xz": [
+            0.114358,
+            0.000722
+          ],
+          "uncertainty_px": 4,
+          "uncertainty_normalized": 0.002886,
+          "note": "lowest visible boot pixels"
+        }
+      },
+      "silhouette_profile": [
+        {
+          "pixel_y": 30,
+          "normalized_z": 0.98557,
+          "foreground_runs_px": [
+            [
+              483,
+              581
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.036436,
+              0.034271
+            ]
+          ],
+          "overall_extent_px": [
+            483,
+            581
+          ],
+          "overall_width_over_height": 0.070707
+        },
+        {
+          "pixel_y": 80,
+          "normalized_z": 0.949495,
+          "foreground_runs_px": [
+            [
+              463,
+              605
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.050866,
+              0.051587
+            ]
+          ],
+          "overall_extent_px": [
+            463,
+            605
+          ],
+          "overall_width_over_height": 0.102453
+        },
+        {
+          "pixel_y": 130,
+          "normalized_z": 0.91342,
+          "foreground_runs_px": [
+            [
+              465,
+              603
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.049423,
+              0.050144
+            ]
+          ],
+          "overall_extent_px": [
+            465,
+            603
+          ],
+          "overall_width_over_height": 0.099567
+        },
+        {
+          "pixel_y": 190,
+          "normalized_z": 0.87013,
+          "foreground_runs_px": [
+            [
+              483,
+              583
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.036436,
+              0.035714
+            ]
+          ],
+          "overall_extent_px": [
+            483,
+            583
+          ],
+          "overall_width_over_height": 0.07215
+        },
+        {
+          "pixel_y": 210,
+          "normalized_z": 0.8557,
+          "foreground_runs_px": [
+            [
+              465,
+              596
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.049423,
+              0.045094
+            ]
+          ],
+          "overall_extent_px": [
+            465,
+            596
+          ],
+          "overall_width_over_height": 0.094517
+        },
+        {
+          "pixel_y": 230,
+          "normalized_z": 0.84127,
+          "foreground_runs_px": [
+            [
+              425,
+              633
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.078283,
+              0.071789
+            ]
+          ],
+          "overall_extent_px": [
+            425,
+            633
+          ],
+          "overall_width_over_height": 0.150072
+        },
+        {
+          "pixel_y": 260,
+          "normalized_z": 0.819625,
+          "foreground_runs_px": [
+            [
+              361,
+              698
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.124459,
+              0.118687
+            ]
+          ],
+          "overall_extent_px": [
+            361,
+            698
+          ],
+          "overall_width_over_height": 0.243146
+        },
+        {
+          "pixel_y": 280,
+          "normalized_z": 0.805195,
+          "foreground_runs_px": [
+            [
+              344,
+              718
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.136724,
+              0.133117
+            ]
+          ],
+          "overall_extent_px": [
+            344,
+            718
+          ],
+          "overall_width_over_height": 0.269841
+        },
+        {
+          "pixel_y": 310,
+          "normalized_z": 0.78355,
+          "foreground_runs_px": [
+            [
+              329,
+              734
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.147547,
+              0.144661
+            ]
+          ],
+          "overall_extent_px": [
+            329,
+            734
+          ],
+          "overall_width_over_height": 0.292208
+        },
+        {
+          "pixel_y": 335,
+          "normalized_z": 0.765512,
+          "foreground_runs_px": [
+            [
+              324,
+              741
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.151154,
+              0.149711
+            ]
+          ],
+          "overall_extent_px": [
+            324,
+            741
+          ],
+          "overall_width_over_height": 0.300866
+        },
+        {
+          "pixel_y": 350,
+          "normalized_z": 0.75469,
+          "foreground_runs_px": [
+            [
+              323,
+              742
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.151876,
+              0.150433
+            ]
+          ],
+          "overall_extent_px": [
+            323,
+            742
+          ],
+          "overall_width_over_height": 0.302309
+        },
+        {
+          "pixel_y": 380,
+          "normalized_z": 0.733045,
+          "foreground_runs_px": [
+            [
+              313,
+              750
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.159091,
+              0.156205
+            ]
+          ],
+          "overall_extent_px": [
+            313,
+            750
+          ],
+          "overall_width_over_height": 0.315296
+        },
+        {
+          "pixel_y": 400,
+          "normalized_z": 0.718615,
+          "foreground_runs_px": [
+            [
+              304,
+              759
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.165584,
+              0.162698
+            ]
+          ],
+          "overall_extent_px": [
+            304,
+            759
+          ],
+          "overall_width_over_height": 0.328283,
+          "central_torso_or_pelvis_width_over_height": 0.328283,
+          "central_note": "torso"
+        },
+        {
+          "pixel_y": 420,
+          "normalized_z": 0.704185,
+          "foreground_runs_px": [
+            [
+              299,
+              384
+            ],
+            [
+              397,
+              667
+            ],
+            [
+              679,
+              764
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.169192,
+              -0.107864
+            ],
+            [
+              -0.098485,
+              0.09632
+            ],
+            [
+              0.104978,
+              0.166306
+            ]
+          ],
+          "overall_extent_px": [
+            299,
+            764
+          ],
+          "overall_width_over_height": 0.335498,
+          "central_torso_or_pelvis_width_over_height": 0.194805,
+          "central_note": "torso"
+        },
+        {
+          "pixel_y": 460,
+          "normalized_z": 0.675325,
+          "foreground_runs_px": [
+            [
+              285,
+              365
+            ],
+            [
+              412,
+              652
+            ],
+            [
+              698,
+              779
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.179293,
+              -0.121573
+            ],
+            [
+              -0.087662,
+              0.085498
+            ],
+            [
+              0.118687,
+              0.177128
+            ]
+          ],
+          "overall_extent_px": [
+            285,
+            779
+          ],
+          "overall_width_over_height": 0.356421,
+          "central_torso_or_pelvis_width_over_height": 0.17316,
+          "central_note": "torso"
+        },
+        {
+          "pixel_y": 480,
+          "normalized_z": 0.660895,
+          "foreground_runs_px": [
+            [
+              271,
+              355
+            ],
+            [
+              418,
+              646
+            ],
+            [
+              709,
+              793
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.189394,
+              -0.128788
+            ],
+            [
+              -0.083333,
+              0.081169
+            ],
+            [
+              0.126623,
+              0.187229
+            ]
+          ],
+          "overall_extent_px": [
+            271,
+            793
+          ],
+          "overall_width_over_height": 0.376623,
+          "central_torso_or_pelvis_width_over_height": 0.164502,
+          "central_note": "torso"
+        },
+        {
+          "pixel_y": 520,
+          "normalized_z": 0.632035,
+          "foreground_runs_px": [
+            [
+              254,
+              340
+            ],
+            [
+              419,
+              647
+            ],
+            [
+              724,
+              810
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.201659,
+              -0.13961
+            ],
+            [
+              -0.082612,
+              0.08189
+            ],
+            [
+              0.137446,
+              0.199495
+            ]
+          ],
+          "overall_extent_px": [
+            254,
+            810
+          ],
+          "overall_width_over_height": 0.401154,
+          "central_torso_or_pelvis_width_over_height": 0.164502,
+          "central_note": "torso"
+        },
+        {
+          "pixel_y": 540,
+          "normalized_z": 0.617605,
+          "foreground_runs_px": [
+            [
+              247,
+              330
+            ],
+            [
+              415,
+              651
+            ],
+            [
+              734,
+              818
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.20671,
+              -0.146825
+            ],
+            [
+              -0.085498,
+              0.084776
+            ],
+            [
+              0.144661,
+              0.205267
+            ]
+          ],
+          "overall_extent_px": [
+            247,
+            818
+          ],
+          "overall_width_over_height": 0.411977,
+          "central_torso_or_pelvis_width_over_height": 0.170274,
+          "central_note": "torso"
+        },
+        {
+          "pixel_y": 580,
+          "normalized_z": 0.588745,
+          "foreground_runs_px": [
+            [
+              236,
+              310
+            ],
+            [
+              406,
+              662
+            ],
+            [
+              754,
+              828
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.214646,
+              -0.161255
+            ],
+            [
+              -0.091991,
+              0.092713
+            ],
+            [
+              0.159091,
+              0.212482
+            ]
+          ],
+          "overall_extent_px": [
+            236,
+            828
+          ],
+          "overall_width_over_height": 0.427128,
+          "central_torso_or_pelvis_width_over_height": 0.184704,
+          "central_note": "belt/trousers; clothing included"
+        },
+        {
+          "pixel_y": 600,
+          "normalized_z": 0.574315,
+          "foreground_runs_px": [
+            [
+              231,
+              295
+            ],
+            [
+              401,
+              665
+            ],
+            [
+              770,
+              833
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.218254,
+              -0.172078
+            ],
+            [
+              -0.095599,
+              0.094877
+            ],
+            [
+              0.170635,
+              0.216089
+            ]
+          ],
+          "overall_extent_px": [
+            231,
+            833
+          ],
+          "overall_width_over_height": 0.434343,
+          "central_torso_or_pelvis_width_over_height": 0.190476,
+          "central_note": "belt/trousers; clothing included"
+        },
+        {
+          "pixel_y": 630,
+          "normalized_z": 0.55267,
+          "foreground_runs_px": [
+            [
+              223,
+              273
+            ],
+            [
+              395,
+              671
+            ],
+            [
+              791,
+              841
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.224026,
+              -0.187951
+            ],
+            [
+              -0.099928,
+              0.099206
+            ],
+            [
+              0.185786,
+              0.221861
+            ]
+          ],
+          "overall_extent_px": [
+            223,
+            841
+          ],
+          "overall_width_over_height": 0.445887,
+          "central_torso_or_pelvis_width_over_height": 0.199134,
+          "central_note": "belt/trousers; clothing included"
+        },
+        {
+          "pixel_y": 660,
+          "normalized_z": 0.531025,
+          "foreground_runs_px": [
+            [
+              212,
+              256
+            ],
+            [
+              386,
+              682
+            ],
+            [
+              808,
+              853
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.231962,
+              -0.200216
+            ],
+            [
+              -0.106421,
+              0.107143
+            ],
+            [
+              0.198052,
+              0.230519
+            ]
+          ],
+          "overall_extent_px": [
+            212,
+            853
+          ],
+          "overall_width_over_height": 0.462482,
+          "central_torso_or_pelvis_width_over_height": 0.213564,
+          "central_note": "belt/trousers; clothing included"
+        },
+        {
+          "pixel_y": 690,
+          "normalized_z": 0.50938,
+          "foreground_runs_px": [
+            [
+              208,
+              259
+            ],
+            [
+              380,
+              689
+            ],
+            [
+              805,
+              857
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.234848,
+              -0.198052
+            ],
+            [
+              -0.11075,
+              0.112193
+            ],
+            [
+              0.195887,
+              0.233405
+            ]
+          ],
+          "overall_extent_px": [
+            208,
+            857
+          ],
+          "overall_width_over_height": 0.468254,
+          "central_torso_or_pelvis_width_over_height": 0.222944,
+          "central_note": "belt/trousers; clothing included"
+        },
+        {
+          "pixel_y": 720,
+          "normalized_z": 0.487734,
+          "foreground_runs_px": [
+            [
+              201,
+              261
+            ],
+            [
+              378,
+              692
+            ],
+            [
+              802,
+              863
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.239899,
+              -0.196609
+            ],
+            [
+              -0.112193,
+              0.114358
+            ],
+            [
+              0.193723,
+              0.237734
+            ]
+          ],
+          "overall_extent_px": [
+            201,
+            863
+          ],
+          "overall_width_over_height": 0.477633,
+          "central_torso_or_pelvis_width_over_height": 0.226551,
+          "central_note": "belt/trousers; clothing included"
+        },
+        {
+          "pixel_y": 760,
+          "normalized_z": 0.458874,
+          "foreground_runs_px": [
+            [
+              201,
+              228
+            ],
+            [
+              248,
+              262
+            ],
+            [
+              372,
+              695
+            ],
+            [
+              801,
+              814
+            ],
+            [
+              833,
+              860
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.239899,
+              -0.220418
+            ],
+            [
+              -0.205988,
+              -0.195887
+            ],
+            [
+              -0.116522,
+              0.116522
+            ],
+            [
+              0.193001,
+              0.202381
+            ],
+            [
+              0.216089,
+              0.23557
+            ]
+          ],
+          "overall_extent_px": [
+            201,
+            860
+          ],
+          "overall_width_over_height": 0.475469,
+          "central_torso_or_pelvis_width_over_height": 0.233045,
+          "central_note": "belt/trousers; clothing included"
+        },
+        {
+          "pixel_y": 785,
+          "normalized_z": 0.440837,
+          "foreground_runs_px": [
+            [
+              208,
+              235
+            ],
+            [
+              369,
+              532
+            ],
+            [
+              538,
+              700
+            ],
+            [
+              827,
+              851
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.234848,
+              -0.215368
+            ],
+            [
+              -0.118687,
+              -0.001082
+            ],
+            [
+              0.003247,
+              0.12013
+            ],
+            [
+              0.21176,
+              0.229076
+            ]
+          ],
+          "overall_extent_px": [
+            208,
+            851
+          ],
+          "overall_width_over_height": 0.463925
+        },
+        {
+          "pixel_y": 810,
+          "normalized_z": 0.422799,
+          "foreground_runs_px": [
+            [
+              227,
+              239
+            ],
+            [
+              365,
+              529
+            ],
+            [
+              542,
+              702
+            ],
+            [
+              821,
+              832
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.22114,
+              -0.212482
+            ],
+            [
+              -0.121573,
+              -0.003247
+            ],
+            [
+              0.006133,
+              0.121573
+            ],
+            [
+              0.207431,
+              0.215368
+            ]
+          ],
+          "overall_extent_px": [
+            227,
+            832
+          ],
+          "overall_width_over_height": 0.436508
+        },
+        {
+          "pixel_y": 860,
+          "normalized_z": 0.386724,
+          "foreground_runs_px": [
+            [
+              357,
+              511
+            ],
+            [
+              557,
+              710
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.127345,
+              -0.016234
+            ],
+            [
+              0.016955,
+              0.127345
+            ]
+          ],
+          "overall_extent_px": [
+            357,
+            710
+          ],
+          "overall_width_over_height": 0.25469
+        },
+        {
+          "pixel_y": 920,
+          "normalized_z": 0.343434,
+          "foreground_runs_px": [
+            [
+              356,
+              498
+            ],
+            [
+              570,
+              709
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.128066,
+              -0.025613
+            ],
+            [
+              0.026335,
+              0.126623
+            ]
+          ],
+          "overall_extent_px": [
+            356,
+            709
+          ],
+          "overall_width_over_height": 0.25469
+        },
+        {
+          "pixel_y": 970,
+          "normalized_z": 0.307359,
+          "foreground_runs_px": [
+            [
+              362,
+              484
+            ],
+            [
+              587,
+              715
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.123737,
+              -0.035714
+            ],
+            [
+              0.0386,
+              0.130952
+            ]
+          ],
+          "overall_extent_px": [
+            362,
+            715
+          ],
+          "overall_width_over_height": 0.25469
+        },
+        {
+          "pixel_y": 1020,
+          "normalized_z": 0.271284,
+          "foreground_runs_px": [
+            [
+              345,
+              466
+            ],
+            [
+              601,
+              721
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.136003,
+              -0.048701
+            ],
+            [
+              0.048701,
+              0.135281
+            ]
+          ],
+          "overall_extent_px": [
+            345,
+            721
+          ],
+          "overall_width_over_height": 0.271284
+        },
+        {
+          "pixel_y": 1060,
+          "normalized_z": 0.242424,
+          "foreground_runs_px": [
+            [
+              348,
+              447
+            ],
+            [
+              618,
+              717
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.133838,
+              -0.06241
+            ],
+            [
+              0.060967,
+              0.132395
+            ]
+          ],
+          "overall_extent_px": [
+            348,
+            717
+          ],
+          "overall_width_over_height": 0.266234
+        },
+        {
+          "pixel_y": 1100,
+          "normalized_z": 0.213564,
+          "foreground_runs_px": [
+            [
+              343,
+              446
+            ],
+            [
+              618,
+              724
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.137446,
+              -0.063131
+            ],
+            [
+              0.060967,
+              0.137446
+            ]
+          ],
+          "overall_extent_px": [
+            343,
+            724
+          ],
+          "overall_width_over_height": 0.274892
+        },
+        {
+          "pixel_y": 1160,
+          "normalized_z": 0.170274,
+          "foreground_runs_px": [
+            [
+              341,
+              434
+            ],
+            [
+              631,
+              723
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.138889,
+              -0.071789
+            ],
+            [
+              0.070346,
+              0.136724
+            ]
+          ],
+          "overall_extent_px": [
+            341,
+            723
+          ],
+          "overall_width_over_height": 0.275613
+        },
+        {
+          "pixel_y": 1220,
+          "normalized_z": 0.126984,
+          "foreground_runs_px": [
+            [
+              337,
+              427
+            ],
+            [
+              634,
+              729
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.141775,
+              -0.07684
+            ],
+            [
+              0.072511,
+              0.141053
+            ]
+          ],
+          "overall_extent_px": [
+            337,
+            729
+          ],
+          "overall_width_over_height": 0.282828
+        },
+        {
+          "pixel_y": 1280,
+          "normalized_z": 0.083694,
+          "foreground_runs_px": [
+            [
+              342,
+              410
+            ],
+            [
+              654,
+              725
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.138167,
+              -0.089105
+            ],
+            [
+              0.086941,
+              0.138167
+            ]
+          ],
+          "overall_extent_px": [
+            342,
+            725
+          ],
+          "overall_width_over_height": 0.276335
+        },
+        {
+          "pixel_y": 1320,
+          "normalized_z": 0.054834,
+          "foreground_runs_px": [
+            [
+              334,
+              406
+            ],
+            [
+              657,
+              730
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.143939,
+              -0.091991
+            ],
+            [
+              0.089105,
+              0.141775
+            ]
+          ],
+          "overall_extent_px": [
+            334,
+            730
+          ],
+          "overall_width_over_height": 0.285714
+        },
+        {
+          "pixel_y": 1360,
+          "normalized_z": 0.025974,
+          "foreground_runs_px": [
+            [
+              307,
+              406
+            ],
+            [
+              656,
+              760
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.16342,
+              -0.091991
+            ],
+            [
+              0.088384,
+              0.16342
+            ]
+          ],
+          "overall_extent_px": [
+            307,
+            760
+          ],
+          "overall_width_over_height": 0.32684
+        },
+        {
+          "pixel_y": 1390,
+          "normalized_z": 0.004329,
+          "foreground_runs_px": [
+            [
+              337,
+              406
+            ],
+            [
+              656,
+              723
+            ]
+          ],
+          "foreground_runs_normalized_x": [
+            [
+              -0.141775,
+              -0.091991
+            ],
+            [
+              0.088384,
+              0.136724
+            ]
+          ],
+          "overall_extent_px": [
+            337,
+            723
+          ],
+          "overall_width_over_height": 0.278499
+        }
+      ],
+      "key_ratios": {
+        "outer_deltoid_width": 0.302309,
+        "narrow_waist_width": 0.164502,
+        "trouser_hip_width": 0.226551,
+        "wrist_center_separation": 0.431457,
+        "head_visible_height_including_hair": null
+      }
+    }
+  },
+  "model_calibration": {
+    "purpose": "Working geometry calibration selected for the actual bald game model; hair extent is retained separately in the observed tables.",
+    "source_model_sole_z_m": 0.0076724137,
+    "source_model_skull_crown_z_m": 1.71988809,
+    "source_model_visible_height_m": 1.712215677,
+    "reference_anatomical_skull_crown_y_px": 36,
+    "reference_hair_tip_y_px": 12,
+    "reference_sole_y_px": 1401,
+    "reference_anatomical_height_px": 1365,
+    "metres_per_pixel": 0.0012543704593406594,
+    "formula_z_m": "0.0076724137 + (1401 - pixel_y) * 1.712215677 / 1365",
+    "formula_x_m": "(pixel_x - 533.5) * 1.712215677 / 1365",
+    "crown_estimation_uncertainty_px": 14,
+    "note": "This calibration preserves the source chin height around 1.5104 m rather than scaling the face to imitate hair volume. No claim of exact skeletal scan accuracy.",
+    "front_landmarks_m": {
+      "hair_crown": {
+        "x_m": -0.0006271852296703297,
+        "z_m": 1.7499929817241757,
+        "uncertainty_m": 0.003763111378021978,
+        "note": "visible hair extremity, not anatomical skull"
+      },
+      "skull_crown_inferred": {
+        "x_m": -0.0006271852296703297,
+        "z_m": 1.7249055725373625,
+        "uncertainty_m": 0.017561186430769232,
+        "note": "skull hidden by hair; low confidence"
+      },
+      "chin": {
+        "x_m": 0.0006271852296703297,
+        "z_m": 1.5104082239901098,
+        "uncertainty_m": 0.006271852296703297,
+        "note": "beard partly obscures chin underside"
+      },
+      "sternal_notch": {
+        "x_m": -0.0006271852296703297,
+        "z_m": 1.4301285145923077,
+        "uncertainty_m": 0.010034963674725275,
+        "note": "visible central neck-to-chest attachment"
+      },
+      "acromion_image_left": {
+        "x_m": -0.19505460642747252,
+        "z_m": 1.4138216986208791,
+        "uncertainty_m": 0.01881555689010989,
+        "note": "surface/shoulder-top proxy; not joint centre"
+      },
+      "acromion_image_right": {
+        "x_m": 0.19380023596813187,
+        "z_m": 1.4138216986208791,
+        "uncertainty_m": 0.01881555689010989,
+        "note": "surface/shoulder-top proxy; not joint centre"
+      },
+      "shoulder_joint_inferred_image_left": {
+        "x_m": -0.2088526814802198,
+        "z_m": 1.373681843921978,
+        "uncertainty_m": 0.025087409186813188,
+        "note": "joint centre inferred beneath deltoid"
+      },
+      "shoulder_joint_inferred_image_right": {
+        "x_m": 0.2050895701021978,
+        "z_m": 1.373681843921978,
+        "uncertainty_m": 0.025087409186813188,
+        "note": "joint centre inferred beneath deltoid"
+      },
+      "elbow_image_left": {
+        "x_m": -0.26404498169120877,
+        "z_m": 1.1579301249153846,
+        "uncertainty_m": 0.01881555689010989,
+        "note": "surface crease/joint estimate"
+      },
+      "elbow_image_right": {
+        "x_m": 0.26655372260989013,
+        "z_m": 1.1591844953747252,
+        "uncertainty_m": 0.01881555689010989,
+        "note": "surface crease/joint estimate"
+      },
+      "wrist_image_left": {
+        "x_m": -0.3781926934912088,
+        "z_m": 0.9308890717747254,
+        "uncertainty_m": 0.010034963674725275,
+        "note": "narrow transition before palm"
+      },
+      "wrist_image_right": {
+        "x_m": 0.37944706395054945,
+        "z_m": 0.9308890717747254,
+        "uncertainty_m": 0.010034963674725275,
+        "note": "narrow transition before palm"
+      },
+      "fingertip_image_left": {
+        "x_m": -0.38321017532857143,
+        "z_m": 0.7452422437923077,
+        "uncertainty_m": 0.005017481837362637,
+        "note": "lowest visible fingertip, relaxed hand"
+      },
+      "fingertip_image_right": {
+        "x_m": 0.38321017532857143,
+        "z_m": 0.7452422437923077,
+        "uncertainty_m": 0.005017481837362637,
+        "note": "lowest visible fingertip, relaxed hand"
+      },
+      "navel": {
+        "x_m": 0.001881555689010989,
+        "z_m": 1.0889397496516482,
+        "uncertainty_m": 0.005017481837362637,
+        "note": "visible navel"
+      },
+      "belt_center": {
+        "x_m": 0.0006271852296703297,
+        "z_m": 0.9835726310670331,
+        "uncertainty_m": 0.010034963674725275,
+        "note": "clothing feature, not anatomical waist"
+      },
+      "crotch": {
+        "x_m": -0.0006271852296703297,
+        "z_m": 0.7816189871131869,
+        "uncertainty_m": 0.010034963674725275,
+        "note": "first visible gap between trouser legs; cloth affects height"
+      },
+      "knee_inferred_image_left": {
+        "x_m": -0.14864289943186812,
+        "z_m": 0.5357623770824176,
+        "uncertainty_m": 0.03135926148351648,
+        "note": "hidden by loose trousers"
+      },
+      "knee_inferred_image_right": {
+        "x_m": 0.14487978805384616,
+        "z_m": 0.5357623770824176,
+        "uncertainty_m": 0.03135926148351648,
+        "note": "hidden by loose trousers"
+      },
+      "boot_top_image_left": {
+        "x_m": -0.16996719724065934,
+        "z_m": 0.4354127403351648,
+        "uncertainty_m": 0.015052445512087911,
+        "note": "cloth-to-boot transition"
+      },
+      "boot_top_image_right": {
+        "x_m": 0.16745845632197803,
+        "z_m": 0.4354127403351648,
+        "uncertainty_m": 0.015052445512087911,
+        "note": "cloth-to-boot transition"
+      },
+      "ankle_image_left": {
+        "x_m": -0.2113614223989011,
+        "z_m": 0.10927642090659341,
+        "uncertainty_m": 0.017561186430769232,
+        "note": "boot-covered ankle estimate"
+      },
+      "ankle_image_right": {
+        "x_m": 0.2050895701021978,
+        "z_m": 0.10927642090659341,
+        "uncertainty_m": 0.017561186430769232,
+        "note": "boot-covered ankle estimate"
+      },
+      "sole_image_left": {
+        "x_m": -0.24773816571978022,
+        "z_m": 0.0076724137,
+        "uncertainty_m": 0.005017481837362637,
+        "note": "lowest visible boot pixels"
+      },
+      "sole_image_right": {
+        "x_m": 0.2452294248010989,
+        "z_m": 0.008926784159340659,
+        "uncertainty_m": 0.005017481837362637,
+        "note": "lowest visible boot pixels"
+      }
+    },
+    "front_silhouette_profile_m": [
+      {
+        "pixel_y": 30,
+        "z_m": 1.727414313456044,
+        "runs_x_m": [
+          [
+            -0.053310744521978023,
+            0.054565114981318684
+          ],
+          [
+            0.05958259681868132,
+            0.06585444911538461
+          ]
+        ],
+        "run_widths_m": [
+          0.1078758595032967,
+          0.006271852296703297
+        ],
+        "overall_width_m": 0.11916519363736264
+      },
+      {
+        "pixel_y": 80,
+        "z_m": 1.664695790489011,
+        "runs_x_m": [
+          [
+            -0.08592437646483517,
+            0.08717874692417582
+          ]
+        ],
+        "run_widths_m": [
+          0.173103123389011
+        ],
+        "overall_width_m": 0.173103123389011
+      },
+      {
+        "pixel_y": 130,
+        "z_m": 1.6019772675219779,
+        "runs_x_m": [
+          [
+            -0.08968748784285714,
+            0.08843311738351649
+          ]
+        ],
+        "run_widths_m": [
+          0.17812060522637363
+        ],
+        "overall_width_m": 0.17812060522637363
+      },
+      {
+        "pixel_y": 190,
+        "z_m": 1.5267150399615383,
+        "runs_x_m": [
+          [
+            -0.06209133773736264,
+            0.05958259681868132
+          ]
+        ],
+        "run_widths_m": [
+          0.12167393455604396
+        ],
+        "overall_width_m": 0.12167393455604396
+      },
+      {
+        "pixel_y": 210,
+        "z_m": 1.5016276307747252,
+        "runs_x_m": [
+          [
+            -0.06460007865604396,
+            0.0633457081967033
+          ]
+        ],
+        "run_widths_m": [
+          0.12794578685274727
+        ],
+        "overall_width_m": 0.12794578685274727
+      },
+      {
+        "pixel_y": 230,
+        "z_m": 1.476540221587912,
+        "runs_x_m": [
+          [
+            -0.1034855628956044,
+            0.10097682197692308
+          ]
+        ],
+        "run_widths_m": [
+          0.20446238487252746
+        ],
+        "overall_width_m": 0.20446238487252746
+      },
+      {
+        "pixel_y": 260,
+        "z_m": 1.4389091078076923,
+        "runs_x_m": [
+          [
+            -0.19254586550879121,
+            0.19129149504945056
+          ]
+        ],
+        "run_widths_m": [
+          0.38383736055824175
+        ],
+        "overall_width_m": 0.38383736055824175
+      },
+      {
+        "pixel_y": 280,
+        "z_m": 1.4138216986208791,
+        "runs_x_m": [
+          [
+            -0.22515949745164834,
+            0.22139638607362638
+          ]
+        ],
+        "run_widths_m": [
+          0.44655588352527475
+        ],
+        "overall_width_m": 0.44655588352527475
+      },
+      {
+        "pixel_y": 310,
+        "z_m": 1.3761905848406593,
+        "runs_x_m": [
+          [
+            -0.2452294248010989,
+            0.24146631342307692
+          ]
+        ],
+        "run_widths_m": [
+          0.48669573822417583
+        ],
+        "overall_width_m": 0.48669573822417583
+      },
+      {
+        "pixel_y": 335,
+        "z_m": 1.3448313233571427,
+        "runs_x_m": [
+          [
+            -0.25526438847582417,
+            0.25024690663846155
+          ]
+        ],
+        "run_widths_m": [
+          0.5055112951142857
+        ],
+        "overall_width_m": 0.5055112951142857
+      },
+      {
+        "pixel_y": 350,
+        "z_m": 1.326015766467033,
+        "runs_x_m": [
+          [
+            -0.2577731293945055,
+            0.25401001801648354
+          ]
+        ],
+        "run_widths_m": [
+          0.5117831474109891
+        ],
+        "overall_width_m": 0.5117831474109891
+      },
+      {
+        "pixel_y": 380,
+        "z_m": 1.2883846526868132,
+        "runs_x_m": [
+          [
+            -0.26529935215054945,
+            0.26153624077252746
+          ]
+        ],
+        "run_widths_m": [
+          0.5268355929230769
+        ],
+        "overall_width_m": 0.5268355929230769
+      },
+      {
+        "pixel_y": 400,
+        "z_m": 1.2632972435,
+        "runs_x_m": [
+          [
+            -0.27533431582527473,
+            0.27157120444725275
+          ]
+        ],
+        "run_widths_m": [
+          0.5469055202725275
+        ],
+        "overall_width_m": 0.5469055202725275,
+        "central_torso_or_pelvis_width_m": 0.5469055202725275,
+        "central_note": "torso"
+      },
+      {
+        "pixel_y": 420,
+        "z_m": 1.2382098343131867,
+        "runs_x_m": [
+          [
+            -0.2828605385813187,
+            -0.18251090183406593
+          ],
+          [
+            -0.17498467907802198,
+            0.1687128267813187
+          ],
+          [
+            0.1774934199967033,
+            0.2790974272032967
+          ]
+        ],
+        "run_widths_m": [
+          0.10034963674725275,
+          0.34369750585934067,
+          0.1016040072065934
+        ],
+        "overall_width_m": 0.5619579657846154,
+        "central_torso_or_pelvis_width_m": 0.34369750585934067,
+        "central_note": "torso"
+      },
+      {
+        "pixel_y": 460,
+        "z_m": 1.1880350159395603,
+        "runs_x_m": [
+          [
+            -0.3029304659307692,
+            -0.20634394056153846
+          ],
+          [
+            -0.1586778631065934,
+            0.15366038126923076
+          ],
+          [
+            0.20383519964285715,
+            0.3016760954714286
+          ]
+        ],
+        "run_widths_m": [
+          0.09658652536923076,
+          0.3123382443758242,
+          0.09784089582857143
+        ],
+        "overall_width_m": 0.6046065614021978,
+        "central_torso_or_pelvis_width_m": 0.3123382443758242,
+        "central_note": "torso"
+      },
+      {
+        "pixel_y": 480,
+        "z_m": 1.162947606752747,
+        "runs_x_m": [
+          [
+            -0.3204916523615385,
+            -0.22014201561428573
+          ],
+          [
+            -0.1498972698912088,
+            0.1461341585131868
+          ],
+          [
+            0.21888764515494505,
+            0.3179829114428571
+          ]
+        ],
+        "run_widths_m": [
+          0.10034963674725275,
+          0.2960314284043956,
+          0.09909526628791208
+        ],
+        "overall_width_m": 0.6384745638043956,
+        "central_torso_or_pelvis_width_m": 0.2960314284043956,
+        "central_note": "torso"
+      },
+      {
+        "pixel_y": 520,
+        "z_m": 1.1127727883791207,
+        "runs_x_m": [
+          [
+            -0.34307032062967036,
+            -0.23644883158571428
+          ],
+          [
+            -0.1498972698912088,
+            0.14738852897252747
+          ],
+          [
+            0.23519446112637363,
+            0.3418159501703297
+          ]
+        ],
+        "run_widths_m": [
+          0.10662148904395605,
+          0.29728579886373624,
+          0.10662148904395605
+        ],
+        "overall_width_m": 0.6848862708,
+        "central_torso_or_pelvis_width_m": 0.29728579886373624,
+        "central_note": "torso"
+      },
+      {
+        "pixel_y": 540,
+        "z_m": 1.0876853791923076,
+        "runs_x_m": [
+          [
+            -0.35435965476373626,
+            -0.25024690663846155
+          ],
+          [
+            -0.1524060108098901,
+            0.15115164035054945
+          ],
+          [
+            0.24899253617912087,
+            0.3531052843043956
+          ]
+        ],
+        "run_widths_m": [
+          0.10411274812527473,
+          0.3035576511604396,
+          0.10411274812527473
+        ],
+        "overall_width_m": 0.7074649390681319,
+        "central_torso_or_pelvis_width_m": 0.3035576511604396,
+        "central_note": "torso"
+      },
+      {
+        "pixel_y": 580,
+        "z_m": 1.0375105608186812,
+        "runs_x_m": [
+          [
+            -0.36941210027582416,
+            -0.27784305674395604
+          ],
+          [
+            -0.16369534494395604,
+            0.16369534494395604
+          ],
+          [
+            0.27784305674395604,
+            0.36815772981648354
+          ]
+        ],
+        "run_widths_m": [
+          0.09156904353186814,
+          0.3273906898879121,
+          0.09031467307252747
+        ],
+        "overall_width_m": 0.7375698300923077,
+        "central_torso_or_pelvis_width_m": 0.3273906898879121,
+        "central_note": "belt/trousers; clothing included"
+      },
+      {
+        "pixel_y": 600,
+        "z_m": 1.012423151631868,
+        "runs_x_m": [
+          [
+            -0.37693832303186814,
+            -0.2979129840934066
+          ],
+          [
+            -0.16745845632197803,
+            0.16996719724065934
+          ],
+          [
+            0.29916735455274723,
+            0.37568395257252746
+          ]
+        ],
+        "run_widths_m": [
+          0.07902533893846155,
+          0.3374256535626374,
+          0.07651659801978022
+        ],
+        "overall_width_m": 0.7526222756043957,
+        "central_torso_or_pelvis_width_m": 0.3374256535626374,
+        "central_note": "belt/trousers; clothing included"
+      },
+      {
+        "pixel_y": 630,
+        "z_m": 0.9747920378516484,
+        "runs_x_m": [
+          [
+            -0.38948202762527473,
+            -0.3280178751175824
+          ],
+          [
+            -0.17623904953736264,
+            0.17623904953736264
+          ],
+          [
+            0.3280178751175824,
+            0.38948202762527473
+          ]
+        ],
+        "run_widths_m": [
+          0.061464152507692306,
+          0.35247809907472527,
+          0.061464152507692306
+        ],
+        "overall_width_m": 0.7789640552505495,
+        "central_torso_or_pelvis_width_m": 0.35247809907472527,
+        "central_note": "belt/trousers; clothing included"
+      },
+      {
+        "pixel_y": 660,
+        "z_m": 0.9371609240714286,
+        "runs_x_m": [
+          [
+            -0.4057888435967033,
+            -0.3531052843043956
+          ],
+          [
+            -0.19003712459010988,
+            0.19003712459010988
+          ],
+          [
+            0.3531052843043956,
+            0.4057888435967033
+          ]
+        ],
+        "run_widths_m": [
+          0.05268355929230769,
+          0.38007424918021976,
+          0.05268355929230769
+        ],
+        "overall_width_m": 0.8115776871934066,
+        "central_torso_or_pelvis_width_m": 0.38007424918021976,
+        "central_note": "belt/trousers; clothing included"
+      },
+      {
+        "pixel_y": 690,
+        "z_m": 0.8995298102912088,
+        "runs_x_m": [
+          [
+            -0.4145694368120879,
+            -0.3505965433857143
+          ],
+          [
+            -0.19756334734615386,
+            0.1988177178054945
+          ],
+          [
+            0.34934217292637365,
+            0.4133150663527473
+          ]
+        ],
+        "run_widths_m": [
+          0.06397289342637363,
+          0.39638106515164834,
+          0.06397289342637363
+        ],
+        "overall_width_m": 0.8278845031648352,
+        "central_torso_or_pelvis_width_m": 0.39638106515164834,
+        "central_note": "belt/trousers; clothing included"
+      },
+      {
+        "pixel_y": 720,
+        "z_m": 0.861898696510989,
+        "runs_x_m": [
+          [
+            -0.4246044004868132,
+            -0.34808780246703297
+          ],
+          [
+            -0.20007208826483516,
+            0.20132645872417582
+          ],
+          [
+            0.34808780246703297,
+            0.4233500300274725
+          ]
+        ],
+        "run_widths_m": [
+          0.07651659801978022,
+          0.401398546989011,
+          0.07526222756043956
+        ],
+        "overall_width_m": 0.8479544305142858,
+        "central_torso_or_pelvis_width_m": 0.401398546989011,
+        "central_note": "belt/trousers; clothing included"
+      },
+      {
+        "pixel_y": 760,
+        "z_m": 0.8117238781373627,
+        "runs_x_m": [
+          [
+            -0.4258587709461539,
+            -0.3907363980846154
+          ],
+          [
+            -0.36690335935714286,
+            -0.34808780246703297
+          ],
+          [
+            -0.2050895701021978,
+            0.21010705193956045
+          ],
+          [
+            0.3468334320076923,
+            0.36439461843846155
+          ],
+          [
+            0.3907363980846154,
+            0.4233500300274725
+          ]
+        ],
+        "run_widths_m": [
+          0.035122372861538464,
+          0.01881555689010989,
+          0.4151966220417582,
+          0.017561186430769232,
+          0.032613631942857144
+        ],
+        "overall_width_m": 0.8492088009736264,
+        "central_torso_or_pelvis_width_m": 0.4151966220417582,
+        "central_note": "belt/trousers; clothing included"
+      },
+      {
+        "pixel_y": 785,
+        "z_m": 0.7803646166538462,
+        "runs_x_m": [
+          [
+            -0.4170781777307692,
+            -0.3844645457879121
+          ],
+          [
+            -0.2088526814802198,
+            -0.005644667067032967
+          ],
+          [
+            0.005644667067032967,
+            0.2138701633175824
+          ],
+          [
+            0.3807014344098901,
+            0.4133150663527473
+          ]
+        ],
+        "run_widths_m": [
+          0.032613631942857144,
+          0.2032080144131868,
+          0.20822549625054945,
+          0.032613631942857144
+        ],
+        "overall_width_m": 0.8303932440835164
+      },
+      {
+        "pixel_y": 810,
+        "z_m": 0.7490053551703297,
+        "runs_x_m": [
+          [
+            -0.3970082503813187,
+            -0.37693832303186814
+          ],
+          [
+            -0.2151245337769231,
+            -0.010662148904395605
+          ],
+          [
+            0.010662148904395605,
+            0.21637890423626374
+          ],
+          [
+            0.37568395257252746,
+            0.3869732867065934
+          ]
+        ],
+        "run_widths_m": [
+          0.02006992734945055,
+          0.20446238487252746,
+          0.20571675533186815,
+          0.011289334134065934
+        ],
+        "overall_width_m": 0.7839815370879121
+      },
+      {
+        "pixel_y": 860,
+        "z_m": 0.6862868322032968,
+        "runs_x_m": [
+          [
+            -0.22139638607362638,
+            -0.029477705794505496
+          ],
+          [
+            0.028223335335164836,
+            0.2239051269923077
+          ]
+        ],
+        "run_widths_m": [
+          0.19191868027912087,
+          0.19568179165714286
+        ],
+        "overall_width_m": 0.4453015130659341
+      },
+      {
+        "pixel_y": 920,
+        "z_m": 0.6110246046428572,
+        "runs_x_m": [
+          [
+            -0.22515949745164834,
+            -0.04453015130659341
+          ],
+          [
+            0.04578452176593407,
+            0.22265075653296704
+          ]
+        ],
+        "run_widths_m": [
+          0.18062934614505494,
+          0.17686623476703298
+        ],
+        "overall_width_m": 0.4478102539846154
+      },
+      {
+        "pixel_y": 970,
+        "z_m": 0.5483060816758242,
+        "runs_x_m": [
+          [
+            -0.23143134974835164,
+            -0.06836319003406593
+          ],
+          [
+            0.05832822635934066,
+            0.2176332746956044
+          ]
+        ],
+        "run_widths_m": [
+          0.1630681597142857,
+          0.15930504833626374
+        ],
+        "overall_width_m": 0.44906462444395606
+      },
+      {
+        "pixel_y": 1020,
+        "z_m": 0.4855875587087912,
+        "runs_x_m": [
+          [
+            -0.23770320204505493,
+            -0.08216126508681319
+          ],
+          [
+            0.0846700060054945,
+            0.22892260882967033
+          ]
+        ],
+        "run_widths_m": [
+          0.15554193695824176,
+          0.14425260282417582
+        ],
+        "overall_width_m": 0.46662581087472527
+      },
+      {
+        "pixel_y": 1060,
+        "z_m": 0.4354127403351648,
+        "runs_x_m": [
+          [
+            -0.23394009066703297,
+            -0.10223119243626373
+          ],
+          [
+            0.1034855628956044,
+            0.22641386791098903
+          ]
+        ],
+        "run_widths_m": [
+          0.13170889823076923,
+          0.12292830501538461
+        ],
+        "overall_width_m": 0.46035395857802197
+      },
+      {
+        "pixel_y": 1100,
+        "z_m": 0.38523792196153844,
+        "runs_x_m": [
+          [
+            -0.24146631342307692,
+            -0.11352052657032967
+          ],
+          [
+            0.10599430381428572,
+            0.23394009066703297
+          ]
+        ],
+        "run_widths_m": [
+          0.12794578685274727,
+          0.12794578685274727
+        ],
+        "overall_width_m": 0.47540640409010987
+      },
+      {
+        "pixel_y": 1160,
+        "z_m": 0.3099756944010989,
+        "runs_x_m": [
+          [
+            -0.24397505434175826,
+            -0.13108171300109892
+          ],
+          [
+            0.12606423116373627,
+            0.23895757250439562
+          ]
+        ],
+        "run_widths_m": [
+          0.11289334134065934,
+          0.11289334134065934
+        ],
+        "overall_width_m": 0.48293262684615385
+      },
+      {
+        "pixel_y": 1220,
+        "z_m": 0.23471346684065933,
+        "runs_x_m": [
+          [
+            -0.24899253617912087,
+            -0.13484482437912088
+          ],
+          [
+            0.14487978805384616,
+            0.23519446112637363
+          ]
+        ],
+        "run_widths_m": [
+          0.1141477118,
+          0.09031467307252747
+        ],
+        "overall_width_m": 0.4841869973054945
+      },
+      {
+        "pixel_y": 1280,
+        "z_m": 0.1594512392802198,
+        "runs_x_m": [
+          [
+            -0.24773816571978022,
+            -0.15491475172857144
+          ],
+          [
+            0.1561691221879121,
+            0.24146631342307692
+          ]
+        ],
+        "run_widths_m": [
+          0.09282341399120879,
+          0.08529719123516484
+        ],
+        "overall_width_m": 0.48920447914285714
+      },
+      {
+        "pixel_y": 1320,
+        "z_m": 0.10927642090659341,
+        "runs_x_m": [
+          [
+            -0.25401001801648354,
+            -0.1649497154032967
+          ],
+          [
+            0.16369534494395604,
+            0.25024690663846155
+          ]
+        ],
+        "run_widths_m": [
+          0.08906030261318681,
+          0.0865515616945055
+        ],
+        "overall_width_m": 0.5042569246549451
+      },
+      {
+        "pixel_y": 1360,
+        "z_m": 0.059101602532967035,
+        "runs_x_m": [
+          [
+            -0.289132390878022,
+            -0.1624409744846154
+          ],
+          [
+            0.15993223356593406,
+            0.28662364995934064
+          ]
+        ],
+        "run_widths_m": [
+          0.1266914163934066,
+          0.1266914163934066
+        ],
+        "overall_width_m": 0.5757560408373626
+      },
+      {
+        "pixel_y": 1390,
+        "z_m": 0.021470488752747253,
+        "runs_x_m": [
+          [
+            -0.3029304659307692,
+            -0.20383519964285715
+          ],
+          [
+            0.19380023596813187,
+            0.29916735455274723
+          ]
+        ],
+        "run_widths_m": [
+          0.09909526628791208,
+          0.10536711858461538
+        ],
+        "overall_width_m": 0.6020978204835165
+      }
+    ]
+  }
+}

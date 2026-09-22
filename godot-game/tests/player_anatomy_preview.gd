@@ -61,6 +61,8 @@ func _capture_body() -> void:
 	]:
 		portrait.set_view_angle(shot.angle)
 		await _capture(portrait.viewport, "player_%s.png" % shot.name)
+	if OS.get_environment("PLAYER_QA_MULTIVIEW") == "1":
+		await _capture_calibrated_views(portrait)
 	portrait.set_view_angle(-12.0)
 	portrait.camera.size = 0.72
 	portrait.camera.position = Vector3(0.0, 1.50, -3.5)
@@ -69,6 +71,38 @@ func _capture_body() -> void:
 	await _capture_shoulder_form(portrait)
 	portrait.queue_free()
 	await process_frame
+
+
+func _capture_calibrated_views(portrait) -> void:
+	# Match the supplied 1086x1448 reference frame: anatomical skull y36,
+	# sole y1401, centreline x533.5. Hair above the skull is excluded from scale.
+	var old_size: Vector2i = portrait.viewport.size
+	var old_transform: Transform3D = portrait.camera.transform
+	var old_camera_size: float = portrait.camera.size
+	var overrides: Dictionary = {}
+	var clay := StandardMaterial3D.new()
+	clay.albedo_color = Color(.62, .66, .70)
+	clay.roughness = .9
+	for mesh: MeshInstance3D in portrait.body.find_children("*", "MeshInstance3D", true, false):
+		overrides[mesh] = mesh.material_override
+	var scale := 1.712215677 / 1365.0
+	var height := scale * 1448.0
+	var center_z := .0076724137 - 47.0 * scale + height * .5
+	portrait.viewport.size = Vector2i(1086, 1448)
+	portrait.viewport.transparent_bg = true
+	portrait.camera.size = height
+	portrait.camera.position = Vector3(-9.5 * scale, center_z, -3.5)
+	portrait.camera.look_at(Vector3(-9.5 * scale, center_z, 0.0))
+	for shot in [{"name":"front", "angle":0.0}, {"name":"back", "angle":180.0}, {"name":"right", "angle":90.0}, {"name":"left", "angle":-90.0}]:
+		portrait.set_view_angle(shot.angle)
+		await _capture(portrait.viewport, "calibrated_%s.png" % shot.name)
+		for mesh in overrides: mesh.material_override = clay
+		await _capture(portrait.viewport, "calibrated_%s_clay.png" % shot.name)
+		for mesh in overrides: mesh.material_override = overrides[mesh]
+	portrait.viewport.transparent_bg = false
+	portrait.viewport.size = old_size
+	portrait.camera.transform = old_transform
+	portrait.camera.size = old_camera_size
 
 
 func _capture_shoulder_form(portrait) -> void:

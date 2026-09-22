@@ -48,3 +48,7 @@ English: Verified loading, drag orbit, wheel zoom, hand focus and full-body rese
 2026-09-22 목·어깨 흐름과 소매 연결 / Neck, shoulder and sleeve flow: 듬직한 체격과 기존 팔꿈치·전완을 보존하고 목·어깨 접합부와 상부 소매 원단을 다듬었습니다. 상체 비율에서 재질을 확인하고 형태 확인으로 조형을 살펴봅니다. Preserve the sturdy build and lower-arm shape while refining the neck, shoulder joins and upper-sleeve fabric. [제작·검증 / Production and validation](../../asset-staging/player_neck_arm_flow_20260922/VALIDATION.md).
 
 2026-09-22 참조 체형 비율 / Reference-guided proportions: 제공 사진을 참고해 흉곽·어깨 폭과 경사·위팔·팔꿈치 높이를 함께 조정했습니다. **상체 비율**과 **형태 확인**으로 검토할 수 있습니다. Refit the chest, shoulder frame and slope, upper arms and elbow placement from the supplied reference. Use Upper-body view and Shape inspection. [제작·검증 / Production and validation](../../asset-staging/player_reference_anatomy_20260922/VALIDATION.md).
+
+2026-09-22 전신 4방향 비율 / Four-view full-body proportions: 전신의 허리·골반·팔·다리·부츠까지 함께 맞췄습니다. **사진 비율 비교**를 누르면 정면·후면·양측면 사진과 실제 게임 렌더를 슬라이더·실루엣 윤곽으로 비교합니다. 뷰어 서버는 검토 페이지와 명시한 참조·렌더 파일만 추가 제공하며 전체 리포지터리를 공개하지 않습니다.
+
+English: Fit the complete waist, pelvis, arms, legs and boots. **Photo proportion comparison** opens four-view reference/render wipes and silhouette overlays. The local server exposes only the explicitly listed review artifacts. [제작·검증 / Production and validation](../../asset-staging/player_multiview_proportions_20260922/VALIDATION.md).
