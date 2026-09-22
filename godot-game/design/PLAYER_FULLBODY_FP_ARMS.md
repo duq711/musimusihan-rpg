@@ -248,3 +248,12 @@ English: Refit the whole body from four supplied reference views, superseding pr
 현재 GLB: `3f4638ee…`. 제작 원본·비교 사진·실측·게임 검사와 실제 렌더는 `asset-staging/player_multiview_proportions_20260922/VALIDATION.md`에 기록합니다. 360° 뷰어의 **사진 비율 비교**에서 네 방향의 사진과 모델을 겹쳐 살펴볼 수 있습니다. 사진은 정사영 스캔이 아니므로 남은 비율 차이를 문서에 수치로 명시하며 완전 복제라고 간주하지 않습니다.
 
 English: Production, reference measurements, checks and actual captures are documented in the validation folder above. The viewer's photo-comparison link supports four-view wipe and silhouette overlays. Quantify remaining differences rather than claiming exact reconstruction from uncalibrated photographs.
+
+
+## 2026-09-22 겨드랑이 국소 보정 / Local axilla refinement
+
+사용자가 승인한 네 방향 전신 비율을 유지하면서 가슴·등과 위팔 사이의 깊은 수직 홈을 완화했습니다. 기존 겨드랑이 공간과 X/Z 실루엣은 보존했고, 앞뒤 깊이만 최대 9.21mm 조정했습니다. 다른 메시 17개·텍스처 12개·UV·재질·삼각형 연결은 동일합니다. 짧은 소매 이음선과 기존 천 무늬 방향 차이는 남아 있습니다.
+
+Softened the deep chest/back-to-arm groove while retaining the approved four-view body proportions. Depth changes are local (maximum 9.21mm); X/Z silhouette, underarm opening, 17 other meshes, 12 textures, UVs, materials and topology are preserved. Minor garment seams and textile-direction differences remain.
+
+Source/result/audit: `asset-staging/player_axilla_refinement_20260922/VALIDATION.md`. Final GLB SHA-256: `e54f38efcba95a849eccbe958a6ab059a647de171101ab15cf851ee2ae61532c`. 에셋 검사 3개·본편 외형 연결 검사 1개와 실제 렌더 검토를 통과했습니다. Three asset checks, the full-game appearance integration check and actual render review passed. 360° 뷰어에 겨드랑이 확대 및 동일 카메라 전후 비교를 추가했습니다. The viewer includes an axilla closeup and matched-camera before/after comparison.

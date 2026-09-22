@@ -52,3 +52,10 @@ English: Verified loading, drag orbit, wheel zoom, hand focus and full-body rese
 2026-09-22 전신 4방향 비율 / Four-view full-body proportions: 전신의 허리·골반·팔·다리·부츠까지 함께 맞췄습니다. **사진 비율 비교**를 누르면 정면·후면·양측면 사진과 실제 게임 렌더를 슬라이더·실루엣 윤곽으로 비교합니다. 뷰어 서버는 검토 페이지와 명시한 참조·렌더 파일만 추가 제공하며 전체 리포지터리를 공개하지 않습니다.
 
 English: Fit the complete waist, pelvis, arms, legs and boots. **Photo proportion comparison** opens four-view reference/render wipes and silhouette overlays. The local server exposes only the explicitly listed review artifacts. [제작·검증 / Production and validation](../../asset-staging/player_multiview_proportions_20260922/VALIDATION.md).
+
+
+### 겨드랑이 연결 비교 / Axilla review
+
+`/?view=axilla` opens the current game model at the refined chest/upper-arm junction. `겨드랑이 확대` focuses that area; free rotation, zoom and shape mode remain available. `/axilla/compare.html` compares the preserved baseline and final actual Godot renders at identical front, oblique and rear cameras, in cloth and clay modes. Only those 12 named images are served.
+
+겨드랑이 확대와 수정 전후 비교를 추가했습니다. 전신 비율을 보존하고 깊은 홈을 완화한 결과와 검증은 `asset-staging/player_axilla_refinement_20260922/VALIDATION.md`에 기록했습니다. The approved full-body proportions are retained; the production asset, source and validation are documented there.

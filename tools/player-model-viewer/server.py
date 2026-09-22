@@ -15,6 +15,13 @@ for view in ('front', 'back', 'right', 'left'):
     for suffix in ('', '_clay'):
         name = f'calibrated_{view}{suffix}.png'
         REVIEW_FILES[f'/godot-game/artifacts/visual_qa/player_appearance/multiview_proportions_20260922/{name}'] = CAPTURES / name
+AXILLA = ROOT / 'asset-staging/player_axilla_refinement_20260922'
+REVIEW_FILES['/axilla/compare.html'] = AXILLA / 'compare.html'
+for revision, folder in [('before', 'axilla_baseline_20260922'), ('after', 'axilla_refinement_final_20260922')]:
+    for view in ('front', 'oblique', 'rear'):
+        for suffix in ('', '_clay'):
+            name = f'axilla_{view}{suffix}.png'
+            REVIEW_FILES[f'/axilla/{revision}/{name}'] = ROOT / 'godot-game/artifacts/visual_qa/player_appearance' / folder / name
 class Handler(SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs): super().__init__(*args, directory=str(VIEWER), **kwargs)
     def do_GET(self):

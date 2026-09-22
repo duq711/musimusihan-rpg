@@ -69,6 +69,8 @@ func _capture_body() -> void:
 	portrait.camera.look_at(Vector3(0.0, 1.50, 0.0))
 	await _capture(portrait.viewport, "player_face_detail.png")
 	await _capture_shoulder_form(portrait)
+	if OS.get_environment("PLAYER_QA_AXILLA") == "1":
+		await _capture_axilla_detail(portrait)
 	portrait.queue_free()
 	await process_frame
 
@@ -141,6 +143,31 @@ func _capture_shoulder_form(portrait) -> void:
 	portrait.camera.transform = previous_transform
 	portrait.camera.size = previous_size
 	portrait.viewport.size = previous_viewport_size
+
+
+func _capture_axilla_detail(portrait) -> void:
+	# Same camera for before/after review of the actual production mesh.
+	portrait.set_view_angle(0.0)
+	portrait.viewport.size = Vector2i(900, 900)
+	portrait.camera.size = .33
+	var center := Vector3(-.185, 1.345, 0.0)
+	var originals: Dictionary = {}
+	var clay := StandardMaterial3D.new()
+	clay.albedo_color = Color(.56, .59, .61)
+	clay.roughness = .9
+	for mesh: MeshInstance3D in portrait.body.find_children("*", "MeshInstance3D", true, false):
+		originals[mesh] = mesh.material_override
+	for shot in [
+		{"name":"front", "offset":Vector3(0.0, .025, -1.5)},
+		{"name":"oblique", "offset":Vector3(-.90, .08, -1.20)},
+		{"name":"rear", "offset":Vector3(0.0, .025, 1.5)},
+	]:
+		portrait.camera.position = center + shot.offset
+		portrait.camera.look_at(center, Vector3.UP)
+		await _capture(portrait.viewport, "axilla_%s.png" % shot.name)
+		for mesh in originals: mesh.material_override = clay
+		await _capture(portrait.viewport, "axilla_%s_clay.png" % shot.name)
+		for mesh in originals: mesh.material_override = originals[mesh]
 
 
 func _capture(viewport: SubViewport, file_name: String) -> void:
