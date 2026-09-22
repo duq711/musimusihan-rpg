@@ -59,3 +59,12 @@ English: Fit the complete waist, pelvis, arms, legs and boots. **Photo proportio
 `/?view=axilla` opens the current game model at the refined chest/upper-arm junction. `겨드랑이 확대` focuses that area; free rotation, zoom and shape mode remain available. `/axilla/compare.html` compares the preserved baseline and final actual Godot renders at identical front, oblique and rear cameras, in cloth and clay modes. Only those 12 named images are served.
 
 겨드랑이 확대와 수정 전후 비교를 추가했습니다. 전신 비율을 보존하고 깊은 홈을 완화한 결과와 검증은 `asset-staging/player_axilla_refinement_20260922/VALIDATION.md`에 기록했습니다. The approved full-body proportions are retained; the production asset, source and validation are documented there.
+
+
+### T자 자세 / T pose
+
+`/?pose=t`로 현재 모델의 T자 자세를 엽니다. `T자 자세` 버튼으로 원래 자세와 전환할 수 있고, 회전·확대·전신 맞춤도 유지됩니다. 뷰어에서 팔과 손을 수평으로 펼치는 확인용 자세이며, 게임 GLB 파일은 변경하지 않습니다. 원본 메시 버퍼를 보존하므로 반복 전환해도 변형이 누적되지 않습니다.
+
+Open `/?pose=t` to inspect the current model in a T pose. The T-pose button toggles back to the exact source geometry; free rotation, zoom and fit remain available. This is a reversible viewer inspection pose for the static asset, not an animation-ready skeleton or a replacement game asset. The shoulder transition includes a local cloth correction for raised arms.
+
+검증 / Validation: `node tools/player-model-viewer/pose.test.mjs` loads the actual production GLB and checks horizontal elbow/wrist guides, preserved limb lengths, nine target surfaces, finite deformation and positive Jacobians, shared shoulder/wrist boundaries, exact reset after repeated toggles and unchanged production file hash. PASS: 1.753m posed span, 765 shared boundary pairs, maximum join gap 0.0003mm. Browser front/back and pose-toggle behavior were visually reviewed. Production GLB SHA-256 remains `e54f38efcba95a849eccbe958a6ab059a647de171101ab15cf851ee2ae61532c`.
