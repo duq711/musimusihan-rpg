@@ -257,3 +257,10 @@ English: Production, reference measurements, checks and actual captures are docu
 Softened the deep chest/back-to-arm groove while retaining the approved four-view body proportions. Depth changes are local (maximum 9.21mm); X/Z silhouette, underarm opening, 17 other meshes, 12 textures, UVs, materials and topology are preserved. Minor garment seams and textile-direction differences remain.
 
 Source/result/audit: `asset-staging/player_axilla_refinement_20260922/VALIDATION.md`. Final GLB SHA-256: `e54f38efcba95a849eccbe958a6ab059a647de171101ab15cf851ee2ae61532c`. 에셋 검사 3개·본편 외형 연결 검사 1개와 실제 렌더 검토를 통과했습니다. Three asset checks, the full-game appearance integration check and actual render review passed. 360° 뷰어에 겨드랑이 확대 및 동일 카메라 전후 비교를 추가했습니다. The viewer includes an axilla closeup and matched-camera before/after comparison.
+
+
+### 2026-09-22 T자 팔 변형 재검토 / T-pose arm correction
+
+T자 검토 자세에서 팔꿈치가 부풀고 어깨가 꺼지며 겨드랑이가 날개처럼 접히던 변형을 수정했습니다. 실제 삼각형 단면을 검사하고, 별도 T자 GLB·Blender 원본과 정면·사선·후면 렌더를 `asset-staging/player_tpose_anatomy_20260922/`에 저장했습니다. 승인된 게임 기본 자세는 그대로이며 뷰어의 T자 전환에 보정이 적용됩니다. 세부 결과는 해당 폴더의 `VALIDATION.md`를 확인합니다.
+
+English: Corrected the swollen elbow, collapsed shoulder roof and folded inner underarm in the inspection T pose. Independent section checks, a separate static T-pose GLB/Blender source and actual renders are saved in `asset-staging/player_tpose_anatomy_20260922/`. The approved production rest pose remains unchanged.
