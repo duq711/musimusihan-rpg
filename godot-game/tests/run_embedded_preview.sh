@@ -51,6 +51,7 @@ case "$preview_name" in
 	reference_sword_motion_preview.gd) preview_pass_marker='^REFERENCE SWORD MOTION PREVIEW PASS:' ;;
 	reference_sword_overhead_review_preview.gd) preview_pass_marker='^REFERENCE SWORD OVERHEAD REVIEW PREVIEW PASS:' ;;
 	blacksmith_preview.gd) preview_pass_marker='^BLACKSMITH PREVIEW PASS:' ;;
+	player_anatomy_preview.gd) preview_pass_marker='^PLAYER ANATOMY PREVIEW PASS:' ;;
 	player_appearance_preview.gd) preview_pass_marker='^PLAYER APPEARANCE PREVIEW PASS:' ;;
 	performance_preview.gd) preview_pass_marker='^PERFORMANCE PREVIEW PASS:' ;;
 	dark_fantasy_scene_preview.gd) preview_pass_marker='^DARK FANTASY SCENE PREVIEW PASS:' ;;

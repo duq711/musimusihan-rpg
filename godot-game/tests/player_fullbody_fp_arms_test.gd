@@ -23,8 +23,11 @@ func _run() -> void:
 		if not part_name.begins_with("Gravebound_FP_"): continue
 		var bounds := AABB()
 		var first := true
-		var forearm := AABB()
-		var forearm_first := true
+		# Thin cross-sections measure thickness without counting the depth
+		# traveled by the sloping forearm after the elbow-height adjustment.
+		var forearm_heights: Array[float] = [1.03, 1.07, 1.11]
+		var forearm_sections: Array[AABB] = [AABB(), AABB(), AABB()]
+		var forearm_samples: Array[int] = [0, 0, 0]
 		var wrist_section := AABB()
 		var wrist_first := true
 		var uses_outfit_material := false
@@ -44,7 +47,9 @@ func _run() -> void:
 			for vertex: Vector3 in part.mesh.surface_get_arrays(surface)[Mesh.ARRAY_VERTEX]:
 				var point := body.to_local(part.to_global(vertex))
 				if is_blended_sleeve:
-					check(point.y > 1.17, "textile blend is confined above the lower sleeve")
+					# The anatomical refit lowers the elbow by 26 mm; the baked
+					# sleeve transition follows that geometry while the cuff stays fixed.
+					check(point.y > 1.14, "textile blend is confined above the lower sleeve")
 				if part_name.ends_with("_Hand"):
 					# Measure the same cuff section in its original frame after palm rotation.
 					var side_sign := -1.0 if "_L_" in part_name else 1.0
@@ -55,9 +60,12 @@ func _run() -> void:
 					if wrist_point.y > .841 and wrist_point.y < .859:
 						if wrist_first: wrist_section = AABB(wrist_point, Vector3.ZERO); wrist_first = false
 						else: wrist_section = wrist_section.expand(wrist_point)
-				if part_name.ends_with("_Arm") and point.y > 1.02 and point.y < 1.12:
-					if forearm_first: forearm = AABB(point, Vector3.ZERO); forearm_first = false
-					else: forearm = forearm.expand(point)
+				if part_name.ends_with("_Arm"):
+					for section in forearm_heights.size():
+						if absf(point.y - forearm_heights[section]) < .004:
+							if forearm_samples[section] == 0: forearm_sections[section] = AABB(point, Vector3.ZERO)
+							else: forearm_sections[section] = forearm_sections[section].expand(point)
+							forearm_samples[section] += 1
 				if first: bounds = AABB(point,Vector3.ZERO); first = false
 				else: bounds = bounds.expand(point)
 			uses_outfit_material = uses_outfit_material or is_cloth
@@ -68,7 +76,8 @@ func _run() -> void:
 		if part_name.ends_with("_Arm"):
 			check(uses_outfit_material, "sleeve cloth uses the matched outfit material")
 			check(uses_blended_sleeve, "upper sleeve uses the baked textile transition")
-			check(not forearm_first and forearm.size.x < .14 and forearm.size.z < .13, "forearm no longer inflated by first-person proportions")
+			for section in forearm_heights.size():
+				check(forearm_samples[section] > 20 and forearm_sections[section].size.x < .14 and forearm_sections[section].size.z < .13, "forearm thickness stays fitted to body at height " + str(forearm_heights[section]))
 			check(bounds.end.y > 1.42 and bounds.end.y < 1.46, "sleeve upper end retains its fitted shoulder height")
 			check(bounds.position.y > .86 and bounds.position.y < .89, "pre-wrist-edit sleeve cuff restored")
 		else:

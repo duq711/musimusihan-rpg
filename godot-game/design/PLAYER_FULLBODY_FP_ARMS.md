@@ -228,3 +228,13 @@ English: Preserve the sturdy source build while making localized corrections. Ad
 원단 연결은 UV 좌표 보간 대신 표면의 색과 노멀을 혼합해 상부 소매 전용 PBR 텍스처로 베이크한다. 기존 UV와 하단 소매·피부 재질은 보존한다. 얼굴 1.51m 위와 다른 16개 메시도 유지한다. 원본 비트맵과 일인칭 원본 에셋은 변경하지 않는다. 제작·검증과 실제 렌더 근거는 `asset-staging/player_neck_arm_flow_20260922/VALIDATION.md`에 기록한다.
 
 English: Bake a surface-color and normal blend into standard PBR maps for the upper sleeves. Preserve original UVs, lower-sleeve and skin materials, the face above 1.51m and the other sixteen meshes. Source bitmaps and first-person assets remain unchanged. See the production folder above for validation and actual-render evidence.
+
+## 2026-09-22 — 제공 사진을 기준으로 상체 비율 재조정 / Reference-guided upper-body proportions
+
+사용자가 제공한 사진을 기준으로 국소적인 목·어깨 수정에서 상체 전체 비율 조정으로 범위를 넓혔습니다. 원통형 몸통의 앞뒤 두께를 줄이고 가슴·흉곽과 허리의 관계를 조정했습니다. 과도한 어깨 폭을 줄이고 경사를 복원했으며, 위팔의 부피와 팔꿈치 높이를 함께 바꿨습니다. 이번 요청은 이전의 팔꿈치·전완 형상 고정 조건을 대체합니다. 얼굴·손·손목·하의와 기존 복장은 보존합니다.
+
+English: The supplied reference broadens the task from local neck/shoulder polishing to overall upper-body proportions. Reduce cylindrical torso depth, refine chest-to-waist form, narrow and slope the shoulders, and adjust upper-arm volume and elbow height together. This request supersedes the earlier restriction on elbow/forearm reshaping. Preserve the existing face, hands, cuffs, lower body and outfit.
+
+제작 원본과 수치·화면 검증: `asset-staging/player_reference_anatomy_20260922/VALIDATION.md`. 실제 렌더 13장과 별도 360° 뷰어는 현재 게임 GLB `6fc422a8…`를 확인했습니다. 사진은 큰 체형을 위한 참고이며 머리·헤어·상의 교체 요청으로 해석하지 않습니다.
+
+English: Production sources and numeric/visual evidence live in the validation folder above. Thirteen actual renders and the interactive viewer use current game GLB `6fc422a8…`. The photograph guides body proportions; it does not request replacing the supplied face, hair or outfit.
