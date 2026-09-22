@@ -210,3 +210,11 @@ English: `PLAYER_QA_SHOULDER_FORM=1` adds eight matching textured/clay views, re
 사용자가 마지막 어깨·팔 조형 결과가 더 부자연스럽다고 지적해 되돌리기를 요청했다. `9081104`의 모델을 철회하고, 바로 이전 `f279eec`의 바지만 남긴 전신 모델을 바이트 단위로 복원했다. 원본은 `asset-staging/player_trousers_only_20260922/gravebound_player_trousers_only.glb`, SHA256은 `f7ad57eddd4ac751daee53fcdb05bf627a749007f0989d9f344f735dfb2e2a77`이다. 얼굴·손·바지와 후드/코트 제거 상태는 그대로 유지한다. 마지막 조형 자료는 이력으로 보존하며 현재 게임에 사용하지 않는다.
 
 English: The user rejected the latest shoulder/arm sculpt as less natural. Restore the immediate predecessor from `f279eec` byte for byte, retaining the supplied face, hands, trousers and hood/coat removal. Keep the rejected sculpt as historical production material, not the active game model. Restoration evidence: `asset-staging/player_shoulder_rollback_20260922/`.
+
+## 2026-09-22 — 목과 어깨 체격 보강 / Strengthen the neck and shoulder build
+
+사용자가 복원본의 목·어깨를 더 듬직하게 요청했다. 기준은 복원한 `f279eec` 모델이며 철회된 재조형본은 사용하지 않는다. 노출 목 아래쪽은 가로 최대 16%, 앞뒤 최대 12% 넓히고 턱이 시작되는 1.51m 높이에서 변화가 0이 되도록 완화한다. 옷깃에도 같은 방향의 팽창을 적용한다. 양쪽 소매와 손은 원래 형상을 유지한 채 각각 18mm 바깥으로 이동하며, 상부 몸통을 연결해 어깨 폭을 총 36mm 늘린다. 승모근 윗윤곽은 최대 9mm 범위에서 완만하게 높인다. 얼굴·눈·하의·원본 직물/피부 텍스처와 일인칭 에셋은 유지한다.
+
+English: Start from the restored `f279eec` model. Thicken the lower neck by up to 16% in width and 12% in depth, fading to no change at 1.51m before the facial geometry. Expand the neckline accordingly. Translate each original sleeve and hand outward by 18mm without resculpting them, widening the shoulder frame by 36mm while blending the upper torso and lifting the trapezius silhouette by up to 9mm. Preserve the face, eyes, trousers, bitmap materials and first-person assets.
+
+제작·검증 / Production and validation: `asset-staging/player_sturdy_neck_shoulders_20260922/`. 360° 뷰어는 실제 게임 GLB를 공유한다. The interactive viewer uses the same game GLB.

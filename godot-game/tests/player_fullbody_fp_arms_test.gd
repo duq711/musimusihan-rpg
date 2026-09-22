@@ -36,7 +36,8 @@ func _run() -> void:
 					var side_sign := -1.0 if "_L_" in part_name else 1.0
 					var pivot := Vector3(side_sign * .29, .87, -.075)
 					var elbow := Vector3(side_sign * .268, 1.155, -.004)
-					var wrist_point := pivot + Basis((elbow-pivot).normalized(), deg_to_rad(side_sign*90.0)) * (point - Vector3(side_sign*.015, 0, 0) - pivot)
+					# Undo the rigid 18mm shoulder-width offset before the palm rotation.
+					var wrist_point := pivot + Basis((elbow-pivot).normalized(), deg_to_rad(side_sign*90.0)) * (point - Vector3(side_sign*(.015 + .018), 0, 0) - pivot)
 					if wrist_point.y > .841 and wrist_point.y < .859:
 						if wrist_first: wrist_section = AABB(wrist_point, Vector3.ZERO); wrist_first = false
 						else: wrist_section = wrist_section.expand(wrist_point)

@@ -41,4 +41,6 @@ English: Verified loading, drag orbit, wheel zoom, hand focus and full-body rese
 
 가슴·등·어깨·위팔 형태 수정 / Resculpted chest-to-arm transitions: [형태 검증 기록](../../asset-staging/player_shoulder_form_20260922/VALIDATION.md). 상체 비율과 형태 확인 버튼으로 검토합니다. Use Upper-body view and Shape inspection for review.
 
-2026-09-22 복원 / Restoration: 사용자 요청으로 마지막 어깨 조형을 철회하고 `f279eec` 모델로 복귀했습니다. 현재 게임 GLB SHA256: `f7ad57eddd4ac751daee53fcdb05bf627a749007f0989d9f344f735dfb2e2a77`. The viewer serves the restored previous model, preserving the face, hands and trousers. Evidence: [복원 기록](../../asset-staging/player_shoulder_rollback_20260922/VALIDATION.md).
+2026-09-22 복원 / Restoration: 사용자 요청으로 마지막 어깨 조형을 철회하고 `f279eec` 모델로 복귀했습니다. 복원 시점 게임 GLB SHA256: `f7ad57eddd4ac751daee53fcdb05bf627a749007f0989d9f344f735dfb2e2a77`. The viewer serves the restored previous model, preserving the face, hands and trousers. Evidence: [복원 기록](../../asset-staging/player_shoulder_rollback_20260922/VALIDATION.md).
+
+2026-09-22 목·어깨 보강 / Sturdier neck and shoulders: 복원본에서 목 두께와 어깨 폭만 보강했습니다. 팔·손의 원래 형상을 유지합니다. Thicken the neck and broaden the shoulder frame on the restored model while preserving the original arm/hand shapes. [제작·검증 / Production and validation](../../asset-staging/player_sturdy_neck_shoulders_20260922/VALIDATION.md).
