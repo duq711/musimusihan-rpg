@@ -90,10 +90,10 @@ func _capture_body() -> void:
 		portrait.set_view_angle(shot.angle)
 		await _capture(portrait.viewport, "player_%s.png" % shot.name)
 	portrait.set_view_angle(-12.0)
-	portrait.camera.size = 0.72
-	portrait.camera.position = Vector3(0.0, 1.50, -3.5)
-	portrait.camera.look_at(Vector3(0.0, 1.50, 0.0))
-	await _capture(portrait.viewport, "player_face_detail.png")
+	portrait.camera.size = 0.84
+	portrait.camera.position = Vector3(0.0, 1.15, -3.5)
+	portrait.camera.look_at(Vector3(0.0, 1.15, 0.0))
+	await _capture(portrait.viewport, "player_outfit_detail.png")
 	if OS.get_environment("PLAYER_QA_FACE_DETAIL") == "1":
 		await _capture_face_detail(portrait)
 	if OS.get_environment("PLAYER_QA_UPPER_BODY_DETAIL") == "1":

@@ -4,7 +4,7 @@ extends RefCounted
 const MODEL_PATH := "res://assets/3d/player/gravebound_player.glb"
 const OUTFIT_PATH := "res://assets/3d/player/medival_outfit.glb"
 const BODY_LAYER := 1 << 17
-const APPEARANCE_ID := "gravebound_medival_cloth_v1"
+const APPEARANCE_ID := "gravebound_medival_outfit_only_v2"
 const CLOTH_SIMULATION := preload("res://scripts/player_cloth_simulation.gd")
 const RETIRED_OUTFIT_PARTS: Array[String] = [
 	"Gravebound_QuiltedTorso", "Gravebound_FP_L_Arm", "Gravebound_FP_R_Arm",
@@ -29,10 +29,12 @@ static func create_body() -> Node3D:
 	body.set_meta("appearance_id", APPEARANCE_ID)
 	body.set_meta("model_path", MODEL_PATH)
 	body.set_meta("outfit_path", OUTFIT_PATH)
-	for part_name in RETIRED_OUTFIT_PARTS:
-		var old_part := body.find_child(part_name, true, false) as MeshInstance3D
-		assert(old_part != null, "Missing old outfit part: " + part_name)
-		old_part.visible = false
+	# Keep the source GLB intact for gameplay and asset inspection, but render
+	# only the supplied garments in the player and inventory portrait.
+	var original_parts := body.find_children("*", "MeshInstance3D", true, false)
+	assert(original_parts.size() == 20, "The source player must keep all original mesh parts.")
+	for original_part in original_parts:
+		(original_part as MeshInstance3D).visible = false
 	var outfit_scene := load(OUTFIT_PATH) as PackedScene
 	assert(outfit_scene != null, "The supplied Medival clothing must be imported.")
 	var outfit := outfit_scene.instantiate() as Node3D
@@ -41,9 +43,7 @@ static func create_body() -> Node3D:
 	var hem_count := 0
 	for node in outfit.find_children("*", "MeshInstance3D", true, false):
 		var part := node as MeshInstance3D
-		if part.name.begins_with("Medival_Shoe") or part.name.begins_with("Medival_AnkleWrap"):
-			part.visible = false # The player's existing tall boots cover the trouser cuff.
-		elif "Hem" in str(part.name) and str(part.name).ends_with("Soft"):
+		if "Hem" in str(part.name) and str(part.name).ends_with("Soft"):
 			var controller := CLOTH_SIMULATION.new()
 			controller.name = "MedivalClothSimulation_" + str(part.name)
 			body.add_child(controller)

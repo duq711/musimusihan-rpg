@@ -106,6 +106,7 @@ func _inspect_shared_model(scene: Node3D) -> void:
 	_check(portrait.is_visible_in_tree() and portrait.can_process(), "the real portrait must remain visible and usable while the world is paused")
 	_check(portrait.viewport.own_world_3d and portrait.viewport.find_world_3d() != player.get_world_3d() and portrait.body.get_world_3d() == portrait.viewport.find_world_3d(), "portrait lighting and camera must be isolated from the playable world")
 	_check(portrait.camera.current and portrait.camera.get_viewport() == portrait.viewport, "portrait must render its live model with its own active 3D camera")
+	_check(portrait.camera.size > 1.58 and portrait.camera.size < 1.67 and absf(portrait.camera.position.y - 0.855) < 0.01, "the portrait must frame only the visible garment height")
 	_check(portrait.viewport.render_target_update_mode != SubViewport.UPDATE_DISABLED, "opening inventory must enable actual portrait rendering")
 	_check((player.camera.cull_mask & BODY_LAYER) == 0 and (portrait.camera.cull_mask & BODY_LAYER) != 0, "first-person view must exclude the full body while the portrait can see it")
 	_check((player.viewmodel_renderer.camera.cull_mask & BODY_LAYER) == 0, "the full body must not leak into the carried-equipment rendering")
@@ -140,8 +141,8 @@ func _inspect_shared_model(scene: Node3D) -> void:
 		if part.visible:
 			active_meshes.append(part)
 	var bounds := _body_bounds(body, active_meshes)
-	_check(bounds.size.y > 1.70 and bounds.size.y < 1.84 and bounds.size.x > 0.4 and bounds.size.x < 0.9 and bounds.size.z > 0.2 and bounds.size.z < 0.65, "the actual model must fit human proportions and the player capsule without oversized primitive parts")
-	_check(absf(bounds.position.y) < 0.02, "the actual model feet must meet the shared local ground origin")
+	_check(bounds.size.y > 1.3 and bounds.size.y < 1.5 and bounds.size.x > 0.4 and bounds.size.x < 0.9 and bounds.size.z > 0.2 and bounds.size.z < 0.65, "the visible outfit must retain its authored upper-shirt-to-trouser dimensions")
+	_check(bounds.position.y > 0.12 and bounds.position.y < 0.17, "the visible outfit must end at the trouser cuffs while bare feet and boots remain hidden")
 	_inspect_first_person_materials(player)
 	await process_frame
 
@@ -181,10 +182,12 @@ func _inspect_outfit_composite(body: Node3D, parts: Array[MeshInstance3D]) -> vo
 	var by_name: Dictionary = {}
 	for part in parts:
 		by_name[str(part.name)] = part
-	for old_name in APPEARANCE.RETIRED_OUTFIT_PARTS:
-		_check(by_name.has(old_name) and not (by_name.get(old_name) as MeshInstance3D).visible, "old garment geometry must be preserved but hidden: " + old_name)
-	for kept_name in ["Gravebound_AnatomicalHead", "Gravebound_Eyes", "Gravebound_FP_L_Hand", "Gravebound_FP_R_Hand", "Gravebound_Boot_L", "Gravebound_Boot_R"]:
-		_check(by_name.has(kept_name) and (by_name.get(kept_name) as MeshInstance3D).visible, "the existing head, hands and tall boots must remain visible: " + kept_name)
+	var hidden_originals := 0
+	for part in parts:
+		if str(part.name).begins_with("Gravebound_"):
+			_check(not part.visible, "every original head, eye, hand, boot and garment mesh must be hidden without deleting its source: " + str(part.name))
+			hidden_originals += 1
+	_check(hidden_originals == 20, "all twenty original meshes must stay in the scene but not render")
 	for garment_name in ["Medival_Belt", "Medival_Pants", "Medival_ShirtUpper"]:
 		_check(by_name.has(garment_name) and (by_name.get(garment_name) as MeshInstance3D).visible, "supplied rigid outfit part must be present and visible: " + garment_name)
 	for hem_name in ["Medival_HemBackSoft", "Medival_HemFrontSoft"]:

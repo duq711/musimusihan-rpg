@@ -45,11 +45,12 @@ func _ready() -> void:
 	camera.name = "CharacterCamera"
 	camera.projection = Camera3D.PROJECTION_ORTHOGONAL
 	camera.keep_aspect = Camera3D.KEEP_HEIGHT
-	camera.size = 1.955
-	camera.position = Vector3(0.0, 0.883, -3.5)
+	# Frame the visible shirt-to-trouser outfit, rather than the hidden head and boots.
+	camera.size = 1.63
+	camera.position = Vector3(0.0, 0.855, -3.5)
 	camera.cull_mask = APPEARANCE.BODY_LAYER
 	viewport.add_child(camera)
-	camera.look_at(Vector3(0.0, 0.883, 0.0))
+	camera.look_at(Vector3(0.0, 0.855, 0.0))
 	camera.current = true
 	var display := TextureRect.new()
 	display.name = "CharacterRender"

@@ -535,7 +535,7 @@ func run_feature(feature_id: String) -> void:
 			_open_inventory()
 			inventory_overlay.open_appearance_view()
 			inventory_overlay.player_portrait.set_view_angle(0.0)
-			inventory_overlay.set_status("플레이어 3D 외형 · 1인칭 장갑·양팔의 전신 적용 확인 · 회전 · F2로 시험 메뉴")
+			inventory_overlay.set_status("플레이어 3D 외형 · Medival 의상만 표시 · 회전 · F2로 시험 메뉴")
 		"player_cloth_motion":
 			_prepare_player_cloth_motion()
 			_hide_test_panel()
