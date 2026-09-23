@@ -878,7 +878,7 @@ func _equip_weapon(item_id: String) -> void:
 
 func _prepare_player_cloth_motion() -> void:
 	# This is the same DungeonPlayer and appearance used by the game. Only the
-	# observing camera changes; walking, turning and the garment run normally.
+	# observing camera changes; the source garment is static and unrigged.
 	_teleport(Vector3(0.0, 1.0, 10.0))
 	_cloth_original_camera_visible = player.camera.visible
 	_cloth_original_camera_current = player.camera.current
@@ -894,9 +894,9 @@ func _prepare_player_cloth_motion() -> void:
 	# it out of the third-person view even when combat updates child visibility.
 	player.camera.visible = false
 	cloth_observation_camera.make_current()
-	room_hint.text = "의상 움직임  /  WASD 걷기 · Shift 달리기 · 놓아 멈추기  /  F2 시험 메뉴"
-	_status("실제 플레이어를 뒤에서 관찰합니다 · 걷기·달리기·멈춤·방향 전환에서 의상 움직임 확인 · F2 복귀")
-	hud.show_event("WASD 걷기 · Shift 달리기 · 놓아 멈추기\n몸을 돌려 의상 반응 확인 · F2 복귀", 6.0)
+	room_hint.text = "의상 이동 관찰  /  WASD 걷기 · Shift 달리기  /  F2 시험 메뉴"
+	_status("실제 플레이어에서 원본 의상 형태 확인 · 걷기·달리기·방향 전환 · 천 물리는 미적용 · F2 복귀")
+	hud.show_event("WASD 걷기 · Shift 달리기 · F2 복귀\n원본 의상 형태 관찰 · 천 물리 미적용", 6.0)
 
 
 func _stop_cloth_observation() -> void:

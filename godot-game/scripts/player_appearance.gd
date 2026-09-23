@@ -4,8 +4,11 @@ extends RefCounted
 const MODEL_PATH := "res://assets/3d/player/gravebound_player.glb"
 const OUTFIT_PATH := "res://assets/3d/player/medival_outfit.glb"
 const BODY_LAYER := 1 << 17
-const APPEARANCE_ID := "gravebound_medival_outfit_only_v2"
-const CLOTH_SIMULATION := preload("res://scripts/player_cloth_simulation.gd")
+const APPEARANCE_ID := "gravebound_medival_source_outfit_v3"
+const OUTFIT_PARTS: Array[String] = [
+	"Medival_ShirtUpper", "Medival_Pants", "Medival_Belt",
+	"Medival_Shoe_L", "Medival_Shoe_R",
+]
 const RETIRED_OUTFIT_PARTS: Array[String] = [
 	"Gravebound_QuiltedTorso", "Gravebound_FP_L_Arm", "Gravebound_FP_R_Arm",
 	"Gravebound_Trousers_L", "Gravebound_Trousers_R",
@@ -40,16 +43,15 @@ static func create_body() -> Node3D:
 	var outfit := outfit_scene.instantiate() as Node3D
 	outfit.name = "MedivalOutfit"
 	body.add_child(outfit)
-	var hem_count := 0
+	var outfit_parts: Array[String] = []
 	for node in outfit.find_children("*", "MeshInstance3D", true, false):
 		var part := node as MeshInstance3D
-		if "Hem" in str(part.name) and str(part.name).ends_with("Soft"):
-			var controller := CLOTH_SIMULATION.new()
-			controller.name = "MedivalClothSimulation_" + str(part.name)
-			body.add_child(controller)
-			controller.configure(body, part)
-			hem_count += 1
-	assert(hem_count == 2, "Medival outfit needs both simulated hem panels.")
+		outfit_parts.append(str(part.name))
+	assert(outfit_parts.size() == OUTFIT_PARTS.size(), "The replacement Medival outfit must contain its five original clothing pieces.")
+	for name in OUTFIT_PARTS:
+		assert(name in outfit_parts, "Missing original Medival clothing piece: " + name)
+	# The supplied garment is an intact, unrigged source mesh. Deforming a
+	# separately cut hem here would reopen the shirt and corrupt its silhouette.
 	assign_body_layer(body)
 	return body
 

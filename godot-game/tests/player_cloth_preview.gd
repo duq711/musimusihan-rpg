@@ -1,7 +1,6 @@
 extends SceneTree
-## Windowless, real-renderer review of the playable player's moving cloth.
-## The only motion input is supplied to DungeonPlayer.advance_movement; the
-## garment and spring-driven hem are the same instances built by player_appearance.gd.
+## Windowless, real-renderer review of the source outfit on the playable player.
+## The unrigged garment stays intact while movement changes the player's pose.
 
 const APPEARANCE := preload("res://scripts/player_appearance.gd")
 const SIZE := Vector2i(960, 1200)
@@ -56,24 +55,24 @@ func _run() -> void:
 	camera.cull_mask |= APPEARANCE.BODY_LAYER
 	stage.add_child(camera)
 	camera.current = true
-	var hem := player.player_body.find_child("Medival_HemFrontSoft", true, false) as MeshInstance3D
-	if hem == null:
-		push_error("The production player has no simulated Medival hem.")
+	var shirt := player.player_body.find_child("Medival_ShirtUpper", true, false) as MeshInstance3D
+	if shirt == null:
+		push_error("The production player has no original Medival shirt.")
 		_failed = true
 	else:
 		for _frame in range(4):
 			await physics_frame
-		await _capture(viewport, camera, player, hem, "rest_front", Vector3(0.0, 0.0, -3.4))
+		await _capture(viewport, camera, player, shirt, "rest_front", Vector3(0.0, 0.0, -3.4))
 		await _advance(player, 18, Vector2(0.0, -1.0), false)
-		await _capture(viewport, camera, player, hem, "walk_front", Vector3(0.0, 0.0, -3.4))
-		await _capture(viewport, camera, player, hem, "walk_side", Vector3(3.4, 0.0, 0.0))
+		await _capture(viewport, camera, player, shirt, "walk_front", Vector3(0.0, 0.0, -3.4))
+		await _capture(viewport, camera, player, shirt, "walk_side", Vector3(3.4, 0.0, 0.0))
 		await _advance(player, 24, Vector2(0.0, -1.0), true)
-		await _capture(viewport, camera, player, hem, "sprint_front", Vector3(0.0, 0.0, -3.4))
+		await _capture(viewport, camera, player, shirt, "sprint_front", Vector3(0.0, 0.0, -3.4))
 		await _advance(player, 5, Vector2.ZERO, false)
-		await _capture(viewport, camera, player, hem, "stop_front", Vector3(0.0, 0.0, -3.4))
+		await _capture(viewport, camera, player, shirt, "stop_front", Vector3(0.0, 0.0, -3.4))
 		await _advance(player, 55, Vector2.ZERO, false)
-		await _capture(viewport, camera, player, hem, "settled_front", Vector3(0.0, 0.0, -3.4))
-		await _capture(viewport, camera, player, hem, "settled_back", Vector3(0.0, 0.0, 3.4))
+		await _capture(viewport, camera, player, shirt, "settled_front", Vector3(0.0, 0.0, -3.4))
+		await _capture(viewport, camera, player, shirt, "settled_back", Vector3(0.0, 0.0, 3.4))
 	viewport.queue_free()
 	await process_frame
 	var preserved := cursor == Input.mouse_mode and expedition == ExpeditionSession.capture_snapshot()
@@ -81,7 +80,7 @@ func _run() -> void:
 	var manifest := {
 		"display_driver": DisplayServer.get_name(),
 		"rendering_driver": RenderingServer.get_current_rendering_driver_name(),
-		"capture_kind": "Actual DungeonPlayer and spring-deformed outfit mesh in an isolated SubViewport",
+		"capture_kind": "Actual DungeonPlayer and intact source outfit mesh in an isolated SubViewport",
 		"model_sha256": FileAccess.get_sha256(APPEARANCE.MODEL_PATH),
 		"outfit_sha256": FileAccess.get_sha256(APPEARANCE.OUTFIT_PATH),
 		"cursor_and_expedition_preserved": preserved,
@@ -152,7 +151,7 @@ func _advance(player: DungeonPlayer, frames: int, input: Vector2, sprint: bool) 
 		await physics_frame
 
 
-func _capture(viewport: SubViewport, camera: Camera3D, player: DungeonPlayer, hem: MeshInstance3D, label: String, offset: Vector3) -> void:
+func _capture(viewport: SubViewport, camera: Camera3D, player: DungeonPlayer, shirt: MeshInstance3D, label: String, offset: Vector3) -> void:
 	camera.global_position = player.global_position + offset
 	camera.look_at(player.global_position, Vector3.UP)
 	for _frame in range(3):
@@ -168,5 +167,4 @@ func _capture(viewport: SubViewport, camera: Camera3D, player: DungeonPlayer, he
 		push_error("Could not save " + filename)
 		_failed = true
 		return
-	var vertices: PackedVector3Array = hem.mesh.surface_get_arrays(0)[Mesh.ARRAY_VERTEX]
-	_captures.append({"file": filename, "player_position": player.global_position, "velocity": player.velocity, "hem_sample": vertices[vertices.size() - 1]})
+	_captures.append({"file": filename, "player_position": player.global_position, "velocity": player.velocity, "shirt_bounds": shirt.mesh.get_aabb()})

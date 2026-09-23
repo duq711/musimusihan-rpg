@@ -1,0 +1,114 @@
+{
+  "source_directory": "Downloads",
+  "source_files_sha256": {
+    "Medival.blend": "41b353c5dab67527b79497bf8c39b3e25995be7966783594ae5cb000f7c58e9d",
+    "Medival.obj": "285a1910417304e6c3ba4f8cc337a05011e8778d8fdb2791b014ab4ef03e46ed",
+    "Medival.fbx": "17e7914147e70270980076123e45465be07a4615ac0c3392c01eece483967481",
+    "Medival.mtl": "69ca18e55d863b6ed9f4ecbed27b2dac5245095523c7e25d28166c7854b38265",
+    "Textures.rar": "7f7b84c962acef12c7e002a920fa8c7eb473d142dada54419ccbfded40897be0"
+  },
+  "source_same_as_previous_staging": true,
+  "method": "Original five source meshes; bake object transforms only; reconnect atlas; opaque materials; remove source 1m displacement and reduce normal-map strength.",
+  "objects": [
+    {
+      "name": "Medival_ShirtUpper",
+      "vertices": 84739,
+      "faces": 94405,
+      "bounds_blender_xyz": [
+        [
+          -0.602074,
+          -0.152105,
+          0.814511
+        ],
+        [
+          0.603701,
+          0.172549,
+          1.577126
+        ]
+      ],
+      "material": "Medival_ShirtUpper_Opaque"
+    },
+    {
+      "name": "Medival_Pants",
+      "vertices": 93565,
+      "faces": 96460,
+      "bounds_blender_xyz": [
+        [
+          -0.241042,
+          -0.127315,
+          0.306099
+        ],
+        [
+          0.240589,
+          0.149322,
+          1.104867
+        ]
+      ],
+      "material": "Medival_Pants_Opaque"
+    },
+    {
+      "name": "Medival_Belt",
+      "vertices": 50506,
+      "faces": 77544,
+      "bounds_blender_xyz": [
+        [
+          -0.153177,
+          -0.098035,
+          1.085618
+        ],
+        [
+          0.151724,
+          0.195313,
+          1.157536
+        ]
+      ],
+      "material": "Medival_Belt_Opaque"
+    },
+    {
+      "name": "Medival_Shoe_L",
+      "vertices": 22576,
+      "faces": 27780,
+      "bounds_blender_xyz": [
+        [
+          -0.306784,
+          -0.122669,
+          -0.00078
+        ],
+        [
+          -0.154278,
+          0.167521,
+          0.140297
+        ]
+      ],
+      "material": "Medival_Shoe_L_Opaque"
+    },
+    {
+      "name": "Medival_Shoe_R",
+      "vertices": 23157,
+      "faces": 28356,
+      "bounds_blender_xyz": [
+        [
+          0.153536,
+          -0.122104,
+          -0.000889
+        ],
+        [
+          0.307111,
+          0.168621,
+          0.14599
+        ]
+      ],
+      "material": "Medival_Shoe_R_Opaque"
+    }
+  ],
+  "textures": [
+    "16_DefaultMaterial_BaseColor.png",
+    "16_DefaultMaterial_Normal.png",
+    "16_DefaultMaterial_Roughness.png",
+    "16_DefaultMaterial_Metallic.png",
+    "16_DefaultMaterial_Opacity.png",
+    "16_DefaultMaterial_Height.png"
+  ],
+  "rigged": false,
+  "static_pose": true
+}

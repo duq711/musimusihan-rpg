@@ -106,7 +106,7 @@ func _inspect_shared_model(scene: Node3D) -> void:
 	_check(portrait.is_visible_in_tree() and portrait.can_process(), "the real portrait must remain visible and usable while the world is paused")
 	_check(portrait.viewport.own_world_3d and portrait.viewport.find_world_3d() != player.get_world_3d() and portrait.body.get_world_3d() == portrait.viewport.find_world_3d(), "portrait lighting and camera must be isolated from the playable world")
 	_check(portrait.camera.current and portrait.camera.get_viewport() == portrait.viewport, "portrait must render its live model with its own active 3D camera")
-	_check(portrait.camera.size > 1.58 and portrait.camera.size < 1.67 and absf(portrait.camera.position.y - 0.855) < 0.01, "the portrait must frame only the visible garment height")
+	_check(portrait.camera.size > 1.78 and portrait.camera.size < 1.86 and absf(portrait.camera.position.y - 0.79) < 0.01, "the portrait must frame the complete source outfit and shoes")
 	_check(portrait.viewport.render_target_update_mode != SubViewport.UPDATE_DISABLED, "opening inventory must enable actual portrait rendering")
 	_check((player.camera.cull_mask & BODY_LAYER) == 0 and (portrait.camera.cull_mask & BODY_LAYER) != 0, "first-person view must exclude the full body while the portrait can see it")
 	_check((player.viewmodel_renderer.camera.cull_mask & BODY_LAYER) == 0, "the full body must not leak into the carried-equipment rendering")
@@ -121,16 +121,15 @@ func _inspect_shared_model(scene: Node3D) -> void:
 			var world_mesh: MeshInstance3D = body_meshes[index]
 			var portrait_mesh: MeshInstance3D = portrait_meshes[index]
 			_check(world_mesh.name == portrait_mesh.name and world_mesh.visible == portrait_mesh.visible, "portrait and world body must have matching parts and active visibility: " + str(world_mesh.name))
-			if str(world_mesh.name).begins_with("Medival_Hem"):
-				_check(world_mesh.mesh != portrait_mesh.mesh and world_mesh.mesh.get_surface_count() == portrait_mesh.mesh.get_surface_count() and world_mesh.get_active_material(0) == portrait_mesh.get_active_material(0), "each live cloth hem needs its own deformable mesh with the same garment material in player and portrait")
-			else:
-				_check(world_mesh.mesh == portrait_mesh.mesh and world_mesh.material_override == portrait_mesh.material_override, "portrait and world body must share rigid geometry and material resources: " + str(world_mesh.name))
+			_check(world_mesh.mesh == portrait_mesh.mesh and world_mesh.material_override == portrait_mesh.material_override, "portrait and world body must share the intact source geometry and material resources: " + str(world_mesh.name))
 			_check(world_mesh.layers == BODY_LAYER and portrait_mesh.layers == BODY_LAYER, "every body mesh must use the dedicated character layer: " + str(world_mesh.name))
 			_check(world_mesh.mesh != null and world_mesh.mesh.get_surface_count() > 0, "body parts must have real mesh surfaces: " + str(world_mesh.name))
 			if world_mesh.visible:
 				for surface_index in range(world_mesh.mesh.get_surface_count()):
 					var material := world_mesh.mesh.surface_get_material(surface_index) as BaseMaterial3D
 					_check(material != null and material.shading_mode == BaseMaterial3D.SHADING_MODE_PER_PIXEL and not material.emission_enabled, "visible character surfaces must respond to real scene lighting instead of displaying unlit concept art")
+					if material != null:
+						_check(material.transparency == BaseMaterial3D.TRANSPARENCY_DISABLED, "replacement source garment must be opaque: " + str(world_mesh.name))
 	_inspect_supplied_body_hands(body_meshes)
 	_inspect_supplied_body_hands(portrait_meshes)
 	_inspect_outfit_composite(body, body_meshes)
@@ -141,8 +140,8 @@ func _inspect_shared_model(scene: Node3D) -> void:
 		if part.visible:
 			active_meshes.append(part)
 	var bounds := _body_bounds(body, active_meshes)
-	_check(bounds.size.y > 1.3 and bounds.size.y < 1.5 and bounds.size.x > 0.4 and bounds.size.x < 0.9 and bounds.size.z > 0.2 and bounds.size.z < 0.65, "the visible outfit must retain its authored upper-shirt-to-trouser dimensions")
-	_check(bounds.position.y > 0.12 and bounds.position.y < 0.17, "the visible outfit must end at the trouser cuffs while bare feet and boots remain hidden")
+	_check(bounds.size.y > 1.52 and bounds.size.y < 1.68 and bounds.size.x > 1.1 and bounds.size.x < 1.3 and bounds.size.z > 0.2 and bounds.size.z < 0.8, "the visible replacement outfit must retain its full source shirt-to-shoe dimensions and original sleeve span")
+	_check(bounds.position.y > -0.08 and bounds.position.y < 0.08, "the visible replacement outfit must include the original shoes at floor height")
 	_inspect_first_person_materials(player)
 	await process_frame
 
@@ -170,7 +169,7 @@ func _inspect_supplied_body_hands(parts: Array[MeshInstance3D]) -> void:
 				for vertex: Vector3 in part.mesh.surface_get_arrays(surface)[Mesh.ARRAY_VERTEX]:
 					highest = maxf(highest, (to_body * vertex).y)
 			_check(highest > 1.42 and highest < 1.46, "FP sleeve upper end must retain its fitted shoulder height")
-	_check(parts.size() == 25, "fullbody must retain its 20 original pieces and add the five supplied Medival garment pieces")
+	_check(parts.size() == 25, "fullbody must retain its 20 original pieces and add the five original Medival garment and shoe pieces")
 	for retired: String in ["Gravebound_PointHood", "Gravebound_InnerNeckCowl", "Gravebound_Mantle_L", "Gravebound_Mantle_R", "Gravebound_MantleBack", "Gravebound_CoatBackAndSides", "Gravebound_CoatSkirt_L", "Gravebound_CoatSkirt_R"]:
 		_check(not retired in names, "world body and portrait must omit removed hood, neck cloth and long coat tails: " + retired)
 	for side: String in ["L", "R"]:
@@ -188,19 +187,9 @@ func _inspect_outfit_composite(body: Node3D, parts: Array[MeshInstance3D]) -> vo
 			_check(not part.visible, "every original head, eye, hand, boot and garment mesh must be hidden without deleting its source: " + str(part.name))
 			hidden_originals += 1
 	_check(hidden_originals == 20, "all twenty original meshes must stay in the scene but not render")
-	for garment_name in ["Medival_Belt", "Medival_Pants", "Medival_ShirtUpper"]:
-		_check(by_name.has(garment_name) and (by_name.get(garment_name) as MeshInstance3D).visible, "supplied rigid outfit part must be present and visible: " + garment_name)
-	for hem_name in ["Medival_HemBackSoft", "Medival_HemFrontSoft"]:
-		var hem := by_name.get(hem_name) as MeshInstance3D
-		_check(hem != null and hem.visible and hem.mesh != null and hem.mesh is ArrayMesh, "each visible garment hem must have its own animated ArrayMesh: " + hem_name)
-		if hem == null or hem.mesh == null:
-			continue
-		var controller := body.find_child("MedivalClothSimulation_" + hem_name, false, false)
-		_check(controller != null and bool(controller.get_motion_state().get("configured", false)), "each hem must have its configured garment motion driver: " + hem_name)
-		if controller != null:
-			var rest: PackedVector3Array = controller.get_rest_vertices()
-			var live: PackedVector3Array = hem.mesh.surface_get_arrays(0)[Mesh.ARRAY_VERTEX]
-			_check(rest.size() >= 12 and rest.size() == live.size(), "each garment hem must retain the complete authored vertex topology: " + hem_name)
+	for garment_name in APPEARANCE.OUTFIT_PARTS:
+		_check(by_name.has(garment_name) and (by_name.get(garment_name) as MeshInstance3D).visible, "supplied original outfit part must be present and visible: " + garment_name)
+	_check(body.find_children("MedivalClothSimulation_*", "Node", true, false).is_empty(), "the intact source tunic must not be cut into simulated hem panels")
 
 
 func _inspect_first_person_materials(player: DungeonPlayer) -> void:

@@ -214,6 +214,6 @@ After the relevant headless checks, the audited embedded runner captures continu
 
 ## 플레이어 의상 움직임 / Player cloth motion
 
-`GODOT_TEST_TIMEOUT_SECONDS=360 ./tests/run_headless_tests.sh player_cloth_motion player_appearance`로 실제 이동·정지 후 변형과 전신 외형을 먼저 확인합니다. 이후 `PLAYER_CLOTH_QA_ITERATION=<새 이름> GODOT_PREVIEW_TIMEOUT_SECONDS=360 ./tests/run_embedded_preview.sh player_cloth_preview.gd`로 실제 `DungeonPlayer`의 정지·보행·질주·정지 후 앞/옆/뒤 일곱 화면을 창 없는 Vulkan 렌더러에서 촬영합니다. 결과는 `artifacts/visual_qa/player_cloth/<이름>/`에 저장됩니다. 초상이나 정적 360도 뷰어의 회전은 움직임 검증을 대체하지 않습니다.
+`GODOT_TEST_TIMEOUT_SECONDS=360 ./tests/run_headless_tests.sh player_cloth_motion player_appearance`로 실제 이동 중 원본 의상 메시가 유지되고 카메라가 복원되는지 확인합니다. 이후 `PLAYER_CLOTH_QA_ITERATION=<새 이름> GODOT_PREVIEW_TIMEOUT_SECONDS=360 ./tests/run_embedded_preview.sh player_cloth_preview.gd`로 실제 `DungeonPlayer`의 정지·보행·질주·정지 후 앞/옆/뒤 일곱 화면을 창 없는 Vulkan 렌더러에서 촬영합니다. 결과는 `artifacts/visual_qa/player_cloth/<이름>/`에 저장됩니다. 제공된 새 원본은 리그가 없는 정적 메시이므로 이 촬영은 천 물리를 검증하지 않습니다.
 
-Run the headless cloth and appearance checks first. The embedded preview then captures seven real-renderer views of the production player before, during, and after movement without taking focus, cursor, or audio control. It records source hashes and preserves the expedition state.
+Run the headless outfit observation and appearance checks first. The embedded preview then captures seven real-renderer views of the production player before, during, and after movement without taking focus, cursor, or audio control. It records source hashes and preserves the expedition state. The replacement source outfit is static and unrigged; this preview does not claim cloth physics.

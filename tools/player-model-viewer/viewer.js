@@ -38,7 +38,7 @@ try{
  const response=await fetch('/outfit-info.json');if(!response.ok)throw Error('의상 정보를 읽지 못했습니다.');outfitInfo=await response.json();if(!outfitInfo.available)throw Error('의상 GLB 파일이 없습니다.');
  outfit=(await new GLTFLoader().loadAsync('/outfit.glb?v='+outfitInfo.modified,p=>{loading.textContent=p.total?`의상 불러오는 중… ${Math.round(p.loaded/p.total*100)}%`:'의상 불러오는 중…';})).scene;
  scene.add(outfit);outfit.updateMatrixWorld(true);updateBounds();
- const meshNames=[];outfit.traverse(n=>{if(n.isMesh)meshNames.push(n.name);});if(!meshNames.length)throw Error('표시할 의상 메시가 없습니다.');ready=true;reset();loading.hidden=true;status.textContent=`의상 ${meshNames.length}개 메시만 표시 · 이동 효과는 게임 F2 테스트룸에서 확인`;
+ const meshNames=[];outfit.traverse(n=>{if(n.isMesh)meshNames.push(n.name);});if(!meshNames.length)throw Error('표시할 의상 메시가 없습니다.');ready=true;reset();loading.hidden=true;status.textContent=`원본 의상 ${meshNames.length}개 메시 · 정적 원본 자세`;
  // Read-only diagnostics: only the production outfit GLB is loaded.
  window.playerViewer={outfit,camera,controls,renderer,outfitInfo,meshNames};
 }catch(error){loading.textContent='의상을 불러오지 못했습니다. 새로고침해 주세요. '+error.message;status.textContent='불러오기 실패';console.error(error);}
