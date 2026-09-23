@@ -1,0 +1,215 @@
+{
+  "source": "Medival.blend",
+  "objects": [
+    {
+      "name": "Medival_ShirtUpper",
+      "vertices": 71964,
+      "faces": 81229,
+      "bounds_blender_xyz": [
+        [
+          -0.40336,
+          -0.16336,
+          0.83914
+        ],
+        [
+          0.40323,
+          0.15995,
+          1.56516
+        ]
+      ]
+    },
+    {
+      "name": "Medival_HemFrontSoft",
+      "vertices": 274,
+      "faces": 483,
+      "bounds_blender_xyz": [
+        [
+          -0.204,
+          0.01505,
+          0.80609
+        ],
+        [
+          0.20473,
+          0.2003,
+          1.02016
+        ]
+      ]
+    },
+    {
+      "name": "Medival_HemBackSoft",
+      "vertices": 270,
+      "faces": 488,
+      "bounds_blender_xyz": [
+        [
+          -0.20424,
+          -0.14896,
+          0.78955
+        ],
+        [
+          0.20419,
+          0.05599,
+          1.02022
+        ]
+      ]
+    },
+    {
+      "name": "Medival_Pants",
+      "vertices": 93565,
+      "faces": 96460,
+      "bounds_blender_xyz": [
+        [
+          -0.24707,
+          -0.13368,
+          0.14515
+        ],
+        [
+          0.2466,
+          0.15679,
+          1.01189
+        ]
+      ]
+    },
+    {
+      "name": "Medival_Belt",
+      "vertices": 50506,
+      "faces": 77544,
+      "bounds_blender_xyz": [
+        [
+          -0.16543,
+          -0.10588,
+          0.97762
+        ],
+        [
+          0.16386,
+          0.21094,
+          1.04954
+        ]
+      ]
+    }
+  ],
+  "soft_hems": [
+    {
+      "name": "Medival_HemBackSoft",
+      "anchor_blender_z": 1.020219326019287,
+      "anchor_godot_y": 1.020219326019287,
+      "anchor_select_epsilon": 0.003,
+      "pin_vertex_count_blender": 39,
+      "pin_vertex_indices_blender": [
+        12,
+        17,
+        39,
+        43,
+        52,
+        66,
+        72,
+        78,
+        85,
+        91,
+        99,
+        102,
+        105,
+        114,
+        122,
+        131,
+        136,
+        152,
+        157,
+        161,
+        170,
+        174,
+        179,
+        186,
+        191,
+        196,
+        204,
+        208,
+        214,
+        218,
+        222,
+        231,
+        235,
+        244,
+        265,
+        266,
+        267,
+        268,
+        269
+      ],
+      "triangles": 499,
+      "note": "Find imported glTF surface points at local Y within epsilon of anchor_godot_y; glTF UV splits can renumber vertices."
+    },
+    {
+      "name": "Medival_HemFrontSoft",
+      "anchor_blender_z": 1.0201568603515625,
+      "anchor_godot_y": 1.0201568603515625,
+      "anchor_select_epsilon": 0.003,
+      "pin_vertex_count_blender": 46,
+      "pin_vertex_indices_blender": [
+        26,
+        34,
+        39,
+        41,
+        47,
+        49,
+        53,
+        58,
+        60,
+        67,
+        72,
+        76,
+        83,
+        89,
+        94,
+        102,
+        104,
+        113,
+        117,
+        130,
+        144,
+        150,
+        154,
+        158,
+        160,
+        165,
+        169,
+        173,
+        180,
+        182,
+        190,
+        193,
+        197,
+        200,
+        209,
+        215,
+        218,
+        224,
+        231,
+        235,
+        237,
+        248,
+        251,
+        262,
+        272,
+        273
+      ],
+      "triangles": 500,
+      "note": "Find imported glTF surface points at local Y within epsilon of anchor_godot_y; glTF UV splits can renumber vertices."
+    }
+  ],
+  "included_textures": [
+    "16_DefaultMaterial_BaseColor.png",
+    "16_DefaultMaterial_Normal.png",
+    "16_DefaultMaterial_Roughness.png",
+    "16_DefaultMaterial_Metallic.png",
+    "16_DefaultMaterial_Opacity.png",
+    "16_DefaultMaterial_Height.png"
+  ],
+  "retained_player_parts": [
+    "head",
+    "eyes",
+    "hands",
+    "tall boots",
+    "boot cuffs"
+  ],
+  "supplied_low_shoes": "Preserved in source .blend; omitted from runtime outfit to keep the existing tall boots and avoid exposed shins."
+}

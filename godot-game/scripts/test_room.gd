@@ -6,6 +6,7 @@ const STATUS_CONTROLS := preload("res://scripts/test_room_status_controls.gd")
 const SMITHING_SYSTEM := preload("res://scripts/smithing_system.gd")
 const ALCHEMY_SYSTEM := preload("res://scripts/alchemy_system.gd")
 const FINGER_JOINT_CONTROLS := preload("res://scripts/finger_joint_controls.gd")
+const PLAYER_APPEARANCE := preload("res://scripts/player_appearance.gd")
 const ROOM_FONT := preload("res://assets/fonts/NotoSansKR-Variable.ttf")
 const TEST_ROOM_PATH := "res://test_room.tscn"
 const HOME_POSITION := Vector3(0, 1.0, 12)
@@ -48,6 +49,9 @@ var creep_dismemberment_target: DungeonEnemy
 var creep_dismemberment_timer: Timer
 var creep_dismemberment_regions: Array[String] = []
 var creep_dismemberment_hit_count := 0
+var cloth_observation_camera: Camera3D
+var _cloth_original_camera_visible := true
+var _cloth_original_camera_current := false
 
 
 func _ready() -> void:
@@ -333,6 +337,7 @@ func _select_category(category: String) -> void:
 
 
 func _show_test_panel() -> void:
+	_stop_cloth_observation()
 	_close_finger_joint_controls(false)
 	_close_art_gallery(false)
 	if not is_instance_valid(test_panel) or is_instance_valid(loading_screen):
@@ -425,6 +430,7 @@ func run_feature(feature_id: String) -> void:
 			break
 	if entry.is_empty():
 		return
+	_stop_cloth_observation()
 	_cancel_creep_ragdoll_trial()
 	_cancel_creep_dismemberment_trial()
 	hud.set_combat_interface_enabled(false)
@@ -530,6 +536,9 @@ func run_feature(feature_id: String) -> void:
 			inventory_overlay.open_appearance_view()
 			inventory_overlay.player_portrait.set_view_angle(0.0)
 			inventory_overlay.set_status("플레이어 3D 외형 · 1인칭 장갑·양팔의 전신 적용 확인 · 회전 · F2로 시험 메뉴")
+		"player_cloth_motion":
+			_prepare_player_cloth_motion()
+			_hide_test_panel()
 		"player_arm_motion":
 			_prepare_player_arm_motion()
 			_hide_test_panel()
@@ -865,6 +874,43 @@ func _equip_weapon(item_id: String) -> void:
 	inventory.equipment["weapon"] = item_id
 	inventory.changed.emit()
 	player._refresh_magic_hud()
+
+
+func _prepare_player_cloth_motion() -> void:
+	# This is the same DungeonPlayer and appearance used by the game. Only the
+	# observing camera changes; walking, turning and the garment run normally.
+	_teleport(Vector3(0.0, 1.0, 10.0))
+	_cloth_original_camera_visible = player.camera.visible
+	_cloth_original_camera_current = player.camera.current
+	cloth_observation_camera = Camera3D.new()
+	cloth_observation_camera.name = "PlayerClothObservationCamera"
+	cloth_observation_camera.fov = 58.0
+	cloth_observation_camera.near = 0.05
+	cloth_observation_camera.cull_mask = player.camera.cull_mask | PLAYER_APPEARANCE.BODY_LAYER
+	player.add_child(cloth_observation_camera)
+	cloth_observation_camera.position = Vector3(0.0, 0.38, 2.35)
+	cloth_observation_camera.look_at(player.global_position, Vector3.UP)
+	# The first-person equipment is under this camera. Hiding the parent keeps
+	# it out of the third-person view even when combat updates child visibility.
+	player.camera.visible = false
+	cloth_observation_camera.make_current()
+	room_hint.text = "의상 움직임  /  WASD 걷기 · Shift 달리기 · 놓아 멈추기  /  F2 시험 메뉴"
+	_status("실제 플레이어를 뒤에서 관찰합니다 · 걷기·달리기·멈춤·방향 전환에서 의상 움직임 확인 · F2 복귀")
+	hud.show_event("WASD 걷기 · Shift 달리기 · 놓아 멈추기\n몸을 돌려 의상 반응 확인 · F2 복귀", 6.0)
+
+
+func _stop_cloth_observation() -> void:
+	if not is_instance_valid(cloth_observation_camera):
+		cloth_observation_camera = null
+		return
+	cloth_observation_camera.queue_free()
+	cloth_observation_camera = null
+	if is_instance_valid(player) and is_instance_valid(player.camera):
+		player.camera.visible = _cloth_original_camera_visible
+		if _cloth_original_camera_current:
+			player.camera.make_current()
+	if is_instance_valid(room_hint):
+		room_hint.text = "테스트룸  /  F2 · 시험 메뉴  /  Esc · 일시정지"
 
 
 func _teleport(at: Vector3) -> void:
@@ -1630,6 +1676,7 @@ func _on_extraction_body_entered(body: Node3D) -> void:
 func reset_room() -> void:
 	if is_instance_valid(loading_screen):
 		return
+	_stop_cloth_observation()
 	_close_finger_joint_controls(false)
 	_commit_test_status_edits()
 	suspend_stress_effects()
@@ -1650,6 +1697,7 @@ func reset_room() -> void:
 
 
 func leave_room() -> void:
+	_stop_cloth_observation()
 	player.set_hands_visual_profile("original")
 	_begin_scene_loading("res://main_menu.tscn", "테스트룸 나가기", "원래 원정 상태를 복원합니다", "메인 메뉴로 돌아가는 중", "메인 메뉴로 돌아갈 수 없습니다")
 
@@ -1657,6 +1705,7 @@ func leave_room() -> void:
 func _begin_scene_loading(scene_path: String, title_text: String, detail_text: String, status_text: String, failure_text: String) -> void:
 	if is_instance_valid(loading_screen):
 		return
+	_stop_cloth_observation()
 	_cancel_creep_ragdoll_trial()
 	_cancel_creep_dismemberment_trial()
 	_close_finger_joint_controls(false)

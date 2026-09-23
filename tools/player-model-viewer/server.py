@@ -7,6 +7,7 @@ import argparse, hashlib, json, shutil
 ROOT = Path(__file__).resolve().parents[2]
 VIEWER = Path(__file__).resolve().parent
 MODEL = ROOT / 'godot-game/assets/3d/player/gravebound_player.glb'
+OUTFIT = ROOT / 'godot-game/assets/3d/player/medival_outfit.glb'
 COMPARISON = ROOT / 'asset-staging/player_multiview_proportions_20260922'
 CAPTURES = ROOT / 'godot-game/artifacts/visual_qa/player_appearance/multiview_proportions_20260922'
 REVIEW_FILES = {'/proportions/compare.html': COMPARISON / 'compare.html', '/proportions/comparison_report.json': COMPARISON / 'comparison_report.json'}
@@ -34,12 +35,22 @@ class Handler(SimpleHTTPRequestHandler):
             self.send_header('Content-Length', str(file.stat().st_size))
             self.send_header('Cache-Control', 'no-store'); self.end_headers()
             with file.open('rb') as stream: shutil.copyfileobj(stream, self.wfile)
+        elif route == '/outfit-info.json':
+            if OUTFIT.is_file():
+                data=json.dumps({'available':True, 'name':'Medival outfit', 'sha256':hashlib.sha256(OUTFIT.read_bytes()).hexdigest(), 'bytes':OUTFIT.stat().st_size, 'modified':OUTFIT.stat().st_mtime_ns}).encode()
+            else:
+                data=json.dumps({'available':False, 'name':'Medival outfit'}).encode()
+            self.send_response(200); self.send_header('Content-Type','application/json'); self.send_header('Content-Length',str(len(data))); self.send_header('Cache-Control','no-store'); self.end_headers(); self.wfile.write(data)
         elif route == '/model-info.json':
             data=json.dumps({'name':'Gravebound Player', 'sha256':hashlib.sha256(MODEL.read_bytes()).hexdigest(), 'bytes':MODEL.stat().st_size, 'modified':MODEL.stat().st_mtime_ns}).encode()
             self.send_response(200); self.send_header('Content-Type','application/json'); self.send_header('Content-Length',str(len(data))); self.send_header('Cache-Control','no-store'); self.end_headers(); self.wfile.write(data)
         elif route == '/model.glb':
             self.send_response(200); self.send_header('Content-Type','model/gltf-binary'); self.send_header('Content-Length',str(MODEL.stat().st_size)); self.send_header('Cache-Control','no-store'); self.end_headers()
             with MODEL.open('rb') as stream: shutil.copyfileobj(stream,self.wfile)
+        elif route == '/outfit.glb':
+            if not OUTFIT.is_file(): self.send_error(404); return
+            self.send_response(200); self.send_header('Content-Type','model/gltf-binary'); self.send_header('Content-Length',str(OUTFIT.stat().st_size)); self.send_header('Cache-Control','no-store'); self.end_headers()
+            with OUTFIT.open('rb') as stream: shutil.copyfileobj(stream,self.wfile)
         else:
             # Only viewer assets are exposed. Repository files stay outside root.
             requested=(VIEWER / route.lstrip('/')).resolve()

@@ -37,7 +37,10 @@ func _run() -> void:
 	var body := APPEARANCE.create_body()
 	root.add_child(body)
 	var parts := body.find_children("*", "MeshInstance3D", true, false)
-	check(parts.size() == 20, "16 body meshes and four FP parts; hood, neck cowl and long coat tails removed")
+	check(parts.size() == 25, "the calibrated 20 base meshes remain alongside five supplied garment meshes")
+	for retired_outfit_name in APPEARANCE.RETIRED_OUTFIT_PARTS:
+		var retired_outfit := body.find_child(retired_outfit_name, true, false) as MeshInstance3D
+		check(retired_outfit != null and not retired_outfit.visible, "original fitted geometry stays available but hidden beneath the supplied outfit: " + retired_outfit_name)
 	for retired: String in ["Gravebound_PointHood", "Gravebound_InnerNeckCowl", "Gravebound_Mantle_L", "Gravebound_Mantle_R", "Gravebound_MantleBack", "Gravebound_CoatBackAndSides", "Gravebound_CoatSkirt_L", "Gravebound_CoatSkirt_R"]:
 		check(body.find_child(retired, true, false) == null, "retired hood, neck cloth or long coat tail physically removed from the imported model: " + retired)
 	check(body.find_child("Gravebound_AnatomicalHead", true, false) != null, "head retained")

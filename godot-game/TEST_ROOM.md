@@ -907,3 +907,11 @@ Lower-body follow-up: the existing left-leg, right-leg and both-leg trials now d
 `F2 → 기본 → 플레이어 외형 · 3D 캐릭터`는 실제 인벤토리의 3D 외형 화면을 열어 현재 1인칭 장갑·소매를 적용한 전신을 표시합니다. 평소 `I`는 기존 통합 건강·장비 화면을 유지합니다. 회전 버튼으로 양쪽 어깨·소매·손목과 손가락을 확인할 수 있습니다. 예전 전신 손·손톱·겹치는 소매·토시는 제거했으며 얼굴·몸통·하체는 보존했습니다. 위 9월 11일 전신 손 설명을 대체합니다. 1인칭 동작과 원정 상태는 변경하지 않습니다. `player_appearance` 자동 검사와 숨김 `player_appearance_preview.gd`가 실제 전신·인벤토리 연결과 렌더를 검증합니다. 상세 제작 기록은 [전신 양팔 적용](design/PLAYER_FULLBODY_FP_ARMS.md)을 참고하세요.
 
 The existing F2 appearance entry explicitly opens the real inventory portrait with the current FP gloves and sleeves; normal I keeps the unified health/loadout page. Rotate to inspect both shoulder/cuff connections and fingers. Old hands, nails and overlapping sleeves/bracers are removed; other body parts and first-person behavior are preserved. This supersedes the September 11 full-body hand description. The appearance test and embedded preview cover the real shared model, inventory routing and rendering.
+
+## 플레이어 의상 이동 물리 / Player outfit motion
+
+`F2 → 기본 → 플레이어 의상 · 이동 물리`는 실제 플레이어 전신을 뒤에서 보는 임시 카메라로 전환합니다. `WASD`로 걷고 `Shift`를 누른 채 달리거나 키를 놓아 멈춰서, 출발·정지·방향 전환에 따른 옷의 움직임을 확인하세요. 첫 번째 시점의 손과 무기는 관찰 카메라에서 숨겨지며, 플레이어 이동·충돌·의상 모델은 본편과 같은 경로를 사용합니다. `F2`로 시험 메뉴에 돌아오면 원래 1인칭 카메라가 복원됩니다. 다시 선택하면 출발 위치부터 관찰할 수 있고, 테스트룸 초기화·종료 때에도 관찰 카메라는 남지 않습니다. 자동 검사는 `./tests/run_headless_tests.sh player_cloth_motion`입니다.
+
+현재 전신은 사용자가 제공한 Medival 상의·바지·벨트를 기존 얼굴·손·긴 부츠에 맞춰 입힌 모습입니다. 원본 다섯 파일과 재제작 자료는 `../asset-staging/medival_cloth_20260923/`에 보존합니다. 앞·뒤 옷자락은 허리 쪽을 고정한 스프링 변형으로, 실제 이동·회전에서 흔들리고 멈추면 안정됩니다. 원본 UV의 분할점이 벌어지는 기본 SoftBody 방식은 사용하지 않습니다. 360도 웹 뷰어는 옷의 정적인 외형을 살펴보는 용도이며 움직임은 이 F2 시험에서 확인하세요.
+
+The supplied Medival tunic, trousers, and belt are fitted to the existing head, hands, and boots. Its front and back hem panels use pinned-waist spring motion driven by player movement and turning. Inspect the static shape in the 360-degree viewer; inspect movement through the F2 test-room action.

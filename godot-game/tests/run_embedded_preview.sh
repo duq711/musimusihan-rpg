@@ -53,6 +53,7 @@ case "$preview_name" in
 	blacksmith_preview.gd) preview_pass_marker='^BLACKSMITH PREVIEW PASS:' ;;
 	player_anatomy_preview.gd) preview_pass_marker='^PLAYER ANATOMY PREVIEW PASS:' ;;
 	player_appearance_preview.gd) preview_pass_marker='^PLAYER APPEARANCE PREVIEW PASS:' ;;
+	player_cloth_preview.gd) preview_pass_marker='^PLAYER CLOTH PREVIEW PASS:' ;;
 	performance_preview.gd) preview_pass_marker='^PERFORMANCE PREVIEW PASS:' ;;
 	dark_fantasy_scene_preview.gd) preview_pass_marker='^DARK FANTASY SCENE PREVIEW PASS:' ;;
 	dark_fantasy_gallery_preview.gd) preview_pass_marker='^DARK FANTASY GALLERY PREVIEW PASS:' ;;

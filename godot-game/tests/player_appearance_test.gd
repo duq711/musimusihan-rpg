@@ -2,6 +2,7 @@ extends SceneTree
 
 const ROOM_PATH := "res://test_room.tscn"
 const MODEL_PATH := "res://assets/3d/player/gravebound_player.glb"
+const OUTFIT_PATH := "res://assets/3d/player/medival_outfit.glb"
 const BODY_LAYER := 1 << 17
 const APPEARANCE := preload("res://scripts/player_appearance.gd")
 var failures: Array[String] = []
@@ -113,20 +114,32 @@ func _inspect_shared_model(scene: Node3D) -> void:
 	_check(body.find_children("*", "Sprite3D", true, false).is_empty() and portrait.body.find_children("*", "Sprite3D", true, false).is_empty(), "the character must use actual volumetric meshes without image billboards")
 	_check(not body_meshes.is_empty() and body_meshes.size() == portrait_meshes.size(), "world body and portrait must contain the same non-empty imported 3D geometry")
 	_check(_contains_import(body) and _contains_import(portrait.body), "both presentations must instantiate the actual gravebound player GLB")
+	_check(_contains_import(body, OUTFIT_PATH) and _contains_import(portrait.body, OUTFIT_PATH), "the world and portrait must both instantiate the supplied Medival outfit GLB")
 	if body_meshes.size() == portrait_meshes.size():
 		for index in range(body_meshes.size()):
 			var world_mesh: MeshInstance3D = body_meshes[index]
 			var portrait_mesh: MeshInstance3D = portrait_meshes[index]
-			_check(world_mesh.mesh == portrait_mesh.mesh and world_mesh.material_override == portrait_mesh.material_override, "portrait and world body must share geometry and material resources: " + str(world_mesh.name))
-			_check(world_mesh.layers == BODY_LAYER and portrait_mesh.layers == BODY_LAYER and world_mesh.visible and portrait_mesh.visible, "every body mesh must use the dedicated visible character layer: " + str(world_mesh.name))
+			_check(world_mesh.name == portrait_mesh.name and world_mesh.visible == portrait_mesh.visible, "portrait and world body must have matching parts and active visibility: " + str(world_mesh.name))
+			if str(world_mesh.name).begins_with("Medival_Hem"):
+				_check(world_mesh.mesh != portrait_mesh.mesh and world_mesh.mesh.get_surface_count() == portrait_mesh.mesh.get_surface_count() and world_mesh.get_active_material(0) == portrait_mesh.get_active_material(0), "each live cloth hem needs its own deformable mesh with the same garment material in player and portrait")
+			else:
+				_check(world_mesh.mesh == portrait_mesh.mesh and world_mesh.material_override == portrait_mesh.material_override, "portrait and world body must share rigid geometry and material resources: " + str(world_mesh.name))
+			_check(world_mesh.layers == BODY_LAYER and portrait_mesh.layers == BODY_LAYER, "every body mesh must use the dedicated character layer: " + str(world_mesh.name))
 			_check(world_mesh.mesh != null and world_mesh.mesh.get_surface_count() > 0, "body parts must have real mesh surfaces: " + str(world_mesh.name))
-			for surface_index in range(world_mesh.mesh.get_surface_count()):
-				var material := world_mesh.mesh.surface_get_material(surface_index) as BaseMaterial3D
-				_check(material != null and material.shading_mode == BaseMaterial3D.SHADING_MODE_PER_PIXEL and not material.emission_enabled, "character surfaces must respond to real scene lighting instead of displaying unlit concept art")
+			if world_mesh.visible:
+				for surface_index in range(world_mesh.mesh.get_surface_count()):
+					var material := world_mesh.mesh.surface_get_material(surface_index) as BaseMaterial3D
+					_check(material != null and material.shading_mode == BaseMaterial3D.SHADING_MODE_PER_PIXEL and not material.emission_enabled, "visible character surfaces must respond to real scene lighting instead of displaying unlit concept art")
 	_inspect_supplied_body_hands(body_meshes)
 	_inspect_supplied_body_hands(portrait_meshes)
+	_inspect_outfit_composite(body, body_meshes)
+	_inspect_outfit_composite(portrait.body, portrait_meshes)
 	# This checks the real imported mesh bounds, not a synthetic success flag.
-	var bounds := _body_bounds(body, body_meshes)
+	var active_meshes: Array[MeshInstance3D] = []
+	for part in body_meshes:
+		if part.visible:
+			active_meshes.append(part)
+	var bounds := _body_bounds(body, active_meshes)
 	_check(bounds.size.y > 1.70 and bounds.size.y < 1.84 and bounds.size.x > 0.4 and bounds.size.x < 0.9 and bounds.size.z > 0.2 and bounds.size.z < 0.65, "the actual model must fit human proportions and the player capsule without oversized primitive parts")
 	_check(absf(bounds.position.y) < 0.02, "the actual model feet must meet the shared local ground origin")
 	_inspect_first_person_materials(player)
@@ -156,12 +169,35 @@ func _inspect_supplied_body_hands(parts: Array[MeshInstance3D]) -> void:
 				for vertex: Vector3 in part.mesh.surface_get_arrays(surface)[Mesh.ARRAY_VERTEX]:
 					highest = maxf(highest, (to_body * vertex).y)
 			_check(highest > 1.42 and highest < 1.46, "FP sleeve upper end must retain its fitted shoulder height")
-	_check(parts.size() == 20, "fullbody must contain 16 body parts and four FP arm/hand meshes after hood, neck cowl and long coat tail removal")
+	_check(parts.size() == 25, "fullbody must retain its 20 original pieces and add the five supplied Medival garment pieces")
 	for retired: String in ["Gravebound_PointHood", "Gravebound_InnerNeckCowl", "Gravebound_Mantle_L", "Gravebound_Mantle_R", "Gravebound_MantleBack", "Gravebound_CoatBackAndSides", "Gravebound_CoatSkirt_L", "Gravebound_CoatSkirt_R"]:
 		_check(not retired in names, "world body and portrait must omit removed hood, neck cloth and long coat tails: " + retired)
 	for side: String in ["L", "R"]:
 		for section: String in ["Arm", "Hand"]:
 			_check(names.count("Gravebound_FP_" + side + "_" + section) == 1, "each anatomical arm and hand must occur exactly once")
+
+
+func _inspect_outfit_composite(body: Node3D, parts: Array[MeshInstance3D]) -> void:
+	var by_name: Dictionary = {}
+	for part in parts:
+		by_name[str(part.name)] = part
+	for old_name in APPEARANCE.RETIRED_OUTFIT_PARTS:
+		_check(by_name.has(old_name) and not (by_name.get(old_name) as MeshInstance3D).visible, "old garment geometry must be preserved but hidden: " + old_name)
+	for kept_name in ["Gravebound_AnatomicalHead", "Gravebound_Eyes", "Gravebound_FP_L_Hand", "Gravebound_FP_R_Hand", "Gravebound_Boot_L", "Gravebound_Boot_R"]:
+		_check(by_name.has(kept_name) and (by_name.get(kept_name) as MeshInstance3D).visible, "the existing head, hands and tall boots must remain visible: " + kept_name)
+	for garment_name in ["Medival_Belt", "Medival_Pants", "Medival_ShirtUpper"]:
+		_check(by_name.has(garment_name) and (by_name.get(garment_name) as MeshInstance3D).visible, "supplied rigid outfit part must be present and visible: " + garment_name)
+	for hem_name in ["Medival_HemBackSoft", "Medival_HemFrontSoft"]:
+		var hem := by_name.get(hem_name) as MeshInstance3D
+		_check(hem != null and hem.visible and hem.mesh != null and hem.mesh is ArrayMesh, "each visible garment hem must have its own animated ArrayMesh: " + hem_name)
+		if hem == null or hem.mesh == null:
+			continue
+		var controller := body.find_child("MedivalClothSimulation_" + hem_name, false, false)
+		_check(controller != null and bool(controller.get_motion_state().get("configured", false)), "each hem must have its configured garment motion driver: " + hem_name)
+		if controller != null:
+			var rest: PackedVector3Array = controller.get_rest_vertices()
+			var live: PackedVector3Array = hem.mesh.surface_get_arrays(0)[Mesh.ARRAY_VERTEX]
+			_check(rest.size() >= 12 and rest.size() == live.size(), "each garment hem must retain the complete authored vertex topology: " + hem_name)
 
 
 func _inspect_first_person_materials(player: DungeonPlayer) -> void:

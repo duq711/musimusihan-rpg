@@ -1,8 +1,8 @@
 # 플레이어 360° 모델 뷰어 / Player 360° model viewer
 
-현재 게임의 `godot-game/assets/3d/player/gravebound_player.glb`를 직접 불러오는 로컬 제작 검수 도구입니다. 모델 복사본이나 정지 이미지가 아니며 게임 데이터는 수정하지 않습니다. 브라우저용 조명을 사용하므로 Godot 렌더와 밝기는 다를 수 있습니다.
+현재 게임의 `godot-game/assets/3d/player/gravebound_player.glb`와 `medival_outfit.glb`를 직접 불러오는 로컬 제작 검수 도구입니다. 새 의상은 기존 상의·소매·바지·벨트·파우치를 대체하며 얼굴·눈·손·높은 부츠는 기존 모델을 표시합니다. 제공 에셋의 낮은 신발은 게임과 동일하게 숨깁니다. 모델 복사본이나 정지 이미지가 아니며 게임 데이터는 수정하지 않습니다. 브라우저용 조명을 사용하므로 Godot 렌더와 밝기는 다를 수 있습니다.
 
-English: A local review tool that loads the current game GLB directly, with no model copy or game-state changes. Browser lighting may differ from Godot.
+English: A local review tool loads both production GLBs directly, combining the new outfit with the original head, eyes, hands and boots. It changes no game data. Browser lighting may differ from Godot.
 
 프로젝트 루트에서 실행 / Run from project root:
 
@@ -63,9 +63,11 @@ English: Fit the complete waist, pelvis, arms, legs and boots. **Photo proportio
 
 ### T자 자세 / T pose
 
-`/?pose=t`로 현재 모델의 T자 자세를 엽니다. `T자 자세` 버튼으로 원래 자세와 전환할 수 있고, 회전·확대·전신 맞춤도 유지됩니다. 뷰어에서 팔과 손을 수평으로 펼치는 확인용 자세이며, 게임 GLB 파일은 변경하지 않습니다. 원본 메시 버퍼를 보존하므로 반복 전환해도 변형이 누적되지 않습니다.
+`/?pose=t`로 원본 인체 모델의 T자 참고 자세를 엽니다. 새 의상에는 T자 자세용 리그가 없으므로 이 모드에서는 원래 상의·소매·바지를 표시합니다. 버튼을 다시 누르면 새 의상 전신으로 돌아갑니다. 회전·확대·전신 맞춤은 두 모드에서 모두 작동합니다. 게임 GLB 파일은 변경하지 않습니다. 원본 메시 버퍼를 보존하므로 반복 전환해도 변형이 누적되지 않습니다.
 
-Open `/?pose=t` to inspect the current model in a T pose. The T-pose button toggles back to the exact source geometry; free rotation, zoom and fit remain available. This is a reversible viewer inspection pose for the static asset, not an animation-ready skeleton or a replacement game asset. The shoulder transition includes a local cloth correction for raised arms.
+Open `/?pose=t` to inspect the original anatomical reference in a T pose. The unrigged supplied outfit is hidden in this mode. Toggle back to inspect the dressed current model; orbit, zoom and fit remain available. This is a reversible inspection pose, not an animation-ready skeleton.
+
+이 브라우저 뷰어는 의상의 정적 형태를 보여줍니다. 이동할 때의 옷 물리효과는 실제 게임의 F2 테스트룸에서 확인합니다. The browser shows the outfit's static shape; inspect movement-driven cloth physics in the game's F2 test room.
 
 2026-09-22 T자 팔 수정 / T-pose anatomy correction: 기존 T자 변형에서 팔꿈치가 위팔보다 굵어지고 어깨가 꺼지며 겨드랑이 안쪽이 접혀 내려가던 문제를 수정했습니다. 참조 사진에 맞춘 단면, 쇄골·어깨 연결, 접합선 아래의 소매 접힘 보정과 공통 경계 표면 정리를 적용했습니다. 이는 정적 게임 모델의 **검토용 자세 보정**이며, 게임 원본 자세나 애니메이션 리그를 교체하지 않습니다.
 

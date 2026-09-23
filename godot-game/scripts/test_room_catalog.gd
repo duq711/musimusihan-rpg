@@ -36,6 +36,7 @@ static func entries() -> Array[Dictionary]:
 		_entry("dark_fantasy_gallery", "기본", "어둠의 오브젝트 도감 · 6방향", "현재 검·방패 모델과 실제 게임 오브젝트 · 정면·후면·좌·우·위·아래 비교 · F2 복귀", "dark_fantasy_gallery"),
 		_entry("beef_jerky_assets", "기본", "육포 외형 · 불규칙한 8종", "첨부 육포 재질 · 긴 조각·넓은 조각·말린 조각·쌓인 묶음 · 도감 목록과 6방향으로 확인 · F2 복귀", "dark_fantasy_gallery", "beef_jerky_pile"),
 		_entry("player_appearance", "기본", "플레이어 외형 · 3D 캐릭터", "실제 인벤토리 3D 초상 · 현재 1인칭 장갑·양팔을 적용한 전신 · 회전·F2 재시험", "player_appearance"),
+		_entry("player_cloth_motion", "기본", "플레이어 의상 · 이동 물리", "실제 플레이어를 뒤에서 관찰 · WASD 걷기 / Shift 달리기 / 놓아 멈추기 / F2 복귀·재시험", "player_cloth_motion"),
 		_entry("player_arm_motion", "기본", "1인칭 팔 · 전신 외형 · 동작", "새 FP arms 양팔·손 · 정면 표적 LMB / RMB 가드 · 1 양손 파지 · 왼쪽 상자 E · I 장비 교체", "player_arm_motion"),
 		_entry("player_hands_greybox", "기본", "캐릭터 그래픽 · 양손 그레이박스", "검·방패 보관과 횃불 소등 · 실제 양손·소매 비교 · 왼쪽 상자 E · I에서 활 장착 후 당기기", "player_hands_greybox"),
 		_entry("player_hands_detailed", "기본", "캐릭터 그래픽 · 제공 모델 양손", "새 FP arms 제공 모델 · 좌우 원본 스킨·손가락 뼈대 · 상자 E · I 활", "player_hands_detailed"),
