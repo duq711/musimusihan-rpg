@@ -663,6 +663,8 @@ Equip `iron_dagger` and use **LMB to land a lethal stab from close behind an idl
 
 ## 검 제압 · 미인지 후방 / Sword takedown from an unaware rear
 
+GitHub: `codex/rear-contact-takedown-20260924`, `635a6b1b7b1f1c5e89627e0c0bd76adc3cc4e15c`. 원격 커밋 일치와 이미지·영상 85개(고유 객체 80개)의 새 다운로드 SHA-256을 확인했습니다. / Remote commit plus fresh-download SHA-256 verification passed for all 85 media files (80 unique objects).
+
 **2026-09-24 후속 수정 — 파지 손이 보이지 않는 등 밀착:** 이전 버전은 몸의 접근 후에도 시점이 뒤에 남아 장갑과 손잡이가 화면을 차지했다. 찌르기에 맞춰 어깨 옆으로 시점을 추가 45cm 전진시키고, 팔의 기준점을 반대로 보정해 실제 손·검의 접촉 위치와 팔 길이를 유지했다. 깊게 찌르고 비트는 구간은 손·손잡이가 시야 밖에 있고, 검을 뽑으며 시점이 함께 물러난다. 손을 숨기는 플래그·늘이기·FOV 변경은 없다.
 
 핵심/F2 자동 검사 2종 및 실제 Vulkan 9초·270프레임 검수를 통과했다. 깊은 접촉의 실제 피부–눈 간격은 약 16.5–18.6cm이며 시점 이동선은 피부를 통과하지 않는다. 파지 손의 실제 관절 17개가 모두 화면 밖이고, 1인칭 렌더에서도 장갑·손잡이가 남지 않음을 확인했다. 반대편 실제 칼끝은 960px 화면에서 약 31–69px 길이로 보인다. 기존 장검이므로 참고의 굵고 큰 단검과 동일한 실루엣은 아니다. [현재 검수·전체 영상](artifacts/validation/rear_contact_takedown_20260924/README.md)에 실제 화면과 검증 근거를 보존한다.
