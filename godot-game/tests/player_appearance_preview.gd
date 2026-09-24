@@ -49,13 +49,17 @@ func _run() -> void:
 	if not state_preserved:
 		push_error("Player visual preview changed cursor mode or expedition state.")
 		failed = true
+	var licensed := APPEARANCE.has_licensed_character()
+	var model_path: String = APPEARANCE.LICENSED_MODEL_PATH if licensed else APPEARANCE.MODEL_PATH
 	var manifest := {
 		"actual_renderer": RenderingServer.get_current_rendering_driver_name(),
 		"display_driver": DisplayServer.get_name(),
-		"model": APPEARANCE.MODEL_PATH,
-		"model_sha256": FileAccess.get_sha256(APPEARANCE.MODEL_PATH),
+		"model": model_path,
+		"model_sha256": FileAccess.get_sha256(model_path),
+		"outfit_source_sha256": FileAccess.get_sha256(APPEARANCE.OUTFIT_PATH),
+		"licensed_character": licensed,
 		"portrait_script_sha256": FileAccess.get_sha256("res://scripts/player_portrait.gd"),
-		"appearance_id": APPEARANCE.APPEARANCE_ID,
+		"appearance_id": APPEARANCE.LICENSED_APPEARANCE_ID if licensed else APPEARANCE.APPEARANCE_ID,
 		"capture_kind": "Production model and UI rendered in isolated Godot SubViewports",
 		"desktop_capture": false,
 		"expedition_and_cursor_preserved": state_preserved,
@@ -76,6 +80,7 @@ func _capture_body() -> void:
 	portrait.name = "ProductionPortraitCapture"
 	root.add_child(portrait)
 	portrait.viewport.size = BODY_SIZE
+	portrait.fit_body_to_frame()
 	portrait.viewport.transparent_bg = false
 	portrait.viewport.use_taa = true
 	for node in portrait.viewport.get_children():

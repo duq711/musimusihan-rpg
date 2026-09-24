@@ -3,8 +3,10 @@ extends RefCounted
 
 const MODEL_PATH := "res://assets/3d/player/gravebound_player.glb"
 const OUTFIT_PATH := "res://assets/3d/player/medival_outfit.glb"
+const LICENSED_MODEL_PATH := "res://assets/licensed/roger/roger_medival.glb"
 const BODY_LAYER := 1 << 17
 const APPEARANCE_ID := "gravebound_medival_source_outfit_v3"
+const LICENSED_APPEARANCE_ID := "roger_medival_fitted_v1"
 const OUTFIT_PARTS: Array[String] = [
 	"Medival_ShirtUpper", "Medival_Pants", "Medival_Belt",
 	"Medival_Shoe_L", "Medival_Shoe_R",
@@ -24,7 +26,24 @@ static var _leather: StandardMaterial3D
 static var _skin: StandardMaterial3D
 
 
-static func create_body() -> Node3D:
+static func has_licensed_character() -> bool:
+	# This file is supplied locally by its owner and is not part of the public
+	# repository. Never preload it: a public checkout must also remain playable.
+	return ResourceLoader.exists(LICENSED_MODEL_PATH, "PackedScene")
+
+
+static func create_body(allow_licensed: bool = true) -> Node3D:
+	if allow_licensed and has_licensed_character():
+		var licensed_scene := load(LICENSED_MODEL_PATH) as PackedScene
+		if licensed_scene != null:
+			var licensed_body := licensed_scene.instantiate() as Node3D
+			licensed_body.name = "GraveboundPlayerBody"
+			licensed_body.set_meta("appearance_id", LICENSED_APPEARANCE_ID)
+			licensed_body.set_meta("model_path", LICENSED_MODEL_PATH)
+			licensed_body.set_meta("outfit_path", OUTFIT_PATH)
+			licensed_body.set_meta("licensed_character", true)
+			assign_body_layer(licensed_body)
+			return licensed_body
 	var scene := load(MODEL_PATH) as PackedScene
 	assert(scene != null, "The player appearance must use the production 3D model.")
 	var body := scene.instantiate() as Node3D
@@ -32,6 +51,7 @@ static func create_body() -> Node3D:
 	body.set_meta("appearance_id", APPEARANCE_ID)
 	body.set_meta("model_path", MODEL_PATH)
 	body.set_meta("outfit_path", OUTFIT_PATH)
+	body.set_meta("licensed_character", false)
 	# Keep the source GLB intact for gameplay and asset inspection, but render
 	# only the supplied garments in the player and inventory portrait.
 	var original_parts := body.find_children("*", "MeshInstance3D", true, false)
@@ -49,11 +69,25 @@ static func create_body() -> Node3D:
 		outfit_parts.append(str(part.name))
 	assert(outfit_parts.size() == OUTFIT_PARTS.size(), "The replacement Medival outfit must contain its five original clothing pieces.")
 	for name in OUTFIT_PARTS:
-		assert(name in outfit_parts, "Missing original Medival clothing piece: " + name)
+		assert(name in outfit_parts, "Missing original Medival clothing piece: " + name + "; imported pieces: " + ", ".join(outfit_parts))
 	# The supplied garment is an intact, unrigged source mesh. Deforming a
 	# separately cut hem here would reopen the shirt and corrupt its silhouette.
 	assign_body_layer(body)
 	return body
+
+
+static func visible_bounds(body: Node3D) -> AABB:
+	var bounds := AABB()
+	var initialized := false
+	for node in body.find_children("*", "MeshInstance3D", true, false):
+		var part := node as MeshInstance3D
+		if part.mesh == null or not part.is_visible_in_tree():
+			continue
+		var to_body := body.global_transform.affine_inverse() * part.global_transform
+		var part_bounds: AABB = to_body * part.mesh.get_aabb()
+		bounds = bounds.merge(part_bounds) if initialized else part_bounds
+		initialized = true
+	return bounds
 
 
 static func assign_body_layer(node: Node) -> void:

@@ -1,5 +1,11 @@
 # 게임 제작 기준서
 
+## 2026-09-24 Roger 몸과 Medival 의상 / Roger body with Medival outfit
+
+사용자 제공 Roger 몸에 Medival 의상을 맞춘 로컬 전신을 기존 플레이어·인벤토리·F2 외형 및 이동 관찰에 연결한다. `assets/licensed/roger/roger_medival.glb`를 사용할 수 있는 환경은 이 맞춤 전신을 표시하고, 공개 저장소에는 라이선스 바이너리를 포함하지 않으므로 다른 환경은 기존 Medival 의상만 표시한다. 1인칭 손·장비는 유지하며 현재 범위는 정적 외형 통합이다. 보행 애니메이션·천 물리는 포함하지 않는다. 설치·원본 보존·제작과 최종 검수 근거는 이번 Roger 제작 기록을 따른다.
+
+The locally supplied Roger body is fitted to the Medival outfit and shared by the real player, inventory and existing F2 appearance/movement entries. The licensed combined GLB is optional and excluded from the public repository; public checkouts keep the existing garment-only fallback. This integration covers a static appearance. First-person equipment is retained; walking animation and cloth physics are outside this change. Final validation follows the Roger production record.
+
 기준일: 2026-09-10. 출처: 사용자가 PD 역할을 지정하면서 설명한 게임 컨셉.
 
 이 문서의 **확정**은 사용자에게서 받은 제작 방향이라는 뜻이며, 구현 완료를 뜻하지 않는다. **제안**은 PD 검토안, **미정**은 추가 결정이 필요한 항목이다. 이후 사용자 지시가 우선하며, 변경할 때 관련 항목과 결정 기록을 함께 갱신한다.

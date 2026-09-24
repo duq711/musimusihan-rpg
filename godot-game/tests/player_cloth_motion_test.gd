@@ -28,6 +28,7 @@ func _run() -> void:
 	var first_person_camera: Camera3D = player.camera
 	_check(sandbox.active and paused and room.panel_open and bag != original, "outfit trial must begin in the paused, isolated test expedition")
 	_check(body != null and body.get_meta("outfit_path", "") == APPEARANCE.OUTFIT_PATH, "observer must use the replacement source outfit")
+	_check(bool(body.get_meta("licensed_character", false)) == APPEARANCE.has_licensed_character(), "movement observation must use the same optional Roger character as the inventory")
 	var entries: Array = room.feature_entries.filter(func(entry: Dictionary) -> bool: return entry.id == "player_cloth_motion")
 	_check(entries.size() == 1 and entries[0].action == "player_cloth_motion" and entries[0].category == "기본", "outfit observation must be an executable basic-category entry")
 	for iteration in range(2):

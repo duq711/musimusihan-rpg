@@ -45,12 +45,9 @@ func _ready() -> void:
 	camera.name = "CharacterCamera"
 	camera.projection = Camera3D.PROJECTION_ORTHOGONAL
 	camera.keep_aspect = Camera3D.KEEP_HEIGHT
-	# Include the complete source shirt, trousers and separate shoes.
-	camera.size = 1.82
-	camera.position = Vector3(0.0, 0.79, -3.5)
 	camera.cull_mask = APPEARANCE.BODY_LAYER
 	viewport.add_child(camera)
-	camera.look_at(Vector3(0.0, 0.79, 0.0))
+	fit_body_to_frame()
 	camera.current = true
 	var display := TextureRect.new()
 	display.name = "CharacterRender"
@@ -81,6 +78,21 @@ func set_view_angle(degrees: float) -> void:
 
 func get_view_angle() -> float:
 	return _view_angle
+
+
+func fit_body_to_frame() -> void:
+	# Fit either the local complete Roger body or the public garment fallback.
+	# Use the radius about the rotation axis so turns keep hands in the frame.
+	var bounds := APPEARANCE.visible_bounds(body)
+	var center := bounds.get_center()
+	var horizontal_radius := 0.0
+	for corner in range(8):
+		var point := bounds.get_endpoint(corner)
+		horizontal_radius = maxf(horizontal_radius, Vector2(point.x, point.z).length())
+	var viewport_aspect := float(viewport.size.x) / float(viewport.size.y)
+	camera.size = maxf(bounds.size.y, 2.0 * horizontal_radius / viewport_aspect) * 1.14
+	camera.position = Vector3(0.0, center.y, -3.5)
+	camera.look_at(Vector3(0.0, center.y, 0.0))
 
 
 func _update_rendering() -> void:

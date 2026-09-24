@@ -9,7 +9,9 @@ func _init() -> void:
 
 
 func _run() -> void:
-	var body := APPEARANCE.create_body()
+	# This regression concerns the preserved public source, independently of
+	# the optional locally licensed Roger replacement.
+	var body := APPEARANCE.create_body(false)
 	root.add_child(body)
 	for retired: String in ["Gravebound_PointHood", "Gravebound_InnerNeckCowl", "Gravebound_Mantle_L", "Gravebound_Mantle_R", "Gravebound_MantleBack"]:
 		if body.find_child(retired, true, false) != null:

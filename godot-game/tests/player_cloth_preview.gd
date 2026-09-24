@@ -73,6 +73,8 @@ func _run() -> void:
 		await _advance(player, 55, Vector2.ZERO, false)
 		await _capture(viewport, camera, player, shirt, "settled_front", Vector3(0.0, 0.0, -3.4))
 		await _capture(viewport, camera, player, shirt, "settled_back", Vector3(0.0, 0.0, 3.4))
+	var model_path := str(player.player_body.get_meta("model_path", APPEARANCE.MODEL_PATH))
+	var licensed := bool(player.player_body.get_meta("licensed_character", false))
 	viewport.queue_free()
 	await process_frame
 	var preserved := cursor == Input.mouse_mode and expedition == ExpeditionSession.capture_snapshot()
@@ -81,7 +83,9 @@ func _run() -> void:
 		"display_driver": DisplayServer.get_name(),
 		"rendering_driver": RenderingServer.get_current_rendering_driver_name(),
 		"capture_kind": "Actual DungeonPlayer and intact source outfit mesh in an isolated SubViewport",
-		"model_sha256": FileAccess.get_sha256(APPEARANCE.MODEL_PATH),
+		"model": model_path,
+		"model_sha256": FileAccess.get_sha256(model_path),
+		"licensed_character": licensed,
 		"outfit_sha256": FileAccess.get_sha256(APPEARANCE.OUTFIT_PATH),
 		"cursor_and_expedition_preserved": preserved,
 		"frames": _captures,

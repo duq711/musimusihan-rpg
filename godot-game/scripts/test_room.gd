@@ -535,7 +535,8 @@ func run_feature(feature_id: String) -> void:
 			_open_inventory()
 			inventory_overlay.open_appearance_view()
 			inventory_overlay.player_portrait.set_view_angle(0.0)
-			inventory_overlay.set_status("플레이어 3D 외형 · Medival 의상만 표시 · 회전 · F2로 시험 메뉴")
+			var appearance_label := "Roger · Medival 착용" if bool(player.player_body.get_meta("licensed_character", false)) else "Medival 의상"
+			inventory_overlay.set_status("플레이어 3D 외형 · " + appearance_label + " · 회전 · F2로 시험 메뉴")
 		"player_cloth_motion":
 			_prepare_player_cloth_motion()
 			_hide_test_panel()
@@ -895,8 +896,8 @@ func _prepare_player_cloth_motion() -> void:
 	player.camera.visible = false
 	cloth_observation_camera.make_current()
 	room_hint.text = "의상 이동 관찰  /  WASD 걷기 · Shift 달리기  /  F2 시험 메뉴"
-	_status("실제 플레이어에서 원본 의상 형태 확인 · 걷기·달리기·방향 전환 · 천 물리는 미적용 · F2 복귀")
-	hud.show_event("WASD 걷기 · Shift 달리기 · F2 복귀\n원본 의상 형태 관찰 · 천 물리 미적용", 6.0)
+	_status("실제 플레이어의 몸·의상 배치 확인 · 걷기·달리기·방향 전환 · 정적 자세·천 물리 미적용 · F2 복귀")
+	hud.show_event("WASD 걷기 · Shift 달리기 · F2 복귀\n몸·의상 배치 관찰 · 정적 자세·천 물리 미적용", 6.0)
 
 
 func _stop_cloth_observation() -> void:

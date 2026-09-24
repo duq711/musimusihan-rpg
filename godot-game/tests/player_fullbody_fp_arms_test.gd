@@ -34,7 +34,9 @@ func _init() -> void: call_deferred("_run")
 func check(ok: bool, label: String) -> void:
 	if not ok: failures.append(label)
 func _run() -> void:
-	var body := APPEARANCE.create_body()
+	# Calibrated source geometry is preserved as the public fallback; the
+	# optional local Roger character has its own fitted body proportions.
+	var body := APPEARANCE.create_body(false)
 	root.add_child(body)
 	var parts := body.find_children("*", "MeshInstance3D", true, false)
 	check(parts.size() == 25, "the calibrated 20 base meshes remain alongside five supplied garment meshes")

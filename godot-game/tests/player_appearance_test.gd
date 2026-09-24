@@ -14,6 +14,18 @@ func _init() -> void:
 
 
 func _run() -> void:
+	# Exercise the shipped fallback even when this Mac has the optional asset.
+	var fallback := APPEARANCE.create_body(false)
+	if fallback == null:
+		push_error("Public Medival fallback could not be instantiated.")
+		quit(1)
+		return
+	root.add_child(fallback)
+	_check(not bool(fallback.get_meta("licensed_character", true)), "explicit fallback must not depend on the local licensed character")
+	_check(_contains_import(fallback) and _contains_import(fallback, OUTFIT_PATH), "public fallback must retain its two shipped model resources")
+	_inspect_supplied_body_hands(_meshes(fallback))
+	_inspect_outfit_composite(fallback, _meshes(fallback))
+	fallback.free()
 	sandbox = root.get_node("TestRoomSandbox")
 	ExpeditionSession.begin_new_journey()
 	var original := ExpeditionSession.get_inventory()
@@ -106,7 +118,7 @@ func _inspect_shared_model(scene: Node3D) -> void:
 	_check(portrait.is_visible_in_tree() and portrait.can_process(), "the real portrait must remain visible and usable while the world is paused")
 	_check(portrait.viewport.own_world_3d and portrait.viewport.find_world_3d() != player.get_world_3d() and portrait.body.get_world_3d() == portrait.viewport.find_world_3d(), "portrait lighting and camera must be isolated from the playable world")
 	_check(portrait.camera.current and portrait.camera.get_viewport() == portrait.viewport, "portrait must render its live model with its own active 3D camera")
-	_check(portrait.camera.size > 1.78 and portrait.camera.size < 1.86 and absf(portrait.camera.position.y - 0.79) < 0.01, "the portrait must frame the complete source outfit and shoes")
+	_inspect_portrait_framing(portrait)
 	_check(portrait.viewport.render_target_update_mode != SubViewport.UPDATE_DISABLED, "opening inventory must enable actual portrait rendering")
 	_check((player.camera.cull_mask & BODY_LAYER) == 0 and (portrait.camera.cull_mask & BODY_LAYER) != 0, "first-person view must exclude the full body while the portrait can see it")
 	_check((player.viewmodel_renderer.camera.cull_mask & BODY_LAYER) == 0, "the full body must not leak into the carried-equipment rendering")
@@ -114,8 +126,13 @@ func _inspect_shared_model(scene: Node3D) -> void:
 	var portrait_meshes := _meshes(portrait.body)
 	_check(body.find_children("*", "Sprite3D", true, false).is_empty() and portrait.body.find_children("*", "Sprite3D", true, false).is_empty(), "the character must use actual volumetric meshes without image billboards")
 	_check(not body_meshes.is_empty() and body_meshes.size() == portrait_meshes.size(), "world body and portrait must contain the same non-empty imported 3D geometry")
-	_check(_contains_import(body) and _contains_import(portrait.body), "both presentations must instantiate the actual gravebound player GLB")
-	_check(_contains_import(body, OUTFIT_PATH) and _contains_import(portrait.body, OUTFIT_PATH), "the world and portrait must both instantiate the supplied Medival outfit GLB")
+	var licensed := APPEARANCE.has_licensed_character()
+	var expected_model: String = APPEARANCE.LICENSED_MODEL_PATH if licensed else MODEL_PATH
+	_check(_contains_import(body, expected_model) and _contains_import(portrait.body, expected_model), "world and portrait must instantiate the same available production GLB")
+	_check(bool(body.get_meta("licensed_character", false)) == licensed and bool(portrait.body.get_meta("licensed_character", false)) == licensed, "both presentations must choose Roger only when the local licensed model is available")
+	if not licensed:
+		_check(_contains_import(body, OUTFIT_PATH) and _contains_import(portrait.body, OUTFIT_PATH), "public fallback must load the shipped Medival garment GLB")
+	var mask_materials: Dictionary = {}
 	if body_meshes.size() == portrait_meshes.size():
 		for index in range(body_meshes.size()):
 			var world_mesh: MeshInstance3D = body_meshes[index]
@@ -128,10 +145,16 @@ func _inspect_shared_model(scene: Node3D) -> void:
 				for surface_index in range(world_mesh.mesh.get_surface_count()):
 					var material := world_mesh.mesh.surface_get_material(surface_index) as BaseMaterial3D
 					_check(material != null and material.shading_mode == BaseMaterial3D.SHADING_MODE_PER_PIXEL and not material.emission_enabled, "visible character surfaces must respond to real scene lighting instead of displaying unlit concept art")
-					if material != null:
+					if material != null and str(world_mesh.name) in APPEARANCE.OUTFIT_PARTS:
 						_check(material.transparency == BaseMaterial3D.TRANSPARENCY_DISABLED, "replacement source garment must be opaque: " + str(world_mesh.name))
-	_inspect_supplied_body_hands(body_meshes)
-	_inspect_supplied_body_hands(portrait_meshes)
+					elif licensed and material != null and material.resource_name in ["Roger_Hair", "Roger_Scalp"]:
+						mask_materials[material.resource_name] = true
+						_check(material.transparency == BaseMaterial3D.TRANSPARENCY_ALPHA_SCISSOR and is_equal_approx(material.alpha_scissor_threshold, 0.3), "Roger hair and scalp must use the corrected depth-tested alpha cutout")
+	if licensed:
+		_check(mask_materials.size() == 2, "Roger must retain both imported hair and scalp cutout materials")
+	if not licensed:
+		_inspect_supplied_body_hands(body_meshes)
+		_inspect_supplied_body_hands(portrait_meshes)
 	_inspect_outfit_composite(body, body_meshes)
 	_inspect_outfit_composite(portrait.body, portrait_meshes)
 	# This checks the real imported mesh bounds, not a synthetic success flag.
@@ -140,7 +163,10 @@ func _inspect_shared_model(scene: Node3D) -> void:
 		if part.visible:
 			active_meshes.append(part)
 	var bounds := _body_bounds(body, active_meshes)
-	_check(bounds.size.y > 1.52 and bounds.size.y < 1.68 and bounds.size.x > 1.1 and bounds.size.x < 1.3 and bounds.size.z > 0.2 and bounds.size.z < 0.8, "the visible replacement outfit must retain its full source shirt-to-shoe dimensions and original sleeve span")
+	if licensed:
+		_check(bounds.size.y > 1.75 and bounds.size.y < 1.95 and bounds.size.x > 0.5 and bounds.size.x < 2.0 and bounds.size.z > 0.2 and bounds.size.z < 0.8, "local Roger must have complete human-scale head-to-shoe bounds")
+	else:
+		_check(bounds.size.y > 1.52 and bounds.size.y < 1.68 and bounds.size.x > 1.1 and bounds.size.x < 1.3 and bounds.size.z > 0.2 and bounds.size.z < 0.8, "the visible replacement outfit must retain its full source shirt-to-shoe dimensions and original sleeve span")
 	_check(bounds.position.y > -0.08 and bounds.position.y < 0.08, "the visible replacement outfit must include the original shoes at floor height")
 	_inspect_first_person_materials(player)
 	await process_frame
@@ -186,10 +212,35 @@ func _inspect_outfit_composite(body: Node3D, parts: Array[MeshInstance3D]) -> vo
 		if str(part.name).begins_with("Gravebound_"):
 			_check(not part.visible, "every original head, eye, hand, boot and garment mesh must be hidden without deleting its source: " + str(part.name))
 			hidden_originals += 1
-	_check(hidden_originals == 20, "all twenty original meshes must stay in the scene but not render")
+	if bool(body.get_meta("licensed_character", false)):
+		_check(hidden_originals == 0, "local Roger must not carry a duplicate former body")
+		var roger_parts := 0
+		for part in parts:
+			if str(part.name).begins_with("Roger_"):
+				roger_parts += 1
+				_check(part.visible and part.mesh != null and part.mesh.get_surface_count() > 0, "Roger body surfaces must exist and render: " + str(part.name))
+				_check(part.skin == null, "Roger's fitted standing pose must not retain an inactive skin rig: " + str(part.name))
+		_check(roger_parts > 0, "local dressed character must include Roger body geometry, not just the garments")
+		for body_part in ["Roger_Head_Neck", "Roger_Hand_L", "Roger_Hand_R", "Roger_Calf_L", "Roger_Calf_R"]:
+			_check(by_name.has(body_part), "fitted Roger must retain each exposed anatomical region: " + body_part)
+	else:
+		_check(hidden_originals == 20, "all twenty original meshes must stay in the fallback scene but not render")
 	for garment_name in APPEARANCE.OUTFIT_PARTS:
 		_check(by_name.has(garment_name) and (by_name.get(garment_name) as MeshInstance3D).visible, "supplied original outfit part must be present and visible: " + garment_name)
 	_check(body.find_children("MedivalClothSimulation_*", "Node", true, false).is_empty(), "the intact source tunic must not be cut into simulated hem panels")
+
+
+func _inspect_portrait_framing(portrait: Control) -> void:
+	var bounds := APPEARANCE.visible_bounds(portrait.body)
+	var half_height: float = portrait.camera.size * 0.5
+	var half_width: float = half_height * float(portrait.viewport.size.x) / float(portrait.viewport.size.y)
+	var initial_angle: float = portrait.get_view_angle()
+	for degrees in [0.0, 90.0, 180.0, 270.0]:
+		portrait.set_view_angle(degrees)
+		for corner in range(8):
+			var camera_point: Vector3 = portrait.camera.to_local(portrait.body.to_global(bounds.get_endpoint(corner)))
+			_check(absf(camera_point.x) < half_width and absf(camera_point.y) < half_height, "portrait must keep head, hands and shoes inside the frame after rotation")
+	portrait.set_view_angle(initial_angle)
 
 
 func _inspect_first_person_materials(player: DungeonPlayer) -> void:
