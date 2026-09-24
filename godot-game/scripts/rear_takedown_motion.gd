@@ -108,7 +108,14 @@ static func _arc_stance(from: Vector3, to: Vector3, weight: float) -> Vector3:
 
 static func camera_offset(elapsed: float) -> Vector3:
 	var lean := smoothstep(PREPARE_END, STAB_HIT, elapsed) * (1.0 - smoothstep(HOLD_END, WITHDRAW_END, elapsed))
-	return Vector3(0, -.015, -.025) * lean
+	return Vector3(0, -.015, -.025) * lean + contact_lean(elapsed)
+
+
+static func contact_lean(elapsed: float) -> Vector3:
+	# Eyes lean beside the shoulder while the gripping arm stays on its
+	# existing world-space wound line. Never hide or scale the hand mesh.
+	var amount := smoothstep(PREPARE_END, STAB_HIT, elapsed) * (1.0 - smoothstep(HOLD_END, WITHDRAW_END, elapsed))
+	return Vector3(0, 0, -.45) * amount
 
 
 static func arm(pivot: Transform3D, elapsed: float, entry_arm: Dictionary, previous_bend := Vector3.ZERO) -> Dictionary:
@@ -116,6 +123,8 @@ static func arm(pivot: Transform3D, elapsed: float, entry_arm: Dictionary, previ
 	if not entry_arm.is_empty():
 		if elapsed < PREPARE_END: shoulder = (entry_arm.shoulder as Vector3).lerp(shoulder, smoothstep(0, PREPARE_END, elapsed))
 		elif elapsed > RECOVER_START: shoulder = shoulder.lerp(entry_arm.shoulder, smoothstep(RECOVER_START, DURATION, elapsed))
+	# Counter the eye translation: moving the camera must not drag the arm.
+	shoulder -= contact_lean(elapsed)
 	var amount := grip_blend(elapsed)
 	var wrist := pivot * wrist_local(elapsed)
 	# The hand is rigidly holding the hilt. Its authored neutral forearm axis,

@@ -1,5 +1,13 @@
 # 게임 제작 기준서
 
+## 2026-09-24 후방 제압 — 손이 보이지 않는 등 밀착 / Rear takedown — hand-free close contact
+
+사용자는 기존 밀착 버전에서도 검을 잡은 손이 크게 보여 거리가 멀다고 지적했다. **확정 목표는 찌를 때 등 바로 뒤에 붙어 파지 손·손잡이가 화면에서 완전히 사라지는 구도다.** 첨부 Far Cry 화면을 목표로, 함께 첨부한 이전 게임 화면을 수정 대상으로 구분했다.
+
+현재 제작값: 준비→깊은 찌르기에 시점이 추가 45cm 전진하고 회수 시 부드럽게 복귀한다. 팔 기준점을 역보정하여 손·검의 월드 접촉과 팔 길이를 유지한다. 손 숨기기, 늘이기, 전체 FOV 변경은 없다. 기존 충돌 이동 경로·94% 관입·혈흔·고개 반응·20° 비틀기·직선 회수·검이 빠진 뒤 랙돌을 유지한다. 핵심/F2 검사 2종, 실제 Vulkan 9초/270프레임, 84개 별도 검수 PNG 저장을 완료했고 주요 7장 및 영상 표본 12장을 열어 보았다. 깊은 접촉에서 피부와 눈은 약 16.5–18.6cm 떨어져 있고 시점 이동선은 피부를 통과하지 않는다. 파지 관절 17개와 실제 장갑 실루엣은 화면 밖이며 어깨 밖 실제 칼끝은 보인다. 장검의 좁은 칼끝이므로 참고 단검과 같은 크기는 아니다. [현재 검수 기록](../artifacts/validation/rear_contact_takedown_20260924/README.md).
+
+The user rejected the preceding close-stance version because its gripping hand remained large on screen. The confirmed goal is direct rear contact with the gripping hand and hilt entirely outside the view during the deep thrust. A smooth extra 45cm eye lean is compensated at the arm anchor, preserving the world-space grip/contact and arm lengths without visibility, scale or FOV tricks. Existing collision approach, penetration and reactions remain. Both core/F2 suites and actual 9-second/270-frame Vulkan checks passed; 84 inspection PNGs were saved and seven key stills plus twelve video samples independently opened. The eyes remain about 16.5–18.6cm outside actual skin without crossing it. All 17 gripping-hand landmarks and the glove silhouette leave the frame while real opposite-side steel stays visible. The narrow longsword tip is smaller than the reference knife. See the current validation report above.
+
 ## 2026-09-24 후방 검 제압 — 어깨 옆 밀착 시점 / Rear takedown — close shoulder-side view
 
 **사용자 확정 방향:** 첨부한 파크라이 스크린샷처럼 미인지 몬스터의 뒤에 바짝 접근하고, 몸 반대편으로 나온 칼날이 실제 1인칭 화면에서 보이도록 후방 검 제압을 조정한다. 참고 범위는 사용자가 제공한 한 장의 화면이다. 원본 영상 전체를 시청했다거나 동일 애니메이션을 확보했다는 뜻이 아니다.

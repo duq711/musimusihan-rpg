@@ -1428,7 +1428,7 @@ func _advance_rear_takedown(delta: float) -> void:
 		var heel := weapon_pivot.to_global(_execution_blade_tip - Vector3.UP * _execution_blade_length)
 		var torso_hit: Dictionary = _execution_target.call("query_located_hit", heel, tip, .045)
 		var wrist := weapon_pivot.transform * SWORD_LONG_GRIP.wrist_local(1.0)
-		var shoulder := SWORD_LONG_GRIP.SOURCE_READY * SWORD_LONG_GRIP.REST_SHOULDER
+		var shoulder := SWORD_LONG_GRIP.SOURCE_READY * SWORD_LONG_GRIP.REST_SHOULDER - REAR_TAKEDOWN_MOTION.contact_lean(REAR_TAKEDOWN_MOTION.STAB_HIT)
 		if torso_hit.is_empty() or str(torso_hit.get("region", "")) != "torso" or wrist.distance_to(shoulder) > REFERENCE_ARM.MAX_REACH + .04:
 			cancel_execution()
 			return

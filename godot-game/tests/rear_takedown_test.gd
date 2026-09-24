@@ -270,6 +270,7 @@ func _capture_fresh_preparation(subject: DungeonPlayer) -> Dictionary:
 	var requested: Vector3 = subject.SWORD_LONG_GRIP.SOURCE_READY * subject.SWORD_LONG_GRIP.REST_SHOULDER
 	if subject.is_execution_active() and not subject._rear_arm_entry.is_empty():
 		requested = (subject._rear_arm_entry.shoulder as Vector3).lerp(requested, smoothstep(0, REAR.PREPARE_END, subject.execution_elapsed))
+	if subject.is_execution_active(): requested -= REAR.contact_lean(subject.execution_elapsed)
 	var shoulder_camera := subject.camera.to_local(actual.shoulder_world)
 	var fitted: Dictionary = subject.get_first_person_motion_snapshot().joint_landmarks.get("sword", {})
 	return {"actual": actual, "elapsed": subject.execution_elapsed, "weapon_transform": subject.weapon_pivot.global_transform,
@@ -882,7 +883,7 @@ func _check_execution_arm_reach(phase: String) -> void:
 	if arm.is_empty() or grip.is_empty(): return
 	var reach: float = (arm.wrist as Vector3).distance_to(arm.shoulder)
 	var adjustment := float(arm.get("shoulder_adjustment_m", INF))
-	var authored_shoulder: Vector3 = player.camera.to_global(player.SWORD_LONG_GRIP.SOURCE_READY * player.SWORD_LONG_GRIP.REST_SHOULDER)
+	var authored_shoulder: Vector3 = player.camera.to_global(player.SWORD_LONG_GRIP.SOURCE_READY * player.SWORD_LONG_GRIP.REST_SHOULDER - REAR.contact_lean(player.execution_elapsed))
 	var requested_reach: float = (arm.wrist as Vector3).distance_to(authored_shoulder)
 	_check(reach <= .601 and requested_reach <= .641 and adjustment <= .041, "execution must stay within fixed arm length and four-centimetre shoulder correction: " + phase)
 	_check(absf(float(arm.upper_length) - .34) < .004 and absf(float(arm.forearm_length) - .26) < .004, "execution cannot lengthen the rendered upper arm or forearm: " + phase)
@@ -966,7 +967,7 @@ func _wrist_motion_sequence() -> void:
 			_check(depth <= previous_withdrawal_depth + .0001, "straight withdrawal depth is monotonic at every actual frame")
 			previous_withdrawal_depth = depth
 		if time >= REAR.STAB_HIT and time <= REAR.HOLD_END:
-			_check(int(projection.in_frame_samples) >= 2 and float(projection.projected_span_px) > 1.0, "exposed steel remains visible during the deepest stab and hold")
+			_check(int(actual.hand_framing.in_frame_landmarks) == 0, "gripping palm, wrist and all finger joints stay outside the first-person view throughout deep contact")
 		samples.append({"time": time, "delta": delta, "actual": actual, "weapon_basis": weapon_basis, "projection": projection, "depth_m": depth})
 	var maximum_step := 0.0
 	var maximum_rotation := 0.0
@@ -1062,8 +1063,20 @@ static func measure_wrist_geometry(subject: DungeonPlayer) -> Dictionary:
 		"actual_wrist_fit_error_m": wrist.distance_to(expected_wrist),
 		"actual_neutral_api_error_degrees": rad_to_deg(hand_axis.angle_to(expected_neutral)),
 		"digit_bone_landmarks": digit_landmarks,
+		"hand_framing": measure_hand_framing(subject.camera, wrist, anatomical_grip_center, digit_landmarks),
 		"grip_measurement_scope": "The palm anchor and digit bone distances are geometry diagnostics, not a skin/handle contact or penetration proof. Inspect the same-pose grip-side GPU closeup.",
 		"measurement_scope": "Actual posed wrist/elbow versus blade thrust axis, plus authored neutral hand axis versus forearm; not a clinical wrist angle."}
+
+
+static func measure_hand_framing(camera: Camera3D, wrist: Vector3, palm: Vector3, digits: Dictionary) -> Dictionary:
+	var points: Array[Vector3] = [wrist, palm]
+	for digit: String in digits:
+		for joint: Dictionary in digits[digit]: points.append(joint.world)
+	var in_frame := 0
+	for point: Vector3 in points:
+		if camera.is_position_in_frustum(point): in_frame += 1
+	return {"landmark_count": points.size(), "in_frame_landmarks": in_frame,
+		"scope": "Actual posed wrist, palm anchor and 15 digit bone joints. Skin/glove silhouettes must also be inspected in the first-person GPU renders."}
 
 
 static func actual_joint_step(a: Dictionary, b: Dictionary) -> float:
@@ -1083,13 +1096,15 @@ func _check_far_side_visibility(actor, time: float) -> void:
 	var state := player.get_execution_snapshot()
 	var posed_skin := bake_visible_skin(actor)
 	var skin := measure_skin_passage(actor, blade.heel, blade.tip, state.contact_point, state.stab_direction, posed_skin)
-	var visibility := measure_far_side_visibility(player.camera, blade.tip, skin, posed_skin)
+	var visibility := measure_far_side_visibility(player.camera, blade.tip, skin, posed_skin, player.camera.global_position - player.camera.global_basis * REAR.contact_lean(time))
 	_check(bool(visibility.found_exit) and int(visibility.visible_samples) >= 4, "deep stab/hold shows at least four far-side steel samples unobscured by actual posed head, torso and limbs at %.3fs" % time)
 	_check(float(visibility.visible_span_at_960_px) >= 30.0, "far-side protruding blade has at least 30px of unoccluded on-screen span at 960px width at %.3fs" % time)
+	_check(float(visibility.camera_skin_clearance_m) >= .06 and float(visibility.camera_skin_clearance_m) <= .25, "contact eye stays 6–25cm outside the real posed monster skin")
+	_check(bool(visibility.eye_sweep_measured) and not bool(visibility.eye_lean_crosses_skin), "camera lean stays outside the target rather than passing through its real skin")
 	report.append({"case": "far_side_blade_visibility", "time": time, "actual_skin": skin, "visibility": visibility})
 
 
-static func measure_far_side_visibility(camera: Camera3D, tip: Vector3, skin: Dictionary, posed_skin: Array[Dictionary]) -> Dictionary:
+static func measure_far_side_visibility(camera: Camera3D, tip: Vector3, skin: Dictionary, posed_skin: Array[Dictionary], eye_start: Vector3 = Vector3.INF) -> Dictionary:
 	# This is deliberately the EXIT-to-TIP steel, never the heel-side exposed
 	# section. Being inside the camera frustum alone cannot prove visibility.
 	var rect := camera.get_viewport().get_visible_rect()
@@ -1097,7 +1112,7 @@ static func measure_far_side_visibility(camera: Camera3D, tip: Vector3, skin: Di
 	var result := {"found_exit": bool(skin.get("found", false)), "visible_samples": 0,
 		"in_frame_samples": 0, "occluded_samples": 0, "visible_span_px": 0.0,
 		"visible_span_at_960_px": 0.0, "viewport_width_px": rect.size.x,
-		"camera_world": origin, "camera_skin_clearance_m": 0.0,
+		"camera_world": origin, "camera_skin_clearance_m": 0.0, "eye_lean_crosses_skin": false, "eye_sweep_measured": eye_start.is_finite(),
 		"occlusion_geometry": "all visible posed CreepPart torso, head and limb skin triangles, both windings",
 		"scope": "Actual opposite-skin exit to real blade tip. Camera rays prove target-skin occlusion only; hand/sleeve, blood and environment occlusion require same-pose GPU inspection.",
 		"target_skin_occlusion_verified": true, "samples": []}
@@ -1108,6 +1123,10 @@ static func measure_far_side_visibility(camera: Camera3D, tip: Vector3, skin: Di
 		triangle_count += faces.size() / 3
 		for index in range(0, faces.size(), 3):
 			clearance = minf(clearance, origin.distance_to(_closest_triangle_point(origin, faces[index], faces[index + 1], faces[index + 2])))
+			if eye_start.is_finite():
+				for reverse in 2:
+					if Geometry3D.segment_intersects_triangle(eye_start, origin, faces[index], faces[index + 1 + reverse], faces[index + 2 - reverse]) is Vector3:
+						result.eye_lean_crosses_skin = true
 	result["triangle_count"] = triangle_count
 	result["camera_skin_clearance_m"] = clearance if is_finite(clearance) else -1.0
 	if not bool(result.found_exit): return result

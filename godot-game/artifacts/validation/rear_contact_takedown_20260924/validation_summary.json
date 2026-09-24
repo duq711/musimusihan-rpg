@@ -1,0 +1,80 @@
+{
+  "date": "2026-09-24",
+  "core_and_f2_pass": true,
+  "render_pass": true,
+  "runtime": "/private/tmp/rear-close-runtime-20260924",
+  "renderer": "vulkan",
+  "duration_seconds": 9.0,
+  "frame_count": 270,
+  "inspection_png_count": 84,
+  "sources_preserved": true,
+  "session_inventory_preserved": true,
+  "cursor_preserved": true,
+  "extra_eye_lean_m": 0.45,
+  "hand_visibility_method": "Actual bone landmarks plus independent GPU skin/glove silhouette review; no visibility switch, hand scale, or camera FOV change",
+  "independent_visual_review": {
+    "pngs": [
+      "rear_sword_stab.png",
+      "rear_sword_hold.png",
+      "rear_sword_stab_side.png",
+      "rear_sword_stab_grip_side.png",
+      "rear_sword_thrust_mid.png",
+      "rear_sword_twist_mid.png",
+      "rear_sword_recovered.png"
+    ],
+    "video_frame_indices": [
+      32,
+      37,
+      41,
+      43,
+      50,
+      55,
+      60,
+      65,
+      72,
+      90,
+      120,
+      210
+    ]
+  },
+  "contact_measurements": {
+    "stab": {
+      "camera_skin_clearance_m": 0.164898991584778,
+      "eye_lean_crosses_skin": false,
+      "visible_span_at_960_px": 30.7948703765869,
+      "visible_samples": 13,
+      "hand_framing": {
+        "in_frame_landmarks": 0,
+        "landmark_count": 17,
+        "scope": "Actual posed wrist, palm anchor and 15 digit bone joints. Skin/glove silhouettes must also be inspected in the first-person GPU renders."
+      }
+    },
+    "hold": {
+      "camera_skin_clearance_m": 0.18612514436245,
+      "eye_lean_crosses_skin": false,
+      "visible_span_at_960_px": 69.0302658081055,
+      "visible_samples": 21,
+      "hand_framing": {
+        "in_frame_landmarks": 0,
+        "landmark_count": 17,
+        "scope": "Actual posed wrist, palm anchor and 15 digit bone joints. Skin/glove silhouettes must also be inspected in the first-person GPU renders."
+      }
+    }
+  },
+  "wrist_metrics": {
+    "axis_samples": 78,
+    "forearm_clearance_scope": "Actual rendered elbow/wrist centerline versus camera origin; a 14cm proxy guard from preparation-end through deep-stab hold. Preparation rotation is reported separately. Not a complete skin/sleeve collision proof.",
+    "maximum_axis_mismatch_degrees": 37.9797825591382,
+    "maximum_expected_blade_rotation_error_degrees": 0.0,
+    "maximum_hand_rotation_step_degrees": 2.26796708866708,
+    "maximum_joint_step_m": 0.0760497972369194,
+    "maximum_lateral_tip_shift_m": 0.000165743680554442,
+    "maximum_legacy_axis_mismatch_degrees": 90.7429495012571,
+    "maximum_step_time": 0.733333333333334,
+    "minimum_near_side_blade_projection_fraction": 0.0,
+    "minimum_preparation_forearm_camera_clearance_m": 0.552973985671997,
+    "minimum_thrust_forearm_camera_clearance_m": 0.529678463935852,
+    "projection_occlusion_verified": false
+  },
+  "limitation": "The existing longsword exits as a narrow tip, smaller than the reference knife. No source-video timing recreation, new blood assets or scream audio."
+}

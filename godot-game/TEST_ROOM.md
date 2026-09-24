@@ -878,6 +878,15 @@ F2 pauses combat/AI and cancels a pending ordinary stab. Reselection heals/respa
 
 ## 검 제압 · 미인지 후방 / Sword takedown from an unaware rear
 
+**2026-09-24 후속 수정 — 파지 손이 보이지 않는 등 밀착:** 이전 버전은 몸의 접근 후에도 시점이 뒤에 남아 장갑과 손잡이가 화면을 차지했다. 찌르기에 맞춰 어깨 옆으로 시점을 추가 45cm 전진시키고, 팔의 기준점을 반대로 보정해 실제 손·검의 접촉 위치와 팔 길이를 유지했다. 깊게 찌르고 비트는 구간은 손·손잡이가 시야 밖에 있고, 검을 뽑으며 시점이 함께 물러난다. 손을 숨기는 플래그·늘이기·FOV 변경은 없다.
+
+핵심/F2 자동 검사 2종 및 실제 Vulkan 9초·270프레임 검수를 통과했다. 깊은 접촉의 실제 피부–눈 간격은 약 16.5–18.6cm이며 시점 이동선은 피부를 통과하지 않는다. 파지 손의 실제 관절 17개가 모두 화면 밖이고, 1인칭 렌더에서도 장갑·손잡이가 남지 않음을 확인했다. 반대편 실제 칼끝은 960px 화면에서 약 31–69px 길이로 보인다. 기존 장검이므로 참고의 굵고 큰 단검과 동일한 실루엣은 아니다. [현재 검수·전체 영상](artifacts/validation/rear_contact_takedown_20260924/README.md)에 실제 화면과 검증 근거를 보존한다.
+
+**Follow-up, September 24 — hand-free close-contact framing:** the previous stance still left the eyes too far behind, showing the glove and hilt. A smooth extra 45cm eye lean now follows the thrust; the arm anchor compensates to retain the world-space grip, blade contact and arm lengths. The gripping hand and hilt stay outside the view during deep contact and twist, then the camera retreats during withdrawal. There is no hand-visibility toggle, scaling or FOV change. Both core/F2 suites and nine seconds/270 actual Vulkan frames passed. Contact eye-to-skin clearance is about 16.5–18.6cm with no skin-crossing lean; all 17 hand landmarks are outside the frustum, independently confirmed by GPU silhouette inspection. Real far-side steel spans about 31–69px at 960px width. The existing narrow longsword tip does not match the reference knife's size. See the [current report/video](artifacts/validation/rear_contact_takedown_20260924/README.md).
+
+### 이전 어깨 옆 밀착 버전 / Previous shoulder-side revision
+
+
 **2026-09-24 밀착 후방 제압 검수 추가:** 사용자가 첨부한 스크린샷을 기준으로, E 제압 시 뒤쪽 대각선으로 가까이 접근하고 어깨 옆 시야에서 반대편 피부 밖으로 나온 실제 칼날을 확인한다. 원본 영상 전체는 확인한 자료에 포함하지 않는다. 현재 구현은 적의 시작 방향을 저장해 접근·시선의 기준으로 사용하고, 몸통 왼쪽 실제 피부를 찌른다. 작은 충돌 이동으로 나누어 접근하며 막힘이 허용치를 넘으면 즉시 멈춘다. 최종 거리·각도는 아래 자동 검사와 실제 렌더로 확인했다. 아래 기존 찌르기·피격 반응·회수와 입력·원정 복원 조건을 유지한다. **후방 제압 핵심·실제 F2 자동 검사 2종과 실제 GPU 9초·270프레임 검수를 통과했다. 검수 PNG는 84장이며 주요 7장과 JPG 13개 표본을 독립적으로 열어 확인했다. GitHub 전용 브랜치와 `f1789b4` 반영을 확인했으며 검수 미디어 85개를 새 위치로 다운로드해 SHA-256 일치를 확인했다.** [밀착 제압 검수 기록](artifacts/validation/rear_close_takedown_20260924/README.md)에 근거를 보존한다. 몸 밖으로 나온 좁은 칼끝이 보이지만 참고 화면의 큰 전경 단검과 같은 크기·구도는 아니다.
 
 **September 24 close-rear validation addition:** use the supplied screenshot to inspect a close rear-diagonal E takedown and real far-exit blade visibility beside the shoulder. The full source video is not part of the reviewed reference. The implementation saves the target’s starting orientation for movement/aim, strikes actual left-side torso skin and subdivides collision-tested movement, stopping immediately above the obstruction limit. Final distance/angle acceptance is supported by the checks and actual rendering below. Preserve the stab/reaction/withdrawal sequence and input/session rules below. **Both rear-takedown core and real F2 suites passed, along with nine seconds/270 frames of actual GPU validation. There are 84 inspection PNGs; independent visual review opened seven key stills and thirteen JPG samples. GitHub branch/commit `f1789b4` is confirmed; all 85 media files were downloaded into fresh storage and verified by SHA-256.** See the [close-takedown report](artifacts/validation/rear_close_takedown_20260924/README.md). A narrow far-side tip is visible, rather than the large foreground knife or exact framing of the reference.
@@ -886,7 +895,7 @@ F2 pauses combat/AI and cancels a pending ordinary stab. Reselection heals/respa
 
 | 항목 | 직접 시험하는 방법 |
 |---|---|
-| `검 제압 · 미인지 후방` (`rear_takedown`) | 미인지 적 뒤에서 E. 뒤쪽 대각선으로 가까이 접근하는지, 어깨 옆 시야에서 몸 반대편으로 나온 실제 칼날이 보이는지 확인한다. 이어 첫 피부 접촉의 혈흔 1회, 목·머리 들기, 짧은 비틀기 반응, 직선 회수와 칼끝이 빠진 뒤 머리 유지 랙돌을 확인한다. |
+| `검 제압 · 미인지 후방` (`rear_takedown`) | 미인지 적 뒤에서 E. 뒤쪽 대각선으로 접근하고 깊게 찌를 때 등 바로 뒤로 시점이 밀착하여 파지 손·손잡이가 사라지는지, 어깨 옆에 실제 반대편 칼끝이 보이는지 확인한다. 이어 첫 피부 접촉의 혈흔 1회, 목·머리 들기, 짧은 비틀기 반응, 직선 회수와 칼끝이 빠진 뒤 머리 유지 랙돌을 확인한다. |
 | `검 제압 · 경계 상태 비교` (`rear_takedown:alerted`) | 실제 추적 상태에서 E를 눌러 거절되며 제압용 혈흔이 생기지 않는지 비교한다. 정상 추적·공격은 계속된다. |
 | `검 제압 · 정면 비교` (`rear_takedown:front`) | 정면에서는 후방 E 제압이 불가하고 실제 인지·전투는 유지된다. 제압 시작 없이 제압용 혈흔이 생기지 않아야 한다. |
 
