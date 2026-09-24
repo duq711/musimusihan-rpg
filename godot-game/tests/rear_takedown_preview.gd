@@ -105,7 +105,10 @@ class RearDriver extends Node:
 				var stage: Dictionary = sample.duplicate(true)
 				stage["expected_execution_seconds"] = REAR_STAGES[stage_name]
 				if stage_name in ["before_contact", "first_contact", "recoil", "stab", "hold"]:
-					stage["actual_skin"] = measure_back_skin(stage.actual_blade, stage.execution)
+					var posed_skin := WRIST_METRICS.bake_visible_skin(actor)
+					stage["actual_skin"] = measure_back_skin(stage.actual_blade, stage.execution, posed_skin)
+					if stage_name in ["stab", "hold"]:
+						stage["far_side_visibility"] = WRIST_METRICS.measure_far_side_visibility(player.camera, stage.actual_blade.tip_world, stage.actual_skin, posed_skin)
 				stages[stage_name] = stage
 		records.append(sample)
 		if tick >= max_ticks: set_physics_process(false)
@@ -202,9 +205,9 @@ class RearDriver extends Node:
 			"axis_direction_dot": axis.dot(direction),
 			"located_contact": torso_hit, "torso_contact": torso_hit.get("region", "") == "torso"}
 
-	func measure_back_skin(blade: Dictionary, execution: Dictionary) -> Dictionary:
+	func measure_back_skin(blade: Dictionary, execution: Dictionary, posed_skin: Array[Dictionary] = []) -> Dictionary:
 		var heel: Vector3 = (blade.tip_world as Vector3) - (blade.axis_world as Vector3) * float(blade.length_m)
-		return WRIST_METRICS.measure_skin_passage(actor, heel, blade.tip_world, execution.contact_point, execution.stab_direction)
+		return WRIST_METRICS.measure_skin_passage(actor, heel, blade.tip_world, execution.contact_point, execution.stab_direction, posed_skin)
 
 
 func _run() -> void:
@@ -403,11 +406,12 @@ func _run() -> void:
 		"session_inventory_preserved": session_preserved, "cursor_preserved": cursor_preserved,
 		"capture_scope": "Actual DungeonPlayer sword and live Creep AI. One begin_rear_takedown call at .6 seconds per case. Production actual contact emits one world-space blood burst, deep stab kills once, a single 20-degree twist produces a second held-body reaction, then steel withdraws on the same line, and releases attached-head ragdoll only after actual steel clears. No forced damage, death, pose, detached-part position or contact.",
 		"depth_measurement": "Displayed blade vertices are scanned independently at every physics tick. Actual visible torso triangles establish entry and far-side exit at contact, deep stab and held death. Pull-out must remain on the same axis with roll fixed after the single 20-degree twist and monotonic decreasing penetration. The first physical release records actual clearance beyond the original held entry plane. Dead targets intentionally stop answering combat hit queries; held-skin triangles and pre-death samples provide independent geometry evidence.",
+		"far_side_visibility_measurement": "At deep stab and hold, all visible posed CreepPart torso, head and limb meshes are baked once for both actual skin passage and camera ray tests. Twenty-five steel samples from opposite-skin exit to real blade tip are tested against every triangle in both windings. At least four must be unoccluded and in frame, spanning at least 30px at a normalized 960px viewport width. Nearest camera-to-skin-triangle distance is reported. This verifies target-skin occlusion; actual same-pose GPU images inspect remaining hand, sleeve, blood and environment overlap. The old heel-side frustum-only projection is retained separately and is not evidence of far-side visibility.",
 		"arm_measurement": "Actual fitted shoulder/elbow/wrist are recorded in world and camera space every physics tick. The real rendered rig also measures blade-to-forearm angle, elbow behind/right of wrist, and palm-anchor/digit-bone position relative to the handle. Bone distances and a fixed palm anchor do not prove skin contact; separate GPU grip-side closeups inspect it. During the full active takedown, shoulder displacement from its anatomical rest anchor must stay within 4.5cm, its camera-space Z stays behind the camera, and upper/forearm lengths remain 34/26cm. Side inspection frames the whole shoulder/elbow/wrist and sword at preparation, mid-thrust, deepest stab and hold, in the same world pose.",
 		"wrist_measurement": "Actual supplied wrist/elbow bones independently measure hand-to-forearm neutral-axis mismatch, not a clinical wrist angle. Embedded and withdrawal samples retain the existing 45-degree limit, actual 60Hz joint continuity, and fixed-length arm checks. Actual sword world rotation must match the single timed 20-degree twist within 0.1 degrees, with no other roll or sideways slicing; lateral tip displacement stays within 2mm through thrust, twist, hold and straight withdrawal. Deep-stab exposed-steel projection does not prove that skin or sleeve does not occlude it.",
-		"camera_motion": "Starts 1.15m behind the actual actor, aimed at back skin. Production aiming, lean and collision-tested preparation/lunge own the active sequence. During straight withdrawal the capsule reverses the lunge to keep the hand reachable. Only after completion, capture-only pitch tilt inspects the intact corpse. Alerted control keeps its initial camera and runs live AI.",
+		"camera_motion": "Starts 1.15m behind the actual actor, aimed at back skin. Production aiming and a collision-tested curved approach move beside the left shoulder for a close over-shoulder view of the real protruding blade. During straight withdrawal the capsule reverses the approach to keep the hand reachable. Only after completion, capture-only pitch tilt inspects the intact corpse. Alerted control keeps its initial camera and runs live AI.",
 		"input_scope": "No OS keyboard/mouse/focus, hardware cursor change, desktop capture or audible playback. Labels are inspection subtitles. The alerted control is initialized in CHASE, then runs normal AI; the rear case starts unaware in IDLE.",
-		"reference_scope": "The current attached martial-arts diagram was opened and visually inspected. Its middle-left straight thrust from middle guard informs the hand/forearm/point alignment and passing extension; the existing game shield/weapon design is retained. Earlier linked reference videos were not visually observed and are not claimed as a frame-matched source.",
+		"reference_scope": "The attached Far Cry rear-takedown screenshot was opened and visually inspected: close shoulder framing and visible far-side steel guide the camera and approach. Existing game weapon, target and straight extraction are retained. Source video was not watched this turn; this is not a frame-matched recreation.",
 		"inspection_geometry_scope": "First-person arm geometry; the third-person avatar body layer is excluded just like the main first-person camera. All inspection views share the same live world, first-person arm, weapon and enemy pose; no actor or weapon is reposed or mirrored.",
 		"visual_acceptance_scope": "Numerical tests alone do not approve the appearance. Separately inspect the actual first-person clip, complete-arm side silhouettes and grip closeups for thumb closure, fingers staying around the hilt, continuous shoulder/elbow/wrist, and hand size in the frame.",
 		"contact_reaction_measurement": "Before-contact, first-contact, early recoil and full-depth frames independently intersect visible posed torso skin. Blood begins once at the actual blade-contact event. Full-depth chest recoil and the later twist response are measured from actual bone transforms. The final twist pose is retained until real tip clearance; capsule hit queries are not substituted for visible skin evidence.",
@@ -471,9 +475,9 @@ func _check_rear_case(driver: RearDriver, scenario: Dictionary, rendered: Array[
 	_check(driver.defeats == 1 and driver.landed == 1 and is_zero_approx(float(last.health)), prefix + "one production lethal stab, defeat and reward event")
 	if driver.stages.has("stab"):
 		var actual: Dictionary = driver.stages.stab.right_arm.actual_rig
-		_check(float(actual.blade_forearm_angle_degrees) <= 25.0, prefix + "middle-guard deep thrust aligns the rendered blade within 25 degrees of forearm extension")
-		_check(float(actual.elbow_extension_angle_degrees) >= 120.0, prefix + "deep thrust extends the rendered elbow to at least 120 degrees")
-		_check(float(actual.axis_mismatch_degrees) <= 20.0, prefix + "deep thrust keeps the actual hand/forearm neutral-axis mismatch within 20 degrees")
+		_check(float(actual.blade_forearm_angle_degrees) <= 25.0, prefix + "close takedown aligns the rendered blade within 25 degrees of forearm extension")
+		_check(float(actual.elbow_extension_angle_degrees) >= 70.0, prefix + "close takedown keeps a tucked elbow open at least 70 degrees without requiring a distant fully extended thrust")
+		_check(float(actual.axis_mismatch_degrees) <= 25.0, prefix + "close takedown keeps the actual hand/forearm neutral-axis mismatch within 25 degrees")
 		_check(float(actual.elbow_behind_wrist_along_blade_m) > .15, prefix + "deep thrust keeps the rendered elbow more than 15cm behind the wrist along the blade")
 	_check((last.dismemberment.severed as Array).is_empty() and int(last.dismemberment.detached_bodies) == 0, prefix + "head and all limbs remain attached")
 	_check(str(last.ragdoll.phase) in ["simulating", "settled"] and int(last.ragdoll.bodies) > 0, prefix + "actual rigid-body corpse simulation")
@@ -511,6 +515,9 @@ func _check_rear_case(driver: RearDriver, scenario: Dictionary, rendered: Array[
 			_check(stage.actual_skin.entry_mesh == "CreepPart_torso" and stage.actual_skin.exit_mesh == "CreepPart_torso", prefix + stage_name + " entry and farthest opposite exit both belong to actual torso skin, not the head")
 			_check(float(stage.actual_skin.exit_protrusion_m) > .03 and float(stage.actual_skin.heel_depth_m) < -.008, prefix + stage_name + " actual blade protrudes beyond opposite skin while guard remains outside entry")
 			_check(float(stage.actual_skin.inserted_fraction) >= .89 and float(stage.actual_skin.inserted_fraction) <= .99, prefix + stage_name + " near-full insertion measured from actual posed skin")
+		var visibility: Dictionary = stage.get("far_side_visibility", {})
+		_check(bool(visibility.get("found_exit", false)) and int(visibility.get("visible_samples", 0)) >= 4, prefix + stage_name + " at least four opposite-side blade samples are in frame and unobscured by real posed target skin")
+		_check(float(visibility.get("visible_span_at_960_px", 0.0)) >= 30.0, prefix + stage_name + " opposite-side protruding steel occupies at least 30px at 960px width after skin occlusion")
 	_check(not driver.first_release.is_empty(), prefix + "actual blade-clear ragdoll release was recorded")
 	if not driver.first_release.is_empty():
 		var release: Dictionary = driver.first_release

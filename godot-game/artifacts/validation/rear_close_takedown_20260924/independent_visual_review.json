@@ -1,0 +1,77 @@
+{
+  "reviewer": "independent rear_close_audit agent",
+  "capture_directory": "/private/tmp/rear-close-runtime-20260924/artifacts/visual_qa/rear_takedown/close_final01",
+  "review_method": "Opened actual Godot GPU PNG stills and selected JPG frames directly. No generated/composited images, no new engine execution.",
+  "stills_opened": [
+    "rear_sword_stab.png",
+    "rear_sword_hold.png",
+    "rear_sword_prepare.png",
+    "rear_sword_withdraw_mid.png",
+    "rear_sword_stab_side.png",
+    "rear_sword_stab_front.png",
+    "rear_sword_stab_grip_side.png"
+  ],
+  "frame_indices_opened": [
+    38,
+    42,
+    46,
+    52,
+    58,
+    61,
+    64,
+    68,
+    72,
+    76,
+    80,
+    86,
+    90
+  ],
+  "reference_scope": "User-supplied Far Cry screenshot only; full source video was not reviewed.",
+  "result": "PASS_WITH_STATED_VISUAL_LIMITATIONS",
+  "findings_ko": [
+    "등 정중앙에서 보는 이전 화면과 달리 적의 왼쪽 어깨 가까이 접근하며 몸통이 1인칭 화면 오른쪽을 크게 차지한다.",
+    "깊은 찌르기와 유지 화면에서 실제 칼끝이 어깨 왼쪽 윤곽 밖으로 보인다. 같은 자세의 정면 화면에서도 몸통 출구의 칼날을 확인했다.",
+    "파지 확대에서 오른손이 손잡이를 유지하고 전완과 손목이 연결되어 보인다. 표본에서 큰 손목 꺾임이나 손잡이와 손의 분리는 보이지 않았다.",
+    "측면에서 고개를 위로 들고 입을 여는 기존 반응이 유지된다.",
+    "표본 프레임에서 찌르기 후 비틀기, 칼 회수, 칼이 빠진 뒤 쓰러짐과 준비 자세 복귀가 이어진다. 급작스러운 위치 전환이나 칼끝의 순간적인 별도 출현은 관찰하지 못했다."
+  ],
+  "findings_en": [
+    "The camera now approaches beside the left rear shoulder, with the torso occupying the right of the first-person view, unlike the previous rear-centre framing.",
+    "Deep-stab and hold frames show the actual far blade beyond the left shoulder silhouette. The matching front view also shows steel at the torso exit.",
+    "The grip closeup preserves a closed right hand on the hilt and a visually connected forearm/wrist, with no gross wrist kink or detached hilt in inspected samples.",
+    "The side view retains the upward head and open-mouth response.",
+    "Sampled frames connect insertion, twist, withdrawal, post-clearance collapse and return to ready. No abrupt location pop or separate blade-tip appearance was observed in these samples."
+  ],
+  "limitations_ko": [
+    "돌출 칼날은 좁고 짧게 보이는 칼끝이다. 참고 스크린샷의 큰 전경 단검과 같은 크기·구도는 아니다.",
+    "전수 프레임 시각 검사가 아닌 7개 스틸과 13개 JPG 표본 검사다. 전체 영상 디코딩과 수치 검사는 부모 작업의 별도 기록을 따른다.",
+    "왼손으로 적을 붙잡는 새 제압 동작은 포함되지 않았다.",
+    "실제 시험 스튜디오 검수이며 동굴 수동 플레이나 OS 하드웨어 입력 검증이 아니다."
+  ],
+  "limitations_en": [
+    "The protruding steel reads as a narrow tip, not the large foreground knife or exact composition of the reference.",
+    "Visual review covers seven stills and thirteen JPG samples, not every frame. Full-video decoding and numeric tests are recorded separately by the parent task.",
+    "No new offhand restraint animation is included.",
+    "Evidence is from the actual test studio, not manually played cave gameplay or OS hardware input validation."
+  ],
+  "capture_manifest": {
+    "failures": [],
+    "frame_count": 270,
+    "duration_seconds": 9.0,
+    "fps": 30,
+    "physics_hz": 60,
+    "renderer": "vulkan",
+    "display_driver": "embedded",
+    "resolution": [
+      960,
+      540
+    ],
+    "top_level_png_count": 84
+  },
+  "headless_results_observed": [
+    "REAR TAKEDOWN TEST PASS",
+    "REAR TAKEDOWN TRIAL TEST PASS"
+  ],
+  "headless_log": "/private/tmp/rear-close-final-headless.log",
+  "github_publication": "pending parent verification"
+}

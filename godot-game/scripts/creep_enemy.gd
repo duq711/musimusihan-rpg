@@ -344,8 +344,11 @@ func get_rear_takedown_contacts() -> Dictionary:
 		return current
 	var direction := -global_basis.z.normalized()
 	var chest := (skeleton.global_transform * skeleton.get_bone_global_pose(skeleton.find_bone("Chest"))).origin
-	var from := chest - direction * .85
-	var to := chest + direction * .65
+	# Enter through the near shoulder side so the through-blade is readable
+	# beside the torso from the reserved close rear stance. Still raycast skin.
+	var channel := chest - global_basis.x.normalized() * .18
+	var from := channel - direction * .85
+	var to := channel + direction * .65
 	var nearest := INF
 	var back := Vector3.ZERO
 	for part: MeshInstance3D in visual_meshes:

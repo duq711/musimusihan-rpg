@@ -9,6 +9,7 @@ var failures: Array[String] = []
 var room: Node3D
 var defeats := 0
 var actual_checks := false
+var default_encounters: Array[Dictionary] = []
 
 
 func _init() -> void:
@@ -36,6 +37,7 @@ func _run() -> void:
 	# Advance the public production action clock deliberately. F2 still routes
 	# as a scene event; no OS pointer capture or hardware E input is tested.
 	room.player.set_physics_process(false)
+	default_encounters = _encounter_layout()
 	_check(sandbox.active and room.inventory != original, "rear takedown trial owns an isolated inventory")
 	_test_catalog()
 	if CREEP.is_available():
@@ -182,10 +184,16 @@ func _test_pause_cancel_reselect_reset() -> void:
 	_check(bool(result.get("accepted", false)), "reset trial begins a second real reservation")
 	if bool(result.get("accepted", false)): _advance_to(MOTION.STAB_HIT + .01)
 	var reset_blood = fresh._rear_stab_blood
+	var removed_target_id: int = fresh.get_instance_id()
 	room.reset_room()
 	await _frames(2)
 	_check(not is_instance_valid(reset_blood), "F2 reset removes actual blood droplets and contact stains")
-	_check(paused and room.panel_open and _find_creep() == null and room.enemies_alive == 2 and room.loot_count == 0, "reset clears rear targets and restores the paused default encounters")
+	# Default encounter archetypes may vary. Verify their baseline layout and
+	# fresh ownership instead of incorrectly requiring no Creep instances.
+	_check(paused and room.panel_open and not room.enemy_ai_enabled and _encounter_layout() == default_encounters and room.enemies_alive == default_encounters.size() and room.loot_count == 0, "reset clears rear targets and restores the paused default encounters")
+	for actor in room.get_children():
+		if actor is DungeonEnemy and not actor.is_queued_for_deletion():
+			_check(actor.get_instance_id() != removed_target_id and actor.health == actor.max_health and not actor.is_physics_processing() and not is_instance_valid(actor.get("_execution_executor")), "reset default enemies are fresh, healthy, AI-paused and unreserved")
 	_check(not room.player.is_execution_active(), "reset cannot leave stale execution ownership")
 	room.player.advance_execution(5.0)
 	_check(room.loot_count == 0, "reset cannot later award the removed target")
@@ -234,6 +242,14 @@ func _find_creep():
 	for actor in room.get_children():
 		if actor is CREEP and not actor.is_queued_for_deletion(): return actor
 	return null
+
+
+func _encounter_layout() -> Array[Dictionary]:
+	var result: Array[Dictionary] = []
+	for actor in room.get_children():
+		if actor is DungeonEnemy and not actor.is_queued_for_deletion():
+			result.append({"name": actor.display_name, "position": actor.position, "max_health": actor.max_health, "script": actor.get_script().resource_path})
+	return result
 
 
 func _check(condition: bool, message: String) -> void:

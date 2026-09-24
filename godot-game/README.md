@@ -663,11 +663,25 @@ Equip `iron_dagger` and use **LMB to land a lethal stab from close behind an idl
 
 ## 검 제압 · 미인지 후방 / Sword takedown from an unaware rear
 
-**2026-09-21 최신 요청 — 피격 시 고개를 드는 반응:** 크리프가 찔리는 순간 목과 머리를 함께 뒤로 젖혀, 고개를 들며 비명을 지르는 듯한 자세를 만든다. 첫 실제 피부 접촉 이후부터 반응을 시작하고 깊게 찌를수록 크게 연결하며, 검이 박혀 있는 동안 자세를 유지한다. 이번 범위는 실제 목·머리 뼈의 움직임이며 비명 음향 추가는 포함하지 않는다.
+**2026-09-24 최신 요청 — 밀착 후방 제압:** 첨부 스크린샷처럼 미인지 몬스터 뒤에 가까이 붙고, 어깨 옆으로 시야를 확보하여 몸 반대편으로 나온 실제 칼날이 1인칭에서 보이도록 조정한다. 참고한 자료는 사용자가 첨부한 한 장의 화면이며 원본 영상의 전체 동작을 시청·재현했다고 주장하지 않는다.
+
+현재 구현은 시작할 때 저장한 적의 방향을 기준으로 뒤쪽 대각선 경로와 어깨 옆 시점을 함께 조정한다. 접근을 작은 충돌 이동으로 나누고 허용된 막힘을 넘으면 즉시 멈춰 취소한다. 검의 진입점은 실제 등 피부에서 구하며 몸통의 왼쪽으로 옮겼다. 최종 경로의 팔 길이·카메라·피부 가림은 아래 검사와 실제 렌더로 확인했다. 화면에 칼을 덧그리거나 몸을 투명하게 만드는 방식은 사용하지 않는다. 검 깊이 약 94%, 첫 접촉 혈흔, 고개 들기, 짧은 비틀기, 같은 축으로 뽑기와 칼끝이 빠진 뒤 랙돌을 유지한다. E/F2 조작과 지원 검·미인지 조건은 유지한다.
+
+**이번 밀착 변경의 후방 제압 핵심·실제 F2 자동 검사 2종과 실제 GPU 9초·270프레임 검수를 통과했다. 84개 검수 PNG 중 주요 7장과 JPG 13개 표본을 독립적으로 열어 확인했다. GitHub 반영은 확인 대기다.** 검수에서는 몸 반대편 피부 출구부터 실제 칼끝까지의 구간이 몸통·팔·머리에 가리지 않는지, 손이 검을 놓치거나 팔이 늘어나지 않는지, 접근·회수 중 벽을 통과하지 않는지를 확인한다. 근거는 [밀착 제압 검수 기록](artifacts/validation/rear_close_takedown_20260924/README.md)에 보존한다. 돌출 날은 좁은 칼끝으로 보이며 참고 화면의 큰 전경 단검과 같은 크기·구도는 아니다. 아래 9월 21일 기록은 이전 버전의 근거이며 새 밀착 동작의 통과를 뜻하지 않는다.
+
+**Latest request, September 24 — close rear takedown:** move close behind the unaware monster and frame the action beside its shoulder so the real blade protruding from the opposite body surface is visible in first person. The reference is the user's supplied screenshot; no claim is made that the full source video was watched or reproduced.
+
+The current implementation uses the target orientation saved at the start for the rear-diagonal path and shoulder-side view. Small collision-tested movement steps stop immediately once the allowed obstruction is exceeded. The entry is sampled from real back skin on the left side of the torso. The final path passed the arm-reach and camera/skin-occlusion checks and actual rendering below. Do not overlay a blade or make the body transparent. Preserve approximately 94% insertion, first-contact blood, raised-head reaction, brief twist, axial withdrawal and ragdoll after blade clearance, along with existing E/F2 controls, supported swords and unawareness gates.
+
+**Both rear-takedown core and real F2 suites passed, along with nine seconds/270 frames of actual GPU validation. Independent visual review opened seven key stills from 84 inspection PNGs and thirteen JPG samples. GitHub publication is pending.** Validation must inspect the real opposite-surface exit-to-tip segment for torso/arm/head occlusion, retained grip and arm lengths, and collision-safe approach/extraction. See the [close-takedown report](artifacts/validation/rear_close_takedown_20260924/README.md). The protruding steel reads as a narrow tip, not the large foreground knife or exact composition of the reference. The September 21 records below validate the previous revision only.
+
+### 이전 고개 반응 제작·검수 / Previous head-response production and validation
+
+**2026-09-21 이전 요청 — 피격 시 고개를 드는 반응:** 크리프가 찔리는 순간 목과 머리를 함께 뒤로 젖혀, 고개를 들며 비명을 지르는 듯한 자세를 만든다. 첫 실제 피부 접촉 이후부터 반응을 시작하고 깊게 찌를수록 크게 연결하며, 검이 박혀 있는 동안 자세를 유지한다. 이번 범위는 실제 목·머리 뼈의 움직임이며 비명 음향 추가는 포함하지 않는다.
 
 기존 첫 접촉 혈흔 1회, 깊은 찌르기, 검 축 20° 비틀기, 직선 회수, 칼끝이 빠진 뒤 머리 유지 랙돌과 E/F2 조작·시계는 유지한다. **후방 제압 핵심·실제 F2 자동 검사 2종과 실제 GPU 9초·270프레임 검수·전체 영상 디코딩을 통과했다. 실제 이미지·표본 프레임의 독립 시각 검토도 완료했다. GitHub 구현 커밋 [`a8fddf8`](https://github.com/duq711/musimusihan-rpg/commit/a8fddf87cee30ce5b64607603c095acd3bbf8c45)의 원격 일치와 PNG·영상 LFS 85개를 새 저장소로 다시 받아 확인했다.** [고개 반응 검수 기록](artifacts/validation/rear_stab_head_lift_20260921/README.md)과 [전체 영상](artifacts/validation/rear_stab_head_lift_20260921/rear_stab_head_lift.mp4)에 근거를 보존한다. 아래 혈흔 버전의 통과 기록을 이번 자세 변경의 완료 근거로 사용하지 않는다.
 
-**Latest request, September 21 — head lift on impact:** after actual first skin contact, blend the Creep's neck and head backward into a raised-head, scream-like pose, strengthen it through deep insertion and hold it while the blade remains embedded. This adds physical neck/head posing; scream audio is outside the requested scope.
+**Previous request, September 21 — head lift on impact:** after actual first skin contact, blend the Creep's neck and head backward into a raised-head, scream-like pose, strengthen it through deep insertion and hold it while the blade remains embedded. This adds physical neck/head posing; scream audio is outside the requested scope.
 
 Keep the single contact-blood burst, deep stab, 20° axial twist, straight withdrawal, intact-head ragdoll after blade clearance and existing E/F2 controls/timing. **Both rear-takedown core and real F2 suites passed, along with nine seconds/270 frames of actual GPU checks, full-video decoding and independent still/sample-frame review. GitHub implementation commit [`a8fddf8`](https://github.com/duq711/musimusihan-rpg/commit/a8fddf87cee30ce5b64607603c095acd3bbf8c45) matches the remote; all 85 PNG/video LFS references were fetched into fresh storage and verified.** The [head-response report](artifacts/validation/rear_stab_head_lift_20260921/README.md) preserves current evidence; the blood revision's passes below do not validate this new pose.
 

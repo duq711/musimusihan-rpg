@@ -96,7 +96,9 @@ var _rear_stab_basis := Basis.IDENTITY
 var _rear_arm_entry: Dictionary = {}
 var _rear_approach_obstruction_m := 0.0
 var _rear_approach_offset := Vector3.ZERO
-var _rear_approach_progress := 0.0
+var _rear_approach_progress := Vector3.ZERO
+var _rear_approach_elapsed := 0.0
+var _rear_approach_basis := Basis.IDENTITY
 
 var _body_health_state: Dictionary = BODY_HEALTH.create_state()
 var _body_health_session_bound := false
@@ -1210,7 +1212,9 @@ func begin_rear_takedown() -> Dictionary:
 	var approach := enemy.global_position - global_position
 	approach.y = 0.0
 	_rear_approach_offset = approach
-	_rear_approach_progress = 0.0
+	_rear_approach_basis = enemy.global_basis.orthonormalized()
+	_rear_approach_progress = Vector3.ZERO
+	_rear_approach_elapsed = 0.0
 	_rear_approach_obstruction_m = 0.0
 	_sword_attack_uses_cycle = false
 	_sword_direct_entry = false
@@ -1460,27 +1464,34 @@ func _advance_rear_takedown(delta: float) -> void:
 
 
 func _move_rear_takedown_approach(elapsed: float) -> void:
-	# Store the original target vector, and accumulate travelled metres. This
-	# works when starting closer than the final stance as well as farther away.
-	var initial_distance := _rear_approach_offset.length()
-	var preparation := initial_distance - REAR_TAKEDOWN_MOTION.STAB_DISTANCE
-	var lunge := REAR_TAKEDOWN_MOTION.STAB_DISTANCE - REAR_TAKEDOWN_MOTION.CONTACT_DISTANCE
-	var travelled := preparation * smoothstep(0, REAR_TAKEDOWN_MOTION.PREPARE_END, elapsed) + lunge * (smoothstep(REAR_TAKEDOWN_MOTION.PREPARE_END, REAR_TAKEDOWN_MOTION.STAB_HIT, elapsed) - smoothstep(REAR_TAKEDOWN_MOTION.HOLD_END, REAR_TAKEDOWN_MOTION.WITHDRAW_END, elapsed))
-	if absf(travelled - _rear_approach_progress) > .000001:
-		var step := _rear_approach_offset.normalized() * (travelled - _rear_approach_progress)
-		var before := global_position
-		move_and_collide(step)
-		_rear_approach_obstruction_m += maxf(0.0, step.length() - (global_position - before).dot(step.normalized()))
-		_rear_approach_progress = travelled
+	# Follow the same collision-tested arc even when a long frame crosses
+	# several keys. A single chord can cut through the target's capsule.
+	var frame := _rear_approach_basis
+	var initial := frame.inverse() * -_rear_approach_offset
+	var steps := maxi(1, int(ceil((elapsed - _rear_approach_elapsed) * 60.0)))
+	for index in steps:
+		var sample := lerpf(_rear_approach_elapsed, elapsed, float(index + 1) / steps)
+		var destination := frame * REAR_TAKEDOWN_MOTION.stance_offset(sample, initial)
+		var travelled := destination + _rear_approach_offset
+		var step := travelled - _rear_approach_progress
+		if step.length_squared() > .000000000001:
+			var before := global_position
+			move_and_collide(step)
+			_rear_approach_obstruction_m += maxf(0.0, step.length() - (global_position - before).dot(step.normalized()))
+			_rear_approach_progress = travelled
+			if _rear_approach_obstruction_m > .04: break
+	_rear_approach_elapsed = elapsed
 
 
 func _apply_rear_takedown_view(elapsed: float) -> void:
 	# The actual character step is collision-tested by the coordinator; this
 	# function only aims the view and applies the sword/upper-body lean.
 	var focus := _execution_contact_point.lerp(_rear_neck_contact, .42)
+	var close_view := smoothstep(REAR_TAKEDOWN_MOTION.PREPARE_END, REAR_TAKEDOWN_MOTION.STAB_HIT, elapsed) * (1.0 - smoothstep(REAR_TAKEDOWN_MOTION.HOLD_END, REAR_TAKEDOWN_MOTION.WITHDRAW_END, elapsed))
+	focus += _execution_stab_direction * .40 * close_view
 	# Turn the stance slightly left so the right shoulder follows the thrust
 	# line instead of folding the forearm across the centre of the chest.
-	focus -= Vector3(cos(_rear_entry_yaw), 0, -sin(_rear_entry_yaw)) * .16
+	focus -= _rear_approach_basis.x * .16
 	var toward := focus - head.global_position
 	var blend := smoothstep(0, REAR_TAKEDOWN_MOTION.PREPARE_END, elapsed)
 	rotation.y = lerp_angle(_rear_entry_yaw, atan2(-toward.x, -toward.z), blend)

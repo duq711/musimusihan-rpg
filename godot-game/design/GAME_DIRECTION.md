@@ -1,5 +1,19 @@
 # 게임 제작 기준서
 
+## 2026-09-24 후방 검 제압 — 어깨 옆 밀착 시점 / Rear takedown — close shoulder-side view
+
+**사용자 확정 방향:** 첨부한 파크라이 스크린샷처럼 미인지 몬스터의 뒤에 바짝 접근하고, 몸 반대편으로 나온 칼날이 실제 1인칭 화면에서 보이도록 후방 검 제압을 조정한다. 참고 범위는 사용자가 제공한 한 장의 화면이다. 원본 영상 전체를 시청했다거나 동일 애니메이션을 확보했다는 뜻이 아니다.
+
+현재 구현값은 적 기준 준비 위치 `(-0.10, 0, 1.35)m`, 밀착 위치 `(-0.57, 0, 0.63)m`이며 밀착 수평 거리는 약 `0.8496m`다. 가슴 중심에서 적의 왼쪽으로 `0.18m` 옮긴 축으로 실제 등 피부를 찾아 진입점을 정한다. 이 수치는 사용자 확정 규칙이 아닌 현재 제작 설정이며 아래 팔 길이·파지·가림 검사와 실제 렌더로 검수했다. 시작 시 저장한 적 방향을 이동·시선 기준으로 사용하여 사망 후 대상 참조를 다시 요구하지 않는다. 경로는 작은 충돌 이동으로 나누고 누적 막힘이 `0.04m`를 넘으면 추가 이동을 즉시 멈추고 취소한다. 몸을 투명하게 하거나 칼을 화면에 합성하지 않는다. 기존 약 94% 관입, 실제 첫 접촉 출혈, 고개 들기, 짧은 비틀기, 직선 발검, 칼끝이 빠진 뒤 머리 유지 랙돌과 단일 사망·보상, E/F2·시험 원정 복원을 유지한다.
+
+**검증 상태: 후방 제압 핵심·실제 F2 자동 검사 2종과 실제 GPU 9초·270프레임 검수를 통과했다. 84개 검수 PNG 중 주요 7장과 JPG 13개 표본의 독립 시각 검토를 마쳤다. GitHub 반영은 확인 대기다.** 1인칭에서 실제 반대편 피부 출구부터 칼끝까지 보이는지, 중앙·좌우 후방 접근과 장애물 취소가 정상인지 검증한다. 화면 좌표에 포함된 칼의 밑동이나 측면 카메라의 관통만으로 1인칭 가시성을 판정하지 않는다. 근거는 [밀착 제압 검수 기록](../artifacts/validation/rear_close_takedown_20260924/README.md)에 보존한다. 1인칭의 돌출 날은 좁은 칼끝으로 보이며 참고의 큰 전경 단검과 동일한 크기·구도는 아니다. 아래 기록은 각 이전 버전의 근거로 보존한다.
+
+**User-confirmed direction:** approach tightly behind an unaware monster and make the real blade emerging from the opposite body surface visible in first person, following the supplied Far Cry screenshot. The reference is one user-provided frame; it does not establish that the full video was watched or its animation assets obtained.
+
+Current target-local settings are preparation at `(-0.10, 0, 1.35)m` and close stance at `(-0.57, 0, 0.63)m`, approximately `0.8496m` horizontally. A ray offset `0.18m` to the target’s left from the chest finds the actual back-skin entry. These are implementation settings, not user-fixed rules, reviewed through the arm-length, grip, occlusion and actual-render checks below. Movement and aim use the target orientation cached at the start, without rereading a potentially removed post-death target. Small collision-tested substeps stop immediately and cancel when accumulated obstruction exceeds `0.04m`. Do not make the body transparent or composite a blade onto the screen. Preserve approximately 94% insertion, first-contact blood, raised-head response, brief twist, straight extraction, intact-head ragdoll after clearance, one death/reward and E/F2/session restoration.
+
+**Validation: both rear-takedown core and real F2 suites passed, along with nine seconds/270 frames of actual GPU checks. Independent visual review covered seven key stills from 84 inspection PNGs and thirteen JPG samples. GitHub publication is pending.** Verify visibility of the actual opposite-surface exit-to-tip segment in first person, centred/left/right rear approaches and safe obstacle cancellation. The near-side heel projecting in-frame or a side-view penetration does not prove first-person visibility. See the [close-takedown report](../artifacts/validation/rear_close_takedown_20260924/README.md). The first-person protrusion is a narrow tip, not the large foreground knife or exact composition of the reference. Earlier records remain evidence for their respective revisions.
+
 ## 2026-09-21 후방 검 제압 — 피격 시 고개를 드는 반응 / Rear takedown — raised-head impact response
 
 **최신 사용자 확정 변경:** 크리프가 검에 찔릴 때 고개를 위로 들며 비명을 지르는 듯한 반응을 추가한다. 목과 머리 뼈를 함께 뒤로 젖히고 첫 실제 피부 접촉부터 깊은 찌르기까지 부드럽게 강화한다. 검이 박힌 동안 고개를 든 자세를 유지하며 기존 몸 반응과 연결한다. 이번 요청은 자세 표현이며 비명 음향을 새로 추가하는 범위로 확대하지 않는다.

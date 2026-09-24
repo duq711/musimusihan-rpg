@@ -19,8 +19,10 @@ const PENETRATION_RATIO := 0.94
 const STAMINA_COST := 24.0
 const MIN_DISTANCE := 0.85
 const MAX_DISTANCE := 1.50
-const CONTACT_DISTANCE := .985
-const STAB_DISTANCE := 1.40
+const PREPARE_STANCE := Vector3(-.10, 0, 1.35)
+const CLOSE_STANCE := Vector3(-.57, 0, .63)
+const CONTACT_DISTANCE := .849588
+const STAB_DISTANCE := 1.353699
 
 static func grip_blend(elapsed: float) -> float:
 	# Set the diagonal thrust grip before extending the arm; restore the
@@ -89,6 +91,20 @@ static func shield(elapsed: float, entry: Transform3D) -> Transform3D:
 	if elapsed < PREPARE_END: return POSE.mix(entry, lowered, elapsed / PREPARE_END)
 	if elapsed < RECOVER_START: return lowered
 	return POSE.mix(lowered, entry, (elapsed - RECOVER_START) / (DURATION - RECOVER_START))
+
+static func stance_offset(elapsed: float, initial: Vector3) -> Vector3:
+	# Sweep around the rear shoulder rather than backing down the centreline.
+	# Retraction returns along the same tested route while the blade comes out.
+	var prepared := _arc_stance(initial, PREPARE_STANCE, smoothstep(0, PREPARE_END, elapsed))
+	var close_weight := smoothstep(PREPARE_END, STAB_HIT, elapsed) * (1.0 - smoothstep(HOLD_END, WITHDRAW_END, elapsed))
+	return _arc_stance(prepared, CLOSE_STANCE, close_weight)
+
+
+static func _arc_stance(from: Vector3, to: Vector3, weight: float) -> Vector3:
+	var angle := lerp_angle(atan2(from.x, from.z), atan2(to.x, to.z), weight)
+	var radius := lerpf(Vector2(from.x, from.z).length(), Vector2(to.x, to.z).length(), weight)
+	return Vector3(sin(angle), 0, cos(angle)) * radius
+
 
 static func camera_offset(elapsed: float) -> Vector3:
 	var lean := smoothstep(PREPARE_END, STAB_HIT, elapsed) * (1.0 - smoothstep(HOLD_END, WITHDRAW_END, elapsed))
