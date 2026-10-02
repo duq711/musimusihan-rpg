@@ -1,0 +1,468 @@
+{
+  "schema_version": 1,
+  "date_kst": "2026-10-03",
+  "result": "Passed",
+  "final_build": 24,
+  "base_commit": "fa459ca728cbba23ca80c3cca7b28dcb3538949f",
+  "gameplay_assembly_sha256": "adf9f332e90c8d739101679a36ac1bbec8ec8ee2f8fbedea0331f68698dc76cd",
+  "user_contract": {
+    "duration_seconds": 3,
+    "pending_torch_and_left_hand_hidden": true,
+    "circle_clockwise_revolution": true,
+    "remaining_seconds_inside_circle": true,
+    "flint_strike_times_seconds": [
+      0,
+      0.85,
+      1.7,
+      2.55
+    ],
+    "completion_immediate_lit_carry": true,
+    "draw_reach_animation": false,
+    "F_L_cancel_pending_or_extinguish_lit": true,
+    "pause_F2_preserves_time": true,
+    "trial_retry_fresh_countdown": true
+  },
+  "audio": {
+    "clip": "Generated/Blacksmith/metallic.wav",
+    "reuse_packaged_metal_transient": true,
+    "spatial_blend": 0,
+    "pitch": 1.4,
+    "volume": 0.18,
+    "new_audio_assets": false,
+    "pcm_non_silent_verified": true,
+    "hardware_speaker_output_verified": false
+  },
+  "fresh_final_regression_checks": 3488,
+  "fresh_final_regression": [
+    {
+      "case": "acceptance-torch-controls",
+      "result": "Passed",
+      "checks": 153,
+      "receipt_sha256": "999c4add90b60ce6be8d3e6fc865f58238b5f4eb1b7bfdcbda0d1ee1bfba4c97",
+      "initial_render_quality": "performance",
+      "contract_rows": [
+        {
+          "case": "torch_countdown",
+          "sample": "F2 initial preparation",
+          "remaining": 3.0,
+          "progress": 0.0,
+          "digits": "3.0",
+          "strikes": 1
+        },
+        {
+          "case": "torch_countdown",
+          "sample": "L start",
+          "remaining": 3.0,
+          "progress": 0.0,
+          "digits": "3.0",
+          "strikes": 1
+        },
+        {
+          "case": "torch_audio",
+          "clip": "metallic",
+          "samples": 11025,
+          "channels": 1,
+          "frequency": 22050,
+          "spatial_blend": 0.0,
+          "listener_paused": true,
+          "hardware_audio_verified": false
+        },
+        {
+          "case": "torch_countdown",
+          "sample": "one second / 2.0",
+          "remaining": 2.0,
+          "progress": 0.333333343,
+          "digits": "2.0",
+          "strikes": 2
+        },
+        {
+          "case": "torch_countdown",
+          "sample": "two seconds / 1.0",
+          "remaining": 1.0,
+          "progress": 0.6666667,
+          "digits": "1.0",
+          "strikes": 3
+        },
+        {
+          "case": "torch_countdown",
+          "sample": "2.999 seconds, still hidden",
+          "remaining": 0.0009999999999998899,
+          "progress": 0.9996667,
+          "digits": "0.0",
+          "strikes": 4
+        },
+        {
+          "case": "torch_countdown",
+          "sample": "restart resets circle and 3.0",
+          "remaining": 3.0,
+          "progress": 0.0,
+          "digits": "3.0",
+          "strikes": 1
+        },
+        {
+          "case": "torch_countdown",
+          "sample": "F2 retry starts a fresh full attempt",
+          "remaining": 3.0,
+          "progress": 0.0,
+          "digits": "3.0",
+          "strikes": 1
+        },
+        {
+          "case": "torch_countdown",
+          "sample": "reset and reselect",
+          "remaining": 3.0,
+          "progress": 0.0,
+          "digits": "3.0",
+          "strikes": 1
+        },
+        {
+          "case": "torch_countdown",
+          "sample": "standalone torch action",
+          "remaining": 3.0,
+          "progress": 0.0,
+          "digits": "3.0",
+          "strikes": 1
+        },
+        {
+          "case": "torch_original_restoration",
+          "player_identity": true,
+          "inventory_identity": true,
+          "igniting": true,
+          "expected_remaining": 2.25,
+          "actual_remaining": 2.25,
+          "expected_strikes": 1,
+          "actual_strikes": 1,
+          "items_equal": true,
+          "survival_equal": true
+        },
+        {
+          "case": "torch_user_contract",
+          "contract": "User override: hidden three-second circular countdown, four flint strikes, immediate carry at completion",
+          "render_quality": "performance",
+          "fast_performance": true,
+          "historical_trace_preserved": true,
+          "historical_draw_parity_claimed": false,
+          "hardware_audio_verified": false
+        }
+      ]
+    },
+    {
+      "case": "acceptance-torch-carry",
+      "result": "Passed",
+      "checks": 3335,
+      "receipt_sha256": "3d3d4b6f7d95bb153a0b475974a7ea8764b757c74872dc0d13e35d2751d8416f",
+      "initial_render_quality": "performance",
+      "contract_rows": [
+        {
+          "case": "torch_user_contract",
+          "contract": "User override: hidden three-second ignition and immediate carry; original full-carry poses and off/stow lifetime retained",
+          "render_quality": "performance",
+          "fast_performance": true,
+          "historical_trace_preserved": true,
+          "historical_draw_parity_claimed": false
+        },
+        {
+          "case": "current_torch_carry",
+          "historical_inputs_replayed": 413,
+          "full_carry_samples_compared": 249,
+          "maximum_position_m": 1.83641316e-06,
+          "maximum_basis": 5.44528e-07,
+          "maximum_bone_matrix_error": 8.184395e-06,
+          "maximum_world_flame_lean_error": 3.31964515e-07,
+          "source_model": "res://assets/3d/player/fp_arms/left.scn"
+        }
+      ]
+    }
+  ],
+  "fresh_final_capacity": [
+    {
+      "case": "benchmark-performance-hideout",
+      "result": "Passed",
+      "benchmark_route": "hideout",
+      "receipt_sha256": "b9c12296cdcd07a01a8dcdc07ad84ae3fece9833396814f3caf9cac889b43dba",
+      "world_target_resolution": [
+        1280,
+        720
+      ],
+      "equipment_target_resolution": [
+        1280,
+        720
+      ],
+      "ui_frame_target_resolution": [
+        1920,
+        1080
+      ],
+      "wall_ms": {
+        "count": 3600,
+        "mean": 9.497364398055566,
+        "min": 7.491291999997429,
+        "p50": 9.1120830000051,
+        "p95": 11.5172500000007,
+        "p99": 13.68641699999884,
+        "max": 16.900542000001906,
+        "over_16_67ms_percent": 0.027777777777777776
+      },
+      "gpu_ms": {
+        "count": 3590,
+        "mean": 7.722031963878236,
+        "min": 4.801333358045667,
+        "p50": 7.621625030878931,
+        "p95": 9.267249959520996,
+        "p99": 9.909083310049027,
+        "max": 15.224749979097396,
+        "over_16_67ms_percent": 0.0
+      },
+      "wall_interval_fps_mean": 105.29236934456624,
+      "uncapped_capacity_60fps_pass": true,
+      "foreground_60fps_certified": false,
+      "world_target_reallocations": 0,
+      "equipment_target_reallocations": 0,
+      "diagnostics": {
+        "profiles": [],
+        "measurement_only": true,
+        "eligible_for_60fps_goal": true,
+        "restoration_passed": true,
+        "restoration_failures": [],
+        "light_enabled_states_restored": 0,
+        "temporal_enabled_states_restored": 0,
+        "destroyed_lights_before_restore": 0,
+        "destroyed_temporals_before_restore": 0
+      }
+    },
+    {
+      "case": "benchmark-performance-dungeon",
+      "result": "Passed",
+      "benchmark_route": "dungeon",
+      "receipt_sha256": "11861031a308a799edb6a793f8fdc3ba8e2e0bc6119b215c0a3fe420b8db257d",
+      "world_target_resolution": [
+        1280,
+        720
+      ],
+      "equipment_target_resolution": [
+        1280,
+        720
+      ],
+      "ui_frame_target_resolution": [
+        1920,
+        1080
+      ],
+      "wall_ms": {
+        "count": 3600,
+        "mean": 5.814092013888893,
+        "min": 3.883959000001269,
+        "p50": 5.598165999998628,
+        "p95": 7.801583999999195,
+        "p99": 9.407374999998552,
+        "max": 18.35670900000075,
+        "over_16_67ms_percent": 0.027777777777777776
+      },
+      "gpu_ms": {
+        "count": 3589,
+        "mean": 8.822378714771448,
+        "min": 5.740375025197864,
+        "p50": 6.9470416638068855,
+        "p95": 15.559624996967614,
+        "p99": 16.281249991152436,
+        "max": 17.4786249990575,
+        "over_16_67ms_percent": 0.16717748676511562
+      },
+      "wall_interval_fps_mean": 171.99590195875223,
+      "uncapped_capacity_60fps_pass": true,
+      "foreground_60fps_certified": false,
+      "world_target_reallocations": 0,
+      "equipment_target_reallocations": 0,
+      "diagnostics": {
+        "profiles": [],
+        "measurement_only": true,
+        "eligible_for_60fps_goal": true,
+        "restoration_passed": true,
+        "restoration_failures": [],
+        "light_enabled_states_restored": 0,
+        "temporal_enabled_states_restored": 0,
+        "destroyed_lights_before_restore": 0,
+        "destroyed_temporals_before_restore": 0
+      }
+    },
+    {
+      "case": "benchmark-performance-cave",
+      "result": "Passed",
+      "benchmark_route": "cave",
+      "receipt_sha256": "f85d854d612c6b389b0b42d1e0813fcf1ad8810605e8dcdae12cf6a21a1399e3",
+      "world_target_resolution": [
+        1280,
+        720
+      ],
+      "equipment_target_resolution": [
+        1280,
+        720
+      ],
+      "ui_frame_target_resolution": [
+        1920,
+        1080
+      ],
+      "wall_ms": {
+        "count": 3600,
+        "mean": 6.73513988416667,
+        "min": 4.881874999998814,
+        "p50": 6.568084000001306,
+        "p95": 8.801583000000335,
+        "p99": 10.199499999998807,
+        "max": 13.641750000001451,
+        "over_16_67ms_percent": 0.0
+      },
+      "gpu_ms": {
+        "count": 3590,
+        "mean": 5.529022690321871,
+        "min": 4.897500039078295,
+        "p50": 5.5324999848380685,
+        "p95": 6.080374994780868,
+        "p99": 6.469416664913297,
+        "max": 9.548750007525086,
+        "over_16_67ms_percent": 0.0
+      },
+      "wall_interval_fps_mean": 148.47501569356487,
+      "uncapped_capacity_60fps_pass": true,
+      "foreground_60fps_certified": false,
+      "world_target_reallocations": 0,
+      "equipment_target_reallocations": 0,
+      "diagnostics": {
+        "profiles": [],
+        "measurement_only": true,
+        "eligible_for_60fps_goal": true,
+        "restoration_passed": true,
+        "restoration_failures": [],
+        "light_enabled_states_restored": 0,
+        "temporal_enabled_states_restored": 0,
+        "destroyed_lights_before_restore": 0,
+        "destroyed_temporals_before_restore": 0
+      }
+    }
+  ],
+  "capacity_measured_intervals_per_route": 3600,
+  "profile": {
+    "world_equipment": [
+      1280,
+      720
+    ],
+    "ui_output": [
+      1920,
+      1080
+    ],
+    "clarity_build19_features_preserved": true,
+    "timing": "uncapped hidden production-frame camera sweep",
+    "pending_countdown_capacity_benchmark": false
+  },
+  "build": {
+    "result": "Succeeded",
+    "errors": 0,
+    "warnings": 176,
+    "bytes": 3055324585,
+    "universal_release_mono": true,
+    "isolated_source_files_verified": 88
+  },
+  "installation": {
+    "result": "Passed",
+    "default_root_inode_preserved": true,
+    "strict_signature_verified": true,
+    "gameplay_assembly_sha256": "adf9f332e90c8d739101679a36ac1bbec8ec8ee2f8fbedea0331f68698dc76cd",
+    "applications_shortcut_resolves_to_default": true,
+    "user_processes_terminated": false,
+    "dock_preferences_modified": false
+  },
+  "historical_trace_preserved": true,
+  "historical_draw_parity_claimed": false,
+  "source_sha256": {
+    "tools/unity_migration/generate_performance_shaders.py": "ee4a45d6772bfc04d2f26544795b740835d2533082b1c5986115c88414054027",
+    "tools/unity_migration/run_render_optimization_qa.py": "f3999a3ce37dc0d297ea491860efbca84d236a99d949106b2ecc7ca40277d38b",
+    "unity-game/Assets/RPG/Editor/NativeGameBuild.cs": "d567f77a9966f38d113adc57bd9de19312134496c2cd0069e083300e347c9567",
+    "unity-game/Assets/RPG/Gameplay/DungeonMotor.cs": "a6e034eccdf08fdace93a5d18e0c06e5528f07f7c26ecf9d21f1caa47b792cf1",
+    "unity-game/Assets/RPG/Gameplay/HideoutStaticBatch.cs": "a136c51e9b5ed63ad08e82fae04abb44f3338ff58849c7c1ecc04d746ace6deb",
+    "unity-game/Assets/RPG/Gameplay/MeleeCombat.cs": "b8aa3cdc9691789cc3f8add80bef973b347a32776c8b6164edcf94b09e7c8861",
+    "unity-game/Assets/RPG/Gameplay/NativeCampFlow.cs": "c8b3320652932bd166236fcbb7a6e6bab917f36ac4da9a91632671834a05f6cd",
+    "unity-game/Assets/RPG/Gameplay/NativeCaveExpeditionAcceptance.cs": "afa6c8d3d08990078329ed827964bd7d79e7049f0411aa00e6fca7ba6f80ddd2",
+    "unity-game/Assets/RPG/Gameplay/NativeCombatHud.cs": "28db95ef6d1127eb2edd642ab86f306053150b3ae2ad137daddf6a7138f825a3",
+    "unity-game/Assets/RPG/Gameplay/NativeCreepTrialAcceptance.cs": "227264e3e2f45e59ac2dc847926dbaf7b9f8c064a10cf25ee13118d29e662625",
+    "unity-game/Assets/RPG/Gameplay/NativeDrawCullingAcceptance.cs": "e50f00d5f6d885026c58d638e6e061c3a93c1c8ef1da1db6e9e99f7303cc3f12",
+    "unity-game/Assets/RPG/Gameplay/NativeFastRenderAcceptance.cs": "dbaa6403e20f435f33cc020c6f415bbd7a1a0bd2063d60f4c4d038f7f5c09667",
+    "unity-game/Assets/RPG/Gameplay/NativeFastRenderAcceptance.cs.meta": "e97485444a1336d2c4290cf780224513abf8379f33d6bb80745662ae4dcd89f6",
+    "unity-game/Assets/RPG/Gameplay/NativeFirstPersonRendererAcceptance.cs": "517ca1b151cc314374cf2d9cf8ba31229c1a42e0825fe2b18e43d69d13c5971c",
+    "unity-game/Assets/RPG/Gameplay/NativeFrameBenchmarkDiagnostics.cs": "475fd2fd8a1c1e0a90e823b01200957716cceb7ea4475192ea7f500d4b344516",
+    "unity-game/Assets/RPG/Gameplay/NativeFrameBenchmarkDiagnostics.cs.meta": "cafe4ef67318c9e4e10ba911f0327b1b98c8b9d7428881bc10c2bee389129147",
+    "unity-game/Assets/RPG/Gameplay/NativeGameFlow.cs": "d0c4720599cba7fdfb07abc9c70b71b4d6cc69a756072a1ffff128ec8dadc53e",
+    "unity-game/Assets/RPG/Gameplay/NativeHideoutViewAcceptance.cs": "4fdef46907ea487b15bdc173b235fe65f74603bb1f1a7044616a15c96fd50262",
+    "unity-game/Assets/RPG/Gameplay/NativeLiveFrameBenchmark.cs": "e6636aa64f454320889c35f5088a3bfe22c7ece644d13cb07d99f20dda43e5bf",
+    "unity-game/Assets/RPG/Gameplay/NativeRenderQuality.cs": "4e52466c95f91a768482189ef446ce6d2fe9add2e8d1979f781353a740cb7238",
+    "unity-game/Assets/RPG/Gameplay/NativeRenderQualityAcceptance.cs": "fbad0d16f5b5c038018694d0c3bef74f848af01f89894a829ba632c344b36eae",
+    "unity-game/Assets/RPG/Gameplay/NativeTorchCarryAcceptance.cs": "d0d187f6bb3a2f8d112015244f3214272fe050662e0b87c03af2e15884af77e9",
+    "unity-game/Assets/RPG/Gameplay/NativeTorchControlsAcceptance.cs": "f0054a1a0b972cb29e3a514069b2682b5efb0f112c6f5e7829c00f8a9b178fa6",
+    "unity-game/Assets/RPG/Gameplay/PlayerFrameInput.cs": "15328933e120e6f22b19780be22bf33174cf07d912c9fa7f7f9e3ce3cd30d0df",
+    "unity-game/Assets/RPG/Gameplay/PlayerFrameSchedule.cs": "eb8f7088527c874bde5a2289d386d8000955a9b2d51745a22f0bc3096dd3e06e",
+    "unity-game/Assets/RPG/Gameplay/PlayerPresentation.cs": "dccb5e0d9899f46fcaa803d416778ef4fabde0bbc931db144480f42633c862b8",
+    "unity-game/Assets/RPG/Gameplay/SourceAlphaDepthPrepass.cs": "a9f3e1dc781de3a9f58892e4b47afc0313b7c096de8e78addcb157a3f91e1a38",
+    "unity-game/Assets/RPG/Gameplay/SourceDrawCulling.cs": "a2c296c4af0c044c7d91a7e801af3fcb31e88bf95b683e97a05f5bb21b4eede8",
+    "unity-game/Assets/RPG/Gameplay/SourceDrawing.cs": "21a287c58bfdf0a96aa0874c0de24ee9cc7756c13b179ecf82724951835c20f6",
+    "unity-game/Assets/RPG/Gameplay/SourceGeometryRange.cs": "b92f4e740fef09d798e4d932c6a14249fe002e437c238d4e6be8b0433fd2da8d",
+    "unity-game/Assets/RPG/Gameplay/SourceLightDistance.cs": "d4576f522cbcf1a07770098b4c0b3c56e01143a5a028bcc576623f04d3f05863",
+    "unity-game/Assets/RPG/Gameplay/SourceMeshLod.cs": "7e643cf1bb8d5cdd94b761e93a27e113a193fc16c34a9b24ffbbb7dd8f9d90e5",
+    "unity-game/Assets/RPG/Gameplay/SourceMotionHistory.cs": "d53d09fff88b198321e0702010f994383d625f19ce60c2de4e3b162dbfdf557f",
+    "unity-game/Assets/RPG/Gameplay/SourceOpaqueScreen.cs": "f69f34b357716fc984577d13b355919a4fc8a17c41d7327f319562c0c564d29b",
+    "unity-game/Assets/RPG/Gameplay/SourcePerformanceLighting.cs": "7926373ec0198e21eb0deefe796c93ef337da19bd0280ea6b092e860ebc42f8e",
+    "unity-game/Assets/RPG/Gameplay/SourcePerformanceLighting.cs.meta": "42b6471e33eefb44975ec278e844c71a0e44cfee436938d3084ddcce997c63f3",
+    "unity-game/Assets/RPG/Gameplay/SourcePerformanceMaterials.cs": "1d7671ae95e060a8dda5e59c7785604f6aa2209735c568d6351dd2e492eca3e5",
+    "unity-game/Assets/RPG/Gameplay/SourcePerformanceMaterials.cs.meta": "df7fd35ec1ea6f074c0bc1cbc7b6c8fe9a7835383bb52c9eb6467fb55bdfcc4c",
+    "unity-game/Assets/RPG/Gameplay/SourcePerformanceTextureCache.cs": "75079d355c36f7bd7c04f53c5227cf98db0e846f258bc15c709aeb508538b6b1",
+    "unity-game/Assets/RPG/Gameplay/SourcePerformanceTextureCache.cs.meta": "05aa7623630a324549a267fad377c9378961a84b9c83bb8de61e864fef3a191d",
+    "unity-game/Assets/RPG/Gameplay/SourceRoomReflections.cs": "453561643e0b3aa8eda8e2fee863f6880966840811ce73a4d1b9fcde86bc6b02",
+    "unity-game/Assets/RPG/Gameplay/SourceSceneRenderer.cs": "d17670ff9ef9a03572a55f54a7b9f909b584c24c972b7cd9e8836433e8027cef",
+    "unity-game/Assets/RPG/Gameplay/SourceTemporalCamera.cs": "ec7dca40a6c85c74a2723c5e8700fe6cd62cd96dc5bef89ea17d072de3939e31",
+    "unity-game/Assets/RPG/Gameplay/SourceUi.cs": "52b26c326d6108cee81a17bf8a60834c601fac50587f42751b9af3492248aca9",
+    "unity-game/Assets/RPG/Gameplay/SourceUiRenderer.cs": "1ff6303b8e056bd18b2c9bede876ee2c94e1c3c5121ff32dfe05cc5b7dbedb64",
+    "unity-game/Assets/RPG/Gameplay/SourceWorldGlow.cs": "1d9077bdb33f2ceb207f472d3854fb0b9867a4e0d2f62108bf10c79fd0005f8b",
+    "unity-game/Assets/RPG/Gameplay/TorchIgnitionAudio.cs": "b4a1c8c3f17b6d4c685ea52f4887193546c892ff11efab6432b613d10b6e60d1",
+    "unity-game/Assets/RPG/Gameplay/TorchIgnitionAudio.cs.meta": "7249c0eb3054a55d1252c2cbc3a640d99e80956b87df4a7564bbb690a757fd9a",
+    "unity-game/Assets/RPG/Gameplay/TorchIgnitionHud.cs": "192594b6bfeec2e6d0b19ae4bdd22f54d6358fcfedd558232b807ca84a4eb6d3",
+    "unity-game/Assets/RPG/Gameplay/TorchIgnitionHud.cs.meta": "e12c1462aa78dd02a04d158321278ee35b4a494db3555033c7f5c57f85bdcd52",
+    "unity-game/Assets/RPG/Gameplay/TorchPresentation.cs": "d208bbad75d948c2d3cb424e13c51f2288a677dd2e9d15c31d9a58b20e7ff625",
+    "unity-game/Assets/RPG/Gameplay/WorkshopController.cs": "02831c64a04bbc9e8cbe155ea0e4895f673212e233abb241883927d36d329aac",
+    "unity-game/Assets/RPG/Gameplay/WorkshopInteractions.cs": "c5a7a547e058025ba42a266ab205bea4f340b932970916843d83604e078b3f42",
+    "unity-game/Assets/RPG/Gameplay/WorkshopOriginalCombatTrials.cs": "2494fdb1628cccc0972c45aa559b8787148b9a4c12e4e92b27852de116773f05",
+    "unity-game/Assets/RPG/Gameplay/WorkshopOriginalMotionTrials.cs": "bf466877d148b1df2a7eef5c2b161f90bd39988542ff69c2bbcc5c4a9e3c50b1",
+    "unity-game/Assets/RPG/Gameplay/WorkshopOriginalReferenceSwordTrials.cs": "084f5820cf74f4f0dd1fd467bd85bcaa2fae178bf4b5ac30167939b7e3dd821b",
+    "unity-game/Assets/RPG/Gameplay/WorkshopOriginalShieldTrials.cs": "3ff11b2c587bf86a7b44d168adb517d9268046ef7f7f6b76c00f25e854ecbb6c",
+    "unity-game/Assets/RPG/Gameplay/WorkshopStress.cs": "3e23a8865dd86f5d8cef8ed346a2ed7a6747834316e106f495526d510140d121",
+    "unity-game/Assets/RPG/Generated/Blacksmith/metallic.wav": "a9ea0a41a530afcd28ab175ad6ffb487b608b58a11f8f258c250ff3f8dd67f49",
+    "unity-game/Assets/RPG/Generated/Blacksmith/metallic.wav.meta": "e50c66c66153753748260b9e7df5b4b30eafac76413176f6a9710fa0b30b5222",
+    "unity-game/Assets/RPG/Generated/Torch/torch.json": "919f02abb5b01a39ce983b0a636c7dbd96e142dae8e6b082964dc8ec01791b3f",
+    "unity-game/Assets/RPG/Resources/Migration/torch-carry.json": "f36568e75f7af4677edc3c7f0a2d4e591c03e22f3e917ffd53ddfa11bc5cffda",
+    "unity-game/Assets/RPG/Resources/Migration/torch-controls.json": "2cece19405533ed9711a7dc0dbade788004d09e5c5d1675bf50240039fa64cab",
+    "unity-game/Assets/RPG/Resources/Shaders/Performance.meta": "c72b464586db6c160a1e2e8092d094dc82c6a907693c1f1b858c9482196e208a",
+    "unity-game/Assets/RPG/Resources/Shaders/Performance/CaveGeologyPerformance.shader": "8a23b5fa9954202a216e476205d33a5e04bab69c10e41f865c4653f3b8e896fd",
+    "unity-game/Assets/RPG/Resources/Shaders/Performance/CaveGeologyPerformance.shader.meta": "a5c69110830831621a3f724808cc1c9a3f9d617200aad46dbad8bdcbf9884796",
+    "unity-game/Assets/RPG/Resources/Shaders/Performance/CavePropSurfacePerformance.shader": "a4d9d3d02e7f06285b320cd087ac6dd0e3c6b6a055f280dfb7a32f22824bd566",
+    "unity-game/Assets/RPG/Resources/Shaders/Performance/CavePropSurfacePerformance.shader.meta": "1661f1e45a24767fbdc2934f6da8e2ee06e0bfab705aa92153554874a4f9fc3d",
+    "unity-game/Assets/RPG/Resources/Shaders/Performance/CaveWaterPerformance.shader": "ee807aaf18a82214a4ae0cfa7555089ac48ef1c6b001ceaa8271650ed92fa813",
+    "unity-game/Assets/RPG/Resources/Shaders/Performance/CaveWaterPerformance.shader.meta": "ac0aedcf818be17a391ffe854d48500c2ea4620bf7c14b8757b1dc3776ef3bd8",
+    "unity-game/Assets/RPG/Resources/Shaders/Performance/HideoutWaterPerformance.shader": "2c83480d6d41dc1d2e6cbaefdcd9029fc3a2e8aaae6fc44d953c6328a4399d07",
+    "unity-game/Assets/RPG/Resources/Shaders/Performance/HideoutWaterPerformance.shader.meta": "8154edd30a993dead91a3296ae0f5a83432938e41eccb273da0d318025c073b9",
+    "unity-game/Assets/RPG/Resources/Shaders/Performance/HideoutWeatherPerformance.shader": "0ef2b190b612e807dc72ad787b013ebd44ded81ee71529ee1e8877aaa73730c9",
+    "unity-game/Assets/RPG/Resources/Shaders/Performance/HideoutWeatherPerformance.shader.meta": "3dbdc83a897e7f578c01ab3118c8b8053ef54723db9661f8cf8343b6fe01e0e0",
+    "unity-game/Assets/RPG/Resources/Shaders/Performance/ImportedPerformance.shader": "f9be0e55c62ef9535ec31c0cb2c78cca0010c726a557eeb6230e735a1d8d758f",
+    "unity-game/Assets/RPG/Resources/Shaders/Performance/ImportedPerformance.shader.meta": "68d987fa4d4c3dcfe7faf4bd60417c6e44e3b05e7a86ddffc83536a3a6e79654",
+    "unity-game/Assets/RPG/Resources/Shaders/Performance/SourceCutoutPerformance.shader": "23be4040ecb5a05e5055c793231760207b2b681017b5bdb63c8e173fce72cd0c",
+    "unity-game/Assets/RPG/Resources/Shaders/Performance/SourceCutoutPerformance.shader.meta": "899405ae4a6d865edaead177d6092bd816a1cb5096c26e5e57dbd9901e869e1c",
+    "unity-game/Assets/RPG/Resources/Shaders/Performance/SourcePerformanceLighting.cginc": "425938e680f402ac9eb96083f69c1764e89aaa9b758d37f58482964ddf9dcee9",
+    "unity-game/Assets/RPG/Resources/Shaders/Performance/SourcePerformanceLighting.cginc.meta": "266285a8e4f279800a073c0d09b480d6eb32f2ada2cc0e54a8ca4ac20edb5eb7",
+    "unity-game/Assets/RPG/Resources/Shaders/Performance/SourcePerformanceSurface.cginc": "a7939861f2f420a70f5b205ae94aad901101d5412e230860283092b08568ca12",
+    "unity-game/Assets/RPG/Resources/Shaders/Performance/SourcePerformanceSurface.cginc.meta": "72484b0fb22a9e2b9a2f015bc7af554e6a26b562c4874ad7020f9430d31d4e50",
+    "unity-game/Assets/RPG/Resources/Shaders/Performance/SourceSkinnedSurfacePerformance.shader": "4f66794a835c965fbfb645f1c25675d13c74ac3f6d3c969d1e2cb3250c0495ff",
+    "unity-game/Assets/RPG/Resources/Shaders/Performance/SourceSkinnedSurfacePerformance.shader.meta": "68b1849182a8f1af251d3323a88ad0527cbbd45f4278a753f3ee0c5b9603e801",
+    "unity-game/Assets/RPG/Resources/Shaders/Performance/SourceSurfacePerformance.shader": "c4986e9c68d4275fd342fb3034be33c0b7d3487a6c5fdee4d76b9136e8b28e69",
+    "unity-game/Assets/RPG/Resources/Shaders/Performance/SourceSurfacePerformance.shader.meta": "3e4ac9a34e9633f177f32ea164a32cf43198728df509d2b8ab331ad404cba348",
+    "unity-game/Assets/RPG/Resources/Shaders/Performance/TargetPaintPerformance.shader": "a3963830f5da01129f41601696fb3346399446c6081fd0407aef092e65f3d583",
+    "unity-game/Assets/RPG/Resources/Shaders/Performance/TargetPaintPerformance.shader.meta": "e25542bd7ded0fa40a6fd5163ff17876f8d45f00cd35bcf3055f28af0a21e468",
+    "unity-game/Assets/RPG/Resources/SourceSpatialAa.shader": "5c51056bcdfaf694e1b648d8536929611f2ffca2adcb910112a70d59800c577b",
+    "unity-game/Assets/RPG/Resources/SourceSpatialAa.shader.meta": "7b57dfd1df8d6a09c892ef66234575331de7d603917d64dfef1649d44acd6be9"
+  },
+  "task_source_file_count": 20,
+  "scope": "Native Unity user interaction override, real hidden Metal rendering, muted sound routing and F2 isolation/restoration. Historical Godot draw/ignition contract is preserved but superseded. Capacity sweeps use lit torch and inactive countdown; they do not certify every frame, foreground/manual combat, pending HUD frame timing, hardware input or speaker audition."
+}
