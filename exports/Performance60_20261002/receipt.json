@@ -1,0 +1,2842 @@
+{
+  "schema_version": 1,
+  "status": "Final build17 scoped capacity and rendering validation Passed; installed default Mac app",
+  "task": "Unity performance profile and stable 60FPS investigation",
+  "date": "2026-10-02",
+  "verdict": {
+    "stable_60fps_achieved": null,
+    "user_target": "RPG alone at stable 60FPS",
+    "functional_validation_passed_for_completed_suites": true,
+    "foreground_play_certified": false,
+    "cross_build_benchmark_is_same_build_ab": false,
+    "standalone_uncapped_capacity_passed_all_three_routes": true,
+    "capped_60fps_long_validation": "Historical software60 build9 completed at59.52–59.63FPS with interval variance. VSync10/software75 experiments were rejected. Final17 uncapped capacity passed all three routes; capped/foreground constant60FPS is not certified.",
+    "required_regression_suites_passed": true,
+    "extra_return_diagnostic_status": "Build8 Failed; unresolved and retained as an explicit opt-in",
+    "validated_required_regression_builds": [
+      7,
+      8,
+      9,
+      11,
+      13,
+      14,
+      17
+    ],
+    "rejected_vsync_experiment_build": 10,
+    "final_production_build": 17,
+    "final_production_pacing": "Fast mode vSyncCount=0, targetFrameRate=-1, preserving available capacity; quality restores authored pacing",
+    "final_production_three_route_measurements": "Completed:3600 per route; original Passed receipts and strict uncapped capacity criterion all passed",
+    "historical_capacity8_is_final13_verification": false,
+    "rejected_software75_experiment_builds": [
+      11,
+      12
+    ],
+    "final13_strict_uncapped_capacity_passed_all_three_routes": false,
+    "final13_native_measurement_completed_without_crash": true,
+    "final14_strict_uncapped_capacity_passed_all_three_routes": false,
+    "final14_hideout_capacity_passed": true,
+    "final14_dungeon_failure": "Insufficient GPU sample coverage, not wall/GPU p99 target miss",
+    "final_rendering_source_build": 17,
+    "final_functional_validation_build": "Fresh quality/fast/draw17; unchanged static14 reused",
+    "final15_strict_uncapped_capacity_passed_all_three_routes": false,
+    "final_strict_uncapped_capacity_passed_all_three_routes": true,
+    "stable_60fps_achieved_scope": "Strict automated-route capacity passed; stable_60fps_achieved remains null because full foreground/every-frame play is not certified."
+  },
+  "profile": {
+    "output_reference_resolution": [
+      1920,
+      1080
+    ],
+    "world_scale": 0.5,
+    "world_resolution": [
+      960,
+      540
+    ],
+    "ui_and_text_resolution": [
+      1920,
+      1080
+    ],
+    "equipment_resolution": [
+      960,
+      540
+    ],
+    "nearby_world_light_budget": 4,
+    "world_lighting": "Owned single-pass variants: up to4 point/spot lights plus independent directional key; no ForwardAdd",
+    "shadows": "disabled in fast performance",
+    "anti_aliasing": "FXAA; bilinear spatial upscale",
+    "temporal_history_and_object_motion_pass": "omitted in fast performance",
+    "bloom": "Small world surface; omit overwritten fast glow upscale",
+    "quality_mode": "Authored materials,1080p world/equipment,temporalAA,authored shadows/pacing restored",
+    "performance_frame_pacing": "Fast mode vSyncCount=0,targetFrameRate=-1; available capacity, authored quality pacing restored",
+    "quality_equipment_resolution": [
+      1920,
+      1080
+    ],
+    "world_and_equipment_3d_resolution": [
+      960,
+      540
+    ],
+    "independent_directional_light_budget": 1
+  },
+  "completed_build7_validation": [
+    {
+      "suite": "gameplay",
+      "build": 7,
+      "result": "Passed",
+      "unit": "steps",
+      "count": 225,
+      "error_count": 0,
+      "original_receipt_ref": "gameplay-7/result.json"
+    },
+    {
+      "suite": "quality",
+      "build": 7,
+      "result": "Passed",
+      "unit": "checks",
+      "count": 105,
+      "error_count": 0,
+      "original_receipt_ref": "acceptance-7/qa-ac2f367c390b4cbfae0814783509e3d3/acceptance-quality/result.json"
+    },
+    {
+      "suite": "fast_render",
+      "build": 7,
+      "result": "Passed",
+      "unit": "checks",
+      "count": 11553,
+      "error_count": 0,
+      "original_receipt_ref": "acceptance-7/qa-ac2f367c390b4cbfae0814783509e3d3/acceptance-fast-render/result.json"
+    },
+    {
+      "suite": "static_batch",
+      "build": 7,
+      "result": "Passed",
+      "unit": "checks",
+      "count": 2642,
+      "error_count": 0,
+      "original_receipt_ref": "regression-7-final/qa-c5d536209e4d4544b2a83b4484311723/acceptance-static-batch/result.json"
+    },
+    {
+      "suite": "fill_budget",
+      "build": 7,
+      "result": "Passed",
+      "unit": "checks",
+      "count": 32,
+      "error_count": 0,
+      "original_receipt_ref": "regression-7-final/qa-c5d536209e4d4544b2a83b4484311723/acceptance-fill-budget/result.json"
+    },
+    {
+      "suite": "player_arm",
+      "build": 7,
+      "result": "Passed",
+      "unit": "checks",
+      "count": 182,
+      "error_count": 0,
+      "original_receipt_ref": "regression-7-final/qa-c5d536209e4d4544b2a83b4484311723/acceptance-player-arm/result.json"
+    },
+    {
+      "suite": "punctual_reset",
+      "build": 7,
+      "result": "Passed",
+      "unit": "checks",
+      "count": 1656,
+      "error_count": 0,
+      "original_receipt_ref": "regression-7-remaining/qa-f8d8962482434ad1a0ce9a74979e83be/acceptance-punctual-reset/result.json"
+    }
+  ],
+  "validated_runtime_properties": {
+    "live_layer_range_fixture_actual_renders": 16,
+    "fresh_alpha_collector_fixture_actual_renders": 8,
+    "actual_hideout_nested_batch_fixture_actual_renders": 9,
+    "collector_matches_global_discovery_exactly": true,
+    "loaded_and_real_persistent_scenes_included": true,
+    "disabled_components_included": true,
+    "inactive_hierarchies_excluded": true,
+    "same_engine_frame_creation_layer_shader_activation_and_destruction": true,
+    "nested_current_and_all_ancestor_camera_masks_preserved": true,
+    "quality_far_shadow_and_property_block_restoration": true,
+    "caller_material_and_inactive_object_restoration": true
+  },
+  "benchmarks": [
+    {
+      "cohort": "feedback-6",
+      "build": 6,
+      "execution_result": "Passed",
+      "capacity_60fps_pass": false,
+      "foreground_60fps_certified": false,
+      "measured_frames": 1200,
+      "frame_pacing": "uncapped",
+      "target_frame_rate": -1,
+      "vsync_count": 0,
+      "world_resolution": [
+        960,
+        540
+      ],
+      "equipment_resolution": [
+        1920,
+        1080
+      ],
+      "ui_resolution": [
+        1920,
+        1080
+      ],
+      "wall_interval_fps_mean": 73.52657454899992,
+      "slowest_1_percent_wall_fps": 56.79518944745505,
+      "max_consecutive_over_budget_frames": 6,
+      "physical_walking_or_combat_certified": false,
+      "statistics": {
+        "wall_ms": {
+          "count": 1200,
+          "mean": 13.600524791666672,
+          "p50": 13.403541999998936,
+          "p95": 16.340125000001038,
+          "p99": 17.607124999999613,
+          "max": 62.05000000000105,
+          "over_16_67ms_percent": 3.25
+        },
+        "gpu_ms": {
+          "count": 1192,
+          "mean": 10.228553096732147,
+          "p50": 10.10675000725314,
+          "p95": 13.370500004384667,
+          "p99": 14.55766666913405,
+          "max": 16.812374989967793,
+          "over_16_67ms_percent": 0.16778523489932887
+        },
+        "cpu_main_thread_ms": {
+          "count": 1192,
+          "mean": 13.59671404026847,
+          "p50": 13.397083,
+          "p95": 16.344208,
+          "p99": 17.705291,
+          "max": 62.008667,
+          "over_16_67ms_percent": 3.3557046979865772
+        },
+        "cpu_render_thread_ms": {
+          "count": 1192,
+          "mean": 1.806729320469801,
+          "p50": 1.544707,
+          "p95": 2.890708,
+          "p99": 3.138751,
+          "max": 3.527125,
+          "over_16_67ms_percent": 0.0
+        },
+        "cpu_main_present_wait_ms": {
+          "count": 1192,
+          "mean": 0.00017406627516778465,
+          "p50": 0.000166,
+          "p95": 0.000376,
+          "p99": 0.000542,
+          "max": 0.001041,
+          "over_16_67ms_percent": 0.0
+        }
+      },
+      "original_receipt_ref": "feedback-6/qa-d1287106303b4d03a72159c78868a2a9/benchmark-performance-hideout/result.json",
+      "route": "hideout",
+      "runtime_condition": "Historical measurement; other game last seen active, RPG-alone condition not verified"
+    },
+    {
+      "cohort": "feedback-7",
+      "build": 7,
+      "execution_result": "Passed",
+      "capacity_60fps_pass": false,
+      "foreground_60fps_certified": false,
+      "measured_frames": 1200,
+      "frame_pacing": "uncapped",
+      "target_frame_rate": -1,
+      "vsync_count": 0,
+      "world_resolution": [
+        960,
+        540
+      ],
+      "equipment_resolution": [
+        1920,
+        1080
+      ],
+      "ui_resolution": [
+        1920,
+        1080
+      ],
+      "wall_interval_fps_mean": 41.65608950284485,
+      "slowest_1_percent_wall_fps": 27.73553270930307,
+      "max_consecutive_over_budget_frames": 695,
+      "physical_walking_or_combat_certified": false,
+      "statistics": {
+        "wall_ms": {
+          "count": 1200,
+          "mean": 24.006093993333344,
+          "p50": 22.773083000004135,
+          "p95": 31.657791000000657,
+          "p99": 36.05483300000145,
+          "max": 53.87858400000134,
+          "over_16_67ms_percent": 99.91666666666667
+        },
+        "gpu_ms": {
+          "count": 1192,
+          "mean": 13.376122273513719,
+          "p50": 14.06800001859665,
+          "p95": 17.732083331793547,
+          "p99": 21.83749998221174,
+          "max": 33.883374999277294,
+          "over_16_67ms_percent": 10.151006711409396
+        },
+        "cpu_main_thread_ms": {
+          "count": 1192,
+          "mean": 24.003004272651022,
+          "p50": 22.767166,
+          "p95": 31.635,
+          "p99": 36.674333,
+          "max": 53.884792,
+          "over_16_67ms_percent": 99.91610738255034
+        },
+        "cpu_render_thread_ms": {
+          "count": 1192,
+          "mean": 3.62486702432886,
+          "p50": 3.001834,
+          "p95": 6.229503,
+          "p99": 6.795875,
+          "max": 7.684793,
+          "over_16_67ms_percent": 0.0
+        },
+        "cpu_main_present_wait_ms": {
+          "count": 1192,
+          "mean": 0.0004068129194630843,
+          "p50": 0.000333,
+          "p95": 0.000791,
+          "p99": 0.001292,
+          "max": 0.014251,
+          "over_16_67ms_percent": 0.0
+        }
+      },
+      "original_receipt_ref": "feedback-7/qa-458aa2e093d64bc79873666bd043d853/benchmark-performance-hideout/result.json",
+      "route": "hideout",
+      "runtime_condition": "Historical measurement; other game last seen active, RPG-alone condition not verified"
+    },
+    {
+      "cohort": "capacity-7",
+      "build": 7,
+      "execution_result": "Passed",
+      "capacity_60fps_pass": false,
+      "foreground_60fps_certified": false,
+      "measured_frames": 1800,
+      "frame_pacing": "uncapped",
+      "target_frame_rate": -1,
+      "vsync_count": 0,
+      "world_resolution": [
+        960,
+        540
+      ],
+      "equipment_resolution": [
+        1920,
+        1080
+      ],
+      "ui_resolution": [
+        1920,
+        1080
+      ],
+      "wall_interval_fps_mean": 42.70250129798392,
+      "slowest_1_percent_wall_fps": 27.543467033910883,
+      "max_consecutive_over_budget_frames": 791,
+      "physical_walking_or_combat_certified": false,
+      "statistics": {
+        "wall_ms": {
+          "count": 1800,
+          "mean": 23.417831967777758,
+          "p50": 22.572582999998758,
+          "p95": 31.74854100000246,
+          "p99": 36.30625000000265,
+          "max": 44.77895800000198,
+          "over_16_67ms_percent": 99.5
+        },
+        "gpu_ms": {
+          "count": 1792,
+          "mean": 12.994508487703829,
+          "p50": 13.860124978236854,
+          "p95": 18.717124999966472,
+          "p99": 22.338500013574958,
+          "max": 32.02245832653716,
+          "over_16_67ms_percent": 13.169642857142858
+        },
+        "cpu_main_thread_ms": {
+          "count": 1792,
+          "mean": 23.402207960379446,
+          "p50": 22.539624,
+          "p95": 31.778792,
+          "p99": 36.384916,
+          "max": 44.779166,
+          "over_16_67ms_percent": 99.49776785714286
+        },
+        "cpu_render_thread_ms": {
+          "count": 1792,
+          "mean": 3.599602028459828,
+          "p50": 3.18729,
+          "p95": 6.271958,
+          "p99": 7.131875,
+          "max": 8.253084,
+          "over_16_67ms_percent": 0.0
+        },
+        "cpu_main_present_wait_ms": {
+          "count": 1792,
+          "mean": 0.00038000000000000045,
+          "p50": 0.000292,
+          "p95": 0.000751,
+          "p99": 0.001375,
+          "max": 0.014625,
+          "over_16_67ms_percent": 0.0
+        }
+      },
+      "original_receipt_ref": "capacity-7/qa-7c118aecca334dbfb2d2fcf5a69adbba/benchmark-performance-hideout/result.json",
+      "route": "hideout",
+      "runtime_condition": "Historical measurement; other game last seen active, RPG-alone condition not verified"
+    },
+    {
+      "cohort": "standalone-8",
+      "build": 8,
+      "route": "cave",
+      "execution_result": "Passed",
+      "capacity_60fps_pass": true,
+      "foreground_60fps_certified": false,
+      "measured_frames": 1800,
+      "gpu_distinct_sample_count": 1792,
+      "frame_pacing": "uncapped",
+      "target_frame_rate": -1,
+      "vsync_count": 0,
+      "world_resolution": [
+        960,
+        540
+      ],
+      "equipment_resolution": [
+        1920,
+        1080
+      ],
+      "ui_resolution": [
+        1920,
+        1080
+      ],
+      "wall_interval_fps_mean": 156.92897036802572,
+      "slowest_1_percent_wall_fps": 107.59967926690226,
+      "max_consecutive_over_budget_frames": 0,
+      "physical_walking_or_combat_certified": false,
+      "statistics": {
+        "wall_ms": {
+          "count": 1800,
+          "mean": 6.372309699444445,
+          "p50": 6.207708999999895,
+          "p95": 8.082375000000752,
+          "p99": 9.293707999997736,
+          "max": 11.000124999998917,
+          "over_16_67ms_percent": 0.0
+        },
+        "gpu_ms": {
+          "count": 1792,
+          "mean": 5.219352028039533,
+          "p50": 5.147916614077985,
+          "p95": 6.016666651703417,
+          "p99": 6.483666657004505,
+          "max": 8.854333369527012,
+          "over_16_67ms_percent": 0.0
+        },
+        "cpu_main_thread_ms": {
+          "count": 1792,
+          "mean": 6.374383919084813,
+          "p50": 6.201709,
+          "p95": 8.085583,
+          "p99": 9.397833,
+          "max": 10.998833,
+          "over_16_67ms_percent": 0.0
+        },
+        "cpu_render_thread_ms": {
+          "count": 1792,
+          "mean": 1.9840659916294627,
+          "p50": 1.981666,
+          "p95": 2.337958,
+          "p99": 2.513458,
+          "max": 2.846835,
+          "over_16_67ms_percent": 0.0
+        },
+        "cpu_main_present_wait_ms": {
+          "count": 1792,
+          "mean": 0.00022510937500000054,
+          "p50": 0.000208,
+          "p95": 0.000459,
+          "p99": 0.000709,
+          "max": 0.0015,
+          "over_16_67ms_percent": 0.0
+        }
+      },
+      "runtime_condition": "Other game closed and user Editor idle, as observed by root; RPG-alone target condition",
+      "original_receipt_ref": "standalone-8/qa-1318c16adfe846b096be4ebc64995e2b/benchmark-performance-cave/result.json"
+    },
+    {
+      "cohort": "standalone-8",
+      "build": 8,
+      "route": "dungeon",
+      "execution_result": "Passed",
+      "capacity_60fps_pass": true,
+      "foreground_60fps_certified": false,
+      "measured_frames": 1800,
+      "gpu_distinct_sample_count": 1792,
+      "frame_pacing": "uncapped",
+      "target_frame_rate": -1,
+      "vsync_count": 0,
+      "world_resolution": [
+        960,
+        540
+      ],
+      "equipment_resolution": [
+        1920,
+        1080
+      ],
+      "ui_resolution": [
+        1920,
+        1080
+      ],
+      "wall_interval_fps_mean": 167.56949710667584,
+      "slowest_1_percent_wall_fps": 96.91604424762423,
+      "max_consecutive_over_budget_frames": 1,
+      "physical_walking_or_combat_certified": false,
+      "statistics": {
+        "wall_ms": {
+          "count": 1800,
+          "mean": 5.967673217777781,
+          "p50": 5.601583000000687,
+          "p95": 8.595791999997715,
+          "p99": 10.31820899999758,
+          "max": 17.221583000001317,
+          "over_16_67ms_percent": 0.05555555555555555
+        },
+        "gpu_ms": {
+          "count": 1792,
+          "mean": 6.94726920476439,
+          "p50": 6.402125000022352,
+          "p95": 10.952999989967793,
+          "p99": 13.810916687361896,
+          "max": 14.691791671793908,
+          "over_16_67ms_percent": 0.0
+        },
+        "cpu_main_thread_ms": {
+          "count": 1792,
+          "mean": 5.962251302455352,
+          "p50": 5.600333,
+          "p95": 8.595375,
+          "p99": 10.303542,
+          "max": 17.170332,
+          "over_16_67ms_percent": 0.05580357142857143
+        },
+        "cpu_render_thread_ms": {
+          "count": 1792,
+          "mean": 1.5489885167410744,
+          "p50": 1.475625,
+          "p95": 2.096706,
+          "p99": 2.381165,
+          "max": 2.905541,
+          "over_16_67ms_percent": 0.0
+        },
+        "cpu_main_present_wait_ms": {
+          "count": 1792,
+          "mean": 0.00023734151785714182,
+          "p50": 0.000208,
+          "p95": 0.000542,
+          "p99": 0.000875,
+          "max": 0.008209,
+          "over_16_67ms_percent": 0.0
+        }
+      },
+      "runtime_condition": "Other game closed and user Editor idle, as observed by root; RPG-alone target condition",
+      "original_receipt_ref": "standalone-8/qa-1318c16adfe846b096be4ebc64995e2b/benchmark-performance-dungeon/result.json"
+    },
+    {
+      "cohort": "standalone-8",
+      "build": 8,
+      "route": "hideout",
+      "execution_result": "Passed",
+      "capacity_60fps_pass": true,
+      "foreground_60fps_certified": false,
+      "measured_frames": 1800,
+      "gpu_distinct_sample_count": 1792,
+      "frame_pacing": "uncapped",
+      "target_frame_rate": -1,
+      "vsync_count": 0,
+      "world_resolution": [
+        960,
+        540
+      ],
+      "equipment_resolution": [
+        1920,
+        1080
+      ],
+      "ui_resolution": [
+        1920,
+        1080
+      ],
+      "wall_interval_fps_mean": 101.21903140472278,
+      "slowest_1_percent_wall_fps": 70.06767696782862,
+      "max_consecutive_over_budget_frames": 1,
+      "physical_walking_or_combat_certified": false,
+      "statistics": {
+        "wall_ms": {
+          "count": 1800,
+          "mean": 9.879564999999992,
+          "p50": 9.700083999998554,
+          "p95": 11.98354200000118,
+          "p99": 14.271916000000218,
+          "max": 17.051083000000133,
+          "over_16_67ms_percent": 0.05555555555555555
+        },
+        "gpu_ms": {
+          "count": 1792,
+          "mean": 7.719763694337546,
+          "p50": 7.68874998902902,
+          "p95": 9.434624982532114,
+          "p99": 11.219583335332572,
+          "max": 13.473458297085017,
+          "over_16_67ms_percent": 0.0
+        },
+        "cpu_main_thread_ms": {
+          "count": 1792,
+          "mean": 9.87513140625001,
+          "p50": 9.697792,
+          "p95": 11.992041,
+          "p99": 14.292125,
+          "max": 17.050458,
+          "over_16_67ms_percent": 0.05580357142857143
+        },
+        "cpu_render_thread_ms": {
+          "count": 1792,
+          "mean": 1.775996064174109,
+          "p50": 1.561582,
+          "p95": 2.795085,
+          "p99": 2.986208,
+          "max": 6.767542,
+          "over_16_67ms_percent": 0.0
+        },
+        "cpu_main_present_wait_ms": {
+          "count": 1792,
+          "mean": 0.0001709319196428567,
+          "p50": 0.000126,
+          "p95": 0.000416,
+          "p99": 0.000583,
+          "max": 0.003084,
+          "over_16_67ms_percent": 0.0
+        }
+      },
+      "runtime_condition": "Other game closed and user Editor idle, as observed by root; RPG-alone target condition",
+      "original_receipt_ref": "standalone-8/qa-1318c16adfe846b096be4ebc64995e2b/benchmark-performance-hideout/result.json"
+    },
+    {
+      "cohort": "paced-9",
+      "build": 9,
+      "route": "cave",
+      "execution_result": "Passed",
+      "execution_result_scope": "Measurement completed and no crash; not strict performance-capacity certification",
+      "capacity_criterion_applicable": false,
+      "raw_receipt_uncapped_capacity_60fps_pass": false,
+      "foreground_60fps_certified": false,
+      "measured_frames": 3600,
+      "gpu_distinct_sample_count": 3592,
+      "frame_pacing": "Software targetFrameRate=60, vSyncCount=0",
+      "target_frame_rate": 60,
+      "vsync_count": 0,
+      "world_resolution": [
+        960,
+        540
+      ],
+      "equipment_resolution": [
+        1920,
+        1080
+      ],
+      "ui_resolution": [
+        1920,
+        1080
+      ],
+      "wall_interval_fps_mean": 59.52251152856503,
+      "slowest_1_percent_wall_fps": 56.64064236831904,
+      "max_consecutive_over_budget_frames": 34,
+      "physical_walking_or_combat_certified": false,
+      "statistics": {
+        "wall_ms": {
+          "count": 3600,
+          "mean": 16.800366354166673,
+          "p50": 16.67925000000281,
+          "p95": 17.21329200000099,
+          "p99": 17.655167000000915,
+          "max": 33.284749999999974,
+          "over_16_67ms_percent": 62.0
+        },
+        "gpu_ms": {
+          "count": 3592,
+          "mean": 11.697715943094414,
+          "p50": 11.465791671071202,
+          "p95": 14.861500007100403,
+          "p99": 16.52162498794496,
+          "max": 20.79633332323283,
+          "over_16_67ms_percent": 0.89086859688196
+        },
+        "cpu_main_thread_ms": {
+          "count": 3592,
+          "mean": 15.683105591592414,
+          "p50": 16.066,
+          "p95": 16.646709,
+          "p99": 17.344624,
+          "max": 32.275624,
+          "over_16_67ms_percent": 2.923162583518931
+        },
+        "cpu_render_thread_ms": {
+          "count": 3592,
+          "mean": 1.7987074935968788,
+          "p50": 1.772666,
+          "p95": 2.114125,
+          "p99": 2.390958,
+          "max": 2.861666,
+          "over_16_67ms_percent": 0.0
+        },
+        "cpu_main_present_wait_ms": {
+          "count": 3592,
+          "mean": 1.1150899025612473,
+          "p50": 0.601166,
+          "p95": 4.925666,
+          "p99": 8.932417,
+          "max": 11.880709,
+          "over_16_67ms_percent": 0.0
+        }
+      },
+      "runtime_condition": "RPG-alone production 60FPS software limit",
+      "original_receipt_ref": "paced-9/qa-a57f2efe26eb4894b25ca94d803f8764/benchmark-performance-cave/result.json"
+    },
+    {
+      "cohort": "paced-9",
+      "build": 9,
+      "route": "dungeon",
+      "execution_result": "Passed",
+      "execution_result_scope": "Measurement completed and no crash; not strict performance-capacity certification",
+      "capacity_criterion_applicable": false,
+      "raw_receipt_uncapped_capacity_60fps_pass": false,
+      "foreground_60fps_certified": false,
+      "measured_frames": 3600,
+      "gpu_distinct_sample_count": 3592,
+      "frame_pacing": "Software targetFrameRate=60, vSyncCount=0",
+      "target_frame_rate": 60,
+      "vsync_count": 0,
+      "world_resolution": [
+        960,
+        540
+      ],
+      "equipment_resolution": [
+        1920,
+        1080
+      ],
+      "ui_resolution": [
+        1920,
+        1080
+      ],
+      "wall_interval_fps_mean": 59.52109439055419,
+      "slowest_1_percent_wall_fps": 56.574685656895745,
+      "max_consecutive_over_budget_frames": 33,
+      "physical_walking_or_combat_certified": false,
+      "statistics": {
+        "wall_ms": {
+          "count": 3600,
+          "mean": 16.800766354166672,
+          "p50": 16.677665999999647,
+          "p95": 17.153125000000102,
+          "p99": 17.67575000000221,
+          "max": 33.36449999999758,
+          "over_16_67ms_percent": 62.05555555555556
+        },
+        "gpu_ms": {
+          "count": 3592,
+          "mean": 12.108976115024195,
+          "p50": 12.180499965324998,
+          "p95": 14.488333370536566,
+          "p99": 15.841583313886076,
+          "max": 19.645166641566902,
+          "over_16_67ms_percent": 0.33407572383073497
+        },
+        "cpu_main_thread_ms": {
+          "count": 3592,
+          "mean": 15.794023698218266,
+          "p50": 16.155625,
+          "p95": 16.643334,
+          "p99": 17.163291,
+          "max": 33.303542,
+          "over_16_67ms_percent": 2.6169265033407574
+        },
+        "cpu_render_thread_ms": {
+          "count": 3592,
+          "mean": 1.638570688474388,
+          "p50": 1.646417,
+          "p95": 1.980001,
+          "p99": 2.253958,
+          "max": 3.926625,
+          "over_16_67ms_percent": 0.0
+        },
+        "cpu_main_present_wait_ms": {
+          "count": 3592,
+          "mean": 1.0047749234409808,
+          "p50": 0.508708,
+          "p95": 4.529541,
+          "p99": 8.711374,
+          "max": 11.963333,
+          "over_16_67ms_percent": 0.0
+        }
+      },
+      "runtime_condition": "RPG-alone production 60FPS software limit",
+      "original_receipt_ref": "paced-9/qa-a57f2efe26eb4894b25ca94d803f8764/benchmark-performance-dungeon/result.json"
+    },
+    {
+      "cohort": "paced-9",
+      "build": 9,
+      "route": "hideout",
+      "execution_result": "Passed",
+      "execution_result_scope": "Measurement completed and no crash; not strict performance-capacity certification",
+      "capacity_criterion_applicable": false,
+      "raw_receipt_uncapped_capacity_60fps_pass": false,
+      "foreground_60fps_certified": false,
+      "measured_frames": 3600,
+      "gpu_distinct_sample_count": 3592,
+      "frame_pacing": "Software targetFrameRate=60, vSyncCount=0",
+      "target_frame_rate": 60,
+      "vsync_count": 0,
+      "world_resolution": [
+        960,
+        540
+      ],
+      "equipment_resolution": [
+        1920,
+        1080
+      ],
+      "ui_resolution": [
+        1920,
+        1080
+      ],
+      "wall_interval_fps_mean": 59.633274206749064,
+      "slowest_1_percent_wall_fps": 57.77299545760812,
+      "max_consecutive_over_budget_frames": 29,
+      "physical_walking_or_combat_certified": false,
+      "statistics": {
+        "wall_ms": {
+          "count": 3600,
+          "mean": 16.76916140027779,
+          "p50": 16.668458999998137,
+          "p95": 16.784375000000296,
+          "p99": 17.30912499999704,
+          "max": 33.86900000000104,
+          "over_16_67ms_percent": 53.55555555555556
+        },
+        "gpu_ms": {
+          "count": 3592,
+          "mean": 11.85455564425051,
+          "p50": 12.63650000328198,
+          "p95": 14.897583343554288,
+          "p99": 16.015291679650545,
+          "max": 20.246375002898276,
+          "over_16_67ms_percent": 0.41759465478841873
+        },
+        "cpu_main_thread_ms": {
+          "count": 3592,
+          "mean": 16.246070642538953,
+          "p50": 16.345043,
+          "p95": 16.621708,
+          "p99": 16.716957,
+          "max": 33.846291,
+          "over_16_67ms_percent": 1.9209354120267261
+        },
+        "cpu_render_thread_ms": {
+          "count": 3592,
+          "mean": 1.7444113343541205,
+          "p50": 1.549833,
+          "p95": 2.744418,
+          "p99": 2.891832,
+          "max": 5.257584,
+          "over_16_67ms_percent": 0.0
+        },
+        "cpu_main_present_wait_ms": {
+          "count": 3592,
+          "mean": 0.5211500325723836,
+          "p50": 0.320333,
+          "p95": 1.360791,
+          "p99": 5.177249,
+          "max": 8.662291,
+          "over_16_67ms_percent": 0.0
+        }
+      },
+      "runtime_condition": "RPG-alone production 60FPS software limit",
+      "original_receipt_ref": "paced-9/qa-a57f2efe26eb4894b25ca94d803f8764/benchmark-performance-hideout/result.json"
+    },
+    {
+      "cohort": "display-paced-10",
+      "build": 10,
+      "route": "dungeon",
+      "experiment_decision": "Rejected",
+      "execution_result": "Passed",
+      "execution_result_scope": "Measurement completed; experiment not accepted as a60FPS solution",
+      "capacity_criterion_applicable": false,
+      "raw_receipt_uncapped_capacity_60fps_pass": false,
+      "foreground_60fps_certified": false,
+      "measured_frames": 3600,
+      "gpu_distinct_sample_count": 3592,
+      "frame_pacing": "Display VSync, measured runtime refresh60.002400096Hz",
+      "target_frame_rate": -1,
+      "vsync_count": 1,
+      "display_refresh_hz_at_measurement_start": 60.00240009600384,
+      "display_refresh_hz_at_measurement_end": 60.00240009600384,
+      "world_resolution": [
+        960,
+        540
+      ],
+      "equipment_resolution": [
+        1920,
+        1080
+      ],
+      "ui_resolution": [
+        1920,
+        1080
+      ],
+      "wall_interval_fps_mean": 58.6168562657716,
+      "slowest_1_percent_wall_fps": 30.564876824163445,
+      "max_consecutive_over_budget_frames": 40,
+      "physical_walking_or_combat_certified": false,
+      "statistics": {
+        "wall_ms": {
+          "count": 3600,
+          "mean": 17.059939131944486,
+          "p50": 16.66616699999679,
+          "p95": 17.629666999994242,
+          "p99": 32.71729199999385,
+          "max": 36.48016700000056,
+          "over_16_67ms_percent": 49.77777777777778
+        },
+        "gpu_ms": {
+          "count": 3592,
+          "mean": 12.57307903058381,
+          "p50": 12.498749943915755,
+          "p95": 15.057333337608725,
+          "p99": 16.952208359725773,
+          "max": 30.618958349805325,
+          "over_16_67ms_percent": 1.2806236080178173
+        },
+        "cpu_main_thread_ms": {
+          "count": 3592,
+          "mean": 16.81420006681519,
+          "p50": 16.653208,
+          "p95": 17.561916,
+          "p99": 32.664209,
+          "max": 36.491334,
+          "over_16_67ms_percent": 44.79398663697105
+        },
+        "cpu_render_thread_ms": {
+          "count": 3592,
+          "mean": 1.8754734933184867,
+          "p50": 1.713917,
+          "p95": 2.876,
+          "p99": 3.479917,
+          "max": 4.257376,
+          "over_16_67ms_percent": 0.0
+        },
+        "cpu_main_present_wait_ms": {
+          "count": 3592,
+          "mean": 0.24434372466592422,
+          "p50": 0.0045,
+          "p95": 1.006834,
+          "p99": 14.602792,
+          "max": 15.139792,
+          "over_16_67ms_percent": 0.0
+        }
+      },
+      "runtime_condition": "VSync experiment; background activity observed afterward; not isolated same-build A/B",
+      "original_receipt_ref": "display-paced-10/qa-5532221157c146a180d3f5ac601078a3/benchmark-performance-dungeon/result.json"
+    },
+    {
+      "cohort": "display-paced-10",
+      "build": 10,
+      "route": "hideout",
+      "experiment_decision": "Rejected",
+      "execution_result": "Passed",
+      "execution_result_scope": "Measurement completed; experiment not accepted as a60FPS solution",
+      "capacity_criterion_applicable": false,
+      "raw_receipt_uncapped_capacity_60fps_pass": false,
+      "foreground_60fps_certified": false,
+      "measured_frames": 3600,
+      "gpu_distinct_sample_count": 3592,
+      "frame_pacing": "Display VSync, measured runtime refresh60.002400096Hz",
+      "target_frame_rate": -1,
+      "vsync_count": 1,
+      "display_refresh_hz_at_measurement_start": 60.00240009600384,
+      "display_refresh_hz_at_measurement_end": 60.00240009600384,
+      "world_resolution": [
+        960,
+        540
+      ],
+      "equipment_resolution": [
+        1920,
+        1080
+      ],
+      "ui_resolution": [
+        1920,
+        1080
+      ],
+      "wall_interval_fps_mean": 42.503733735324616,
+      "slowest_1_percent_wall_fps": 29.426441576361103,
+      "max_consecutive_over_budget_frames": 924,
+      "physical_walking_or_combat_certified": false,
+      "statistics": {
+        "wall_ms": {
+          "count": 3600,
+          "mean": 23.52734482638891,
+          "p50": 24.514250000002846,
+          "p95": 33.367083000001685,
+          "p99": 33.98304199999913,
+          "max": 49.920542000009505,
+          "over_16_67ms_percent": 81.55555555555556
+        },
+        "gpu_ms": {
+          "count": 3592,
+          "mean": 11.561867808126497,
+          "p50": 11.71820831950754,
+          "p95": 19.63624998461455,
+          "p99": 27.664041670504957,
+          "max": 30.389916675630957,
+          "over_16_67ms_percent": 7.767260579064588
+        },
+        "cpu_main_thread_ms": {
+          "count": 3592,
+          "mean": 21.41197950863025,
+          "p50": 16.702959,
+          "p95": 33.339333,
+          "p99": 33.975249,
+          "max": 49.960749,
+          "over_16_67ms_percent": 60.05011135857461
+        },
+        "cpu_render_thread_ms": {
+          "count": 3592,
+          "mean": 2.214713023385302,
+          "p50": 1.844957,
+          "p95": 4.043876,
+          "p99": 4.396707,
+          "max": 6.517664,
+          "over_16_67ms_percent": 0.0
+        },
+        "cpu_main_present_wait_ms": {
+          "count": 3592,
+          "mean": 2.0978859863585764,
+          "p50": 0.005376,
+          "p95": 8.889083,
+          "p99": 8.943834,
+          "max": 9.474999,
+          "over_16_67ms_percent": 0.0
+        }
+      },
+      "runtime_condition": "VSync experiment; background activity observed afterward; not isolated same-build A/B",
+      "original_receipt_ref": "display-paced-10/qa-5532221157c146a180d3f5ac601078a3/benchmark-performance-hideout/result.json"
+    },
+    {
+      "cohort": "headroom-11",
+      "build": 11,
+      "route": "hideout",
+      "execution_result": "Failed",
+      "experiment_decision": "Software75 rejected",
+      "execution_result_scope": "Original Failed receipt retained; this is not a successful capacity certificate",
+      "capacity_criterion_applicable": false,
+      "raw_receipt_uncapped_capacity_60fps_pass": false,
+      "foreground_60fps_certified": false,
+      "requested_measured_frames": 3600,
+      "measured_frames": 2957,
+      "gpu_distinct_sample_count": 2949,
+      "target_frame_rate": 75,
+      "vsync_count": 0,
+      "frame_pacing": "Software targetFrameRate=75, vSyncCount=0",
+      "world_resolution": [
+        960,
+        540
+      ],
+      "equipment_resolution": [
+        1920,
+        1080
+      ],
+      "ui_resolution": [
+        1920,
+        1080
+      ],
+      "wall_interval_fps_mean": 19.808658419146916,
+      "slowest_1_percent_wall_fps": 4.985885780027942,
+      "max_consecutive_over_budget_frames": 1864,
+      "physical_walking_or_combat_certified": false,
+      "statistics": {
+        "wall_ms": {
+          "count": 2957,
+          "mean": 50.48297460838695,
+          "p50": 39.890916000018706,
+          "p95": 133.4052500000027,
+          "p99": 200.56616699999807,
+          "max": 276.19104199999356,
+          "over_16_67ms_percent": 99.79709164693946
+        },
+        "gpu_ms": {
+          "count": 2949,
+          "mean": 13.97888883268546,
+          "p50": 13.23937502456829,
+          "p95": 25.518208334688097,
+          "p99": 29.555083310697228,
+          "max": 35.25887499563396,
+          "over_16_67ms_percent": 33.7402509325195
+        },
+        "cpu_main_thread_ms": {
+          "count": 2949,
+          "mean": 50.46714517192278,
+          "p50": 39.876625,
+          "p95": 133.325833,
+          "p99": 200.606667,
+          "max": 276.38546,
+          "over_16_67ms_percent": 99.79654120040692
+        },
+        "cpu_render_thread_ms": {
+          "count": 2949,
+          "mean": 4.943607229569345,
+          "p50": 3.582083,
+          "p95": 10.131124,
+          "p99": 11.975417,
+          "max": 24.378373,
+          "over_16_67ms_percent": 0.0678195998643608
+        },
+        "cpu_main_present_wait_ms": {
+          "count": 2949,
+          "mean": 0.025136647677178693,
+          "p50": 0.006333,
+          "p95": 0.0145,
+          "p99": 1.016,
+          "max": 5.890625,
+          "over_16_67ms_percent": 0.0
+        }
+      },
+      "error_count": 3,
+      "original_receipt_ref": "headroom-11/qa-6fb873646dfc47bf914663c0203a6fe9/benchmark-performance-hideout/result.json",
+      "failure_classification": "Configured wall deadline reached; incomplete wall/GPU sample windows",
+      "requested_window_completed": false,
+      "app_nap_cause": "Plausible but unproven",
+      "core_source_hash_and_isolated_build_copy_verification": "Matched per root; no source/copy mismatch identified"
+    },
+    {
+      "cohort": "activity-profile-12",
+      "build": 12,
+      "route": "hideout",
+      "execution_result": "Failed",
+      "experiment_decision": "Software75 rejected",
+      "execution_result_scope": "Original Failed receipt retained; this is not a successful capacity certificate",
+      "capacity_criterion_applicable": false,
+      "raw_receipt_uncapped_capacity_60fps_pass": false,
+      "foreground_60fps_certified": false,
+      "requested_measured_frames": 300,
+      "measured_frames": 300,
+      "gpu_distinct_sample_count": 292,
+      "target_frame_rate": 75,
+      "vsync_count": 0,
+      "frame_pacing": "Software targetFrameRate=75, vSyncCount=0",
+      "world_resolution": [
+        960,
+        540
+      ],
+      "equipment_resolution": [
+        1920,
+        1080
+      ],
+      "ui_resolution": [
+        1920,
+        1080
+      ],
+      "wall_interval_fps_mean": 50.13726748215492,
+      "slowest_1_percent_wall_fps": 36.105264465284826,
+      "max_consecutive_over_budget_frames": 123,
+      "physical_walking_or_combat_certified": false,
+      "statistics": {
+        "wall_ms": {
+          "count": 300,
+          "mean": 19.945243333333327,
+          "p50": 13.475457999998497,
+          "p95": 27.54424999999827,
+          "p99": 27.696792000000414,
+          "max": 52.593583000000166,
+          "over_16_67ms_percent": 49.0
+        },
+        "gpu_ms": {
+          "count": 292,
+          "mean": 11.624780537166684,
+          "p50": 10.357416642364115,
+          "p95": 17.420833348296583,
+          "p99": 19.78570834035054,
+          "max": 20.137000014074147,
+          "over_16_67ms_percent": 10.95890410958904
+        },
+        "cpu_main_thread_ms": {
+          "count": 292,
+          "mean": 19.695323931506852,
+          "p50": 13.377749,
+          "p95": 27.548749,
+          "p99": 27.66925,
+          "max": 52.588792,
+          "over_16_67ms_percent": 48.63013698630137
+        },
+        "cpu_render_thread_ms": {
+          "count": 292,
+          "mean": 2.331076493150685,
+          "p50": 1.791249,
+          "p95": 4.007,
+          "p99": 4.473374,
+          "max": 4.74875,
+          "over_16_67ms_percent": 0.0
+        },
+        "cpu_main_present_wait_ms": {
+          "count": 292,
+          "mean": 0.2086007089041096,
+          "p50": 0.009041,
+          "p95": 1.087249,
+          "p99": 2.025376,
+          "max": 2.347,
+          "over_16_67ms_percent": 0.0
+        }
+      },
+      "error_count": 1,
+      "original_receipt_ref": "activity-profile-12/qa-469c79f7e6f24043bca01a9acded2f1b/benchmark-performance-hideout/result.json",
+      "requested_window_completed": true,
+      "failure_classification": "Activity detector treated JSON null error via TypeString(null); ownership observations succeeded but original receipt remains Failed",
+      "detector_correction": "Root changed to empty-string value check; ownership/acquisition/hold/release requirements retained; no historical pass reclassification",
+      "mac_activity": {
+        "requested": true,
+        "supported": true,
+        "acquired": true,
+        "held_during_measurement": true,
+        "released": true,
+        "error": null,
+        "options": 15728639,
+        "name": "NSActivityUserInitiatedAllowingIdleSystemSleep",
+        "measurement_observations": 300
+      },
+      "mac_activity_scope": "Optional explicit QA-process token; allows idle system/display sleep. No LatencyCritical, global policy, focus or preference changes. Actual App Nap state and foreground FPS not certified.",
+      "phase_timing": {
+        "scope": "Opt-in inclusive and overlapping Stopwatch times; do not sum parent/child or CPU/GPU values; probe overhead included",
+        "mean_ms": {
+          "NativeGameFlow.Tick": 0.3309913333333335,
+          "SourceSceneRenderer.LateUpdate": 3.5826643333333306,
+          "geometry_range_begin_inclusive": 2.2395229999999997,
+          "SourceAlphaDepthPrepass.OnPreRender": 1.7771699999999988
+        }
+      }
+    },
+    {
+      "cohort": "final-capacity-13",
+      "build": 13,
+      "route": "hideout",
+      "execution_result": "Passed",
+      "execution_result_scope": "Native measurement completed without error; strict capacity runner decision is recorded separately",
+      "measured_frames": 3600,
+      "requested_measured_frames": 3600,
+      "gpu_distinct_sample_count": 3592,
+      "frame_pacing": "Uncapped targetFrameRate=-1, vSyncCount=0",
+      "target_frame_rate": -1,
+      "vsync_count": 0,
+      "world_resolution": [
+        960,
+        540
+      ],
+      "equipment_resolution": [
+        1920,
+        1080
+      ],
+      "ui_resolution": [
+        1920,
+        1080
+      ],
+      "wall_interval_fps_mean": 94.3973033889441,
+      "slowest_1_percent_wall_fps": 55.80928315989115,
+      "max_consecutive_over_budget_frames": 13,
+      "foreground_60fps_certified": false,
+      "physical_walking_or_combat_certified": false,
+      "error_count": 0,
+      "statistics": {
+        "wall_ms": {
+          "count": 3600,
+          "mean": 10.593522951388879,
+          "p50": 10.490208000000223,
+          "p95": 14.204041999999362,
+          "p99": 17.91816600000118,
+          "max": 34.2077500000002,
+          "over_16_67ms_percent": 1.4166666666666667
+        },
+        "gpu_ms": {
+          "count": 3592,
+          "mean": 7.966927327414019,
+          "p50": 7.859666657168418,
+          "p95": 10.490708344150335,
+          "p99": 12.186250009108335,
+          "max": 18.450541654601693,
+          "over_16_67ms_percent": 0.0556792873051225
+        },
+        "cpu_main_thread_ms": {
+          "count": 3592,
+          "mean": 10.591486380289517,
+          "p50": 10.493041,
+          "p95": 14.203167,
+          "p99": 17.90975,
+          "max": 34.12025,
+          "over_16_67ms_percent": 1.3919821826280623
+        },
+        "cpu_render_thread_ms": {
+          "count": 3592,
+          "mean": 1.8327480314587954,
+          "p50": 1.663041,
+          "p95": 2.936708,
+          "p99": 3.147167,
+          "max": 5.770624,
+          "over_16_67ms_percent": 0.0
+        },
+        "cpu_main_present_wait_ms": {
+          "count": 3592,
+          "mean": 0.00019943903118039983,
+          "p50": 0.000167,
+          "p95": 0.000459,
+          "p99": 0.000668,
+          "max": 0.008917,
+          "over_16_67ms_percent": 0.0
+        }
+      },
+      "mac_activity": {
+        "requested": true,
+        "supported": true,
+        "acquired": true,
+        "held_during_measurement": true,
+        "released": true,
+        "error": null,
+        "options": 15728639,
+        "name": "NSActivityUserInitiatedAllowingIdleSystemSleep",
+        "measurement_observations": 3600
+      },
+      "original_receipt_ref": "final-capacity-13/qa-0cf39cb269a742019fa20c8d99b025d8/benchmark-performance-hideout/result.json",
+      "capacity_60fps_pass": false,
+      "strict_runner_result": "Failed",
+      "runner_receipt_ref": "final-capacity-13/runner-summary.json",
+      "strict_failure_scope": "Hideout wall p99 exceeds16.67ms; runner stops on first failure; dungeon/cave not completed in this cohort",
+      "no_native_crash_observed": true
+    },
+    {
+      "cohort": "phase-13",
+      "build": 13,
+      "route": "hideout",
+      "execution_result": "Passed",
+      "execution_result_scope": "Native measurement completed without error; strict capacity runner decision is recorded separately",
+      "measured_frames": 1800,
+      "requested_measured_frames": 1800,
+      "gpu_distinct_sample_count": 1792,
+      "frame_pacing": "Uncapped targetFrameRate=-1, vSyncCount=0",
+      "target_frame_rate": -1,
+      "vsync_count": 0,
+      "world_resolution": [
+        960,
+        540
+      ],
+      "equipment_resolution": [
+        1920,
+        1080
+      ],
+      "ui_resolution": [
+        1920,
+        1080
+      ],
+      "wall_interval_fps_mean": 99.24245477535118,
+      "slowest_1_percent_wall_fps": 72.47755460731105,
+      "max_consecutive_over_budget_frames": 2,
+      "foreground_60fps_certified": false,
+      "physical_walking_or_combat_certified": false,
+      "error_count": 0,
+      "statistics": {
+        "wall_ms": {
+          "count": 1800,
+          "mean": 10.076332777777779,
+          "p50": 10.092917000001478,
+          "p95": 12.304916000001498,
+          "p99": 13.797374999999334,
+          "max": 17.612665999999777,
+          "over_16_67ms_percent": 0.1111111111111111
+        },
+        "gpu_ms": {
+          "count": 1792,
+          "mean": 7.803350329530596,
+          "p50": 7.801250030752271,
+          "p95": 9.658250026404858,
+          "p99": 10.506874998100102,
+          "max": 11.4471249980852,
+          "over_16_67ms_percent": 0.0
+        },
+        "cpu_main_thread_ms": {
+          "count": 1792,
+          "mean": 10.072479270647317,
+          "p50": 10.089916,
+          "p95": 12.302751,
+          "p99": 13.890708,
+          "max": 17.658124,
+          "over_16_67ms_percent": 0.11160714285714286
+        },
+        "cpu_render_thread_ms": {
+          "count": 1792,
+          "mean": 1.7886409280133955,
+          "p50": 1.633585,
+          "p95": 2.828084,
+          "p99": 3.121209,
+          "max": 8.354709,
+          "over_16_67ms_percent": 0.0
+        },
+        "cpu_main_present_wait_ms": {
+          "count": 1792,
+          "mean": 0.00018847488839285675,
+          "p50": 0.000166,
+          "p95": 0.000499,
+          "p99": 0.000708,
+          "max": 0.002001,
+          "over_16_67ms_percent": 0.0
+        }
+      },
+      "mac_activity": {
+        "requested": true,
+        "supported": true,
+        "acquired": true,
+        "held_during_measurement": true,
+        "released": true,
+        "error": null,
+        "options": 15728639,
+        "name": "NSActivityUserInitiatedAllowingIdleSystemSleep",
+        "measurement_observations": 1800
+      },
+      "original_receipt_ref": "phase-13/qa-7b301134b1554b6cad8b8cfdfc91089b/benchmark-performance-hideout/result.json",
+      "diagnostic_only": true,
+      "raw_receipt_uncapped_capacity_60fps_pass": true,
+      "final_goal_certification": false,
+      "diagnostic_scope": "1800-frame phase probe, not the required3600-frame three-route goal; inclusive overlapping phase times must not be summed",
+      "phase_mean_ms": {
+        "source_ui_find_inclusive": 0.19394811111111102,
+        "NativeGameFlow.Tick": 0.2346126666666665,
+        "PlayerPresentation.RefreshPose": 0.09072683823529419,
+        "Workshop.AdvanceLiveFrame": 0.804087388888888,
+        "SourceUiRenderer.LateUpdate": 0.9726506666666658,
+        "performance_materials_census": 0.21281877777777733,
+        "performance_materials_copy": 0.20005177777777763,
+        "performance_materials_slots_inclusive": 2.3549260000000034,
+        "SourceSceneRenderer.LateUpdate": 2.5875739444444377,
+        "static_batch_before_camera_inclusive": 0.6851831111111115,
+        "mesh_lod_begin_inclusive": 0.057228888888888836,
+        "geometry_range_begin_inclusive": 1.615388277777776,
+        "SourceAlphaDepthPrepass.OnPreRender": 1.3698915555555542,
+        "mesh_lod_end_inclusive": 0.0035782777777777983,
+        "geometry_range_end_inclusive": 0.020807722222222266,
+        "performance_materials_sync_inclusive": 2.5695476666666712
+      }
+    },
+    {
+      "cohort": "final-capacity-14",
+      "build": 14,
+      "route": "dungeon",
+      "execution_result": "Failed",
+      "capacity_60fps_pass": false,
+      "measured_frames": 3600,
+      "requested_measured_frames": 3600,
+      "gpu_distinct_sample_count": 3015,
+      "timing_distinct_sample_count": 3592,
+      "gpu_sample_coverage_percent": 83.75,
+      "required_gpu_sample_coverage_percent": 90,
+      "frame_timing_history_capacity": 8,
+      "frame_pacing": "Uncapped targetFrameRate=-1,vSyncCount=0",
+      "target_frame_rate": -1,
+      "vsync_count": 0,
+      "world_resolution": [
+        960,
+        540
+      ],
+      "equipment_resolution": [
+        1920,
+        1080
+      ],
+      "ui_resolution": [
+        1920,
+        1080
+      ],
+      "wall_interval_fps_mean": 167.77880224472423,
+      "slowest_1_percent_wall_fps": 102.76832166485158,
+      "max_consecutive_over_budget_frames": 1,
+      "foreground_60fps_certified": false,
+      "physical_walking_or_combat_certified": false,
+      "error_count": 1,
+      "statistics": {
+        "wall_ms": {
+          "count": 3600,
+          "mean": 5.960228506944458,
+          "p50": 5.712416999999803,
+          "p95": 8.100416000001331,
+          "p99": 9.730624999999549,
+          "max": 18.82033399999905,
+          "over_16_67ms_percent": 0.05555555555555555
+        },
+        "gpu_ms": {
+          "count": 3015,
+          "mean": 7.897209590548035,
+          "p50": 6.838166678790003,
+          "p95": 14.527333318255842,
+          "p99": 16.644874995108694,
+          "max": 18.804125022143126,
+          "over_16_67ms_percent": 0.9618573797678275
+        },
+        "cpu_main_thread_ms": {
+          "count": 3592,
+          "mean": 5.948463476336315,
+          "p50": 5.703209,
+          "p95": 8.098375,
+          "p99": 9.604584,
+          "max": 16.894418,
+          "over_16_67ms_percent": 0.02783964365256125
+        },
+        "cpu_render_thread_ms": {
+          "count": 3592,
+          "mean": 1.6120278268374155,
+          "p50": 1.545541,
+          "p95": 2.151208,
+          "p99": 2.381792,
+          "max": 3.771499,
+          "over_16_67ms_percent": 0.0
+        },
+        "cpu_main_present_wait_ms": {
+          "count": 3592,
+          "mean": 0.01247754871937639,
+          "p50": 0.000167,
+          "p95": 0.000541,
+          "p99": 0.000833,
+          "max": 13.856541,
+          "over_16_67ms_percent": 0.0
+        }
+      },
+      "mac_activity": {
+        "requested": true,
+        "supported": true,
+        "acquired": true,
+        "held_during_measurement": true,
+        "released": true,
+        "error": null,
+        "options": 15728639,
+        "name": "NSActivityUserInitiatedAllowingIdleSystemSleep",
+        "measurement_observations": 3600
+      },
+      "no_native_crash_observed": true,
+      "original_receipt_ref": "final-capacity-14/qa-86138ea5e2604afa8f24d4d2ab3d1eaf/benchmark-performance-dungeon/result.json",
+      "failure_classification": "3015 positive distinct GPU samples of3600,83.75%, below required90%; insufficient percentile-window coverage",
+      "wall_and_observed_gpu_p99_within_16_67ms": true,
+      "observed_gpu_percentiles_are_certified": false
+    },
+    {
+      "cohort": "final-capacity-14",
+      "build": 14,
+      "route": "hideout",
+      "execution_result": "Passed",
+      "capacity_60fps_pass": true,
+      "measured_frames": 3600,
+      "requested_measured_frames": 3600,
+      "gpu_distinct_sample_count": 3592,
+      "timing_distinct_sample_count": 3592,
+      "gpu_sample_coverage_percent": 99.77777777777777,
+      "required_gpu_sample_coverage_percent": 90,
+      "frame_timing_history_capacity": 8,
+      "frame_pacing": "Uncapped targetFrameRate=-1,vSyncCount=0",
+      "target_frame_rate": -1,
+      "vsync_count": 0,
+      "world_resolution": [
+        960,
+        540
+      ],
+      "equipment_resolution": [
+        1920,
+        1080
+      ],
+      "ui_resolution": [
+        1920,
+        1080
+      ],
+      "wall_interval_fps_mean": 104.96696906240388,
+      "slowest_1_percent_wall_fps": 79.34907100488283,
+      "max_consecutive_over_budget_frames": 1,
+      "foreground_60fps_certified": false,
+      "physical_walking_or_combat_certified": false,
+      "error_count": 0,
+      "statistics": {
+        "wall_ms": {
+          "count": 3600,
+          "mean": 9.526806469999991,
+          "p50": 9.196832999997184,
+          "p95": 11.521708000000075,
+          "p99": 12.602541999999772,
+          "max": 20.800959000000674,
+          "over_16_67ms_percent": 0.05555555555555555
+        },
+        "gpu_ms": {
+          "count": 3592,
+          "mean": 7.294960130934416,
+          "p50": 7.290625013411045,
+          "p95": 9.703458345029503,
+          "p99": 10.598999971989542,
+          "max": 13.263250002637506,
+          "over_16_67ms_percent": 0.0
+        },
+        "cpu_main_thread_ms": {
+          "count": 3592,
+          "mean": 9.524894836302892,
+          "p50": 9.197666,
+          "p95": 11.511292,
+          "p99": 12.60875,
+          "max": 20.779751,
+          "over_16_67ms_percent": 0.0556792873051225
+        },
+        "cpu_render_thread_ms": {
+          "count": 3592,
+          "mean": 1.7602472809020042,
+          "p50": 1.550626,
+          "p95": 2.848167,
+          "p99": 3.061293,
+          "max": 8.262708,
+          "over_16_67ms_percent": 0.0
+        },
+        "cpu_main_present_wait_ms": {
+          "count": 3592,
+          "mean": 0.0001852594654788402,
+          "p50": 0.000166,
+          "p95": 0.000417,
+          "p99": 0.000667,
+          "max": 0.002375,
+          "over_16_67ms_percent": 0.0
+        }
+      },
+      "mac_activity": {
+        "requested": true,
+        "supported": true,
+        "acquired": true,
+        "held_during_measurement": true,
+        "released": true,
+        "error": null,
+        "options": 15728639,
+        "name": "NSActivityUserInitiatedAllowingIdleSystemSleep",
+        "measurement_observations": 3600
+      },
+      "no_native_crash_observed": true,
+      "original_receipt_ref": "final-capacity-14/qa-86138ea5e2604afa8f24d4d2ab3d1eaf/benchmark-performance-hideout/result.json"
+    },
+    {
+      "cohort": "final-capacity-15",
+      "build": 15,
+      "route": "dungeon",
+      "execution_result": "Passed",
+      "execution_result_scope": "Native measurement completed; strict runner decision recorded separately",
+      "capacity_60fps_pass": false,
+      "measured_frames": 3600,
+      "gpu_distinct_sample_count": 3589,
+      "frame_timing_history_capacity": 64,
+      "frame_timing_collection": {
+        "history_reads": 3600,
+        "maximum_returned_history": 32,
+        "distinct_timestamps_observed_without_positive_gpu_time": 3592,
+        "later_positive_gpu_updates_recovered": 3589,
+        "minimum_distinct_positive_gpu_fraction": 0.9,
+        "invalid_gpu_timings_imputed": false
+      },
+      "frame_pacing": "Uncapped targetFrameRate=-1,vSyncCount=0",
+      "target_frame_rate": -1,
+      "vsync_count": 0,
+      "world_resolution": [
+        960,
+        540
+      ],
+      "equipment_resolution": [
+        1920,
+        1080
+      ],
+      "ui_resolution": [
+        1920,
+        1080
+      ],
+      "wall_interval_fps_mean": 175.59095858864984,
+      "statistics": {
+        "wall_ms": {
+          "count": 3600,
+          "mean": 5.695054050833348,
+          "p50": 5.488375000000545,
+          "p95": 7.682167000002238,
+          "p99": 9.21174999999863,
+          "max": 19.053167000000926,
+          "over_16_67ms_percent": 0.19444444444444445
+        },
+        "gpu_ms": {
+          "count": 3589,
+          "mean": 8.968720279268632,
+          "p50": 7.727125019300729,
+          "p95": 15.896124998107553,
+          "p99": 17.269416712224483,
+          "max": 19.160041701979935,
+          "over_16_67ms_percent": 2.117581499024798
+        },
+        "cpu_main_thread_ms": {
+          "count": 3592,
+          "mean": 5.657947144766152,
+          "p50": 5.49,
+          "p95": 7.600625,
+          "p99": 9.002458,
+          "max": 14.130083,
+          "over_16_67ms_percent": 0.0
+        },
+        "cpu_render_thread_ms": {
+          "count": 3592,
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "p99": 0.0,
+          "max": 0.0,
+          "over_16_67ms_percent": 0.0
+        },
+        "cpu_main_present_wait_ms": {
+          "count": 3592,
+          "mean": 0.038506660356347436,
+          "p50": 0.000126,
+          "p95": 0.000417,
+          "p99": 0.000833,
+          "max": 14.110417,
+          "over_16_67ms_percent": 0.0
+        }
+      },
+      "mac_activity": {
+        "requested": true,
+        "supported": true,
+        "acquired": true,
+        "held_during_measurement": true,
+        "released": true,
+        "error": null,
+        "options": 15728639,
+        "name": "NSActivityUserInitiatedAllowingIdleSystemSleep",
+        "measurement_observations": 3600
+      },
+      "foreground_60fps_certified": false,
+      "physical_walking_or_combat_certified": false,
+      "error_count": 0,
+      "original_receipt_ref": "final-capacity-15/qa-a803136f8d75415b936b57afc73dd268/benchmark-performance-dungeon/result.json",
+      "strict_runner_result": "Failed",
+      "failure_classification": "Complete3589/3600 positive GPU sample coverage; observed GPU p9917.269416712ms exceeds unchanged16.666667ms budget",
+      "gpu_sample_completeness_sufficient": true,
+      "wall_p99_within_budget": true,
+      "gpu_p99_within_budget": false,
+      "runner_receipt_ref": "final-capacity-15/runner-summary.json"
+    },
+    {
+      "cohort": "final-capacity-15",
+      "build": 15,
+      "route": "hideout",
+      "execution_result": "Passed",
+      "execution_result_scope": "Native measurement completed; strict runner decision recorded separately",
+      "capacity_60fps_pass": true,
+      "measured_frames": 3600,
+      "gpu_distinct_sample_count": 3590,
+      "frame_timing_history_capacity": 64,
+      "frame_timing_collection": {
+        "history_reads": 3600,
+        "maximum_returned_history": 32,
+        "distinct_timestamps_observed_without_positive_gpu_time": 3592,
+        "later_positive_gpu_updates_recovered": 3590,
+        "minimum_distinct_positive_gpu_fraction": 0.9,
+        "invalid_gpu_timings_imputed": false
+      },
+      "frame_pacing": "Uncapped targetFrameRate=-1,vSyncCount=0",
+      "target_frame_rate": -1,
+      "vsync_count": 0,
+      "world_resolution": [
+        960,
+        540
+      ],
+      "equipment_resolution": [
+        1920,
+        1080
+      ],
+      "ui_resolution": [
+        1920,
+        1080
+      ],
+      "wall_interval_fps_mean": 103.64134285698427,
+      "statistics": {
+        "wall_ms": {
+          "count": 3600,
+          "mean": 9.648659236111127,
+          "p50": 9.200458999998773,
+          "p95": 12.349666999998732,
+          "p99": 14.188708999999022,
+          "max": 23.92141700000039,
+          "over_16_67ms_percent": 0.1388888888888889
+        },
+        "gpu_ms": {
+          "count": 3590,
+          "mean": 7.493185851781974,
+          "p50": 7.30237498646602,
+          "p95": 10.071000026073307,
+          "p99": 10.955500009004027,
+          "max": 15.493291663005948,
+          "over_16_67ms_percent": 0.0
+        },
+        "cpu_main_thread_ms": {
+          "count": 3592,
+          "mean": 9.640869553730509,
+          "p50": 9.200125,
+          "p95": 12.306583,
+          "p99": 14.202416,
+          "max": 23.812541,
+          "over_16_67ms_percent": 0.13919821826280623
+        },
+        "cpu_render_thread_ms": {
+          "count": 3592,
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "p99": 0.0,
+          "max": 0.0,
+          "over_16_67ms_percent": 0.0
+        },
+        "cpu_main_present_wait_ms": {
+          "count": 3592,
+          "mean": 0.0003682664253897539,
+          "p50": 0.000126,
+          "p95": 0.000417,
+          "p99": 0.000709,
+          "max": 0.677999,
+          "over_16_67ms_percent": 0.0
+        }
+      },
+      "mac_activity": {
+        "requested": true,
+        "supported": true,
+        "acquired": true,
+        "held_during_measurement": true,
+        "released": true,
+        "error": null,
+        "options": 15728639,
+        "name": "NSActivityUserInitiatedAllowingIdleSystemSleep",
+        "measurement_observations": 3600
+      },
+      "foreground_60fps_certified": false,
+      "physical_walking_or_combat_certified": false,
+      "error_count": 0,
+      "original_receipt_ref": "final-capacity-15/qa-a803136f8d75415b936b57afc73dd268/benchmark-performance-hideout/result.json"
+    },
+    {
+      "cohort": "final-capacity-17",
+      "build": 17,
+      "route": "hideout",
+      "execution_result": "Passed",
+      "capacity_60fps_pass": true,
+      "capacity_criterion_applicable": true,
+      "foreground_60fps_certified": false,
+      "measured_frames": 3600,
+      "gpu_distinct_sample_count": 3590,
+      "frame_timing_history_capacity": 64,
+      "frame_timing_collection": {
+        "history_reads": 3600,
+        "maximum_returned_history": 32,
+        "distinct_timestamps_observed_without_positive_gpu_time": 3592,
+        "later_positive_gpu_updates_recovered": 3590,
+        "minimum_distinct_positive_gpu_fraction": 0.9,
+        "invalid_gpu_timings_imputed": false
+      },
+      "frame_pacing": "Uncapped available capacity; targetFrameRate=-1, vSyncCount=0",
+      "target_frame_rate": -1,
+      "vsync_count": 0,
+      "world_resolution": [
+        960,
+        540
+      ],
+      "equipment_resolution": [
+        960,
+        540
+      ],
+      "ui_resolution": [
+        1920,
+        1080
+      ],
+      "wall_interval_fps_mean": 105.98695388184161,
+      "slowest_1_percent_wall_fps": 75.7047659481217,
+      "max_consecutive_over_budget_frames": 1,
+      "physical_walking_or_combat_certified": false,
+      "statistics": {
+        "wall_ms": {
+          "count": 3600,
+          "mean": 9.435123506944452,
+          "p50": 9.203874999997197,
+          "p95": 11.096584000000576,
+          "p99": 13.20920799999925,
+          "max": 18.550750000002836,
+          "over_16_67ms_percent": 0.027777777777777776
+        },
+        "gpu_ms": {
+          "count": 3590,
+          "mean": 7.5682905638165,
+          "p50": 7.464374997653067,
+          "p95": 9.16862499434501,
+          "p99": 10.183374979533255,
+          "max": 13.58662499114871,
+          "over_16_67ms_percent": 0.0
+        },
+        "cpu_main_thread_ms": {
+          "count": 3592,
+          "mean": 9.431592392260582,
+          "p50": 9.201416,
+          "p95": 11.097,
+          "p99": 13.204583,
+          "max": 18.537749,
+          "over_16_67ms_percent": 0.02783964365256125
+        },
+        "cpu_render_thread_ms": {
+          "count": 3592,
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "p99": 0.0,
+          "max": 0.0,
+          "over_16_67ms_percent": 0.0
+        },
+        "cpu_main_present_wait_ms": {
+          "count": 3592,
+          "mean": 0.0001411831848552312,
+          "p50": 0.000124,
+          "p95": 0.000333,
+          "p99": 0.000501,
+          "max": 0.001125,
+          "over_16_67ms_percent": 0.0
+        }
+      },
+      "mac_activity": {
+        "requested": true,
+        "supported": true,
+        "acquired": true,
+        "held_during_measurement": true,
+        "released": true,
+        "error": null,
+        "options": 15728639,
+        "name": "NSActivityUserInitiatedAllowingIdleSystemSleep",
+        "measurement_observations": 3600
+      },
+      "runtime_condition": "Owned hidden production-frame camera sweeps; explicit QA-only activity; no hardware/foreground/combat certification",
+      "original_receipt_ref": "final-capacity-17/qa-9f572171812745be9e7e5daf3946202b/benchmark-performance-hideout/result.json"
+    },
+    {
+      "cohort": "final-capacity-17",
+      "build": 17,
+      "route": "dungeon",
+      "execution_result": "Passed",
+      "capacity_60fps_pass": true,
+      "capacity_criterion_applicable": true,
+      "foreground_60fps_certified": false,
+      "measured_frames": 3600,
+      "gpu_distinct_sample_count": 3589,
+      "frame_timing_history_capacity": 64,
+      "frame_timing_collection": {
+        "history_reads": 3600,
+        "maximum_returned_history": 32,
+        "distinct_timestamps_observed_without_positive_gpu_time": 3592,
+        "later_positive_gpu_updates_recovered": 3589,
+        "minimum_distinct_positive_gpu_fraction": 0.9,
+        "invalid_gpu_timings_imputed": false
+      },
+      "frame_pacing": "Uncapped available capacity; targetFrameRate=-1, vSyncCount=0",
+      "target_frame_rate": -1,
+      "vsync_count": 0,
+      "world_resolution": [
+        960,
+        540
+      ],
+      "equipment_resolution": [
+        960,
+        540
+      ],
+      "ui_resolution": [
+        1920,
+        1080
+      ],
+      "wall_interval_fps_mean": 197.3992705435338,
+      "slowest_1_percent_wall_fps": 129.7073050894774,
+      "max_consecutive_over_budget_frames": 0,
+      "physical_walking_or_combat_certified": false,
+      "statistics": {
+        "wall_ms": {
+          "count": 3600,
+          "mean": 5.065874849722232,
+          "p50": 4.889749999996695,
+          "p95": 6.472875000000045,
+          "p99": 7.709666000000226,
+          "max": 12.149874999998644,
+          "over_16_67ms_percent": 0.0
+        },
+        "gpu_ms": {
+          "count": 3589,
+          "mean": 5.378622376609372,
+          "p50": 5.326375016011298,
+          "p95": 5.941500014159828,
+          "p99": 6.697000004351139,
+          "max": 13.807458337396383,
+          "over_16_67ms_percent": 0.0
+        },
+        "cpu_main_thread_ms": {
+          "count": 3592,
+          "mean": 5.065517763641432,
+          "p50": 4.893333,
+          "p95": 6.492625,
+          "p99": 7.707208,
+          "max": 12.166793,
+          "over_16_67ms_percent": 0.0
+        },
+        "cpu_render_thread_ms": {
+          "count": 3592,
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "p99": 0.0,
+          "max": 0.0,
+          "over_16_67ms_percent": 0.0
+        },
+        "cpu_main_present_wait_ms": {
+          "count": 3592,
+          "mean": 0.00018214253897549818,
+          "p50": 0.000126,
+          "p95": 0.000375,
+          "p99": 0.000542,
+          "max": 0.050084,
+          "over_16_67ms_percent": 0.0
+        }
+      },
+      "mac_activity": {
+        "requested": true,
+        "supported": true,
+        "acquired": true,
+        "held_during_measurement": true,
+        "released": true,
+        "error": null,
+        "options": 15728639,
+        "name": "NSActivityUserInitiatedAllowingIdleSystemSleep",
+        "measurement_observations": 3600
+      },
+      "runtime_condition": "Owned hidden production-frame camera sweeps; explicit QA-only activity; no hardware/foreground/combat certification",
+      "original_receipt_ref": "final-capacity-17/qa-9f572171812745be9e7e5daf3946202b/benchmark-performance-dungeon/result.json"
+    },
+    {
+      "cohort": "final-capacity-17",
+      "build": 17,
+      "route": "cave",
+      "execution_result": "Passed",
+      "capacity_60fps_pass": true,
+      "capacity_criterion_applicable": true,
+      "foreground_60fps_certified": false,
+      "measured_frames": 3600,
+      "gpu_distinct_sample_count": 3590,
+      "frame_timing_history_capacity": 64,
+      "frame_timing_collection": {
+        "history_reads": 3600,
+        "maximum_returned_history": 32,
+        "distinct_timestamps_observed_without_positive_gpu_time": 3592,
+        "later_positive_gpu_updates_recovered": 3590,
+        "minimum_distinct_positive_gpu_fraction": 0.9,
+        "invalid_gpu_timings_imputed": false
+      },
+      "frame_pacing": "Uncapped available capacity; targetFrameRate=-1, vSyncCount=0",
+      "target_frame_rate": -1,
+      "vsync_count": 0,
+      "world_resolution": [
+        960,
+        540
+      ],
+      "equipment_resolution": [
+        960,
+        540
+      ],
+      "ui_resolution": [
+        1920,
+        1080
+      ],
+      "wall_interval_fps_mean": 169.53361350018793,
+      "slowest_1_percent_wall_fps": 121.91405059428642,
+      "max_consecutive_over_budget_frames": 0,
+      "physical_walking_or_combat_certified": false,
+      "statistics": {
+        "wall_ms": {
+          "count": 3600,
+          "mean": 5.898535277777786,
+          "p50": 5.757707999997308,
+          "p95": 7.2614999999984775,
+          "p99": 8.202500000002999,
+          "max": 13.93824999999893,
+          "over_16_67ms_percent": 0.0
+        },
+        "gpu_ms": {
+          "count": 3590,
+          "mean": 4.707452576493321,
+          "p50": 4.64812497375533,
+          "p95": 5.431041645351797,
+          "p99": 5.96199999563396,
+          "max": 9.68937500147149,
+          "over_16_67ms_percent": 0.0
+        },
+        "cpu_main_thread_ms": {
+          "count": 3592,
+          "mean": 5.899067903118037,
+          "p50": 5.781499,
+          "p95": 7.285875,
+          "p99": 8.206709,
+          "max": 13.930334,
+          "over_16_67ms_percent": 0.0
+        },
+        "cpu_render_thread_ms": {
+          "count": 3592,
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "p99": 0.0,
+          "max": 0.0,
+          "over_16_67ms_percent": 0.0
+        },
+        "cpu_main_present_wait_ms": {
+          "count": 3592,
+          "mean": 0.00020560439866369555,
+          "p50": 0.000167,
+          "p95": 0.000458,
+          "p99": 0.000625,
+          "max": 0.001458,
+          "over_16_67ms_percent": 0.0
+        }
+      },
+      "mac_activity": {
+        "requested": true,
+        "supported": true,
+        "acquired": true,
+        "held_during_measurement": true,
+        "released": true,
+        "error": null,
+        "options": 15728639,
+        "name": "NSActivityUserInitiatedAllowingIdleSystemSleep",
+        "measurement_observations": 3600
+      },
+      "runtime_condition": "Owned hidden production-frame camera sweeps; explicit QA-only activity; no hardware/foreground/combat certification",
+      "original_receipt_ref": "final-capacity-17/qa-9f572171812745be9e7e5daf3946202b/benchmark-performance-cave/result.json"
+    }
+  ],
+  "tick_observation": {
+    "metric": "NativeGameFlow.Tick including UI updates",
+    "before": {
+      "build": 3,
+      "frames": 300,
+      "mean_ms": 22.079146666666677,
+      "original_receipt_ref": "cpu-profile-3/qa-47c05383371e42eea499a8c5dc8aa557/benchmark-performance-hideout/result.json"
+    },
+    "after": {
+      "build": 6,
+      "frames": 1200,
+      "mean_ms": 0.25243900000000036,
+      "original_receipt_ref": "feedback-6/qa-d1287106303b4d03a72159c78868a2a9/benchmark-performance-hideout/result.json"
+    },
+    "comparison_scope": "Different builds and sample counts along the same hideout sweep; not isolated same-build A/B"
+  },
+  "open_validation": [
+    {
+      "suite": "additional_return_diagnostic",
+      "status": "Optional diagnostic unresolved; build8 Failed retained"
+    }
+  ],
+  "conditions": {
+    "owned_isolated_packaged_build": true,
+    "isolated_settings": true,
+    "hardware_input_suppressed": true,
+    "audio_muted": true,
+    "cursor_uncaptured": true,
+    "route_scope": "Specified moving-camera sweeps in hideout, dungeon and cave; segment transitions included",
+    "physical_walking_combat_and_hardware_input_certified": false,
+    "other_game_effect_isolated_or_quantified": false,
+    "cross_build_variation_cause_determined": false,
+    "other_game_last_seen_active_during_prior_cohorts": true,
+    "other_game_closed_for_standalone8": true,
+    "user_editor_idle_for_standalone8": true,
+    "rpg_alone_condition_verified_for_standalone8": true,
+    "vsync10_background_activity_observed": true,
+    "vsync10_is_isolated_same_build_ab": false,
+    "unrelated_processes_stopped_for_vsync10": false,
+    "vsync10_background_activity_observation_scope": "Read-only inventory after the experiment; not a continuous in-measurement trace",
+    "rpg_alone_target_for_final17": true,
+    "post_final_process_name_snapshot": {
+      "other_game_processes_now": 0,
+      "installed_game_processes_now": 0,
+      "qa_candidate_processes_now": 0,
+      "scope": "Read-only process-name snapshot after final measurement; not a continuous trace"
+    },
+    "other_game_absence_continuously_traced_during_measurement": false
+  },
+  "sanitization": {
+    "method": "Allowlisted scalar statistics, suite counts, repo-relative receipt refs and source hashes",
+    "excluded": "Machine and user identity, absolute paths, process IDs, raw environment, timestamps, frame sample arrays, logs and stack traces"
+  },
+  "publication": {
+    "scope": "Task-only source/rendering changes and sanitized validation documents; exclude unrelated work, caches, binaries and licensed source assets",
+    "local_full_migration_branch": "codex/unity-migration-20260925",
+    "archive_branch_if_local_git_auth_blocks_push": "codex/unity-60fps-20261002-evidence",
+    "archive_directory": "exports/Performance60_20261002",
+    "measurement_receipt_confirms_remote_publication": false,
+    "remote_confirmation": "Remote commit/ref/blob verification is recorded separately; local completion is not treated as remote synchronization",
+    "raw_receipts": "Ignored local artifacts; repo-relative references are local provenance"
+  },
+  "completed_build8_validation": [
+    {
+      "suite": "near_snapshot",
+      "build": 8,
+      "result": "Passed",
+      "unit": "checks",
+      "count": 439,
+      "error_count": 0,
+      "fixture_initialization": "Explicit authored quality",
+      "original_receipt_ref": "regression-8/qa-55a1690592cb44a58e9588dcbfd66dc9/acceptance-near-snapshot/result.json"
+    }
+  ],
+  "historical_validation_failures": [
+    {
+      "suite": "near_snapshot",
+      "build": 7,
+      "result": "Failed",
+      "completed_checks": 9,
+      "error_count": 1,
+      "issue": "Legacy camera-local enumeration fixture failed with actual count 3; explicit initial-quality runner and diagnostic changes await build8 validation",
+      "original_receipt_ref": "regression-7-remaining/qa-f8d8962482434ad1a0ce9a74979e83be/acceptance-near-snapshot/result.json",
+      "resolution": "Build8 explicit-quality initialization passed 439 checks without a production change"
+    }
+  ],
+  "completed_build9_validation": [
+    {
+      "suite": "draw_culling_core",
+      "build": 9,
+      "result": "Passed",
+      "unit": "checks",
+      "count": 766,
+      "error_count": 0,
+      "existing_assertions_and_hdr_guards": "Preserved; original required sequence",
+      "additional_return_diagnostic": "Explicit opt-in, default off; prior failed observation retained separately",
+      "original_receipt_ref": "regression-9/qa-80c9051fbc4e4b4984b0cea6fed29311/acceptance-draw-culling/result.json"
+    }
+  ],
+  "build9": {
+    "result": "Succeeded",
+    "error_count": 0,
+    "warning_count": 176,
+    "binary_size_bytes": 3055263977,
+    "strict_signature_verified": true,
+    "production_source_unchanged_vs_standalone8": true,
+    "only_changed_path_vs_build8_manifest": "unity-game/Assets/RPG/Gameplay/NativeDrawCullingAcceptance.cs"
+  },
+  "diagnostic_observations": [
+    {
+      "suite": "draw_culling",
+      "build": 8,
+      "result": "Failed",
+      "completed_checks": 457,
+      "error_count": 1,
+      "phase": "New preparation return diagnostic",
+      "candidate_guard_checks_before_return_diagnostic": "Passed for reached pose",
+      "returned_legacy_against_initial_legacy": {
+        "different_pixels": 18,
+        "different_rgba16f_components": 46,
+        "maximum_absolute_component_difference": 0.0004425048828125,
+        "mean_absolute_component_difference": 1.8344985114203558e-08,
+        "identical_expected_lengths": true,
+        "nonfinite_values": 0,
+        "nonfinite_differences": 0,
+        "pixel_bounds": [
+          77,
+          171,
+          95,
+          179
+        ]
+      },
+      "returned_legacy_against_optimized": {
+        "different_pixels": 18,
+        "different_rgba16f_components": 46,
+        "maximum_absolute_component_difference": 0.0004425048828125,
+        "mean_absolute_component_difference": 1.8344985114203558e-08,
+        "identical_expected_lengths": true,
+        "nonfinite_values": 0,
+        "nonfinite_differences": 0,
+        "pixel_bounds": [
+          77,
+          171,
+          95,
+          179
+        ]
+      },
+      "optimized_repeat": {
+        "different_pixels": 0,
+        "different_rgba16f_components": 0,
+        "maximum_absolute_component_difference": 0.0,
+        "mean_absolute_component_difference": 0.0,
+        "identical_expected_lengths": true,
+        "nonfinite_values": 0,
+        "nonfinite_differences": 0,
+        "pixel_bounds": null
+      },
+      "returned_legacy_depth_mismatched_bytes": 0,
+      "returned_legacy_motion_mismatched_bytes": 0,
+      "classification": "The original path also changes by 18 pixels; observed drift is not specific to optimized preparation. Whole build8 draw suite retains Failed status. Build9 separates the additional diagnostic as an explicit opt-in and still requires core validation.",
+      "original_receipt_ref": "regression-8/qa-55a1690592cb44a58e9588dcbfd66dc9/acceptance-draw-culling/result.json",
+      "required_original_sequence_resolution": "Build9 original full sequence Passed 766 checks without changing production, original 40 assertions or 16-pixel HDR guards",
+      "status": "Additional return diagnostic remains unresolved; prior failure preserved"
+    }
+  ],
+  "pacing_rationale": {
+    "official_target_frame_rate_documentation": "https://docs.unity3d.com/6000.3/Documentation/ScriptReference/Application-targetFrameRate.html",
+    "official_vsync_documentation": "https://docs.unity3d.com/6000.3/Documentation/ScriptReference/QualitySettings-vSyncCount.html",
+    "documented_behavior": "Desktop targetFrameRate is software timing subject to microstutter; VSync is hardware synchronization. Effective rate with VSync is native refresh divided by vSyncCount and targetFrameRate is ignored.",
+    "planned_fast_mode_policy": "VSync10 and software75 experiments rejected. Final13 uses vSyncCount=0, targetFrameRate=-1 to retain available capacity and restore authored quality pacing.",
+    "coregraphics_main_refresh_hz_observed": 60,
+    "unity_runtime_refresh_hz": 60.00240009600384,
+    "unity_runtime_refresh_receipt_status": "Observed unchanged at measurement start/end of completed build10 hideout and dungeon receipts",
+    "causal_limit": "Documentation justified a pacing experiment, not a causal conclusion. Background activity was observed after VSync10. App Nap is a plausible unproven explanation for headroom11; token ownership does not certify actual App Nap state."
+  },
+  "build10": {
+    "status": "Rejected experiment",
+    "production_change_tested": "Fast-mode conditional VSync using compatible refresh divisors for a60FPS target; quality restores authored pacing",
+    "completed_measured_routes": [
+      "hideout",
+      "dungeon"
+    ],
+    "requested_frames_per_route": 3600,
+    "decision": "Do not adopt; hideout42.5037FPS p9933.983ms/max49.921ms and dungeon58.6169FPS p9932.717ms/max36.480ms",
+    "cave_case": {
+      "result": "Runner Failed",
+      "classification": "Process-inventory housekeeping timeout after5seconds; no finished benchmark receipt",
+      "native_game_crash_measured": false,
+      "frame_performance_result_available": false,
+      "owned_processes_cleaned": true,
+      "original_receipt_ref": "display-paced-10/runner-summary.json"
+    },
+    "not_isolated_same_build_ab": true,
+    "background_activity_observed": true,
+    "no_unrelated_processes_stopped": true,
+    "background_activity_observation_scope": "Read-only inventory after the experiment; no single-cause conclusion"
+  },
+  "completed_build11_validation": [
+    {
+      "suite": "render_quality",
+      "build": 11,
+      "result": "Passed",
+      "unit": "checks",
+      "count": 110,
+      "error_count": 0,
+      "elapsed_seconds": 51.03,
+      "original_receipt_ref": "quality-11/qa-22d9767cd49a4241894dbf56ec5aa620/acceptance-quality/result.json"
+    }
+  ],
+  "build11": {
+    "result": "Succeeded",
+    "error_count": 0,
+    "warning_count": 176,
+    "binary_size_bytes": 3055266025,
+    "strict_signature_verified": true,
+    "production_change": "Fast performance software targetFrameRate=75, vSyncCount=0; quality restores original pacing",
+    "pacing_intent": "Rendering headroom for the 60FPS goal, not an internal60FPS limit",
+    "vsync_ratio_helper_removed": true,
+    "one_second_pacing_monitor_removed": true,
+    "source_scene_renderer_exact_hash_match_vs_build9": true,
+    "quality_validation_result": "Passed",
+    "quality_validation_checks": 110,
+    "three_route_production_measurements": "Stopped after failed hideout measurement/deadline; no completed3600-frame three-route certificate",
+    "measured_frames_per_route_requested": 3600,
+    "routes": [
+      "hideout",
+      "dungeon",
+      "cave"
+    ],
+    "build_receipt_ref": "build-result-11.json",
+    "signing_receipt_ref": "signing-11.json",
+    "experiment_decision": "Software75 pacing rejected",
+    "headroom_receipt_ref": "headroom-11/qa-6fb873646dfc47bf914663c0203a6fe9/benchmark-performance-hideout/result.json"
+  },
+  "build12": {
+    "status": "Software75 pilot rejected; original benchmark receipt Failed",
+    "qa_only_activity_option_hex": "0xEFFFFF",
+    "qa_only_activity_option_name": "NSActivityUserInitiatedAllowingIdleSystemSleep",
+    "pilot_measured_frames": 300,
+    "ownership_observations": "Acquired, held through300 measurements, released, error null",
+    "ownership_detector_bug": "TypeString(null) falsely reported failure; fixed in next build with all ownership guards retained",
+    "historical_receipt_reclassified_as_pass": false
+  },
+  "build13": {
+    "status": "Build/signature/quality Passed; strict capacity runner Failed on hideout; remaining routes not completed",
+    "production_change": "Fast performance vSyncCount=0, targetFrameRate=-1; software75 removed; authored quality values restored",
+    "source_scene_renderer_exact_hash_match_vs_build9": true,
+    "qa_activity": "Optional benchmark-only owned user-initiated token; no latency/global power policy/focus/preference changes",
+    "activity_detector_null_handling_fixed": true,
+    "activity_ownership_guards_retained": true,
+    "production_routes": [
+      "hideout",
+      "dungeon",
+      "cave"
+    ],
+    "requested_measured_frames_per_route": 3600,
+    "require_60fps": true,
+    "foreground_play_certified": false,
+    "result": "Succeeded",
+    "error_count": 0,
+    "warning_count": 176,
+    "binary_size_bytes": 3055271657,
+    "strict_signature_verified": true,
+    "quality_validation_checks": 110,
+    "quality_validation_result": "Passed",
+    "build_receipt_ref": "build-result-13.json",
+    "signing_receipt_ref": "signing-13.json",
+    "strict_capacity_result": "Failed",
+    "native_measurement_result": "Passed",
+    "native_measurement_error_count": 0,
+    "three_route_goal_completed": false,
+    "strict_capacity_receipt_ref": "final-capacity-13/runner-summary.json"
+  },
+  "completed_build13_validation": [
+    {
+      "suite": "render_quality",
+      "build": 13,
+      "result": "Passed",
+      "unit": "checks",
+      "count": 110,
+      "error_count": 0,
+      "original_receipt_ref": "quality-13/qa-8dc8fb05d7e448aab9325351fd2f5190/acceptance-quality/result.json"
+    }
+  ],
+  "historical_capacity8_wall_gpu_distinction": {
+    "wall_interval_over_16_67ms_percent": {
+      "hideout": 0.05555555555555555,
+      "dungeon": 0.05555555555555555,
+      "cave": 0.0
+    },
+    "wall_interval_over_16_67ms_frames": {
+      "hideout": 1,
+      "dungeon": 1,
+      "cave": 0
+    },
+    "measured_wall_frames_per_route": 1800,
+    "gpu_over_16_67ms_percent_all_routes": 0.0,
+    "scope": "Historical build8; GPU samples and wall intervals are distinct measurements, not final13 verification"
+  },
+  "build14": {
+    "status": "Build/signature/four regressions Passed; capacity runner Failed due dungeon GPU sample coverage; cave not completed",
+    "production_changes": [
+      "Hoist combined static-batch expected state once per group/camera callback",
+      "Reuse depth-material classification within each camera preparation",
+      "Deduplicate caller normalization within each explicit material Sync"
+    ],
+    "frame_pacing": "vSyncCount=0,targetFrameRate=-1; quality preserves authored values",
+    "requested_measured_frames_per_route": 3600,
+    "routes": [
+      "hideout",
+      "dungeon",
+      "cave"
+    ],
+    "strict_capacity_required": true,
+    "foreground_play_certified": false,
+    "result": "Succeeded",
+    "error_count": 0,
+    "warning_count": 176,
+    "binary_size_bytes": 3055272169,
+    "strict_signature_verified": true,
+    "fresh_regression_suite_count": 4,
+    "fresh_regression_total_checks": 15055,
+    "fresh_regression_native_crash_observed": false,
+    "owned_processes_drained": true,
+    "build_receipt_ref": "build-result-14.json",
+    "signing_receipt_ref": "signing-14.json",
+    "regression_runner_ref": "regression-14/runner-summary.json",
+    "strict_capacity_result": "Incomplete/Failed",
+    "hideout_capacity_result": "Passed",
+    "dungeon_capacity_result": "Failed insufficient GPU samples",
+    "cave_capacity_result": "Not completed",
+    "production_rendering_frozen": true
+  },
+  "completed_build14_validation": [
+    {
+      "suite": "acceptance-draw-culling",
+      "build": 14,
+      "result": "Passed",
+      "unit": "checks",
+      "count": 766,
+      "error_count": 0,
+      "original_receipt_ref": "regression-14/qa-8646c93c4db14917a36a79c793cfaa4e/acceptance-draw-culling/result.json"
+    },
+    {
+      "suite": "acceptance-fast-render",
+      "build": 14,
+      "result": "Passed",
+      "unit": "checks",
+      "count": 11537,
+      "error_count": 0,
+      "original_receipt_ref": "regression-14/qa-8646c93c4db14917a36a79c793cfaa4e/acceptance-fast-render/result.json"
+    },
+    {
+      "suite": "acceptance-quality",
+      "build": 14,
+      "result": "Passed",
+      "unit": "checks",
+      "count": 110,
+      "error_count": 0,
+      "original_receipt_ref": "regression-14/qa-8646c93c4db14917a36a79c793cfaa4e/acceptance-quality/result.json"
+    },
+    {
+      "suite": "acceptance-static-batch",
+      "build": 14,
+      "result": "Passed",
+      "unit": "checks",
+      "count": 2642,
+      "error_count": 0,
+      "original_receipt_ref": "regression-14/qa-8646c93c4db14917a36a79c793cfaa4e/acceptance-static-batch/result.json"
+    }
+  ],
+  "historical_vs_final_fast_check_counts": {
+    "build7": 11553,
+    "build14": 11537,
+    "scope": "Actual receipt counts retained separately; no claim that historical and current dynamic per-renderer counts are identical"
+  },
+  "followup_qa_collector_plan": {
+    "status": "Completed: delayed positive GPU recovery observed; final17 all three routes met coverage and time thresholds",
+    "production_rendering_build": 17,
+    "production_rendering_changes_planned": false,
+    "purpose": "Investigate8-frame timing history and delayed/zero GPU sample availability; preserve>=90% coverage requirement",
+    "possible_changes": [
+      "Increase QA timing history",
+      "Add sample-availability counters"
+    ],
+    "not_a_claimed_cause": "Observed delayed positives explain recoverable availability in these windows; no single-cause claim for earlier sample gaps or frame drops",
+    "qa_build": 15,
+    "qa_history_requested": 64,
+    "exact_sanitized_collection_fields": [
+      "history_reads",
+      "maximum_returned_history",
+      "distinct_timestamps_observed_without_positive_gpu_time",
+      "later_positive_gpu_updates_recovered",
+      "minimum_distinct_positive_gpu_fraction",
+      "invalid_gpu_timings_imputed"
+    ]
+  },
+  "build15": {
+    "status": "Build/signature Passed; strict capacity Failed on dungeon GPU budget after sufficient sampling",
+    "result": "Succeeded",
+    "error_count": 0,
+    "warning_count": 176,
+    "binary_size_bytes": 3055273705,
+    "strict_signature_verified": true,
+    "only_changed_path_vs_build14": "unity-game/Assets/RPG/Gameplay/NativeLiveFrameBenchmark.cs",
+    "unchanged_other_source_hash_count": 57,
+    "production_rendering_unchanged_vs_build14": true,
+    "functional_validation_build_reused": 14,
+    "functional_validation_checks_reused": 15055,
+    "functional_checks_repeated_in_build15": false,
+    "qa_timing_history_requested": 64,
+    "actual_history_available": "Reported in frame_timing_collection; not guaranteed to equal request64",
+    "sampling_minimum_fraction": 0.9,
+    "invalid_gpu_timings_imputed": false,
+    "gpu_quarantine_frames": 8,
+    "wall_and_gpu_performance_thresholds": "Unchanged",
+    "strict_capacity_result": "Failed",
+    "build_receipt_ref": "build-result-15.json",
+    "signing_receipt_ref": "signing-15.json",
+    "three_route_goal_completed": false,
+    "native_measurement_result": "Passed",
+    "dungeon_positive_gpu_samples": 3589,
+    "dungeon_gpu_p99_ms": 17.269416712224483,
+    "cave_not_completed": true
+  },
+  "functional_validation_reuse_by_build15": {
+    "functional_validation_build": 14,
+    "fresh_regression_suite_count_in_build14": 4,
+    "actual_total_checks": 15055,
+    "production_source_hash_match_verified": true,
+    "only_allowed_qa_delta": "unity-game/Assets/RPG/Gameplay/NativeLiveFrameBenchmark.cs",
+    "remaining_source_hashes_equal": 57,
+    "repeated_checks_in_build15": false,
+    "scope": "Reuse build14 functional checks; fresh build15 signing and strict capacity remain independent requirements"
+  },
+  "build16": {
+    "status": "CompilationFailed; no replacement of installed app",
+    "failure_classification": "QA camera callback delegate type mismatch (Action<Camera> vs Camera.CameraCallback), corrected in17",
+    "production_app_replaced": false,
+    "private_log_refs": [
+      "build-16.log",
+      "build-16-stdout.log"
+    ],
+    "changed_paths_16_to_17": [
+      "unity-game/Assets/RPG/Gameplay/NativeFastRenderAcceptance.cs",
+      "unity-game/Assets/RPG/Gameplay/NativeRenderQualityAcceptance.cs"
+    ]
+  },
+  "completed_build17_validation": [
+    {
+      "suite": "acceptance-draw-culling",
+      "build": 17,
+      "result": "Passed",
+      "unit": "checks",
+      "count": 766,
+      "error_count": 0,
+      "original_receipt_ref": "regression-17/qa-419aff94fcf9489a918d894aa77542da/acceptance-draw-culling/result.json"
+    },
+    {
+      "suite": "acceptance-fast-render",
+      "build": 17,
+      "result": "Passed",
+      "unit": "checks",
+      "count": 11549,
+      "error_count": 0,
+      "original_receipt_ref": "regression-17/qa-419aff94fcf9489a918d894aa77542da/acceptance-fast-render/result.json"
+    },
+    {
+      "suite": "acceptance-quality",
+      "build": 17,
+      "result": "Passed",
+      "unit": "checks",
+      "count": 110,
+      "error_count": 0,
+      "original_receipt_ref": "regression-17/qa-419aff94fcf9489a918d894aa77542da/acceptance-quality/result.json"
+    }
+  ],
+  "build17": {
+    "status": "Build/signature/fresh three regressions and retained static case verified; strict capacity passed",
+    "result": "Succeeded",
+    "error_count": 0,
+    "warning_count": 176,
+    "binary_size_bytes": 3055276265,
+    "strict_signature_verified": true,
+    "fresh_regression_suite_count": 3,
+    "fresh_regression_total_checks": 12425,
+    "reused_static_validation_build": 14,
+    "reused_static_check_count": 2642,
+    "static_checks_repeated_in_final_build": false,
+    "frame_pacing": "vSyncCount=0,targetFrameRate=-1; authored quality pacing restored",
+    "world_and_equipment_3d_resolution": [
+      960,
+      540
+    ],
+    "ui_text_resolution": [
+      1920,
+      1080
+    ],
+    "quality_equipment_resolution": [
+      1920,
+      1080
+    ],
+    "new_gpu_work_reduction": "Equipment3D540p; defer fast world-glow output overwritten by resolved output",
+    "build_receipt_ref": "build-result-17.json",
+    "signing_receipt_ref": "signing-17.json",
+    "strict_capacity_result": "Passed",
+    "static_functional_checks_repeated_in_final_build": false
+  },
+  "static_case_reuse_proof": {
+    "validation_build": 14,
+    "target_build": 17,
+    "exact_core_source_hash_match": true,
+    "paths": [
+      "unity-game/Assets/RPG/Gameplay/HideoutStaticBatch.cs",
+      "unity-game/Assets/RPG/Gameplay/SourceGeometryRange.cs",
+      "unity-game/Assets/RPG/Gameplay/SourcePerformanceMaterials.cs"
+    ],
+    "fresh_nested_batch_mutations_validated_by": "regression-17/acceptance-fast-render"
+  },
+  "promotion": {
+    "status": "Root confirmed promotion17 complete; detailed inode/Dock/shortcut/signature/DLL proof and screenshots are appended by root"
+  },
+  "final_validation_case_build_mapping": [
+    {
+      "suite": "acceptance-quality",
+      "validation_build": 17,
+      "fresh_in_final_build": true,
+      "result": "Passed",
+      "count": 110,
+      "unit": "checks",
+      "error_count": 0,
+      "original_receipt_ref": "regression-17/qa-419aff94fcf9489a918d894aa77542da/acceptance-quality/result.json"
+    },
+    {
+      "suite": "acceptance-fast-render",
+      "validation_build": 17,
+      "fresh_in_final_build": true,
+      "result": "Passed",
+      "count": 11549,
+      "unit": "checks",
+      "error_count": 0,
+      "original_receipt_ref": "regression-17/qa-419aff94fcf9489a918d894aa77542da/acceptance-fast-render/result.json"
+    },
+    {
+      "suite": "acceptance-draw-culling",
+      "validation_build": 17,
+      "fresh_in_final_build": true,
+      "result": "Passed",
+      "count": 766,
+      "unit": "checks",
+      "error_count": 0,
+      "original_receipt_ref": "regression-17/qa-419aff94fcf9489a918d894aa77542da/acceptance-draw-culling/result.json"
+    },
+    {
+      "suite": "acceptance-static-batch",
+      "validation_build": 14,
+      "fresh_in_final_build": false,
+      "result": "Passed",
+      "count": 2642,
+      "unit": "checks",
+      "error_count": 0,
+      "original_receipt_ref": "regression-14/qa-8646c93c4db14917a36a79c793cfaa4e/acceptance-static-batch/result.json"
+    }
+  ],
+  "source_manifest": {
+    "status": "59-file build17 frozen snapshot verified against current task sources",
+    "base_commit": "08a0d3ffb12c53fab5f6017462402c8d6418343c",
+    "file_count": 59,
+    "build17_manifest_ref": "source-hashes-build-17.json",
+    "new_source_path": "unity-game/Assets/RPG/Gameplay/SourceWorldGlow.cs",
+    "sha256": {
+      "tools/unity_migration/generate_performance_shaders.py": "248031c430b71921a847a5521b563f4833cbacd6cc9dd7d154a5590b21735cae",
+      "tools/unity_migration/run_render_optimization_qa.py": "2d5f7d22aad588ff0efbc6a91f14db4adefd43682d54836e9c8af08d51bd996b",
+      "unity-game/Assets/RPG/Editor/NativeGameBuild.cs": "d567f77a9966f38d113adc57bd9de19312134496c2cd0069e083300e347c9567",
+      "unity-game/Assets/RPG/Gameplay/HideoutStaticBatch.cs": "a136c51e9b5ed63ad08e82fae04abb44f3338ff58849c7c1ecc04d746ace6deb",
+      "unity-game/Assets/RPG/Gameplay/NativeDrawCullingAcceptance.cs": "e50f00d5f6d885026c58d638e6e061c3a93c1c8ef1da1db6e9e99f7303cc3f12",
+      "unity-game/Assets/RPG/Gameplay/NativeFastRenderAcceptance.cs": "d89767af3c53c28315eff02767b50e8577fa744c6167118cba45c819661889e6",
+      "unity-game/Assets/RPG/Gameplay/NativeFastRenderAcceptance.cs.meta": "e97485444a1336d2c4290cf780224513abf8379f33d6bb80745662ae4dcd89f6",
+      "unity-game/Assets/RPG/Gameplay/NativeFrameBenchmarkDiagnostics.cs": "475fd2fd8a1c1e0a90e823b01200957716cceb7ea4475192ea7f500d4b344516",
+      "unity-game/Assets/RPG/Gameplay/NativeFrameBenchmarkDiagnostics.cs.meta": "cafe4ef67318c9e4e10ba911f0327b1b98c8b9d7428881bc10c2bee389129147",
+      "unity-game/Assets/RPG/Gameplay/NativeGameFlow.cs": "be0efaa27ee74be47cc483b56c8be34c932ea8f98afd286d9919d7262f14fe45",
+      "unity-game/Assets/RPG/Gameplay/NativeLiveFrameBenchmark.cs": "edbfbebe464cd330c2b61e255b4640e2aca43db839bfd4871569dc6f2babaefb",
+      "unity-game/Assets/RPG/Gameplay/NativeRenderQuality.cs": "72aee759b17af29532f8f89ff1f0dadd4bab55e64c573cd751cbb2b512419840",
+      "unity-game/Assets/RPG/Gameplay/NativeRenderQualityAcceptance.cs": "c1af35a3e99d780be1941dcae20d9ac95b242e6d0f3aadbe5553b91a778b8156",
+      "unity-game/Assets/RPG/Gameplay/PlayerFrameInput.cs": "15328933e120e6f22b19780be22bf33174cf07d912c9fa7f7f9e3ce3cd30d0df",
+      "unity-game/Assets/RPG/Gameplay/PlayerPresentation.cs": "2008dea8bcf75f61a61abf44c2c895e82fac46788ec664bbc8de1430df2b365d",
+      "unity-game/Assets/RPG/Gameplay/SourceAlphaDepthPrepass.cs": "a9f3e1dc781de3a9f58892e4b47afc0313b7c096de8e78addcb157a3f91e1a38",
+      "unity-game/Assets/RPG/Gameplay/SourceDrawCulling.cs": "a2c296c4af0c044c7d91a7e801af3fcb31e88bf95b683e97a05f5bb21b4eede8",
+      "unity-game/Assets/RPG/Gameplay/SourceGeometryRange.cs": "b92f4e740fef09d798e4d932c6a14249fe002e437c238d4e6be8b0433fd2da8d",
+      "unity-game/Assets/RPG/Gameplay/SourceLightDistance.cs": "d4576f522cbcf1a07770098b4c0b3c56e01143a5a028bcc576623f04d3f05863",
+      "unity-game/Assets/RPG/Gameplay/SourceMeshLod.cs": "7e643cf1bb8d5cdd94b761e93a27e113a193fc16c34a9b24ffbbb7dd8f9d90e5",
+      "unity-game/Assets/RPG/Gameplay/SourceMotionHistory.cs": "d53d09fff88b198321e0702010f994383d625f19ce60c2de4e3b162dbfdf557f",
+      "unity-game/Assets/RPG/Gameplay/SourceOpaqueScreen.cs": "f69f34b357716fc984577d13b355919a4fc8a17c41d7327f319562c0c564d29b",
+      "unity-game/Assets/RPG/Gameplay/SourcePerformanceLighting.cs": "7926373ec0198e21eb0deefe796c93ef337da19bd0280ea6b092e860ebc42f8e",
+      "unity-game/Assets/RPG/Gameplay/SourcePerformanceLighting.cs.meta": "42b6471e33eefb44975ec278e844c71a0e44cfee436938d3084ddcce997c63f3",
+      "unity-game/Assets/RPG/Gameplay/SourcePerformanceMaterials.cs": "0eb0a53d5c33cd8cd03b0952f554be53eef4cbf745703c2c43cce9abb1cf5a42",
+      "unity-game/Assets/RPG/Gameplay/SourcePerformanceMaterials.cs.meta": "df7fd35ec1ea6f074c0bc1cbc7b6c8fe9a7835383bb52c9eb6467fb55bdfcc4c",
+      "unity-game/Assets/RPG/Gameplay/SourceRoomReflections.cs": "453561643e0b3aa8eda8e2fee863f6880966840811ce73a4d1b9fcde86bc6b02",
+      "unity-game/Assets/RPG/Gameplay/SourceSceneRenderer.cs": "d17670ff9ef9a03572a55f54a7b9f909b584c24c972b7cd9e8836433e8027cef",
+      "unity-game/Assets/RPG/Gameplay/SourceTemporalCamera.cs": "f7121965396ac48b0584fadb21ff8293ffe561aae2533a81d68700b33903be88",
+      "unity-game/Assets/RPG/Gameplay/SourceUi.cs": "52b26c326d6108cee81a17bf8a60834c601fac50587f42751b9af3492248aca9",
+      "unity-game/Assets/RPG/Gameplay/SourceUiRenderer.cs": "1ff6303b8e056bd18b2c9bede876ee2c94e1c3c5121ff32dfe05cc5b7dbedb64",
+      "unity-game/Assets/RPG/Gameplay/SourceWorldGlow.cs": "1d9077bdb33f2ceb207f472d3854fb0b9867a4e0d2f62108bf10c79fd0005f8b",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance.meta": "c72b464586db6c160a1e2e8092d094dc82c6a907693c1f1b858c9482196e208a",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/CaveGeologyPerformance.shader": "8a23b5fa9954202a216e476205d33a5e04bab69c10e41f865c4653f3b8e896fd",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/CaveGeologyPerformance.shader.meta": "a5c69110830831621a3f724808cc1c9a3f9d617200aad46dbad8bdcbf9884796",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/CavePropSurfacePerformance.shader": "a4d9d3d02e7f06285b320cd087ac6dd0e3c6b6a055f280dfb7a32f22824bd566",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/CavePropSurfacePerformance.shader.meta": "1661f1e45a24767fbdc2934f6da8e2ee06e0bfab705aa92153554874a4f9fc3d",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/CaveWaterPerformance.shader": "ee807aaf18a82214a4ae0cfa7555089ac48ef1c6b001ceaa8271650ed92fa813",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/CaveWaterPerformance.shader.meta": "ac0aedcf818be17a391ffe854d48500c2ea4620bf7c14b8757b1dc3776ef3bd8",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/HideoutWaterPerformance.shader": "2c83480d6d41dc1d2e6cbaefdcd9029fc3a2e8aaae6fc44d953c6328a4399d07",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/HideoutWaterPerformance.shader.meta": "8154edd30a993dead91a3296ae0f5a83432938e41eccb273da0d318025c073b9",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/HideoutWeatherPerformance.shader": "0ef2b190b612e807dc72ad787b013ebd44ded81ee71529ee1e8877aaa73730c9",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/HideoutWeatherPerformance.shader.meta": "3dbdc83a897e7f578c01ab3118c8b8053ef54723db9661f8cf8343b6fe01e0e0",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/ImportedPerformance.shader": "f9be0e55c62ef9535ec31c0cb2c78cca0010c726a557eeb6230e735a1d8d758f",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/ImportedPerformance.shader.meta": "68d987fa4d4c3dcfe7faf4bd60417c6e44e3b05e7a86ddffc83536a3a6e79654",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/SourceCutoutPerformance.shader": "23be4040ecb5a05e5055c793231760207b2b681017b5bdb63c8e173fce72cd0c",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/SourceCutoutPerformance.shader.meta": "899405ae4a6d865edaead177d6092bd816a1cb5096c26e5e57dbd9901e869e1c",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/SourcePerformanceLighting.cginc": "296333c236cc53518db358aa3d71146abc6959707364c4ad6c85d28a98964028",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/SourcePerformanceLighting.cginc.meta": "266285a8e4f279800a073c0d09b480d6eb32f2ada2cc0e54a8ca4ac20edb5eb7",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/SourcePerformanceSurface.cginc": "a7939861f2f420a70f5b205ae94aad901101d5412e230860283092b08568ca12",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/SourcePerformanceSurface.cginc.meta": "72484b0fb22a9e2b9a2f015bc7af554e6a26b562c4874ad7020f9430d31d4e50",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/SourceSkinnedSurfacePerformance.shader": "4f66794a835c965fbfb645f1c25675d13c74ac3f6d3c969d1e2cb3250c0495ff",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/SourceSkinnedSurfacePerformance.shader.meta": "68b1849182a8f1af251d3323a88ad0527cbbd45f4278a753f3ee0c5b9603e801",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/SourceSurfacePerformance.shader": "c4986e9c68d4275fd342fb3034be33c0b7d3487a6c5fdee4d76b9136e8b28e69",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/SourceSurfacePerformance.shader.meta": "3e4ac9a34e9633f177f32ea164a32cf43198728df509d2b8ab331ad404cba348",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/TargetPaintPerformance.shader": "a3963830f5da01129f41601696fb3346399446c6081fd0407aef092e65f3d583",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/TargetPaintPerformance.shader.meta": "e25542bd7ded0fa40a6fd5163ff17876f8d45f00cd35bcf3055f28af0a21e468",
+      "unity-game/Assets/RPG/Resources/SourceSpatialAa.shader": "db488226ec2c2eddc3847a2d8497624a1009870b2e6870e9fe3480af585e2a5a",
+      "unity-game/Assets/RPG/Resources/SourceSpatialAa.shader.meta": "7b57dfd1df8d6a09c892ef66234575331de7d603917d64dfef1649d44acd6be9"
+    }
+  },
+  "installation": {
+    "result": "Passed",
+    "default_root_inode_preserved": true,
+    "strict_signature_verified": true,
+    "gameplay_assembly_sha256": "fa6712eff46781d2012a664356f7ebcaf33f73783334bd3918dbab4ca1c096b2",
+    "applications_shortcut_resolves_to_default": true,
+    "user_processes_terminated": false,
+    "dock_preferences_modified": false,
+    "app": "unity-game/Builds/MusimusihanRPG.app",
+    "previous_app_backup": "unity-game/Artifacts/performance60-20261002/PreviousInstalledBuild-before-17.app",
+    "promotion_receipt_ref": "promotion-17.json"
+  },
+  "final_build_identity": {
+    "executable_sha256": "ad980b17175c12b39d529cd9fc854bec92a85d6c4917359ecd88ac3d707ccd63",
+    "gameplay_assembly_sha256": "fa6712eff46781d2012a664356f7ebcaf33f73783334bd3918dbab4ca1c096b2",
+    "benchmark_candidate_and_installed_gameplay_assembly_match": true
+  },
+  "final_runner_guard_summary": {
+    "result": "Passed",
+    "require_60fps": true,
+    "routes": [
+      {
+        "case": "benchmark-performance-hideout",
+        "result": "Passed",
+        "receipt_sha256": "19880a7c9a7867f4ef8c60c3fb8d5ff50b2b7bf0faed8519e41823a42e15c6c3",
+        "native_crash_markers_observed": false,
+        "owned_processes_drained": true,
+        "owned_processes_terminated": false,
+        "owned_processes_killed": false,
+        "world_target_reallocations": 0,
+        "equipment_target_reallocations": 0,
+        "application_focused": true
+      },
+      {
+        "case": "benchmark-performance-dungeon",
+        "result": "Passed",
+        "receipt_sha256": "63fb8b5bc2458df5446bbd860ec3e70b0f02f5f23d3d73ae3edf048c862f71f5",
+        "native_crash_markers_observed": false,
+        "owned_processes_drained": true,
+        "owned_processes_terminated": false,
+        "owned_processes_killed": false,
+        "world_target_reallocations": 0,
+        "equipment_target_reallocations": 0,
+        "application_focused": true
+      },
+      {
+        "case": "benchmark-performance-cave",
+        "result": "Passed",
+        "receipt_sha256": "f51dafd7e94b417887eb590ad48d913ea05f99f5df6af276977e7379aeae76ca",
+        "native_crash_markers_observed": false,
+        "owned_processes_drained": true,
+        "owned_processes_terminated": false,
+        "owned_processes_killed": false,
+        "world_target_reallocations": 0,
+        "equipment_target_reallocations": 0,
+        "application_focused": true
+      }
+    ]
+  },
+  "visual_review": {
+    "reviewed": true,
+    "routes": [
+      "hideout",
+      "dungeon",
+      "cave"
+    ],
+    "frame_output_resolution": [
+      1920,
+      1080
+    ],
+    "ui_text_native_resolution": true,
+    "hands_equipment_and_composition_checked": true,
+    "missing_shader_magenta_observed": false,
+    "pixel_parity_with_godot_certified": false,
+    "screenshot_refs": [
+      "final-capacity-17/qa-9f572171812745be9e7e5daf3946202b/benchmark-performance-cave/result.last-frame.png",
+      "final-capacity-17/qa-9f572171812745be9e7e5daf3946202b/benchmark-performance-dungeon/result.last-frame.png",
+      "final-capacity-17/qa-9f572171812745be9e7e5daf3946202b/benchmark-performance-hideout/result.last-frame.png"
+    ]
+  },
+  "capacity_criteria": {
+    "measured_wall_intervals_each_route": 3600,
+    "wall_and_gpu_p99_max_ms": 16.667,
+    "worst_wall_max_ms": 33.333,
+    "minimum_distinct_positive_gpu_fraction": 0.9,
+    "invalid_gpu_timings_imputed": false,
+    "diagnostic_ablations_allowed": false,
+    "frame_pacing": "Uncapped production capacity, not foreground/capped playback certification"
+  }
+}
