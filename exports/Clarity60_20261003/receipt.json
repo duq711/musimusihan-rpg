@@ -1,0 +1,686 @@
+{
+  "schema_version": 1,
+  "date_kst": "2026-10-03",
+  "result": "Passed",
+  "final_build": 19,
+  "base_commit": "97dc2b3b4adf5c1f014dd4f3d9a010f04982a4e8",
+  "gameplay_assembly_sha256": "4737e5f99b2280afe92b63a3cd962d6f5296e2d78a9b31006ce33bb2234715d6",
+  "profile": {
+    "world": [
+      1280,
+      720
+    ],
+    "equipment": [
+      1280,
+      720
+    ],
+    "ui_output": [
+      1920,
+      1080
+    ],
+    "spatial_aa": true,
+    "temporal_history": false,
+    "performance_mipmap_bias": 0.25,
+    "scan_mip_count": 11,
+    "scan_original_mip_count": 1,
+    "scan_original_size": [
+      1254,
+      1254
+    ],
+    "geometric_specular_aa": true,
+    "point_spot_light_limit": 4,
+    "directional_key_light": true,
+    "shadows": false,
+    "vsync_count": 0,
+    "target_frame_rate": -1
+  },
+  "fresh_final_regression_checks": 11701,
+  "fresh_final_regression": [
+    {
+      "case": "acceptance-quality",
+      "result": "Passed",
+      "checks": 119,
+      "receipt_sha256": "476c1c403b6ee1f60c9d86bb171e7b66ebfc7a4d5746542de68064fbe05e5c33",
+      "new_clarity_cases": [
+        {
+          "case": "spatial_subpixel_checker",
+          "interior_pixels": 3588,
+          "smoothed_interior_pixels": 3588,
+          "raw_neighbor_energy": 13222.5,
+          "filtered_neighbor_energy": 1322.25,
+          "nonfinite_pixels": 0,
+          "max_alpha_error": 0.0
+        },
+        {
+          "case": "performance_temporal_lifecycle",
+          "actual_nested_camera": true,
+          "source_pixels": 15360,
+          "spatial_blended_pixels": 192,
+          "nonfinite_pixels": 0,
+          "max_alpha_error": 0.0,
+          "subpixel_blended_pixels": 3588,
+          "subpixel_nonfinite_pixels": 0,
+          "subpixel_max_alpha_error": 0.0,
+          "performance_sampling_bias_observed": 0.25,
+          "nested_sampling_bias_observed": 0.25,
+          "quality_sampling_bias_observed": 0.0,
+          "orientation_flat_regions": 4,
+          "same_input_exact_repeat": true,
+          "fresh_frame_no_history": true,
+          "mode_switches": 2,
+          "maximum_output": [
+            1920,
+            1080
+          ],
+          "object_motion_pass": false
+        }
+      ],
+      "errors": [],
+      "native_crash_markers": [],
+      "owned_pids_remaining": []
+    },
+    {
+      "case": "acceptance-fast-render",
+      "result": "Passed",
+      "checks": 11582,
+      "receipt_sha256": "efa8374ceef4a73d8123e5f972c8476adab6a41c8c8da7f49a884e613db168d5",
+      "new_clarity_cases": [
+        {
+          "case": "authored_hideout_scan_base_gpu",
+          "pixels": 1572516,
+          "max_channel_error": 0.0,
+          "mean_peak_channel_error": 0.0,
+          "nonfinite_pixels": 0,
+          "source_srgb": true,
+          "copy_srgb": true
+        },
+        {
+          "case": "authored_hideout_scan_mip_copy",
+          "original_mip_count": 1,
+          "performance_mip_count": 11,
+          "texture_size": [
+            1254,
+            1254
+          ],
+          "actual_render_material_texture_verified": true,
+          "original_texture_identity_restored": true,
+          "original_sampling_settings_unchanged": true
+        },
+        {
+          "case": "detached_weather_caller_scan_ownership",
+          "same_frame": true,
+          "detached_before_first_sync": true,
+          "replacement_shared_owned_scan": true,
+          "detached_caller_shader_restored": true,
+          "detached_caller_original_texture_restored": true,
+          "inherited_gpu_resource_released": true,
+          "reattached_caller_identity_preserved": true
+        }
+      ],
+      "errors": [],
+      "native_crash_markers": [],
+      "owned_pids_remaining": []
+    }
+  ],
+  "final_capacity_routes": [
+    {
+      "benchmark_route": "hideout",
+      "benchmark_view": "moving",
+      "benchmark_seed": 711,
+      "wall_interval_fps_mean": 98.52669890960907,
+      "wall_ms": {
+        "count": 3600,
+        "mean": 10.149533183055555,
+        "min": 7.507583000002427,
+        "p50": 9.805208000003063,
+        "p95": 13.226708000001253,
+        "p99": 15.513957999999661,
+        "max": 27.82450000000125,
+        "over_16_67ms_percent": 0.4722222222222222
+      },
+      "gpu_ms": {
+        "count": 3590,
+        "mean": 8.082542652870634,
+        "min": 5.4160000290721655,
+        "p50": 7.838999968953431,
+        "p95": 10.249416634906083,
+        "p99": 11.405458324588835,
+        "max": 14.083750022109598,
+        "over_16_67ms_percent": 0.0
+      },
+      "slowest_1_percent_wall_fps": 64.45808348843163,
+      "maximum_consecutive_over_16_67ms_frames": 3,
+      "segment_wall_ms": {
+        "hearth": {
+          "count": 1200,
+          "mean": 11.851181979166652,
+          "min": 9.912916000001104,
+          "p50": 11.32191700000007,
+          "p95": 14.784957999999904,
+          "p99": 17.797915999999248,
+          "max": 27.82450000000125,
+          "over_16_67ms_percent": 1.4166666666666667
+        },
+        "doorway": {
+          "count": 1200,
+          "mean": 8.99016774333334,
+          "min": 7.507583000002427,
+          "p50": 8.805375000001447,
+          "p95": 10.52270799999988,
+          "p99": 12.087334000000283,
+          "max": 13.569959000001575,
+          "over_16_67ms_percent": 0.0
+        },
+        "workshop": {
+          "count": 1200,
+          "mean": 9.607249826666658,
+          "min": 8.007749999997316,
+          "p50": 9.500750000000835,
+          "p95": 11.193458999997574,
+          "p99": 12.301874999998574,
+          "max": 15.816540999999518,
+          "over_16_67ms_percent": 0.0
+        }
+      },
+      "world_target_resolution": [
+        1280,
+        720
+      ],
+      "equipment_target_resolution": [
+        1280,
+        720
+      ],
+      "ui_frame_target_resolution": [
+        1920,
+        1080
+      ],
+      "world_target_resolution_histogram": {
+        "1280x720": 3600
+      },
+      "world_target_reallocations": 0,
+      "equipment_target_reallocations": 0,
+      "frame_pacing": "uncapped",
+      "vsync_count": 0,
+      "target_frame_rate": -1,
+      "uncapped_capacity_60fps_pass": true,
+      "foreground_60fps_certified": false,
+      "performance_renderer": "optimized",
+      "fast_performance_active": true,
+      "mac_activity": {
+        "requested": true,
+        "supported": true,
+        "acquired": true,
+        "held_during_measurement": true,
+        "released": true,
+        "error": null,
+        "options": 15728639,
+        "name": "NSActivityUserInitiatedAllowingIdleSystemSleep",
+        "reason": "Musimusihan RPG owned hidden frame benchmark",
+        "measurement_observations": 3600,
+        "scope": "Explicit QA-process activity token only. Allows idle system/display sleep; no LatencyCritical, preferences, focus or global power changes. Token ownership is recorded; actual App Nap state and foreground FPS are not certified."
+      },
+      "diagnostics": {
+        "profiles": [],
+        "measurement_only": true,
+        "eligible_for_60fps_goal": true,
+        "restoration_passed": true,
+        "restoration_failures": [],
+        "light_enabled_states_restored": 0,
+        "temporal_enabled_states_restored": 0,
+        "destroyed_lights_before_restore": 0,
+        "destroyed_temporals_before_restore": 0
+      },
+      "script_phase_timing": {
+        "enabled": false,
+        "stopwatch_completed_previous_engine_frames": 0,
+        "milliseconds": {},
+        "calls": {},
+        "native_profiler_marker_collection_deferred": true,
+        "scope": "Opt-in Stopwatch counters from the previous completed engine frame only. Times are inclusive and overlapping; parent, child, CPU and GPU times must not be summed. Conditional phase summaries include executed frames only. Native profiler marker collection is deferred; unmeasured phases are not zero cost. No hidden profiler/development flag was enabled. Probe overhead is included in observed wall timing."
+      },
+      "performance_scan_cache": {
+        "owned_texture_count_at_measurement_end": 1,
+        "gpu_copy_count_at_measurement_start": 8,
+        "gpu_copy_count_at_measurement_end": 8,
+        "gpu_copies_during_measurement": 0,
+        "ownership_cleanup_scans_during_measurement": 0,
+        "captured_before_trial_cleanup": true
+      },
+      "result": "Passed",
+      "receipt_sha256": "e74d38110d0f4fa8845c4850839689bd55bc03571bba606bb7de2cbc37eb9e99",
+      "last_production_frame_png": "unity-game/Artifacts/clarity60-20261003/final-capacity-19/qa-084c7233f54f4d5caebb7177f736e6a4/benchmark-performance-hideout/result.last-frame.png",
+      "errors": [],
+      "native_crash_markers": [],
+      "owned_pids_remaining": []
+    },
+    {
+      "benchmark_route": "dungeon",
+      "benchmark_view": "moving",
+      "benchmark_seed": 711,
+      "wall_interval_fps_mean": 175.06329389076296,
+      "wall_ms": {
+        "count": 3600,
+        "mean": 5.712219722222224,
+        "min": 3.8039580000006623,
+        "p50": 5.515333000001732,
+        "p95": 7.550541999997051,
+        "p99": 8.922417000000848,
+        "max": 12.753374999999068,
+        "over_16_67ms_percent": 0.0
+      },
+      "gpu_ms": {
+        "count": 3589,
+        "mean": 7.858525297187884,
+        "min": 5.660708295181394,
+        "p50": 6.792500033043325,
+        "p95": 14.99262498691678,
+        "p99": 15.851000032853335,
+        "max": 16.6711249621585,
+        "over_16_67ms_percent": 0.027862914460852605
+      },
+      "slowest_1_percent_wall_fps": 112.07725440314042,
+      "maximum_consecutive_over_16_67ms_frames": 0,
+      "segment_wall_ms": {
+        "reliquary_entrance": {
+          "count": 3600,
+          "mean": 5.712219722222224,
+          "min": 3.8039580000006623,
+          "p50": 5.515333000001732,
+          "p95": 7.550541999997051,
+          "p99": 8.922417000000848,
+          "max": 12.753374999999068,
+          "over_16_67ms_percent": 0.0
+        }
+      },
+      "world_target_resolution": [
+        1280,
+        720
+      ],
+      "equipment_target_resolution": [
+        1280,
+        720
+      ],
+      "ui_frame_target_resolution": [
+        1920,
+        1080
+      ],
+      "world_target_resolution_histogram": {
+        "1280x720": 3600
+      },
+      "world_target_reallocations": 0,
+      "equipment_target_reallocations": 0,
+      "frame_pacing": "uncapped",
+      "vsync_count": 0,
+      "target_frame_rate": -1,
+      "uncapped_capacity_60fps_pass": true,
+      "foreground_60fps_certified": false,
+      "performance_renderer": "optimized",
+      "fast_performance_active": true,
+      "mac_activity": {
+        "requested": true,
+        "supported": true,
+        "acquired": true,
+        "held_during_measurement": true,
+        "released": true,
+        "error": null,
+        "options": 15728639,
+        "name": "NSActivityUserInitiatedAllowingIdleSystemSleep",
+        "reason": "Musimusihan RPG owned hidden frame benchmark",
+        "measurement_observations": 3600,
+        "scope": "Explicit QA-process activity token only. Allows idle system/display sleep; no LatencyCritical, preferences, focus or global power changes. Token ownership is recorded; actual App Nap state and foreground FPS are not certified."
+      },
+      "diagnostics": {
+        "profiles": [],
+        "measurement_only": true,
+        "eligible_for_60fps_goal": true,
+        "restoration_passed": true,
+        "restoration_failures": [],
+        "light_enabled_states_restored": 0,
+        "temporal_enabled_states_restored": 0,
+        "destroyed_lights_before_restore": 0,
+        "destroyed_temporals_before_restore": 0
+      },
+      "script_phase_timing": {
+        "enabled": false,
+        "stopwatch_completed_previous_engine_frames": 0,
+        "milliseconds": {},
+        "calls": {},
+        "native_profiler_marker_collection_deferred": true,
+        "scope": "Opt-in Stopwatch counters from the previous completed engine frame only. Times are inclusive and overlapping; parent, child, CPU and GPU times must not be summed. Conditional phase summaries include executed frames only. Native profiler marker collection is deferred; unmeasured phases are not zero cost. No hidden profiler/development flag was enabled. Probe overhead is included in observed wall timing."
+      },
+      "performance_scan_cache": {
+        "owned_texture_count_at_measurement_end": 0,
+        "gpu_copy_count_at_measurement_start": 0,
+        "gpu_copy_count_at_measurement_end": 0,
+        "gpu_copies_during_measurement": 0,
+        "ownership_cleanup_scans_during_measurement": 0,
+        "captured_before_trial_cleanup": true
+      },
+      "result": "Passed",
+      "receipt_sha256": "6a55ea11798d6109b81dff7e6c6acdd95f760d9f0ca96de302257b8d87c3e6d2",
+      "last_production_frame_png": "unity-game/Artifacts/clarity60-20261003/final-capacity-19/qa-084c7233f54f4d5caebb7177f736e6a4/benchmark-performance-dungeon/result.last-frame.png",
+      "errors": [],
+      "native_crash_markers": [],
+      "owned_pids_remaining": []
+    },
+    {
+      "benchmark_route": "cave",
+      "benchmark_view": "moving",
+      "benchmark_seed": 711,
+      "wall_interval_fps_mean": 141.195863790293,
+      "wall_ms": {
+        "count": 3600,
+        "mean": 7.082360440000002,
+        "min": 4.9714170000001445,
+        "p50": 6.89495799999662,
+        "p95": 9.210542000001709,
+        "p99": 10.711665999998843,
+        "max": 17.93704099999971,
+        "over_16_67ms_percent": 0.027777777777777776
+      },
+      "gpu_ms": {
+        "count": 3590,
+        "mean": 5.5969125350443045,
+        "min": 4.88212495110929,
+        "p50": 5.5607500253245234,
+        "p95": 6.2784583424218,
+        "p99": 6.947250047232956,
+        "max": 12.20475003356114,
+        "over_16_67ms_percent": 0.0
+      },
+      "slowest_1_percent_wall_fps": 93.35615953672455,
+      "maximum_consecutive_over_16_67ms_frames": 1,
+      "segment_wall_ms": {
+        "authored_entrance": {
+          "count": 3600,
+          "mean": 7.082360440000002,
+          "min": 4.9714170000001445,
+          "p50": 6.89495799999662,
+          "p95": 9.210542000001709,
+          "p99": 10.711665999998843,
+          "max": 17.93704099999971,
+          "over_16_67ms_percent": 0.027777777777777776
+        }
+      },
+      "world_target_resolution": [
+        1280,
+        720
+      ],
+      "equipment_target_resolution": [
+        1280,
+        720
+      ],
+      "ui_frame_target_resolution": [
+        1920,
+        1080
+      ],
+      "world_target_resolution_histogram": {
+        "1280x720": 3600
+      },
+      "world_target_reallocations": 0,
+      "equipment_target_reallocations": 0,
+      "frame_pacing": "uncapped",
+      "vsync_count": 0,
+      "target_frame_rate": -1,
+      "uncapped_capacity_60fps_pass": true,
+      "foreground_60fps_certified": false,
+      "performance_renderer": "optimized",
+      "fast_performance_active": true,
+      "mac_activity": {
+        "requested": true,
+        "supported": true,
+        "acquired": true,
+        "held_during_measurement": true,
+        "released": true,
+        "error": null,
+        "options": 15728639,
+        "name": "NSActivityUserInitiatedAllowingIdleSystemSleep",
+        "reason": "Musimusihan RPG owned hidden frame benchmark",
+        "measurement_observations": 3600,
+        "scope": "Explicit QA-process activity token only. Allows idle system/display sleep; no LatencyCritical, preferences, focus or global power changes. Token ownership is recorded; actual App Nap state and foreground FPS are not certified."
+      },
+      "diagnostics": {
+        "profiles": [],
+        "measurement_only": true,
+        "eligible_for_60fps_goal": true,
+        "restoration_passed": true,
+        "restoration_failures": [],
+        "light_enabled_states_restored": 0,
+        "temporal_enabled_states_restored": 0,
+        "destroyed_lights_before_restore": 0,
+        "destroyed_temporals_before_restore": 0
+      },
+      "script_phase_timing": {
+        "enabled": false,
+        "stopwatch_completed_previous_engine_frames": 0,
+        "milliseconds": {},
+        "calls": {},
+        "native_profiler_marker_collection_deferred": true,
+        "scope": "Opt-in Stopwatch counters from the previous completed engine frame only. Times are inclusive and overlapping; parent, child, CPU and GPU times must not be summed. Conditional phase summaries include executed frames only. Native profiler marker collection is deferred; unmeasured phases are not zero cost. No hidden profiler/development flag was enabled. Probe overhead is included in observed wall timing."
+      },
+      "performance_scan_cache": {
+        "owned_texture_count_at_measurement_end": 0,
+        "gpu_copy_count_at_measurement_start": 0,
+        "gpu_copy_count_at_measurement_end": 0,
+        "gpu_copies_during_measurement": 0,
+        "ownership_cleanup_scans_during_measurement": 0,
+        "captured_before_trial_cleanup": true
+      },
+      "result": "Passed",
+      "receipt_sha256": "d9465b572c0ebc95afcd2065544c8127128352dc1e70ce81b4c6b67521b5fc9b",
+      "last_production_frame_png": "unity-game/Artifacts/clarity60-20261003/final-capacity-19/qa-084c7233f54f4d5caebb7177f736e6a4/benchmark-performance-cave/result.last-frame.png",
+      "errors": [],
+      "native_crash_markers": [],
+      "owned_pids_remaining": []
+    }
+  ],
+  "strict_60fps_criterion": {
+    "wall_p99_ms_max": 16.666666666666668,
+    "gpu_p99_ms_max": 16.666666666666668,
+    "wall_max_ms_max": 33.333333333333336,
+    "distinct_positive_gpu_coverage_min": 0.9,
+    "measured_intervals_per_route": 3600,
+    "diagnostic_profiles_allowed": false,
+    "every_frame_60fps_certified": false,
+    "foreground_60fps_certified": false
+  },
+  "preliminary_18_hideout_675p": {
+    "result": "Passed",
+    "world": [
+      1200,
+      675
+    ],
+    "equipment": [
+      1280,
+      720
+    ],
+    "mean_fps": 101.37895537958295,
+    "wall_ms": {
+      "count": 1800,
+      "mean": 9.863980115555561,
+      "min": 7.811207999999681,
+      "p50": 9.60104099999981,
+      "p95": 12.210458000000202,
+      "p99": 13.53908399999959,
+      "max": 15.939874999999049,
+      "over_16_67ms_percent": 0.0
+    },
+    "gpu_ms": {
+      "count": 1790,
+      "mean": 7.870837522985403,
+      "min": 4.74174995906651,
+      "p50": 7.716124993748963,
+      "p95": 9.676125016994774,
+      "p99": 10.718583362177014,
+      "max": 11.567624984309077,
+      "over_16_67ms_percent": 0.0
+    },
+    "scope": "Preliminary build18 pilot only; final19 is 720p and contains the detached-caller ownership repair."
+  },
+  "build": {
+    "result": "Succeeded",
+    "errors": 0,
+    "warnings": 176,
+    "bytes": 3055297609
+  },
+  "installation": {
+    "result": "Passed",
+    "default_root_inode_preserved": true,
+    "strict_signature_verified": true,
+    "applications_shortcut_resolves_to_default": true,
+    "user_processes_terminated": false,
+    "dock_preferences_modified": false
+  },
+  "app_relative_path": "unity-game/Builds/MusimusihanRPG.app",
+  "previous_app_backup": "unity-game/Artifacts/performance60-20261002/PreviousInstalledBuild-before-19.app",
+  "source_snapshot": {
+    "base_commit": "97dc2b3b4adf5c1f014dd4f3d9a010f04982a4e8",
+    "build_number": 19,
+    "files": [
+      "tools/unity_migration/generate_performance_shaders.py",
+      "tools/unity_migration/run_render_optimization_qa.py",
+      "unity-game/Assets/RPG/Editor/NativeGameBuild.cs",
+      "unity-game/Assets/RPG/Gameplay/HideoutStaticBatch.cs",
+      "unity-game/Assets/RPG/Gameplay/NativeDrawCullingAcceptance.cs",
+      "unity-game/Assets/RPG/Gameplay/NativeFastRenderAcceptance.cs",
+      "unity-game/Assets/RPG/Gameplay/NativeFastRenderAcceptance.cs.meta",
+      "unity-game/Assets/RPG/Gameplay/NativeFrameBenchmarkDiagnostics.cs",
+      "unity-game/Assets/RPG/Gameplay/NativeFrameBenchmarkDiagnostics.cs.meta",
+      "unity-game/Assets/RPG/Gameplay/NativeGameFlow.cs",
+      "unity-game/Assets/RPG/Gameplay/NativeLiveFrameBenchmark.cs",
+      "unity-game/Assets/RPG/Gameplay/NativeRenderQuality.cs",
+      "unity-game/Assets/RPG/Gameplay/NativeRenderQualityAcceptance.cs",
+      "unity-game/Assets/RPG/Gameplay/PlayerFrameInput.cs",
+      "unity-game/Assets/RPG/Gameplay/PlayerPresentation.cs",
+      "unity-game/Assets/RPG/Gameplay/SourceAlphaDepthPrepass.cs",
+      "unity-game/Assets/RPG/Gameplay/SourceDrawCulling.cs",
+      "unity-game/Assets/RPG/Gameplay/SourceGeometryRange.cs",
+      "unity-game/Assets/RPG/Gameplay/SourceLightDistance.cs",
+      "unity-game/Assets/RPG/Gameplay/SourceMeshLod.cs",
+      "unity-game/Assets/RPG/Gameplay/SourceMotionHistory.cs",
+      "unity-game/Assets/RPG/Gameplay/SourceOpaqueScreen.cs",
+      "unity-game/Assets/RPG/Gameplay/SourcePerformanceLighting.cs",
+      "unity-game/Assets/RPG/Gameplay/SourcePerformanceLighting.cs.meta",
+      "unity-game/Assets/RPG/Gameplay/SourcePerformanceMaterials.cs",
+      "unity-game/Assets/RPG/Gameplay/SourcePerformanceMaterials.cs.meta",
+      "unity-game/Assets/RPG/Gameplay/SourcePerformanceTextureCache.cs",
+      "unity-game/Assets/RPG/Gameplay/SourcePerformanceTextureCache.cs.meta",
+      "unity-game/Assets/RPG/Gameplay/SourceRoomReflections.cs",
+      "unity-game/Assets/RPG/Gameplay/SourceSceneRenderer.cs",
+      "unity-game/Assets/RPG/Gameplay/SourceTemporalCamera.cs",
+      "unity-game/Assets/RPG/Gameplay/SourceUi.cs",
+      "unity-game/Assets/RPG/Gameplay/SourceUiRenderer.cs",
+      "unity-game/Assets/RPG/Gameplay/SourceWorldGlow.cs",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance.meta",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/CaveGeologyPerformance.shader",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/CaveGeologyPerformance.shader.meta",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/CavePropSurfacePerformance.shader",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/CavePropSurfacePerformance.shader.meta",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/CaveWaterPerformance.shader",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/CaveWaterPerformance.shader.meta",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/HideoutWaterPerformance.shader",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/HideoutWaterPerformance.shader.meta",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/HideoutWeatherPerformance.shader",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/HideoutWeatherPerformance.shader.meta",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/ImportedPerformance.shader",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/ImportedPerformance.shader.meta",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/SourceCutoutPerformance.shader",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/SourceCutoutPerformance.shader.meta",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/SourcePerformanceLighting.cginc",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/SourcePerformanceLighting.cginc.meta",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/SourcePerformanceSurface.cginc",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/SourcePerformanceSurface.cginc.meta",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/SourceSkinnedSurfacePerformance.shader",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/SourceSkinnedSurfacePerformance.shader.meta",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/SourceSurfacePerformance.shader",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/SourceSurfacePerformance.shader.meta",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/TargetPaintPerformance.shader",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/TargetPaintPerformance.shader.meta",
+      "unity-game/Assets/RPG/Resources/SourceSpatialAa.shader",
+      "unity-game/Assets/RPG/Resources/SourceSpatialAa.shader.meta"
+    ],
+    "sha256": {
+      "tools/unity_migration/generate_performance_shaders.py": "ee4a45d6772bfc04d2f26544795b740835d2533082b1c5986115c88414054027",
+      "tools/unity_migration/run_render_optimization_qa.py": "8d71999bc5dcac2954fb4884271663d94b7d0e6dd6929fed9979b1f3b5a9657a",
+      "unity-game/Assets/RPG/Editor/NativeGameBuild.cs": "d567f77a9966f38d113adc57bd9de19312134496c2cd0069e083300e347c9567",
+      "unity-game/Assets/RPG/Gameplay/HideoutStaticBatch.cs": "a136c51e9b5ed63ad08e82fae04abb44f3338ff58849c7c1ecc04d746ace6deb",
+      "unity-game/Assets/RPG/Gameplay/NativeDrawCullingAcceptance.cs": "e50f00d5f6d885026c58d638e6e061c3a93c1c8ef1da1db6e9e99f7303cc3f12",
+      "unity-game/Assets/RPG/Gameplay/NativeFastRenderAcceptance.cs": "dbaa6403e20f435f33cc020c6f415bbd7a1a0bd2063d60f4c4d038f7f5c09667",
+      "unity-game/Assets/RPG/Gameplay/NativeFastRenderAcceptance.cs.meta": "e97485444a1336d2c4290cf780224513abf8379f33d6bb80745662ae4dcd89f6",
+      "unity-game/Assets/RPG/Gameplay/NativeFrameBenchmarkDiagnostics.cs": "475fd2fd8a1c1e0a90e823b01200957716cceb7ea4475192ea7f500d4b344516",
+      "unity-game/Assets/RPG/Gameplay/NativeFrameBenchmarkDiagnostics.cs.meta": "cafe4ef67318c9e4e10ba911f0327b1b98c8b9d7428881bc10c2bee389129147",
+      "unity-game/Assets/RPG/Gameplay/NativeGameFlow.cs": "be0efaa27ee74be47cc483b56c8be34c932ea8f98afd286d9919d7262f14fe45",
+      "unity-game/Assets/RPG/Gameplay/NativeLiveFrameBenchmark.cs": "e6636aa64f454320889c35f5088a3bfe22c7ece644d13cb07d99f20dda43e5bf",
+      "unity-game/Assets/RPG/Gameplay/NativeRenderQuality.cs": "4e52466c95f91a768482189ef446ce6d2fe9add2e8d1979f781353a740cb7238",
+      "unity-game/Assets/RPG/Gameplay/NativeRenderQualityAcceptance.cs": "fbad0d16f5b5c038018694d0c3bef74f848af01f89894a829ba632c344b36eae",
+      "unity-game/Assets/RPG/Gameplay/PlayerFrameInput.cs": "15328933e120e6f22b19780be22bf33174cf07d912c9fa7f7f9e3ce3cd30d0df",
+      "unity-game/Assets/RPG/Gameplay/PlayerPresentation.cs": "2008dea8bcf75f61a61abf44c2c895e82fac46788ec664bbc8de1430df2b365d",
+      "unity-game/Assets/RPG/Gameplay/SourceAlphaDepthPrepass.cs": "a9f3e1dc781de3a9f58892e4b47afc0313b7c096de8e78addcb157a3f91e1a38",
+      "unity-game/Assets/RPG/Gameplay/SourceDrawCulling.cs": "a2c296c4af0c044c7d91a7e801af3fcb31e88bf95b683e97a05f5bb21b4eede8",
+      "unity-game/Assets/RPG/Gameplay/SourceGeometryRange.cs": "b92f4e740fef09d798e4d932c6a14249fe002e437c238d4e6be8b0433fd2da8d",
+      "unity-game/Assets/RPG/Gameplay/SourceLightDistance.cs": "d4576f522cbcf1a07770098b4c0b3c56e01143a5a028bcc576623f04d3f05863",
+      "unity-game/Assets/RPG/Gameplay/SourceMeshLod.cs": "7e643cf1bb8d5cdd94b761e93a27e113a193fc16c34a9b24ffbbb7dd8f9d90e5",
+      "unity-game/Assets/RPG/Gameplay/SourceMotionHistory.cs": "d53d09fff88b198321e0702010f994383d625f19ce60c2de4e3b162dbfdf557f",
+      "unity-game/Assets/RPG/Gameplay/SourceOpaqueScreen.cs": "f69f34b357716fc984577d13b355919a4fc8a17c41d7327f319562c0c564d29b",
+      "unity-game/Assets/RPG/Gameplay/SourcePerformanceLighting.cs": "7926373ec0198e21eb0deefe796c93ef337da19bd0280ea6b092e860ebc42f8e",
+      "unity-game/Assets/RPG/Gameplay/SourcePerformanceLighting.cs.meta": "42b6471e33eefb44975ec278e844c71a0e44cfee436938d3084ddcce997c63f3",
+      "unity-game/Assets/RPG/Gameplay/SourcePerformanceMaterials.cs": "1d7671ae95e060a8dda5e59c7785604f6aa2209735c568d6351dd2e492eca3e5",
+      "unity-game/Assets/RPG/Gameplay/SourcePerformanceMaterials.cs.meta": "df7fd35ec1ea6f074c0bc1cbc7b6c8fe9a7835383bb52c9eb6467fb55bdfcc4c",
+      "unity-game/Assets/RPG/Gameplay/SourcePerformanceTextureCache.cs": "75079d355c36f7bd7c04f53c5227cf98db0e846f258bc15c709aeb508538b6b1",
+      "unity-game/Assets/RPG/Gameplay/SourcePerformanceTextureCache.cs.meta": "05aa7623630a324549a267fad377c9378961a84b9c83bb8de61e864fef3a191d",
+      "unity-game/Assets/RPG/Gameplay/SourceRoomReflections.cs": "453561643e0b3aa8eda8e2fee863f6880966840811ce73a4d1b9fcde86bc6b02",
+      "unity-game/Assets/RPG/Gameplay/SourceSceneRenderer.cs": "d17670ff9ef9a03572a55f54a7b9f909b584c24c972b7cd9e8836433e8027cef",
+      "unity-game/Assets/RPG/Gameplay/SourceTemporalCamera.cs": "ec7dca40a6c85c74a2723c5e8700fe6cd62cd96dc5bef89ea17d072de3939e31",
+      "unity-game/Assets/RPG/Gameplay/SourceUi.cs": "52b26c326d6108cee81a17bf8a60834c601fac50587f42751b9af3492248aca9",
+      "unity-game/Assets/RPG/Gameplay/SourceUiRenderer.cs": "1ff6303b8e056bd18b2c9bede876ee2c94e1c3c5121ff32dfe05cc5b7dbedb64",
+      "unity-game/Assets/RPG/Gameplay/SourceWorldGlow.cs": "1d9077bdb33f2ceb207f472d3854fb0b9867a4e0d2f62108bf10c79fd0005f8b",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance.meta": "c72b464586db6c160a1e2e8092d094dc82c6a907693c1f1b858c9482196e208a",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/CaveGeologyPerformance.shader": "8a23b5fa9954202a216e476205d33a5e04bab69c10e41f865c4653f3b8e896fd",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/CaveGeologyPerformance.shader.meta": "a5c69110830831621a3f724808cc1c9a3f9d617200aad46dbad8bdcbf9884796",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/CavePropSurfacePerformance.shader": "a4d9d3d02e7f06285b320cd087ac6dd0e3c6b6a055f280dfb7a32f22824bd566",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/CavePropSurfacePerformance.shader.meta": "1661f1e45a24767fbdc2934f6da8e2ee06e0bfab705aa92153554874a4f9fc3d",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/CaveWaterPerformance.shader": "ee807aaf18a82214a4ae0cfa7555089ac48ef1c6b001ceaa8271650ed92fa813",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/CaveWaterPerformance.shader.meta": "ac0aedcf818be17a391ffe854d48500c2ea4620bf7c14b8757b1dc3776ef3bd8",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/HideoutWaterPerformance.shader": "2c83480d6d41dc1d2e6cbaefdcd9029fc3a2e8aaae6fc44d953c6328a4399d07",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/HideoutWaterPerformance.shader.meta": "8154edd30a993dead91a3296ae0f5a83432938e41eccb273da0d318025c073b9",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/HideoutWeatherPerformance.shader": "0ef2b190b612e807dc72ad787b013ebd44ded81ee71529ee1e8877aaa73730c9",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/HideoutWeatherPerformance.shader.meta": "3dbdc83a897e7f578c01ab3118c8b8053ef54723db9661f8cf8343b6fe01e0e0",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/ImportedPerformance.shader": "f9be0e55c62ef9535ec31c0cb2c78cca0010c726a557eeb6230e735a1d8d758f",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/ImportedPerformance.shader.meta": "68d987fa4d4c3dcfe7faf4bd60417c6e44e3b05e7a86ddffc83536a3a6e79654",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/SourceCutoutPerformance.shader": "23be4040ecb5a05e5055c793231760207b2b681017b5bdb63c8e173fce72cd0c",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/SourceCutoutPerformance.shader.meta": "899405ae4a6d865edaead177d6092bd816a1cb5096c26e5e57dbd9901e869e1c",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/SourcePerformanceLighting.cginc": "425938e680f402ac9eb96083f69c1764e89aaa9b758d37f58482964ddf9dcee9",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/SourcePerformanceLighting.cginc.meta": "266285a8e4f279800a073c0d09b480d6eb32f2ada2cc0e54a8ca4ac20edb5eb7",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/SourcePerformanceSurface.cginc": "a7939861f2f420a70f5b205ae94aad901101d5412e230860283092b08568ca12",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/SourcePerformanceSurface.cginc.meta": "72484b0fb22a9e2b9a2f015bc7af554e6a26b562c4874ad7020f9430d31d4e50",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/SourceSkinnedSurfacePerformance.shader": "4f66794a835c965fbfb645f1c25675d13c74ac3f6d3c969d1e2cb3250c0495ff",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/SourceSkinnedSurfacePerformance.shader.meta": "68b1849182a8f1af251d3323a88ad0527cbbd45f4278a753f3ee0c5b9603e801",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/SourceSurfacePerformance.shader": "c4986e9c68d4275fd342fb3034be33c0b7d3487a6c5fdee4d76b9136e8b28e69",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/SourceSurfacePerformance.shader.meta": "3e4ac9a34e9633f177f32ea164a32cf43198728df509d2b8ab331ad404cba348",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/TargetPaintPerformance.shader": "a3963830f5da01129f41601696fb3346399446c6081fd0407aef092e65f3d583",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/TargetPaintPerformance.shader.meta": "e25542bd7ded0fa40a6fd5163ff17876f8d45f00cd35bcf3055f28af0a21e468",
+      "unity-game/Assets/RPG/Resources/SourceSpatialAa.shader": "5c51056bcdfaf694e1b648d8536929611f2ffca2adcb910112a70d59800c577b",
+      "unity-game/Assets/RPG/Resources/SourceSpatialAa.shader.meta": "7b57dfd1df8d6a09c892ef66234575331de7d603917d64dfef1649d44acd6be9"
+    },
+    "task_source_files": [
+      "tools/unity_migration/generate_performance_shaders.py",
+      "tools/unity_migration/run_render_optimization_qa.py",
+      "unity-game/Assets/RPG/Gameplay/NativeFastRenderAcceptance.cs",
+      "unity-game/Assets/RPG/Gameplay/NativeLiveFrameBenchmark.cs",
+      "unity-game/Assets/RPG/Gameplay/NativeRenderQuality.cs",
+      "unity-game/Assets/RPG/Gameplay/NativeRenderQualityAcceptance.cs",
+      "unity-game/Assets/RPG/Gameplay/SourcePerformanceMaterials.cs",
+      "unity-game/Assets/RPG/Gameplay/SourcePerformanceTextureCache.cs",
+      "unity-game/Assets/RPG/Gameplay/SourcePerformanceTextureCache.cs.meta",
+      "unity-game/Assets/RPG/Gameplay/SourceTemporalCamera.cs",
+      "unity-game/Assets/RPG/Resources/Shaders/Performance/SourcePerformanceLighting.cginc",
+      "unity-game/Assets/RPG/Resources/SourceSpatialAa.shader"
+    ]
+  },
+  "generator_output_count_verified": 12,
+  "benchmark_command": "python3 tools/unity_migration/run_render_optimization_qa.py --app unity-game/Builds/MusimusihanRPG.app --output-dir unity-game/Artifacts/clarity60-rerun --label clarity-rerun --benchmark-modes performance --benchmark-route hideout dungeon cave --benchmark-view moving --benchmark-frames 3600 --frame-pacing uncapped --mac-activity prevent-nap --require-60fps --max-seconds 240",
+  "scope_ko": "RPG 단독 실행의 조용한 백그라운드 실제 프레임 측정. 지정 카메라 스윕이며 물리적 이동·전투 재생 또는 전경 전체 플레이 인증은 아니다. 일부 프레임의 16.667ms 초과를 보존하며 모든 프레임 고정60을 주장하지 않는다. 합성 체크무늬의 90% 에너지 감소는 게임 전체의 정량 개선률이 아니다. Godot 원본·제작 에셋·다른 진행 작업을 보존했다.",
+  "scope_en": "Quiet background production-frame capacity with the RPG alone. Deterministic camera sweeps are not physical movement/combat replay or full foreground certification. Recorded intervals exceeding16.667ms remain visible; a constant60 on every frame is not claimed. The synthetic checker energy decrease is not a whole-game improvement percentage. Godot originals, production assets and unrelated work remain preserved.",
+  "raw_evidence_relative_directory": "unity-game/Artifacts/clarity60-20261003",
+  "build_helpers_relative_directory": "unity-game/Artifacts/performance60-20261002"
+}
