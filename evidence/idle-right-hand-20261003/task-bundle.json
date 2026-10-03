@@ -1,0 +1,148 @@
+{
+  "schema_version": 1,
+  "required_local_baseline": "d54c8c3fa683d54c9ad1fff9f6e7fe06c1bce545",
+  "local_task_commits": [
+    "46aabf797514adc0e54015306b7e5fd8294cd8d4",
+    "7f2ebc4d043d62d1eee1370ac539bf6bb0547df8"
+  ],
+  "scope": "Seven-file idle-right-hand task delta; existing Unity project and production assets required.",
+  "whole_migration_branch_synced": false,
+  "patch": "diff --git a/unity-game/Assets/RPG/Gameplay/NativeFirstPersonRendererAcceptance.cs b/unity-game/Assets/RPG/Gameplay/NativeFirstPersonRendererAcceptance.cs\nindex e890847e..7634aaae 100644\n--- a/unity-game/Assets/RPG/Gameplay/NativeFirstPersonRendererAcceptance.cs\n+++ b/unity-game/Assets/RPG/Gameplay/NativeFirstPersonRendererAcceptance.cs\n@@ -83,7 +83,7 @@ namespace MusimusihanRpg.Gameplay\n             var position=p.transform.position;var rotation=p.Motor.Eyes.transform.localRotation;float fov=p.Motor.Eyes.fieldOfView;var originalBlade=p.Weapons.SwordModel.transform.localToWorldMatrix;\n             try{p.Motor.Eyes.fieldOfView=88;p.Motor.Eyes.transform.localRotation=Quaternion.Euler(-14,13,0);p.transform.position+=new Vector3(3,.4f,2);p.UpdatePose();var blade=p.Weapons.SwordModel.transform.localToWorldMatrix;p.SyncGearCamera();Check(p.GearCamera.transform.position==p.Motor.Eyes.transform.position&&Quaternion.Angle(p.GearCamera.transform.rotation,p.Motor.Eyes.transform.rotation)<.0001f&&p.GearCamera.fieldOfView==88,\"Equipment exactly follows camera translation pitch yaw and FOV\");Check(blade!=originalBlade&&p.Weapons.SwordModel.transform.localToWorldMatrix==blade&&p.Weapons.BladeGeometry().length>.5f,\"Synchronization never changes actual blade contact geometry\");}finally{p.transform.position=position;p.Motor.Eyes.transform.localRotation=rotation;p.Motor.Eyes.fieldOfView=fov;p.UpdatePose();}\n             FpWall(p,output);FpLights(p,output);\n-            var state=HearthSessionState();game.Combat.SafeZone=true;p.UpdatePose();Check(!p.Weapons.SwordModel.activeSelf&&!p.Weapons.ShieldPivot.gameObject.activeSelf&&p.Torch.Model.gameObject.activeSelf&&p.GearCamera.enabled,\"Safe zone keeps original torch and lowered hand visibility\");game.Combat.SafeZone=false;p.UpdatePose();p.Motor.SetCamping(true);p.SyncGearCamera();Check(!p.HasVisibleEquipment&&!p.GearCamera.enabled,\"Camping stops the empty equipment render pass\");p.Motor.SetCamping(false);p.UpdatePose();Check(p.GearCamera.enabled,\"Leaving camp restores actual carried models and pass\");p.BeginChest();p.SetChestProgress(.08);Check(p.GearCamera.enabled&&!p.Left.gameObject.activeSelf&&!p.Right.gameObject.activeSelf,\"Chest preparation stows equipment without invented reaching hands\");p.SetChestProgress(1);Check(!p.HasVisibleEquipment&&!p.GearCamera.enabled,\"Fully open chest stops empty equipment pass\");p.EndChest();p.UpdatePose();Check(p.GearCamera.enabled&&JToken.DeepEquals(state,HearthSessionState()),\"Closing chest restores equipment without inventory or survival edits\");\n+            var state=HearthSessionState();game.Combat.SafeZone=true;p.UpdatePose();Check(!p.Weapons.SwordModel.activeSelf&&!p.Weapons.ShieldPivot.gameObject.activeSelf&&p.Torch.Model.gameObject.activeSelf&&p.GearCamera.enabled,\"Safe zone keeps original torch visibility\");game.Combat.SafeZone=false;p.UpdatePose();p.Motor.SetCamping(true);p.SyncGearCamera();Check(!p.HasVisibleEquipment&&!p.GearCamera.enabled,\"Camping stops the empty equipment render pass\");p.Motor.SetCamping(false);p.UpdatePose();Check(p.GearCamera.enabled,\"Leaving camp restores actual carried models and pass\");p.BeginChest();p.SetChestProgress(.08);Check(p.GearCamera.enabled&&!p.Left.gameObject.activeSelf&&!p.Right.gameObject.activeSelf,\"Chest preparation stows equipment without invented reaching hands\");p.SetChestProgress(1);Check(!p.HasVisibleEquipment&&!p.GearCamera.enabled,\"Fully open chest stops empty equipment pass\");p.EndChest();p.UpdatePose();Check(p.GearCamera.enabled&&JToken.DeepEquals(state,HearthSessionState()),\"Closing chest restores equipment without inventory or survival edits\");\n             var bladeAt=p.Weapons.SwordModel.transform.localToWorldMatrix;p.SetPresentationEnabled(false);Check(!p.GearCamera.enabled,\"Switching from player camera stops equipment pass\");p.SetPresentationEnabled(true);Check(p.GearCamera.enabled,\"Returning player camera restores equipment pass\");p.SetWorldContact(true);Check(!p.GearCamera.enabled&&(p.Motor.Eyes.cullingMask&(1<<PlayerPresentation.EquipmentLayer))!=0,\"Actual world contact transfers gear to world depth\");p.SyncGearCamera();Check(!p.GearCamera.enabled,\"Repeated camera sync retains actual contact ownership\");p.SetWorldContact(false);Check(p.GearCamera.enabled&&p.Weapons.SwordModel.transform.localToWorldMatrix==bladeAt,\"Ending world contact restores independent depth without moving blade\");\n             foreach(bool paused in new[]{false,true}){FpSurface(p,output,960,540,false,paused);FpSurface(p,output,2560,1664,false,paused);FpSurface(p,output,2560,1664,true,paused);FpSurface(p,output,640,640,false,paused);FpSurface(p,output,800,450,false,paused);}\n             foreach(string item in new[]{\"hunting_bow\",\"chain_flail\",\"weathered_staff\",\"rusted_sword\"})\ndiff --git a/unity-game/Assets/RPG/Gameplay/NativeHearthCookingAcceptance.cs b/unity-game/Assets/RPG/Gameplay/NativeHearthCookingAcceptance.cs\nindex a3cc6141..178a0134 100644\n--- a/unity-game/Assets/RPG/Gameplay/NativeHearthCookingAcceptance.cs\n+++ b/unity-game/Assets/RPG/Gameplay/NativeHearthCookingAcceptance.cs\n@@ -15,7 +15,7 @@ namespace MusimusihanRpg.Gameplay\n         {\n             game.OpenTrials();Check(game.RunTrial(\"hideout_cooking\"),\"Actual original hearth trial dispatch\");LootFreeze();yield return null;game.NativeGame.Tick(0);\n             Check(game.NativeGame.State==\"cooking\"&&game.NativeGame.InHideout&&game.Combat.SafeZone&&game.SimulationPaused&&game.Cooking.State==\"planning\",\"Hearth opens actual safe paused kitchen\");\n-            var hands=game.DungeonPlayer.GetComponent<PlayerPresentation>();Check(!hands.Weapons.SwordModel.activeInHierarchy&&!hands.Weapons.ShieldPivot.gameObject.activeInHierarchy&&hands.Right.gameObject.activeInHierarchy&&game.DungeonPlayer.Eyes.transform.InverseTransformPoint(hands.Right.transform.position).y<-.55f,\"Paused hearth entry immediately shows original lowered safe-zone hand instead of combat equipment\");\n+            var hands=game.DungeonPlayer.GetComponent<PlayerPresentation>();Check(!hands.Weapons.SwordModel.activeInHierarchy&&!hands.Weapons.ShieldPivot.gameObject.activeInHierarchy&&!hands.Right.gameObject.activeInHierarchy,\"Paused hearth entry keeps combat equipment and the idle right hand hidden\");\n             Check(HearthSupplies().Properties().All(p=>game.Session.Inventory.CountItem(p.Name)==(int)p.Value),\"Hearth trial supplies each original recipe plus one spare\");\n             Check(game.Session.Body.TotalHealth==35&&game.DungeonPlayer.Stamina==20&&game.Session.Hunger==15&&game.Session.Thirst==20&&game.Session.Stress==55&&!game.Session.Conditions.HasValues,\"Original actual hearth trial starts wounded hungry thirsty and stressed\");\n         }\ndiff --git a/unity-game/Assets/RPG/Gameplay/NativePlayerSmoke.cs b/unity-game/Assets/RPG/Gameplay/NativePlayerSmoke.cs\nindex 50234931..3258c98e 100644\n--- a/unity-game/Assets/RPG/Gameplay/NativePlayerSmoke.cs\n+++ b/unity-game/Assets/RPG/Gameplay/NativePlayerSmoke.cs\n@@ -386,7 +386,7 @@ namespace MusimusihanRpg.Gameplay\n                     case 130:\n                     {\n                         var p=game.DungeonPlayer.GetComponent<PlayerPresentation>();p.Advance(1,false);\n-                        Require(p.HandsProfile==\"greybox\"&&p.Right.GreyboxActive&&p.Right.Greybox!=null&&!p.Left.gameObject.activeSelf&&p.Right.gameObject.activeSelf&&game.Session.Inventory.Equipment[\"weapon\"]==\"\"&&game.Session.Inventory.Equipment[\"offhand\"]==\"\",\"Source greybox or empty-hand state differs\");\n+                        Require(p.HandsProfile==\"greybox\"&&p.Right.GreyboxActive&&p.Right.Greybox!=null&&!p.Left.gameObject.activeSelf&&!p.Right.gameObject.activeSelf&&game.Session.Inventory.Equipment[\"weapon\"]==\"\"&&game.Session.Inventory.Equipment[\"offhand\"]==\"\",\"Greybox profile or hidden idle-hand state differs\");\n                         game.Session.Inventory.Equipment[\"weapon\"]=\"hunting_bow\";game.Session.Inventory.NotifyChanged();p.UpdatePose();break;\n                     }\n                     case 131:\n@@ -398,7 +398,7 @@ namespace MusimusihanRpg.Gameplay\n                     case 132:\n                     {\n                         var p=game.DungeonPlayer.GetComponent<PlayerPresentation>();p.Advance(1,false);\n-                        Require(p.HandsProfile==\"detailed\"&&!p.Left.GreyboxActive&&!p.Right.GreyboxActive&&!p.Left.gameObject.activeSelf&&p.Right.gameObject.activeSelf,\"Detailed route did not reuse production arms\");\n+                        Require(p.HandsProfile==\"detailed\"&&!p.Left.GreyboxActive&&!p.Right.GreyboxActive&&!p.Left.gameObject.activeSelf&&!p.Right.gameObject.activeSelf,\"Detailed route did not reuse production arms with idle hands hidden\");\n                         game.OpenTrials();game.Session.Hunger=37;game.DungeonPlayer.ConsumeStamina(24);Require(game.RunTrial(\"player_cloth_motion\"),\"Cloth observation route missing\");break;\n                     }\n                     case 133:\ndiff --git a/unity-game/Assets/RPG/Gameplay/NativeTorchHandOwnershipAcceptance.cs b/unity-game/Assets/RPG/Gameplay/NativeTorchHandOwnershipAcceptance.cs\nindex 98be7daf..a861d33e 100644\n--- a/unity-game/Assets/RPG/Gameplay/NativeTorchHandOwnershipAcceptance.cs\n+++ b/unity-game/Assets/RPG/Gameplay/NativeTorchHandOwnershipAcceptance.cs\n@@ -29,7 +29,8 @@ namespace MusimusihanRpg.Gameplay\n                 }\n                 else{game.Combat.Advance(.3,true);p.Advance(.3,false);}\n                 bool expectedOwner=owner==\"bow\"?p.Archery.OwnsHands:owner==\"staff_shield\"?p.Magic.ShieldHeld:owner==\"empty_shield\"?p.Weapons.OwnsEmptyShield:p.Weapons.OwnsLeft;\n-                Check(torch.Lit&&!torch.OwnsLeft&&expectedOwner&&p.Left.gameObject.activeInHierarchy&&p.Right.gameObject.activeInHierarchy,\"Another real equipment owner already retains its visible hands / \"+owner);\n+                bool expectedRightVisible=owner!=\"empty_shield\";\n+                Check(torch.Lit&&!torch.OwnsLeft&&expectedOwner&&p.Left.gameObject.activeInHierarchy&&p.Right.gameObject.activeInHierarchy==expectedRightVisible,\"Another real equipment owner retains its hands and the unused right hand stays hidden / \"+owner);\n                 // A loaded legacy item may lack its optional instance payload.\n                 // Extinguishing alone must not create that unrelated payload.\n                 bag.EquipmentData.Remove(\"weapon\");var items=ItemState(bag);var survival=game.Session.SurvivalSnapshot();\n@@ -42,10 +43,10 @@ namespace MusimusihanRpg.Gameplay\n                 {\n                     Check(game.NativeGame.HandleTorchShortcut(KeyCode.F),\"Actual F extinguishes without displacing another hand owner / \"+owner);\n                     Check(!torch.Lit&&!torch.Igniting&&torch.DrawElapsed==0&&!torch.Model.gameObject.activeInHierarchy&&!torch.OwnsLeft&&!torch.Forward.enabled&&!torch.Fill.enabled&&torch.Flames.All(f=>!f.enabled),\"Same-frame torch release has no remaining model, light or pocket animation / \"+owner);\n-                    Check(p.Left.gameObject.activeInHierarchy&&p.Right.gameObject.activeInHierarchy&&poses.All(s=>s.Node.localPosition==s.Position&&s.Node.localRotation==s.Rotation&&s.Node.localScale==s.Scale&&s.Node.gameObject.activeSelf==s.Active),\"Extinguishing preserves the other owner's complete hand and equipment pose / \"+owner);\n+                    Check(p.Left.gameObject.activeInHierarchy&&p.Right.gameObject.activeInHierarchy==expectedRightVisible&&poses.All(s=>s.Node.localPosition==s.Position&&s.Node.localRotation==s.Rotation&&s.Node.localScale==s.Scale&&s.Node.gameObject.activeSelf==s.Active),\"Extinguishing preserves the other owner's complete hand and equipment pose / \"+owner);\n                     Check(ReferenceEquals(bag,game.Session.Inventory)&&JToken.DeepEquals(items,ItemState(bag))&&!bag.EquipmentData.ContainsKey(\"weapon\")&&JToken.DeepEquals(survival,game.Session.SurvivalSnapshot())&&signals==0,\"Torch switch neither changes items nor hydrates missing instance metadata or emits inventory changes / \"+owner);\n                     Check(p.MotionClock==motion&&p.SpellVisualTime==spell&&p.MotionEquipElapsed==equip&&p.Weapons.Raise==raise&&p.Motor.Stamina==stamina&&game.Combat.StateTime==phase&&game.Bow.Draw==draw&&game.Bow.Drawing==drawing&&game.Magic.RecoilRemaining==recoil&&p.Motor.Blocking==blocking,\"Torch visibility release preserves another action's progress and player clocks / \"+owner);\n-                    rows.Add(new JObject{[\"case\"]=\"torch_other_hand_owner\",[\"owner\"]=owner,[\"trial\"]=id,[\"same_frame_hidden\"]=!torch.Model.gameObject.activeInHierarchy,[\"other_hands_visible\"]=p.Left.gameObject.activeInHierarchy&&p.Right.gameObject.activeInHierarchy,[\"missing_weapon_metadata_preserved\"]=!bag.EquipmentData.ContainsKey(\"weapon\"),[\"pose_nodes_compared\"]=poses.Length});\n+                    rows.Add(new JObject{[\"case\"]=\"torch_other_hand_owner\",[\"owner\"]=owner,[\"trial\"]=id,[\"same_frame_hidden\"]=!torch.Model.gameObject.activeInHierarchy,[\"other_hands_visible\"]=p.Left.gameObject.activeInHierarchy&&p.Right.gameObject.activeInHierarchy,[\"right_hand_visible\"]=p.Right.gameObject.activeInHierarchy,[\"right_hand_expected_visible\"]=expectedRightVisible,[\"missing_weapon_metadata_preserved\"]=!bag.EquipmentData.ContainsKey(\"weapon\"),[\"pose_nodes_compared\"]=poses.Length});\n                 }\n                 finally{bag.Changed-=changed;game.OpenTrials();game.ResetTrialLoadout();LootFreeze();}\n                 Check(game.Trials.MenuOpen&&game.SimulationPaused&&!ReferenceEquals(bag,game.Session.Inventory),\"Ownership fixture resets only its isolated trial bag and returns to paused F2 / \"+owner);\ndiff --git a/unity-game/Assets/RPG/Gameplay/PlayerPresentation.cs b/unity-game/Assets/RPG/Gameplay/PlayerPresentation.cs\nindex 7416e77c..acc528ef 100644\n--- a/unity-game/Assets/RPG/Gameplay/PlayerPresentation.cs\n+++ b/unity-game/Assets/RPG/Gameplay/PlayerPresentation.cs\n@@ -115,7 +115,8 @@ namespace MusimusihanRpg.Gameplay\n             if(ChestStowed){ApplyChestEquipment();return;}\n             // Authored sword/shield rigs stay production skins in the source greybox review.\n             Right.UseProductionGeometry(Weapons?.OwnsRight==true);Left.UseProductionGeometry(Weapons?.OwnsLeft==true||Magic?.ShieldHeld==true);\n-            Right.gameObject.SetActive(!Motor.Camping);\n+            // An unused idle hand must not leave fingertips at the screen edge.\n+            Right.gameObject.SetActive(!Motor.Camping&&(Review||Weapons?.OwnsRight==true||Archery?.OwnsHands==true||Flail?.OwnsRight==true||Magic?.OwnsRight==true));\n             // Unity's camera faces +Z. The source frame faces -Z after glTF reflection.\n             var frame = Motor.Eyes.transform.rotation * Quaternion.Euler(0, 180, 0);\n             Vector3 Point(Vector3 source) => Motor.Eyes.transform.position + frame * SourcePose.Position(source);\ndiff --git a/unity-game/Migration/IDLE_RIGHT_HAND_20261003.md b/unity-game/Migration/IDLE_RIGHT_HAND_20261003.md\nnew file mode 100644\nindex 00000000..480d9f28\n--- /dev/null\n+++ b/unity-game/Migration/IDLE_RIGHT_HAND_20261003.md\n@@ -0,0 +1,15 @@\n+# 평상시 오른손 제거 / Hide the idle right hand — 2026-10-03\n+\n+화면 아래에 보이던 평상시 오른손을 숨깁니다. `PlayerPresentation.RefreshPose()`의 항상 표시 조건을 바꿔, 오른손은 손 검토 또는 검·단검·활·철퇴·지팡이 소유권이 있을 때만 표시합니다. 치료·먹기용 별도 손과 상자 수납 경로는 유지합니다. 기존 검증의 빈손·빈손 방패·일시정지 주방 기대값을 새 규칙에 맞췄으며 자세·장비·시계·가방 보존 검사는 유지했습니다.\n+\n+실제 Mac Metal 실행본의 주방 299개·육포 580개 검사가 통과했습니다. 횃불 시험의 네 장비 소유권 사례에서도 빈손 방패의 오른손 숨김과 검·활·지팡이 손 표시, 모든 자세·상태 보존을 확인했습니다. 소등 직후 Metal PNG에서 오른손이 없는 화면을 직접 확인했습니다. [검증 기록](idle-right-hand-20261003.json).\n+\n+횃불 시험 전체 209개에는 동시 오디오 작업의 짧은 부싯돌 PCM 기대값 불일치 두 개가 남아 있으며 전체 통과로 세지 않습니다. 처음 전체 빌드는 공간 부족으로 실패했고 scripts-only 뒤 누락된 Unity 내장 파일을 복구해 별도 실행 검증을 완료했습니다. 실패 로그와 원래 실행본은 ignored `Artifacts/idle-right-hand-20261003/`에 보존합니다. 검증한 코드·에셋의 해시와 서명을 확인해 기존 Dock 실행본에 적용했습니다. 기존 Dock·Applications 연결과 에셋을 보존했습니다. 로컬 전체 Unity 브랜치 push는 인증 만료로 차단됐으며, 이번 변경의 복원 자료를 연결된 GitHub의 별도 evidence 브랜치로 게시·확인합니다. 전체 브랜치 동기화 완료를 뜻하지 않습니다.\n+\n+---\n+\n+The idle right hand at the bottom of the screen is hidden. `PlayerPresentation.RefreshPose()` now displays it only for hand review or actual sword/dagger/bow/flail/staff ownership. Separate treatment/eating hands and chest stowing keep their existing paths. Empty-hand, shield-only and paused-kitchen assertions follow the new rule while all pose, equipment, clock and inventory checks remain.\n+\n+The real Mac Metal player passed 299 kitchen checks and 580 jerky checks. Four torch ownership cases confirm a hidden right hand with only a shield, visible sword/bow/staff hands, and preserved poses/state. The immediate extinguish PNG was directly inspected and has no idle right hand; see the linked receipt.\n+\n+The 209-check torch suite retains two brief-flint PCM expectation mismatches from concurrent audio work and is not declared fully passing. An initial full build ran out of space; a missing built-in file after scripts-only packaging was recovered before successful isolated execution. Failed logs and the original app remain in the ignored task directory. The verified code was installed at the existing Dock target, with matching hashes and strict signing. Existing shortcuts and assets were preserved. Expired local authentication blocks the full Unity branch push; a restorable task delta is published and read back through the connected GitHub evidence branch. This does not certify full migration-branch synchronization.\ndiff --git a/unity-game/Migration/idle-right-hand-20261003.json b/unity-game/Migration/idle-right-hand-20261003.json\nnew file mode 100644\nindex 00000000..90a26e65\n--- /dev/null\n+++ b/unity-game/Migration/idle-right-hand-20261003.json\n@@ -0,0 +1,97 @@\n+{\n+  \"recorded_utc\": \"2026-10-03T07:06:50.464479+00:00\",\n+  \"status\": \"scoped_hand_visibility_and_eating_verified\",\n+  \"user_contract\": \"Hide unused idle right hand; preserve owned weapon, review, treatment and eating hands.\",\n+  \"native_suite_passes\": {\n+    \"acceptance-hearth\": 299,\n+    \"acceptance-jerky\": 580\n+  },\n+  \"hand_ownership_cases\": [\n+    {\n+      \"case\": \"torch_other_hand_owner\",\n+      \"owner\": \"sword_shield\",\n+      \"trial\": \"motion_shield_raise\",\n+      \"same_frame_hidden\": true,\n+      \"other_hands_visible\": true,\n+      \"right_hand_visible\": true,\n+      \"right_hand_expected_visible\": true,\n+      \"missing_weapon_metadata_preserved\": true,\n+      \"pose_nodes_compared\": 148\n+    },\n+    {\n+      \"case\": \"torch_other_hand_owner\",\n+      \"owner\": \"empty_shield\",\n+      \"trial\": \"motion_shield_raise\",\n+      \"same_frame_hidden\": true,\n+      \"other_hands_visible\": false,\n+      \"right_hand_visible\": false,\n+      \"right_hand_expected_visible\": false,\n+      \"missing_weapon_metadata_preserved\": true,\n+      \"pose_nodes_compared\": 148\n+    },\n+    {\n+      \"case\": \"torch_other_hand_owner\",\n+      \"owner\": \"bow\",\n+      \"trial\": \"motion_bow\",\n+      \"same_frame_hidden\": true,\n+      \"other_hands_visible\": true,\n+      \"right_hand_visible\": true,\n+      \"right_hand_expected_visible\": true,\n+      \"missing_weapon_metadata_preserved\": true,\n+      \"pose_nodes_compared\": 148\n+    },\n+    {\n+      \"case\": \"torch_other_hand_owner\",\n+      \"owner\": \"staff_shield\",\n+      \"trial\": \"motion_staff\",\n+      \"same_frame_hidden\": true,\n+      \"other_hands_visible\": true,\n+      \"right_hand_visible\": true,\n+      \"right_hand_expected_visible\": true,\n+      \"missing_weapon_metadata_preserved\": true,\n+      \"pose_nodes_compared\": 148\n+    }\n+  ],\n+  \"torch_receipt\": {\n+    \"completed_checks\": 209,\n+    \"result\": \"Failed\",\n+    \"errors\": [\n+      \"Brief flint tick is mono PCM played at its authored pitch / new ignition\",\n+      \"Tick concentrates its energy in the initial contact with no long scratching/ringing tail / new ignition\"\n+    ],\n+    \"whole_suite_pass_claimed\": false\n+  },\n+  \"tested_gameplay_assembly_sha256\": \"a164f08fdc5597fd532a31b837e2c7f90504aaed48f324da8f7e70c3bcfbef71\",\n+  \"source_sha256\": {\n+    \"unity-game/Assets/RPG/Gameplay/PlayerPresentation.cs\": \"bfea895b97857880737a798c99c27e9bb722640b8f173ec30cf8e8e38e759967\",\n+    \"unity-game/Assets/RPG/Gameplay/NativeTorchHandOwnershipAcceptance.cs\": \"b902b565905837f792dce31b5a617d1ae39ccefd22b047ff1c10a96e2b40ced2\",\n+    \"unity-game/Assets/RPG/Gameplay/NativeHearthCookingAcceptance.cs\": \"1e4941b43dcad95052eb7b2e0c8146291d0d7321633c664e276be76ca27079cb\",\n+    \"unity-game/Assets/RPG/Gameplay/NativePlayerSmoke.cs\": \"55a7be5bf117480849ba66404a853d40ab6689a4de23462fcdcc2a5d640db753\",\n+    \"unity-game/Assets/RPG/Gameplay/NativeFirstPersonRendererAcceptance.cs\": \"a970030a5b67ea606ba6c4579e714cdf5729c1e42a6f5ba24ba63b92bba2a02f\"\n+  },\n+  \"metal_visual_qa\": true,\n+  \"default_installation\": {\n+    \"result\": \"Passed\",\n+    \"target\": \"unity-game/Builds/MusimusihanRPG.app\",\n+    \"gameplay_assembly_sha256\": \"a164f08fdc5597fd532a31b837e2c7f90504aaed48f324da8f7e70c3bcfbef71\",\n+    \"verified_against_tested_candidate\": true,\n+    \"asset_packages_preserved\": true,\n+    \"built_in_resource_present\": true,\n+    \"strict_signature_verified\": true,\n+    \"applications_shortcut_matches\": true,\n+    \"user_processes_terminated\": false,\n+    \"dock_preferences_modified\": false\n+  },\n+  \"evidence_directory\": \"unity-game/Artifacts/idle-right-hand-20261003\",\n+  \"limitations\": [\n+    \"Failed packaging/startup attempts are retained locally and not counted as passing checks.\",\n+    \"The separate torch receipt includes two audio expectation mismatches from concurrent audio work. Hand ownership, pose/state checks passed; the full torch suite is not marked passed.\",\n+    \"No Godot execution, hardware input, speaker playback or new performance benchmark.\"\n+  ],\n+  \"publication\": {\n+    \"local_task_commit\": \"46aabf797514adc0e54015306b7e5fd8294cd8d4\",\n+    \"migration_branch_push\": \"blocked_by_expired_local_authentication\",\n+    \"restorable_evidence_branch\": \"codex/unity-idle-right-hand-20261003-evidence\",\n+    \"whole_migration_branch_synced\": false\n+  }\n+}\n",
+  "patch_sha256": "85429dc9f0f022299493254221d5430d310e8ae6357e71856327e1982bd8d3b6",
+  "files": [
+    {
+      "path": "unity-game/Assets/RPG/Gameplay/NativeFirstPersonRendererAcceptance.cs",
+      "before_sha256": "517ca1b151cc314374cf2d9cf8ba31229c1a42e0825fe2b18e43d69d13c5971c",
+      "after_sha256": "a970030a5b67ea606ba6c4579e714cdf5729c1e42a6f5ba24ba63b92bba2a02f"
+    },
+    {
+      "path": "unity-game/Assets/RPG/Gameplay/NativeHearthCookingAcceptance.cs",
+      "before_sha256": "4f90cab2afe40243e747cfe20e73bfa4c20a2bec657050ef9608c5efb89baa82",
+      "after_sha256": "1e4941b43dcad95052eb7b2e0c8146291d0d7321633c664e276be76ca27079cb"
+    },
+    {
+      "path": "unity-game/Assets/RPG/Gameplay/NativePlayerSmoke.cs",
+      "before_sha256": "59f8e9fe28337194f283ec70bcd122c96d10ff8cc149374f358f572b19c25fc8",
+      "after_sha256": "55a7be5bf117480849ba66404a853d40ab6689a4de23462fcdcc2a5d640db753"
+    },
+    {
+      "path": "unity-game/Assets/RPG/Gameplay/NativeTorchHandOwnershipAcceptance.cs",
+      "before_sha256": "2b3f7d17f8ec5e03c9a1ff92335a08424eb8d1d980c802d44e2d14cd97a70a51",
+      "after_sha256": "b902b565905837f792dce31b5a617d1ae39ccefd22b047ff1c10a96e2b40ced2"
+    },
+    {
+      "path": "unity-game/Assets/RPG/Gameplay/PlayerPresentation.cs",
+      "before_sha256": "bbd7296592fbcd468094c2d47c00b79cfd2b0cadea16e63bd711325d42456f3c",
+      "after_sha256": "bfea895b97857880737a798c99c27e9bb722640b8f173ec30cf8e8e38e759967"
+    },
+    {
+      "path": "unity-game/Migration/IDLE_RIGHT_HAND_20261003.md",
+      "before_sha256": null,
+      "after_sha256": "49321945e670d4af8d32edec9ad622de8ca1cc8582f0c4c50a57f52db3fdd865"
+    },
+    {
+      "path": "unity-game/Migration/idle-right-hand-20261003.json",
+      "before_sha256": null,
+      "after_sha256": "7503e2690bc61e582e6586d40feedd977808387795bfbd5b30d15c6b4ebb1125"
+    }
+  ],
+  "patch_roundtrip_verified": true,
+  "validation": {
+    "recorded_utc": "2026-10-03T07:06:50.464479+00:00",
+    "status": "scoped_hand_visibility_and_eating_verified",
+    "user_contract": "Hide unused idle right hand; preserve owned weapon, review, treatment and eating hands.",
+    "native_suite_passes": {
+      "acceptance-hearth": 299,
+      "acceptance-jerky": 580
+    },
+    "hand_ownership_cases": [
+      {
+        "case": "torch_other_hand_owner",
+        "owner": "sword_shield",
+        "trial": "motion_shield_raise",
+        "same_frame_hidden": true,
+        "other_hands_visible": true,
+        "right_hand_visible": true,
+        "right_hand_expected_visible": true,
+        "missing_weapon_metadata_preserved": true,
+        "pose_nodes_compared": 148
+      },
+      {
+        "case": "torch_other_hand_owner",
+        "owner": "empty_shield",
+        "trial": "motion_shield_raise",
+        "same_frame_hidden": true,
+        "other_hands_visible": false,
+        "right_hand_visible": false,
+        "right_hand_expected_visible": false,
+        "missing_weapon_metadata_preserved": true,
+        "pose_nodes_compared": 148
+      },
+      {
+        "case": "torch_other_hand_owner",
+        "owner": "bow",
+        "trial": "motion_bow",
+        "same_frame_hidden": true,
+        "other_hands_visible": true,
+        "right_hand_visible": true,
+        "right_hand_expected_visible": true,
+        "missing_weapon_metadata_preserved": true,
+        "pose_nodes_compared": 148
+      },
+      {
+        "case": "torch_other_hand_owner",
+        "owner": "staff_shield",
+        "trial": "motion_staff",
+        "same_frame_hidden": true,
+        "other_hands_visible": true,
+        "right_hand_visible": true,
+        "right_hand_expected_visible": true,
+        "missing_weapon_metadata_preserved": true,
+        "pose_nodes_compared": 148
+      }
+    ],
+    "torch_receipt": {
+      "completed_checks": 209,
+      "result": "Failed",
+      "errors": [
+        "Brief flint tick is mono PCM played at its authored pitch / new ignition",
+        "Tick concentrates its energy in the initial contact with no long scratching/ringing tail / new ignition"
+      ],
+      "whole_suite_pass_claimed": false
+    },
+    "tested_gameplay_assembly_sha256": "a164f08fdc5597fd532a31b837e2c7f90504aaed48f324da8f7e70c3bcfbef71",
+    "source_sha256": {
+      "unity-game/Assets/RPG/Gameplay/PlayerPresentation.cs": "bfea895b97857880737a798c99c27e9bb722640b8f173ec30cf8e8e38e759967",
+      "unity-game/Assets/RPG/Gameplay/NativeTorchHandOwnershipAcceptance.cs": "b902b565905837f792dce31b5a617d1ae39ccefd22b047ff1c10a96e2b40ced2",
+      "unity-game/Assets/RPG/Gameplay/NativeHearthCookingAcceptance.cs": "1e4941b43dcad95052eb7b2e0c8146291d0d7321633c664e276be76ca27079cb",
+      "unity-game/Assets/RPG/Gameplay/NativePlayerSmoke.cs": "55a7be5bf117480849ba66404a853d40ab6689a4de23462fcdcc2a5d640db753",
+      "unity-game/Assets/RPG/Gameplay/NativeFirstPersonRendererAcceptance.cs": "a970030a5b67ea606ba6c4579e714cdf5729c1e42a6f5ba24ba63b92bba2a02f"
+    },
+    "metal_visual_qa": true,
+    "default_installation": {
+      "result": "Passed",
+      "target": "unity-game/Builds/MusimusihanRPG.app",
+      "gameplay_assembly_sha256": "a164f08fdc5597fd532a31b837e2c7f90504aaed48f324da8f7e70c3bcfbef71",
+      "verified_against_tested_candidate": true,
+      "asset_packages_preserved": true,
+      "built_in_resource_present": true,
+      "strict_signature_verified": true,
+      "applications_shortcut_matches": true,
+      "user_processes_terminated": false,
+      "dock_preferences_modified": false
+    },
+    "evidence_directory": "unity-game/Artifacts/idle-right-hand-20261003",
+    "limitations": [
+      "Failed packaging/startup attempts are retained locally and not counted as passing checks.",
+      "The separate torch receipt includes two audio expectation mismatches from concurrent audio work. Hand ownership, pose/state checks passed; the full torch suite is not marked passed.",
+      "No Godot execution, hardware input, speaker playback or new performance benchmark."
+    ],
+    "publication": {
+      "local_task_commit": "46aabf797514adc0e54015306b7e5fd8294cd8d4",
+      "migration_branch_push": "blocked_by_expired_local_authentication",
+      "restorable_evidence_branch": "codex/unity-idle-right-hand-20261003-evidence",
+      "whole_migration_branch_synced": false
+    }
+  }
+}
+
