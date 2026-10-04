@@ -1,0 +1,2155 @@
+From 3483e44dfcaa88b71fc1b0e9ecb30a588c556208 Mon Sep 17 00:00:00 2001
+From: duq711 <330029289+duq711@users.noreply.github.com>
+Date: Sun, 4 Oct 2026 20:08:36 +0900
+Subject: [PATCH] =?UTF-8?q?feat:=20=EC=A0=9C=EC=9E=91=EC=9D=84=20=EA=B0=84?=
+ =?UTF-8?q?=EB=8B=A8=ED=95=9C=20=EC=A0=9C=EC=A1=B0=EB=B2=95=20=EB=8C=80?=
+ =?UTF-8?q?=EA=B8=B0=EC=97=B4=EB=A1=9C=20=EA=B5=90=EC=B2=B4=20/=20Simplify?=
+ =?UTF-8?q?=20crafting=20to=20recipe=20queue?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+기존 수동 무기·방어구·물약 제작 화면과 F2 항목을 간단한 공용 제작 화면으로 교체합니다.
+18개 고정 제조법, 재료/보유량, 수량, FIFO 대기열, 정확한 취소 환불과 가방 공간 대기를 지원합니다.
+기존 아이템과 개조 정보, 원본 제작 자료를 보존합니다.
+
+Replace active manual weapon, armor and potion crafting with one shared recipe screen.
+Add 18 fixed recipes, material counts, quantity, a FIFO queue, exact cancellation refunds and retained output when the bag is full.
+Preserve existing items, upgrades and production sources.
+
+검증 / Validation:
+- Unity EditMode 9/9, PlayMode 4/4; 최종 Mac Metal UI 검사 87/87 통과 / all passed.
+- Clean native build: 오류 0, 경고 176 / zero errors, 176 warnings.
+- Mesh 4,163개와 TextAsset 112개, 원본 은신처 JSON 일치 / packaged payloads and source JSON verified.
+- Dock 연결·서명 검증 완료 / Dock target and signature verified.
+---
+ .../Assets/RPG/Editor/NativeGameBuild.cs      |   6 +-
+ .../Assets/RPG/Gameplay/NativeAlchemyFlow.cs  |  19 +-
+ .../Assets/RPG/Gameplay/NativeCrafting.cs     | 221 ++++++++++++
+ .../RPG/Gameplay/NativeCrafting.cs.meta       |   2 +
+ .../Assets/RPG/Gameplay/NativeCraftingFlow.cs |  37 ++
+ .../RPG/Gameplay/NativeCraftingFlow.cs.meta   |   2 +
+ .../Assets/RPG/Gameplay/NativeGameFlow.cs     |  25 +-
+ .../RPG/Gameplay/NativeSimpleCraftingSmoke.cs | 327 ++++++++++++++++++
+ .../NativeSimpleCraftingSmoke.cs.meta         |   2 +
+ .../Assets/RPG/Gameplay/NativeSmithingFlow.cs |  24 +-
+ .../Assets/RPG/Gameplay/NativeTrialMenu.cs    |  34 ++
+ .../Assets/RPG/Gameplay/WorkshopController.cs |  66 ++--
+ .../RPG/Gameplay/WorkshopSimpleCrafting.cs    |  28 ++
+ .../Gameplay/WorkshopSimpleCrafting.cs.meta   |   2 +
+ .../Assets/RPG/Gameplay/WorkshopTrialWorld.cs |   2 +-
+ .../Assets/RPG/Gameplay/WorkshopView.cs       |  66 +---
+ .../PlayMode/WorkshopInputTests.cs            | 101 ++----
+ .../RPG/Runtime/SimpleCraftingSystem.cs       | 237 +++++++++++++
+ .../RPG/Runtime/SimpleCraftingSystem.cs.meta  |   2 +
+ .../RPG/Tests/Editor/SimpleCraftingTests.cs   | 171 +++++++++
+ .../Tests/Editor/SimpleCraftingTests.cs.meta  |   2 +
+ unity-game/CURRENT_STATUS.md                  |   2 +
+ .../Migration/SIMPLE_CRAFTING_20261004.md     |  36 ++
+ .../Migration/simple-crafting-ui-20261004.png |   3 +
+ .../simple-crafting-validation-20261004.json  | 244 +++++++++++++
+ unity-game/README.md                          |   2 +
+ 26 files changed, 1430 insertions(+), 233 deletions(-)
+ create mode 100644 unity-game/Assets/RPG/Gameplay/NativeCrafting.cs
+ create mode 100644 unity-game/Assets/RPG/Gameplay/NativeCrafting.cs.meta
+ create mode 100644 unity-game/Assets/RPG/Gameplay/NativeCraftingFlow.cs
+ create mode 100644 unity-game/Assets/RPG/Gameplay/NativeCraftingFlow.cs.meta
+ create mode 100644 unity-game/Assets/RPG/Gameplay/NativeSimpleCraftingSmoke.cs
+ create mode 100644 unity-game/Assets/RPG/Gameplay/NativeSimpleCraftingSmoke.cs.meta
+ create mode 100644 unity-game/Assets/RPG/Gameplay/WorkshopSimpleCrafting.cs
+ create mode 100644 unity-game/Assets/RPG/Gameplay/WorkshopSimpleCrafting.cs.meta
+ create mode 100644 unity-game/Assets/RPG/Runtime/SimpleCraftingSystem.cs
+ create mode 100644 unity-game/Assets/RPG/Runtime/SimpleCraftingSystem.cs.meta
+ create mode 100644 unity-game/Assets/RPG/Tests/Editor/SimpleCraftingTests.cs
+ create mode 100644 unity-game/Assets/RPG/Tests/Editor/SimpleCraftingTests.cs.meta
+ create mode 100644 unity-game/Migration/SIMPLE_CRAFTING_20261004.md
+ create mode 100644 unity-game/Migration/simple-crafting-ui-20261004.png
+ create mode 100644 unity-game/Migration/simple-crafting-validation-20261004.json
+
+diff --git a/unity-game/Assets/RPG/Editor/NativeGameBuild.cs b/unity-game/Assets/RPG/Editor/NativeGameBuild.cs
+index a4cf394a019234f8ea7608594ae78a43290c32a4..05f5fd19492c3aa4d315a570d23dc27ecd6f9419 100644
+--- a/unity-game/Assets/RPG/Editor/NativeGameBuild.cs
++++ b/unity-game/Assets/RPG/Editor/NativeGameBuild.cs
+@@ -16,16 +16,16 @@ namespace MusimusihanRpg.Editor
+             PlayerSettings.SetScriptingBackend(NamedBuildTarget.Standalone,ScriptingImplementation.Mono2x);
+             Directory.CreateDirectory("Builds");string path=Environment.GetEnvironmentVariable("RPG_NATIVE_BUILD_PATH")??"Builds/MusimusihanRPG.app";
+             if(!Path.GetFullPath(path).StartsWith(Path.GetFullPath("Builds")+Path.DirectorySeparatorChar,StringComparison.Ordinal)||!path.EndsWith(".app",StringComparison.Ordinal))throw new InvalidOperationException("Native build output must be an app inside this project's Builds directory.");
+-            bool development=Environment.GetEnvironmentVariable("RPG_DEVELOPMENT_BUILD")=="1",priorTiming=PlayerSettings.enableFrameTimingStats;
++            bool development=Environment.GetEnvironmentVariable("RPG_DEVELOPMENT_BUILD")=="1",clean=Environment.GetEnvironmentVariable("RPG_CLEAN_BUILD_CACHE")=="1",priorTiming=PlayerSettings.enableFrameTimingStats;
+             BuildReport report;
+             try
+             {
+                 // Release players still expose real frame timings for opt-in QA.
+                 PlayerSettings.enableFrameTimingStats=true;
+-                report=BuildPipeline.BuildPlayer(new BuildPlayerOptions{scenes=new[]{MusimusihanRpg.Gameplay.NativeBoot.ScenePath,NativeGameBuilder.ScenePath,WorkshopSceneBuilder.ScenePath},locationPathName=path,target=BuildTarget.StandaloneOSX,options=development?BuildOptions.Development:BuildOptions.None});
++                report=BuildPipeline.BuildPlayer(new BuildPlayerOptions{scenes=new[]{MusimusihanRpg.Gameplay.NativeBoot.ScenePath,NativeGameBuilder.ScenePath,WorkshopSceneBuilder.ScenePath},locationPathName=path,target=BuildTarget.StandaloneOSX,options=(development?BuildOptions.Development:BuildOptions.None)|(clean?BuildOptions.CleanBuildCache:BuildOptions.None)});
+             }
+             finally{PlayerSettings.enableFrameTimingStats=priorTiming;}
+-            Directory.CreateDirectory("Artifacts/native-flow");File.WriteAllText("Artifacts/native-flow/build-result.json",new JObject{["result"]=report.summary.result.ToString(),["errors"]=report.summary.totalErrors,["warnings"]=report.summary.totalWarnings,["bytes"]=report.summary.totalSize,["path"]=Path.GetFullPath(path),["scene"]=MusimusihanRpg.Gameplay.NativeBoot.ScenePath,["content_scene"]=NativeGameBuilder.ScenePath,["scope"]="Native source title/sanctuary/dungeon/inventory checkpoint. Full Godot gameplay parity remains incomplete."}.ToString());
++            Directory.CreateDirectory("Artifacts/native-flow");File.WriteAllText("Artifacts/native-flow/build-result.json",new JObject{["result"]=report.summary.result.ToString(),["clean_cache"]=clean,["errors"]=report.summary.totalErrors,["warnings"]=report.summary.totalWarnings,["bytes"]=report.summary.totalSize,["path"]=Path.GetFullPath(path),["scene"]=MusimusihanRpg.Gameplay.NativeBoot.ScenePath,["content_scene"]=NativeGameBuilder.ScenePath,["scope"]="Native source title/sanctuary/dungeon/inventory checkpoint. Full Godot gameplay parity remains incomplete."}.ToString());
+             if(report.summary.result!=BuildResult.Succeeded||report.summary.totalErrors!=0)throw new InvalidOperationException("Native Mac player build failed or contains shader errors.");
+             Debug.Log("NATIVE_PLAYER_BUILD_PASSED");
+         }
+diff --git a/unity-game/Assets/RPG/Gameplay/NativeAlchemyFlow.cs b/unity-game/Assets/RPG/Gameplay/NativeAlchemyFlow.cs
+index 73d48da263ac30c6a7b354850dc5c1ef50cd1f5c..82436871f6768a6ef5f7d8558841e2b8cbc815c0 100644
+--- a/unity-game/Assets/RPG/Gameplay/NativeAlchemyFlow.cs
++++ b/unity-game/Assets/RPG/Gameplay/NativeAlchemyFlow.cs
+@@ -1,5 +1,4 @@
+ using System.Linq;
+-using Newtonsoft.Json.Linq;
+ using UnityEngine;
+ namespace MusimusihanRpg.Gameplay
+ {
+@@ -8,19 +7,9 @@ namespace MusimusihanRpg.Gameplay
+         public GameObject AlchemyPrefab;public TextAsset AlchemyData;public AudioClip[] AlchemySounds;
+         public NativeAlchemy Alchemy {get;private set;}
+         public AudioClip AlchemySoundFor(string action)=>AlchemySounds?.FirstOrDefault(clip=>clip!=null&&clip.name==action);
+-        public void OpenAlchemy(bool restore=false)
+-        {
+-            if(!restore&&State!="playing")return;if(!restore)motor.PrepareForInventory();
+-            else{game.Interaction?.Cancel();game.Combat?.Cancel();game.Items.Cancel();}
+-            motor.ReleasePointer();State="alchemy";
+-            Ui.Visible("hideout",false);Ui.Visible("title",false);Ui.Visible("merchant",false);Alchemy.Open(restore);
+-        }
+-        public void CloseAlchemy(){if(State!="alchemy")return;Alchemy.Hide();State="playing";Ui.Visible("hideout",true);motor.CapturePointer();}
+-        public bool IsAlchemyTrial(string id)=>game.Catalog.TestRoomEntries.OfType<JObject>().Any(e=>(string)e["id"]==id&&new[]{"alchemy","alchemy_recipe","distilling"}.Contains((string)e["action"])&&game.Catalog.Alchemy["RECIPES"][(string)e["payload"]]!=null);
+-        public void BeginNativeAlchemyTrial(string id)
+-        {
+-            SaveNativeTrialPresentation();NativeTrial=true;returningFromTrials=false;motor=game.DungeonPlayer;InHideout=true;State="playing";motor.NativeHud=true;motor.Paused=true;motor.Eyes.enabled=false;
+-            BindHideoutInteractions(game.DungeonRoot);BindHideoutLighting(game.DungeonRoot);game.Combat.SafeZone=true;RestoreWorldPresentation();Ui.gameObject.SetActive(true);OpenAlchemy();
+-        }
++        public void OpenAlchemy(bool restore=false)=>OpenCrafting("consumable",restore);
++        public void CloseAlchemy()=>CloseCrafting();
++        public bool IsAlchemyTrial(string id)=>false;
++        public void BeginNativeAlchemyTrial(string id)=>BeginNativeCraftingTrial("consumable");
+     }
+ }
+diff --git a/unity-game/Assets/RPG/Gameplay/NativeCrafting.cs b/unity-game/Assets/RPG/Gameplay/NativeCrafting.cs
+new file mode 100644
+index 0000000000000000000000000000000000000000..fe6476856c2a95c2c4e9a5bfa0c3462cbe823cc7
+--- /dev/null
++++ b/unity-game/Assets/RPG/Gameplay/NativeCrafting.cs
+@@ -0,0 +1,221 @@
++using System;
++using System.Collections.Generic;
++using System.Linq;
++using Newtonsoft.Json.Linq;
++using UnityEngine;
++
++namespace MusimusihanRpg.Gameplay
++{
++    /// <summary>One recipe grid, materials table and FIFO queue shared by every crafting station.</summary>
++    public sealed class NativeCrafting
++    {
++        readonly WorkshopController game;
++        readonly NativeGameFlow flow;
++        readonly Dictionary<string, RectTransform> nodes = new Dictionary<string, RectTransform>();
++        readonly List<UnityEngine.UI.Button> recipeButtons = new List<UnityEngine.UI.Button>();
++        readonly List<string> recipeIds = new List<string>();
++        readonly Dictionary<string, UnityEngine.UI.Button> categories = new Dictionary<string, UnityEngine.UI.Button>();
++        readonly RectTransform root, grid, materials, queue;
++        readonly UnityEngine.UI.Text title, description, amount, duration, status;
++        readonly UnityEngine.UI.Button create, maximum, previous, next;
++        readonly UnityEngine.UI.RawImage preview;
++        string selected = "", queueKey = "", materialKey = "";
++        string savedCategory="all",savedSelected="";int savedQuantity=1,savedPage;
++        int quantity = 1, page;
++        readonly Color accent = new Color(.19f, .55f, .75f), ink = new Color(.91f, .91f, .87f);
++        public string Category { get; private set; } = "all";
++        public RectTransform Root => root;
++        public string SelectedRecipe => selected;
++        public int Quantity => quantity;
++        public bool IsOpen => flow.State == "crafting" && root.gameObject.activeInHierarchy;
++
++        public NativeCrafting(WorkshopController game, NativeGameFlow flow)
++        {
++            this.game = game; this.flow = flow;
++            root = Panel(flow.Ui.CanvasRoot, "SimpleCrafting", 48, 56, 1184, 608, new Color(.12f, .13f, .13f, .97f));
++            Label(root, "Heading", "제작", 24, 14, 700, 40, 26);
++            Button(root, "CloseCrafting", "닫기  [Esc]", 1032, 16, 132, 36, flow.CloseCrafting);
++            Panel(root, "Divider", 20, 63, 1144, 1, new Color(.38f, .39f, .37f));
++            Label(root, "CategoriesHeading", "분류", 20, 76, 136, 30, 16);
++            var tabs = new[] { ("all", "전체"), ("weapon", "무기"), ("armor", "방어구"), ("consumable", "물약"), ("other", "도구 · 소모품") };
++            for (int i = 0; i < tabs.Length; i++)
++            {
++                string id = tabs[i].Item1;
++                categories[id] = Button(root, "Category_" + id, tabs[i].Item2, 20, 114 + i * 44, 132, 38, () => SelectCategory(id));
++            }
++            Label(root, "RecipeHeading", "만들 아이템", 172, 76, 430, 30, 16);
++            grid = Panel(root, "Recipes", 172, 112, 456, 338, Color.clear, false);
++            for (int i = 0; i < 12; i++)
++            {
++                int index = i;
++                var b = Button(grid, "Recipe_" + i, "", i % 4 * 114, i / 4 * 110, 106, 102, () => { if (index < recipeIds.Count) SelectRecipe(recipeIds[index]); });
++                recipeButtons.Add(b);
++                b.GetComponentInChildren<UnityEngine.UI.Text>().gameObject.SetActive(false);
++                Art(b.transform, "Icon", 27, 4, 52, 52, "");
++                Label(b.transform, "Name", "", 4, 57, 98, 41, 13, TextAnchor.MiddleCenter);
++            }
++            previous = Button(root, "PreviousRecipes", "‹", 174, 448, 42, 26, () => { page--; BuildRecipes(); Refresh(); });
++            next = Button(root, "NextRecipes", "›", 586, 448, 42, 26, () => { page++; BuildRecipes(); Refresh(); });
++            Label(root, "RecipePage", "", 230, 448, 338, 26, 13, TextAnchor.MiddleCenter);
++            var details = Panel(root, "Details", 648, 76, 516, 398, new Color(.19f, .20f, .20f));
++            preview = Art(details, "Preview", 18, 16, 68, 68, "");
++            title = Label(details, "RecipeTitle", "", 104, 14, 388, 40, 22);
++            duration = Label(details, "Duration", "", 104, 57, 388, 26, 14);
++            description = Label(details, "Description", "", 20, 100, 476, 64, 16);
++            Label(details, "MaterialsHeading", "재료", 20, 172, 237, 28, 15);
++            Label(details, "MaterialsUnitHeading", "1회", 257, 172, 79, 28, 15, TextAnchor.MiddleRight);
++            Label(details, "MaterialsRequiredHeading", "필요", 336, 172, 79, 28, 15, TextAnchor.MiddleRight);
++            Label(details, "MaterialsOwnedHeading", "보유", 415, 172, 79, 28, 15, TextAnchor.MiddleRight);
++            materials = Panel(details, "Materials", 20, 206, 476, 104, Color.clear, false);
++            Button(details, "QuantityMinus", "−", 20, 324, 40, 42, () => SetQuantity(quantity - 1));
++            amount = Label(details, "Quantity", "1", 62, 324, 54, 42, 20, TextAnchor.MiddleCenter);
++            Button(details, "QuantityPlus", "+", 118, 324, 40, 42, () => SetQuantity(quantity + 1));
++            maximum = Button(details, "QuantityMax", "최대", 164, 324, 60, 42, () => SetQuantity(Math.Max(1, game.Crafting.MaximumCraftable(selected))));
++            create = Button(details, "CraftButton", "제작", 330, 324, 166, 42, () => Craft());
++            Label(details, "OutputCount", "", 20, 372, 476, 22, 13);
++            Panel(root, "QueueDivider", 20, 485, 1144, 1, new Color(.38f, .39f, .37f));
++            Label(root, "QueueHeading", "제작 대기열  /  CRAFTING QUEUE", 20, 494, 760, 27, 16);
++            queue = Panel(root, "Queue", 20, 527, 1144, 49, Color.clear, false);
++            status = Label(root, "CraftStatus", "재료를 확인하고 수량을 선택하세요.", 20, 581, 1144, 22, 13);
++            Hide();
++        }
++
++        public RectTransform Find(string name) => nodes.TryGetValue(name, out var n) ? n : null;
++        public void Open(string category = "all", bool restore = false)
++        {
++            root.gameObject.SetActive(true); root.SetAsLastSibling();
++            if (!restore) SelectCategory(category); else { Category=savedCategory;selected=savedSelected;quantity=savedQuantity;page=savedPage;BuildRecipes(); Refresh(); }
++        }
++        public void SavePresentation(){savedCategory=Category;savedSelected=selected;savedQuantity=quantity;savedPage=page;}
++        public void Hide() => root.gameObject.SetActive(false);
++        public void SelectCategory(string category)
++        {
++            if (!categories.ContainsKey(category)) category = "all";
++            Category = category; page = 0; selected = ""; quantity = 1;
++            BuildRecipes(); Refresh();
++        }
++        public void SelectRecipe(string id)
++        {
++            if (game.Crafting.Recipe(id).Count == 0) return;
++            selected = id; quantity = 1; Refresh();
++        }
++        public void SetQuantity(int value) { quantity = Mathf.Clamp(value, 1, 99); Refresh(); }
++        public JObject Craft()
++        {
++            if (!IsOpen) return new JObject { ["accepted"] = false, ["reason"] = "closed" };
++            var result = game.Crafting.Enqueue(selected, quantity); game.Reply(result);
++            status.text = (bool?)result["accepted"] == true ? "대기열에 추가했습니다. 완료하면 가방에 들어갑니다." : Failure((string)result["reason"]);
++            Refresh(); return result;
++        }
++        public JObject Cancel(string jobId)
++        {
++            if (!IsOpen) return new JObject { ["accepted"] = false, ["reason"] = "closed" };
++            var result = game.Crafting.Cancel(jobId);
++            status.text = (bool?)result["refund_pending"] == true ? "가방을 비우면 취소한 재료가 돌아옵니다." : (bool?)result["accepted"] == true ? "제작을 취소하고 재료를 돌려받았습니다." : Failure((string)result["reason"]);
++            Refresh(); return result;
++        }
++        static string Failure(string reason) => reason == "missing_materials" ? "재료가 부족합니다." : reason == "queue_full" ? "대기열이 가득 찼습니다." : reason == "refund_pending" ? "가방을 비우면 취소한 재료가 돌아옵니다." : "지금은 제작할 수 없습니다.";
++        void BuildRecipes()
++        {
++            var list = game.Crafting.Recipes.OfType<JObject>().Where(r => Category == "all" || (string)r["category"] == Category).ToArray();
++            int pages = Math.Max(1, (list.Length + 11) / 12); page = Mathf.Clamp(page, 0, pages - 1);
++            recipeIds.Clear(); recipeIds.AddRange(list.Skip(page * 12).Take(12).Select(r => (string)r["id"]));
++            if (!list.Any(r => (string)r["id"] == selected)) selected = recipeIds.FirstOrDefault() ?? "";
++            for (int i = 0; i < 12; i++)
++            {
++                var b = recipeButtons[i]; b.gameObject.SetActive(i < recipeIds.Count); if (i >= recipeIds.Count) continue;
++                var recipe = game.Crafting.Recipe(recipeIds[i]);
++                b.transform.Find("Name").GetComponent<UnityEngine.UI.Text>().text = (string)recipe["name"];
++                SetArt(b.transform.Find("Icon").GetComponent<UnityEngine.UI.RawImage>(), (string)recipe["output_id"]);
++            }
++            previous.interactable = page > 0; next.interactable = page + 1 < pages;
++            Find("RecipePage").GetComponent<UnityEngine.UI.Text>().text = $"{page + 1} / {pages}   ·   {list.Length}개 제조법";
++        }
++        public void Refresh()
++        {
++            if (game.Crafting == null) return;
++            foreach (var p in categories) p.Value.targetGraphic.color = p.Key == Category ? accent : new Color(.24f, .25f, .25f);
++            for (int i = 0; i < recipeIds.Count; i++) recipeButtons[i].targetGraphic.color = recipeIds[i] == selected ? new Color(.22f, .40f, .46f) : new Color(.25f, .27f, .27f);
++            var recipe = game.Crafting.Recipe(selected);
++            if (recipe.Count == 0) { create.interactable = false; return; }
++            title.text = (string)recipe["name"]; description.text = (string)recipe["description"];
++            duration.text = $"제작 시간  {(double)recipe["seconds"] * quantity:0.#}초";
++            amount.text = quantity.ToString(); SetArt(preview, (string)recipe["output_id"]);
++            Find("OutputCount").GetComponent<UnityEngine.UI.Text>().text = $"완성 수량  {(int)recipe["output_quantity"] * quantity}개  ·  제작 중 닫아도 대기열 유지";
++            int max = game.Crafting.MaximumCraftable(selected); maximum.interactable = max > 0;
++            create.interactable = max >= quantity && game.Crafting.Queue.Count < SimpleCraftingSystem.MaxQueue;
++            create.targetGraphic.color = create.interactable ? accent : new Color(.28f, .30f, .30f);
++            var rows=game.Crafting.MaterialRows(selected,quantity);
++            string currentMaterials=selected+"/"+quantity+"/"+rows.ToString(Newtonsoft.Json.Formatting.None);
++            if(materialKey!=currentMaterials)
++            {
++                materialKey=currentMaterials;Clear(materials);int index=0;
++                foreach(var row in rows.OfType<JObject>())
++                {
++                    string id=(string)row["id"];int y=index++*25;
++                    var c=(bool)row["enough"]?ink:new Color(1,.53f,.42f);
++                    Label(materials,"MaterialName_"+id,game.Session.Inventory.ItemName(id),0,y,237,24,14).color=c;
++                    Label(materials,"MaterialUnit_"+id,row["per_unit"].ToString(),237,y,79,24,14,TextAnchor.MiddleRight).color=c;
++                    Label(materials,"MaterialCount_"+id,row["required"].ToString(),316,y,79,24,14,TextAnchor.MiddleRight).color=c;
++                    Label(materials,"MaterialOwned_"+id,row["owned"].ToString(),395,y,79,24,14,TextAnchor.MiddleRight).color=c;
++                }
++            }
++            RefreshQueue();
++        }
++        void RefreshQueue()
++        {
++            var jobs = game.Crafting.Queue.OfType<JObject>().ToArray();
++            string key = string.Join("|", jobs.Select(j => (string)j["id"]));
++            if (key != queueKey || queue.childCount == 0)
++            {
++                queueKey = key; Clear(queue);
++                if (jobs.Length == 0) Label(queue, "EmptyQueue", "대기 중인 제작이 없습니다.", 0, 0, 1100, 49, 15);
++                for (int i = 0; i < jobs.Length; i++)
++                {
++                    string id = (string)jobs[i]["id"];
++                    var card = Panel(queue, "Job_" + id, i * 142, 0, 136, 49, new Color(.23f, .25f, .25f));
++                    Label(card, "JobText", "", 6, 1, 104, 46, 12);
++                    Button(card, "Cancel_" + id, "×", 108, 4, 24, 40, () => Cancel(id));
++                }
++            }
++            foreach (var job in jobs)
++            {
++                string state = (string)job["state"];
++                string line = state == "waiting_output" ? "가방 공간 대기" : state == "refund_pending" ? "재료 반환 대기" : state == "queued" ? "대기 중" : $"{(double)job["remaining"]:0.0}초";
++                var recipe = game.Crafting.Recipe((string)job["recipe_id"]);
++                queue.Find("Job_" + (string)job["id"]).Find("JobText").GetComponent<UnityEngine.UI.Text>().text = $"{recipe["name"]} ×{job["quantity"]}\n{line}";
++            }
++        }
++        void Clear(RectTransform parent)
++        {
++            for (int i = parent.childCount - 1; i >= 0; i--) { var child = parent.GetChild(i); child.gameObject.SetActive(false); UnityEngine.Object.Destroy(child.gameObject); }
++        }
++        RectTransform Rect(Transform parent, string name, float x, float y, float w, float h)
++        {
++            var go = new GameObject(name, typeof(RectTransform)); go.layer = 5; go.transform.SetParent(parent, false);
++            var r = (RectTransform)go.transform; r.anchorMin = r.anchorMax = r.pivot = new Vector2(0, 1); r.anchoredPosition = new Vector2(x, -y); r.sizeDelta = new Vector2(w, h); nodes[name] = r; return r;
++        }
++        RectTransform Panel(Transform parent, string name, float x, float y, float w, float h, Color color, bool hit = true)
++        {
++            var r = Rect(parent, name, x, y, w, h); var image = r.gameObject.AddComponent<UnityEngine.UI.Image>(); image.color = color; image.raycastTarget = hit; return r;
++        }
++        UnityEngine.UI.Text Label(Transform parent, string name, string text, float x, float y, float w, float h, int size, TextAnchor align = TextAnchor.MiddleLeft)
++        {
++            var r = Rect(parent, name, x, y, w, h); var t = r.gameObject.AddComponent<UnityEngine.UI.Text>(); t.font = game.KoreanFont != null ? game.KoreanFont : Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf"); t.text = text; t.fontSize = size; t.color = ink; t.alignment = align; t.raycastTarget = false; t.horizontalOverflow = HorizontalWrapMode.Wrap; return t;
++        }
++        UnityEngine.UI.Button Button(Transform parent, string name, string text, float x, float y, float w, float h, Action action)
++        {
++            var r = Panel(parent, name, x, y, w, h, new Color(.24f, .25f, .25f));
++            var b = r.gameObject.AddComponent<UnityEngine.UI.Button>(); b.targetGraphic = r.GetComponent<UnityEngine.UI.Image>(); b.onClick.AddListener(() => { if (IsOpen) action(); });
++            Label(r, name + "Label", text, 2, 0, w - 4, h, 15, TextAnchor.MiddleCenter); return b;
++        }
++        UnityEngine.UI.RawImage Art(Transform parent, string name, float x, float y, float w, float h, string id)
++        {
++            var r = Rect(parent, name, x, y, w, h); var image = r.gameObject.AddComponent<UnityEngine.UI.RawImage>(); image.raycastTarget = false; SetArt(image, id); return image;
++        }
++        void SetArt(UnityEngine.UI.RawImage art, string id)
++        {
++            var icon = game.ItemIcons.FirstOrDefault(i => i.Id == id); art.texture = icon?.Texture; art.uvRect = icon?.Uv ?? new Rect(0, 0, 1, 1); art.enabled = art.texture != null;
++        }
++    }
++}
+diff --git a/unity-game/Assets/RPG/Gameplay/NativeCrafting.cs.meta b/unity-game/Assets/RPG/Gameplay/NativeCrafting.cs.meta
+new file mode 100644
+index 0000000000000000000000000000000000000000..53735739e5325bb5cb7a9ad257ec87a17af39b68
+--- /dev/null
++++ b/unity-game/Assets/RPG/Gameplay/NativeCrafting.cs.meta
+@@ -0,0 +1,2 @@
++fileFormatVersion: 2
++guid: e3f97cea11214943ac675a9f55cfbd5b
+diff --git a/unity-game/Assets/RPG/Gameplay/NativeCraftingFlow.cs b/unity-game/Assets/RPG/Gameplay/NativeCraftingFlow.cs
+new file mode 100644
+index 0000000000000000000000000000000000000000..57e92f351e86e71cf05b0f962e01601d3d47654c
+--- /dev/null
++++ b/unity-game/Assets/RPG/Gameplay/NativeCraftingFlow.cs
+@@ -0,0 +1,37 @@
++namespace MusimusihanRpg.Gameplay
++{
++    public sealed partial class NativeGameFlow
++    {
++        public NativeCrafting Crafting {get;private set;}
++
++        public void OpenCrafting(string category="all",bool restore=false)
++        {
++            if(Crafting==null||IsTransitioning||(!restore&&State!="playing"))return;
++            if(!restore)motor.PrepareForInventory();
++            else{game.Interaction?.Cancel();game.Combat?.Cancel();game.Items.Cancel();}
++            motor.GetComponent<PlayerPresentation>()?.Torch?.CancelIgnition();
++            motor.ReleasePointer();motor.Paused=true;State="crafting";
++            Ui.Visible("hideout",false);Ui.Visible("title",false);Ui.Visible("merchant",false);
++            Crafting.Open(category,restore);
++        }
++
++        public void CloseCrafting()
++        {
++            if(State!="crafting")return;
++            Crafting.Hide();State="playing";Ui.Visible("hideout",true);
++            motor.Paused=game.SimulationPaused;motor.CapturePointer();
++        }
++
++        public static bool IsCraftingTrial(string id)=>id=="simple_crafting";
++
++        public void BeginNativeCraftingTrial(string category="all")
++        {
++            SaveNativeTrialPresentation();NativeTrial=true;returningFromTrials=false;
++            motor=game.DungeonPlayer;InHideout=true;State="playing";motor.NativeHud=true;
++            motor.Paused=true;motor.Eyes.enabled=false;
++            BindHideoutInteractions(game.DungeonRoot);BindHideoutLighting(game.DungeonRoot);
++            game.Combat.SafeZone=true;RestoreWorldPresentation();
++            Ui.gameObject.SetActive(true);OpenCrafting(category);
++        }
++    }
++}
+diff --git a/unity-game/Assets/RPG/Gameplay/NativeCraftingFlow.cs.meta b/unity-game/Assets/RPG/Gameplay/NativeCraftingFlow.cs.meta
+new file mode 100644
+index 0000000000000000000000000000000000000000..1c90290e2950d6b617c2e0e659b65c1ea0b0d541
+--- /dev/null
++++ b/unity-game/Assets/RPG/Gameplay/NativeCraftingFlow.cs.meta
+@@ -0,0 +1,2 @@
++fileFormatVersion: 2
++guid: 908159a4dd3a4322a4cb8636716218f1
+diff --git a/unity-game/Assets/RPG/Gameplay/NativeGameFlow.cs b/unity-game/Assets/RPG/Gameplay/NativeGameFlow.cs
+index 25f34aef4d3b0792ded25494a363777d3de09cb6..046839d45f0df00ead2d1403a2cd02edfa45c433 100644
+--- a/unity-game/Assets/RPG/Gameplay/NativeGameFlow.cs
++++ b/unity-game/Assets/RPG/Gameplay/NativeGameFlow.cs
+@@ -50,8 +50,6 @@ namespace MusimusihanRpg.Gameplay
+             var controls=(JArray)(UiData!=null?JObject.Parse(UiData.text):data)["controls"];
+             if(DungeonHudData!=null)foreach(var control in JObject.Parse(DungeonHudData.text)["controls"])controls.Add(control.DeepClone());
+             if(MerchantData!=null)foreach(var control in JObject.Parse(MerchantData.text)["controls"])controls.Add(control.DeepClone());
+-            if(BlacksmithData!=null)foreach(var control in JObject.Parse(BlacksmithData.text)["controls"])controls.Add(control.DeepClone());
+-            if(AlchemyData!=null)foreach(var control in JObject.Parse(AlchemyData.text)["controls"])controls.Add(control.DeepClone());
+             if(CookingData!=null)foreach(var control in JObject.Parse(CookingData.text)["controls"])controls.Add(control.DeepClone());
+             if(CampData!=null)foreach(var control in JObject.Parse(CampData.text)["controls"])controls.Add(control.DeepClone());
+             Ui.SpacedFont=SpacedFont;Ui.MerchantMediumFont=MerchantMediumFont;Ui.TitleFont=TitleFont;
+@@ -75,8 +73,7 @@ namespace MusimusihanRpg.Gameplay
+             if(MerchantData!=null){Merchant=new NativeMerchant(game,this,JObject.Parse(MerchantData.text));Ui.RoutedSignal=(path,method,args)=>path.StartsWith("merchant")?Merchant.Handle(path,method,args):Inventory.Handle(path,method,args);}
+             if(DungeonHudData!=null)CombatHud=new NativeCombatHud(game,this,JObject.Parse(DungeonHudData.text));
+             IgnitionHud=new TorchIgnitionHud(this);
+-            if(BlacksmithData!=null)Smithing=new NativeSmithing(game,this,JObject.Parse(BlacksmithData.text));
+-            if(AlchemyData!=null)Alchemy=new NativeAlchemy(game,this,JObject.Parse(AlchemyData.text));
++            Crafting=new NativeCrafting(game,this);
+             if(CookingData!=null)Cooking=new NativeCooking(game,this,JObject.Parse(CookingData.text));
+             if(CampData!=null)CampUi=new NativeCampOverlay(game,this,JObject.Parse(CampData.text));
+             BindHideoutInteractions(HideoutRoot);
+@@ -99,7 +96,7 @@ namespace MusimusihanRpg.Gameplay
+             Ui.gameObject.SetActive(true);
+             RefreshTorchIgnitionHud();
+             if(returningFromTrials)
+-            {returningFromTrials=false;motor=game.DungeonPlayer;motor.NativeHud=true;RestoreWorldPresentation();BindExpeditionPortal();if(InHideout)BindHideoutLighting(game.DungeonRoot);if(State=="merchant")Merchant.Refresh();Ui.Visible("title",State=="title");Ui.Visible("hideout",State!="title"&&State!="merchant");Ui.Visible("merchant",State=="merchant");if(State=="smithing")OpenSmithing(true);if(State=="alchemy")OpenAlchemy(true);if(State=="cooking")OpenCooking(true);if(State=="camp")SyncCampState();if(State=="inventory"){if(game.OpenChest!=null)Inventory.OpenContainer(game.OpenChest.Container);else Inventory.Open();}if(!WorldPaused)motor.CapturePointer();}
++            {returningFromTrials=false;motor=game.DungeonPlayer;motor.NativeHud=true;RestoreWorldPresentation();BindExpeditionPortal();if(InHideout)BindHideoutLighting(game.DungeonRoot);if(State=="merchant")Merchant.Refresh();Ui.Visible("title",State=="title");Ui.Visible("hideout",State!="title"&&State!="merchant");Ui.Visible("merchant",State=="merchant");if(State=="crafting")OpenCrafting(restore:true);if(State=="cooking")OpenCooking(true);if(State=="camp")SyncCampState();if(State=="inventory"){if(game.OpenChest!=null)Inventory.OpenContainer(game.OpenChest.Container);else Inventory.Open();}if(!WorldPaused)motor.CapturePointer();}
+             if(IsTransitioning||NativeLoadingScreen.Visible){RefreshViewState();return;}
+             TickExpeditionOutcome(delta);
+             if (Input.GetKeyDown(KeyCode.F11))
+@@ -116,16 +113,14 @@ namespace MusimusihanRpg.Gameplay
+                 if(State=="fingers"){game.OpenTrials();return;}
+                 if(HandleCampShortcut(KeyCode.Escape))return;
+                 if(State=="cooking"){CloseCooking();return;}
+-                if(State=="alchemy"){CloseAlchemy();return;}
+-                if(State=="smithing"){CloseSmithing();return;}
++                if(State=="crafting"){CloseCrafting();return;}
+                 if(State=="merchant"){Merchant.Back();return;}
+                 if(State=="inventory")Inventory.Cancel();
+                 else if(modal!=null)CloseModal();
+                 else if(State=="title")ShowTitleModal("QuitConfirmPanel");
+                 else if(State=="playing")Pause();
+             }
+-            if(State=="smithing")Smithing.InputTick();
+-            if(State=="alchemy")Alchemy.InputTick();
++            if(State=="crafting")Crafting.Refresh();
+             if(State=="inventory")Inventory.Tick(delta);
+             if(State=="inventory"&&(Input.GetKeyDown(KeyCode.I)||Input.GetKeyDown(KeyCode.B))&&HandleInventoryShortcut(Input.GetKeyDown(KeyCode.I)?KeyCode.I:KeyCode.B,false,InventoryModifiersHeld()))return;
+             if(State=="playing")
+@@ -191,7 +186,7 @@ namespace MusimusihanRpg.Gameplay
+         }
+         void RefreshViewState()
+         {
+-            motor.Paused=WorldPaused;bool visibleWorld=State!="title"&&State!="merchant"&&State!="smithing"&&State!="alchemy";
++            motor.Paused=WorldPaused;bool visibleWorld=State!="title"&&State!="merchant"&&State!="crafting";
+             var presentation=motor.GetComponent<PlayerPresentation>();if(presentation!=null)presentation.SetPresentationEnabled(visibleWorld);else motor.Eyes.enabled=visibleWorld;
+             Ui.Camera.clearFlags=State=="title"||State=="merchant"?CameraClearFlags.SolidColor:CameraClearFlags.Depth;
+             if(State!="title")game.DungeonRoot.SetActive(true);
+@@ -237,7 +232,7 @@ namespace MusimusihanRpg.Gameplay
+         void OpenTrials()
+         {game.OpenTrials();}
+         public void SuspendForTrials()
+-        {if(!game.Trials.Active)preserveOriginalContainer=game.OpenChest!=null;CampUi?.Hide();CampUi?.HidePlacement();if(game.Trials.Active&&State=="cooking")game.Cooking.Close();Cooking?.Hide();if(!game.Trials.Active&&State=="alchemy")Alchemy.SavePresentation();else if(game.Trials.Active&&State=="alchemy")game.Alchemy.Discard();Alchemy?.Hide();if(!game.Trials.Active&&State=="smithing")Smithing.SavePresentation();else if(game.Trials.Active&&State=="smithing")game.Smith.Cancel();Smithing?.Hide();EndNativeTrial(true);returningFromTrials=true;Ui.gameObject.SetActive(false);if(game.DungeonPlayer!=null)game.DungeonPlayer.NativeHud=false;}
++        {if(!game.Trials.Active){preserveOriginalContainer=game.OpenChest!=null;if(State=="crafting")Crafting.SavePresentation();}CampUi?.Hide();CampUi?.HidePlacement();if(game.Trials.Active&&State=="cooking")game.Cooking.Close();Cooking?.Hide();Crafting?.Hide();EndNativeTrial(true);returningFromTrials=true;Ui.gameObject.SetActive(false);if(game.DungeonPlayer!=null)game.DungeonPlayer.NativeHud=false;}
+         public void BeginNativeCombatTrial()
+         {
+             SaveNativeTrialPresentation();NativeTrial=true;returningFromTrials=false;motor=game.DungeonPlayer;
+@@ -261,7 +256,7 @@ namespace MusimusihanRpg.Gameplay
+             ShowTitleModal("SettingsPanel");
+         }
+         public void EndNativeTrial(bool preserveLoot=false)
+-        {if(!preserveLoot)Settings?.EndTrial();if(!NativeTrial)return;Fingers?.Close();CampUi?.Hide();CampUi?.HidePlacement();game.Cooking?.Close();Cooking?.Hide();Alchemy?.Hide();Smithing?.Hide();Inventory.Close();if(!preserveLoot&&game.OpenChest!=null)game.CloseLoot();NativeTrial=false;State=priorTrialState;InHideout=priorTrialHideout;RestoreNativeTrialPresentation();returningFromTrials=true;Ui.gameObject.SetActive(false);}
++        {if(!preserveLoot)Settings?.EndTrial();if(!NativeTrial)return;Fingers?.Close();CampUi?.Hide();CampUi?.HidePlacement();game.Cooking?.Close();Cooking?.Hide();Crafting?.Hide();Inventory.Close();if(!preserveLoot&&game.OpenChest!=null)game.CloseLoot();NativeTrial=false;State=priorTrialState;InHideout=priorTrialHideout;RestoreNativeTrialPresentation();returningFromTrials=true;Ui.gameObject.SetActive(false);}
+         void ClearDroppedPackages()
+         {foreach(var item in game.DungeonRoot.GetComponentsInChildren<DroppedItem>(true)){item.gameObject.SetActive(false);Destroy(item.gameObject);}}
+         IEnumerator Fade(float target,float duration)
+@@ -368,8 +363,8 @@ namespace MusimusihanRpg.Gameplay
+                 case "travel":OpenMap();break;
+                 case "rest":StartTransition(Rest());break;
+                 case "stash":OpenInventory();break;
+-                case "workbench":OpenSmithing();break;
+-                case "alchemy":OpenAlchemy();break;
++                case "workbench":OpenCrafting("weapon");break;
++                case "alchemy":OpenCrafting("consumable");break;
+                 case "meal":OpenCooking();break;
+                 case "hearth":ToggleHearth();break;
+                 case "wash":Notice("차가운 빗물로 피와 먼지를 씻었습니다",1.8f);break;
+@@ -395,7 +390,7 @@ namespace MusimusihanRpg.Gameplay
+         public override bool Busy=>actor!=null;
+         public override string Prompt=>Busy?label+" 중...":Duration>0?$"[E] {label} · {Duration:0.0}초":"[E] "+label;
+         public void Configure(WorkshopController game,NativeGameFlow owner,JToken definition)
+-        {Game=game;flow=owner;Action=(string)definition["action"];label=(string)definition["prompt"];Duration=(float)definition["duration"];CreateFocus(new Bounds(SourcePose.Position(NativeGameFlow.Vector(definition["offset"])),NativeGameFlow.Vector(definition["size"])));}
++        {Game=game;flow=owner;Action=(string)definition["action"];label=Action=="workbench"?"제작대 · 무기·갑옷 제작":Action=="alchemy"?"제작대 · 물약 제작":(string)definition["prompt"];Duration=(float)definition["duration"];CreateFocus(new Bounds(SourcePose.Position(NativeGameFlow.Vector(definition["offset"])),NativeGameFlow.Vector(definition["size"])));}
+         public override bool Interact(DungeonMotor player)
+         {
+             if(Busy||!Available(player))return false;if(Duration<=0){flow.Activate(Action);return true;}
+diff --git a/unity-game/Assets/RPG/Gameplay/NativeSimpleCraftingSmoke.cs b/unity-game/Assets/RPG/Gameplay/NativeSimpleCraftingSmoke.cs
+new file mode 100644
+index 0000000000000000000000000000000000000000..78b64b55dce7c5df1c7ea1d32388298a4ca0f58d
+--- /dev/null
++++ b/unity-game/Assets/RPG/Gameplay/NativeSimpleCraftingSmoke.cs
+@@ -0,0 +1,327 @@
++using System;
++using System.Collections;
++using System.Collections.Generic;
++using System.IO;
++using System.Linq;
++using Newtonsoft.Json.Linq;
++using UnityEngine;
++using UnityEngine.EventSystems;
++using UnityEngine.Rendering;
++using UnityEngine.UI;
++
++namespace MusimusihanRpg.Gameplay
++{
++    /// <summary>Opt-in packaged-player checks for the actual recipe UI and isolated crafting queue.</summary>
++    public sealed class NativeSimpleCraftingSmoke : MonoBehaviour
++    {
++        static string temporarySettings, previousSettings;
++        static bool Requested => Application.isBatchMode && Environment.GetCommandLineArgs().Contains("-simpleCraftingSmoke");
++        readonly List<string> checks = new List<string>(), errors = new List<string>(), captures = new List<string>();
++        WorkshopController game;
++        NativeGameFlow flow;
++        ExpeditionInventory original;
++        SimpleCraftingSystem originalCrafting;
++        JObject originalQueue, originalBag, originalSession;
++        IEnumerator replay;
++        double started;
++        int frames;
++        bool finished;
++
++        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
++        static void Prepare()
++        {
++            if (!Requested) return;
++            previousSettings = Environment.GetEnvironmentVariable("RPG_NATIVE_SETTINGS_PATH");
++            temporarySettings = Path.Combine(Application.temporaryCachePath, "simple-crafting-settings-" + Guid.NewGuid().ToString("N") + ".json");
++            Environment.SetEnvironmentVariable("RPG_NATIVE_SETTINGS_PATH", temporarySettings);
++            Application.runInBackground = true;
++            AudioListener.pause = true;
++        }
++
++        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
++        static void Launch()
++        {
++            if (Requested) new GameObject("NativeSimpleCraftingSmoke").AddComponent<NativeSimpleCraftingSmoke>();
++        }
++
++        void Awake()
++        {
++            DontDestroyOnLoad(gameObject);
++            started = Time.realtimeSinceStartupAsDouble;
++            AudioListener.pause = true;
++            Application.logMessageReceived += Record;
++        }
++        void OnDestroy() => Application.logMessageReceived -= Record;
++        void Record(string message, string stack, LogType kind)
++        {
++            if (kind == LogType.Error || kind == LogType.Exception || kind == LogType.Assert) errors.Add(message + "\n" + stack);
++        }
++        void Check(bool accepted, string description)
++        {
++            if (!accepted) throw new InvalidOperationException(description);
++            checks.Add(description);
++            Debug.Log("SIMPLE_CRAFTING_CHECK " + checks.Count + " " + description);
++        }
++        static JObject Bag(ExpeditionInventory bag) => new JObject
++        {
++            ["slots"] = JArray.FromObject(bag.Slots), ["equipment"] = JObject.FromObject(bag.Equipment),
++            ["instances"] = JObject.FromObject(bag.EquipmentData)
++        };
++        JObject Session() => new JObject
++        {
++            ["crowns"] = game.Session.Crowns, ["survival"] = game.Session.SurvivalSnapshot(),
++            ["stock"] = game.Session.MerchantStock.DeepClone(), ["spells"] = new JArray(game.Session.LearnedSpells),
++            ["selected_spell"] = game.Session.SelectedSpell
++        };
++        RectTransform Node(string name)
++        {
++            var node = flow.Crafting.Find(name);
++            Check(node != null && node.gameObject.activeInHierarchy, "Visible production crafting control / " + name);
++            return node;
++        }
++        void Click(string name)
++        {
++            var node = Node(name);
++            var button = node.GetComponent<Button>();
++            Check(button != null && button.IsInteractable(), "Enabled production crafting button / " + name);
++            flow.Ui.LayoutWindow(Math.Max(1, Screen.width), Math.Max(1, Screen.height));
++            Canvas.ForceUpdateCanvases();
++            var data = new PointerEventData(EventSystem.current)
++            {
++                button = PointerEventData.InputButton.Left, clickCount = 1,
++                position = RectTransformUtility.WorldToScreenPoint(flow.Ui.Camera, node.TransformPoint(node.rect.center))
++            };
++            var hits = new List<RaycastResult>();
++            EventSystem.current.RaycastAll(data, hits);
++            Check(hits.Count > 0 && hits[0].gameObject == node.gameObject,
++                "Actual EventSystem raycast reaches " + name + " / first=" + (hits.Count == 0 ? "none" : hits[0].gameObject.name));
++            data.pointerCurrentRaycast = data.pointerPressRaycast = hits[0];
++            ExecuteEvents.Execute(node.gameObject, data, ExecuteEvents.pointerDownHandler);
++            ExecuteEvents.Execute(node.gameObject, data, ExecuteEvents.pointerUpHandler);
++            ExecuteEvents.Execute(node.gameObject, data, ExecuteEvents.pointerClickHandler);
++        }
++        void Advance(double seconds)
++        {
++            game.Advance(seconds);
++            flow.Tick(0);
++            flow.Crafting.Refresh();
++        }
++        void Update()
++        {
++            if (finished) return;
++            Input.ResetInputAxes();
++            try
++            {
++                if (Time.realtimeSinceStartupAsDouble - started > 180) throw new TimeoutException("Simple crafting packaged acceptance timed out");
++                game = FindFirstObjectByType<WorkshopController>();
++                if (game?.Session == null || game.Crafting == null || game.NativeGame?.Crafting == null ||
++                    game.NativeGame.Settings?.Store == null || game.DungeonPlayer == null || NativeLoadingScreen.Visible) return;
++                flow = game.NativeGame;
++                game.ManualClock = true;
++                game.DungeonPlayer.ManualClock = true;
++                game.DungeonPlayer.ReleasePointer();
++                if (++frames < 4) return;
++                frames = 0;
++                replay ??= Replay();
++                if (!replay.MoveNext()) Finish();
++            }
++            catch (Exception error) { errors.Add(error.ToString()); Finish(); }
++        }
++
++        IEnumerator Replay()
++        {
++            Check(flow.Settings.Store.Path == temporarySettings, "QA settings are isolated from user preferences");
++            Check(flow.Smithing == null && flow.Alchemy == null &&
++                !flow.Ui.Nodes.Keys.Any(key => key.StartsWith("smithing/") || key.StartsWith("alchemy/")),
++                "Legacy manual forge and alchemy screens are absent from the active native interface");
++            original = game.Session.Inventory;
++            original.AddItem("rusted_sword", 1, false, JObject.Parse("{uid:'simple-crafting-owned-sword',item_tag:'보존할 검',smithing:{quality:81,grip:'balanced_grip',runes:['ember_rune']}}"));
++            original.AddItem("iron_ingot", 3, false); original.AddItem("forge_charcoal", 2, false); original.AddItem("grip_leather", 1, false);
++            originalCrafting = game.Crafting;
++            Check((bool)originalCrafting.Enqueue("forged_longsword")["accepted"], "Original expedition has a real pending recipe before F2");
++            originalQueue = originalCrafting.Snapshot(); originalBag = Bag(original); originalSession = Session();
++            game.OpenTrials();
++            Check(!ReferenceEquals(original, game.Session.Inventory) && !ReferenceEquals(originalCrafting, game.Crafting),
++                "F2 isolates both the original inventory and pending crafting service");
++            Check(game.Trials.RunnableEntries.Count(e => (string)e["id"] == "simple_crafting") == 1 &&
++                !game.Trials.RunnableEntries.Any(e => (string)e["action"] == "smithing" || (string)e["action"] == "alchemy" || (string)e["action"] == "alchemy_recipe" || (string)e["action"] == "distilling"),
++                "F2 exposes one simple crafting route and retires manual crafting routes");
++            Check(game.RunTrial("simple_crafting") && flow.State == "crafting" && flow.Crafting.IsOpen,
++                "Actual simple crafting F2 entry opens the production recipe interface");
++            yield return null;
++
++            var bag = game.Session.Inventory;
++            var crafting = game.Crafting;
++            Click("Category_weapon");
++            yield return null;
++            Click("Recipe_0");
++            Check(flow.Crafting.SelectedRecipe == "forged_longsword", "Real recipe grid selects the forged longsword");
++            Click("QuantityPlus");
++            Check(flow.Crafting.Quantity == 2 && Node("Quantity").GetComponent<Text>().text == "2", "Real quantity button selects two crafts");
++            var recipe = crafting.Recipe(flow.Crafting.SelectedRecipe);
++            foreach (var cost in ((JObject)recipe["materials"]).Properties())
++                Check(Node("MaterialCount_" + cost.Name).GetComponent<Text>().text.Contains(((int)cost.Value * 2).ToString()),
++                    "Production materials table displays selected-quantity requirement / " + cost.Name);
++            var beforeMaterials = ((JObject)recipe["materials"]).Properties().ToDictionary(p => p.Name, p => bag.CountItem(p.Name));
++            int beforeSwords = bag.CountItem("forged_longsword");
++            Click("CraftButton");
++            Check(crafting.Queue.Count == 1 && (int)crafting.Queue[0]["quantity"] == 2 && bag.CountItem("forged_longsword") == beforeSwords,
++                "Real craft button queues two items without awarding them early");
++            foreach (var cost in ((JObject)recipe["materials"]).Properties())
++                Check(bag.CountItem(cost.Name) == beforeMaterials[cost.Name] - (int)cost.Value * 2,
++                    "Queue reserves the exact selected recipe materials / " + cost.Name);
++            yield return null;
++
++            var pausedQueue = crafting.Snapshot();
++            game.TogglePause(); Advance(120);
++            Check(JToken.DeepEquals(pausedQueue, crafting.Snapshot()), "Player pause freezes pending crafting time");
++            game.TogglePause(); Advance(1);
++            Check((double)crafting.Queue[0]["remaining"] < (double)pausedQueue["queue"][0]["remaining"], "Unpause resumes the actual shared crafting clock");
++            game.OpenTrials(); var menuQueue = crafting.Snapshot(); Advance(120);
++            Check(game.Trials.MenuOpen && JToken.DeepEquals(menuQueue, crafting.Snapshot()), "F2 menu freezes the isolated crafting queue");
++            game.ResumeTrial();
++            Check(ReferenceEquals(crafting, game.Crafting) && flow.Crafting.IsOpen, "Resume retains the same pending trial crafting service");
++            Advance((double)crafting.Queue[0]["remaining"] + .01);
++            Check(crafting.Queue.Count == 0 && bag.CountItem("forged_longsword") == beforeSwords + 2,
++                "Timer completion awards exactly two normal inventory weapons");
++            Advance(60);
++            Check(bag.CountItem("forged_longsword") == beforeSwords + 2, "Completed queue cannot duplicate output on later frames");
++            yield return null;
++
++            Click("Category_armor");
++            yield return null;
++            Click("Recipe_0");
++            Check(flow.Crafting.SelectedRecipe == "wanderer_hood", "Armor category uses the same real recipe grid");
++            int leather = bag.CountItem("grip_leather");
++            Click("CraftButton"); string armorJob = (string)crafting.Queue[0]["id"];
++            Click("Category_consumable");
++            yield return null;
++            Click("Recipe_0"); Click("QuantityPlus");
++            Check(flow.Crafting.SelectedRecipe == "healing_draught", "Potion category selects a fixed healing recipe");
++            int potions = bag.CountItem("healing_draught");
++            Click("CraftButton");
++            Check(crafting.Queue.Count == 2 && (string)crafting.Queue[1]["state"] == "queued", "Armor and potions share one FIFO queue");
++            yield return null;
++            Capture();
++            Click("Cancel_" + armorJob);
++            Check(crafting.Queue.Count == 1 && (string)crafting.Queue[0]["recipe_id"] == "healing_draught" && bag.CountItem("grip_leather") == leather,
++                "Real queue cancel returns armor materials and promotes the pending potion recipe");
++            Advance((double)crafting.Queue[0]["remaining"] + .01);
++            Check(bag.CountItem("healing_draught") == potions + 2 && crafting.Queue.Count == 0, "Simplified potion crafting awards the selected two bottles");
++            yield return null;
++
++            Click("Category_weapon");
++            yield return null;
++            flow.Crafting.SetQuantity(99);
++            Check(!Node("CraftButton").GetComponent<Button>().IsInteractable(), "Insufficient materials disable the production craft button");
++            var failedBag = Bag(bag); var failedQueue = crafting.Snapshot(); var rejected = flow.Crafting.Craft();
++            Check(!(bool)rejected["accepted"] && (string)rejected["reason"] == "missing_materials" &&
++                JToken.DeepEquals(failedBag, Bag(bag)) && JToken.DeepEquals(failedQueue, crafting.Snapshot()),
++                "Missing-material rejection does not consume inventory or alter the queue");
++            game.RetryTrial();
++            Check(flow.Crafting.IsOpen && !ReferenceEquals(crafting, game.Crafting) && game.Crafting.Queue.Count == 0 &&
++                bag.CountItem("forged_longsword") == beforeSwords + 2 && bag.CountItem("healing_draught") == potions + 2,
++                "Retry replenishes isolated supplies and preserves completed trial items");
++            crafting = game.Crafting;
++            yield return null;
++
++            flow.CloseCrafting(); flow.OpenSmithing();
++            Check(flow.State == "crafting" && flow.Crafting.Category == "weapon" && flow.Smithing == null,
++                "Former weapon station entry routes to the shared simple crafting screen");
++            flow.CloseSmithing(); flow.OpenAlchemy();
++            Check(flow.State == "crafting" && flow.Crafting.Category == "consumable" && flow.Alchemy == null,
++                "Former potion station entry routes to the shared simple crafting screen");
++            flow.CloseAlchemy();
++            Check(flow.State == "playing" && !flow.Crafting.IsOpen, "Closing either station leaves the shared recipe screen");
++            flow.OpenCrafting("armor");
++            yield return null;
++
++            // This deliberately fills only the disposable F2 bag, exercising actual packaged output capacity.
++            bag.Slots.Clear(); bag.AddItem("grip_leather", 4, false); bag.NotifyChanged();
++            flow.Crafting.SelectRecipe("wanderer_hood"); flow.Crafting.SetQuantity(2);
++            Click("CraftButton");
++            while (bag.Slots.Count < ExpeditionInventory.MaxSlots) bag.AddItem("rusted_sword", 1, false);
++            bag.NotifyChanged(); Advance(16);
++            Check(crafting.Queue.Count == 1 && (string)crafting.Queue[0]["state"] == "waiting_output" && bag.CountItem("wanderer_hood") == 0,
++                "Full inventory safely retains completed output in the crafting queue");
++            bag.RemoveFromSlot(bag.Slots.Count - 1, 1); Advance(.01);
++            Check(crafting.Queue.Count == 1 && bag.CountItem("wanderer_hood") == 0, "One free slot cannot partially award two nonstackable outputs");
++            bag.RemoveFromSlot(bag.Slots.Count - 1, 1); Advance(.01);
++            Check(crafting.Queue.Count == 0 && bag.CountItem("wanderer_hood") == 2, "Enough freed bag space awards both retained outputs atomically");
++            game.EndTrials(); flow.Tick(0);
++            Check(ReferenceEquals(original, game.Session.Inventory) && ReferenceEquals(originalCrafting, game.Crafting) &&
++                JToken.DeepEquals(originalBag, Bag(original)) && JToken.DeepEquals(originalQueue, originalCrafting.Snapshot()) &&
++                JToken.DeepEquals(originalSession, Session()),
++                "F2 restores original bag identity, owned item metadata, session and pending queue exactly");
++            Check(AudioListener.pause && !game.DungeonPlayer.Captured && Cursor.lockState == CursorLockMode.None,
++                "Acceptance uses silent playback and no captured desktop pointer");
++        }
++
++        string Output => Environment.GetEnvironmentVariable("RPG_SIMPLE_CRAFTING_OUTPUT") ?? Path.Combine(Application.persistentDataPath, "simple-crafting-acceptance.json");
++        void Capture()
++        {
++            if (!Environment.GetCommandLineArgs().Contains("-simpleCraftingCapture")) return;
++            Check(SystemInfo.graphicsDeviceType == GraphicsDeviceType.Metal, "Requested screen capture uses the actual Metal renderer");
++            var ui = flow.Ui;
++            Check(ui.Renderer != null && ui.Renderer.Ready, "Production UI renderer is ready for an offscreen screen capture");
++            var target = new RenderTexture(1280, 720, 24, RenderTextureFormat.ARGB32);
++            var active = RenderTexture.active;
++            var scalers=ui.GetComponentsInChildren<CanvasScaler>();
++            var scalerEnabled=scalers.Select(s=>s.enabled).ToArray();
++            var canvasScales=scalers.Select(s=>s.GetComponent<Canvas>().scaleFactor).ToArray();
++            target.Create();
++            Texture2D pixels = null;
++            try
++            {
++                foreach(var scaler in scalers){scaler.enabled=false;scaler.GetComponent<Canvas>().scaleFactor=1;}
++                foreach(var graphic in ui.GetComponentsInChildren<Graphic>())graphic.SetAllDirty();
++                Canvas.ForceUpdateCanvases();
++                ui.Renderer.RenderTo(target, Array.Empty<SourceSceneRenderer>());
++                RenderTexture.active = target;
++                pixels = new Texture2D(1280, 720, TextureFormat.RGBA32, false, true);
++                pixels.ReadPixels(new Rect(0, 0, 1280, 720), 0, 0); pixels.Apply();
++                string path = Path.Combine(Path.GetDirectoryName(Path.GetFullPath(Output)), "simple-crafting.png");
++                Directory.CreateDirectory(Path.GetDirectoryName(path));
++                File.WriteAllBytes(path, pixels.EncodeToPNG()); captures.Add(path);
++                Check(File.Exists(path) && new FileInfo(path).Length > 1000, "Saved the actual recipe/materials/quantity/queue interface at 1280x720");
++            }
++            finally
++            {
++                RenderTexture.active = active;
++                if (pixels != null) Destroy(pixels);
++                target.Release(); Destroy(target);
++                for(int i=0;i<scalers.Length;i++){scalers[i].enabled=scalerEnabled[i];scalers[i].GetComponent<Canvas>().scaleFactor=canvasScales[i];}
++                ui.LayoutWindow(Math.Max(1,Screen.width),Math.Max(1,Screen.height));Canvas.ForceUpdateCanvases();
++            }
++        }
++        void Finish()
++        {
++            if (finished) return;
++            finished = true;
++            try
++            {
++                if (game?.Trials?.Active == true) game.EndTrials();
++                game?.DungeonPlayer?.ReleasePointer();
++            }
++            catch (Exception error) { errors.Add("Cleanup: " + error); }
++            Environment.SetEnvironmentVariable("RPG_NATIVE_SETTINGS_PATH", previousSettings);
++            try
++            {
++                if (temporarySettings != null && File.Exists(temporarySettings)) File.Delete(temporarySettings);
++                if (temporarySettings != null && File.Exists(temporarySettings + ".tmp")) File.Delete(temporarySettings + ".tmp");
++            }
++            catch (Exception error) { errors.Add("Settings cleanup: " + error); }
++            var report = new JObject
++            {
++                ["result"] = errors.Count == 0 ? "Passed" : "Failed", ["checks"] = new JArray(checks), ["errors"] = new JArray(errors),
++                ["captures"] = new JArray(captures), ["gpu"] = SystemInfo.graphicsDeviceType.ToString(),
++                ["seconds"] = Time.realtimeSinceStartupAsDouble - started, ["hardware_input_verified"] = false, ["speaker_output_verified"] = false,
++                ["scope"] = "Packaged native recipe UI with real EventSystem clicks, quantities/material payment, FIFO completion/cancel, pause/menu clocks, retired station routes, blocked output and exact original F2 inventory/queue restoration. Optional Metal capture is offscreen; hardware input, audible output and whole-game certification are separate."
++            };
++            string path = Path.GetFullPath(Output);
++            Directory.CreateDirectory(Path.GetDirectoryName(path)); File.WriteAllText(path, report.ToString());
++            Debug.Log("SIMPLE_CRAFTING_ACCEPTANCE " + report["result"] + " checks=" + checks.Count);
++            Application.Quit(errors.Count == 0 ? 0 : 1);
++        }
++    }
++}
+diff --git a/unity-game/Assets/RPG/Gameplay/NativeSimpleCraftingSmoke.cs.meta b/unity-game/Assets/RPG/Gameplay/NativeSimpleCraftingSmoke.cs.meta
+new file mode 100644
+index 0000000000000000000000000000000000000000..8c5c837df3af26f2ace79897223d8760d8a1d80b
+--- /dev/null
++++ b/unity-game/Assets/RPG/Gameplay/NativeSimpleCraftingSmoke.cs.meta
+@@ -0,0 +1,2 @@
++fileFormatVersion: 2
++guid: 71d88450b70c4fb9b2c596c64f58e34d
+diff --git a/unity-game/Assets/RPG/Gameplay/NativeSmithingFlow.cs b/unity-game/Assets/RPG/Gameplay/NativeSmithingFlow.cs
+index c26092485c5e5d61bf5939758584528db1366003..6bc1b742ef3b63d1d271657a4649f8b1ecf75a22 100644
+--- a/unity-game/Assets/RPG/Gameplay/NativeSmithingFlow.cs
++++ b/unity-game/Assets/RPG/Gameplay/NativeSmithingFlow.cs
+@@ -1,5 +1,3 @@
+-using System.Linq;
+-using Newtonsoft.Json.Linq;
+ using UnityEngine;
+ namespace MusimusihanRpg.Gameplay
+ {
+@@ -7,21 +5,11 @@ namespace MusimusihanRpg.Gameplay
+     {
+         public GameObject BlacksmithPrefab;public TextAsset BlacksmithData;public AudioClip SmithMetal,SmithAir;
+         public NativeSmithing Smithing {get;private set;}
+-        public void OpenSmithing(bool restore=false)
+-        {
+-            if(!restore&&State!="playing")return;
+-            if(!restore)motor.PrepareForInventory();
+-            else{game.Interaction?.Cancel();game.Combat?.Cancel();game.Items.Cancel();}
+-            motor.ReleasePointer();State="smithing";
+-            Ui.Visible("hideout",false);Ui.Visible("title",false);Ui.Visible("merchant",false);Smithing.Open(restore);
+-        }
+-        public void CloseSmithing(){if(State!="smithing")return;Smithing.Hide();State="playing";Ui.Visible("hideout",true);motor.CapturePointer();}
+-        public static bool IsSmithingTrial(string id)=>new[]{"smithing_forge","smithing_grip","smithing_blade","smithing_rune"}.Contains(id);
+-        public void BeginNativeSmithingTrial(string id)
+-        {
+-            SaveNativeTrialPresentation();NativeTrial=true;returningFromTrials=false;motor=game.DungeonPlayer;InHideout=true;State="playing";motor.NativeHud=true;motor.Paused=true;motor.Eyes.enabled=false;
+-            BindHideoutInteractions(game.DungeonRoot);BindHideoutLighting(game.DungeonRoot);game.Combat.SafeZone=true;RestoreWorldPresentation();
+-            Ui.gameObject.SetActive(true);OpenSmithing();Smithing.ShowStation(id.Substring("smithing_".Length));
+-        }
++        // Retain serialized production references and old callers while routing
++        // every player entry to the shared recipe-and-queue screen.
++        public void OpenSmithing(bool restore=false)=>OpenCrafting("weapon",restore);
++        public void CloseSmithing()=>CloseCrafting();
++        public static bool IsSmithingTrial(string id)=>false;
++        public void BeginNativeSmithingTrial(string id)=>BeginNativeCraftingTrial("weapon");
+     }
+ }
+diff --git a/unity-game/Assets/RPG/Gameplay/NativeTrialMenu.cs b/unity-game/Assets/RPG/Gameplay/NativeTrialMenu.cs
+index a4af866e835923ee5f9797641aa5aa63c4a1e990..e9be68bb8ae2c076f801d342a6d4b79c2dde2519 100644
+--- a/unity-game/Assets/RPG/Gameplay/NativeTrialMenu.cs
++++ b/unity-game/Assets/RPG/Gameplay/NativeTrialMenu.cs
+@@ -44,6 +44,7 @@ namespace MusimusihanRpg.Gameplay
+                 string oldName=(string)extra["name"];extra["name"]="Feature_native_settings";extra["path"]=((string)extra["path"]).Replace(oldName,"Feature_native_settings");extra["text"]=settings["title"]+"\n"+settings["detail"];controls.Add(extra);
+                 var content=controls.OfType<JObject>().First(e=>((string)e["path"]).StartsWith("trial/category_4/")&&(string)e["name"]=="TrialEntries");content["rect"][3]=(float)at[1]+(float)at[3]-(float)content["rect"][1];
+             }
++            ApplyCurrentTrialEntries(controls);
+             Ui.Build(controls,game.KoreanFont??Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf"),Array.Empty<SourceUi.TextureBinding>());
+             Ui.Camera.depth=110;Ui.Renderer.Output.depth=111;
+             foreach(var entry in game.Catalog.TestRoomEntries.OfType<JObject>())featureIds["Feature_"+((string)entry["id"]).Replace(':','_')]=(string)entry["id"];
+@@ -61,6 +62,39 @@ namespace MusimusihanRpg.Gameplay
+             }
+             BuildStats();SelectCategory(0);Ui.gameObject.SetActive(false);
+         }
++        void ApplyCurrentTrialEntries(JArray controls)
++        {
++            var live=new HashSet<string>(game.Catalog.TestRoomEntries.OfType<JObject>().Select(e=>"Feature_"+((string)e["id"]).Replace(':','_')));
++            var rows=controls.OfType<JObject>().Where(e=>((string)e["name"]).StartsWith("Feature_")).ToArray();
++            var crafting=game.Catalog.TestRoomEntries.OfType<JObject>().FirstOrDefault(e=>NativeGameFlow.IsCraftingTrial((string)e["id"]));
++            if(crafting!=null&&!rows.Any(e=>(string)e["name"]=="Feature_simple_crafting"))
++            {
++                var template=rows.First(e=>(string)e["name"]=="Feature_smithing_forge");
++                var extra=(JObject)template.DeepClone();
++                extra["name"]="Feature_simple_crafting";
++                extra["path"]=((string)extra["path"]).Replace("Feature_smithing_forge","Feature_simple_crafting");
++                extra["text"]=crafting["title"]+"\n"+crafting["detail"];
++                extra["signals"]=new JArray();controls.Add(extra);
++            }
++            foreach(var row in rows.Where(e=>!live.Contains((string)e["name"])))row.Remove();
++            var counts=new int[5];
++            for(int category=0;category<5;category++)
++            {
++                string prefix="trial/category_"+category+"/";
++                var current=controls.OfType<JObject>().Where(e=>((string)e["path"]).StartsWith(prefix)&&((string)e["name"]).StartsWith("Feature_")).OrderBy(e=>(float)e["rect"][1]).ToArray();
++                counts[category]=current.Length;if(current.Length==0)continue;
++                float y=(float)current[0]["rect"][1];
++                foreach(var row in current){row["rect"][1]=y;y+=(float)row["rect"][3]+7;}
++                var content=controls.OfType<JObject>().First(e=>((string)e["path"]).StartsWith(prefix)&&(string)e["name"]=="TrialEntries");
++                content["rect"][3]=y-7-(float)content["rect"][1];
++            }
++            foreach(var tab in controls.OfType<JObject>().Where(e=>((string)e["name"]).StartsWith("TrialCategory_")))
++            {
++                int index=int.Parse(((string)tab["name"]).Substring(14));
++                string label=((string)tab["text"]).Split(new[]{' '},StringSplitOptions.RemoveEmptyEntries)[0];
++                tab["text"]=label+"  "+counts[index];
++            }
++        }
+         RectTransform Node(string name,int category=-1)=>Ui.Nodes.Values.FirstOrDefault(x=>x.name==name&&Ui.Nodes.First(p=>p.Value==x).Key.StartsWith("trial/category_"+(category<0?Category:category)+"/"));
+         public void SelectCategory(int category)
+         {
+diff --git a/unity-game/Assets/RPG/Gameplay/WorkshopController.cs b/unity-game/Assets/RPG/Gameplay/WorkshopController.cs
+index a716ef3efbfb5c392d4b6a8faeda42f49d6dcc9b..8c1061008741853b6744438c85a3f28be2a7e42b 100644
+--- a/unity-game/Assets/RPG/Gameplay/WorkshopController.cs
++++ b/unity-game/Assets/RPG/Gameplay/WorkshopController.cs
+@@ -24,6 +24,8 @@ namespace MusimusihanRpg.Gameplay
+         public SmithingSystem Smith { get; private set; }
+         public AlchemySystem Alchemy { get; private set; }
+         public HearthCookingSystem Cooking {get;private set;}
++        public SimpleCraftingSystem Crafting {get;private set;}
++        SimpleCraftingSystem savedCrafting;
+         public WorkshopView View { get; private set; }
+         public NativeTrialMenu TrialMenu {get;private set;}
+         public string Page { get; private set; } = "inventory";
+@@ -45,18 +47,21 @@ namespace MusimusihanRpg.Gameplay
+         public void Initialize()
+         {
+             if (Session != null) return;
+-            Catalog = SourceCatalogs.Load(); Session = new ExpeditionSession(Catalog); Session.BeginNewJourney();
++            Catalog = SourceCatalogs.Load(); ApplySimpleCraftingDescriptions(); Session = new ExpeditionSession(Catalog); Session.BeginNewJourney();
+             if(NativeGame!=null)Catalog.TestRoomEntries.Add(new JObject{["id"]="native_settings",["category"]="시스템",["title"]="설정 · 음량·전체 화면·화질·성능",["action"]="native_settings",["detail"]="설정 조작·저장 시험 / 플레이 시험에서는 Esc로 설정 / F2 정지·재시도 / 실제 설정과 원정 복원"});
++            // Manual forging and alchemy are superseded by the shared recipe queue.
++            foreach(var entry in Catalog.TestRoomEntries.OfType<JObject>().Where(e=>new[]{"smithing","alchemy","alchemy_recipe","distilling"}.Contains((string)e["action"])).ToArray())entry.Remove();
++            Catalog.TestRoomEntries.Add(new JObject{["id"]="simple_crafting",["category"]="제작",["title"]="간단 제작 · 재료·수량·대기열",["action"]="simple_crafting",["detail"]="제조법 선택 → 수량 → 제작 / 대기열 취소·재료 반환 / F2 정지·재보급·원정 복원"});
+             BindServices(); Trials = new TestRoomSession(Catalog, Session);
+             Trials.BeforeTrialReset += () => { ResetOriginalRangedFeedback(); NativeGame?.EndNativeTrial(); Camp?.Dispose(); Items.Cancel(); Interaction?.Cancel(); Combat?.CancelExecution(); DungeonPlayer?.GetComponent<PlayerPresentation>()?.CancelTreatment(); CloseLoot(); };
+             Trials.Restored += () =>
+             {
+                 NativeGame?.EndNativeTrial();
+                 RestoreWorld();
+-                Items = savedItems; Smith = savedSmith; Alchemy = savedAlchemy; Cooking=savedCooking; Camp=savedCamp;
++                Items = savedItems; Smith = savedSmith; Alchemy = savedAlchemy; Cooking=savedCooking; Camp=savedCamp; Crafting=savedCrafting;
+                 Page = savedPage; Paused = savedPause;
+                 smithingPhase = savedSmithingPhase;
+-                savedItems = null; savedSmith = null; savedAlchemy = null; savedCooking=null; savedCamp=null;
++                savedItems = null; savedSmith = null; savedAlchemy = null; savedCooking=null; savedCamp=null; savedCrafting=null;
+                 Message = "시험 종료 · 원래 원정과 작업대로 돌아왔습니다."; Dirty = true;
+             };
+             BindInteraction(); RegisterTrials(); RegisterInteractionTrials(); RegisterCharacterTrials(); RegisterClothTrial(); RegisterHandProfiles(); RegisterCombatTrials(); RegisterNativeInventoryTrials(); RegisterSceneTrials(); RegisterOriginalCombatTrials();
+@@ -74,6 +79,7 @@ namespace MusimusihanRpg.Gameplay
+             if(Camp!=null&&Camp!=savedCamp)Camp.Dispose();
+             Items = new ItemUseRules(Catalog, Session); Smith = new SmithingSystem(Catalog, Session.Inventory);
+             Alchemy = new AlchemySystem(Catalog, Session.Inventory);
++            if(Crafting==null||!ReferenceEquals(Crafting.Inventory,Session.Inventory))Crafting=new SimpleCraftingSystem(Catalog,Session.Inventory);
+             Cooking=new HearthCookingSystem(Catalog,Session,()=>DungeonPlayer?.Stamina??0,n=>DungeonPlayer?.RestoreStamina((float)n),CookingSceneFailure);
+             if(NativeGame?.CampData!=null&&DungeonPlayer!=null)Camp=new NativeCamp(this);
+             smithingPhase = 0;
+@@ -110,7 +116,7 @@ namespace MusimusihanRpg.Gameplay
+                 {
+                     if (Input.GetKeyDown(KeyCode.E) && Page == "loot") CloseLoot();
+                     if (Input.GetKeyDown(KeyCode.I)) { if (Page == "loot") CloseLoot(); else Navigate(Page == "inventory" && inExpedition ? "dungeon" : "inventory"); }
+-                    if (Input.GetKeyDown(KeyCode.Space) && Page == "alchemy") Reply(Alchemy.PumpBellows());
++
+                 }
+                 AdvanceLiveFrame(Time.unscaledDeltaTime);
+             }
+@@ -177,8 +183,7 @@ namespace MusimusihanRpg.Gameplay
+         bool AdvanceNativeActivities(double seconds)
+         {
+             if(NativeActivity("cooking")){if(seconds>0){Cooking.Advance(seconds);if(Cooking.State=="closed")NativeGame.CloseCooking();}return true;}
+-            if(NativeActivity("smithing")){if(seconds>0)NativeGame.Smithing.Advance(seconds);return true;}
+-            if(NativeActivity("alchemy")){if(seconds>0)NativeGame.Alchemy.Advance(seconds);return true;}
++            if(NativeActivity("crafting")){if(seconds>0)Crafting.Tick(seconds);return true;}
+             if(NativeGame?.State=="fingers"&&NativeGame.Fingers?.IsOpen==true){if(seconds>0)NativeGame.Fingers.Advance((float)seconds);return true;}
+             return false;
+         }
+@@ -204,8 +209,7 @@ namespace MusimusihanRpg.Gameplay
+             if (inExpedition && Page != "dungeon") return;
+             if (Page != "dungeon") { Interaction?.Advance(seconds); Items.Advance(seconds); }
+             if (Page == "loot") return;
+-            if (Page == "smithing") { smithingPhase += seconds; Smith.Tick(seconds); }
+-            if (Page == "alchemy") Alchemy.Tick(seconds);
++            Crafting?.Tick(seconds);
+             // The workshop is a safe area, matching hideout survival behavior.
+             Camp?.Advance(seconds);
+             // hideout.gd never advances expedition survival. Keep the low-level
+@@ -220,6 +224,7 @@ namespace MusimusihanRpg.Gameplay
+         public void Navigate(string page)
+         {
+             if (Trials.MenuOpen) return;
++            if(page=="smithing"||page=="alchemy"||page=="crafting"){NativeGame?.OpenCrafting(page=="smithing"?"weapon":page=="alchemy"?"consumable":"all");return;}
+             if (Page == "dungeon" && page != "dungeon") { Bow?.Cancel();Flail?.Cancel();Combat?.Cancel();Interaction?.Cancel(); DungeonPlayer?.ReleasePointer(); }
+             Page = page; Dirty = true;
+         }
+@@ -254,7 +259,7 @@ namespace MusimusihanRpg.Gameplay
+         {
+             DismissGallery();StopClothObservation();
+             if(NativeGame!=null&&NativeGame.IsTransitioning&&!NativeGame.CommittingLoadedScene)return;
+-            bool returningFromScene=Trials.Active&&NativeGame!=null&&DungeonRoot.GetComponent<NativeTrialWorld>()==null;
++            bool returningFromScene=Trials.Active&&NativeGame!=null&&!NativeGameFlow.IsCraftingTrial(Trials.CurrentEntry)&&DungeonRoot.GetComponent<NativeTrialWorld>()==null;
+             // test_room.gd::F2 closes the bag and interrupts unpaid actions in the
+             // sandbox. The original expedition remains suspended on first entry.
+             if(Trials.Active)
+@@ -269,7 +274,7 @@ namespace MusimusihanRpg.Gameplay
+             if (Page == "fingers") DungeonPlayer?.GetComponent<PlayerPresentation>()?.EndReview();
+             if (!Trials.Active)
+             {
+-                savedItems = Items; savedSmith = Smith; savedAlchemy = Alchemy; savedCooking=Cooking; savedCamp=Camp; savedPage = Page; savedPause = Paused;
++                savedItems = Items; savedSmith = Smith; savedAlchemy = Alchemy; savedCooking=Cooking; savedCamp=Camp; savedCrafting=Crafting; savedPage = Page; savedPause = Paused;
+                 savedSmithingPhase = smithingPhase;
+                 IsolateWorld(); Trials.Begin(); BindServices();PrepareTrialRoomActors();DungeonPlayer?.ResetTrial(new Vector3(0,1,12));
+                 Message=$"{Catalog.TestRoomEntries.Count(e=>(string)e["id"]!="native_settings")}개 시험 항목 · AI 정지 표적으로 시작 · F2는 언제든 시험 메뉴";
+@@ -307,8 +312,7 @@ namespace MusimusihanRpg.Gameplay
+             if(accepted&&Page=="dungeon"&&DungeonPlayer!=null)
+             {if(DungeonPlayer.Eyes!=null)DungeonPlayer.Eyes.enabled=true;if(NativeGame!=null&&!NativeGameFlow.IsCaveTrial(id))NativeGame.ApplyReliquaryEnvironment(DungeonPlayer);}
+             if(accepted&&NativeGameFlow.IsJourneyTrial(id)&&NativeGame!=null)NativeGame.BeginNativeJourneyTrial(id,true);
+-            if(accepted&&NativeGameFlow.IsSmithingTrial(id)&&NativeGame?.Smithing!=null)NativeGame.BeginNativeSmithingTrial(id);
+-            if(accepted&&NativeGame?.Alchemy!=null&&NativeGame.IsAlchemyTrial(id))NativeGame.BeginNativeAlchemyTrial(id);
++            if(accepted&&id=="simple_crafting"&&NativeGame!=null)NativeGame.BeginNativeCraftingTrial();
+             if(accepted&&NativeGameFlow.IsCampTrial(id)&&NativeGame?.CampUi!=null)NativeGame.BeginNativeCampTrial();
+             if(accepted&&id=="hideout_cooking"&&NativeGame?.Cooking!=null)NativeGame.BeginNativeCookingTrial();
+             if(accepted&&InventoryTrial(id)&&NativeGame!=null)NativeGame.BeginNativeInventoryTrial(id);
+@@ -324,15 +328,13 @@ namespace MusimusihanRpg.Gameplay
+             return accepted;
+         }
+         public void RetryTrial() { if (Trials.CurrentEntry.Length > 0) RunTrial(Trials.CurrentEntry); }
+-        public void ResumeTrial() { TrialMenu?.CommitPending();if(Trials.Active&&Trials.MenuOpen&&Trials.CurrentEntry.Length==0)Trials.SelectDefault("movement");if (Trials.Resume()) { Page = TrialPage(Trials.CurrentEntry); if(DungeonRoot!=null)DungeonRoot.SetActive(Page=="dungeon"||Page=="loot"); if(DungeonPlayer!=null)DungeonPlayer.Paused=SimulationPaused||Page!="dungeon";if(NativeGameFlow.IsJourneyTrial(Trials.CurrentEntry)&&NativeGame!=null)NativeGame.BeginNativeJourneyTrial(Trials.CurrentEntry);if(NativeGameFlow.IsSmithingTrial(Trials.CurrentEntry)&&NativeGame?.Smithing!=null)NativeGame.BeginNativeSmithingTrial(Trials.CurrentEntry);if(NativeGame?.Alchemy!=null&&NativeGame.IsAlchemyTrial(Trials.CurrentEntry))NativeGame.BeginNativeAlchemyTrial(Trials.CurrentEntry);if(NativeGameFlow.IsCampTrial(Trials.CurrentEntry)&&NativeGame?.CampUi!=null)NativeGame.BeginNativeCampTrial();if(Trials.CurrentEntry=="hideout_cooking"&&NativeGame?.Cooking!=null)NativeGame.BeginNativeCookingTrial(true);if(Trials.CurrentEntry=="native_settings"&&NativeGame!=null)NativeGame.BeginNativeSettingsTrial();if(NativeGameFlow.IsCaveTrial(Trials.CurrentEntry)&&NativeGame!=null)NativeGame.BeginNativeCaveTrial();if(NativeGameFlow.IsSceneTrial(Trials.CurrentEntry)&&NativeGame!=null)NativeGame.BeginNativeSceneTrial(Trials.CurrentEntry);if((Trials.CurrentEntry=="movement"||CharacterWorldTrial(Trials.CurrentEntry)||InventoryTrial(Trials.CurrentEntry)||TimedInventoryTrial(Trials.CurrentEntry)||CombatTrial(Trials.CurrentEntry)||TreatmentTrial(Trials.CurrentEntry)||InteractionTrial(Trials.CurrentEntry)||StressTrial(Trials.CurrentEntry))&&NativeGame!=null){NativeGame.BeginNativeCombatTrial();if(OpenChest!=null)OpenLoot(OpenChest);} Dirty = true; } }
++        public void ResumeTrial() { TrialMenu?.CommitPending();if(Trials.Active&&Trials.MenuOpen&&Trials.CurrentEntry.Length==0)Trials.SelectDefault("movement");if (Trials.Resume()) { Page = TrialPage(Trials.CurrentEntry); if(DungeonRoot!=null)DungeonRoot.SetActive(Page=="dungeon"||Page=="loot"); if(DungeonPlayer!=null)DungeonPlayer.Paused=SimulationPaused||Page!="dungeon";if(NativeGameFlow.IsJourneyTrial(Trials.CurrentEntry)&&NativeGame!=null)NativeGame.BeginNativeJourneyTrial(Trials.CurrentEntry);if(Trials.CurrentEntry=="simple_crafting"&&NativeGame!=null)NativeGame.BeginNativeCraftingTrial();if(NativeGameFlow.IsCampTrial(Trials.CurrentEntry)&&NativeGame?.CampUi!=null)NativeGame.BeginNativeCampTrial();if(Trials.CurrentEntry=="hideout_cooking"&&NativeGame?.Cooking!=null)NativeGame.BeginNativeCookingTrial(true);if(Trials.CurrentEntry=="native_settings"&&NativeGame!=null)NativeGame.BeginNativeSettingsTrial();if(NativeGameFlow.IsCaveTrial(Trials.CurrentEntry)&&NativeGame!=null)NativeGame.BeginNativeCaveTrial();if(NativeGameFlow.IsSceneTrial(Trials.CurrentEntry)&&NativeGame!=null)NativeGame.BeginNativeSceneTrial(Trials.CurrentEntry);if((Trials.CurrentEntry=="movement"||CharacterWorldTrial(Trials.CurrentEntry)||InventoryTrial(Trials.CurrentEntry)||TimedInventoryTrial(Trials.CurrentEntry)||CombatTrial(Trials.CurrentEntry)||TreatmentTrial(Trials.CurrentEntry)||InteractionTrial(Trials.CurrentEntry)||StressTrial(Trials.CurrentEntry))&&NativeGame!=null){NativeGame.BeginNativeCombatTrial();if(OpenChest!=null)OpenLoot(OpenChest);} Dirty = true; } }
+         public void EndTrials() {TrialMenu?.CommitPending();StopClothObservation();Trials.Finish();}
+         string TrialPage(string id)
+         {
+-            if((id=="native_settings"||CharacterWorldTrial(id))&&NativeGame!=null)return "dungeon";
++            if((id=="native_settings"||id=="simple_crafting"||CharacterWorldTrial(id))&&NativeGame!=null)return "dungeon";
+             if(NativeGameFlow.IsCampTrial(id)&&NativeGame?.CampData!=null)return "dungeon";
+             if(id=="hideout_cooking"&&NativeGame?.CookingData!=null)return "dungeon";
+-            if(NativeGame?.Alchemy!=null&&NativeGame.IsAlchemyTrial(id))return "dungeon";
+-            if(NativeGameFlow.IsSmithingTrial(id)&&NativeGame?.Smithing!=null)return "dungeon";
+             if((InventoryTrial(id)||TimedInventoryTrial(id)||NativeGameFlow.IsJourneyTrial(id))&&NativeGame!=null)return "dungeon";
+             if(NativeGameFlow.IsCaveTrial(id)&&NativeGame!=null)return "dungeon";
+             if(NativeGameFlow.IsSceneTrial(id)&&NativeGame!=null)return "dungeon";
+@@ -367,6 +369,12 @@ namespace MusimusihanRpg.Gameplay
+         void RegisterTrials()
+         {
+             RegisterCaveTrials(); RegisterJourneyTrials(); RegisterCampTrials(); RegisterTreatmentTrials(); RegisterStressTrials();
++            Register("simple_crafting","제조법 선택 → 수량 → 제작 / × 취소·재료 반환 / F2 정지·재보급",_=>
++            {
++                if(NativeGame!=null){ReplaceNativeTrialWorld(NativeGame.HideoutTemplate);RecoverTrial();DungeonPlayer.ResetTrial(new Vector3(11.8f,1,-4));}
++                Crafting=new SimpleCraftingSystem(Catalog,Session.Inventory);
++                Supply(Crafting.TrialSupplies(),2);
++            });
+             if(NativeGame!=null)Register("native_settings","원본 음량·전체 화면과 저장 / 시험 설정만 변경 / F2 재시험·원래 설정 복원",_=>{});
+             if(NativeGame?.CookingData!=null&&DungeonPlayer!=null)Register("hideout_cooking","실제 화롯불 냄비·꼬치 / 요리 완성 즉시 식사 / F2 정지·재보급",_=>
+             {
+@@ -408,31 +416,7 @@ namespace MusimusihanRpg.Gameplay
+                         if ((string)p.Value["condition"] == condition && new[] { "bandage", "cure_condition" }.Contains((string)p.Value["effect"])) supplies[p.Name] = 2;
+                     Supply(supplies);
+                 });
+-                else if (action == "smithing") Register(id, "철 투입 → 풀무 → 양면 단조 → 담금질 → 검 완성 / 부품·룬 개조 / F2 재보급", e =>
+-                {
+-                    if(NativeGame?.BlacksmithPrefab!=null){ReplaceNativeTrialWorld(NativeGame.HideoutTemplate);RecoverTrial();DungeonPlayer.ResetTrial(new Vector3(11.8f,1,-4));}
+-                    int replaced=Supply(SmithingSystem.TrialSupplies(),1);
+-                    if((string)e["payload"]!="forge")
+-                    {
+-                        int index=Session.Inventory.Slots.Count;
+-                        if(Session.Inventory.AddItem("rusted_sword",1,false)==0)Session.Inventory.EquipFromSlot(index);
+-                    }
+-                    Smith.SelectWeapon(Session.Inventory.Equipment["weapon"]);
+-                    TrialInstructions[(string)e["id"]]="대장간 재료 보급 · 제작 완료품 자리 확보 · 강화 시험은 새 검으로 시작합니다"+(replaced>0?$" · 마지막 시험용 스택 {replaced}개를 보급품으로 교체했습니다":"");
+-                });
+-                else if (action == "alchemy" || action == "alchemy_recipe" || action == "distilling")
+-                {
+-                    string recipe = (string)entry["payload"];
+-                    // Only source entries with an actual matching recipe are runnable.
+-                    if (Catalog.Alchemy["RECIPES"][recipe] == null) continue;
+-                    Register(id, "조제서 순서대로 재료·열·시간 조작 → 실제 병입 / F2 재보급", e =>
+-                    {
+-                        if(NativeGame?.AlchemyPrefab!=null){ReplaceNativeTrialWorld(NativeGame.HideoutTemplate);RecoverTrial();DungeonPlayer.ResetTrial(new Vector3(11.1f,1,-4.35f));}
+-                        int replaced=Supply(Alchemy.TrialSupplies(),3);
+-                        TrialInstructions[(string)e["id"]]="연금술 재료와 빈 병 보급 · 완성 물약 자리 확보 · 처방책을 보며 직접 제조하세요"+(replaced>0?$" · 마지막 시험용 스택 {replaced}개를 보급품으로 교체했습니다":"");
+-                        Alchemy.SelectRecipe((string)e["payload"]);
+-                    });
+-                }
++
+             }
+         }
+     }
+diff --git a/unity-game/Assets/RPG/Gameplay/WorkshopSimpleCrafting.cs b/unity-game/Assets/RPG/Gameplay/WorkshopSimpleCrafting.cs
+new file mode 100644
+index 0000000000000000000000000000000000000000..102f1d2234a20335b928988ec7de2e54a1e9b540
+--- /dev/null
++++ b/unity-game/Assets/RPG/Gameplay/WorkshopSimpleCrafting.cs
+@@ -0,0 +1,28 @@
++using System.Collections.Generic;
++using Newtonsoft.Json.Linq;
++
++namespace MusimusihanRpg.Gameplay
++{
++    public sealed partial class WorkshopController
++    {
++        // Apply current copy to the live catalog; preserve historical exports and saved items.
++        void ApplySimpleCraftingDescriptions()
++        {
++            var items=(JObject)Catalog.Inventory["ITEM_DEFINITIONS"];
++            var copy=new Dictionary<string,string>
++            {
++                ["forged_longsword"]="피해 31~57 · 제작대에서 재료로 제작",
++                ["forged_arming_sword"]="피해 29~52 · 기력 -10% · 제작대에서 제작",
++                ["iron_ingot"]="무기·방어구 제작 재료",
++                ["forge_charcoal"]="무기·횃불 제작 재료",
++                ["grip_leather"]="무기·방어구·도구 제작 재료",
++                ["steel_fitting"]="무기·방어구·도구 제작 부속",
++                ["alchemy_water"]="물약 제작에 쓰는 맑은 물",
++                ["alchemy_spirits"]="물약 제작에 쓰는 증류주",
++                ["alchemy_empty_bottle"]="물약 1병을 제작할 때 1개 사용"
++            };
++            foreach(string id in new[]{"alchemy_redroot","alchemy_dawnleaf","alchemy_moonwort","alchemy_bittermint","alchemy_ironbloom"})copy[id]="물약 제작 재료 · 제조법의 필요 수량 확인";
++            foreach(var entry in copy)if(items[entry.Key] is JObject item)item["summary"]=entry.Value;
++        }
++    }
++}
+diff --git a/unity-game/Assets/RPG/Gameplay/WorkshopSimpleCrafting.cs.meta b/unity-game/Assets/RPG/Gameplay/WorkshopSimpleCrafting.cs.meta
+new file mode 100644
+index 0000000000000000000000000000000000000000..d6aedab96f9016c1795b2b34dda19a82e2972713
+--- /dev/null
++++ b/unity-game/Assets/RPG/Gameplay/WorkshopSimpleCrafting.cs.meta
+@@ -0,0 +1,2 @@
++fileFormatVersion: 2
++guid: 4e5e1fdf8fea4edc9c63b2c8d16efd34
+diff --git a/unity-game/Assets/RPG/Gameplay/WorkshopTrialWorld.cs b/unity-game/Assets/RPG/Gameplay/WorkshopTrialWorld.cs
+index fc2225384f7c72d4206e4b80ea2736af1379cc09..9cfe5ba22e465dff3ef1f9bf1e834e631c875ae0 100644
+--- a/unity-game/Assets/RPG/Gameplay/WorkshopTrialWorld.cs
++++ b/unity-game/Assets/RPG/Gameplay/WorkshopTrialWorld.cs
+@@ -6,7 +6,7 @@ namespace MusimusihanRpg.Gameplay
+ {
+     public sealed partial class WorkshopController
+     {
+-        bool UsesTrialRoom(string id)=>NativeGame!=null&&id!="native_settings"&&!NativeGameFlow.IsCaveTrial(id)&&id!="merchant"&&!NativeGameFlow.IsSceneTrial(id)&&!NativeGameFlow.IsSmithingTrial(id)&&!NativeGame.IsAlchemyTrial(id)&&id!="hideout_cooking";
++        bool UsesTrialRoom(string id)=>NativeGame!=null&&id!="native_settings"&&!NativeGameFlow.IsCraftingTrial(id)&&!NativeGameFlow.IsCaveTrial(id)&&id!="merchant"&&!NativeGameFlow.IsSceneTrial(id)&&!NativeGameFlow.IsSmithingTrial(id)&&!NativeGame.IsAlchemyTrial(id)&&id!="hideout_cooking";
+         void EnsureTrialRoom()
+         {
+             if(NativeGame==null||DungeonRoot.GetComponent<NativeTrialWorld>()!=null)return;
+diff --git a/unity-game/Assets/RPG/Gameplay/WorkshopView.cs b/unity-game/Assets/RPG/Gameplay/WorkshopView.cs
+index 0716b0cfa79f14f94f2d2a6a3f166ad028603324..e578e51129b95960aecd6f470244071720376256 100644
+--- a/unity-game/Assets/RPG/Gameplay/WorkshopView.cs
++++ b/unity-game/Assets/RPG/Gameplay/WorkshopView.cs
+@@ -66,7 +66,7 @@ namespace MusimusihanRpg.Gameplay
+                 BuildTrials(); CompleteLayout(); return;
+             }
+             if (game.Page == "loot") Button(navigation, "loot:close", "닫기 · 던전으로  [E / I]", game.CloseLoot);
+-            else foreach (var tab in new[] { ("inventory", "장비 · 건강"), ("merchant", "상인"), ("smithing", "대장간"), ("alchemy", "연금술") })
++            else foreach (var tab in new[] { ("inventory", "장비 · 건강"), ("merchant", "상인") })
+             { string id = tab.Item1; Button(navigation, "nav:" + id, tab.Item2, () => game.Navigate(id), true, game.Page == id); }
+             Button(navigation, "f2", "F2 시험실", game.OpenTrials);
+             Button(navigation, "pause", game.Paused ? "계속" : "일시정지", game.TogglePause);
+@@ -79,8 +79,6 @@ namespace MusimusihanRpg.Gameplay
+                 case "appearance": BuildAppearance(); break;
+                 case "loot": BuildLoot(); break;
+                 case "merchant": BuildMerchant(); break;
+-                case "smithing": BuildSmithing(); break;
+-                case "alchemy": BuildAlchemy(); break;
+                 default: BuildInventory(); break;
+             }
+             CompleteLayout();
+@@ -205,68 +203,6 @@ namespace MusimusihanRpg.Gameplay
+             }
+             Text(right, "개별 개조·룬이 있는 무기는 판매에서 보호됩니다.", 18, 60, Muted);
+         }
+-        void BuildSmithing()
+-        {
+-            Columns(out var left, out var right, .43f); var smith = game.Smith;
+-            Text(left, "화로와 모루", 26, 48, Gold);
+-            LiveText(left, () => $"{Stage(smith.Stage)}   ·   {smith.Temperature:0} °C\n품질 {smith.Quality:0}   /   망치질 {smith.HammerCount}회", 24, 90);
+-            Button(left, "forge:start", "철·숯 투입  /  철 장검", () => game.Reply(smith.Start()));
+-            var heat = Row(left); Button(heat, "forge:pump", "풀무", () => game.Reply(smith.PumpBellows())); Button(heat, "forge:anvil", "모루로", () => game.Reply(smith.MoveToAnvil()));
+-            LiveText(left, () => $"{(smith.Side == 0 ? "앞면" : "뒷면")}   뿌리 {smith.Sections[smith.Side][0]:P0}   중앙 {smith.Sections[smith.Side][1]:P0}   끝 {smith.Sections[smith.Side][2]:P0}", 18, 52);
+-            LiveText(left, () => $"타격·천공 정확도 {game.SmithingAccuracy:P0}  ·  100%에 맞추어 누르십시오", 18, 46);
+-            var hammer = Row(left); for (int i = 0; i < 3; i++) { int section = i; Button(hammer, "forge:hammer:" + i, new[] { "뿌리", "중앙", "끝" }[i], () => game.Reply(smith.Hammer(section, game.SmithingAccuracy))); }
+-            var turn = Row(left); Button(turn, "forge:flip", "칼날 뒤집기", () => game.Reply(smith.FlipBlade())); Button(turn, "forge:reheat", "재가열", () => game.Reply(smith.ReturnToFire()));
+-            var finish = Row(left); Button(finish, "forge:quench", "담금질", () => game.Reply(smith.Quench())); Button(finish, "forge:finish", "손잡이 조립 · 완성", () => game.Reply(smith.Finish()));
+-            Button(left, "forge:discard", "미완성 철 폐기", () => game.Reply(smith.Cancel()));
+-            Text(left, "700~1000°C에서 앞뒤 세 구간을 단조합니다. 작업 중에 식으면 화로로 돌려보내십시오. 폐기한 재료는 돌려받지 못합니다.", 18, 95, Muted);
+-            Text(right, "무기 개조", 26, 48, Gold);
+-            foreach (var weapon in smith.Weapons().OfType<JObject>())
+-            {
+-                string uid = (string)weapon["uid"];
+-                Button(right, "weapon:" + uid, (string)weapon["name"] + ((bool?)weapon["equipped"] == true ? "  · 장착 중" : ""), () => game.Reply(smith.SelectWeapon(uid)), true, uid == smith.SelectedUid);
+-            }
+-            foreach (var group in new[] { "GRIPS", "REINFORCEMENTS", "RUNES" })
+-            {
+-                foreach (var entry in ((JObject)game.Catalog.Smithing[group]).Properties())
+-                {
+-                    string id = entry.Name, type = group;
+-                    Button(right, "upgrade:" + id, (string)entry.Value["name"] + "  ·  " + (string)entry.Value["summary"], () => game.Reply(type == "GRIPS" ? smith.ReplaceGrip(id) : type == "REINFORCEMENTS" ? smith.ReinforceBlade(id) : smith.InsertRune(id)));
+-                }
+-            }
+-            Button(right, "forge:drill", "룬 구멍 천공 · 세 번 돌리기", () => game.Reply(smith.DrillSocket(game.SmithingAccuracy)));
+-            LiveText(right, () => "재료\n" + string.Join("   ", SmithingSystem.TrialSupplies().Properties().Select(p => game.Session.Inventory.ItemName(p.Name) + " " + game.Session.Inventory.CountItem(p.Name))), 17, 110);
+-        }
+-        static string Stage(string value)
+-        {
+-            switch (value) { case "idle": return "대기"; case "fire": return "화로"; case "anvil": return "단조"; case "quenched": return "담금질 완료"; case "finished": return "완성"; default: return value; }
+-        }
+-        void BuildAlchemy()
+-        {
+-            Columns(out var left, out var right, .42f); var alchemy = game.Alchemy; var catalog = game.Catalog.Alchemy;
+-            Text(left, "조제서", 26, 48, Gold);
+-            foreach (var recipe in ((JObject)catalog["RECIPES"]).Properties())
+-            { string id = recipe.Name; Button(left, "recipe:" + id, (string)recipe.Value["name"], () => game.Reply(alchemy.SelectRecipe(id)), true, alchemy.RecipeId == id); }
+-            var selected = catalog["RECIPES"][alchemy.RecipeId];
+-            Text(left, (string)selected["description"], 18, 80, Muted);
+-            int step = 0;
+-            foreach (string instruction in selected["steps"].Values<string>()) Text(left, ++step + ". " + instruction, 19, 92);
+-            Text(right, "연금대", 26, 48, Gold);
+-            LiveText(right, () => $"{alchemy.Temperature:0.0} °C   ·   불 {alchemy.Heat:0}%   ·   {(alchemy.IsBoiling ? "끓는 중" : "끓지 않음")}\n끓임 {alchemy.BoilTurns:0.00}회전   /   모래시계 {alchemy.HourglassRemaining:0.0}초   /   증류 {alchemy.DistillProgress:P0}", 21, 86);
+-            var bases = Row(right); foreach (var liquid in ((JObject)catalog["BASES"]).Properties())
+-            { string id = liquid.Name; Button(bases, "base:" + id, (string)liquid.Value["name"], () => game.Reply(alchemy.PourBase(id))); }
+-            foreach (var herb in ((JObject)catalog["HERBS"]).Properties())
+-            {
+-                string id = herb.Name; var row = Row(right);
+-                Text(row, (string)herb.Value["name"] + " " + game.Session.Inventory.CountItem((string)herb.Value["item_id"]), 18, 44, Paper, 1.4f);
+-                Button(row, "herb:" + id + ":cauldron", "솥에", () => game.Reply(alchemy.AddHerb(id)));
+-                Button(row, "herb:" + id + ":mortar", "절구에", () => game.Reply(alchemy.AddHerb(id, "mortar")));
+-            }
+-            var grind = Row(right); Button(grind, "alchemy:grind", "절구 찧기", () => game.Reply(alchemy.Grind())); Button(grind, "alchemy:pour-mortar", "절구를 솥에 붓기", () => game.Reply(alchemy.PourMortar()));
+-            LiveText(right, () => $"절구 {alchemy.Mortar.Count}줌   /   솥 {alchemy.Ingredients.Count}줌   /   {(alchemy.CauldronLowered ? "불 위에 있음" : "불에서 올림")}", 18, 44);
+-            var heat = Row(right); Button(heat, "alchemy:pump", "풀무 [Space]", () => game.Reply(alchemy.PumpBellows())); Button(heat, "alchemy:lower", "솥 내리기", () => game.Reply(alchemy.SetCauldronLowered(true))); Button(heat, "alchemy:raise", "솥 올리기", () => game.Reply(alchemy.SetCauldronLowered(false)));
+-            var tools = Row(right); Button(tools, "alchemy:hourglass", "모래시계", () => game.Reply(alchemy.TurnHourglass())); Button(tools, "alchemy:stir", "젓기", () => game.Reply(alchemy.Stir())); Button(tools, "alchemy:distill", "증류기 연결", () => game.Reply(alchemy.StartDistillation()));
+-            var finish = Row(right); Button(finish, "alchemy:bottle", "병에 담기", () => game.Reply(alchemy.Bottle())); Button(finish, "alchemy:discard", "내용물 버리기", () => game.Reply(alchemy.Discard()));
+-        }
+         void BuildTrials()
+         {
+             var column = Scroll(body); Text(column, "F2 시험실", 32, 55, Gold);
+diff --git a/unity-game/Assets/RPG/GameplayTests/PlayMode/WorkshopInputTests.cs b/unity-game/Assets/RPG/GameplayTests/PlayMode/WorkshopInputTests.cs
+index 24bae128540c2d9a9dae3ae36271e3fcb1f088b4..7c1dc7f233ed6eee0af81ca7048521d0223b5e2a 100644
+--- a/unity-game/Assets/RPG/GameplayTests/PlayMode/WorkshopInputTests.cs
++++ b/unity-game/Assets/RPG/GameplayTests/PlayMode/WorkshopInputTests.cs
+@@ -71,80 +71,42 @@ namespace MusimusihanRpg.Tests
+             Assert.AreEqual(60, game.Session.Body.Parts["left_arm"]);
+         }
+ 
+-        [UnityTest] public IEnumerator SmithingTrialsReserveOutputAndRepeatWithFreshIndividualSword()
++        [UnityTest] public IEnumerator SimpleCraftingTrialsReserveMaterialsAndRetryWithoutLosingCompletedItems()
+         {
+-            var original=game.Session.Inventory;var originalSlots=Newtonsoft.Json.Linq.JArray.FromObject(original.Slots).ToString();
+-            game.OpenTrials();var bag=game.Session.Inventory;
+-            while(bag.Slots.Count<ExpeditionInventory.MaxSlots)bag.AddItem("rusted_sword",1,false);
+-            Assert.True(game.RunTrial("smithing_forge"));Assert.That(bag.Slots.Count,Is.LessThan(ExpeditionInventory.MaxSlots));StringAssert.Contains("교체",game.Message);
+-            foreach(var p in SmithingSystem.TrialSupplies().Properties())Assert.AreEqual((int)p.Value,bag.CountItem(p.Name));
+-            game.OpenTrials();Assert.True(game.RunTrial("smithing_rune"));
+-            for(int i=0;i<3;i++)Assert.True((bool)game.Smith.DrillSocket(1)["accepted"]);
+-            Assert.True((bool)game.Smith.InsertRune()["accepted"]);var uid=(string)bag.GetEquipmentInstance("weapon")["uid"];
+-            game.OpenTrials();Assert.True(game.RunTrial("smithing_rune"));
+-            Assert.AreNotEqual(uid,(string)bag.GetEquipmentInstance("weapon")["uid"]);
+-            Assert.AreEqual(0,(int)bag.GetEquipmentInstance("weapon")["smithing"]["sockets"]);
+-            var old=bag.Slots.Single(p=>(string)p["instance"]?["uid"]==uid);
+-            Assert.AreEqual("rune_fragment",(string)old["instance"]["smithing"]["runes"][0]);
+-            game.EndTrials();Assert.AreSame(original,game.Session.Inventory);Assert.AreEqual(originalSlots,Newtonsoft.Json.Linq.JArray.FromObject(original.Slots).ToString());
++            var original=game.Session.Inventory;var originalSlots=Newtonsoft.Json.Linq.JArray.FromObject(original.Slots);
++            game.OpenTrials();Assert.True(game.RunTrial("simple_crafting"));var bag=game.Session.Inventory;
++            Assert.False(game.Trials.RunnableEntries.Any(e=>(string)e["action"]=="smithing"||(string)e["action"]=="alchemy"));
++            var crafting=game.Crafting;Assert.True((bool)crafting.Enqueue("forged_longsword",2)["accepted"]);
++            Assert.AreEqual(2,bag.CountItem("iron_ingot"));Assert.Zero(bag.CountItem("forged_longsword"));
++            game.TogglePause();game.Advance(100);Assert.AreEqual(30,(double)crafting.Queue[0]["remaining"]);
++            game.TogglePause();game.Advance(30);Assert.AreEqual(2,bag.CountItem("forged_longsword"));
++            game.OpenTrials();game.RetryTrial();Assert.AreSame(bag,game.Session.Inventory);Assert.AreNotSame(crafting,game.Crafting);
++            Assert.Zero(game.Crafting.Queue.Count);Assert.AreEqual(2,bag.CountItem("forged_longsword"));
++            game.EndTrials();Assert.AreSame(original,game.Session.Inventory);
++            Assert.True(Newtonsoft.Json.Linq.JToken.DeepEquals(originalSlots,Newtonsoft.Json.Linq.JArray.FromObject(original.Slots)));
+             yield return null;
+         }
+ 
+-        [UnityTest] public IEnumerator ForgeButtonsProduceOneWeaponAndRetryUsesFreshSupplies()
++        [UnityTest] public IEnumerator RetiredManualCraftingControlsAreAbsentAndQueueCancellationRefundsMaterials()
+         {
+-            yield return Click("f2"); yield return Click("trial:smithing_forge");
+-            yield return Click("forge:start");
+-            for (int i = 0; i < 5; i++) yield return Click("forge:pump");
+-            yield return Click("forge:anvil");
+-            game.Advance(.75); Assert.AreEqual(1, game.SmithingAccuracy, .00001);
+-            for (int side = 0; side < 2; side++)
+-            {
+-                for (int section = 0; section < 3; section++) for (int hit = 0; hit < 2; hit++)
+-                {
+-                    if (game.Smith.Temperature < 700)
+-                    { yield return Click("forge:reheat"); yield return Click("forge:pump"); yield return Click("forge:anvil"); }
+-                    yield return Click("forge:hammer:" + section);
+-                }
+-                if (side == 0) yield return Click("forge:flip");
+-            }
+-            if (game.Smith.Temperature < 700)
+-            { yield return Click("forge:reheat"); yield return Click("forge:pump"); yield return Click("forge:anvil"); }
+-            Assert.True(game.Smith.ShapingComplete());
+-            yield return Click("forge:quench"); yield return Click("forge:finish");
+-            Assert.AreEqual("finished", game.Smith.Stage);
+-            int count = game.Session.Inventory.CountItem("forged_longsword"); Assert.AreEqual(1, count);
+-            yield return Click("forge:finish"); Assert.AreEqual(count, game.Session.Inventory.CountItem("forged_longsword"));
+-            var oldBag = game.Session.Inventory; yield return Click("retry");
+-            Assert.AreSame(oldBag, game.Session.Inventory); Assert.AreEqual("idle", game.Smith.Stage);
+-            Assert.AreEqual(1, game.Session.Inventory.CountItem("forged_longsword"), "Retry preserves existing trial weapons");
+-            Assert.AreEqual(12, game.Session.Inventory.CountItem("iron_ingot"));
+-        }
+-
+-        [UnityTest] public IEnumerator ColdSteepRecipeUsesRealIngredientsHourglassAndBottles()
+-        {
+-            yield return Click("f2"); yield return Click("trial:alchemy_brewing");
+-            yield return Click("recipe:pilgrim_tonic"); yield return Click("base:water");
+-            yield return Click("herb:dawnleaf:mortar");
+-            for (int i = 0; i < 3; i++) yield return Click("alchemy:grind");
+-            yield return Click("alchemy:pour-mortar");
+-            for (int i = 0; i < 2; i++) yield return Click("herb:bittermint:cauldron");
+-            for (int i = 0; i < 2; i++) yield return Click("alchemy:stir");
+-            yield return Click("alchemy:hourglass"); game.Advance(4);
+-            yield return Click("pause"); game.Advance(40); Assert.AreEqual(4, game.Alchemy.HourglassRemaining, .0001);
+-            yield return Click("pause"); game.Advance(4.1);
+-            yield return Click("alchemy:bottle");
+-            Assert.AreEqual("finished", game.Alchemy.Stage);
+-            Assert.AreEqual(2, game.Session.Inventory.CountItem("alchemy_pilgrim_tonic_strong"));
+-            Assert.AreEqual(6, game.Session.Inventory.CountItem("alchemy_empty_bottle"));
++            yield return null;
++            Assert.False(game.View.Controls.ContainsKey("nav:smithing"));Assert.False(game.View.Controls.ContainsKey("nav:alchemy"));
++            game.OpenTrials();Assert.True(game.RunTrial("simple_crafting"));
++            var bag=game.Session.Inventory;int leather=bag.CountItem("grip_leather");
++            var result=game.Crafting.Enqueue("wanderer_hood");Assert.True((bool)result["accepted"]);
++            Assert.AreEqual(leather-2,bag.CountItem("grip_leather"));
++            Assert.True((bool)game.Crafting.Cancel((string)result["job_id"])["accepted"]);
++            Assert.AreEqual(leather,bag.CountItem("grip_leather"));Assert.Zero(game.Crafting.Queue.Count);
++            yield return null;
+         }
+ 
+         [UnityTest] public IEnumerator TrialHandlersAreRunnableAndOriginalUnfinishedWorkIsRetained()
+         {
+-            game.Session.Inventory.AddItem("iron_ingot", 2); game.Session.Inventory.AddItem("forge_charcoal", 1);
+-            game.Smith.Start(); game.Smith.PumpBellows(); var originalSmith = game.Smith; double heat = originalSmith.Temperature;
++            game.Session.Inventory.AddItem("iron_ingot",3);game.Session.Inventory.AddItem("forge_charcoal",2);game.Session.Inventory.AddItem("grip_leather",1);
++            var originalCrafting=game.Crafting;Assert.True((bool)originalCrafting.Enqueue("forged_longsword")["accepted"]);var queue=originalCrafting.Snapshot();
+             var originalBag = game.Session.Inventory; int crowns = game.Session.Crowns;
+             yield return Click("f2");
+-            var ids = game.Trials.RunnableEntries.Select(e => (string)e["id"]).ToArray(); Assert.Greater(ids.Length, 12);
++            var ids = game.Trials.RunnableEntries.Select(e => (string)e["id"]).ToArray(); CollectionAssert.Contains(ids,"simple_crafting");CollectionAssert.Contains(ids,"body_surgery");
+             foreach (string id in ids)
+             {
+                 yield return Click("trial:" + id);
+@@ -153,20 +115,9 @@ namespace MusimusihanRpg.Tests
+                 yield return Click("f2");
+             }
+             yield return Click("restore");
+-            Assert.AreSame(originalSmith, game.Smith); Assert.AreEqual(heat, game.Smith.Temperature);
++            Assert.AreSame(originalCrafting,game.Crafting);Assert.True(Newtonsoft.Json.Linq.JToken.DeepEquals(queue,game.Crafting.Snapshot()));
+             Assert.AreSame(originalBag, game.Session.Inventory); Assert.AreEqual(crowns, game.Session.Crowns);
+         }
+ 
+-        [UnityTest] public IEnumerator CraftingClocksFollowOpenWorkbenchAndStrikeTimingAffectsQuality()
+-        {
+-            yield return Click("f2"); yield return Click("trial:smithing_forge");
+-            yield return Click("forge:start"); for (int i = 0; i < 5; i++) yield return Click("forge:pump");
+-            yield return Click("forge:anvil"); yield return Click("forge:hammer:0");
+-            Assert.AreEqual(.16, game.Smith.Sections[0][0], .00001); Assert.AreEqual(96, game.Smith.Quality);
+-            double heat = game.Smith.Temperature; yield return Click("nav:inventory"); game.Advance(10);
+-            Assert.AreEqual(heat, game.Smith.Temperature);
+-            yield return Click("nav:smithing"); game.Advance(.75); yield return Click("forge:hammer:0");
+-            Assert.AreEqual(.66, game.Smith.Sections[0][0], .00001); Assert.AreEqual(96, game.Smith.Quality);
+-        }
+     }
+ }
+diff --git a/unity-game/Assets/RPG/Runtime/SimpleCraftingSystem.cs b/unity-game/Assets/RPG/Runtime/SimpleCraftingSystem.cs
+new file mode 100644
+index 0000000000000000000000000000000000000000..e37a3a81921303526960814cd58466bb92b464db
+--- /dev/null
++++ b/unity-game/Assets/RPG/Runtime/SimpleCraftingSystem.cs
+@@ -0,0 +1,237 @@
++using System;
++using System.Collections.Generic;
++using System.Linq;
++using Newtonsoft.Json.Linq;
++
++namespace MusimusihanRpg
++{
++    /// <summary>Fixed recipes, reserved ingredients and a single timed crafting queue.</summary>
++    public sealed class SimpleCraftingSystem
++    {
++        public const int MaximumQuantity = 99;
++        public const int MaximumQueueLength = 8;
++        public const int MaxQueue = MaximumQueueLength;
++        readonly SourceCatalogs catalog;
++        readonly Dictionary<string, JObject> recipes = new Dictionary<string, JObject>();
++        readonly List<JObject> jobs = new List<JObject>();
++        long nextJobId = 1;
++        bool busy;
++        public ExpeditionInventory Inventory { get; }
++        public event Action Changed;
++        public JArray Recipes => new JArray(recipes.Values.Select(Clone));
++        public JArray Queue => new JArray(jobs.Select(Clone));
++        static JObject Clone(JObject value) => (JObject)value.DeepClone();
++        static bool Finite(double value) => !double.IsNaN(value) && !double.IsInfinity(value);
++        static JObject Result(bool accepted, string reason = "") => new JObject { ["accepted"] = accepted, ["reason"] = reason };
++
++        public SimpleCraftingSystem(SourceCatalogs catalog, ExpeditionInventory inventory)
++        {
++            this.catalog = catalog ?? throw new ArgumentNullException(nameof(catalog));
++            Inventory = inventory ?? throw new ArgumentNullException(nameof(inventory));
++            AddRecipe("forged_longsword", "weapon", 15, 1, "철과 가죽으로 장검을 만듭니다.", "iron_ingot", 3, "forge_charcoal", 2, "grip_leather", 1);
++            AddRecipe("forged_arming_sword", "weapon", 12, 1, "가볍게 다룰 수 있는 한손검을 만듭니다.", "iron_ingot", 2, "forge_charcoal", 1, "grip_leather", 1);
++            AddRecipe("iron_dagger", "weapon", 8, 1, "철제 단검을 만듭니다.", "iron_ingot", 1, "grip_leather", 1);
++            AddRecipe("hunting_bow", "weapon", 12, 1, "사냥꾼의 활을 조립합니다.", "grip_leather", 2, "steel_fitting", 1);
++            AddRecipe("chain_flail", "weapon", 15, 1, "사슬과 철구를 갖춘 철퇴를 만듭니다.", "iron_ingot", 3, "steel_fitting", 2, "forge_charcoal", 1);
++            AddRecipe("wanderer_hood", "armor", 8, 1, "원정용 두건을 만듭니다.", "grip_leather", 2);
++            AddRecipe("patched_mail", "armor", 16, 1, "철과 가죽으로 쇄자갑을 만듭니다.", "iron_ingot", 3, "grip_leather", 2, "steel_fitting", 2);
++            AddRecipe("round_shield", "armor", 12, 1, "철테를 두른 원형 방패를 만듭니다.", "iron_ingot", 2, "grip_leather", 2, "steel_fitting", 1);
++            AddRecipe("healing_draught", "consumable", 5, 1, "핏뿌리로 회복약 한 병을 만듭니다.", "alchemy_water", 1, "alchemy_redroot", 2, "alchemy_empty_bottle", 1);
++            AddRecipe("antidote", "consumable", 5, 1, "쓴박하로 해독약 한 병을 만듭니다.", "alchemy_water", 1, "alchemy_bittermint", 2, "alchemy_empty_bottle", 1);
++            AddRecipe("nerve_tonic", "consumable", 5, 1, "새벽잎과 쓴박하로 각성 약액을 만듭니다.", "alchemy_water", 1, "alchemy_dawnleaf", 1, "alchemy_bittermint", 1, "alchemy_empty_bottle", 1);
++            AddRecipe("alchemy_red_mending_normal", "consumable", 6, 1, "정해진 재료로 표준 봉합약 한 병을 만듭니다.", "alchemy_water", 1, "alchemy_redroot", 2, "alchemy_ironbloom", 1, "alchemy_empty_bottle", 1);
++            AddRecipe("alchemy_moon_distillate_normal", "consumable", 6, 1, "달쑥으로 표준 지혈 정수 한 병을 만듭니다.", "alchemy_spirits", 1, "alchemy_moonwort", 2, "alchemy_empty_bottle", 1);
++            AddRecipe("leather_waist_pouch", "other", 8, 1, "가죽 허리 파우치를 만듭니다.", "grip_leather", 3, "steel_fitting", 1);
++            AddRecipe("expedition_backpack", "other", 12, 1, "원정 배낭을 만듭니다.", "grip_leather", 4, "steel_fitting", 2);
++            AddRecipe("wooden_arrow", "other", 4, 5, "나무 화살 다섯 개를 조립합니다.", "steel_fitting", 1, "grip_leather", 1);
++            AddRecipe("linen_bandage", "other", 3, 2, "붕대 두 개를 준비합니다.", "grip_leather", 1, "alchemy_water", 1);
++            AddRecipe("field_torch", "other", 4, 1, "원정용 횃불을 만듭니다.", "forge_charcoal", 1, "grip_leather", 1, "lamp_oil", 1);
++        }
++
++        void AddRecipe(string output, string category, double seconds, int outputQuantity, string description, params object[] costs)
++        {
++            if (Inventory.Definition(output).Count == 0) throw new ArgumentException("Unknown crafting output: " + output);
++            var materials = new JObject();
++            for (int i = 0; i < costs.Length; i += 2)
++            {
++                string id = (string)costs[i]; int amount = (int)costs[i + 1];
++                if (Inventory.Definition(id).Count == 0 || amount <= 0) throw new ArgumentException("Invalid crafting ingredient: " + id);
++                materials[id] = amount;
++            }
++            recipes[output] = new JObject { ["id"] = output, ["name"] = Inventory.ItemName(output), ["description"] = description,
++                ["category"] = category, ["output_id"] = output, ["output_quantity"] = outputQuantity, ["seconds"] = seconds, ["materials"] = materials };
++        }
++
++        public JObject Recipe(string id) => id != null && recipes.TryGetValue(id, out var recipe) ? Clone(recipe) : new JObject();
++
++        public JArray MaterialRows(string recipeId, int quantity)
++        {
++            var result = new JArray();
++            if (!recipes.TryGetValue(recipeId ?? "", out var recipe) || quantity < 1 || quantity > MaximumQuantity) return result;
++            foreach (var cost in ((JObject)recipe["materials"]).Properties())
++            {
++                int required = (int)cost.Value * quantity, owned = Inventory.CountItem(cost.Name);
++                result.Add(new JObject { ["id"] = cost.Name, ["name"] = Inventory.ItemName(cost.Name), ["per_unit"] = (int)cost.Value,
++                    ["required"] = required, ["owned"] = owned, ["enough"] = owned >= required });
++            }
++            return result;
++        }
++
++        public int MaximumCraftable(string recipeId)
++        {
++            if (!recipes.TryGetValue(recipeId ?? "", out var recipe)) return 0;
++            int maximum = MaximumQuantity;
++            foreach (var cost in ((JObject)recipe["materials"]).Properties())
++                maximum = Math.Min(maximum, Inventory.CountItem(cost.Name) / (int)cost.Value);
++            return maximum;
++        }
++
++        public JObject Enqueue(string recipeId, int quantity = 1)
++        {
++            if (busy) return Result(false, "busy");
++            if (!recipes.TryGetValue(recipeId ?? "", out var recipe)) return Result(false, "invalid_recipe");
++            if (quantity < 1 || quantity > MaximumQuantity) return Result(false, "invalid_quantity");
++            if (jobs.Count >= MaximumQueueLength) return Result(false, "queue_full");
++            if (MaximumCraftable(recipeId) < quantity) return Result(false, "missing_materials");
++            busy = true;
++            try
++            {
++                // Reserve exact stacks so cancellation preserves tags and other instance data.
++                var reserved = new JArray();
++                foreach (var cost in ((JObject)recipe["materials"]).Properties())
++                {
++                    int remaining = (int)cost.Value * quantity;
++                    for (int i = Inventory.Slots.Count - 1; i >= 0 && remaining > 0; i--)
++                    {
++                        if ((string)Inventory.Slots[i]["id"] != cost.Name) continue;
++                        int moved = Math.Min(remaining, (int)Inventory.Slots[i]["quantity"]);
++                        reserved.Add(Inventory.RemoveFromSlot(i, moved, false)); remaining -= moved;
++                    }
++                }
++                string jobId = (nextJobId++).ToString(System.Globalization.CultureInfo.InvariantCulture);
++                double duration = (double)recipe["seconds"] * quantity;
++                jobs.Add(new JObject { ["id"] = jobId, ["recipe_id"] = recipeId, ["name"] = (string)recipe["name"], ["quantity"] = quantity,
++                    ["output_id"] = (string)recipe["output_id"], ["output_quantity"] = (int)recipe["output_quantity"] * quantity,
++                    ["remaining"] = duration, ["duration"] = duration, ["state"] = jobs.Count == 0 ? "crafting" : "queued", ["reserved"] = reserved });
++                Inventory.NotifyChanged(); Changed?.Invoke();
++                var result = Result(true); result["job_id"] = jobId; return result;
++            }
++            finally { busy = false; }
++        }
++
++        /// <summary>Cancel returns all reserved ingredients; a full bag keeps them safely in the queue.</summary>
++        public JObject Cancel(string jobId)
++        {
++            if (busy) return Result(false, "busy");
++            var job = jobs.FirstOrDefault(j => (string)j["id"] == jobId);
++            if (job == null) return Result(false, "missing_job");
++            busy = true;
++            try
++            {
++                job["state"] = "refund_pending";
++                bool refunded = TryAdd((JArray)job["reserved"]);
++                if (refunded) { jobs.Remove(job); PromoteFirst(); Inventory.NotifyChanged(); }
++                Changed?.Invoke(); var result = Result(true, refunded ? "" : "refund_pending"); result["refund_pending"] = !refunded; return result;
++            }
++            finally { busy = false; }
++        }
++
++        /// <summary>Only the first job consumes time. Completed output waits intact for bag room.</summary>
++        public void Tick(double delta)
++        {
++            if (busy || !Finite(delta) || delta < 0 || jobs.Count == 0) return;
++            busy = true;
++            bool queueChanged = false, bagChanged = false;
++            try
++            {
++                // A cancelled later job may be refunded without waiting for the active job.
++                foreach (var cancelled in jobs.Where(j => (string)j["state"] == "refund_pending").ToArray())
++                    if (TryAdd((JArray)cancelled["reserved"])) { jobs.Remove(cancelled); queueChanged = true; bagChanged = true; }
++                PromoteFirst();
++                while (jobs.Count > 0)
++                {
++                    var job = jobs[0];
++                    if ((string)job["state"] == "refund_pending") break;
++                    double remaining = (double)job["remaining"], used = Math.Min(remaining, delta);
++                    if (used > 0) { job["remaining"] = remaining - used; delta -= used; queueChanged = true; }
++                    if ((double)job["remaining"] > 0) break;
++                    if ((string)job["state"] != "waiting_output") { job["state"] = "waiting_output"; queueChanged = true; }
++                    var output = new JArray(new JObject { ["id"] = (string)job["output_id"], ["quantity"] = (int)job["output_quantity"] });
++                    if (!TryAdd(output)) break;
++                    // Remove before notifying subscribers to prevent completion reentry.
++                    jobs.RemoveAt(0); PromoteFirst(); queueChanged = true; bagChanged = true;
++                    if (delta <= 0) break;
++                }
++                if (bagChanged) Inventory.NotifyChanged();
++                if (queueChanged) Changed?.Invoke();
++            }
++            finally { busy = false; }
++        }
++
++        void PromoteFirst()
++        {
++            if (jobs.Count > 0 && (string)jobs[0]["state"] == "queued") jobs[0]["state"] = "crafting";
++        }
++
++        // Multiple output/refund stacks share the same capacity check and commit together.
++        bool TryAdd(JArray stacks)
++        {
++            var simulation = new ExpeditionInventory(catalog);
++            foreach (var stack in Inventory.Slots) simulation.Slots.Add(Clone(stack));
++            foreach (var stack in stacks.OfType<JObject>())
++                if (simulation.AddItem((string)stack["id"], (int)stack["quantity"], false, stack["instance"] as JObject) > 0) return false;
++            Inventory.Slots.Clear();
++            foreach (var stack in simulation.Slots) Inventory.Slots.Add(Clone(stack));
++            return true;
++        }
++
++        public JObject Snapshot() => new JObject { ["next_job_id"] = nextJobId, ["queue"] = Queue };
++
++        /// <summary>Restore an internally captured queue without replacing the expedition bag.</summary>
++        public bool Restore(JObject snapshot)
++        {
++            if (busy || snapshot == null || !(snapshot["queue"] is JArray queue) || queue.Count > MaximumQueueLength) return false;
++            long next;
++            var restored = new List<JObject>(); var seen = new HashSet<string>();
++            try
++            {
++                next = (long?)snapshot["next_job_id"] ?? 0;
++                if (next < 1 || next == long.MaxValue) return false;
++                foreach (var value in queue)
++                {
++                    if (!(value is JObject job) || !recipes.TryGetValue((string)job["recipe_id"] ?? "", out var recipe)) return false;
++                    string id = (string)job["id"], state = (string)job["state"];
++                    int quantity = (int?)job["quantity"] ?? 0;
++                    double duration = (double?)job["duration"] ?? -1, remaining = (double?)job["remaining"] ?? -1;
++                    if (!long.TryParse(id, out long numericId) || numericId < 1 || numericId >= next || !seen.Add(id)
++                        || quantity < 1 || quantity > MaximumQuantity || !Finite(duration) || !Finite(remaining)
++                        || duration != (double)recipe["seconds"] * quantity || remaining < 0 || remaining > duration
++                        || (state != "queued" && state != "crafting" && state != "waiting_output" && state != "refund_pending")
++                        || (state == "waiting_output" && remaining != 0) || !(job["reserved"] is JArray reserved)) return false;
++                    var totals = new Dictionary<string, int>();
++                    foreach (var token in reserved)
++                    {
++                        if (!(token is JObject stack)) return false;
++                        string ingredient = (string)stack["id"]; int amount = (int?)stack["quantity"] ?? 0;
++                        if (ingredient == null || amount <= 0 || recipe["materials"]?[ingredient] == null) return false;
++                        totals[ingredient] = checked((totals.TryGetValue(ingredient, out int current) ? current : 0) + amount);
++                    }
++                    foreach (var cost in ((JObject)recipe["materials"]).Properties())
++                        if (!totals.TryGetValue(cost.Name, out int amount) || amount != (int)cost.Value * quantity) return false;
++                    var copy = Clone(job);
++                    copy["name"] = (string)recipe["name"]; copy["output_id"] = (string)recipe["output_id"];
++                    copy["output_quantity"] = (int)recipe["output_quantity"] * quantity;
++                    restored.Add(copy);
++                }
++            }
++            catch (Exception error) when (error is FormatException || error is InvalidCastException || error is OverflowException || error is ArgumentException)
++            { return false; }
++            jobs.Clear(); jobs.AddRange(restored); nextJobId = next; PromoteFirst(); Changed?.Invoke(); return true;
++        }
++
++        /// <summary>A compact, catalog-backed supply set for isolated F2 trials.</summary>
++        public JObject TrialSupplies() => new JObject { ["iron_ingot"] = 8, ["forge_charcoal"] = 6, ["grip_leather"] = 8, ["steel_fitting"] = 6,
++            ["alchemy_water"] = 8, ["alchemy_spirits"] = 4, ["alchemy_redroot"] = 8, ["alchemy_dawnleaf"] = 4,
++            ["alchemy_bittermint"] = 8, ["alchemy_ironbloom"] = 4, ["alchemy_moonwort"] = 6, ["alchemy_empty_bottle"] = 8, ["lamp_oil"] = 3 };
++    }
++}
+diff --git a/unity-game/Assets/RPG/Runtime/SimpleCraftingSystem.cs.meta b/unity-game/Assets/RPG/Runtime/SimpleCraftingSystem.cs.meta
+new file mode 100644
+index 0000000000000000000000000000000000000000..49fd1200aaa4b59e8b308b5e4767478880e769f6
+--- /dev/null
++++ b/unity-game/Assets/RPG/Runtime/SimpleCraftingSystem.cs.meta
+@@ -0,0 +1,2 @@
++fileFormatVersion: 2
++guid: 4f149b306c1a4b1c93e62d57dbf7ae14
+diff --git a/unity-game/Assets/RPG/Tests/Editor/SimpleCraftingTests.cs b/unity-game/Assets/RPG/Tests/Editor/SimpleCraftingTests.cs
+new file mode 100644
+index 0000000000000000000000000000000000000000..44b76ed328baede39da355418440a94b22303d66
+--- /dev/null
++++ b/unity-game/Assets/RPG/Tests/Editor/SimpleCraftingTests.cs
+@@ -0,0 +1,171 @@
++using System;
++using System.Linq;
++using Newtonsoft.Json.Linq;
++using NUnit.Framework;
++
++namespace MusimusihanRpg.Tests
++{
++    public class SimpleCraftingTests
++    {
++        static SimpleCraftingSystem Fixture(out ExpeditionInventory bag)
++        {
++            var catalog = SourceCatalogs.Load(); bag = new ExpeditionInventory(catalog);
++            return new SimpleCraftingSystem(catalog, bag);
++        }
++        static void Supply(SimpleCraftingSystem system, string recipeId, int quantity = 1, JObject instance = null)
++        {
++            foreach (var cost in ((JObject)system.Recipe(recipeId)["materials"]).Properties())
++                Assert.That(system.Inventory.AddItem(cost.Name, (int)cost.Value * quantity, false, instance), Is.Zero);
++        }
++        static string Enqueue(SimpleCraftingSystem system, string recipeId, int quantity = 1)
++        {
++            var result = system.Enqueue(recipeId, quantity); Assert.That((bool)result["accepted"], Is.True, result.ToString());
++            return (string)result["job_id"];
++        }
++
++        [Test]
++        public void EveryRecipeProducesCatalogItemsWithFixedStatsAndNoManualQuality()
++        {
++            var listing = Fixture(out var unused).Recipes;
++            Assert.That(listing.Count, Is.EqualTo(18));
++            CollectionAssert.AreEquivalent(new[] { "weapon", "armor", "consumable", "other" }, listing.Select(r => (string)r["category"]).Distinct());
++            foreach (var recipe in listing.OfType<JObject>())
++            {
++                var system = Fixture(out var bag); string id = (string)recipe["id"];
++                JObject originalDefinition = (JObject)bag.Definition(id).DeepClone();
++                Supply(system, id, 2); Enqueue(system, id, 2);
++                Assert.That(system.MaximumCraftable(id), Is.Zero, id);
++                system.Tick((double)recipe["seconds"] * 2);
++                Assert.That(system.Queue.Count, Is.Zero, id);
++                Assert.That(bag.CountItem(id), Is.EqualTo((int)recipe["output_quantity"] * 2), id);
++                Assert.That(bag.Slots.All(s => s["instance"] == null), Is.True, id);
++                Assert.That(JToken.DeepEquals(originalDefinition, bag.Definition(id)), Is.True, id);
++            }
++        }
++
++        [Test]
++        public void QuantityUsesTotalCostsAndOnlyFirstQueueJobAdvances()
++        {
++            var system = Fixture(out var bag); Supply(system, "iron_dagger", 3);
++            var rows = system.MaterialRows("iron_dagger", 2);
++            Assert.That(rows.All(row => (int)row["required"] == 2 && (int)row["owned"] == 3 && (bool)row["enough"]), Is.True);
++            Assert.That(system.MaximumCraftable("iron_dagger"), Is.EqualTo(3));
++            Enqueue(system, "iron_dagger", 2); Enqueue(system, "iron_dagger");
++            Assert.That(bag.CountItem("iron_ingot"), Is.Zero);
++            Assert.That((double)system.Queue[0]["duration"], Is.EqualTo(16));
++            system.Tick(8);
++            Assert.That(bag.CountItem("iron_dagger"), Is.Zero);
++            Assert.That((double)system.Queue[0]["remaining"], Is.EqualTo(8));
++            Assert.That((double)system.Queue[1]["remaining"], Is.EqualTo(8));
++            system.Tick(12);
++            Assert.That(bag.CountItem("iron_dagger"), Is.EqualTo(2));
++            Assert.That(system.Queue.Count, Is.EqualTo(1));
++            Assert.That((double)system.Queue[0]["remaining"], Is.EqualTo(4));
++            system.Tick(4);
++            Assert.That(bag.CountItem("iron_dagger"), Is.EqualTo(3)); Assert.That(system.Queue.Count, Is.Zero);
++        }
++
++        [Test]
++        public void RejectedInputsNeverReserveMaterialsOrChangeJobs()
++        {
++            var system = Fixture(out var bag); Supply(system, "iron_dagger");
++            var before = JArray.FromObject(bag.Slots);
++            foreach (int quantity in new[] { int.MinValue, -1, 0, 100, int.MaxValue })
++                Assert.That((bool)system.Enqueue("iron_dagger", quantity)["accepted"], Is.False);
++            Assert.That((bool)system.Enqueue(null)["accepted"], Is.False);
++            Assert.That((bool)system.Enqueue("missing")["accepted"], Is.False);
++            Assert.That((bool)system.Enqueue("forged_longsword")["accepted"], Is.False);
++            Assert.That(system.MaterialRows("iron_dagger", int.MaxValue).Count, Is.Zero);
++            Assert.That(system.MaximumCraftable(null), Is.Zero);
++            Assert.That(JToken.DeepEquals(before, JArray.FromObject(bag.Slots)), Is.True); Assert.That(system.Queue.Count, Is.Zero);
++            Enqueue(system, "iron_dagger"); var queued = system.Snapshot();
++            foreach (double delta in new[] { -1, double.NaN, double.NegativeInfinity, double.PositiveInfinity }) system.Tick(delta);
++            Assert.That(JToken.DeepEquals(queued, system.Snapshot()), Is.True);
++            Assert.That((bool)system.Cancel("missing")["accepted"], Is.False);
++        }
++
++        [Test]
++        public void QueueLimitCannotReserveNinthJobMaterials()
++        {
++            var system = Fixture(out var bag); Supply(system, "iron_dagger", 9);
++            for (int i = 0; i < SimpleCraftingSystem.MaximumQueueLength; i++) Enqueue(system, "iron_dagger");
++            var before = JArray.FromObject(bag.Slots);
++            Assert.That((string)system.Enqueue("iron_dagger")["reason"], Is.EqualTo("queue_full"));
++            Assert.That(JToken.DeepEquals(before, JArray.FromObject(bag.Slots)), Is.True);
++        }
++
++        [Test]
++        public void CancelRefundsExactReservedInstanceDataAndPreservesExistingWeapon()
++        {
++            var system = Fixture(out var bag);
++            var ingredientTag = new JObject { ["item_tag"] = "남겨둔 재료", ["source"] = "chest" };
++            var swordData = new JObject { ["item_tag"] = "기존 검", ["smithing"] = new JObject { ["quality"] = 88, ["runes"] = new JArray("ember_rune") } };
++            bag.AddItem("forged_longsword", 1, false, swordData); Supply(system, "iron_dagger", 2, ingredientTag);
++            var before = JArray.FromObject(bag.Slots);
++            string job = Enqueue(system, "iron_dagger", 2); system.Tick(7);
++            Assert.That((bool)system.Cancel(job)["accepted"], Is.True); Assert.That(system.Queue.Count, Is.Zero);
++            foreach (var original in before.OfType<JObject>())
++                Assert.That(bag.Slots.Any(s => JToken.DeepEquals(s, original)), Is.True, original.ToString());
++            Assert.That(bag.CountItem("iron_dagger"), Is.Zero);
++            Assert.That((bool)system.Cancel(job)["accepted"], Is.False);
++        }
++
++        [Test]
++        public void FullBagRetainsCompletedOutputAndSubscriberReentryCannotDuplicateIt()
++        {
++            var system = Fixture(out var bag); Supply(system, "iron_dagger"); Enqueue(system, "iron_dagger");
++            bag.AddItem("rusted_sword", ExpeditionInventory.MaxSlots, false);
++            system.Tick(8);
++            Assert.That((string)system.Queue[0]["state"], Is.EqualTo("waiting_output"));
++            Assert.That((double)system.Queue[0]["remaining"], Is.Zero); Assert.That(bag.CountItem("iron_dagger"), Is.Zero);
++            system.Tick(100); Assert.That(system.Queue.Count, Is.EqualTo(1));
++            bag.RemoveItem("rusted_sword", 1, false); bool reentered = false;
++            bag.Changed += () => { reentered = true; system.Tick(100); Assert.That((string)system.Enqueue("iron_dagger")["reason"], Is.EqualTo("busy")); };
++            system.Tick(0);
++            Assert.That(reentered, Is.True); Assert.That(bag.CountItem("iron_dagger"), Is.EqualTo(1)); Assert.That(system.Queue.Count, Is.Zero);
++            system.Tick(100); Assert.That(bag.CountItem("iron_dagger"), Is.EqualTo(1));
++        }
++
++        [Test]
++        public void FullBagCancelRetainsAllRefundsUntilWholeRefundFits()
++        {
++            var system = Fixture(out var bag); Supply(system, "iron_dagger"); string job = Enqueue(system, "iron_dagger");
++            bag.AddItem("rusted_sword", ExpeditionInventory.MaxSlots, false);
++            Assert.That((bool)system.Cancel(job)["refund_pending"], Is.True);
++            Assert.That((string)system.Queue[0]["state"], Is.EqualTo("refund_pending"));
++            bag.RemoveItem("rusted_sword", 1, false); var before = JArray.FromObject(bag.Slots); system.Tick(100);
++            Assert.That(JToken.DeepEquals(before, JArray.FromObject(bag.Slots)), Is.True, "refund may not partially fill the bag");
++            Assert.That(system.Queue.Count, Is.EqualTo(1));
++            bag.RemoveItem("rusted_sword", 1, false); system.Tick(0);
++            Assert.That(system.Queue.Count, Is.Zero); Assert.That(bag.CountItem("iron_ingot"), Is.EqualTo(1));
++            Assert.That(bag.CountItem("grip_leather"), Is.EqualTo(1)); Assert.That(bag.CountItem("iron_dagger"), Is.Zero);
++        }
++
++        [Test]
++        public void SnapshotRecipeAndQueueCopiesAreIsolatedAndRestoreKeepsBagObject()
++        {
++            var system = Fixture(out var bag); Supply(system, "iron_dagger"); Enqueue(system, "iron_dagger"); system.Tick(3);
++            var snapshot = system.Snapshot(); var mutableQueue = system.Queue; var mutableRecipe = system.Recipe("iron_dagger"); var mutableRecipes = system.Recipes;
++            mutableQueue[0]["remaining"] = 0; mutableQueue[0]["reserved"][0]["quantity"] = 999;
++            mutableRecipe["materials"]["iron_ingot"] = 0; mutableRecipes[0]["name"] = "changed";
++            Assert.That((double)system.Queue[0]["remaining"], Is.EqualTo(5)); Assert.That((int)system.Recipe("iron_dagger")["materials"]["iron_ingot"], Is.EqualTo(1));
++            var restored = new SimpleCraftingSystem(SourceCatalogs.Load(), bag);
++            Assert.That(restored.Restore(snapshot), Is.True); snapshot["queue"][0]["remaining"] = 0;
++            Assert.That(restored.Inventory, Is.SameAs(bag)); Assert.That((double)restored.Queue[0]["remaining"], Is.EqualTo(5));
++            restored.Tick(5); Assert.That(bag.CountItem("iron_dagger"), Is.EqualTo(1));
++        }
++
++        [Test]
++        public void InvalidRestoreIsAtomicAndCannotRewriteRecipeOutput()
++        {
++            var system = Fixture(out var bag); Supply(system, "iron_dagger"); Enqueue(system, "iron_dagger");
++            var original = system.Snapshot(); var invalid = (JObject)original.DeepClone(); invalid["queue"][0]["reserved"][0]["quantity"] = int.MaxValue;
++            Assert.That(system.Restore(invalid), Is.False); Assert.That(JToken.DeepEquals(original, system.Snapshot()), Is.True);
++            invalid = (JObject)original.DeepClone(); invalid["queue"][0]["remaining"] = double.NaN;
++            Assert.That(system.Restore(invalid), Is.False); Assert.That(JToken.DeepEquals(original, system.Snapshot()), Is.True);
++            var changed = (JObject)original.DeepClone(); changed["queue"][0]["output_id"] = "reliquary"; changed["queue"][0]["output_quantity"] = 999;
++            Assert.That(system.Restore(changed), Is.True); system.Tick(8);
++            Assert.That(bag.CountItem("iron_dagger"), Is.EqualTo(1)); Assert.That(bag.CountItem("reliquary"), Is.Zero);
++        }
++    }
++}
+diff --git a/unity-game/Assets/RPG/Tests/Editor/SimpleCraftingTests.cs.meta b/unity-game/Assets/RPG/Tests/Editor/SimpleCraftingTests.cs.meta
+new file mode 100644
+index 0000000000000000000000000000000000000000..5ff3e621a831f8cbba8dc59fbda036f6e0dce1a8
+--- /dev/null
++++ b/unity-game/Assets/RPG/Tests/Editor/SimpleCraftingTests.cs.meta
+@@ -0,0 +1,2 @@
++fileFormatVersion: 2
++guid: a39fd39f67f64817904c9171c85541c7
+diff --git a/unity-game/CURRENT_STATUS.md b/unity-game/CURRENT_STATUS.md
+index 0bff40620645756534cd13e10474442de57db3d7..717c201ed253e9e4812868ec7885b6d740075dcb 100644
+--- a/unity-game/CURRENT_STATUS.md
++++ b/unity-game/CURRENT_STATUS.md
+@@ -1,5 +1,7 @@
+ # 현재 실행본과 남은 차이 / Current build and remaining differences
+ 
++2026-10-04 현재 제작: 수동 단조·개조·연금술 제작은 간단 제조법 대기열로 교체했습니다. 기존 아이템·개조 정보는 유지하며, 18개 제조법과 동일한 재료·수량·제작 UI를 사용합니다. 이전 제작 동등성 보고서는 당시 구현의 기록입니다. [현재 제작·검증](Migration/SIMPLE_CRAFTING_20261004.md). / Current crafting is the simple recipe queue. Existing items and their metadata are preserved; earlier manual-crafting parity reports describe the retired implementation.
++
+ 2026-09-30, 한국 시간. **실행 가능한 네이티브 Unity 게임이 있지만, Godot 전체와의 동일성은 아직 완료되지 않았습니다.** 과거 날짜별 기록의 ‘미구현’ 목록을 현재 상태로 읽지 않습니다. 검사 개수나 원본 시험 매핑 개수를 게임 완성률로 사용하지 않습니다.
+ 
+ There is a runnable native Unity game. Complete Godot equivalence remains unfinished. Historical entries describe their own checkpoints, not the current missing-feature list; test counts are not a completion percentage.
+diff --git a/unity-game/Migration/SIMPLE_CRAFTING_20261004.md b/unity-game/Migration/SIMPLE_CRAFTING_20261004.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..418515a11a5467b160f13820fa06e7e645df55d1
+--- /dev/null
++++ b/unity-game/Migration/SIMPLE_CRAFTING_20261004.md
+@@ -0,0 +1,36 @@
++# 간단 제작 교체 / Simple crafting replacement
++
++2026-10-04, 한국 시간 / Korea time.
++
++사용자 확정: 기존 갑옷·물약·무기 제작을 첨부 사진의 간단한 구성으로 교체합니다. **분류·아이템 목록 → 설명·필요/보유 재료 → 수량 → 제작 → 대기열**이 현재 제작 방식입니다. 새 작업대 등급·잠금·제작 숙련도는 추가하지 않았습니다.
++
++Approved request: replace the previous crafting with the supplied reference's simple categories, item grid, description/materials, quantity and queue flow. Workbench tiers, locks and crafting skill progression are not part of this change.
++
++## 현재 동작 / Current behavior
++
++- 무기·방어구·물약·도구/소모품의 고정 제조법 18개. 표준 아이템을 자동 제작하며 수동 가열·망치질·천공·룬 개조·약초 손질·젓기·병입 화면과 기존 제작 F2 항목을 제거했습니다. / Eighteen fixed recipes produce standard items automatically. Manual forging, drilling, rune upgrading and alchemy screens and their old F2 entries are removed from active gameplay.
++- 은신처의 기존 제작대와 물약 작업대에서 E로 같은 화면을 엽니다. 분류 선택은 시작 목록만 바꾸며 어느 작업대에서도 모든 제조법을 선택할 수 있습니다. / Existing sanctuary stations open the shared screen with E; either station permits every category.
++- 수량 1~99, 최대 버튼, 1회·선택 수량의 필요 재료와 실제 가방 보유량, 제작 시간·완성 수량을 표시합니다. 재료가 부족하면 제작 버튼을 비활성화합니다. / Quantity 1–99, Max, per-craft/total costs, owned materials, duration and output quantity are shown; insufficient materials disable crafting.
++- 최대 8개 작업을 먼저 넣은 순서대로 처리합니다. 선택 수량 전체가 한 작업이며 시간은 1회 시간 × 수량입니다. 화면을 닫아도 대기열은 유지되고 실제 플레이 중 진행됩니다. 정지·가방·설정·지도·F2 메뉴 동안 제작 시간이 멈춥니다. / Up to eight FIFO batches; batch time is per-craft time × quantity. Closing the screen retains the queue, and normal play advances it. Paused/modal/F2 menus freeze its clock.
++- 대기열 등록 시 재료를 정확히 확보합니다. ×로 취소하면 원래 재료와 이름표를 반환합니다. 가방이 차면 완성품 또는 반환 재료가 대기하며 공간이 충분할 때 전체를 지급합니다. / Enqueue reserves exact ingredients. Cancel refunds their original instance data. A full bag retains complete output/refunds until enough room exists for an atomic delivery.
++- 기존 아이템·개별 검의 개조 정보·에셋 원본을 보존합니다. 이전 검의 개조 효과는 유지하지만 새 제작품에는 품질 판정이나 룬 조작이 없습니다. / Existing items, weapon upgrades and production sources are preserved. Historical upgrades remain effective; new crafting has no quality minigame or rune operation.
++- F2의 `간단 제작 · 재료·수량·대기열`에서 동일한 UI와 규칙을 시험합니다. 원래 가방 객체·구독·원정·제작 서비스·진행 중 대기열·화면 선택을 보존하고 시험 종료 시 복원합니다. / The simple-crafting F2 entry exercises the production UI while preserving and restoring the original inventory identity, session, crafting service, pending queue and screen selection.
++
++## 구현 위치 / Implementation
++
++- `Assets/RPG/Runtime/SimpleCraftingSystem.cs`: 제조법·재료 예약·FIFO·취소·가방 공간 처리 / recipes and transactional queue.
++- `Assets/RPG/Gameplay/NativeCrafting.cs`, `NativeCraftingFlow.cs`: 공유 화면·기존 작업대 연결 / shared UI and station entry.
++- `WorkshopController.cs`, `WorkshopSimpleCrafting.cs`, `WorkshopTrialWorld.cs`, `NativeTrialMenu.cs`: 현재 설명·제작 시계·격리된 F2 연결 / current descriptions, clock and F2 isolation.
++- 기존 제작 원본 카탈로그·모델·과거 인수 검사는 보존 자료입니다. 현재 게임은 해당 수동 UI를 생성하거나 입력을 처리하지 않습니다. / Legacy catalogs, models and old acceptance fixtures remain as historical compatibility material; live gameplay neither instantiates nor processes the manual UI.
++
++## 검증 / Validation
++
++**Unity EditMode 9개·PlayMode 4개와 최종 Mac Metal 실행본 87개 UI·연결 검사가 모두 통과**했습니다. 빌드는 오류 0개이며 기존 경고 176개를 기록했습니다. 실제 Unity EditMode, PlayMode, Mac 실행본 검사와 Metal 화면 결과는 `simple-crafting-validation-20261004.json`에 기록합니다. 실행은 숨김 백그라운드 방식이며 오디오 재생·마우스 캡처를 차단했습니다. 하드웨어 키보드/마우스, 최종 스피커 출력, 전체 게임 완성률을 인증하는 검사는 아닙니다.
++
++**All 9 EditMode tests, 4 PlayMode tests and 87 final Mac Metal player checks passed.** The build has zero errors and 176 recorded warnings. Actual Unity domain, controller, packaged-player and Metal screen evidence is in `simple-crafting-validation-20261004.json`. Validation is hidden and silent, with no desktop pointer capture. Hardware input, speaker output and whole-game completion are outside these scoped checks.
++
++![실제 Unity 제작 화면 / Actual Unity crafting screen](simple-crafting-ui-20261004.png)
++
++빌드 중 저장 공간 부족으로 직렬화 데이터 일부가 0으로 기록된 실패를 확인했습니다. 원본과 기존 임포트 자료가 정상임을 확인하고, 여유 공간이 확보된 상태에서 이번 앱·플레이어 데이터 캐시를 재생성했습니다. [Unity의 CleanBuildCache 절차](https://docs.unity3d.com/6000.0/Manual/build-clean-build.html)를 사용했으며 `RPG_CLEAN_BUILD_CACHE=1`로 재현할 수 있습니다. 복구본에서 Mesh 4,163개·TextAsset 112개의 데이터와 원본 은신처 JSON 전체 바이트를 확인한 뒤 최종 실행본 검사를 다시 통과했습니다.
++
++A disk-full build produced empty serialized payloads. Source/imported assets remained intact. Regenerating this task's player cache and app with enough free space and CleanBuildCache recovered the output. The recovered app's 4,163 meshes, 112 text assets and complete hideout JSON were checked before the final player acceptance passed.
+diff --git a/unity-game/Migration/simple-crafting-ui-20261004.png b/unity-game/Migration/simple-crafting-ui-20261004.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..060ca20fa46341811de163b3f6e46de439ccd82d
+--- /dev/null
++++ b/unity-game/Migration/simple-crafting-ui-20261004.png
+@@ -0,0 +1,3 @@
++version https://git-lfs.github.com/spec/v1
++oid sha256:579bea22d7b1bf59b6dab05c283207ee2d89a65263c5c6a69cce268cbbd37ab7
++size 96847
+diff --git a/unity-game/Migration/simple-crafting-validation-20261004.json b/unity-game/Migration/simple-crafting-validation-20261004.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..f055b8656fa56df7de4b6bb4f70c5bdfdeb08326
+--- /dev/null
++++ b/unity-game/Migration/simple-crafting-validation-20261004.json
+@@ -0,0 +1,244 @@
++{
++  "date": "2026-10-04",
++  "timezone": "Asia/Seoul",
++  "summary_ko": "간단 제작의 Unity 테스트 13개, 최종 Mac Metal UI 검사 87개, 빌드 데이터와 Dock 실행 연결을 확인했습니다.",
++  "summary_en": "Validated 13 Unity tests, 87 final Mac Metal UI checks, packaged asset data and the Dock launcher.",
++  "scope_ko": "기존 로컬 진행 작업을 보존한 Unity 작업 트리에서 실행한 제작 기능 검사입니다. 이 커밋에는 제작 작업 변경만 포함합니다.",
++  "scope_en": "Crafting validation runs against the Unity working tree with existing local work preserved. This commit includes only the crafting task changes.",
++  "recipes": 18,
++  "edit_mode": {
++    "result": "Passed",
++    "total": 9,
++    "passed": 9,
++    "failed": 0,
++    "tests": [
++      {
++        "name": "MusimusihanRpg.Tests.SimpleCraftingTests.CancelRefundsExactReservedInstanceDataAndPreservesExistingWeapon",
++        "result": "Passed"
++      },
++      {
++        "name": "MusimusihanRpg.Tests.SimpleCraftingTests.EveryRecipeProducesCatalogItemsWithFixedStatsAndNoManualQuality",
++        "result": "Passed"
++      },
++      {
++        "name": "MusimusihanRpg.Tests.SimpleCraftingTests.FullBagCancelRetainsAllRefundsUntilWholeRefundFits",
++        "result": "Passed"
++      },
++      {
++        "name": "MusimusihanRpg.Tests.SimpleCraftingTests.FullBagRetainsCompletedOutputAndSubscriberReentryCannotDuplicateIt",
++        "result": "Passed"
++      },
++      {
++        "name": "MusimusihanRpg.Tests.SimpleCraftingTests.InvalidRestoreIsAtomicAndCannotRewriteRecipeOutput",
++        "result": "Passed"
++      },
++      {
++        "name": "MusimusihanRpg.Tests.SimpleCraftingTests.QuantityUsesTotalCostsAndOnlyFirstQueueJobAdvances",
++        "result": "Passed"
++      },
++      {
++        "name": "MusimusihanRpg.Tests.SimpleCraftingTests.QueueLimitCannotReserveNinthJobMaterials",
++        "result": "Passed"
++      },
++      {
++        "name": "MusimusihanRpg.Tests.SimpleCraftingTests.RejectedInputsNeverReserveMaterialsOrChangeJobs",
++        "result": "Passed"
++      },
++      {
++        "name": "MusimusihanRpg.Tests.SimpleCraftingTests.SnapshotRecipeAndQueueCopiesAreIsolatedAndRestoreKeepsBagObject",
++        "result": "Passed"
++      }
++    ]
++  },
++  "play_mode": {
++    "result": "Passed",
++    "total": 4,
++    "passed": 4,
++    "failed": 0,
++    "tests": [
++      {
++        "name": "MusimusihanRpg.Tests.WorkshopInputTests.RetiredManualCraftingControlsAreAbsentAndQueueCancellationRefundsMaterials",
++        "result": "Passed"
++      },
++      {
++        "name": "MusimusihanRpg.Tests.WorkshopInputTests.SimpleCraftingTrialsReserveMaterialsAndRetryWithoutLosingCompletedItems",
++        "result": "Passed"
++      },
++      {
++        "name": "MusimusihanRpg.Tests.WorkshopInputTests.SurgeryUsesLiveButtonsTimersAndRestoresOriginalExpedition",
++        "result": "Passed"
++      },
++      {
++        "name": "MusimusihanRpg.Tests.WorkshopInputTests.TrialHandlersAreRunnableAndOriginalUnfinishedWorkIsRetained",
++        "result": "Passed"
++      }
++    ]
++  },
++  "native_build": {
++    "result": "Succeeded",
++    "clean_cache": true,
++    "errors": 0,
++    "warnings": 176,
++    "bytes": 3192691935
++  },
++  "packaged_player": {
++    "result": "Passed",
++    "gpu": "Metal",
++    "seconds": 4.876897625000001,
++    "checks": [
++      "QA settings are isolated from user preferences",
++      "Legacy manual forge and alchemy screens are absent from the active native interface",
++      "Original expedition has a real pending recipe before F2",
++      "F2 isolates both the original inventory and pending crafting service",
++      "F2 exposes one simple crafting route and retires manual crafting routes",
++      "Actual simple crafting F2 entry opens the production recipe interface",
++      "Visible production crafting control / Category_weapon",
++      "Enabled production crafting button / Category_weapon",
++      "Actual EventSystem raycast reaches Category_weapon / first=Category_weapon",
++      "Visible production crafting control / Recipe_0",
++      "Enabled production crafting button / Recipe_0",
++      "Actual EventSystem raycast reaches Recipe_0 / first=Recipe_0",
++      "Real recipe grid selects the forged longsword",
++      "Visible production crafting control / QuantityPlus",
++      "Enabled production crafting button / QuantityPlus",
++      "Actual EventSystem raycast reaches QuantityPlus / first=QuantityPlus",
++      "Visible production crafting control / Quantity",
++      "Real quantity button selects two crafts",
++      "Visible production crafting control / MaterialCount_iron_ingot",
++      "Production materials table displays selected-quantity requirement / iron_ingot",
++      "Visible production crafting control / MaterialCount_forge_charcoal",
++      "Production materials table displays selected-quantity requirement / forge_charcoal",
++      "Visible production crafting control / MaterialCount_grip_leather",
++      "Production materials table displays selected-quantity requirement / grip_leather",
++      "Visible production crafting control / CraftButton",
++      "Enabled production crafting button / CraftButton",
++      "Actual EventSystem raycast reaches CraftButton / first=CraftButton",
++      "Real craft button queues two items without awarding them early",
++      "Queue reserves the exact selected recipe materials / iron_ingot",
++      "Queue reserves the exact selected recipe materials / forge_charcoal",
++      "Queue reserves the exact selected recipe materials / grip_leather",
++      "Player pause freezes pending crafting time",
++      "Unpause resumes the actual shared crafting clock",
++      "F2 menu freezes the isolated crafting queue",
++      "Resume retains the same pending trial crafting service",
++      "Timer completion awards exactly two normal inventory weapons",
++      "Completed queue cannot duplicate output on later frames",
++      "Visible production crafting control / Category_armor",
++      "Enabled production crafting button / Category_armor",
++      "Actual EventSystem raycast reaches Category_armor / first=Category_armor",
++      "Visible production crafting control / Recipe_0",
++      "Enabled production crafting button / Recipe_0",
++      "Actual EventSystem raycast reaches Recipe_0 / first=Recipe_0",
++      "Armor category uses the same real recipe grid",
++      "Visible production crafting control / CraftButton",
++      "Enabled production crafting button / CraftButton",
++      "Actual EventSystem raycast reaches CraftButton / first=CraftButton",
++      "Visible production crafting control / Category_consumable",
++      "Enabled production crafting button / Category_consumable",
++      "Actual EventSystem raycast reaches Category_consumable / first=Category_consumable",
++      "Visible production crafting control / Recipe_0",
++      "Enabled production crafting button / Recipe_0",
++      "Actual EventSystem raycast reaches Recipe_0 / first=Recipe_0",
++      "Visible production crafting control / QuantityPlus",
++      "Enabled production crafting button / QuantityPlus",
++      "Actual EventSystem raycast reaches QuantityPlus / first=QuantityPlus",
++      "Potion category selects a fixed healing recipe",
++      "Visible production crafting control / CraftButton",
++      "Enabled production crafting button / CraftButton",
++      "Actual EventSystem raycast reaches CraftButton / first=CraftButton",
++      "Armor and potions share one FIFO queue",
++      "Requested screen capture uses the actual Metal renderer",
++      "Production UI renderer is ready for an offscreen screen capture",
++      "Saved the actual recipe/materials/quantity/queue interface at 1280x720",
++      "Visible production crafting control / Cancel_2",
++      "Enabled production crafting button / Cancel_2",
++      "Actual EventSystem raycast reaches Cancel_2 / first=Cancel_2",
++      "Real queue cancel returns armor materials and promotes the pending potion recipe",
++      "Simplified potion crafting awards the selected two bottles",
++      "Visible production crafting control / Category_weapon",
++      "Enabled production crafting button / Category_weapon",
++      "Actual EventSystem raycast reaches Category_weapon / first=Category_weapon",
++      "Visible production crafting control / CraftButton",
++      "Insufficient materials disable the production craft button",
++      "Missing-material rejection does not consume inventory or alter the queue",
++      "Retry replenishes isolated supplies and preserves completed trial items",
++      "Former weapon station entry routes to the shared simple crafting screen",
++      "Former potion station entry routes to the shared simple crafting screen",
++      "Closing either station leaves the shared recipe screen",
++      "Visible production crafting control / CraftButton",
++      "Enabled production crafting button / CraftButton",
++      "Actual EventSystem raycast reaches CraftButton / first=CraftButton",
++      "Full inventory safely retains completed output in the crafting queue",
++      "One free slot cannot partially award two nonstackable outputs",
++      "Enough freed bag space awards both retained outputs atomically",
++      "F2 restores original bag identity, owned item metadata, session and pending queue exactly",
++      "Acceptance uses silent playback and no captured desktop pointer"
++    ],
++    "errors": [],
++    "hardware_input_verified": false,
++    "speaker_output_verified": false,
++    "scope": "Packaged native recipe UI with real EventSystem clicks, quantities/material payment, FIFO completion/cancel, pause/menu clocks, retired station routes, blocked output and exact original F2 inventory/queue restoration. Optional Metal capture is offscreen; hardware input, audible output and whole-game certification are separate.",
++    "check_count": 87
++  },
++  "payload_validation": {
++    "checked_at": "2026-10-04T20:03:45.411690+09:00",
++    "check": "Unity v22 serialized Mesh/TextAsset payload integrity",
++    "hideout_source_bytes": 1957825,
++    "hideout_source_sha256": "da650a86b6c00f0d3a9e194fef8cd198e8099a0816b986ff794e9f0a02841281",
++    "hideout_source_matches": true,
++    "passed": true,
++    "files": [
++      {
++        "file": "sharedassets1.assets",
++        "engine_version": "6000.3.25f1",
++        "object_count": 42527,
++        "counts": {
++          "Mesh": 2802,
++          "TextAsset": 14
++        },
++        "passed": true
++      },
++      {
++        "file": "resources.assets",
++        "engine_version": "6000.3.25f1",
++        "object_count": 16209,
++        "counts": {
++          "Mesh": 1361,
++          "TextAsset": 98
++        },
++        "passed": true
++      }
++    ],
++    "mesh_count": 4163,
++    "text_asset_count": 112
++  },
++  "launcher": {
++    "result": "Passed",
++    "dock_added": false,
++    "dock_repaired": true,
++    "dock_apps_before": 12,
++    "dock_apps_after": 12,
++    "existing_app_order_preserved": true,
++    "signature_verified": true,
++    "executable_name": "MusimusihanRPG",
++    "asset_copy_bytes": 0,
++    "typed_dock_values_verified": true,
++    "bookmark_target_verified": true
++  },
++  "screenshot": {
++    "path": "simple-crafting-ui-20261004.png",
++    "sha256": "579bea22d7b1bf59b6dab05c283207ee2d89a65263c5c6a69cce268cbbd37ab7",
++    "width": 1280,
++    "height": 720
++  },
++  "source_sha256": {
++    "Assets/RPG/Runtime/SimpleCraftingSystem.cs": "52fd6dd7c737afa5036b7e6b17ca0f458ca3687ada0cb51c8cac7f3a52a8dd74",
++    "Assets/RPG/Gameplay/NativeCrafting.cs": "ed23bfd341cb6e2428e5eb2944adab9590a5159c6aa8467e2103c72cda0dc0fc",
++    "Assets/RPG/Gameplay/NativeCraftingFlow.cs": "e46fac56b0b598f3a7a949c43bb4fc29d4781f045ac24b457bb1de0f007650b5",
++    "Assets/RPG/Gameplay/WorkshopSimpleCrafting.cs": "b06103280d424577ad0aca8b902df6aecdb92c497dfc39ed37420644c501ea6a",
++    "Assets/RPG/Gameplay/NativeSimpleCraftingSmoke.cs": "3c961062b3a8099e1b99c5bc342583aad4f859c3776285fbfa6a572a898bff94",
++    "Assets/RPG/Tests/Editor/SimpleCraftingTests.cs": "dafb6a41f047c998caed77e214bbfbdc6d3361dc0ca7de80cdeb4949d4901711",
++    "Assets/RPG/GameplayTests/PlayMode/WorkshopInputTests.cs": "b3e49d2d76f692deae5206057f461166457c069647f6fb4c66736a57c196fc3b",
++    "Assets/RPG/Editor/NativeGameBuild.cs": "30785ef9c518c45da1c4f59447e654bd1b767c06071d8d71e0986be0ef63d15a"
++  }
++}
+diff --git a/unity-game/README.md b/unity-game/README.md
+index 8c386cb51e440cb699e48034609aed1685f4d077..4a0c4a6f9b4892834281b061de5167eb5ddafb78 100644
+--- a/unity-game/README.md
++++ b/unity-game/README.md
+@@ -1,5 +1,7 @@
+ # 무시무시한 RPG — Unity 이전 / Unity migration
+ 
++2026-10-04 제작 교체: 기존 수동 단조·룬 개조·연금 제조 화면과 F2 항목을 제거하고 **제조법 선택 → 재료 확인 → 수량 → 제작 대기열**로 통합했습니다. 무기·방어구·물약·도구 18개 제조법, 취소 시 재료 반환, 가방 공간 대기, F2 원정·대기열 복원을 지원합니다. 은신처의 기존 제작대에서 E로 엽니다. [구현·검증 기록](Migration/SIMPLE_CRAFTING_20261004.md). / Crafting now uses one **recipe → materials → quantity → queue** screen with 18 fixed recipes. Manual forge/rune/alchemy screens and trials are retired. Cancellation refunds ingredients, full bags retain output, and F2 restores the original expedition and queue. Open the existing sanctuary crafting stations with E.
++
+ 2026-10-03 횃불 최종 조작: **F/L을 누르면 즉시 켜지고 짧은 화르륵 소리가 한 번만 납니다.** 3초 대기·원형 숫자 카운트다운·부싯돌 소리는 제거했습니다. 끄면 횃불·횃불 손·불빛이 즉시 사라지며 꺼내기·주머니 수납 모션도 없습니다. F2에서도 같은 동작을 실행합니다. [즉시 점화 기록](Migration/TORCH_INSTANT_FLAME_20261003.md). / Final torch controls: **F/L lights the torch immediately with one short flame whoosh.** The delay, countdown and flint sounds are removed. Switching off immediately hides the torch, its hand and lights; drawing and pocket stowing do not play. F2 uses the same action.
+ 
+ 이전 3초 점화 및 부싯돌 소리 검증은 당시의 기록이며 위 사용자 최종 지시로 대체됐습니다. [3초 점화 기록](Migration/TORCH_IGNITION_20261003.md), [수납 제거 기록](Migration/TORCH_REFINEMENT_20261003.md). / The earlier three-second/flint checkpoints are historical and superseded by the final instruction above.

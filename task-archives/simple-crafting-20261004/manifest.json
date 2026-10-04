@@ -1,0 +1,215 @@
+{
+  "schema_version": 1,
+  "repository": "duq711/musimusihan-rpg",
+  "archive_branch": "codex/unity-simple-crafting-20261004-evidence",
+  "archive_directory": "task-archives/simple-crafting-20261004",
+  "local_source_branch": "codex/unity-migration-20260925",
+  "implementation_commit": "3483e44dfcaa88b71fc1b0e9ecb30a588c556208",
+  "implementation_tree": "005f83df65d2a03e954984711a05ad1c582aaba1",
+  "base_commit_required": "17cb4ed7e56e9546a002ad9c13b68cbc64452818",
+  "task_file_count": 26,
+  "scope": "Task-only implementation delta, actual screenshot and scoped validation; existing Unity baseline/assets required",
+  "format_patch_command": "sh tools/git-project.sh format-patch -1 --stdout --binary --full-index --no-signature 3483e44dfcaa88b71fc1b0e9ecb30a588c556208",
+  "patch_sha256": "f4fa827673daecf98878147ea35aa7ff6997fc9d254a592636983dfd05c87805",
+  "patch_bytes": 160375,
+  "patch_applies_to_exact_parent_verified": true,
+  "check_index_isolated": true,
+  "files": [
+    {
+      "path": "unity-game/Assets/RPG/Editor/NativeGameBuild.cs",
+      "change": "M",
+      "git_blob_sha256": "30785ef9c518c45da1c4f59447e654bd1b767c06071d8d71e0986be0ef63d15a",
+      "git_blob_bytes": 2725
+    },
+    {
+      "path": "unity-game/Assets/RPG/Gameplay/NativeAlchemyFlow.cs",
+      "change": "M",
+      "git_blob_sha256": "ba438cbf3e88d5e9a9467c940a71733d1e971b37da13ac25a6293a6bd3c62bf8",
+      "git_blob_bytes": 711
+    },
+    {
+      "path": "unity-game/Assets/RPG/Gameplay/NativeCrafting.cs",
+      "change": "A",
+      "git_blob_sha256": "ed23bfd341cb6e2428e5eb2944adab9590a5159c6aa8467e2103c72cda0dc0fc",
+      "git_blob_bytes": 15707
+    },
+    {
+      "path": "unity-game/Assets/RPG/Gameplay/NativeCrafting.cs.meta",
+      "change": "A",
+      "git_blob_sha256": "fd44086dc22fa2262c8f2ea4522bf0316159cffad3c53414d0805a19f3f90200",
+      "git_blob_bytes": 60
+    },
+    {
+      "path": "unity-game/Assets/RPG/Gameplay/NativeCraftingFlow.cs",
+      "change": "A",
+      "git_blob_sha256": "e46fac56b0b598f3a7a949c43bb4fc29d4781f045ac24b457bb1de0f007650b5",
+      "git_blob_bytes": 1634
+    },
+    {
+      "path": "unity-game/Assets/RPG/Gameplay/NativeCraftingFlow.cs.meta",
+      "change": "A",
+      "git_blob_sha256": "e6200c5110afd39bd7d59abadb6207898bbcfa4d76db884b2c9d22a3e9eea83c",
+      "git_blob_bytes": 60
+    },
+    {
+      "path": "unity-game/Assets/RPG/Gameplay/NativeGameFlow.cs",
+      "change": "M",
+      "git_blob_sha256": "2b8cda5cdb613db9d9d1a74b10fec55687f640855f6164f0ca3888ff3b3ffbd9",
+      "git_blob_bytes": 32751
+    },
+    {
+      "path": "unity-game/Assets/RPG/Gameplay/NativeSimpleCraftingSmoke.cs",
+      "change": "A",
+      "git_blob_sha256": "3c961062b3a8099e1b99c5bc342583aad4f859c3776285fbfa6a572a898bff94",
+      "git_blob_bytes": 20563
+    },
+    {
+      "path": "unity-game/Assets/RPG/Gameplay/NativeSimpleCraftingSmoke.cs.meta",
+      "change": "A",
+      "git_blob_sha256": "9629c050aceeef89bca7ad2e7f980a9175555bd14029855f67b146847fec5d85",
+      "git_blob_bytes": 60
+    },
+    {
+      "path": "unity-game/Assets/RPG/Gameplay/NativeSmithingFlow.cs",
+      "change": "M",
+      "git_blob_sha256": "0e31ee498e25f00dc3e80c2b7f3fc1e701f51f59c16c86c52e6c26dae2c1ac4b",
+      "git_blob_bytes": 732
+    },
+    {
+      "path": "unity-game/Assets/RPG/Gameplay/NativeTrialMenu.cs",
+      "change": "M",
+      "git_blob_sha256": "9d08ffe81cde4764a906dd5903f1451e32c250e0b5eee7c4c328a0a46426575d",
+      "git_blob_bytes": 18313
+    },
+    {
+      "path": "unity-game/Assets/RPG/Gameplay/WorkshopController.cs",
+      "change": "M",
+      "git_blob_sha256": "42d74ad3376be21d5a7a29c8f70e56a32cc7e4482e13fe549d7233174779c7b7",
+      "git_blob_bytes": 32567
+    },
+    {
+      "path": "unity-game/Assets/RPG/Gameplay/WorkshopSimpleCrafting.cs",
+      "change": "A",
+      "git_blob_sha256": "b06103280d424577ad0aca8b902df6aecdb92c497dfc39ed37420644c501ea6a",
+      "git_blob_bytes": 1488
+    },
+    {
+      "path": "unity-game/Assets/RPG/Gameplay/WorkshopSimpleCrafting.cs.meta",
+      "change": "A",
+      "git_blob_sha256": "d8d0fac4bedad46913876f8730bbb61837f935b18bf79473d641167ce509290f",
+      "git_blob_bytes": 60
+    },
+    {
+      "path": "unity-game/Assets/RPG/Gameplay/WorkshopTrialWorld.cs",
+      "change": "M",
+      "git_blob_sha256": "89bd3d3d40ea7e6c4b3e935676fb1827eff2574b2f53ddbc3bbdb0ca5516c320",
+      "git_blob_bytes": 1497
+    },
+    {
+      "path": "unity-game/Assets/RPG/Gameplay/WorkshopView.cs",
+      "change": "M",
+      "git_blob_sha256": "042d8df8151657fa319265810868f4890a97158ef1be6047db9199e30dbd7102",
+      "git_blob_bytes": 21182
+    },
+    {
+      "path": "unity-game/Assets/RPG/GameplayTests/PlayMode/WorkshopInputTests.cs",
+      "change": "M",
+      "git_blob_sha256": "b3e49d2d76f692deae5206057f461166457c069647f6fb4c66736a57c196fc3b",
+      "git_blob_bytes": 8456
+    },
+    {
+      "path": "unity-game/Assets/RPG/Runtime/SimpleCraftingSystem.cs",
+      "change": "A",
+      "git_blob_sha256": "52fd6dd7c737afa5036b7e6b17ca0f458ca3687ada0cb51c8cac7f3a52a8dd74",
+      "git_blob_bytes": 15899
+    },
+    {
+      "path": "unity-game/Assets/RPG/Runtime/SimpleCraftingSystem.cs.meta",
+      "change": "A",
+      "git_blob_sha256": "09d3b6f84f1a6c51e0e376597f655075b8f43e3c76b3ee76601e81199eeae293",
+      "git_blob_bytes": 60
+    },
+    {
+      "path": "unity-game/Assets/RPG/Tests/Editor/SimpleCraftingTests.cs",
+      "change": "A",
+      "git_blob_sha256": "dafb6a41f047c998caed77e214bbfbdc6d3361dc0ca7de80cdeb4949d4901711",
+      "git_blob_bytes": 10977
+    },
+    {
+      "path": "unity-game/Assets/RPG/Tests/Editor/SimpleCraftingTests.cs.meta",
+      "change": "A",
+      "git_blob_sha256": "b63146d942da6123491bd082388869dc4ca7b9d50ad73876e59958cb984270fd",
+      "git_blob_bytes": 60
+    },
+    {
+      "path": "unity-game/CURRENT_STATUS.md",
+      "change": "M",
+      "git_blob_sha256": "21507db23a21f0d7cb5e7e9296a89cd3db76979c161a919e34671163dda60f53",
+      "git_blob_bytes": 20509
+    },
+    {
+      "path": "unity-game/Migration/SIMPLE_CRAFTING_20261004.md",
+      "change": "A",
+      "git_blob_sha256": "1671241e6f85d93e412cdb94d67c2f75a8ef6ba99961657089ba38e70a979a61",
+      "git_blob_bytes": 6440
+    },
+    {
+      "path": "unity-game/Migration/simple-crafting-ui-20261004.png",
+      "change": "A",
+      "git_blob_sha256": "a20aa2650beda7fbf9c7bbfed32800ec51b982cc300a3baeae92ba29635b4b14",
+      "git_blob_bytes": 130
+    },
+    {
+      "path": "unity-game/Migration/simple-crafting-validation-20261004.json",
+      "change": "A",
+      "git_blob_sha256": "e019ca88fe63eb91aa7cf7cf638bf86c69a43b4c43782b6c33ce1a1a4a057be9",
+      "git_blob_bytes": 12133
+    },
+    {
+      "path": "unity-game/README.md",
+      "change": "M",
+      "git_blob_sha256": "78ca3ee79f82703ebd68863ccd0441094c538147c2f028738b5069299ef5f438",
+      "git_blob_bytes": 450567
+    }
+  ],
+  "binary_payloads": [
+    {
+      "path": "unity-game/Migration/simple-crafting-ui-20261004.png",
+      "archive_file": "simple-crafting-ui-20261004.png.base64.txt",
+      "sha256": "579bea22d7b1bf59b6dab05c283207ee2d89a65263c5c6a69cce268cbbd37ab7",
+      "bytes": 96847,
+      "git_storage": "Git LFS pointer in exact patch; actual PNG bytes supplied as base64",
+      "base64_roundtrip_verified": true
+    }
+  ],
+  "readable_report": {
+    "archive_file": "SIMPLE_CRAFTING_20261004.md",
+    "source": "unity-game/Migration/SIMPLE_CRAFTING_20261004.md",
+    "note": "Later publication note included; exact implementation-time document remains in source.patch",
+    "matches_implementation_commit": false
+  },
+  "validation_copy_matches_commit": true,
+  "publication_status": "Prepared locally; full Unity branch/LFS push blocked by local Git authentication; connected GitHub archive verification is separate",
+  "archive_files": {
+    "source.patch": {
+      "sha256": "f4fa827673daecf98878147ea35aa7ff6997fc9d254a592636983dfd05c87805",
+      "bytes": 160375
+    },
+    "simple-crafting-ui-20261004.png.base64.txt": {
+      "sha256": "05856a9b9218eade2dc60bc6a566a8f3a6dbeeec174bff3faffd1f75f7609def",
+      "bytes": 129133
+    },
+    "README.md": {
+      "sha256": "058e861ce474cea7f585ffe49d0aa54c14250b4952b522cbf2d8d6cd174166ce",
+      "bytes": 2553
+    },
+    "SIMPLE_CRAFTING_20261004.md": {
+      "sha256": "d876bbb2927913e8bebc96b6dc2ac9736b5aafb7c3a8f23986aaea7691070b02",
+      "bytes": 7345
+    },
+    "simple-crafting-validation-20261004.json": {
+      "sha256": "e019ca88fe63eb91aa7cf7cf638bf86c69a43b4c43782b6c33ce1a1a4a057be9",
+      "bytes": 12133
+    }
+  }
+}

@@ -1,0 +1,244 @@
+{
+  "date": "2026-10-04",
+  "timezone": "Asia/Seoul",
+  "summary_ko": "간단 제작의 Unity 테스트 13개, 최종 Mac Metal UI 검사 87개, 빌드 데이터와 Dock 실행 연결을 확인했습니다.",
+  "summary_en": "Validated 13 Unity tests, 87 final Mac Metal UI checks, packaged asset data and the Dock launcher.",
+  "scope_ko": "기존 로컬 진행 작업을 보존한 Unity 작업 트리에서 실행한 제작 기능 검사입니다. 이 커밋에는 제작 작업 변경만 포함합니다.",
+  "scope_en": "Crafting validation runs against the Unity working tree with existing local work preserved. This commit includes only the crafting task changes.",
+  "recipes": 18,
+  "edit_mode": {
+    "result": "Passed",
+    "total": 9,
+    "passed": 9,
+    "failed": 0,
+    "tests": [
+      {
+        "name": "MusimusihanRpg.Tests.SimpleCraftingTests.CancelRefundsExactReservedInstanceDataAndPreservesExistingWeapon",
+        "result": "Passed"
+      },
+      {
+        "name": "MusimusihanRpg.Tests.SimpleCraftingTests.EveryRecipeProducesCatalogItemsWithFixedStatsAndNoManualQuality",
+        "result": "Passed"
+      },
+      {
+        "name": "MusimusihanRpg.Tests.SimpleCraftingTests.FullBagCancelRetainsAllRefundsUntilWholeRefundFits",
+        "result": "Passed"
+      },
+      {
+        "name": "MusimusihanRpg.Tests.SimpleCraftingTests.FullBagRetainsCompletedOutputAndSubscriberReentryCannotDuplicateIt",
+        "result": "Passed"
+      },
+      {
+        "name": "MusimusihanRpg.Tests.SimpleCraftingTests.InvalidRestoreIsAtomicAndCannotRewriteRecipeOutput",
+        "result": "Passed"
+      },
+      {
+        "name": "MusimusihanRpg.Tests.SimpleCraftingTests.QuantityUsesTotalCostsAndOnlyFirstQueueJobAdvances",
+        "result": "Passed"
+      },
+      {
+        "name": "MusimusihanRpg.Tests.SimpleCraftingTests.QueueLimitCannotReserveNinthJobMaterials",
+        "result": "Passed"
+      },
+      {
+        "name": "MusimusihanRpg.Tests.SimpleCraftingTests.RejectedInputsNeverReserveMaterialsOrChangeJobs",
+        "result": "Passed"
+      },
+      {
+        "name": "MusimusihanRpg.Tests.SimpleCraftingTests.SnapshotRecipeAndQueueCopiesAreIsolatedAndRestoreKeepsBagObject",
+        "result": "Passed"
+      }
+    ]
+  },
+  "play_mode": {
+    "result": "Passed",
+    "total": 4,
+    "passed": 4,
+    "failed": 0,
+    "tests": [
+      {
+        "name": "MusimusihanRpg.Tests.WorkshopInputTests.RetiredManualCraftingControlsAreAbsentAndQueueCancellationRefundsMaterials",
+        "result": "Passed"
+      },
+      {
+        "name": "MusimusihanRpg.Tests.WorkshopInputTests.SimpleCraftingTrialsReserveMaterialsAndRetryWithoutLosingCompletedItems",
+        "result": "Passed"
+      },
+      {
+        "name": "MusimusihanRpg.Tests.WorkshopInputTests.SurgeryUsesLiveButtonsTimersAndRestoresOriginalExpedition",
+        "result": "Passed"
+      },
+      {
+        "name": "MusimusihanRpg.Tests.WorkshopInputTests.TrialHandlersAreRunnableAndOriginalUnfinishedWorkIsRetained",
+        "result": "Passed"
+      }
+    ]
+  },
+  "native_build": {
+    "result": "Succeeded",
+    "clean_cache": true,
+    "errors": 0,
+    "warnings": 176,
+    "bytes": 3192691935
+  },
+  "packaged_player": {
+    "result": "Passed",
+    "gpu": "Metal",
+    "seconds": 4.876897625000001,
+    "checks": [
+      "QA settings are isolated from user preferences",
+      "Legacy manual forge and alchemy screens are absent from the active native interface",
+      "Original expedition has a real pending recipe before F2",
+      "F2 isolates both the original inventory and pending crafting service",
+      "F2 exposes one simple crafting route and retires manual crafting routes",
+      "Actual simple crafting F2 entry opens the production recipe interface",
+      "Visible production crafting control / Category_weapon",
+      "Enabled production crafting button / Category_weapon",
+      "Actual EventSystem raycast reaches Category_weapon / first=Category_weapon",
+      "Visible production crafting control / Recipe_0",
+      "Enabled production crafting button / Recipe_0",
+      "Actual EventSystem raycast reaches Recipe_0 / first=Recipe_0",
+      "Real recipe grid selects the forged longsword",
+      "Visible production crafting control / QuantityPlus",
+      "Enabled production crafting button / QuantityPlus",
+      "Actual EventSystem raycast reaches QuantityPlus / first=QuantityPlus",
+      "Visible production crafting control / Quantity",
+      "Real quantity button selects two crafts",
+      "Visible production crafting control / MaterialCount_iron_ingot",
+      "Production materials table displays selected-quantity requirement / iron_ingot",
+      "Visible production crafting control / MaterialCount_forge_charcoal",
+      "Production materials table displays selected-quantity requirement / forge_charcoal",
+      "Visible production crafting control / MaterialCount_grip_leather",
+      "Production materials table displays selected-quantity requirement / grip_leather",
+      "Visible production crafting control / CraftButton",
+      "Enabled production crafting button / CraftButton",
+      "Actual EventSystem raycast reaches CraftButton / first=CraftButton",
+      "Real craft button queues two items without awarding them early",
+      "Queue reserves the exact selected recipe materials / iron_ingot",
+      "Queue reserves the exact selected recipe materials / forge_charcoal",
+      "Queue reserves the exact selected recipe materials / grip_leather",
+      "Player pause freezes pending crafting time",
+      "Unpause resumes the actual shared crafting clock",
+      "F2 menu freezes the isolated crafting queue",
+      "Resume retains the same pending trial crafting service",
+      "Timer completion awards exactly two normal inventory weapons",
+      "Completed queue cannot duplicate output on later frames",
+      "Visible production crafting control / Category_armor",
+      "Enabled production crafting button / Category_armor",
+      "Actual EventSystem raycast reaches Category_armor / first=Category_armor",
+      "Visible production crafting control / Recipe_0",
+      "Enabled production crafting button / Recipe_0",
+      "Actual EventSystem raycast reaches Recipe_0 / first=Recipe_0",
+      "Armor category uses the same real recipe grid",
+      "Visible production crafting control / CraftButton",
+      "Enabled production crafting button / CraftButton",
+      "Actual EventSystem raycast reaches CraftButton / first=CraftButton",
+      "Visible production crafting control / Category_consumable",
+      "Enabled production crafting button / Category_consumable",
+      "Actual EventSystem raycast reaches Category_consumable / first=Category_consumable",
+      "Visible production crafting control / Recipe_0",
+      "Enabled production crafting button / Recipe_0",
+      "Actual EventSystem raycast reaches Recipe_0 / first=Recipe_0",
+      "Visible production crafting control / QuantityPlus",
+      "Enabled production crafting button / QuantityPlus",
+      "Actual EventSystem raycast reaches QuantityPlus / first=QuantityPlus",
+      "Potion category selects a fixed healing recipe",
+      "Visible production crafting control / CraftButton",
+      "Enabled production crafting button / CraftButton",
+      "Actual EventSystem raycast reaches CraftButton / first=CraftButton",
+      "Armor and potions share one FIFO queue",
+      "Requested screen capture uses the actual Metal renderer",
+      "Production UI renderer is ready for an offscreen screen capture",
+      "Saved the actual recipe/materials/quantity/queue interface at 1280x720",
+      "Visible production crafting control / Cancel_2",
+      "Enabled production crafting button / Cancel_2",
+      "Actual EventSystem raycast reaches Cancel_2 / first=Cancel_2",
+      "Real queue cancel returns armor materials and promotes the pending potion recipe",
+      "Simplified potion crafting awards the selected two bottles",
+      "Visible production crafting control / Category_weapon",
+      "Enabled production crafting button / Category_weapon",
+      "Actual EventSystem raycast reaches Category_weapon / first=Category_weapon",
+      "Visible production crafting control / CraftButton",
+      "Insufficient materials disable the production craft button",
+      "Missing-material rejection does not consume inventory or alter the queue",
+      "Retry replenishes isolated supplies and preserves completed trial items",
+      "Former weapon station entry routes to the shared simple crafting screen",
+      "Former potion station entry routes to the shared simple crafting screen",
+      "Closing either station leaves the shared recipe screen",
+      "Visible production crafting control / CraftButton",
+      "Enabled production crafting button / CraftButton",
+      "Actual EventSystem raycast reaches CraftButton / first=CraftButton",
+      "Full inventory safely retains completed output in the crafting queue",
+      "One free slot cannot partially award two nonstackable outputs",
+      "Enough freed bag space awards both retained outputs atomically",
+      "F2 restores original bag identity, owned item metadata, session and pending queue exactly",
+      "Acceptance uses silent playback and no captured desktop pointer"
+    ],
+    "errors": [],
+    "hardware_input_verified": false,
+    "speaker_output_verified": false,
+    "scope": "Packaged native recipe UI with real EventSystem clicks, quantities/material payment, FIFO completion/cancel, pause/menu clocks, retired station routes, blocked output and exact original F2 inventory/queue restoration. Optional Metal capture is offscreen; hardware input, audible output and whole-game certification are separate.",
+    "check_count": 87
+  },
+  "payload_validation": {
+    "checked_at": "2026-10-04T20:03:45.411690+09:00",
+    "check": "Unity v22 serialized Mesh/TextAsset payload integrity",
+    "hideout_source_bytes": 1957825,
+    "hideout_source_sha256": "da650a86b6c00f0d3a9e194fef8cd198e8099a0816b986ff794e9f0a02841281",
+    "hideout_source_matches": true,
+    "passed": true,
+    "files": [
+      {
+        "file": "sharedassets1.assets",
+        "engine_version": "6000.3.25f1",
+        "object_count": 42527,
+        "counts": {
+          "Mesh": 2802,
+          "TextAsset": 14
+        },
+        "passed": true
+      },
+      {
+        "file": "resources.assets",
+        "engine_version": "6000.3.25f1",
+        "object_count": 16209,
+        "counts": {
+          "Mesh": 1361,
+          "TextAsset": 98
+        },
+        "passed": true
+      }
+    ],
+    "mesh_count": 4163,
+    "text_asset_count": 112
+  },
+  "launcher": {
+    "result": "Passed",
+    "dock_added": false,
+    "dock_repaired": true,
+    "dock_apps_before": 12,
+    "dock_apps_after": 12,
+    "existing_app_order_preserved": true,
+    "signature_verified": true,
+    "executable_name": "MusimusihanRPG",
+    "asset_copy_bytes": 0,
+    "typed_dock_values_verified": true,
+    "bookmark_target_verified": true
+  },
+  "screenshot": {
+    "path": "simple-crafting-ui-20261004.png",
+    "sha256": "579bea22d7b1bf59b6dab05c283207ee2d89a65263c5c6a69cce268cbbd37ab7",
+    "width": 1280,
+    "height": 720
+  },
+  "source_sha256": {
+    "Assets/RPG/Runtime/SimpleCraftingSystem.cs": "52fd6dd7c737afa5036b7e6b17ca0f458ca3687ada0cb51c8cac7f3a52a8dd74",
+    "Assets/RPG/Gameplay/NativeCrafting.cs": "ed23bfd341cb6e2428e5eb2944adab9590a5159c6aa8467e2103c72cda0dc0fc",
+    "Assets/RPG/Gameplay/NativeCraftingFlow.cs": "e46fac56b0b598f3a7a949c43bb4fc29d4781f045ac24b457bb1de0f007650b5",
+    "Assets/RPG/Gameplay/WorkshopSimpleCrafting.cs": "b06103280d424577ad0aca8b902df6aecdb92c497dfc39ed37420644c501ea6a",
+    "Assets/RPG/Gameplay/NativeSimpleCraftingSmoke.cs": "3c961062b3a8099e1b99c5bc342583aad4f859c3776285fbfa6a572a898bff94",
+    "Assets/RPG/Tests/Editor/SimpleCraftingTests.cs": "dafb6a41f047c998caed77e214bbfbdc6d3361dc0ca7de80cdeb4949d4901711",
+    "Assets/RPG/GameplayTests/PlayMode/WorkshopInputTests.cs": "b3e49d2d76f692deae5206057f461166457c069647f6fb4c66736a57c196fc3b",
+    "Assets/RPG/Editor/NativeGameBuild.cs": "30785ef9c518c45da1c4f59447e654bd1b767c06071d8d71e0986be0ef63d15a"
+  }
+}
