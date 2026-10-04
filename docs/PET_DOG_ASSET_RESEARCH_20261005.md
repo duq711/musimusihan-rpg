@@ -4,9 +4,15 @@
 
 **Current user constraint: free assets only. The free shortlist below supersedes the earlier paid recommendations retained later as reference.**
 
+## 확정 에셋과 제작 결과 / Selected asset and production
+
+2026-10-05 후속 요청에 따라 **RetroStyle Games 무료 독일 셰퍼드**를 [제작사 공식 itch.io](https://retrostylegames.itch.io/german-shepherd-3d-dog-model-free)에서 내려받았습니다. 원본을 보존하고 Mac Blender에서 펫용 13개 동작을 추가해 기본 이동·대기와 함께 16클립을 제작했습니다. Unity 6000.3.25f1 Built-in 격리 임포트·패키징을 통과했습니다. [제작 결과와 사용 안내](SHEPHERD_PET_ANIMATIONS_20261005.md)에 최종 파일·검수·한계를 기록합니다. 아래 조사는 이 선택 이전의 후보 비교 기록입니다.
+
+The follow-up request selected RetroStyle's free German Shepherd. It was downloaded from the official itch.io page, preserved, and extended on this Mac with 13 pet motions, yielding 16 clips with locomotion/idling. Isolated Unity 6000.3.25f1 Built-in import and packaging passed. The linked production note records final artifacts, checks and limitations; the shortlist below is the earlier comparison.
+
 ## 무료 후보 / Free shortlist
 
-2026-10-05 공식 에셋 페이지와 라이선스를 확인했습니다. 모두 모델 가격 $0인 후보이며 다운로드·설치·게임 임포트는 수행하지 않았습니다. / Official asset pages and license labels were checked on 2026-10-05. All shortlisted models are $0; no download, installation or game import was performed.
+2026-10-05 조사 단계에서 공식 에셋 페이지와 라이선스를 확인했습니다. 모두 모델 가격 $0인 후보이며, 당시에는 다운로드·설치·게임 임포트를 수행하지 않았습니다. 현재 제작 상태는 위의 확정 결과를 따릅니다. / At the research stage, official pages and license labels were checked for $0 candidates without downloads or imports. Current production status is recorded above.
 
 | 무료 모델 / Free model | 확인한 외형·동작 / Verified content | 게임 적용에 남은 작업 / Remaining work |
 | --- | --- | --- |
@@ -33,9 +39,9 @@ The linked research data is free raw BVH (70.14 MB, CC BY 4.0). The official res
 
 ### 무료 조사 확인과 산출물 / Free research checks and output
 
-무료 모델 3개와 모션 자료 1개를 주요 후보로 확인했습니다. 실제 브라우저에서 Fab 무료 가격·파일 형식·HDRP 제한·라이선스, 래브라도 외형·1개 모션·무료 다운로드·CC BY 표시, 모션캡처 파일·라이선스를 확인했습니다. 품종과 최종 사용 에셋은 미정입니다. 별도 다운로드·캡처 파일·빌드·복제 프로젝트는 0개이고, 최종 산출물은 이 문서의 최신 무료 조사 절입니다.
+무료 모델 3개와 모션 자료 1개를 주요 후보로 확인했습니다. 실제 브라우저에서 Fab 무료 가격·파일 형식·HDRP 제한·라이선스, 래브라도 외형·1개 모션·무료 다운로드·CC BY 표시, 모션캡처 파일·라이선스를 확인했습니다. 이 조사 당시 품종과 에셋은 미정이었으며 별도 다운로드·캡처 파일·빌드·복제 프로젝트는 0개였습니다. 이후 선택·다운로드·제작 결과는 위의 확정 절을 따릅니다.
 
-Checked three free model candidates and one motion dataset. Live browser verification covered Fab's free price/formats/HDRP/license, the Labrador's appearance/one clip/download/license, and mocap files/license. Breed and asset selection remain undecided. No asset downloads, saved captures, builds or copied projects were produced; this updated note is the final artifact.
+Checked three free model candidates and one motion dataset. Live browser verification covered Fab's free price/formats/HDRP/license, the Labrador's appearance/one clip/download/license, and mocap files/license. Selection and downloads were still pending at that research stage; subsequent production is recorded above.
 
 ## 이전 유료 조사 참고 / Earlier paid research reference
 

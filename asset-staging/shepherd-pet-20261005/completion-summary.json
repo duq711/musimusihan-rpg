@@ -1,0 +1,81 @@
+{
+  "date": "2026-10-05",
+  "result": "Completed animation assets / 모션 자산 제작 완료",
+  "clips": 16,
+  "fps": 30,
+  "blender": "5.2.1 LTS",
+  "unity": "6000.3.25f1",
+  "production_blend_sha256": "bbc4327a706dd2cdb7c1496f2640315aa5991eae4049483ac99a08c0cc9c9531",
+  "package_sha256": "3fcb4c3eb74741352c046915a11760252d8034f9bde028f65dfb72c685851989",
+  "package_bytes": 26410681,
+  "source": {
+    "publisher": "RetroStyle Games",
+    "url": "https://retrostylegames.itch.io/german-shepherd-3d-dog-model-free",
+    "download_date": "2026-10-05",
+    "archive": "RSG_DogsPack_GermanShepherd_FBX.zip",
+    "sha256": "19588eca88d4b03aefa7d1d8a6e3aebc774eb636bb95af9c846d446f89f75ea9",
+    "bytes": 19422656,
+    "permission": "Free for commercial and personal projects; raw redistribution not explicitly granted."
+  },
+  "checks": {
+    "pose_frames": 778,
+    "mesh_frames": 778,
+    "fbx_roundtrips": 16,
+    "fbx_pose_comparisons": 48,
+    "unity_numerical_and_binding_checks": 464215,
+    "unity_failed": 0,
+    "cpu_skin_samples": 80,
+    "package_entries": 30,
+    "package_fbx_count": 17,
+    "package_production_hash_matches": 21,
+    "final_side_pose_renders_reviewed": 57
+  },
+  "local_artifacts": [
+    "production/ShepherdPet_Animations.blend",
+    "export/ShepherdPet_Model.fbx",
+    "export/Animations",
+    "export/ShepherdPet_BuiltIn.unitypackage",
+    "source"
+  ],
+  "limits": [
+    "Game AI, damage, retrieval/inventory, feeding and player hand systems are not integrated.",
+    "No new fur or photorealistic mesh was authored; original game-model appearance is preserved.",
+    "Integer-frame clearance, sampled roundtrip poses and isolated Editor import do not prove interframe skin contact or game-speed foot sliding.",
+    "Licensed binaries remain local; publication is tools, manifests and docs."
+  ],
+  "cleanup": {
+    "status": "complete",
+    "removed_files": 452,
+    "removed_logical_bytes": 160396488,
+    "removed_allocated_bytes": 162541568,
+    "disk_free_before_bytes": 13885440000,
+    "disk_free_after_bytes": 14049280000,
+    "observed_free_space_change_bytes": 163840000,
+    "note": "APFS shared blocks and concurrent system activity make allocation and observed free-space change differ.",
+    "removed_paths": [
+      "asset-staging/shepherd-pet-20261005/validation",
+      "asset-staging/shepherd-pet-20261005/production/source-inspected.blend",
+      "asset-staging/shepherd-pet-20261005/production/ShepherdPet_Animations.blend1",
+      "unity-game/Artifacts/shepherd-pet-import-20261005",
+      "/private/tmp/dog-motion-spec.txt",
+      "/private/tmp/test_shepherd_ik.py",
+      "/private/tmp/shepherd-ik-result.json",
+      "/private/tmp/shepherd_tangent_sweep.py",
+      "/private/tmp/shepherd-tangent-sweep.json",
+      "/private/tmp/inspect_shepherd.py",
+      "/private/tmp/render_shepherd.py",
+      "/private/tmp/shepherd-inspect.log",
+      "/private/tmp/shepherd-author.log",
+      "/private/tmp/shepherd-render.log",
+      "/private/tmp/shepherd-numeric.log",
+      "/private/tmp/shepherd-preview.log",
+      "/private/tmp/shepherd-unity.log"
+    ],
+    "preserved": [
+      "asset-staging/shepherd-pet-20261005/source/RSG_DogsPack_GermanShepherd_FBX.zip",
+      "asset-staging/shepherd-pet-20261005/production/ShepherdPet_Animations.blend",
+      "asset-staging/shepherd-pet-20261005/export/ShepherdPet_BuiltIn.unitypackage",
+      "asset-staging/shepherd-pet-20261005/completion-summary.json"
+    ]
+  }
+}

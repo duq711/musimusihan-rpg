@@ -1,0 +1,228 @@
+{
+  "fps": 30,
+  "rig": "Generic",
+  "root": "ShepherdPet",
+  "root_motion": "In-place; no gameplay displacement",
+  "height_m": 0.698,
+  "clips": [
+    {
+      "name": "IdleFriendly",
+      "frames": [
+        1,
+        91
+      ],
+      "duration": 3.0,
+      "loop": true,
+      "source": "RetroStyle locomotion + authored overlay",
+      "events": [],
+      "loop_clearance_lift_m": 0
+    },
+    {
+      "name": "Walk",
+      "frames": [
+        1,
+        19
+      ],
+      "duration": 0.6,
+      "loop": true,
+      "source": "RetroStyle locomotion + authored overlay",
+      "events": [],
+      "loop_clearance_lift_m": 0.003410081020370126
+    },
+    {
+      "name": "Run",
+      "frames": [
+        1,
+        13
+      ],
+      "duration": 0.4,
+      "loop": true,
+      "source": "RetroStyle locomotion + authored overlay",
+      "events": [],
+      "loop_clearance_lift_m": 0.04100170392990112
+    },
+    {
+      "name": "CombatBite",
+      "frames": [
+        1,
+        37
+      ],
+      "duration": 1.2,
+      "loop": false,
+      "source": "New authored pet motion",
+      "events": [
+        {
+          "time": 0.6,
+          "name": "BiteContact"
+        }
+      ],
+      "loop_clearance_lift_m": 0
+    },
+    {
+      "name": "SearchSniff",
+      "frames": [
+        1,
+        91
+      ],
+      "duration": 3.0,
+      "loop": true,
+      "source": "New authored pet motion",
+      "events": [],
+      "loop_clearance_lift_m": 0
+    },
+    {
+      "name": "SearchWalk",
+      "frames": [
+        1,
+        55
+      ],
+      "duration": 1.8,
+      "loop": true,
+      "source": "RetroStyle locomotion + authored overlay",
+      "events": [],
+      "loop_clearance_lift_m": 0.001523253381997347
+    },
+    {
+      "name": "SearchFound",
+      "frames": [
+        1,
+        46
+      ],
+      "duration": 1.5,
+      "loop": false,
+      "source": "New authored pet motion",
+      "events": [
+        {
+          "time": 0.8,
+          "name": "FoundCue"
+        }
+      ],
+      "loop_clearance_lift_m": 0
+    },
+    {
+      "name": "RetrievePickup",
+      "frames": [
+        1,
+        46
+      ],
+      "duration": 1.5,
+      "loop": false,
+      "source": "New authored pet motion",
+      "events": [
+        {
+          "time": 0.8,
+          "name": "AttachItem"
+        }
+      ],
+      "loop_clearance_lift_m": 0
+    },
+    {
+      "name": "RetrieveCarryWalk",
+      "frames": [
+        1,
+        37
+      ],
+      "duration": 1.2,
+      "loop": true,
+      "source": "RetroStyle locomotion + authored overlay",
+      "events": [],
+      "loop_clearance_lift_m": 0.0021742869772017003
+    },
+    {
+      "name": "RetrieveDrop",
+      "frames": [
+        1,
+        46
+      ],
+      "duration": 1.5,
+      "loop": false,
+      "source": "New authored pet motion",
+      "events": [
+        {
+          "time": 0.8,
+          "name": "DetachItem"
+        }
+      ],
+      "loop_clearance_lift_m": 0
+    },
+    {
+      "name": "EatStart",
+      "frames": [
+        1,
+        31
+      ],
+      "duration": 1.0,
+      "loop": false,
+      "source": "New authored pet motion",
+      "events": [],
+      "loop_clearance_lift_m": 0
+    },
+    {
+      "name": "EatLoop",
+      "frames": [
+        1,
+        61
+      ],
+      "duration": 2.0,
+      "loop": true,
+      "source": "New authored pet motion",
+      "events": [],
+      "loop_clearance_lift_m": 0
+    },
+    {
+      "name": "EatEnd",
+      "frames": [
+        1,
+        31
+      ],
+      "duration": 1.0,
+      "loop": false,
+      "source": "New authored pet motion",
+      "events": [],
+      "loop_clearance_lift_m": 0
+    },
+    {
+      "name": "PetSit",
+      "frames": [
+        1,
+        46
+      ],
+      "duration": 1.5,
+      "loop": false,
+      "source": "New authored pet motion",
+      "events": [],
+      "loop_clearance_lift_m": 0
+    },
+    {
+      "name": "PetEnjoy",
+      "frames": [
+        1,
+        91
+      ],
+      "duration": 3.0,
+      "loop": true,
+      "source": "New authored pet motion",
+      "events": [],
+      "loop_clearance_lift_m": 0
+    },
+    {
+      "name": "PetRise",
+      "frames": [
+        1,
+        37
+      ],
+      "duration": 1.2,
+      "loop": false,
+      "source": "New authored pet motion",
+      "events": [],
+      "loop_clearance_lift_m": 0
+    }
+  ],
+  "mouth_socket": {
+    "bone": "DEF-spine.011",
+    "note": "Use production marker; retune item attachment to item dimensions."
+  },
+  "contact_authoring_max_cm": 4.286498187631436e-05,
+  "unreachable_frames": [],
+  "scope": "Animation assets only; pet AI, damage, inventory and player hand animation are not implemented."
+}
