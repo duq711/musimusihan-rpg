@@ -90,3 +90,21 @@ Unity 검수기는 `tools/dcc/ShepherdPetImportValidator.cs`입니다. 지정 ma
 검수 캡처·로그·중간 Blender 저장본·격리 Unity 캐시 **452개 파일**을 결과 요약 보존 후 제거했습니다. 제거한 파일 할당량은 **162,541,568바이트(155.0MiB)**, 논리 파일 크기는 160,396,488바이트입니다. 정리 직후 디스크 여유는 **14,049,280,000바이트(13.08GiB)**, 관측 증가량은 163,840,000바이트입니다. APFS 공유 블록과 다른 시스템 작업 때문에 파일 할당량과 여유 공간 변화는 다를 수 있습니다. 원본, 최종 `.blend`/FBX/Unity 패키지와 패키지 안 importer metadata, 재사용 도구와 기존 플레이용 앱은 보존했습니다. 작은 영구 기록은 `asset-staging/shepherd-pet-20261005/completion-summary.json`입니다.
 
 Removed 452 reviewed capture/log/intermediate/cache files after preserving the summary: 155.0MiB allocated, 160,396,488 logical bytes. Free space measured immediately afterward was 13.08GiB, with 163,840,000 bytes of observed increase. APFS sharing and concurrent system work can make allocation differ from free-space changes. Originals, final source/exports/package with importer metadata, reusable tools and the existing playable app are retained. The compact permanent record is `completion-summary.json` at the path above.
+
+## 요청한 모션 영상 / Requested motion video
+
+사용자가 모션을 영상으로 보여달라고 요청하여, 기존 제작본의 16클립을 순서대로 보여주는 MP4 쇼릴을 완성했습니다. **960×640, 24FPS, 759프레임, 31.625초**, H.264, 무음입니다. `tools/dcc/shepherd_pet_video.py`가 걷기·달리기·냄새 탐색·물기·회수·먹기·교감 동작을 옆면과 사선 카메라에서 한국어·영어 자막과 함께 보여줍니다. 먹기는 EatStart → EatLoop → EatEnd, 교감은 PetSit → PetEnjoy → PetRise 순서입니다.
+
+Completed the requested MP4 showreel of all 16 existing clips: **960×640, 24 FPS, 759 frames, 31.625 seconds**, H.264 and no audio. `tools/dcc/shepherd_pet_video.py` shows locomotion, search, biting, retrieval, feeding and petting reactions from side and three-quarter cameras with Korean/English captions. Feeding follows EatStart → EatLoop → EatEnd; care follows PetSit → PetEnjoy → PetRise.
+
+영상 경로는 `asset-staging/shepherd-pet-20261005/export/ShepherdPet_Motions.mp4`, 완료 기록 경로는 같은 제작 폴더의 `video-summary.json`입니다. 제작 도구는 원본 `.blend`를 읽고 메모리에서 쇼릴 Action·무대·카메라·자막을 만든 뒤 직접 MP4를 렌더링했습니다. 원본 저장 없이 제작본 SHA-256 불변을 확인했습니다. 영상은 **4,117,921바이트**, SHA-256 `239134fc7062d4421ffbf7e01d0c7dba337c817003cb2241eb28b8093a2af430`입니다. Mac AVFoundation으로 시작·중간·끝의 5표본을 디코딩하여 크기·길이·프레임 속도와 읽을 수 있는 자막을 확인했고, 16클립의 연속 759프레임 구성을 검사했습니다. 시각 검토는 표본 검사입니다.
+
+The output path is `asset-staging/shepherd-pet-20261005/export/ShepherdPet_Motions.mp4`, with its completion receipt at `video-summary.json` in the same production folder. The tool rendered an in-memory showreel without saving the source; the production SHA-256 stayed unchanged. The video is **4,117,921 bytes** with the SHA-256 above. Mac AVFoundation decoded five beginning/middle/end samples, confirming dimensions, duration, frame rate and readable captions. All 16 clips form a contiguous 759-frame timeline. Visual review is sampled.
+
+이 영상은 사용자가 명시적으로 요청한 최종 산출물이므로 보존합니다. 검수용 추출 프레임과 임시 로그는 검토 후 정리합니다. 렌더된 영상과 모델을 포함한 바이너리의 재배포는 구분하며, 원본 ZIP·`.blend`·FBX·Unity 패키지는 기존 공개 제외 원칙을 유지합니다. 영상은 만들어 둔 모션의 재생이며 전투 판정·탐색/회수 AI·아이템·먹이·주인공 손과의 상호작용을 시뮬레이션하지 않습니다.
+
+The requested video is a final deliverable and is preserved; extracted review frames and temporary logs are cleaned after inspection. A rendered video is distinct from redistribution of model-containing binaries: original archives, `.blend`, FBX and Unity packages remain excluded from public Git. This showreel plays authored motions without simulating combat, retrieval AI, items, food or the player's hand interaction.
+
+이번 영상 검수의 임시 프레임·로그·Swift 디코더/컴파일 캐시 **261개 파일**을 정리했습니다. 제거한 파일 할당량은 **260,997,120바이트(248.9MiB)**, 논리 크기는 260,442,936바이트입니다. 직후 여유 공간은 **16,629,760,000바이트(15.49GiB)**, 관측 증가량은 245,760,000바이트입니다. APFS 공유 블록과 다른 작업에 따라 할당량과 실제 여유 공간 변화가 다를 수 있습니다. 최종 영상·원본·Unity 패키지·재사용 도구·기존 플레이용 앱을 보존했습니다. 이번 공개 Git 변경은 렌더 도구·문서·영상 요약이며 MP4는 로컬 산출물입니다.
+
+Removed **261** temporary review frames, logs, Swift decoder and compiler-cache files: **260,997,120 allocated bytes (248.9MiB)** and 260,442,936 logical bytes. Free space immediately afterward was **16,629,760,000 bytes (15.49GiB)**; the observed increase was 245,760,000 bytes. APFS sharing and concurrent work can make these values differ. The final video, original source, Unity package, reusable tools and existing playable app are preserved. This public Git change contains the renderer, documentation and video receipt; the MP4 remains a local deliverable.

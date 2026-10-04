@@ -1,0 +1,183 @@
+{
+  "file": "ShepherdPet_Motions.mp4",
+  "width": 960,
+  "height": 640,
+  "fps": 24,
+  "frames": 759,
+  "duration_seconds": 31.625,
+  "bytes": 4117921,
+  "sha256": "239134fc7062d4421ffbf7e01d0c7dba337c817003cb2241eb28b8093a2af430",
+  "source_blend_sha256": "bbc4327a706dd2cdb7c1496f2640315aa5991eae4049483ac99a08c0cc9c9531",
+  "source_unchanged": true,
+  "timeline": [
+    {
+      "clip": "IdleFriendly",
+      "label": "편안한 대기 / Friendly idle",
+      "view": "threequarter",
+      "first_frame": 1,
+      "last_frame": 72,
+      "cycles": 1
+    },
+    {
+      "clip": "Walk",
+      "label": "걷기 / Walk",
+      "view": "side",
+      "first_frame": 73,
+      "last_frame": 130,
+      "cycles": 4
+    },
+    {
+      "clip": "Run",
+      "label": "달리기 / Run",
+      "view": "side",
+      "first_frame": 131,
+      "last_frame": 168,
+      "cycles": 4
+    },
+    {
+      "clip": "CombatBite",
+      "label": "물기 공격 / Bite",
+      "view": "threequarter",
+      "first_frame": 169,
+      "last_frame": 197,
+      "cycles": 1
+    },
+    {
+      "clip": "SearchSniff",
+      "label": "냄새 맡기 / Sniff",
+      "view": "threequarter",
+      "first_frame": 198,
+      "last_frame": 269,
+      "cycles": 1
+    },
+    {
+      "clip": "SearchWalk",
+      "label": "냄새 탐색 / Scent walk",
+      "view": "side",
+      "first_frame": 270,
+      "last_frame": 312,
+      "cycles": 1
+    },
+    {
+      "clip": "SearchFound",
+      "label": "찾았다! / Found",
+      "view": "threequarter",
+      "first_frame": 313,
+      "last_frame": 348,
+      "cycles": 1
+    },
+    {
+      "clip": "RetrievePickup",
+      "label": "줍기 / Pick up",
+      "view": "threequarter",
+      "first_frame": 349,
+      "last_frame": 384,
+      "cycles": 1
+    },
+    {
+      "clip": "RetrieveCarryWalk",
+      "label": "물고 걷기 / Carry",
+      "view": "side",
+      "first_frame": 385,
+      "last_frame": 442,
+      "cycles": 2
+    },
+    {
+      "clip": "RetrieveDrop",
+      "label": "내려놓기 / Drop",
+      "view": "threequarter",
+      "first_frame": 443,
+      "last_frame": 478,
+      "cycles": 1
+    },
+    {
+      "clip": "EatStart",
+      "label": "밥 먹기 / Feeding",
+      "view": "threequarter",
+      "first_frame": 479,
+      "last_frame": 502,
+      "cycles": 1
+    },
+    {
+      "clip": "EatLoop",
+      "label": "밥 먹기 / Feeding",
+      "view": "threequarter",
+      "first_frame": 503,
+      "last_frame": 598,
+      "cycles": 2
+    },
+    {
+      "clip": "EatEnd",
+      "label": "밥 먹기 / Feeding",
+      "view": "threequarter",
+      "first_frame": 599,
+      "last_frame": 622,
+      "cycles": 1
+    },
+    {
+      "clip": "PetSit",
+      "label": "앉아서 쓰담 반응 / Petting reaction",
+      "view": "threequarter",
+      "first_frame": 623,
+      "last_frame": 658,
+      "cycles": 1
+    },
+    {
+      "clip": "PetEnjoy",
+      "label": "앉아서 쓰담 반응 / Petting reaction",
+      "view": "threequarter",
+      "first_frame": 659,
+      "last_frame": 730,
+      "cycles": 1
+    },
+    {
+      "clip": "PetRise",
+      "label": "일어나기 / Rise",
+      "view": "threequarter",
+      "first_frame": 731,
+      "last_frame": 759,
+      "cycles": 1
+    }
+  ],
+  "scope": "Rendered animation showreel; gameplay and interaction props are not simulated.",
+  "validation": {
+    "decoded_samples": 5,
+    "duration_seconds": 31.625,
+    "fps": 24,
+    "height": 640,
+    "video_tracks": 1,
+    "width": 960,
+    "visual_samples_reviewed": 5,
+    "korean_english_captions_readable": true,
+    "clip_coverage": 16,
+    "timeline_contiguous": true,
+    "renderer_exit_code": 0,
+    "limitation": "Five decoded visual samples; this is a motion preview without gameplay or interaction props."
+  },
+  "cleanup": {
+    "file_count": 261,
+    "removed_allocated_bytes": 260997120,
+    "removed_logical_bytes": 260442936,
+    "free_bytes_before": 16384000000,
+    "paths": [
+      "asset-staging/shepherd-pet-20261005/validation/video",
+      "/private/tmp/check-shepherd-video.swift",
+      "/private/tmp/check-shepherd-video",
+      "/private/tmp/shepherd-video-swift-cache",
+      "/private/tmp/shepherd-video-check.py",
+      "/private/tmp/shepherd-video-render.log"
+    ],
+    "preserved": [
+      "export/ShepherdPet_Motions.mp4",
+      "production/ShepherdPet_Animations.blend",
+      "source/",
+      "export/ShepherdPet_BuiltIn.unitypackage",
+      "export/Animations/",
+      "tools/dcc/shepherd_pet_video.py"
+    ],
+    "apfs_note": "File allocation and observed free-space change may differ because of shared blocks and concurrent system work.",
+    "complete": true,
+    "free_bytes_after": 16629760000,
+    "observed_free_bytes_increase": 245760000
+  }
+}
