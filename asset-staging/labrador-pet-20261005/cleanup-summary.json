@@ -1,5 +1,5 @@
 {
-  "completed_utc": "2026-10-05T13:21:44.543953+00:00",
+  "completed_utc": "2026-10-05T13:25:29.000214+00:00",
   "result": "Completed",
   "removed": [
     {
@@ -65,11 +65,15 @@
     {
       "path": "/private/tmp/labrador-pet-seek-check",
       "allocated_bytes": 73728
+    },
+    {
+      "path": "/private/tmp/labrador-pet-publication.json",
+      "allocated_bytes": 716800
     }
   ],
-  "this_cleanup_allocated_bytes": 3322490880,
+  "this_cleanup_allocated_bytes": 3323207680,
   "earlier_candidate_cleanup_allocated_bytes": 6586548224,
-  "total_removed_allocated_bytes": 9909039104,
+  "total_removed_allocated_bytes": 9909755904,
   "free_bytes_before": 16448913408,
   "free_bytes_after": 19734130688,
   "observed_free_bytes_change_this_cleanup": 3285217280,
@@ -81,5 +85,6 @@
     "Installed Unity assets/importer metadata",
     "Reusable production, signing and preview tools",
     "Compact validation receipts"
-  ]
+  ],
+  "final_free_bytes": 19725135872
 }

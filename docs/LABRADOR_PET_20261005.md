@@ -82,3 +82,5 @@ Installation, publication and cleanup are recorded in the compact summaries. Pre
 최종 플레이용 앱은 `unity-game/Builds/MusimusihanRPG.app`에 설치하고 deep/strict 서명·최종 DLL 해시·기존 Applications/Dock 경로를 확인했습니다. 한국어 표시 이름은 유지하고 서명용 실행 파일 이름만 ASCII로 정규화했습니다. 정리한 작업 자료의 할당량은 9.91GB, 현재 디스크 여유 공간은 19.73GB입니다. APFS 공유 블록과 다른 진행 중 작업 때문에 할당량과 실제 공간 변화는 다릅니다.
 
 The latest playable app is installed at the canonical path with its deep/strict signature, final assembly hashes and existing launch links verified. Its Korean display name remains; only the internal executable filename was normalized to ASCII for the resource seal ([Apple guidance](https://developer.apple.com/forums/thread/706379)). Removed task allocation totals 9.91GB; current free space is 19.73GB. APFS sharing and concurrent work mean allocation differs from recovered space.
+
+작업 코드 97개 파일의 GitHub 커밋 `fa132e7997b3ef1f162d0c647ad464e8e22a01cb`을 원격에서 확인하고 로컬 작업 브랜치와 일치시켰습니다. / Verified all 97 task files and the remote code commit against the local task branch.
