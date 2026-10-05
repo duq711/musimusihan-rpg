@@ -1,7 +1,7 @@
 {
   "task_ko": "사용자 기준 사진에 맞춘 래브라도 질주 Run 수정",
   "task_en": "Labrador Run gallop correction against user reference",
-  "status": "Local completion and cleanup verified; remote publication awaiting final receipt",
+  "status": "Completed: production, reference acceptance, viewer, actual Unity import, native acceptance/install, cleanup and scoped GitHub publication verified",
   "artifacts": {
     "production/LabradorPet_Gallop.blend": {
       "bytes": 20021062,
@@ -73,9 +73,15 @@
     "latest_playable": "fresh corrected app installed and deep strict signature verified"
   },
   "cleanup": {
-    "removed_allocated_bytes": 3357020160,
-    "removed_logical_bytes": 3356096841,
-    "free_after_bytes": 15284396032,
-    "observed_free_change_bytes": 3318546432
+    "removed_allocated_bytes": 3357278208,
+    "removed_logical_bytes": 3356353270,
+    "free_after_bytes": 15269761024,
+    "observed_free_change_bytes": 3303911424
+  },
+  "publication": {
+    "code_commit": "cf031ba251dda5dd0481c9421df17820c5d75f86",
+    "remote_and_local_task_ref_verified": true,
+    "selected_code_commit_files_verified": 44,
+    "receipt": "gallop-publication-summary.json"
   }
 }
