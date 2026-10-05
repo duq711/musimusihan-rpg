@@ -4,7 +4,34 @@
 
 **Current user constraint: free assets only. The free shortlist below supersedes the earlier paid recommendations retained later as reference.**
 
-## 확정 에셋과 제작 결과 / Selected asset and production
+## 최신 품질 피드백과 재조사 / Latest quality feedback and reassessment
+
+2026-10-05 사용자가 제작 영상의 모델과 애니메이션 품질에 만족하지 않아 다른 버전을 요청했습니다. **RetroStyle 셰퍼드는 제작 이력으로 보존하며 최종 채택 상태가 아닙니다. 무료 조건은 유지합니다.** 앞선 수치·임포트 검증 통과는 사실감과 동작 자연스러움에 대한 사용자 검수 통과를 의미하지 않습니다. 앞으로는 얼굴·체형·털의 근접 화면과 보행의 체중 이동·앉기·교감 반응을 함께 비교합니다.
+
+The user rejected the preview's model and animation quality and requested alternatives. **The RetroStyle asset remains preserved production history, not the final approved choice. The free constraint remains.** Numerical/import checks do not establish visual acceptance. Evaluate close-up anatomy/coat and movement together.
+
+| 대안 / Alternative | 공식 자료에서 확인한 내용 / Verified facts | 판단과 남은 작업 / Assessment and remaining work |
+| --- | --- | --- |
+| [Paweł Wałasiewicz — German Shepard Dog (Rigged, Hair)](https://www.blendkit.com/asset-gallery-detail/d45d4039-660e-460d-b6e6-b3c2a4742a6c/) | 무료, Royalty free, 51,878 polygons, 43.5MiB, 노멀맵·IK 리그·털 파티클. / Free, royalty free, normal maps, IK rig and fur particles. | 공식 정지 렌더의 털·실루엣은 외형 개선 후보. 완성 모션 목록은 확인되지 않음. Unity용 털 변환·최적화와 애니메이션 필요. / Better-looking coat/silhouette in the still preview; no verified finished clip set. Convert fur for Unity and supply motions. |
+| [kenchoo — Labrador Dog](https://sketchfab.com/3d-models/labrador-dog-1f56cfbab07e4fe49b5d9e521c82073a) | 무료, CC BY 4.0, 52.8k triangles, simple idle. 실제 뷰어의 1개 Animation 확인. / Free, CC BY 4.0, 52.8k triangles, one idle clip verified in the viewer. | 체형과 짧은 털 표현을 고려한 품종 대안. 걷기·달리기·공격·돌봄 완성팩 아님. 다운로드 리그 구조·형식 미검증. / A short-coat breed alternative, not a full locomotion/combat/care pack. Downloaded rig/formats remain uninspected. |
+
+셰퍼드를 유지한다면 첫 모델을 외형 후보로 추천합니다. [Blendkit 공식 받기 안내](https://www.blendkit.com/get-blendkit/d45d4039-660e-460d-b6e6-b3c2a4742a6c/)는 무료 계정과 Blender 애드온 경로입니다. [공식 라이선스](https://www.blendkit.com/docs/licenses/)에서 상업 프로젝트 사용을 허용하며 모델 자체 재판매는 제한합니다. 털이 있는 Blender 렌더의 모습을 Unity에서 그대로 보장하지 않습니다. 아직 교체·다운로드·털 변환을 수행하지 않았습니다.
+
+For a Shepherd, prefer the first model as the visual candidate. The linked official download route uses a free account and Blender add-on; its license permits commercial project use and restricts standalone model resale. Its Blender fur render does not establish the same Unity appearance. No replacement, download or fur conversion was performed.
+
+동작은 [실제 래브라도 모션캡처](https://springernature.figshare.com/articles/dataset/Lifelike_Agility_and_Play_in_Quadrupedal_Robots_using_Reinforcement_Learning_and_Generative_Pre-trained_Models/24968946)를 재확인했습니다. 무료 raw BVH·70.14MB·CC BY 4.0이며 [연구진 자료](https://github.com/Tencent-RoboticsX/lifelike-agility-and-play)는 걷기·달리기·점프·놀기·앉기를 명시합니다. 이 실제 동작을 선택한 모델에 옮기는 것이 자연스러운 체중 이동을 위한 제작 방향입니다. 모델별 뼈 맞추기와 발 접지 보정은 미완료이고 물기·먹기·회수·쓰다듬기는 별도 제작 대상입니다. 데이터의 CC BY 표기와 GitHub 코드의 연구용 설명을 구분하며, 데이터 사용 시 저작자·라이선스·변경 내용을 표기합니다. [공식 모션 연구 영상](https://tencent-roboticsx.github.io/lifelike-agility-and-play/)은 로봇 모방 실험을 포함하며 완성된 게임용 강아지 영상이 아닙니다.
+
+The free raw-BVH Labrador capture dataset is 70.14MB under CC BY 4.0; the researchers list walking, running, jumping, playing and sitting. Retargeting this real motion is the proposed direction for natural weight transfer. Rig mapping/contact correction is unimplemented; bite/eat/retrieve/petting still need work. Keep the dataset's attribution license distinct from the repository's research-purpose code description. The linked research video includes robot imitation experiments, not a finished game-dog asset.
+
+이번에 확인한 무료 자료에서 **사실적인 외형과 원하는 펫 동작을 함께 검증한 완성팩은 찾지 못했습니다.** Mesh2Motion의 [CC0 에셋 저장소](https://github.com/Mesh2Motion/mesh2motion-assets)와 [실제 웹앱](https://app.mesh2motion.org/)은 Dog 변형의 14모션을 제공하지만 스타일화된 외형이라 사실감 개선 모델로 추천하지 않습니다. 기존 유료 후보는 아래 참고 기록으로만 유지하며 무료 추천에 섞지 않습니다.
+
+No reviewed free asset was verified to combine the desired realistic appearance with the full pet motion set. Mesh2Motion supplies a CC0 Dog variant and 14 motions in its web app, but its stylized mesh is not recommended for this realism upgrade. Paid candidates below remain reference history, separate from the free recommendation.
+
+검수 범위는 공식 페이지의 가격·설명·라이선스와 실제 뷰어/정지 렌더 확인입니다. 구매·새 모델 다운로드·임포트·새 모션 제작은 0회입니다. 새 검수 캡처·영상·캐시 파일도 0개여서 제거 할당량 0바이트이며 기존 영상·제작 원본·플레이용 앱을 보존했습니다. 최종 결과는 이 문서의 갱신입니다.
+
+Validation is limited to official price/content/license pages and live viewers/still renders. Purchases, new model downloads/imports and newly authored motions: zero. No new capture/video/cache files were saved, so cleanup removed zero bytes. Existing videos, production assets and playable app are preserved; this document update is the deliverable.
+
+## 기존 에셋과 제작 이력 / Previous asset and production history
 
 2026-10-05 후속 요청에 따라 **RetroStyle Games 무료 독일 셰퍼드**를 [제작사 공식 itch.io](https://retrostylegames.itch.io/german-shepherd-3d-dog-model-free)에서 내려받았습니다. 원본을 보존하고 Mac Blender에서 펫용 13개 동작을 추가해 기본 이동·대기와 함께 16클립을 제작했습니다. Unity 6000.3.25f1 Built-in 격리 임포트·패키징을 통과했습니다. [제작 결과와 사용 안내](SHEPHERD_PET_ANIMATIONS_20261005.md)에 최종 파일·검수·한계를 기록합니다. 아래 조사는 이 선택 이전의 후보 비교 기록입니다.
 
