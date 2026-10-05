@@ -1,12 +1,12 @@
 {
-  "file": "ShepherdPet_Motions.mp4",
+  "file": "ShepherdPet_Motions_Seekable.mp4",
   "width": 960,
   "height": 640,
   "fps": 24,
   "frames": 759,
   "duration_seconds": 31.625,
   "bytes": 4117921,
-  "sha256": "239134fc7062d4421ffbf7e01d0c7dba337c817003cb2241eb28b8093a2af430",
+  "sha256": "95aaaa33620cea34598e5468645f8a2be6c774194b61ac3bfa43dfe9987e33f9",
   "source_blend_sha256": "bbc4327a706dd2cdb7c1496f2640315aa5991eae4049483ac99a08c0cc9c9531",
   "source_unchanged": true,
   "timeline": [
@@ -178,6 +178,78 @@
     "apfs_note": "File allocation and observed free-space change may differ because of shared blocks and concurrent system work.",
     "complete": true,
     "free_bytes_after": 16629760000,
+    "observed_free_bytes_increase": 245760000
+  },
+  "previous_render": {
+    "file": "ShepherdPet_Motions.mp4",
+    "bytes": 4117921,
+    "sha256": "239134fc7062d4421ffbf7e01d0c7dba337c817003cb2241eb28b8093a2af430"
+  },
+  "streaming": {
+    "moov_before_mdat": true,
+    "media_payload_unchanged": true,
+    "media_payload_sha256": "96eec0ecedaa0940c28bc748f656654f981fb63ad873b151ddbd087cb740ad64",
+    "method": "Lossless relocation of moov and correction of four stco chunk offsets; no re-encoding."
+  },
+  "seek_validation": {
+    "duration_seconds": 31.625,
+    "exact_seek_samples": [
+      {
+        "actual_seconds": 0,
+        "error_seconds": 0,
+        "height": 640,
+        "requested_seconds": 0,
+        "width": 960
+      },
+      {
+        "actual_seconds": 5,
+        "error_seconds": 0,
+        "height": 640,
+        "requested_seconds": 5,
+        "width": 960
+      },
+      {
+        "actual_seconds": 17.25,
+        "error_seconds": 0,
+        "height": 640,
+        "requested_seconds": 17.25,
+        "width": 960
+      },
+      {
+        "actual_seconds": 30,
+        "error_seconds": 0,
+        "height": 640,
+        "requested_seconds": 30,
+        "width": 960
+      },
+      {
+        "actual_seconds": 31.5,
+        "error_seconds": 0,
+        "height": 640,
+        "requested_seconds": 31.5,
+        "width": 960
+      }
+    ],
+    "fps": 24,
+    "passed": true,
+    "inline_player_controls_verified": false,
+    "limitation": "Native AVFoundation exact seek passed; Codex inline control availability is separate."
+  },
+  "seek_cleanup": {
+    "file_count": 214,
+    "removed_allocated_bytes": 220483584,
+    "removed_logical_bytes": 220021542,
+    "free_bytes_before": 13148160000,
+    "preserved": [
+      "export/ShepherdPet_Motions_Seekable.mp4",
+      "export/ShepherdPet_Motions.mp4",
+      "production/ShepherdPet_Animations.blend",
+      "tools/dcc/mp4_faststart.py",
+      "tools/dcc/shepherd_video_seek.swift"
+    ],
+    "apfs_note": "Allocated deletion and observed free-space change can differ due to sharing and concurrent work.",
+    "complete": true,
+    "free_bytes_after": 13393920000,
     "observed_free_bytes_increase": 245760000
   }
 }

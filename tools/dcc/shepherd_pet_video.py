@@ -13,6 +13,9 @@ from pathlib import Path
 import bpy
 from mathutils import Vector
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from mp4_faststart import faststart
+
 SOURCE_FPS=30
 VIDEO_FPS=24
 SHOTS=[
@@ -141,8 +144,12 @@ def render(base):
         candidates=list(output.parent.glob('ShepherdPet_Motions*.mp4'))
         if len(candidates)!=1:raise RuntimeError('Cannot identify rendered video: '+str(candidates))
         candidates[0].replace(output)
+    optimized=base/'export/ShepherdPet_Motions_Seekable.mp4'
+    streaming=faststart(output,optimized)
+    output.unlink()
+    output=optimized
     assert hashlib.sha256(source.read_bytes()).hexdigest()==source_hash
-    receipt={'file':output.name,'width':960,'height':640,'fps':VIDEO_FPS,'frames':end,'duration_seconds':end/VIDEO_FPS,'bytes':output.stat().st_size,'sha256':hashlib.sha256(output.read_bytes()).hexdigest(),'source_blend_sha256':source_hash,'source_unchanged':True,'timeline':timeline,'scope':'Rendered animation showreel; gameplay and interaction props are not simulated.'}
+    receipt={'file':output.name,'width':960,'height':640,'fps':VIDEO_FPS,'frames':end,'duration_seconds':end/VIDEO_FPS,'bytes':output.stat().st_size,'sha256':hashlib.sha256(output.read_bytes()).hexdigest(),'source_blend_sha256':source_hash,'source_unchanged':True,'timeline':timeline,'streaming':streaming,'scope':'Rendered animation showreel; gameplay and interaction props are not simulated.'}
     (base/'video-summary.json').write_text(json.dumps(receipt,ensure_ascii=False,indent=2)+'\n')
     print('VIDEO_COMPLETE',json.dumps({key:value for key,value in receipt.items() if key!='timeline'},ensure_ascii=False),flush=True)
 

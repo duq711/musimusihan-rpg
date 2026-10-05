@@ -108,3 +108,25 @@ The requested video is a final deliverable and is preserved; extracted review fr
 이번 영상 검수의 임시 프레임·로그·Swift 디코더/컴파일 캐시 **261개 파일**을 정리했습니다. 제거한 파일 할당량은 **260,997,120바이트(248.9MiB)**, 논리 크기는 260,442,936바이트입니다. 직후 여유 공간은 **16,629,760,000바이트(15.49GiB)**, 관측 증가량은 245,760,000바이트입니다. APFS 공유 블록과 다른 작업에 따라 할당량과 실제 여유 공간 변화가 다를 수 있습니다. 최종 영상·원본·Unity 패키지·재사용 도구·기존 플레이용 앱을 보존했습니다. 이번 공개 Git 변경은 렌더 도구·문서·영상 요약이며 MP4는 로컬 산출물입니다.
 
 Removed **261** temporary review frames, logs, Swift decoder and compiler-cache files: **260,997,120 allocated bytes (248.9MiB)** and 260,442,936 logical bytes. Free space immediately afterward was **16,629,760,000 bytes (15.49GiB)**; the observed increase was 245,760,000 bytes. APFS sharing and concurrent work can make these values differ. The final video, original source, Unity package, reusable tools and existing playable app are preserved. This public Git change contains the renderer, documentation and video receipt; the MP4 remains a local deliverable.
+
+## 영상 초 이동 후속 수정 / Video seeking follow-up
+
+사용자가 영상의 초 이동이 되지 않는다고 알려 주었습니다. 원본 MP4는 재생 인덱스인 `moov`가 영상 데이터 `mdat` 뒤에 있었습니다. 시간표는 759프레임·24FPS·31.625초로 정상이며, 키프레임은 44개이고 최대 간격은 0.75초였습니다. 초 이동 호환성을 위해 `tools/dcc/mp4_faststart.py`로 `moov`를 파일 앞으로 옮기고 네 개의 데이터 위치를 갱신하는 무손실 fast-start 처리를 추가했습니다. 렌더 도구에도 같은 후처리를 적용했습니다. 새 로컬 산출물 경로는 `asset-staging/shepherd-pet-20261005/export/ShepherdPet_Motions_Seekable.mp4`입니다. 최신 파일명·크기·SHA-256·검증 결과는 제작 폴더의 `video-summary.json`을 기준으로 합니다. 앞 절의 수치와 해시는 최초 렌더 기록입니다.
+
+The user reported that the video's time seeking was unavailable. The original MP4 placed its playback index, `moov`, after the video data, `mdat`. Its timing table was valid at 759 frames, 24 FPS and 31.625 seconds, with 44 keyframes and a maximum gap of 0.75 seconds. The follow-up adds lossless fast-start processing through `tools/dcc/mp4_faststart.py`, moving `moov` to the front and updating data offsets. The renderer receives the same post-processing step. The separate local output is `asset-staging/shepherd-pet-20261005/export/ShepherdPet_Motions_Seekable.mp4`. Use the production folder's `video-summary.json` for the latest filename, size, SHA-256 and verification results; the preceding section retains the initial render record.
+
+새 파일의 순서는 `ftyp → moov → free → mdat`이며 영상 데이터의 바이트 동일성을 확인했습니다. 4,117,921바이트, SHA-256 `95aaaa33620cea34598e5468645f8a2be6c774194b61ac3bfa43dfe9987e33f9`입니다. `tools/dcc/shepherd_video_seek.swift`로 Mac AVFoundation의 0·5·17.25·30·31.5초 다섯 시점 탐색·화면 디코딩을 검증했고 모든 실제 시점 오차는 0초입니다. 파일 컨테이너의 탐색 준비와 Codex 인라인 플레이어의 조작 기능은 구분합니다. Codex의 시간 슬라이더 자체는 검증하지 않았으며 새 파일 링크를 제공합니다.
+
+The corrected atom order is `ftyp → moov → free → mdat`; media bytes are identical. The new file is 4,117,921 bytes with the SHA-256 above. `tools/dcc/shepherd_video_seek.swift` verified AVFoundation seeking and frame decoding at 0, 5, 17.25, 30 and 31.5 seconds: all actual-time errors were zero. Container readiness and Codex inline controls are separate; the Codex slider itself was not verified, and the new file link is provided.
+
+재인코딩 없이 아래 명령으로 재생 정보를 옮깁니다. / Move the playback index without re-encoding:
+
+```sh
+python3 tools/dcc/mp4_faststart.py asset-staging/shepherd-pet-20261005/export/ShepherdPet_Motions.mp4 asset-staging/shepherd-pet-20261005/export/ShepherdPet_Motions_Seekable.mp4
+xcrun swiftc -module-cache-path /private/tmp/shepherd-seek-swift-cache tools/dcc/shepherd_video_seek.swift -o /private/tmp/shepherd-seek-check
+/private/tmp/shepherd-seek-check asset-staging/shepherd-pet-20261005/export/ShepherdPet_Motions_Seekable.mp4 /private/tmp/shepherd-seek-result.json
+```
+
+검증 후 임시 검사 실행본·컴파일 캐시·결과 파일 214개를 정리했습니다. 제거 할당량은 220,483,584바이트(210.3MiB), 논리 크기는 220,021,542바이트입니다. 관측 여유 증가량은 245,760,000바이트이며, 직후 여유 공간은 13,393,920,000바이트(12.47GiB)입니다. 다른 작업과 APFS 공유 블록 때문에 파일 할당량과 여유 변화가 다를 수 있습니다. 최초 영상·수정 영상·모델 제작본·재사용 검사 소스·기존 플레이용 앱을 보존했습니다.
+
+After validation, removed 214 temporary verifier/cache/result files: 220,483,584 allocated bytes (210.3MiB), 220,021,542 logical bytes. Observed free-space gain was 245,760,000 bytes; free space immediately afterward was 13,393,920,000 bytes (12.47GiB). Concurrent work and APFS sharing can make allocation and free-space changes differ. Both video versions, production source, reusable verifier source and existing playable app are preserved.
