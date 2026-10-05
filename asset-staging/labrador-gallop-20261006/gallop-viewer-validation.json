@@ -1,0 +1,35 @@
+{
+  "routes": [
+    {
+      "route": "/locomotion.glb",
+      "status": 200,
+      "bytes": 18177776,
+      "file_matches": true,
+      "sha256": "46ae83b2789213be4a34dc0831aabe8b8c7b142af79de20b43226e1dfbabad73"
+    },
+    {
+      "route": "/locomotion-manifest.json",
+      "status": 200,
+      "bytes": 2818,
+      "file_matches": true,
+      "sha256": "f6ed2a6564b543e9a3481ca8e1d8c33f31bcebd3d6f585cfa7a285057157f70c"
+    },
+    {
+      "route": "/model.glb",
+      "status": 200,
+      "bytes": 17897200,
+      "file_matches": true,
+      "sha256": "23bdd3d3eb7b1854ac7a27f9a37767e46635c98cc7848a8284ff6037e193eec5"
+    }
+  ],
+  "all_passed": true,
+  "ui_checks": [
+    "Run .5 s and 3.06 m/s displayed",
+    "Half speed and pause/seek .10/.40s verified",
+    "Side and quarter actual skin visually inspected",
+    "Walk .77 s and .72 m/s retained",
+    "Ground toggle description follows state",
+    "Final Run normal side ground-on resumed"
+  ],
+  "limits": "UI controls and pose inspection do not replace continuous motion reference review."
+}

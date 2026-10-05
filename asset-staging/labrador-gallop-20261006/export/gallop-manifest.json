@@ -1,0 +1,92 @@
+{
+  "fps": 60,
+  "rigRoot": "LabradorPet",
+  "modelScale": 0.3,
+  "forward": "Blender -Y; Unity/glTF +Z",
+  "clips": [
+    {
+      "name": "IdleFriendly",
+      "frames": [
+        1,
+        314
+      ],
+      "fps": 30,
+      "duration": 10.433333333333334,
+      "loop": true
+    },
+    {
+      "name": "PetEnjoy",
+      "frames": [
+        1,
+        121
+      ],
+      "fps": 30,
+      "duration": 4,
+      "loop": true
+    },
+    {
+      "name": "Walk",
+      "frames": [
+        1,
+        47
+      ],
+      "fps": 60,
+      "duration": 0.7666666666666667,
+      "loop": true,
+      "speed_m_s": 0.7151154096607382
+    },
+    {
+      "name": "Run",
+      "frames": [
+        1,
+        31
+      ],
+      "fps": 60,
+      "duration": 0.5,
+      "loop": true,
+      "speed_m_s": 3.063375910135234,
+      "root_motion": "in-place; captured vertical-body/pelvis/spine motion",
+      "source_capture": "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/labrador-pet-20261005/source/raw_bvh_data/dog_fast_run_02_006.bvh",
+      "source_raw_frames": [
+        2944,
+        2992
+      ],
+      "source_fps": 120.0000480000192,
+      "retimed_from_duration_s": 0.39999984,
+      "paw_world_scale": 0.85,
+      "contact_phases": {
+        "front.L": [
+          0.333,
+          0.563
+        ],
+        "front.R": [
+          0.604,
+          0.854
+        ],
+        "hind.L": [
+          0.917,
+          1.188
+        ],
+        "hind.R": [
+          0.083,
+          0.354
+        ]
+      },
+      "source": "Captured large nonuniform paw translations, footfall timing and body motion; anatomical model IK with original-rest bend directions, contact/heel polish, scapular glide, calibrated authored sagittal carpal/toe pitch and ear/tail follow-through. Original 3D ankle rotations are not copied."
+    }
+  ],
+  "run_export": "Locomotion/Run.fbx",
+  "preserved_original_files_sha256": {
+    "production/LabradorPet_Animations.blend": "34753bed47edb3c68d0973c3a38ddda958d80fb918c88e4712da1f674966318a",
+    "production/LabradorPet_Locomotion.blend": "d035d5257e8e6c624d363131656e7b8a3e86cd3a208ff838773537ce65c96e0c",
+    "export/LabradorPet_Locomotion.glb": "22ef1b62ccd64c4002a3e94290e33adf31ee8f631f0c480b063484e2a8fe611e",
+    "export/Locomotion/Run.fbx": "f524e216400eb49d51e8e4b89c604c194ea96960a2394e2b8759ab78cf04cc63",
+    "export/Locomotion/Walk.fbx": "275de8485ba3fdc5f9c0d76f2b9f67d1df1f7d2d44e3e7fcf468d50961154ada"
+  },
+  "preserved_action_sha256": {
+    "IdleFriendly": "68e44614ad55a217f4d8f7f3350e1bc4cbc04ffc95202e92eb23a90c50af5b39",
+    "PetEnjoy": "cb1684d5029a3162cb05244a8570ad98b260bc3080541dd046976d9cf1d37aaf",
+    "Walk": "a5fc5fd9593a0fa0c55bbc919d9e4815ab5df47efbbd169fa553a9b2048f7773"
+  },
+  "scope": "Run-only gallop revision. Prior source, rest data, care and Walk unchanged."
+}

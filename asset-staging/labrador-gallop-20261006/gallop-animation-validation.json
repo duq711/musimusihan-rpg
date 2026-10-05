@@ -1,0 +1,221 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "Original download SHA preserved",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Prior final binary preserved production/LabradorPet_Animations.blend",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Prior final binary preserved production/LabradorPet_Locomotion.blend",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Prior final binary preserved export/LabradorPet_Locomotion.glb",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Prior final binary preserved export/Locomotion/Run.fbx",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Prior final binary preserved export/Locomotion/Walk.fbx",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Exact preserved geometry",
+      "passed": true,
+      "details": "95268ac6bb56cb6f9e8ae6ddc8764f32ea248f7bba98e984f904fff743e32344"
+    },
+    {
+      "name": "Exact preserved rest_matrices",
+      "passed": true,
+      "details": "b5f7d4ed93f917962515cc4451f77e6d78dbf9b99be3cdec2a00e875217b5c98"
+    },
+    {
+      "name": "Exact preserved mask",
+      "passed": true,
+      "details": "22125ff382834564f07c9e425e854e16cf13c32c994de396fb655afca52079d3"
+    },
+    {
+      "name": "Exact preserved morphs",
+      "passed": true,
+      "details": {
+        "Basis": "95268ac6bb56cb6f9e8ae6ddc8764f32ea248f7bba98e984f904fff743e32344",
+        "target_0": "d48c96a53a65481364f1893fb144c21f9fd15e5c76fe46892e77805784195176",
+        "target_1": "21199b61ee5d72527c07c8c4967e14bd495821276631027dde45352f3e0a0d2d",
+        "target_2": "41567677b85b29ac7bac39e58c1f290f78d71ac2cfebaf9af521fb8aac6e70e0"
+      }
+    },
+    {
+      "name": "Exact preserved weights",
+      "passed": true,
+      "details": "7f51c111239bbb0434e341ea7dfe3c2b614c3cc2e05229c1657a675b55617ba3"
+    },
+    {
+      "name": "IdleFriendly exact previous action keys",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "PetEnjoy exact previous action keys",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Walk exact previous action keys",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Four named clips retained",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Same 53-joint .30 metre-scale rig",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "All Run keyframe values finite",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Run quaternion keys share adjacent hemispheres",
+      "passed": true,
+      "details": {
+        "minimum_adjacent_dot": 0.8948918843841903
+      }
+    },
+    {
+      "name": "Full Run skin finite at 120Hz",
+      "passed": true,
+      "details": {
+        "skin_samples": 61
+      }
+    },
+    {
+      "name": "Full Run skin floor tolerance 3mm",
+      "passed": true,
+      "details": {
+        "minimum_z_m": 0.00030061314033918984,
+        "tolerance_m": 0.003,
+        "worst_sample": {
+          "frame": 10.5,
+          "vertex": 18867,
+          "world_m": [
+            -0.1319616489395159,
+            0.5020877680018643,
+            0.00030061314033918984
+          ],
+          "groups": {
+            "IKBackLeg.R_49": 0.7525063157081604,
+            "FFB.R_48": 0.18811489641666412,
+            "BackLowerLeg.R_28": 0.05937880650162697
+          }
+        }
+      }
+    },
+    {
+      "name": "Each actual paw supports and lifts",
+      "passed": true,
+      "details": {
+        "paw_minima_m": {
+          "front.L": 0.00039997334206992585,
+          "front.R": 0.0003327764598638483,
+          "hind.L": 0.0003240640299643771,
+          "hind.R": 0.00030061314033918984
+        },
+        "paw_maxima_m": {
+          "front.L": 0.11549158051278496,
+          "front.R": 0.1254223972001629,
+          "hind.L": 0.1120959663498784,
+          "hind.R": 0.1217600194587316
+        }
+      }
+    },
+    {
+      "name": "Actual four-paw aerial frames present",
+      "passed": true,
+      "details": {
+        "frames": [
+          18.5,
+          27.5,
+          28.0,
+          28.5
+        ],
+        "threshold_m": 0.003
+      }
+    },
+    {
+      "name": "Actual elbows stifles and hocks preserve rest bend directions",
+      "passed": true,
+      "details": {
+        "flipped_samples": []
+      }
+    },
+    {
+      "name": "No 120Hz evaluated-paw interpolation pop",
+      "passed": true,
+      "details": {
+        "maximum_foot_centroid_step_m": 0.05198886364628256,
+        "sample_interval_s": 0.008333333333333333
+      }
+    },
+    {
+      "name": "Root fixed for runtime translation",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Run loop exact pose continuity",
+      "passed": true,
+      "details": {
+        "position_m": 0,
+        "rotation_deg": 5.12264187750956e-06
+      }
+    },
+    {
+      "name": "Run loop tangent continuity",
+      "passed": true,
+      "details": {
+        "velocity_difference_m_s": 0.0032609038755005986,
+        "angular_velocity_difference_deg_s": 0.542711553428264
+      }
+    },
+    {
+      "name": "Paw endpoint connected to actual solved lower leg",
+      "passed": true,
+      "details": {
+        "maximum_ik_endpoint_residual_m": 0.0
+      }
+    },
+    {
+      "name": "Delivered Run FBX exact sampled joints and skin",
+      "passed": true,
+      "details": {
+        "samples": 5,
+        "joint_max_error_m": 9.196564033156319e-07,
+        "skin_max_error_m": 9.946272844365646e-07
+      }
+    }
+  ],
+  "failures": [],
+  "checks_count": 29,
+  "evaluated_skin_frames": 61,
+  "fbx_roundtrip_samples": 5,
+  "run_speed_m_s": 3.063375910135234,
+  "duration_s": 0.5,
+  "production_sha256": "d9b07a7c801ff67ada321dc43955c0355bcbfd8ae8e1541744dc010f4f70a30c"
+}

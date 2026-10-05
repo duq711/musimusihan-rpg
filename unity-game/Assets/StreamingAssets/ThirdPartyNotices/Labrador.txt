@@ -28,3 +28,14 @@ Changes: selected canine cycles, proportion fitting, fixed root, loop correction
 anatomical limb IK, planted/swing foot paths and authored ear/tail follow-through.
 수정: 강아지 순환 구간 선택, 체형 조정, 루트 고정·반복 보정,
 해부학적 다리 IK·발 디딤/들기 경로와 귀·꼬리 후속 움직임.
+
+Run revision — 2026-10-06 / 질주 수정
+The preserved fast-run capture now drives large forward/rear and vertical paw
+trajectories rather than a common short swing arc. The cycle is retimed to 0.5s.
+Further authored changes: extended/collected silhouette fitting, scapular glide,
+forward forelimb reach, carpal/toe pitch, dynamic body clearance and contact polish.
+Walk, care clips and the acquired model are preserved. The user-provided pose
+reference remains local and is not distributed in this app.
+수정: 실제 캡처의 큰 발 궤적·높이 사용, 0.5초 주기로 조정,
+다리 뻗기/회수·어깨 이동·앞다리 전진·손목/발끝 각도·몸 높이/접지 보정.
+걷기·쓰다듬기·원본 모델은 보존하며 사용자 기준 사진은 실행본에 포함하지 않습니다.

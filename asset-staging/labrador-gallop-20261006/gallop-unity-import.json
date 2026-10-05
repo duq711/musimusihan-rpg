@@ -1,0 +1,174 @@
+{
+  "clip": "Run",
+  "duration_s": 0.50000006,
+  "speed_m_s": 3.063375910135234,
+  "bindings": 593,
+  "skin_samples": 62,
+  "sample_hz": 120,
+  "root_planar_drift_m": 0.0,
+  "loop_position_m": 0.0,
+  "loop_angle_degrees": 0.0,
+  "maximum_joint_rotation_degrees": 92.30502,
+  "skin_floor_minimum_m": 0.000293834135,
+  "paw_floor_minimum_m": {
+    "FF.L_46": 0.0003999602,
+    "FF.R_50": 0.000293834135,
+    "FFB.L_44": 0.0003807675,
+    "FFB.R_48": 0.000365806744
+  },
+  "paw_floor_maximum_m": {
+    "FF.L_46": 0.115312234,
+    "FF.R_50": 0.126755461,
+    "FFB.L_44": 0.112605527,
+    "FFB.R_48": 0.121529706
+  },
+  "foot_region_policy": "Acquired ankle + toe skin weight sum >= 0.65; heel included; whole-body floor bound unchanged",
+  "foot_regions": [
+    {
+      "toe": "FF.L_46",
+      "ankle": "IKFrontLeg.L_47",
+      "minimum_combined_weight": 0.65,
+      "vertices": 1409
+    },
+    {
+      "toe": "FF.R_50",
+      "ankle": "IKFrontLeg.R_51",
+      "minimum_combined_weight": 0.65,
+      "vertices": 1410
+    },
+    {
+      "toe": "FFB.L_44",
+      "ankle": "IKBackLeg.L_45",
+      "minimum_combined_weight": 0.65,
+      "vertices": 1959
+    },
+    {
+      "toe": "FFB.R_48",
+      "ankle": "IKBackLeg.R_49",
+      "minimum_combined_weight": 0.65,
+      "vertices": 1959
+    }
+  ],
+  "airborne_samples": 5,
+  "airborne_fraction": 0.08196721,
+  "airborne_clearance_m": 0.0167439338,
+  "phase_samples": [
+    {
+      "phase": 0.0,
+      "paw_floor_y_m": {
+        "FF.L_46": 0.08002694,
+        "FF.R_50": 0.08194488,
+        "FFB.L_44": 0.00039999,
+        "FFB.R_48": 0.09741829
+      },
+      "all_paws_airborne": false
+    },
+    {
+      "phase": 0.114754096,
+      "paw_floor_y_m": {
+        "FF.L_46": 0.113967136,
+        "FF.R_50": 0.118307337,
+        "FFB.L_44": 0.0003960859,
+        "FFB.R_48": 0.0007479321
+      },
+      "all_paws_airborne": false
+    },
+    {
+      "phase": 0.229508191,
+      "paw_floor_y_m": {
+        "FF.L_46": 0.08867462,
+        "FF.R_50": 0.1250871,
+        "FFB.L_44": 0.0177698266,
+        "FFB.R_48": 0.0004000496
+      },
+      "all_paws_airborne": false
+    },
+    {
+      "phase": 0.3442623,
+      "paw_floor_y_m": {
+        "FF.L_46": 0.00116129033,
+        "FF.R_50": 0.122532681,
+        "FFB.L_44": 0.09529175,
+        "FFB.R_48": 0.000375164673
+      },
+      "all_paws_airborne": false
+    },
+    {
+      "phase": 0.459016383,
+      "paw_floor_y_m": {
+        "FF.L_46": 0.0003999602,
+        "FF.R_50": 0.09445055,
+        "FFB.L_44": 0.09692855,
+        "FFB.R_48": 0.0244413149
+      },
+      "all_paws_airborne": false
+    },
+    {
+      "phase": 0.573770463,
+      "paw_floor_y_m": {
+        "FF.L_46": 0.007459862,
+        "FF.R_50": 0.01335956,
+        "FFB.L_44": 0.110026136,
+        "FFB.R_48": 0.07002927
+      },
+      "all_paws_airborne": true
+    },
+    {
+      "phase": 0.6885246,
+      "paw_floor_y_m": {
+        "FF.L_46": 0.0502648577,
+        "FF.R_50": 0.0004000496,
+        "FFB.L_44": 0.108625,
+        "FFB.R_48": 0.0992197841
+      },
+      "all_paws_airborne": false
+    },
+    {
+      "phase": 0.8032787,
+      "paw_floor_y_m": {
+        "FF.L_46": 0.0557643622,
+        "FF.R_50": 0.000382332131,
+        "FFB.L_44": 0.07721232,
+        "FFB.R_48": 0.120889217
+      },
+      "all_paws_airborne": false
+    },
+    {
+      "phase": 0.918032765,
+      "paw_floor_y_m": {
+        "FF.L_46": 0.05890791,
+        "FF.R_50": 0.0239789616,
+        "FFB.L_44": 0.00902736,
+        "FFB.R_48": 0.111733414
+      },
+      "all_paws_airborne": true
+    },
+    {
+      "phase": 1.0,
+      "paw_floor_y_m": {
+        "FF.L_46": 0.08002694,
+        "FF.R_50": 0.08194488,
+        "FFB.L_44": 0.00039999,
+        "FFB.R_48": 0.09741829
+      },
+      "all_paws_airborne": false
+    }
+  ],
+  "result": "Passed",
+  "checks": 147,
+  "unity_version": "6000.3.25f1",
+  "source_fbx": "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/labrador-gallop-20261006/export/Locomotion/Run.fbx",
+  "source_fbx_sha256": "cff62d847e9c6b27bf41ed64e6e9f053f5d3618a9951806bd657967d0004a666",
+  "manifest_sha256": "f6ed2a6564b543e9a3481ca8e1d8c33f31bcebd3d6f585cfa7a285057157f70c",
+  "installed_fbx_guid": "a8488fe90e8bb4479b6ee7579b806903",
+  "installed_anim_guid": "e39da3bd67a6741ba889b7a082207bc0",
+  "installed_anim_sha256": "28df0062be9ca559abfa7617b6549bc3f5c505eb0b83ff64851244b8ffd216cf",
+  "preserved_files": 30,
+  "limitations": [
+    "Imported rig, real evaluated skin, four paw support/swing and airborne samples are measured. Physical force and visual style are reviewed in the separate DCC/preview acceptance.",
+    "The runtime reads the actual clip period at rate 1; this upgrade does not add companion navigation or change Walk/petting."
+  ],
+  "actual_sample_hz": 121.99998536000176,
+  "minimum_sample_hz": 120,
+  "sampling_note": "The imported period is 0.50000006 seconds. Ceil(period * 120) produces 61 intervals/62 skin samples, approximately 122Hz and above the 120Hz minimum."
+}

@@ -1,0 +1,81 @@
+{
+  "task_ko": "사용자 기준 사진에 맞춘 래브라도 질주 Run 수정",
+  "task_en": "Labrador Run gallop correction against user reference",
+  "status": "Local completion and cleanup verified; remote publication awaiting final receipt",
+  "artifacts": {
+    "production/LabradorPet_Gallop.blend": {
+      "bytes": 20021062,
+      "sha256": "d9b07a7c801ff67ada321dc43955c0355bcbfd8ae8e1541744dc010f4f70a30c"
+    },
+    "export/Locomotion/Run.fbx": {
+      "bytes": 5422012,
+      "sha256": "cff62d847e9c6b27bf41ed64e6e9f053f5d3618a9951806bd657967d0004a666"
+    },
+    "export/LabradorPet_Gallop.glb": {
+      "bytes": 18177776,
+      "sha256": "46ae83b2789213be4a34dc0831aabe8b8c7b142af79de20b43226e1dfbabad73"
+    },
+    "export/gallop-manifest.json": {
+      "bytes": 2818,
+      "sha256": "f6ed2a6564b543e9a3481ca8e1d8c33f31bcebd3d6f585cfa7a285057157f70c"
+    },
+    "export/LabradorPet_Gallop.mp4": {
+      "bytes": 2298877,
+      "sha256": "d506964d04014f909de8c258b25ba1a8b7c5f5bf7955e90e5be3bdaf786e25b3"
+    },
+    "export/LabradorPet_Gallop_Extended.png": {
+      "bytes": 706680,
+      "sha256": "209625187e578b954349800b8eebdc00a5a6bc636e3ac469c98bb2ff46529a14"
+    },
+    "export/LabradorPet_Gallop_Collected.png": {
+      "bytes": 699974,
+      "sha256": "c6aee6b32a7ab01788a4d9e22016c90122807fedc8d641656e958a6386ba108a"
+    }
+  },
+  "validation": {
+    "dcc_checks": 29,
+    "dcc_passed": 29,
+    "skin_samples_120hz": 61,
+    "fbx_roundtrip_samples": 5,
+    "full_skin_minimum_m": 0.00030061323195695877,
+    "video_exact_seek_checks": 5,
+    "video_exact_seek_passed": 5,
+    "reference_criteria_passed": 5,
+    "reference_skin_stills": 10,
+    "reference_final_movie_frames": 48,
+    "unity_import_checks": 147,
+    "unity_import_passed": 147,
+    "unity_skin_samples": 62,
+    "unity_skin_actual_hz": 121.999985,
+    "native_player_checks": 30,
+    "native_player_passed": 30,
+    "build_errors": 0,
+    "build_warnings": 171,
+    "applications_and_dock_preserved": true,
+    "build_labrador_warnings": 0,
+    "build_warning_review": "All 171 classified: 170 common Metal shader warnings + one optional player CLI bridge configuration warning; zero Labrador Run/rig/import warnings."
+  },
+  "limitations": [
+    "Photo is a single pose reference, not timed capture.",
+    "Fixed sole-centroid drift remains bounded up to 10.25 mm per support; no absolute zero-skating claim.",
+    "Game clips are in place; companion AI and slopes are outside this correction."
+  ],
+  "original_source_sha256": "0e30a09051903e2327c31371dc3dd973ca9da9c07a1c8aea5ca5f1af5bcda4fc",
+  "publication_scope": "Task source, bilingual documentation and compact receipts; licensed binaries and user reference remain local.",
+  "playable_app": "unity-game/Builds/MusimusihanRPG.app",
+  "viewer": "http://127.0.0.1:8773/locomotion/",
+  "preservation": {
+    "original_rest_geometry_weights_morph_mask": "unchanged",
+    "IdleFriendly_PetEnjoy_Walk_keys": "exactly unchanged",
+    "other_unity_labrador_files_byte_identical": 30,
+    "Run_guid_preserved": true,
+    "source_and_previous_final_productions": "retained",
+    "latest_playable": "fresh corrected app installed and deep strict signature verified"
+  },
+  "cleanup": {
+    "removed_allocated_bytes": 3357020160,
+    "removed_logical_bytes": 3356096841,
+    "free_after_bytes": 15284396032,
+    "observed_free_change_bytes": 3318546432
+  }
+}

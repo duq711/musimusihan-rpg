@@ -1,0 +1,421 @@
+{
+  "scope": "Anatomical foot mask: ankle plus toe influence >65%, including heel. New Run-only read-only skin audit. This checks numerical geometry/contact only and is not a substitute for reference-based visual naturalness acceptance.",
+  "blend": "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/labrador-gallop-20261006/production/LabradorPet_Gallop.blend",
+  "blend_sha256": "d9b07a7c801ff67ada321dc43955c0355bcbfd8ae8e1541744dc010f4f70a30c",
+  "manifest_sha256": "f6ed2a6564b543e9a3481ca8e1d8c33f31bcebd3d6f585cfa7a285057157f70c",
+  "fps": 60.0,
+  "sample_hz": 120,
+  "review_status": "Numerical geometry and supported-skin audit; rendered-skin visual review is reported separately.",
+  "limits": [
+    "Support timing follows inspected capture phases after proportion fitting; force/pressure is not measured.",
+    "Slip is tested at the manifest speed on level ground, independent of Unity or gameplay pathfinding.",
+    "Sole centroids are sampled skin vertices, not a biomechanical pressure centroid.",
+    "Floor contact and loop velocity may have small bounded residuals; do not claim absolute zero skating."
+  ],
+  "manifest_rebinding": {
+    "sampled_input_manifest_sha256": "3238033817e2aad24b316ff3c60d9ac7358cc1fadcce27d084ff3c3ce32480c1",
+    "final_manifest_sha256": "f6ed2a6564b543e9a3481ca8e1d8c33f31bcebd3d6f585cfa7a285057157f70c",
+    "reason": "Walk exact preserved speed metadata corrected after sampling. Inspected Run frame range, fps, duration, declared speed and all contact phases are identical; production blend unchanged."
+  },
+  "clips": [
+    {
+      "name": "Run",
+      "duration_s": 0.5,
+      "samples": 61,
+      "limb_angles_deg": {
+        "FrontLowerLeg.L_16": [
+          49.87725833853219,
+          152.07309636082337
+        ],
+        "FrontLowerLeg.R_19": [
+          57.98987699691736,
+          160.5853288969785
+        ],
+        "BackUpperLeg.L_25": [
+          38.13969436308116,
+          91.35998879087609
+        ],
+        "BackLowerLeg.L_24": [
+          60.46377151429598,
+          136.91121021479728
+        ],
+        "BackUpperLeg.R_29": [
+          30.146634751022475,
+          104.41161286074586
+        ],
+        "BackLowerLeg.R_28": [
+          62.878571234975645,
+          119.42898586431282
+        ]
+      },
+      "sagittal_bend_sign": {
+        "FrontLowerLeg.L_16": [
+          0.1455620676279068,
+          0.3090752959251404
+        ],
+        "FrontLowerLeg.R_19": [
+          0.10305049270391464,
+          0.3103271722793579
+        ],
+        "BackUpperLeg.L_25": [
+          -0.6342898607254028,
+          -0.3918284773826599
+        ],
+        "BackLowerLeg.L_24": [
+          0.38758277893066406,
+          0.568862795829773
+        ],
+        "BackUpperLeg.R_29": [
+          -0.6344339847564697,
+          -0.3186104893684387
+        ],
+        "BackLowerLeg.R_28": [
+          0.494189977645874,
+          0.5671026706695557
+        ]
+      },
+      "segment_length_max_variation_m": {
+        "front.L": [
+          2.401607319187783e-07,
+          0.004448405201414415
+        ],
+        "front.R": [
+          2.5455293645260567e-07,
+          0.006434513639412669
+        ],
+        "hind.L": [
+          1.6515786043916885e-07,
+          2.673861144832051e-07,
+          0.010725080288376487
+        ],
+        "hind.R": [
+          1.503116199451229e-07,
+          2.986556640763884e-07,
+          0.005063192190831256
+        ]
+      },
+      "skin_floor_m": {
+        "LF": {
+          "min": 0.00039997324347496033,
+          "max": 0.115491583943367,
+          "near_floor_fraction": 0.25
+        },
+        "RF": {
+          "min": 0.0003327764570713043,
+          "max": 0.1254223883152008,
+          "near_floor_fraction": 0.2833333333333333
+        },
+        "LH": {
+          "min": 0.0003240639343857765,
+          "max": 0.11209596693515778,
+          "near_floor_fraction": 0.2833333333333333
+        },
+        "RH": {
+          "min": 0.00030061323195695877,
+          "max": 0.12176001816987991,
+          "near_floor_fraction": 0.3
+        }
+      },
+      "loop_delta": {
+        "LF": {
+          "max_step_phase": [
+            0.8,
+            0.8166666666666667
+          ],
+          "centroid_m": 0.0,
+          "floor_m": 0.0,
+          "velocity_seam_m_s": 0.006360974402891048,
+          "max_step_m": 0.039962669447743036
+        },
+        "RF": {
+          "max_step_phase": [
+            0.06666666666666667,
+            0.08333333333333333
+          ],
+          "centroid_m": 0.0,
+          "floor_m": 0.0,
+          "velocity_seam_m_s": 0.008855544317636039,
+          "max_step_m": 0.04006018692732447
+        },
+        "LH": {
+          "max_step_phase": [
+            0.25,
+            0.26666666666666666
+          ],
+          "centroid_m": 0.0,
+          "floor_m": 0.0,
+          "velocity_seam_m_s": 0.007240854284194192,
+          "max_step_m": 0.0519885295431536
+        },
+        "RH": {
+          "max_step_phase": [
+            0.03333333333333333,
+            0.05
+          ],
+          "centroid_m": 0.0,
+          "floor_m": 0.0,
+          "velocity_seam_m_s": 0.0009752973468815221,
+          "max_step_m": 0.03420658348179841
+        }
+      },
+      "supported_skin_slip": {
+        "LF": {
+          "stance_phase": [
+            0.333,
+            0.563
+          ],
+          "samples": 12,
+          "weighted_sole_vertices": 983,
+          "rigid_sole_vertices": 760,
+          "speed_m_s": 3.063375910135234,
+          "method": "Skin positions at 120 Hz, interior support phases; translate model forward by declared speed. Same fixed sole vertices followed, avoiding lowest-point identity swaps.",
+          "skin_floor_range_m": [
+            0.00039997324347496033,
+            0.0004000626504421234
+          ],
+          "sole_centroid_max_drift_m": 0.005536426229064733,
+          "sole_centroid_end_drift_m": 0.004518784788055255,
+          "rigid_sole_centroid_max_drift_m": 0.005552218152334691,
+          "rigid_sole_centroid_end_drift_m": 0.004538499650049565
+        },
+        "RF": {
+          "stance_phase": [
+            0.604,
+            0.854
+          ],
+          "samples": 13,
+          "weighted_sole_vertices": 984,
+          "rigid_sole_vertices": 761,
+          "speed_m_s": 3.063375910135234,
+          "method": "Skin positions at 120 Hz, interior support phases; translate model forward by declared speed. Same fixed sole vertices followed, avoiding lowest-point identity swaps.",
+          "skin_floor_range_m": [
+            0.0003327764570713043,
+            0.00040004029870033264
+          ],
+          "sole_centroid_max_drift_m": 0.00612279986396856,
+          "sole_centroid_end_drift_m": 0.00612279986396856,
+          "rigid_sole_centroid_max_drift_m": 0.006088806302111339,
+          "rigid_sole_centroid_end_drift_m": 0.006088806302111339
+        },
+        "LH": {
+          "stance_phase": [
+            0.917,
+            1.188
+          ],
+          "samples": 14,
+          "weighted_sole_vertices": 1446,
+          "rigid_sole_vertices": 926,
+          "speed_m_s": 3.063375910135234,
+          "method": "Skin positions at 120 Hz, interior support phases; translate model forward by declared speed. Same fixed sole vertices followed, avoiding lowest-point identity swaps.",
+          "skin_floor_range_m": [
+            0.0003240639343857765,
+            0.0005501527339220047
+          ],
+          "sole_centroid_max_drift_m": 0.0028828611849988817,
+          "sole_centroid_end_drift_m": 0.0028828611849988817,
+          "rigid_sole_centroid_max_drift_m": 0.0027552320075105944,
+          "rigid_sole_centroid_end_drift_m": 0.0027552320075105944
+        },
+        "RH": {
+          "stance_phase": [
+            0.083,
+            0.354
+          ],
+          "samples": 15,
+          "weighted_sole_vertices": 1446,
+          "rigid_sole_vertices": 926,
+          "speed_m_s": 3.063375910135234,
+          "method": "Skin positions at 120 Hz, interior support phases; translate model forward by declared speed. Same fixed sole vertices followed, avoiding lowest-point identity swaps.",
+          "skin_floor_range_m": [
+            0.00030061323195695877,
+            0.0004000486806035042
+          ],
+          "sole_centroid_max_drift_m": 0.010249221769986435,
+          "sole_centroid_end_drift_m": 0.009891536126990048,
+          "rigid_sole_centroid_max_drift_m": 0.01025956314649387,
+          "rigid_sole_centroid_end_drift_m": 0.009888746430036162
+        }
+      },
+      "loop_angular_velocity_probe": {
+        "method": "Signed quaternion delta log using2*atan2(length(xyz),w), normalized and hemisphere aligned. Sample0.1frame one-sided atbothseams.",
+        "max_delta_deg_s": 5.56683997291087,
+        "worst_five": [
+          {
+            "bone": "FrontLowerLeg.R_19",
+            "velocity_delta_deg_s": 5.56683997291087,
+            "before_deg_s": 446.6076568027459,
+            "after_deg_s": 445.83111074467064
+          },
+          {
+            "bone": "FrontUpperLeg.R_20",
+            "velocity_delta_deg_s": 4.468617285452451,
+            "before_deg_s": 662.5197579087896,
+            "after_deg_s": 662.9865940567317
+          },
+          {
+            "bone": "FrontLowerLeg.L_16",
+            "velocity_delta_deg_s": 1.903078926213296,
+            "before_deg_s": 334.52333296353237,
+            "after_deg_s": 335.2107334515058
+          },
+          {
+            "bone": "FrontUpperLeg.L_17",
+            "velocity_delta_deg_s": 1.8157456152804374,
+            "before_deg_s": 239.13650180657683,
+            "after_deg_s": 239.82302710232773
+          },
+          {
+            "bone": "FrontShoulder.L_18",
+            "velocity_delta_deg_s": 0.922908440805973,
+            "before_deg_s": 256.33230224546753,
+            "after_deg_s": 256.41064174228245
+          }
+        ]
+      },
+      "complete_body_floor_m": {
+        "min": 0.00030061323195695877,
+        "max": 0.016239043325185776
+      },
+      "skin_flight": {
+        "threshold_m": 0.005,
+        "phases": [
+          0.5833333333333334,
+          0.8833333333333333,
+          0.9,
+          0.9166666666666666
+        ],
+        "max_four_paw_clearance_m": 0.016239043325185776
+      },
+      "body_vertical_m": {
+        "Back_38": [
+          0.508717954158783,
+          0.6000001430511475
+        ],
+        "Torso3_15": [
+          0.44563785195350647,
+          0.555137038230896
+        ],
+        "Head_1": [
+          0.5578218698501587,
+          0.6974079608917236
+        ]
+      }
+    }
+  ],
+  "reference_result": "Pass: candidate4 reference silhouette, actual skin anatomy, bounded contact/loop and final movie frame progression accepted",
+  "reference_acceptance": [
+    {
+      "id": "fore_reach",
+      "status": "Pass within inspected reference and numerical scope",
+      "evidence": "Run_004/007 extend leading foretoe to muzzle line, forward/down with folded opposite foreleg. Upturned paddle removed."
+    },
+    {
+      "id": "hind_drive_recovery",
+      "status": "Pass within inspected reference and numerical scope",
+      "evidence": "Run_013 clearly drives a hindlimb rearward. Run_025 gathers hind paws underneath belly. Both hocks retain calibrated original-rest bend sign at all61 sampled poses."
+    },
+    {
+      "id": "whole_body_gallop",
+      "status": "Pass within inspected reference and numerical scope",
+      "evidence": "Normal side12,half side24 and normal three-quarter12 ordered movie frames retain clear reach/drive/gather/flight progression and body height/pitch participation. This improves the old symmetric small-step silhouette."
+    },
+    {
+      "id": "continuous_anatomy",
+      "status": "Pass within inspected reference and numerical scope",
+      "evidence": "Ten actual skin stills and48 decoded final movie frames show continuous wrist/toe and lower-leg/hock connections, no previous180-degree branch flip or reversed hock. LH quick drive/lift toe-down at phases .208-.333 is visually continuous; peak26.51degrees/8.33ms is retained as a stated limit."
+    },
+    {
+      "id": "flight_plant_loop",
+      "status": "Pass within inspected reference and numerical scope",
+      "evidence": "Final frame progression includes four-paw flight. All four anatomical foot regions exceed5mm clearance at4/60 interior120Hz samples, maximum common16.24mm. Full skin minimum+.301mm. Skin loop position0m; velocity seam max.00886m/s. Fixed sole centroid drift at3.063375910135234m/s:LF5.54/RF6.12/LH2.88/RH10.25mm; includes rolling/deformation and is not absolute zero skating."
+    }
+  ],
+  "video_sha256": "d506964d04014f909de8c258b25ba1a8b7c5f5bf7955e90e5be3bdaf786e25b3",
+  "temporal_review_samples": 48,
+  "reference_still_samples": 10,
+  "foot_rotation_review": {
+    "scope": "New Run foot/wrist/ankle rotation only, actual evaluated pose at 120 Hz; shortest signed quaternion log avoids acos precision and q/-q ambiguity.",
+    "blend_sha256": "d9b07a7c801ff67ada321dc43955c0355bcbfd8ae8e1541744dc010f4f70a30c",
+    "duration_s": 0.5,
+    "sample_hz": 120,
+    "samples": 61,
+    "results": {
+      "IKFrontLeg.L_47": {
+        "max_world_rotation_step_deg": 14.273019944383275,
+        "phase_range": [
+          0.6166666666666667,
+          0.6333333333333333
+        ],
+        "peak_world_rotation_deg_s": 1712.7623933259931,
+        "loop_rotation_delta_deg": 0.0
+      },
+      "IKFrontLeg.R_51": {
+        "max_world_rotation_step_deg": 15.055059272744609,
+        "phase_range": [
+          0.9166666666666666,
+          0.9333333333333333
+        ],
+        "peak_world_rotation_deg_s": 1806.607112729353,
+        "loop_rotation_delta_deg": 0.0
+      },
+      "IKBackLeg.L_45": {
+        "max_world_rotation_step_deg": 26.505477366700834,
+        "phase_range": [
+          0.23333333333333334,
+          0.25
+        ],
+        "peak_world_rotation_deg_s": 3180.6572840041,
+        "loop_rotation_delta_deg": 0.0
+      },
+      "IKBackLeg.R_49": {
+        "max_world_rotation_step_deg": 12.645806415992991,
+        "phase_range": [
+          0.48333333333333334,
+          0.5
+        ],
+        "peak_world_rotation_deg_s": 1517.496769919159,
+        "loop_rotation_delta_deg": 0.0
+      },
+      "FF.L_46": {
+        "max_world_rotation_step_deg": 14.273009285731755,
+        "phase_range": [
+          0.6166666666666667,
+          0.6333333333333333
+        ],
+        "peak_world_rotation_deg_s": 1712.7611142878106,
+        "loop_rotation_delta_deg": 0.0
+      },
+      "FF.R_50": {
+        "max_world_rotation_step_deg": 15.055051283552178,
+        "phase_range": [
+          0.9166666666666666,
+          0.9333333333333333
+        ],
+        "peak_world_rotation_deg_s": 1806.6061540262613,
+        "loop_rotation_delta_deg": 0.0
+      },
+      "FFB.L_44": {
+        "max_world_rotation_step_deg": 26.505464432216915,
+        "phase_range": [
+          0.23333333333333334,
+          0.25
+        ],
+        "peak_world_rotation_deg_s": 3180.65573186603,
+        "loop_rotation_delta_deg": 0.0
+      },
+      "FFB.R_48": {
+        "max_world_rotation_step_deg": 12.645809846718665,
+        "phase_range": [
+          0.48333333333333334,
+          0.5
+        ],
+        "peak_world_rotation_deg_s": 1517.4971816062398,
+        "loop_rotation_delta_deg": 1.7075472925031875e-06
+      }
+    },
+    "limits": [
+      "Angular bounds diagnose abrupt rotations but do not establish visual naturalness or contact pressure."
+    ]
+  },
+  "full_diagnostic_cleanup_note": "Reviewed full per-pose diagnostics and decoded frames are removed after retaining these metrics, reusable review tools, final production and final reel."
+}

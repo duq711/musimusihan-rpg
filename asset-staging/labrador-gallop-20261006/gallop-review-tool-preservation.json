@@ -1,0 +1,34 @@
+{
+  "unique_debug_helpers_preserved_before_cleanup": [
+    {
+      "temporary": "/private/tmp/labrador_gallop_pop_diagnostic.py",
+      "preserved": "tools/dcc/diagnostics/labrador_gallop_pose_pop.py",
+      "sha256": "2953d2be5b25f4a7a2afce56e12e279fbf97c4e007c93a71522edb3b54707a3b",
+      "identical": true
+    },
+    {
+      "temporary": "/private/tmp/labrador_gallop_source_ankle_diagnostic.py",
+      "preserved": "tools/dcc/diagnostics/labrador_gallop_source_ankle.py",
+      "sha256": "041ff39e38051dc3c8de7862c2ad57ffe121a3bc2b241817a84beef634fe880f",
+      "identical": true
+    },
+    {
+      "temporary": "/private/tmp/labrador_gallop_limb_lengths.py",
+      "preserved": "tools/dcc/diagnostics/labrador_gallop_source_lengths.py",
+      "sha256": "4bf4c81c4f53b7ec8b7d0cf2240f465acb9dfef983dcc596e8c936ec280b0b5c",
+      "identical": true
+    }
+  ],
+  "other_temporary_helper_replacements": [
+    {
+      "temporary": "/private/tmp/labrador_gallop_source_review.py",
+      "preserved": "tools/dcc/labrador_gallop_source_review.py",
+      "coverage": "All segment comparison functionality preserved in parameterized CLI, plus source chain lengths."
+    }
+  ],
+  "final_review_tools": [
+    "tools/dcc/labrador_gallop_skin_review.py",
+    "tools/dcc/labrador_gallop_rotation_review.py",
+    "tools/dcc/labrador_gallop_video_review.swift"
+  ]
+}

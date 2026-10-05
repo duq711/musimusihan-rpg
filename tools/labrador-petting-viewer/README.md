@@ -14,10 +14,10 @@ The included Three.js r170 modules and MIT license are copied unchanged from the
 
 ## 걷기와 달리기 / Walk and Run
 
-같은 서버의 http://127.0.0.1:8773/locomotion/ 에서 걷기·달리기를 선택합니다. 옆에서/비스듬히 시점, 일시정지, 시간 이동 슬라이더로 발 디딤과 반복 연결을 확인할 수 있습니다. 바닥 이동은 각 클립의 `speed_m_s`에 맞춰 격자를 움직이며 버튼으로 제자리 보기와 전환합니다.
+같은 서버의 http://127.0.0.1:8773/locomotion/ 에서 걷기·달리기를 선택합니다. 보통 속도/0.5배속, 옆에서/비스듬히 시점, 일시정지, 시간 이동 슬라이더로 발 디딤과 반복 연결을 확인할 수 있습니다. 바닥 이동은 각 클립의 `speed_m_s`와 재생 배속에 맞춰 격자를 움직이며 버튼으로 제자리 보기와 전환합니다.
 
-Select Walk or Run at `/locomotion/`. Side and three-quarter views, pause and the seek slider show paw contact and loop boundaries. The moving-ground option uses each clip's nominal metre/s speed and can be toggled for a stationary view.
+Select Walk or Run at `/locomotion/`. Normal/half speed, side/three-quarter views, pause and the seek slider show paw contact and loop boundaries. Moving ground uses each clip's nominal speed and playback rate and can be disabled.
 
-걷기·달리기는 별도 `export/LabradorPet_Locomotion.glb`와 `export/locomotion-manifest.json`를 사용합니다. 기존 쓰다듬기 모델과 두 care 클립은 그대로 보존합니다. Unity F2의 `래브라도 · 걷기 / 달리기 모션`은 제자리 게임용 클립 검사이며 1/2 또는 화면 버튼으로 전환합니다.
+2026-10-06 달리기 수정은 `asset-staging/labrador-gallop-20261006/export/`의 `LabradorPet_Gallop.glb`와 `gallop-manifest.json`을 사용합니다. `locomotion-source.json`이 최종 채택한 에셋을 선택하며 서버를 다시 시작하면 적용됩니다. 설정이 없으면 이전 `asset-staging/labrador-pet-20261005/export/`의 locomotion 파일을 사용합니다. 기존 쓰다듬기 모델·care·Walk와 이전 제작본은 보존합니다. Unity F2의 `래브라도 · 걷기 / 달리기 모션`은 제자리 게임용 클립 검사이며 1/2 또는 화면 버튼으로 전환합니다.
 
-The locomotion viewer uses the separate combined GLB and manifest. The original two-clip petting model is preserved. Native F2 uses the actual in-place game clips with 1/2 keys or on-screen buttons; native acceptance is recorded separately.
+The 2026-10-06 gallop correction uses the new task's combined GLB and manifest. `locomotion-source.json` selects accepted assets at server startup; without that configuration, the previous locomotion bundle is used. Original petting, care, Walk and prior production remain preserved. Native F2 uses actual in-place game clips with 1/2 keys or buttons; native acceptance is recorded separately. See `docs/LABRADOR_GALLOP_20261006.md` for the reference-based correction.

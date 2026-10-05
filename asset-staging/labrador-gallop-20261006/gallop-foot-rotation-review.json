@@ -1,0 +1,84 @@
+{
+  "scope": "New Run foot/wrist/ankle rotation only, actual evaluated pose at 120 Hz; shortest signed quaternion log avoids acos precision and q/-q ambiguity.",
+  "blend_sha256": "d9b07a7c801ff67ada321dc43955c0355bcbfd8ae8e1541744dc010f4f70a30c",
+  "duration_s": 0.5,
+  "sample_hz": 120,
+  "samples": 61,
+  "results": {
+    "IKFrontLeg.L_47": {
+      "max_world_rotation_step_deg": 14.273019944383275,
+      "phase_range": [
+        0.6166666666666667,
+        0.6333333333333333
+      ],
+      "peak_world_rotation_deg_s": 1712.7623933259931,
+      "loop_rotation_delta_deg": 0.0
+    },
+    "IKFrontLeg.R_51": {
+      "max_world_rotation_step_deg": 15.055059272744609,
+      "phase_range": [
+        0.9166666666666666,
+        0.9333333333333333
+      ],
+      "peak_world_rotation_deg_s": 1806.607112729353,
+      "loop_rotation_delta_deg": 0.0
+    },
+    "IKBackLeg.L_45": {
+      "max_world_rotation_step_deg": 26.505477366700834,
+      "phase_range": [
+        0.23333333333333334,
+        0.25
+      ],
+      "peak_world_rotation_deg_s": 3180.6572840041,
+      "loop_rotation_delta_deg": 0.0
+    },
+    "IKBackLeg.R_49": {
+      "max_world_rotation_step_deg": 12.645806415992991,
+      "phase_range": [
+        0.48333333333333334,
+        0.5
+      ],
+      "peak_world_rotation_deg_s": 1517.496769919159,
+      "loop_rotation_delta_deg": 0.0
+    },
+    "FF.L_46": {
+      "max_world_rotation_step_deg": 14.273009285731755,
+      "phase_range": [
+        0.6166666666666667,
+        0.6333333333333333
+      ],
+      "peak_world_rotation_deg_s": 1712.7611142878106,
+      "loop_rotation_delta_deg": 0.0
+    },
+    "FF.R_50": {
+      "max_world_rotation_step_deg": 15.055051283552178,
+      "phase_range": [
+        0.9166666666666666,
+        0.9333333333333333
+      ],
+      "peak_world_rotation_deg_s": 1806.6061540262613,
+      "loop_rotation_delta_deg": 0.0
+    },
+    "FFB.L_44": {
+      "max_world_rotation_step_deg": 26.505464432216915,
+      "phase_range": [
+        0.23333333333333334,
+        0.25
+      ],
+      "peak_world_rotation_deg_s": 3180.65573186603,
+      "loop_rotation_delta_deg": 0.0
+    },
+    "FFB.R_48": {
+      "max_world_rotation_step_deg": 12.645809846718665,
+      "phase_range": [
+        0.48333333333333334,
+        0.5
+      ],
+      "peak_world_rotation_deg_s": 1517.4971816062398,
+      "loop_rotation_delta_deg": 1.7075472925031875e-06
+    }
+  },
+  "limits": [
+    "Angular bounds diagnose abrupt rotations but do not establish visual naturalness or contact pressure."
+  ]
+}

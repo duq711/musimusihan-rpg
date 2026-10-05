@@ -1,0 +1,51 @@
+{
+  "result": "Pass within inspected reference-based visual and numerical scope",
+  "reference_criteria_passed": 5,
+  "production_blend_sha256": "d9b07a7c801ff67ada321dc43955c0355bcbfd8ae8e1541744dc010f4f70a30c",
+  "final_manifest_sha256": "f6ed2a6564b543e9a3481ca8e1d8c33f31bcebd3d6f585cfa7a285057157f70c",
+  "final_video_sha256": "d506964d04014f909de8c258b25ba1a8b7c5f5bf7955e90e5be3bdaf786e25b3",
+  "rendered_skin_side_poses": 10,
+  "evaluated_skin_hz": 120,
+  "evaluated_skin_samples": 61,
+  "decoded_final_movie_frames": 48,
+  "movie_frame_review_by_shot": {
+    "normal_side": 12,
+    "half_side": 24,
+    "normal_quarter": 12
+  },
+  "numerical": {
+    "full_skin_floor_min_m": 0.00030061323195695877,
+    "max_foot_skin_step_m": 0.0519885295431536,
+    "loop_skin_position_delta_m": 0,
+    "loop_skin_velocity_delta_max_m_s": 0.008855544317636039,
+    "loop_joint_angular_velocity_delta_max_deg_s": 5.56683997291087,
+    "max_foot_rotation_step_deg": 26.505477366700834,
+    "max_foot_rotation_step_time_s": 0.008333333333333333,
+    "max_four_paw_clearance_m": 0.016239043325185776,
+    "supported_sole_centroid_drift_m": {
+      "LF": 0.005536426229064733,
+      "RF": 0.00612279986396856,
+      "LH": 0.0028828611849988817,
+      "RH": 0.010249221769986435
+    }
+  },
+  "limits": [
+    "A supplied still guides reach/drive silhouette, not exact Labrador-versus-Shepherd anatomy, biomechanics or pressure.",
+    "Decoded 24 fps frame progression and 120 Hz numerical checks bound abrupt defects; subjective perceived smoothness can still vary.",
+    "Measured fixed sole centroid drift is bounded but nonzero, maximum 10.25 mm at declared 3.063375910135234 m/s; no absolute zero-skating claim.",
+    "LH maximum toe/wrist rotation is 26.51 degrees per 8.33 ms during quick drive/lift; finite fast rotation retained after visually inspecting the final half-speed sequence."
+  ],
+  "receipts": [
+    "gallop-reference-review.json",
+    "gallop-independent-skin-review.json",
+    "gallop-foot-rotation-review.json",
+    "gallop-temporal-frame-review.json"
+  ],
+  "reusable_review_tools": [
+    "tools/dcc/labrador_gallop_source_review.py",
+    "tools/dcc/labrador_gallop_skin_review.py",
+    "tools/dcc/labrador_gallop_rotation_review.py",
+    "tools/dcc/labrador_gallop_video_review.swift"
+  ],
+  "review_tool_preservation_receipt": "gallop-review-tool-preservation.json"
+}

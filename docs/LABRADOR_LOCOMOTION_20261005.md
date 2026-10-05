@@ -1,5 +1,9 @@
 # 래브라도 걷기·달리기 / Labrador Walk and Run
 
+2026-10-06: 사용자가 아래의 이전 Run을 빠른 걷기처럼 보인다고 지적하여 [질주 수정본](LABRADOR_GALLOP_20261006.md)으로 교체했습니다. 이 문서의 Run 수치와 검사는 이전 제작 기록입니다. 현재 Run은 0.5초 / 3.063376m/s이며 Walk·쓰다듬기는 유지합니다.
+
+The previous Run documented below was superseded by the linked gallop correction after the user's visual rejection. Its results are historical, not acceptance evidence for the revised Run. Current Run is 0.5 s / 3.063376 m/s; Walk and petting are retained.
+
 같은 kenchoo 래브라도에 두 순환 모션을 추가했습니다. 기존 모델·원본·쓰다듬기 제작본과 두 care 모션은 보존합니다. 실제 개 캡처의 몸통·고개·발 디딤 순서를 사용하고, 발 고정/들기 경로와 해부학적 다리 IK를 래브라도 체형에 맞췄습니다. 발 경로 전체를 원본에서 그대로 복사한 모션은 아닙니다.
 
 Two gait loops are added to the same kenchoo Labrador. Original model, production and care clips are preserved. Captured canine body/head motion and footfall timing are combined with proportion-fitted planted/swing paw paths and anatomical limb IK; the paw paths are fitted rather than a literal capture copy.

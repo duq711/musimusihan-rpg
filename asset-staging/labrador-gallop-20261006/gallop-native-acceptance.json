@@ -1,0 +1,91 @@
+{
+  "result": "Passed",
+  "unity_version": "6000.3.25f1",
+  "checks": [
+    "Own deterministic physics without desktop input, focus changes or audio.",
+    "Actual licensed Labrador, Walk and Run resources are installed.",
+    "Both real native gait clips are nonempty loops.",
+    "Existing sanctuary petting Labrador remains installed.",
+    "F2 displays the actual Labrador walking/running button.",
+    "Actual F2 button dispatches the live gait room.",
+    "Gait trial isolates the original world, dog and inventory.",
+    "Gait moves the actual detailed skinned dog.",
+    "Side view owns stationary player input and leaves the pointer free.",
+    "Side view suppresses quick-slot key handling and prevents equipment or item use while switching gait.",
+    "Final gait view excludes body/equipment camera layers, hides every player renderer and disables the equipment camera.",
+    "Fresh gait view begins with the actual walking loop.",
+    "Walk advances the actual skeleton over native simulation frames.",
+    "The same mode command used by key 2 and its button switches to Run.",
+    "Run advances the actual skeleton independently of the walking loop.",
+    "The motion demonstration stays rooted on its actual safe floor.",
+    "F2 pause freezes the exact gait pose and rejects mode changes.",
+    "F2 resume retains the same dog, side view and selected gait.",
+    "Unprovided companion actions are not presented as implemented locomotion.",
+    "E/Esc view exit restores player input ownership.",
+    "View exit restores the original combat-interface flag.",
+    "An already-disabled combat interface stays disabled after a complete view cycle.",
+    "Reopening the side view conserves the selected gait.",
+    "Retry dispatches the actual registered gait implementation.",
+    "Retry creates a fresh actual dog and resets the gait to Walk.",
+    "Reset removes the demo and returns to the isolated paused menu.",
+    "The existing handless petting F2 entry remains runnable.",
+    "Existing PetEnjoy and its interactive close view remain intact.",
+    "Exit restores the original world, petting Labrador and bag identity.",
+    "Gait switching, pause, retry and reset conserve original inventory, survival, wallet, combat-interface flag and dog state."
+  ],
+  "errors": [],
+  "diagnostics": {
+    "before_late_view": {
+      "enabled_player_renderers": [
+        "mesh_00001",
+        "mesh_00002",
+        "mesh_00003",
+        "mesh_00004",
+        "mesh_00005",
+        "mesh_00006",
+        "mesh_00007",
+        "mesh_00008",
+        "mesh_00009",
+        "mesh_00010",
+        "mesh_00011"
+      ],
+      "gear_camera_enabled": false,
+      "excluded_layers_visible": false
+    },
+    "screen_pixels": [
+      640,
+      480
+    ],
+    "camera_pixels": [
+      426,
+      240
+    ],
+    "clips": [
+      {
+        "name": "Run",
+        "duration_s": 0.50000006,
+        "loop": true
+      },
+      {
+        "name": "Run",
+        "duration_s": 0.50000006,
+        "loop": true
+      },
+      {
+        "name": "Walk",
+        "duration_s": 0.7666667,
+        "loop": true
+      },
+      {
+        "name": "Walk",
+        "duration_s": 0.7666667,
+        "loop": true
+      }
+    ]
+  },
+  "limitations": [
+    "Actual native app and F2 flow use the same deterministic mode command as keys/buttons; physical desktop input, focus and sound are not exercised.",
+    "This is an in-place animation preview. Pathfinding, following and companion combat are outside this motion request.",
+    "DCC paw support and rendered appearance are reviewed separately."
+  ]
+}

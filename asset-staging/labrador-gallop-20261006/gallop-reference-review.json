@@ -1,0 +1,145 @@
+{
+  "result": "Pass: candidate 4 reference silhouette, actual skin anatomy, bounded contact/loop and final movie frame progression accepted",
+  "reference": "reference/user_running_dog.png",
+  "reference_sha256": "ded102a3adc289ca90b5d7915eaf731520f11c99c7f74c361694eda8dfe80d63",
+  "scope": "New reference-based naturalness acceptance. Previous locomotion stability checks are not evidence that the old Run looks natural.",
+  "reference_observations": [
+    "Leading forepaw reaches forward of the shoulder while the opposite foreleg is folded.",
+    "One hindlimb is visibly extended behind the hip, creating a clear propulsive silhouette.",
+    "Paws and wrist/hock segments form continuous anatomical limb silhouettes.",
+    "A single still provides extension/drive direction, not a timed footfall or force measurement."
+  ],
+  "previous_run_diagnosis": {
+    "cycle_s": 0.4,
+    "nominal_speed_m_s": 2.3141639345507423,
+    "LF_support_fraction": 0.23,
+    "fore_support_travel_m": 0.21290308197866833,
+    "uniform_peak_swing_clearance_m": 0.075,
+    "body_lower_m": 0.055,
+    "reasons": [
+      "Low symmetric horizontal paw excursion and identical bounded sin-squared swing clearance remove captured late-swing reach and gathered recovery.",
+      "Fixed or near-fixed paw pitch plus constrained metatarsal profile suppress toe pointing and the distinction between landing and push-off.",
+      "Root/capture timing can be numerically correct while the skinned silhouette resembles a sped-up short-step walk."
+    ],
+    "code_observation": "Previous foot_path uses source.x only for bounded lateral movement; measured source ankle forward/height coordinates and source lift do not drive the authored forward/clearance profile."
+  },
+  "acceptance": [
+    {
+      "id": "fore_reach",
+      "criterion": "A leading forelimb clearly reaches forward/down before contact, with a visibly folded opposite forelimb; stronger extension than previous Run."
+    },
+    {
+      "id": "hind_drive_recovery",
+      "criterion": "Hind drive visibly extends behind the hips, followed by knees and paws gathering forward beneath the body without reversed hocks."
+    },
+    {
+      "id": "whole_body_gallop",
+      "criterion": "Extended and gathered silhouettes alternate with body compression/extension and appropriate pitch/height cadence; leg speed alone does not carry the motion."
+    },
+    {
+      "id": "continuous_anatomy",
+      "criterion": "Paws/toes, wrist, forearm, stifle and hock remain connected in actual skin, without obvious disconnected ankle gaps, implausible U-bends or sharp fold collapses."
+    },
+    {
+      "id": "flight_plant_loop",
+      "criterion": "At least one clearly visible four-paw flight phase, supported paws consistent with declared travel speed, and a stable repeat boundary."
+    }
+  ],
+  "candidate_reviews": [
+    {
+      "candidate": 4,
+      "result": "Pass within inspected reference and numerical scope",
+      "blend_sha256": "d9b07a7c801ff67ada321dc43955c0355bcbfd8ae8e1541744dc010f4f70a30c",
+      "manifest_sha256": "f6ed2a6564b543e9a3481ca8e1d8c33f31bcebd3d6f585cfa7a285057157f70c",
+      "actual_skin_images": [
+        {
+          "file": "review/side/Run_001.png",
+          "sha256": "0bcd40f4ff87a56196feabd0638fc1f18e8725441ea9b8cfa89807486ceae7b4"
+        },
+        {
+          "file": "review/side/Run_004.png",
+          "sha256": "ef6d2513b454a118056801fd4d46a698ba3b9961f00b3d5c32ff8a2608857c41"
+        },
+        {
+          "file": "review/side/Run_007.png",
+          "sha256": "3bcd9242b77811b921b0eb6e468042b762c00a999244f0b2804de1f7ba46f11d"
+        },
+        {
+          "file": "review/side/Run_010.png",
+          "sha256": "8023d8a50faece8e829d5e89f383a815aa1815432cdddd2a484a0b2497ac582a"
+        },
+        {
+          "file": "review/side/Run_013.png",
+          "sha256": "d1a6ea2aae02686386195752aff26d54fe224168193220713403e6338b5ce7a7"
+        },
+        {
+          "file": "review/side/Run_016.png",
+          "sha256": "ec313f5cb64fdc655a6455c2fa9ecc6f7ab3260dc89f966d772b815d966e578d"
+        },
+        {
+          "file": "review/side/Run_019.png",
+          "sha256": "f68162e948cc4ea18d012c106449295408167f6f1f1f135196bcbe059116dc44"
+        },
+        {
+          "file": "review/side/Run_022.png",
+          "sha256": "ca6dc01656034bbca0128ac6ef26e6970e6a8c161824567d8040feae7a1538ea"
+        },
+        {
+          "file": "review/side/Run_025.png",
+          "sha256": "198fb702c808f86dd27ce8cd4a05082ac658ee423543feaaecb31bc53e43068e"
+        },
+        {
+          "file": "review/side/Run_028.png",
+          "sha256": "10135b825f9c211f1f5e1a0ae42d59a64325da6009962f43b16b791f7b836187"
+        }
+      ],
+      "criteria": [
+        {
+          "id": "fore_reach",
+          "status": "Pass within inspected reference and numerical scope",
+          "evidence": "Run_004/007 extend leading foretoe to muzzle line, forward/down with folded opposite foreleg. Upturned paddle removed."
+        },
+        {
+          "id": "hind_drive_recovery",
+          "status": "Pass within inspected reference and numerical scope",
+          "evidence": "Run_013 clearly drives a hindlimb rearward. Run_025 gathers hind paws underneath belly. Both hocks retain calibrated original-rest bend sign at all 61 sampled poses."
+        },
+        {
+          "id": "whole_body_gallop",
+          "status": "Pass within inspected reference and numerical scope",
+          "evidence": "Normal side 12,half side 24 and normal three-quarter 12 ordered movie frames retain clear reach/drive/gather/flight progression and body height/pitch participation. This improves the old symmetric small-step silhouette."
+        },
+        {
+          "id": "continuous_anatomy",
+          "status": "Pass within inspected reference and numerical scope",
+          "evidence": "Ten actual skin stills and 48 decoded final movie frames show continuous wrist/toe and lower-leg/hock connections, no previous 180-degree branch flip or reversed hock. LH quick drive/lift toe-down at phases .208-.333 is visually continuous; peak 26.51 degrees/8.33 ms is retained as a stated limit."
+        },
+        {
+          "id": "flight_plant_loop",
+          "status": "Pass within inspected reference and numerical scope",
+          "evidence": "Final frame progression includes four-paw flight. All four anatomical foot regions exceed 5 mm clearance at 4/60 interior 120 Hz samples, maximum common 16.24 mm. Full skin minimum +.301 mm. Skin loop position 0 m; velocity seam max .00886 m/s. Fixed sole centroid drift at 3.063375910135234 m/s:LF5.54/RF6.12/LH2.88/RH10.25mm; includes rolling/deformation and is not absolute zero skating."
+        }
+      ],
+      "independent_receipts": [
+        "gallop-independent-skin-review.json",
+        "gallop-foot-rotation-review.json"
+      ],
+      "review_limits": [
+        "A supplied still guides reach/drive silhouette, not exact Labrador-versus-Shepherd anatomy, biomechanics or pressure.",
+        "Decoded 24 fps frame progression and 120 Hz numerical checks bound abrupt defects; subjective perceived smoothness can still vary.",
+        "Measured fixed sole centroid drift is bounded but nonzero, maximum 10.25 mm at declared 3.063375910135234 m/s; no absolute zero-skating claim.",
+        "LH maximum toe/wrist rotation is 26.51 degrees per 8.33 ms during quick drive/lift; finite fast rotation retained after visually inspecting the final half-speed sequence."
+      ],
+      "video_sha256": "d506964d04014f909de8c258b25ba1a8b7c5f5bf7955e90e5be3bdaf786e25b3",
+      "temporal_receipt": "gallop-temporal-frame-review.json",
+      "temporal_sample_count": 48
+    }
+  ],
+  "verification_method": "Ten actual skinned side phase renders,61 evaluated skin poses at 120 Hz, and 48 exactly decoded final movie frames across normal side, half side and normal three-quarter views. Numerical stability is separate from the five new reference-based acceptance judgments.",
+  "limits": [
+    "A supplied still guides reach/drive silhouette, not exact Labrador-versus-Shepherd anatomy, biomechanics or pressure.",
+    "Decoded 24 fps frame progression and 120 Hz numerical checks bound abrupt defects; subjective perceived smoothness can still vary.",
+    "Measured fixed sole centroid drift is bounded but nonzero, maximum 10.25 mm at declared 3.063375910135234 m/s; no absolute zero-skating claim.",
+    "LH maximum toe/wrist rotation is 26.51 degrees per 8.33 ms during quick drive/lift; finite fast rotation retained after visually inspecting the final half-speed sequence."
+  ]
+}
