@@ -1,0 +1,134 @@
+{
+  "status": "DCC authoring and delivered-file validation complete; Unity/native/preview acceptance reported separately.",
+  "blender": "5.2.1 LTS on Mac",
+  "clips": [
+    {
+      "name": "Walk",
+      "frames": [
+        1,
+        47
+      ],
+      "duration": 0.7666666666666667,
+      "loop": true,
+      "speed_m_s": 0.7151154096607382,
+      "root_motion": "in-place; measured vertical motion only",
+      "source_capture": "source/raw_bvh_data/dog_quad_walk_002.bvh",
+      "source_raw_frames": [
+        14132,
+        14224
+      ],
+      "source_fps": 120.0000480000192,
+      "stride_factor": 0.62,
+      "source_height_scale_m_per_cm": 0.009878690910699815,
+      "body_lower_m": 0.04,
+      "contact_phases": {
+        "front.L": [
+          0.0,
+          0.55
+        ],
+        "front.R": [
+          0.5,
+          1.0
+        ],
+        "hind.L": [
+          0.826,
+          1.337
+        ],
+        "hind.R": [
+          0.315,
+          0.88
+        ]
+      },
+      "gait": "captured four-beat walk",
+      "source": "Captured canine body and four-footfall timing; anatomically fitted C1 planted/swing paw paths and length-preserving IK; authored ear/tail follow-through"
+    },
+    {
+      "name": "Run",
+      "frames": [
+        1,
+        25
+      ],
+      "duration": 0.4,
+      "loop": true,
+      "speed_m_s": 2.3141639345507423,
+      "root_motion": "in-place; measured vertical motion only",
+      "source_capture": "source/raw_bvh_data/dog_fast_run_02_006.bvh",
+      "source_raw_frames": [
+        2944,
+        2992
+      ],
+      "source_fps": 120.0000480000192,
+      "stride_factor": 0.52,
+      "source_height_scale_m_per_cm": 0.009878690910699815,
+      "body_lower_m": 0.055,
+      "contact_phases": {
+        "front.L": [
+          0.333,
+          0.563
+        ],
+        "front.R": [
+          0.604,
+          0.854
+        ],
+        "hind.L": [
+          0.917,
+          1.188
+        ],
+        "hind.R": [
+          0.083,
+          0.354
+        ]
+      },
+      "gait": "captured fast canine gallop",
+      "source": "Captured canine body and four-footfall timing; anatomically fitted C1 planted/swing paw paths and length-preserving IK; authored ear/tail follow-through"
+    }
+  ],
+  "source_model": "kenchoo Labrador Dog, official 2k GLB preserved",
+  "capture_citation": "Han et al. (2024), Lifelike Agility and Play in Quadrupedal Robots using Reinforcement Learning and Generative Pre-trained Models. https://doi.org/10.6084/m9.figshare.24968946.v1 (CC BY 4.0)",
+  "authoring": "Captured canine spine/head/vertical-body movement and measured four-paw footfall timing. Stride/contact/swing paths authored for the acquired Labrador proportions with C1 Hermite return, no-stretch anatomical fore/hind IK, bounded ear/tail follow-through. The delivered paw paths are fitted rather than a literal unmodified capture.",
+  "validation": {
+    "passed": true,
+    "checks": 27,
+    "evaluated_skin_frames_at_120_hz": 142,
+    "fbx_roundtrip_samples": 6,
+    "fbx_max_joint_error_m": 6.776342988551899e-07,
+    "fbx_max_skin_error_m": 9.695995424670385e-07,
+    "floor_tolerance_m": 0.003,
+    "scope": "Exact acquired rest geometry, skeleton matrices, original morphs, coat mask, audited skin weights and previous two care action keys remain unchanged. Root in place, finite full-skin samples, actual paw support/swing, loop position and tangent continuity, actual FBX roundtrip. Anatomical bend/contact drift independent audit recorded separately.",
+    "receipt": "locomotion-animation-validation.json",
+    "independent_anatomy_contact_receipt": "locomotion-independent-review.json"
+  },
+  "limits": [
+    "No human hand model.",
+    "Clips are in place; native moving-character integration can translate at the manifest speed.",
+    "No combat/retrieval/feeding animation added in this task.",
+    "Floor validation permits up to 3mm contact tolerance, not absolute zero penetration."
+  ],
+  "artifacts": [
+    {
+      "path": "production/LabradorPet_Locomotion.blend",
+      "bytes": 20002107,
+      "sha256": "d035d5257e8e6c624d363131656e7b8a3e86cd3a208ff838773537ce65c96e0c"
+    },
+    {
+      "path": "export/Locomotion/Walk.fbx",
+      "bytes": 5460604,
+      "sha256": "275de8485ba3fdc5f9c0d76f2b9f67d1df1f7d2d44e3e7fcf468d50961154ada"
+    },
+    {
+      "path": "export/Locomotion/Run.fbx",
+      "bytes": 5389644,
+      "sha256": "f524e216400eb49d51e8e4b89c604c194ea96960a2394e2b8759ab78cf04cc63"
+    },
+    {
+      "path": "export/LabradorPet_Locomotion.glb",
+      "bytes": 18172988,
+      "sha256": "22ef1b62ccd64c4002a3e94290e33adf31ee8f631f0c480b063484e2a8fe611e"
+    },
+    {
+      "path": "export/locomotion-manifest.json",
+      "bytes": 2672,
+      "sha256": "ce7e4710e9983cc736426622faf2e87bf228810506887ce14e45a2d0cff90b5b"
+    }
+  ]
+}

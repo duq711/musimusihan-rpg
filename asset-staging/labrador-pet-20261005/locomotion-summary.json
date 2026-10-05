@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "completed_utc": "2026-10-05T14:50:22.818957+00:00",
+  "result": "Passed",
+  "한국어": "같은 래브라도에 자연스러운 걷기·달리기 순환 모션을 제작하고 실제 Unity 에셋과 F2 모션 시연, 시간 이동이 가능한 미리보기·12초 영상에 적용했습니다. 기존 쓰다듬기·원본·가방과 게임 상태를 보존합니다.",
+  "English": "Added natural Walk/Run loops to the same Labrador, installed actual Unity clips and F2 motion demonstration, and delivered a seekable viewer and 12-second reel. Prior petting, source assets, inventory and original game state are preserved.",
+  "clips": [
+    {
+      "name": "Walk",
+      "duration": 0.7666666666666667,
+      "loop": true,
+      "speed_m_s": 0.7151154096607382,
+      "source_capture": "source/raw_bvh_data/dog_quad_walk_002.bvh",
+      "source_raw_frames": [
+        14132,
+        14224
+      ],
+      "gait": "captured four-beat walk"
+    },
+    {
+      "name": "Run",
+      "duration": 0.4,
+      "loop": true,
+      "speed_m_s": 2.3141639345507423,
+      "source_capture": "source/raw_bvh_data/dog_fast_run_02_006.bvh",
+      "source_raw_frames": [
+        2944,
+        2992
+      ],
+      "gait": "captured fast canine gallop"
+    }
+  ],
+  "validation": {
+    "dcc_checks": 27,
+    "independent_criteria": 13,
+    "skin_pose_samples": 142,
+    "support_samples": 232,
+    "reviewed_skin_renders": 9,
+    "unity_import_checks": 102,
+    "previous_assets_byte_identical": 11,
+    "playmode_passed": 32,
+    "playmode_failed": 0,
+    "native_player_checks": 30,
+    "native_build_result": "Succeeded",
+    "native_build_errors": 0,
+    "native_build_warnings": 6,
+    "video_exact_seek_samples": 5,
+    "video_duration_seconds": 12,
+    "source_hashes_match_final": true,
+    "receipts": [
+      "locomotion-animation-validation.json",
+      "locomotion-independent-review.json",
+      "locomotion-unity-import.json",
+      "locomotion-playmode-validation.json",
+      "locomotion-native-acceptance.json",
+      "locomotion-native-install.json",
+      "locomotion-video-summary.json",
+      "locomotion-video-seek.json"
+    ]
+  },
+  "artifacts": [
+    {
+      "path": "production/LabradorPet_Locomotion.blend",
+      "bytes": 20002107,
+      "sha256": "d035d5257e8e6c624d363131656e7b8a3e86cd3a208ff838773537ce65c96e0c"
+    },
+    {
+      "path": "export/Locomotion/Walk.fbx",
+      "bytes": 5460604,
+      "sha256": "275de8485ba3fdc5f9c0d76f2b9f67d1df1f7d2d44e3e7fcf468d50961154ada"
+    },
+    {
+      "path": "export/Locomotion/Run.fbx",
+      "bytes": 5389644,
+      "sha256": "f524e216400eb49d51e8e4b89c604c194ea96960a2394e2b8759ab78cf04cc63"
+    },
+    {
+      "path": "export/LabradorPet_Locomotion.glb",
+      "bytes": 18172988,
+      "sha256": "22ef1b62ccd64c4002a3e94290e33adf31ee8f631f0c480b063484e2a8fe611e"
+    },
+    {
+      "path": "export/locomotion-manifest.json",
+      "bytes": 2672,
+      "sha256": "ce7e4710e9983cc736426622faf2e87bf228810506887ce14e45a2d0cff90b5b"
+    },
+    {
+      "path": "export/LabradorPet_Locomotion.mp4",
+      "bytes": 2427759,
+      "sha256": "f9c9143a55bc9034543d2211fb4ab23597ce56e365003681140047e3ca0c16aa"
+    },
+    {
+      "path": "export/LabradorPet_Walk.png"
+    },
+    {
+      "path": "export/LabradorPet_Run.png"
+    }
+  ],
+  "playable_app": "/Users/byeolee/Projects/musimusihan-rpg/unity-game/Builds/MusimusihanRPG.app",
+  "controls": {
+    "browser": "http://127.0.0.1:8773/locomotion/",
+    "native": "F2 → 래브라도 · 걷기 / 달리기 모션; 1/2 or buttons; E/Esc leaves the side view. F2 provides pause/retry/reset and original-world restoration."
+  },
+  "scope_and_limits": [
+    "Game clips and native demo are in place; browser/video ground scroll matches nominal speed. No following/pathfinding/combat behavior added in this task.",
+    "Same original skinned dog and care assets; no human hand model.",
+    "Flat-ground nominal-speed skin-contact review, not physical force, slopes or collision validation.",
+    "Maximum supported weighted sole drift 2.589mm and height -0.444 to +0.150mm; full-skin floor tolerance 3mm.",
+    "Native automation uses production mode commands and final rendering order; physical desktop input/focus/audio are not exercised.",
+    "Licensed binaries remain local under project instructions; task source, tools, documentation and compact receipts are published separately."
+  ],
+  "resolved_validation_findings": [
+    "Fitted anatomical hind limb paths corrected an earlier candidate hock bend/contact issue before final asset review.",
+    "Fixture captures settled entry-camera state before asserting exact restoration.",
+    "Native smoke uses the production late-frame view finalization rather than sampling intermediate player renderer flags. Runtime did not need a workaround for that verifier issue."
+  ],
+  "preservation_receipt": "locomotion-preservation.json",
+  "publication_receipt": "locomotion-publication-summary.json",
+  "cleanup_receipt": "locomotion-cleanup-summary.json"
+}

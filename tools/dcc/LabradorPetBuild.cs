@@ -10,7 +10,7 @@ namespace MusimusihanRpg.Tools
 {
     public static class LabradorPetBuild
     {
-        public static string Build(string path, string reportPath)
+        public static string Build(string path, string reportPath, string scope = null)
         {
             if (EditorApplication.isPlaying || EditorApplication.isCompiling || EditorApplication.isUpdating)
                 throw new InvalidOperationException("Wait for the stopped Editor to finish compilation and asset import before building.");
@@ -39,7 +39,7 @@ namespace MusimusihanRpg.Tools
                 ["result"] = result.summary.result.ToString(), ["errors"] = result.summary.totalErrors,
                 ["warnings"] = result.summary.totalWarnings, ["bytes"] = result.summary.totalSize,
                 ["path"] = path, ["unity_version"] = Application.unityVersion,
-                ["scope"] = "Current native game with actual Labrador mouse petting. Gameplay and rendering acceptance recorded separately." };
+                ["scope"] = scope ?? "Current native game with actual Labrador mouse petting. Gameplay and rendering acceptance recorded separately." };
             Directory.CreateDirectory(Path.GetDirectoryName(Path.GetFullPath(reportPath)));
             File.WriteAllText(reportPath, receipt.ToString() + "\n");
             if (result.summary.result != BuildResult.Succeeded || result.summary.totalErrors != 0)

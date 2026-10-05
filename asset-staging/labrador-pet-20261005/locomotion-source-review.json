@@ -1,0 +1,1665 @@
+{
+  "scope": "Read-only capture timing and anatomy analysis; no authored model/clip changes",
+  "units": "Source centimetres, Y up. Foot-joint height and inferred contact are not measured surface contact.",
+  "clips": [
+    {
+      "name": "Walk",
+      "file": "dog_quad_walk_002.bvh",
+      "start": 14132,
+      "end": 14224,
+      "duration_s": 0.76666636,
+      "root_displacement_cm": [
+        1.1299972534179688,
+        0.10500335693359375,
+        89.50700378417969
+      ],
+      "planar_direction": [
+        0.012623674236238003,
+        0.0,
+        0.9999203681945801
+      ],
+      "hip_height_cm": [
+        54.1880989074707,
+        58.156898498535156
+      ],
+      "feet": {
+        "b__LeftFinger": {
+          "ankle": "b_LeftHand",
+          "joint_height_cm": [
+            2.590475559234619,
+            8.20760726928711
+          ],
+          "max_clearance_above_cycle_min_cm": 5.61713171005249,
+          "relative_forward_cm": [
+            21.062424674630165,
+            73.926350325346
+          ],
+          "relative_lateral_cm": [
+            6.289857387542725,
+            11.44618844985962
+          ],
+          "ankle_height_cm": [
+            6.65704345703125,
+            12.264474868774414
+          ],
+          "height_based_contact_fraction": 0.6413043478260869,
+          "height_threshold_cm": 5.590475559234619,
+          "touchdown_phase": [
+            0.9457
+          ],
+          "liftoff_phase": [
+            0.587
+          ],
+          "stance_speed_cm_s": [
+            3.226,
+            156.528
+          ],
+          "velocity_contact": {
+            "threshold_cm_s": 40.865,
+            "phases": [
+              0.0217,
+              0.0326,
+              0.0435,
+              0.0543,
+              0.0652,
+              0.0761,
+              0.087,
+              0.0978,
+              0.1087,
+              0.1196,
+              0.1304,
+              0.1413,
+              0.1522,
+              0.163,
+              0.1739,
+              0.1848,
+              0.1957,
+              0.2065,
+              0.2174,
+              0.2283,
+              0.2391,
+              0.25,
+              0.2609,
+              0.2717,
+              0.2826,
+              0.2935,
+              0.3043,
+              0.3152,
+              0.3261,
+              0.337,
+              0.3478,
+              0.3587,
+              0.3696,
+              0.3804,
+              0.3913,
+              0.4022,
+              0.413,
+              0.4239,
+              0.4348,
+              0.4457,
+              0.4565,
+              0.4674,
+              0.4783,
+              0.4891,
+              0.5,
+              0.5109,
+              0.5217,
+              0.5326
+            ]
+          },
+          "sample_8phase": [
+            {
+              "phase": 0.0,
+              "y": 3.447,
+              "forward_relative_hip": 71.699,
+              "lateral": 10.442,
+              "speed_cm_s": 47.922
+            },
+            {
+              "phase": 0.1304,
+              "y": 2.592,
+              "forward_relative_hip": 59.706,
+              "lateral": 11.214,
+              "speed_cm_s": 4.997
+            },
+            {
+              "phase": 0.25,
+              "y": 2.778,
+              "forward_relative_hip": 49.849,
+              "lateral": 10.823,
+              "speed_cm_s": 5.825
+            },
+            {
+              "phase": 0.3696,
+              "y": 3.333,
+              "forward_relative_hip": 40.133,
+              "lateral": 11.234,
+              "speed_cm_s": 9.66
+            },
+            {
+              "phase": 0.5,
+              "y": 4.321,
+              "forward_relative_hip": 28.551,
+              "lateral": 8.904,
+              "speed_cm_s": 22.554
+            },
+            {
+              "phase": 0.6304,
+              "y": 6.489,
+              "forward_relative_hip": 21.222,
+              "lateral": 7.579,
+              "speed_cm_s": 165.921
+            },
+            {
+              "phase": 0.75,
+              "y": 7.662,
+              "forward_relative_hip": 41.114,
+              "lateral": 6.686,
+              "speed_cm_s": 394.466
+            },
+            {
+              "phase": 0.8696,
+              "y": 6.676,
+              "forward_relative_hip": 67.45,
+              "lateral": 6.996,
+              "speed_cm_s": 302.407
+            },
+            {
+              "phase": 1.0,
+              "y": 3.364,
+              "forward_relative_hip": 72.495,
+              "lateral": 10.953,
+              "speed_cm_s": 66.02
+            }
+          ]
+        },
+        "b_RightFinger": {
+          "ankle": "b_RightHand",
+          "joint_height_cm": [
+            2.6038730144500732,
+            7.592535018920898
+          ],
+          "max_clearance_above_cycle_min_cm": 4.988662004470825,
+          "relative_forward_cm": [
+            22.143138982355595,
+            75.30634512007236
+          ],
+          "relative_lateral_cm": [
+            -6.826508402824402,
+            -0.6578503549098969
+          ],
+          "ankle_height_cm": [
+            5.170111179351807,
+            12.627235412597656
+          ],
+          "height_based_contact_fraction": 0.6956521739130435,
+          "height_threshold_cm": 5.603873014450073,
+          "touchdown_phase": [
+            0.4348
+          ],
+          "liftoff_phase": [
+            0.1304
+          ],
+          "stance_speed_cm_s": [
+            2.268,
+            201.534
+          ],
+          "velocity_contact": {
+            "threshold_cm_s": 40.865,
+            "phases": [
+              0.0,
+              0.0109,
+              0.0217,
+              0.0326,
+              0.0435,
+              0.0543,
+              0.5,
+              0.5109,
+              0.5217,
+              0.5326,
+              0.5435,
+              0.5543,
+              0.5652,
+              0.5761,
+              0.587,
+              0.5978,
+              0.6087,
+              0.6196,
+              0.6304,
+              0.6413,
+              0.6522,
+              0.663,
+              0.6739,
+              0.6848,
+              0.6957,
+              0.7065,
+              0.7174,
+              0.7283,
+              0.7391,
+              0.75,
+              0.7609,
+              0.7717,
+              0.7826,
+              0.7935,
+              0.8043,
+              0.8152,
+              0.8261,
+              0.837,
+              0.8478,
+              0.8587,
+              0.8696,
+              0.8804,
+              0.8913,
+              0.9022,
+              0.913,
+              0.9239,
+              0.9348,
+              0.9457,
+              0.9565,
+              0.9674,
+              0.9783,
+              0.9891
+            ]
+          },
+          "sample_8phase": [
+            {
+              "phase": 0.0,
+              "y": 3.924,
+              "forward_relative_hip": 29.578,
+              "lateral": -4.457,
+              "speed_cm_s": 18.336
+            },
+            {
+              "phase": 0.1304,
+              "y": 6.063,
+              "forward_relative_hip": 22.509,
+              "lateral": -3.415,
+              "speed_cm_s": 191.576
+            },
+            {
+              "phase": 0.25,
+              "y": 7.145,
+              "forward_relative_hip": 41.111,
+              "lateral": -2.126,
+              "speed_cm_s": 383.514
+            },
+            {
+              "phase": 0.3696,
+              "y": 6.709,
+              "forward_relative_hip": 66.851,
+              "lateral": -0.789,
+              "speed_cm_s": 349.738
+            },
+            {
+              "phase": 0.5,
+              "y": 2.692,
+              "forward_relative_hip": 73.34,
+              "lateral": -5.612,
+              "speed_cm_s": 39.485
+            },
+            {
+              "phase": 0.6304,
+              "y": 2.645,
+              "forward_relative_hip": 60.469,
+              "lateral": -6.794,
+              "speed_cm_s": 3.002
+            },
+            {
+              "phase": 0.75,
+              "y": 2.748,
+              "forward_relative_hip": 51.05,
+              "lateral": -6.478,
+              "speed_cm_s": 4.937
+            },
+            {
+              "phase": 0.8696,
+              "y": 3.055,
+              "forward_relative_hip": 42.096,
+              "lateral": -6.291,
+              "speed_cm_s": 5.971
+            },
+            {
+              "phase": 1.0,
+              "y": 3.66,
+              "forward_relative_hip": 30.636,
+              "lateral": -4.382,
+              "speed_cm_s": 10.883
+            }
+          ]
+        },
+        "b_LeftToe": {
+          "ankle": "b_LeftAnkle",
+          "joint_height_cm": [
+            -0.44769978523254395,
+            6.266447067260742
+          ],
+          "max_clearance_above_cycle_min_cm": 6.714146852493286,
+          "relative_forward_cm": [
+            -21.57675064727664,
+            25.853823566809297
+          ],
+          "relative_lateral_cm": [
+            0.35487017035484314,
+            4.387527257204056
+          ],
+          "ankle_height_cm": [
+            4.411887168884277,
+            8.85035228729248
+          ],
+          "height_based_contact_fraction": 0.4673913043478261,
+          "height_threshold_cm": 2.552300214767456,
+          "touchdown_phase": [
+            0.0652
+          ],
+          "liftoff_phase": [
+            0.5326
+          ],
+          "stance_speed_cm_s": [
+            7.799,
+            314.409
+          ],
+          "velocity_contact": {
+            "threshold_cm_s": 40.865,
+            "phases": [
+              0.0,
+              0.0109,
+              0.0217,
+              0.0326,
+              0.0435,
+              0.0543,
+              0.0652,
+              0.0761,
+              0.087,
+              0.0978,
+              0.1087,
+              0.1196,
+              0.1304,
+              0.1413,
+              0.1522,
+              0.163,
+              0.1739,
+              0.1848,
+              0.1957,
+              0.2065,
+              0.2174,
+              0.2283,
+              0.2391,
+              0.25,
+              0.2609,
+              0.2717,
+              0.2826,
+              0.2935,
+              0.3043,
+              0.3152,
+              0.3261,
+              0.337,
+              0.8261,
+              0.837,
+              0.8478,
+              0.8587,
+              0.8696,
+              0.8804,
+              0.8913,
+              0.9022,
+              0.913,
+              0.9239,
+              0.9348,
+              0.9457,
+              0.9565,
+              0.9674,
+              0.9783,
+              0.9891
+            ]
+          },
+          "sample_8phase": [
+            {
+              "phase": 0.0,
+              "y": 3.22,
+              "forward_relative_hip": 10.648,
+              "lateral": 2.805,
+              "speed_cm_s": 15.898
+            },
+            {
+              "phase": 0.1304,
+              "y": 1.555,
+              "forward_relative_hip": -2.385,
+              "lateral": 3.709,
+              "speed_cm_s": 22.793
+            },
+            {
+              "phase": 0.25,
+              "y": 0.332,
+              "forward_relative_hip": -12.214,
+              "lateral": 3.033,
+              "speed_cm_s": 9.673
+            },
+            {
+              "phase": 0.3696,
+              "y": -0.431,
+              "forward_relative_hip": -20.96,
+              "lateral": 4.093,
+              "speed_cm_s": 69.017
+            },
+            {
+              "phase": 0.5,
+              "y": 1.8,
+              "forward_relative_hip": -13.327,
+              "lateral": 2.727,
+              "speed_cm_s": 301.268
+            },
+            {
+              "phase": 0.6304,
+              "y": 5.11,
+              "forward_relative_hip": 6.029,
+              "lateral": 1.374,
+              "speed_cm_s": 336.597
+            },
+            {
+              "phase": 0.75,
+              "y": 6.029,
+              "forward_relative_hip": 24.142,
+              "lateral": 0.639,
+              "speed_cm_s": 207.067
+            },
+            {
+              "phase": 0.8696,
+              "y": 4.022,
+              "forward_relative_hip": 21.512,
+              "lateral": 0.929,
+              "speed_cm_s": 11.964
+            },
+            {
+              "phase": 1.0,
+              "y": 3.309,
+              "forward_relative_hip": 10.225,
+              "lateral": 3.035,
+              "speed_cm_s": 18.464
+            }
+          ]
+        },
+        "b_RightToe": {
+          "ankle": "b_RightAnkle",
+          "joint_height_cm": [
+            -0.4145824909210205,
+            5.905402183532715
+          ],
+          "max_clearance_above_cycle_min_cm": 6.319984674453735,
+          "relative_forward_cm": [
+            -21.84579722210765,
+            29.750456899404526
+          ],
+          "relative_lateral_cm": [
+            -4.1313676834106445,
+            -0.14892840385437012
+          ],
+          "ankle_height_cm": [
+            3.8652398586273193,
+            8.7076997756958
+          ],
+          "height_based_contact_fraction": 0.4891304347826087,
+          "height_threshold_cm": 2.5854175090789795,
+          "touchdown_phase": [
+            0.5435
+          ],
+          "liftoff_phase": [
+            0.0326
+          ],
+          "stance_speed_cm_s": [
+            9.765,
+            318.224
+          ],
+          "velocity_contact": {
+            "threshold_cm_s": 40.865,
+            "phases": [
+              0.3152,
+              0.3261,
+              0.337,
+              0.3478,
+              0.3587,
+              0.3696,
+              0.3804,
+              0.3913,
+              0.4022,
+              0.413,
+              0.4239,
+              0.4348,
+              0.4457,
+              0.4565,
+              0.4674,
+              0.4783,
+              0.4891,
+              0.5,
+              0.5109,
+              0.5217,
+              0.5326,
+              0.5435,
+              0.5543,
+              0.5652,
+              0.5761,
+              0.587,
+              0.5978,
+              0.6087,
+              0.6196,
+              0.6304,
+              0.6413,
+              0.6522,
+              0.663,
+              0.6739,
+              0.6848,
+              0.6957,
+              0.7065,
+              0.7174,
+              0.7283,
+              0.7391,
+              0.75,
+              0.7609,
+              0.7717,
+              0.7826,
+              0.7935,
+              0.8043,
+              0.8152,
+              0.8261,
+              0.837,
+              0.8478,
+              0.8587,
+              0.8696,
+              0.8804
+            ]
+          },
+          "sample_8phase": [
+            {
+              "phase": 0.0,
+              "y": 1.563,
+              "forward_relative_hip": -14.267,
+              "lateral": -2.114,
+              "speed_cm_s": 303.172
+            },
+            {
+              "phase": 0.1304,
+              "y": 5.243,
+              "forward_relative_hip": 7.36,
+              "lateral": -1.06,
+              "speed_cm_s": 374.835
+            },
+            {
+              "phase": 0.25,
+              "y": 5.791,
+              "forward_relative_hip": 28.311,
+              "lateral": -0.915,
+              "speed_cm_s": 232.008
+            },
+            {
+              "phase": 0.3696,
+              "y": 5.126,
+              "forward_relative_hip": 23.87,
+              "lateral": -0.149,
+              "speed_cm_s": 23.8
+            },
+            {
+              "phase": 0.5,
+              "y": 3.156,
+              "forward_relative_hip": 12.258,
+              "lateral": -2.925,
+              "speed_cm_s": 22.316
+            },
+            {
+              "phase": 0.6304,
+              "y": 1.474,
+              "forward_relative_hip": -1.078,
+              "lateral": -4.071,
+              "speed_cm_s": 16.177
+            },
+            {
+              "phase": 0.75,
+              "y": 0.343,
+              "forward_relative_hip": -10.593,
+              "lateral": -3.431,
+              "speed_cm_s": 9.765
+            },
+            {
+              "phase": 0.8696,
+              "y": -0.415,
+              "forward_relative_hip": -19.619,
+              "lateral": -4.124,
+              "speed_cm_s": 27.105
+            },
+            {
+              "phase": 1.0,
+              "y": 1.773,
+              "forward_relative_hip": -15.603,
+              "lateral": -2.243,
+              "speed_cm_s": 282.31
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Run",
+      "file": "dog_fast_run_02_006.bvh",
+      "start": 2944,
+      "end": 2992,
+      "duration_s": 0.39999984,
+      "root_displacement_cm": [
+        -4.6875,
+        1.2694969177246094,
+        180.13760375976562
+      ],
+      "planar_direction": [
+        -0.02601296827197075,
+        0.0,
+        0.9996615648269653
+      ],
+      "hip_height_cm": [
+        52.49869918823242,
+        58.850799560546875
+      ],
+      "feet": {
+        "b__LeftFinger": {
+          "ankle": "b_LeftHand",
+          "joint_height_cm": [
+            1.6076020002365112,
+            11.770145416259766
+          ],
+          "max_clearance_above_cycle_min_cm": 10.162543416023254,
+          "relative_forward_cm": [
+            17.216588877141476,
+            82.32491210103035
+          ],
+          "relative_lateral_cm": [
+            4.380252480506897,
+            9.72227668762207
+          ],
+          "ankle_height_cm": [
+            4.34722900390625,
+            16.243146896362305
+          ],
+          "height_based_contact_fraction": 0.2708333333333333,
+          "height_threshold_cm": 4.607602000236511,
+          "touchdown_phase": [
+            0.3125
+          ],
+          "liftoff_phase": [
+            0.5833
+          ],
+          "stance_speed_cm_s": [
+            12.487,
+            187.247
+          ],
+          "velocity_contact": {
+            "threshold_cm_s": 157.678,
+            "phases": [
+              0.3333,
+              0.3542,
+              0.375,
+              0.3958,
+              0.4167,
+              0.4375,
+              0.4583,
+              0.4792,
+              0.5,
+              0.5208,
+              0.5417,
+              0.5625
+            ]
+          },
+          "sample_8phase": [
+            {
+              "phase": 0.0,
+              "y": 9.513,
+              "forward_relative_hip": 67.293,
+              "lateral": 9.329,
+              "speed_cm_s": 760.627
+            },
+            {
+              "phase": 0.125,
+              "y": 11.77,
+              "forward_relative_hip": 80.457,
+              "lateral": 9.573,
+              "speed_cm_s": 607.605
+            },
+            {
+              "phase": 0.25,
+              "y": 7.341,
+              "forward_relative_hip": 79.786,
+              "lateral": 9.432,
+              "speed_cm_s": 357.596
+            },
+            {
+              "phase": 0.375,
+              "y": 1.645,
+              "forward_relative_hip": 61.909,
+              "lateral": 6.449,
+              "speed_cm_s": 38.496
+            },
+            {
+              "phase": 0.5,
+              "y": 2.489,
+              "forward_relative_hip": 36.943,
+              "lateral": 4.527,
+              "speed_cm_s": 48.974
+            },
+            {
+              "phase": 0.625,
+              "y": 6.465,
+              "forward_relative_hip": 18.735,
+              "lateral": 4.636,
+              "speed_cm_s": 276.787
+            },
+            {
+              "phase": 0.75,
+              "y": 9.277,
+              "forward_relative_hip": 25.788,
+              "lateral": 6.449,
+              "speed_cm_s": 885.017
+            },
+            {
+              "phase": 0.875,
+              "y": 8.88,
+              "forward_relative_hip": 51.555,
+              "lateral": 7.501,
+              "speed_cm_s": 897.021
+            },
+            {
+              "phase": 1.0,
+              "y": 11.48,
+              "forward_relative_hip": 72.236,
+              "lateral": 7.323,
+              "speed_cm_s": 738.375
+            }
+          ]
+        },
+        "b_RightFinger": {
+          "ankle": "b_RightHand",
+          "joint_height_cm": [
+            2.4476726055145264,
+            17.09433364868164
+          ],
+          "max_clearance_above_cycle_min_cm": 14.646661043167114,
+          "relative_forward_cm": [
+            29.052696987986565,
+            84.41481992602348
+          ],
+          "relative_lateral_cm": [
+            -8.215941905975342,
+            0.2510190010070801
+          ],
+          "ankle_height_cm": [
+            3.1760411262512207,
+            23.0731258392334
+          ],
+          "height_based_contact_fraction": 0.3541666666666667,
+          "height_threshold_cm": 5.447672605514526,
+          "touchdown_phase": [
+            0.5625
+          ],
+          "liftoff_phase": [
+            0.9167
+          ],
+          "stance_speed_cm_s": [
+            8.644,
+            256.943
+          ],
+          "velocity_contact": {
+            "threshold_cm_s": 157.678,
+            "phases": [
+              0.6042,
+              0.625,
+              0.6458,
+              0.6667,
+              0.6875,
+              0.7083,
+              0.7292,
+              0.75,
+              0.7708,
+              0.7917,
+              0.8125,
+              0.8333,
+              0.8542
+            ]
+          },
+          "sample_8phase": [
+            {
+              "phase": 0.0,
+              "y": 11.971,
+              "forward_relative_hip": 32.5,
+              "lateral": 0.251,
+              "speed_cm_s": 817.937
+            },
+            {
+              "phase": 0.125,
+              "y": 16.591,
+              "forward_relative_hip": 52.583,
+              "lateral": -0.826,
+              "speed_cm_s": 841.546
+            },
+            {
+              "phase": 0.25,
+              "y": 16.988,
+              "forward_relative_hip": 69.669,
+              "lateral": -2.523,
+              "speed_cm_s": 811.744
+            },
+            {
+              "phase": 0.375,
+              "y": 15.748,
+              "forward_relative_hip": 81.902,
+              "lateral": -5.878,
+              "speed_cm_s": 654.746
+            },
+            {
+              "phase": 0.5,
+              "y": 8.731,
+              "forward_relative_hip": 83.339,
+              "lateral": -8.216,
+              "speed_cm_s": 415.139
+            },
+            {
+              "phase": 0.625,
+              "y": 2.811,
+              "forward_relative_hip": 70.367,
+              "lateral": -7.422,
+              "speed_cm_s": 99.632
+            },
+            {
+              "phase": 0.75,
+              "y": 2.549,
+              "forward_relative_hip": 50.426,
+              "lateral": -6.609,
+              "speed_cm_s": 11.79
+            },
+            {
+              "phase": 0.875,
+              "y": 3.967,
+              "forward_relative_hip": 32.054,
+              "lateral": -5.367,
+              "speed_cm_s": 163.209
+            },
+            {
+              "phase": 1.0,
+              "y": 12.068,
+              "forward_relative_hip": 33.327,
+              "lateral": -4.824,
+              "speed_cm_s": 697.064
+            }
+          ]
+        },
+        "b_LeftToe": {
+          "ankle": "b_LeftAnkle",
+          "joint_height_cm": [
+            -2.2167344093322754,
+            11.610455513000488
+          ],
+          "max_clearance_above_cycle_min_cm": 13.827189922332764,
+          "relative_forward_cm": [
+            -40.310548573732376,
+            29.27381046116352
+          ],
+          "relative_lateral_cm": [
+            0.7290738224983215,
+            12.50771939754486
+          ],
+          "ankle_height_cm": [
+            3.520156145095825,
+            16.553930282592773
+          ],
+          "height_based_contact_fraction": 0.20833333333333334,
+          "height_threshold_cm": 0.7832655906677246,
+          "touchdown_phase": [
+            0.0417
+          ],
+          "liftoff_phase": [
+            0.25
+          ],
+          "stance_speed_cm_s": [
+            38.824,
+            264.51
+          ],
+          "velocity_contact": {
+            "threshold_cm_s": 157.678,
+            "phases": [
+              0.0,
+              0.0208,
+              0.0417,
+              0.0625,
+              0.0833,
+              0.1042,
+              0.125,
+              0.1458,
+              0.1667,
+              0.1875,
+              0.9167,
+              0.9375,
+              0.9583,
+              0.9792
+            ]
+          },
+          "sample_8phase": [
+            {
+              "phase": 0.0,
+              "y": 1.664,
+              "forward_relative_hip": 9.404,
+              "lateral": 9.548,
+              "speed_cm_s": 72.86
+            },
+            {
+              "phase": 0.125,
+              "y": -1.868,
+              "forward_relative_hip": -13.324,
+              "lateral": 9.331,
+              "speed_cm_s": 62.324
+            },
+            {
+              "phase": 0.25,
+              "y": 1.626,
+              "forward_relative_hip": -32.939,
+              "lateral": 12.508,
+              "speed_cm_s": 245.176
+            },
+            {
+              "phase": 0.375,
+              "y": 9.855,
+              "forward_relative_hip": -37.385,
+              "lateral": 3.476,
+              "speed_cm_s": 762.39
+            },
+            {
+              "phase": 0.5,
+              "y": 10.073,
+              "forward_relative_hip": -13.092,
+              "lateral": 4.561,
+              "speed_cm_s": 833.768
+            },
+            {
+              "phase": 0.625,
+              "y": 11.605,
+              "forward_relative_hip": 4.675,
+              "lateral": 3.683,
+              "speed_cm_s": 791.236
+            },
+            {
+              "phase": 0.75,
+              "y": 9.589,
+              "forward_relative_hip": 21.905,
+              "lateral": 5.7,
+              "speed_cm_s": 722.996
+            },
+            {
+              "phase": 0.875,
+              "y": 6.368,
+              "forward_relative_hip": 28.458,
+              "lateral": 7.936,
+              "speed_cm_s": 273.761
+            },
+            {
+              "phase": 1.0,
+              "y": 2.677,
+              "forward_relative_hip": 11.645,
+              "lateral": 9.574,
+              "speed_cm_s": 89.383
+            }
+          ]
+        },
+        "b_RightToe": {
+          "ankle": "b_RightAnkle",
+          "joint_height_cm": [
+            -0.10121768712997437,
+            12.384625434875488
+          ],
+          "max_clearance_above_cycle_min_cm": 12.485843122005463,
+          "relative_forward_cm": [
+            -26.114277988672256,
+            41.116516560316086
+          ],
+          "relative_lateral_cm": [
+            -11.230503678321838,
+            -1.2837014496326447
+          ],
+          "ankle_height_cm": [
+            2.4692487716674805,
+            14.664212226867676
+          ],
+          "height_based_contact_fraction": 0.1875,
+          "height_threshold_cm": 2.8987823128700256,
+          "touchdown_phase": [
+            0.2917
+          ],
+          "liftoff_phase": [
+            0.4792
+          ],
+          "stance_speed_cm_s": [
+            101.931,
+            448.49
+          ],
+          "velocity_contact": {
+            "threshold_cm_s": 157.678,
+            "phases": [
+              0.0833,
+              0.1042,
+              0.125,
+              0.1458,
+              0.1667,
+              0.1875,
+              0.2083,
+              0.2292,
+              0.25,
+              0.2708,
+              0.2917,
+              0.3125,
+              0.3333,
+              0.3542
+            ]
+          },
+          "sample_8phase": [
+            {
+              "phase": 0.0,
+              "y": 12.273,
+              "forward_relative_hip": 41.117,
+              "lateral": -4.028,
+              "speed_cm_s": 423.313
+            },
+            {
+              "phase": 0.125,
+              "y": 6.304,
+              "forward_relative_hip": 27.923,
+              "lateral": -2.02,
+              "speed_cm_s": 56.356
+            },
+            {
+              "phase": 0.25,
+              "y": 3.709,
+              "forward_relative_hip": 4.828,
+              "lateral": -1.528,
+              "speed_cm_s": 76.005
+            },
+            {
+              "phase": 0.375,
+              "y": 0.004,
+              "forward_relative_hip": -18.286,
+              "lateral": -3.265,
+              "speed_cm_s": 161.763
+            },
+            {
+              "phase": 0.5,
+              "y": 4.201,
+              "forward_relative_hip": -25.08,
+              "lateral": -8.798,
+              "speed_cm_s": 636.948
+            },
+            {
+              "phase": 0.625,
+              "y": 8.506,
+              "forward_relative_hip": -12.144,
+              "lateral": -11.231,
+              "speed_cm_s": 765.004
+            },
+            {
+              "phase": 0.75,
+              "y": 11.663,
+              "forward_relative_hip": 7.061,
+              "lateral": -9.498,
+              "speed_cm_s": 801.369
+            },
+            {
+              "phase": 0.875,
+              "y": 11.821,
+              "forward_relative_hip": 25.931,
+              "lateral": -8.208,
+              "speed_cm_s": 777.811
+            },
+            {
+              "phase": 1.0,
+              "y": 9.221,
+              "forward_relative_hip": 38.304,
+              "lateral": -6.522,
+              "speed_cm_s": 496.189
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Trot",
+      "file": "dog_quad_run_001.bvh",
+      "start": 4096,
+      "end": 4164,
+      "duration_s": 0.56666644,
+      "root_displacement_cm": [
+        1.2599945068359375,
+        -0.3026008605957031,
+        103.77291870117188
+      ],
+      "planar_direction": [
+        0.01214094739407301,
+        0.0,
+        0.9999262690544128
+      ],
+      "hip_height_cm": [
+        53.940799713134766,
+        57.59519958496094
+      ],
+      "feet": {
+        "b__LeftFinger": {
+          "ankle": "b_LeftHand",
+          "joint_height_cm": [
+            1.7733947038650513,
+            9.674166679382324
+          ],
+          "max_clearance_above_cycle_min_cm": 7.900771975517273,
+          "relative_forward_cm": [
+            31.161332226824015,
+            77.67385252192616
+          ],
+          "relative_lateral_cm": [
+            -1.8509081602096558,
+            1.1372509002685547
+          ],
+          "ankle_height_cm": [
+            5.416765213012695,
+            12.546882629394531
+          ],
+          "height_based_contact_fraction": 0.5147058823529411,
+          "height_threshold_cm": 4.773394703865051,
+          "touchdown_phase": [
+            0.1618
+          ],
+          "liftoff_phase": [
+            0.6765
+          ],
+          "stance_speed_cm_s": [
+            12.771,
+            167.346
+          ],
+          "velocity_contact": {
+            "threshold_cm_s": 64.1,
+            "phases": [
+              0.25,
+              0.2647,
+              0.2794,
+              0.2941,
+              0.3088,
+              0.3235,
+              0.3382,
+              0.3529,
+              0.3676,
+              0.3824,
+              0.3971,
+              0.4118,
+              0.4265,
+              0.4412,
+              0.4559,
+              0.4706,
+              0.4853,
+              0.5,
+              0.5147,
+              0.5294,
+              0.5441,
+              0.5588,
+              0.5735,
+              0.5882,
+              0.6029,
+              0.6176,
+              0.6324,
+              0.6471
+            ]
+          },
+          "sample_8phase": [
+            {
+              "phase": 0.0,
+              "y": 6.093,
+              "forward_relative_hip": 66.609,
+              "lateral": 0.304,
+              "speed_cm_s": 433.713
+            },
+            {
+              "phase": 0.1176,
+              "y": 5.663,
+              "forward_relative_hip": 77.386,
+              "lateral": 1.081,
+              "speed_cm_s": 233.672
+            },
+            {
+              "phase": 0.25,
+              "y": 2.508,
+              "forward_relative_hip": 72.718,
+              "lateral": -0.033,
+              "speed_cm_s": 55.812
+            },
+            {
+              "phase": 0.3824,
+              "y": 1.806,
+              "forward_relative_hip": 59.075,
+              "lateral": -0.812,
+              "speed_cm_s": 14.288
+            },
+            {
+              "phase": 0.5,
+              "y": 2.367,
+              "forward_relative_hip": 46.862,
+              "lateral": -1.148,
+              "speed_cm_s": 17.654
+            },
+            {
+              "phase": 0.6176,
+              "y": 3.908,
+              "forward_relative_hip": 36.658,
+              "lateral": -0.985,
+              "speed_cm_s": 45.638
+            },
+            {
+              "phase": 0.75,
+              "y": 7.557,
+              "forward_relative_hip": 31.389,
+              "lateral": 0.019,
+              "speed_cm_s": 249.546
+            },
+            {
+              "phase": 0.8824,
+              "y": 8.368,
+              "forward_relative_hip": 46.659,
+              "lateral": -0.69,
+              "speed_cm_s": 467.562
+            },
+            {
+              "phase": 1.0,
+              "y": 6.155,
+              "forward_relative_hip": 65.473,
+              "lateral": -1.851,
+              "speed_cm_s": 444.363
+            }
+          ]
+        },
+        "b_RightFinger": {
+          "ankle": "b_RightHand",
+          "joint_height_cm": [
+            1.9495733976364136,
+            9.915227890014648
+          ],
+          "max_clearance_above_cycle_min_cm": 7.965654492378235,
+          "relative_forward_cm": [
+            25.34355528652668,
+            71.73831334710121
+          ],
+          "relative_lateral_cm": [
+            -19.16835981607437,
+            -13.516260385513306
+          ],
+          "ankle_height_cm": [
+            4.967480659484863,
+            12.88599967956543
+          ],
+          "height_based_contact_fraction": 0.5294117647058824,
+          "height_threshold_cm": 4.949573397636414,
+          "touchdown_phase": [
+            0.6912
+          ],
+          "liftoff_phase": [
+            0.2206
+          ],
+          "stance_speed_cm_s": [
+            4.637,
+            160.984
+          ],
+          "velocity_contact": {
+            "threshold_cm_s": 64.1,
+            "phases": [
+              0.0,
+              0.0147,
+              0.0294,
+              0.0441,
+              0.0588,
+              0.0735,
+              0.0882,
+              0.1029,
+              0.1176,
+              0.1324,
+              0.1471,
+              0.1618,
+              0.75,
+              0.7647,
+              0.7794,
+              0.7941,
+              0.8088,
+              0.8235,
+              0.8382,
+              0.8529,
+              0.8676,
+              0.8824,
+              0.8971,
+              0.9118,
+              0.9265,
+              0.9412,
+              0.9559,
+              0.9706,
+              0.9853
+            ]
+          },
+          "sample_8phase": [
+            {
+              "phase": 0.0,
+              "y": 2.293,
+              "forward_relative_hip": 44.892,
+              "lateral": -14.467,
+              "speed_cm_s": 11.938
+            },
+            {
+              "phase": 0.1176,
+              "y": 3.409,
+              "forward_relative_hip": 33.931,
+              "lateral": -14.645,
+              "speed_cm_s": 36.489
+            },
+            {
+              "phase": 0.25,
+              "y": 6.205,
+              "forward_relative_hip": 25.355,
+              "lateral": -15.826,
+              "speed_cm_s": 199.708
+            },
+            {
+              "phase": 0.3824,
+              "y": 9.568,
+              "forward_relative_hip": 34.538,
+              "lateral": -17.339,
+              "speed_cm_s": 414.792
+            },
+            {
+              "phase": 0.5,
+              "y": 7.078,
+              "forward_relative_hip": 52.021,
+              "lateral": -18.215,
+              "speed_cm_s": 454.217
+            },
+            {
+              "phase": 0.6176,
+              "y": 6.914,
+              "forward_relative_hip": 69.19,
+              "lateral": -19.168,
+              "speed_cm_s": 334.253
+            },
+            {
+              "phase": 0.75,
+              "y": 2.649,
+              "forward_relative_hip": 68.083,
+              "lateral": -15.968,
+              "speed_cm_s": 54.103
+            },
+            {
+              "phase": 0.8824,
+              "y": 1.957,
+              "forward_relative_hip": 54.849,
+              "lateral": -14.71,
+              "speed_cm_s": 7.566
+            },
+            {
+              "phase": 1.0,
+              "y": 2.178,
+              "forward_relative_hip": 42.783,
+              "lateral": -13.516,
+              "speed_cm_s": 8.372
+            }
+          ]
+        },
+        "b_LeftToe": {
+          "ankle": "b_LeftAnkle",
+          "joint_height_cm": [
+            -0.06362412869930267,
+            7.255393981933594
+          ],
+          "max_clearance_above_cycle_min_cm": 7.319018110632896,
+          "relative_forward_cm": [
+            -18.80481625907123,
+            24.938730476424098
+          ],
+          "relative_lateral_cm": [
+            -1.965418815612793,
+            4.116682443767786
+          ],
+          "ankle_height_cm": [
+            4.164325714111328,
+            9.928826332092285
+          ],
+          "height_based_contact_fraction": 0.5,
+          "height_threshold_cm": 2.9363758713006973,
+          "touchdown_phase": [
+            0.8529
+          ],
+          "liftoff_phase": [
+            0.3529
+          ],
+          "stance_speed_cm_s": [
+            20.173,
+            426.431
+          ],
+          "velocity_contact": {
+            "threshold_cm_s": 64.1,
+            "phases": [
+              0.0,
+              0.0147,
+              0.0294,
+              0.0441,
+              0.0588,
+              0.0735,
+              0.0882,
+              0.1029,
+              0.7353,
+              0.75,
+              0.7647,
+              0.7794,
+              0.7941,
+              0.8088,
+              0.8235,
+              0.8382,
+              0.8529,
+              0.8676,
+              0.8824,
+              0.8971,
+              0.9118,
+              0.9265,
+              0.9412,
+              0.9559,
+              0.9706,
+              0.9853
+            ]
+          },
+          "sample_8phase": [
+            {
+              "phase": 0.0,
+              "y": 0.06,
+              "forward_relative_hip": -6.512,
+              "lateral": 1.786,
+              "speed_cm_s": 22.662
+            },
+            {
+              "phase": 0.1176,
+              "y": 0.131,
+              "forward_relative_hip": -16.307,
+              "lateral": 1.151,
+              "speed_cm_s": 71.827
+            },
+            {
+              "phase": 0.25,
+              "y": 0.816,
+              "forward_relative_hip": -16.86,
+              "lateral": 0.514,
+              "speed_cm_s": 300.278
+            },
+            {
+              "phase": 0.3824,
+              "y": 4.291,
+              "forward_relative_hip": -2.455,
+              "lateral": 0.201,
+              "speed_cm_s": 436.752
+            },
+            {
+              "phase": 0.5,
+              "y": 7.234,
+              "forward_relative_hip": 11.134,
+              "lateral": -0.987,
+              "speed_cm_s": 368.628
+            },
+            {
+              "phase": 0.6176,
+              "y": 5.591,
+              "forward_relative_hip": 22.826,
+              "lateral": -1.965,
+              "speed_cm_s": 288.319
+            },
+            {
+              "phase": 0.75,
+              "y": 4.235,
+              "forward_relative_hip": 20.341,
+              "lateral": 0.995,
+              "speed_cm_s": 42.323
+            },
+            {
+              "phase": 0.8824,
+              "y": 2.064,
+              "forward_relative_hip": 6.93,
+              "lateral": 2.865,
+              "speed_cm_s": 40.266
+            },
+            {
+              "phase": 1.0,
+              "y": 0.282,
+              "forward_relative_hip": -4.967,
+              "lateral": 4.117,
+              "speed_cm_s": 21.341
+            }
+          ]
+        },
+        "b_RightToe": {
+          "ankle": "b_RightAnkle",
+          "joint_height_cm": [
+            -0.6460188627243042,
+            6.462191104888916
+          ],
+          "max_clearance_above_cycle_min_cm": 7.10820996761322,
+          "relative_forward_cm": [
+            -16.967557065188885,
+            30.16129072010517
+          ],
+          "relative_lateral_cm": [
+            -8.250573337078094,
+            -1.2767907828092575
+          ],
+          "ankle_height_cm": [
+            3.556347608566284,
+            8.77470588684082
+          ],
+          "height_based_contact_fraction": 0.4264705882352941,
+          "height_threshold_cm": 2.353981137275696,
+          "touchdown_phase": [
+            0.4118
+          ],
+          "liftoff_phase": [
+            0.8382
+          ],
+          "stance_speed_cm_s": [
+            20.084,
+            375.582
+          ],
+          "velocity_contact": {
+            "threshold_cm_s": 64.1,
+            "phases": [
+              0.2353,
+              0.25,
+              0.2647,
+              0.2794,
+              0.2941,
+              0.3088,
+              0.3235,
+              0.3382,
+              0.3529,
+              0.3676,
+              0.3824,
+              0.3971,
+              0.4118,
+              0.4265,
+              0.4412,
+              0.4559,
+              0.4706,
+              0.4853,
+              0.5,
+              0.5147,
+              0.5294,
+              0.5441,
+              0.5588,
+              0.5735,
+              0.5882,
+              0.6029,
+              0.6176,
+              0.6324,
+              0.6471
+            ]
+          },
+          "sample_8phase": [
+            {
+              "phase": 0.0,
+              "y": 6.166,
+              "forward_relative_hip": 15.398,
+              "lateral": -3.341,
+              "speed_cm_s": 435.142
+            },
+            {
+              "phase": 0.1176,
+              "y": 5.979,
+              "forward_relative_hip": 28.873,
+              "lateral": -4.138,
+              "speed_cm_s": 293.465
+            },
+            {
+              "phase": 0.25,
+              "y": 5.129,
+              "forward_relative_hip": 25.145,
+              "lateral": -4.451,
+              "speed_cm_s": 48.655
+            },
+            {
+              "phase": 0.3824,
+              "y": 2.738,
+              "forward_relative_hip": 10.986,
+              "lateral": -6.074,
+              "speed_cm_s": 31.896
+            },
+            {
+              "phase": 0.5,
+              "y": 0.758,
+              "forward_relative_hip": -0.888,
+              "lateral": -7.37,
+              "speed_cm_s": 38.659
+            },
+            {
+              "phase": 0.6176,
+              "y": -0.634,
+              "forward_relative_hip": -12.263,
+              "lateral": -8.244,
+              "speed_cm_s": 31.733
+            },
+            {
+              "phase": 0.75,
+              "y": 0.224,
+              "forward_relative_hip": -16.034,
+              "lateral": -6.145,
+              "speed_cm_s": 272.276
+            },
+            {
+              "phase": 0.8824,
+              "y": 3.873,
+              "forward_relative_hip": -2.675,
+              "lateral": -3.573,
+              "speed_cm_s": 427.484
+            },
+            {
+              "phase": 1.0,
+              "y": 6.462,
+              "forward_relative_hip": 14.614,
+              "lateral": -1.277,
+              "speed_cm_s": 446.305
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

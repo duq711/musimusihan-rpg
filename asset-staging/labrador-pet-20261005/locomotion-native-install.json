@@ -1,0 +1,27 @@
+{
+  "result": "Passed",
+  "installed_utc": "2026-10-05T14:49:02.013503+00:00",
+  "canonical_app": "/Users/byeolee/Projects/musimusihan-rpg/unity-game/Builds/MusimusihanRPG.app",
+  "prior_playable_backup": "/Users/byeolee/Projects/musimusihan-rpg/unity-game/Builds/LabradorLocomotionPriorPlayable-20261005.app",
+  "candidate_build_receipt": "locomotion-native-build.json",
+  "native_checks": 30,
+  "deep_strict_codesign": "Passed",
+  "executable": "MusimusihanRPG",
+  "display_name": "무시무시한 RPG",
+  "applications_link": "/Users/byeolee/Applications/무시무시한 RPG.app",
+  "applications_link_resolves_to_canonical": true,
+  "existing_dock_urls": [
+    "file:///Users/byeolee/Projects/musimusihan-rpg/unity-game/Builds/MusimusihanRPG.app/"
+  ],
+  "installed_files_sha256": {
+    "Contents/MacOS/MusimusihanRPG": "58ec2e1a74eb098546f22c26e7c72fe085e39ba0f568a13d4a310487e59b5e45",
+    "Contents/Resources/Data/Managed/Rpg.Gameplay.dll": "e9f83254cddcd4e81b90ebd5e649a6bb3a9bec1bb41cccae77cf05ffffcc7215",
+    "Contents/Resources/Data/StreamingAssets/ThirdPartyNotices/Labrador.txt": "b0950a57eb97303b762cc056afd65f859978dd49b2d538847004aac7683bf076"
+  },
+  "limitations": [
+    "Native behavior validated on the signed candidate before atomic rename; physical desktop input and focus were not exercised.",
+    "Task-only backup is removed after recording cleanup; latest canonical app and launch links are preserved."
+  ],
+  "prior_playable_backup_removed_after_verified_install": true,
+  "cleanup_receipt": "locomotion-cleanup-summary.json"
+}

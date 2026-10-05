@@ -1,0 +1,92 @@
+{
+  "fps": 60,
+  "rigRoot": "LabradorPet",
+  "modelScale": 0.3,
+  "forward": "Same prior model: Blender -Y, FBX -Z forward/Y up, Unity +Z forward/Y up",
+  "source_sha256": "0e30a09051903e2327c31371dc3dd973ca9da9c07a1c8aea5ca5f1af5bcda4fc",
+  "clips": [
+    {
+      "name": "Walk",
+      "frames": [
+        1,
+        47
+      ],
+      "duration": 0.7666666666666667,
+      "loop": true,
+      "speed_m_s": 0.7151154096607382,
+      "root_motion": "in-place; measured vertical motion only",
+      "source_capture": "source/raw_bvh_data/dog_quad_walk_002.bvh",
+      "source_raw_frames": [
+        14132,
+        14224
+      ],
+      "source_fps": 120.0000480000192,
+      "stride_factor": 0.62,
+      "source_height_scale_m_per_cm": 0.009878690910699815,
+      "body_lower_m": 0.04,
+      "contact_phases": {
+        "front.L": [
+          0.0,
+          0.55
+        ],
+        "front.R": [
+          0.5,
+          1.0
+        ],
+        "hind.L": [
+          0.826,
+          1.337
+        ],
+        "hind.R": [
+          0.315,
+          0.88
+        ]
+      },
+      "gait": "captured four-beat walk",
+      "source": "Captured canine body and four-footfall timing; anatomically fitted C1 planted/swing paw paths and length-preserving IK; authored ear/tail follow-through"
+    },
+    {
+      "name": "Run",
+      "frames": [
+        1,
+        25
+      ],
+      "duration": 0.4,
+      "loop": true,
+      "speed_m_s": 2.3141639345507423,
+      "root_motion": "in-place; measured vertical motion only",
+      "source_capture": "source/raw_bvh_data/dog_fast_run_02_006.bvh",
+      "source_raw_frames": [
+        2944,
+        2992
+      ],
+      "source_fps": 120.0000480000192,
+      "stride_factor": 0.52,
+      "source_height_scale_m_per_cm": 0.009878690910699815,
+      "body_lower_m": 0.055,
+      "contact_phases": {
+        "front.L": [
+          0.333,
+          0.563
+        ],
+        "front.R": [
+          0.604,
+          0.854
+        ],
+        "hind.L": [
+          0.917,
+          1.188
+        ],
+        "hind.R": [
+          0.083,
+          0.354
+        ]
+      },
+      "gait": "captured fast canine gallop",
+      "source": "Captured canine body and four-footfall timing; anatomically fitted C1 planted/swing paw paths and length-preserving IK; authored ear/tail follow-through"
+    }
+  ],
+  "scope": "Walk and Run added; original two care clips and acquired rest mesh unchanged.",
+  "root_motion_policy": "Root joint and armature stay fixed. Body vertical cadence/spine motion preserved.",
+  "contact_policy": "Captured contact timing; authored C1 planted/swing paw paths, evaluated-skin floor correction; unchanged limb segment lengths."
+}

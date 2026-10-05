@@ -19,15 +19,18 @@ def main():
     parser.add_argument('--unity-app', default=str(Path.home() / 'Applications/RPG-Unity-6000.3.25f1/Unity/Unity.app'))
     parser.add_argument('--companion', action='store_true', help='Also test the production companion against explicit collision fixtures in PlayMode')
     parser.add_argument('--petting', action='store_true', help='Also test mouse petting, reaction bounds and pointer lifecycle in PlayMode')
+    parser.add_argument('--locomotion', action='store_true', help='Also test authored gait mode clock, pause and side-view ownership in PlayMode')
     parser.add_argument('--timeout', type=int, default=600, help='Allow background compilation under concurrent Mac workloads')
     args = parser.parse_args()
+    if args.locomotion:
+        args.petting = True
     if args.petting:
         args.companion = True
     game = ROOT / 'unity-game'
     output = ROOT / 'asset-staging/labrador-pet-20261005'
     checks = output / 'validation'
     checks.mkdir(parents=True, exist_ok=True)
-    name = 'petting' if args.petting else 'companion' if args.companion else 'transactions'
+    name = 'locomotion' if args.locomotion else 'petting' if args.petting else 'companion' if args.companion else 'transactions'
     results, log = checks / (name + '.xml'), checks / (name + '.log')
     if results.exists():
         results.unlink()
@@ -45,6 +48,8 @@ def main():
             shutil.copy2(test.with_name('LabradorCompanionTests.cs'), stage / 'Assets/PetTests/LabradorCompanionTests.cs')
             if args.petting:
                 shutil.copy2(test.with_name('LabradorPettingTests.cs'), stage / 'Assets/PetTests/LabradorPettingTests.cs')
+            if args.locomotion:
+                shutil.copy2(test.with_name('LabradorLocomotionTests.cs'), stage / 'Assets/PetTests/LabradorLocomotionTests.cs')
         else:
             shutil.copy2(production, stage / 'Assets/Pets/PetTransactions.cs')
         shutil.copy2(test, stage / 'Assets/PetTests/PetTransactionsTests.cs')
@@ -78,6 +83,8 @@ def main():
                              'NativeTrialMenu.cs', 'NativeGameFlow.cs'):
                     path = game / 'Assets/RPG/Gameplay' / source_name
                     copied[path] = stage / 'Assets/RPG/Gameplay' / source_name
+            if args.locomotion:
+                copied[test.with_name('LabradorLocomotionTests.cs')] = stage / 'Assets/PetTests/LabradorLocomotionTests.cs'
         tested_hashes = {str(original.relative_to(ROOT)): hashlib.sha256(copied_path.read_bytes()).hexdigest()
                          for original, copied_path in copied.items()}
         process = subprocess.Popen(['nice', '-n', '10', str(executable), '-batchmode', '-nographics',
@@ -91,12 +98,12 @@ def main():
             except subprocess.TimeoutExpired:
                 os.killpg(process.pid, signal.SIGKILL); process.wait()
             raise RuntimeError(f'Pet tests exceeded {args.timeout}s; stopped their process group before removing the temporary project. See {log}')
-        if code or not results.exists():
+        if not results.exists():
             raise RuntimeError(f'Pet transaction tests did not complete (exit {code}); see {log}')
         report = ET.parse(results).getroot()
         summary = {key: report.get(key) for key in ('result', 'total', 'passed', 'failed', 'skipped')}
         print(json.dumps(summary), flush=True)
-        if report.get('result') != 'Passed' or int(report.get('failed', '0')):
+        if code or report.get('result') != 'Passed' or int(report.get('failed', '0')):
             for case in report.iter('test-case'):
                 if case.get('result') == 'Failed':
                     print(case.get('fullname'), case.findtext('failure/message'))
@@ -113,7 +120,11 @@ def main():
         if args.petting:
             receipt['limitations'] = ['Production mouse petting and reaction lifecycle tested against explicit skeletal and skinned head fixtures.',
                                      'Real Labrador skin, authored transitions, rendering and native F2 acceptance are checked separately.']
-        (output / (name + '-validation.json')).write_text(json.dumps(receipt, ensure_ascii=False, indent=2) + '\n')
+        if args.locomotion:
+            receipt['limitations'] = ['Production petting and gait view/clock lifecycle tested against explicit skeletal clip and skin fixtures.',
+                                     'Real Labrador gait clips, paw support, rendered appearance and native F2 acceptance are checked separately.']
+        receipt_name = 'locomotion-playmode-validation.json' if args.locomotion else name + '-validation.json'
+        (output / receipt_name).write_text(json.dumps(receipt, ensure_ascii=False, indent=2) + '\n')
 
 
 if __name__ == '__main__':

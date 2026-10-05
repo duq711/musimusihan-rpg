@@ -23,6 +23,7 @@ namespace MusimusihanRpg.Gameplay
         public static bool Available => TryLoad(out _, out _, out _);
         public static void AddEntries(JArray entries)
         {
+            LabradorLocomotionAssets.AddEntries(entries);
             if (!Available || entries.Any(e => (string)e["id"] == LabradorPetting.TrialId)) return;
             entries.Add(new JObject
             {
@@ -42,6 +43,7 @@ namespace MusimusihanRpg.Gameplay
             extra["text"] = entry["title"] + "\n" + entry["detail"]; extra["rect"][1] = y; controls.Add(extra);
             var content = controls.OfType<JObject>().First(e => ((string)e["path"] ?? "").StartsWith("trial/category_4/") && (string)e["name"] == "TrialEntries");
             content["rect"][3] = y + (float)extra["rect"][3] - (float)content["rect"][1];
+            LabradorLocomotionAssets.AddTrialControls(controls, entries);
         }
     }
 
@@ -50,6 +52,18 @@ namespace MusimusihanRpg.Gameplay
         GameObject pettingWorld;
         LabradorPetting pettingPet;
         bool consumeNextPettingFrame;
+        GameObject locomotionWorld;
+        LabradorLocomotionDemo locomotionDemo;
+        public LabradorLocomotionDemo ActiveLocomotion
+        {
+            get
+            {
+                if (locomotionWorld != DungeonRoot)
+                { locomotionWorld = DungeonRoot; locomotionDemo = DungeonRoot == null ? null : DungeonRoot.GetComponentInChildren<LabradorLocomotionDemo>(true); }
+                return locomotionDemo != null && locomotionDemo.gameObject.activeInHierarchy ? locomotionDemo : null;
+            }
+        }
+        public void NotifyLocomotion(LabradorLocomotionDemo demo) { locomotionWorld = DungeonRoot; locomotionDemo = demo; }
         public LabradorPetting ActivePetting
         {
             get
@@ -60,11 +74,12 @@ namespace MusimusihanRpg.Gameplay
             }
         }
         public void NotifyPetting(LabradorPetting pet) { pettingWorld = DungeonRoot; pettingPet = pet; }
-        public bool PettingInputActive => ActivePetting?.Viewing == true;
-        public static bool PettingTrial(string id) => id == LabradorPetting.TrialId;
+        public bool PettingInputActive => ActivePetting?.Viewing == true || ActiveLocomotion?.Viewing == true;
+        public static bool PettingTrial(string id) => id == LabradorPetting.TrialId || id == LabradorLocomotionDemo.TrialId;
         public void AddPettingTrialEntries() { if (NativeGame != null) LabradorPettingAssets.AddEntries(Catalog.TestRoomEntries); }
         public void RegisterPettingTrial()
         {
+            RegisterLocomotionTrial();
             if (!Catalog.TestRoomEntries.Any(e => (string)e["id"] == LabradorPetting.TrialId) || !LabradorPettingAssets.Available) return;
             Register(LabradorPetting.TrialId, "손 없이 머리 위에서 마우스를 누르고 움직여 쓰담쓰담 · E/Esc 나가기 · F2 정지·재시도", _ =>
             {
@@ -80,12 +95,23 @@ namespace MusimusihanRpg.Gameplay
         public bool BeginPettingTrialView()
         {
             if (!Trials.Active || !PettingTrial(Trials.CurrentEntry) || Trials.MenuOpen || WorldPaused) return false;
+            if (Trials.CurrentEntry == LabradorLocomotionDemo.TrialId)
+            {
+                var demo = ActiveLocomotion; if (demo == null) return false;
+                if (demo.Viewing) { demo.RefreshView(); return true; }
+                return demo.EnterView(DungeonPlayer);
+            }
             var pet = ActivePetting; if (pet == null) return false;
             if (pet.Viewing) { pet.RefreshView(); return true; }
             AimAt(pet.Head.position); return Interaction.Interact();
         }
         public bool ExitPettingView()
         {
+            if (ActiveLocomotion?.Viewing == true)
+            {
+                var demo = ActiveLocomotion; demo.ExitView(); if (Interaction?.Active == demo) Interaction.Cancel();
+                consumeNextPettingFrame = true; ClearPendingFrameInput(); return true;
+            }
             var pet = ActivePetting; if (pet?.Viewing != true) return false;
             pet.ExitView(); if (Interaction?.Active == pet) Interaction.Cancel();
             consumeNextPettingFrame = true; ClearPendingFrameInput(); return true;
@@ -123,6 +149,18 @@ namespace MusimusihanRpg.Gameplay
             Vector3 current = Vector3.ProjectOnPlane(pet.Mouth.position - pet.Head.position, Vector3.up).normalized;
             Vector3 toward = Vector3.ProjectOnPlane(DungeonPlayer.transform.position - pet.Head.position, Vector3.up).normalized;
             if (current.sqrMagnitude > .1f && toward.sqrMagnitude > .1f) pet.transform.rotation = Quaternion.AngleAxis(Vector3.SignedAngle(current, toward, Vector3.up), Vector3.up) * pet.transform.rotation;
+        }
+        void RegisterLocomotionTrial()
+        {
+            if (!Catalog.TestRoomEntries.Any(e => (string)e["id"] == LabradorLocomotionDemo.TrialId) || !LabradorLocomotionAssets.Available) return;
+            Register(LabradorLocomotionDemo.TrialId, "래브라도 제자리 순환 모션 · 1 걷기 / 2 달리기 · E/Esc 시점 나가기 · F2 정지·재시도", _ =>
+            {
+                if (!LabradorLocomotionAssets.TryLoad(out var prefab, out var clips, out string failure)) throw new InvalidOperationException(failure);
+                EnsureTrialRoom(); ClearActors(); RecoverTrial();
+                DungeonPlayer.ResetTrial(new Vector3(0, 1, 12)); trialEnemyAi = false;
+                if (!TryPettingFloor(new Vector3(0, .025f, 10.5f), out var position)) throw new InvalidOperationException("래브라도 모션 시험의 안전한 바닥을 찾지 못했습니다.");
+                LabradorLocomotionDemo.Spawn(this, prefab, clips, position); Physics.SyncTransforms();
+            });
         }
     }
 }

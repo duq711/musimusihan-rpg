@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "result": "Passed",
+  "created_utc": "2026-10-05T14:51:21.333591+00:00",
+  "removed": [
+    {
+      "path": "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/labrador-pet-20261005/validation",
+      "logical_bytes": 3026164,
+      "allocated_bytes": 3309568
+    },
+    {
+      "path": "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/labrador-pet-20261005/production/LabradorPet_Locomotion.blend1",
+      "logical_bytes": 19998897,
+      "allocated_bytes": 20000768
+    },
+    {
+      "path": "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/labrador-pet-20261005/locomotion-independent-review-candidate1.json",
+      "logical_bytes": 46926,
+      "allocated_bytes": 49152
+    },
+    {
+      "path": "/Users/byeolee/Projects/musimusihan-rpg/unity-game/Builds/LabradorLocomotionCandidate-20261005.app",
+      "logical_bytes": 3312533392,
+      "allocated_bytes": 3312865280
+    },
+    {
+      "path": "/Users/byeolee/Projects/musimusihan-rpg/unity-game/Builds/LabradorLocomotionPriorPlayable-20261005.app",
+      "logical_bytes": 3292925976,
+      "allocated_bytes": 3293257728
+    },
+    {
+      "path": "/private/tmp/labrador-locomotion-author.log",
+      "logical_bytes": 1575,
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/private/tmp/labrador-locomotion-preview.log",
+      "logical_bytes": 1655,
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/private/tmp/labrador-locomotion-validate.log",
+      "logical_bytes": 471,
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/private/tmp/labrador-locomotion-video.log",
+      "logical_bytes": 16055,
+      "allocated_bytes": 16384
+    },
+    {
+      "path": "/private/tmp/labrador-locomotion-seek.log",
+      "logical_bytes": 879,
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/private/tmp/labrador-locomotion-seek-check",
+      "logical_bytes": 72080,
+      "allocated_bytes": 73728
+    },
+    {
+      "path": "/private/tmp/labrador_locomotion_source_review.log",
+      "logical_bytes": 43781,
+      "allocated_bytes": 45056
+    },
+    {
+      "path": "/private/tmp/labrador_locomotion_pose_review.log",
+      "logical_bytes": 367,
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/private/tmp/labrador_locomotion_final_preview.log",
+      "logical_bytes": 1655,
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/private/tmp/labrador_locomotion_source_review.py",
+      "logical_bytes": 3124,
+      "allocated_bytes": 4096,
+      "preservation": "Unique review functionality confirmed in tools/dcc/labrador_pet_locomotion_{source_review,review}.py by its author."
+    },
+    {
+      "path": "/private/tmp/labrador_locomotion_pose_review.py",
+      "logical_bytes": 6261,
+      "allocated_bytes": 8192,
+      "preservation": "Unique review functionality confirmed in tools/dcc/labrador_pet_locomotion_{source_review,review}.py by its author."
+    }
+  ],
+  "removed_logical_bytes": 6628679258,
+  "removed_allocated_bytes": 6629654528,
+  "free_bytes_before": 15519285248,
+  "preserved": [
+    "Original model and capture archives",
+    "Both final Blender productions; original care and new gait exports",
+    "Final 12-second video and two posters",
+    "Current Unity assets, importer metadata and compact validation receipts",
+    "Latest playable MusimusihanRPG.app and Applications/Dock links",
+    "Reusable authoring, rendering, preview and test tools",
+    "Shared Unity caches, other ongoing Mansion work and prior sources"
+  ],
+  "limits": [
+    "Allocated blocks do not equal actual recovered APFS space; free-space delta includes concurrent system work.",
+    "Only this gait task is counted; earlier cleanup is not added.",
+    "No shared Unity cache deletion or game relaunch for cleanup verification."
+  ],
+  "completed_utc": "2026-10-05T14:52:41.492560+00:00",
+  "free_bytes_after": 21996843008,
+  "observed_free_space_delta_bytes": 6477557760
+}

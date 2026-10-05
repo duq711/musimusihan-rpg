@@ -1,0 +1,251 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "Downloaded source exact SHA256 preserved",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Preserved geometry exact",
+      "passed": true,
+      "details": "95268ac6bb56cb6f9e8ae6ddc8764f32ea248f7bba98e984f904fff743e32344"
+    },
+    {
+      "name": "Preserved rest_matrices exact",
+      "passed": true,
+      "details": "b5f7d4ed93f917962515cc4451f77e6d78dbf9b99be3cdec2a00e875217b5c98"
+    },
+    {
+      "name": "Preserved mask exact",
+      "passed": true,
+      "details": "22125ff382834564f07c9e425e854e16cf13c32c994de396fb655afca52079d3"
+    },
+    {
+      "name": "Preserved morphs exact",
+      "passed": true,
+      "details": {
+        "Basis": "95268ac6bb56cb6f9e8ae6ddc8764f32ea248f7bba98e984f904fff743e32344",
+        "target_0": "d48c96a53a65481364f1893fb144c21f9fd15e5c76fe46892e77805784195176",
+        "target_1": "21199b61ee5d72527c07c8c4967e14bd495821276631027dde45352f3e0a0d2d",
+        "target_2": "41567677b85b29ac7bac39e58c1f290f78d71ac2cfebaf9af521fb8aac6e70e0"
+      }
+    },
+    {
+      "name": "Preserved weights exact",
+      "passed": true,
+      "details": "7f51c111239bbb0434e341ea7dfe3c2b614c3cc2e05229c1657a675b55617ba3"
+    },
+    {
+      "name": "IdleFriendly original action keys preserved",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "PetEnjoy original action keys preserved",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Exact requested two additional clips",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Same 53 joint armature and metre scale",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Every fitted target reached without limb stretch",
+      "passed": true,
+      "details": {
+        "max_residual_m": 7.996802249550067e-08,
+        "frames": 72
+      }
+    },
+    {
+      "name": "Walk finite animation channels",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Walk all 120Hz skin samples finite",
+      "passed": true,
+      "details": {
+        "frames": 93
+      }
+    },
+    {
+      "name": "Walk complete skin within 3mm floor tolerance",
+      "passed": true,
+      "details": {
+        "lowest_m": -0.001094832139008517,
+        "penetration_tolerance_m": 0.003
+      }
+    },
+    {
+      "name": "Walk all paws support and swing",
+      "passed": true,
+      "details": {
+        "minimum_m": {
+          "FF.L_46": -0.0004439331871840535,
+          "FF.R_50": -0.00033193251617480435,
+          "FFB.L_44": 0.00014998055547399414,
+          "FFB.R_48": 0.00014998446702896295
+        },
+        "maximum_m": {
+          "FF.L_46": 0.052003435797629116,
+          "FF.R_50": 0.051907828453494176,
+          "FFB.L_44": 0.055082450936533967,
+          "FFB.R_48": 0.05483171355751004
+        }
+      }
+    },
+    {
+      "name": "Walk root remains in place",
+      "passed": true,
+      "details": {
+        "root_range_m": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "Walk exact loop pose continuity",
+      "passed": true,
+      "details": {
+        "position_m": 0,
+        "rotation_deg": 5.399738656763829e-06
+      }
+    },
+    {
+      "name": "Walk loop tangent continuity",
+      "passed": true,
+      "details": {
+        "position_velocity_difference_m_s": 0.002212257927356712,
+        "angular_velocity_difference_deg_s": 0.26834039128713344
+      }
+    },
+    {
+      "name": "Run finite animation channels",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Run all 120Hz skin samples finite",
+      "passed": true,
+      "details": {
+        "frames": 49
+      }
+    },
+    {
+      "name": "Run complete skin within 3mm floor tolerance",
+      "passed": true,
+      "details": {
+        "lowest_m": -0.00113893492128192,
+        "penetration_tolerance_m": 0.003
+      }
+    },
+    {
+      "name": "Run all paws support and swing",
+      "passed": true,
+      "details": {
+        "minimum_m": {
+          "FF.L_46": 0.00014997384995119045,
+          "FF.R_50": 0.00014998670220323085,
+          "FFB.L_44": 0.00014999508410673545,
+          "FFB.R_48": 0.00014998446702896295
+        },
+        "maximum_m": {
+          "FF.L_46": 0.07723250937094317,
+          "FF.R_50": 0.07458933980323224,
+          "FFB.L_44": 0.0749866464996991,
+          "FFB.R_48": 0.07500612827861808
+        }
+      }
+    },
+    {
+      "name": "Run root remains in place",
+      "passed": true,
+      "details": {
+        "root_range_m": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "Run exact loop pose continuity",
+      "passed": true,
+      "details": {
+        "position_m": 0,
+        "rotation_deg": 4.681179473268659e-06
+      }
+    },
+    {
+      "name": "Run loop tangent continuity",
+      "passed": true,
+      "details": {
+        "position_velocity_difference_m_s": 0.003738023929661549,
+        "angular_velocity_difference_deg_s": 0.6874942145656061
+      }
+    },
+    {
+      "name": "Walk FBX roundtrip same joints and skin",
+      "passed": true,
+      "details": {
+        "joint_error_m": 6.692678681103848e-07,
+        "skin_error_m": 9.695995424670385e-07,
+        "samples": 3
+      }
+    },
+    {
+      "name": "Run FBX roundtrip same joints and skin",
+      "passed": true,
+      "details": {
+        "joint_error_m": 6.776342988551899e-07,
+        "skin_error_m": 8.26984346966663e-07,
+        "samples": 3
+      }
+    }
+  ],
+  "clips": [
+    {
+      "name": "Walk",
+      "fps": 120,
+      "frames_checked": 93,
+      "floor_minimum_m": -0.001094832139008517,
+      "speed_m_s": 0.7151154096607382,
+      "duration_s": 0.7666666666666667
+    },
+    {
+      "name": "Run",
+      "fps": 120,
+      "frames_checked": 49,
+      "floor_minimum_m": -0.00113893492128192,
+      "speed_m_s": 2.3141639345507423,
+      "duration_s": 0.4
+    }
+  ],
+  "fbx_roundtrips": [
+    {
+      "name": "Walk",
+      "samples": 3,
+      "max_joint_error_m": 6.692678681103848e-07,
+      "max_skin_error_m": 9.695995424670385e-07
+    },
+    {
+      "name": "Run",
+      "samples": 3,
+      "max_joint_error_m": 6.776342988551899e-07,
+      "max_skin_error_m": 8.26984346966663e-07
+    }
+  ],
+  "failures": [],
+  "checks_count": 27,
+  "evaluated_skin_frames": 142
+}

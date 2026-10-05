@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>래브라도 · 걷기와 달리기</title>
+<style>
+*{box-sizing:border-box}body{margin:0;color:#3b332c;background:#ddd6cc;font:15px -apple-system,BlinkMacSystemFont,sans-serif;overflow:hidden}canvas{display:block}header{position:fixed;top:25px;left:28px;pointer-events:none}h1{font-size:23px;font-weight:600;margin:0 0 9px}p{margin:0;line-height:1.7}nav{position:fixed;right:28px;top:25px;display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;max-width:60%}button,a.control{font:inherit;background:#fff9;border:1px solid #a69989;border-radius:10px;padding:10px 15px;color:inherit;cursor:pointer;text-decoration:none}button:hover,a.control:hover{background:#fff}button[aria-pressed=true]{background:#806b51;color:white;border-color:#806b51}section{position:fixed;left:50%;bottom:32px;transform:translateX(-50%);width:min(480px,85vw);background:#fff9;padding:15px 20px;border-radius:14px;display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center}input{width:100%;accent-color:#806b51}#loading{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;padding:20px 28px;border-radius:12px}footer{position:fixed;bottom:10px;right:20px;font-size:10px;opacity:.7}footer a{color:inherit}#status{font-variant-numeric:tabular-nums;min-width:118px;text-align:right}@media(max-width:700px){header{left:18px;top:16px}h1{font-size:19px}p{font-size:12px}nav{top:95px;left:18px;right:18px;max-width:none;justify-content:flex-start;gap:6px}button,a.control{padding:8px 11px}footer{display:none}}
+</style>
+<script type="importmap">{"imports":{"three":"/vendor/build/three.module.js","three/addons/":"/vendor/examples/jsm/"}}</script>
+</head>
+<body>
+<header><h1>걷고 달리는 래브라도</h1><p id="description">같은 멍멍이의 새로운 두 모션</p></header>
+<nav aria-label="모션과 시점"><button id="walk" aria-pressed="true">걷기</button><button id="run" aria-pressed="false">달리기</button><button id="side" aria-pressed="true">옆에서</button><button id="quarter" aria-pressed="false">비스듬히</button><button id="ground" aria-pressed="true">바닥 이동</button><a class="control" href="/">쓰다듬기</a></nav>
+<section aria-label="재생 조작"><button id="pause">일시정지</button><input id="seek" type="range" min="0" max="1000" value="0" aria-label="모션 시간 이동"><span id="status" role="status">불러오는 중…</span></section>
+<div id="loading" role="status">멍멍이 모션 불러오는 중…</div>
+<footer><a href="https://sketchfab.com/3d-models/labrador-dog-1f56cfbab07e4fe49b5d9e521c82073a">Labrador Dog · kenchoo / all of life</a> · <a href="https://doi.org/10.6084/m9.figshare.24968946.v1">모션 원본 · Lei Han 외</a> · CC BY 4.0</footer>
+<script type="module" src="/locomotion.js"></script>
+</body></html>

@@ -1,5 +1,7 @@
 # 래브라도 쓰다듬기 인계 / Labrador petting handoff
 
+후속 걷기·달리기는 [별도 제작 기록](LABRADOR_LOCOMOTION_20261005.md)에 있습니다. 이 문서는 기존 쓰다듬기 두 care 클립의 인수 기록이며 원본·제작본·기능은 보존합니다. / Later Walk/Run work is recorded separately; this document retains the original care delivery and its evidence.
+
 2026-10-05. 최종 제작 범위는 **손 모델 없이, 자연스럽게 서 있는 래브라도의 머리를 마우스로 쓰다듬기**입니다. 실제 다운로드 모델의 53관절 리그와 원본 형상을 유지한 생산본, 두 모션, Unity prefab·입 소켓·표정·털 마스크를 만들었습니다. Unity 가져오기와 평가된 포즈 검사는 통과했습니다. 실제 Mac 실행본의 F2 조작 검사 22개도 통과했습니다. 플레이용 앱·미리보기·공개 코드 상태는 아래에 기록합니다.
 
 The final scope is **mouse-driven head petting on a naturally standing Labrador, without hand models**. Production retains the acquired model's 53-joint rig and geometry, with two clips, a Unity prefab, mouth socket, eyelid shape and coat mask. Actual Unity import and evaluated-pose checks passed. Twenty-two actual native Mac/F2 checks also passed. Playable-app, preview and public-code status are recorded below.
