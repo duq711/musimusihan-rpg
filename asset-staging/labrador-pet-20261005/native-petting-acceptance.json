@@ -1,0 +1,62 @@
+{
+  "result": "Passed",
+  "unity_version": "6000.3.25f1",
+  "checks": [
+    "Own deterministic physics without desktop input, focus changes or audio.",
+    "Actual licensed Labrador is installed in the native sanctuary.",
+    "F2 shows the actual standing Labrador petting button.",
+    "Actual F2 button dispatches the live mouse-petting room.",
+    "F2 isolates the original dog, world and inventory.",
+    "Actual detailed skinned model and head triangles are present.",
+    "Close view owns stationary input with a free pointer.",
+    "Petting renders no first-person equipment camera or hands.",
+    "Existing player renderers are hidden during close petting.",
+    "Screen ray intersects the actual animated head skin.",
+    "Holding a stationary screen cursor does not manufacture strokes from animated head motion.",
+    "Moving screen input records real skin strokes rather than fixed playback.",
+    "Actual strokes produce bounded enjoyment and ear movement.",
+    "Original eyelid shape and localized coat response react to actual strokes.",
+    "Releasing the pointer smoothly stops the local stroke response.",
+    "F2 pause freezes enjoyment and the real skeletal pose.",
+    "F2 resume retains the same dog and petting view.",
+    "Retry invokes the registered native petting implementation.",
+    "Retry creates a fresh dog and clears prior pointer samples.",
+    "Reset returns to the isolated paused menu.",
+    "Exit restores the original world, Labrador and bag identity.",
+    "Mouse petting, pause, reset and retry conserve original inventory, survival, wallet and dog state."
+  ],
+  "errors": [],
+  "diagnostics": {
+    "original_camera_pixels": [
+      426,
+      240
+    ],
+    "screen_pixels": [
+      640,
+      480
+    ],
+    "stroke_sample": {
+      "surface_hits": 300,
+      "strokes": 177,
+      "distance_m": 1.66206872,
+      "enjoyment": 0.999883354,
+      "intensity": 0.271847934,
+      "pixel": [
+        205.221,
+        124.057961
+      ],
+      "camera_pixels": [
+        426,
+        240
+      ],
+      "viewing": true,
+      "page": "dungeon",
+      "world_paused": false,
+      "native_state": "playing"
+    }
+  },
+  "limitations": [
+    "Actual native app and F2 flow use deterministic screen-ray input; desktop keyboard, pointer focus and audible sound are not exercised.",
+    "Rendered appearance is reviewed separately."
+  ]
+}

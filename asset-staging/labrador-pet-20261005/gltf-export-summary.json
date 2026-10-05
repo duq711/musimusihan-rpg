@@ -1,0 +1,26 @@
+{
+  "file": "export/LabradorPet_Petting.glb",
+  "bytes": 17897200,
+  "animations": [
+    "IdleFriendly",
+    "PetEnjoy"
+  ],
+  "coat_mask_primitives": 1,
+  "morph_targets": [
+    "target_0",
+    "target_1",
+    "target_2"
+  ],
+  "clip_timings": {
+    "IdleFriendly": {
+      "start_seconds": 0,
+      "duration_seconds": 10.433333333333334
+    },
+    "PetEnjoy": {
+      "start_seconds": 0,
+      "duration_seconds": 4
+    }
+  },
+  "coordinates": "glTF metres, +Z forward, Y up",
+  "material_note": "COLOR_0.r is a scalar runtime coat mask. Disable ordinary vertexColor multiplication in the preview material and read this channel in the custom coat shader."
+}

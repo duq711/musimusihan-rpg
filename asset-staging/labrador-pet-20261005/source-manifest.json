@@ -10,9 +10,13 @@
     "license_url": "https://creativecommons.org/licenses/by/4.0/",
     "triangles_approx": 52800,
     "vertices_approx": 26900,
-    "downloaded": false,
-    "download_status": "Requires Sketchfab login; Google sign-in approval pending",
-    "rig_inspected": false
+    "downloaded": true,
+    "download_status": "User downloaded official Sketchfab converted 2k GLB after signing in; source attribution and GLB header verified",
+    "rig_inspected": true,
+    "local_file": "source/LabradorDog_kenchoo_2k.glb",
+    "bytes": 19312512,
+    "sha256": "0e30a09051903e2327c31371dc3dd973ca9da9c07a1c8aea5ca5f1af5bcda4fc",
+    "source_format": "Sketchfab converted GLB, highest advertised 2k texture resolution"
   },
   "mocap": {
     "title": "Lifelike Agility and Play in Quadrupedal Robots using Reinforcement Learning and Generative Pre-trained Models",
@@ -49,12 +53,19 @@
     "official_md5": "746d592726eb7411f084518bfa1f3791",
     "sha256": "651a4099b4660f898a5bfcd24769ba4142a0ec30daa328a2aebc3d31b51b8b34",
     "downloaded": true,
-    "modifications": "None; raw archive preserved. No retargeted animation yet."
+    "modifications": "Raw archive preserved. Seated capture exploration retained locally; final two standing clips use the original idle and authored subtle breathing/tail motion, not captured sitting."
   },
-  "unity_installed": false,
+  "unity_installed": true,
   "limitations": [
-    "No Labrador model, rig, textures or final animations downloaded or verified yet.",
-    "New pet gameplay modules require the actual prefab and all 16 authored clips. No placeholder is installed.",
-    "Original Shepherd production and current playable game remain preserved."
-  ]
+    "Final scope: standing mouse-driven head petting with no hand models; only IdleFriendly and PetEnjoy are installed.",
+    "Earlier attack/retrieval/feeding modules are preparation and are not installed or claimed playable.",
+    "Actual Unity resource import passed 56 checks, evaluated-pose rendering passed 33 checks, and native F2 app acceptance passed 22 deterministic screen-ray checks.",
+    "Licensed original/production/model/motion binaries stay local under project asset-sharing rules."
+  ],
+  "native_acceptance": "Passed: 22 actual native F2 checks; see native-petting-acceptance.json",
+  "unity_material": {
+    "source_normal_strength": 0.2,
+    "installed_normal_strength": 0,
+    "reason": "Actual four-way and normal-decode comparisons isolate torso shading seams to Unity normal/tangent shading; zero strength removes them. Source normal texture preserved; albedo coat detail and local petComb response retained."
+  }
 }

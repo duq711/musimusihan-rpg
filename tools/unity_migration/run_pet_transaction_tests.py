@@ -3,7 +3,9 @@
 import argparse
 import hashlib
 import json
+import os
 from pathlib import Path
+import signal
 import shutil
 import subprocess
 import tempfile
@@ -16,12 +18,16 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--unity-app', default=str(Path.home() / 'Applications/RPG-Unity-6000.3.25f1/Unity/Unity.app'))
     parser.add_argument('--companion', action='store_true', help='Also test the production companion against explicit collision fixtures in PlayMode')
+    parser.add_argument('--petting', action='store_true', help='Also test mouse petting, reaction bounds and pointer lifecycle in PlayMode')
+    parser.add_argument('--timeout', type=int, default=600, help='Allow background compilation under concurrent Mac workloads')
     args = parser.parse_args()
+    if args.petting:
+        args.companion = True
     game = ROOT / 'unity-game'
     output = ROOT / 'asset-staging/labrador-pet-20261005'
     checks = output / 'validation'
     checks.mkdir(parents=True, exist_ok=True)
-    name = 'companion' if args.companion else 'transactions'
+    name = 'petting' if args.petting else 'companion' if args.companion else 'transactions'
     results, log = checks / (name + '.xml'), checks / (name + '.log')
     if results.exists():
         results.unlink()
@@ -37,6 +43,8 @@ def main():
             shutil.copytree(game / 'Assets/RPG/Shaders', stage / 'Assets/RPG/Shaders')
             shutil.copytree(game / 'Assets/RPG/Resources/Migration', stage / 'Assets/Resources/Migration', dirs_exist_ok=True)
             shutil.copy2(test.with_name('LabradorCompanionTests.cs'), stage / 'Assets/PetTests/LabradorCompanionTests.cs')
+            if args.petting:
+                shutil.copy2(test.with_name('LabradorPettingTests.cs'), stage / 'Assets/PetTests/LabradorPettingTests.cs')
         else:
             shutil.copy2(production, stage / 'Assets/Pets/PetTransactions.cs')
         shutil.copy2(test, stage / 'Assets/PetTests/PetTransactionsTests.cs')
@@ -63,13 +71,28 @@ def main():
             for path in (game / 'Assets/RPG/Gameplay/Pets').glob('*.cs'):
                 copied[path] = stage / 'Assets/RPG/Gameplay/Pets' / path.name
             copied[test.with_name('LabradorCompanionTests.cs')] = stage / 'Assets/PetTests/LabradorCompanionTests.cs'
+            if args.petting:
+                copied[test.with_name('LabradorPettingTests.cs')] = stage / 'Assets/PetTests/LabradorPettingTests.cs'
+                for source_name in ('WorkshopPetting.cs', 'PlayerPresentation.cs', 'PlayerFrameInput.cs',
+                             'WorkshopController.cs', 'DungeonInteractionController.cs', 'DungeonMotor.cs',
+                             'NativeTrialMenu.cs', 'NativeGameFlow.cs'):
+                    path = game / 'Assets/RPG/Gameplay' / source_name
+                    copied[path] = stage / 'Assets/RPG/Gameplay' / source_name
         tested_hashes = {str(original.relative_to(ROOT)): hashlib.sha256(copied_path.read_bytes()).hexdigest()
                          for original, copied_path in copied.items()}
-        run = subprocess.run(['nice', '-n', '10', str(executable), '-batchmode', '-nographics',
+        process = subprocess.Popen(['nice', '-n', '10', str(executable), '-batchmode', '-nographics',
                               '-projectPath', str(stage), '-runTests', '-testPlatform', 'PlayMode' if args.companion else 'EditMode',
-                              '-testResults', str(results), '-logFile', str(log)], timeout=240)
-        if run.returncode or not results.exists():
-            raise RuntimeError(f'Pet transaction tests did not complete (exit {run.returncode}); see {log}')
+                              '-testResults', str(results), '-logFile', str(log)], start_new_session=True)
+        try:
+            code = process.wait(timeout=args.timeout)
+        except subprocess.TimeoutExpired:
+            os.killpg(process.pid, signal.SIGTERM)
+            try: process.wait(timeout=10)
+            except subprocess.TimeoutExpired:
+                os.killpg(process.pid, signal.SIGKILL); process.wait()
+            raise RuntimeError(f'Pet tests exceeded {args.timeout}s; stopped their process group before removing the temporary project. See {log}')
+        if code or not results.exists():
+            raise RuntimeError(f'Pet transaction tests did not complete (exit {code}); see {log}')
         report = ET.parse(results).getroot()
         summary = {key: report.get(key) for key in ('result', 'total', 'passed', 'failed', 'skipped')}
         print(json.dumps(summary), flush=True)
@@ -87,6 +110,9 @@ def main():
         if args.companion:
             receipt['limitations'] = ['Production companion behavior with explicit collision-only model and clip fixtures.',
                                       'Actual Labrador model, authored motions, final rendering and native-game/F2 menu integration are not verified.']
+        if args.petting:
+            receipt['limitations'] = ['Production mouse petting and reaction lifecycle tested against explicit skeletal and skinned head fixtures.',
+                                     'Real Labrador skin, authored transitions, rendering and native F2 acceptance are checked separately.']
         (output / (name + '-validation.json')).write_text(json.dumps(receipt, ensure_ascii=False, indent=2) + '\n')
 
 

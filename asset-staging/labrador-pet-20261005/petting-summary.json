@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "completed_utc": "2026-10-05T13:21:05.135508+00:00",
+  "result": "Implemented and verified",
+  "scope_ko": "손 없이 서 있는 래브라도 머리를 마우스로 쓰다듬기: 피부 접촉에 따라 귀·고개·원본 눈 표정·국소 짧은 털·꼬리 반응",
+  "scope_en": "Mouse-driven head petting on a standing Labrador without hands: real skin contact drives ears, head, original eyelids, local short coat and tail",
+  "native_app": {
+    "installed_utc": "2026-10-05T13:19:50.377748+00:00",
+    "path": "/Users/byeolee/Projects/musimusihan-rpg/unity-game/Builds/MusimusihanRPG.app",
+    "result": "Installed and verified",
+    "codesign": "Ad-hoc signature verified deep/strict after ASCII executable normalization; Korean display name retained",
+    "codesign_reference": "https://developer.apple.com/forums/thread/706379",
+    "post_signature_native_acceptance": "22 checks passed, exit 0",
+    "applications_link": "/Users/byeolee/Applications/무시무시한 RPG.app",
+    "dock_target_verified": true,
+    "verified_hashes": {
+      "Contents/MacOS/MusimusihanRPG": "59f5d5f2a4e7b5fab571716a6ee7d4e8a09bc5b197b44f9d4aae6fca6d0f13d2",
+      "Contents/Resources/Data/Managed/RPG.Gameplay.dll": "722e542030f4f0bedaa3fc83cae3e73874e5caed26c2a0370dbede2d9d5fa532",
+      "Contents/Resources/Data/StreamingAssets/ThirdPartyNotices/Labrador.txt": "71ed9c316048f1a8d315bccc860d37b59e8aeb6dc0aa3fc4371ff261f0165f18"
+    },
+    "prior_playable_backup": "/Users/byeolee/Projects/musimusihan-rpg/unity-game/Builds/LabradorPriorPlayable-20261005.app"
+  },
+  "checks": {
+    "playmode_total": 28,
+    "playmode_petting": 12,
+    "playmode_prepared_companion": 7,
+    "playmode_transactions": 9,
+    "actual_native_f2": 22,
+    "actual_unity_import": 56,
+    "actual_unity_evaluated_render": 33,
+    "blender": 24,
+    "evaluated_skin_frames": 435,
+    "fbx_roundtrip_samples": 6,
+    "avfoundation_video_seeks": 5
+  },
+  "interactive_preview": {
+    "url": "http://127.0.0.1:8773/",
+    "run": "python3 tools/labrador-petting-viewer/server.py",
+    "actual_browser_drags_reviewed": true,
+    "console_errors": 0,
+    "console_warnings": 0
+  },
+  "controls": {
+    "preview": "Hold LMB and slowly stroke the head",
+    "native": "F2 > Labrador petting; E/Esc leaves close view"
+  },
+  "final_artifacts": [
+    "production/LabradorPet_Animations.blend",
+    "export/LabradorPet_Model.fbx",
+    "export/Animations/IdleFriendly.fbx",
+    "export/Animations/PetEnjoy.fbx",
+    "export/LabradorPet_Petting.glb",
+    "export/LabradorPet_Poster.png",
+    "export/LabradorPet_Petting.png",
+    "export/LabradorPet_Motions.mp4"
+  ],
+  "limitations": [
+    "Only two standing care loops are installed; attack, retrieval and feeding modules remain preparation.",
+    "Short fur is localized coat-surface deformation, not long-fur simulation.",
+    "Video shows two base loops. Interactive browser shows mouse reactions; Unity poster is an evaluated PreviewScene pose.",
+    "Native checks use deterministic screen-ray input; physical desktop input, focus and audible output are outside automated acceptance.",
+    "Original normal strength 0.2 preserved; Unity strength zero resolves verified torso normal/tangent shading seams.",
+    "Licensed binaries remain local; public code checkpoint uses the existing Unity baseline and scoped pet-only hooks."
+  ],
+  "publication_branch": "codex/labrador-pet-20261005",
+  "publication_receipt": "publication-summary.json",
+  "cleanup_receipt": "cleanup-summary.json"
+}

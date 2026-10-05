@@ -1,0 +1,283 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "Original GLB exact SHA256 preserved",
+      "passed": true,
+      "details": "0e30a09051903e2327c31371dc3dd973ca9da9c07a1c8aea5ca5f1af5bcda4fc"
+    },
+    {
+      "name": "Final bundle has exactly two standing clips",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Original body geometry exact SHA256 preserved",
+      "passed": true,
+      "details": "95268ac6bb56cb6f9e8ae6ddc8764f32ea248f7bba98e984f904fff743e32344"
+    },
+    {
+      "name": "Actual body mesh and 53-joint rig preserved",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Original eyelid morph preserved and runtime-controlled",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Only audited 796 claw/tooth vertices transferred",
+      "passed": true,
+      "details": {
+        "vertices": 796,
+        "bad_vertices": []
+      }
+    },
+    {
+      "name": "Coat mask preserves all 806 audited eye vertices",
+      "passed": true,
+      "details": {
+        "eye_vertices": 806,
+        "coat_vertices": 3202
+      }
+    },
+    {
+      "name": "MouthSocket is Head_1 child with metre attachment scale",
+      "passed": true,
+      "details": {
+        "world_scale": [
+          0.9999937415122986,
+          0.9999894499778748,
+          0.9999905228614807
+        ],
+        "local_scale": [
+          3.3333332538604736,
+          3.3333332538604736,
+          3.3333332538604736
+        ]
+      }
+    },
+    {
+      "name": "PetEnjoy shape keys neutral for runtime overlay",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "IdleFriendly finite keyframes",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "IdleFriendly loop pose continuity",
+      "passed": true,
+      "details": {
+        "position_m": 0,
+        "rotation_degrees": 0.0
+      }
+    },
+    {
+      "name": "IdleFriendly loop tangent continuity",
+      "passed": true,
+      "details": {
+        "position_velocity_difference_m_per_s": 0.00044703483581542974,
+        "angular_velocity_difference_degrees_per_s": 0.0
+      }
+    },
+    {
+      "name": "IdleFriendly complete evaluated skin stays above floor",
+      "passed": true,
+      "details": {
+        "lowest_m": -0.0009090925101078451,
+        "frames": 314
+      }
+    },
+    {
+      "name": "IdleFriendly four paws retain floor support",
+      "passed": true,
+      "details": {
+        "pad_minima_m": {
+          "FF.L_46": 0.0010706700705754857,
+          "FF.R_50": 0.0010706739821304545,
+          "FFB.L_44": 0.00022376645202504264,
+          "FFB.R_48": 0.00022376645202504264
+        },
+        "pad_maxima_m": {
+          "FF.L_46": 0.0010706700705754857,
+          "FF.R_50": 0.0010706739821304545,
+          "FFB.L_44": 0.00022376645202504264,
+          "FFB.R_48": 0.00022376645202504264
+        },
+        "max_paw_centroid_drift_m": 0.00012667607087243495
+      }
+    },
+    {
+      "name": "PetEnjoy finite keyframes",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "PetEnjoy loop pose continuity",
+      "passed": true,
+      "details": {
+        "position_m": 0,
+        "rotation_degrees": 0.0
+      }
+    },
+    {
+      "name": "PetEnjoy loop tangent continuity",
+      "passed": true,
+      "details": {
+        "position_velocity_difference_m_per_s": 9.096499865557835e-05,
+        "angular_velocity_difference_degrees_per_s": 0.0
+      }
+    },
+    {
+      "name": "PetEnjoy complete evaluated skin stays above floor",
+      "passed": true,
+      "details": {
+        "lowest_m": -0.0009000109970573877,
+        "frames": 121
+      }
+    },
+    {
+      "name": "PetEnjoy four paws retain floor support",
+      "passed": true,
+      "details": {
+        "pad_minima_m": {
+          "FF.L_46": 0.0010706700705754857,
+          "FF.R_50": 0.0010706739821304545,
+          "FFB.L_44": 0.00022376645202504264,
+          "FFB.R_48": 0.00022376645202504264
+        },
+        "pad_maxima_m": {
+          "FF.L_46": 0.0010706700705754857,
+          "FF.R_50": 0.0010706739821304545,
+          "FFB.L_44": 0.00022376645202504264,
+          "FFB.R_48": 0.00022376645202504264
+        },
+        "max_paw_centroid_drift_m": 3.895769354425001e-05
+      }
+    },
+    {
+      "name": "PetEnjoy original standing paw positions retained",
+      "passed": true,
+      "details": {
+        "maximum_paw_drift_m": 3.895769354425001e-05
+      }
+    },
+    {
+      "name": "IdleFriendly delivered FBX preserves sampled joints/skin",
+      "passed": true,
+      "details": {
+        "joint_error_m": 7.325857015420112e-07,
+        "skin_error_m": 6.990970901486917e-07,
+        "sample_frames": 3
+      }
+    },
+    {
+      "name": "IdleFriendly delivered FBX socket scale is one",
+      "passed": true,
+      "details": {
+        "world_scale": [
+          0.9999939799308777,
+          0.9999902844429016,
+          0.9999908208847046
+        ]
+      }
+    },
+    {
+      "name": "PetEnjoy delivered FBX preserves sampled joints/skin",
+      "passed": true,
+      "details": {
+        "joint_error_m": 4.4229096411632984e-07,
+        "skin_error_m": 4.6933964838874025e-07,
+        "sample_frames": 3
+      }
+    },
+    {
+      "name": "PetEnjoy delivered FBX socket scale is one",
+      "passed": true,
+      "details": {
+        "world_scale": [
+          0.9999999403953552,
+          0.999999463558197,
+          0.9999996423721313
+        ]
+      }
+    }
+  ],
+  "clips": [
+    {
+      "name": "IdleFriendly",
+      "frames_checked": 314,
+      "body_bounds_min_m": [
+        -0.20174774137130314,
+        -0.7913827972166843,
+        -0.0009090925101078451
+      ],
+      "body_bounds_max_m": [
+        0.20173382964665976,
+        0.8635889396504126,
+        0.8380864962443297
+      ],
+      "lowest_skin_m": -0.0009090925101078451,
+      "paw_minima_m": {
+        "FF.L_46": 0.0010706700705754857,
+        "FF.R_50": 0.0010706739821304545,
+        "FFB.L_44": 0.00022376645202504264,
+        "FFB.R_48": 0.00022376645202504264
+      },
+      "maximum_paw_drift_m": 0.00012667607087243495
+    },
+    {
+      "name": "PetEnjoy",
+      "frames_checked": 121,
+      "body_bounds_min_m": [
+        -0.20174121466244088,
+        -0.7690392084534636,
+        -0.0009000109970573877
+      ],
+      "body_bounds_max_m": [
+        0.20171519723396258,
+        0.8631106481198714,
+        0.8342746121664675
+      ],
+      "lowest_skin_m": -0.0009000109970573877,
+      "paw_minima_m": {
+        "FF.L_46": 0.0010706700705754857,
+        "FF.R_50": 0.0010706739821304545,
+        "FFB.L_44": 0.00022376645202504264,
+        "FFB.R_48": 0.00022376645202504264
+      },
+      "maximum_paw_drift_m": 3.895769354425001e-05
+    }
+  ],
+  "fbx_roundtrips": [
+    {
+      "name": "IdleFriendly",
+      "frames": 3,
+      "max_joint_error_m": 7.325857015420112e-07,
+      "max_skin_error_m": 6.990970901486917e-07,
+      "socket_world_scale": [
+        0.9999939799308777,
+        0.9999902844429016,
+        0.9999908208847046
+      ]
+    },
+    {
+      "name": "PetEnjoy",
+      "frames": 3,
+      "max_joint_error_m": 4.4229096411632984e-07,
+      "max_skin_error_m": 4.6933964838874025e-07,
+      "socket_world_scale": [
+        0.9999999403953552,
+        0.999999463558197,
+        0.9999996423721313
+      ]
+    }
+  ],
+  "evaluated_skin_frames": 435,
+  "checks_count": 24,
+  "failures": []
+}

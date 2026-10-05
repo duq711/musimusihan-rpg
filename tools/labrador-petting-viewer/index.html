@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>래브라도 · 쓰다듬기</title>
+<style>
+*{box-sizing:border-box}body{margin:0;color:#3b332c;background:#ddd6cc;font:15px -apple-system,BlinkMacSystemFont,sans-serif;overflow:hidden}canvas{display:block;touch-action:none}header{position:fixed;top:26px;left:30px;pointer-events:none}h1{font-size:23px;font-weight:600;margin:0 0 10px}p{margin:0;line-height:1.7}aside{position:fixed;right:28px;top:25px;display:flex;gap:8px}button{font:inherit;background:#fff9;border:1px solid #a69989;border-radius:10px;padding:10px 15px;color:inherit;cursor:pointer}button:hover{background:#fff}#mood{position:fixed;bottom:32px;left:50%;transform:translateX(-50%);text-align:center;min-width:230px;background:#fff9;padding:15px 22px;border-radius:15px;pointer-events:none}#bar{height:4px;background:#b7aa9b;border-radius:4px;margin-top:10px;overflow:hidden}#fill{height:100%;width:0;background:#846b4d;transition:width .15s}#loading{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;padding:20px 28px;border-radius:12px}footer{position:fixed;bottom:12px;right:20px;font-size:10px;opacity:.7}footer a{color:inherit}#dot{position:fixed;width:20px;height:20px;border:1.5px solid #f9f3e8;border-radius:50%;box-shadow:0 0 0 1px #765b3b88;pointer-events:none;display:none;transform:translate(-50%,-50%)}@media(max-width:600px){header{left:18px;top:18px}h1{font-size:19px}aside{top:105px;left:18px;right:auto}p{font-size:12px}footer{display:none}}
+</style>
+<script type="importmap">{"imports":{"three":"/vendor/build/three.module.js","three/addons/":"/vendor/examples/jsm/"}}</script>
+</head>
+<body>
+<header><h1>쓰담쓰담, 래브라도</h1><p>머리에 마우스를 올리고<br>왼쪽 버튼을 누른 채 천천히 문질러 주세요.</p></header>
+<aside><button id="close">머리 가까이</button><button id="whole">전체 보기</button><button id="reset">다시 시작</button></aside>
+<div id="mood"><span id="status" role="status">다가가도 괜찮아요</span><div id="bar"><div id="fill"></div></div></div>
+<div id="loading" role="status">멍멍이 불러오는 중…</div><div id="dot"></div>
+<footer><a href="https://sketchfab.com/3d-models/labrador-dog-1f56cfbab07e4fe49b5d9e521c82073a">Labrador Dog · kenchoo / all of life</a> · CC BY 4.0</footer>
+<script type="module" src="/petting.js"></script>
+</body></html>

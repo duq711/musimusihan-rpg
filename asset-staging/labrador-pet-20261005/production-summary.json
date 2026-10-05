@@ -1,0 +1,118 @@
+{
+  "status": "DCC production complete; game integration is tracked by the root agent",
+  "scope_ko": "손 없이 서 있는 래브라도 쓰다듬기: 원본 대기와 안정된 쓰다듬기 기본 모션 두 개. 마우스 귀·머리·털·눈 반응은 게임 및 브라우저 구현이 담당합니다.",
+  "scope_en": "Handless standing Labrador care: original idle and calm petting base. The game/browser runtime supplies mouse-driven ears, head, coat and eyelid reactions.",
+  "clips": [
+    {
+      "name": "IdleFriendly",
+      "duration_seconds": 10.433333333333334,
+      "loop": true,
+      "source": "Original kenchoo idle"
+    },
+    {
+      "name": "PetEnjoy",
+      "duration_seconds": 4.0,
+      "loop": true,
+      "source": "Original standing anatomy; authored subtle .2-degree breathing and 2.3-degree distal wag"
+    }
+  ],
+  "model": {
+    "source_sha256": "0e30a09051903e2327c31371dc3dd973ca9da9c07a1c8aea5ca5f1af5bcda4fc",
+    "body_vertices": 26103,
+    "mouth_fur_vertices": 3514,
+    "triangles": 52772,
+    "skin_joints": 53,
+    "original_geometry_preserved": true,
+    "production_weight_repairs": 796,
+    "repair_islands": 8,
+    "uniform_source_scale": 0.3,
+    "coordinates": "Unity/glTF metres, +Z forward, Y up",
+    "mouth_socket": "Head_1 child, world scale 1 within 0.0001 numerical tolerance",
+    "eyelid_morph": "Original target_1; runtime-controlled",
+    "coat_mask_nonzero_vertices": 3202,
+    "textures": "Original 2K texture maps; all source UV sets identical. normalScale .2, metallicFactor .0909091"
+  },
+  "validation": {
+    "passed": true,
+    "checks_count": 24,
+    "evaluated_skin_frames": 435,
+    "delivered_fbx_sample_frames": 6,
+    "maximum_fbx_roundtrip_skin_error_m": 6.990970901486917e-07,
+    "pet_enjoy_paw_centroid_drift_m": 3.895769354425001e-05,
+    "glb_track_timings": {
+      "IdleFriendly": {
+        "start_seconds": 0,
+        "duration_seconds": 10.433333333333334
+      },
+      "PetEnjoy": {
+        "start_seconds": 0,
+        "duration_seconds": 4
+      }
+    },
+    "video_seek_samples": 5,
+    "video_seek_max_error_seconds": 0
+  },
+  "preserved_exploration": "production/SeatedExploration holds the rejected sitting exploration separately. It is excluded from all final manifests and exports.",
+  "limitations": [
+    "The two base clips do not demonstrate the runtime mouse overlay; use the interactive preview for the complete care interaction.",
+    "No final sitting, walking, attack, feeding or item retrieval clips are claimed in this current scope. Raw captures and research tools are preserved for later work."
+  ],
+  "files": [
+    {
+      "path": "production/LabradorPet_Animations.blend",
+      "bytes": 19672488,
+      "sha256": "34753bed47edb3c68d0973c3a38ddda958d80fb918c88e4712da1f674966318a"
+    },
+    {
+      "path": "export/LabradorPet_Model.fbx",
+      "bytes": 4971180,
+      "sha256": "a4750f98651d120bd30ebb8f8ca5a86188111b526d5c90352feca1664a6938b5"
+    },
+    {
+      "path": "export/LabradorPet_Petting.glb",
+      "bytes": 17897200,
+      "sha256": "23bdd3d3eb7b1854ac7a27f9a37767e46635c98cc7848a8284ff6037e193eec5"
+    },
+    {
+      "path": "export/LabradorPet_Poster.png",
+      "bytes": 989951,
+      "sha256": "b78c755c4b62e94f0a7409a77760b379661b505b705804ffde8f0e824e7fe059"
+    },
+    {
+      "path": "export/LabradorPet_Motions.mp4",
+      "bytes": 1225789,
+      "sha256": "a161508a38f51525509fcb37ffcefd210b66f4834a6cec5cf45e4e71b1b1f1bb"
+    },
+    {
+      "path": "export/animation-manifest.json",
+      "bytes": 15932,
+      "sha256": "90b03467dc8279c39a03f29a566a77c4c656b98c64f9f91d4e9c15c721bc5f56"
+    },
+    {
+      "path": "export/Animations/IdleFriendly.fbx",
+      "bytes": 6349596,
+      "sha256": "9c90f116e0e29d7cd2c0bb875612b8a8715e9dc7c633d71332dfb0afffaad49b"
+    },
+    {
+      "path": "export/Animations/PetEnjoy.fbx",
+      "bytes": 5659132,
+      "sha256": "f9206ffdfbe73fa90fbde9c255ed005a9d9ffc659321e862a9035e0035dcca74"
+    },
+    {
+      "path": "export/Textures/Labrador_BaseColor.png",
+      "bytes": 6903184,
+      "sha256": "780fc17b6c558a9050e2a8860e08e4994c4a872c031ebf2246772b2cdd1a6351"
+    },
+    {
+      "path": "export/Textures/Labrador_MetallicRoughness.png",
+      "bytes": 6240782,
+      "sha256": "4ae5d98bbaa047e42846902b0f2f7af45b215060d902ded1ecfa718883f0cf11"
+    },
+    {
+      "path": "export/Textures/Labrador_Normal.png",
+      "bytes": 3012382,
+      "sha256": "b029504bcb32421b7f602a37bc37379d588356c161b395bb326546bcb0682941"
+    }
+  ],
+  "cleanup": "Root agent coordinates removal of reviewed validation captures, intermediate .blend1 backups and task temporary binaries/logs; final video/poster are user artifacts and must remain."
+}

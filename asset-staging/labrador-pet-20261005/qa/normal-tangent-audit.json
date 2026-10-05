@@ -1,0 +1,130 @@
+{
+  "source": {
+    "name": "mesh_0",
+    "vertices": 26103,
+    "loops": 141546,
+    "polygons": 47182,
+    "custom_normals": true,
+    "flat_polygons": 0,
+    "matrix_world": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.000000238418579,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.000000238418579,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "bounds": {
+      "min": [
+        -0.6727713942527771,
+        -2.5616135597229004,
+        -0.019485048949718475
+      ],
+      "max": [
+        0.6726844906806946,
+        2.8771889209747314,
+        2.7592954635620117
+      ]
+    }
+  },
+  "fbx": {
+    "name": "LabradorPet_Mesh",
+    "vertices": 26103,
+    "loops": 141546,
+    "polygons": 47182,
+    "custom_normals": true,
+    "flat_polygons": 0,
+    "matrix_world": [
+      [
+        0.29999998211860657,
+        -6.973101261821304e-24,
+        3.931291871042986e-24,
+        3.7352842428722065e-25
+      ],
+      [
+        -1.8828762433199434e-23,
+        0.29999998211860657,
+        4.887620264071302e-08,
+        0.0
+      ],
+      [
+        1.720495852411802e-23,
+        -4.887620264071302e-08,
+        0.29999998211860657,
+        0.00494999997317791
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "bounds": {
+      "min": [
+        -0.2018314003944397,
+        -0.7684836983680725,
+        -0.0008955732919275761
+      ],
+      "max": [
+        0.20180533826351166,
+        0.8631564974784851,
+        0.83273845911026
+      ]
+    }
+  },
+  "source_sha256": "0e30a09051903e2327c31371dc3dd973ca9da9c07a1c8aea5ca5f1af5bcda4fc",
+  "fbx_sha256": "a4750f98651d120bd30ebb8f8ca5a86188111b526d5c90352feca1664a6938b5",
+  "rest_geometry": {
+    "max_nearest_distance_m": 4.339443648859742e-07,
+    "corners_over_1micron": 0
+  },
+  "corner_normals": {
+    "loops": 141546,
+    "max_degrees": 0.03426402083239251,
+    "mean_degrees": 2.85941227658692e-05,
+    "over_1_degree": 0
+  },
+  "winding": {
+    "source_opposed_polygons": 214,
+    "fbx_opposed_polygons": 213,
+    "source_torso_opposed": 0
+  },
+  "tangents": {
+    "available": true,
+    "all": {
+      "loops": 141546,
+      "mean_angle_degrees": 0.769748020233099,
+      "max_angle_degrees": 175.40768633936324,
+      "over_10_degrees": 1201
+    },
+    "body_region": {
+      "loops": 16134,
+      "mean_angle_degrees": 0.1950667734364079,
+      "max_angle_degrees": 25.077418613200752,
+      "over_10_degrees": 16
+    },
+    "position_transform_max_error": 1.0154679439902795e-06,
+    "raw_sign_differences": 141363,
+    "sign_note": "Original glTF and Blender UV V directions differ; raw handedness counts are not a corruption test."
+  },
+  "limitations": "Static original/imported normals and tangent data only. Unity shader/texture decoding is evaluated separately."
+}
