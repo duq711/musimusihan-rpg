@@ -1,0 +1,93 @@
+{
+  "blender": "5.2.1 LTS",
+  "captures": 3,
+  "frames": 9,
+  "joint_position_comparisons": 549,
+  "tolerance_m": 0.0002,
+  "pass": true,
+  "method": "Independent BVH hierarchy/channel FK versus Blender bundled BVH importer; source Y-up centimetres converted to Z-up metres.",
+  "scope": "Source decode/coordinate verification only; downloaded model skin, retargeting, contact and visual quality remain unverified.",
+  "results": [
+    {
+      "file": "dog_idle_001.bvh",
+      "samples": [
+        {
+          "raw_frame": 0,
+          "bones": 61,
+          "max_position_error_m": 1.3354840987106821e-06,
+          "worst_bone": "Bip01_HeadNub",
+          "pass": true
+        },
+        {
+          "raw_frame": 1534,
+          "bones": 61,
+          "max_position_error_m": 1.2190980485237707e-06,
+          "worst_bone": "Bip01_L_Finger0Nub",
+          "pass": true
+        },
+        {
+          "raw_frame": 3068,
+          "bones": 61,
+          "max_position_error_m": 9.792059701911293e-07,
+          "worst_bone": "b_Tail009",
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "file": "dog_quad_walk_001.bvh",
+      "samples": [
+        {
+          "raw_frame": 0,
+          "bones": 61,
+          "max_position_error_m": 1.7707320142094813e-06,
+          "worst_bone": "Dog_LeftTail009",
+          "pass": true
+        },
+        {
+          "raw_frame": 6598,
+          "bones": 61,
+          "max_position_error_m": 1.576585810757547e-06,
+          "worst_bone": "Bip01_L_Finger0Nub",
+          "pass": true
+        },
+        {
+          "raw_frame": 13196,
+          "bones": 61,
+          "max_position_error_m": 1.0107557703323139e-06,
+          "worst_bone": "Dog_Jaw",
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "file": "dog_quad_run_001.bvh",
+      "samples": [
+        {
+          "raw_frame": 0,
+          "bones": 61,
+          "max_position_error_m": 1.3591950238932823e-06,
+          "worst_bone": "Dog_LeftTail009",
+          "pass": true
+        },
+        {
+          "raw_frame": 2204,
+          "bones": 61,
+          "max_position_error_m": 1.4936881168057522e-06,
+          "worst_bone": "Dog_LeftTail009",
+          "pass": true
+        },
+        {
+          "raw_frame": 4408,
+          "bones": 61,
+          "max_position_error_m": 1.5090690733399586e-06,
+          "worst_bone": "Bip01_HeadNub",
+          "pass": true
+        }
+      ],
+      "pass": true
+    }
+  ]
+}

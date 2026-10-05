@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "status": "Preparation verified; selected Labrador download awaiting login approval",
+  "labrador_installed": false,
+  "final_motions_authored": false,
+  "native_game_wiring_complete": false,
+  "main_editor_compile": "Passed; no compiler errors",
+  "tests": {
+    "result": "Passed",
+    "unique_cases": 16,
+    "transactions": 9,
+    "companion_fixture_cases": 7,
+    "evidence": "companion-validation.json"
+  },
+  "source": {
+    "raw_bvh_files": 33,
+    "raw_frames": 117636,
+    "fps": 120,
+    "decoding_joint_comparisons": 549,
+    "evidence": "capture-verification-summary.json"
+  },
+  "preserved": [
+    "source/raw_bvh_data.zip",
+    "source/raw_bvh_data/",
+    "source/figshare-metadata.json",
+    "source-manifest.json",
+    "capture-analysis.json",
+    "capture-selection.json",
+    "capture-source-verification.json",
+    "capture-verification-summary.json",
+    "companion-validation.json",
+    "tools/dcc/labrador_pet*.py",
+    "tools/unity_migration/run_pet_transaction_tests.py",
+    "unity-game/Assets/RPG/Gameplay/Pets/",
+    "unity-game/Assets/RPG/GameplayTests/PlayMode/Pets/",
+    "unity-game/Builds/MusimusihanRPG.app",
+    "Existing Shepherd originals and launch links"
+  ],
+  "cleanup": {
+    "status": "Removed verified task-only files",
+    "files": [
+      {
+        "path": "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/labrador-pet-20261005/validation/transactions.xml",
+        "bytes": 8975,
+        "allocated_bytes": 12288
+      },
+      {
+        "path": "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/labrador-pet-20261005/validation/companion.xml",
+        "bytes": 14267,
+        "allocated_bytes": 16384
+      },
+      {
+        "path": "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/labrador-pet-20261005/validation/transactions.log",
+        "bytes": 71230,
+        "allocated_bytes": 73728
+      },
+      {
+        "path": "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/labrador-pet-20261005/validation/companion.log",
+        "bytes": 226612,
+        "allocated_bytes": 229376
+      },
+      {
+        "path": "/Users/byeolee/Projects/musimusihan-rpg/tools/dcc/__pycache__/labrador_pet_capture_index.cpython-312.pyc",
+        "bytes": 16325,
+        "allocated_bytes": 16384
+      },
+      {
+        "path": "/Users/byeolee/Projects/musimusihan-rpg/tools/dcc/__pycache__/labrador_pet_bvh.cpython-313.pyc",
+        "bytes": 12465,
+        "allocated_bytes": 16384
+      },
+      {
+        "path": "/Users/byeolee/Projects/musimusihan-rpg/tools/dcc/__pycache__/labrador_pet_bvh.cpython-312.pyc",
+        "bytes": 12314,
+        "allocated_bytes": 16384
+      },
+      {
+        "path": "/private/tmp/labrador-source-verify.log",
+        "bytes": 4482,
+        "allocated_bytes": 8192
+      },
+      {
+        "path": "/private/tmp/labrador-figshare-metadata.json",
+        "bytes": 6306,
+        "allocated_bytes": 8192
+      },
+      {
+        "path": "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/labrador-pet-20261005/transaction-validation.json",
+        "bytes": 1672,
+        "allocated_bytes": 4096
+      },
+      {
+        "path": "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/labrador-pet-20261005/test_room-validation.json",
+        "bytes": 3122,
+        "allocated_bytes": 4096
+      }
+    ],
+    "allocated_bytes_removed": 405504,
+    "logical_bytes_removed": 377770,
+    "temporary_test_projects": "Three isolated projects removed automatically by the runner; their allocation was not measured",
+    "actual_recovered_space": "Not isolated from APFS shared blocks and concurrent disk activity",
+    "current_free_bytes": 10076160000
+  }
+}

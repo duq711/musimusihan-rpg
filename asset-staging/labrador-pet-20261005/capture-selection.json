@@ -1,0 +1,148 @@
+{
+  "status": "Source candidate selection only; model download/rig inspection pending. No finished Labrador clips or Unity integration are claimed.",
+  "source_units": "Centimetres; Y up; all per-joint XYZ channels are absolute local positions, not offsets to add to OFFSET.",
+  "source_fps": 120,
+  "clips": [
+    {
+      "motion": "IdleNeutral",
+      "file": "source/raw_bvh_data/dog_idle_002.bvh",
+      "raw_frames_zero_based": [
+        8,
+        248
+      ],
+      "fps": 120.0000480000192,
+      "duration_seconds": 1.9999992,
+      "reverse": false,
+      "note": "Quiet standing source candidate; original model idle can also be retained."
+    },
+    {
+      "motion": "Walk",
+      "file": "source/raw_bvh_data/dog_quad_walk_002.bvh",
+      "raw_frames_zero_based": [
+        14132,
+        14224
+      ],
+      "fps": 120.0000480000192,
+      "duration_seconds": 0.76666636,
+      "reverse": false,
+      "note": "Measured cycle candidate: pose RMS 0.4115cm and heading drift 0.7088deg. Needs seamless-loop reconciliation after rig mapping."
+    },
+    {
+      "motion": "Run",
+      "file": "source/raw_bvh_data/dog_fast_run_02_006.bvh",
+      "raw_frames_zero_based": [
+        2944,
+        2992
+      ],
+      "fps": 120.0000480000192,
+      "duration_seconds": 0.39999984,
+      "reverse": false,
+      "note": "Fast measured locomotion candidate at 4.477m/s; preserve captured four-leg timing. Pose RMS1.5266cm and heading drift4.1403deg. Visual gait classification pending."
+    },
+    {
+      "motion": "Trot",
+      "file": "source/raw_bvh_data/dog_quad_run_001.bvh",
+      "raw_frames_zero_based": [
+        4096,
+        4164
+      ],
+      "fps": 120.0000480000192,
+      "duration_seconds": 0.56666644,
+      "reverse": false,
+      "note": "Optional moderate-speed cycle at1.8346m/s; visually confirm gait after mapping."
+    },
+    {
+      "motion": "HeadLower",
+      "file": "source/raw_bvh_data/dog_hit_001.bvh",
+      "raw_frames_zero_based": [
+        3080,
+        3200
+      ],
+      "fps": 120.0000480000192,
+      "duration_seconds": 0.9999996,
+      "reverse": false,
+      "note": "Captured head/neck/body lowering, for sniff/retrieve/eat setup; this is not evidence that the original action was sniffing or eating."
+    },
+    {
+      "motion": "HeadDownHold",
+      "file": "source/raw_bvh_data/dog_hit_001.bvh",
+      "raw_frames_zero_based": [
+        3200,
+        3400
+      ],
+      "fps": 120.0000480000192,
+      "duration_seconds": 1.666666,
+      "reverse": false,
+      "note": "Measured low-head stationary pose: head joint~21-23cm, hips~59cm. Add only rig-appropriate jaw/grip details."
+    },
+    {
+      "motion": "HeadRise",
+      "file": "source/raw_bvh_data/dog_hit_001.bvh",
+      "raw_frames_zero_based": [
+        3400,
+        3520
+      ],
+      "fps": 120.0000480000192,
+      "duration_seconds": 0.9999996,
+      "reverse": false,
+      "note": "Captured lift from head-down posture into standing."
+    },
+    {
+      "motion": "PetSit",
+      "file": "source/raw_bvh_data/dog_back_002.bvh",
+      "raw_frames_zero_based": [
+        900,
+        1100
+      ],
+      "fps": 120.0000480000192,
+      "duration_seconds": 1.666666,
+      "reverse": false,
+      "note": "Real seated transition candidate: hips56.3cm to10.4cm, chest56.4cm to49.8cm, head76.2cm to81.9cm. Final model/contact visual review required."
+    },
+    {
+      "motion": "PetSeatedHold",
+      "file": "source/raw_bvh_data/dog_back_002.bvh",
+      "raw_frames_zero_based": [
+        1100,
+        1440
+      ],
+      "fps": 120.0000480000192,
+      "duration_seconds": 2.8333322,
+      "reverse": false,
+      "note": "Real seated weight shift; can support petting response with mapped neck/head/ear details and authored tail. Does not include a human hand."
+    },
+    {
+      "motion": "PetRise",
+      "file": "source/raw_bvh_data/dog_back_002.bvh",
+      "raw_frames_zero_based": [
+        900,
+        1100
+      ],
+      "fps": 120.0000480000192,
+      "duration_seconds": 1.666666,
+      "reverse": true,
+      "note": "Reverse of measured seated transition candidate. Deliberate reverse playback, not a separately captured rise."
+    }
+  ],
+  "unrecorded_required_actions": [
+    "Combat bite contact and jaw close",
+    "Item pickup attach/grip/drop",
+    "Chewing and eating jaw details",
+    "Petting-specific look/ear/tail response"
+  ],
+  "source_detail_limits": {
+    "jaw": "Dog_Jaw has constant recorded angles in the six inspected captures; do not claim real jaw mocap.",
+    "tail": "b_Tail001 has measured rotation; sampled distal b_Tail005 is constant. Preserve captured tail base and author anatomically appropriate distal follow-through only after skin inspection.",
+    "source_variants": "32 files contain76 joints/61 animated joints/366 channels; dog_zig_walk_002 has75 joints/60 animated joints/360 channels. Avoid assuming every capture has exactly the same helper bones."
+  },
+  "retarget_plan": [
+    "Inspect actual model armature/skin/rest matrices and neutral idle before mapping.",
+    "Normalize captured heading and planar root travel for in-place clips while retaining vertical pelvis displacement and measured stance/swing timing.",
+    "Calibrate world rotation deltas to a common neutral dog pose; retain model bone lengths/skin transforms.",
+    "Use mapped source paw targets with stance-only contact IK. Record reach residuals and preserve swing feet.",
+    "Preserve original idle and add jaw/grip/ear/tail details only on supported bones; include animation events for gameplay.",
+    "Review skinned side/three-quarter poses and loop transitions before rendering preview or installing prefab."
+  ],
+  "verification_file": "capture-source-verification.json",
+  "analysis_file": "capture-analysis.json"
+}

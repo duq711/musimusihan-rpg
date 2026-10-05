@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "unity_version": "6000.3.25f1",
+  "result": "Passed",
+  "total": "16",
+  "passed": "16",
+  "failed": "0",
+  "skipped": "0",
+  "completed_utc": "2026-10-05 08:30:54Z",
+  "tests": [
+    "MusimusihanRpg.Tests.LabradorCompanionTests.BlockedGroundRoutesAroundWallsAndNeverCrossesUnsupportedSpace",
+    "MusimusihanRpg.Tests.LabradorCompanionTests.CancelAndWorldIsolationBeforeEatingPreserveActualFood",
+    "MusimusihanRpg.Tests.LabradorCompanionTests.DeathPauseAndNonExplorationPagesRejectPetCommands",
+    "MusimusihanRpg.Tests.LabradorCompanionTests.F2DeactivationPreservesAnInFlightSearchStateAndWorldClaim",
+    "MusimusihanRpg.Tests.LabradorCompanionTests.FeedingPaysAtTheEatingContactAndNeverTwice",
+    "MusimusihanRpg.Tests.LabradorCompanionTests.PettingLocksOnlyTheRealPlayerAndFinishesOnceWhilePauseFreezesIt",
+    "MusimusihanRpg.Tests.LabradorCompanionTests.ReservedHiddenItemIsNotTeleportedOrRevealedByAnUnreachableRoute",
+    "MusimusihanRpg.Tests.PetTransactionsTests.ChangingToAnIsolatedTrialBagDoesNotConsumeOriginalOrTrialFood",
+    "MusimusihanRpg.Tests.PetTransactionsTests.ContactWindowAcceptsAnOvershootExactlyOnceAndRejectsInvalidTime",
+    "MusimusihanRpg.Tests.PetTransactionsTests.EmptyAndNegativeStacksCannotBecomeRewards",
+    "MusimusihanRpg.Tests.PetTransactionsTests.FullBagKeepsTheOriginalItemAvailableForLaterDelivery",
+    "MusimusihanRpg.Tests.PetTransactionsTests.InventorySubscriberReentryCannotDuplicateCarriedLoot",
+    "MusimusihanRpg.Tests.PetTransactionsTests.PartialDeliveryConservesUnitsAndNeverMergesDifferentInstances",
+    "MusimusihanRpg.Tests.PetTransactionsTests.ReplacedIdenticalFoodCannotBeConsumedByAStaleCareAction",
+    "MusimusihanRpg.Tests.PetTransactionsTests.ReservedWorldStackRetainsItsExactInstanceAndPaysOnlyOnce",
+    "MusimusihanRpg.Tests.PetTransactionsTests.ReservingFoodDoesNotConsumeItAndCommitRemovesExactlyOneUnit"
+  ],
+  "tested_files": {
+    "unity-game/Assets/RPG/Gameplay/Pets/PetTransactions.cs": "6b023cd73f220479a91a33168b7cb3836c737e10cd527d84cf62e54609e9b0ff",
+    "unity-game/Assets/RPG/GameplayTests/PlayMode/Pets/PetTransactionsTests.cs": "f1c74eeba2877d3d023eb8a76b34c44ababa6f8c9b008537ac4f43c182ed00e6",
+    "unity-game/Assets/RPG/Gameplay/Pets/LabradorCompanion.cs": "47838d072da9d6374028ffe1571ef61a3d11803680569b150b6ab7cda7351fb0",
+    "unity-game/Assets/RPG/Gameplay/Pets/PetAnimationPlayer.cs": "a9176527e5b145d2121ac6473cdf22e3bb3dc99f22d0bbe4babbbe11b6272e1a",
+    "unity-game/Assets/RPG/Gameplay/Pets/PetFindableItem.cs": "4313a42f901e71c8ded40295f88fb0012ca2e827a7342bdffa4f9df898d1c907",
+    "unity-game/Assets/RPG/Gameplay/Pets/PetWalkRoute.cs": "e1ce06564437bf8651f0595234f80c4c820223008324822b21ae2576ae943e8e",
+    "unity-game/Assets/RPG/GameplayTests/PlayMode/Pets/LabradorCompanionTests.cs": "83be6d9d556c432d969c177cac4bf3b5268a17cd4f4cc5b220b10f25d7086eb9"
+  },
+  "limitations": [
+    "Production companion behavior with explicit collision-only model and clip fixtures.",
+    "Actual Labrador model, authored motions, final rendering and native-game/F2 menu integration are not verified."
+  ]
+}

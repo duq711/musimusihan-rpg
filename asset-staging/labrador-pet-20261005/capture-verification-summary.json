@@ -1,0 +1,371 @@
+{
+  "scope": "Completed raw capture analysis and preparation only. Selected Labrador model download/inspection, finished retargeting and installation remain pending account authorization.",
+  "archive": {
+    "file": "asset-staging/labrador-pet-20261005/source/raw_bvh_data.zip",
+    "bytes": 73545752,
+    "sha256": "651a4099b4660f898a5bfcd24769ba4142a0ec30daa328a2aebc3d31b51b8b34",
+    "md5": "746d592726eb7411f084518bfa1f3791",
+    "official_md5": "746d592726eb7411f084518bfa1f3791",
+    "official_md5_match": true
+  },
+  "source_files": 33,
+  "source_bytes": 371140520,
+  "raw_frames": 117636,
+  "all_extracted_sha256_matches": true,
+  "skeleton_variants": [
+    {
+      "files": 32,
+      "joints_including_end_sites": 76,
+      "animated_joints": 61,
+      "channels": 366
+    },
+    {
+      "files": 1,
+      "joints_including_end_sites": 75,
+      "animated_joints": 60,
+      "channels": 360
+    }
+  ],
+  "variant_note": "dog_zig_walk_002 lacks b_Tail009 and its End Site, ending b_Tail008 with its End Site instead.",
+  "verification": {
+    "pass": true,
+    "captures": 3,
+    "frames": 9,
+    "joint_position_comparisons": 549,
+    "max_error_m": 1.7707320142094813e-06,
+    "tolerance_m": 0.0002
+  },
+  "syntax_valid_helpers": [
+    "tools/dcc/labrador_pet_bvh.py",
+    "tools/dcc/labrador_pet_capture_index.py",
+    "tools/dcc/labrador_pet_retarget.py",
+    "tools/dcc/labrador_pet_source_verify.py"
+  ],
+  "reports": [
+    {
+      "file": "asset-staging/labrador-pet-20261005/capture-analysis.json",
+      "bytes": 82516,
+      "sha256": "0ef662d03b464938fccbe84d007546d3f2e93fd1962ee1fdf69dcfe544a5d2ac"
+    },
+    {
+      "file": "asset-staging/labrador-pet-20261005/capture-selection.json",
+      "bytes": 5780,
+      "sha256": "fe2a00d1bf8d1abe07512ae017cb26af7c800ff94077295c658756559d30e3d2"
+    },
+    {
+      "file": "asset-staging/labrador-pet-20261005/capture-source-verification.json",
+      "bytes": 2476,
+      "sha256": "fdf9ede5e214bfdf7697570e7b12d890ebfac858622cf279d51683f246c57e2c"
+    }
+  ],
+  "helpers": [
+    {
+      "file": "tools/dcc/labrador_pet_bvh.py",
+      "bytes": 7619,
+      "sha256": "bd3cc7fefbd6fd17963b1839cb6769e8dc0f06f494b12ef2527a9905d9ba653e"
+    },
+    {
+      "file": "tools/dcc/labrador_pet_capture_index.py",
+      "bytes": 8997,
+      "sha256": "315b34115ecae9f7717efd113dd9a176773e26e14c5e907b742d51e25f069e67"
+    },
+    {
+      "file": "tools/dcc/labrador_pet_retarget.py",
+      "bytes": 7413,
+      "sha256": "fd9a6eed243dab3e87b016482627a24097dfe61a9400e494adca2bee71271862"
+    },
+    {
+      "file": "tools/dcc/labrador_pet_source_verify.py",
+      "bytes": 3340,
+      "sha256": "78d8287a54414fb34e87d5bdb02dd9de033039dc0502d113a79e4e3e54dcc297"
+    }
+  ],
+  "temporary_outputs_for_root_cleanup": [
+    {
+      "path": "/private/tmp/labrador-source-verify.log",
+      "bytes": 4482,
+      "allocated_bytes": 8192
+    },
+    {
+      "path": "/Users/byeolee/Projects/musimusihan-rpg/tools/dcc/__pycache__/labrador_pet_capture_index.cpython-312.pyc",
+      "bytes": 16325,
+      "allocated_bytes": 16384
+    },
+    {
+      "path": "/Users/byeolee/Projects/musimusihan-rpg/tools/dcc/__pycache__/labrador_pet_bvh.cpython-313.pyc",
+      "bytes": 12465,
+      "allocated_bytes": 16384
+    },
+    {
+      "path": "/Users/byeolee/Projects/musimusihan-rpg/tools/dcc/__pycache__/labrador_pet_bvh.cpython-312.pyc",
+      "bytes": 12314,
+      "allocated_bytes": 16384
+    }
+  ],
+  "sources": [
+    {
+      "file": "source/raw_bvh_data/dog_quad_walkrun_007.bvh",
+      "bytes": 2538163,
+      "sha256": "139e928f2e245f95c3b30e8738fb58872a649671b8badde1d936eef5e10c7eac",
+      "archive_entry": "raw_bvh_data/dog_quad_walkrun_007.bvh",
+      "archive_sha256": "139e928f2e245f95c3b30e8738fb58872a649671b8badde1d936eef5e10c7eac",
+      "identical_to_archive": true
+    },
+    {
+      "file": "source/raw_bvh_data/dog_quad_walkrun_006.bvh",
+      "bytes": 3783603,
+      "sha256": "40f6bc6e9f1e308469fbbbf944e0dfbd6e176517adcc78e08b77cb83783ce013",
+      "archive_entry": "raw_bvh_data/dog_quad_walkrun_006.bvh",
+      "archive_sha256": "40f6bc6e9f1e308469fbbbf944e0dfbd6e176517adcc78e08b77cb83783ce013",
+      "identical_to_archive": true
+    },
+    {
+      "file": "source/raw_bvh_data/dog_play_001.bvh",
+      "bytes": 15636973,
+      "sha256": "27870d5411cbb90716a5f623b4eb82d62f04e0f3089ff13f6cad62d11859f126",
+      "archive_entry": "raw_bvh_data/dog_play_001.bvh",
+      "archive_sha256": "27870d5411cbb90716a5f623b4eb82d62f04e0f3089ff13f6cad62d11859f126",
+      "identical_to_archive": true
+    },
+    {
+      "file": "source/raw_bvh_data/dog_quad_walkrun_005.bvh",
+      "bytes": 3511843,
+      "sha256": "4cfa282d0398d63d6ea801547784941c3a4e17470f520af6009486ef5b659bee",
+      "archive_entry": "raw_bvh_data/dog_quad_walkrun_005.bvh",
+      "archive_sha256": "4cfa282d0398d63d6ea801547784941c3a4e17470f520af6009486ef5b659bee",
+      "identical_to_archive": true
+    },
+    {
+      "file": "source/raw_bvh_data/dog_play_002.bvh",
+      "bytes": 17937482,
+      "sha256": "b35c5669efd31f4d77108ec12e88d96ca68913219970d4b1bfd0255c1bb722a9",
+      "archive_entry": "raw_bvh_data/dog_play_002.bvh",
+      "archive_sha256": "b35c5669efd31f4d77108ec12e88d96ca68913219970d4b1bfd0255c1bb722a9",
+      "identical_to_archive": true
+    },
+    {
+      "file": "source/raw_bvh_data/dog_star_walk_001.bvh",
+      "bytes": 25086963,
+      "sha256": "8973e4fd99a069fb2216145d07072f788dce964cd5bd91bcab51cc5820ad2bc4",
+      "archive_entry": "raw_bvh_data/dog_star_walk_001.bvh",
+      "archive_sha256": "8973e4fd99a069fb2216145d07072f788dce964cd5bd91bcab51cc5820ad2bc4",
+      "identical_to_archive": true
+    },
+    {
+      "file": "source/raw_bvh_data/dog_quad_walkrun_001.bvh",
+      "bytes": 3656200,
+      "sha256": "99656a6dc742c37fe9ff0334fcf3517ee678d6e76342cb09dedc29c40ccf5382",
+      "archive_entry": "raw_bvh_data/dog_quad_walkrun_001.bvh",
+      "archive_sha256": "99656a6dc742c37fe9ff0334fcf3517ee678d6e76342cb09dedc29c40ccf5382",
+      "identical_to_archive": true
+    },
+    {
+      "file": "source/raw_bvh_data/dog_star_walk_003.bvh",
+      "bytes": 14212285,
+      "sha256": "7d6e15cbae225cb344bc4de72c11a9768b5968da1c8c37873cbcec16ad76736c",
+      "archive_entry": "raw_bvh_data/dog_star_walk_003.bvh",
+      "archive_sha256": "7d6e15cbae225cb344bc4de72c11a9768b5968da1c8c37873cbcec16ad76736c",
+      "identical_to_archive": true
+    },
+    {
+      "file": "source/raw_bvh_data/dog_fast_run_02_004.bvh",
+      "bytes": 10054949,
+      "sha256": "a3107b91c03de1a7e2afc0e24b632abf907772cf962f1da72b3ee6d4f9535a4a",
+      "archive_entry": "raw_bvh_data/dog_fast_run_02_004.bvh",
+      "archive_sha256": "a3107b91c03de1a7e2afc0e24b632abf907772cf962f1da72b3ee6d4f9535a4a",
+      "identical_to_archive": true
+    },
+    {
+      "file": "source/raw_bvh_data/dog_fast_run_02_005.bvh",
+      "bytes": 9714100,
+      "sha256": "70c3f1eb3097d7a0c230ddc892790f21acbabe4e4e39385b150a50900daeccd0",
+      "archive_entry": "raw_bvh_data/dog_fast_run_02_005.bvh",
+      "archive_sha256": "70c3f1eb3097d7a0c230ddc892790f21acbabe4e4e39385b150a50900daeccd0",
+      "identical_to_archive": true
+    },
+    {
+      "file": "source/raw_bvh_data/dog_fast_run_02_007.bvh",
+      "bytes": 17140829,
+      "sha256": "a214798acdd5c025b3cbf2df568e71bf8df76184df969eb3c7459781aec62045",
+      "archive_entry": "raw_bvh_data/dog_fast_run_02_007.bvh",
+      "archive_sha256": "a214798acdd5c025b3cbf2df568e71bf8df76184df969eb3c7459781aec62045",
+      "identical_to_archive": true
+    },
+    {
+      "file": "source/raw_bvh_data/dog_fast_run_02_006.bvh",
+      "bytes": 12520958,
+      "sha256": "a132f3eceba3dead4c036d6888a09c175105a766f699e4a14de1c866aafe4027",
+      "archive_entry": "raw_bvh_data/dog_fast_run_02_006.bvh",
+      "archive_sha256": "a132f3eceba3dead4c036d6888a09c175105a766f699e4a14de1c866aafe4027",
+      "identical_to_archive": true
+    },
+    {
+      "file": "source/raw_bvh_data/dog_quad_walk_002.bvh",
+      "bytes": 57034359,
+      "sha256": "c058906c404b68c914760477476730c038b37312263126b1f9701b1d3943471c",
+      "archive_entry": "raw_bvh_data/dog_quad_walk_002.bvh",
+      "archive_sha256": "c058906c404b68c914760477476730c038b37312263126b1f9701b1d3943471c",
+      "identical_to_archive": true
+    },
+    {
+      "file": "source/raw_bvh_data/dog_zig_walk_002.bvh",
+      "bytes": 11156685,
+      "sha256": "1c214ea12130695904876e7529402b1fefad9c744801972d00ca8da0d1f82a7c",
+      "archive_entry": "raw_bvh_data/dog_zig_walk_002.bvh",
+      "archive_sha256": "1c214ea12130695904876e7529402b1fefad9c744801972d00ca8da0d1f82a7c",
+      "identical_to_archive": true
+    },
+    {
+      "file": "source/raw_bvh_data/dog_quad_walk_001.bvh",
+      "bytes": 41517552,
+      "sha256": "69d127faa9b6819424738b1a98f888adb28df5d031c5bdafa519ebcf6f1a3f10",
+      "archive_entry": "raw_bvh_data/dog_quad_walk_001.bvh",
+      "archive_sha256": "69d127faa9b6819424738b1a98f888adb28df5d031c5bdafa519ebcf6f1a3f10",
+      "identical_to_archive": true
+    },
+    {
+      "file": "source/raw_bvh_data/dog_zig_walk_001.bvh",
+      "bytes": 11710524,
+      "sha256": "a6b4196e7bdf33cbdc66bf915c429a8ae5c4448ef1d7bc07748e016b67b26cc2",
+      "archive_entry": "raw_bvh_data/dog_zig_walk_001.bvh",
+      "archive_sha256": "a6b4196e7bdf33cbdc66bf915c429a8ae5c4448ef1d7bc07748e016b67b26cc2",
+      "identical_to_archive": true
+    },
+    {
+      "file": "source/raw_bvh_data/dog_hit_001.bvh",
+      "bytes": 11245787,
+      "sha256": "a2cfc17d1cdc46f052695a88ff8699c4d24995753ad285560c5413ea2fdb7eb9",
+      "archive_entry": "raw_bvh_data/dog_hit_001.bvh",
+      "archive_sha256": "a2cfc17d1cdc46f052695a88ff8699c4d24995753ad285560c5413ea2fdb7eb9",
+      "identical_to_archive": true
+    },
+    {
+      "file": "source/raw_bvh_data/dog_jump_006.bvh",
+      "bytes": 5418082,
+      "sha256": "32d2ea4c8f4f5e9f52ec9f5415d8fdd6ad3aa923be32bdad3c38cf2c421acc40",
+      "archive_entry": "raw_bvh_data/dog_jump_006.bvh",
+      "archive_sha256": "32d2ea4c8f4f5e9f52ec9f5415d8fdd6ad3aa923be32bdad3c38cf2c421acc40",
+      "identical_to_archive": true
+    },
+    {
+      "file": "source/raw_bvh_data/dog_jump_007.bvh",
+      "bytes": 4947062,
+      "sha256": "1e88f91d42bed7469a1ee11f478662664193931f27f6769409d5424932c54a28",
+      "archive_entry": "raw_bvh_data/dog_jump_007.bvh",
+      "archive_sha256": "1e88f91d42bed7469a1ee11f478662664193931f27f6769409d5424932c54a28",
+      "identical_to_archive": true
+    },
+    {
+      "file": "source/raw_bvh_data/dog_back_001.bvh",
+      "bytes": 3090632,
+      "sha256": "44daa1d02d2bcdfccfcd885a5eed1dce4114805d90ff74f8b27e3f18c848de84",
+      "archive_entry": "raw_bvh_data/dog_back_001.bvh",
+      "archive_sha256": "44daa1d02d2bcdfccfcd885a5eed1dce4114805d90ff74f8b27e3f18c848de84",
+      "identical_to_archive": true
+    },
+    {
+      "file": "source/raw_bvh_data/dog_quad_run_002.bvh",
+      "bytes": 9402964,
+      "sha256": "387b099bcb997ccfa83d87ab473e3f93738bde35c949fc5ab23c700b5ae0eb57",
+      "archive_entry": "raw_bvh_data/dog_quad_run_002.bvh",
+      "archive_sha256": "387b099bcb997ccfa83d87ab473e3f93738bde35c949fc5ab23c700b5ae0eb57",
+      "identical_to_archive": true
+    },
+    {
+      "file": "source/raw_bvh_data/dog_jump_004.bvh",
+      "bytes": 7180404,
+      "sha256": "2261c599e24d7f8ca8490dac803655cb9b3bb6a26798c96b89609b13408a9fe4",
+      "archive_entry": "raw_bvh_data/dog_jump_004.bvh",
+      "archive_sha256": "2261c599e24d7f8ca8490dac803655cb9b3bb6a26798c96b89609b13408a9fe4",
+      "identical_to_archive": true
+    },
+    {
+      "file": "source/raw_bvh_data/dog_back_002.bvh",
+      "bytes": 4614161,
+      "sha256": "c58c917509cfb3c9ebfee97e88fc5f3317c09fbc1ff3f0ef463909aeed6655eb",
+      "archive_entry": "raw_bvh_data/dog_back_002.bvh",
+      "archive_sha256": "c58c917509cfb3c9ebfee97e88fc5f3317c09fbc1ff3f0ef463909aeed6655eb",
+      "identical_to_archive": true
+    },
+    {
+      "file": "source/raw_bvh_data/dog_quad_run_001.bvh",
+      "bytes": 13917150,
+      "sha256": "391af6b9cb7c14dd8168ae7ae7927b146cc3f1c9b8bc4644b9fc21c44fc6a2ab",
+      "archive_entry": "raw_bvh_data/dog_quad_run_001.bvh",
+      "archive_sha256": "391af6b9cb7c14dd8168ae7ae7927b146cc3f1c9b8bc4644b9fc21c44fc6a2ab",
+      "identical_to_archive": true
+    },
+    {
+      "file": "source/raw_bvh_data/dog_fast_run_02_008.bvh",
+      "bytes": 11564470,
+      "sha256": "84e6b49261d44b98a1331d88cfc59efd9c23beb7eb8a74915d55a25e266f748d",
+      "archive_entry": "raw_bvh_data/dog_fast_run_02_008.bvh",
+      "archive_sha256": "84e6b49261d44b98a1331d88cfc59efd9c23beb7eb8a74915d55a25e266f748d",
+      "identical_to_archive": true
+    },
+    {
+      "file": "source/raw_bvh_data/dog_jump_003.bvh",
+      "bytes": 3683436,
+      "sha256": "f623e84f02027090f7b341f489a2af938d221f9ebc7a0d584871466ad5b0414f",
+      "archive_entry": "raw_bvh_data/dog_jump_003.bvh",
+      "archive_sha256": "f623e84f02027090f7b341f489a2af938d221f9ebc7a0d584871466ad5b0414f",
+      "identical_to_archive": true
+    },
+    {
+      "file": "source/raw_bvh_data/dog_jump_002.bvh",
+      "bytes": 3562097,
+      "sha256": "118189e2c71e8ed82726d92ac6124263b731228b328bf77a128d39d2565627e5",
+      "archive_entry": "raw_bvh_data/dog_jump_002.bvh",
+      "archive_sha256": "118189e2c71e8ed82726d92ac6124263b731228b328bf77a128d39d2565627e5",
+      "identical_to_archive": true
+    },
+    {
+      "file": "source/raw_bvh_data/dog_idle_004.bvh",
+      "bytes": 4066280,
+      "sha256": "96fda0434caaf95106b0b3cbd557c22a9a0049b6a4dcaf6d40b89d2a87f14002",
+      "archive_entry": "raw_bvh_data/dog_idle_004.bvh",
+      "archive_sha256": "96fda0434caaf95106b0b3cbd557c22a9a0049b6a4dcaf6d40b89d2a87f14002",
+      "identical_to_archive": true
+    },
+    {
+      "file": "source/raw_bvh_data/dog_jump_high_002.bvh",
+      "bytes": 7881177,
+      "sha256": "1b47cfa36425b9f467b96d4c36c9dd0ca28efb27c592b278aec3ade59a4bd225",
+      "archive_entry": "raw_bvh_data/dog_jump_high_002.bvh",
+      "archive_sha256": "1b47cfa36425b9f467b96d4c36c9dd0ca28efb27c592b278aec3ade59a4bd225",
+      "identical_to_archive": true
+    },
+    {
+      "file": "source/raw_bvh_data/dog_idle_001.bvh",
+      "bytes": 9720055,
+      "sha256": "5cce9b9be502b28f65566a70b15b600bf5c4ea44eb5d304417f7596258f3c2a1",
+      "archive_entry": "raw_bvh_data/dog_idle_001.bvh",
+      "archive_sha256": "5cce9b9be502b28f65566a70b15b600bf5c4ea44eb5d304417f7596258f3c2a1",
+      "identical_to_archive": true
+    },
+    {
+      "file": "source/raw_bvh_data/dog_jump_high_001.bvh",
+      "bytes": 5772051,
+      "sha256": "a69f713a2be18fd0e31b44cce22b9fdf76a1c3f63614afa11b92bdc7d1c9f418",
+      "archive_entry": "raw_bvh_data/dog_jump_high_001.bvh",
+      "archive_sha256": "a69f713a2be18fd0e31b44cce22b9fdf76a1c3f63614afa11b92bdc7d1c9f418",
+      "identical_to_archive": true
+    },
+    {
+      "file": "source/raw_bvh_data/dog_idle_003.bvh",
+      "bytes": 4924391,
+      "sha256": "8643448e9899076a4d645d12c91d7e33659aec86649c77517276ef3eb7f6884b",
+      "archive_entry": "raw_bvh_data/dog_idle_003.bvh",
+      "archive_sha256": "8643448e9899076a4d645d12c91d7e33659aec86649c77517276ef3eb7f6884b",
+      "identical_to_archive": true
+    },
+    {
+      "file": "source/raw_bvh_data/dog_idle_002.bvh",
+      "bytes": 2936853,
+      "sha256": "735aa18a7ccbabb958743cc4f5ceb5be94e425e512bffdf894f466436e91ca12",
+      "archive_entry": "raw_bvh_data/dog_idle_002.bvh",
+      "archive_sha256": "735aa18a7ccbabb958743cc4f5ceb5be94e425e512bffdf894f466436e91ca12",
+      "identical_to_archive": true
+    }
+  ]
+}
