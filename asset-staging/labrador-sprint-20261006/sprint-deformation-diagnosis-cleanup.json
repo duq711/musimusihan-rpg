@@ -1,0 +1,25 @@
+{
+  "removed": [
+    {
+      "path": "/tmp/labrador-sprint-readonly-diagnose.py",
+      "files": 1,
+      "allocated_bytes": 4096,
+      "logical_bytes": 4061
+    },
+    {
+      "path": "/tmp/labrador-sprint-readonly-diagnosis",
+      "files": 3,
+      "allocated_bytes": 1044480,
+      "logical_bytes": 1036819
+    }
+  ],
+  "removed_files": 4,
+  "removed_allocated_bytes": 1048576,
+  "observed_free_change_bytes": 1044480,
+  "free_disk_bytes_now": 19359952896,
+  "preserved": [
+    "Acquired sources/final production/exports/current playable app",
+    "New reusable diagnostic probe and compact diagnosis receipt"
+  ],
+  "APFS_note": "Allocation and observed free change can differ with shared blocks/concurrent writes."
+}

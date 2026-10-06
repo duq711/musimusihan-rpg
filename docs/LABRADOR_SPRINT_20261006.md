@@ -53,3 +53,21 @@ Cleanup removed 297reviewed files, 3.376GB allocation. Observed free-space incre
 GitHub코드체크포인트: [`16f54b66`](https://github.com/duq711/musimusihan-rpg/commit/16f54b668c84bc490dd26ef2d16abd201f7d60e7) / `codex/labrador-pet-20261005`. GitHub ref·fetch한원격·로컬task ref가일치하며선택37개blob을대조했습니다. 현재작업HEAD와sharedindex는변경하지않았습니다. 마지막문서·영수증추가커밋은 publication영수증에이어기록합니다.
 
 GitHub code checkpoint: 16f54b668c84bc490dd26ef2d16abd201f7d60e7. GitHub ref, fetched remote and local task ref match, with37 selected blob hashes verified. Current worktree HEAD/shared index remain unchanged. A final documentation/receipt commit records this verification.
+
+## 사용자 지적 후 확인된 변형 결함 / Confirmed deformation after user feedback
+
+2026-10-06 사용자 화면의 0.63/0.70초(phase .90) 앞다리 변형을 다시 조사했습니다. 위 제작의 전체 피부품질 채택은 철회합니다. 앞선 접지·반복·기능검사의 통과는 보존하되 자연스러운 어깨 형태나 몸통 비침범을 보증하지 않습니다. 기존 시각 검토에서 이 결함을 놓쳤습니다.
+
+At .63/.70s, the user's screenshot exposed malformed forelegs. Overall skin-quality acceptance is withdrawn. Earlier support/loop/native functional results remain historical facts, but do not establish shoulder shape or absence of self-intersection. Visual review missed this defect.
+
+상완이 neutral보다 좌131.23°/우124.55° 회전해 팔꿈치가 어깨보다89.84/82.27mm 높아집니다. 손목 회수목표와 어깨 뒤쪽이동을 두본IK가 발끝 중심으로 풀면서 상완을 가슴 위·안쪽으로 접었습니다. 팔꿈치의 굽힘 부호가 맞아도 상완 방향·몸통간섭은 틀릴 수 있습니다. 혼합 스킨이 잘못된 자세를 따라 늘고 압축되어 혹과 파묻힘이 발생합니다.
+
+The endpoint-driven two-bone solution combines wrist recovery targets and posterior shoulder glide, rotating upper arms131.23°/124.55° and raising elbows89.84/82.27mm above shoulders. Correct elbow bend sign does not constrain humerus orientation or torso clearance. Blended skin follows this bad pose and bulges/collapses.
+
+비인접 가슴·앞다리 표면의 실제 edge–triangle 교차는 neutral0 / 이자세198쌍이며, 선택한 다리표면80삼각형의 면적이 neutral20%미만으로 압축됐습니다. 별도 torso/neck/통합fore영역 BVH검사는 neutral0 / 이자세232쌍을 확인했습니다. 영역·방법이 달라 합산하지 않으며 전체mesh 충돌량이나 침범깊이가 아닙니다. 근거는 `sprint-deformation-diagnosis.json`, 재사용검토도구는 `tools/dcc/diagnostics/labrador_sprint_deformation_probe.py`입니다.
+
+Exact edge–triangle probing found0 neutral versus198 selected nonadjacent chest/foreleg crossing pairs, with80 selected triangles below20% neutral area. Independent torso/neck/combined-fore BVH selection found0 versus232 pairs. These different selections are not summed and do not measure penetration depth or all-mesh collisions. The compact diagnosis and preserved probe retain the evidence.
+
+이 요청은 원인 진단이며 제작원본·출력·Unity자산·실행본을 수정하지 않았습니다. 후속 수정은 손목회수·어깨·상완방향·가슴밖 여유를 함께 제약하고 전주기의 자기교차와 접합부피부를 다시 확인해야 합니다.
+
+This request diagnoses the cause; production/exports/Unity assets/player remain unchanged. A correction requires joint wrist/shoulder/humerus constraints, chest clearance and whole-cycle self-intersection/junction-shape review.

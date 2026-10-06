@@ -1,0 +1,53 @@
+{
+  "status": "User-reported skin-quality failure confirmed; prior overall visual acceptance withdrawn",
+  "checked_utc": "2026-10-06T02:18:06.715105+00:00",
+  "production_sha256": "84e3e93166c6aadf78915d616bc035122da00a7d28a173e92e7403ebee0a1f02",
+  "phase": 0.9,
+  "time_s": 0.63,
+  "frame": 38.8,
+  "neutral_action": "IdleFriendly frame1",
+  "Run_upperarm_rotation_from_neutral_deg": {
+    "L": 131.23,
+    "R": 124.55
+  },
+  "elbow_above_shoulder_m": {
+    "L": 0.08984,
+    "R": 0.08227
+  },
+  "primary_cause": "Recovery wrist target + posterior shoulder glide + endpoint-only two-bone IK fold upper arms upward/backward into chest. Rest elbow bend sign is insufficient to constrain humerus orientation and torso clearance. Existing blended skin follows this bad pose, producing bulge, actual surface crossing and local area collapse.",
+  "confirmed_exact_edge_triangle_crossing_pairs": {
+    "neutral": 0,
+    "Run_phase_090": 198,
+    "by_region": {
+      "FrontShoulder.L_18": 0,
+      "FrontUpperLeg.L_17": 21,
+      "FrontLowerLeg.L_16": 83,
+      "FrontShoulder.R_21": 0,
+      "FrontUpperLeg.R_20": 21,
+      "FrontLowerLeg.R_19": 73
+    }
+  },
+  "triangles_under_20percent_neutral_area": 80,
+  "independent_BVH_confirmation": {
+    "neutral": 0,
+    "Run_phase_090": 232,
+    "note": "Different selection: torso/neck and combined fore upper/lower mean skin weights>.55, excludes shared-vertex pairs. Not same pair classification as edge-triangle probe; not a full-mesh collision count."
+  },
+  "previous_validation_gap": [
+    "Ground/support and root/loop continuity only; no forelimb-torso self-intersection metric",
+    "Elbow bend sign/angle does not constrain upper-arm orientation relative to shoulder/chest",
+    "Visual review missed proximal skin bulge and embedded forearms"
+  ],
+  "needed_correction": [
+    "Constrain shoulder/humerus orientation and torso clearance jointly with wrist recovery path",
+    "Re-evaluate skin shape/volume at all phases and actual final WebGL/native poses",
+    "Add nonadjacent forelimb-torso crossing and local deformation checks; do not infer quality from floor checks alone"
+  ],
+  "assets_runtime_changed": false,
+  "probe_tool": "tools/dcc/diagnostics/labrador_sprint_deformation_probe.py",
+  "probe_usage": "Mac Blender: load final blend with -b and run preserved probe with --python. Run from project root. Probe writes only /tmp QA and does not save blend/export.",
+  "limitations": [
+    "Counts are selected surface-pair crossings, not penetration depth/volume or all-mesh collision totals.",
+    "Model originals, current production/exports, Unity resources and playable app remain unchanged in this diagnosis."
+  ]
+}
