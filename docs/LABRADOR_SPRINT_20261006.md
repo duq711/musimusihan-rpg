@@ -49,3 +49,7 @@ Compact receipts preserve source-bound production/skin/reference/import/native/v
 검증 정리: 297파일, 할당 3.376GB 제거. 관측된 여유공간 증가는 3.337GB, 현재 17.763GB입니다. APFS공유블록·동시쓰기로 두수치를 구분합니다. 새 최종출력·현재실행본·원본·재사용도구와 현재Editor운영로그를 보존했습니다.
 
 Cleanup removed 297reviewed files, 3.376GB allocation. Observed free-space increase 3.337GB; free space now 17.763GB. APFSsharing/concurrent writes distinguish these figures. Final artifacts/current app/source/reusable tools and the resident Editor operational log remain preserved.
+
+GitHub코드체크포인트: [`16f54b66`](https://github.com/duq711/musimusihan-rpg/commit/16f54b668c84bc490dd26ef2d16abd201f7d60e7) / `codex/labrador-pet-20261005`. GitHub ref·fetch한원격·로컬task ref가일치하며선택37개blob을대조했습니다. 현재작업HEAD와sharedindex는변경하지않았습니다. 마지막문서·영수증추가커밋은 publication영수증에이어기록합니다.
+
+GitHub code checkpoint: 16f54b668c84bc490dd26ef2d16abd201f7d60e7. GitHub ref, fetched remote and local task ref match, with37 selected blob hashes verified. Current worktree HEAD/shared index remain unchanged. A final documentation/receipt commit records this verification.
