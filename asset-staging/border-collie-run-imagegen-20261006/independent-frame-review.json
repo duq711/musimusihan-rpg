@@ -1,0 +1,25 @@
+{
+  "status": "in_progress",
+  "method": "Independent visual inspection of each built-in-imagegen PNG using view_image.",
+  "limitations": [
+    "Visual reference image review; no claim of 3D anatomy verification, exact physical 60fps continuity, or guaranteed seamless loop.",
+    "Natural fur/ear changes permitted; stable breed identity, complete body framing, plausible four-leg anatomy, and ordered gait progression are reviewed."
+  ],
+  "invariants": [
+    "One athletic black-and-white Border Collie facing left in strict side view.",
+    "White muzzle/blaze/chest/neck ruff/distal paws and tail tip; black back and flanks, brown eye, swept semi-erect ears.",
+    "Full head, tail, and paws within frame; neutral gray studio and soft floor shadow; no collage, extra dog, labels, or watermark."
+  ],
+  "frames": [
+    {
+      "frame": 1,
+      "file": "export/frames/Frame_001.png",
+      "sha256": "f91de9a132e8fa0e832e5035f7ccebd77c6b6a21db07fd469fae7b63e9b95c5a",
+      "verdict": "pass",
+      "identity": "Seed identity established.",
+      "anatomy": "Four distinct paw ends visible; forelegs and hindlegs gathered under the body, all feet airborne. No extra/missing limb or grotesque joint observed.",
+      "framing": "Complete head, ears, tail tip and paws; neutral gray studio.",
+      "pose": "Gathered airborne phase 0."
+    }
+  ]
+}

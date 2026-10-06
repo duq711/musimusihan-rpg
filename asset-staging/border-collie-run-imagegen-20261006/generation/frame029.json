@@ -1,0 +1,31 @@
+{
+  "schema": "built-in-imagegen-selected-frame-v1",
+  "frame": 29,
+  "filename": "Frame_029.png",
+  "prompt": "Use case: photorealistic-natural.\nAsset type: ONE separate full-body running-dog animation reference image.\nPrimary request: a completely new photorealistic athletic black-and-white Border Collie, running naturally toward the LEFT in one specified instant of a gallop.\nScene/backdrop: matte warm-light-gray seamless studio floor and backdrop, soft natural contact shadow, no props.\nSubject: one healthy adult Border Collie with realistic medium-long black-and-white coat, white facial blaze, white muzzle, broad white neck/chest, white paws, black semi-prick ears, brown eyes, black nose, a black tail with white tip, and a slender athletic canine build. If the newly generated Border Collie seed is supplied, preserve its individual facial features and exact coat markings rather than inventing a different individual.\nComposition/framing: fixed strict side profile, LEFT-facing, full body including all four paws and the whole tail inside the frame, level camera at the torso, constant framing and dog scale. The near-side legs are the LEFT foreleg and LEFT hindleg; far-side legs are the RIGHT foreleg and RIGHT hindleg. Use a small natural silhouette offset so all four limbs remain identifiable, without rotating the camera.\nLighting/mood: consistent soft studio daylight, crisp real fur and anatomy, sharp fast-shutter action photograph, no motion blur.\nConstraints: exactly one dog and exactly four anatomically connected legs; elbows stay below the shoulder attachment and flex naturally; hind knees and hocks articulate as a real dog; paws are small natural canine paws. Keep the same head, coat, torso proportions, camera, background, lighting and frame crop throughout. Change only the stride pose, modest natural body-height/trunk motion and corresponding fur/ear/tail response. Keep the horizontal body center fixed; allow the body to descend naturally enough for the specified planted paws to meet the same floor, and rise modestly in aerial phases. The posture represents locomotion rather than shifting the dog across the composition.\nAvoid: Labrador features or reuse of the previous model, extra or missing legs, fused paws, mirrored duplicate limbs, arms bent upward into the chest, distorted joints, detached limbs, paws sunk below the floor, inflated joints, extreme spine bending, cartoon style, model turntable, 3D-render appearance, hand, collar, harness, text, numbers, labels, grids, contact sheets, multiple panels or montage. Deliver a SINGLE image of ONE instant, not multiple poses.\nStride instant: frame 29 of 42, nominal phase 0.666667; frame number and timing are metadata only and must NOT appear as text in the image.\nPose for this ONE image: The far forepaw rolls toward its toes behind the shoulder and is about to lift; the near forepaw still supports the body behind its shoulder with a gently extended elbow. Both hindlegs are now compact beneath the abdomen, knees forward and hocks flexed. The spine gathers for the next aerial phase.\nGenerate this one instant as its own complete image. Do not place any preceding or following poses in it.\nReference role: Image 1 is the exact dog identity/camera/framing reference; change its limb pose. Important pose geometry: LEFT-facing means BEHIND the shoulder is to the RIGHT on the page. Both front paws must touch the studio floor underneath the middle of the body, to the RIGHT of the shoulder, never ahead of the chest toward the head. The near front paw supports on the floor behind the shoulder, and the far front paw rests on its toes slightly farther to the right, about to lift. Both hind paws are folded in the air beneath the abdomen. Lower the torso naturally to accommodate these front support legs without lengthening them. Show exactly four separate limbs with four discernible paws. Preserve exact seed face, coat, horizontal center, whole tail, camera and 1536×1024 landscape crop.",
+  "reference_paths": [
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-20261006/export/frames/Frame_001.png"
+  ],
+  "default_source": "/Users/byeolee/.codex/generated_images/01a10f6c-c4af-7e40-a7f0-a0f113ff3db6/exec-225faffb-3b37-466f-a273-ddde0b3f15fa.png",
+  "selected_path": "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-20261006/export/frames/Frame_029.png",
+  "tool": "built-in image_gen",
+  "transparent_background": false,
+  "attempt_count": 3,
+  "default_attempt_sources": [
+    "/Users/byeolee/.codex/generated_images/01a10f6c-c4af-7e40-a7f0-a0f113ff3db6/exec-6de0ea16-1a0b-4198-ae74-5e467473b98b.png",
+    "/Users/byeolee/.codex/generated_images/01a10f6c-c4af-7e40-a7f0-a0f113ff3db6/exec-225faffb-3b37-466f-a273-ddde0b3f15fa.png",
+    "/Users/byeolee/.codex/generated_images/01a10f6c-c4af-7e40-a7f0-a0f113ff3db6/exec-3c60371c-5a4a-4452-b4a4-a767ac4d3006.png"
+  ],
+  "visual_review": {
+    "status": "selected",
+    "four_legs": true,
+    "full_body_and_tail": true,
+    "identity_and_background": true,
+    "limitations": "Near forepaw remains slightly ahead of shoulder despite explicit correction prompts; far forepaw is on toes, hind paws airborne. Generative 2D reference, not physically timed/3D ready motion."
+  },
+  "sha256": "615fd6ee0dc04d348a364e1deb8e63f9e02e92b9d73ac65d07a2ea0154c6c805",
+  "resolution": [
+    1536,
+    1024
+  ]
+}

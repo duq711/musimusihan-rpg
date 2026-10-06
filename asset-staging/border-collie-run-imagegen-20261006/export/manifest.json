@@ -1,0 +1,1063 @@
+{
+  "schema": "new-border-collie-original-frame-package-v1",
+  "created_at_utc": "2026-10-06T04:46:00.287309+00:00",
+  "frame_count": 42,
+  "subject": "New photorealistic black-and-white athletic Border Collie",
+  "generator": "built-in image_gen, one separate image per call",
+  "nominal_fps": 60,
+  "nominal_period_seconds": 0.7,
+  "image_processing": "none; exact selected default-source bytes",
+  "limits_ko": [
+    "2D 생성 참고 이미지이며 측정된 운동 또는 완성된 3D 게임 동작이 아닙니다.",
+    "접지·자세는 제작 지시이며 개별 표현과 연속성의 한계는 프레임 기록을 확인합니다."
+  ],
+  "limits_en": [
+    "Generative 2D references, not measured motion or completed 3D game animation.",
+    "Contacts and poses are intended art direction; see individual review limitations."
+  ],
+  "validation": {
+    "original_copies": 42,
+    "sha256_matches": 42,
+    "unique_images": 42,
+    "png_dimensions_1536_1024": 42
+  },
+  "frames": [
+    {
+      "frame": 1,
+      "file": "frames/Frame_001.png",
+      "sha256": "f91de9a132e8fa0e832e5035f7ccebd77c6b6a21db07fd469fae7b63e9b95c5a",
+      "bytes": 1902561,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "nominal_time_seconds": 0.0,
+      "cycle_phase": 0.0,
+      "stage": "gathered_aerial",
+      "label_ko": "모은 공중 자세",
+      "intended_ground_contacts": [],
+      "pose_description": "All four paws are off the floor. Both forelegs are comfortably folded below the chest, forepaws pointing down and slightly back; elbows remain low and naturally attached. Both hindlegs are tucked beneath the abdomen with knees forward and hocks folded. The spine is gently flexed. Keep the near and far paws separately readable; this is the start of the collected aerial phase, not a standing or trotting pose.",
+      "generation_record": "generation/frame001.json",
+      "exact_default_source_copy": true,
+      "visual_review": "Four connected legs; gathered aerial; new dog identity seed."
+    },
+    {
+      "frame": 2,
+      "file": "frames/Frame_002.png",
+      "sha256": "b704e249ec0bc2757919e7188634923e0be683ef6d46b7604456e41d25f7edd9",
+      "bytes": 1874254,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "nominal_time_seconds": 0.016666667,
+      "cycle_phase": 0.023809524,
+      "stage": "gathered_aerial",
+      "label_ko": "모은 자세에서 뒷발 내리기",
+      "intended_ground_contacts": [],
+      "pose_description": "Continue the compact aerial shape. The near hind knee remains forward while its hock begins to open and the paw moves a little lower toward the floor. The far hindleg remains more folded and slightly behind it. Forelegs remain folded under the chest. Body height and spine shape change only a little from the preceding instant.",
+      "generation_record": "generation/frame002.json",
+      "exact_default_source_copy": true,
+      "visual_review": "Four connected legs and full-body framing; collected aerial pose begins opening near hind hock."
+    },
+    {
+      "frame": 3,
+      "file": "frames/Frame_003.png",
+      "sha256": "bbf1d043b98f777a95617aecc0d8d9124671b778e1fa44bcf26e20f14a996c56",
+      "bytes": 1810641,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "nominal_time_seconds": 0.033333333,
+      "cycle_phase": 0.047619048,
+      "stage": "hind_reach",
+      "label_ko": "뒷발 착지 준비 1",
+      "intended_ground_contacts": [],
+      "pose_description": "The near hind paw reaches down beneath the front of the pelvis, with a softly bent knee and naturally unfolded hock. The far hind paw is still tucked a little higher and slightly forward. Forelegs remain lifted and curled beneath the chest, preparing their next forward swing. All four paws are still airborne; the trunk begins to descend gently.",
+      "generation_record": "generation/frame003.json",
+      "exact_default_source_copy": true,
+      "visual_review": "Four connected legs and paws; one hind hock opens while all paws remain airborne; fixed full-body framing and seed identity."
+    },
+    {
+      "frame": 4,
+      "file": "frames/Frame_004.png",
+      "sha256": "6861001ff53a72940110b06ac6972ec2b5c43088376eacf2d6088bcda749306d",
+      "bytes": 1813056,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "nominal_time_seconds": 0.05,
+      "cycle_phase": 0.071428571,
+      "stage": "hind_reach",
+      "label_ko": "뒷발 착지 준비 2",
+      "intended_ground_contacts": [],
+      "pose_description": "The near hind paw is now lower, approaching the studio floor beneath the pelvis and a little toward the head. The far hindleg follows with its knee flexed and paw higher. Both forepaws remain off the floor and clearly distinct. The back remains softly rounded, without an exaggerated arch.",
+      "generation_record": "generation/frame004.json",
+      "exact_default_source_copy": true,
+      "visual_review": {
+        "four_connected_legs": true,
+        "whole_body_in_frame": true,
+        "same_dog_identity": true,
+        "far_hindpaw_forward_of_near_hindpaw": true,
+        "intended_contacts": [],
+        "near_hindpaw_floor_gap": "Very small qualitative pre-contact gap; not a rig-measured contact.",
+        "continuity": "Far hindpaw now stays forward/left of near lowered paw in frame3→4→5, instead of swinging toward tail only in4.",
+        "status": "selected"
+      }
+    },
+    {
+      "frame": 5,
+      "file": "frames/Frame_005.png",
+      "sha256": "a43154fd2875814176ba456fab4e4b78b241f251c703d24cd37a7135a750a2f4",
+      "bytes": 1866220,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "nominal_time_seconds": 0.066666667,
+      "cycle_phase": 0.095238095,
+      "stage": "hind_reach",
+      "label_ko": "첫 뒷발 착지 직전",
+      "intended_ground_contacts": [],
+      "pose_description": "The near hind paw hovers just above the floor, ready to land. Its knee and hock stay slightly flexed rather than locked straight. The far hind paw follows higher and a little farther toward the head. Both forelegs are still in aerial recovery under the chest. This is almost hind touchdown, with no forepaw touching.",
+      "generation_record": "generation/frame005.json",
+      "exact_default_source_copy": true,
+      "visual_review": "Four connected limbs, near hind very close to floor; thin shadow clearance ambiguous versus first contact; qualitative phase accepted with this limit."
+    },
+    {
+      "frame": 6,
+      "file": "frames/Frame_006.png",
+      "sha256": "ff3e06ebd7994157e1ef333f7b8afd5886844d6556d357fdc25ac315faf14dc9",
+      "bytes": 1845831,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "nominal_time_seconds": 0.083333333,
+      "cycle_phase": 0.119047619,
+      "stage": "hind_touchdown",
+      "label_ko": "가까운 뒷발 착지",
+      "intended_ground_contacts": [
+        "near_hind"
+      ],
+      "pose_description": "The near hind paw makes the FIRST hind contact beneath and a little ahead of the hip, flat enough to support weight. The near knee and hock begin to compress naturally. The far hind paw remains just off the floor and slightly ahead of the near paw. Both forelegs are lifted and starting to unfold toward the head.",
+      "generation_record": "generation/frame006.json",
+      "exact_default_source_copy": true,
+      "visual_review": "Four connected legs; one hind paw planted, other hind paw lifted; forelegs beginning forward opening."
+    },
+    {
+      "frame": 7,
+      "file": "frames/Frame_007.png",
+      "sha256": "148bdae28c9ac0b5aa67cdd6e0780fbe7e003ebee92d5562f585a92e25b003b8",
+      "bytes": 1884127,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "nominal_time_seconds": 0.1,
+      "cycle_phase": 0.142857143,
+      "stage": "hind_loading",
+      "label_ko": "첫 뒷발 하중",
+      "intended_ground_contacts": [
+        "near_hind"
+      ],
+      "pose_description": "The near hind paw supports the descending pelvis; its knee and hock flex a little more. The far hind paw approaches the floor farther toward the head than the near paw. Forelegs open modestly forward and downward while remaining airborne. The chest stays stable, and the abdomen remains gently gathered.",
+      "generation_record": "generation/frame007.json",
+      "exact_default_source_copy": true,
+      "visual_review": "Four limbs; near hind support; far hind approaches modestly but remains higher than prompt's precise trajectory. Framing and identity preserved."
+    },
+    {
+      "frame": 8,
+      "file": "frames/Frame_008.png",
+      "sha256": "00e19a2bc5dbdfb50bf553012d674dca5f16fcaeb4da62d91bae774a5285bb93",
+      "bytes": 1890689,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "nominal_time_seconds": 0.116666667,
+      "cycle_phase": 0.166666667,
+      "stage": "hind_touchdown",
+      "label_ko": "먼 뒷발 착지",
+      "intended_ground_contacts": [
+        "near_hind",
+        "far_hind"
+      ],
+      "pose_description": "The far hind paw makes the SECOND hind contact slightly farther toward the head than the already grounded near hind paw. Both hindlegs now support the body with softly flexed knees and hocks. The forelegs begin extending ahead of the chest, with separate near and far paws. No forepaw is grounded.",
+      "generation_record": "generation/frame008.json",
+      "exact_default_source_copy": true,
+      "visual_review": "Both hind paws support floor, both forepaws airborne forward reach; four attached limbs/full dog. Exact left-right identification qualitative in strict side overlap."
+    },
+    {
+      "frame": 9,
+      "file": "frames/Frame_009.png",
+      "sha256": "db3bbe2cad5c7ae62a5a5aaa37e74583f98860b13d00af624cd798b9687b80f3",
+      "bytes": 1839498,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "nominal_time_seconds": 0.133333333,
+      "cycle_phase": 0.19047619,
+      "stage": "hind_support",
+      "label_ko": "두 뒷발 지지",
+      "intended_ground_contacts": [
+        "near_hind",
+        "far_hind"
+      ],
+      "pose_description": "Both hind paws remain on the floor. The pelvis moves forward relative to their support, so the near hindleg starts extending behind the hip while the far hindleg remains more compressed beneath it. Forelegs reach a little farther forward, elbows opening below the shoulders. The trunk begins lengthening from the collected shape.",
+      "generation_record": "generation/frame009.json",
+      "exact_default_source_copy": true,
+      "visual_review": "Four connected limbs; two hind contacts begin moving back relative to pelvis, forelegs reaching forward."
+    },
+    {
+      "frame": 10,
+      "file": "frames/Frame_010.png",
+      "sha256": "b623c9d57e0f44d123c498119a98cbf6c2c62f547d59c1a189bc90b90d0e53c3",
+      "bytes": 1866404,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "nominal_time_seconds": 0.15,
+      "cycle_phase": 0.214285714,
+      "stage": "hind_propulsion",
+      "label_ko": "뒷다리 밀기 1",
+      "intended_ground_contacts": [
+        "near_hind",
+        "far_hind"
+      ],
+      "pose_description": "The near hindleg extends rearward against its grounded paw, and the far hindleg takes increasing support beneath the pelvis. Both forelegs continue their forward reach with soft wrists and natural paw orientation. The back straightens gradually and the chest starts to rise; no sudden jump in body height.",
+      "generation_record": "generation/frame010.json",
+      "exact_default_source_copy": true,
+      "visual_review": "Four legs; grounded hind legs extend rearward; both forepaws airborne forward; fixed dog identity."
+    },
+    {
+      "frame": 11,
+      "file": "frames/Frame_011.png",
+      "sha256": "690d5532bbd2a212e37fd9ba387e5ae245585a7226e3cf3eb3fa74a139d9dccf",
+      "bytes": 1914870,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "nominal_time_seconds": 0.166666667,
+      "cycle_phase": 0.238095238,
+      "stage": "hind_propulsion",
+      "label_ko": "뒷다리 밀기 2",
+      "intended_ground_contacts": [
+        "near_hind",
+        "far_hind"
+      ],
+      "pose_description": "The near hind paw rolls onto its toes behind the pelvis, nearing lift-off; the far hind paw is still securely grounded and its hip, knee and hock extend in propulsion. Forepaws now reach ahead of the head-side chest while remaining airborne. The dog lengthens smoothly, with a restrained rise of the torso.",
+      "generation_record": "generation/frame011.json",
+      "exact_default_source_copy": true,
+      "visual_review": "Four connected legs; one hind paw at floor while trailing hind is near toe-off/airborne, slightly earlier liftoff than intended two-contact metadata. Anatomy and identity intact."
+    },
+    {
+      "frame": 12,
+      "file": "frames/Frame_012.png",
+      "sha256": "690c53ab98724fccbd54d22d7d3a808e591323f7974f71bc7eab52d597578e19",
+      "bytes": 1882266,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "nominal_time_seconds": 0.183333333,
+      "cycle_phase": 0.261904762,
+      "stage": "hind_liftoff",
+      "label_ko": "가까운 뒷발 떼기",
+      "intended_ground_contacts": [
+        "far_hind"
+      ],
+      "pose_description": "The near hind paw has just lifted off and trails naturally behind the pelvis. The far hind paw remains on the floor farther behind the hip, bearing the final hind support. Both forelegs extend forward with a small timing offset. Keep natural bends in the elbows and hocks, not rigid straight rods.",
+      "generation_record": "generation/frame012.json",
+      "exact_default_source_copy": true,
+      "visual_review": "Four legs; one hindpaw supports beneath/back of hip; trailing hindleg opens to rear airborne. Forelegs extending forward; full-body/identity retained."
+    },
+    {
+      "frame": 13,
+      "file": "frames/Frame_013.png",
+      "sha256": "62d5dc4ddd1d871522c15074a8e9e20e0c90de9348f3f8abf2078fb61fbb4301",
+      "bytes": 1867245,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "nominal_time_seconds": 0.2,
+      "cycle_phase": 0.285714286,
+      "stage": "hind_launch",
+      "label_ko": "마지막 뒷발 추진",
+      "intended_ground_contacts": [
+        "far_hind"
+      ],
+      "pose_description": "Only the far hind toes remain in contact as that leg pushes the dog forward and up; the near hindleg follows airborne behind it. The forelegs reach farther ahead, the near forepaw a little ahead of the far one. The spine approaches a gently extended shape, while the head remains level and alert.",
+      "generation_record": "generation/frame013.json",
+      "exact_default_source_copy": true,
+      "visual_review": "Four legs; final hind support, trailing leg extended; planted paw remains flatter than intended toe-only contact, recorded limit; full-body and seed identity preserved."
+    },
+    {
+      "frame": 14,
+      "file": "frames/Frame_014.png",
+      "sha256": "2c4908a1d85fe2d55cfc41f55c2cd7b00387280870c34ad808a403b0b0d0894e",
+      "bytes": 1870374,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "nominal_time_seconds": 0.216666667,
+      "cycle_phase": 0.30952381,
+      "stage": "hind_launch",
+      "label_ko": "뒷발 이륙 직후",
+      "intended_ground_contacts": [],
+      "pose_description": "The far hind toes have just left the floor. All four paws are now airborne. Both hindlegs extend rearward in a natural stagger while both forelegs reach toward the head-side front. The torso is starting the extended aerial phase, not a simultaneous four-leg bound.",
+      "generation_record": "generation/frame014.json",
+      "exact_default_source_copy": true,
+      "visual_review": "Four legs airborne, two forelegs reach left and two hindlegs right; fixed seed identity; transition to extended flight larger than precise single-frame interpolation."
+    },
+    {
+      "frame": 15,
+      "file": "frames/Frame_015.png",
+      "sha256": "fb17392d3ade38cc2dcaf6cd847a48667b4a91e31e6531f87ededeb62eb878f5",
+      "bytes": 1870450,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "nominal_time_seconds": 0.233333333,
+      "cycle_phase": 0.333333333,
+      "stage": "extended_aerial",
+      "label_ko": "뻗은 공중 자세 1",
+      "intended_ground_contacts": [],
+      "pose_description": "All four paws remain off the floor. Both forelegs reach forward and slightly down, near forepaw modestly ahead of the far forepaw; both hindlegs extend behind the pelvis, with the far hind paw modestly farther back. The back is gently lengthened, and the dog forms a clear forward-reaching running silhouette.",
+      "generation_record": "generation/frame015.json",
+      "exact_default_source_copy": true,
+      "visual_review": {
+        "four_connected_legs": true,
+        "whole_body_in_frame": true,
+        "same_dog_identity": true,
+        "intended_contact": "all four paws airborne",
+        "status": "selected"
+      }
+    },
+    {
+      "frame": 16,
+      "file": "frames/Frame_016.png",
+      "sha256": "9748eb67bfbcb8bd88b0a5274697a30aa2a426408889bae9093e74bede881bcb",
+      "bytes": 1868978,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "nominal_time_seconds": 0.25,
+      "cycle_phase": 0.357142857,
+      "stage": "extended_aerial",
+      "label_ko": "뻗은 공중 자세 2",
+      "intended_ground_contacts": [],
+      "pose_description": "Increase the foreleg reach and rearward hindleg stretch a little from the previous instant. The dog is fully airborne, the forepaws separated ahead of the chest and hindpaws separated behind the pelvis. Retain subtle bend at elbows and hocks, realistic limb lengths and a level head. The spine is extended but never bowed unnaturally.",
+      "generation_record": "generation/frame016.json",
+      "exact_default_source_copy": true,
+      "visual_review": {
+        "four_connected_legs": true,
+        "whole_body_in_frame": true,
+        "same_dog_identity": true,
+        "intended_contacts": [],
+        "status": "selected"
+      }
+    },
+    {
+      "frame": 17,
+      "file": "frames/Frame_017.png",
+      "sha256": "c7e9778601169684698d1dc0695e6a415528f93f5231530c66a022b13ec0ed7a",
+      "bytes": 1827321,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "nominal_time_seconds": 0.266666667,
+      "cycle_phase": 0.380952381,
+      "stage": "extended_aerial",
+      "label_ko": "최대 신전 접근",
+      "intended_ground_contacts": [],
+      "pose_description": "The airborne body approaches its broadest natural stride. The near foreleg reaches slightly farther forward than the far foreleg, and the hind pair trails behind with a small stagger. The legs are long and reaching, yet retain visible natural joint articulation. Keep torso proportions unchanged and the abdomen realistic.",
+      "generation_record": "generation/frame017.json",
+      "exact_default_source_copy": true,
+      "visual_review": {
+        "four_connected_legs": true,
+        "whole_body_in_frame": true,
+        "same_dog_identity": true,
+        "intended_contacts": [],
+        "status": "selected"
+      }
+    },
+    {
+      "frame": 18,
+      "file": "frames/Frame_018.png",
+      "sha256": "9ad224403aabd114dbc021c1b58239f4c89250affa329cb1323d150a8a6d4a02",
+      "bytes": 1852334,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "nominal_time_seconds": 0.283333333,
+      "cycle_phase": 0.404761905,
+      "stage": "extended_aerial",
+      "label_ko": "길게 뻗은 달리기",
+      "intended_ground_contacts": [],
+      "pose_description": "Show the broad extended aerial silhouette: forelegs reaching ahead and hindlegs trailing behind, all four paws visibly clear of the floor. The nearer forepaw is slightly farther toward the head than the farther forepaw. The farther hind paw is a little farther rearward. Back gently extended, muzzle level, tail streaming naturally behind without changing its length.",
+      "generation_record": "generation/frame018.json",
+      "exact_default_source_copy": true,
+      "visual_review": {
+        "four_connected_legs": true,
+        "whole_body_in_frame": true,
+        "same_dog_identity": true,
+        "intended_contacts": [],
+        "status": "selected"
+      }
+    },
+    {
+      "frame": 19,
+      "file": "frames/Frame_019.png",
+      "sha256": "1f3fda6e88d61451b52b0af653d8a9fbf90f4d14c49552a800c5183485d90325",
+      "bytes": 1889474,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "nominal_time_seconds": 0.3,
+      "cycle_phase": 0.428571429,
+      "stage": "extended_aerial",
+      "label_ko": "신전 공중 정점",
+      "intended_ground_contacts": [],
+      "pose_description": "Hold a near-maximum naturally stretched airborne stride with a slight progression: the far forepaw begins moving lower toward landing while the near forepaw remains a little farther forward and higher. Hindlegs are still trailing behind, and their knees begin the smallest recovery flexion. Keep all four paws off the floor.",
+      "generation_record": "generation/frame019.json",
+      "exact_default_source_copy": true,
+      "visual_review": {
+        "four_connected_legs": true,
+        "whole_body_in_frame": true,
+        "same_dog_identity": true,
+        "intended_contacts": [],
+        "near_far_attribution": "Qualitative photographic overlap; prompt specifies far first, not a rig-verified gait.",
+        "status": "selected"
+      }
+    },
+    {
+      "frame": 20,
+      "file": "frames/Frame_020.png",
+      "sha256": "f49290554d021a8aea4d6128b042325a737758c0860dbf5de2a92d09699dc2e2",
+      "bytes": 1851816,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "nominal_time_seconds": 0.316666667,
+      "cycle_phase": 0.452380952,
+      "stage": "fore_reach",
+      "label_ko": "앞발 착지 준비 1",
+      "intended_ground_contacts": [],
+      "pose_description": "The far foreleg lowers toward the floor ahead of the shoulder; the near foreleg remains farther forward and a little higher. Both hind knees begin folding from the rearward extension, bringing the hindpaws slowly inward. All four paws remain airborne. The chest descends smoothly without nose-diving.",
+      "generation_record": "generation/frame020.json",
+      "exact_default_source_copy": true,
+      "visual_review": {
+        "four_connected_legs": true,
+        "whole_body_in_frame": true,
+        "same_dog_identity": true,
+        "intended_contacts": [],
+        "status": "selected"
+      }
+    },
+    {
+      "frame": 21,
+      "file": "frames/Frame_021.png",
+      "sha256": "34ccbafab1b9788a09d039f19ae4253bf2403257c59f3e8a0103eb41dd922fc9",
+      "bytes": 1896837,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "nominal_time_seconds": 0.333333333,
+      "cycle_phase": 0.476190476,
+      "stage": "fore_reach",
+      "label_ko": "앞발 착지 준비 2",
+      "intended_ground_contacts": [],
+      "pose_description": "The far forepaw is closer to the floor in front of the shoulder, elbow softly flexed and wrist naturally aligned. The near forepaw remains just ahead of it and slightly higher. Hindlegs trail less far back as their knees and hocks begin recovering. The body is still airborne, with a gently extended trunk.",
+      "generation_record": "generation/frame021.json",
+      "exact_default_source_copy": true,
+      "visual_review": {
+        "four_connected_legs": true,
+        "whole_body_in_frame": true,
+        "same_dog_identity": true,
+        "intended_contacts": [],
+        "status": "selected"
+      }
+    },
+    {
+      "frame": 22,
+      "file": "frames/Frame_022.png",
+      "sha256": "e714d74eb152a977e1ee69a581e4b5fd0693cf4967280cff6fc6cfa6b7c9e54a",
+      "bytes": 1818860,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "nominal_time_seconds": 0.35,
+      "cycle_phase": 0.5,
+      "stage": "fore_reach",
+      "label_ko": "먼 앞발 착지 직전",
+      "intended_ground_contacts": [],
+      "pose_description": "The far forepaw hovers immediately above the floor ahead of its shoulder, ready to be the first fore contact. The near forepaw is visibly separate, farther toward the head and still off the floor. Both hindlegs are airborne and beginning their forward recovery. No paw is yet pressed into the floor.",
+      "generation_record": "generation/frame022.json",
+      "exact_default_source_copy": true,
+      "visual_review": {
+        "four_connected_legs": true,
+        "whole_body_in_frame": true,
+        "same_dog_identity": true,
+        "intended_contacts": [],
+        "status": "selected"
+      }
+    },
+    {
+      "frame": 23,
+      "file": "frames/Frame_023.png",
+      "sha256": "859e36bda6e984b542ffb8885b08e5c952a354b047139914a1b4ce356838ee9b",
+      "bytes": 1847558,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "nominal_time_seconds": 0.366666667,
+      "cycle_phase": 0.523809524,
+      "stage": "fore_touchdown",
+      "label_ko": "먼 앞발 착지",
+      "intended_ground_contacts": [
+        "far_fore"
+      ],
+      "pose_description": "The far forepaw makes the FIRST fore contact ahead of the shoulder, with a natural soft elbow and aligned wrist. The near forepaw remains a little farther ahead and slightly above the floor. Hindlegs are airborne, beginning to fold beneath the pelvis. The chest starts absorbing the landing without collapsing into the foreleg.",
+      "generation_record": "generation/frame023.json",
+      "exact_default_source_copy": true,
+      "visual_review": {
+        "four_connected_legs": true,
+        "whole_body_in_frame": true,
+        "same_dog_identity": true,
+        "intended_contacts": [
+          "far_fore"
+        ],
+        "status": "selected"
+      }
+    },
+    {
+      "frame": 24,
+      "file": "frames/Frame_024.png",
+      "sha256": "78892f30fc363853b646d2af722029786fd8fb98a15516d675c5b7817268cd77",
+      "bytes": 1856487,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "nominal_time_seconds": 0.383333333,
+      "cycle_phase": 0.547619048,
+      "stage": "fore_loading",
+      "label_ko": "첫 앞발 하중",
+      "intended_ground_contacts": [
+        "far_fore"
+      ],
+      "pose_description": "The far forepaw is grounded and begins bearing weight as the shoulder approaches over it. The near forepaw approaches the floor slightly farther toward the head than the far paw. Hind knees flex and swing forward, hocks folded comfortably. Keep a realistic smooth shoulder-to-elbow contour.",
+      "generation_record": "generation/frame024.json",
+      "exact_default_source_copy": true,
+      "visual_review": {
+        "four_connected_legs": true,
+        "whole_body_in_frame": true,
+        "same_dog_identity": true,
+        "intended_contacts": [
+          "far_fore"
+        ],
+        "status": "selected"
+      }
+    },
+    {
+      "frame": 25,
+      "file": "frames/Frame_025.png",
+      "sha256": "8b27dff13d5b7d20b84ca0aa17089270bedd243c20b84b471d4968082ca7a17e",
+      "bytes": 1856440,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "nominal_time_seconds": 0.4,
+      "cycle_phase": 0.571428571,
+      "stage": "fore_touchdown",
+      "label_ko": "가까운 앞발 착지",
+      "intended_ground_contacts": [
+        "far_fore",
+        "near_fore"
+      ],
+      "pose_description": "The near forepaw makes the SECOND fore contact farther toward the head than the far forepaw. Both forepaws now support the dog with naturally softened elbows and wrists. The hindlegs remain airborne and swing forward beneath the hips. The trunk begins gently flexing from the long airborne posture.",
+      "generation_record": "generation/frame025.json",
+      "exact_default_source_copy": true,
+      "visual_review": {
+        "four_connected_legs": true,
+        "whole_body_in_frame": true,
+        "same_dog_identity": true,
+        "intended_contacts": [
+          "far_fore",
+          "near_fore"
+        ],
+        "status": "selected"
+      }
+    },
+    {
+      "frame": 26,
+      "file": "frames/Frame_026.png",
+      "sha256": "fcdbcd4ee3e884a63e66b5276cab0fbf7fb93add31103779ed1e90a3dcec0fbc",
+      "bytes": 1854739,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "nominal_time_seconds": 0.416666667,
+      "cycle_phase": 0.595238095,
+      "stage": "fore_support",
+      "label_ko": "두 앞발 지지 1",
+      "intended_ground_contacts": [
+        "far_fore",
+        "near_fore"
+      ],
+      "pose_description": "The far foreleg is closer to vertical beneath its shoulder, while the near foreleg remains angled slightly forward with its paw grounded. Both front joints compress mildly under support. Hind knees swing farther forward beneath the abdomen, with distinct near and far paws. The chest lowers modestly and the spine begins gathering.",
+      "generation_record": "generation/frame026.json",
+      "exact_default_source_copy": true,
+      "visual_review": {
+        "four_connected_legs": true,
+        "whole_body_in_frame": true,
+        "same_dog_identity": true,
+        "intended_contacts": [
+          "far_fore",
+          "near_fore"
+        ],
+        "status": "selected"
+      }
+    },
+    {
+      "frame": 27,
+      "file": "frames/Frame_027.png",
+      "sha256": "387065944b4ac9969801039bc7cd8afd9161ea46cb918205ef5be6c1fb330b8f",
+      "bytes": 1875455,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "nominal_time_seconds": 0.433333333,
+      "cycle_phase": 0.619047619,
+      "stage": "fore_support",
+      "label_ko": "두 앞발 지지 2",
+      "intended_ground_contacts": [
+        "far_fore",
+        "near_fore"
+      ],
+      "pose_description": "The torso moves forward relative to the planted forepaws: the far forepaw is now slightly behind its shoulder, and the near forepaw is approaching beneath its shoulder. Both forelegs remain anatomically attached with low elbows. Hindlegs continue folding forward under the body. Back flexion increases only gently.",
+      "generation_record": "generation/frame027.json",
+      "exact_default_source_copy": true,
+      "visual_review": {
+        "four_connected_legs": true,
+        "whole_body_in_frame": true,
+        "same_dog_identity": true,
+        "intended_contacts": [
+          "far_fore",
+          "near_fore"
+        ],
+        "status": "selected"
+      }
+    },
+    {
+      "frame": 28,
+      "file": "frames/Frame_028.png",
+      "sha256": "53af94260b3bbe3ac261f9411092c27123cd499d676549af394fb61b024be689",
+      "bytes": 1857234,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "nominal_time_seconds": 0.45,
+      "cycle_phase": 0.642857143,
+      "stage": "fore_support",
+      "label_ko": "앞다리 중간 지지",
+      "intended_ground_contacts": [
+        "far_fore",
+        "near_fore"
+      ],
+      "pose_description": "Both forepaws remain grounded; the far foreleg reaches a little backward, and the near foreleg carries more support almost under the chest. Hind paws advance beneath the abdomen, near hind knee a little ahead of the far one. Maintain a natural compacting posture and stable head, with no foot sliding represented as stretched anatomy.",
+      "generation_record": "generation/frame028.json",
+      "exact_default_source_copy": true,
+      "visual_review": {
+        "four_connected_legs": true,
+        "whole_body_in_frame": true,
+        "same_dog_identity": true,
+        "intended_contacts": [
+          "far_fore",
+          "near_fore"
+        ],
+        "status": "selected"
+      }
+    },
+    {
+      "frame": 29,
+      "file": "frames/Frame_029.png",
+      "sha256": "615fd6ee0dc04d348a364e1deb8e63f9e02e92b9d73ac65d07a2ea0154c6c805",
+      "bytes": 1838624,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "nominal_time_seconds": 0.466666667,
+      "cycle_phase": 0.666666667,
+      "stage": "fore_propulsion",
+      "label_ko": "첫 앞발 발끝 지지",
+      "intended_ground_contacts": [
+        "far_fore",
+        "near_fore"
+      ],
+      "pose_description": "The far forepaw rolls toward its toes behind the shoulder and is about to lift; the near forepaw still supports the body behind its shoulder with a gently extended elbow. Both hindlegs are now compact beneath the abdomen, knees forward and hocks flexed. The spine gathers for the next aerial phase.",
+      "generation_record": "generation/frame029.json",
+      "exact_default_source_copy": true,
+      "visual_review": {
+        "status": "selected",
+        "four_legs": true,
+        "full_body_and_tail": true,
+        "identity_and_background": true,
+        "limitations": "Near forepaw remains slightly ahead of shoulder despite explicit correction prompts; far forepaw is on toes, hind paws airborne. Generative 2D reference, not physically timed/3D ready motion."
+      }
+    },
+    {
+      "frame": 30,
+      "file": "frames/Frame_030.png",
+      "sha256": "fdafe0ec20371911c36586febad5fe038d025fa6df6184108fc61ea2f4835d7d",
+      "bytes": 1840755,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "nominal_time_seconds": 0.483333333,
+      "cycle_phase": 0.69047619,
+      "stage": "fore_liftoff",
+      "label_ko": "먼 앞발 떼기",
+      "intended_ground_contacts": [
+        "near_fore"
+      ],
+      "pose_description": "The far forepaw has just lifted and its lower leg begins folding under the chest. The near forepaw remains on the floor behind the shoulder, providing the last strong fore support. Hind paws remain airborne beneath the belly, preparing their next landing. The chest starts rising gradually.",
+      "generation_record": "generation/frame030.json",
+      "exact_default_source_copy": true,
+      "visual_review": {
+        "status": "selected",
+        "four_legs": true,
+        "full_body_and_tail": true,
+        "identity_and_background": true,
+        "limitations": "Near front support paw is slightly ahead of shoulder; generative 2D reference, not physically timed or 3D ready."
+      }
+    },
+    {
+      "frame": 31,
+      "file": "frames/Frame_031.png",
+      "sha256": "c9e35b2c63e30f54cb650b0e3add1193cfa854145364ed2a900957b27d4446b3",
+      "bytes": 1823893,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "nominal_time_seconds": 0.5,
+      "cycle_phase": 0.714285714,
+      "stage": "fore_launch",
+      "label_ko": "마지막 앞발 지지",
+      "intended_ground_contacts": [
+        "near_fore"
+      ],
+      "pose_description": "Only the near forepaw is grounded, farther behind the shoulder; its wrist and toes align naturally while the elbow stays below the shoulder. The far foreleg folds into aerial recovery beneath the chest. Both hindlegs are compact and swung forward under the abdomen. The back is gently rounded, not sharply bent.",
+      "generation_record": "generation/frame031.json",
+      "exact_default_source_copy": true,
+      "visual_review": {
+        "status": "selected",
+        "four_legs": true,
+        "full_body_and_tail": true,
+        "identity_and_background": true,
+        "limitations": "Front support is close to vertical beneath shoulder rather than far behind; generative 2D reference, not physically timed or 3D ready."
+      }
+    },
+    {
+      "frame": 32,
+      "file": "frames/Frame_032.png",
+      "sha256": "686e4b2ae889f7fa14c99445bdaf86b6087791e890e0cddf480481f9af8a7eb4",
+      "bytes": 1828901,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "nominal_time_seconds": 0.516666667,
+      "cycle_phase": 0.738095238,
+      "stage": "fore_launch",
+      "label_ko": "가까운 앞발 발끝 지지",
+      "intended_ground_contacts": [
+        "near_fore"
+      ],
+      "pose_description": "The near forepaw is on its toes at the final moment of fore support behind the chest. The far forepaw is lifted and folded comfortably under the chest. Hind knees are forward beneath the abdomen and hindpaws stay clearly off the floor. The body begins lifting into gathered suspension.",
+      "generation_record": "generation/frame032.json",
+      "exact_default_source_copy": true,
+      "visual_review": {
+        "status": "selected",
+        "four_legs": true,
+        "full_body_and_tail": true,
+        "identity_and_background": true,
+        "limitations": "Front support paw is close to vertical beneath shoulder; intended toe-only lift-off is approximate. Generative 2D reference, not physically timed or 3D ready."
+      }
+    },
+    {
+      "frame": 33,
+      "file": "frames/Frame_033.png",
+      "sha256": "1857d34f864ba8574622aba31856dd8a815bff54302b45dc380efc281f9086ce",
+      "bytes": 1857625,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "nominal_time_seconds": 0.533333333,
+      "cycle_phase": 0.761904762,
+      "stage": "fore_liftoff",
+      "label_ko": "앞발 이륙",
+      "intended_ground_contacts": [],
+      "pose_description": "The near fore toes have just left the floor, so all four paws are airborne again. The near foreleg begins folding toward the already folded far foreleg. Both hindlegs are tucked beneath the abdomen with knees advanced naturally. The spine is gently flexed and the chest rises smoothly.",
+      "generation_record": "generation/frame033.json",
+      "exact_default_source_copy": true,
+      "visual_review": {
+        "status": "selected",
+        "four_legs": true,
+        "full_body_and_tail": true,
+        "identity_and_background": true,
+        "limitations": "Pose and exact stride timing remain generative; not physically timed or 3D ready."
+      }
+    },
+    {
+      "frame": 34,
+      "file": "frames/Frame_034.png",
+      "sha256": "9c19e698466e5fcfaa62ee8cfa1e827cd5729cbe12df4c497bed7d2d9b2ca556",
+      "bytes": 1837532,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "nominal_time_seconds": 0.55,
+      "cycle_phase": 0.785714286,
+      "stage": "gathered_aerial",
+      "label_ko": "모은 공중 자세 진입",
+      "intended_ground_contacts": [],
+      "pose_description": "All four paws are airborne. Forelegs fold below the chest with the far forepaw slightly farther back than the near one. Hindlegs gather under the belly, knees forward and hocks folded, with the near hind knee slightly leading. The limbs remain separate and anatomically attached; the back flexes mildly.",
+      "generation_record": "generation/frame034.json",
+      "exact_default_source_copy": true,
+      "visual_review": {
+        "status": "selected",
+        "four_legs": true,
+        "full_body_and_tail": true,
+        "identity_and_background": true,
+        "limitations": "Pose and exact stride timing remain generative; not physically timed or 3D ready."
+      }
+    },
+    {
+      "frame": 35,
+      "file": "frames/Frame_035.png",
+      "sha256": "1751adc88d7f4e45bc03ca86daca6d135cff578698831b214f448d92f141400f",
+      "bytes": 1821029,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "nominal_time_seconds": 0.566666667,
+      "cycle_phase": 0.80952381,
+      "stage": "gathered_aerial",
+      "label_ko": "공중 회수 1",
+      "intended_ground_contacts": [],
+      "pose_description": "The forelegs fold a little more into recovery under the chest, their paws low and slightly back. Hindlegs tuck farther forward beneath the abdomen, leaving visible separation between the near and far hocks. All four paws stay above the floor. The dog is compact but retains normal chest and belly volume.",
+      "generation_record": "generation/frame035.json",
+      "exact_default_source_copy": true,
+      "visual_review": {
+        "status": "selected",
+        "four_legs": true,
+        "full_body_and_tail": true,
+        "identity_and_background": true,
+        "limitations": "Pose and exact stride timing remain generative; not physically timed or 3D ready."
+      }
+    },
+    {
+      "frame": 36,
+      "file": "frames/Frame_036.png",
+      "sha256": "62f66da926e7eb70728a8c61349c4d0dedcb877ddbce08ee745c9a4b40afa0d8",
+      "bytes": 1843295,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "nominal_time_seconds": 0.583333333,
+      "cycle_phase": 0.833333333,
+      "stage": "gathered_aerial",
+      "label_ko": "공중 회수 2",
+      "intended_ground_contacts": [],
+      "pose_description": "Show a compact aerial recovery with both forepaws folded under the chest and both hindpaws tucked under the abdomen. The near hind knee is a little farther forward than the far knee; far forepaw sits a little farther back than the near forepaw. Mild spinal flexion and natural ear/fur response, without exaggeration.",
+      "generation_record": "generation/frame036.json",
+      "exact_default_source_copy": true,
+      "visual_review": {
+        "status": "selected",
+        "four_legs": true,
+        "full_body_and_tail": true,
+        "identity_and_background": true,
+        "limitations": "Far hindleg partly occluded in strict profile but its separate paw is visible. Pose and exact stride timing remain generative; not physically timed or 3D ready."
+      }
+    },
+    {
+      "frame": 37,
+      "file": "frames/Frame_037.png",
+      "sha256": "06124e5b554fce0d8b80bf115600730e1562f7ffee70682510869331882e013c",
+      "bytes": 1817650,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "nominal_time_seconds": 0.6,
+      "cycle_phase": 0.857142857,
+      "stage": "gathered_aerial",
+      "label_ko": "모은 공중 정점",
+      "intended_ground_contacts": [],
+      "pose_description": "The gathered aerial configuration reaches its compactest natural instant. All four paws are off the floor, forelegs folded beneath the chest, hind knees forward and hocks tucked beneath the belly. Preserve the same body length and head proportions; create the compact silhouette through normal joint bending rather than shortening limbs.",
+      "generation_record": "generation/frame037.json",
+      "exact_default_source_copy": true,
+      "visual_review": {
+        "status": "selected",
+        "four_legs": true,
+        "full_body_and_tail": true,
+        "identity_and_background": true,
+        "limitations": "Pose and exact stride timing remain generative; not physically timed or 3D ready."
+      }
+    },
+    {
+      "frame": 38,
+      "file": "frames/Frame_038.png",
+      "sha256": "7939794acf23f702e9bd84025ff34197817c4c82c85021bfbe632784723110f6",
+      "bytes": 1832757,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "nominal_time_seconds": 0.616666667,
+      "cycle_phase": 0.880952381,
+      "stage": "gathered_aerial",
+      "label_ko": "모은 자세 유지",
+      "intended_ground_contacts": [],
+      "pose_description": "Continue the compact airborne recovery with only a small advance. Forepaws remain folded beneath the chest; the near hind knee starts easing downward from the deepest tuck while the far hindleg stays slightly more flexed. The back is softly rounded and the head remains level. Each paw remains separately identifiable.",
+      "generation_record": "generation/frame038.json",
+      "exact_default_source_copy": true,
+      "visual_review": {
+        "status": "selected",
+        "four_legs": true,
+        "full_body_and_tail": true,
+        "identity_and_background": true,
+        "limitations": "Near hindpaw lowering is larger than the small catalog advance. Pose and exact stride timing remain generative; not physically timed or 3D ready."
+      }
+    },
+    {
+      "frame": 39,
+      "file": "frames/Frame_039.png",
+      "sha256": "9ab31c210b1553edb2d810a1bdb0086345a1c1cf0599655805f4d9eedc5db8cc",
+      "bytes": 1866722,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "nominal_time_seconds": 0.633333333,
+      "cycle_phase": 0.904761905,
+      "stage": "gathered_aerial",
+      "label_ko": "다음 착지로 전환 1",
+      "intended_ground_contacts": [],
+      "pose_description": "The near hind hock begins unfolding a little toward the next hind landing while its knee remains forward beneath the abdomen. The far hindleg follows more slowly. Forelegs remain folded under the chest with a small timing difference. All four paws are airborne; the body begins a restrained downward arc.",
+      "generation_record": "generation/frame039.json",
+      "exact_default_source_copy": true,
+      "visual_review": {
+        "status": "selected",
+        "four_legs": true,
+        "full_body_and_tail": true,
+        "identity_and_background": true,
+        "limitations": "Pose and exact stride timing remain generative; not physically timed or 3D ready."
+      }
+    },
+    {
+      "frame": 40,
+      "file": "frames/Frame_040.png",
+      "sha256": "f362a6518a24c71cfcd6a27c424db56d3719940212078dde1e758fb529d44145",
+      "bytes": 1834692,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "nominal_time_seconds": 0.65,
+      "cycle_phase": 0.928571429,
+      "stage": "gathered_aerial",
+      "label_ko": "다음 착지로 전환 2",
+      "intended_ground_contacts": [],
+      "pose_description": "The near hind paw moves modestly downward beneath the belly, still well above the floor; the far hind paw remains slightly higher. Both forelegs stay comfortably folded under the chest. The spine remains mildly flexed. Keep this instant very close to the surrounding gathered aerial poses.",
+      "generation_record": "generation/frame040.json",
+      "exact_default_source_copy": true,
+      "visual_review": {
+        "status": "selected",
+        "four_legs": true,
+        "full_body_and_tail": true,
+        "identity_and_background": true,
+        "limitations": "Pose and exact stride timing remain generative; not physically timed or 3D ready."
+      }
+    },
+    {
+      "frame": 41,
+      "file": "frames/Frame_041.png",
+      "sha256": "fe6d8c19f685b48301f5c808313f2c4901acc81086c7dace2c515e53ccfc16ad",
+      "bytes": 1838331,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "nominal_time_seconds": 0.666666667,
+      "cycle_phase": 0.952380952,
+      "stage": "gathered_aerial",
+      "label_ko": "다음 주기 준비",
+      "intended_ground_contacts": [],
+      "pose_description": "The dog remains airborne and gathered: forepaws folded below the chest, both hind knees tucked forward under the abdomen. The near hind paw starts moving lower toward the next hind touchdown and the far hindleg trails its timing slightly. Body height approaches the initial gathered pose; no paw contacts the floor.",
+      "generation_record": "generation/frame041.json",
+      "exact_default_source_copy": true,
+      "visual_review": {
+        "status": "selected",
+        "four_legs": true,
+        "full_body_and_tail": true,
+        "identity_and_background": true,
+        "limitations": "Pose and exact stride timing remain generative; not physically timed or 3D ready."
+      }
+    },
+    {
+      "frame": 42,
+      "file": "frames/Frame_042.png",
+      "sha256": "3535eaab858c82e15ee50cf396e94fcb8f3e66ea974acddfefe19b11c3efce75",
+      "bytes": 1847517,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "nominal_time_seconds": 0.683333333,
+      "cycle_phase": 0.976190476,
+      "stage": "gathered_aerial",
+      "label_ko": "첫 프레임 직전",
+      "intended_ground_contacts": [],
+      "pose_description": "This is the final instant immediately before the initial gathered aerial pose returns. All four paws remain off the floor, both forelegs folded below the chest and both hindlegs tucked beneath the abdomen. Near and far limb separation, softly flexed spine, head level, body height, tail curve and fur flow should transition gently to Frame 01, avoiding a pose jump.",
+      "generation_record": "generation/frame042.json",
+      "exact_default_source_copy": true,
+      "visual_review": {
+        "status": "selected",
+        "four_legs": true,
+        "full_body_and_tail": true,
+        "identity_and_background": true,
+        "limitations": "Final pose is visually close to seed01, but exact loop/stride timing remains generative; not physically timed or 3D ready."
+      }
+    }
+  ]
+}

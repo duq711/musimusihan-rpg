@@ -1,0 +1,27 @@
+{
+  "frame": 16,
+  "prompt": "Use case: photorealistic-natural.\nAsset type: ONE separate full-body running-dog animation reference image.\nPrimary request: a completely new photorealistic athletic black-and-white Border Collie, running naturally toward the LEFT in one specified instant of a gallop.\nScene/backdrop: matte warm-light-gray seamless studio floor and backdrop, soft natural contact shadow, no props.\nSubject: one healthy adult Border Collie with realistic medium-long black-and-white coat, white facial blaze, white muzzle, broad white neck/chest, white paws, black semi-prick ears, brown eyes, black nose, a black tail with white tip, and a slender athletic canine build. If the newly generated Border Collie seed is supplied, preserve its individual facial features and exact coat markings rather than inventing a different individual.\nComposition/framing: fixed strict side profile, LEFT-facing, full body including all four paws and the whole tail inside the frame, level camera at the torso, constant framing and dog scale. The near-side legs are the LEFT foreleg and LEFT hindleg; far-side legs are the RIGHT foreleg and RIGHT hindleg. Use a small natural silhouette offset so all four limbs remain identifiable, without rotating the camera.\nLighting/mood: consistent soft studio daylight, crisp real fur and anatomy, sharp fast-shutter action photograph, no motion blur.\nConstraints: exactly one dog and exactly four anatomically connected legs; elbows stay below the shoulder attachment and flex naturally; hind knees and hocks articulate as a real dog; paws are small natural canine paws. Keep the same head, coat, torso proportions, camera, background, lighting and frame crop throughout. Change only the stride pose, modest natural body-height/trunk motion and corresponding fur/ear/tail response. Keep the horizontal body center fixed; allow the body to descend naturally enough for the specified planted paws to meet the same floor, and rise modestly in aerial phases. The posture represents locomotion rather than shifting the dog across the composition.\nAvoid: Labrador features or reuse of the previous model, extra or missing legs, fused paws, mirrored duplicate limbs, arms bent upward into the chest, distorted joints, detached limbs, paws sunk below the floor, inflated joints, extreme spine bending, cartoon style, model turntable, 3D-render appearance, hand, collar, harness, text, numbers, labels, grids, contact sheets, multiple panels or montage. Deliver a SINGLE image of ONE instant, not multiple poses.\nStride instant: frame 16 of 42, nominal phase 0.357143; frame number and timing are metadata only and must NOT appear as text in the image.\nPose for this ONE image: Increase the foreleg reach and rearward hindleg stretch a little from the previous instant. The dog is fully airborne, the forepaws separated ahead of the chest and hindpaws separated behind the pelvis. Retain subtle bend at elbows and hocks, realistic limb lengths and a level head. The spine is extended but never bowed unnaturally.\nGenerate this one instant as its own complete image. Do not place any preceding or following poses in it.\nInput image 1: immutable identity, exact face/coat markings, proportions, camera, backdrop and lighting. Do not use its gathered pose. Input image 2: immediately preceding accepted extended aerial frame15; use it as pose-continuity reference. Change only the posture by a small but visible stride progression as specified for frame16. Four separate anatomically connected legs; whole dog visible; same landscape1536 x1024 framing. Generate ONE individual new image, no panels or labels.",
+  "references": [
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-20261006/export/frames/Frame_001.png",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-20261006/export/frames/Frame_015.png"
+  ],
+  "original_default_path": "/Users/byeolee/.codex/generated_images/01a10f5f-28b6-7442-9da9-de3b36b93a86/exec-e153d1dd-3746-4ebc-93f2-7a5c88c0b899.png",
+  "selected_file": "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-20261006/export/frames/Frame_016.png",
+  "mode": "built-in image_gen",
+  "transparent_background": false,
+  "agent": "new_dog_frame_plan",
+  "visual_review": {
+    "four_connected_legs": true,
+    "whole_body_in_frame": true,
+    "same_dog_identity": true,
+    "intended_contacts": [],
+    "status": "selected"
+  },
+  "sha256": "9748eb67bfbcb8bd88b0a5274697a30aa2a426408889bae9093e74bede881bcb",
+  "size_bytes": 1868978,
+  "image_dimensions": [
+    1536,
+    1024
+  ],
+  "created_at_utc": "2026-10-06T04:10:10.994920+00:00"
+}
