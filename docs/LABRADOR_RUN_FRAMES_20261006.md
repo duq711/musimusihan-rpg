@@ -31,3 +31,7 @@ Cleaned only the temporary render log: 12,288bytes allocation, observed free del
 이번 도구·문서·작은 검증 기록은 기존 Labrador 작업 브랜치에 선택하여 반영하고 원격/로컬 SHA 일치를 확인합니다.
 
 Task tools, documentation and compact evidence are selected for the existing Labrador task branch; publication verifies remote/local hashes.
+
+GitHub 확인: [`f2050077`](https://github.com/duq711/musimusihan-rpg/commit/f20500773fd647173a1580943f672f3d16622e3a). 선택10파일의 remote blob과 로컬 SHA가 같으며 GitHub·fetch·로컬 task ref가 일치합니다. 공유 primary HEAD와 index는 보존했습니다. 상세 확인은 `run-frames-publication-code.json`에 남겼습니다.
+
+Verified publication: all10 selected file blobs and GitHub/fetched/local task refs match the linked commit. Shared primary HEAD/index remain unchanged. Receipt: `run-frames-publication-code.json`.
