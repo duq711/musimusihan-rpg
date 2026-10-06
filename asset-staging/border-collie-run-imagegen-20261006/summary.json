@@ -1,0 +1,47 @@
+{
+  "schema": "border-collie-run-production-summary-v1",
+  "date": "2026-10-06",
+  "subject": "New photorealistic Border Collie",
+  "generator": "built-in image_gen",
+  "separate_selected_images": 42,
+  "image_dimensions": [
+    1536,
+    1024
+  ],
+  "selected_png_bytes": 77881342,
+  "zip_bytes": 78326201,
+  "zip_sha256": "4fd8281375642bcf6153601179bcb949071d2aa3137f2529ee53bde213a2db74",
+  "checks": {
+    "exact_default_copies": 42,
+    "sha256_matches": 42,
+    "resolution_matches": 42,
+    "unique_image_hashes": 42,
+    "zip_original_image_hashes": 42,
+    "zip_crc": "pass",
+    "individually_inspected_frames": 42,
+    "gallery_dom_controls": 25,
+    "gallery_packaging_checks": 10,
+    "actual_browser": "Next/slider/frame42 load at1536x1024; responsive whole image at1280x720"
+  },
+  "limits_ko": "별도 생성한 2D 자세 참고 이미지. 발 겹침·접지 각도·프레임 간 변화량은 일부 근사치이며 매끄러운 60fps 영상이나 게임용3D리그 검증이 아니다.",
+  "limits_en": "Separately generated 2D pose references. Some paw overlap, contact geometry and adjacent displacement remain approximate; no verified smooth60fps video or game-ready3D rig.",
+  "artifacts": {
+    "frames": "export/frames/Frame_001.png … Frame_042.png",
+    "gallery": "export/index.html",
+    "zip": "export/border-collie-run-original-frames-20261006.zip",
+    "prompts": "prompts.json",
+    "generation_records": "generation/",
+    "independent_review": "independent-frame-review-v2.json"
+  },
+  "sharing": {
+    "confirmed_remote_text_commit": "38521c291efd657be0001dc3d8fbb8e0fc941195",
+    "binary_files_lfs": 43,
+    "binary_upload": "blocked: local GitHub/Git credentials unavailable; all asset bytes and local LFS objects preserved",
+    "confirmed_initial_remote_text_files": 53
+  },
+  "cleanup": {
+    "selected_images_and_default_originals": "preserved",
+    "zip": "preserved",
+    "only_temporary_transfer_and_alternate_index_files": "eligible after verification"
+  }
+}
