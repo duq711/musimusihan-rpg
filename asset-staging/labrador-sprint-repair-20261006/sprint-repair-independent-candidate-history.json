@@ -1,0 +1,34 @@
+{
+  "scope": "Independent repair gate candidate history; completed numerical and visual gate required for final approval.",
+  "candidates": [
+    {
+      "candidate": 7,
+      "status": "RejectedBeforeFullIndependentScan",
+      "blendSHA256": "0d56acf0373b83d0374ab754ec4dca71398a9b75b9a42fc88f002afd1f78262b",
+      "gltfSHA256": "8107762e6bda83615deadcb0cfbed12827b89237426415ec91978dd4baa71223",
+      "manifestSHA256": "2c5a346ce85eed52a6d044a05211e9a8bbe2e6d763bba49078a747a60ccae4be",
+      "reportedFailure": {
+        "source": "Root reports author85sample fixed broader body/head vs all_front.L",
+        "exactPairs": 2
+      },
+      "independentScan": "Started then terminated on root instruction after same failure reported; no independent pass claim.",
+      "next": "Await stable corrected binary; keep original fixed masks and thresholds."
+    },
+    {
+      "candidate": 8,
+      "status": "PassedWithLimits",
+      "blendSHA256": "136aaccdf9817bff8479b75ddd1984139c2c13b58941361088497abc0ff646c8",
+      "gltfSHA256": "3c7dc6798c754edc6427ea4f9c58ad2e3704ff564ccd016962b2819606d879e4",
+      "manifestSHA256": "901af882ac01ab737171132798e9a4983a2b7d73d233c66e4114f17d4218a6ef",
+      "sampling": {
+        "DCC_geometry": 86,
+        "actual_gltf_geometry": 86,
+        "DCC_skin_core": 169,
+        "core_preservation": 169
+      },
+      "fixedSelectedNonadjacentCrossingPairs": "All0 in86DCC+86actualGLB",
+      "renderedAcceptance": "Independent90actualmovieframes+3finalproximalcloseups; compression/5.37757mmLFdrift retained. Root same sheets/closeviews confirmed.",
+      "receipt": "sprint-repair-independent-acceptance.json"
+    }
+  ]
+}

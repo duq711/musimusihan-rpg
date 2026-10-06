@@ -1,0 +1,284 @@
+{
+  "status": "PassedWithLimits: own31 animation checks and85 selected surface poses; independent86DCC+86actualGLB geometry and169skin/core; root10side+3close poses and90ordered movie frames/eight sheets accepted. Native/browser integration belongs to root.",
+  "summary_ko": "상완이 어깨 위로 접히던 회수와 큰 독립 어깨 이동을 연결된 앞다리 자세로 수정했습니다. 원본 데이터와 care/Walk는 동일합니다.",
+  "summary_en": "Repaired upward humerus folding and excessive independent shoulder glide with a connected forelimb recovery pose. Original model data and care/Walk remain identical.",
+  "run": {
+    "name": "Run",
+    "frames": [
+      1,
+      43
+    ],
+    "fps": 60,
+    "duration": 0.7,
+    "loop": true,
+    "speed_m_s": 2.3472118786586624,
+    "root_motion": "in-place; smoothly authored vertical body and spinal flex",
+    "source_capture": "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/labrador-pet-20261005/source/raw_bvh_data/dog_fast_run_02_006.bvh",
+    "source_raw_frames": [
+      856,
+      900
+    ],
+    "source_fps": 120.0000480000192,
+    "retimed_from_duration_s": 0.36666652,
+    "paw_world_scale": 0.8,
+    "contact_phases": {
+      "front.R": [
+        0.32,
+        0.49
+      ],
+      "front.L": [
+        0.42,
+        0.59
+      ],
+      "hind.R": [
+        0.84,
+        1.015
+      ],
+      "hind.L": [
+        0.935,
+        1.11
+      ]
+    },
+    "source": "Captured nonuniform paw profile, filtered periodic and phase-warped for paired fore/hind reference rhythm. Body envelope, scapular glide, calibrated phase carpal/toe pitch and source boundary contact correction are authored. Video display timing is a visual pacing guide; overlay speed and source marker flight are not physical ground truth."
+  },
+  "artifacts": {
+    "production/LabradorPet_SprintRepair.blend": {
+      "sha256": "136aaccdf9817bff8479b75ddd1984139c2c13b58941361088497abc0ff646c8",
+      "bytes": 20066252
+    },
+    "export/LabradorPet_SprintRepair.glb": {
+      "sha256": "3c7dc6798c754edc6427ea4f9c58ad2e3704ff564ccd016962b2819606d879e4",
+      "bytes": 18180684
+    },
+    "export/Locomotion/Run.fbx": {
+      "sha256": "f316e8e2e64d604d6760468d35233f7d3be6a8158112cea355a5c61e982ee6f9",
+      "bytes": 5440268
+    },
+    "export/sprint-repair-manifest.json": {
+      "sha256": "901af882ac01ab737171132798e9a4983a2b7d73d233c66e4114f17d4218a6ef",
+      "bytes": 5540
+    }
+  },
+  "own_validation": {
+    "animation_checks": 31,
+    "animation_passed": true,
+    "skin_samples": 85,
+    "fbx_roundtrip_samples": 5,
+    "animation_receipt": "sprint-repair-animation-validation.json",
+    "surface_receipt": "sprint-repair-skin-validation.json",
+    "surface_samples": 85,
+    "maximum_exact_crossings_mask_a": 0,
+    "maximum_exact_crossings_mask_b": 0,
+    "maximum_elbow_above_shoulder_m": -0.0710357129573822,
+    "maximum_humerus_rotation_from_neutral_deg": 63.463603009656744,
+    "mixed_compression_diagnostic": {
+      "maximum_triangles_below20pct_neutral_area": 8,
+      "maximum_neutral_area_m2": 0.0011300857494306639,
+      "maximum_deformed_area_m2": 0.00014617133512376994,
+      "same_masks_thresholds": true,
+      "worst_absolute_area_phase": 0.42857142857142855,
+      "worst_phase_values": {
+        "minimum_area_ratio": 0.02110229833708377,
+        "triangles_below_20pct_neutral_area": 8,
+        "compressed_triangle_ids": [
+          6315,
+          6317,
+          6318,
+          6325,
+          27517,
+          27524,
+          27574,
+          27575
+        ],
+        "compressed_neutral_area_m2": 0.0011300857494306639,
+        "compressed_current_area_m2": 0.00014617133512376994
+      },
+      "interpretation": "Diagnostic crease measurement; root assesses actual both-side shape rather than removing all normal folds."
+    },
+    "maximum_broader_body_head_exact_crossings": {
+      "all_front.L": 0,
+      "all_front.R": 0,
+      "all_hind.L": 0,
+      "all_hind.R": 0
+    },
+    "broader_original_mask_signatures": {
+      "broader_body_head": {
+        "triangles": 22447,
+        "original_id_sha256": "d3a27fbe1cfc6c1e71e8f71ebb6992dbac0d8b272a1d90858cae75967723c3ac"
+      },
+      "all_front.L": {
+        "triangles": 5250,
+        "original_id_sha256": "b5cf4f319f9b1aa41df429aecabfe48ed9976e750ef9cac2db60d2f43efe5a69"
+      },
+      "all_front.R": {
+        "triangles": 5267,
+        "original_id_sha256": "70c1ea2dd96a0d73ceb70675017293e6cd7106ca62c271abd29f53daf90210d5"
+      },
+      "all_hind.L": {
+        "triangles": 5271,
+        "original_id_sha256": "486070943d9c752f60ad8503ffd99d90169998fead416dbbe62e5a0e35ba92ab"
+      },
+      "all_hind.R": {
+        "triangles": 5280,
+        "original_id_sha256": "973412553b726f55dc954500f643ccfd561b4e92b8b6f079262c7abaf230c64b"
+      }
+    }
+  },
+  "requested_profile_to_actual_fk_correction_max_m": {
+    "front.L": 0.0869034054469642,
+    "front.R": 0.11929705175955095,
+    "hind.L": 0.007861679932618257,
+    "hind.R": 0.009277260428606614
+  },
+  "measured_limits": {
+    "full_120hz_skin_floor_minimum_m": -0.0007867139249727595,
+    "tested_floor_tolerance_m": 0.003,
+    "zero_claim": "Selected exact fore/thorax crossing masks only; not all-mesh collision proof or perfect zero skating.",
+    "source_adaptation": "Captured nonuniform paths guide this .70s authored loop. Fore wrist trajectories and scapular rotations/translations are fitted to the original short-humerus/long-radius proportions; profile correction is distinct from delivered joint endpoint residual.",
+    "view_gate": "Root accepted10side poses,3final close views and90ordered actual final movie frames across8sheets with retained measured limitations; this is not user aesthetic approval.",
+    "known_contact_and_loop": "Final candidate8 independent LF fixed sole maximum drift5.37757mm. One-sided loop velocity estimates converge towards0 with smaller epsilon (C1 jump not established). Constant3mm shoulder+wrist placement preserves relative limb pose and adds no time-varying lateral motion."
+  },
+  "preservation": {
+    "original_rest_mesh_weights_morph_coat": "Fingerprint exact in own validator",
+    "care_Walk_keys": "Exact hashes in manifest",
+    "prior_sprint_and_gallop_files": "SHA guarded; untouched"
+  },
+  "cleanup_pending": [],
+  "preserve_tools": [
+    "tools/dcc/labrador_pet_sprint_repair.py",
+    "tools/dcc/labrador_pet_sprint_repair_validate.py",
+    "tools/dcc/labrador_pet_sprint_repair_skin_validate.py",
+    "tools/dcc/labrador_pet_sprint_repair_detail_preview.py"
+  ],
+  "repair": {
+    "cause": "Captured high, close wrist recovery folded the very short humerus above the shoulder and through weighted chest skin. Independent large scapular translation also pinched mixed skin.",
+    "method": "Connected posture first: bounded downward humerus, calibrated radius direction, smaller scapular glide, stance shoulder height and smooth earlier wrist unfolding. The FK wrist is the actual paw root; all anatomical segment lengths remain unchanged.",
+    "source_trajectory_corrections_recorded": "sprint-repair-authoring-contact.json profile_to_pose_adjustment_m includes floor fitting and recovery adaptation.",
+    "scapular_glide_y_range_m": [
+      -0.033,
+      0.017
+    ],
+    "humerus_maximum_sagittal_recovery_theta_deg": 50,
+    "recovery_theta_periodic_control_points_deg": [
+      50,
+      50,
+      50,
+      50,
+      50,
+      50,
+      46,
+      36,
+      46,
+      50
+    ],
+    "scapular_height_periodic_control_points_m": [
+      0,
+      0,
+      0,
+      0.02,
+      0.055,
+      0.035,
+      -0.005,
+      0,
+      0,
+      0
+    ],
+    "local_stance_height_bump": {
+      "phase_interval": [
+        0.42,
+        0.51
+      ],
+      "amplitude_m": 0.014,
+      "shape": "sin^6 compact support, value and first two derivatives continuous"
+    },
+    "lateral_scapular_clearance_periodic_points_m": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.006,
+      0.012,
+      0.014,
+      0.01,
+      0
+    ],
+    "sternum_clearance": {
+      "each_side_offset_m": 0.003,
+      "shape": "Constant shoulder-and-wrist offset throughout Run; preserves relative forelimb pose and fixed stance X."
+    },
+    "airborne_carpal_pitch_key_points_deg": [
+      0,
+      8,
+      12,
+      6,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "front_fixed_footprint_width_increase_m": 0.006
+  },
+  "candidate_history": [
+    {
+      "candidate": 6,
+      "historical_masks": "0 across85",
+      "broader_failure": "Mixed sternum2 pairs at .32143DCC/.33333GLB",
+      "core": "10 originalSprint body/neck/head keys+handles exact;169worldpose0difference"
+    },
+    {
+      "candidate": 7,
+      "failure": "Local sin4 shoulder-only margin moved crossing to .39286:body6323 vssternum7564/7565."
+    },
+    {
+      "candidate": 8,
+      "correction": "Constant coordinated3mm shoulder+wrist placement on eachside; same relative limb geometry; fixed stance X; source/rest/weights/morph/care/Walk unchanged.",
+      "own_fixed_surfaces": "85poses historicalA/B and broader foreL/R/hindL/R exact0; constant3mm shoulder+wrist offset."
+    }
+  ],
+  "independent_review": {
+    "surface_receipt": "sprint-repair-independent-surface.json",
+    "surface_samples_dcc": 86,
+    "surface_samples_actual_glb": 86,
+    "all_fixed_historical_and_broader_exact_coplanar_pairs_max": 0,
+    "skin_core_receipt": "sprint-repair-independent-skin-core.json",
+    "actual_skin_samples": 169,
+    "core_preservation_receipt": "sprint-repair-core-preservation.json",
+    "core_keys_handles": "10bones exact;169worldpositions0 difference",
+    "full_skin_floor_min_m": -0.0007867139249727595,
+    "fixed_lf_sole_max_drift_m": 0.00537757,
+    "limits": "Selected nonadjacent limb/body intersections only. Small proportional skin-area creases require both-side visual judgement; no perfect zero skating claim."
+  },
+  "detail_image_receipt": "sprint-repair-detail-review.json",
+  "root_visual_review": {
+    "receipt": "repair-root-visual-review.json",
+    "receipt_sha256": "56eabd2c04e4a052d983f7859395d726815eb14f506687b0e096b48269da7aa4",
+    "side_pose_count": 10,
+    "close_pose_count": 3,
+    "ordered_movie_frames": 90,
+    "movie_contact_sheets": 8,
+    "source_blend_sha256": "136aaccdf9817bff8479b75ddd1984139c2c13b58941361088497abc0ff646c8",
+    "result": "PassedWithLimits",
+    "limits": [
+      "Ordered exported movie frames and repeat boundaries were inspected; this is not uninterrupted human playback.",
+      "Retained joint skin folds,5.38mm LF sole-centroid drift and sampled surface limits remain disclosed.",
+      "Actual browser and fresh native checks are recorded separately."
+    ]
+  },
+  "cleanup": {
+    "status": "Completed",
+    "receipt": "sprint-repair-authoring-cleanup.json",
+    "preserved_detail_helper": "tools/dcc/labrador_pet_sprint_repair_detail_preview.py",
+    "preserved_helper_sha256": "0ea823a201b178b988b3333a5e1ad22b8fcf51ed8d84a72530d975ddae379c04",
+    "scope": "Own18side/detail PNGs,one.blend1,ten/tmp scripts,compacted43authoring and85surface rows only. Root final movie/posters/other review folders and all production/export files retained.",
+    "deleted_files": 29,
+    "compacted_rows": 128,
+    "removed_allocation_bytes": 28557312,
+    "free_bytes_before": 7817138176,
+    "free_bytes_after": 7845564416,
+    "observed_free_bytes_delta": 28426240,
+    "allocation_note": "Allocated bytes use stat.st_blocks*512. APFS sharing and concurrent root movie/native work mean filesystem free-space delta is not attributable solely to this cleanup. New compact receipts/helper also occupy space."
+  }
+}

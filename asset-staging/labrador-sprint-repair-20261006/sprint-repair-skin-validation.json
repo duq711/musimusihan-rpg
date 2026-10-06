@@ -1,0 +1,160 @@
+{
+  "passed": true,
+  "maximum_broader_body_head_exact_crossings": {
+    "all_front.L": 0,
+    "all_front.R": 0,
+    "all_hind.L": 0,
+    "all_hind.R": 0
+  },
+  "broader_masks": {
+    "broader_body_head": {
+      "triangles": 22447,
+      "original_id_sha256": "d3a27fbe1cfc6c1e71e8f71ebb6992dbac0d8b272a1d90858cae75967723c3ac"
+    },
+    "all_front.L": {
+      "triangles": 5250,
+      "original_id_sha256": "b5cf4f319f9b1aa41df429aecabfe48ed9976e750ef9cac2db60d2f43efe5a69"
+    },
+    "all_front.R": {
+      "triangles": 5267,
+      "original_id_sha256": "70c1ea2dd96a0d73ceb70675017293e6cd7106ca62c271abd29f53daf90210d5"
+    },
+    "all_hind.L": {
+      "triangles": 5271,
+      "original_id_sha256": "486070943d9c752f60ad8503ffd99d90169998fead416dbbe62e5a0e35ba92ab"
+    },
+    "all_hind.R": {
+      "triangles": 5280,
+      "original_id_sha256": "973412553b726f55dc954500f643ccfd561b4e92b8b6f079262c7abaf230c64b"
+    }
+  },
+  "production_sha256": "136aaccdf9817bff8479b75ddd1984139c2c13b58941361088497abc0ff646c8",
+  "samples": 85,
+  "sampling_hz": 120,
+  "mask_a": {
+    "body_triangles": 1794,
+    "leg_triangles": {
+      "FrontShoulder.L_18": 0,
+      "FrontUpperLeg.L_17": 448,
+      "FrontLowerLeg.L_16": 1339,
+      "FrontShoulder.R_21": 0,
+      "FrontUpperLeg.R_20": 456,
+      "FrontLowerLeg.R_19": 1339
+    },
+    "unchanged": "Torso+Back vs each foreShoulder/Upper/Lower average weight>.55, excluding shared vertices."
+  },
+  "mask_b": {
+    "body_triangles": 12401,
+    "leg_triangles": 3971,
+    "unchanged": "Torso+Neck vs combined foreUpper/Lower average weight>.55, excluding shared vertices."
+  },
+  "mixed_proximal_triangles": 1250,
+  "maximum_exact_crossing_pairs_mask_a": 0,
+  "maximum_exact_crossing_pairs_mask_b": 0,
+  "maximum_elbow_above_shoulder_m": -0.0710357129573822,
+  "maximum_humerus_rotation_deg": 63.463603009656744,
+  "maximum_mixed_triangles_below20pct": 8,
+  "maximum_mixed_compressed_neutral_area_m2": 0.0011300857494306639,
+  "maximum_mixed_compressed_current_area_m2": 0.00014617133512376994,
+  "limits": [
+    "Selected surface crossings are not all-mesh collisions or penetration volume.",
+    "Per-joint direction and region area metrics do not substitute for both-side rendered anatomy review.",
+    "A triangle area ratio below20% is a compression diagnostic; final judgement also uses its absolute area and visible shape, without changing this mask or threshold."
+  ],
+  "full_trace_sha256": "6e1535d8df7a270fcefff9fc8992f41fdfa8e0f7a51ba3bf5e7a6d6310c51fc2",
+  "reviewed_per_frame_rows_removed": true,
+  "compact_worst_phase_diagnostics": {
+    "triangles_below_20pct_neutral_area": {
+      "phase": 0.42857142857142855,
+      "frame": 19.0,
+      "shape": {
+        "minimum_area_ratio": 0.02110229833708377,
+        "triangles_below_20pct_neutral_area": 8,
+        "compressed_triangle_ids": [
+          6315,
+          6317,
+          6318,
+          6325,
+          27517,
+          27524,
+          27574,
+          27575
+        ],
+        "compressed_neutral_area_m2": 0.0011300857494306639,
+        "compressed_current_area_m2": 0.00014617133512376994
+      }
+    },
+    "compressed_neutral_area_m2": {
+      "phase": 0.42857142857142855,
+      "frame": 19.0,
+      "shape": {
+        "minimum_area_ratio": 0.02110229833708377,
+        "triangles_below_20pct_neutral_area": 8,
+        "compressed_triangle_ids": [
+          6315,
+          6317,
+          6318,
+          6325,
+          27517,
+          27524,
+          27574,
+          27575
+        ],
+        "compressed_neutral_area_m2": 0.0011300857494306639,
+        "compressed_current_area_m2": 0.00014617133512376994
+      }
+    },
+    "compressed_current_area_m2": {
+      "phase": 0.42857142857142855,
+      "frame": 19.0,
+      "shape": {
+        "minimum_area_ratio": 0.02110229833708377,
+        "triangles_below_20pct_neutral_area": 8,
+        "compressed_triangle_ids": [
+          6315,
+          6317,
+          6318,
+          6325,
+          27517,
+          27524,
+          27574,
+          27575
+        ],
+        "compressed_neutral_area_m2": 0.0011300857494306639,
+        "compressed_current_area_m2": 0.00014617133512376994
+      }
+    },
+    "FrontUpperLeg.L_17": {
+      "phase": 0.023809523809523808,
+      "frame": 2.0,
+      "shape": {
+        "minimum_area_ratio": 0.26164672857563165,
+        "triangles_below_20pct_neutral_area": 0
+      }
+    },
+    "FrontLowerLeg.L_16": {
+      "phase": 0.9047619047619047,
+      "frame": 38.99999999999999,
+      "shape": {
+        "minimum_area_ratio": 0.3798154593019102,
+        "triangles_below_20pct_neutral_area": 0
+      }
+    },
+    "FrontUpperLeg.R_20": {
+      "phase": 0.44047619047619047,
+      "frame": 19.5,
+      "shape": {
+        "minimum_area_ratio": 0.14340249549237302,
+        "triangles_below_20pct_neutral_area": 2
+      }
+    },
+    "FrontLowerLeg.R_19": {
+      "phase": 0.9047619047619047,
+      "frame": 38.99999999999999,
+      "shape": {
+        "minimum_area_ratio": 0.03977404483157268,
+        "triangles_below_20pct_neutral_area": 14
+      }
+    }
+  }
+}

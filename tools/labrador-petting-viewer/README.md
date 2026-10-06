@@ -22,6 +22,10 @@ Select Walk or Run at `/locomotion/`. Normal/half speed, side/three-quarter view
 
 The 2026-10-06 gallop correction uses the new task's combined GLB and manifest. `locomotion-source.json` selects accepted assets at server startup; without that configuration, the previous locomotion bundle is used. Original petting, care, Walk and prior production remain preserved. Native F2 uses actual in-place game clips with 1/2 keys or buttons; native acceptance is recorded separately. See `docs/LABRADOR_GALLOP_20261006.md` for the reference-based correction.
 
-2026-10-06 영상 기준 최종 질주는 `asset-staging/labrador-sprint-20261006/export/`의 `LabradorPet_Sprint.glb`와 `sprint-manifest.json`을 사용합니다. 0.70초 주기, 2.3472m/s 기준 이동이며 참고 영상의 속도 자막을 게임 속도로 사용하지 않습니다. 정상·반속도·비스듬한 시점 12초 영상과 새 Unity 인수는 `docs/LABRADOR_SPRINT_20261006.md`에 기록합니다.
+2026-10-06 이전 영상 기준 질주는 `asset-staging/labrador-sprint-20261006/export/`의 `LabradorPet_Sprint.glb`와 `sprint-manifest.json`을 사용합니다. 0.70초 주기, 2.3472m/s 기준 이동이며 참고 영상의 속도 자막을 게임 속도로 사용하지 않습니다. 정상·반속도·비스듬한 시점 12초 영상과 새 Unity 인수는 `docs/LABRADOR_SPRINT_20261006.md`에 기록합니다.
 
-The latest video-reference sprint uses the Sprint bundle selected in `locomotion-source.json`: a 0.70s cycle and nominal 2.3472m/s. Reference speed overlays are not game speed. The new 12s reel and fresh native acceptance are documented in the Sprint handoff.
+The previous video-reference sprint used the Sprint bundle selected in `locomotion-source.json`: a 0.70s cycle and nominal 2.3472m/s. Reference speed overlays are not game speed. The new 12s reel and fresh native acceptance are documented in the Sprint handoff.
+
+2026-10-06 앞다리 뒤틀림 수정본은 `asset-staging/labrador-sprint-repair-20261006/export/`의 `LabradorPet_SprintRepair.glb`와 `sprint-repair-manifest.json`을 사용합니다. 기존 Sprint의 형태 검증은 철회했고, 수정본은 고정한 원래 피부 영역으로 Blender와 실제 GLB를 각각 86자세 검사했습니다. 걷기·쓰다듬기와 원본 제작 자료는 보존합니다. 최종 영상·실행본·한계와 인계는 `docs/LABRADOR_SPRINT_REPAIR_20261006.md`에 기록합니다.
+
+The accepted foreleg repair is now selected by `locomotion-source.json`. Original fixed skin regions were checked at86 poses in both Blender and the actual exported GLB; the previous Sprint morphology acceptance is withdrawn. Walk, petting and original production remain preserved. See the repair handoff for final media, native acceptance and limitations.

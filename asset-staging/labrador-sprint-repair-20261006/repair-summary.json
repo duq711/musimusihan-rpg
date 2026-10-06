@@ -1,0 +1,99 @@
+{
+  "result": "PassedWithLimits",
+  "completed_utc": "2026-10-06T03:25:40.252134+00:00",
+  "summary_ko": "앞다리 뒤틀림·가슴 매몰을 수정하고 실제 브라우저 및 새 Mac 실행본에 적용했습니다. 원본·기존 걷기·쓰다듬기를 보존합니다.",
+  "summary_en": "Repaired foreleg twisting/chest embedding and installed the accepted motion in the actual browser and fresh Mac player. Original assets, Walk and petting are preserved.",
+  "source_sha256": "136aaccdf9817bff8479b75ddd1984139c2c13b58941361088497abc0ff646c8",
+  "export_sha256": {
+    "glb": "3c7dc6798c754edc6427ea4f9c58ad2e3704ff564ccd016962b2819606d879e4",
+    "fbx": "f316e8e2e64d604d6760468d35233f7d3be6a8158112cea355a5c61e982ee6f9",
+    "manifest": "901af882ac01ab737171132798e9a4983a2b7d73d233c66e4114f17d4218a6ef",
+    "video": "36c5507a7e37fffbeca1901ebd299f58b0cfce439fb50979f6d117e6a59b9ad0"
+  },
+  "checks": {
+    "authoring": 31,
+    "author_fixed_surfaces": 85,
+    "independent_blender_fixed_surfaces": 86,
+    "independent_actual_glb_fixed_surfaces": 86,
+    "skin_contact_core": 169,
+    "core_preservation": 169,
+    "root_still_poses": 10,
+    "root_close_poses": 3,
+    "actual_movie_decoded_frames": 90,
+    "movie_contact_sheets": 8,
+    "exact_video_seeks": 5,
+    "actual_browser_Run_poses": 12,
+    "Unity_import": 195,
+    "fresh_native_F2": 30
+  },
+  "surface_result": "No exact or coplanar crossings in the unchanged original selected masks, including body/head vs all four limbs, at86 Blender and86 actual glTF sampled poses. Not an all-mesh collision guarantee.",
+  "preservation": {
+    "original_mesh_rest_weights_morph_coat": true,
+    "care_Walk_keys": true,
+    "body_neck_head_keys_handles_and_169_sample_positions_matrices_identical": true,
+    "Run_only_Unity_change": "Run.fbx and Run.anim; all31 other resource/meta files and3 runtime files remain byte-identical; GUIDs retained."
+  },
+  "limits": {
+    "LF_sole_centroid_drift_mm": 5.377570315878521,
+    "Blender_all_sample_skin_floor_mm": -0.787,
+    "existing_floor_tolerance_mm": 3,
+    "authored_key_pad_minimum_mm": 0.6,
+    "actual_GLTF_intermediate_skin_fidelity_max_mm": 10.448,
+    "shape": "Original compressed joint skin folds remain; final close/temporal review accepts them with limits. Area compression alone is not an automatic shape failure.",
+    "interpretation": [
+      "Selected skin masks and sampled visual review do not establish all-mesh collision freedom, measured ground force or aesthetic user approval.",
+      "Native F2 tests invoke actual mode commands without physical desktop input, focus changes or sound.",
+      "This request repairs in-place Run animation; following, combat, item fetching and feeding are outside this repair."
+    ]
+  },
+  "artifacts": {
+    "production": "asset-staging/labrador-sprint-repair-20261006/production/LabradorPet_SprintRepair.blend",
+    "GLB": "asset-staging/labrador-sprint-repair-20261006/export/LabradorPet_SprintRepair.glb",
+    "FBX": "asset-staging/labrador-sprint-repair-20261006/export/Locomotion/Run.fbx",
+    "video": "asset-staging/labrador-sprint-repair-20261006/export/LabradorPet_SprintRepair.mp4",
+    "posters": [
+      "export/LabradorPet_SprintRepair_Extended.png",
+      "export/LabradorPet_SprintRepair_Collected.png"
+    ],
+    "installed_app": "/Users/byeolee/Projects/musimusihan-rpg/unity-game/Builds/MusimusihanRPG.app",
+    "viewer": "http://127.0.0.1:8773/locomotion/"
+  },
+  "build": {
+    "result": "Succeeded",
+    "errors": 0,
+    "warnings": 176,
+    "Labrador_specific_warnings": 0,
+    "bytes": 3308862860
+  },
+  "launch_links": {
+    "Applications_symlink_preserved": true,
+    "Dock_reference_preserved": true
+  },
+  "receipts": {
+    "sprint-repair-production-summary.json": "b6fb96a170d49d0fc4d82a9e6736274281891a92ac78c4d8ac6f16924ac447c3",
+    "sprint-repair-independent-acceptance.json": "efffde5cc077c8b341cd29407869db510190d3c0a45218c459e2b68c8119735f",
+    "sprint-repair-independent-numerical-summary.json": "f9f6e5d24b1e37a38a9fc474f5cbeaddf5db4b3e90121c18aa19552c322fc83a",
+    "sprint-repair-unity-import.json": "c4459c164906312594d394f2b3eb6530badb598e938aff7c269eff0547195ce4",
+    "repair-native-acceptance.json": "3f736fd93e8f18cb14d0b34f9984b005174305e46eb1c05603223c9d5ab1419b",
+    "repair-native-install.json": "aecd13459891aa7ca8cd239c8d7550004d84fb5053e4b9b00c88258c6f1e7d74",
+    "repair-root-visual-review.json": "e4447c62436e06b2aac2acd48964d7ce989ea02fd52636e6add2497a5642133c",
+    "repair-video-summary.json": "936b42d4713e96e500e5de8789e88d613ba57684ecf604a060248abb6b6cf3a7",
+    "repair-video-seek.json": "737448510f49e42c709998985eceefdc6ee337cadd61a32a0efaca34da833a38",
+    "repair-viewer-validation.json": "b70ef1dd9c5ab9ee284923c66bfb5660a0da5d57eb0d7847b43bf3b91b3db1c1"
+  },
+  "cleanup": {
+    "result": "Completed",
+    "removed_allocated_bytes": 3414728704,
+    "root_removed_allocated_bytes": 3349991424,
+    "root_observed_free_delta_bytes": 3308990464,
+    "current_free_bytes": 13253750784,
+    "receipts": {
+      "repair-root-cleanup.json": "97bdf2e96fc7efaa55dc6e624425a70f37383f859f6b5de74c75e0d103b38fd4",
+      "sprint-repair-authoring-cleanup.json": "e0f631f2414de9868d3772ed3fa2b28b39d5662f87994a4f2ec4d009a6899bdc",
+      "sprint-repair-independent-cleanup.json": "dd6ed24985fa97f17a5abc080aa1028664dc9984c85cefb0fba76dbbc87af516"
+    },
+    "preserved": "Final production/export/movie/posters, originals, current playable and Applications/Dock links, reusable tools, importer metadata, resident Editor operational log and shared Library.",
+    "limits": "Allocated bytes and observed recovered space differ due to APFS shared blocks and concurrent unrelated work."
+  },
+  "publication": "Scoped code/doc/compact receipts will be verified on existing Labrador task branch; licensed binaries remain local."
+}

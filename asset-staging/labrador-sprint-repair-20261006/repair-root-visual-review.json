@@ -1,0 +1,270 @@
+{
+  "scope": "Root actual-skin review; prior rejected Sprint acceptance is withdrawn. Stable final pose and movie review required separately.",
+  "candidate_reviews": [
+    {
+      "candidate": "third recovery/shoulder iteration",
+      "result": "Improved; changes still required",
+      "blend_sha256": "b044d43d65b88b53c25a4f3031a07d399bb608be660b38394f2d1fbc8b78c4b5",
+      "viewed_images": [
+        {
+          "file": "review/side/Run_phase_020.png",
+          "sha256": "296752519440e963893e5d5081dcd1b8718a6ef095c1f1043527ddbbdd2e4523"
+        },
+        {
+          "file": "review/side/Run_phase_070.png",
+          "sha256": "4e380426e0ab59deb4c368eefc94067658ade4389931d83076a06c4f337e718e"
+        },
+        {
+          "file": "review/side/Run_phase_090.png",
+          "sha256": "c120d0e738b2578761db2dcbe3a34ac84296585944cd0d1bda7fa1dbcd79e689"
+        }
+      ],
+      "observations": [
+        "At .90 the previously elevated embedded elbow/forearm silhouette is materially improved.",
+        "At .20 fore reach and hind extension remain distinct from .70 collection.",
+        "This candidate still fails the broader historical fore/body surface mask (maximum3 crossings) and is not accepted for import."
+      ],
+      "limits": [
+        "Three still poses do not establish full-cycle temporal or skin quality."
+      ]
+    }
+  ],
+  "final_pose_review": {
+    "candidate": 8,
+    "result": "Passed still-pose gate; final exported geometry and movie review separate",
+    "blend_sha256": "136aaccdf9817bff8479b75ddd1984139c2c13b58941361088497abc0ff646c8",
+    "viewed_pose_count": 10,
+    "viewed_images": [
+      {
+        "file": "review/side/Run_phase_000.png",
+        "phase": 0.0,
+        "sha256": "eb4cba43e9d71e09421fbac7726346e6707e9de842af3ae14dd4b0979009cf12"
+      },
+      {
+        "file": "review/side/Run_phase_010.png",
+        "phase": 0.1,
+        "sha256": "1f85b32d5363e8976396bd3fd4bba3f5ea9e9ca0bbe1d46035b7551d4123c647"
+      },
+      {
+        "file": "review/side/Run_phase_020.png",
+        "phase": 0.2,
+        "sha256": "4e856536ff8f13b0faa7bde12a187ee1e8b9d8d3d9046e00c3977814383411ff"
+      },
+      {
+        "file": "review/side/Run_phase_030.png",
+        "phase": 0.3,
+        "sha256": "d246083954376c08ddac0ffcbb1fd42fd9ddedc0c12375e20df95c3b2253d891"
+      },
+      {
+        "file": "review/side/Run_phase_040.png",
+        "phase": 0.4,
+        "sha256": "3c71ce51659cf82c60bab24174f9ff7224c3594176b34a862053a1cdf71ce90c"
+      },
+      {
+        "file": "review/side/Run_phase_050.png",
+        "phase": 0.5,
+        "sha256": "37c581a0ed2398051b06a8198c1899f3d5f5f959a1045acf5dfc5104d0389316"
+      },
+      {
+        "file": "review/side/Run_phase_060.png",
+        "phase": 0.6,
+        "sha256": "175ff1a948929aa60bdb088cc08c4cec61d8de45482fe5822529f9f64ddc243d"
+      },
+      {
+        "file": "review/side/Run_phase_070.png",
+        "phase": 0.7,
+        "sha256": "12d7a683749dc3161b10f9eee8d736b4dcf865c547e29a83622b9910b20f3781"
+      },
+      {
+        "file": "review/side/Run_phase_080.png",
+        "phase": 0.8,
+        "sha256": "4f2c3305daea987046e2b5e80128dce85973d5246d5a1242d1c4757c0448ea3d"
+      },
+      {
+        "file": "review/side/Run_phase_090.png",
+        "phase": 0.9,
+        "sha256": "be0229a07ccc1e5fadefa817af46041b6f50e70d483a3f0ef77619ef1df1d912"
+      }
+    ],
+    "observations": [
+      "Elbows/forearms remain visibly below and outside the chest at .90, without the rejected raised upper-arm knob or embedded forearm.",
+      "The long extension at .20/.30 and hind collection at .60/.70 remain distinct.",
+      "Constant3mm shoulder/wrist width fitting preserves the relative limb posture and visible body progression."
+    ],
+    "limits": [
+      "Still poses do not establish continuous motion or all-mesh collision freedom.",
+      "Final actual glTF surface and final movie acceptance are separate."
+    ]
+  },
+  "candidate_temporal_reviews": [
+    {
+      "candidate": 6,
+      "result": "Motion progression reviewed; final skin gate pending sternum repair",
+      "source_blend_sha256": "ea310581aea4df075b93aa39f9f54bab426d912c7aaca2545b8b13b1ba7543b2",
+      "video_sha256": "e9a0b15e0c8dcce5bd39c8ededa3f3e4faa5e05b37f3e3fc3edcba1c56aeb0d2",
+      "ordered_decoded_frames_viewed": 90,
+      "contact_sheets_viewed": 8,
+      "shots": {
+        "normal_side": 23,
+        "half_side": 44,
+        "normal_quarter": 23
+      },
+      "additional_close_views": [
+        "Neutral_front",
+        "Run_front_429",
+        "Run_right_front_900",
+        "Run_front_900"
+      ],
+      "observations": [
+        "Long extension, paired fore support, hind collection and hind support progress continuously through the sampled cycle.",
+        "No old elevated elbow/embedded forearm silhouette in the reviewed .90 side and both close front views.",
+        "The compressed right forearm region appears as an attached joint/skin fold, without a new bulge or visible twist in the close view. Area ratios alone are not treated as an automatic failure.",
+        "The sampled repeat boundary has no abrupt visible pose reset; finite-epsilon velocity differences converge toward zero rather than establishing a C1 discontinuity.",
+        "During sampled LF support, the paw rolls/deforms slightly relative to the matched moving grid; measured5.38mm sole-centroid drift is retained as a diagnostic, not claimed to be zero or a physical pressure-centre measurement."
+      ],
+      "remaining_required_change": "Fixed broader region found two actual sternum surface crossings; root has requested clearance correction before import.",
+      "limits": [
+        "Ninety ordered actual movie frames and close stills were inspected, not uninterrupted human movie playback.",
+        "Selected surface review is not all-mesh collision freedom, measured force or user aesthetic approval."
+      ]
+    }
+  ],
+  "candidate_pose_reviews": [
+    {
+      "result": "Passed still-pose gate; temporal and independent geometry gates recorded separately",
+      "blend_sha256": "ea310581aea4df075b93aa39f9f54bab426d912c7aaca2545b8b13b1ba7543b2",
+      "viewed_pose_count": 10,
+      "viewed_images": [
+        {
+          "file": "review/side/Run_phase_000.png",
+          "phase": 0.0,
+          "sha256": "d167f74da771661000157544ebeb5ddd4b6a85b95b6e594254f1ed0cfaa6401c"
+        },
+        {
+          "file": "review/side/Run_phase_010.png",
+          "phase": 0.1,
+          "sha256": "ad1061220941a71b118b0e0c52a87848ac3b29eded94692ec620d365865e2596"
+        },
+        {
+          "file": "review/side/Run_phase_020.png",
+          "phase": 0.2,
+          "sha256": "4acdbd93da1940bae9477825df82be07c59e648858785b4a2f816c78cfde83e4"
+        },
+        {
+          "file": "review/side/Run_phase_030.png",
+          "phase": 0.3,
+          "sha256": "8b725dbfaa504239f61233db8c70ec3c93ac5c00c9e660edcdded376e9919ce3"
+        },
+        {
+          "file": "review/side/Run_phase_040.png",
+          "phase": 0.4,
+          "sha256": "b707938e6e619c1a36ffb76de337233cd8b8bf5d916c1aa509933bebb3579a93"
+        },
+        {
+          "file": "review/side/Run_phase_050.png",
+          "phase": 0.5,
+          "sha256": "ed7b82f75939fde9f651409f4268c4689af31986d12c63911d88f0bcb899a440"
+        },
+        {
+          "file": "review/side/Run_phase_060.png",
+          "phase": 0.6,
+          "sha256": "a4d6c47f0d4b665727e6847e99032aa130e439ae4b22d2911a899bc460781a61"
+        },
+        {
+          "file": "review/side/Run_phase_070.png",
+          "phase": 0.7,
+          "sha256": "3cb3b262ac7c2d10e70fa170e1521bc27923ecbaf8a2ca77bb91a75a7e075dc4"
+        },
+        {
+          "file": "review/side/Run_phase_080.png",
+          "phase": 0.8,
+          "sha256": "f48ab49c97b2a5cb11d0906162546abf417b4579c50359751a7c1c4c0c7331ee"
+        },
+        {
+          "file": "review/side/Run_phase_090.png",
+          "phase": 0.9,
+          "sha256": "c0e2e0adff6a80429497c93b3110f2e04789618ccb1c9b0a5b91864c1dde2580"
+        }
+      ],
+      "observations": [
+        "Fore elbows remain below the chest across the ten reviewed actual-skin poses, without the old raised elbow/embedded forearm silhouette at .90.",
+        "Long fore/hind extension at .20 and hind collection near the fore paws at .70 remain distinct.",
+        "Head and spine follow the retained forward lean and periodic body progression."
+      ],
+      "limits": [
+        "Selected stills do not establish continuous motion, all-mesh collision freedom or user aesthetic approval.",
+        "Fixed proximal compression diagnostics and opposite-side/quarter actual-skin review remain separate requirements."
+      ]
+    }
+  ],
+  "final_shape_review": {
+    "candidate": 8,
+    "result": "Passed with retained skin-fold diagnostics",
+    "blend_sha256": "136aaccdf9817bff8479b75ddd1984139c2c13b58941361088497abc0ff646c8",
+    "viewed_images": [
+      {
+        "phase": 0.428571429,
+        "side": "left",
+        "file": "review/detail/Run_front_429.png",
+        "sha256": "71783800ae7d71e897ae10691bdd6c6f2ae0f9663aaf21cae56287fc50739ef3",
+        "bytes": 516362
+      },
+      {
+        "phase": 0.428571429,
+        "side": "right",
+        "file": "review/detail/Run_right_front_429.png",
+        "sha256": "629ead86fffa1b6ee24297cf7e3475ad5986619ee20578ce215f136e962f0652",
+        "bytes": 512192
+      },
+      {
+        "phase": 0.9,
+        "side": "right",
+        "file": "review/detail/Run_right_front_900.png",
+        "sha256": "166990dfe804ed29c6f7ad0a7f272494cbe34d816b04eaec46a51570e2a51a56",
+        "bytes": 523633
+      }
+    ],
+    "observations": [
+      "Both loaded foreleg close views at phase0.428571429 show attached shoulder/upper-arm/forearm contours and ordinary axillary skin folds.",
+      "The right recovery view at phase0.90 shows an attached elbow/wrist fold without the rejected raised upper-arm knob, embedded forearm or visible twist.",
+      "Compression ratios remain diagnostic evidence; the original mesh and skin weights are retained."
+    ],
+    "limits": [
+      "Selected close views and fixed surface masks do not establish all-mesh collision freedom or user aesthetic approval.",
+      "Final temporal, actual browser and native checks are recorded separately."
+    ]
+  },
+  "final_temporal_review": {
+    "candidate": 8,
+    "result": "Passed with limits",
+    "source_blend_sha256": "136aaccdf9817bff8479b75ddd1984139c2c13b58941361088497abc0ff646c8",
+    "video_sha256": "36c5507a7e37fffbeca1901ebd299f58b0cfce439fb50979f6d117e6a59b9ad0",
+    "ordered_decoded_frames_viewed": 90,
+    "contact_sheets_viewed": 8,
+    "shots": {
+      "normal_side": 23,
+      "half_side": 44,
+      "normal_quarter": 23
+    },
+    "frame_receipt": "sprint-repair-temporal-frame-review.json",
+    "frame_receipt_sha256": "b7305fff34d319813232c6dadaea0fdee85466561477aff9169052ef0f9e12b4",
+    "observations": [
+      "Root inspected all90 ordered final movie frames across eight sheets, including the repeat boundary in each shot.",
+      "Long fore/hind extension, fore support, hind collection and renewed reach remain distinguishable and continuous across sampled phases.",
+      "The former raised upper-arm knob and embedded forearm at .90 are absent in reviewed side/quarter and final close views.",
+      "No abrupt head/hip height drop or paw yaw flip is visible in sampled progression.",
+      "The small support skin/pad movement agrees with retained sole-centroid drift diagnostic, not a zero-slip claim."
+    ],
+    "limits": [
+      "Ordered exported movie frames and repeat boundaries were inspected; this is not uninterrupted human playback.",
+      "Retained joint skin folds,5.38mm LF sole-centroid drift and sampled surface limits remain disclosed.",
+      "Actual browser and fresh native checks are recorded separately."
+    ]
+  },
+  "actual_viewer_review": {
+    "result": "Passed with documented skin limits",
+    "receipt": "repair-viewer-validation.json",
+    "sha256": "b70ef1dd9c5ab9ee284923c66bfb5660a0da5d57eb0d7847b43bf3b91b3db1c1",
+    "actual_gltf_sha256": "3c7dc6798c754edc6427ea4f9c58ad2e3704ff564ccd016962b2819606d879e4"
+  }
+}

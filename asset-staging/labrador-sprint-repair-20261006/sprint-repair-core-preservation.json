@@ -1,0 +1,163 @@
+{
+  "scope": "Run core/neck/head channel and evaluated world-pose preservation only; forelimb skin approval is separate.",
+  "baseline_sha256": "84e3e93166c6aadf78915d616bc035122da00a7d28a173e92e7403ebee0a1f02",
+  "candidate_sha256": "136aaccdf9817bff8479b75ddd1984139c2c13b58941361088497abc0ff646c8",
+  "actual_pose_samples": 169,
+  "sampling": "85 regular120Hz poses plus84 near-key poses, identical to independent skin/core sampling.",
+  "bones": {
+    "Body_43": {
+      "action_keys_and_handles_exact_sha_match": true,
+      "original_channel_sha256": "117680bd33a1b4fc8b2d031923cfe4ac49d0462d40713f69eaf859513fe2f295",
+      "candidate_channel_sha256": "117680bd33a1b4fc8b2d031923cfe4ac49d0462d40713f69eaf859513fe2f295",
+      "max_world_position_difference_m": 0.0,
+      "max_world_rotation_difference_deg": 1.4393547412463824e-13,
+      "max_world_matrix_absolute_difference": 0.0,
+      "worst_position_sample": {
+        "frame": 1.0,
+        "phase": 0.0,
+        "position_m": 0.0,
+        "rotation_deg": 1.4393547412463824e-13,
+        "matrix_max_absolute_difference": 0.0
+      }
+    },
+    "Back_38": {
+      "action_keys_and_handles_exact_sha_match": true,
+      "original_channel_sha256": "823e33f7fced97d1b2d74bf25ca2ed06e1eeb81e987212a645ee8df39dc944ce",
+      "candidate_channel_sha256": "823e33f7fced97d1b2d74bf25ca2ed06e1eeb81e987212a645ee8df39dc944ce",
+      "max_world_position_difference_m": 0.0,
+      "max_world_rotation_difference_deg": 1.7075473943306399e-06,
+      "max_world_matrix_absolute_difference": 0.0,
+      "worst_position_sample": {
+        "frame": 1.0,
+        "phase": 0.0,
+        "position_m": 0.0,
+        "rotation_deg": 1.6284439969093206e-12,
+        "matrix_max_absolute_difference": 0.0
+      }
+    },
+    "Torso_23": {
+      "action_keys_and_handles_exact_sha_match": true,
+      "original_channel_sha256": "520ebfb4749723099ee0864c4a643e2cfd2497cfa97150cabd437882d30d96b2",
+      "candidate_channel_sha256": "520ebfb4749723099ee0864c4a643e2cfd2497cfa97150cabd437882d30d96b2",
+      "max_world_position_difference_m": 0.0,
+      "max_world_rotation_difference_deg": 2.1344342428511795e-07,
+      "max_world_matrix_absolute_difference": 0.0,
+      "worst_position_sample": {
+        "frame": 1.0,
+        "phase": 0.0,
+        "position_m": 0.0,
+        "rotation_deg": 0.0,
+        "matrix_max_absolute_difference": 0.0
+      }
+    },
+    "Torso2_22": {
+      "action_keys_and_handles_exact_sha_match": true,
+      "original_channel_sha256": "81bed51c138eeaf3d94e585d822e483236b3544f3f137d28227671f252a9633a",
+      "candidate_channel_sha256": "81bed51c138eeaf3d94e585d822e483236b3544f3f137d28227671f252a9633a",
+      "max_world_position_difference_m": 0.0,
+      "max_world_rotation_difference_deg": 1.7075474077983017e-06,
+      "max_world_matrix_absolute_difference": 0.0,
+      "worst_position_sample": {
+        "frame": 1.0,
+        "phase": 0.0,
+        "position_m": 0.0,
+        "rotation_deg": 0.0,
+        "matrix_max_absolute_difference": 0.0
+      }
+    },
+    "Torso3_15": {
+      "action_keys_and_handles_exact_sha_match": true,
+      "original_channel_sha256": "3e6924d6b6718e5bc5f1fe4a39c23792f355b0c62abcba51f40026f4a255ab2d",
+      "candidate_channel_sha256": "3e6924d6b6718e5bc5f1fe4a39c23792f355b0c62abcba51f40026f4a255ab2d",
+      "max_world_position_difference_m": 0.0,
+      "max_world_rotation_difference_deg": 3.4150947886674906e-06,
+      "max_world_matrix_absolute_difference": 0.0,
+      "worst_position_sample": {
+        "frame": 1.0,
+        "phase": 0.0,
+        "position_m": 0.0,
+        "rotation_deg": 0.0,
+        "matrix_max_absolute_difference": 0.0
+      }
+    },
+    "Neck1_14": {
+      "action_keys_and_handles_exact_sha_match": true,
+      "original_channel_sha256": "687f16998c4a11ff3a932a1105086d592de5b6862df05c4b45e04d727f5042ec",
+      "candidate_channel_sha256": "687f16998c4a11ff3a932a1105086d592de5b6862df05c4b45e04d727f5042ec",
+      "max_world_position_difference_m": 0.0,
+      "max_world_rotation_difference_deg": 1.7075473942941442e-06,
+      "max_world_matrix_absolute_difference": 0.0,
+      "worst_position_sample": {
+        "frame": 1.0,
+        "phase": 0.0,
+        "position_m": 0.0,
+        "rotation_deg": 0.0,
+        "matrix_max_absolute_difference": 0.0
+      }
+    },
+    "Neck2_13": {
+      "action_keys_and_handles_exact_sha_match": true,
+      "original_channel_sha256": "209b2744a88ba7db28a862c0a41330853b387c8ccb53c91d83c9fe688eae7cfa",
+      "candidate_channel_sha256": "209b2744a88ba7db28a862c0a41330853b387c8ccb53c91d83c9fe688eae7cfa",
+      "max_world_position_difference_m": 0.0,
+      "max_world_rotation_difference_deg": 4.2688684862036887e-07,
+      "max_world_matrix_absolute_difference": 0.0,
+      "worst_position_sample": {
+        "frame": 1.0,
+        "phase": 0.0,
+        "position_m": 0.0,
+        "rotation_deg": 0.0,
+        "matrix_max_absolute_difference": 0.0
+      }
+    },
+    "Neck3_12": {
+      "action_keys_and_handles_exact_sha_match": true,
+      "original_channel_sha256": "528d5732c2d258a414c11a6a5b2e978104cd35703502179717b2af0c152af687",
+      "candidate_channel_sha256": "528d5732c2d258a414c11a6a5b2e978104cd35703502179717b2af0c152af687",
+      "max_world_position_difference_m": 0.0,
+      "max_world_rotation_difference_deg": 3.4150947885696515e-06,
+      "max_world_matrix_absolute_difference": 0.0,
+      "worst_position_sample": {
+        "frame": 1.0,
+        "phase": 0.0,
+        "position_m": 0.0,
+        "rotation_deg": 1.6284439969093206e-12,
+        "matrix_max_absolute_difference": 0.0
+      }
+    },
+    "Neck3.001_11": {
+      "action_keys_and_handles_exact_sha_match": true,
+      "original_channel_sha256": "14dc8b36d6860feb0506e73f04a769bea4be2888e9a02ac0d4862956533a0466",
+      "candidate_channel_sha256": "14dc8b36d6860feb0506e73f04a769bea4be2888e9a02ac0d4862956533a0466",
+      "max_world_position_difference_m": 0.0,
+      "max_world_rotation_difference_deg": 7.282622949281397e-12,
+      "max_world_matrix_absolute_difference": 0.0,
+      "worst_position_sample": {
+        "frame": 1.0,
+        "phase": 0.0,
+        "position_m": 0.0,
+        "rotation_deg": 0.0,
+        "matrix_max_absolute_difference": 0.0
+      }
+    },
+    "Head_1": {
+      "action_keys_and_handles_exact_sha_match": true,
+      "original_channel_sha256": "559a8ca31589a031dcf8daf9ec09346d8d5e5a3dcab460dbdef5afc13cdde829",
+      "candidate_channel_sha256": "559a8ca31589a031dcf8daf9ec09346d8d5e5a3dcab460dbdef5afc13cdde829",
+      "max_world_position_difference_m": 0.0,
+      "max_world_rotation_difference_deg": 3.4150947885696515e-06,
+      "max_world_matrix_absolute_difference": 0.0,
+      "worst_position_sample": {
+        "frame": 1.0,
+        "phase": 0.0,
+        "position_m": 0.0,
+        "rotation_deg": 0.0,
+        "matrix_max_absolute_difference": 0.0
+      }
+    }
+  },
+  "all_selected_channel_keys_exact": true,
+  "maximum_selected_world_position_difference_m": 0.0,
+  "maximum_selected_world_rotation_difference_deg": 3.4150947886674906e-06,
+  "limits": "Channel equality and sampled world-transform equality do not establish skin shape or absence of forelimb collision."
+}

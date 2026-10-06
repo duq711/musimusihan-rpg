@@ -1,0 +1,593 @@
+{
+  "result": "Completed",
+  "retained_summary": "repair-summary.json",
+  "retained_summary_sha256": "5c95627a7cf77b103fa041a647048ed0ad37c61d8cbce95bf5645e0eefbcd9b5",
+  "removed_roots": [
+    "/Users/byeolee/Projects/musimusihan-rpg/unity-game/Builds/LabradorSprintRepairPriorPlayable-20261006.app",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/labrador-sprint-repair-20261006/review/repair-side-contact-0.png",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/labrador-sprint-repair-20261006/review/repair-side-contact-1.png",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/labrador-sprint-repair-20261006/validation/repair-native.log",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/labrador-sprint-repair-20261006/validation/repair-video-render.log",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/labrador-sprint-repair-20261006/validation/repair-native-build-cli.json",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/labrador-sprint-repair-20261006/validation/iteration6-video-decode.log",
+    "/private/tmp/labrador-sprint-repair-video-review",
+    "/private/tmp/labrador-sprint-repair-seek-check",
+    "/private/tmp/labrador-sprint-repair-video-review-compile.log",
+    "/private/tmp/labrador-sprint-repair-seek-compile.log"
+  ],
+  "removed_file_count": 280,
+  "removed_allocated_bytes": 3349991424,
+  "removed_logical_bytes": 3349326675,
+  "free_bytes_before": 9969147904,
+  "prior_backup_reference": {
+    "path": "/Users/byeolee/Projects/musimusihan-rpg/unity-game/Builds/LabradorSprintRepairPriorPlayable-20261006.app",
+    "hashes": {
+      "Contents/Info.plist": "36a625e7cb5cb98a1fd9554e69969ac6ba9b3abf3fc869862336a6f897da5423",
+      "Contents/MacOS/MusimusihanRPG": "8e1cb136fd8ed713644568e6b5f5c306781b12cefe4db3b9f769e26e7b767585",
+      "Contents/Resources/Data/Managed/Rpg.Gameplay.dll": "e9f83254cddcd4e81b90ebd5e649a6bb3a9bec1bb41cccae77cf05ffffcc7215",
+      "Contents/Resources/Data/StreamingAssets/ThirdPartyNotices/Labrador.txt": "33ce136623d2e3d2fdbddbda19d4d62050de205aac7723e4b869f621ceee2ca2",
+      "Contents/_CodeSignature/CodeResources": "6295f54a3e6ceb823b1c8eff7ff701722a5d4b756ce9198c5f0eb3c1d954ed08"
+    },
+    "reason": "Accepted current installed app verified; superseded task-owned prior playable backup no longer needed"
+  },
+  "reviewed_nonapp_files": [
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot2_quarter_normal_014.png",
+      "sha256": "8a0040796d60d2209da644e1d91aa171ccbd99b1c62fb77c5ed8a1f76be56600",
+      "bytes": 390151
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot2_quarter_normal_000.png",
+      "sha256": "e322e1f8a5ccd04b0265455e45325eae1937f80bf86db4be4402fd3da8290d53",
+      "bytes": 323245
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot1_side_half_003.png",
+      "sha256": "d6985ecb406924f65a9b2d9920f5b56df35f438e7cc0aa9e68879d32f2dd7541",
+      "bytes": 288836
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot1_side_half_017.png",
+      "sha256": "f6b829af9bc8aff01f983d7ba29f9fd660f9919070147923b1a1bace14ea0b74",
+      "bytes": 311820
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot1_side_half_016.png",
+      "sha256": "880eb63877823434cf94004f5e07020b3b264905cd35231e669ab185f2296296",
+      "bytes": 313446
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot1_side_half_002.png",
+      "sha256": "2167b527c9f38c8c97d2a73ac99ce7a5dbeded04580184bcca2b7a1c4492f88e",
+      "bytes": 280605
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot2_quarter_normal_001.png",
+      "sha256": "9244fcbb37d95bfde3391a7e0c1a5b5aa2f1eb8217b361a4af8bc41475a57956",
+      "bytes": 351498
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot2_quarter_normal_015.png",
+      "sha256": "e803fe6ebcb9d6b57f3de07d5a4bfe6d3596de0466b5e49166abcfeb620bfb3c",
+      "bytes": 392299
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot2_quarter_normal_003.png",
+      "sha256": "8a2ebd89c3aa80ddc840ac00c133c2b577f3a4c48c9c12b049913650b8f065b8",
+      "bytes": 352279
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot2_quarter_normal_017.png",
+      "sha256": "c607100b755d6dfa233a98bd303ed5879a56dbf58e4f647447e036c3db7ae7d7",
+      "bytes": 397384
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot1_side_half_014.png",
+      "sha256": "d2b3199885b40bb69c63715b1b07d45eaf6a856085a82b2572aba26835abe6fa",
+      "bytes": 310365
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot1_side_half_000.png",
+      "sha256": "45dae12d3b38d7bf2804863943ddca07e863af120d08709afb3efc80826e7db1",
+      "bytes": 260690
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot1_side_half_028.png",
+      "sha256": "7c2ce01f82da938d525626471c97782399cb4aee0c1b4093e3d9360ff13ebd36",
+      "bytes": 329953
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot0_side_normal_018.png",
+      "sha256": "6295ee37bff8d4414cecf19d83b25b7f53823daba05165a9a34e6e3671db009c",
+      "bytes": 300332
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot0_side_normal_019.png",
+      "sha256": "c2bf868bafd7b0451a786d894a0ca93ba190bc260d76c4b7fadad164e55162b3",
+      "bytes": 299538
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot1_side_half_029.png",
+      "sha256": "be2eab997e8eab3502f863a68d7465df6e3fef3a79a6866ade6327b3a2179b42",
+      "bytes": 330569
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot1_side_half_001.png",
+      "sha256": "10c628d8f72a2b9dd2b862ab88db4437f2c7fa23b91c11d419c8215ea8348c46",
+      "bytes": 276172
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot1_side_half_015.png",
+      "sha256": "ff3e8df789ee72dfafff369eab2bb0db2f2cb9c43b62157bc6d8c08f953c9b40",
+      "bytes": 312545
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot2_quarter_normal_016.png",
+      "sha256": "4338c65235511456f7c143e431aef6ec954f0eb02ecff64d83470d9a13929d67",
+      "bytes": 394371
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot2_quarter_normal_002.png",
+      "sha256": "754a2b09ae086ecf30870e29a474cecc1049cb5f633a14289b1b3c59d87937fe",
+      "bytes": 357852
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot2_quarter_normal_006.png",
+      "sha256": "131700159c7d18985de6c942c2542a95a517491b38249207704b066ee4906d3d",
+      "bytes": 368205
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot2_quarter_normal_012.png",
+      "sha256": "1c649930ac03a00258bb07fccf3ea9fe8f5509a7b55f1a4717d710271ff01222",
+      "bytes": 377897
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/contact_shot2_quarter_normal_0.png",
+      "sha256": "b9af9ee2e04a42b8cdd7e0e3706e0f3091a3dbf12b1a93017d6da769b57501c5",
+      "bytes": 614800
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot1_side_half_039.png",
+      "sha256": "f536b4c6148934ddea3fb2b5887e4a7adb6213e855de91909ae0e595e0a709d8",
+      "bytes": 307556
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot1_side_half_011.png",
+      "sha256": "8dfebaaec87751911863e2ca18db583d2ecbf8e657ceeb0f95f6b0dfe4c6af19",
+      "bytes": 305106
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot1_side_half_005.png",
+      "sha256": "4dba91285894253adfc1f0a29c12c6bfc6a60d4ff02d973791bb776e0c413249",
+      "bytes": 294604
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot0_side_normal_009.png",
+      "sha256": "8c4004cbedca8194446c45b16beaa1b472bb0cfb803afbf853219be4b5be3873",
+      "bytes": 272754
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot0_side_normal_021.png",
+      "sha256": "a084868feca72f1a80f294e6f1d2bd80b2054b41a26c8cff89a32c26cc09b4ea",
+      "bytes": 308946
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot0_side_normal_020.png",
+      "sha256": "fccddced1870cac5e2d8180e42456ec9b452108d7078f0a737dab5fd4bb7cc47",
+      "bytes": 304492
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot0_side_normal_008.png",
+      "sha256": "f7bd490e1a7a3b989961e0dde25f3cf5da3704868adaea28acd07eca58cb96bf",
+      "bytes": 274357
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot1_side_half_004.png",
+      "sha256": "749908a81605c94efcb73921f46749a8c6a102803acf7628e4e0dffd3e3583ff",
+      "bytes": 291798
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot1_side_half_010.png",
+      "sha256": "ec971a5c0f0a9ceac00d950eb3b53468f5cd22c9a1f386ee770a60cbb8c70d4c",
+      "bytes": 301388
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot1_side_half_038.png",
+      "sha256": "084c845fbae8f525741b08cefe61abe395d8bccc79ecf5f6cd18a2d08e58363c",
+      "bytes": 303560
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/contact_shot2_quarter_normal_1.png",
+      "sha256": "3b395e053be2e53d46999661fc976793e248ce21ff65db99431529c3d21b25ca",
+      "bytes": 602599
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot2_quarter_normal_013.png",
+      "sha256": "a8791f01032aeca285edf4e61e632a67d849262992688a16863bdc46fcca1e69",
+      "bytes": 381622
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot2_quarter_normal_007.png",
+      "sha256": "833027dacf91de02875ac2b398bda64d9488bb88c8be56780b263241dcb8d000",
+      "bytes": 374335
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot2_quarter_normal_011.png",
+      "sha256": "c2294b7d3e4fbb95d36b5d2879ee1bfc0f3174d43ab5f90dfe9702d3b2845817",
+      "bytes": 386611
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot2_quarter_normal_005.png",
+      "sha256": "37d2127eceab1abaee86379b7b5f874869e637d91fe0e69e56af5b49521ee3bb",
+      "bytes": 373115
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot1_side_half_006.png",
+      "sha256": "25711d95ae25c7a7931c97a3c4299f7d8488171e3a2ee27a5590914fe94a14a9",
+      "bytes": 295626
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot1_side_half_012.png",
+      "sha256": "675c421eeca30749147bbf8ae8bcd4f7c981e24ce48799e57717ce9d1db5061e",
+      "bytes": 306219
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot0_side_normal_022.png",
+      "sha256": "b5ae3bb5f9efd847b13a404ef57e70d42f1989a5ebabbc79fed95798c7389c80",
+      "bytes": 306050
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot1_side_half_013.png",
+      "sha256": "75b8b6ed0b62f553989d31eedd327703feceb57eae8b2c7d86f63430276a9f58",
+      "bytes": 306562
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot1_side_half_007.png",
+      "sha256": "5017cc3f75426e73dffc86766adc7c850bf318193bb3cfde99b69657afa9882b",
+      "bytes": 294678
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot2_quarter_normal_004.png",
+      "sha256": "ca5903bd52ce460ccf8360f17e4826fc0c1345bb88aacae50a2de1e6710b2666",
+      "bytes": 365822
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot2_quarter_normal_010.png",
+      "sha256": "5651617909fe522ec8a31942b2622251613c6927192d0e32faf921bf51953fe8",
+      "bytes": 380401
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot2_quarter_normal_009.png",
+      "sha256": "306e437fa12dd96db9bfee574ef36485c3564952872b1e3cca6393ff489e60c8",
+      "bytes": 375602
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot2_quarter_normal_021.png",
+      "sha256": "ab152b22ac982d81143d4bd251fc9ad9f2a41c3f8c8010aea0c77ce518fe64ce",
+      "bytes": 413900
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot1_side_half_022.png",
+      "sha256": "29b224ea833afad2508420a83905ffe8814530958854c996d278851051d4b765",
+      "bytes": 320487
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot1_side_half_036.png",
+      "sha256": "3ae54f5f2bee28a007d3cd1db0eb222884726e11ba08b3071fcbbdda37606f7d",
+      "bytes": 294987
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot0_side_normal_012.png",
+      "sha256": "1d24e5c557488ad22bb1530706c8b8dcb80406224962eff821ea3d58704b0eaf",
+      "bytes": 286227
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot0_side_normal_006.png",
+      "sha256": "466c6c13b72ec0012df581b487d8ba832572b648ce1c04b452170230f447ad08",
+      "bytes": 264908
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot0_side_normal_007.png",
+      "sha256": "1fe8fb8a77fe2f86cbb5fcfe1007f8e51b8ffc190a5db40b3d0466951e44d832",
+      "bytes": 268555
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot0_side_normal_013.png",
+      "sha256": "ab940a93056c568b5c6a670048d584255fced8806b684c4b2e9374fc0acebf53",
+      "bytes": 289883
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot1_side_half_037.png",
+      "sha256": "46e3b9db0f58d38bcc797f0dce9a0c23e1188cc818469a96208e605551a07b03",
+      "bytes": 299498
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot1_side_half_023.png",
+      "sha256": "47724ae6850556bf3433efa1756f13d49efd36f2fc358b7234aa53b417ca8518",
+      "bytes": 324045
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot2_quarter_normal_020.png",
+      "sha256": "769a91e74bcaaceca714dc8cb6d54129847fa086de236c9c2b48c9f9871ea421",
+      "bytes": 409433
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot2_quarter_normal_008.png",
+      "sha256": "db9498aa3a7c456c1b17ec22b161c86e1b48e8aba1ccd1f57c2bb0f3ca9a2b6d",
+      "bytes": 379638
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot2_quarter_normal_022.png",
+      "sha256": "6b157a1c94f55ab605ff39744f303066acc7e39d3f0bf352145c99c50a45f8db",
+      "bytes": 413898
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot1_side_half_035.png",
+      "sha256": "857e7a2b1b0149db55e5bafcf69a6c33a9d9e2dd8d5526ab13abec41cf76adaa",
+      "bytes": 295816
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot1_side_half_021.png",
+      "sha256": "31af7dae91d34930460f4cd5da9243c0f417fdb01a09faadf24b7f1e1da74c9c",
+      "bytes": 319147
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot1_side_half_009.png",
+      "sha256": "73b5fa24ca9e6f321c6ebf56147b248b3b029b95269ced5ebf9b120a68a32b84",
+      "bytes": 298978
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot0_side_normal_005.png",
+      "sha256": "7d7d1536142992e012836921b6bda07a16e7e8520e9ca34b42a4fc951686d001",
+      "bytes": 260126
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot0_side_normal_011.png",
+      "sha256": "d083f07a0928d9af441f940d8d742f01f4e90808f4be87b1ac6fa14baa3b3809",
+      "bytes": 281814
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot0_side_normal_010.png",
+      "sha256": "c2da6d53b1f329eff0ce6d79da460284c65194a2517f217b1d6aed4e8bec41f9",
+      "bytes": 275900
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot0_side_normal_004.png",
+      "sha256": "e73f7295ef2bfbf961a66d62df86591b6f0004baabdff55a73298157c72a4c72",
+      "bytes": 254200
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot1_side_half_008.png",
+      "sha256": "d75e3086e72fbae8291ae8a4e6adceaeb43cd1e5ba584c5a3fa360a2fd884ff4",
+      "bytes": 295959
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot1_side_half_020.png",
+      "sha256": "5a98289c9d731e09e836c1701a7a5655d7e15c2a083115ff2c89ebeb01119091",
+      "bytes": 317175
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot1_side_half_034.png",
+      "sha256": "e892d15634cdeb93400be7aeecd2d308653aaa0a11c1df3f733e62acb33d1a42",
+      "bytes": 288676
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot1_side_half_018.png",
+      "sha256": "83eb4d85b8ee07d1593b993098afa62704a0d3352920cbf7ed5cd8ba95d5a676",
+      "bytes": 313303
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot1_side_half_030.png",
+      "sha256": "c7751423748acf3079b28d0217e5950b51ed553b2c7e181ad59d0f064b35427b",
+      "bytes": 245047
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot1_side_half_024.png",
+      "sha256": "788a52ebd4fcfa2d890a548192e820072b4cd16b43d0d80ff472caaea37b5821",
+      "bytes": 328596
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot0_side_normal_000.png",
+      "sha256": "210fcaf0de10613b24df88a7514cbc439cfce2180c7821cd948d37fcf403c2f9",
+      "bytes": 219841
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot0_side_normal_014.png",
+      "sha256": "7c4a3c960c53d4d34f7114a7562b3ba872c6ac6b394b91f11a503f93e2b76596",
+      "bytes": 289396
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot0_side_normal_015.png",
+      "sha256": "e651c2b424c604782e0e7ea9ddb248b68e39c84391eb4ea37a2e5d219e4efb18",
+      "bytes": 286255
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot0_side_normal_001.png",
+      "sha256": "f026f7cfe2d8b60aafa79e73b95741c7201e5f05fb0fd42409906fadc1292d31",
+      "bytes": 240532
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot1_side_half_025.png",
+      "sha256": "6f96cd977db445524a37406d86b80cc0839284b9c832b0ab0f055960ef7ecbe6",
+      "bytes": 330799
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot1_side_half_031.png",
+      "sha256": "5904453e948e32008fc5d8bbcc00c29bc988d88e779647de0b664c1033aa3aed",
+      "bytes": 257582
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot1_side_half_019.png",
+      "sha256": "ab0ca8811bbdb940349b58533bb62fa8d78abe7f2a2613f6901796f2f3aee7d8",
+      "bytes": 314068
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot2_quarter_normal_018.png",
+      "sha256": "993b5b41cda95ad462b19d6d2bbf433c85fa12d3eac7845980d44d1841119415",
+      "bytes": 403988
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot1_side_half_027.png",
+      "sha256": "f82f2c73228711137be2640211c1923db6f1ac39d2a6c8856aa670356fa40ae9",
+      "bytes": 330686
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot1_side_half_033.png",
+      "sha256": "0fc6ac87eea5ef2fd07203b25647a98b989098574a83e5f304cb62435c89264c",
+      "bytes": 279609
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot0_side_normal_017.png",
+      "sha256": "981954ccc91b94ff7b8aae5e49b88dcb13df3dbfdf79e250378300ef46022e55",
+      "bytes": 297383
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot0_side_normal_003.png",
+      "sha256": "501096224a4461adb7fd3b455bde5350b1ed5c26d621736c208460192381d2ee",
+      "bytes": 255121
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot0_side_normal_002.png",
+      "sha256": "05e32d7993b4319d645aeef3b05bcc32b1c4066e6bfbbedaff7e9c8323e7c0b0",
+      "bytes": 249621
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot0_side_normal_016.png",
+      "sha256": "abc13a65f433d90c4ae0b86d6f9d03724a71e51b49ce1cb11f1d7eb90aa87021",
+      "bytes": 289499
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot1_side_half_032.png",
+      "sha256": "08af18dfad2cb84d841834bf1ccf1409697aeea139f33580007ba7304083634e",
+      "bytes": 268514
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot1_side_half_026.png",
+      "sha256": "93039071629d07c77f7b6a4a2fad7b4ac3538dd933b268eaccdb42cf3087a560",
+      "bytes": 331330
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot2_quarter_normal_019.png",
+      "sha256": "801bc4f01e56201d7f06dfdcbff0ed6bfd289b08cc997314a7db5e56a37eb946",
+      "bytes": 405101
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot1_side_half_041.png",
+      "sha256": "29dcb77a836831f5179bd7a6307f0a1d54bd5c32af17ce4147907f98eeffb2ee",
+      "bytes": 320848
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot1_side_half_040.png",
+      "sha256": "553cd7d1b1fe9a27783c1b36c27b2ab29c32e024318b387aadc4c5b4399d55a2",
+      "bytes": 313820
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot1_side_half_042.png",
+      "sha256": "e511dd2f0cf2c61804e9e7bc3c7144f3f269da9b5100f5b9caca2758da56b44f",
+      "bytes": 322976
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/contact_shot0_side_normal_0.png",
+      "sha256": "951a1eb8488fb625e196a99e674c254021729e9559bf727df8c7982b874a8c22",
+      "bytes": 502810
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/contact_shot0_side_normal_1.png",
+      "sha256": "c1773a7bc548e986156d20ec93b818bb2f371b4628fd204e3c76451aae4fc424",
+      "bytes": 493584
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/shot1_side_half_043.png",
+      "sha256": "5ebe16bb5ba37b527feffb7bac152d28b0508921fe7c1b7be97d1e0c6a443a11",
+      "bytes": 322162
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/contact_shot1_side_half_1.png",
+      "sha256": "fa2402f9b7798d7727ef545436d60729d455c9dc8fb40942344023b4d3a43d75",
+      "bytes": 521354
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/contact_shot1_side_half_0.png",
+      "sha256": "77bee8492a8c172f6ea25cea832d365e421cc9f5fcccf555bdf69b0c71c09a02",
+      "bytes": 506852
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/contact_shot1_side_half_2.png",
+      "sha256": "1d8c41353f0589026e9ad6d4469e41d3ff6ff073f4981ca9862d7c20f5c76ff4",
+      "bytes": 510474
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/iteration6-movie/contact_shot1_side_half_3.png",
+      "sha256": "3f574e820361acf8d603cf6edefef316307dbcb7cac94ac1b14841ea807d3c1d",
+      "bytes": 364307
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/repair-side-contact-0.png",
+      "sha256": "e374da6a574c9476cfb97b0b3ad223a8629463f5a8b90897e37c57ed6eb09b80",
+      "bytes": 397526
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/review/repair-side-contact-1.png",
+      "sha256": "a6ece5c2ea584b604df7b733610ba6ee0857268cb7ef722396070d8212915fd2",
+      "bytes": 398625
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/validation/repair-native.log",
+      "sha256": "71fbfcf505ef87f05b2f30bd5364250ae951472d34c4af43d94f6c6305279352",
+      "bytes": 1825
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/validation/repair-video-render.log",
+      "sha256": "cb6ad150f6a470b99c427ee6d702f05b086ca1ba3a417c5f2ced731c06c9e2ae",
+      "bytes": 19946
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/validation/repair-native-build-cli.json",
+      "sha256": "e983f2455a47dcc47ef8ce613e50ec29480149c2f8fd6996ca2a495b4a69a6f9",
+      "bytes": 1462
+    },
+    {
+      "path": "asset-staging/labrador-sprint-repair-20261006/validation/iteration6-video-decode.log",
+      "sha256": "d3021221e4dcd8d5a437144029fe69e5f091287ae0a4bf0d801de96fef79f2d5",
+      "bytes": 27
+    },
+    {
+      "path": "/private/tmp/labrador-sprint-repair-video-review",
+      "sha256": "7f2ec5b477fc76b5c0926141f8100646be974582c3e7c7015a8d91f104d52b74",
+      "bytes": 101344
+    },
+    {
+      "path": "/private/tmp/labrador-sprint-repair-seek-check",
+      "sha256": "4636907257ad1cd6c1218d00de62ec1059c1ad30fe4c69c6fffb2ea9a7428bd5",
+      "bytes": 72080
+    },
+    {
+      "path": "/private/tmp/labrador-sprint-repair-video-review-compile.log",
+      "sha256": "c51fa424f117353bb7b0d3192f8d85a92d8861c15111c6580ce73960c0197106",
+      "bytes": 3363
+    },
+    {
+      "path": "/private/tmp/labrador-sprint-repair-seek-compile.log",
+      "sha256": "3034a8c18579864855d137037b3312ddb99f377d906434e95a612607618c3b02",
+      "bytes": 2593
+    }
+  ],
+  "preserved_final_hashes": {
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/labrador-sprint-repair-20261006/production/LabradorPet_SprintRepair.blend": "136aaccdf9817bff8479b75ddd1984139c2c13b58941361088497abc0ff646c8",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/labrador-sprint-repair-20261006/export/LabradorPet_SprintRepair_Extended.png": "3e5369079d9d7f43b10853d773a49562dc9e611edf647b2d32f318979361bd08",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/labrador-sprint-repair-20261006/export/LabradorPet_SprintRepair_Collected.png": "a275fe76fb0736e45836ad661ce48d2463ca327f7b54a019ce927cb936be9181",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/labrador-sprint-repair-20261006/export/LabradorPet_SprintRepair.mp4": "36c5507a7e37fffbeca1901ebd299f58b0cfce439fb50979f6d117e6a59b9ad0",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/labrador-sprint-repair-20261006/export/sprint-repair-manifest.json": "901af882ac01ab737171132798e9a4983a2b7d73d233c66e4114f17d4218a6ef",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/labrador-sprint-repair-20261006/export/LabradorPet_SprintRepair.glb": "3c7dc6798c754edc6427ea4f9c58ad2e3704ff564ccd016962b2819606d879e4",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/labrador-sprint-repair-20261006/export/Locomotion/Run.fbx": "f316e8e2e64d604d6760468d35233f7d3be6a8158112cea355a5c61e982ee6f9"
+  },
+  "limits": [
+    "Allocation and observed free-space delta may differ due to APFS shared blocks and concurrent unrelated work.",
+    "Other task apps, operational Editor logs and shared Library remain untouched."
+  ],
+  "free_bytes_after": 13278138368,
+  "completed_utc": "2026-10-06T03:26:22.112855+00:00",
+  "final_assets_and_playable_preserved": true,
+  "observed_free_delta_bytes": 3308990464
+}

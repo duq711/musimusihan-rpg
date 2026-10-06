@@ -1,0 +1,51 @@
+{
+  "status": "Final candidate8 independent selected-surface numerical and rendered visual repair acceptance PassedWithLimits; root viewer/native integration remains separately owned",
+  "reference": "https://www.youtube.com/shorts/uOWwXi-leww?feature=share",
+  "scope": "Repair the user-reported phase .9 proximal forelimb morphology and self-intersection, preserving the source mesh, rest pose, weights and other clips. Final visibility and naturalness are judged separately from numerical floor and loop gates.",
+  "frozen_test_regions": {
+    "mask_a": "Torso+Back average weight >.55 against each original foreShoulder/Upper/Lower average weight >.55; neutral0 and phase .9 exact198 crossings reproduced.",
+    "mask_b": "Torso+Neck average weight >.55 (12401 triangles) against original combined foreUpper+Lower average weight >.55 (3971 triangles); neutral0 and phase .9 BVH232 pairs,231 edge-confirmed.",
+    "additional_regions": "Fixed mixed proximal left848/right856 triangles and broader original body/head against each combined limb. Added without reducing either historical mask."
+  },
+  "surface_sampling": {
+    "regular_hz": 120,
+    "regular_samples": 85,
+    "previous_failed_phase": 0.9,
+    "total_per_format": 86,
+    "authored_keys": 43,
+    "formats": [
+      "Blender BEZIER evaluated skin",
+      "Actual exportedglTF LINEAR/STEP skin with original IDs/masks"
+    ]
+  },
+  "other_numerical_sampling": {
+    "actual_skin_poses": 169,
+    "floor_margin_m": 0.003,
+    "checks": "Actual skin floor, supported residual motion, flight, hip/chest/head and limb timing, original bend signs, loop positions and one-sided velocities."
+  },
+  "visual_review": "Both sides and quarter anatomy including phase .9 and the worst area phase, plus final30fps movie90 ordered frames; root owns browser and native review.",
+  "new_visual_acceptance": [
+    "Both proximal forelimb junctions remain smoothly attached and readable without knobby shoulder or embedded upper/lower leg across all reviewed phases.",
+    "No unexplained collapsed forelimb/shoulder skin patch; investigate fixed-mask area<20% cases rather than reducing the mask or silently relaxing the threshold.",
+    "Extended→fore load→deep collection→hind landing progression remains readable after repair.",
+    "No repaired part or other leg embedded inside chest, muzzle or body in sampled actual skin and final exported skin.",
+    "Existing floor, support, core, foot pitch and loop continuity remain within the previously stated limits."
+  ],
+  "reusable_tools": [
+    "tools/dcc/labrador_sprint_surface_review.py",
+    "tools/dcc/labrador_sprint_gltf_skin.py",
+    "tools/dcc/labrador_sprint_skin_review.py",
+    "tools/dcc/labrador_sprint_video_review.swift"
+  ],
+  "limits": [
+    "Selected region counts do not measure full-mesh penetration depth or volume, and do not guarantee all-mesh collision freedom.",
+    "Shared-vertex adjacency is excluded; exact crossing and coplanar overlap are reported separately.",
+    "Surface area ratios diagnose compression, not physical volume or proof of naturalness.",
+    "Sampled full-cycle review and actual movie frames do not substitute for user aesthetic acceptance."
+  ],
+  "baseline_receipts": [
+    "sprint-repair-surface-baseline.json",
+    "sprint-repair-rejected-cycle-surface.json"
+  ],
+  "final_candidate_blend_sha256": "136aaccdf9817bff8479b75ddd1984139c2c13b58941361088497abc0ff646c8"
+}

@@ -1,0 +1,234 @@
+{
+  "clip": "Run",
+  "duration_s": 0.700000048,
+  "speed_m_s": 2.3472118786586624,
+  "bindings": 593,
+  "skin_samples": 86,
+  "sample_hz": 120,
+  "root_planar_drift_m": 0.0,
+  "loop_position_m": 0.0,
+  "loop_angle_degrees": 0.0,
+  "maximum_joint_rotation_degrees": 134.618744,
+  "skin_floor_minimum_m": 0.0005707871,
+  "paw_floor_minimum_m": {
+    "FF.L_46": 0.0005999934,
+    "FF.R_50": 0.0005999636,
+    "FFB.L_44": 0.0005797278,
+    "FFB.R_48": 0.0005707871
+  },
+  "paw_floor_maximum_m": {
+    "FF.L_46": 0.15372099,
+    "FF.R_50": 0.134045258,
+    "FFB.L_44": 0.1426145,
+    "FFB.R_48": 0.136019364
+  },
+  "foot_region_policy": "Acquired ankle + toe skin weight sum >= 0.65; heel included; whole-body floor bound unchanged",
+  "foot_regions": [
+    {
+      "toe": "FF.L_46",
+      "ankle": "IKFrontLeg.L_47",
+      "minimum_combined_weight": 0.65,
+      "vertices": 1409
+    },
+    {
+      "toe": "FF.R_50",
+      "ankle": "IKFrontLeg.R_51",
+      "minimum_combined_weight": 0.65,
+      "vertices": 1410
+    },
+    {
+      "toe": "FFB.L_44",
+      "ankle": "IKBackLeg.L_45",
+      "minimum_combined_weight": 0.65,
+      "vertices": 1959
+    },
+    {
+      "toe": "FFB.R_48",
+      "ankle": "IKBackLeg.R_49",
+      "minimum_combined_weight": 0.65,
+      "vertices": 1959
+    }
+  ],
+  "airborne_samples": 34,
+  "airborne_fraction": 0.4,
+  "airborne_clearance_m": 0.0777805,
+  "phase_samples": [
+    {
+      "phase": 0.0,
+      "paw_floor_y_m": {
+        "FF.L_46": 0.08699538,
+        "FF.R_50": 0.107478395,
+        "FFB.L_44": 0.0005999934,
+        "FFB.R_48": 0.0005999934
+      },
+      "all_paws_airborne": false
+    },
+    {
+      "phase": 0.117647059,
+      "paw_floor_y_m": {
+        "FF.L_46": 0.153687313,
+        "FF.R_50": 0.133190349,
+        "FFB.L_44": 0.000766230747,
+        "FFB.R_48": 0.0969068557
+      },
+      "all_paws_airborne": false
+    },
+    {
+      "phase": 0.235294119,
+      "paw_floor_y_m": {
+        "FF.L_46": 0.143100753,
+        "FF.R_50": 0.07935561,
+        "FFB.L_44": 0.0777805,
+        "FFB.R_48": 0.121078089
+      },
+      "all_paws_airborne": true
+    },
+    {
+      "phase": 0.3529412,
+      "paw_floor_y_m": {
+        "FF.L_46": 0.0456584245,
+        "FF.R_50": 0.0006001126,
+        "FFB.L_44": 0.107457891,
+        "FFB.R_48": 0.1359015
+      },
+      "all_paws_airborne": false
+    },
+    {
+      "phase": 0.470588237,
+      "paw_floor_y_m": {
+        "FF.L_46": 0.0005999934,
+        "FF.R_50": 0.00060970895,
+        "FFB.L_44": 0.135987118,
+        "FFB.R_48": 0.1222101
+      },
+      "all_paws_airborne": false
+    },
+    {
+      "phase": 0.5882353,
+      "paw_floor_y_m": {
+        "FF.L_46": 0.00577319972,
+        "FF.R_50": 0.0548357964,
+        "FFB.L_44": 0.1382235,
+        "FFB.R_48": 0.110421427
+      },
+      "all_paws_airborne": true
+    },
+    {
+      "phase": 0.7058824,
+      "paw_floor_y_m": {
+        "FF.L_46": 0.04829812,
+        "FF.R_50": 0.0514212847,
+        "FFB.L_44": 0.122362249,
+        "FFB.R_48": 0.08246426
+      },
+      "all_paws_airborne": true
+    },
+    {
+      "phase": 0.8235294,
+      "paw_floor_y_m": {
+        "FF.L_46": 0.0228939783,
+        "FF.R_50": 0.0175993871,
+        "FFB.L_44": 0.0739763454,
+        "FFB.R_48": 0.00297115557
+      },
+      "all_paws_airborne": false
+    },
+    {
+      "phase": 0.9411765,
+      "paw_floor_y_m": {
+        "FF.L_46": 0.0235685837,
+        "FF.R_50": 0.108732656,
+        "FFB.L_44": 0.0006152224,
+        "FFB.R_48": 0.0006063413
+      },
+      "all_paws_airborne": false
+    },
+    {
+      "phase": 1.0,
+      "paw_floor_y_m": {
+        "FF.L_46": 0.08699538,
+        "FF.R_50": 0.107478395,
+        "FFB.L_44": 0.0005999934,
+        "FFB.R_48": 0.0005999934
+      },
+      "all_paws_airborne": false
+    }
+  ],
+  "result": "Passed",
+  "checks": 195,
+  "unity_version": "6000.3.25f1",
+  "source_fbx": "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/labrador-sprint-repair-20261006/export/Locomotion/Run.fbx",
+  "source_fbx_sha256": "f316e8e2e64d604d6760468d35233f7d3be6a8158112cea355a5c61e982ee6f9",
+  "manifest_sha256": "901af882ac01ab737171132798e9a4983a2b7d73d233c66e4114f17d4218a6ef",
+  "installed_fbx_guid": "a8488fe90e8bb4479b6ee7579b806903",
+  "installed_anim_guid": "e39da3bd67a6741ba889b7a082207bc0",
+  "installed_anim_sha256": "ba035da90e36cb2649d5fac4a1b878c0c9cb1c893a755b6bf73a9a66c6df6ef5",
+  "preserved_files": 30,
+  "limitations": [
+    "Imported rig, real evaluated skin, four paw support/swing and airborne samples are measured. Physical force and visual style are reviewed in the separate DCC/preview acceptance.",
+    "The runtime reads the actual clip period at rate 1; this upgrade does not add companion navigation or change Walk/petting."
+  ],
+  "post_import_verified_utc": "2026-10-06T03:19:15.431291+00:00",
+  "minimum_sample_hz": 120,
+  "actual_sample_hz": 121.42856310204138,
+  "sampling_note": "Both endpoints included. Imported float period .700000048 yields 85 intervals and 86 evaluated poses, about 121.42856 Hz.",
+  "post_import_preservation": {
+    "checked_asset_meta_files": 33,
+    "changed_asset_meta_files": [
+      "Assets/RPG/Resources/Pets/Labrador/Animations/Run.anim",
+      "Assets/RPG/Resources/Pets/Labrador/Animations/Run.fbx"
+    ],
+    "unexpected_changed_files": [],
+    "preserved_non_Run_fbx_anim_importer_files": 30,
+    "runtime_files_checked": 3,
+    "changed_runtime_files": [],
+    "both_Run_guids_match_before": true,
+    "installed_fbx_matches_approved_source": true,
+    "Run_fbx_meta_sha256": "1dbc77db9611c8ff6cdc7b6a1d2664be939bbde39d9f1d3767717c0bf8112706",
+    "Run_anim_meta_sha256": "cb1def03da8adb35fecdb900bd23859bd56cc530e58349e27866a54c34a64805",
+    "runtime_guards": {
+      "unity-game/Assets/RPG/Gameplay/Pets/PetAnimationPlayer.cs": "a9176527e5b145d2121ac6473cdf22e3bb3dc99f22d0bbe4babbbe11b6272e1a",
+      "unity-game/Assets/RPG/Gameplay/Pets/LabradorLocomotionDemo.cs": "b10aab1bb4f1034ec317d5aa4b94ad855f3c0bf9ea7d4e3e2bb27554040583b9",
+      "unity-game/Assets/RPG/Gameplay/WorkshopPetting.cs": "5fb21c4c63f8e952f711c1c8d8e1ed2426367927645377d9e92c96a4d153ba70"
+    },
+    "actual_byte_identical_snapshot_files": 31
+  },
+  "pre_import_acceptance_receipts": {
+    "root_visual_review": "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/labrador-sprint-repair-20261006/repair-root-visual-review.json",
+    "root_visual_review_sha256": "56eabd2c04e4a052d983f7859395d726815eb14f506687b0e096b48269da7aa4",
+    "candidate": 8,
+    "blend_sha256": "136aaccdf9817bff8479b75ddd1984139c2c13b58941361088497abc0ff646c8",
+    "numerical_summary": "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/labrador-sprint-repair-20261006/sprint-repair-independent-numerical-summary.json",
+    "numerical_summary_sha256": "7a41a3327cb7a4d8bc5d3e3f3f3a5c2d3a8216cf7654d0c2da3aa28f147c6262",
+    "scope": "Root approved final close shape views with retained fold/compression diagnostics. Fixed original surface crossing results are recorded for Blender and actual GLB separately; the 195 Unity checks do not test foreleg self-intersection."
+  },
+  "scope_note": "Run-only repair import. Original model mesh/skin weights, Walk, care and runtime preserved. Movie/browser/native acceptance, build/install/Git remain root-owned and pending separately.",
+  "agent_cleanup": {
+    "generated_transient_disk_files": [],
+    "preserve_operational_editor_log": "asset-staging/labrador-sprint-20261006/validation/editor-live.log",
+    "operational_log_state": "Existing resident Editor PID38892 still uses this log; no deletion or restart.",
+    "temporary_scene_mesh_cleanup": "Prefab instance, temporary clip clones and baked mesh destroyed by installer finally; no disk copies.",
+    "native_builds_created": 0,
+    "media_created": 0,
+    "removed_allocation_bytes": 0
+  },
+  "actual_editor_readback": {
+    "unity_version": "6000.3.25f1",
+    "pipeline_port": 7800,
+    "editor_pid": 38892,
+    "take_count": 1,
+    "first_frame": 1.0,
+    "last_frame": 43.0,
+    "frame_rate": 60.0,
+    "clip_name": "Run",
+    "duration_s": 0.700000048,
+    "loop_time": true,
+    "legacy": true,
+    "wrap_mode": "Loop",
+    "is_compiling": false,
+    "is_updating": false,
+    "is_playing": false,
+    "diagnostics": [],
+    "verified_utc": "2026-10-06T03:19:39.262501+00:00"
+  }
+}

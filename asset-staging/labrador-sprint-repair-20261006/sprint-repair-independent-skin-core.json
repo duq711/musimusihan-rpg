@@ -1,0 +1,594 @@
+{
+  "scope": "New sprint evaluated skin/core kinematics. Prior photo-based pass and previous QA results are not reused as naturalness evidence.",
+  "blend_sha256": "136aaccdf9817bff8479b75ddd1984139c2c13b58941361088497abc0ff646c8",
+  "manifest_sha256": "901af882ac01ab737171132798e9a4983a2b7d73d233c66e4114f17d4218a6ef",
+  "clip": "Run",
+  "fps": 60.0,
+  "duration_s": 0.7,
+  "regular_sample_hz": 120,
+  "regular_samples": 85,
+  "extra_actual_skin_key_boundary_samples": 84,
+  "total_actual_skin_samples": 169,
+  "foot_region": "Ankle plus toe influence >=65%, including heel. Fixed sole vertices from the same anatomical region are followed.",
+  "unchanged_floor_margin_m": 0.003,
+  "whole_body_skin_floor_min_m": -0.0007867137901484966,
+  "whole_body_floor_within_margin": true,
+  "bends": {
+    "FrontLowerLeg.L_16": {
+      "internal_angle_range_deg": [
+        112.7583635736899,
+        169.72914902568468
+      ],
+      "sagittal_sign_range": [
+        0.05554366484284401,
+        0.2871059477329254
+      ],
+      "original_rest_sign_matches_all": true
+    },
+    "FrontLowerLeg.R_19": {
+      "internal_angle_range_deg": [
+        93.81066749526583,
+        168.62577294640414
+      ],
+      "sagittal_sign_range": [
+        0.06132737547159195,
+        0.3110191524028778
+      ],
+      "original_rest_sign_matches_all": true
+    },
+    "BackUpperLeg.L_25": {
+      "internal_angle_range_deg": [
+        35.147873431129646,
+        170.7785256293871
+      ],
+      "sagittal_sign_range": [
+        -0.6343228220939636,
+        -0.10166648030281067
+      ],
+      "original_rest_sign_matches_all": true
+    },
+    "BackLowerLeg.L_24": {
+      "internal_angle_range_deg": [
+        41.60691695183307,
+        150.6763636566908
+      ],
+      "sagittal_sign_range": [
+        0.27821147441864014,
+        0.5851889848709106
+      ],
+      "original_rest_sign_matches_all": true
+    },
+    "BackUpperLeg.R_29": {
+      "internal_angle_range_deg": [
+        35.120204334801926,
+        170.8029640462374
+      ],
+      "sagittal_sign_range": [
+        -0.6343282461166382,
+        -0.10138887166976929
+      ],
+      "original_rest_sign_matches_all": true
+    },
+    "BackLowerLeg.R_28": {
+      "internal_angle_range_deg": [
+        40.88848691907987,
+        148.6176216974439
+      ],
+      "sagittal_sign_range": [
+        0.29575803875923157,
+        0.5705577731132507
+      ],
+      "original_rest_sign_matches_all": true
+    }
+  },
+  "feet": {
+    "LF": {
+      "skin_floor_range_m": [
+        -0.0007867137901484966,
+        0.1538592129945755
+      ],
+      "maximum_centroid_step_m": 0.04590897069991114,
+      "centroid_step_phase_interval": [
+        0.8214285714285714,
+        0.8333333333333334
+      ],
+      "maximum_rotation_step_deg": 1.7664697553063453,
+      "rotation_step_phase_interval": [
+        0.6547619047619048,
+        0.6666666666666666
+      ],
+      "loop_position_delta_m": 0.0,
+      "loop_velocity_delta_m_s": 0.9308622332495938,
+      "loop_one_sided_skin_velocity_delta_m_s": 0.11969464173698477,
+      "loop_one_sided_angular_velocity_delta_deg_s": 0.06966773002711636,
+      "supported_skin": {
+        "stance_phase": [
+          0.42,
+          0.59
+        ],
+        "interior_samples": 12,
+        "nominal_speed_m_s": 2.3472118786586624,
+        "fixed_sole_centroid_max_drift_m": 0.005377568660915263,
+        "max_fixed_sole_planar_residual_speed_m_s": 0.5430510433359707,
+        "worst_residual_speed_phase": 0.5595238095238095,
+        "worst_phase_skin_floor_m": -0.0007867137901484966,
+        "worst_phase_chain_bends": {
+          "FrontLowerLeg.L_16": {
+            "internal_angle_deg": 161.38752095461814,
+            "sagittal_sign": 0.09916004538536072,
+            "rest_sign_matches": true
+          }
+        },
+        "skin_floor_range_m": [
+          -0.0007867137901484966,
+          0.000973197165876627
+        ]
+      }
+    },
+    "RF": {
+      "skin_floor_range_m": [
+        -0.00016256282106041908,
+        0.13412100076675415
+      ],
+      "maximum_centroid_step_m": 0.04511327243481212,
+      "centroid_step_phase_interval": [
+        0.5357142857142857,
+        0.5476190476190477
+      ],
+      "maximum_rotation_step_deg": 1.760786088247462,
+      "rotation_step_phase_interval": [
+        0.5476190476190477,
+        0.5595238095238095
+      ],
+      "loop_position_delta_m": 0.0,
+      "loop_velocity_delta_m_s": 1.6346777774501136,
+      "loop_one_sided_skin_velocity_delta_m_s": 0.2411347647168775,
+      "loop_one_sided_angular_velocity_delta_deg_s": 0.0,
+      "supported_skin": {
+        "stance_phase": [
+          0.32,
+          0.49
+        ],
+        "interior_samples": 13,
+        "nominal_speed_m_s": 2.3472118786586624,
+        "fixed_sole_centroid_max_drift_m": 0.0010199451517319605,
+        "max_fixed_sole_planar_residual_speed_m_s": 0.04321608551701648,
+        "worst_residual_speed_phase": 0.47619047619047616,
+        "worst_phase_skin_floor_m": 0.000599975697696209,
+        "worst_phase_chain_bends": {
+          "FrontLowerLeg.R_19": {
+            "internal_angle_deg": 153.84025754440245,
+            "sagittal_sign": 0.13742060959339142,
+            "rest_sign_matches": true
+          }
+        },
+        "skin_floor_range_m": [
+          0.0004886779934167862,
+          0.0006294669583439827
+        ]
+      }
+    },
+    "LH": {
+      "skin_floor_range_m": [
+        0.0004514032043516636,
+        0.14281657338142395
+      ],
+      "maximum_centroid_step_m": 0.03433367003482467,
+      "centroid_step_phase_interval": [
+        0.5595238095238095,
+        0.5714285714285714
+      ],
+      "maximum_rotation_step_deg": 6.0557731871230605,
+      "rotation_step_phase_interval": [
+        0.17857142857142858,
+        0.19047619047619047
+      ],
+      "loop_position_delta_m": 0.0,
+      "loop_velocity_delta_m_s": 0.0020310654248910033,
+      "loop_one_sided_skin_velocity_delta_m_s": 0.0006977789935925431,
+      "loop_one_sided_angular_velocity_delta_deg_s": 0.0,
+      "supported_skin": {
+        "stance_phase": [
+          0.935,
+          1.11
+        ],
+        "interior_samples": 13,
+        "nominal_speed_m_s": 2.3472118786586624,
+        "fixed_sole_centroid_max_drift_m": 0.001669816768477797,
+        "max_fixed_sole_planar_residual_speed_m_s": 0.2003860475627364,
+        "worst_residual_speed_phase": 1.0357142857142858,
+        "worst_phase_skin_floor_m": 0.0006235498003661633,
+        "worst_phase_chain_bends": {
+          "BackUpperLeg.L_25": {
+            "internal_angle_deg": 78.38355827357898,
+            "sagittal_sign": -0.6214734315872192,
+            "rest_sign_matches": true
+          },
+          "BackLowerLeg.L_24": {
+            "internal_angle_deg": 99.79495139695084,
+            "sagittal_sign": 0.5609008073806763,
+            "rest_sign_matches": true
+          }
+        },
+        "skin_floor_range_m": [
+          0.0005820323713123798,
+          0.0006552836857736111
+        ]
+      }
+    },
+    "RH": {
+      "skin_floor_range_m": [
+        0.00042172055691480637,
+        0.13607476651668549
+      ],
+      "maximum_centroid_step_m": 0.0313829429200003,
+      "centroid_step_phase_interval": [
+        0.07142857142857142,
+        0.08333333333333333
+      ],
+      "maximum_rotation_step_deg": 6.061313852518025,
+      "rotation_step_phase_interval": [
+        0.08333333333333333,
+        0.09523809523809523
+      ],
+      "loop_position_delta_m": 0.0,
+      "loop_velocity_delta_m_s": 0.017106477059462093,
+      "loop_one_sided_skin_velocity_delta_m_s": 0.00398338140930004,
+      "loop_one_sided_angular_velocity_delta_deg_s": 0.004098060140814808,
+      "supported_skin": {
+        "stance_phase": [
+          0.84,
+          1.015
+        ],
+        "interior_samples": 13,
+        "nominal_speed_m_s": 2.3472118786586624,
+        "fixed_sole_centroid_max_drift_m": 0.0016524302484849035,
+        "max_fixed_sole_planar_residual_speed_m_s": 0.19826889329174635,
+        "worst_residual_speed_phase": 0.9642857142857143,
+        "worst_phase_skin_floor_m": 0.0006287284195423126,
+        "worst_phase_chain_bends": {
+          "BackUpperLeg.R_29": {
+            "internal_angle_deg": 82.54765140296895,
+            "sagittal_sign": -0.6291095614433289,
+            "rest_sign_matches": true
+          },
+          "BackLowerLeg.R_28": {
+            "internal_angle_deg": 94.69347627567915,
+            "sagittal_sign": 0.5678988695144653,
+            "rest_sign_matches": true
+          }
+        },
+        "skin_floor_range_m": [
+          0.0005834251642227173,
+          0.0006613661535084248
+        ]
+      }
+    }
+  },
+  "core_kinematics": {
+    "Back_38": {
+      "vertical_range_m": [
+        0.5181195735931396,
+        0.5712708830833435
+      ],
+      "max_speed_m_s": 0.41305300174760107,
+      "max_speed_phase_interval": [
+        0.5357142857142857,
+        0.5476190476190477
+      ],
+      "max_discrete_acceleration_m_s2": 10.829255104266464,
+      "max_acceleration_phase": 0.39285714285714285,
+      "loop_position_delta_m": 0.0,
+      "loop_velocity_delta_m_s": 0.006480216909805758,
+      "loop_one_sided_velocity_delta_m_s": 0.0007152557373047644,
+      "largest_key_boundary_velocity_jumps": [
+        {
+          "frame": 19,
+          "phase": 0.42857142857142855,
+          "velocity_jump_m_s": 0.0075101851811484755,
+          "before_velocity_m_s": [
+            3.2747138334343617e-10,
+            0.0,
+            0.08282661437988281
+          ],
+          "after_velocity_m_s": [
+            9.325873406851315e-13,
+            0.0,
+            0.09033679962158203
+          ]
+        },
+        {
+          "frame": 18,
+          "phase": 0.40476190476190477,
+          "velocity_jump_m_s": 0.007295608520507814,
+          "before_velocity_m_s": [
+            -1.6373569167171809e-10,
+            0.0,
+            -0.0067234039306640625
+          ],
+          "after_velocity_m_s": [
+            0.0,
+            0.0,
+            0.00057220458984375
+          ]
+        },
+        {
+          "frame": 29,
+          "phase": 0.6666666666666666,
+          "velocity_jump_m_s": 0.0058650970458984375,
+          "before_velocity_m_s": [
+            9.325873406851315e-13,
+            0.0,
+            0.04355907440185547
+          ],
+          "after_velocity_m_s": [
+            -9.325873406851315e-13,
+            0.0,
+            0.03769397735595703
+          ]
+        },
+        {
+          "frame": 30,
+          "phase": 0.6904761904761905,
+          "velocity_jump_m_s": 0.005435943603515628,
+          "before_velocity_m_s": [
+            1.6273649094955545e-10,
+            0.0,
+            7.152557373046875e-05
+          ],
+          "after_velocity_m_s": [
+            9.325873406851315e-13,
+            0.0,
+            -0.005364418029785156
+          ]
+        },
+        {
+          "frame": 16,
+          "phase": 0.35714285714285715,
+          "velocity_jump_m_s": 0.004863739013671875,
+          "before_velocity_m_s": [
+            0.0,
+            0.0,
+            -0.2763032913208008
+          ],
+          "after_velocity_m_s": [
+            0.0,
+            0.0,
+            -0.2714395523071289
+          ]
+        }
+      ]
+    },
+    "Torso3_15": {
+      "vertical_range_m": [
+        0.44610121846199036,
+        0.5367302298545837
+      ],
+      "max_speed_m_s": 0.8052311711304789,
+      "max_speed_phase_interval": [
+        0.5357142857142857,
+        0.5476190476190477
+      ],
+      "max_discrete_acceleration_m_s2": 12.73287013409329,
+      "max_acceleration_phase": 0.6785714285714286,
+      "loop_position_delta_m": 0.0,
+      "loop_velocity_delta_m_s": 0.02232939002271225,
+      "loop_one_sided_velocity_delta_m_s": 0.0023166576861833378,
+      "largest_key_boundary_velocity_jumps": [
+        {
+          "frame": 19,
+          "phase": 0.42857142857142855,
+          "velocity_jump_m_s": 0.010567136738414664,
+          "before_velocity_m_s": [
+            -9.296368079958484e-05,
+            0.06344318389892578,
+            0.10474920272827148
+          ],
+          "after_velocity_m_s": [
+            5.491138381330529e-06,
+            0.06580352783203125,
+            0.11504888534545898
+          ]
+        },
+        {
+          "frame": 30,
+          "phase": 0.6904761904761905,
+          "velocity_jump_m_s": 0.010160991069356234,
+          "before_velocity_m_s": [
+            1.6972931916825473e-05,
+            -0.13947486877441406,
+            -0.04169940948486328
+          ],
+          "after_velocity_m_s": [
+            -1.149672925748746e-06,
+            -0.14373064041137695,
+            -0.05092620849609375
+          ]
+        },
+        {
+          "frame": 31,
+          "phase": 0.7142857142857143,
+          "velocity_jump_m_s": 0.009978842817823118,
+          "before_velocity_m_s": [
+            -3.3236673857572896e-07,
+            -0.24150609970092773,
+            -0.07517337799072266
+          ],
+          "after_velocity_m_s": [
+            7.722895247752604e-07,
+            -0.24297237396240234,
+            -0.08504390716552734
+          ]
+        },
+        {
+          "frame": 27,
+          "phase": 0.6190476190476191,
+          "velocity_jump_m_s": 0.00881215851833659,
+          "before_velocity_m_s": [
+            -6.243083771551028e-05,
+            0.04870891571044922,
+            0.48122406005859375
+          ],
+          "after_velocity_m_s": [
+            -2.331164751012693e-06,
+            0.045740604400634766,
+            0.4729270935058594
+          ]
+        },
+        {
+          "frame": 20,
+          "phase": 0.4523809523809524,
+          "velocity_jump_m_s": 0.008790648641651789,
+          "before_velocity_m_s": [
+            -0.00011118015390820801,
+            0.11526346206665039,
+            0.2925753593444824
+          ],
+          "after_velocity_m_s": [
+            6.221319381438661e-06,
+            0.11783838272094727,
+            0.3009796142578125
+          ]
+        }
+      ]
+    },
+    "Head_1": {
+      "vertical_range_m": [
+        0.5927374958992004,
+        0.675422728061676
+      ],
+      "max_speed_m_s": 0.7643260860973415,
+      "max_speed_phase_interval": [
+        0.5476190476190477,
+        0.5595238095238095
+      ],
+      "max_discrete_acceleration_m_s2": 18.772853721803816,
+      "max_acceleration_phase": 0.6785714285714286,
+      "loop_position_delta_m": 0.0,
+      "loop_velocity_delta_m_s": 0.02026466923616269,
+      "loop_one_sided_velocity_delta_m_s": 0.002151882740372873,
+      "largest_key_boundary_velocity_jumps": [
+        {
+          "frame": 31,
+          "phase": 0.7142857142857143,
+          "velocity_jump_m_s": 0.013313201598710566,
+          "before_velocity_m_s": [
+            2.682178092072718e-05,
+            -0.1865386962890625,
+            0.05371570587158203
+          ],
+          "after_velocity_m_s": [
+            2.1278529160895232e-08,
+            -0.18932819366455078,
+            0.04069805145263672
+          ]
+        },
+        {
+          "frame": 19,
+          "phase": 0.42857142857142855,
+          "velocity_jump_m_s": 0.010328294774680627,
+          "before_velocity_m_s": [
+            -0.00020705642236862332,
+            -0.017952919006347656,
+            -0.048851966857910156
+          ],
+          "after_velocity_m_s": [
+            1.1862810424645431e-05,
+            -0.015163421630859375,
+            -0.038909912109375
+          ]
+        },
+        {
+          "frame": 22,
+          "phase": 0.5,
+          "velocity_jump_m_s": 0.010090316183666272,
+          "before_velocity_m_s": [
+            -0.00024121430760715157,
+            0.13332366943359375,
+            0.5171298980712891
+          ],
+          "after_velocity_m_s": [
+            1.2148060704930685e-05,
+            0.13453960418701172,
+            0.5271434783935547
+          ]
+        },
+        {
+          "frame": 21,
+          "phase": 0.47619047619047616,
+          "velocity_jump_m_s": 0.009891563665724773,
+          "before_velocity_m_s": [
+            -0.0002474160573910922,
+            0.09791851043701172,
+            0.3220081329345703
+          ],
+          "after_velocity_m_s": [
+            1.2982638509129174e-05,
+            0.10035037994384766,
+            0.3315925598144531
+          ]
+        },
+        {
+          "frame": 20,
+          "phase": 0.4523809523809524,
+          "velocity_jump_m_s": 0.009212400500746456,
+          "before_velocity_m_s": [
+            -0.0002359617210458964,
+            0.04076957702636719,
+            0.139617919921875
+          ],
+          "after_velocity_m_s": [
+            1.2879574569524266e-05,
+            0.04391670227050781,
+            0.14827251434326172
+          ]
+        }
+      ]
+    }
+  },
+  "actual_skin_flight": {
+    "clearance_threshold_m": 0.005,
+    "regular_phases": [
+      0.14285714285714285,
+      0.15476190476190477,
+      0.16666666666666666,
+      0.17857142857142858,
+      0.19047619047619047,
+      0.20238095238095238,
+      0.21428571428571427,
+      0.2261904761904762,
+      0.23809523809523808,
+      0.25,
+      0.2619047619047619,
+      0.27380952380952384,
+      0.2857142857142857,
+      0.5952380952380952,
+      0.6071428571428571,
+      0.6190476190476191,
+      0.6309523809523809,
+      0.6428571428571429,
+      0.6547619047619048,
+      0.6666666666666666,
+      0.6785714285714286,
+      0.6904761904761905,
+      0.7023809523809523,
+      0.7142857142857143,
+      0.7261904761904762,
+      0.7380952380952381,
+      0.75,
+      0.7619047619047619,
+      0.7738095238095238,
+      0.7857142857142857,
+      0.7976190476190477,
+      0.8095238095238095
+    ],
+    "max_four_paw_clearance_m": 0.07764741778373718
+  },
+  "status": "Read-only numerical review; reference-based actual rendered skin/movie acceptance must be reported separately.",
+  "limits": [
+    "Fixed sole centroid residual motion includes rolling and deformation, not a measured pressure centre.",
+    "Finite differences include delivered interpolation effects and do not measure impact force.",
+    "The unchanged 3 mm floor margin is a penetration bound; other numerical values are reported without silently relaxing acceptance limits.",
+    "Uniform 120 Hz plus near-key skin samples do not replace reference visual flow review."
+  ]
+}

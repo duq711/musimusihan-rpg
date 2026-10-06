@@ -1,0 +1,236 @@
+{
+  "status": "Completed own cleanup; final artifacts unchanged",
+  "created_utc": "2026-10-06T03:22:14Z",
+  "scope": "Own reviewed side/detail images,Blender backup,temporary scripts and per-frame trace compaction only",
+  "deleted_file_count": 29,
+  "deleted_logical_bytes": 27663591,
+  "deleted_file_allocated_bytes": 28274688,
+  "deleted_directory_allocated_bytes": 0,
+  "compacted_per_frame_row_count": 128,
+  "trace_logical_bytes_reduced": 284014,
+  "trace_allocated_bytes_reduced": 282624,
+  "free_bytes_before": 7817138176,
+  "free_bytes_after": 7845564416,
+  "observed_free_bytes_delta": 28426240,
+  "allocation_note": "Allocated bytes use stat.st_blocks*512. APFS sharing and concurrent root movie/native work mean filesystem free-space delta is not attributable solely to this cleanup. New compact receipts/helper also occupy space.",
+  "preserved_detail_helper": {
+    "path": "/Users/byeolee/Projects/musimusihan-rpg/tools/dcc/labrador_pet_sprint_repair_detail_preview.py",
+    "bytes": 1237,
+    "allocated_bytes": 4096,
+    "sha256": "0ea823a201b178b988b3333a5e1ad22b8fcf51ed8d84a72530d975ddae379c04",
+    "copy_verified": true
+  },
+  "final_artifact_hashes_unchanged": {
+    "production/LabradorPet_SprintRepair.blend": "136aaccdf9817bff8479b75ddd1984139c2c13b58941361088497abc0ff646c8",
+    "export/LabradorPet_SprintRepair.glb": "3c7dc6798c754edc6427ea4f9c58ad2e3704ff564ccd016962b2819606d879e4",
+    "export/Locomotion/Run.fbx": "f316e8e2e64d604d6760468d35233f7d3be6a8158112cea355a5c61e982ee6f9",
+    "export/sprint-repair-manifest.json": "901af882ac01ab737171132798e9a4983a2b7d73d233c66e4114f17d4218a6ef"
+  },
+  "compacted_receipts": [
+    {
+      "path": "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/labrador-sprint-repair-20261006/sprint-repair-authoring-contact.json",
+      "bytes_before": 118719,
+      "allocated_before": 118784,
+      "full_trace_sha256": "4b2b5a7ce1abfa208d31b5e50da73ac42c266cc236bbdce20fc13f7c4a1a1899",
+      "removed_per_frame_rows": 43,
+      "bytes_after": 7671,
+      "allocated_after": 8192
+    },
+    {
+      "path": "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/labrador-sprint-repair-20261006/sprint-repair-skin-validation.json",
+      "bytes_before": 178038,
+      "allocated_before": 180224,
+      "full_trace_sha256": "6e1535d8df7a270fcefff9fc8992f41fdfa8e0f7a51ba3bf5e7a6d6310c51fc2",
+      "removed_per_frame_rows": 85,
+      "bytes_after": 5072,
+      "allocated_after": 8192
+    }
+  ],
+  "removed_files": [
+    {
+      "path": "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/labrador-sprint-repair-20261006/review/side/Run_phase_030.png",
+      "bytes": 335889,
+      "allocated_bytes": 393216,
+      "sha256": "d246083954376c08ddac0ffcbb1fd42fd9ddedc0c12375e20df95c3b2253d891"
+    },
+    {
+      "path": "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/labrador-sprint-repair-20261006/review/side/Run_phase_020.png",
+      "bytes": 334614,
+      "allocated_bytes": 393216,
+      "sha256": "4e856536ff8f13b0faa7bde12a187ee1e8b9d8d3d9046e00c3977814383411ff"
+    },
+    {
+      "path": "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/labrador-sprint-repair-20261006/review/side/Run_phase_090.png",
+      "bytes": 339997,
+      "allocated_bytes": 393216,
+      "sha256": "be0229a07ccc1e5fadefa817af46041b6f50e70d483a3f0ef77619ef1df1d912"
+    },
+    {
+      "path": "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/labrador-sprint-repair-20261006/review/side/Run_phase_050.png",
+      "bytes": 334766,
+      "allocated_bytes": 393216,
+      "sha256": "37c581a0ed2398051b06a8198c1899f3d5f5f959a1045acf5dfc5104d0389316"
+    },
+    {
+      "path": "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/labrador-sprint-repair-20261006/review/side/Run_phase_040.png",
+      "bytes": 334779,
+      "allocated_bytes": 393216,
+      "sha256": "3c71ce51659cf82c60bab24174f9ff7224c3594176b34a862053a1cdf71ce90c"
+    },
+    {
+      "path": "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/labrador-sprint-repair-20261006/review/side/Run_phase_080.png",
+      "bytes": 339500,
+      "allocated_bytes": 393216,
+      "sha256": "4f2c3305daea987046e2b5e80128dce85973d5246d5a1242d1c4757c0448ea3d"
+    },
+    {
+      "path": "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/labrador-sprint-repair-20261006/review/side/Run_phase_070.png",
+      "bytes": 334529,
+      "allocated_bytes": 393216,
+      "sha256": "12d7a683749dc3161b10f9eee8d736b4dcf865c547e29a83622b9910b20f3781"
+    },
+    {
+      "path": "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/labrador-sprint-repair-20261006/review/side/Run_phase_060.png",
+      "bytes": 337048,
+      "allocated_bytes": 393216,
+      "sha256": "175ff1a948929aa60bdb088cc08c4cec61d8de45482fe5822529f9f64ddc243d"
+    },
+    {
+      "path": "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/labrador-sprint-repair-20261006/review/side/Run_phase_010.png",
+      "bytes": 337919,
+      "allocated_bytes": 393216,
+      "sha256": "1f85b32d5363e8976396bd3fd4bba3f5ea9e9ca0bbe1d46035b7551d4123c647"
+    },
+    {
+      "path": "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/labrador-sprint-repair-20261006/review/side/Run_phase_000.png",
+      "bytes": 339956,
+      "allocated_bytes": 393216,
+      "sha256": "eb4cba43e9d71e09421fbac7726346e6707e9de842af3ae14dd4b0979009cf12"
+    },
+    {
+      "path": "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/labrador-sprint-repair-20261006/review/detail/Run_front_786.png",
+      "bytes": 532404,
+      "allocated_bytes": 532480,
+      "sha256": "d3549beb791d72eaafe8f4d76e5c3dd35b8aa5e8725f1f8f92ef595a9ee7e51a"
+    },
+    {
+      "path": "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/labrador-sprint-repair-20261006/review/detail/Run_front_750.png",
+      "bytes": 533831,
+      "allocated_bytes": 536576,
+      "sha256": "e8a7304b3977ad482f472cd30b7cce843888327319e0ec5899bb2066cdadeebd"
+    },
+    {
+      "path": "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/labrador-sprint-repair-20261006/review/detail/Run_right_front_900.png",
+      "bytes": 523633,
+      "allocated_bytes": 524288,
+      "sha256": "166990dfe804ed29c6f7ad0a7f272494cbe34d816b04eaec46a51570e2a51a56"
+    },
+    {
+      "path": "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/labrador-sprint-repair-20261006/review/detail/Run_front_900.png",
+      "bytes": 532677,
+      "allocated_bytes": 536576,
+      "sha256": "5b801368b78a7d637b355ad3116602f72be4402dd0a763e578267998d97eb430"
+    },
+    {
+      "path": "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/labrador-sprint-repair-20261006/review/detail/Run_front_464.png",
+      "bytes": 518896,
+      "allocated_bytes": 520192,
+      "sha256": "bee82d9c3847d8adaae61526cd5d835b8bb98ecda03d621869d0d4231ac160e6"
+    },
+    {
+      "path": "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/labrador-sprint-repair-20261006/review/detail/Neutral_front.png",
+      "bytes": 537926,
+      "allocated_bytes": 540672,
+      "sha256": "04ff42a5004f0db6f9c05dccf87ca7e7dbba8fb8d1c0c7de20bc30c567fe4c66"
+    },
+    {
+      "path": "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/labrador-sprint-repair-20261006/review/detail/Run_front_429.png",
+      "bytes": 516362,
+      "allocated_bytes": 524288,
+      "sha256": "71783800ae7d71e897ae10691bdd6c6f2ae0f9663aaf21cae56287fc50739ef3"
+    },
+    {
+      "path": "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/labrador-sprint-repair-20261006/review/detail/Run_right_front_429.png",
+      "bytes": 512192,
+      "allocated_bytes": 516096,
+      "sha256": "629ead86fffa1b6ee24297cf7e3475ad5986619ee20578ce215f136e962f0652"
+    },
+    {
+      "path": "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/labrador-sprint-repair-20261006/production/LabradorPet_SprintRepair.blend1",
+      "bytes": 20067338,
+      "allocated_bytes": 20070400,
+      "sha256": "0d56acf0373b83d0374ab754ec4dca71398a9b75b9a42fc88f002afd1f78262b"
+    },
+    {
+      "path": "/tmp/labrador-repair-clearance-probe.py",
+      "bytes": 2932,
+      "allocated_bytes": 4096,
+      "sha256": "048d4ff513c92656a4aea2ad8edba1b897995faaa5b41fb78aa649e789dad21e"
+    },
+    {
+      "path": "/tmp/labrador-repair-detail-extra.py",
+      "bytes": 1052,
+      "allocated_bytes": 4096,
+      "sha256": "f8130cf222f9b0bee8aa9262b08ad7e384ae1791a1a1a5bc54f40af618b1478f"
+    },
+    {
+      "path": "/tmp/labrador-repair-detail-preview.py",
+      "bytes": 1237,
+      "allocated_bytes": 4096,
+      "sha256": "0ea823a201b178b988b3333a5e1ad22b8fcf51ed8d84a72530d975ddae379c04"
+    },
+    {
+      "path": "/tmp/labrador-repair-probe.py",
+      "bytes": 1993,
+      "allocated_bytes": 4096,
+      "sha256": "f9de0bae33f398caf7a977b289e5d552be6b5c6895ff8db774f05f833e5fbb20"
+    },
+    {
+      "path": "/tmp/labrador-repair-right-extra.py",
+      "bytes": 1059,
+      "allocated_bytes": 4096,
+      "sha256": "87262092fdc56ffba18f9fca148b8c35ee93ea15cdb2c9fa8ef13e8a71b0f75d"
+    },
+    {
+      "path": "/tmp/labrador-repair-right-preview.py",
+      "bytes": 1051,
+      "allocated_bytes": 4096,
+      "sha256": "5aa891e9c978cb7a02c903fe5ad8023cda3f16f44af8b96a116240b05d5293e0"
+    },
+    {
+      "path": "/tmp/labrador-repair-scapula-probe.py",
+      "bytes": 2151,
+      "allocated_bytes": 4096,
+      "sha256": "c84fe959254b898eda368c91e763a45f73246f79ec2656bb78cdcbd3a6b12b7f"
+    },
+    {
+      "path": "/tmp/labrador-repair-sternum-pairs.py",
+      "bytes": 2758,
+      "allocated_bytes": 4096,
+      "sha256": "4af5f192b637c70da1120e2ccf1fa5ea75f0e080b7e04c4ac84f965e45e8a811"
+    },
+    {
+      "path": "/tmp/labrador-repair-sternum-probe.py",
+      "bytes": 2553,
+      "allocated_bytes": 4096,
+      "sha256": "ae150d32d1d67dc136ca04774ca6e92de16cba7049f47e96f89f0ce0aeb9a641"
+    },
+    {
+      "path": "/tmp/labrador-repair-sternum-tail-probe.py",
+      "bytes": 2549,
+      "allocated_bytes": 4096,
+      "sha256": "45dfc54b2f84b801ac0189523939989af5a85b322d07fa3426a9c42add37b132"
+    }
+  ],
+  "preserved_other_outputs": "All production/export files,final movies/posters,root review/validation/docs and independent receipts retained.",
+  "total_removed_allocation_bytes": 28557312,
+  "compact_receipt_inventory": [
+    "asset-staging/labrador-sprint-repair-20261006/sprint-repair-production-summary.json",
+    "asset-staging/labrador-sprint-repair-20261006/sprint-repair-animation-validation.json",
+    "asset-staging/labrador-sprint-repair-20261006/sprint-repair-authoring-contact.json",
+    "asset-staging/labrador-sprint-repair-20261006/sprint-repair-skin-validation.json",
+    "asset-staging/labrador-sprint-repair-20261006/sprint-repair-gltf-summary.json",
+    "asset-staging/labrador-sprint-repair-20261006/sprint-repair-detail-review.json",
+    "asset-staging/labrador-sprint-repair-20261006/sprint-repair-authoring-cleanup.json"
+  ]
+}

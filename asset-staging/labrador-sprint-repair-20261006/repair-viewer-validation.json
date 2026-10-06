@@ -1,0 +1,54 @@
+{
+  "result": "Passed with documented skin limits",
+  "routes": {
+    "locomotion.glb": {
+      "sha256": "3c7dc6798c754edc6427ea4f9c58ad2e3704ff564ccd016962b2819606d879e4",
+      "bytes": 18180684,
+      "matches_final": true
+    },
+    "locomotion-manifest.json": {
+      "sha256": "901af882ac01ab737171132798e9a4983a2b7d73d233c66e4114f17d4218a6ef",
+      "bytes": 5540,
+      "matches_final": true
+    },
+    "model.glb": {
+      "sha256": "23bdd3d3eb7b1854ac7a27f9a37767e46635c98cc7848a8284ff6037e193eec5",
+      "bytes": 17897200,
+      "matches_original_petting": true
+    }
+  },
+  "url": "http://127.0.0.1:8773/locomotion/",
+  "actual_UI": {
+    "tool": "Codex in-app browser CUA, actual rendered skinned GLB",
+    "paused_Run_poses_viewed": {
+      "side": [
+        0,
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        0.9
+      ],
+      "quarter": [
+        0.1,
+        0.3,
+        0.429,
+        0.5,
+        0.7,
+        0.9
+      ]
+    },
+    "Walk_pose_viewed": 0.25,
+    "controls_passed": [
+      "Run/Walk selection",
+      "normal/half speed",
+      "side/quarter view",
+      "pause and seek",
+      "floor movement on/off",
+      "resume advances time"
+    ],
+    "console_warning_error_count": 0,
+    "final_state": "Run, normal speed, side, moving floor, playing; deliverable tab retained"
+  },
+  "scope": "HTTP file hashes plus actual UI skin observations, independent of movie and native acceptance."
+}

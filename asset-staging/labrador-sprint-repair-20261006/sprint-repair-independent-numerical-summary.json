@@ -1,0 +1,789 @@
+{
+  "status": "Candidate8 sampled numerical gates PassedWithLimits; local compression and supported skin residuals retained and final actual-rendered interpretation recorded separately",
+  "blend_sha256": "136aaccdf9817bff8479b75ddd1984139c2c13b58941361088497abc0ff646c8",
+  "manifest_sha256": "901af882ac01ab737171132798e9a4983a2b7d73d233c66e4114f17d4218a6ef",
+  "gltf_sha256": "3c7dc6798c754edc6427ea4f9c58ad2e3704ff564ccd016962b2819606d879e4",
+  "counts": {
+    "DCC_geometry": 86,
+    "actual_gltf_geometry": 86,
+    "DCC_skin_core": 169,
+    "core_preservation": 169
+  },
+  "binding_signatures": {
+    "triangles": "226b573405ebfdca286f86fbe0521814b478845fe036bd16fbe3f397492aec21",
+    "weights": "0bed1d97ca4c637d8c5d739865878f19729785679d2063526d691c485b874ab3",
+    "rest_vertices": "95268ac6bb56cb6f9e8ae6ddc8764f32ea248f7bba98e984f904fff743e32344",
+    "vertex_group_order": "4eb01ef128735be1d9a42624a4a2b05df84e63d204de505c517ddf35d40d4755"
+  },
+  "masks": {
+    "historical_exact_chest": {
+      "triangle_count": 1794,
+      "fixed_original_id_sha256": "881187d597504d3b2c92a3c694ea44664b2429ffea947d99d9d3bd14fe9ae558"
+    },
+    "historical_bvh_body": {
+      "triangle_count": 12401,
+      "fixed_original_id_sha256": "9ef3a15de66e9fa3e0de5714ce8fced5abff0c9e121a0ad66b3f5ea684df1490"
+    },
+    "historical_bvh_fore": {
+      "triangle_count": 3971,
+      "fixed_original_id_sha256": "307134eb02979381b60241566a272f175d5b82a4933ab785213bdf9ca7da0bcb"
+    },
+    "FrontShoulder.L_18": {
+      "triangle_count": 0,
+      "fixed_original_id_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "FrontUpperLeg.L_17": {
+      "triangle_count": 448,
+      "fixed_original_id_sha256": "435f8b2709f1be98211450096f1da2e3eb0da3c854c0ad79e3e72255ccf81d70"
+    },
+    "FrontLowerLeg.L_16": {
+      "triangle_count": 1339,
+      "fixed_original_id_sha256": "1569395dcd1c09c63235581088fddffdc58ceb652d71c6d1cc839ffad6cf8fbc"
+    },
+    "FrontShoulder.R_21": {
+      "triangle_count": 0,
+      "fixed_original_id_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "FrontUpperLeg.R_20": {
+      "triangle_count": 456,
+      "fixed_original_id_sha256": "82f661dccbea21252a7d3e4757fb5686baf8ce46c09bfedc498db6088c19e91f"
+    },
+    "FrontLowerLeg.R_19": {
+      "triangle_count": 1339,
+      "fixed_original_id_sha256": "d4aa89ca4b0f92c930451e598426ff9d1c4099024f81b773b2ffde8f380aab31"
+    },
+    "broader_body_head": {
+      "triangle_count": 22447,
+      "fixed_original_id_sha256": "d3a27fbe1cfc6c1e71e8f71ebb6992dbac0d8b272a1d90858cae75967723c3ac"
+    },
+    "all_front.L": {
+      "triangle_count": 5250,
+      "fixed_original_id_sha256": "b5cf4f319f9b1aa41df429aecabfe48ed9976e750ef9cac2db60d2f43efe5a69"
+    },
+    "all_front.R": {
+      "triangle_count": 5267,
+      "fixed_original_id_sha256": "70c1ea2dd96a0d73ceb70675017293e6cd7106ca62c271abd29f53daf90210d5"
+    },
+    "all_hind.L": {
+      "triangle_count": 5271,
+      "fixed_original_id_sha256": "486070943d9c752f60ad8503ffd99d90169998fead416dbbe62e5a0e35ba92ab"
+    },
+    "all_hind.R": {
+      "triangle_count": 5280,
+      "fixed_original_id_sha256": "973412553b726f55dc954500f643ccfd561b4e92b8b6f079262c7abaf230c64b"
+    },
+    "mixed_proximal.L": {
+      "triangle_count": 848,
+      "fixed_original_id_sha256": "9021de064b084ad0d8d112e112c015515063bd8e059a1889e656a53ae4e729f7"
+    },
+    "mixed_proximal.R": {
+      "triangle_count": 856,
+      "fixed_original_id_sha256": "02446fb77654c4c05bb6d3dafabecfc7974df31335e79e5fd5b4d43762275135"
+    }
+  },
+  "original_surface_result": "Original A and B fixed triangle regions have zero exact/coplanar crossings at all86 Blender and86 actual glTF samples. Historical failed phase.9 exact198 and BVH232/edge-confirmed231 were reproduced before comparison. Empty historical shoulder masks remain unmeasured, with additional mixed/proximal and combined whole-limb masks retained.",
+  "broader_surface_result": {
+    "all_front.L": {
+      "max_exact_crossing_pairs": 0,
+      "max_coplanar_area_overlap_pairs": 0,
+      "worst_phase": 0.0
+    },
+    "all_front.R": {
+      "max_exact_crossing_pairs": 0,
+      "max_coplanar_area_overlap_pairs": 0,
+      "worst_phase": 0.0
+    },
+    "all_hind.L": {
+      "max_exact_crossing_pairs": 0,
+      "max_coplanar_area_overlap_pairs": 0,
+      "worst_phase": 0.0
+    },
+    "all_hind.R": {
+      "max_exact_crossing_pairs": 0,
+      "max_coplanar_area_overlap_pairs": 0,
+      "worst_phase": 0.0
+    }
+  },
+  "actual_gltf_broader_surface_result": {
+    "all_front.L": {
+      "max_exact_crossing_pairs": 0,
+      "max_coplanar_area_overlap_pairs": 0,
+      "worst_phase": 0.0
+    },
+    "all_front.R": {
+      "max_exact_crossing_pairs": 0,
+      "max_coplanar_area_overlap_pairs": 0,
+      "worst_phase": 0.0
+    },
+    "all_hind.L": {
+      "max_exact_crossing_pairs": 0,
+      "max_coplanar_area_overlap_pairs": 0,
+      "worst_phase": 0.0
+    },
+    "all_hind.R": {
+      "max_exact_crossing_pairs": 0,
+      "max_coplanar_area_overlap_pairs": 0,
+      "worst_phase": 0.0
+    }
+  },
+  "shape": {
+    "FrontShoulder.L_18": {
+      "triangles": 0,
+      "status": "Unmeasured: original weight selection is empty",
+      "minimum_area_ratio": null,
+      "max_triangles_under20pct_neutral_area": null,
+      "worst_phase": null,
+      "max_compressed_count_phase": null,
+      "max_compressed_total_neutral_area_m2": null,
+      "max_compressed_area_phase": null
+    },
+    "FrontUpperLeg.L_17": {
+      "triangles": 448,
+      "minimum_area_ratio": 0.26164707852186025,
+      "max_triangles_under20pct_neutral_area": 0,
+      "worst_phase": 0.023809523809523808,
+      "max_compressed_count_phase": 0.0,
+      "max_compressed_total_neutral_area_m2": 0.0,
+      "max_compressed_area_phase": 0.0
+    },
+    "FrontLowerLeg.L_16": {
+      "triangles": 1339,
+      "minimum_area_ratio": 0.37981559396149844,
+      "max_triangles_under20pct_neutral_area": 0,
+      "worst_phase": 0.9047619047619048,
+      "max_compressed_count_phase": 0.0,
+      "max_compressed_total_neutral_area_m2": 0.0,
+      "max_compressed_area_phase": 0.0
+    },
+    "FrontShoulder.R_21": {
+      "triangles": 0,
+      "status": "Unmeasured: original weight selection is empty",
+      "minimum_area_ratio": null,
+      "max_triangles_under20pct_neutral_area": null,
+      "worst_phase": null,
+      "max_compressed_count_phase": null,
+      "max_compressed_total_neutral_area_m2": null,
+      "max_compressed_area_phase": null
+    },
+    "FrontUpperLeg.R_20": {
+      "triangles": 456,
+      "minimum_area_ratio": 0.14340331479504806,
+      "max_triangles_under20pct_neutral_area": 2,
+      "worst_phase": 0.44047619047619047,
+      "max_compressed_count_phase": 0.42857142857142855,
+      "max_compressed_total_neutral_area_m2": 0.0002906247772823839,
+      "max_compressed_area_phase": 0.42857142857142855
+    },
+    "FrontLowerLeg.R_19": {
+      "triangles": 1339,
+      "minimum_area_ratio": 0.039773691584204525,
+      "max_triangles_under20pct_neutral_area": 14,
+      "worst_phase": 0.9047619047619048,
+      "max_compressed_count_phase": 0.9,
+      "max_compressed_total_neutral_area_m2": 0.0010654095716142013,
+      "max_compressed_area_phase": 0.9
+    },
+    "historical_bvh_fore": {
+      "triangles": 3971,
+      "minimum_area_ratio": 0.039773691584204525,
+      "max_triangles_under20pct_neutral_area": 15,
+      "worst_phase": 0.9047619047619048,
+      "max_compressed_count_phase": 0.9,
+      "max_compressed_total_neutral_area_m2": 0.001140028528491808,
+      "max_compressed_area_phase": 0.9
+    },
+    "mixed_proximal.L": {
+      "triangles": 848,
+      "minimum_area_ratio": 0.021102169234687315,
+      "max_triangles_under20pct_neutral_area": 6,
+      "worst_phase": 0.42857142857142855,
+      "max_compressed_count_phase": 0.42857142857142855,
+      "max_compressed_total_neutral_area_m2": 0.0008394613744635264,
+      "max_compressed_area_phase": 0.42857142857142855
+    },
+    "mixed_proximal.R": {
+      "triangles": 856,
+      "minimum_area_ratio": 0.021102169234687315,
+      "max_triangles_under20pct_neutral_area": 8,
+      "worst_phase": 0.42857142857142855,
+      "max_compressed_count_phase": 0.42857142857142855,
+      "max_compressed_total_neutral_area_m2": 0.0011300861517459103,
+      "max_compressed_area_phase": 0.42857142857142855
+    }
+  },
+  "actual_gltf_shape": {
+    "FrontShoulder.L_18": {
+      "triangles": 0,
+      "status": "Unmeasured: original weight selection is empty",
+      "minimum_area_ratio": null,
+      "max_triangles_under20pct_neutral_area": null,
+      "worst_phase": null,
+      "max_compressed_count_phase": null,
+      "max_compressed_total_neutral_area_m2": null,
+      "max_compressed_area_phase": null
+    },
+    "FrontUpperLeg.L_17": {
+      "triangles": 448,
+      "minimum_area_ratio": 0.26164680711021887,
+      "max_triangles_under20pct_neutral_area": 0,
+      "worst_phase": 0.023809523809523808,
+      "max_compressed_count_phase": 0.0,
+      "max_compressed_total_neutral_area_m2": 0.0,
+      "max_compressed_area_phase": 0.0
+    },
+    "FrontLowerLeg.L_16": {
+      "triangles": 1339,
+      "minimum_area_ratio": 0.3798167397570895,
+      "max_triangles_under20pct_neutral_area": 0,
+      "worst_phase": 0.9047619047619048,
+      "max_compressed_count_phase": 0.0,
+      "max_compressed_total_neutral_area_m2": 0.0,
+      "max_compressed_area_phase": 0.0
+    },
+    "FrontShoulder.R_21": {
+      "triangles": 0,
+      "status": "Unmeasured: original weight selection is empty",
+      "minimum_area_ratio": null,
+      "max_triangles_under20pct_neutral_area": null,
+      "worst_phase": null,
+      "max_compressed_count_phase": null,
+      "max_compressed_total_neutral_area_m2": null,
+      "max_compressed_area_phase": null
+    },
+    "FrontUpperLeg.R_20": {
+      "triangles": 456,
+      "minimum_area_ratio": 0.15497869397206063,
+      "max_triangles_under20pct_neutral_area": 2,
+      "worst_phase": 0.44047619047619047,
+      "max_compressed_count_phase": 0.42857142857142855,
+      "max_compressed_total_neutral_area_m2": 0.0002906247772823839,
+      "max_compressed_area_phase": 0.42857142857142855
+    },
+    "FrontLowerLeg.R_19": {
+      "triangles": 1339,
+      "minimum_area_ratio": 0.0397685495387747,
+      "max_triangles_under20pct_neutral_area": 14,
+      "worst_phase": 0.9047619047619048,
+      "max_compressed_count_phase": 0.9,
+      "max_compressed_total_neutral_area_m2": 0.0010654095716142013,
+      "max_compressed_area_phase": 0.9
+    },
+    "historical_bvh_fore": {
+      "triangles": 3971,
+      "minimum_area_ratio": 0.026870840533320048,
+      "max_triangles_under20pct_neutral_area": 15,
+      "worst_phase": 0.4642857142857143,
+      "max_compressed_count_phase": 0.9,
+      "max_compressed_total_neutral_area_m2": 0.001140028528491808,
+      "max_compressed_area_phase": 0.9
+    },
+    "mixed_proximal.L": {
+      "triangles": 848,
+      "minimum_area_ratio": 0.021100028969826566,
+      "max_triangles_under20pct_neutral_area": 6,
+      "worst_phase": 0.42857142857142855,
+      "max_compressed_count_phase": 0.42857142857142855,
+      "max_compressed_total_neutral_area_m2": 0.0008394613744635264,
+      "max_compressed_area_phase": 0.42857142857142855
+    },
+    "mixed_proximal.R": {
+      "triangles": 856,
+      "minimum_area_ratio": 0.021100028969826566,
+      "max_triangles_under20pct_neutral_area": 8,
+      "worst_phase": 0.42857142857142855,
+      "max_compressed_count_phase": 0.42857142857142855,
+      "max_compressed_total_neutral_area_m2": 0.0011300861517459103,
+      "max_compressed_area_phase": 0.42857142857142855
+    }
+  },
+  "fore_pose": {
+    "L": {
+      "humerus_rotation_from_neutral_deg_range": [
+        1.7744266905869543,
+        63.46361791852226
+      ],
+      "elbow_above_shoulder_m_range": [
+        -0.10776230692863464,
+        -0.0710357129573822
+      ],
+      "max_humerus_direction_step_deg": 12.364401171434357,
+      "humerus_direction_step_phase_interval": [
+        0.023809523809523808,
+        0.03571428571428571
+      ],
+      "max_elbow_speed_m_s": 2.9593147088385967,
+      "elbow_speed_phase_interval": [
+        0.023809523809523808,
+        0.03571428571428571
+      ],
+      "sample_dt_s": 0.008333333333333333
+    },
+    "R": {
+      "humerus_rotation_from_neutral_deg_range": [
+        0.7587299097644268,
+        60.06228616469346
+      ],
+      "elbow_above_shoulder_m_range": [
+        -0.1078471839427948,
+        -0.07342204451560974
+      ],
+      "max_humerus_direction_step_deg": 11.123036487899343,
+      "humerus_direction_step_phase_interval": [
+        0.27380952380952384,
+        0.2857142857142857
+      ],
+      "max_elbow_speed_m_s": 2.7904080199672587,
+      "elbow_speed_phase_interval": [
+        0.27380952380952384,
+        0.2857142857142857
+      ],
+      "sample_dt_s": 0.008333333333333333
+    }
+  },
+  "actual_gltf_fore_pose": {
+    "L": {
+      "humerus_rotation_from_neutral_deg_range": [
+        1.2890709935666154,
+        63.44471195489966
+      ],
+      "elbow_above_shoulder_m_range": [
+        -0.1077623963356018,
+        -0.07103580236434937
+      ],
+      "max_humerus_direction_step_deg": 9.551107724008636,
+      "humerus_direction_step_phase_interval": [
+        0.03571428571428571,
+        0.047619047619047616
+      ],
+      "max_elbow_speed_m_s": 2.331772512803335,
+      "elbow_speed_phase_interval": [
+        0.03571428571428571,
+        0.047619047619047616
+      ],
+      "sample_dt_s": 0.008333333333333333
+    },
+    "R": {
+      "humerus_rotation_from_neutral_deg_range": [
+        0.954906122857857,
+        60.06031224002332
+      ],
+      "elbow_above_shoulder_m_range": [
+        -0.10788756608963013,
+        -0.07374471426010132
+      ],
+      "max_humerus_direction_step_deg": 10.466195124665788,
+      "humerus_direction_step_phase_interval": [
+        0.2619047619047619,
+        0.27380952380952384
+      ],
+      "max_elbow_speed_m_s": 2.6414321187252594,
+      "elbow_speed_phase_interval": [
+        0.2619047619047619,
+        0.27380952380952384
+      ],
+      "sample_dt_s": 0.008333333333333333
+    }
+  },
+  "numerical_skin": {
+    "whole_body_floor_min_m": -0.0007867137901484966,
+    "unchanged_floor_margin_m": 0.003,
+    "whole_body_floor_within_margin": true,
+    "rest_bend_signs_all_preserved": true,
+    "supported_fixed_sole": {
+      "LF": {
+        "stance_phase": [
+          0.42,
+          0.59
+        ],
+        "interior_samples": 12,
+        "nominal_speed_m_s": 2.3472118786586624,
+        "fixed_sole_centroid_max_drift_m": 0.005377568660915263,
+        "max_fixed_sole_planar_residual_speed_m_s": 0.5430510433359707,
+        "worst_residual_speed_phase": 0.5595238095238095,
+        "worst_phase_skin_floor_m": -0.0007867137901484966,
+        "worst_phase_chain_bends": {
+          "FrontLowerLeg.L_16": {
+            "internal_angle_deg": 161.38752095461814,
+            "sagittal_sign": 0.09916004538536072,
+            "rest_sign_matches": true
+          }
+        },
+        "skin_floor_range_m": [
+          -0.0007867137901484966,
+          0.000973197165876627
+        ]
+      },
+      "RF": {
+        "stance_phase": [
+          0.32,
+          0.49
+        ],
+        "interior_samples": 13,
+        "nominal_speed_m_s": 2.3472118786586624,
+        "fixed_sole_centroid_max_drift_m": 0.0010199451517319605,
+        "max_fixed_sole_planar_residual_speed_m_s": 0.04321608551701648,
+        "worst_residual_speed_phase": 0.47619047619047616,
+        "worst_phase_skin_floor_m": 0.000599975697696209,
+        "worst_phase_chain_bends": {
+          "FrontLowerLeg.R_19": {
+            "internal_angle_deg": 153.84025754440245,
+            "sagittal_sign": 0.13742060959339142,
+            "rest_sign_matches": true
+          }
+        },
+        "skin_floor_range_m": [
+          0.0004886779934167862,
+          0.0006294669583439827
+        ]
+      },
+      "LH": {
+        "stance_phase": [
+          0.935,
+          1.11
+        ],
+        "interior_samples": 13,
+        "nominal_speed_m_s": 2.3472118786586624,
+        "fixed_sole_centroid_max_drift_m": 0.001669816768477797,
+        "max_fixed_sole_planar_residual_speed_m_s": 0.2003860475627364,
+        "worst_residual_speed_phase": 1.0357142857142858,
+        "worst_phase_skin_floor_m": 0.0006235498003661633,
+        "worst_phase_chain_bends": {
+          "BackUpperLeg.L_25": {
+            "internal_angle_deg": 78.38355827357898,
+            "sagittal_sign": -0.6214734315872192,
+            "rest_sign_matches": true
+          },
+          "BackLowerLeg.L_24": {
+            "internal_angle_deg": 99.79495139695084,
+            "sagittal_sign": 0.5609008073806763,
+            "rest_sign_matches": true
+          }
+        },
+        "skin_floor_range_m": [
+          0.0005820323713123798,
+          0.0006552836857736111
+        ]
+      },
+      "RH": {
+        "stance_phase": [
+          0.84,
+          1.015
+        ],
+        "interior_samples": 13,
+        "nominal_speed_m_s": 2.3472118786586624,
+        "fixed_sole_centroid_max_drift_m": 0.0016524302484849035,
+        "max_fixed_sole_planar_residual_speed_m_s": 0.19826889329174635,
+        "worst_residual_speed_phase": 0.9642857142857143,
+        "worst_phase_skin_floor_m": 0.0006287284195423126,
+        "worst_phase_chain_bends": {
+          "BackUpperLeg.R_29": {
+            "internal_angle_deg": 82.54765140296895,
+            "sagittal_sign": -0.6291095614433289,
+            "rest_sign_matches": true
+          },
+          "BackLowerLeg.R_28": {
+            "internal_angle_deg": 94.69347627567915,
+            "sagittal_sign": 0.5678988695144653,
+            "rest_sign_matches": true
+          }
+        },
+        "skin_floor_range_m": [
+          0.0005834251642227173,
+          0.0006613661535084248
+        ]
+      }
+    },
+    "loop_skin_velocity_finite_difference_delta_m_s": {
+      "LF": 0.11969464173698477,
+      "RF": 0.2411347647168775,
+      "LH": 0.0006977789935925431,
+      "RH": 0.00398338140930004
+    },
+    "core_peak_discrete_acceleration_m_s2": {
+      "Back_38": 10.829255104266464,
+      "Torso3_15": 12.73287013409329,
+      "Head_1": 18.772853721803816
+    },
+    "actual_skin_flight": {
+      "clearance_threshold_m": 0.005,
+      "regular_phases": [
+        0.14285714285714285,
+        0.15476190476190477,
+        0.16666666666666666,
+        0.17857142857142858,
+        0.19047619047619047,
+        0.20238095238095238,
+        0.21428571428571427,
+        0.2261904761904762,
+        0.23809523809523808,
+        0.25,
+        0.2619047619047619,
+        0.27380952380952384,
+        0.2857142857142857,
+        0.5952380952380952,
+        0.6071428571428571,
+        0.6190476190476191,
+        0.6309523809523809,
+        0.6428571428571429,
+        0.6547619047619048,
+        0.6666666666666666,
+        0.6785714285714286,
+        0.6904761904761905,
+        0.7023809523809523,
+        0.7142857142857143,
+        0.7261904761904762,
+        0.7380952380952381,
+        0.75,
+        0.7619047619047619,
+        0.7738095238095238,
+        0.7857142857142857,
+        0.7976190476190477,
+        0.8095238095238095
+      ],
+      "max_four_paw_clearance_m": 0.07764741778373718
+    },
+    "foot_peak_step_m": {
+      "LF": 0.04590897069991114,
+      "RF": 0.04511327243481212,
+      "LH": 0.03433367003482467,
+      "RH": 0.0313829429200003
+    },
+    "foot_peak_rotation_step_deg": {
+      "LF": 1.7664697553063453,
+      "RF": 1.760786088247462,
+      "LH": 6.0557731871230605,
+      "RH": 6.061313852518025
+    },
+    "foot_loop_position_delta_m": {
+      "LF": 0.0,
+      "RF": 0.0,
+      "LH": 0.0,
+      "RH": 0.0
+    }
+  },
+  "actual_gltf_fidelity": {
+    "mapping": {
+      "original_vertices": 26103,
+      "export_vertices": 26115,
+      "all_original_vertices_mapped": true,
+      "max_baked_rest_position_mapping_error_m": 0.0,
+      "max_normalized_named_weight_mapping_error": 1.5830937283300983e-08,
+      "original_vertex_duplicate_groups": 4172,
+      "original_triangles": 47182,
+      "export_triangles": 47182,
+      "directed_canonical_triangle_multiset_matches": true,
+      "topology_mapping": "Many-to-many rest-position/named-weight aliases canonicalized jointly; triangle multiplicity and cyclic orientation preserved.",
+      "original_ids_and_triangle_masks_retained": true,
+      "sampler_histograms": {
+        "IdleFriendly": {
+          "STEP": 130,
+          "LINEAR": 29
+        },
+        "PetEnjoy": {
+          "STEP": 153,
+          "LINEAR": 6
+        },
+        "Walk": {
+          "STEP": 115,
+          "LINEAR": 44
+        },
+        "Run": {
+          "STEP": 119,
+          "LINEAR": 40
+        }
+      },
+      "interpolation": "Actual glTF LINEAR translation/scale and quaternion shortest-path slerp; STEP retained"
+    },
+    "maximum_skin_difference_at_keys_m": 9.919797029859765e-07,
+    "maximum_skin_difference_between_keys_m": 0.010447975841360278,
+    "full_skin_floor_min_m": 0.0005431245833347427
+  },
+  "core_preservation": {
+    "selected_bones": 10,
+    "all_selected_channel_keys_exact": true,
+    "world_position_difference_m": 0.0,
+    "scope": "169 world-pose comparisons plus action keys/handles; source mesh/rest/weights unchanged. Tiny derived quaternion product noise occurs despite exact world matrices.",
+    "candidate_sha256": "136aaccdf9817bff8479b75ddd1984139c2c13b58941361088497abc0ff646c8",
+    "world_matrix_difference": 0.0
+  },
+  "remaining_review_targets": [
+    "Completed: final candidate8 both-sided .42857 and right .90 closeups plus90 ordered actual movie frames were directly inspected. Area-ratio thresholds were not changed.",
+    "Retained limit: LF sole-centroid drift5.37757mm/max residual.54305m/s includes rolling/deformation; no zero-skating or pressure-centre claim.",
+    "Retained limit: local forearm/mixed-proximal areas below20% neutral remain in the fixed masks, accepted visually as attached joint/axillary folds in sampled views.",
+    "Retained limit: historical candidate6 epsilon convergence and current candidate8 .05frame deltas are numerical evidence only; visual sampled loop passes do not prove exact continuous-time C1 export skin continuity."
+  ],
+  "loop_refinement": {
+    "epsilon_frames": [
+      0.05,
+      0.025,
+      0.01,
+      0.005
+    ],
+    "LF_velocity_delta_m_s": [
+      0.1194938,
+      0.0606697,
+      0.0239929,
+      0.0133066
+    ],
+    "RF_velocity_delta_m_s": [
+      0.2401719,
+      0.1220212,
+      0.0492175,
+      0.0245888
+    ],
+    "interpretation": "Decreasing one-sided finite-difference discrepancy suggests high local curvature/acceleration, not established seam velocity discontinuity. Actual temporal review remains required.",
+    "source_candidate_blend_sha256": "ea310581aea4df075b93aa39f9f54bab426d912c7aaca2545b8b13b1ba7543b2",
+    "binding_note": "Historical candidate6 epsilon convergence. Candidate8 .05frame values are independently measured above; exact current epsilon convergence is not established by this historical subset."
+  },
+  "raw_receipts": [
+    "sprint-repair-independent-surface.json (raw removed after compact provenance; regenerate with preserved tool and source only if needed)",
+    "sprint-repair-independent-skin-core.json",
+    "sprint-repair-core-preservation.json"
+  ],
+  "limits": [
+    "Nonadjacent pairs exclude any shared vertex; selected geometry regions do not establish all-mesh collision freedom.",
+    "Historical exact mask and combined BVH mask remain separate; their counts must not be added.",
+    "Segment-triangle crossings require two interior edge hits separated by>10micrometres; projected coplanar overlaps>1e-10m² are separately reported.",
+    "Fixed region area ratios measure selected surface compression, not volume or anatomy; rendered proximal shape must still be reviewed.",
+    "The source rest positions, topology, vertex group order and all weights are bound and must match. No threshold/mask shrinking is allowed.",
+    "Foot sole-centroid residuals include rolling/deformation and are not measured pressure centres.",
+    "Zero sampled crossings in the fixed selected regions is a numerical surface gate, not an automatic approval of proximal morphology or naturalness.",
+    "Shape under20% thresholds have not been changed; local compressed patches are retained for explicit actual-rendered inspection."
+  ],
+  "candidate": 8,
+  "all_selected_surface_result": {
+    "original_exact:FrontShoulder.L_18": {
+      "max_exact_crossing_pairs": 0,
+      "max_coplanar_area_overlap_pairs": 0,
+      "worst_phase": 0.0
+    },
+    "original_exact:FrontUpperLeg.L_17": {
+      "max_exact_crossing_pairs": 0,
+      "max_coplanar_area_overlap_pairs": 0,
+      "worst_phase": 0.0
+    },
+    "original_exact:FrontLowerLeg.L_16": {
+      "max_exact_crossing_pairs": 0,
+      "max_coplanar_area_overlap_pairs": 0,
+      "worst_phase": 0.0
+    },
+    "original_exact:FrontShoulder.R_21": {
+      "max_exact_crossing_pairs": 0,
+      "max_coplanar_area_overlap_pairs": 0,
+      "worst_phase": 0.0
+    },
+    "original_exact:FrontUpperLeg.R_20": {
+      "max_exact_crossing_pairs": 0,
+      "max_coplanar_area_overlap_pairs": 0,
+      "worst_phase": 0.0
+    },
+    "original_exact:FrontLowerLeg.R_19": {
+      "max_exact_crossing_pairs": 0,
+      "max_coplanar_area_overlap_pairs": 0,
+      "worst_phase": 0.0
+    },
+    "original_combined_fore": {
+      "max_exact_crossing_pairs": 0,
+      "max_coplanar_area_overlap_pairs": 0,
+      "worst_phase": 0.0
+    },
+    "all_front.L": {
+      "max_exact_crossing_pairs": 0,
+      "max_coplanar_area_overlap_pairs": 0,
+      "worst_phase": 0.0
+    },
+    "all_front.R": {
+      "max_exact_crossing_pairs": 0,
+      "max_coplanar_area_overlap_pairs": 0,
+      "worst_phase": 0.0
+    },
+    "all_hind.L": {
+      "max_exact_crossing_pairs": 0,
+      "max_coplanar_area_overlap_pairs": 0,
+      "worst_phase": 0.0
+    },
+    "all_hind.R": {
+      "max_exact_crossing_pairs": 0,
+      "max_coplanar_area_overlap_pairs": 0,
+      "worst_phase": 0.0
+    }
+  },
+  "actual_gltf_all_selected_surface_result": {
+    "original_exact:FrontShoulder.L_18": {
+      "max_exact_crossing_pairs": 0,
+      "max_coplanar_area_overlap_pairs": 0,
+      "worst_phase": 0.0
+    },
+    "original_exact:FrontUpperLeg.L_17": {
+      "max_exact_crossing_pairs": 0,
+      "max_coplanar_area_overlap_pairs": 0,
+      "worst_phase": 0.0
+    },
+    "original_exact:FrontLowerLeg.L_16": {
+      "max_exact_crossing_pairs": 0,
+      "max_coplanar_area_overlap_pairs": 0,
+      "worst_phase": 0.0
+    },
+    "original_exact:FrontShoulder.R_21": {
+      "max_exact_crossing_pairs": 0,
+      "max_coplanar_area_overlap_pairs": 0,
+      "worst_phase": 0.0
+    },
+    "original_exact:FrontUpperLeg.R_20": {
+      "max_exact_crossing_pairs": 0,
+      "max_coplanar_area_overlap_pairs": 0,
+      "worst_phase": 0.0
+    },
+    "original_exact:FrontLowerLeg.R_19": {
+      "max_exact_crossing_pairs": 0,
+      "max_coplanar_area_overlap_pairs": 0,
+      "worst_phase": 0.0
+    },
+    "original_combined_fore": {
+      "max_exact_crossing_pairs": 0,
+      "max_coplanar_area_overlap_pairs": 0,
+      "worst_phase": 0.0
+    },
+    "all_front.L": {
+      "max_exact_crossing_pairs": 0,
+      "max_coplanar_area_overlap_pairs": 0,
+      "worst_phase": 0.0
+    },
+    "all_front.R": {
+      "max_exact_crossing_pairs": 0,
+      "max_coplanar_area_overlap_pairs": 0,
+      "worst_phase": 0.0
+    },
+    "all_hind.L": {
+      "max_exact_crossing_pairs": 0,
+      "max_coplanar_area_overlap_pairs": 0,
+      "worst_phase": 0.0
+    },
+    "all_hind.R": {
+      "max_exact_crossing_pairs": 0,
+      "max_coplanar_area_overlap_pairs": 0,
+      "worst_phase": 0.0
+    }
+  },
+  "raw_receipt_provenance": [
+    {
+      "file": "sprint-repair-independent-surface.json",
+      "sha256": "c2196fbd5eabb4cb0fecb10a654a7e253e0fe090e3352ed1b8e58513acaa5872",
+      "bytes": 1735526,
+      "disposition": "Removed after reviewed full-cycle measurements, fixed masks/signatures/extrema, raw SHA and bytes were compacted here. See sprint-repair-independent-cleanup.json."
+    },
+    {
+      "file": "sprint-repair-independent-skin-core.json",
+      "sha256": "b75dfc17152bb1ce98ee38168ea52e5ae6df36a25ebfa37c6a5ddb9b13ee427a",
+      "bytes": 18193,
+      "disposition": "Small aggregate measurement receipt retained"
+    },
+    {
+      "file": "sprint-repair-core-preservation.json",
+      "sha256": "9e038ff8a7008f2e03d2e339b894229c199245ca4e5934e9d692c0f1740f5787",
+      "bytes": 7160,
+      "disposition": "Small aggregate measurement receipt retained"
+    }
+  ],
+  "cleanup_receipt": "sprint-repair-independent-cleanup.json"
+}

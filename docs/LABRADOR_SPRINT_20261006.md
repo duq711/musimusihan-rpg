@@ -1,5 +1,9 @@
 # 영상 기준 래브라도 질주 / Video-reference Labrador sprint
 
+상태: 사용자 피드백으로 이 버전의 전체 피부품질 채택을 철회했습니다. 아래 결과는 당시의 검사 기록입니다. 후속 제작·검증은 [앞다리 피부 변형 수정](LABRADOR_SPRINT_REPAIR_20261006.md)에 기록합니다.
+
+Status: overall skin-quality acceptance was withdrawn after user feedback. Results below are historical checks; the follow-up repair and its new acceptance are recorded in the linked repair document.
+
 사용자는 [YouTube 참고 영상](https://www.youtube.com/shorts/uOWwXi-leww?feature=share)을 제공하고 이전 질주도 어색하다고 지적했습니다. 이번 수정은 영상 첫 셰퍼드의 뻗기·앞발 지지·깊은 다리 회수·뒷발 지지의 흐름을 같은 래브라도에 적용합니다. 이전 사진 기준 인수 결과는 과거 기록으로 보존하며 이번 결과의 근거로 재사용하지 않습니다.
 
 The user supplied the linked video and rejected the previous gallop as still awkward. This revision applies the opening Shepherd's reach, fore support, deep collection and hind support flow to the same Labrador. Prior still-reference acceptance remains historical and is not reused as evidence for this revision.

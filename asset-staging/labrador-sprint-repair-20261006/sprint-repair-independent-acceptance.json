@@ -1,0 +1,182 @@
+{
+  "status": "PassedWithLimits",
+  "scope": "Independent pose-only forelimb Sprint repair acceptance. Numerical selected-surface evidence and subjective rendered morphology/pose-flow evidence are distinguished; root Unity/native/viewer integration is recorded separately.",
+  "candidate": 8,
+  "artifacts": {
+    "production": {
+      "file": "production/LabradorPet_SprintRepair.blend",
+      "sha256": "136aaccdf9817bff8479b75ddd1984139c2c13b58941361088497abc0ff646c8"
+    },
+    "actual_delivered_glb": {
+      "file": "export/LabradorPet_SprintRepair.glb",
+      "sha256": "3c7dc6798c754edc6427ea4f9c58ad2e3704ff564ccd016962b2819606d879e4"
+    },
+    "manifest": {
+      "file": "export/sprint-repair-manifest.json",
+      "sha256": "901af882ac01ab737171132798e9a4983a2b7d73d233c66e4114f17d4218a6ef"
+    },
+    "actual_movie": {
+      "file": "export/LabradorPet_SprintRepair.mp4",
+      "sha256": "36c5507a7e37fffbeca1901ebd299f58b0cfce439fb50979f6d117e6a59b9ad0"
+    }
+  },
+  "counts": {
+    "DCC_geometry": 86,
+    "actual_gltf_geometry": 86,
+    "DCC_skin_core": 169,
+    "core_preservation": 169,
+    "decoded_actual_movie_frames": 90,
+    "chronological_contact_sheets": 8,
+    "final_proximal_closeups": 3
+  },
+  "numerical_gate": {
+    "status": "PassedWithLimits",
+    "baseline_failed_phase090": {
+      "original_exact_mask_A_crossing_pairs": 198,
+      "original_combined_mask_B_BVH_pairs": 232,
+      "original_combined_mask_B_edge_confirmed_pairs": 231,
+      "intended_shared_vertex_adjacency_excluded": true
+    },
+    "final_fixed_region_crossings": {
+      "DCC86": "All retained originalA/B and additional broader body/head versus all4limb exact/coplanar pairs zero",
+      "actual_glTF86": "Same original triangle IDs/weights and directly evaluated actual exported LINEAR/STEP skin exact/coplanar pairs zero"
+    },
+    "mesh_rest_weights_preservation": "All original binding signatures exact; actualGLB47182tri directed multiplicity/winding match. Empty strongShoulder masks are unmeasured, not falsely counted clean; mixed and combined masks retained.",
+    "full_body_floor_min_m": -0.0007867137901484966,
+    "unchanged_floor_margin_m": 0.003,
+    "actual_glTF_full_body_floor_min_m": 0.0005431245833347427,
+    "fore_humerus_max_rotation_from_neutral_deg": {
+      "L": 63.46361791852226,
+      "R": 60.06228616469346
+    },
+    "fore_elbows_always_below_shoulders": true,
+    "core10bone169sample_keys_handles_world_positions_matrices_exact": true,
+    "support_sole_centroid_max_drift_m": {
+      "LF": 0.005377568660915263,
+      "RF": 0.0010199451517319605,
+      "LH": 0.001669816768477797,
+      "RH": 0.0016524302484849035
+    },
+    "compression_cases_retained": {
+      "mixed_L": {
+        "triangles": 848,
+        "minimum_area_ratio": 0.021102169234687315,
+        "max_triangles_under20pct_neutral_area": 6,
+        "worst_phase": 0.42857142857142855,
+        "max_compressed_count_phase": 0.42857142857142855,
+        "max_compressed_total_neutral_area_m2": 0.0008394613744635264,
+        "max_compressed_area_phase": 0.42857142857142855
+      },
+      "mixed_R": {
+        "triangles": 856,
+        "minimum_area_ratio": 0.021102169234687315,
+        "max_triangles_under20pct_neutral_area": 8,
+        "worst_phase": 0.42857142857142855,
+        "max_compressed_count_phase": 0.42857142857142855,
+        "max_compressed_total_neutral_area_m2": 0.0011300861517459103,
+        "max_compressed_area_phase": 0.42857142857142855
+      },
+      "right_upperarm": {
+        "triangles": 456,
+        "minimum_area_ratio": 0.14340331479504806,
+        "max_triangles_under20pct_neutral_area": 2,
+        "worst_phase": 0.44047619047619047,
+        "max_compressed_count_phase": 0.42857142857142855,
+        "max_compressed_total_neutral_area_m2": 0.0002906247772823839,
+        "max_compressed_area_phase": 0.42857142857142855
+      },
+      "right_forearm": {
+        "triangles": 1339,
+        "minimum_area_ratio": 0.039773691584204525,
+        "max_triangles_under20pct_neutral_area": 14,
+        "worst_phase": 0.9047619047619048,
+        "max_compressed_count_phase": 0.9,
+        "max_compressed_total_neutral_area_m2": 0.0010654095716142013,
+        "max_compressed_area_phase": 0.9
+      }
+    }
+  },
+  "visual_gate": {
+    "status": "PassedWithLimits",
+    "method": "Direct image inspection of all8 chronological contact sheets containing90 exactly decoded actual MP4 frames, plus4 original-resolution decoded phase .42857/.90476 side/quarter frames. Ordered sample review, not a claim of continuous playback or every movie frame.",
+    "ordered_flow": "Extension → fore load → gathered hind/body → hind land/forward reach retained after repair.",
+    "proximal_skin": "Both final .42857 closeups and right .90 closeup show attached axillary/elbow/wrist folds; no rejected raised upperarm knob, chest embedding or visible twist in these sampled views.",
+    "supported_skin": "Subtle skin/pad rolling remains, without conspicuous abrupt skating/hover in reviewed frames. Residual drift is reported numerically.",
+    "loop_core": "No abrupt pelvis/head height drop, foot yaw flip or new shape step in the reviewed normal/half progression and repeat-boundary views.",
+    "root_independent_close_and_temporal_confirmation": "Root reported final C8 close3 and all8sheet90frame review accepted with same limits; actual browser/native pending separately.",
+    "final_closeups": [
+      {
+        "phase": 0.428571429,
+        "side": "left",
+        "file": "review/detail/Run_front_429.png",
+        "sha256": "71783800ae7d71e897ae10691bdd6c6f2ae0f9663aaf21cae56287fc50739ef3",
+        "bytes": 516362
+      },
+      {
+        "phase": 0.428571429,
+        "side": "right",
+        "file": "review/detail/Run_right_front_429.png",
+        "sha256": "629ead86fffa1b6ee24297cf7e3475ad5986619ee20578ce215f136e962f0652",
+        "bytes": 512192
+      },
+      {
+        "phase": 0.9,
+        "side": "right",
+        "file": "review/detail/Run_right_front_900.png",
+        "sha256": "166990dfe804ed29c6f7ad0a7f272494cbe34d816b04eaec46a51570e2a51a56",
+        "bytes": 523633
+      }
+    ]
+  },
+  "retained_limits": [
+    "Nonadjacent pairs exclude any shared vertex; selected geometry regions do not establish all-mesh collision freedom.",
+    "Historical exact mask and combined BVH mask remain separate; their counts must not be added.",
+    "Segment-triangle crossings require two interior edge hits separated by>10micrometres; projected coplanar overlaps>1e-10m² are separately reported.",
+    "Fixed region area ratios measure selected surface compression, not volume or anatomy; rendered proximal shape must still be reviewed.",
+    "The source rest positions, topology, vertex group order and all weights are bound and must match. No threshold/mask shrinking is allowed.",
+    "Foot sole-centroid residuals include rolling/deformation and are not measured pressure centres.",
+    "Zero sampled crossings in the fixed selected regions is a numerical surface gate, not an automatic approval of proximal morphology or naturalness.",
+    "Shape under20% thresholds have not been changed; local compressed patches are retained for explicit actual-rendered inspection.",
+    "Selected surface checks sample43authored keys,120Hz intermediates andformerphase.9; they do not prove continuous-time or all-mesh collision freedom.",
+    "Fixed triangle area<20% threshold and regions were retained; ratio minima alone do not establish anatomy or physical volume.",
+    "LF supported fixed-sole centroid drift5.37757mm andpeak residual.54305m/s include rolling/deformation; pressure centre and frictional contact are not measured.",
+    "ActualglTF keyskin error<.992µm but Blender-versus-LINEAR midpoint skin discrepancy reaches10.448mm; actualglTF geometry is separately checked rather than inferred from Blender video.",
+    "Actual movie90chosen frames +3 closeups do not imply every360movieframe/all viewpoints/real-time continuous playback or user aesthetic acceptance.",
+    "C6 finiteepsilon convergence is historical evidence; currentC8 .05framefore skinvelocity deltas remain .11969/.24113m/s. Sampled temporal acceptance does not assert exact continuous-time C1 export continuity."
+  ],
+  "compact_receipts": [
+    {
+      "file": "sprint-repair-independent-numerical-summary.json",
+      "sha256": "f9f6e5d24b1e37a38a9fc474f5cbeaddf5db4b3e90121c18aa19552c322fc83a",
+      "bytes": 28653
+    },
+    {
+      "file": "sprint-repair-rejected-surface-summary.json",
+      "sha256": "d769ae85d97f24e288ed256bc20e6ef818a29e79f8795cc3aa74db2584bba9e3",
+      "bytes": 15972
+    },
+    {
+      "file": "sprint-repair-core-preservation.json",
+      "sha256": "9e038ff8a7008f2e03d2e339b894229c199245ca4e5934e9d692c0f1740f5787",
+      "bytes": 7160
+    },
+    {
+      "file": "sprint-repair-independent-skin-core.json",
+      "sha256": "b75dfc17152bb1ce98ee38168ea52e5ae6df36a25ebfa37c6a5ddb9b13ee427a",
+      "bytes": 18193
+    },
+    {
+      "file": "sprint-repair-temporal-frame-review.json",
+      "sha256": "b7305fff34d319813232c6dadaea0fdee85466561477aff9169052ef0f9e12b4",
+      "bytes": 51763
+    }
+  ],
+  "cleanup": {
+    "status": "Own generated104 files removed after root all8sheet review confirmation",
+    "receipt": "sprint-repair-independent-cleanup.json",
+    "sha256": "dd6ed24985fa97f17a5abc080aa1028664dc9984c85cefb0fba76dbbc87af516",
+    "removed_file_allocated_bytes": 36179968,
+    "free_bytes_after": 7758761984,
+    "scope": "Own98reviewedPNG frames/sheets,4own logs,2own raw full-cycle surface JSON. All production/exports/unique original materials/reusable tools/compact receipts and other agents work preserved."
+  }
+}
