@@ -43,3 +43,9 @@ Run is 0.5 s at 60 FPS with a 3.063375910135234 m/s nominal travel speed. Residu
 이전 32개 PlayMode 결과는 변경하지 않은 런타임의 과거 근거이며 이번 질주 품질의 검사로 재사용하지 않습니다. 최종 모델·Blender·Run FBX·영상·포스터·최신 실행본·원본은 보존하고 이번 검토 완료 캡처·진단·로그·이전 실행본만 정리합니다. 작은 결과와 정리량은 `gallop-summary.json`, `gallop-cleanup-summary.json`에 남깁니다. 라이선스 바이너리와 사용자 사진은 로컬에 보존하며, 작업 코드·문서·작은 요약은 기존 `codex/labrador-pet-20261005` 브랜치에 반영하고 `gallop-publication-summary.json`으로 원격 SHA와 선택 파일 일치를 확인합니다.
 
 The prior 32 PlayMode results remain historical evidence for unchanged runtime behavior. Final productions, exports, reel/posters, originals and latest playable are preserved; reviewed task-only QA, diagnostics, logs and the superseded app are cleaned with measured allocation/free-space receipts. Licensed binaries and the user photo stay local. Task source, documentation and compact summaries are published on the existing branch, with remote and selected-file hashes verified in the publication receipt.
+
+## 이후 수정 / Superseding revision
+
+사용자가 이 결과도 어색하다고 지적하고 YouTube 참고 영상을 제공했습니다. 현재 Run은 [영상 기준 질주](LABRADOR_SPRINT_20261006.md)로 교체합니다. 이 문서의 사진 기준 결과·검사 수는 이전 제작 기록이며 새 결과의 인수 근거가 아닙니다.
+
+The user rejected this revision and supplied a video. The current Run is superseded by the linked Sprint revision. Metrics here remain historical and do not establish acceptance of the new result.

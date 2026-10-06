@@ -1,0 +1,201 @@
+{
+  "scope_ko": "영상 참고의 길게 뻗는 공중기와 배 아래 모이는 공중기, 짝 앞발 지지에서 뒷발 착지로 이어지는 흐름을 Run에 다시 제작했습니다. 원본과 이전 제작/수출 파일, rest geometry/weights/morph/coat, care와 Walk 키는 보존했습니다.",
+  "scope_en": "Run was re-authored around the observed extended and collected suspension, close fore-pair support and hind landing. Source and prior productions/exports, rest geometry/weights/morph/coat, care and Walk keys are preserved.",
+  "clip": {
+    "name": "Run",
+    "frames": [
+      1,
+      43
+    ],
+    "fps": 60,
+    "duration": 0.7,
+    "loop": true,
+    "speed_m_s": 2.3472118786586624,
+    "root_motion": "in-place; smoothly authored vertical body and spinal flex",
+    "source_capture": "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/labrador-pet-20261005/source/raw_bvh_data/dog_fast_run_02_006.bvh",
+    "source_raw_frames": [
+      856,
+      900
+    ],
+    "source_fps": 120.0000480000192,
+    "retimed_from_duration_s": 0.36666652,
+    "paw_world_scale": 0.8,
+    "contact_phases": {
+      "front.R": [
+        0.32,
+        0.49
+      ],
+      "front.L": [
+        0.42,
+        0.59
+      ],
+      "hind.R": [
+        0.84,
+        1.015
+      ],
+      "hind.L": [
+        0.935,
+        1.11
+      ]
+    },
+    "source": "Captured nonuniform paw profile, filtered periodic and phase-warped for paired fore/hind reference rhythm. Body envelope, scapular glide, calibrated phase carpal/toe pitch and source boundary contact correction are authored. Video display timing is a visual pacing guide; overlay speed and source marker flight are not physical ground truth."
+  },
+  "poster_phases": {
+    "Extended": 0.2,
+    "Collected": 0.7
+  },
+  "files": {
+    "production/LabradorPet_Sprint.blend": {
+      "bytes": 20069195,
+      "sha256": "84e3e93166c6aadf78915d616bc035122da00a7d28a173e92e7403ebee0a1f02"
+    },
+    "export/LabradorPet_Sprint.glb": {
+      "bytes": 18180684,
+      "sha256": "fce9804e83255d11ae37b0b639295b6cac849634ea2594e96724dfd89b111ec5"
+    },
+    "export/Locomotion/Run.fbx": {
+      "bytes": 5440668,
+      "sha256": "32dbf79ae510e31c9bc05d3e30241bb830b0e980adeb9395cae5e2a2d7e7d627"
+    },
+    "export/sprint-manifest.json": {
+      "bytes": 3262,
+      "sha256": "98aab4b281d1589107caa3a0c84f31180dfbf9a7e205accc4e8e4e25c042d355"
+    }
+  },
+  "validation": {
+    "receipt": "sprint-animation-validation.json",
+    "passed": true,
+    "checks_count": 31,
+    "evaluated_skin_frames_120_hz": 85,
+    "fbx_roundtrip_samples": 5,
+    "key_metrics": {
+      "Full Run skin floor tolerance 3mm": {
+        "minimum_z_m": 0.0003328102668746502,
+        "tolerance_m": 0.003,
+        "worst_sample": {
+          "frame": 21.5,
+          "vertex": 16038,
+          "world_m": [
+            -0.12715150027082345,
+            -0.259952466088631,
+            0.0003328102668746502
+          ],
+          "groups": {
+            "FF.R_50": 0.9320024251937866,
+            "IKFrontLeg.R_51": 0.0679975301027298
+          }
+        }
+      },
+      "No 120Hz evaluated-paw interpolation pop": {
+        "maximum_foot_centroid_step_m": 0.0343334198747284,
+        "sample_interval_s": 0.008333333333333333
+      },
+      "Core has no instantaneous adaptive pelvis drop": {
+        "hip": {
+          "maximum_velocity_m_s": 0.413053035751566,
+          "maximum_acceleration_m_s2": 10.82925796508789,
+          "height_range_m": [
+            0.5181195735931396,
+            0.5712708830833435
+          ]
+        },
+        "chest": {
+          "maximum_velocity_m_s": 0.8052312299083698,
+          "maximum_acceleration_m_s2": 12.732873287243262,
+          "height_range_m": [
+            0.44610121846199036,
+            0.5367302298545837
+          ]
+        }
+      },
+      "Calibrated paw pitch avoids abrupt lift activation": {
+        "maximum_paw_angular_step_deg_at_120Hz": {
+          "front.L": 5.723229189794346,
+          "front.R": 5.833591498191215,
+          "hind.L": 6.055775664931058,
+          "hind.R": 6.061303710847784
+        }
+      },
+      "Run loop tangent continuity": {
+        "velocity_difference_m_s": 0.0076984798261965255,
+        "angular_velocity_difference_deg_s": 1.8239680180023803
+      },
+      "Paw endpoint connected to actual solved lower leg": {
+        "maximum_ik_endpoint_residual_m": 0.0
+      },
+      "Delivered Run FBX exact sampled joints and skin": {
+        "samples": 5,
+        "joint_max_error_m": 9.31531167512404e-07,
+        "skin_max_error_m": 1.130215189208317e-06
+      }
+    },
+    "independent_review": {
+      "receipt": "sprint-independent-skin-core-review.json",
+      "actual_skin_samples": 169,
+      "body_skin_floor_min_m": 0.0003328104503452778,
+      "maximum_fixed_sole_centroid_drift_m": 0.0016698170192777524,
+      "maximum_core_key_boundary_velocity_jump_m_s": 0.013313201598710566,
+      "all_original_joint_bend_signs_retained": true,
+      "root_still_gate": "Ten new actual skin side poses accepted as an improvement; final movie/reference flow gate pending."
+    }
+  },
+  "capture_attribution": {
+    "model": "kenchoo / Labrador Dog / CC BY 4.0",
+    "model_url": "https://sketchfab.com/3d-models/labrador-dog-1f56cfbab07e4fe49b5d9e521c82073a",
+    "dataset": "Han et al.2024 canine motion capture / CC BY 4.0",
+    "dataset_url": "https://doi.org/10.6084/m9.figshare.24968946.v1",
+    "raw_segment": [
+      856,
+      900
+    ],
+    "movie_reference": "https://www.youtube.com/shorts/uOWwXi-leww?feature=share",
+    "movie_policy": "Browser-observed posture/rhythm only; movie not downloaded, reproduced or embedded. Displayed speed is not a measured source velocity."
+  },
+  "method": "Measured nonuniform source ankle and toe paths are periodic Fourier filtered and phase warped per limb. Quintic boundary correction joins translation-cancelling stance with continuous position/first/second derivatives. Authored periodic cubic B-spline hip/spine and scapular curves replace per-frame reach-driven pelvis lowering. The acquired limb lengths and rest bend directions are retained; paw pitch is calibrated, phase-defined and no 3D source ankle quaternion is copied. Connected neck lean lowers the nose while keeping the head shape.",
+  "preserved_action_sha256": {
+    "IdleFriendly": "68e44614ad55a217f4d8f7f3350e1bc4cbc04ffc95202e92eb23a90c50af5b39",
+    "PetEnjoy": "cb1684d5029a3162cb05244a8570ad98b260bc3080541dd046976d9cf1d37aaf",
+    "Walk": "a5fc5fd9593a0fa0c55bbc919d9e4815ab5df47efbbd169fa553a9b2048f7773"
+  },
+  "preserved_original_files_sha256": {
+    "production/LabradorPet_Animations.blend": "34753bed47edb3c68d0973c3a38ddda958d80fb918c88e4712da1f674966318a",
+    "production/LabradorPet_Locomotion.blend": "d035d5257e8e6c624d363131656e7b8a3e86cd3a208ff838773537ce65c96e0c",
+    "export/LabradorPet_Locomotion.glb": "22ef1b62ccd64c4002a3e94290e33adf31ee8f631f0c480b063484e2a8fe611e",
+    "export/Locomotion/Run.fbx": "f524e216400eb49d51e8e4b89c604c194ea96960a2394e2b8759ab78cf04cc63",
+    "export/Locomotion/Walk.fbx": "275de8485ba3fdc5f9c0d76f2b9f67d1df1f7d2d44e3e7fcf468d50961154ada"
+  },
+  "preserved_previous_gallop_sha256": {
+    "production/LabradorPet_Gallop.blend": "d9b07a7c801ff67ada321dc43955c0355bcbfd8ae8e1541744dc010f4f70a30c",
+    "export/LabradorPet_Gallop.glb": "46ae83b2789213be4a34dc0831aabe8b8c7b142af79de20b43226e1dfbabad73",
+    "export/Locomotion/Run.fbx": "cff62d847e9c6b27bf41ed64e6e9f053f5d3618a9951806bd657967d0004a666"
+  },
+  "limits": [
+    "This is a reference-guided animation adaptation, not motion capture of the video dog.",
+    "The Labrador has a much longer spine and shorter humerus than the captured dog. Original proportions and vertex weights constrain how deeply its wrist can fold.",
+    "Nominal speed is adapted captured stride divided by .70-second authored duration; video overlay velocity is not used.",
+    "Support skin drift must be reported as bounded measured drift after independent review, not absolute zero skating.",
+    "Unity integration, playable preview, final movie and publication are owned by root and another agent."
+  ],
+  "public_contact_summary_ko": "실제 캡처의 비균일 발 궤적을 래브라도 체형과 영상의 리듬에 맞게 조정한 창작 모션입니다. Run은 .70초 주기로 전·후지 짝 지지와 두 공중기 형태를 가지며, 제자리 재생 기준 이동속도는 2.347m/s입니다. 자체31검사와 독립169피부 표본에서 관절 방향·접지·코어 연속성을 확인했습니다. 실제 고정 발바닥 중심 이동오차는 최대1.67mm이며, 발/바닥 완전무오차를 주장하지 않습니다.",
+  "public_contact_summary_en": "This authored adaptation fits captured nonuniform paw trajectories to the Labrador proportions and observed movie rhythm. The .70-second Run pairs fore/hind support with distinct extended and collected suspension, at 2.347 m/s nominal in-place speed. 31 own checks and 169 independent skin samples verify joint directions, support and core continuity. Maximum fixed-sole centroid drift is 1.67 mm; absolute zero skating is not claimed.",
+  "cleanup_after_final_movie_gate": {
+    "remove_own_generated_only": [
+      "review/side/",
+      "sprint-authoring-contact.json",
+      "production/LabradorPet_Sprint.blend1 (if created)",
+      "sprint-animation-validation.log (if created)"
+    ],
+    "preserve": [
+      "production/LabradorPet_Sprint.blend",
+      "export/LabradorPet_Sprint.glb",
+      "export/Locomotion/Run.fbx",
+      "export/sprint-manifest.json",
+      "sprint-production-summary.json",
+      "sprint-animation-validation.json",
+      "sprint-gltf-summary.json",
+      "tools/dcc/labrador_pet_sprint.py",
+      "tools/dcc/labrador_pet_sprint_validate.py"
+    ],
+    "other_agents_own": "Final movie/posters, independent review receipts/logs, editor logs and Unity fixture outputs are used by other agents. Do not delete before the root final movie/reference gate."
+  }
+}

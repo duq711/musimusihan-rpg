@@ -1,0 +1,92 @@
+{
+  "result": "Local production/preview/native installation and reviewed-output cleanup complete; remote publication recorded separately",
+  "reference": "https://www.youtube.com/shorts/uOWwXi-leww?feature=share",
+  "reference_displayed_poses": 12,
+  "Run": {
+    "duration_s": 0.7,
+    "fps": 60,
+    "frames": [
+      1,
+      43
+    ],
+    "nominal_speed_m_s": 2.3472118786586624
+  },
+  "checks": {
+    "authoring": 31,
+    "authoring_skin_samples": 85,
+    "independent_skin_samples": 169,
+    "FBX_roundtrip_poses": 5,
+    "Unity_import_checks": 195,
+    "Unity_actual_skin_samples": 86,
+    "fresh_native_checks": 30,
+    "final_movie_ordered_frames_viewed_by_root": 90,
+    "exact_video_seeks": 5,
+    "HTTP_local_asset_hash_matches": 3
+  },
+  "artifacts": [
+    {
+      "path": "asset-staging/labrador-sprint-20261006/production/LabradorPet_Sprint.blend",
+      "bytes": 20069195,
+      "sha256": "84e3e93166c6aadf78915d616bc035122da00a7d28a173e92e7403ebee0a1f02"
+    },
+    {
+      "path": "asset-staging/labrador-sprint-20261006/export/LabradorPet_Sprint.glb",
+      "bytes": 18180684,
+      "sha256": "fce9804e83255d11ae37b0b639295b6cac849634ea2594e96724dfd89b111ec5"
+    },
+    {
+      "path": "asset-staging/labrador-sprint-20261006/export/Locomotion/Run.fbx",
+      "bytes": 5440668,
+      "sha256": "32dbf79ae510e31c9bc05d3e30241bb830b0e980adeb9395cae5e2a2d7e7d627"
+    },
+    {
+      "path": "asset-staging/labrador-sprint-20261006/export/sprint-manifest.json",
+      "bytes": 3262,
+      "sha256": "98aab4b281d1589107caa3a0c84f31180dfbf9a7e205accc4e8e4e25c042d355"
+    },
+    {
+      "path": "asset-staging/labrador-sprint-20261006/export/LabradorPet_Sprint.mp4",
+      "bytes": 2334054,
+      "sha256": "515a490e5266e19865a84d2c2f9c83609a17ad3e9ac94636497d1f2fbed688d5"
+    },
+    {
+      "path": "asset-staging/labrador-sprint-20261006/export/LabradorPet_Sprint_Extended.png",
+      "bytes": 698442,
+      "sha256": "325fc6f3450d1420400999574e00c70949777ca80faba7a861ae1f2bf74f85d8"
+    },
+    {
+      "path": "asset-staging/labrador-sprint-20261006/export/LabradorPet_Sprint_Collected.png",
+      "bytes": 697780,
+      "sha256": "583a8f6a23bd72f123d9b5ce075db268402c033255abca9f02d39b67468c7523"
+    }
+  ],
+  "preservation": [
+    "Acquired mesh/rest/weights/morph/coat mask",
+    "Exact Walk/IdleFriendly/PetEnjoy action keys",
+    "Prior unique Blender productions and final reels",
+    "30 Unity resource/meta files and3 runtime hashes",
+    "Latest playable app, Applications symlink and Dock target"
+  ],
+  "native_app": "unity-game/Builds/MusimusihanRPG.app",
+  "viewer": "http://127.0.0.1:8773/locomotion/",
+  "build": {
+    "result": "Succeeded",
+    "errors": 0,
+    "warnings": 171,
+    "Labrador_specific_warnings": 0
+  },
+  "limitations": [
+    "Video poses/display timing provide qualitative style reference, not exact reconstructed captured movement.",
+    "169 independent skin poses and90 decoded frames are sample-based numerical/visual review, not forces or aesthetic user approval.",
+    "Native acceptance uses actual app/F2 deterministic commands without physical desktop input, focus or sound.",
+    "Following/navigation/companion attack remain outside this Run correction.",
+    "Licensed binary assets remain local under project publication policy."
+  ],
+  "cleanup": {
+    "removed_files": 297,
+    "removed_allocated_bytes": 3376005120,
+    "observed_free_change_bytes": 3337404416,
+    "free_bytes_after": 17762603008
+  },
+  "independent_reference_visual_criteria_accepted": 7
+}

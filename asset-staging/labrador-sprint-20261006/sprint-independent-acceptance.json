@@ -1,0 +1,66 @@
+{
+  "result": "Independent review accepted within sampled final numerical and new-reference visual scope",
+  "reviewed_at_utc": "2026-10-06T02:03:33.657401+00:00",
+  "production_blend_sha256": "84e3e93166c6aadf78915d616bc035122da00a7d28a173e92e7403ebee0a1f02",
+  "manifest_sha256": "98aab4b281d1589107caa3a0c84f31180dfbf9a7e205accc4e8e4e25c042d355",
+  "movie_sha256": "515a490e5266e19865a84d2c2f9c83609a17ad3e9ac94636497d1f2fbed688d5",
+  "counts": {
+    "new_qualitative_reference_criteria": 7,
+    "actual_skin_stills": 10,
+    "actual_skin_poses": 169,
+    "regular_skin_samples_120_hz": 85,
+    "near_key_skin_samples": 84,
+    "ordered_decoded_movie_frames": 90,
+    "normal_side": 23,
+    "half_side": 44,
+    "normal_quarter": 23
+  },
+  "visual_result": "Extended→fore landing/push→deep gathered→hind landing/restart flow is readable; no rejected core pop, joint inversion, detached paw or visible repeat-boundary position pop in reviewed samples.",
+  "numerical_result": {
+    "whole_body_floor_min_m": 0.0003328104503452778,
+    "unchanged_floor_margin_m": 0.003,
+    "original_rest_bend_signs_preserved": true,
+    "maximum_foot_rotation_step_deg_per_8_33ms": 6.061313852518025,
+    "maximum_skin_centroid_step_m_per_8_33ms": 0.03433367363413654,
+    "supported_fixed_sole_max_drift_m": {
+      "LF": 0.0007489452910502633,
+      "RF": 0.0006204208122610287,
+      "LH": 0.0016698170192777524,
+      "RH": 0.0016524302313143527
+    },
+    "max_supported_fixed_sole_planar_residual_speed_m_s": {
+      "LF": 0.01494894768454846,
+      "RF": 0.010156722135542109,
+      "LH": 0.20040035216689953,
+      "RH": 0.19826889329174635
+    },
+    "hip_chest_head_peak_discrete_acceleration_m_s2": {
+      "Back_38": 10.829255104266464,
+      "Torso3_15": 12.73287013409329,
+      "Head_1": 18.772853721803816
+    },
+    "max_one_sided_loop_skin_velocity_delta_m_s": 0.009818594814923271,
+    "all_four_paw_max_skin_clearance_m": 0.08330303430557251
+  },
+  "receipts": [
+    "sprint-reference-acceptance.json",
+    "sprint-temporal-frame-review.json",
+    "sprint-independent-numerical-summary.json",
+    "sprint-independent-skin-core-review.json"
+  ],
+  "reusable_tools": [
+    "tools/dcc/labrador_sprint_skin_review.py",
+    "tools/dcc/labrador_sprint_video_review.swift",
+    "tools/dcc/labrador_sprint_source_review.py",
+    "tools/dcc/labrador_sprint_contact_review.py"
+  ],
+  "limits": [
+    "Reference observations are12 remote UI poses reported by root. Displayed ~.70s rhythm is a style guide; original filming speed and overlay speed are not verified.",
+    "Independent temporal assessment is ordered actual decoded movie frame review, not a claim of continuous real-time viewing or a measured biomechanical reconstruction.",
+    "Visual acceptability remains subjective. This technical/reference review does not substitute for the user's aesthetic acceptance.",
+    "169 evaluated skin poses and90 decoded frames are sample-based; discrete derivatives do not measure impact force.",
+    "Fixed anatomical sole centroids include skin rolling/deformation and are not measured pressure centres; residual motion is reported rather than called zero skating.",
+    "Previous user-rejected gallop/photo acceptance is preserved as history and is not reused to establish new sprint naturalness."
+  ],
+  "cleanup_policy": "Root may remove reviewed temporary decode directory and task logs after preserving these receipts. No final asset or original was modified by this independent review; newly authored reusable review tools are preserved under tools/dcc."
+}

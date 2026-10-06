@@ -1,0 +1,101 @@
+{
+  "status": "Completed: new seven-criterion reference gate accepted within sampled final visual scope; prior photo pass not reused",
+  "reference_url": "https://www.youtube.com/shorts/uOWwXi-leww?feature=share",
+  "reference_access": "Root observed actual YouTube playback UI remotely. Source video not downloaded or redistributed. Web text fetch was throttled; no conclusions are inferred from page metadata.",
+  "reference_observations_from_root": {
+    "observed_times_s": [
+      0.066,
+      0.166,
+      0.266,
+      0.366,
+      0.466,
+      0.566,
+      0.666,
+      0.766,
+      0.866,
+      0.966,
+      1.066,
+      1.166
+    ],
+    "sample_count": 12,
+    "cycle_display_duration_estimate_s": 0.7,
+    "cycle_estimate_evidence": "Fore stance/hind fold .366 approximately repeats at1.066; gathered air .466 approximately repeats at1.166.",
+    "time_or_speed_limits": "Displayed playback period is an appearance/timing guide; original filming speed and overlay speed are not validated."
+  },
+  "separation_of_criteria": {
+    "prior_photo": "Static fore reach/hind rear drive and connected limb silhouette only. Old pass did not establish the newly requested temporal rhythm.",
+    "new_video": "Ordered extended→fore contact→fore push/hind tuck→deep collection→hind contact flow plus smooth core/limb timing."
+  },
+  "acceptance_proposals": [
+    {
+      "id": "extended_silhouette",
+      "visual": "Leading forelimb extends forward/down while opposite forelimb folds and a hindlimb drives rearward; recognisable in side and quarter views.",
+      "reference_times_s": [
+        0.066,
+        0.166
+      ]
+    },
+    {
+      "id": "fore_contact_load_transfer",
+      "visual": "Reach leads into forepaw landing followed by fore support/push; body pitch/height follows support and hind legs begin gathering without a whole-body sudden drop.",
+      "reference_times_s": [
+        0.266,
+        0.366
+      ]
+    },
+    {
+      "id": "deep_collection",
+      "visual": "Carpus folds under chest and both hind legs/paws gather forward under abdomen, clearly narrower than extended silhouette. Core flex participates instead of keeping a long straight torso and widening feet about fixed neutral centres.",
+      "reference_times_s": [
+        0.466,
+        0.566
+      ]
+    },
+    {
+      "id": "hind_contact_and_restart",
+      "visual": "Hind landing/load precedes next fore reach; sequential timing is readable through one complete cycle and repeats in the same order.",
+      "reference_times_s": [
+        0.666,
+        0.766
+      ]
+    },
+    {
+      "id": "continuous_core_motion",
+      "visual": "Hip/chest/head height and lumbar curve pass through compression/recovery without the previous84.6mm global IK dip or rebound pop. Neck/head lean forward/down with nose near the back line; hip-top skin remains rounded and connected during extension.",
+      "numerical": "Inspect actual evaluated hip/chest/head velocities and discrete acceleration at120Hz, key boundaries and seam. Source/design C2 curves do not substitute for final evaluated pose measurements."
+    },
+    {
+      "id": "connected_smooth_limbs",
+      "visual": "Elbow/carpus/stifle/hock/toe motion remains connected and correctly bent; toe pitch progresses through landing, drive and recovery without a short abrupt switch or foot collapse.",
+      "numerical": "Evaluate actual skinned foot region ankle+toe influence≥.65 including heel, sampled foot/ankle rotations and sagittal bend signs. Whole-body floor margin unchanged from previous validation."
+    },
+    {
+      "id": "skin_contact_flight_loop",
+      "visual": "Supported soles remain plausible on the moving ground, airborne phases remain visible, and the repeated boundary is smooth in normal and half-speed decoded frame progression.",
+      "numerical": "At declared nominal speed compute actual fixed sole skin drift for each supported phase, whole-body skin floor, four-paw clearance and loop kinematics. Numerical stability and visual rhythm judged separately; no absolute zero-skating claim."
+    }
+  ],
+  "planned_local_movie_review": {
+    "tool": "tools/dcc/labrador_sprint_video_review.swift",
+    "expected_movie_fps": 30,
+    "cycle_duration_s": 0.7,
+    "shots": "normal side4s / half side4s / normal quarter4s",
+    "expected_one_cycle_frames_by_shot": [
+      21,
+      42,
+      21
+    ],
+    "boundary": "Two frames before and two after first repeat boundary per shot; overlapping samples deduplicated. Expected90 unique images; report actual count and fps from actual AVFoundation track."
+  },
+  "read_only_diagnosis_receipts": [
+    "sprint-source-core-review.json",
+    "sprint-source-contact-review.json"
+  ],
+  "production_policy": "Preserve all previous originals. Authoring agent owns production changes. No import, Unity/binary edits or previous acceptance reuse in this review stage.",
+  "candidate_pose_status": "Actual final ten skin stills inspected independently and by root; distinct extension/collection and improved head/back silhouette accepted.",
+  "planned_numeric_review_tool": "tools/dcc/labrador_sprint_skin_review.py",
+  "final_temporal_status": "All90 ordered actual MP4 frames reviewed:23 normal side,44 half side,23 normal quarter, including repeat boundary.",
+  "final_receipt": "sprint-reference-acceptance.json",
+  "production_blend_sha256": "84e3e93166c6aadf78915d616bc035122da00a7d28a173e92e7403ebee0a1f02",
+  "movie_sha256": "515a490e5266e19865a84d2c2f9c83609a17ad3e9ac94636497d1f2fbed688d5"
+}

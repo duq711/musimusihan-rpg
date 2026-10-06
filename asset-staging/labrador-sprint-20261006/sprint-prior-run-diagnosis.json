@@ -1,0 +1,135 @@
+{
+  "status": "Previous photo-accepted Run rejected by user for temporal awkwardness; revision diagnostics only",
+  "prior_asset_sha256": "d9b07a7c801ff67ada321dc43955c0355bcbfd8ae8e1541744dc010f4f70a30c",
+  "prior_acceptance_scope_limit": "Static pose/skin stability checks and decoded still progression did not establish the newly supplied reference rhythm. Prior pass is not reused as new acceptance.",
+  "causes": [
+    {
+      "cause": "Global IK correction overrides core trajectory",
+      "evidence": "Adaptive whole-root lower recomputed independently each key from maximum forelimb reach deficit. Original captured hip bob is superseded by the abrupt correction.",
+      "peak_hip_vertical_velocity_m_s": -2.617492437362671,
+      "peak_discrete_hip_vertical_acceleration_m_s2": 552.9366455078125,
+      "dip_phase_interval": [
+        0.8,
+        0.8666666666666667
+      ],
+      "dip_m": 0.08458417654037476
+    },
+    {
+      "cause": "Collection broadened by separate neutral-centred paw profiles on longer model torso",
+      "target_paw_marker_span_cm": [
+        47.258156538009644,
+        122.39355742931366
+      ],
+      "original_source_paw_span_cm": [
+        23.27843376994133,
+        119.45719939470291
+      ],
+      "source_to_target_torso_length_ratio": 1.5617277580695355,
+      "interpretation": "Target minimum span47.26cm versus raw source23.3cm is wider even though WORLD_FACTOR=.85. Shorter fore upper limb and longer hind tibia also prevent literal skeletal copying."
+    },
+    {
+      "cause": "Body turns but projected core silhouette remains nearly straight",
+      "target_chord_cm": [
+        63.96686938810139,
+        65.04376939758791
+      ],
+      "target_spine_curve_deg": [
+        -10.473921213379246,
+        14.967369425412235
+      ],
+      "chord_excursion_fraction": 0.01655654368528122,
+      "interpretation": "Claiming zero spine motion would be incorrect;25.44deg signed curve excursion exists. The long rigid-looking core and shallow gathered feet are the practical visual weakness."
+    },
+    {
+      "cause": "Height-gated toe pitch turns on over a short phase band",
+      "evidence": "LH authored pitch=(16+54*drive)*smoothstep(clamp(lift/.055)); lift jumps from17.5mm to53.0mm between consecutive authored source-derived keys.",
+      "max_toe_rotation_deg_per_120hz_step": 26.505477366700834,
+      "phase_interval": [
+        0.23333333333333334,
+        0.25
+      ],
+      "interpretation": "Mathematically continuous rotation still looks fast/hinged; replace height-gating with phase-authored landing/drive/recovery pitch and inspect actual skin sequence."
+    },
+    {
+      "cause": "Supported skin still moves slightly after nominal world translation",
+      "max_fixed_sole_centroid_drift_m": 0.010249221769986435,
+      "interpretation": "Rolling/skin deformation is included, so the value does not alone prove sliding. Need framewise skin support and visual plant together; do not claim zero skating."
+    }
+  ],
+  "stronger_source_candidate": {
+    "file": "dog_fast_run_02_006.bvh",
+    "raw_frames_zero_based": [
+      856,
+      900
+    ],
+    "duration_s": 0.36666652,
+    "root_planar_displacement_speed_m_s": 5.601303314593133,
+    "pose_loop_feature_rms_cm": 3.5180179663219957,
+    "root_height_cm": [
+      50.664398193359375,
+      59.11349868774414
+    ],
+    "spine_whole_pitch_deg": [
+      -9.352430122439731,
+      4.578321247247925
+    ],
+    "spine_sagittal_curve_deg": [
+      -21.289562648324242,
+      12.827057195226304
+    ],
+    "spine_curve_excursion_deg": 34.116619843550545,
+    "spine_chord_cm": [
+      41.00114734428284,
+      41.691717389172666
+    ],
+    "spine_chord_arc_ratio": [
+      0.9849536151101594,
+      0.9992092684549683
+    ],
+    "all_paw_span_cm": [
+      4.3537824265658855,
+      117.46080887317657
+    ],
+    "max_both_hind_paws_forward_of_hips_cm": 34.9723265171051,
+    "leading_fore_reach_cm": 31.738525390625,
+    "rear_hind_drive_cm": 34.74046874046326,
+    "marker_suspension_proxy": {
+      "method": "All four toe/finger markers exceed their segment minimum height by 2 cm; not actual skinned sole/force contact.",
+      "fraction": 0.29545454545454547,
+      "phase_intervals": [
+        [
+          0.11363636363636363,
+          0.3409090909090909
+        ],
+        [
+          0.5454545454545454,
+          0.5909090909090909
+        ],
+        [
+          0.7954545454545454,
+          0.8181818181818182
+        ]
+      ],
+      "max_common_clearance_cm": 7.037942409515381
+    },
+    "coarse_search_heading_closure_deg": 2.1456659348322473
+  },
+  "reference_display_period_s": 0.7,
+  "display_timing_limit": "Reference display period and overlay are appearance guides, not validated real filming speed. A source/clip speed ratio alone does not establish naturalness.",
+  "recommended_authoring_constraints": [
+    "Fix smooth core curves before local shoulder/limb fitting; no per-key global pelvis drop.",
+    "Landmark collection relative to hip/chest while respecting actual model bone lengths; independent neutral offsets should not preserve a wide gathered silhouette.",
+    "Use calibrated sagittal toe/carpal phase curves; no source3D ankle quaternion copying.",
+    "Revalidate actual skin at support/flight, key boundaries and the repeat boundary, separately from reference visual flow."
+  ],
+  "probes": [
+    "tools/dcc/labrador_sprint_source_review.py",
+    "tools/dcc/labrador_sprint_contact_review.py",
+    "tools/dcc/labrador_sprint_video_review.swift"
+  ],
+  "limits": [
+    "Source marker floors/support bands are proxies, not anatomical sole or force contact.",
+    "Discrete derivative estimates include linear key interpolation effects; peak identifies a correction artifact rather than measured impact force.",
+    "New production assets, native import, and user-facing video acceptance remain pending."
+  ]
+}

@@ -1,0 +1,298 @@
+{
+  "result": "Succeeded",
+  "unity_version": "6000.3.25f1",
+  "path": "/Users/byeolee/Projects/musimusihan-rpg/unity-game/Builds/LabradorSprintCandidate-20261006.app",
+  "build_guid": "fda33b3d285b4bfb9732d8f9afa2a151",
+  "build_started_reported": "2026-10-06T01:56:51.4161280",
+  "build_ended_reported": "2026-10-06T01:57:48.2924650",
+  "build_timestamp_kind": "Unspecified",
+  "reviewed_utc": "2026-10-06T01:58:41.9444970Z",
+  "summary_warnings": 171,
+  "reviewed_warning_messages": 171,
+  "warning_count_matches_summary": true,
+  "summary_errors": 0,
+  "error_messages": [],
+  "source": "Existing latest BuildReport, matched requested app path; full messages retained in the shared Editor build log",
+  "categories": [
+    {
+      "category": "shader signed/unsigned conversion",
+      "count": 80,
+      "unique_message_count": 31,
+      "examples": [
+        {
+          "count": 1,
+          "text": "Shader warning in 'SourceTaaResolve': signed/unsigned mismatch, unsigned assumed at kernel Resolve at SourceTaaResolve.compute(116) (on metal)"
+        },
+        {
+          "count": 3,
+          "text": "Shader warning in 'SourceRoomProbeFilter': signed/unsigned mismatch, unsigned assumed at kernel Base at SourceRoomProbeFilter.compute(22) (on metal)"
+        },
+        {
+          "count": 3,
+          "text": "Shader warning in 'SourceRoomProbeFilter': signed/unsigned mismatch, unsigned assumed at kernel Base at SourceRoomProbeFilter.compute(32) (on metal)"
+        }
+      ]
+    },
+    {
+      "category": "shader potentially uninitialized value",
+      "count": 59,
+      "unique_message_count": 59,
+      "examples": [
+        {
+          "count": 1,
+          "text": "Shader warning in 'RPG/Source Depth Prepass': use of potentially uninitialized variable (SourceLightReflectance) at Assets/RPG/Shaders/SourceLightAttenuation.cginc(90) (on metal)"
+        },
+        {
+          "count": 1,
+          "text": "Shader warning in 'RPG/Source Depth Prepass': use of potentially uninitialized variable (SourceLightReflectance) at Assets/RPG/Shaders/SourceLightAttenuation.cginc(95) (on metal)"
+        },
+        {
+          "count": 1,
+          "text": "Shader warning in 'RPG/Cave water': use of potentially uninitialized variable (SourceLightReflectance) at Assets/RPG/Shaders/SourceLightAttenuation.cginc(90) (on metal)"
+        }
+      ]
+    },
+    {
+      "category": "shader integer modulus performance",
+      "count": 14,
+      "unique_message_count": 11,
+      "examples": [
+        {
+          "count": 1,
+          "text": "Shader warning in 'RPG/Cave water': integer modulus may be much slower, try using uints if possible. at Assets/RPG/Shaders/SourceTransparentShadows.cginc(43) (on metal)"
+        },
+        {
+          "count": 1,
+          "text": "Shader warning in 'RPG/Source Transparent': integer modulus may be much slower, try using uints if possible. at Assets/RPG/Shaders/SourceTransparentShadows.cginc(43) (on metal)"
+        },
+        {
+          "count": 1,
+          "text": "Shader warning in 'RPG/Source Surface Range': integer modulus may be much slower, try using uints if possible. at Assets/RPG/Shaders/SourceTransparentShadows.cginc(43) (on metal)"
+        }
+      ]
+    },
+    {
+      "category": "shader compiler other",
+      "count": 7,
+      "unique_message_count": 7,
+      "examples": [
+        {
+          "count": 1,
+          "text": "Shader warning in 'Hidden/RPG/Source shadow metadata': integer divides may be much slower, try using uints if possible. at Assets/RPG/Resources/Shaders/SourceShadowMetadata.shader(19) (on metal)"
+        },
+        {
+          "count": 1,
+          "text": "Shader warning in 'Hidden/RPG/Punctual transparent shadow copy': integer divides may be much slower, try using uints if possible. at Assets/RPG/Resources/Shaders/SourcePunctualShadowCopy.shader(23) (on metal)"
+        },
+        {
+          "count": 1,
+          "text": "Shader warning in 'RPG/Cave water Performance': floating point division by zero at Assets/RPG/Resources/Shaders/Performance/CaveWaterPerformance.shader(97) (on metal)"
+        }
+      ]
+    },
+    {
+      "category": "shader array write loop unroll",
+      "count": 5,
+      "unique_message_count": 5,
+      "examples": [
+        {
+          "count": 1,
+          "text": "Shader warning in 'RPG/Cave water': array reference cannot be used as an l-value; not natively addressable, forcing loop to unroll at Assets/RPG/Shaders/SourceTransparentShadows.cginc(171) (on metal)"
+        },
+        {
+          "count": 1,
+          "text": "Shader warning in 'RPG/Source Transparent': array reference cannot be used as an l-value; not natively addressable, forcing loop to unroll at Assets/RPG/Shaders/SourceTransparentShadows.cginc(171) (on metal)"
+        },
+        {
+          "count": 1,
+          "text": "Shader warning in 'RPG/Source Surface Range': array reference cannot be used as an l-value; not natively addressable, forcing loop to unroll at Assets/RPG/Shaders/SourceTransparentShadows.cginc(171) (on metal)"
+        }
+      ]
+    },
+    {
+      "category": "shader varying-gradient loop unroll",
+      "count": 3,
+      "unique_message_count": 3,
+      "examples": [
+        {
+          "count": 1,
+          "text": "Shader warning in 'RPG/Cave water': gradient instruction used in a loop with varying iteration, attempting to unroll the loop at Assets/RPG/Shaders/CaveWater.shader(53) (on metal)"
+        },
+        {
+          "count": 1,
+          "text": "Shader warning in 'RPG/Hideout water': gradient instruction used in a loop with varying iteration, attempting to unroll the loop at Assets/RPG/Shaders/HideoutWater.shader(84) (on metal)"
+        },
+        {
+          "count": 1,
+          "text": "Shader warning in 'RPG/Hideout water': gradient instruction used in a loop with varying iteration, attempting to unroll the loop at Assets/RPG/Shaders/HideoutWater.shader(89) (on metal)"
+        }
+      ]
+    },
+    {
+      "category": "shader loop variable shadowing",
+      "count": 2,
+      "unique_message_count": 2,
+      "examples": [
+        {
+          "count": 1,
+          "text": "Shader warning in 'accumulate_sharpen': 'row': loop control variable conflicts with a previous declaration in the outer scope; most recent declaration will be used at kernel CSMain at Assets/RPG/Shaders/SourceFsr2/ffx_fsr2_upsample.hlsl(148) (on metal)"
+        },
+        {
+          "count": 1,
+          "text": "Shader warning in 'accumulate': 'row': loop control variable conflicts with a previous declaration in the outer scope; most recent declaration will be used at kernel CSMain at Assets/RPG/Shaders/SourceFsr2/ffx_fsr2_upsample.hlsl(148) (on metal)"
+        }
+      ]
+    },
+    {
+      "category": "other build warning",
+      "count": 1,
+      "unique_message_count": 1,
+      "examples": [
+        {
+          "count": 1,
+          "text": "Pipeline: No RuntimePipelineConfig asset found (Project Settings > Pipeline > Runtime). Pipeline will be disabled in Player builds."
+        }
+      ]
+    }
+  ],
+  "shader_warning_counts": [
+    {
+      "shader": "SourceEquipmentSky",
+      "count": 60
+    },
+    {
+      "shader": "SourceRoomProbeFilter",
+      "count": 18
+    },
+    {
+      "shader": "RPG/Hideout water",
+      "count": 10
+    },
+    {
+      "shader": "RPG/Cave water",
+      "count": 8
+    },
+    {
+      "shader": "RPG/Source Transparent",
+      "count": 7
+    },
+    {
+      "shader": "RPG/Source Surface Range",
+      "count": 7
+    },
+    {
+      "shader": "SourceSsrDepth",
+      "count": 7
+    },
+    {
+      "shader": "RPG/Hideout stain",
+      "count": 7
+    },
+    {
+      "shader": "SourceSsrResolve",
+      "count": 4
+    },
+    {
+      "shader": "RPG/Hideout weather",
+      "count": 3
+    },
+    {
+      "shader": "RPG/Source Depth Prepass",
+      "count": 2
+    },
+    {
+      "shader": "RPG/Cave geology",
+      "count": 2
+    },
+    {
+      "shader": "MusimusihanRpg/CreepWound",
+      "count": 2
+    },
+    {
+      "shader": "MusimusihanRpg/CreepBlood",
+      "count": 2
+    },
+    {
+      "shader": "MusimusihanRpg/ShieldSurface",
+      "count": 2
+    },
+    {
+      "shader": "RPG/Target Paint",
+      "count": 2
+    },
+    {
+      "shader": "RPG/Source Cutout",
+      "count": 2
+    },
+    {
+      "shader": "RPG/Source Surface",
+      "count": 2
+    },
+    {
+      "shader": "MusimusihanRpg/ShieldFracture",
+      "count": 2
+    },
+    {
+      "shader": "RPG/Magic Element",
+      "count": 2
+    },
+    {
+      "shader": "Hidden/RPG/Source shadow metadata",
+      "count": 2
+    },
+    {
+      "shader": "Hidden/RPG/Punctual transparent shadow copy",
+      "count": 2
+    },
+    {
+      "shader": "RPG/Cave prop_surface",
+      "count": 2
+    },
+    {
+      "shader": "RPG/Cave geology Range",
+      "count": 2
+    },
+    {
+      "shader": "RPG/Source Skinned Surface",
+      "count": 2
+    },
+    {
+      "shader": "RPG/Smithing Water",
+      "count": 2
+    },
+    {
+      "shader": "RPG/Cave water Performance",
+      "count": 1
+    },
+    {
+      "shader": "RPG/Hideout weather Performance",
+      "count": 1
+    },
+    {
+      "shader": "SourceTaaResolve",
+      "count": 1
+    },
+    {
+      "shader": "accumulate_sharpen",
+      "count": 1
+    },
+    {
+      "shader": "lock",
+      "count": 1
+    },
+    {
+      "shader": "accumulate",
+      "count": 1
+    },
+    {
+      "shader": "compute_luminance_pyramid",
+      "count": 1
+    }
+  ],
+  "labrador_specific_warning_count": 0,
+  "labrador_specific_warnings": [],
+  "limitations": [
+    "Read-only review of the existing BuildReport; native gameplay/rendering checks are recorded separately.",
+    "BuildReport warning counts depend on compilation/cache reuse; count differences alone do not identify new runtime failures."
+  ]
+}

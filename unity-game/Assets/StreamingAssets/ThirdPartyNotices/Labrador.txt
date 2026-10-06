@@ -39,3 +39,17 @@ reference remains local and is not distributed in this app.
 수정: 실제 캡처의 큰 발 궤적·높이 사용, 0.5초 주기로 조정,
 다리 뻗기/회수·어깨 이동·앞다리 전진·손목/발끝 각도·몸 높이/접지 보정.
 걷기·쓰다듬기·원본 모델은 보존하며 사용자 기준 사진은 실행본에 포함하지 않습니다.
+
+Video-reference Run revision — 2026-10-06 / 영상 기준 질주 재수정
+The final Run uses dog_fast_run_02_006.bvh frames 856..900 for source-derived
+paw paths, retimed to a 0.70s displayed cycle. Authored changes include paired
+contact timing, deep recovery, forward head/neck lean, continuous periodic body
+curves, local shoulder fitting and smooth carpal/toe pitch. The video is a visual
+guide; this is not a direct motion capture reconstruction of the YouTube dog.
+Walk, care keys and acquired mesh/rest/weights/morph/coat mask are unchanged.
+The YouTube reference is not downloaded or distributed in this app.
+수정: 새 캡처 구간의 발 궤적을 0.70초로 조정하고 앞·뒷발 순차 접지,
+깊은 다리 회수, 낮춘 머리·목, 연속 몸통 곡선, 어깨·손목·발끝을 제작했습니다.
+영상은 자세 참고이며 영상 속 개의 움직임을 직접 캡처한 결과는 아닙니다.
+걷기·care 키와 원본 mesh/rest/weights/morph/털 마스크는 보존했습니다.
+YouTube 참고 영상은 다운로드하거나 실행본에 배포하지 않습니다.

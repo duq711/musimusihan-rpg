@@ -1,0 +1,37 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "route": "locomotion.glb",
+      "status": 200,
+      "bytes": 18180684,
+      "sha256": "fce9804e83255d11ae37b0b639295b6cac849634ea2594e96724dfd89b111ec5",
+      "matches_local": true
+    },
+    {
+      "route": "locomotion-manifest.json",
+      "status": 200,
+      "bytes": 3262,
+      "sha256": "98aab4b281d1589107caa3a0c84f31180dfbf9a7e205accc4e8e4e25c042d355",
+      "matches_local": true
+    },
+    {
+      "route": "model.glb",
+      "status": 200,
+      "bytes": 17897200,
+      "sha256": "23bdd3d3eb7b1854ac7a27f9a37767e46635c98cc7848a8284ff6037e193eec5",
+      "matches_local": true
+    }
+  ],
+  "ui_checks": [
+    "Run displays 2.35m/s and .70s",
+    "pause and seek .2 -> .14s",
+    "seek .7 -> .49s",
+    "half-speed selected",
+    "quarter view changes actual WebGL pose",
+    "Walk preserved .77s/.72m/s display",
+    "normal Run side playback resumed; .21s advancing",
+    "console warn/error empty"
+  ],
+  "ui_status": "passed"
+}

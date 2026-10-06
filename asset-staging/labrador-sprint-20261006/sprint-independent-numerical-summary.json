@@ -1,0 +1,83 @@
+{
+  "status": "Numerical skin/core/contact review complete; new sampled reference visual gate accepted separately",
+  "production_blend_sha256": "84e3e93166c6aadf78915d616bc035122da00a7d28a173e92e7403ebee0a1f02",
+  "manifest_sha256": "98aab4b281d1589107caa3a0c84f31180dfbf9a7e205accc4e8e4e25c042d355",
+  "actual_skin_sampling": {
+    "regular_hz": 120,
+    "regular_samples": 85,
+    "additional_key_boundary_skin_samples": 84,
+    "total": 169
+  },
+  "whole_body_skin_floor_min_m": 0.0003328104503452778,
+  "unchanged_floor_margin_m": 0.003,
+  "all_original_rest_bend_signs_preserved": true,
+  "core": {
+    "Back_38": {
+      "max_speed_m_s": 0.41305300174760107,
+      "max_discrete_acceleration_m_s2": 10.829255104266464,
+      "max_key_boundary_velocity_jump_m_s": 0.0075101851811484755,
+      "loop_one_sided_velocity_delta_m_s": 0.0007152557373047644
+    },
+    "Torso3_15": {
+      "max_speed_m_s": 0.8052311711304789,
+      "max_discrete_acceleration_m_s2": 12.73287013409329,
+      "max_key_boundary_velocity_jump_m_s": 0.010567136738414664,
+      "loop_one_sided_velocity_delta_m_s": 0.0023166576861833378
+    },
+    "Head_1": {
+      "max_speed_m_s": 0.7643260860973415,
+      "max_discrete_acceleration_m_s2": 18.772853721803816,
+      "max_key_boundary_velocity_jump_m_s": 0.013313201598710566,
+      "loop_one_sided_velocity_delta_m_s": 0.002151882740372873
+    }
+  },
+  "feet": {
+    "LF": {
+      "max_skin_step_m": 0.03297393342825034,
+      "max_rotation_step_deg": 5.7232290361894,
+      "supported_sole_drift_m": 0.0007489452910502633,
+      "worst_supported_planar_residual_speed_m_s": 0.01494894768454846,
+      "loop_one_sided_skin_velocity_delta_m_s": 0.009818594814923271,
+      "loop_one_sided_angular_velocity_delta_deg_s": 3.335736787479617
+    },
+    "RF": {
+      "max_skin_step_m": 0.031912176330898503,
+      "max_rotation_step_deg": 5.833602707085182,
+      "supported_sole_drift_m": 0.0006204208122610287,
+      "worst_supported_planar_residual_speed_m_s": 0.010156722135542109,
+      "loop_one_sided_skin_velocity_delta_m_s": 0.006598331094045548,
+      "loop_one_sided_angular_velocity_delta_deg_s": 2.5777153292251036
+    },
+    "LH": {
+      "max_skin_step_m": 0.03433367363413654,
+      "max_rotation_step_deg": 6.0557731871230605,
+      "supported_sole_drift_m": 0.0016698170192777524,
+      "worst_supported_planar_residual_speed_m_s": 0.20040035216689953,
+      "loop_one_sided_skin_velocity_delta_m_s": 0.0007118985898879854,
+      "loop_one_sided_angular_velocity_delta_deg_s": 0.0
+    },
+    "RH": {
+      "max_skin_step_m": 0.03138296842286708,
+      "max_rotation_step_deg": 6.061313852518025,
+      "supported_sole_drift_m": 0.0016524302313143527,
+      "worst_supported_planar_residual_speed_m_s": 0.19826889329174635,
+      "loop_one_sided_skin_velocity_delta_m_s": 0.00398739599928129,
+      "loop_one_sided_angular_velocity_delta_deg_s": 0.004098060140814808
+    }
+  },
+  "actual_skin_flight": {
+    "regular_airborne_sample_count": 30,
+    "max_four_paw_clearance_m": 0.08330303430557251
+  },
+  "receipt": "sprint-independent-skin-core-review.json",
+  "limits": [
+    "Fixed sole centroid residual motion includes rolling and deformation, not a measured pressure centre.",
+    "Finite differences include delivered interpolation effects and do not measure impact force.",
+    "The unchanged 3 mm floor margin is a penetration bound; other numerical values are reported without silently relaxing acceptance limits.",
+    "Uniform 120 Hz plus near-key skin samples do not replace reference visual flow review."
+  ],
+  "comparison_to_rejected_run": "Previous 84.6 mm IK-induced pelvis dip, ~552.94 m/s² discrete hip spike, 26.51 degrees/8.33 ms toe pitch and wide47.26 cm gathered paw spread are revision diagnostics; prior photo pass is not reused as this sprint acceptance.",
+  "reference_visual_receipt": "sprint-reference-acceptance.json",
+  "movie_sha256": "515a490e5266e19865a84d2c2f9c83609a17ad3e9ac94636497d1f2fbed688d5",
+  "separation": "169 skin samples are numerical evaluation;7 qualitative reference criteria and90 ordered frames establish only the separately stated visual review scope."
+}
