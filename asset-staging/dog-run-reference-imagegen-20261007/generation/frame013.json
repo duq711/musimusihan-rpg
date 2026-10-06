@@ -1,0 +1,30 @@
+{
+  "frame": 13,
+  "mode": "built-in imagegen targeted source-pose edit with frame012 camera calibration",
+  "prompt": "Create ONE individual Frame013 of this running dog. FIRST reference is the actual video pose Frame123, strict authority for the FOUR LEGS. SECOND reference is the selected preceding generated frame012 and supplies EXACT fixed-camera framing, dog identity, scale, head/neck/torso position, floor and lighting. Retain the SECOND image's head, shoulders, torso, rump, tail, camera and background at their current screen locations and sizes. Change only the limbs into the FIRST photograph's hind-support pose: both forelegs stay tucked in rounded bends below the chest; one hindleg extends diagonally forward-down and bears weight low beneath the body, while the second hindleg extends diagonally backward-right. Retain the first photograph's visible leg angles and overlap order, with no invented fifth leg. Do not change head size or head screen position from image TWO: muzzle around x=280,y=315, head fur upper edge around y=230 on the1672x941 canvas, left-facing exact side view. Keep the floor at the same height around y=790. The first reference's gray/green background must not appear. Keep the same black slim long-coated retriever, realistic clean3D render and neutral pale-gray studio as image TWO. All limbs connect to their correct shoulder or hips, no detached paws, all paw/tail tips fully visible, no text, no collage. The leg pose changes from the previous frame, but the rest of the generated image stays stable.",
+  "referenced_image_paths": [
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/dog-run-video-frames-CoL8Gtvxfl0-20261007/export/frames/Frame_000123.png",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/dog-run-reference-imagegen-20261007/export/frames/Frame_012.png"
+  ],
+  "reference_roles": [
+    "strict actual-video leg pose geometry",
+    "camera/head/torso/identity calibration from preceding selected frame"
+  ],
+  "source_frame": 123,
+  "default_image_path": "/Users/byeolee/.codex/generated_images/01a107f1-ecad-7902-b7f4-8e94e0915fa6/exec-a3e399d2-ff21-448f-84fb-2d73ade37726.png",
+  "selected_image": "export/frames/Frame_013.png",
+  "revision_reason": "Corrected major horizontal head/body jump using preceding frame camera reference while directly retaining source123 hind-support pose.",
+  "visual_review": {
+    "status": "selected_source_leg_phase_match_with_limits",
+    "actual_inspection": "Head and torso now closely retain frame012 registration. Low hindfoot advances beneath body and lowers to floor; the rear hindfoot moves backward-right. Two forelegs stay tucked. Four connected leg endpoints, no visible extra limb. Directly compared with source123 and frames012/014.",
+    "limits": "Exact paw positions and support timing remain approximate;13→14 head still moves left and slightly down. Frame012 composition calibration was only used for this targeted revision.",
+    "attempts": 4
+  },
+  "resolution": [
+    1672,
+    941
+  ],
+  "sha256": "36b3a03955907e3b261b3819676b046e548c11d96a87bfa912e029dc6a844648",
+  "bytes": 1686798,
+  "previous_selected_receipt": "generation/attempts/frame013-replaced-attempt2.json"
+}

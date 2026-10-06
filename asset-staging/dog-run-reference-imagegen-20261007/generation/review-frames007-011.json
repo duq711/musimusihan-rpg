@@ -1,0 +1,59 @@
+{
+  "scope": "Selected new black-retriever frames007–011, actual video source102/106/109/113/116",
+  "mode": "built-in imagegen edit using actual video pose reference",
+  "calls": 5,
+  "retries": 0,
+  "rejected_candidates": 0,
+  "inputs": "Each call used exactly catalog prompt and references: actual source video photograph FIRST, leg-free black-retriever appearance portrait SECOND. No previous/generated full-body photograph was used as a reference.",
+  "visual_result": "Five different poses broadly reproduce source leg bends, backwards-folded forelegs, forward-swinging hindlegs and intentional overlap below belly. No clear extra limb, generic fully spread airborne substitute, detached paw or inverted hock was observed.",
+  "per_frame": [
+    {
+      "frame": 7,
+      "source": 102,
+      "match": "Low trailing foreleg plus backward-folded other foreleg; both hindlegs pulled forward beneath torso.",
+      "limit": "Output body/head left/up of mapped source; nose~210,295 instead of roughly335,345."
+    },
+    {
+      "frame": 8,
+      "source": 106,
+      "match": "Compact airborne gathering, forefeet folded backwards/crossed while hindfoot swings forward.",
+      "limit": "Head advances right more than the source mapping (~85px rather than~40px)."
+    },
+    {
+      "frame": 9,
+      "source": 109,
+      "match": "Forelegs stay backwards-folded; hindfoot advances left beneath chest with remaining paws overlapping behind.",
+      "limit": "Exact per-joint screen coordinates and far-leg identity inside overlap remain approximate."
+    },
+    {
+      "frame": 10,
+      "source": 113,
+      "match": "Forward-reaching low hindfoot descends; both forelegs remain tightly bent backwards.",
+      "limit": "Lowest paw/shadow around770 rather than requested790, so precise support timing is ambiguous."
+    },
+    {
+      "frame": 11,
+      "source": 116,
+      "match": "Hind lower limb becomes near-vertical beneath pelvis with sole~790; other paws stay folded under belly.",
+      "limit": "Head rises~35px from010; exact source head registration is approximate."
+    }
+  ],
+  "adjacent_progression": "007→008 low forepaw rises/backwards while hind recovery advances;008→009 one hindfoot advances left;009→010 lowest hindfoot descends;010→011 it moves under pelvis as forelegs fold tighter. These are visible pose changes, not duplicate frozen frames.",
+  "continuity_limit": "Head/body registration jitter, approximate floor position and partly occluded far limbs remain. This limited range review does not establish a smooth complete16-frame running cycle or exact mocap match.",
+  "production_checks": {
+    "source_byte_identity": "5/5",
+    "receipt_sha_match": "5/5",
+    "resolution": "5/5 at1672x941; no resize",
+    "catalog_prompt_and_reference_identity": "5/5",
+    "all_originals_preserved": true,
+    "pixel_postprocessing": false,
+    "git_operations": false
+  },
+  "selected_paths": [
+    "export/frames/Frame_007.png",
+    "export/frames/Frame_008.png",
+    "export/frames/Frame_009.png",
+    "export/frames/Frame_010.png",
+    "export/frames/Frame_011.png"
+  ]
+}

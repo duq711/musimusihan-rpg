@@ -1,0 +1,141 @@
+{
+  "review_type": "actual image comparison, qualitative; no landmark metric",
+  "generated_frames_reviewed": 16,
+  "corresponding_video_frames_reviewed": 16,
+  "adjacent_pairs_reviewed": 16,
+  "built_in_imagegen_calls": 20,
+  "selected_frame_count": 16,
+  "appearance_portrait_count": 1,
+  "rejected_or_replaced_frame13_candidates": 3,
+  "main_leg_phase_order_matches_source": true,
+  "confirmed_major_limb_count_or_reversed_joint_errors": 0,
+  "exact_joint_coordinate_match_verified": false,
+  "exact_ground_contact_verified": false,
+  "seamless_natural_loop_verified": false,
+  "summary_ko": "실제 다리 단계와 굽힘·겹침을 참고한16장입니다. 일부 머리 위치·몸 크기·발 높이 차이가 남아 정밀 자세 복제나 매끄러운 루프 일치는 확인되지 않았습니다.",
+  "summary_en": "Sixteen frames broadly follow the actual leg phases, bends and overlaps. Head registration, scale and paw-height differences remain; exact pose replication and a seamless loop are unverified.",
+  "phases": [
+    {
+      "frames": [
+        1,
+        2
+      ],
+      "source_frames": [
+        81,
+        85
+      ],
+      "observation": "Extended flight; forelegs forward at separate heights; hindlegs trail right."
+    },
+    {
+      "frames": [
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "source_frames": [
+        88,
+        92,
+        95,
+        99,
+        102
+      ],
+      "observation": "Forelegs lower sequentially, support and fold back beneath body while hindlegs recover forward."
+    },
+    {
+      "frames": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "source_frames": [
+        106,
+        109,
+        113,
+        116
+      ],
+      "observation": "Compact gathering; forefeet tuck backward and hindfeet swing forward then descend. Far limbs partly occluded by dark fur."
+    },
+    {
+      "frames": [
+        12,
+        13,
+        14
+      ],
+      "source_frames": [
+        120,
+        123,
+        127
+      ],
+      "observation": "Hindlegs separate, support and push back while forelegs remain folded. Final13 retains12 head/body camera registration better; low hindfoot moves beneath body and lowers."
+    },
+    {
+      "frames": [
+        15,
+        16
+      ],
+      "source_frames": [
+        130,
+        134
+      ],
+      "observation": "Forelegs reopen toward left while hindlegs extend back toward flight."
+    }
+  ],
+  "continuity_limits": [
+    {
+      "pair": [
+        2,
+        3
+      ],
+      "observation": "Nose shifts left about80px (qualitative visual estimate), greater than source projection shift."
+    },
+    {
+      "pair": [
+        7,
+        8
+      ],
+      "observation": "Additional head movement roughly45–55px beyond mapped source movement."
+    },
+    {
+      "pair": [
+        10,
+        11,
+        12
+      ],
+      "observation": "Head rises then lowers; lowest paw/floor heights differ slightly."
+    },
+    {
+      "pair": [
+        12,
+        13,
+        14
+      ],
+      "observation": "Targeted fourth13candidate substantially reduces12→13jump.13→14still changes head/coat size and position."
+    },
+    {
+      "pair": [
+        16,
+        1
+      ],
+      "observation": "Leg phases cycle in expected order, but head/neck size changes and muzzle moves about100px right (qualitative estimate)."
+    }
+  ],
+  "frame13_revision": {
+    "selected_attempt": 4,
+    "attempt3_rejected": "Simple horizontal translation changed body scale and pose, so it was not selected.",
+    "selected_inputs": "Actual source123 first; selected frame012 only for camera/head/torso/identity calibration.",
+    "prior_selected_original_and_receipt_preserved": true
+  },
+  "observation_limits": [
+    "Black source fur and blur obscure exact anatomical left/right limb assignment and ground contact.",
+    "Distinct file hashes establish different bytes, not different pose geometry.",
+    "Output PNGs were not resized, pixel-edited or interpolated."
+  ],
+  "reviewers": [
+    "root direct inspection of all16generated frames and sampled matching sources",
+    "reference_cycle_selection full16reference/generated comparison",
+    "assigned generation agents inspected their5frames against actual references"
+  ]
+}

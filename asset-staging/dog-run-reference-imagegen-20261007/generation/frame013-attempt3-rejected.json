@@ -1,0 +1,13 @@
+{
+  "frame": 13,
+  "mode": "built-in imagegen targeted regeneration",
+  "prompt": "Edit ONLY the framing of the FIRST reference image, keeping the same exact black dog, its pose, all four bent-leg shapes, paw overlap, floor height, fur, lighting and neutral-gray background. Preserve this selected dog's current hind-support / folded-foreleg pose precisely. Uniformly translate the ENTIRE dog about 80 pixels LEFT on the existing 1672x941 canvas; its muzzle tip is currently about x=367,y=355 and must become x=285,y=355. Do not change scale or vertical position. Move its matching soft shadow left by the same amount. Keep the dog's body, tail and all four connected limbs intact. SECOND reference is the actual video Frame123: retain its pose and overlap, do not change the stance to extended flight. No new camera angle, no extra leg, no mirror, no text, no collage. Aim for a minimal exact horizontal framing correction rather than reinterpreting anatomy.",
+  "referenced_image_paths": [
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/dog-run-reference-imagegen-20261007/export/frames/Frame_013.png",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/dog-run-video-frames-CoL8Gtvxfl0-20261007/export/frames/Frame_000123.png"
+  ],
+  "default_image_path": "/Users/byeolee/.codex/generated_images/01a107f1-ecad-7902-b7f4-8e94e0915fa6/exec-1ba7619c-ccab-4c58-876b-0d481b192063.png",
+  "status": "rejected",
+  "reason": "Minimal translation request was not followed: muzzle shifted approximately190px left rather than80px, and hindleg spacing plus dog scale changed. Does not improve neighboring frame registration while preserving selected pose.",
+  "source_frame": 123
+}

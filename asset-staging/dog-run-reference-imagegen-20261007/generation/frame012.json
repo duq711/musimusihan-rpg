@@ -1,0 +1,29 @@
+{
+  "frame": 12,
+  "mode": "built-in imagegen edit using actual video pose reference",
+  "prompt": "Create ONE individual frame of a continuous 16-frame running-dog animation. Never a collage or sheet. REFERENCE 1 is the actual video photograph and is the ONLY authority for body pose and ALL FOUR LEG silhouettes. REFERENCE 2 is a leg-free portrait, used ONLY for facial identity, black coat and clean realistic 3D render material; it provides no pose. Re-render the exact dog pose in reference 1 as the same slim long-coated black retriever shown in reference 2 on a pale neutral gray studio background and flat floor. Closely trace the source's shoulder/elbow/wrist/paw and hip/knee/hock/paw screen locations, joint bend angles, overlap order, spacing, leg lengths, head pitch, torso shape and tail silhouette. If two legs overlap in the photograph, retain that overlap rather than inventing a new readable pose. Exactly four anatomically correct legs; no additional legs or paws. Do not replace the source with a generic airborne run, canine jump, mirrored pose or exaggerated arched spine. Fixed camera throughout: full left-facing lateral view, wide 1672x941 composition, no camera angle/zoom changes. Enlarge the reference uniformly, do not stretch: map source 640x360 coordinates with x_out approximately (x_source-147)*3.5, y_out approximately (y_source-76)*3.5. Same scale, pale-gray floor near output y=790 and soft grounded shadow each frame. Keep every paw and tail tip within canvas. Preserve changes of body/head height present in the source, not extra bobbing. Match smooth short fur on lower legs and black feathering on ears/body/tail. No white patches, no added collar, no text. Pose matching takes priority over fur embellishment. CURRENT FRAME 12/16, source Frame_000120.png. Observed pose cue: Hindlegs separate into forward and backward diagonals below the body; forelegs stay tucked.",
+  "referenced_image_paths": [
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/dog-run-video-frames-CoL8Gtvxfl0-20261007/export/frames/Frame_000120.png",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/dog-run-reference-imagegen-20261007/references/appearance-portrait.png"
+  ],
+  "reference_roles": [
+    "strict actual-video pose geometry",
+    "leg-free appearance portrait only"
+  ],
+  "source_frame": 120,
+  "default_image_path": "/Users/byeolee/.codex/generated_images/01a10fc9-bfe2-7b63-8b30-7e3db4aa6d24/exec-37d4a931-97e7-4a48-8b02-4f134c04ed83.png",
+  "selected_image": "export/frames/Frame_012.png",
+  "visual_review": {
+    "status": "selected_qualitative_source_pose_match_with_limits",
+    "actual_inspection": "Native output compared directly with source120. Both forelegs remain folded under the chest, with one paw slightly behind the other; two hindlegs separate into forward-down and backward-down diagonals. Four connected limbs and four endpoints are readable. Black retriever face and coat match the leg-free portrait. Full body and tail tip fit the frame.",
+    "source_leg_match": "The source's tucked forelegs and separated rear diagonals are retained, without replacing the phase with extended forward forelegs.",
+    "limits": "The trailing hindfoot extends farther backward than the source; head/back height and dog scale drift from the approximate coordinate mapping. Both rear feet sit above the studio plane, so exact source contact and ground locking are not established from the blurred video still.",
+    "attempts": 1
+  },
+  "resolution": [
+    1672,
+    941
+  ],
+  "sha256": "39ebed0efd108473073674d04f72376a5ae52cd076636b487b20a0fe07b8318c",
+  "bytes": 1725910
+}

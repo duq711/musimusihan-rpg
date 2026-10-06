@@ -1,0 +1,32 @@
+{
+  "frame": 10,
+  "mode": "built-in imagegen edit using actual video pose reference",
+  "prompt": "Create ONE individual frame of a continuous 16-frame running-dog animation. Never a collage or sheet. REFERENCE 1 is the actual video photograph and is the ONLY authority for body pose and ALL FOUR LEG silhouettes. REFERENCE 2 is a leg-free portrait, used ONLY for facial identity, black coat and clean realistic 3D render material; it provides no pose. Re-render the exact dog pose in reference 1 as the same slim long-coated black retriever shown in reference 2 on a pale neutral gray studio background and flat floor. Closely trace the source's shoulder/elbow/wrist/paw and hip/knee/hock/paw screen locations, joint bend angles, overlap order, spacing, leg lengths, head pitch, torso shape and tail silhouette. If two legs overlap in the photograph, retain that overlap rather than inventing a new readable pose. Exactly four anatomically correct legs; no additional legs or paws. Do not replace the source with a generic airborne run, canine jump, mirrored pose or exaggerated arched spine. Fixed camera throughout: full left-facing lateral view, wide 1672x941 composition, no camera angle/zoom changes. Enlarge the reference uniformly, do not stretch: map source 640x360 coordinates with x_out approximately (x_source-147)*3.5, y_out approximately (y_source-76)*3.5. Same scale, pale-gray floor near output y=790 and soft grounded shadow each frame. Keep every paw and tail tip within canvas. Preserve changes of body/head height present in the source, not extra bobbing. Match smooth short fur on lower legs and black feathering on ears/body/tail. No white patches, no added collar, no text. Pose matching takes priority over fur embellishment. CURRENT FRAME 10/16, source Frame_000113.png. Observed pose cue: Gathered limbs begin descending; the lowest hindfoot extends forward-down. Forelegs are still bent backwards.",
+  "referenced_image_paths": [
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/dog-run-video-frames-CoL8Gtvxfl0-20261007/export/frames/Frame_000113.png",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/dog-run-reference-imagegen-20261007/references/appearance-portrait.png"
+  ],
+  "reference_roles": [
+    "strict actual-video pose geometry",
+    "leg-free appearance portrait only"
+  ],
+  "source_frame": 113,
+  "default_image_path": "/Users/byeolee/.codex/generated_images/01a10fce-1419-7a00-b30d-b3cce690f97b/exec-9e169ed8-6240-4b9a-86a1-417e937af1cf.png",
+  "selected_image": "export/frames/Frame_010.png",
+  "visual_review": {
+    "status": "selected; compact folded front and lowering hind recovery matched approximately",
+    "notes": [
+      "Actual source113 lowers a forward-reaching hindfoot while both forelegs stay tightly folded behind chest. Output retains those limb relationships; lowest hindfoot reaches left/down around x=655,y=760–770, while folded forefeet remain near x=830–1040,y=630–690.",
+      "Four limbs are connected with intentional overlap below belly; no detached extra limb or inverted hinge was seen. Hind lower leg is more open than009.",
+      "009→010 lowest hindfoot descends roughly90–110px, corresponding to source movement toward ground; forelegs do not abruptly open to a stretched-forward generic pose.",
+      "Lowest paw/shadow sits around y=770 rather than requested floor790. Nose aroundx=285,y=305 and source mapping remain approximate; precise support timing and pixel positions are not verified."
+    ]
+  },
+  "rejected_attempts": [],
+  "resolution": [
+    1672,
+    941
+  ],
+  "sha256": "ca5e5e88a8915ec8516218ddc8833060df1ce0d7574668676ef222a3e48642a8",
+  "bytes": 1733386
+}
