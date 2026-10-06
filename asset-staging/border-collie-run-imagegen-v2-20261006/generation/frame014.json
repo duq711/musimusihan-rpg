@@ -1,0 +1,23 @@
+{
+  "frame": 14,
+  "mode": "built-in image_gen",
+  "prompt": "Use case: precise-object-edit. Make ONE separate1536x1024 photorealistic action photo, the IMMEDIATELY NEXT INSTANT after attached accepted Frame013. The photo is the PRIMARY and ONLY visual target: preserve its Border Collie identity, face size/markings, fur, torso scale, shoulder/rump positions, tail, camera, studio background, floor boundary and lighting. Change only four leg endpoints with VERY SMALL continuous running movement. This is just the first tiny instant of hindfoot liftoff, not an already-high flying dog. Far hindpaw that was on floor at aboutx1080,y855 moves only34pixels RIGHT and29pixels UP toabout1114,826, just clearsfloor, with natural canine stifle/hock. Near hindpaw onright at1250,780 movesonly18right and14up to1268,766. DO NOT swing the rear legs way up or tuck them under belly. BOTH FOREPAWS reach slightly MORE LEFT/FORWARD: farfrontfrom230,645 to222,655; nearfrontfrom370,710 to356,712. Move farforepaw LEFT8px, nearforepaw LEFT14px; never pull eitherforepaw RIGHT towardchest. Four distinct realcanine legs remain naturallyconnected; preserve the overall extended foreleg shapes rather than folding. Almost same headlevel, noseonly4pxleft/2pxup toward166,488, naturalneck. Subtle lumbarunfolding, tailalmostunchanged. Keep the existing studio horizon absolutely in place. Preserve anatomy and leg identity. ONE next-instant image only, no diagram/text/extra legs/longneck, no fullbodytranslation, no collage, no motionblur.",
+  "referenced_image_paths": [
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_013.png"
+  ],
+  "reference_roles": [
+    "first and only: immediately preceding accepted Frame013 photo; preserve identity/camera/body and move endpoints by small forward increments",
+    "guides014–017 viewed but omitted from local revision to avoid imposing a different front-paw direction"
+  ],
+  "default_image_path": "/Users/byeolee/.codex/generated_images/01a10fce-6e28-7031-a509-10fa135070eb/exec-55349cc6-66bb-4028-9870-e3b853e4de46.png",
+  "selected_image": "export/frames/Frame_014.png",
+  "guide": "guides/Guide_014.json",
+  "visual_review": "Full candidate visually inspected. Four natural connected limbs and all four paws just airborne; far hindfoot rises roughly35px instead of previous110px jump. Forepaws both advance left, with far front closer to200 rather than requested222 and nearfront around350. Head rises slightly, body/floor/tail stay visually close to013. Approximate endpoint targets, not pixel-exact continuity or biomechanical validation.",
+  "resolution": [
+    1536,
+    1024
+  ],
+  "sha256": "0c1816c043337afd23f347764efb0985b9b8beebaa7ae4c4864da98c81869044",
+  "bytes": 1800897,
+  "previous_selected_receipt": "generation/attempts/frame014-replaced-d42586e7dc33.json"
+}

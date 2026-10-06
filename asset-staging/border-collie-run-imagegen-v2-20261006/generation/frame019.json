@@ -1,0 +1,24 @@
+{
+  "frame": 19,
+  "mode": "built-in imagegen",
+  "prompt": "Use case: precise-object-edit. ONE single full image1536x1024.\nINPUT1 (the photograph) is the EDIT TARGET and primary reference: keep this exact Border Collie individual, black-white coat markings, face, body proportions, camera/framing, gray studio, soft light, floor and photographic fur. INPUT2 (simple sketch) is only supporting guidance for the NEXT running instant's phase and paw-contact directions. Do not replace the photograph with the sketch's square shapes or reposition the whole dog to sketch coordinates.\nEdit the photograph by ONE SMALL advance from frame018 into frame019: all FOUR paws still AIRBORNE. Front reaching paws begin lowering toward future fore landing. Move the higher/far frontpaw approximately10pxRIGHT and25pxDOWN; move the lower/near frontpaw approximately14pxRIGHT and16pxDOWN. Bend the hind stifles and hocks just a little more, bringing the two hind paw ends approximately30–40pxLEFT toward the hip compared to input1; keep their separate thigh/shin/hock/foot chains clear, no instant full tuck. The head/forequarters descend very subtly about5px, muzzle shifts only~4pxleft, not a large drop. The back unfolds into a slightly less extended posture. Preserve coherent skeleton/body, retain gentle near-level gaze, subtle ear/fur/tail response, no frozen limb lengths changed.\nGround remains y850; leave obvious air gap underneath all FOUR paws. This is still extended aerial travel, not standing or compact collected pose. Only two front and two hind legs with exactly four paw ends. Canine knees and hocks are separate and normal, not rubber rods, fused paws or extra legs. Natural front wrist and elbow articulation, not drawn right-angle sticks. Full dog nose/ears/tail/four paws visible. No text, guide lines, extra dog, hands, grid, diagram, collar/harness or motion blur. Only this one instant.",
+  "referenced_image_paths": [
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_018.png",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_019.png"
+  ],
+  "default_image_path": "/Users/byeolee/.codex/generated_images/01a10fc9-bfe2-7b63-8b30-7e3db4aa6d24/exec-4d311886-4218-4c3b-85a8-09b52ada40a9.png",
+  "selected_image": "export/frames/Frame_019.png",
+  "guide": "guides/Guide_019.png",
+  "visual_review": {
+    "status": "pass_with_temporal_limits",
+    "actual_inspection": "Native individually viewed. Four connected paws airborne, slight forepaw lowering, hind hocks bend progressively, same BorderCollie/coats/graystudio/full framing.",
+    "limits": "Guide coordinates approximate and softened for anatomy. Front paw advance and hindpaw recovery are somewhat larger than requested; nominal60fps spacing not measured or guaranteed.",
+    "attempts": 1
+  },
+  "resolution": [
+    1536,
+    1024
+  ],
+  "sha256": "acdc61101f499b0629b7fea707a743a37b02f7eca60052037cbe92039f5438fe",
+  "bytes": 1790229
+}

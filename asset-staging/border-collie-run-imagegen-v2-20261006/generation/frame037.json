@@ -1,0 +1,44 @@
+{
+  "frame": 37,
+  "mode": "built-in image_gen",
+  "prompt": "Use case: sketch-to-render.\nCreate ONE separate photorealistic 1536 × 1024 image: frame 037 of a left-facing black-and-white Border Collie gallop, the deeply gathered airborne phase. No collage, sheet, labels or text.\n\nInput image 1 is the PRIMARY EDIT TARGET and highest-priority POSE, silhouette, anatomy layout, camera and floor-placement control: the individual Guide_037. Replace the abstract guide dog with the real dog, retaining the guide's exact left-facing composition and pose. Do not reproduce its flat vector drawing, exposed rods or joint circles. Input image 2 is ONLY the dog's appearance/identity and photorealistic fur/lighting reference. Keep this exact individual, facial blaze, white muzzle, ruff/chest, black body coat, brown eye, white paws and white tail tip. Do NOT retain the pose of image 2; use image 1 for the new pose. Do not copy a generic running photo pose.\n\nFrame 037 pose: compact gathered flight, gently arched/flexed lumbar spine at its compactest moment, trunk approximately 28 px higher than the resting phase. Natural separate four limbs all airborne. Fore upper legs fold down/back from the shoulder to elbows, and lower legs return down/forward to the paws; do not turn the forelegs into rigid rods or fuse the overlapping paws. Hind thighs fold forward under the abdomen, knees visibly flex, lower legs angle back to bent hocks, and separate paws tuck forward/down under the pelvis. The guide locates near fore shoulder (600,550), elbow (762,639), paw (620,765); far fore shoulder (616,541), elbow (779,630), paw (620,735). Near hind hip (1018,592), stifle (865,616), hock (967,705), paw (900,765); far hind hip (1035,583), stifle (880,587), hock (982,675), paw (915,735). Use these as projected anatomical centers while rendering anatomically believable canine skin/fur, flexible joints and natural limb taper. Do not depict these coordinates or visible skeleton lines.\n\nMuzzle tip stays around (188,513), relaxed alert face and nearly level forward gaze with tiny neck compensation. Tail starts near (1111,537) and streams naturally back to (1375,566), with a mild curved follow-through, same full length and white tip. Both ears and fur have a small trailing response consistent with moving left, not a new ear shape. Strict orthographic-like side camera, no camera motion, no body resizing, same individual fully within the frame.\n\nNeutral light gray seamless studio and subtly textured gray floor, horizon/ground-contact level y = 850. Keep the same light direction and photographic exposure as reference image 2; soft cast shadow below the dog at the floor. The paws are around y735–765 and clearly above y850, so this is genuinely airborne, never standing/trotting. Natural photographic short-exposure detail, no motion blur, no hand, human, collar, harness, background props, extra/missing/merged limbs, torso-penetrating legs or watermarks. Produce only the requested individual frame.",
+  "referenced_image_paths": [
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_037.png",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_001.png"
+  ],
+  "default_image_path": "/Users/byeolee/.codex/generated_images/01a10fce-1419-7a00-b30d-b3cce690f97b/exec-09755ac6-dc07-488d-8278-614716610b52.png",
+  "selected_image": "export/frames/Frame_037.png",
+  "visual_review": "Inspected actual generated image: same Border Collie identity, fully visible strict left profile, neutral studio/floor at y850, four separately connected paws clearly airborne, a higher flexed trunk and level muzzle. Natural fore elbow and hind hock bends; no extra limbs, obvious fusion, rods or text. Approximate pose adherence: hind paws are close to guide targets; fore paws remain more tightly curled and approximately 35–60 px above the guide targets. Photoreal fur partly obscures joint centers, so coordinates are qualitative rather than pixel-exact. This anchor alone does not verify continuous motion.",
+  "guide": {
+    "image": "guides/Guide_037.png",
+    "coordinates": "guides/Guide_037.json",
+    "stage": "gathered aerial",
+    "frame": 37,
+    "body_vertical_offset_px": -28,
+    "spine_flex_px": 27,
+    "paw_targets": {
+      "near_hind": [
+        900,
+        765
+      ],
+      "far_hind": [
+        915,
+        735
+      ],
+      "far_fore": [
+        620,
+        734.6226
+      ],
+      "near_fore": [
+        620,
+        765
+      ]
+    }
+  },
+  "resolution": [
+    1536,
+    1024
+  ],
+  "sha256": "c8f29957838eed51445290bc75c69357fd45c3cae252df5698c496b71751941d",
+  "bytes": 1759749
+}

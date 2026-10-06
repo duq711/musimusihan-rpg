@@ -1,0 +1,21 @@
+{
+  "frame": 7,
+  "mode": "built-in image_gen",
+  "prompt": "Edit INPUT1 PHOTO very locally to finish frame007. Preserve the same photograph, dog face, entire trunk, tail, floor, lighting, scale and all other limbs. INPUT2 is only general canine articulation context. Two small changes ONLY: (1) the FAR foreleg is the thinner white leg partly behind the large curled near foreleg, with its dark paw pads currently furthest LEFT at aboutx420,y690. Curl this far foreleg slightly more toward the chest so its paw moves45px RIGHT and15px DOWN, ending nearx465,y705. Keep the large near white foreleg's folded paw atx550,y740 completely unchanged. The far foreleg paw must remain LEFT of the near paw, with separate visible toes; do not swap their depth/identity. (2) lower the smaller FAR hind white paw aroundx845,y805 by25px toward the floor, stopping above floor aroundy830. Keep the larger near hind paw planted unchanged and keep its whole normal hock chain. This is one tiny instant before frame008; natural flexed joints, four distinct paws, no added leg. Preserve the other pixels as closely as possible. Output one sharp photoreal1536x1024 action photo, no diagrams, text or montage.",
+  "referenced_image_paths": [
+    "/Users/byeolee/.codex/generated_images/01a10fce-1419-7a00-b30d-b3cce690f97b/exec-f2ac60ea-ec18-42a0-8599-398b301f97e3.png",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_007.png"
+  ],
+  "default_image_path": "/Users/byeolee/.codex/generated_images/01a10fce-1419-7a00-b30d-b3cce690f97b/exec-db2f24d8-668e-4912-9791-617ccd336030.png",
+  "selected_image": "export/frames/Frame_007.png",
+  "guide": "guides/Guide_007.json",
+  "visual_review": {
+    "status": "selected after targeted local correction; continuity approximate",
+    "notes": [
+      "Close white foreleg remains folded; far forepaw advances smoothly toward the preserved 008 posture without near/far swapping.",
+      "Far forepaw approximately x455,y695; the requested x455,y715 is approximate rather than exact.",
+      "Far hind paw descends to about y830 with visible floor clearance; near hind sole remains on the same floor.",
+      "Head, coat, body and floor are visually close to 008; contact-foot horizontal progression is smaller than the authored guide."
+    ]
+  }
+}

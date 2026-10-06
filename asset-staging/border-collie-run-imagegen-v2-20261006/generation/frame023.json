@@ -1,0 +1,27 @@
+{
+  "frame": 23,
+  "mode": "built-in imagegen",
+  "prompt": "Use case: precise-object-edit. Produce ONE separate complete1536x1024 photographic frame, not collage. Image1 photograph is the PRIMARY edit target: preserve exact BorderCollie identity, face, coat markings, realistic fur, body proportions, camera/framing, gray studio floor/background and soft light. Image2 sketch is SECONDARY phase/layout guidance; use only its contact status and direction, no square stick joints or whole dog relocation. Keep exactly four connected canine legs and four paw ends, natural shoulder/elbow/carpus and hip/stifle/hock anatomy. Whole nose, ears, all four paws and tail visible. No text/lines/grid/extra dog/hand/collar/harness/motionblur. Ground contact plane stays y840–850. Anatomical naturalness and incremental photo continuity override exact sketch coordinates. Advance ONE small instant fromphoto022 to023. ExactlyONE frontpaw touchesfloor for FIRSTFORELANDING: use theLOWER/RIGHTWARD frontpaw alreadyclosesttofloor inphoto1, lowerits toe just~10–15px to contact y845 aroundx415. Show a subtleflattenedtoe/contactshadow, natural wrist andelbow, slight shoulder compression/chestdip fromtakingweight. TheOTHERleftwardforepaw staysairborne, lowers~25–30px towardfloor leaving clear15–25pxairgap. Do not groundbothforepaws yet, secondcontactwillbe025. TWO hindpaws stayairborne,recover only~20pxforward towardhip, bentknee/hockchains distinct. Headnose shifts~5pxleft and5pxdown, no head/bodysnap. Chest, shoulder, elbowandforearm allparticipateinweighttransfer; leglengths/proportionsunchanged, no straightstilts orcarpustubedistortion. Photo1dominantforcontinuity; sketch contactsideisapproximate ifneeded. Samefloor/backdrop camerano horizonshift.",
+  "referenced_image_paths": [
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_022.png",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_023.png"
+  ],
+  "default_image_path": "/Users/byeolee/.codex/generated_images/01a10fc9-bfe2-7b63-8b30-7e3db4aa6d24/exec-0dfd7d5a-1a94-4790-9bfe-5caec70618b4.png",
+  "selected_image": "export/frames/Frame_023.png",
+  "guide": "guides/Guide_023.png",
+  "visual_review": {
+    "status": "pass_contact_with_layout_limits",
+    "actual_inspection": "Native individually viewed. Lower/right forepaw makes firstcontact; other left forepaw remainsairborne. Exactlytwo rear paws airborne and fourconnectedlimbs. Chestbeginsloadacceptance withnaturalwrist.",
+    "limits": "Actual firstcontact side differs catalog; imagegen continuedphotograph forcoherence. Firstcontact aroundy860 ratherthanrequested845. Higherforepawdidnotdescendasfarasprompted. Contactgeometry/nominallineapproximate.",
+    "actual_ground_contacts": [
+      "rightward_lower_forepaw"
+    ],
+    "attempts": 1
+  },
+  "resolution": [
+    1536,
+    1024
+  ],
+  "sha256": "9414fb4f3df15f52a17c2a3b6d3f80695b92f8187730496df75bc047a5f92877",
+  "bytes": 1794018
+}

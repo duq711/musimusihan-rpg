@@ -1,0 +1,20 @@
+{
+  "frame": 42,
+  "mode": "built-in image_gen",
+  "prompt": "Use case: precise-object-edit. Input1 is the current frame042 photograph, PRIMARY EDIT TARGET. Make ONLY one layout correction: move the ENTIRE existing dog DOWN by approximately10 pixels within the1536x1024 canvas. Translate its head, nose, eyes, ears, neck, entire torso, spine, tail, four legs and four paws together by the SAME10px, without resizing it, changing its pose, bending different joints, changing fur/face/markings or adding/removing anything. Example: the muzzle currently aroundy505 should be aroundy515; paws should likewise move down10px. Leave the graystudio background, camera, canvas and floor/horizon at y850 unchanged; the dog remains safely airborne with allfour paws abovefloor. Keep its existing natural canine anatomy and four separate limbs exactly. Input2 guide042 provides only the gathered-airborne phase and fixedfloor reference; do not impose squared sketch shapes or alter this existing pose. Input3 Frame001 is the NEXT-FRAME photographic endpoint: the modest10px whole-dog lowering brings frame042 very close to it while retaining a tiny preceding instant. Preserve the identical dog appearance, length/proportions, tail length, lighting and studio shadow style. No crop, zoom, newpose, collar, diagram, labels, blur or extra/fused limbs. Produce one corrected individual frame042 photo.",
+  "referenced_image_paths": [
+    "/Users/byeolee/.codex/generated_images/01a10fce-1419-7a00-b30d-b3cce690f97b/exec-64e256a6-bd47-4fb4-a14e-7b49c4f801b5.png",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_042.png",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_001.png"
+  ],
+  "default_image_path": "/Users/byeolee/.codex/generated_images/01a10fce-1419-7a00-b30d-b3cce690f97b/exec-f02f0627-4635-4e15-8b32-34604c4f7329.png",
+  "selected_image": "export/frames/Frame_042.png",
+  "visual_review": "Inspected actual corrected output against Frame041 and endpoint Frame001: whole dog lowered, bringing muzzle, trunk and four tucked airborne paws close to Frame001 while preserving natural elbow/hock forms. The requested10px relocation was approximate and visually closer to15–20px. Loop endpoint paw and fur details still differ slightly, approximately5–15px in some silhouettes. Four limbs/paws remain distinct with no rods, fusion or extra anatomy; same identity, scale, lighting and floor. Inspect the final041→042 lowering as well as042→001 in full sequence QA; exact smooth motion is not certified by this image inspection.",
+  "guide": "guides/Guide_042.json",
+  "resolution": [
+    1536,
+    1024
+  ],
+  "sha256": "aa647ea4d4a48f491cecfe5a4bf05015494425858ab560d0bc809b7328800b27",
+  "bytes": 1745641
+}

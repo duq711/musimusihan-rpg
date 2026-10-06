@@ -1,0 +1,1492 @@
+{
+  "schema": "border-collie-run-original-frame-package-v2",
+  "created_at_utc": "2026-10-06T10:32:31.073613+00:00",
+  "frame_count": 42,
+  "generator": "built-in imagegen, one separate image per call",
+  "image_processing": "none; exact selected built-in default-source bytes",
+  "preview_rates_fps": [
+    12,
+    24,
+    60
+  ],
+  "preview_rate_is_measured_capture_rate": false,
+  "shared_constraints": "Use case: sketch-to-render. ONE separate photoreal full-body running Border Collie image, not a multi-pose sheet. Input1 is the dominant pose/layout edit target: render its four-limb silhouette as real canine anatomy, at that pose, position and scale. Input2 is the new v2 Frame001 dog, used ONLY for exact face, coat, identity, camera, lighting and studio appearance. Any additional photographs are neighboring pose references, not extra dogs. Produce exactly1536x1024, fixed left-facing strict side view. Whole nose, four paws and tail visible. Same black-white long-haired athletic adult, white blaze/muzzle/chest/paws and tail tip, semi-prick ears, brown eye. Matte light-gray studio, same floor y850 and soft contact shadow. Keep torso center around x800, same body proportions. Guide shapes become realistic rounded flesh and fur, with no visible guide lines. Four connected canine limbs, separate paws, normal shoulder/elbow/wrist and hip/stifle/hock; never fused, missing or twisted limbs. Near means left side visible to camera, far means right side. Changes in body height, spine flex and pitch must carry the whole skeleton. Head gaze remains nearly level through small neck compensation. Ears, coat and tail respond mildly to motion. Clean sharp realistic action photo, no motion blur, no text or accessories. The pose should progress only one small instant from a neighboring image, while fulfilling this guide's paw contacts and targets. Target coordinates are control suggestions; use natural limb articulation rather than square sketch edges.",
+  "reference_notes": "42 phase slots are an art schedule, not measured motion capture. Qualitative contact order, compression and recovery are informed by uploader-owned Brixiv side-view slow-motion and primary gait research. Final image adherence is approximate and requires adjacent-frame visual review.",
+  "validation": {
+    "original_copies": 42,
+    "sha256_matches": 42,
+    "unique_images": 42,
+    "png_dimensions_1536_1024": 42,
+    "file_integrity_only": true
+  },
+  "limits_ko": "별도 생성한 2D 자세 참고 이미지입니다. 일부 발 이동·머리·배경 연결 차이가 남아 완전히 자연스러운 연속 달리기는 미검증입니다.",
+  "limits_en": "Separate generated 2D pose references. Paw, head and background transitions remain uneven; a fully natural continuous run is not verified.",
+  "frames": [
+    {
+      "frame": 1,
+      "filename": "Frame_001.png",
+      "file": "frames/Frame_001.png",
+      "sha256": "6f350f92723a816476a8a4116ef298675b06ac160dacdb21cb28a92ccaa3e9ab",
+      "bytes": 1786187,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "exact_default_source_copy": true,
+      "generation_record": "generation/frame001.json",
+      "exact_generated_prompt": "Use case: sketch-to-render. EDIT TARGET: the input is a pose-control silhouette; transform it into a highly photorealistic athletic black-and-white BORDER COLLIE action photograph. Keep the INPUT'S exact full-body composition, body height, trunk flexion, head position, paw positions and entire tail. Input silhouette is only an anatomy/layout guide: replace every flat shape and rod with real anatomical dog musculature and natural fur; leave NO rods/lines/sketch visible. Warm light-gray studio, fixed camera and floor at y850 on 1536x1024 canvas. Dog's nose aboutx185y530, shoulder aboutx600y580, hipaboutx1020y620. Preserve space above the dog; do not enlarge or move the dog toward top of frame. Real black back/flanks, broad white chest/neck ruff, white muzzle/facial blaze, brown eye, black nose, white distal paws, semi-prick black ears swept back, black flowing tail with white tip. Real body proportions, moderately long fur, slender healthy adult Border Collie; no collar. Pose: gathered airborne gallop, BOTH forelegs folded underneath chest, BOTH hindlegs gathered underneath abdomen, 4 paws CLEARLY off floor. Fore elbows modestly behind lower shoulder, wrists naturally flexed; hind knees forward/hocks tucked, never human arms. Near/far legs distinctly separate: exactly FOUR connected legs, FOUR small canine paws. Reconstruct believable joints with the guide's paw endpoints and torso layout. Head level forward gaze with neck compensating softly flexed back; tail responds subtly to pelvis, not straight rigid rod. Crisp sharp real action photography, no motion blur, no text/labels/watermarks/borders/contactsheet. ONE complete single image only.",
+      "referenced_image_paths": [
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_001.png"
+      ],
+      "reference_roles": [
+        "first: pose guide",
+        "second: new v2 identity",
+        "optional: adjacent accepted pose"
+      ],
+      "guide": "guides/Guide_001.json",
+      "time_seconds": 0.0,
+      "cycle_phase": 0.0,
+      "stage": "gathered aerial",
+      "label_ko": "모은 공중 자세",
+      "contacts_ko": "공중 자세",
+      "visual_review": "New pose-controlled seed: nose/layout now follows guide; four tucked airborne paws, natural compact torso; whole dog visible. Approximate joint/paw alignment, not pixel-exact control.",
+      "file_integrity_verified": true
+    },
+    {
+      "frame": 2,
+      "filename": "Frame_002.png",
+      "file": "frames/Frame_002.png",
+      "sha256": "dec23dc2fc5e3d54d2ac7545f0831d8ea88598ba9d200c1ba10cc565353a887c",
+      "bytes": 1715996,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "exact_default_source_copy": true,
+      "generation_record": "generation/frame002.json",
+      "exact_generated_prompt": "Edit input1 (the accepted Frame001 photograph) into the IMMEDIATELY NEXT running instant, Frame002. Preserve the same dog, exact camera, canvas1536x1024, studio floor y850, lighting, nose at184,520, eyes/ears/neck and body position and outline within3 pixels. Input2 is a secondary pose guide only. This is a very small 1/42 stride advance: near hind paw now LOWER by about10px, far hindpaw lowers5px, natural hock begins opening slightly; both remain airborne. Forelegs remain tucked below chest almost exactly as in input1. Four separate connected legs. Do not lift entire body or head; don't alter coat markings or fur size. Render one realistic photo of one instant. Make the paw advancement visible but subtle; retain normal canine knee/hock curves.",
+      "referenced_image_paths": [
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_001.png",
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_002.png"
+      ],
+      "reference_roles": [
+        "first: pose guide",
+        "second: new v2 identity",
+        "optional: adjacent accepted pose"
+      ],
+      "guide": "guides/Guide_002.json",
+      "time_seconds": 0.016667,
+      "cycle_phase": 0.02380952,
+      "stage": "gathered aerial",
+      "label_ko": "모은 공중 자세",
+      "contacts_ko": "공중 자세",
+      "visual_review": {
+        "status": "accepted",
+        "notes": [
+          "Same head and torso position as001; hindpaws lower about10-20px, four limbs remain tucked and airborne.",
+          "Photo-first edit resolved guide-first unintended body shift; guide adherence approximate."
+        ]
+      },
+      "file_integrity_verified": true
+    },
+    {
+      "frame": 3,
+      "filename": "Frame_003.png",
+      "file": "frames/Frame_003.png",
+      "sha256": "6ded13fda0b799158f541762a905fe81c2157d50f80895a483049d52d6039f92",
+      "bytes": 1699021,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "exact_default_source_copy": true,
+      "generation_record": "generation/frame003.json",
+      "exact_generated_prompt": "Edit input1 Frame002 photograph into the verynext instant003. Input2 is secondaryposeguide. Keep exactphoto1536x1024, head nose184,520, torso/coat/camera/studiofloor850. Only advance hindlegs: nearpawnow~920,810 (15pxdown,10pxright), farpaw~850,770(10pxdown), openinghocksslightly. FORELEGS remain folded under chest, almostsameasinput1; nearforepaw~590,735 andfarforepaw~680,716, noforwardreachingyet. Bothforeelbowsnaturalbelowshoulder, allfourpawsairborne. Pelvis lowers3pxandspinebarelychanges. Tiny adjacentstep, samephotorealanatomy. Oneframeonephoto, noextra paws.",
+      "referenced_image_paths": [
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_002.png",
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_003.png"
+      ],
+      "reference_roles": [
+        "first: pose guide",
+        "second: new v2 identity",
+        "optional: adjacent accepted pose"
+      ],
+      "guide": "guides/Guide_003.json",
+      "time_seconds": 0.033333,
+      "cycle_phase": 0.04761905,
+      "stage": "gathered aerial",
+      "label_ko": "모은 공중 자세",
+      "contacts_ko": "공중 자세",
+      "visual_review": {
+        "status": "selected; cycle review pending",
+        "notes": [
+          "Corrected farforejump: forepaws stay tucked, nearhindfoot lowers and extends.",
+          "Body/head camera stable; four airborne connected limbs."
+        ]
+      },
+      "file_integrity_verified": true
+    },
+    {
+      "frame": 4,
+      "filename": "Frame_004.png",
+      "file": "frames/Frame_004.png",
+      "sha256": "35168e56dafb3a1b08532d4b159a51f39db64fa0f4374545305c3d81558c76b0",
+      "bytes": 1693828,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "exact_default_source_copy": true,
+      "generation_record": "generation/frame004.json",
+      "exact_generated_prompt": "Edit INPUT1 accepted Frame003 photograph into NEXT instant004. INPUT2 secondaryposeguide. Exact same dog1536x1024 camera and lighting, fixednose184,520 andgrayfloor850. A tiny continuousadvance: nearerhindpawextends downanother20px to~935,830, fartherhindpawdown15px to~865,795, stillbothairborne, normalstiflesforward/hocksopening. Pelvis descends5px andchest3px. Forelegs stayfolded but pawsbeginswingingforward10px, notlargeextension. Four connectedlegs/normalpaws. Preservebackgroundborder/furpatterns/headsize; onlyjointpose andweightdistributionadvance. Oneinstant onephoto.",
+      "referenced_image_paths": [
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_003.png",
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_004.png"
+      ],
+      "reference_roles": [
+        "first: pose guide",
+        "second: new v2 identity",
+        "optional: adjacent accepted pose"
+      ],
+      "guide": "guides/Guide_004.json",
+      "time_seconds": 0.05,
+      "cycle_phase": 0.07142857,
+      "stage": "gathered aerial",
+      "label_ko": "모은 공중 자세",
+      "contacts_ko": "공중 자세",
+      "visual_review": {
+        "status": "selected; cycle review pending",
+        "notes": [
+          "Nearhindpaw extends down towardfloor with openinghock; fourpaws remain airborne.",
+          "Head/torso/coat stable against003."
+        ]
+      },
+      "file_integrity_verified": true
+    },
+    {
+      "frame": 5,
+      "filename": "Frame_005.png",
+      "file": "frames/Frame_005.png",
+      "sha256": "97ec86d16008017ec0d883c14bbfe31780b1049967a9b78fed4435c0eedf7b08",
+      "bytes": 1687546,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "exact_default_source_copy": true,
+      "generation_record": "generation/frame005.json",
+      "exact_generated_prompt": "Edit INPUT1 PHOTO locally: replace ONLY the FAR foreleg's pose to make frame005 an intermediate run pose. Keep exact same photo/head/fur/body/tail/hindlegs/floor and the LARGE CLOSE white curled foreleg unchanged. The far foreleg is the SMALLER partially occluded white arm currently showing black toe pads left of the larger near forepaw aroundx490,y650. Repose that FAR arm to the LIGHT GRAY fore-arm geometry of INPUT2 guide using rounded real dog anatomy: upper far arm angles BACKWARD to the RIGHT, softly bent elbow lies underneath the chest aroundx680,y700; lower far forearm folds FORWARD LEFT and its separate dark-pad paw ends aroundx560,y710. The far paw is below its current location by50-60px and to the RIGHT by70px, just slightly above the near white curled paw, not projecting far forward beside the neck. Maintain the same far/near identity and two separate forepaws, normal joints, no fused legs, no square angles or additional limb. This ONE small far foreleg pose must change; preserve every other body part and camera closely. One1536x1024 photoreal photo only, no labels, diagrams, collage or blur.",
+      "referenced_image_paths": [
+        "/Users/byeolee/.codex/generated_images/01a10fce-1419-7a00-b30d-b3cce690f97b/exec-16745ed2-ade4-4b69-a89b-06d6cfd7e45a.png",
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_005.png"
+      ],
+      "reference_roles": [
+        "first: pose guide",
+        "second: new v2 identity",
+        "optional: adjacent accepted pose"
+      ],
+      "guide": "guides/Guide_005.json",
+      "time_seconds": 0.066667,
+      "cycle_phase": 0.0952381,
+      "stage": "gathered aerial",
+      "label_ko": "모은 공중 자세",
+      "contacts_ko": "공중 자세",
+      "visual_review": {
+        "status": "selected bounded revision; substantial target deviation remains",
+        "notes": [
+          "Near foreleg stays folded and near/far identity is consistent with revised006-007 and preserved008.",
+          "Both hindpaws are airborne; near hind sole near y835 and far hind near y770, followed by touchdown in006.",
+          "Two attempts largely ignored requested far-foreleg retraction; actual far paw remains around x490,y660, not targetx560-585,y720. Consequently005→006 is small but004→005 still requires boundary repair.",
+          "Head/body are close to revised006, but body's rise relative preserved004 is greater than intended. No full natural-motion claim."
+        ]
+      },
+      "file_integrity_verified": true
+    },
+    {
+      "frame": 6,
+      "filename": "Frame_006.png",
+      "file": "frames/Frame_006.png",
+      "sha256": "5c31cf8618f377e0afbd05e26acbad45661045a71758707c1a1638a5de983b45",
+      "bytes": 1736341,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "exact_default_source_copy": true,
+      "generation_record": "generation/frame006.json",
+      "exact_generated_prompt": "Make a very local correction to INPUT1 PHOTO. Retain the exact Border Collie photo, camera, floor, muzzle, head, torso, tail and larger curled CLOSE white foreleg. The FAR foreleg is the small thin partly hidden white leg whose dark pads are currently LEFT of the larger curled forepaw, around(470,680). Curl this small FAR leg a little more toward the chest: move its same paw40pixels RIGHT and30pixels DOWN, ending around(510,710). Leave the large near curled forepaw around(550,740) untouched. Preserve clear separation, natural soft elbow flex and which leg is nearer the camera. Also lower ONLY the smaller FAR hind white paw by15pixels, ending aroundy810, still suspended above the floor; near hind paw remains planted as before. Input2 is only canine joint context. No change to head location, trunk height, scale, background or lighting. One1536x1024 sharp realistic action photograph, four distinct normal connected dog limbs, no blur, extra legs, labels, diagram or sheet.",
+      "referenced_image_paths": [
+        "/Users/byeolee/.codex/generated_images/01a10fce-1419-7a00-b30d-b3cce690f97b/exec-86a2e170-9a7c-463b-a867-c9c0d455c4b1.png",
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_006.png"
+      ],
+      "reference_roles": [
+        "first: pose guide",
+        "second: new v2 identity",
+        "optional: adjacent accepted pose"
+      ],
+      "guide": "guides/Guide_006.json",
+      "time_seconds": 0.083333,
+      "cycle_phase": 0.11904762,
+      "stage": "hind landing, compression and launch",
+      "label_ko": "뒷발 착지 · 체중 수용 · 추진",
+      "contacts_ko": "가까운 뒷발",
+      "visual_review": {
+        "status": "selected after targeted local correction; continuity approximate",
+        "notes": [
+          "Close foreleg retains folded near-camera identity; far foreleg remains thinner, partly hidden and forward.",
+          "Actual far forepaw remains around x475,y700; desired x510,y715 was only partially achieved, so 006→007 advances less than 007→008.",
+          "Far hind paw now sits about y810, then descends toward revised 007 about y830 and preserved 008 ground contact.",
+          "Head/trunk positions are close to revised007, with torso modestly higher; near hind paw remains planted and its horizontal progression is weak."
+        ]
+      },
+      "file_integrity_verified": true
+    },
+    {
+      "frame": 7,
+      "filename": "Frame_007.png",
+      "file": "frames/Frame_007.png",
+      "sha256": "3101be582b9bc59d57a9bce2c85a523406f9ea024fafafaa15d08afdce2d863e",
+      "bytes": 1745482,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "exact_default_source_copy": true,
+      "generation_record": "generation/frame007.json",
+      "exact_generated_prompt": "Edit INPUT1 PHOTO very locally to finish frame007. Preserve the same photograph, dog face, entire trunk, tail, floor, lighting, scale and all other limbs. INPUT2 is only general canine articulation context. Two small changes ONLY: (1) the FAR foreleg is the thinner white leg partly behind the large curled near foreleg, with its dark paw pads currently furthest LEFT at aboutx420,y690. Curl this far foreleg slightly more toward the chest so its paw moves45px RIGHT and15px DOWN, ending nearx465,y705. Keep the large near white foreleg's folded paw atx550,y740 completely unchanged. The far foreleg paw must remain LEFT of the near paw, with separate visible toes; do not swap their depth/identity. (2) lower the smaller FAR hind white paw aroundx845,y805 by25px toward the floor, stopping above floor aroundy830. Keep the larger near hind paw planted unchanged and keep its whole normal hock chain. This is one tiny instant before frame008; natural flexed joints, four distinct paws, no added leg. Preserve the other pixels as closely as possible. Output one sharp photoreal1536x1024 action photo, no diagrams, text or montage.",
+      "referenced_image_paths": [
+        "/Users/byeolee/.codex/generated_images/01a10fce-1419-7a00-b30d-b3cce690f97b/exec-f2ac60ea-ec18-42a0-8599-398b301f97e3.png",
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_007.png"
+      ],
+      "reference_roles": [
+        "first: pose guide",
+        "second: new v2 identity",
+        "optional: adjacent accepted pose"
+      ],
+      "guide": "guides/Guide_007.json",
+      "time_seconds": 0.1,
+      "cycle_phase": 0.14285714,
+      "stage": "hind landing, compression and launch",
+      "label_ko": "뒷발 착지 · 체중 수용 · 추진",
+      "contacts_ko": "가까운 뒷발",
+      "visual_review": {
+        "status": "selected after targeted local correction; continuity approximate",
+        "notes": [
+          "Close white foreleg remains folded; far forepaw advances smoothly toward the preserved 008 posture without near/far swapping.",
+          "Far forepaw approximately x455,y695; the requested x455,y715 is approximate rather than exact.",
+          "Far hind paw descends to about y830 with visible floor clearance; near hind sole remains on the same floor.",
+          "Head, coat, body and floor are visually close to 008; contact-foot horizontal progression is smaller than the authored guide."
+        ]
+      },
+      "file_integrity_verified": true
+    },
+    {
+      "frame": 8,
+      "filename": "Frame_008.png",
+      "file": "frames/Frame_008.png",
+      "sha256": "afc71936540158bd868dc2cf4777d70f8be4635985e0dcd9b2ed54f7a60586c7",
+      "bytes": 1766948,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "exact_default_source_copy": true,
+      "generation_record": "generation/frame008.json",
+      "exact_generated_prompt": "Use case: sketch-to-render. ONE separate frame08 realistic photo of the SAME Border Collie as input2. INPUT1 is the dominant edit-target/layout/POSE CONTROL. Convert its four-limb silhouette into real dog anatomy at its EXACT position/size; do not draw guide shapes/lines. INPUT2 is ONLY fur/face/markings/lighting identity, NOT its airborne pose. Preserve1536x1024, camera and studiofloor y850. Pose: hind landing and weight compression. Both hind paws at(1050,850) and(965,850) planted flat on samefloor, soft knees and hocks folded bearing weight. Pelvis lowers toaround(1017,652), shoulders around(600,599). BOTH forepaws off floor reaching forward toward(450,715),(480,730), elbows naturally flexed beneath chest. Chest slightly up relativepelvis, softly compressed lumbar shape—not rigid horizontal torso. Nose around(190,529), gaze level through natural neck adjustment, ears slightly back, tail base follows LOWER pelvis and tip relaxes aroundy660. Whole-body weight visibly supported on rear feet; no floating paws or legs sunk belowfloor. Exact same individual face, black back/flanks andwhiteblaze/muzzle/ruff/paws,white tailtip. Sharp photoreal fur, subtle contactshadow, warmgraystudio. FOUR connected legs/FOUR separated normal paws; wholebody/nose/tail visible. No cartoon,rod limbs,text,panels,collar ormotionblur. Render onlythissingleinstant.",
+      "referenced_image_paths": [
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_008.png",
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_001.png"
+      ],
+      "reference_roles": [
+        "first: pose guide",
+        "second: new v2 identity",
+        "optional: adjacent accepted pose"
+      ],
+      "guide": "guides/Guide_008.json",
+      "time_seconds": 0.116667,
+      "cycle_phase": 0.16666667,
+      "stage": "hind landing, compression and launch",
+      "label_ko": "뒷발 착지 · 체중 수용 · 추진",
+      "contacts_ko": "가까운 뒷발 · 먼 뒷발",
+      "visual_review": {
+        "status": "anchor accepted; continuity review pending",
+        "notes": [
+          "Both hind paws grounded, forepaws airborne, pelvis compresses with planted hindlegs.",
+          "Same face, coat and camera as new v2 seed.",
+          "Pose guide approximate: hindpaw horizontal positions differ by about80 pixels."
+        ]
+      },
+      "file_integrity_verified": true
+    },
+    {
+      "frame": 9,
+      "filename": "Frame_009.png",
+      "file": "frames/Frame_009.png",
+      "sha256": "dd8edfca5f583f86a1e6f5560668e61ff5e6edf776f087def41c730d55ca07aa",
+      "bytes": 1775431,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "exact_default_source_copy": true,
+      "generation_record": "generation/frame009.json",
+      "exact_generated_prompt": "Use case: precise-object-edit. Produce ONE 1536x1024 photorealistic running Border Collie frame by editing IMAGE1, the accepted previous PHOTO Frame008. Preserve image1's entire photographic background exactly, gray studio/floor boundary, dog face, head position, torso scale and framing. IMAGE2 is a rough pose/contact guide ONLY, not a drawing to imitate and not an absolute coordinate target. Next instant of hind-leg pushing, very small continuous change. Four connected normal canine legs and four separate paws. BOTH HIND PAWS REMAIN FLAT ON FLOOR. Move each hind paw only25–30pixels right/backwards from PHOTO1. In this canvas, place the FAR hind paw around x900 y855 and the NEAR hind paw around x985 y860 (paw centers), preserving natural paw width and floor contact. Keep hip around x1010 and allow rump to rise at most8pixels; open rear joints slightly while keeping natural thigh/knee/hock anatomy. Do not extend the hind foot to x1100 yet, and do not lengthen the body. BOTH FOREPAWS remain airborne: far forepaw only a little forward around x380 y700, near forepaw still curled around x525 y730; opening these wrists/elbows subtly, no large reach yet. Preserve same face, head size and almost same nose position aboutx180y510, near level gaze, all same coat markings and fluffy tail silhouette. Mild neck and pelvis response only. Whole dog and all paws visible; real sharp photographic fur/anatomy, no square rods, guide lines, labels, motion blur, missing/extra limbs, fused paws or collage. ONE individual image only.",
+      "referenced_image_paths": [
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_008.png",
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_009.png"
+      ],
+      "reference_roles": [
+        "first: pose guide",
+        "second: new v2 identity",
+        "optional: adjacent accepted pose"
+      ],
+      "guide": "guides/Guide_009.json",
+      "time_seconds": 0.133333,
+      "cycle_phase": 0.19047619,
+      "stage": "hind landing, compression and launch",
+      "label_ko": "뒷발 착지 · 체중 수용 · 추진",
+      "contacts_ko": "가까운 뒷발 · 먼 뒷발",
+      "visual_review": "Viewed full generated photo. Four distinct canine legs/paws; both hind paws planted with contact shadows, both forepaws airborne. Retry reduced hind/forepaw advance compared with discarded attempt. Head size/nose and studio floor boundary remain visually close to Frame008; hind joints open slightly. Approximate paw offsets and pelvis change only, not exact guide-coordinate compliance or a full temporal pass.",
+      "file_integrity_verified": true
+    },
+    {
+      "frame": 10,
+      "filename": "Frame_010.png",
+      "file": "frames/Frame_010.png",
+      "sha256": "e33982e3915fb0e960463c7b602758647becf51d64df220d8d983eb4bcba8108",
+      "bytes": 1780762,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "exact_default_source_copy": true,
+      "generation_record": "generation/frame010.json",
+      "exact_generated_prompt": "Use case: precise-object-edit. ONE full 1536x1024 realistic Border Collie photo, next animation instant after IMAGE1 PHOTO Frame009. IMAGE1 is the dominant edit target; preserve its exact head, face, muzzle/eye/ear size and position, photographic background, floor boundary, lighting, torso and tail size. IMAGE2 is a rough secondary guide to two hind paws supporting the dog; its angular geometry and absolute endpoint coordinates must NOT override PHOTO1. Make only SMALL changes to four limbs and rump: move BOTH grounded hind paws only25 pixels RIGHT along the floor, keeping BOTH whole paw soles planted. Keep natural existing joints and extend the hind ankles/knees only slightly. Lift the pelvis just5pixels while maintaining the same body shape and no body rescaling. Both forepaws remain airborne. Move each forepaw only25pixels LEFT at almost the SAME height it had in PHOTO1. In particular keep the nearer curled forepaw's same compact paw shape, same wrist bend, same visible sole orientation—do not replace it with a dangling straight wrist or move it100pixels. Keep the farther forepaw's same white foot shape and sole orientation. Tiny elbow opening only; not yet the extended leap. No jump in any paw position or head position. All four canine limbs attached naturally with four separated paws; all current black-white fur markings and healthy dog identity retained. One sharp natural photographic individual image, entire nose/tail/paws visible. No drawing marks, rods, squared joints, accessories, text, watermark, blur, sheet or montage.",
+      "referenced_image_paths": [
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_009.png",
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_010.png"
+      ],
+      "reference_roles": [
+        "first: pose guide",
+        "second: new v2 identity",
+        "optional: adjacent accepted pose"
+      ],
+      "guide": "guides/Guide_010.json",
+      "time_seconds": 0.15,
+      "cycle_phase": 0.21428571,
+      "stage": "hind landing, compression and launch",
+      "label_ko": "뒷발 착지 · 체중 수용 · 추진",
+      "contacts_ko": "가까운 뒷발 · 먼 뒷발",
+      "visual_review": "Viewed original generated image. Four limbs/paws separate, both hind soles planted, forepaws airborne. Retry retains curled forepaw orientation and head/background of009 with smaller forepaw change; hind joints extend and paws pass backward. Hind-paw displacement is visually larger than requested25px, and pelvis movement is subtle. Coordinate adherence and perfectly uniform temporal speed are not established.",
+      "file_integrity_verified": true
+    },
+    {
+      "frame": 11,
+      "filename": "Frame_011.png",
+      "file": "frames/Frame_011.png",
+      "sha256": "b8b325058c6810db751b8d980e3821c60a7b6141a8796e77bd3937987724af69",
+      "bytes": 1805269,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "exact_default_source_copy": true,
+      "generation_record": "generation/frame011.json",
+      "exact_generated_prompt": "Use case: precise-object-edit. Create ONE 1536x1024 individual photorealistic Border Collie run-frame by advancing IMAGE1 accepted PHOTO Frame010 a single small instant. IMAGE1 remains dominant for dog identity, actual anatomy, camera, scale and EXACT same studio background/floor boundary. IMAGE2 is only a schematic showing the next hind-push phase; do not copy the exaggerated angular limb shapes or force absolute sketch endpoints. BOTH hind paws remain flat on the floor, feet move30px RIGHT/back from their PHOTO1 positions, with two separate small contact shadows. Slightly open natural hind hip/knee/hock joints so both feet are farther behind the hip; gently lift pelvis about12px, shoulders about6px, soften the back arch toward extension. Carry the whole torso's anatomy with this height/pitch change while preserving body size—no rigid sliding, no body enlargement. Both forepaws remain airborne and move modestly LEFT: nearer curled white paw moves about35–40px forward from PHOTO1 at almost same height, opening wrist only slightly; farther forepaw moves about25px forward at same height. Preserve four normal canine connected legs/four paws, familiar fur and existing forepaw orientation; not yet a fully straight stretched leap. Tiny head/nose rise about3–5px with neck compensation, forward level gaze and same face scale. Tail base follows pelvis slightly with same fluffy white tail tip. Whole nose, ears, paws and tail visible with same frame margins, sharp black-white real fur/action photography. Keep background stationary. No new objects/text/accessories, extra/fused/missing/twisted limbs, rods, square joints, watermark, blur, collage or contact sheet. ONE image only.",
+      "referenced_image_paths": [
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_010.png",
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_011.png"
+      ],
+      "reference_roles": [
+        "first: pose guide",
+        "second: new v2 identity",
+        "optional: adjacent accepted pose"
+      ],
+      "guide": "guides/Guide_011.json",
+      "time_seconds": 0.166667,
+      "cycle_phase": 0.23809524,
+      "stage": "hind landing, compression and launch",
+      "label_ko": "뒷발 착지 · 체중 수용 · 추진",
+      "contacts_ko": "가까운 뒷발 · 먼 뒷발",
+      "visual_review": "Viewed original full photograph. Four separate paws, both hind soles visibly planted and forepaws airborne. Forelimbs reach modestly forward/up, rear joints open with feet farther behind the hip, pelvis/body begin rising, head scale and background remain close. Actual hind-paw advance and head rise exceed requested small numerical offsets; displacement is approximate rather than measured-uniform motion.",
+      "file_integrity_verified": true
+    },
+    {
+      "frame": 12,
+      "filename": "Frame_012.png",
+      "file": "frames/Frame_012.png",
+      "sha256": "6fe6035ba45f3ed1c7a39e0450eafe1ce04afae93eb81f8d3b8f8a0500b9fb6e",
+      "bytes": 1780245,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "exact_default_source_copy": true,
+      "generation_record": "generation/frame012.json",
+      "exact_generated_prompt": "Use case: precise-object-edit. ONE 1536x1024 individual real photographic run-cycle image. IMAGE1 is accepted PHOTO Frame011, the PRIMARY edit target for exact dog identity, camera, scale, fixed background and floor boundary. IMAGE2 is only the next contact-phase schematic: use real canine articulation, not its angular rods or absolute endpoint locations. Advance PHOTO1 only one small instant toward rear-leg liftoff. IMPORTANT CONTACTS: the FAR HIND PAW (the smaller rear foot on the LEFT, closer to the hip in PHOTO1) REMAINS FLAT ON THE FLOOR and pushes backward about25pixels. The NEAR HIND PAW (larger rear foot farther RIGHT in PHOTO1) now LIFTS only15–20pixels above that same floor; show a small clear air gap beneath that one sole and a separated softer shadow. Do not lift both rear paws yet. Keep normal three-segment canine hind anatomy as rear leg joints gently open backward; hip/pelvis rises about12pixels and spine starts becoming flatter/longer through posture, not scaling. Both forepaws remain airborne and reach a little farther left: nearer forepaw about30–35px left, farther forepaw about20–25px left from PHOTO1. Open the curled nearer wrist slightly, preserve paw identity/sole orientation and natural elbows, no sudden100px leap. Preserve same head size, face, white blaze and left-forward gaze, nose/head change just a few pixels with subtle neck compensation. Tail base gently follows pelvis, entire fluffy white-tipped tail retained. Photo1 studio background/floor texture/horizon must stay unchanged; all four paws, whole nose and tail visible, same frame margins. Exactly four connected real canine legs, four separated paws, no extra/fused/missing/twisted limbs, no knee buried in body. Sharp natural black-white athletic Border Collie photo, no labels/guide lines/rods/blur/watermark/accessories/montage. ONE separate single image only.",
+      "referenced_image_paths": [
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_011.png",
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_012.png"
+      ],
+      "reference_roles": [
+        "first: pose guide",
+        "second: new v2 identity",
+        "optional: adjacent accepted pose"
+      ],
+      "guide": "guides/Guide_012.json",
+      "time_seconds": 0.183333,
+      "cycle_phase": 0.26190476,
+      "stage": "hind landing, compression and launch",
+      "label_ko": "뒷발 착지 · 체중 수용 · 추진",
+      "contacts_ko": "먼 뒷발",
+      "visual_review": "Viewed full generated photo. Near/rightmost hind paw visibly leaves floor with small gap and separate shadow while far/left rear paw remains flat; two forepaws remain airborne and advance modestly. Four natural connected legs. Face scale/background stable, torso and rear-leg opening remain subtle. Far stance foot did not advance the full requested25px; contact intent is visible but exact guide coordinates/velocities are not guaranteed.",
+      "file_integrity_verified": true
+    },
+    {
+      "frame": 13,
+      "filename": "Frame_013.png",
+      "file": "frames/Frame_013.png",
+      "sha256": "5212d6cb70b054e52371237187bcad029308f56ce1d2dfe72d52817cc05563c9",
+      "bytes": 1801464,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "exact_default_source_copy": true,
+      "generation_record": "generation/frame013.json",
+      "exact_generated_prompt": "Use case: precise-object-edit. ONE single separate 1536x1024 real action-photograph frame of this same running Border Collie. IMAGE1 accepted PHOTO Frame012 is the PRIMARY edit target and dominant appearance/anatomy/camera/background reference. IMAGE2 is a secondary near-liftoff/far-hind-push schematic, not exact angular bone anatomy; avoid jumping to its abstract coordinates. Advance photo1 one small instant. The SMALLER FAR HIND PAW ON THE LEFT STILL PUSHES ON FLOOR: keep its toes/sole clearly touching the same floor, shift that planted paw about30pixels right/back and open its hip/stifle/hock naturally. The LARGER NEAR HIND PAW ON THE RIGHT stays AIRBORNE, only15–20pixels higher than photo1, moving backward/right only about15pixels, not instantly high beside the belly. Rear legs opening backward with natural joints, one final hind support before flight; do NOT lift the remaining far paw yet. Pelvis rises about10pixels, spine opens/flattens softly, shoulders rise a few pixels, body dimensions remain constant. BOTH FORELEGS AIRBORNE AND REACHING FORWARD: near curled white forepaw opens a bit and advances30–35pixels left from photo1; far forepaw advances20–25pixels left, keep same general height and natural elbow/wrist/paw shapes. Still preserve visible separation of the two forelegs; do not transform a paw into a long hand. Same face, almost level forward-left gaze, small head/neck response only, same head size and coat markings. Tail base gently follows the hip, black fluffy tail and white tip fully visible. Exactly4 naturally connected canine legs and4 paws. Original warmgray photographic background/floor seam and soft shadows remain stationary, full nose/tail/paws in frame, same camera and margins. Crisp realistic fur and anatomy, no extra/fused/missing/twisted legs, rods, sketch shapes, text, labels, blur, accessories, watermark, grid or montage. ONE individual image.",
+      "referenced_image_paths": [
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_012.png",
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_013.png"
+      ],
+      "reference_roles": [
+        "first: pose guide",
+        "second: new v2 identity",
+        "optional: adjacent accepted pose"
+      ],
+      "guide": "guides/Guide_013.json",
+      "time_seconds": 0.2,
+      "cycle_phase": 0.28571429,
+      "stage": "hind landing, compression and launch",
+      "label_ko": "뒷발 착지 · 체중 수용 · 추진",
+      "contacts_ko": "먼 뒷발",
+      "visual_review": "Viewed original photo. Four connected distinct limbs. Far/left rear paw remains grounded and pushes behind the pelvis; near/right rear paw stays airborne, rear joints extend backward, forelegs reach left and wrist opens. Face scale and studio floor boundary stay close to012; head and torso rise slightly. Near hind paw rises/advances farther and near forepaw opens farther than the small requested offsets. Root should inspect013→014 and adjacent playback rather than treat this as exact trajectory compliance.",
+      "file_integrity_verified": true
+    },
+    {
+      "frame": 14,
+      "filename": "Frame_014.png",
+      "file": "frames/Frame_014.png",
+      "sha256": "0c1816c043337afd23f347764efb0985b9b8beebaa7ae4c4864da98c81869044",
+      "bytes": 1800897,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "exact_default_source_copy": true,
+      "generation_record": "generation/frame014.json",
+      "exact_generated_prompt": "Use case: precise-object-edit. Make ONE separate1536x1024 photorealistic action photo, the IMMEDIATELY NEXT INSTANT after attached accepted Frame013. The photo is the PRIMARY and ONLY visual target: preserve its Border Collie identity, face size/markings, fur, torso scale, shoulder/rump positions, tail, camera, studio background, floor boundary and lighting. Change only four leg endpoints with VERY SMALL continuous running movement. This is just the first tiny instant of hindfoot liftoff, not an already-high flying dog. Far hindpaw that was on floor at aboutx1080,y855 moves only34pixels RIGHT and29pixels UP toabout1114,826, just clearsfloor, with natural canine stifle/hock. Near hindpaw onright at1250,780 movesonly18right and14up to1268,766. DO NOT swing the rear legs way up or tuck them under belly. BOTH FOREPAWS reach slightly MORE LEFT/FORWARD: farfrontfrom230,645 to222,655; nearfrontfrom370,710 to356,712. Move farforepaw LEFT8px, nearforepaw LEFT14px; never pull eitherforepaw RIGHT towardchest. Four distinct realcanine legs remain naturallyconnected; preserve the overall extended foreleg shapes rather than folding. Almost same headlevel, noseonly4pxleft/2pxup toward166,488, naturalneck. Subtle lumbarunfolding, tailalmostunchanged. Keep the existing studio horizon absolutely in place. Preserve anatomy and leg identity. ONE next-instant image only, no diagram/text/extra legs/longneck, no fullbodytranslation, no collage, no motionblur.",
+      "referenced_image_paths": [
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_013.png"
+      ],
+      "reference_roles": [
+        "first: pose guide",
+        "second: new v2 identity",
+        "optional: adjacent accepted pose"
+      ],
+      "guide": "guides/Guide_014.json",
+      "time_seconds": 0.216667,
+      "cycle_phase": 0.30952381,
+      "stage": "extended aerial",
+      "label_ko": "펼친 공중 자세",
+      "contacts_ko": "공중 자세",
+      "visual_review": "Full candidate visually inspected. Four natural connected limbs and all four paws just airborne; far hindfoot rises roughly35px instead of previous110px jump. Forepaws both advance left, with far front closer to200 rather than requested222 and nearfront around350. Head rises slightly, body/floor/tail stay visually close to013. Approximate endpoint targets, not pixel-exact continuity or biomechanical validation.",
+      "file_integrity_verified": true
+    },
+    {
+      "frame": 15,
+      "filename": "Frame_015.png",
+      "file": "frames/Frame_015.png",
+      "sha256": "e06c833e9c63c652f5110389d4804f46125133f026fdf794d32adcce058423a0",
+      "bytes": 1791270,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "exact_default_source_copy": true,
+      "generation_record": "generation/frame015.json",
+      "exact_generated_prompt": "Use case: precise-object-edit. Edit attached PHOTO acceptedFrame014 into ONE separate1536x1024 photorealistic photo of immediately next running instant015. Keep same exact BorderCollie identity, head/face size, torso, shoulder/rump locations, windblowncoat/tail, camera and studio background/floor boundary. This is a TINY followthrough duringearlyextendedflight; only small leg endpoint shifts. Four separate naturalcanine paws remainairborne. Farhindpaw onleft currently about1120,820 moves only34RIGHT and29UP to1154,791. Nearhindpaw onright currentlyabout1280,760 movesonly18RIGHT and14UP to1298,746. Do not lift hindfeet high or fold rearlegs underbody; gradual naturalhip/stifle/hockopening. FOREPAWS continue EXTENDING LEFT/FORWARD, neverpullbackright: farfrontpaw currentlyabout200,650 moves about6RIGHT and8DOWN to206,658 only to easepreviousovershoot; nearfrontpaw350,712 movesonly10LEFT to340,714. Preserve stretched forelimbs, no abruptbend/curl. Nose movesonly2LEFT and2UP, sameforwardleftgaze/naturalsmallneckresponse. Torso almostunchanged withverygentle lumbarunfolding, no headraise/wholebodyshift/enlargedface. ONE imageonly,no text/diagram/extra/fused/missing legs/montage/motionblur. A barely different adjacentphoto, not anewstride.",
+      "referenced_image_paths": [
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_014.png"
+      ],
+      "reference_roles": [
+        "first: pose guide",
+        "second: new v2 identity",
+        "optional: adjacent accepted pose"
+      ],
+      "guide": "guides/Guide_015.json",
+      "time_seconds": 0.233333,
+      "cycle_phase": 0.33333333,
+      "stage": "extended aerial",
+      "label_ko": "펼친 공중 자세",
+      "contacts_ko": "공중 자세",
+      "visual_review": "Full candidate viewed after revised014. Four separate natural legs/paws, all airborne. Far hindpaw moves further right/up by roughly30–35px/~20–30px and near rear advances right/up. Forepaws remain extended instead of reverting to a collected pose; near front leftward movement is very small, far front almost stationary. Head/body/floor visually close; requested exact endpoints not achieved.",
+      "file_integrity_verified": true
+    },
+    {
+      "frame": 16,
+      "filename": "Frame_016.png",
+      "file": "frames/Frame_016.png",
+      "sha256": "7ebcf3ce2f9dd16581ab0396f89f9507c5b9a1ff64c66ef32587c095a1f6369c",
+      "bytes": 1777632,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "exact_default_source_copy": true,
+      "generation_record": "generation/frame016.json",
+      "exact_generated_prompt": "Use case: precise-object-edit. Attached acceptedFrame015 PHOTO is the primaryedit target. MakeONE1536x1024 adjacentinstant016. Preserve absolutelyeverything inphoto includingdogscale, exacthead, torso, coat, tail, camerafloorbackground. Verysmallfourpawchanges only, NOTanewrunningpose. The left/farhindpaw islowaround1155,800; moveitjust20pixelsrightand15pixelsup, endroughly1175,785. The right/nearhindpawaround1310,735 movesjust8pixelsrightand7pixelsup, end1318,728. Thesechanges are barelynoticeable: do NOT extendhindreachfarbeyondtheiroriginalpositions, do NOTmovefeet80pixels. Retainnaturalcaninehip/stifle/hock, two distinctrearpawsairborne. Nearforegroundforepawmoves10pixelsLEFT toward330,715; farupperforepawjust5pixelsDOWN, retainitsxposition. Frontlimbsremainextended towardLEFTandnotretracted/folded. Fourrealpaws/legs. Headandtorsoalmostidentical, norepositioning. Nochangedfloorboundary, text,diagram, blur, extra/fused/missinglimbs orcollage. Thisisoneverysmalllocaladvance, notthemaximumextendedflightpose.",
+      "referenced_image_paths": [
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_015.png"
+      ],
+      "reference_roles": [
+        "first: pose guide",
+        "second: new v2 identity",
+        "optional: adjacent accepted pose"
+      ],
+      "guide": "guides/Guide_016.json",
+      "time_seconds": 0.25,
+      "cycle_phase": 0.35714286,
+      "stage": "extended aerial",
+      "label_ko": "펼친 공중 자세",
+      "contacts_ko": "공중 자세",
+      "visual_review": "Full retry candidate viewed after015. Far hindpaw advances roughly25–35px right/up and near hindfoot modestly raises; natural connected stifle/hock shapes, four airborne paws. Near forepaw advances left slightly, far forepaw remains almost fixed. Head/body/floor/tail close to015. First candidate moved far hindpaw about80px horizontally and was rejected. Exact uniform speed and requested pixel coordinates remain approximate.",
+      "file_integrity_verified": true
+    },
+    {
+      "frame": 17,
+      "filename": "Frame_017.png",
+      "file": "frames/Frame_017.png",
+      "sha256": "16dc8f699927bd1625e47125902fa84e5a447a1420f81265a7a04c8758b430bc",
+      "bytes": 1793482,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "exact_default_source_copy": true,
+      "generation_record": "generation/frame017.json",
+      "exact_generated_prompt": "Use case: precise-object-edit. ONE separate1536x1024 photorealistic image of the immediatelyNEXT RUNNING INSTANT017, editing the attached acceptedFrame016 PHOTO. Preserve its exactBorderCollieidentity, head/face sizeandposition, torso scale, coat, tail, camera, background/floor horizon/lighting. Verysmallcontinuationofextendedflight; four pawsairborne. Farhindpaw onleft currentlyaround1185,780 movesonly30pxRIGHT and30pxUP to1215,750, naturalstifle/hockcontinuesopening. Nearhindpaw onrightcurrently1310,720 moves20pxRIGHT and8pxUP to1330,712. Neitherrearlegmayfold/collect orjump80px. FORELIMBS remainstretchedforwardLEFT: nearforegroundforepawaround330,710 movesonly15pxLEFT and5pxDOWN to315,715. Farupperforepawcurrentlyaround195,657 keepsxpositionalmostunchanged andlowersabout20px toabout195,677. Do notfoldor movethefrontfeetrighttowardchest. Bothforelegscontinuethe existingreach andnaturalelbow/wristcurves. Headnoseonly3pxleft and1pxup, verygentlelumbaropening, samelevelleftgaze. Keepbarelydifferentbodypositions, not a biggerdog or wholebodyraise. Maintainfourdistinctrealcaninelegs/paws, no extras, no diagram/text/guide lines, no blur/collage. ONE adjacentinstant, not anewstride.",
+      "referenced_image_paths": [
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_016.png"
+      ],
+      "reference_roles": [
+        "first: pose guide",
+        "second: new v2 identity",
+        "optional: adjacent accepted pose"
+      ],
+      "guide": "guides/Guide_017.json",
+      "time_seconds": 0.266667,
+      "cycle_phase": 0.38095238,
+      "stage": "extended aerial",
+      "label_ko": "펼친 공중 자세",
+      "contacts_ko": "공중 자세",
+      "visual_review": "Full first successful candidate and one local repair actually viewed. First candidate retained as best of the two: four distinct natural legs/paws, extended forelimbs, far hindfoot progresses right/up gradually. Rightmost hindpaw reaches around1370,680, beyond following018, so 017→018 may show roughly30–40px rear-paw return; exact target continuity not achieved. Local repair moved rightmost foot too far left (~100px) and converged hindpaw positions, worsening direction/spacing, so rejected. Head/body/background stay close to preceding016; 018 floor boundary and coat lighting still differ. One earlier call failed connection with no image output.",
+      "file_integrity_verified": true
+    },
+    {
+      "frame": 18,
+      "filename": "Frame_018.png",
+      "file": "frames/Frame_018.png",
+      "sha256": "c8e4a2461d160076a954147109e3a9b9339e6b44d65edbea72dd32550c80ae16",
+      "bytes": 1819397,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "exact_default_source_copy": true,
+      "generation_record": "generation/frame018.json",
+      "exact_generated_prompt": "Use case: sketch-to-render. Produce ONE separate realistic photo, run cycle frame 018. Input1 is the dominant pose/layout edit target: turn its four-limb silhouette into this real dog's anatomy in exactly the same camera position, scale and floor. Input2 is appearance ONLY, same black-white Border Collie, face, white blaze, semi-prick ears, coat, light; do not retain its tucked pose. Use 1536x1024, fixed orthographic side view, dog running LEFT, nose around184,518, hips1020,572 and shoulder600,552. Extended airborne phase after rear-leg push: front paws reaching forward near300,710 and340,735; hind legs reaching BACK beyond pelvis, paws1295,720 and1290,755. All four paws visibly off floor y850. Pelvis and chest higher than support pose, lumbar spine unfolding, shoulders and hips still one connected flexible body. Natural canine stifle then hock then paw, no backwards human knees or giant Z-shaped hocks. Keep paws separate, natural wrist bends, ears slight backward inertia, head gaze near level; tail follows elevated pelvis, tip1375,578. Match gray studio floor/background, long black and white fur, sharp clean lighting. Full nose, paws, tail in frame. One instant, one dog, no guide lines. Anatomically coherent realistic gallop extension is more important than copying squared sketch edges.",
+      "referenced_image_paths": [
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_018.png",
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_001.png"
+      ],
+      "reference_roles": [
+        "first: pose guide",
+        "second: new v2 identity",
+        "optional: adjacent accepted pose"
+      ],
+      "guide": "guides/Guide_018.json",
+      "time_seconds": 0.283333,
+      "cycle_phase": 0.4047619,
+      "stage": "extended aerial",
+      "label_ko": "펼친 공중 자세",
+      "contacts_ko": "공중 자세",
+      "visual_review": {
+        "status": "anchor accepted; continuity review pending",
+        "notes": [
+          "Four paws airborne, frontlegs reach forward and hindlegs extend backward; spine unfolds.",
+          "Natural hindleg bend replaces square guide segments; forepaw reach differs from target about100pixels.",
+          "Head, coat and tail have mild inertia; same breed/markings/camera."
+        ]
+      },
+      "file_integrity_verified": true
+    },
+    {
+      "frame": 19,
+      "filename": "Frame_019.png",
+      "file": "frames/Frame_019.png",
+      "sha256": "acdc61101f499b0629b7fea707a743a37b02f7eca60052037cbe92039f5438fe",
+      "bytes": 1790229,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "exact_default_source_copy": true,
+      "generation_record": "generation/frame019.json",
+      "exact_generated_prompt": "Use case: precise-object-edit. ONE single full image1536x1024.\nINPUT1 (the photograph) is the EDIT TARGET and primary reference: keep this exact Border Collie individual, black-white coat markings, face, body proportions, camera/framing, gray studio, soft light, floor and photographic fur. INPUT2 (simple sketch) is only supporting guidance for the NEXT running instant's phase and paw-contact directions. Do not replace the photograph with the sketch's square shapes or reposition the whole dog to sketch coordinates.\nEdit the photograph by ONE SMALL advance from frame018 into frame019: all FOUR paws still AIRBORNE. Front reaching paws begin lowering toward future fore landing. Move the higher/far frontpaw approximately10pxRIGHT and25pxDOWN; move the lower/near frontpaw approximately14pxRIGHT and16pxDOWN. Bend the hind stifles and hocks just a little more, bringing the two hind paw ends approximately30–40pxLEFT toward the hip compared to input1; keep their separate thigh/shin/hock/foot chains clear, no instant full tuck. The head/forequarters descend very subtly about5px, muzzle shifts only~4pxleft, not a large drop. The back unfolds into a slightly less extended posture. Preserve coherent skeleton/body, retain gentle near-level gaze, subtle ear/fur/tail response, no frozen limb lengths changed.\nGround remains y850; leave obvious air gap underneath all FOUR paws. This is still extended aerial travel, not standing or compact collected pose. Only two front and two hind legs with exactly four paw ends. Canine knees and hocks are separate and normal, not rubber rods, fused paws or extra legs. Natural front wrist and elbow articulation, not drawn right-angle sticks. Full dog nose/ears/tail/four paws visible. No text, guide lines, extra dog, hands, grid, diagram, collar/harness or motion blur. Only this one instant.",
+      "referenced_image_paths": [
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_018.png",
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_019.png"
+      ],
+      "reference_roles": [
+        "first: pose guide",
+        "second: new v2 identity",
+        "optional: adjacent accepted pose"
+      ],
+      "guide": "guides/Guide_019.json",
+      "time_seconds": 0.3,
+      "cycle_phase": 0.42857143,
+      "stage": "extended aerial",
+      "label_ko": "펼친 공중 자세",
+      "contacts_ko": "공중 자세",
+      "visual_review": {
+        "status": "pass_with_temporal_limits",
+        "actual_inspection": "Native individually viewed. Four connected paws airborne, slight forepaw lowering, hind hocks bend progressively, same BorderCollie/coats/graystudio/full framing.",
+        "limits": "Guide coordinates approximate and softened for anatomy. Front paw advance and hindpaw recovery are somewhat larger than requested; nominal60fps spacing not measured or guaranteed.",
+        "attempts": 1
+      },
+      "file_integrity_verified": true
+    },
+    {
+      "frame": 20,
+      "filename": "Frame_020.png",
+      "file": "frames/Frame_020.png",
+      "sha256": "cbe57a051667f77cb514df33693589b26db74c4c9fe0e7ec8e0e954dcdd95b09",
+      "bytes": 1795164,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "exact_default_source_copy": true,
+      "generation_record": "generation/frame020.json",
+      "exact_generated_prompt": "Use case: precise-object-edit. Produce ONE separate complete1536x1024 photographic frame, not collage. Image1 photograph is the PRIMARY edit target: preserve exact BorderCollie identity, face, coat markings, realistic fur, body proportions, camera/framing, gray studio floor/background and soft light. Image2 sketch is SECONDARY phase/layout guidance; use only its contact status and direction, no square stick joints or whole dog relocation. Keep exactly four connected canine legs and four paw ends, natural shoulder/elbow/carpus and hip/stifle/hock anatomy. Whole nose, ears, all four paws and tail visible. No text/lines/grid/extra dog/hand/collar/harness/motionblur. Ground contact plane stays y840–850. Anatomical naturalness and incremental photo continuity override exact sketch coordinates. Advance just ONE small instant from photo019 to020. The dog is still in extended aerial flight, all four paws OFF ground. Lower both forepaws again toward future landing: far higher forepaw moves almost vertically20–25pxDOWN with little horizontal change, near lower forepaw moves~10pxRIGHT and15–20pxDOWN. Do not raise either front paw or land yet. Gradually bend/recover rear legs, each hindpaw moves only25–35pxLEFT toward hip, preserving the two clear separated paws at similar height. Nose moves~4pxleft and5pxdown, forequarters gently dip as one connected body. Spine begins smooth return from extended position; tail and ears respond very mildly, no big flick. Keep head/torso/proportions aligned with previous photograph and maintain all paw air gaps.",
+      "referenced_image_paths": [
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_019.png",
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_020.png"
+      ],
+      "reference_roles": [
+        "first: pose guide",
+        "second: new v2 identity",
+        "optional: adjacent accepted pose"
+      ],
+      "guide": "guides/Guide_020.json",
+      "time_seconds": 0.316667,
+      "cycle_phase": 0.45238095,
+      "stage": "extended aerial",
+      "label_ko": "펼친 공중 자세",
+      "contacts_ko": "공중 자세",
+      "visual_review": {
+        "status": "pass_with_temporal_limits",
+        "actual_inspection": "Native individually inspected. Same anatomy/identity/background and four airborne paws. Forepaws continue descending; two hindpaws recover incrementally.",
+        "limits": "Lower frontpaw descended more than requested and is now near floor; next instants must delay its contact so the other paw lands first. Imagegen spacing remains approximate.",
+        "attempts": 1
+      },
+      "file_integrity_verified": true
+    },
+    {
+      "frame": 21,
+      "filename": "Frame_021.png",
+      "file": "frames/Frame_021.png",
+      "sha256": "2a0fb942bd1b3dafe3e47a199cea9bbb0db619d69938a0b21b041c0e5465a523",
+      "bytes": 1798233,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "exact_default_source_copy": true,
+      "generation_record": "generation/frame021.json",
+      "exact_generated_prompt": "Use case: precise-object-edit. Produce ONE separate complete1536x1024 photographic frame, not collage. Image1 photograph is the PRIMARY edit target: preserve exact BorderCollie identity, face, coat markings, realistic fur, body proportions, camera/framing, gray studio floor/background and soft light. Image2 sketch is SECONDARY phase/layout guidance; use only its contact status and direction, no square stick joints or whole dog relocation. Keep exactly four connected canine legs and four paw ends, natural shoulder/elbow/carpus and hip/stifle/hock anatomy. Whole nose, ears, all four paws and tail visible. No text/lines/grid/extra dog/hand/collar/harness/motionblur. Ground contact plane stays y840–850. Anatomical naturalness and incremental photo continuity override exact sketch coordinates. Advance ONE small instant from photo020 to021. All four paws remain AIRBORNE. Two frontpaws are at different heights: the LEFTWARD/HIGHER forepaw aroundx260,y740 in input1 must lower30px almost vertically, while the RIGHTWARD/LOWER forepaw aroundx370,y800 advances only10pxRIGHT and stays aboutsameheight with clearfloorairgap. Do not land either yet, do not raise their paths. This preserves staggered front-paw timing. Forequarters/head descend gently~7px, nose shifts only4pxleft; slightshoulder/elbowbend compensates so lowerpawdoesnot touchfloor. Hindlegsrecover only~25pxLEFT, with stifles foldingandhocksarticulatingnaturally, TWO distinct rear paws airborne and separate fromtail/body. Avoiddeep instanttuck. Mild coherent spine/hip rotation, not independentlimb shortening. Follow sketchphaseonly and preserve photo background boundary exactly.",
+      "referenced_image_paths": [
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_020.png",
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_021.png"
+      ],
+      "reference_roles": [
+        "first: pose guide",
+        "second: new v2 identity",
+        "optional: adjacent accepted pose"
+      ],
+      "guide": "guides/Guide_021.json",
+      "time_seconds": 0.333333,
+      "cycle_phase": 0.47619048,
+      "stage": "extended aerial",
+      "label_ko": "펼친 공중 자세",
+      "contacts_ko": "공중 자세",
+      "visual_review": {
+        "status": "pass_with_temporal_limits",
+        "actual_inspection": "Native individually viewed; four paws airborne; lower forepaw remains off floor while other lowers slightly; hindpaw recovery continues; head/torso descend subtly with preserved appearance.",
+        "limits": "Imagegen advances the higher forepaw less than requested; pending lowering into sequential contacts remains qualitative.",
+        "attempts": 1
+      },
+      "file_integrity_verified": true
+    },
+    {
+      "frame": 22,
+      "filename": "Frame_022.png",
+      "file": "frames/Frame_022.png",
+      "sha256": "b8fe1c29b8f6ece4d058174a27815b0c42c7931a89d0968abae6036f29c0fc94",
+      "bytes": 1789808,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "exact_default_source_copy": true,
+      "generation_record": "generation/frame022.json",
+      "exact_generated_prompt": "Use case: precise-object-edit. Produce ONE separate complete1536x1024 photographic frame, not collage. Image1 photograph is the PRIMARY edit target: preserve exact BorderCollie identity, face, coat markings, realistic fur, body proportions, camera/framing, gray studio floor/background and soft light. Image2 sketch is SECONDARY phase/layout guidance; use only its contact status and direction, no square stick joints or whole dog relocation. Keep exactly four connected canine legs and four paw ends, natural shoulder/elbow/carpus and hip/stifle/hock anatomy. Whole nose, ears, all four paws and tail visible. No text/lines/grid/extra dog/hand/collar/harness/motionblur. Ground contact plane stays y840–850. Anatomical naturalness and incremental photo continuity override exact sketch coordinates. Advance ONE small instant from photo021 to022 immediately before first forepaw landing. All FOUR paws remain airborne, but both forepaws are approaching the floor. The LEFT/HIGHER forepaw in input1 lowers40–45px towardground and shifts only10pxLEFT; its toe remains25–35px above floor. The RIGHT/LOWER forepaw advances10pxRIGHT and5–10pxDOWN, still20px or more aboveground. Front elbows remain high with natural wrist joints; do not straighttrace sketch elbows or make toes/floor contact yet. Hindpaws recover a further20–25pxLEFT towardhip; bend hocks/knees incrementally, two pawsdistinct aroundrearbody. Head/forequarters lower only~8px andshift4pxleft, mildlyforwardpitched body, no sudden deepdrop or shrink. Keep exactly the same floor/backgroundposition asphoto, localcontactshadowgets a littlecloser. This is lastaerialinstant before first forepaw touches23 andother25.",
+      "referenced_image_paths": [
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_021.png",
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_022.png"
+      ],
+      "reference_roles": [
+        "first: pose guide",
+        "second: new v2 identity",
+        "optional: adjacent accepted pose"
+      ],
+      "guide": "guides/Guide_022.json",
+      "time_seconds": 0.35,
+      "cycle_phase": 0.5,
+      "stage": "extended aerial",
+      "label_ko": "펼친 공중 자세",
+      "contacts_ko": "공중 자세",
+      "visual_review": {
+        "status": "pass_with_temporal_limits",
+        "actual_inspection": "Native individually viewed. Four connected airborne paws; frontfeet closer floor, head/forequarters lower gradually and hindlegs recover with distinct hocks/paws. Background stable.",
+        "limits": "Higher forepaw remains farther from floor than catalog intended; photo continuation favors lower/right paw contacting first for reduced jump. Guide contact-side attribution approximate.",
+        "attempts": 1
+      },
+      "file_integrity_verified": true
+    },
+    {
+      "frame": 23,
+      "filename": "Frame_023.png",
+      "file": "frames/Frame_023.png",
+      "sha256": "9414fb4f3df15f52a17c2a3b6d3f80695b92f8187730496df75bc047a5f92877",
+      "bytes": 1794018,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "exact_default_source_copy": true,
+      "generation_record": "generation/frame023.json",
+      "exact_generated_prompt": "Use case: precise-object-edit. Produce ONE separate complete1536x1024 photographic frame, not collage. Image1 photograph is the PRIMARY edit target: preserve exact BorderCollie identity, face, coat markings, realistic fur, body proportions, camera/framing, gray studio floor/background and soft light. Image2 sketch is SECONDARY phase/layout guidance; use only its contact status and direction, no square stick joints or whole dog relocation. Keep exactly four connected canine legs and four paw ends, natural shoulder/elbow/carpus and hip/stifle/hock anatomy. Whole nose, ears, all four paws and tail visible. No text/lines/grid/extra dog/hand/collar/harness/motionblur. Ground contact plane stays y840–850. Anatomical naturalness and incremental photo continuity override exact sketch coordinates. Advance ONE small instant fromphoto022 to023. ExactlyONE frontpaw touchesfloor for FIRSTFORELANDING: use theLOWER/RIGHTWARD frontpaw alreadyclosesttofloor inphoto1, lowerits toe just~10–15px to contact y845 aroundx415. Show a subtleflattenedtoe/contactshadow, natural wrist andelbow, slight shoulder compression/chestdip fromtakingweight. TheOTHERleftwardforepaw staysairborne, lowers~25–30px towardfloor leaving clear15–25pxairgap. Do not groundbothforepaws yet, secondcontactwillbe025. TWO hindpaws stayairborne,recover only~20pxforward towardhip, bentknee/hockchains distinct. Headnose shifts~5pxleft and5pxdown, no head/bodysnap. Chest, shoulder, elbowandforearm allparticipateinweighttransfer; leglengths/proportionsunchanged, no straightstilts orcarpustubedistortion. Photo1dominantforcontinuity; sketch contactsideisapproximate ifneeded. Samefloor/backdrop camerano horizonshift.",
+      "referenced_image_paths": [
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_022.png",
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_023.png"
+      ],
+      "reference_roles": [
+        "first: pose guide",
+        "second: new v2 identity",
+        "optional: adjacent accepted pose"
+      ],
+      "guide": "guides/Guide_023.json",
+      "time_seconds": 0.366667,
+      "cycle_phase": 0.52380952,
+      "stage": "fore landing, compression and release",
+      "label_ko": "앞발 착지 · 체중 수용 · 이륙",
+      "contacts_ko": "먼 앞발",
+      "visual_review": {
+        "status": "pass_contact_with_layout_limits",
+        "actual_inspection": "Native individually viewed. Lower/right forepaw makes firstcontact; other left forepaw remainsairborne. Exactlytwo rear paws airborne and fourconnectedlimbs. Chestbeginsloadacceptance withnaturalwrist.",
+        "limits": "Actual firstcontact side differs catalog; imagegen continuedphotograph forcoherence. Firstcontact aroundy860 ratherthanrequested845. Higherforepawdidnotdescendasfarasprompted. Contactgeometry/nominallineapproximate.",
+        "actual_ground_contacts": [
+          "rightward_lower_forepaw"
+        ],
+        "attempts": 1
+      },
+      "file_integrity_verified": true
+    },
+    {
+      "frame": 24,
+      "filename": "Frame_024.png",
+      "file": "frames/Frame_024.png",
+      "sha256": "0ac29d6223e0fcf45ff40d7da1ab7b28aa5613b4abf50c2eff16aae7e22b59b3",
+      "bytes": 1778496,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "exact_default_source_copy": true,
+      "generation_record": "generation/frame024.json",
+      "exact_generated_prompt": "Use case: precise-object-edit. Produce ONE separate complete1536x1024 photographic frame, not collage. Image1 photograph is the PRIMARY edit target: preserve exact BorderCollie identity, face, coat markings, realistic fur, body proportions, camera/framing, gray studio floor/background and soft light. Image2 sketch is SECONDARY phase/layout guidance; use only its contact status and direction, no square stick joints or whole dog relocation. Keep exactly four connected canine legs and four paw ends, natural shoulder/elbow/carpus and hip/stifle/hock anatomy. Whole nose, ears, all four paws and tail visible. No text/lines/grid/extra dog/hand/collar/harness/motionblur. Ground contact plane stays y840–850. Anatomical naturalness and incremental photo continuity override exact sketch coordinates. Frame024 targetedposecorrection. The LEFTMOST FRONTPAW inphotograph1 is hovering too high. CHANGE THAT FRONTLEG NOW: extenditslowerforeleg down sothepaw isJUST ONE PAW-THICKNESS (about15pixels) ABOVE THE FLOOR, nearlytouchingground atx250–280,y825–835. Thisleftmostpawmustmove visibly DOWN fromitscurrent~y780 position. It isNOT toremainstuckinthepreviouspose. Itsforelegcomesfromthefar shoulder andhasnormalelbowandwrist; do notduplicateit.\nTheOTHER,rightwardfrontpaw alreadyatx420,y860 remainsplanted. ExactlyONE forepawgrounded andoneforepawonly15pxairborneabovefloor. TWO hindpawsairborne andbent; samebody/muzzlecamera/backgroundphotograph1. Shiftmuzzleonly~5pxleft andlowerschest~5pxwithnaturalshoulderloadcompression. Fourlegs/fourfeettotal. Input2sketchonlyconfirmsalmostsecondforecontact; naturaljointsfollowphotograph, nomontage. Thisintermediateinstant mustshowleftpawsubstantiallyclosertogroundthaninput1, withno changeinidentity/camera.",
+      "referenced_image_paths": [
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_023.png",
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_024.png"
+      ],
+      "reference_roles": [
+        "first: pose guide",
+        "second: new v2 identity",
+        "optional: adjacent accepted pose"
+      ],
+      "guide": "guides/Guide_024.json",
+      "time_seconds": 0.383333,
+      "cycle_phase": 0.54761905,
+      "stage": "fore landing, compression and release",
+      "label_ko": "앞발 착지 · 체중 수용 · 이륙",
+      "contacts_ko": "먼 앞발",
+      "visual_review": {
+        "status": "pass_contact_with_temporal_limits",
+        "actual_inspection": "Native individually viewed. First/right forepaw grounded, second/left forepaw noticeablylower nearfloor yetairborne; two rear pawsairborne. Fourconnectedlimbs,appearance/backgroundconsistent.",
+        "limits": "Leftforepawloweringneededtargetedsecondattempt. Remaining gapabout30–40pxratherthan15px. Contactside reversedcatalogtomaintainphotoorder; precisejoint/contactgeometryapproximate.",
+        "actual_ground_contacts": [
+          "rightward_forepaw"
+        ],
+        "attempts": 2,
+        "rejected_first_attempt": "Secondforepawremainedtoohigh/nearlyunchanged; originalpreservedunselected."
+      },
+      "file_integrity_verified": true
+    },
+    {
+      "frame": 25,
+      "filename": "Frame_025.png",
+      "file": "frames/Frame_025.png",
+      "sha256": "3006886829699710b8699b384d95a1b5200ddd323258222701186bd57e07cad4",
+      "bytes": 1823154,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "exact_default_source_copy": true,
+      "generation_record": "generation/frame025.json",
+      "exact_generated_prompt": "Use case: sketch-to-render. ONE single1536x1024 photorealistic running frame.\nImage1 is a rough dominant POSE/LAYOUT sketch, not a literal skeletal anatomy diagram. Image2 is appearance ONLY of the same black-and-white Border Collie; do NOT reproduce its collected aerial pose. Use image1's lowered forequarters, front-paw contact and airborne bent rear legs, but anatomically resolve its square stick joints into natural real canine limbs with elbows and carpal joints.\nSubject: exactly ONE slender athletic black-and-white Border Collie facing LEFT in full strict side profile, with same brown eye, white muzzle blaze, white chest/neck ruff, black torso, white forefeet/hindfeet and white tail tip as image2. Studio gray floor and background, soft natural light, photographic fur.\nFrame025: sequential forepaw LANDING, front half catching body weight and chest/shoulders visibly lowered and compressed; hindquarters relatively higher, BOTH rear legs airborne behind the belly at the start of forward recovery. Do NOT show standing, levitating all paws, or stiff strut.\nTWO front paws on floor y850, nearer contact roughlyx380 and farther contact roughlyx480. Natural toes flatten subtly under load. Shoulder centers aroundx610/y630; allow the upper arms, elbows and wrists to be slightly reinterpreted from sketch for real dog anatomy. Elbows must sit well above floor, not like hands/knees on floor. The lower forelegs slope forward toward grounded paws, with a natural wrist transition; no right-angle L rods, U-shaped loops or long rubber forearm tubes. Clear chest compression and natural shoulders.\nExactly TWO hindlegs connected to one hip region nearx1020/y614. One leg is slightly nearer and one slightly farther. Each has its own connected thigh, knee/stifle, shin, hock, short lower foot and ONE paw. Both bend in a natural canine zigzag during recovery behind the body, with TWO visually distinct white rear paw ends aroundx1060–1120,y700–760. NO THIRD hindpaw, no extra hanging lower leg, no duplicate foot, no fused or detached limb.\nHead nose nearx180/y540, tail sweeps right to~1375/y570. Preserve left-facing posture, entire body visible including all FOUR feet and tail. Prioritize real canine anatomy and believable landing/contact over literal exact sketch joint coordinates. Photo only, no guides/lines/jointmarkers/text/watermark/grid/montage/collar/harness/hands. The frame must contain FOUR total legs and FOUR total paw ends: two white grounded front paws, two white airborne rear paws.",
+      "referenced_image_paths": [
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_025.png",
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_001.png"
+      ],
+      "reference_roles": [
+        "first: pose guide",
+        "second: new v2 identity",
+        "optional: adjacent accepted pose"
+      ],
+      "guide": "guides/Guide_025.json",
+      "time_seconds": 0.4,
+      "cycle_phase": 0.57142857,
+      "stage": "fore landing, compression and release",
+      "label_ko": "앞발 착지 · 체중 수용 · 이륙",
+      "contacts_ko": "먼 앞발 · 가까운 앞발",
+      "visual_review": {
+        "status": "pass_anatomy_contact_with_layout_limits",
+        "actual_inspection": "Native image individually inspected. Exactly four connected legs/four paw ends; two forepaws grounded with visible chest dip, two separated hindpaws airborne with bent hocks; same BorderCollie markings and whole-body side framing.",
+        "limits": "Sketch joint geometry was treated as approximate to preserve canine anatomy. Ground contact remains visually near y840 rather than exact850. Forepaws are visually aroundx250/x410 rather than requested380/480, and nose aroundx120 rather than180; these layout differences require consideration for adjacent frame continuity.",
+        "attempts": 2,
+        "rejected_first_attempt": "Apparent third hindpaw and stiff forelegs; default original preserved but never selected."
+      },
+      "file_integrity_verified": true
+    },
+    {
+      "frame": 26,
+      "filename": "Frame_026.png",
+      "file": "frames/Frame_026.png",
+      "sha256": "424cf3ec66cc6f57b0463c6de1429b9295f0124b5492d68647aafad085c7ac79",
+      "bytes": 1805739,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "exact_default_source_copy": true,
+      "generation_record": "generation/frame026.json",
+      "exact_generated_prompt": "Use case: precise-object-edit. Produce ONE separate complete1536x1024 photographic frame, not collage. Image1 photograph is the PRIMARY edit target: preserve exact BorderCollie identity, face, coat markings, realistic fur, body proportions, camera/framing, gray studio floor/background and soft light. Image2 sketch is SECONDARY phase/layout guidance; use only its contact status and direction, no square stick joints or whole dog relocation. Keep exactly four connected canine legs and four paw ends, natural shoulder/elbow/carpus and hip/stifle/hock anatomy. Whole nose, ears, all four paws and tail visible. No text/lines/grid/extra dog/hand/collar/harness/motionblur. Ground contact plane stays y840–850. Anatomical naturalness and incremental photo continuity override exact sketch coordinates. Advance ONE small instant fromphoto025 to026, AFTERBOTHFOREPAWS LANDED. Both frontpaws remainfirmlyONfloor; shifttheir screencontactpointsRIGHT~25px relativeleft-runningbody (leftforepaw~x280 andrightforepaw~x440,contacty840). Dog's chestandshoulders visibly COMPRESS DOWN~12–15px, frontelbowsBENDslightlyabovefloor, naturalwrists/toe padsabsorbimpact. Do notpreservepreviousstraightforelegs: articulateasweightpassesoverplantedpaws, forearmsstillangleforwardbutlessoblique. Bodyproportionsandcameraareunchanged; lowerhead~5pxwithneckcompensatednearlevelgaze, lumbarspinemildflex. TWO hindlegs remainairborne andfoldgraduallyforwardunderbelly, pawtipsmove~20pxLEFT fromphoto. Everyhindlegmustclearlyhave thigh/knee/shin/hock/foot,noextraorbentrod. Samebackdropboundaryandfloorphotofirst,notguide'sexactcoords. Thisisthecompressionstage,notliftoffandnotstanding. Fourtotalpaws:twoforepawsgrounded,tworearpawsairborne.",
+      "referenced_image_paths": [
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_025.png",
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_026.png"
+      ],
+      "reference_roles": [
+        "first: pose guide",
+        "second: new v2 identity",
+        "optional: adjacent accepted pose"
+      ],
+      "guide": "guides/Guide_026.json",
+      "time_seconds": 0.416667,
+      "cycle_phase": 0.5952381,
+      "stage": "fore landing, compression and release",
+      "label_ko": "앞발 착지 · 체중 수용 · 이륙",
+      "contacts_ko": "먼 앞발 · 가까운 앞발",
+      "visual_review": {
+        "status": "pass_with_compression_limits",
+        "actual_inspection": "Native individually viewed. Bothforepawsgroundedandshiftback/rightslightly, chestlowersmodestly, twoairbornehindpawsrecoverforwardwithnormalhocks. Fourfeet/identity/framing preserved.",
+        "limits": "Shoulder/elbowcompressionismildratherthanstrong; contact positions andjointanglesapproximate. Hindpawsrecovermorethanrequested.",
+        "actual_ground_contacts": [
+          "both_forepaws"
+        ],
+        "attempts": 1
+      },
+      "file_integrity_verified": true
+    },
+    {
+      "frame": 27,
+      "filename": "Frame_027.png",
+      "file": "frames/Frame_027.png",
+      "sha256": "bdb4346cad4f39c4f9322a25beec0376e7c8dc04f1513babf55517ddfa4baba9",
+      "bytes": 1779572,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "exact_default_source_copy": true,
+      "generation_record": "generation/frame027.json",
+      "exact_generated_prompt": "Use case: precise-object-edit. Produce ONE separate complete1536x1024 photographic frame, not collage. Image1 photograph is the PRIMARY edit target: preserve exact BorderCollie identity, face, coat markings, realistic fur, body proportions, camera/framing, gray studio floor/background and soft light. Image2 sketch is SECONDARY phase/layout guidance; use only its contact status and direction, no square stick joints or whole dog relocation. Keep exactly four connected canine legs and four paw ends, natural shoulder/elbow/carpus and hip/stifle/hock anatomy. Whole nose, ears, all four paws and tail visible. No text/lines/grid/extra dog/hand/collar/harness/motionblur. Ground contact plane stays y840–850. Anatomical naturalness and incremental photo continuity override exact sketch coordinates. Advance ONE small instant fromphoto026 to027, DEEPESTFOREQUARTERCOMPRESSION immediatelyafterlanding. Both frontpaws remainONfloor and moveRIGHT/back by~25–30pxrelativebody: leftcontactnow~x300,rightcontact~x465,groundy840. Theload-bearingfrontELBOWS MUSTSOFTENandBENDandshouldersdropanother10–15px, making the chest visiblyclose tofloor whilekeepingnormalforearm/carpuslength. Showroundedanatomicalelbowangleswellabovefloor; dogcatchesweightthroughshoulderandjoints, notlockedstraightsupportrods. Headmuzzlemoves~8pxRIGHTandonly5pxdownwithnearlevelgaze. Rumpdescendsveryslightly5–8px, backbeginsflexmildlyasrearlegsrecoverunderbody. Bothhindpawsstayairborne andcome~15pxforward/LEFTincrementally, twoclearpaws/hockskneesnatural. Preservephoto26backdrop/floor,coatidentity andframing. Exactlyfourlegs:twofrontpawsgrounded,tworearairborne. Do notliftfrontfeet yet.",
+      "referenced_image_paths": [
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_026.png",
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_027.png"
+      ],
+      "reference_roles": [
+        "first: pose guide",
+        "second: new v2 identity",
+        "optional: adjacent accepted pose"
+      ],
+      "guide": "guides/Guide_027.json",
+      "time_seconds": 0.433333,
+      "cycle_phase": 0.61904762,
+      "stage": "fore landing, compression and release",
+      "label_ko": "앞발 착지 · 체중 수용 · 이륙",
+      "contacts_ko": "먼 앞발 · 가까운 앞발",
+      "visual_review": {
+        "status": "pass_with_compression_limits",
+        "actual_inspection": "Native individually viewed. Chest/headlower furtherwhiletwopaws staygrounded, forefeetmoveback/right, tworearpaws foldforward. Naturalfourlimbconnectionsandidentitypreserved.",
+        "limits": "Elbowanglecompression remainsmodest; body/head drop largerthanrequested and exactphysicalloadnotverified. Groundcontact/toegeometryqualitative.",
+        "actual_ground_contacts": [
+          "both_forepaws"
+        ],
+        "attempts": 1
+      },
+      "file_integrity_verified": true
+    },
+    {
+      "frame": 28,
+      "filename": "Frame_028.png",
+      "file": "frames/Frame_028.png",
+      "sha256": "37e4d29a6db76c934be2ab8c76f32df8d222cae6f5d3b26106842e0fc6b225b0",
+      "bytes": 1776514,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "exact_default_source_copy": true,
+      "generation_record": "generation/frame028.json",
+      "exact_generated_prompt": "Use case: precise-object-edit. Produce ONE separate complete1536x1024 photographic frame, not collage. Image1 photograph is the PRIMARY edit target: preserve exact BorderCollie identity, face, coat markings, realistic fur, body proportions, camera/framing, gray studio floor/background and soft light. Image2 sketch is SECONDARY phase/layout guidance; use only its contact status and direction, no square stick joints or whole dog relocation. Keep exactly four connected canine legs and four paw ends, natural shoulder/elbow/carpus and hip/stifle/hock anatomy. Whole nose, ears, all four paws and tail visible. No text/lines/grid/extra dog/hand/collar/harness/motionblur. Ground contact plane stays y840–850. Anatomical naturalness and incremental photo continuity override exact sketch coordinates. TARGETED SMALL EDIT forframe028. Photo1 frame027 isalmostentirelypreserved. DoNOTrecenter, rescale, shiftwholebody orraisetheheadnoticeably. TheHEAD/NOSE mustremainessentiallyatitscurrentpixelposition: nosearoundx125,y530, atmost10pxright/5pxup. Guide2HEADPOSITION/torsoheight areNOTtobeimitated; onlycontactphaseissupportingcontext.\nMakeonlyasmallforeleg/bodychange: BOTH forepaw toesremainplanted atsamefloorheight; moveleftforepawfrom~x300to~x325 andrightforepawfrom~x470to~x495. Retainpawsizeandleglengths, gentlyrotateforearmsasbodyweightmovesoverplantedfeet. Chest lifts only5–8pxfrompreviouscompression, frontelbowsslightlyunfoldnaturally; notalargebodyleap. Exactlytworearpawsstayintheair, samekneehockposewithonlya5pxforwardfold, no bigtuckchange. ExactBorderColliefur/coat/face/softgraybackgroundboundary fromphoto1,nochangesincameraortailposition. Keep FOUR connectedlegs/FOURfeet, fronttwo grounded/reartwo airborne, no text. Thismustlooklike nearlyadjacentinstantofthe SAME photograph ratherthancompletelydifferentpose.",
+      "referenced_image_paths": [
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_027.png",
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_028.png"
+      ],
+      "reference_roles": [
+        "first: pose guide",
+        "second: new v2 identity",
+        "optional: adjacent accepted pose"
+      ],
+      "guide": "guides/Guide_028.json",
+      "time_seconds": 0.45,
+      "cycle_phase": 0.64285714,
+      "stage": "fore landing, compression and release",
+      "label_ko": "앞발 착지 · 체중 수용 · 이륙",
+      "contacts_ko": "먼 앞발 · 가까운 앞발",
+      "visual_review": {
+        "status": "pass_anatomy_with_spacing_limit",
+        "actual_inspection": "Native individually viewed. Secondattempt keepshead/body/backdropnearpreviouspositions; four normalconnectedlimbs withbothforefeetgroundedandrearpawsairborne. Forelegsrotate towardverticalnaturally.",
+        "limits": "Forefeetadvanceback/right~60–90px despiteprompt25px, largerthanpreciseoneframespacing. Headjumpfromfirstattemptfixed. Motionreferencesremainqualitative,notmeasuredcontinuity.",
+        "actual_ground_contacts": [
+          "both_forepaws"
+        ],
+        "attempts": 2,
+        "rejected_first_attempt": "Largeglobalhead/forequarterjump; secondattemptlocksheadbetter."
+      },
+      "file_integrity_verified": true
+    },
+    {
+      "frame": 29,
+      "filename": "Frame_029.png",
+      "file": "frames/Frame_029.png",
+      "sha256": "3f4e52a5bb0ab2ea15fef4970f088483e6b990585cc895bfec9b7b51dc0326d2",
+      "bytes": 1774001,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "exact_default_source_copy": true,
+      "generation_record": "generation/frame029.json",
+      "exact_generated_prompt": "Use case: precise-object-edit. Produce ONE separate complete1536x1024 photographic frame, not collage. Image1 photograph is the PRIMARY edit target: preserve exact BorderCollie identity, face, coat markings, realistic fur, body proportions, camera/framing, gray studio floor/background and soft light. Image2 sketch is SECONDARY phase/layout guidance; use only its contact status and direction, no square stick joints or whole dog relocation. Keep exactly four connected canine legs and four paw ends, natural shoulder/elbow/carpus and hip/stifle/hock anatomy. Whole nose, ears, all four paws and tail visible. No text/lines/grid/extra dog/hand/collar/harness/motionblur. Ground contact plane stays y840–850. Anatomical naturalness and incremental photo continuity override exact sketch coordinates. Frame029: a MINIMAL EDIT ofphotograph1 frame028. LockHEAD,NECK,TORSO,TAIL andBACKGROUND at EXACTsamepositionsandappearance, especially noseat~x125/y530. Do notliftorrotatehead orrecenter dog. Ignoreguidesketchhead/torso silhouetteplacemententirely.\nChange ONLYforelimbarticulationandpawpositions slightly. BothfrontpawsremainONfloor atsamegroundheight; leftforepaw advancesRIGHTonly20px fromcurrent~x350to~x375, rightforepawRIGHTonly20px from~x560to~x580. Naturalelbowandwrist slightlyrotateaspawsadvancebackrelativebody, leftheelrollsuponitstoe forupcomingrelease030. No rubberstretch,nolongstraightstilts,no pawlift yet. TWO rearfeetstayairborne inthesamebentnaturalpose, negligible5pxhockrecoveryonly. Exactlyfourconnectedlimbs/fourpaws. Thisframe mustdifferfromphoto1onlybysmallforepaw/jointadvance, not byglobalbody/head reposition. Samephotoidenticalfur/coatandlights,noextraobjects/text.",
+      "referenced_image_paths": [
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_028.png",
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_029.png"
+      ],
+      "reference_roles": [
+        "first: pose guide",
+        "second: new v2 identity",
+        "optional: adjacent accepted pose"
+      ],
+      "guide": "guides/Guide_029.json",
+      "time_seconds": 0.466667,
+      "cycle_phase": 0.66666667,
+      "stage": "fore landing, compression and release",
+      "label_ko": "앞발 착지 · 체중 수용 · 이륙",
+      "contacts_ko": "먼 앞발 · 가까운 앞발",
+      "visual_review": {
+        "status": "pass_anatomy_with_spacing_limit",
+        "actual_inspection": "Native individually viewed. Secondattempt lockshead/body/backdrop; forelegsadvancebacktowardverticalandsupportfloor, bothrearpawsairborne andfourlimbsnormal.",
+        "limits": "Nearforefootadvance~70pxlargerthanrequested20px; toetimingapproximate. Firstattemptrejectedglobalheadrise. Precisetemporalspacingnotestablished.",
+        "actual_ground_contacts": [
+          "both_forepaws"
+        ],
+        "attempts": 2,
+        "rejected_first_attempt": "Globalheadmovedup~70pxandright~45px; selectedrepeatpreservesheadtrajectory."
+      },
+      "file_integrity_verified": true
+    },
+    {
+      "frame": 30,
+      "filename": "Frame_030.png",
+      "file": "frames/Frame_030.png",
+      "sha256": "0c67ca74e3922b73f714129c33af16c0e1de231b7fbc8d143283f8aa87693bea",
+      "bytes": 1781537,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "exact_default_source_copy": true,
+      "generation_record": "generation/frame030.json",
+      "exact_generated_prompt": "Use case: precise-object-edit. Produce ONE separate complete1536x1024 photographic frame, not collage. Image1 photograph is the PRIMARY edit target: preserve exact BorderCollie identity, face, coat markings, realistic fur, body proportions, camera/framing, gray studio floor/background and soft light. Image2 sketch is SECONDARY phase/layout guidance; use only its contact status and direction, no square stick joints or whole dog relocation. Keep exactly four connected canine legs and four paw ends, natural shoulder/elbow/carpus and hip/stifle/hock anatomy. Whole nose, ears, all four paws and tail visible. No text/lines/grid/extra dog/hand/collar/harness/motionblur. Ground contact plane stays y840–850. Anatomical naturalness and incremental photo continuity override exact sketch coordinates. Advance ONE smallinstantphoto029→030 FIRSTFOREPAWLIFTOFF. TheLEFT/FARforeleg (pawaroundx400inphoto1) releasesfloor NOW: liftitsfoottoe visibly20–30pxabovefloor andmovepaw~40pxRIGHTtowardx450–470/y805–815, foldingelbow/carpusnaturally. Itmustclearlyhaveanairgapandremainconnectedtofarshoulder, no missingorextraleg.\nOTHER/RIGHTforepawaroundx650 staysgrounded, supportingbodyonONEfrontleg. Keepthatpawnearitscurrentfloorpoint, only~5–10pxshift, naturaltoe/wristfloorcontact. TWO rearfeetstayairborne, remainfoldednaturallywithslowforwardrecovery. Totalfourfeet: ONEfrontpawgrounded, THREEairborne.\nHeadnose movesONLY~12–15pxRIGHTand5pxUP towardx135–140/y525, notalargeheadjump. Chestgentlyrises5–8px andsamebodylength/proportionscamera/backdroparepreserved. Smalllumbarflexasbodypreparestocollect, spineandhipcoherent; no frozenstiltforelimb, no standingdog. Guidesuggestsphaseonly; anatomicalsupport/photo1continuityprevails.",
+      "referenced_image_paths": [
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_029.png",
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_030.png"
+      ],
+      "reference_roles": [
+        "first: pose guide",
+        "second: new v2 identity",
+        "optional: adjacent accepted pose"
+      ],
+      "guide": "guides/Guide_030.json",
+      "time_seconds": 0.483333,
+      "cycle_phase": 0.69047619,
+      "stage": "fore landing, compression and release",
+      "label_ko": "앞발 착지 · 체중 수용 · 이륙",
+      "contacts_ko": "가까운 앞발",
+      "visual_review": {
+        "status": "pass_contact_with_temporal_limits",
+        "actual_inspection": "Native individually viewed. Left/far forepawairborneandrecovering, rightforepawstillgrounded; two normalrearfeetairborne. Exactlyfourconnectedlegs andsameidentity/frame/background.",
+        "limits": "Farforepawlift/headriselargerthanrequested,contactphasecorrectbutpreciseoneframespacingapproximate. Foreliftoffmatches030butcontactsidehadearlierreversal.",
+        "actual_ground_contacts": [
+          "rightward_forepaw"
+        ],
+        "attempts": 1
+      },
+      "file_integrity_verified": true
+    },
+    {
+      "frame": 31,
+      "filename": "Frame_031.png",
+      "file": "frames/Frame_031.png",
+      "sha256": "55d74f7ed30ed5e471eb3010663c62a56b8a10f3d0b4ea9e17b56be63457294b",
+      "bytes": 1803081,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "exact_default_source_copy": true,
+      "generation_record": "generation/frame031.json",
+      "exact_generated_prompt": "Use case: precise-object-edit. Produce ONE separate complete1536x1024 photographic frame, not collage. Image1 photograph is the PRIMARY edit target: preserve exact BorderCollie identity, face, coat markings, realistic fur, body proportions, camera/framing, gray studio floor/background and soft light. Image2 sketch is SECONDARY phase/layout guidance; use only its contact status and direction, no square stick joints or whole dog relocation. Keep exactly four connected canine legs and four paw ends, natural shoulder/elbow/carpus and hip/stifle/hock anatomy. Whole nose, ears, all four paws and tail visible. No text/lines/grid/extra dog/hand/collar/harness/motionblur. Ground contact plane stays y840–850. Anatomical naturalness and incremental photo continuity override exact sketch coordinates. AdvanceONEsmallinstantphoto030→031. Image3 is FUTURE033 endpointonlyfor gradualneck/recoveredforepawdirection; donotcopywholeaerialposeyet. CurrentlyonlyRIGHT/NEARforepaw supportsdog. KEEPthatfootplanted at~x640,y840, toe/wristnaturalload, samefloorplane. ThealreadyAIRBORNEleft/farforeleg folds fartherunderchest: itspawmovesRIGHT/backabout60–80pxandUPabout25–35px, toward~x560/y730; normalelbowflexandcarpus, visiblyconnectedandseparatefromgroundedforeleg. THREEpawsairborne:tworearandonefarfront. Lastforepawstilltouchesfloor.\nMoveheadnoseONLY~15pxRIGHT withtinyneckadjustment, nearx150/y523,notalargebodyshiftorjump. Headgazelevel; shoulder/torso rise only~5–8pxasbodyreturnsfromlandingcompression. Hindpawstuckgradually15pxforward towardfuture033body, stifle/hocknaturallyfoldedandtwowhitefeetdistinct. Backcurvesveryslightlymore; no changedbodylength/coatorbackdrop. Strictsingleinstant/fourlegs/wholebody. Keepphoto1dominant, sketchphaseapproximate, futurephotoonlysmoothdirectionreference.",
+      "referenced_image_paths": [
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_030.png",
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_031.png",
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_033.png"
+      ],
+      "reference_roles": [
+        "first: pose guide",
+        "second: new v2 identity",
+        "optional: adjacent accepted pose"
+      ],
+      "guide": "guides/Guide_031.json",
+      "time_seconds": 0.5,
+      "cycle_phase": 0.71428571,
+      "stage": "fore landing, compression and release",
+      "label_ko": "앞발 착지 · 체중 수용 · 이륙",
+      "contacts_ko": "가까운 앞발",
+      "visual_review": {
+        "status": "pass_contact_with_temporal_limits",
+        "actual_inspection": "Native individually viewed. One/rightforefootplanted; farforelegfoldsunderchest, tworearfeetairborne, exactlyfourconnectedlimbs. Headshiftsgraduallyright, sameidentity/background.",
+        "limits": "Farforepawrecovery/headheightarenotexacttargets. Future033backgroundboundarydiffersfromphotosequence; endpointcontinuityneedshonestQA.",
+        "actual_ground_contacts": [
+          "rightward_forepaw"
+        ],
+        "attempts": 1
+      },
+      "file_integrity_verified": true
+    },
+    {
+      "frame": 32,
+      "filename": "Frame_032.png",
+      "file": "frames/Frame_032.png",
+      "sha256": "ae8c073f65c8bc3f918570482a727e0806f226cd75a42d66de74260db3b04b50",
+      "bytes": 1803036,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "exact_default_source_copy": true,
+      "generation_record": "generation/frame032.json",
+      "exact_generated_prompt": "Use case: precise-object-edit. Produce ONE separate complete1536x1024 photographic frame, not collage. Image1 photograph is the PRIMARY edit target: preserve exact BorderCollie identity, face, coat markings, realistic fur, body proportions, camera/framing, gray studio floor/background and soft light. Image2 sketch is SECONDARY phase/layout guidance; use only its contact status and direction, no square stick joints or whole dog relocation. Keep exactly four connected canine legs and four paw ends, natural shoulder/elbow/carpus and hip/stifle/hock anatomy. Whole nose, ears, all four paws and tail visible. No text/lines/grid/extra dog/hand/collar/harness/motionblur. Ground contact plane stays y840–850. Anatomical naturalness and incremental photo continuity override exact sketch coordinates. Frame032 TARGETED one-limbcorrection. Photoframe031 image1primarybody/head/background. OnlytheALREADYAIRBORNEFARFRONTLEG changesstrongly: folditsupperarm/elbowfurtherBACKtowardthebelly soitsWHITEPAW moves fromcurrentleftunderchest~x530 toBEHINDthegroundednearforelegat~x650–680,y680–700. That airborne white farforepaw MUSTbe on theRIGHT SIDEof thegroundedwhitefrontleg, clearlyvisiblejustbelowchest/belly, likefarforelegdirectioninimage3. Do notkeepfarforepawstuckontheleftunderneck. Naturalelbow/carpusorientationandattachment, no fusedor extra paws.\nKeep theOTHERnearforepaw touchingfloor ONLYBYTOESat~x635,y840 withheelraised, immediatelybeforeliftoff033. Twohindpawsstayairborne, normalfoldedlegs. Thus fourtotallegs/fourpaws; ONEfronttoescontactfloor, otherTHREEpawsairborne.\nHeadnoseonlyadvances~15pxrighttoward165,y510–519, torso/frontshouldersriseonly5px, no recenterorwholeposecopyofimage3. Photo1graybackgroundandfloorcameraboundaryunchanged; image3onlyairbornefarforelimbtarget for smoothnextinstant. Image2stageguideapproximate. Renderthesinglelastforetoecontactmoment, withairbornefarforepawbehindnearsupportleg.",
+      "referenced_image_paths": [
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_031.png",
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_032.png",
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_033.png"
+      ],
+      "reference_roles": [
+        "first: pose guide",
+        "second: new v2 identity",
+        "optional: adjacent accepted pose"
+      ],
+      "guide": "guides/Guide_032.json",
+      "time_seconds": 0.516667,
+      "cycle_phase": 0.73809524,
+      "stage": "fore landing, compression and release",
+      "label_ko": "앞발 착지 · 체중 수용 · 이륙",
+      "contacts_ko": "가까운 앞발",
+      "visual_review": {
+        "status": "pass_contact_with_temporal_limits",
+        "actual_inspection": "Native individually viewed. Targetedrepairplacesairbornefarforepawbehindnearforeleg, preparing033foldedpose. Nearforepawstilltouchesfloorandtwohindpawsairborne; exactlyfour connectedlegs/pawends; sameface/coat/background.",
+        "limits": "Nearfrontheelnotclearlytoe-only; farforepawpositionchangeslargely031→032ratherthansmoothlyevenincrement. Headmoveslessthanrequested.032→033grayfloor/backgroundboundarydifferenceandbody/coatflickerremain; notmeasured60fpscontinuity.",
+        "actual_ground_contacts": [
+          "rightward_forepaw"
+        ],
+        "image_attempts": 2,
+        "failed_connection_calls": 1,
+        "rejected_first_image": "Farforepawremainedleftunderneckanddidnotadvancetoward033; targetedrepairselected."
+      },
+      "file_integrity_verified": true
+    },
+    {
+      "frame": 33,
+      "filename": "Frame_033.png",
+      "file": "frames/Frame_033.png",
+      "sha256": "ef017454f76d7ce85453b94602caa53fc69121b760a9ea0b77fdbc47a3275882",
+      "bytes": 1768633,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "exact_default_source_copy": true,
+      "generation_record": "generation/frame033.json",
+      "exact_generated_prompt": "Use case: sketch-to-render. ONE separate photoreal full-body running Border Collie image, not a multi-pose sheet. Input1 is accepted photoreal Frame034 and the PRIMARY EDIT TARGET. Edit it by one small backward instant to Frame033, preserving exact individual, scale, camera and studio. Input2 is Frame033 guide for fore release direction, mild body lowering and floor; use natural anatomical articulation, not square rods. Input3 is accepted Frame001 only for identity, face and coat; do not freeze its pose. Any additional photographs are neighboring pose references, not extra dogs. Produce exactly1536x1024, fixed left-facing strict side view. Whole nose, four paws and tail visible. Same black-white long-haired athletic adult, white blaze/muzzle/chest/paws and tail tip, semi-prick ears, brown eye. Matte light-gray studio, same floor y850 and soft contact shadow. Keep torso center around x800, same body proportions. Guide shapes become realistic rounded flesh and fur, with no visible guide lines. Four connected canine limbs, separate paws, normal shoulder/elbow/wrist and hip/stifle/hock; never fused, missing or twisted limbs. Near means left side visible to camera, far means right side. Changes in body height, spine flex and pitch must carry the whole skeleton. Head gaze remains nearly level through small neck compensation. Ears, coat and tail respond mildly to motion. Clean sharp realistic action photo, no motion blur, no text or accessories. The pose should progress only one small instant from a neighboring image, while fulfilling this guide's paw contacts and targets. Target coordinates are control suggestions; use natural limb articulation rather than square sketch edges.\nFRAME 033 of42. Phase: gathered aerial. Shoulder target[599.859, 581.1589]; hip[1019.446, 608.4859]; nose[185.1971, 525.0403]. Body vertical offset-5.0px; pitch1.0degrees; spine flex20.0px.\nnear_hind: AIRBORNE, visibly above floor. Joint path {'hip': [1019.446, 608.4859], 'stifle': [879.4905, 675.1001], 'hock': [1006.883, 719.7782], 'paw': [940.0, 780.0]}.\nfar_hind: AIRBORNE, visibly above floor. Joint path {'hip': [1035.6181, 598.7667], 'stifle': [894.562, 663.0176], 'hock': [1026.883, 689.7782], 'paw': [960.0, 750.0]}.\nfar_fore: AIRBORNE, visibly above floor. Joint path {'shoulder': [616.0311, 571.4397], 'elbow': [782.6774, 651.7766], 'paw': [659.2, 796.1834]}.\nnear_fore: AIRBORNE, visibly above floor. Joint path {'shoulder': [599.859, 581.1589], 'elbow': [753.3107, 684.4913], 'paw': [660.0, 850.0]}.\nGathered flight/recovery: forelegs fold naturally below the chest, hind stifles come forward and hocks fold under the belly. Mild flexed spine and higher trunk; all paws off the floor. Body and head respond gently rather than staying frozen. Last frames must close smoothly toFrame001.\nThis is only one earlier instant than input1: the last fore toe has just cleared the floor. IMPORTANT: open the WHITE FOREGROUND left front leg slightly farther down, moving its white foretoe from about(675,800) to about(660,846), almost touching but visibly 4 px above y850. Maintain a soft wrist/elbow; no straight rigid arm. The other background forepaw remains softly gathered around(735,690), not fused with this leg. Keep both hind paws airborne and folded under the belly. Lower the trunk only about5px; keep the existing head/muzzle nearly in the same position, with natural neck compensation. Do not make the compact airborne pose of Frame037 yet: the foreground foreleg is still partly open near the floor. Four attached canine limbs and four clearly separate paws, no text or props.",
+      "referenced_image_paths": [
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_034.png",
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_033.png",
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_001.png"
+      ],
+      "reference_roles": [
+        "first: pose guide",
+        "second: new v2 identity",
+        "optional: adjacent accepted pose"
+      ],
+      "guide": "guides/Guide_033.json",
+      "time_seconds": 0.533333,
+      "cycle_phase": 0.76190476,
+      "stage": "gathered aerial",
+      "label_ko": "모은 공중 자세",
+      "contacts_ko": "공중 자세",
+      "visual_review": "Actual photo inspected: foreground foreleg is more open/lower than Frame034, toes remain just above the floor; other foreleg and both hindlegs remain gathered airborne. Same full dog identity/scale/studio, soft canine joints and four separate paws; no obvious rods, fusion or extra limbs. The first-lift clearance is larger than the guide's almost-zero clearance, roughly 20–30 px rather than 4 px. Head and exact paw coordinates remain approximate; inspect the 032→033 handoff and 034→035 head variance in full sequence QA.",
+      "file_integrity_verified": true
+    },
+    {
+      "frame": 34,
+      "filename": "Frame_034.png",
+      "file": "frames/Frame_034.png",
+      "sha256": "2d83f534563f83e8f857ebc063a1c13a96de45a3f8ce72994cdfed90ab77fced",
+      "bytes": 1791565,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "exact_default_source_copy": true,
+      "generation_record": "generation/frame034.json",
+      "exact_generated_prompt": "Use case: precise-object-edit. Produce ONE separate1536x1024 photorealistic image. IMAGE1 is the existing Frame034 PHOTO and PRIMARY EDIT TARGET. IMAGE2 is Frame033 PHOTO, used ONLY as a nose/head HEIGHT reference. Make a very tiny continuity adjustment: MATCH THE NOSE HEIGHT OF IMAGE2 while keeping head xposition and size from IMAGE1. In image1 the nose is just slightly too low, so lift it only a tiny amount, about one percent of canvas height. The head must stay at almost the SAME HEIGHT as in both input images. Do NOT put head higher than the head in IMAGE2; do NOT lengthen or raise the neck. Preserve same level forward-left gaze and existing face markings. Keep all the REST of PHOTO1 unchanged: exact FOUR LEG/PAW poses and joint positions, shoulder/chest position, abdomen, rump, back, fluffy coat, tail, dog scale, camera, all background and floor/shadows. DO NOT copy IMAGE2's leg pose, and do not advance the running animation. Keep photo1's four existing separate airborne paws exactly in their current places. Only lightly adjust the head/upper-neck so its nose sits almost exactly at the nose-height of PHOTO2, roughlyx184y515. This is a tiny near-invisible change, not a new pose. Same natural action photograph, no extras, no enlarged head, no body slide, no long neck, no annotations, no blur, no collage. ONE image only.",
+      "referenced_image_paths": [
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_034.png",
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_033.png"
+      ],
+      "reference_roles": [
+        "first: pose guide",
+        "second: new v2 identity",
+        "optional: adjacent accepted pose"
+      ],
+      "guide": "guides/Guide_034.json",
+      "time_seconds": 0.55,
+      "cycle_phase": 0.78571429,
+      "stage": "gathered aerial",
+      "label_ko": "모은 공중 자세",
+      "contacts_ko": "공중 자세",
+      "visual_review": "Viewed the full candidate against033, original034 and035. Retry makes a modest head/upper-neck rise and removes original034's downward dip; face scale, four paw/leg positions, torso/tail and floor boundary remain visually close to original034. Nose height appears near500 rather than requested515, so033→034 rises about15px and034→035 is nearly level with a small possible3px reversal. This is an approximate correction, not pixel-exact head-only editing. First much larger/elongated-neck candidate was rejected.",
+      "file_integrity_verified": true
+    },
+    {
+      "frame": 35,
+      "filename": "Frame_035.png",
+      "file": "frames/Frame_035.png",
+      "sha256": "3a2a41566fc8afd95bf2daae8e386836c8ac4cd0f973e52ae35c566b823f734a",
+      "bytes": 1772467,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "exact_default_source_copy": true,
+      "generation_record": "generation/frame035.json",
+      "exact_generated_prompt": "Use case: precise-object-edit. Edit input1, the photoreal Frame035 candidate, with ONE local anatomical pose correction. Keep the exact existing dog, head/neck/body/spine/tail, other three legs, face, fur markings, lighting, camera, scale, full 1536x1024 canvas and gray studio/floor entirely unchanged. Only slightly unfold and lower the NEAR LEFT FORELEG, which is the white foreground leg curled beneath the chest and has a white paw currently at approximately (663,748). Its toe/paw should move DOWN about 25 pixels to around (663,773), by a small natural opening of the elbow and wrist; the lower foreleg remains gently bent and airborne, never a straight rod. Do NOT alter the far forepaw with black pads at about (748,710); do NOT lower or move the whole dog. Input2 is the frame035 guide for this local recovery direction only; input3 is the same exact dog's appearance/identity reference, not a pose to copy. Preserve natural rounded canine limb taper, four separate connected limbs and four paws, all airborne above the y850 floor. No new objects, no anatomy diagram or text, no extra/fused limbs, no blur. Produce ONE image of the locally corrected frame035, not a sheet.",
+      "referenced_image_paths": [
+        "/Users/byeolee/.codex/generated_images/01a10fce-1419-7a00-b30d-b3cce690f97b/exec-683bfb17-a77e-47f7-985c-739cf2a7b2d9.png",
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_035.png",
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_001.png"
+      ],
+      "reference_roles": [
+        "first: pose guide",
+        "second: new v2 identity",
+        "optional: adjacent accepted pose"
+      ],
+      "guide": "guides/Guide_035.json",
+      "time_seconds": 0.566667,
+      "cycle_phase": 0.80952381,
+      "stage": "gathered aerial",
+      "label_ko": "모은 공중 자세",
+      "contacts_ko": "공중 자세",
+      "visual_review": "Actual corrected output inspected: foreground forepaw unfolds lower than Frame036 while far forepaw stays curled; body/head/tail and other three limbs retain neighboring-photo continuity. Four airborne paws, normal soft elbow/wrist and hock bends, same identity/scale/studio. A targeted local near-forepaw correction was required. Pixel positions and exact advance remain approximate; no obvious fused/extra limbs or rods.",
+      "file_integrity_verified": true
+    },
+    {
+      "frame": 36,
+      "filename": "Frame_036.png",
+      "file": "frames/Frame_036.png",
+      "sha256": "07e0842b45005fa660b58ead41978e8077cc15d215b62338e880058358187f9f",
+      "bytes": 1742734,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "exact_default_source_copy": true,
+      "generation_record": "generation/frame036.json",
+      "exact_generated_prompt": "Use case: sketch-to-render. ONE separate photoreal full-body running Border Collie image, not a multi-pose sheet. Input1 is the accepted photoreal Frame037 and the PRIMARY EDIT TARGET. Edit this existing dog by one small backward instant to Frame036, preserving its exact individual, scale, camera and scene. Input2 is the new pose-control guide for Frame036, used to adjust the existing dog's anatomical pose and slight body-height change; do not render its sketch shapes or rods. Input3 is the accepted Frame001 dog, used ONLY for face, coat, identity, camera, lighting and studio appearance; do not copy its pose. Any additional photographs are neighboring pose references, not extra dogs. Produce exactly1536x1024, fixed left-facing strict side view. Whole nose, four paws and tail visible. Same black-white long-haired athletic adult, white blaze/muzzle/chest/paws and tail tip, semi-prick ears, brown eye. Matte light-gray studio, same floor y850 and soft contact shadow. Keep torso center around x800, same body proportions. Guide shapes become realistic rounded flesh and fur, with no visible guide lines. Four connected canine limbs, separate paws, normal shoulder/elbow/wrist and hip/stifle/hock; never fused, missing or twisted limbs. Near means left side visible to camera, far means right side. Changes in body height, spine flex and pitch must carry the whole skeleton. Head gaze remains nearly level through small neck compensation. Ears, coat and tail respond mildly to motion. Clean sharp realistic action photo, no motion blur, no text or accessories. The pose should progress only one small instant from a neighboring image, while fulfilling this guide's paw contacts and targets. Target coordinates are control suggestions; use natural limb articulation rather than square sketch edges.\nFRAME 036 of42. Phase: gathered aerial. Shoulder target[599.7745, 553.4673]; hip[1018.2792, 594.1346]; nose[187.5502, 513.8677]. Body vertical offset-25.6821px; pitch2.8239degrees; spine flex26.2779px.\nnear_hind: AIRBORNE, visibly above floor. Joint path {'hip': [1018.2792, 594.1346], 'stifle': [865.8315, 622.1474], 'hock': [970.733, 707.122], 'paw': [903.85, 767.3438]}.\nfar_hind: AIRBORNE, visibly above floor. Joint path {'hip': [1034.7524, 584.935], 'stifle': [880.2985, 597.9351], 'hock': [989.6349, 677.122], 'paw': [922.7519, 737.3438]}.\nfar_fore: AIRBORNE, visibly above floor. Joint path {'shoulder': [616.2477, 544.2676], 'elbow': [778.7664, 632.657], 'paw': [625.0, 744.263]}.\nnear_fore: AIRBORNE, visibly above floor. Joint path {'shoulder': [599.7745, 553.4673], 'elbow': [762.989, 640.5651], 'paw': [639.5625, 785.0154]}.\nGathered flight/recovery: forelegs fold naturally below the chest, hind stifles come forward and hocks fold under the belly. Mild flexed spine and higher trunk; all paws off the floor. Body and head respond gently rather than staying frozen. Last frames must close smoothly toFrame001.\nThis is one instant BEFORE input1 Frame037, not an identical duplicate. Keep the muzzle position nearly unchanged, with only a 1–2 px gradual lowering. Move the whole trunk approximately 2 px lower, reduce spine flex very slightly, and relax the gathered hind paws by only 2–8 px. Near forepaw should be slightly lower and less tightly folded than input1, about 15–20 px lower; far forepaw lowers about 5–10 px. Four paws remain clearly airborne. Keep naturally rounded canine anatomy even where guide joints have square angles. Avoid moving the dog's entire head or torso suddenly. Exactly one standalone image.",
+      "referenced_image_paths": [
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_037.png",
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_036.png",
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_001.png"
+      ],
+      "reference_roles": [
+        "first: pose guide",
+        "second: new v2 identity",
+        "optional: adjacent accepted pose"
+      ],
+      "guide": "guides/Guide_036.json",
+      "time_seconds": 0.583333,
+      "cycle_phase": 0.83333333,
+      "stage": "gathered aerial",
+      "label_ko": "모은 공중 자세",
+      "contacts_ko": "공중 자세",
+      "visual_review": "Actual output inspected against guide and neighboring accepted Frame037: same identity, scale and studio; four airborne paws with natural elbow and hock bends. Fore paws are approximately 10–20 px lower than 037 and trunk slightly lower, following backward recovery without a head jump. Forepaw targets remain more tightly curled than the abstract guide; joint positions are approximate. No obvious extra/fused limbs or rods.",
+      "file_integrity_verified": true
+    },
+    {
+      "frame": 37,
+      "filename": "Frame_037.png",
+      "file": "frames/Frame_037.png",
+      "sha256": "c8f29957838eed51445290bc75c69357fd45c3cae252df5698c496b71751941d",
+      "bytes": 1759749,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "exact_default_source_copy": true,
+      "generation_record": "generation/frame037.json",
+      "exact_generated_prompt": "Use case: sketch-to-render.\nCreate ONE separate photorealistic 1536 × 1024 image: frame 037 of a left-facing black-and-white Border Collie gallop, the deeply gathered airborne phase. No collage, sheet, labels or text.\n\nInput image 1 is the PRIMARY EDIT TARGET and highest-priority POSE, silhouette, anatomy layout, camera and floor-placement control: the individual Guide_037. Replace the abstract guide dog with the real dog, retaining the guide's exact left-facing composition and pose. Do not reproduce its flat vector drawing, exposed rods or joint circles. Input image 2 is ONLY the dog's appearance/identity and photorealistic fur/lighting reference. Keep this exact individual, facial blaze, white muzzle, ruff/chest, black body coat, brown eye, white paws and white tail tip. Do NOT retain the pose of image 2; use image 1 for the new pose. Do not copy a generic running photo pose.\n\nFrame 037 pose: compact gathered flight, gently arched/flexed lumbar spine at its compactest moment, trunk approximately 28 px higher than the resting phase. Natural separate four limbs all airborne. Fore upper legs fold down/back from the shoulder to elbows, and lower legs return down/forward to the paws; do not turn the forelegs into rigid rods or fuse the overlapping paws. Hind thighs fold forward under the abdomen, knees visibly flex, lower legs angle back to bent hocks, and separate paws tuck forward/down under the pelvis. The guide locates near fore shoulder (600,550), elbow (762,639), paw (620,765); far fore shoulder (616,541), elbow (779,630), paw (620,735). Near hind hip (1018,592), stifle (865,616), hock (967,705), paw (900,765); far hind hip (1035,583), stifle (880,587), hock (982,675), paw (915,735). Use these as projected anatomical centers while rendering anatomically believable canine skin/fur, flexible joints and natural limb taper. Do not depict these coordinates or visible skeleton lines.\n\nMuzzle tip stays around (188,513), relaxed alert face and nearly level forward gaze with tiny neck compensation. Tail starts near (1111,537) and streams naturally back to (1375,566), with a mild curved follow-through, same full length and white tip. Both ears and fur have a small trailing response consistent with moving left, not a new ear shape. Strict orthographic-like side camera, no camera motion, no body resizing, same individual fully within the frame.\n\nNeutral light gray seamless studio and subtly textured gray floor, horizon/ground-contact level y = 850. Keep the same light direction and photographic exposure as reference image 2; soft cast shadow below the dog at the floor. The paws are around y735–765 and clearly above y850, so this is genuinely airborne, never standing/trotting. Natural photographic short-exposure detail, no motion blur, no hand, human, collar, harness, background props, extra/missing/merged limbs, torso-penetrating legs or watermarks. Produce only the requested individual frame.",
+      "referenced_image_paths": [
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_037.png",
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_001.png"
+      ],
+      "reference_roles": [
+        "first: pose guide",
+        "second: new v2 identity",
+        "optional: adjacent accepted pose"
+      ],
+      "guide": "guides/Guide_037.json",
+      "time_seconds": 0.6,
+      "cycle_phase": 0.85714286,
+      "stage": "gathered aerial",
+      "label_ko": "모은 공중 자세",
+      "contacts_ko": "공중 자세",
+      "visual_review": "Inspected actual generated image: same Border Collie identity, fully visible strict left profile, neutral studio/floor at y850, four separately connected paws clearly airborne, a higher flexed trunk and level muzzle. Natural fore elbow and hind hock bends; no extra limbs, obvious fusion, rods or text. Approximate pose adherence: hind paws are close to guide targets; fore paws remain more tightly curled and approximately 35–60 px above the guide targets. Photoreal fur partly obscures joint centers, so coordinates are qualitative rather than pixel-exact. This anchor alone does not verify continuous motion.",
+      "file_integrity_verified": true
+    },
+    {
+      "frame": 38,
+      "filename": "Frame_038.png",
+      "file": "frames/Frame_038.png",
+      "sha256": "a2145b7292cc64391f4ed75e7948caeff12cf03208ed2d1c136d782f1f1e6121",
+      "bytes": 1754813,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "exact_default_source_copy": true,
+      "generation_record": "generation/frame038.json",
+      "exact_generated_prompt": "Use case: sketch-to-render. ONE separate photoreal full-body running Border Collie image, not a multi-pose sheet. Input1 is accepted photoreal Frame037 and the PRIMARY EDIT TARGET. Edit it by only one tiny forward instant to Frame038, preserving exact individual, camera, scale and studio. Input2 is the Frame038 pose guide for the small joint/body changes, not a drawing to render. Input3 is accepted Frame001 for exact appearance and eventual cycle closure only; do not jump to its whole pose yet. Any additional photographs are neighboring pose references, not extra dogs. Produce exactly1536x1024, fixed left-facing strict side view. Whole nose, four paws and tail visible. Same black-white long-haired athletic adult, white blaze/muzzle/chest/paws and tail tip, semi-prick ears, brown eye. Matte light-gray studio, same floor y850 and soft contact shadow. Keep torso center around x800, same body proportions. Guide shapes become realistic rounded flesh and fur, with no visible guide lines. Four connected canine limbs, separate paws, normal shoulder/elbow/wrist and hip/stifle/hock; never fused, missing or twisted limbs. Near means left side visible to camera, far means right side. Changes in body height, spine flex and pitch must carry the whole skeleton. Head gaze remains nearly level through small neck compensation. Ears, coat and tail respond mildly to motion. Clean sharp realistic action photo, no motion blur, no text or accessories. The pose should progress only one small instant from a neighboring image, while fulfilling this guide's paw contacts and targets. Target coordinates are control suggestions; use natural limb articulation rather than square sketch edges.\nFRAME 038 of42. Phase: gathered aerial. Shoulder target[599.7764, 552.8186]; hip[1018.2056, 594.2552]; nose[187.6975, 513.4156]. Body vertical offset-25.9259px; pitch2.9292degrees; spine flex26.4815px.\nnear_hind: AIRBORNE, visibly above floor. Joint path {'hip': [1018.2056, 594.2552], 'stifle': [865.0706, 618.2271], 'hock': [968.3645, 705.1486], 'paw': [901.4815, 765.3704]}.\nfar_hind: AIRBORNE, visibly above floor. Joint path {'hip': [1034.6957, 585.0859], 'stifle': [879.7456, 581.155], 'hock': [975.9246, 675.8894], 'paw': [909.0416, 736.1111]}.\nfar_fore: AIRBORNE, visibly above floor. Joint path {'shoulder': [616.2665, 543.6493], 'elbow': [778.9744, 631.6898], 'paw': [615.0, 727.671]}.\nnear_fore: AIRBORNE, visibly above floor. Joint path {'shoulder': [599.7764, 552.8186], 'elbow': [760.7995, 643.9041], 'paw': [605.381, 753.1977]}.\nGathered flight/recovery: forelegs fold naturally below the chest, hind stifles come forward and hocks fold under the belly. Mild flexed spine and higher trunk; all paws off the floor. Body and head respond gently rather than staying frozen. Last frames must close smoothly toFrame001.\nOne tiny forward step AFTER the most compact Frame037: lower the trunk only about2px and relax spinal flex very slightly. Keep the muzzle nearly in its current position, with at most2px lowering. The foreground white forepaw moves only about10–15px toward the nose/left and 5–10px upward as the wrist folds; far forepaw moves5px left and upward. Near hind paw stays almost unchanged; far hind paw shifts only about5px left. Allfour paws remain naturally gathered and clearly airborne. Keep elbows/hocks softly rounded; retain the photograph's real anatomical shape rather than square guide angles. Tail/ears follow mildly, no new wag or large shape change. Do not freeze the pose identically and do not introduce abrupt limb/head movement.",
+      "referenced_image_paths": [
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_037.png",
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_038.png",
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_001.png"
+      ],
+      "reference_roles": [
+        "first: pose guide",
+        "second: new v2 identity",
+        "optional: adjacent accepted pose"
+      ],
+      "guide": "guides/Guide_038.json",
+      "time_seconds": 0.616667,
+      "cycle_phase": 0.88095238,
+      "stage": "gathered aerial",
+      "label_ko": "모은 공중 자세",
+      "contacts_ko": "공중 자세",
+      "visual_review": "Inspected actual output: same dog, scale, studio and full side profile; four separately folded airborne limbs, natural wrist/elbow/hock forms. Foreground forepaw folds forward/up from Frame037, a larger change than the requested 10–15 px; body/head changes stay much smaller. Paws are tighter/higher than guide targets, and precise coordinate/step control is approximate. No obvious fusion, rods or extra limbs.",
+      "file_integrity_verified": true
+    },
+    {
+      "frame": 39,
+      "filename": "Frame_039.png",
+      "file": "frames/Frame_039.png",
+      "sha256": "eb884808e3bc73ba4494326e8767cfdddac5608f0f8a269ec346d1087ac3a1a9",
+      "bytes": 1747301,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "exact_default_source_copy": true,
+      "generation_record": "generation/frame039.json",
+      "exact_generated_prompt": "Use case: sketch-to-render. ONE separate photoreal full-body running Border Collie image, not a multi-pose sheet. Input1 is accepted photoreal Frame038 and the PRIMARY EDIT TARGET. Edit it by only one small forward instant to Frame039, preserving exact individual, camera, scale and studio. Input2 is Frame039 guide for general gathered-flight recovery, mild trunk lowering and spinal relaxation; anatomical neighboring-photo continuity has priority over exact sketch coordinates. Input3 is accepted Frame001 for appearance and the eventual loop-closing pose; gradually approach it over the remaining frames, do not jump there yet. Any additional photographs are neighboring pose references, not extra dogs. Produce exactly1536x1024, fixed left-facing strict side view. Whole nose, four paws and tail visible. Same black-white long-haired athletic adult, white blaze/muzzle/chest/paws and tail tip, semi-prick ears, brown eye. Matte light-gray studio, same floor y850 and soft contact shadow. Keep torso center around x800, same body proportions. Guide shapes become realistic rounded flesh and fur, with no visible guide lines. Four connected canine limbs, separate paws, normal shoulder/elbow/wrist and hip/stifle/hock; never fused, missing or twisted limbs. Near means left side visible to camera, far means right side. Changes in body height, spine flex and pitch must carry the whole skeleton. Head gaze remains nearly level through small neck compensation. Ears, coat and tail respond mildly to motion. Clean sharp realistic action photo, no motion blur, no text or accessories. The pose should progress only one small instant from a neighboring image, while fulfilling this guide's paw contacts and targets. Target coordinates are control suggestions; use natural limb articulation rather than square sketch edges.\nFRAME 039 of42. Phase: gathered aerial. Shoulder target[599.7736, 558.6879]; hip[1018.3295, 598.8245]; nose[187.4424, 515.2105]. Body vertical offset-20.7407px; pitch2.7512degrees; spine flex25.1852px.\nnear_hind: AIRBORNE, visibly above floor. Joint path {'hip': [1018.3295, 598.8245], 'stifle': [865.2995, 623.4583], 'hock': [972.0682, 706.0745], 'paw': [905.1852, 766.2963]}.\nfar_hind: AIRBORNE, visibly above floor. Joint path {'hip': [1034.7911, 589.604], 'stifle': [880.2123, 578.1841], 'hock': [970.3686, 678.6671], 'paw': [903.4856, 738.8889]}.\nfar_fore: AIRBORNE, visibly above floor. Joint path {'shoulder': [616.2351, 549.4675], 'elbow': [778.7967, 637.778], 'paw': [610.0, 725.0]}.\nnear_fore: AIRBORNE, visibly above floor. Joint path {'shoulder': [599.7736, 558.6879], 'elbow': [757.1856, 655.8809], 'paw': [588.7619, 743.8211]}.\nGathered flight/recovery: forelegs fold naturally below the chest, hind stifles come forward and hocks fold under the belly. Mild flexed spine and higher trunk; all paws off the floor. Body and head respond gently rather than staying frozen. Last frames must close smoothly toFrame001.\nSMALL STEP after input1 Frame038. Gently lower trunk about5–6px and relax spinal flex slightly. Muzzle follows downward at most3–4px, never a head jump. Current forepaws are more tightly tucked than the guide: relax the two real forewrists slightly down about8–10px and slightly back/right3–5px, keeping soft rounded bends and separate paws. Both hind paws move downward about3–5px and the far hind paw slightly forward/left5px as the hocks relax. Keep allfour paws airborne, same whole-body placement/proportions. Use the targetphoto Frame001 only as a smooth future endpoint for coat, tail and gathered shape, not a frozen pose to copy immediately. Retain real anatomy rather than squared schematic joints.",
+      "referenced_image_paths": [
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_038.png",
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_039.png",
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_001.png"
+      ],
+      "reference_roles": [
+        "first: pose guide",
+        "second: new v2 identity",
+        "optional: adjacent accepted pose"
+      ],
+      "guide": "guides/Guide_039.json",
+      "time_seconds": 0.633333,
+      "cycle_phase": 0.9047619,
+      "stage": "gathered aerial",
+      "label_ko": "모은 공중 자세",
+      "contacts_ko": "공중 자세",
+      "visual_review": "Actual output inspected against Frame038 and Frame001: four natural separately gathered airborne paws; foreground forepaw and trunk relax downward and move closer to the Frame001 endpoint. Head follows with a modest lowering, same scale/face/coating and studio. Step amplitude exceeds some requested pixel amounts, so strict trajectory control remains approximate. No rods, obvious limb fusion or additional paws.",
+      "file_integrity_verified": true
+    },
+    {
+      "frame": 40,
+      "filename": "Frame_040.png",
+      "file": "frames/Frame_040.png",
+      "sha256": "980b2805cc4758a52724e97a78635e336b60fdb873461d5ed3bcf8322d129585",
+      "bytes": 1722079,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "exact_default_source_copy": true,
+      "generation_record": "generation/frame040.json",
+      "exact_generated_prompt": "Use case: sketch-to-render. ONE separate photoreal full-body running Border Collie image, not a multi-pose sheet. Input1 is accepted photoreal Frame039 and the PRIMARY EDIT TARGET. Edit it by only one small forward instant to Frame040, preserving exact individual, camera, scale and studio. Input2 is Frame040 guide for gathered-flight relaxation/body height; prefer natural photographic joints and gradual neighbor continuity rather than square sketch limbs. Input3 is the accepted Frame001 identity and forthcoming loop endpoint; approach its actual pose gradually, not an abrupt jump. Any additional photographs are neighboring pose references, not extra dogs. Produce exactly1536x1024, fixed left-facing strict side view. Whole nose, four paws and tail visible. Same black-white long-haired athletic adult, white blaze/muzzle/chest/paws and tail tip, semi-prick ears, brown eye. Matte light-gray studio, same floor y850 and soft contact shadow. Keep torso center around x800, same body proportions. Guide shapes become realistic rounded flesh and fur, with no visible guide lines. Four connected canine limbs, separate paws, normal shoulder/elbow/wrist and hip/stifle/hock; never fused, missing or twisted limbs. Near means left side visible to camera, far means right side. Changes in body height, spine flex and pitch must carry the whole skeleton. Head gaze remains nearly level through small neck compensation. Ears, coat and tail respond mildly to motion. Clean sharp realistic action photo, no motion blur, no text or accessories. The pose should progress only one small instant from a neighboring image, while fulfilling this guide's paw contacts and targets. Target coordinates are control suggestions; use natural limb articulation rather than square sketch edges.\nFRAME 040 of42. Phase: gathered aerial. Shoulder target[599.7731, 566.3264]; hip[1018.4891, 604.7565]; nose[187.1136, 517.5479]. Body vertical offset-14.0px; pitch2.5176degrees; spine flex23.5px.\nnear_hind: AIRBORNE, visibly above floor. Joint path {'hip': [1018.4891, 604.7565], 'stifle': [865.6813, 630.7329], 'hock': [976.883, 707.2782], 'paw': [910.0, 767.5]}.\nfar_hind: AIRBORNE, visibly above floor. Joint path {'hip': [1034.913, 595.4689], 'stifle': [881.0251, 576.9344], 'hock': [965.4507, 682.2782], 'paw': [898.5677, 742.5]}.\nfar_fore: AIRBORNE, visibly above floor. Joint path {'shoulder': [616.1969, 557.0389], 'elbow': [777.5529, 647.5333], 'paw': [604.0625, 725.0]}.\nnear_fore: AIRBORNE, visibly above floor. Joint path {'shoulder': [599.7731, 566.3264], 'elbow': [752.1311, 671.2646], 'paw': [575.0, 740.0]}.\nGathered flight/recovery: forelegs fold naturally below the chest, hind stifles come forward and hocks fold under the belly. Mild flexed spine and higher trunk; all paws off the floor. Body and head respond gently rather than staying frozen. Last frames must close smoothly toFrame001.\nNext SMALL step toward the beginning of the loop: gently lower the trunk about6px and reduce lumbar arch a little toward Frame001. Keep muzzle level, lowering it only3–5px. Foreground white forepaw relaxes downward6–8px and slightly right3–5px; background forepaw with visible dark pads relaxes down3–5px and right3–5px. Hind paws stay clearly airborne and close to their existing folded pose, relaxing downward3–4px with normal stifle/hock bends. Tail settles a little toward the shape of Frame001 with mild pelvis-following lag; ears/fur stay consistent. Preserve allfour attached limbs and four separate paws, no frozen identical pose, no head/limb jumps, no stretched straight hocks. Maintain the same floor at y850 and whole-body camera placement.",
+      "referenced_image_paths": [
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_039.png",
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_040.png",
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_001.png"
+      ],
+      "reference_roles": [
+        "first: pose guide",
+        "second: new v2 identity",
+        "optional: adjacent accepted pose"
+      ],
+      "guide": "guides/Guide_040.json",
+      "time_seconds": 0.65,
+      "cycle_phase": 0.92857143,
+      "stage": "gathered aerial",
+      "label_ko": "모은 공중 자세",
+      "contacts_ko": "공중 자세",
+      "visual_review": "Actual output inspected: same dog, studio and fixed camera; four natural gathered airborne limbs, separate paws, no rods or extra limbs. The change from Frame039 is subtle, with modest paw/wrist and trunk-flex variation rather than the full requested displacement. It remains slightly higher/tighter than Frame001; the following two frames must continue easing toward that endpoint. Exact guided body/paw coordinates are approximate.",
+      "file_integrity_verified": true
+    },
+    {
+      "frame": 41,
+      "filename": "Frame_041.png",
+      "file": "frames/Frame_041.png",
+      "sha256": "76067567afceaa9e3c00c867a61b7e7a075b20cca1bf0c497fa44afcc2ad6b9c",
+      "bytes": 1731441,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "exact_default_source_copy": true,
+      "generation_record": "generation/frame041.json",
+      "exact_generated_prompt": "Use case: sketch-to-render. ONE separate photoreal full-body running Border Collie image, not a multi-pose sheet. Input1 is accepted photoreal Frame040 and the PRIMARY EDIT TARGET. Edit it by one small forward instant to Frame041, preserving exact individual, camera, scale and studio. Input2 is Frame041 guide for gentle final gathered-flight lowering and spinal relaxation; real canine neighboring-photo anatomy has priority over square guide joints. Input3 is accepted Frame001 and the actual upcoming loop endpoint. Ease the existing dog most of the way toward its whole-body height and compact limb shape, without copying it exactly yet. Any additional photographs are neighboring pose references, not extra dogs. Produce exactly1536x1024, fixed left-facing strict side view. Whole nose, four paws and tail visible. Same black-white long-haired athletic adult, white blaze/muzzle/chest/paws and tail tip, semi-prick ears, brown eye. Matte light-gray studio, same floor y850 and soft contact shadow. Keep torso center around x800, same body proportions. Guide shapes become realistic rounded flesh and fur, with no visible guide lines. Four connected canine limbs, separate paws, normal shoulder/elbow/wrist and hip/stifle/hock; never fused, missing or twisted limbs. Near means left side visible to camera, far means right side. Changes in body height, spine flex and pitch must carry the whole skeleton. Head gaze remains nearly level through small neck compensation. Ears, coat and tail respond mildly to motion. Clean sharp realistic action photo, no motion blur, no text or accessories. The pose should progress only one small instant from a neighboring image, while fulfilling this guide's paw contacts and targets. Target coordinates are control suggestions; use natural limb articulation rather than square sketch edges.\nFRAME 041 of42. Phase: gathered aerial. Shoulder target[599.7763, 573.9799]; hip[1018.6481, 610.6742]; nose[186.7861, 519.8924]. Body vertical offset-7.2593px; pitch2.2802degrees; spine flex21.8148px.\nnear_hind: AIRBORNE, visibly above floor. Joint path {'hip': [1018.6481, 610.6742], 'stifle': [866.1863, 638.61], 'hock': [981.6978, 708.4819], 'paw': [914.8148, 768.7037]}.\nfar_hind: AIRBORNE, visibly above floor. Joint path {'hip': [1035.0333, 601.3187], 'stifle': [881.9987, 576.7135], 'hock': [961.4067, 685.8894], 'paw': [894.5237, 746.1111]}.\nfar_fore: AIRBORNE, visibly above floor. Joint path {'shoulder': [616.1615, 564.6244], 'elbow': [775.518, 658.5952], 'paw': [597.5, 725.0]}.\nnear_fore: AIRBORNE, visibly above floor. Joint path {'shoulder': [599.7763, 573.9799], 'elbow': [746.2216, 687.0232], 'paw': [563.7566, 740.0]}.\nGathered flight/recovery: forelegs fold naturally below the chest, hind stifles come forward and hocks fold under the belly. Mild flexed spine and higher trunk; all paws off the floor. Body and head respond gently rather than staying frozen. Last frames must close smoothly toFrame001.\nFrame040 still sits slightly higher/tighter than Frame001. This next instant must advance visibly but gently: lower the trunk about8–10px, relax the spinal arch a little; aim for the trunk about5–7px ABOVE the endpoint photo001. Muzzle should lower smoothly about6–8px toward the endpoint's level forward gaze, with natural neck compensation. Foreground white forepaw relaxes down8–10px and slightlyright3–5px; background forepaw with black pads relaxes down5px and right3–5px. Both hind paws stay separately folded under the belly with tiny2–5px downward changes and soft hocks. Tail and ears approach the endpoint001 shape with mild lag, same markings/length. Allfour paws remain airborne; never stand or trot. Keep the head/body fully visible and avoid a abrupt pose jump, limb fusion, extra paws or rigid rods.",
+      "referenced_image_paths": [
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_040.png",
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_041.png",
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_001.png"
+      ],
+      "reference_roles": [
+        "first: pose guide",
+        "second: new v2 identity",
+        "optional: adjacent accepted pose"
+      ],
+      "guide": "guides/Guide_041.json",
+      "time_seconds": 0.666667,
+      "cycle_phase": 0.95238095,
+      "stage": "gathered aerial",
+      "label_ko": "모은 공중 자세",
+      "contacts_ko": "공중 자세",
+      "visual_review": "Actual photo inspected: same full Border Collie identity/scale/studio, four separate airborne paws, natural folded fore joints and hind hocks. Muzzle/trunk move modestly toward Frame001; forepaw change remains subtle and hind paw heights vary slightly from the planned lowering. Precise trajectory and amplitudes are approximate. Frame042 must finish easing into the actual001 photograph. No extra limbs, rods or clear limb fusion.",
+      "file_integrity_verified": true
+    },
+    {
+      "frame": 42,
+      "filename": "Frame_042.png",
+      "file": "frames/Frame_042.png",
+      "sha256": "aa647ea4d4a48f491cecfe5a4bf05015494425858ab560d0bc809b7328800b27",
+      "bytes": 1745641,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "exact_default_source_copy": true,
+      "generation_record": "generation/frame042.json",
+      "exact_generated_prompt": "Use case: precise-object-edit. Input1 is the current frame042 photograph, PRIMARY EDIT TARGET. Make ONLY one layout correction: move the ENTIRE existing dog DOWN by approximately10 pixels within the1536x1024 canvas. Translate its head, nose, eyes, ears, neck, entire torso, spine, tail, four legs and four paws together by the SAME10px, without resizing it, changing its pose, bending different joints, changing fur/face/markings or adding/removing anything. Example: the muzzle currently aroundy505 should be aroundy515; paws should likewise move down10px. Leave the graystudio background, camera, canvas and floor/horizon at y850 unchanged; the dog remains safely airborne with allfour paws abovefloor. Keep its existing natural canine anatomy and four separate limbs exactly. Input2 guide042 provides only the gathered-airborne phase and fixedfloor reference; do not impose squared sketch shapes or alter this existing pose. Input3 Frame001 is the NEXT-FRAME photographic endpoint: the modest10px whole-dog lowering brings frame042 very close to it while retaining a tiny preceding instant. Preserve the identical dog appearance, length/proportions, tail length, lighting and studio shadow style. No crop, zoom, newpose, collar, diagram, labels, blur or extra/fused limbs. Produce one corrected individual frame042 photo.",
+      "referenced_image_paths": [
+        "/Users/byeolee/.codex/generated_images/01a10fce-1419-7a00-b30d-b3cce690f97b/exec-64e256a6-bd47-4fb4-a14e-7b49c4f801b5.png",
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_042.png",
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_001.png"
+      ],
+      "reference_roles": [
+        "first: pose guide",
+        "second: new v2 identity",
+        "optional: adjacent accepted pose"
+      ],
+      "guide": "guides/Guide_042.json",
+      "time_seconds": 0.683333,
+      "cycle_phase": 0.97619048,
+      "stage": "gathered aerial",
+      "label_ko": "모은 공중 자세",
+      "contacts_ko": "공중 자세",
+      "visual_review": "Inspected actual corrected output against Frame041 and endpoint Frame001: whole dog lowered, bringing muzzle, trunk and four tucked airborne paws close to Frame001 while preserving natural elbow/hock forms. The requested10px relocation was approximate and visually closer to15–20px. Loop endpoint paw and fur details still differ slightly, approximately5–15px in some silhouettes. Four limbs/paws remain distinct with no rods, fusion or extra anatomy; same identity, scale, lighting and floor. Inspect the final041→042 lowering as well as042→001 in full sequence QA; exact smooth motion is not certified by this image inspection.",
+      "file_integrity_verified": true
+    }
+  ]
+}

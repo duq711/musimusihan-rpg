@@ -1,0 +1,23 @@
+{
+  "frame": 13,
+  "mode": "built-in image_gen",
+  "prompt": "Use case: precise-object-edit. ONE single separate 1536x1024 real action-photograph frame of this same running Border Collie. IMAGE1 accepted PHOTO Frame012 is the PRIMARY edit target and dominant appearance/anatomy/camera/background reference. IMAGE2 is a secondary near-liftoff/far-hind-push schematic, not exact angular bone anatomy; avoid jumping to its abstract coordinates. Advance photo1 one small instant. The SMALLER FAR HIND PAW ON THE LEFT STILL PUSHES ON FLOOR: keep its toes/sole clearly touching the same floor, shift that planted paw about30pixels right/back and open its hip/stifle/hock naturally. The LARGER NEAR HIND PAW ON THE RIGHT stays AIRBORNE, only15–20pixels higher than photo1, moving backward/right only about15pixels, not instantly high beside the belly. Rear legs opening backward with natural joints, one final hind support before flight; do NOT lift the remaining far paw yet. Pelvis rises about10pixels, spine opens/flattens softly, shoulders rise a few pixels, body dimensions remain constant. BOTH FORELEGS AIRBORNE AND REACHING FORWARD: near curled white forepaw opens a bit and advances30–35pixels left from photo1; far forepaw advances20–25pixels left, keep same general height and natural elbow/wrist/paw shapes. Still preserve visible separation of the two forelegs; do not transform a paw into a long hand. Same face, almost level forward-left gaze, small head/neck response only, same head size and coat markings. Tail base gently follows the hip, black fluffy tail and white tip fully visible. Exactly4 naturally connected canine legs and4 paws. Original warmgray photographic background/floor seam and soft shadows remain stationary, full nose/tail/paws in frame, same camera and margins. Crisp realistic fur and anatomy, no extra/fused/missing/twisted legs, rods, sketch shapes, text, labels, blur, accessories, watermark, grid or montage. ONE individual image.",
+  "referenced_image_paths": [
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_012.png",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_013.png"
+  ],
+  "reference_roles": [
+    "first: preceding accepted012 photo; actual pose/scale/camera/background anchor",
+    "second: approximate final far-hind support/near-airborne schematic, natural anatomy prioritized"
+  ],
+  "default_image_path": "/Users/byeolee/.codex/generated_images/01a10fce-6e28-7031-a509-10fa135070eb/exec-897e39bf-b64c-4db0-beae-3cbd69684ca5.png",
+  "selected_image": "export/frames/Frame_013.png",
+  "guide": "guides/Guide_013.json",
+  "visual_review": "Viewed original photo. Four connected distinct limbs. Far/left rear paw remains grounded and pushes behind the pelvis; near/right rear paw stays airborne, rear joints extend backward, forelegs reach left and wrist opens. Face scale and studio floor boundary stay close to012; head and torso rise slightly. Near hind paw rises/advances farther and near forepaw opens farther than the small requested offsets. Root should inspect013→014 and adjacent playback rather than treat this as exact trajectory compliance.",
+  "resolution": [
+    1536,
+    1024
+  ],
+  "sha256": "5212d6cb70b054e52371237187bcad029308f56ce1d2dfe72d52817cc05563c9",
+  "bytes": 1801464
+}

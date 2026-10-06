@@ -1,0 +1,26 @@
+{
+  "frame": 18,
+  "mode": "built-in imagegen",
+  "prompt": "Use case: sketch-to-render. Produce ONE separate realistic photo, run cycle frame 018. Input1 is the dominant pose/layout edit target: turn its four-limb silhouette into this real dog's anatomy in exactly the same camera position, scale and floor. Input2 is appearance ONLY, same black-white Border Collie, face, white blaze, semi-prick ears, coat, light; do not retain its tucked pose. Use 1536x1024, fixed orthographic side view, dog running LEFT, nose around184,518, hips1020,572 and shoulder600,552. Extended airborne phase after rear-leg push: front paws reaching forward near300,710 and340,735; hind legs reaching BACK beyond pelvis, paws1295,720 and1290,755. All four paws visibly off floor y850. Pelvis and chest higher than support pose, lumbar spine unfolding, shoulders and hips still one connected flexible body. Natural canine stifle then hock then paw, no backwards human knees or giant Z-shaped hocks. Keep paws separate, natural wrist bends, ears slight backward inertia, head gaze near level; tail follows elevated pelvis, tip1375,578. Match gray studio floor/background, long black and white fur, sharp clean lighting. Full nose, paws, tail in frame. One instant, one dog, no guide lines. Anatomically coherent realistic gallop extension is more important than copying squared sketch edges.",
+  "referenced_image_paths": [
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_018.png",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_001.png"
+  ],
+  "default_image_path": "/Users/byeolee/.codex/generated_images/01a107f1-ecad-7902-b7f4-8e94e0915fa6/exec-52d25710-6a44-4a80-86cc-23b9dd2f81cb.png",
+  "selected_image": "export/frames/Frame_018.png",
+  "guide": "guides/Guide_018.json",
+  "visual_review": {
+    "status": "anchor accepted; continuity review pending",
+    "notes": [
+      "Four paws airborne, frontlegs reach forward and hindlegs extend backward; spine unfolds.",
+      "Natural hindleg bend replaces square guide segments; forepaw reach differs from target about100pixels.",
+      "Head, coat and tail have mild inertia; same breed/markings/camera."
+    ]
+  },
+  "resolution": [
+    1536,
+    1024
+  ],
+  "sha256": "c8e4a2461d160076a954147109e3a9b9339e6b44d65edbea72dd32550c80ae16",
+  "bytes": 1819397
+}

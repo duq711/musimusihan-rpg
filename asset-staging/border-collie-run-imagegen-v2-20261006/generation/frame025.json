@@ -1,0 +1,25 @@
+{
+  "frame": 25,
+  "mode": "built-in imagegen",
+  "prompt": "Use case: sketch-to-render. ONE single1536x1024 photorealistic running frame.\nImage1 is a rough dominant POSE/LAYOUT sketch, not a literal skeletal anatomy diagram. Image2 is appearance ONLY of the same black-and-white Border Collie; do NOT reproduce its collected aerial pose. Use image1's lowered forequarters, front-paw contact and airborne bent rear legs, but anatomically resolve its square stick joints into natural real canine limbs with elbows and carpal joints.\nSubject: exactly ONE slender athletic black-and-white Border Collie facing LEFT in full strict side profile, with same brown eye, white muzzle blaze, white chest/neck ruff, black torso, white forefeet/hindfeet and white tail tip as image2. Studio gray floor and background, soft natural light, photographic fur.\nFrame025: sequential forepaw LANDING, front half catching body weight and chest/shoulders visibly lowered and compressed; hindquarters relatively higher, BOTH rear legs airborne behind the belly at the start of forward recovery. Do NOT show standing, levitating all paws, or stiff strut.\nTWO front paws on floor y850, nearer contact roughlyx380 and farther contact roughlyx480. Natural toes flatten subtly under load. Shoulder centers aroundx610/y630; allow the upper arms, elbows and wrists to be slightly reinterpreted from sketch for real dog anatomy. Elbows must sit well above floor, not like hands/knees on floor. The lower forelegs slope forward toward grounded paws, with a natural wrist transition; no right-angle L rods, U-shaped loops or long rubber forearm tubes. Clear chest compression and natural shoulders.\nExactly TWO hindlegs connected to one hip region nearx1020/y614. One leg is slightly nearer and one slightly farther. Each has its own connected thigh, knee/stifle, shin, hock, short lower foot and ONE paw. Both bend in a natural canine zigzag during recovery behind the body, with TWO visually distinct white rear paw ends aroundx1060–1120,y700–760. NO THIRD hindpaw, no extra hanging lower leg, no duplicate foot, no fused or detached limb.\nHead nose nearx180/y540, tail sweeps right to~1375/y570. Preserve left-facing posture, entire body visible including all FOUR feet and tail. Prioritize real canine anatomy and believable landing/contact over literal exact sketch joint coordinates. Photo only, no guides/lines/jointmarkers/text/watermark/grid/montage/collar/harness/hands. The frame must contain FOUR total legs and FOUR total paw ends: two white grounded front paws, two white airborne rear paws.",
+  "referenced_image_paths": [
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_025.png",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_001.png"
+  ],
+  "default_image_path": "/Users/byeolee/.codex/generated_images/01a10fc9-bfe2-7b63-8b30-7e3db4aa6d24/exec-b5b82930-2f08-4aaa-9902-1c83b9393ae3.png",
+  "selected_image": "export/frames/Frame_025.png",
+  "guide": "guides/Guide_025.png",
+  "visual_review": {
+    "status": "pass_anatomy_contact_with_layout_limits",
+    "actual_inspection": "Native image individually inspected. Exactly four connected legs/four paw ends; two forepaws grounded with visible chest dip, two separated hindpaws airborne with bent hocks; same BorderCollie markings and whole-body side framing.",
+    "limits": "Sketch joint geometry was treated as approximate to preserve canine anatomy. Ground contact remains visually near y840 rather than exact850. Forepaws are visually aroundx250/x410 rather than requested380/480, and nose aroundx120 rather than180; these layout differences require consideration for adjacent frame continuity.",
+    "attempts": 2,
+    "rejected_first_attempt": "Apparent third hindpaw and stiff forelegs; default original preserved but never selected."
+  },
+  "resolution": [
+    1536,
+    1024
+  ],
+  "sha256": "3006886829699710b8699b384d95a1b5200ddd323258222701186bd57e07cad4",
+  "bytes": 1823154
+}

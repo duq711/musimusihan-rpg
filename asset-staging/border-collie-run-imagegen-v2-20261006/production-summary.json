@@ -1,0 +1,63 @@
+{
+  "schema": "border-collie-run-production-summary-v2",
+  "date": "2026-10-06",
+  "generator": "built-in image_gen, individual images",
+  "separate_selected_images": 42,
+  "image_dimensions": [
+    1536,
+    1024
+  ],
+  "selected_png_bytes": 74386203,
+  "zip_bytes": 74842605,
+  "zip_sha256": "6764905f89d8ae3efd267721b192ec21df1deafbcd679600dc5243a596db94b8",
+  "checks": {
+    "exact_default_copies": 42,
+    "sha256_matches": 42,
+    "resolution_matches": 42,
+    "unique_image_hashes": 42,
+    "zip_original_image_hashes": 42,
+    "zip_crc": "passed",
+    "individually_viewed_by_creators": 42,
+    "actual_browser": {
+      "available_frames": 42,
+      "native_image_dimensions": [
+        1536,
+        1024
+      ],
+      "image_loaded": true,
+      "play_enabled": true,
+      "zip_link_present": true
+    },
+    "guide_validation": "guides/guide_validation.json; constructed 2D controls only"
+  },
+  "changes_ko": "발 회수 경로·몸통 굽힘과 신전·뒷발 압축·앞발 착지 눌림을 반영해 42장을 개별 재생성. 큰 관절/추가 발/앞다리 교체 후보를 재생성하고 원본을 보존.",
+  "changes_en": "Regenerated42 individual frames with paw recovery, trunk flex/extension, hind support and fore landing compression; revised malformed and limb-swap candidates while preserving originals.",
+  "natural_continuous_run_verified": false,
+  "limits_ko": "004→005 앞발 점프, 일부 이륙/착지 발 간격, 031→032 회수 발 이동, 032→033 바닥·등·털 변화, 후반 모으기 동작 정체가 남음. 프레임 정확한 운동/3D 리그 검증은 아님.",
+  "limits_en": "Forepaw jump at004→005, uneven lift/contact spacing, recovery shift031→032, backdrop/body variation032→033 and late motion holds remain. No frame-exact biomechanics or3D rig validation.",
+  "review_records": [
+    "generation/continuity-review-late.json",
+    "generation/continuity-review-early-revision.json",
+    "generation/frame032.json",
+    "generation/frame017.json"
+  ],
+  "artifacts": {
+    "frames": "export/frames/Frame_001.png … Frame_042.png",
+    "gallery": "export/index.html",
+    "zip": "border-collie-run-v2-individual-frames-20261006.zip",
+    "prompts": "prompts.json and generation/frameNNN.json",
+    "guides": "guides/",
+    "project_notes": "docs/BORDER_COLLIE_RUN_IMAGEGEN_V2_20261006.md"
+  },
+  "sharing": {
+    "task_branch": "codex/labrador-pet-20261005",
+    "previous_local_binary_commit_preserved": "c29975b5aa3951392aad799e81c9cc1247695ad9",
+    "final_publication_record": "publication-local-status.json (administrative local receipt)",
+    "full_binary_upload": "separate from connector text publication; local Git/LFS credentials previously unavailable"
+  },
+  "cleanup": {
+    "final_images_zip_guides_default_originals": "preserved",
+    "reviewed_temp_transfer_and_alternate_index": "remove after publication checks; allocation/free recorded in administrative receipt"
+  },
+  "free_disk_bytes_at_packaging": 10234781696
+}

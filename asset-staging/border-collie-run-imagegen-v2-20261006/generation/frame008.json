@@ -1,0 +1,26 @@
+{
+  "frame": 8,
+  "mode": "built-in imagegen",
+  "prompt": "Use case: sketch-to-render. ONE separate frame08 realistic photo of the SAME Border Collie as input2. INPUT1 is the dominant edit-target/layout/POSE CONTROL. Convert its four-limb silhouette into real dog anatomy at its EXACT position/size; do not draw guide shapes/lines. INPUT2 is ONLY fur/face/markings/lighting identity, NOT its airborne pose. Preserve1536x1024, camera and studiofloor y850. Pose: hind landing and weight compression. Both hind paws at(1050,850) and(965,850) planted flat on samefloor, soft knees and hocks folded bearing weight. Pelvis lowers toaround(1017,652), shoulders around(600,599). BOTH forepaws off floor reaching forward toward(450,715),(480,730), elbows naturally flexed beneath chest. Chest slightly up relativepelvis, softly compressed lumbar shape—not rigid horizontal torso. Nose around(190,529), gaze level through natural neck adjustment, ears slightly back, tail base follows LOWER pelvis and tip relaxes aroundy660. Whole-body weight visibly supported on rear feet; no floating paws or legs sunk belowfloor. Exact same individual face, black back/flanks andwhiteblaze/muzzle/ruff/paws,white tailtip. Sharp photoreal fur, subtle contactshadow, warmgraystudio. FOUR connected legs/FOUR separated normal paws; wholebody/nose/tail visible. No cartoon,rod limbs,text,panels,collar ormotionblur. Render onlythissingleinstant.",
+  "referenced_image_paths": [
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_008.png",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_001.png"
+  ],
+  "default_image_path": "/Users/byeolee/.codex/generated_images/01a107f1-ecad-7902-b7f4-8e94e0915fa6/exec-3283067f-3af6-4bb5-9d4b-d714dba637dd.png",
+  "selected_image": "export/frames/Frame_008.png",
+  "guide": "guides/Guide_008.json",
+  "visual_review": {
+    "status": "anchor accepted; continuity review pending",
+    "notes": [
+      "Both hind paws grounded, forepaws airborne, pelvis compresses with planted hindlegs.",
+      "Same face, coat and camera as new v2 seed.",
+      "Pose guide approximate: hindpaw horizontal positions differ by about80 pixels."
+    ]
+  },
+  "resolution": [
+    1536,
+    1024
+  ],
+  "sha256": "afc71936540158bd868dc2cf4777d70f8be4635985e0dcd9b2ed54f7a60586c7",
+  "bytes": 1766948
+}

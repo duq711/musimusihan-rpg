@@ -1,0 +1,156 @@
+{
+  "frame": 27,
+  "time_seconds": 0.433333,
+  "cycle_phase": 0.61904762,
+  "stage": "fore landing, compression and release",
+  "body_vertical_offset_px": 29.1587,
+  "body_pitch_degrees": -5.7112,
+  "spine_flex_px": 5.9743,
+  "head_nod_degrees": 6.4769,
+  "world_head_gaze_degrees": 0.7656,
+  "neck_compensation_y_px": -51.9655,
+  "body_points": {
+    "shoulder": [
+      602.0872,
+      641.0023
+    ],
+    "hip": [
+      1021.9927,
+      619.1067
+    ],
+    "nose": [
+      179.3645,
+      542.1672
+    ],
+    "tail": [
+      [
+        1105.575,
+        550.4482
+      ],
+      [
+        1185.2444,
+        543.152
+      ],
+      [
+        1277.0437,
+        556.6541
+      ],
+      [
+        1373.8853,
+        570.3289
+      ]
+    ]
+  },
+  "legs": {
+    "near_hind": {
+      "contact": false,
+      "support_start_frame": 6.0,
+      "support_last_frame": 11.0,
+      "joints": {
+        "hip": [
+          1021.9927,
+          619.1067
+        ],
+        "stifle": [
+          969.5836,
+          764.9775
+        ],
+        "hock": [
+          1032.685,
+          645.6326
+        ],
+        "paw": [
+          1036.4073,
+          735.5556
+        ]
+      },
+      "segment_lengths_px": [
+        155,
+        135,
+        90
+      ],
+      "unreachable_extension_px": 0.0,
+      "unreachable_fold_px": 0.0
+    },
+    "far_hind": {
+      "contact": false,
+      "support_start_frame": 8.0,
+      "support_last_frame": 13.0,
+      "joints": {
+        "hip": [
+          1036.9181,
+          607.5641
+        ],
+        "stifle": [
+          1074.4468,
+          757.9523
+        ],
+        "hock": [
+          1069.5814,
+          623.04
+        ],
+        "paw": [
+          1073.3037,
+          712.963
+        ]
+      },
+      "segment_lengths_px": [
+        155,
+        135,
+        90
+      ],
+      "unreachable_extension_px": 0.0,
+      "unreachable_fold_px": 0.0
+    },
+    "far_fore": {
+      "contact": true,
+      "support_start_frame": 23.0,
+      "support_last_frame": 29.0,
+      "joints": {
+        "shoulder": [
+          617.0126,
+          629.4597
+        ],
+        "elbow": [
+          726.1658,
+          778.827
+        ],
+        "paw": [
+          550.0,
+          850.0
+        ]
+      },
+      "segment_lengths_px": [
+        185,
+        190
+      ],
+      "unreachable_extension_px": 0.0,
+      "unreachable_fold_px": 0.0
+    },
+    "near_fore": {
+      "contact": true,
+      "support_start_frame": 25.0,
+      "support_last_frame": 32.0,
+      "joints": {
+        "shoulder": [
+          602.0872,
+          641.0023
+        ],
+        "elbow": [
+          637.997,
+          822.4837
+        ],
+        "paw": [
+          450.0,
+          850.0
+        ]
+      },
+      "segment_lengths_px": [
+        185,
+        190
+      ],
+      "unreachable_extension_px": 0.0,
+      "unreachable_fold_px": 0.0
+    }
+  }
+}

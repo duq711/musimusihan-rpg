@@ -1,0 +1,29 @@
+{
+  "frame": 1,
+  "mode": "built-in image_gen",
+  "prompt": "Use case: sketch-to-render. EDIT TARGET: the input is a pose-control silhouette; transform it into a highly photorealistic athletic black-and-white BORDER COLLIE action photograph. Keep the INPUT'S exact full-body composition, body height, trunk flexion, head position, paw positions and entire tail. Input silhouette is only an anatomy/layout guide: replace every flat shape and rod with real anatomical dog musculature and natural fur; leave NO rods/lines/sketch visible. Warm light-gray studio, fixed camera and floor at y850 on 1536x1024 canvas. Dog's nose aboutx185y530, shoulder aboutx600y580, hipaboutx1020y620. Preserve space above the dog; do not enlarge or move the dog toward top of frame. Real black back/flanks, broad white chest/neck ruff, white muzzle/facial blaze, brown eye, black nose, white distal paws, semi-prick black ears swept back, black flowing tail with white tip. Real body proportions, moderately long fur, slender healthy adult Border Collie; no collar. Pose: gathered airborne gallop, BOTH forelegs folded underneath chest, BOTH hindlegs gathered underneath abdomen, 4 paws CLEARLY off floor. Fore elbows modestly behind lower shoulder, wrists naturally flexed; hind knees forward/hocks tucked, never human arms. Near/far legs distinctly separate: exactly FOUR connected legs, FOUR small canine paws. Reconstruct believable joints with the guide's paw endpoints and torso layout. Head level forward gaze with neck compensating softly flexed back; tail responds subtly to pelvis, not straight rigid rod. Crisp sharp real action photography, no motion blur, no text/labels/watermarks/borders/contactsheet. ONE complete single image only.",
+  "referenced_image_paths": [
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_001.png"
+  ],
+  "default_image_path": "/Users/byeolee/.codex/generated_images/01a107f1-ecad-7902-b7f4-8e94e0915fa6/exec-d6ad8463-8e65-4967-bb61-f845eaeb9834.png",
+  "selected_image": "export/frames/Frame_001.png",
+  "guide": "guides/Guide_001.json",
+  "visual_review": "New pose-controlled seed: nose/layout now follows guide; four tucked airborne paws, natural compact torso; whole dog visible. Approximate joint/paw alignment, not pixel-exact control.",
+  "discarded_attempts": [
+    {
+      "prompt": "Use case: photorealistic-natural. Create ONE separate realistic action photograph, one frame of a LEFT-facing athletic black-and-white Border Collie gallop, 1536x1024 landscape. Input image1 is APPEARANCE ONLY: same individual face, white blaze/muzzle/chest/paws, black back and white tail tip. Do NOT copy image1's pose, scale or position. Input image2 is the dominant POSE AND LAYOUT control: put the dog in that guide's position and size, same fixed camera, floor height and four distinct leg poses. Reconstruct a real healthy dog's anatomy and realistic fur around its approximate bones, never draw rods, flat silhouette, guide lines or cartoon shapes. Warm gray seamless studio, soft light, sharp action photograph, no blur/no text/props/collar. Gathered airborne recovery: chest and pelvis gather, spine softly flexed; BOTH forelegs fold below chest with elbows low; BOTH hindlegs tucked below pelvis, all four paws off floor. Guide's nose around(185,530), shoulder(600,580), hip(1020,620), forepaws about(550,740) and(580,720), hindpaws about(920,770) and(885,750). Put anatomical canine joints where the guide suggests, with paws exactly at its tips. Neck compensates body pitch so gaze mostly level, ears swept slightly back; tail follows pelvis with slight sag. Same body scale across later frames but allow genuine whole-body height/pitch change. Exactly four connected legs and four separated identifiable paws; no extra leg, fused paws, knees/arms embedded in chest. ONE full dog in ONE image, entire nose/tail/paws visible; generous margins. Frame01 metadata only, no numbers or sheet.",
+      "referenced_image_paths": [
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/references/dog-identity.png",
+        "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_001.png"
+      ],
+      "default_image_path": "/Users/byeolee/.codex/generated_images/01a107f1-ecad-7902-b7f4-8e94e0915fa6/exec-56fabc99-3999-45af-bf01-7e0e5fcc4564.png",
+      "reason": "Appearance reference dominated layout; dog remained too high and large relative to motion guide."
+    }
+  ],
+  "resolution": [
+    1536,
+    1024
+  ],
+  "sha256": "6f350f92723a816476a8a4116ef298675b06ac160dacdb21cb28a92ccaa3e9ab",
+  "bytes": 1786187
+}

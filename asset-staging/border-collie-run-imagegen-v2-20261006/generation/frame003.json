@@ -1,0 +1,31 @@
+{
+  "frame": 3,
+  "mode": "built-in imagegen",
+  "prompt": "Edit input1 Frame002 photograph into the verynext instant003. Input2 is secondaryposeguide. Keep exactphoto1536x1024, head nose184,520, torso/coat/camera/studiofloor850. Only advance hindlegs: nearpawnow~920,810 (15pxdown,10pxright), farpaw~850,770(10pxdown), openinghocksslightly. FORELEGS remain folded under chest, almostsameasinput1; nearforepaw~590,735 andfarforepaw~680,716, noforwardreachingyet. Bothforeelbowsnaturalbelowshoulder, allfourpawsairborne. Pelvis lowers3pxandspinebarelychanges. Tiny adjacentstep, samephotorealanatomy. Oneframeonephoto, noextra paws.",
+  "referenced_image_paths": [
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_002.png",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_003.png"
+  ],
+  "default_image_path": "/Users/byeolee/.codex/generated_images/01a107f1-ecad-7902-b7f4-8e94e0915fa6/exec-2ce35afa-8ece-4693-9c6c-e270b6825fe4.png",
+  "selected_image": "export/frames/Frame_003.png",
+  "guide": "guides/Guide_003.json",
+  "discarded_candidates": [
+    {
+      "default_image_path": "/Users/byeolee/.codex/generated_images/01a107f1-ecad-7902-b7f4-8e94e0915fa6/exec-c7f132a2-858c-4ccd-a7cd-f41dcdd3f34c.png",
+      "reason": "Farforepaw moved too far forward when futureanchor supplied."
+    }
+  ],
+  "visual_review": {
+    "status": "selected; cycle review pending",
+    "notes": [
+      "Corrected farforejump: forepaws stay tucked, nearhindfoot lowers and extends.",
+      "Body/head camera stable; four airborne connected limbs."
+    ]
+  },
+  "resolution": [
+    1536,
+    1024
+  ],
+  "sha256": "6ded13fda0b799158f541762a905fe81c2157d50f80895a483049d52d6039f92",
+  "bytes": 1699021
+}

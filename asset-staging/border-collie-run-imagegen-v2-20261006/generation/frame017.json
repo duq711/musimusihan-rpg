@@ -1,0 +1,37 @@
+{
+  "frame": 17,
+  "mode": "built-in image_gen",
+  "prompt": "Use case: precise-object-edit. ONE separate1536x1024 photorealistic image of the immediatelyNEXT RUNNING INSTANT017, editing the attached acceptedFrame016 PHOTO. Preserve its exactBorderCollieidentity, head/face sizeandposition, torso scale, coat, tail, camera, background/floor horizon/lighting. Verysmallcontinuationofextendedflight; four pawsairborne. Farhindpaw onleft currentlyaround1185,780 movesonly30pxRIGHT and30pxUP to1215,750, naturalstifle/hockcontinuesopening. Nearhindpaw onrightcurrently1310,720 moves20pxRIGHT and8pxUP to1330,712. Neitherrearlegmayfold/collect orjump80px. FORELIMBS remainstretchedforwardLEFT: nearforegroundforepawaround330,710 movesonly15pxLEFT and5pxDOWN to315,715. Farupperforepawcurrentlyaround195,657 keepsxpositionalmostunchanged andlowersabout20px toabout195,677. Do notfoldor movethefrontfeetrighttowardchest. Bothforelegscontinuethe existingreach andnaturalelbow/wristcurves. Headnoseonly3pxleft and1pxup, verygentlelumbaropening, samelevelleftgaze. Keepbarelydifferentbodypositions, not a biggerdog or wholebodyraise. Maintainfourdistinctrealcaninelegs/paws, no extras, no diagram/text/guide lines, no blur/collage. ONE adjacentinstant, not anewstride.",
+  "referenced_image_paths": [
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_016.png"
+  ],
+  "reference_roles": [
+    "first and only: revised preceding016 photo; small extended-flight follow-through",
+    "guide017 viewed, omitted for local photo continuity"
+  ],
+  "default_image_path": "/Users/byeolee/.codex/generated_images/01a10fce-6e28-7031-a509-10fa135070eb/exec-2a20c76b-aad8-4673-97d2-683244b6c2bc.png",
+  "selected_image": "export/frames/Frame_017.png",
+  "guide": "guides/Guide_017.json",
+  "visual_review": "Full first successful candidate and one local repair actually viewed. First candidate retained as best of the two: four distinct natural legs/paws, extended forelimbs, far hindfoot progresses right/up gradually. Rightmost hindpaw reaches around1370,680, beyond following018, so 017→018 may show roughly30–40px rear-paw return; exact target continuity not achieved. Local repair moved rightmost foot too far left (~100px) and converged hindpaw positions, worsening direction/spacing, so rejected. Head/body/background stay close to preceding016; 018 floor boundary and coat lighting still differ. One earlier call failed connection with no image output.",
+  "discarded_attempts": [
+    {
+      "prompt": "Use case: precise-object-edit. MakeONE1536x1024 photorealistic image by doing a VERY SMALL local repair to this exact attached Frame017 candidatePHOTO. Keep EVERYTHING unchanged except the RIGHTMOST REAR LEG ANDITS WHITEPAW. Preserve exact head, body, fourlimbidentity, ALLBOTHFRONTLEGS/PAWS, far/leftrearleg/paw, coat/tail, camera,lighting,floor/background. The RIGHTMOST whitehindpaw onfar right is slightlytoo farback andtoohigh. Move ONLY thatpaw35pixelsLEFT and20pixelsDOWN, towardabout1335,705, bendingits existinghocknaturally justenoughto accommodate. Do NOT changeotherthreepawpositions. Keepfourdistinctnaturalcanine legs/paws andallfourairborne; nofusedlegs. Do notmoveentiredog, rotatebody, shortenlegbydistortion, or changeface. Onlythetinyrightmostrearfootpositionrepair; onecompletePHOTO, no diagram/text/motionblur/collage.",
+      "default_image_path": "/Users/byeolee/.codex/generated_images/01a10fce-6e28-7031-a509-10fa135070eb/exec-9faea485-97ff-4e7c-a93b-50c4d7b5994b.png",
+      "reason": "Rightmost hindpaw moved much farther left than requested and nearly converged with far hindpaw; reverses progression from016 and worsens leg spacing. First successful candidate retained."
+    }
+  ],
+  "generation_errors": [
+    {
+      "error": "image generation failed: connection failed: error sending request",
+      "output": "none",
+      "action": "same prompt retried once"
+    }
+  ],
+  "resolution": [
+    1536,
+    1024
+  ],
+  "sha256": "16dc8f699927bd1625e47125902fa84e5a447a1420f81265a7a04c8758b430bc",
+  "bytes": 1793482,
+  "previous_selected_receipt": "generation/attempts/frame017-replaced-c56d9b94b02e.json"
+}

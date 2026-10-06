@@ -1,0 +1,121 @@
+{
+  "reviewed_at": "2026-10-06T10:29:13.940811+00:00",
+  "mode": "bounded built-in imagegen revision and actual-photo continuity review",
+  "generation_calls": 7,
+  "selected_replacements": [
+    5,
+    6,
+    7
+  ],
+  "preserved_selected_frames": [
+    3,
+    4,
+    8
+  ],
+  "rejected_or_unselected_calls": 4,
+  "source_handling": "Every selected photo is an exact byte copy of its default generated original. Default originals, unselected candidate receipts and previous selected receipts are preserved as production records. No pixel postprocessing was used.",
+  "checks": [
+    {
+      "frame": 3,
+      "selected_image": "export/frames/Frame_003.png",
+      "sha256": "6ded13fda0b799158f541762a905fe81c2157d50f80895a483049d52d6039f92",
+      "bytes": 1699021,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "unchanged_anchor": true
+    },
+    {
+      "frame": 4,
+      "selected_image": "export/frames/Frame_004.png",
+      "sha256": "35168e56dafb3a1b08532d4b159a51f39db64fa0f4374545305c3d81558c76b0",
+      "bytes": 1693828,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "unchanged_anchor": true
+    },
+    {
+      "frame": 5,
+      "selected_image": "export/frames/Frame_005.png",
+      "sha256": "97ec86d16008017ec0d883c14bbfe31780b1049967a9b78fed4435c0eedf7b08",
+      "bytes": 1687546,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "unchanged_anchor": false
+    },
+    {
+      "frame": 6,
+      "selected_image": "export/frames/Frame_006.png",
+      "sha256": "5c31cf8618f377e0afbd05e26acbad45661045a71758707c1a1638a5de983b45",
+      "bytes": 1736341,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "unchanged_anchor": false
+    },
+    {
+      "frame": 7,
+      "selected_image": "export/frames/Frame_007.png",
+      "sha256": "3101be582b9bc59d57a9bce2c85a523406f9ea024fafafaa15d08afdce2d863e",
+      "bytes": 1745482,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "unchanged_anchor": false
+    },
+    {
+      "frame": 8,
+      "selected_image": "export/frames/Frame_008.png",
+      "sha256": "afc71936540158bd868dc2cf4777d70f8be4635985e0dcd9b2ed54f7a60586c7",
+      "bytes": 1766948,
+      "resolution": [
+        1536,
+        1024
+      ],
+      "unchanged_anchor": true
+    }
+  ],
+  "review_scope": "Actual selected photographs003→004→005→006→007→008 viewed individually in chronological order after replacement.",
+  "coordinate_precision": "All anatomical displacements below are approximate visual estimates at1536x1024, not measured mocap or automated point tracking.",
+  "improved": [
+    "Near/far foreleg identities are now consistent through005-008; the old007→008 depth/pose swap is removed.",
+    "Far hindpaw visibly descends through005 airborne,006 airborne,007 just abovefloor,008 contact. Approximate sole heights770→805→830→855.",
+    "Near hindpaw is airborne005, makes contact006, then stays on same floor through007-008.",
+    "From005-008 the close curled foreleg and head are relatively stable while far foreleg unfolds left; studio camera and floor remain broadly consistent."
+  ],
+  "remaining_limits": [
+    {
+      "transition": "004→005",
+      "severity": "high",
+      "finding": "Far forepaw remains aroundx700,y710 in preserved004, then jumps toaroundx490,y660 in revised005. Requested005 farpawx560-585,y720 was ignored in two attempts. The bounded revision has not fixed this entry discontinuity."
+    },
+    {
+      "transition": "004 candidate rejected",
+      "severity": "high",
+      "finding": "The one optional004 correction requestedx635-645,y715, but actualoutput farpaw moved aroundx450,y680, making003→004 worse and reversing the arc. Original selected004 was preserved."
+    },
+    {
+      "transition": "004→005→006",
+      "severity": "medium",
+      "finding": "005 body/head are slightly higher than004, then lower again in006. The rise/reversal is greater than the planned small compression change."
+    },
+    {
+      "transition": "005→006→007→008",
+      "severity": "medium",
+      "finding": "Actual farforepaw progression aroundx490→475→455→410 has uneven horizontal spacing. Pawheight is higher than target, and near hind support-foot drift is small rather than following35px/frame guide motion."
+    }
+  ],
+  "verdict": {
+    "natural_continuous_run_verified": false,
+    "summary": "Limb identity and hind descent improve within005-008, but the unresolved004→005 forepaw teleport prevents a natural continuous-run claim."
+  },
+  "summary_ko": "005–007을 각각 이미지 생성으로 교체하여 앞다리의 가까운 쪽과 먼 쪽이 바뀌는 문제와 뒷발 하강을 개선했습니다. 004 수정 후보는 과도한 이동 때문에 제외했습니다. 004→005의 앞발 순간 이동은 남아 있어 자연스러운 연속 달리기로 판정하지 않습니다.",
+  "summary_en": "Replaced005-007 with separate built-in image generations, improving near/far foreleg identity and hindpaw descent. Rejected the004 candidate because it overshot. The004→005 forepaw teleport remains, so natural continuous running is not verified."
+}

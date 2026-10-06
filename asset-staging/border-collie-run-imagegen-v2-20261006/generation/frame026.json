@@ -1,0 +1,27 @@
+{
+  "frame": 26,
+  "mode": "built-in imagegen",
+  "prompt": "Use case: precise-object-edit. Produce ONE separate complete1536x1024 photographic frame, not collage. Image1 photograph is the PRIMARY edit target: preserve exact BorderCollie identity, face, coat markings, realistic fur, body proportions, camera/framing, gray studio floor/background and soft light. Image2 sketch is SECONDARY phase/layout guidance; use only its contact status and direction, no square stick joints or whole dog relocation. Keep exactly four connected canine legs and four paw ends, natural shoulder/elbow/carpus and hip/stifle/hock anatomy. Whole nose, ears, all four paws and tail visible. No text/lines/grid/extra dog/hand/collar/harness/motionblur. Ground contact plane stays y840–850. Anatomical naturalness and incremental photo continuity override exact sketch coordinates. Advance ONE small instant fromphoto025 to026, AFTERBOTHFOREPAWS LANDED. Both frontpaws remainfirmlyONfloor; shifttheir screencontactpointsRIGHT~25px relativeleft-runningbody (leftforepaw~x280 andrightforepaw~x440,contacty840). Dog's chestandshoulders visibly COMPRESS DOWN~12–15px, frontelbowsBENDslightlyabovefloor, naturalwrists/toe padsabsorbimpact. Do notpreservepreviousstraightforelegs: articulateasweightpassesoverplantedpaws, forearmsstillangleforwardbutlessoblique. Bodyproportionsandcameraareunchanged; lowerhead~5pxwithneckcompensatednearlevelgaze, lumbarspinemildflex. TWO hindlegs remainairborne andfoldgraduallyforwardunderbelly, pawtipsmove~20pxLEFT fromphoto. Everyhindlegmustclearlyhave thigh/knee/shin/hock/foot,noextraorbentrod. Samebackdropboundaryandfloorphotofirst,notguide'sexactcoords. Thisisthecompressionstage,notliftoffandnotstanding. Fourtotalpaws:twoforepawsgrounded,tworearpawsairborne.",
+  "referenced_image_paths": [
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_025.png",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_026.png"
+  ],
+  "default_image_path": "/Users/byeolee/.codex/generated_images/01a10fc9-bfe2-7b63-8b30-7e3db4aa6d24/exec-0f38986e-2082-4aae-bd2d-c9a07a157e07.png",
+  "selected_image": "export/frames/Frame_026.png",
+  "guide": "guides/Guide_026.png",
+  "visual_review": {
+    "status": "pass_with_compression_limits",
+    "actual_inspection": "Native individually viewed. Bothforepawsgroundedandshiftback/rightslightly, chestlowersmodestly, twoairbornehindpawsrecoverforwardwithnormalhocks. Fourfeet/identity/framing preserved.",
+    "limits": "Shoulder/elbowcompressionismildratherthanstrong; contact positions andjointanglesapproximate. Hindpawsrecovermorethanrequested.",
+    "actual_ground_contacts": [
+      "both_forepaws"
+    ],
+    "attempts": 1
+  },
+  "resolution": [
+    1536,
+    1024
+  ],
+  "sha256": "424cf3ec66cc6f57b0463c6de1429b9295f0124b5492d68647aafad085c7ac79",
+  "bytes": 1805739
+}

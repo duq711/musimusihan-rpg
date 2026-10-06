@@ -1,0 +1,20 @@
+{
+  "frame": 7,
+  "mode": "built-in image_gen",
+  "prompt": "Use case: edit ONE photograph to make the immediately preceding running instant, frame007, of the exact same left-facing Border Collie. INPUT1 PHOTO is the primary edit target: keep its same dog identity, muzzle, eye, markings, fur quality, scale, crop, perspective, studio light, gray background and floor. INPUT2 is only an approximate body/hind-joint motion guide. Preserve the limb identity and smoothness of the PHOTO over sketch angles. Exactly1536x1024, whole nose and tail in frame. Make only one small backward step from input1. The near foreleg is the larger white curled leg visible in front of the chest: KEEP it softly curled with its paw centered around(550,745), nearly the same place as input1. The FAR foreleg is the thinner partially occluded foreleg with dark toe pads, reaching forward LEFT: move ONLY this far forepaw about45px to the RIGHT of its location in input1, ending around(455,715). This is a smooth intermediate unfolding posture, not swapping which foreleg is closest. Both forepaws stay airborne, four paws separately visible. The near hind white paw remains planted flat around(970,865) on this same studio floor with a small contact shadow, a normal flexed stifle and hock carrying weight. The far hind paw is around(880,840), just25px above the near foot plane, descending next instant into contact; no shadow glued to the airborne paw. Natural shoulder/elbow/wrist and hip/stifle/hock, rounded limbs, no rods or fused feet. Torso/pelvis slightly less compressed than input1, only3-5px higher; tail base follows pelvis with tiny lift, no wag. Keep nose around(184,520) and almost level gaze; no sudden head rise. Preserve background/floor pixels and camera as closely as possible. Photoreal sharp action photo, no labels, lines, motion blur, accessories, montage or duplicate dogs. Render only this single neighboring instant.",
+  "referenced_image_paths": [
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_008.png",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_007.png"
+  ],
+  "default_image_path": "/Users/byeolee/.codex/generated_images/01a10fce-1419-7a00-b30d-b3cce690f97b/exec-f2ac60ea-ec18-42a0-8599-398b301f97e3.png",
+  "selected_image": "export/frames/Frame_007.png",
+  "guide": "guides/Guide_007.json",
+  "visual_review": {
+    "status": "not selected; targeted revision pending",
+    "notes": [
+      "Near foreleg remains correctly folded and all four limbs are identifiable.",
+      "Far forepaw barely moves right from 008, so intended gradual forward arc has not been achieved.",
+      "Far hind paw is too high relative to the neighboring 008 contact; next attempt will lower it slightly."
+    ]
+  }
+}

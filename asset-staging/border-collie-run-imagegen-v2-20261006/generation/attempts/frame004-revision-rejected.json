@@ -1,0 +1,21 @@
+{
+  "frame": 4,
+  "mode": "built-in image_gen",
+  "prompt": "Edit ONE photo locally for running frame004. INPUT1 is the primary photograph to preserve. INPUT2 is rough fore-joint articulation context only. INPUT3 is the next selected frame005, used only to see the direction of the far foreleg's motion. Keep the same1536x1024 photo, dog's face, head position, whole body height and proportions, tail, both airborne hindlegs, large CLOSE white curled foreleg, studio floor, lighting and camera unchanged. Change ONLY the FAR foreleg: its dark-pad paw is currently the paw furthest RIGHT under the chest, around(705,710), behind the larger curled near white paw. Advance this same far paw FORWARD to the LEFT by65-75px, ending around(635-645,715). Keep the far forepaw immediately to the RIGHT of the close forepaw and slightly higher, with separate toe pads and normal soft elbow bend, as the first small stage of unfolding. Preserve which foreleg is farther from the camera; the near white curled paw stays around(600,735) exactly as in input1. No near/far depth swap, no change to hind feet or body height, no additional limb or fused paw. Photoreal soft flesh and fur, same pads and coat. Render only one sharp action photograph with this one small far-foreleg correction, no text, diagrams, collage or blur.",
+  "referenced_image_paths": [
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_004.png",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_004.png",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_005.png"
+  ],
+  "default_image_path": "/Users/byeolee/.codex/generated_images/01a10fce-1419-7a00-b30d-b3cce690f97b/exec-2c7b0af2-43cf-40f1-aeef-2d87d88db912.png",
+  "selected_image": "export/frames/Frame_004.png",
+  "guide": "guides/Guide_004.json",
+  "visual_review": {
+    "status": "rejected; original selected004 preserved",
+    "notes": [
+      "Near foreleg/body/head/hindfeet remain close to original004.",
+      "Requested far forepaw x635-645,y715 was ignored; actual far paw moved to aroundx450,y680, an excessive leftward jump from003 and reversed direction relative new005.",
+      "This candidate worsens continuity and was not selected."
+    ]
+  }
+}

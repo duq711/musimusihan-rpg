@@ -1,0 +1,13 @@
+{
+  "frame": 34,
+  "status": "unselected head-corrected draft",
+  "mode": "built-in image_gen",
+  "prompt": "Use case: precise-object-edit. Input1 is the existing candidate frame034 action photograph and the PRIMARY EDIT TARGET. Make ONE local correction: move the dog's whole head (muzzle, nose, eyes and ears together, same proportions and gaze) DOWN approximately 15 pixels, keeping the muzzle tip at about x184,y500. Gently bend/extend the neck fur connection so the head stays naturally attached to the chest. Keep all other pixels/objects and the existing body, spine, tail, FOUR legs and FOUR airborne paws in their current positions and poses; do not resize, shift or re-pose the whole dog. Input2 is accepted neighboring frame035: use ONLY its same dog's face and head/muzzle height as the placement reference; do not copy its limb pose. Input3 is frame034 guide, use only as neck-compensation direction. Preserve the exact dog identity, coat markings, face, brown eye, photographic lighting, fixed camera, full1536x1024 canvas, neutralgray studio, floor y850 and soft shadow. No newobjects, collar, text, skeletal lines, fused or extra limbs, or motion blur. One corrected individual photo only.",
+  "referenced_image_paths": [
+    "/Users/byeolee/.codex/generated_images/01a10fce-1419-7a00-b30d-b3cce690f97b/exec-200aeffc-2810-4639-9646-e5a166e867cc.png",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_035.png",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_034.png"
+  ],
+  "default_image_path": "/Users/byeolee/.codex/generated_images/01a10fce-1419-7a00-b30d-b3cce690f97b/exec-b07c6a1f-3811-4652-b758-1abdc7c5d8ff.png",
+  "visual_review": "Head corrected toward guide height, but the far forepaw shifted substantially forward compared with neighboring Frame035. Local far-forelimb continuity correction requested."
+}

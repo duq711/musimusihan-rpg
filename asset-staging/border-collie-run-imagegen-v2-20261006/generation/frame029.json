@@ -1,0 +1,28 @@
+{
+  "frame": 29,
+  "mode": "built-in imagegen",
+  "prompt": "Use case: precise-object-edit. Produce ONE separate complete1536x1024 photographic frame, not collage. Image1 photograph is the PRIMARY edit target: preserve exact BorderCollie identity, face, coat markings, realistic fur, body proportions, camera/framing, gray studio floor/background and soft light. Image2 sketch is SECONDARY phase/layout guidance; use only its contact status and direction, no square stick joints or whole dog relocation. Keep exactly four connected canine legs and four paw ends, natural shoulder/elbow/carpus and hip/stifle/hock anatomy. Whole nose, ears, all four paws and tail visible. No text/lines/grid/extra dog/hand/collar/harness/motionblur. Ground contact plane stays y840–850. Anatomical naturalness and incremental photo continuity override exact sketch coordinates. Frame029: a MINIMAL EDIT ofphotograph1 frame028. LockHEAD,NECK,TORSO,TAIL andBACKGROUND at EXACTsamepositionsandappearance, especially noseat~x125/y530. Do notliftorrotatehead orrecenter dog. Ignoreguidesketchhead/torso silhouetteplacemententirely.\nChange ONLYforelimbarticulationandpawpositions slightly. BothfrontpawsremainONfloor atsamegroundheight; leftforepaw advancesRIGHTonly20px fromcurrent~x350to~x375, rightforepawRIGHTonly20px from~x560to~x580. Naturalelbowandwrist slightlyrotateaspawsadvancebackrelativebody, leftheelrollsuponitstoe forupcomingrelease030. No rubberstretch,nolongstraightstilts,no pawlift yet. TWO rearfeetstayairborne inthesamebentnaturalpose, negligible5pxhockrecoveryonly. Exactlyfourconnectedlimbs/fourpaws. Thisframe mustdifferfromphoto1onlybysmallforepaw/jointadvance, not byglobalbody/head reposition. Samephotoidenticalfur/coatandlights,noextraobjects/text.",
+  "referenced_image_paths": [
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_028.png",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_029.png"
+  ],
+  "default_image_path": "/Users/byeolee/.codex/generated_images/01a10fc9-bfe2-7b63-8b30-7e3db4aa6d24/exec-422200dd-9795-4c16-8257-c2b439750c6d.png",
+  "selected_image": "export/frames/Frame_029.png",
+  "guide": "guides/Guide_029.png",
+  "visual_review": {
+    "status": "pass_anatomy_with_spacing_limit",
+    "actual_inspection": "Native individually viewed. Secondattempt lockshead/body/backdrop; forelegsadvancebacktowardverticalandsupportfloor, bothrearpawsairborne andfourlimbsnormal.",
+    "limits": "Nearforefootadvance~70pxlargerthanrequested20px; toetimingapproximate. Firstattemptrejectedglobalheadrise. Precisetemporalspacingnotestablished.",
+    "actual_ground_contacts": [
+      "both_forepaws"
+    ],
+    "attempts": 2,
+    "rejected_first_attempt": "Globalheadmovedup~70pxandright~45px; selectedrepeatpreservesheadtrajectory."
+  },
+  "resolution": [
+    1536,
+    1024
+  ],
+  "sha256": "3f4e52a5bb0ab2ea15fef4970f088483e6b990585cc895bfec9b7b51dc0326d2",
+  "bytes": 1774001
+}

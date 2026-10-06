@@ -1,0 +1,20 @@
+{
+  "frame": 35,
+  "mode": "built-in image_gen",
+  "prompt": "Use case: precise-object-edit. Edit input1, the photoreal Frame035 candidate, with ONE local anatomical pose correction. Keep the exact existing dog, head/neck/body/spine/tail, other three legs, face, fur markings, lighting, camera, scale, full 1536x1024 canvas and gray studio/floor entirely unchanged. Only slightly unfold and lower the NEAR LEFT FORELEG, which is the white foreground leg curled beneath the chest and has a white paw currently at approximately (663,748). Its toe/paw should move DOWN about 25 pixels to around (663,773), by a small natural opening of the elbow and wrist; the lower foreleg remains gently bent and airborne, never a straight rod. Do NOT alter the far forepaw with black pads at about (748,710); do NOT lower or move the whole dog. Input2 is the frame035 guide for this local recovery direction only; input3 is the same exact dog's appearance/identity reference, not a pose to copy. Preserve natural rounded canine limb taper, four separate connected limbs and four paws, all airborne above the y850 floor. No new objects, no anatomy diagram or text, no extra/fused limbs, no blur. Produce ONE image of the locally corrected frame035, not a sheet.",
+  "referenced_image_paths": [
+    "/Users/byeolee/.codex/generated_images/01a10fce-1419-7a00-b30d-b3cce690f97b/exec-683bfb17-a77e-47f7-985c-739cf2a7b2d9.png",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_035.png",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_001.png"
+  ],
+  "default_image_path": "/Users/byeolee/.codex/generated_images/01a10fce-1419-7a00-b30d-b3cce690f97b/exec-bd90c365-5de3-40b2-942c-041015239965.png",
+  "selected_image": "export/frames/Frame_035.png",
+  "visual_review": "Actual corrected output inspected: foreground forepaw unfolds lower than Frame036 while far forepaw stays curled; body/head/tail and other three limbs retain neighboring-photo continuity. Four airborne paws, normal soft elbow/wrist and hock bends, same identity/scale/studio. A targeted local near-forepaw correction was required. Pixel positions and exact advance remain approximate; no obvious fused/extra limbs or rods.",
+  "guide": "guides/Guide_035.json",
+  "resolution": [
+    1536,
+    1024
+  ],
+  "sha256": "3a2a41566fc8afd95bf2daae8e386836c8ac4cd0f973e52ae35c566b823f734a",
+  "bytes": 1772467
+}

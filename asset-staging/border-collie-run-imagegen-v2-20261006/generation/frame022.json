@@ -1,0 +1,24 @@
+{
+  "frame": 22,
+  "mode": "built-in imagegen",
+  "prompt": "Use case: precise-object-edit. Produce ONE separate complete1536x1024 photographic frame, not collage. Image1 photograph is the PRIMARY edit target: preserve exact BorderCollie identity, face, coat markings, realistic fur, body proportions, camera/framing, gray studio floor/background and soft light. Image2 sketch is SECONDARY phase/layout guidance; use only its contact status and direction, no square stick joints or whole dog relocation. Keep exactly four connected canine legs and four paw ends, natural shoulder/elbow/carpus and hip/stifle/hock anatomy. Whole nose, ears, all four paws and tail visible. No text/lines/grid/extra dog/hand/collar/harness/motionblur. Ground contact plane stays y840–850. Anatomical naturalness and incremental photo continuity override exact sketch coordinates. Advance ONE small instant from photo021 to022 immediately before first forepaw landing. All FOUR paws remain airborne, but both forepaws are approaching the floor. The LEFT/HIGHER forepaw in input1 lowers40–45px towardground and shifts only10pxLEFT; its toe remains25–35px above floor. The RIGHT/LOWER forepaw advances10pxRIGHT and5–10pxDOWN, still20px or more aboveground. Front elbows remain high with natural wrist joints; do not straighttrace sketch elbows or make toes/floor contact yet. Hindpaws recover a further20–25pxLEFT towardhip; bend hocks/knees incrementally, two pawsdistinct aroundrearbody. Head/forequarters lower only~8px andshift4pxleft, mildlyforwardpitched body, no sudden deepdrop or shrink. Keep exactly the same floor/backgroundposition asphoto, localcontactshadowgets a littlecloser. This is lastaerialinstant before first forepaw touches23 andother25.",
+  "referenced_image_paths": [
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_021.png",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_022.png"
+  ],
+  "default_image_path": "/Users/byeolee/.codex/generated_images/01a10fc9-bfe2-7b63-8b30-7e3db4aa6d24/exec-fd2f42ae-366a-486c-8dd8-0b9fdb513172.png",
+  "selected_image": "export/frames/Frame_022.png",
+  "guide": "guides/Guide_022.png",
+  "visual_review": {
+    "status": "pass_with_temporal_limits",
+    "actual_inspection": "Native individually viewed. Four connected airborne paws; frontfeet closer floor, head/forequarters lower gradually and hindlegs recover with distinct hocks/paws. Background stable.",
+    "limits": "Higher forepaw remains farther from floor than catalog intended; photo continuation favors lower/right paw contacting first for reduced jump. Guide contact-side attribution approximate.",
+    "attempts": 1
+  },
+  "resolution": [
+    1536,
+    1024
+  ],
+  "sha256": "b8fe1c29b8f6ece4d058174a27815b0c42c7931a89d0968abae6036f29c0fc94",
+  "bytes": 1789808
+}

@@ -1,0 +1,31 @@
+{
+  "frame": 2,
+  "mode": "built-in imagegen",
+  "prompt": "Edit input1 (the accepted Frame001 photograph) into the IMMEDIATELY NEXT running instant, Frame002. Preserve the same dog, exact camera, canvas1536x1024, studio floor y850, lighting, nose at184,520, eyes/ears/neck and body position and outline within3 pixels. Input2 is a secondary pose guide only. This is a very small 1/42 stride advance: near hind paw now LOWER by about10px, far hindpaw lowers5px, natural hock begins opening slightly; both remain airborne. Forelegs remain tucked below chest almost exactly as in input1. Four separate connected legs. Do not lift entire body or head; don't alter coat markings or fur size. Render one realistic photo of one instant. Make the paw advancement visible but subtle; retain normal canine knee/hock curves.",
+  "referenced_image_paths": [
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_001.png",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_002.png"
+  ],
+  "default_image_path": "/Users/byeolee/.codex/generated_images/01a107f1-ecad-7902-b7f4-8e94e0915fa6/exec-acbf561c-732f-465e-bf10-487c36ff2bca.png",
+  "selected_image": "export/frames/Frame_002.png",
+  "guide": "guides/Guide_002.json",
+  "discarded_candidates": [
+    {
+      "default_image_path": "/Users/byeolee/.codex/generated_images/01a107f1-ecad-7902-b7f4-8e94e0915fa6/exec-1cb1ab01-b61b-4b4c-9bd5-5bdc256b33cb.png",
+      "reason": "Unintended head rise and hindfeet upward shift from001."
+    }
+  ],
+  "visual_review": {
+    "status": "accepted",
+    "notes": [
+      "Same head and torso position as001; hindpaws lower about10-20px, four limbs remain tucked and airborne.",
+      "Photo-first edit resolved guide-first unintended body shift; guide adherence approximate."
+    ]
+  },
+  "resolution": [
+    1536,
+    1024
+  ],
+  "sha256": "dec23dc2fc5e3d54d2ac7545f0831d8ea88598ba9d200c1ba10cc565353a887c",
+  "bytes": 1715996
+}

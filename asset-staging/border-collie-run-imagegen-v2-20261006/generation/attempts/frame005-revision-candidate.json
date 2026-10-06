@@ -1,0 +1,21 @@
+{
+  "frame": 5,
+  "mode": "built-in image_gen",
+  "prompt": "Edit INPUT1 PHOTO locally: replace ONLY the FAR foreleg's pose to make frame005 an intermediate run pose. Keep exact same photo/head/fur/body/tail/hindlegs/floor and the LARGE CLOSE white curled foreleg unchanged. The far foreleg is the SMALLER partially occluded white arm currently showing black toe pads left of the larger near forepaw aroundx490,y650. Repose that FAR arm to the LIGHT GRAY fore-arm geometry of INPUT2 guide using rounded real dog anatomy: upper far arm angles BACKWARD to the RIGHT, softly bent elbow lies underneath the chest aroundx680,y700; lower far forearm folds FORWARD LEFT and its separate dark-pad paw ends aroundx560,y710. The far paw is below its current location by50-60px and to the RIGHT by70px, just slightly above the near white curled paw, not projecting far forward beside the neck. Maintain the same far/near identity and two separate forepaws, normal joints, no fused legs, no square angles or additional limb. This ONE small far foreleg pose must change; preserve every other body part and camera closely. One1536x1024 photoreal photo only, no labels, diagrams, collage or blur.",
+  "referenced_image_paths": [
+    "/Users/byeolee/.codex/generated_images/01a10fce-1419-7a00-b30d-b3cce690f97b/exec-16745ed2-ade4-4b69-a89b-06d6cfd7e45a.png",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_005.png"
+  ],
+  "default_image_path": "/Users/byeolee/.codex/generated_images/01a10fce-1419-7a00-b30d-b3cce690f97b/exec-ea322a18-3a40-4271-8489-976ca04320d2.png",
+  "selected_image": "export/frames/Frame_005.png",
+  "guide": "guides/Guide_005.json",
+  "visual_review": {
+    "status": "selected bounded revision; substantial target deviation remains",
+    "notes": [
+      "Near foreleg stays folded and near/far identity is consistent with revised006-007 and preserved008.",
+      "Both hindpaws are airborne; near hind sole near y835 and far hind near y770, followed by touchdown in006.",
+      "Two attempts largely ignored requested far-foreleg retraction; actual far paw remains around x490,y660, not targetx560-585,y720. Consequently005→006 is small but004→005 still requires boundary repair.",
+      "Head/body are close to revised006, but body's rise relative preserved004 is greater than intended. No full natural-motion claim."
+    ]
+  }
+}

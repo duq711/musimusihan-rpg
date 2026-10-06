@@ -1,0 +1,20 @@
+{
+  "frame": 6,
+  "mode": "built-in image_gen",
+  "prompt": "Use case: edit ONE photograph to make the immediately preceding running instant, frame006. INPUT1 PHOTO is the primary edit target: the exact same left-facing Border Collie, face, fur, markings, crop,1536x1024 camera, studio lighting, gray background and floor. INPUT2 is approximate hind-body articulation context; smooth photographic near/far identity takes priority over sketch foreleg geometry. Make only a small backward advance from input1. Keep the larger CLOSE near foreleg softly curled with its white paw in the same position around(550,745), same pad orientation. The FAR foreleg is the thinner partly occluded foreleg currently reaching left with black toe pads around(455,695): fold it slightly more toward the chest, moving this SAME FAR paw55px RIGHT and20px DOWN to around(510,715). Keep far paw separate and slightly higher than near paw, preserve which foreleg is nearer the camera, do not swap their identities. Both forepaws airborne. The near hind white foot remains flat on the same foreground floor aroundy865 with its front toe10px LEFT of input1, aboutx920-955; natural flexed knee and hock bearing weight. The far hind white paw rises15px from input1 to aroundy815, still clearly airborne and separate; its paw moves slightly right, aroundx870. Pelvis/trunk3-5px higher and less compressed than input1, a tiny corresponding tail-base lift. Preserve head location and gaze closely; nose around(184,515), no sudden bob. Four connected normal dog limbs, no fused or missing paws, no rod joints. Preserve floor/background/camera as closely as possible. One sharp photoreal action photo only, no blur, labels, guides, montage or accessories.",
+  "referenced_image_paths": [
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_007.png",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_006.png"
+  ],
+  "default_image_path": "/Users/byeolee/.codex/generated_images/01a10fce-1419-7a00-b30d-b3cce690f97b/exec-86a2e170-9a7c-463b-a867-c9c0d455c4b1.png",
+  "selected_image": "export/frames/Frame_006.png",
+  "guide": "guides/Guide_006.json",
+  "visual_review": {
+    "status": "not selected; targeted local correction pending",
+    "notes": [
+      "Near/far foreleg identities preserved and close foreleg stays curled.",
+      "Far forepaw advances only about20px right and lifts about15px from 007, instead of desired55px right and20px down.",
+      "Far hindpaw also rises more than requested."
+    ]
+  }
+}

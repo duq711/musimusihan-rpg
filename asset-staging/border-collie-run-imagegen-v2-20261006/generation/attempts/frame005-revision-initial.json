@@ -1,0 +1,20 @@
+{
+  "frame": 5,
+  "mode": "built-in image_gen",
+  "prompt": "Use case: edit ONE photo into frame005, exactly one neighboring instant BEFORE INPUT1 frame006 and AFTER INPUT3 frame004. INPUT1 PHOTO is the primary edit target, INPUT2 guide only gives rough hind contact/body context, INPUT3 is the earlier boundary photograph for smooth limb/identity continuity. Preserve the same1536x1024 camera, same left-facing individual Border Collie face and coat, gray studio, floor y850 horizon, and lighting. Keep near/far foreleg identity fixed. The larger CLOSE foreleg stays naturally curled beneath the chest: near white paw around(575,745), only20px RIGHT of its place in input1, smoothly between the input1 and input3 close-leg positions. The FAR foreleg is thinner/partly occluded with dark pads: curl that SAME far leg more back toward the chest for this preceding instant, with its paw around(560-585,720), approximately85px RIGHT from input1. Do not swap foreleg depth/identity; this far paw sits slightly ABOVE the close paw, with separate visible toes. Normal rounded shoulder/elbow/wrist, no rigid rods. BOTH hind paws are airborne for this last instant before near hind landing. Lift the near hind sole15px above input1 ground plane to around(945,848), extend the normal ankle preparing for touchdown but no floor contact shadow stuck to the foot. Far hind white paw around(865,795), only10-15px above its height in input1, visibly separated from floor. Body/pelvis3-5px higher and a little less compressed than input1, tail follows gently, preserve nearly level head and nose around(184,515), no new head angle or camera shift. Whole nose, torso, four separate paws, and tail in frame. Photoreal sharp fur, no motion blur, text, guide lines, collage, accessories, duplicate or extra limbs. Only this single intermediate instant.",
+  "referenced_image_paths": [
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_006.png",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_005.png",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_004.png"
+  ],
+  "default_image_path": "/Users/byeolee/.codex/generated_images/01a10fce-1419-7a00-b30d-b3cce690f97b/exec-16745ed2-ade4-4b69-a89b-06d6cfd7e45a.png",
+  "selected_image": "export/frames/Frame_005.png",
+  "guide": "guides/Guide_005.json",
+  "visual_review": {
+    "status": "not selected; far foreleg correction pending",
+    "notes": [
+      "Both hindpaws airborne, near hind sole around y835 and far hind around y770.",
+      "Near foreleg folded and identity correct, but far forepaw remains too far forward aroundx490,y655, not an actual intermediate from preserved004 to revised006."
+    ]
+  }
+}

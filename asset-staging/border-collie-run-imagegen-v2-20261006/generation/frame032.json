@@ -1,0 +1,30 @@
+{
+  "frame": 32,
+  "mode": "built-in imagegen",
+  "prompt": "Use case: precise-object-edit. Produce ONE separate complete1536x1024 photographic frame, not collage. Image1 photograph is the PRIMARY edit target: preserve exact BorderCollie identity, face, coat markings, realistic fur, body proportions, camera/framing, gray studio floor/background and soft light. Image2 sketch is SECONDARY phase/layout guidance; use only its contact status and direction, no square stick joints or whole dog relocation. Keep exactly four connected canine legs and four paw ends, natural shoulder/elbow/carpus and hip/stifle/hock anatomy. Whole nose, ears, all four paws and tail visible. No text/lines/grid/extra dog/hand/collar/harness/motionblur. Ground contact plane stays y840–850. Anatomical naturalness and incremental photo continuity override exact sketch coordinates. Frame032 TARGETED one-limbcorrection. Photoframe031 image1primarybody/head/background. OnlytheALREADYAIRBORNEFARFRONTLEG changesstrongly: folditsupperarm/elbowfurtherBACKtowardthebelly soitsWHITEPAW moves fromcurrentleftunderchest~x530 toBEHINDthegroundednearforelegat~x650–680,y680–700. That airborne white farforepaw MUSTbe on theRIGHT SIDEof thegroundedwhitefrontleg, clearlyvisiblejustbelowchest/belly, likefarforelegdirectioninimage3. Do notkeepfarforepawstuckontheleftunderneck. Naturalelbow/carpusorientationandattachment, no fusedor extra paws.\nKeep theOTHERnearforepaw touchingfloor ONLYBYTOESat~x635,y840 withheelraised, immediatelybeforeliftoff033. Twohindpawsstayairborne, normalfoldedlegs. Thus fourtotallegs/fourpaws; ONEfronttoescontactfloor, otherTHREEpawsairborne.\nHeadnoseonlyadvances~15pxrighttoward165,y510–519, torso/frontshouldersriseonly5px, no recenterorwholeposecopyofimage3. Photo1graybackgroundandfloorcameraboundaryunchanged; image3onlyairbornefarforelimbtarget for smoothnextinstant. Image2stageguideapproximate. Renderthesinglelastforetoecontactmoment, withairbornefarforepawbehindnearsupportleg.",
+  "referenced_image_paths": [
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_031.png",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_032.png",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_033.png"
+  ],
+  "default_image_path": "/Users/byeolee/.codex/generated_images/01a10fc9-bfe2-7b63-8b30-7e3db4aa6d24/exec-efa1d94a-d00d-4877-ae8b-720acec46a23.png",
+  "selected_image": "export/frames/Frame_032.png",
+  "guide": "guides/Guide_032.png",
+  "visual_review": {
+    "status": "pass_contact_with_temporal_limits",
+    "actual_inspection": "Native individually viewed. Targetedrepairplacesairbornefarforepawbehindnearforeleg, preparing033foldedpose. Nearforepawstilltouchesfloorandtwohindpawsairborne; exactlyfour connectedlegs/pawends; sameface/coat/background.",
+    "limits": "Nearfrontheelnotclearlytoe-only; farforepawpositionchangeslargely031→032ratherthansmoothlyevenincrement. Headmoveslessthanrequested.032→033grayfloor/backgroundboundarydifferenceandbody/coatflickerremain; notmeasured60fpscontinuity.",
+    "actual_ground_contacts": [
+      "rightward_forepaw"
+    ],
+    "image_attempts": 2,
+    "failed_connection_calls": 1,
+    "rejected_first_image": "Farforepawremainedleftunderneckanddidnotadvancetoward033; targetedrepairselected."
+  },
+  "resolution": [
+    1536,
+    1024
+  ],
+  "sha256": "ae8c073f65c8bc3f918570482a727e0806f226cd75a42d66de74260db3b04b50",
+  "bytes": 1803036
+}

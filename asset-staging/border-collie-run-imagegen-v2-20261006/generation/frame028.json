@@ -1,0 +1,28 @@
+{
+  "frame": 28,
+  "mode": "built-in imagegen",
+  "prompt": "Use case: precise-object-edit. Produce ONE separate complete1536x1024 photographic frame, not collage. Image1 photograph is the PRIMARY edit target: preserve exact BorderCollie identity, face, coat markings, realistic fur, body proportions, camera/framing, gray studio floor/background and soft light. Image2 sketch is SECONDARY phase/layout guidance; use only its contact status and direction, no square stick joints or whole dog relocation. Keep exactly four connected canine legs and four paw ends, natural shoulder/elbow/carpus and hip/stifle/hock anatomy. Whole nose, ears, all four paws and tail visible. No text/lines/grid/extra dog/hand/collar/harness/motionblur. Ground contact plane stays y840–850. Anatomical naturalness and incremental photo continuity override exact sketch coordinates. TARGETED SMALL EDIT forframe028. Photo1 frame027 isalmostentirelypreserved. DoNOTrecenter, rescale, shiftwholebody orraisetheheadnoticeably. TheHEAD/NOSE mustremainessentiallyatitscurrentpixelposition: nosearoundx125,y530, atmost10pxright/5pxup. Guide2HEADPOSITION/torsoheight areNOTtobeimitated; onlycontactphaseissupportingcontext.\nMakeonlyasmallforeleg/bodychange: BOTH forepaw toesremainplanted atsamefloorheight; moveleftforepawfrom~x300to~x325 andrightforepawfrom~x470to~x495. Retainpawsizeandleglengths, gentlyrotateforearmsasbodyweightmovesoverplantedfeet. Chest lifts only5–8pxfrompreviouscompression, frontelbowsslightlyunfoldnaturally; notalargebodyleap. Exactlytworearpawsstayintheair, samekneehockposewithonlya5pxforwardfold, no bigtuckchange. ExactBorderColliefur/coat/face/softgraybackgroundboundary fromphoto1,nochangesincameraortailposition. Keep FOUR connectedlegs/FOURfeet, fronttwo grounded/reartwo airborne, no text. Thismustlooklike nearlyadjacentinstantofthe SAME photograph ratherthancompletelydifferentpose.",
+  "referenced_image_paths": [
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_027.png",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_028.png"
+  ],
+  "default_image_path": "/Users/byeolee/.codex/generated_images/01a10fc9-bfe2-7b63-8b30-7e3db4aa6d24/exec-d4259b2e-8815-480a-8669-56d885e1a70a.png",
+  "selected_image": "export/frames/Frame_028.png",
+  "guide": "guides/Guide_028.png",
+  "visual_review": {
+    "status": "pass_anatomy_with_spacing_limit",
+    "actual_inspection": "Native individually viewed. Secondattempt keepshead/body/backdropnearpreviouspositions; four normalconnectedlimbs withbothforefeetgroundedandrearpawsairborne. Forelegsrotate towardverticalnaturally.",
+    "limits": "Forefeetadvanceback/right~60–90px despiteprompt25px, largerthanpreciseoneframespacing. Headjumpfromfirstattemptfixed. Motionreferencesremainqualitative,notmeasuredcontinuity.",
+    "actual_ground_contacts": [
+      "both_forepaws"
+    ],
+    "attempts": 2,
+    "rejected_first_attempt": "Largeglobalhead/forequarterjump; secondattemptlocksheadbetter."
+  },
+  "resolution": [
+    1536,
+    1024
+  ],
+  "sha256": "37e4d29a6db76c934be2ab8c76f32df8d222cae6f5d3b26106842e0fc6b225b0",
+  "bytes": 1776514
+}

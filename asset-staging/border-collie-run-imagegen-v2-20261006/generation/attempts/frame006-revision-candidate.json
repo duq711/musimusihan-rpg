@@ -1,0 +1,21 @@
+{
+  "frame": 6,
+  "mode": "built-in image_gen",
+  "prompt": "Make a very local correction to INPUT1 PHOTO. Retain the exact Border Collie photo, camera, floor, muzzle, head, torso, tail and larger curled CLOSE white foreleg. The FAR foreleg is the small thin partly hidden white leg whose dark pads are currently LEFT of the larger curled forepaw, around(470,680). Curl this small FAR leg a little more toward the chest: move its same paw40pixels RIGHT and30pixels DOWN, ending around(510,710). Leave the large near curled forepaw around(550,740) untouched. Preserve clear separation, natural soft elbow flex and which leg is nearer the camera. Also lower ONLY the smaller FAR hind white paw by15pixels, ending aroundy810, still suspended above the floor; near hind paw remains planted as before. Input2 is only canine joint context. No change to head location, trunk height, scale, background or lighting. One1536x1024 sharp realistic action photograph, four distinct normal connected dog limbs, no blur, extra legs, labels, diagram or sheet.",
+  "referenced_image_paths": [
+    "/Users/byeolee/.codex/generated_images/01a10fce-1419-7a00-b30d-b3cce690f97b/exec-86a2e170-9a7c-463b-a867-c9c0d455c4b1.png",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_006.png"
+  ],
+  "default_image_path": "/Users/byeolee/.codex/generated_images/01a10fce-1419-7a00-b30d-b3cce690f97b/exec-73362c96-a0fe-45f1-baca-1253fbd568d8.png",
+  "selected_image": "export/frames/Frame_006.png",
+  "guide": "guides/Guide_006.json",
+  "visual_review": {
+    "status": "selected after targeted local correction; continuity approximate",
+    "notes": [
+      "Close foreleg retains folded near-camera identity; far foreleg remains thinner, partly hidden and forward.",
+      "Actual far forepaw remains around x475,y700; desired x510,y715 was only partially achieved, so 006→007 advances less than 007→008.",
+      "Far hind paw now sits about y810, then descends toward revised 007 about y830 and preserved 008 ground contact.",
+      "Head/trunk positions are close to revised007, with torso modestly higher; near hind paw remains planted and its horizontal progression is weak."
+    ]
+  }
+}

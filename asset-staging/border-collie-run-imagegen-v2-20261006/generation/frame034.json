@@ -1,0 +1,31 @@
+{
+  "frame": 34,
+  "mode": "built-in image_gen",
+  "prompt": "Use case: precise-object-edit. Produce ONE separate1536x1024 photorealistic image. IMAGE1 is the existing Frame034 PHOTO and PRIMARY EDIT TARGET. IMAGE2 is Frame033 PHOTO, used ONLY as a nose/head HEIGHT reference. Make a very tiny continuity adjustment: MATCH THE NOSE HEIGHT OF IMAGE2 while keeping head xposition and size from IMAGE1. In image1 the nose is just slightly too low, so lift it only a tiny amount, about one percent of canvas height. The head must stay at almost the SAME HEIGHT as in both input images. Do NOT put head higher than the head in IMAGE2; do NOT lengthen or raise the neck. Preserve same level forward-left gaze and existing face markings. Keep all the REST of PHOTO1 unchanged: exact FOUR LEG/PAW poses and joint positions, shoulder/chest position, abdomen, rump, back, fluffy coat, tail, dog scale, camera, all background and floor/shadows. DO NOT copy IMAGE2's leg pose, and do not advance the running animation. Keep photo1's four existing separate airborne paws exactly in their current places. Only lightly adjust the head/upper-neck so its nose sits almost exactly at the nose-height of PHOTO2, roughlyx184y515. This is a tiny near-invisible change, not a new pose. Same natural action photograph, no extras, no enlarged head, no body slide, no long neck, no annotations, no blur, no collage. ONE image only.",
+  "referenced_image_paths": [
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_034.png",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_033.png"
+  ],
+  "reference_roles": [
+    "first: existing034 primary photo target; all body, limb and background positions retained",
+    "second: preceding033 head-height reference only; leg pose must not be copied"
+  ],
+  "default_image_path": "/Users/byeolee/.codex/generated_images/01a10fce-6e28-7031-a509-10fa135070eb/exec-6312c634-17d3-4bbd-abe2-9bd89cb172c4.png",
+  "selected_image": "export/frames/Frame_034.png",
+  "guide": "guides/Guide_034.json",
+  "visual_review": "Viewed the full candidate against033, original034 and035. Retry makes a modest head/upper-neck rise and removes original034's downward dip; face scale, four paw/leg positions, torso/tail and floor boundary remain visually close to original034. Nose height appears near500 rather than requested515, so033→034 rises about15px and034→035 is nearly level with a small possible3px reversal. This is an approximate correction, not pixel-exact head-only editing. First much larger/elongated-neck candidate was rejected.",
+  "discarded_attempts": [
+    {
+      "prompt": "Use case: precise-object-edit. Edit the attached PHOTO Frame034 into ONE separate1536x1024 photorealistic image. This is a very small HEAD/UPPER-NECK ONLY correction for animation continuity. Keep the entire existing torso, back, shoulder location, rump, ALL FOUR LEGS, ALL FOUR PAWS, every paw/leg joint position, their fur markings, tail position/shape, shadows, camera, image scale, studio background and floor boundary unchanged. Do NOT advance the running limb pose. Shift ONLY the dog's existing head and upper neck approximately12pixels UP vertically, preserving its xposition and exact head/face size. Target nose center aroundx184,y515 in this1536x1024 canvas, same closed jaw, same white muzzle/blaze, brown eye and black ears. Smooth natural neck connection to the unchanged chest; nearly level forward-left gaze with very small neck compensation. Keep same existing realistic fur texture and identity; don't enlarge the head, tilt wholebody or translate dog. Keep current four distinct real canine legs and paws exactly as they are, all airborne. No new objects, extra/fused/missing limbs, drawing, text, labels, blur, watermark, collage or guide marks. Only the tiny head/neck height correction, ONE complete single photo.",
+      "default_image_path": "/Users/byeolee/.codex/generated_images/01a10fce-6e28-7031-a509-10fa135070eb/exec-47855a78-e05a-4596-ad95-8e75023b66fe.png",
+      "reason": "Head was lifted roughly90px instead of a tiny12px correction; head/neck became too high and elongated. Rejected without replacing accepted034."
+    }
+  ],
+  "resolution": [
+    1536,
+    1024
+  ],
+  "sha256": "2d83f534563f83e8f857ebc063a1c13a96de45a3f8ce72994cdfed90ab77fced",
+  "bytes": 1791565,
+  "previous_selected_receipt": "generation/attempts/frame034-replaced-81ef7300082d.json"
+}

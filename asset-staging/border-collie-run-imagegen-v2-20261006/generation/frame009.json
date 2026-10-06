@@ -1,0 +1,30 @@
+{
+  "frame": 9,
+  "mode": "built-in image_gen",
+  "prompt": "Use case: precise-object-edit. Produce ONE 1536x1024 photorealistic running Border Collie frame by editing IMAGE1, the accepted previous PHOTO Frame008. Preserve image1's entire photographic background exactly, gray studio/floor boundary, dog face, head position, torso scale and framing. IMAGE2 is a rough pose/contact guide ONLY, not a drawing to imitate and not an absolute coordinate target. Next instant of hind-leg pushing, very small continuous change. Four connected normal canine legs and four separate paws. BOTH HIND PAWS REMAIN FLAT ON FLOOR. Move each hind paw only25–30pixels right/backwards from PHOTO1. In this canvas, place the FAR hind paw around x900 y855 and the NEAR hind paw around x985 y860 (paw centers), preserving natural paw width and floor contact. Keep hip around x1010 and allow rump to rise at most8pixels; open rear joints slightly while keeping natural thigh/knee/hock anatomy. Do not extend the hind foot to x1100 yet, and do not lengthen the body. BOTH FOREPAWS remain airborne: far forepaw only a little forward around x380 y700, near forepaw still curled around x525 y730; opening these wrists/elbows subtly, no large reach yet. Preserve same face, head size and almost same nose position aboutx180y510, near level gaze, all same coat markings and fluffy tail silhouette. Mild neck and pelvis response only. Whole dog and all paws visible; real sharp photographic fur/anatomy, no square rods, guide lines, labels, motion blur, missing/extra limbs, fused paws or collage. ONE individual image only.",
+  "referenced_image_paths": [
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_008.png",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_009.png"
+  ],
+  "reference_roles": [
+    "first: accepted Frame008 primary photo edit target; same face, scale, camera and background",
+    "second: pose/contact guide only; natural articulation and preceding paw positions take precedence over absolute schematic endpoints"
+  ],
+  "default_image_path": "/Users/byeolee/.codex/generated_images/01a10fce-6e28-7031-a509-10fa135070eb/exec-60df38e5-bf2a-47ec-8387-66b2e783bd8f.png",
+  "selected_image": "export/frames/Frame_009.png",
+  "guide": "guides/Guide_009.json",
+  "visual_review": "Viewed full generated photo. Four distinct canine legs/paws; both hind paws planted with contact shadows, both forepaws airborne. Retry reduced hind/forepaw advance compared with discarded attempt. Head size/nose and studio floor boundary remain visually close to Frame008; hind joints open slightly. Approximate paw offsets and pelvis change only, not exact guide-coordinate compliance or a full temporal pass.",
+  "discarded_attempts": [
+    {
+      "prompt": "Use case: precise-object-edit. ONE separate photorealistic Border Collie run-cycle frame, full 1536x1024 landscape image. IMAGE1 is the actual accepted previous photo Frame008, the PRIMARY EDIT TARGET and immutable identity, photographic camera, scale, framing and background reference. IMAGE2 is only a supporting schematic for this next instant's contact order and hind-push direction; never copy its square rods, abstract shapes or extreme knee geometry. Advance PHOTO1 by ONE small instant into hind-leg propulsion. BOTH hind paws stay clearly planted on the same studio floor with distinct contact shadows. Each planted hind paw moves only about30 pixels backward/right relative to the dog's body from its position in PHOTO1; do not jump to the diagram's absolute endpoints. Keep two distinct normal canine hind legs with knees in front of hocks, natural bends, normal feet and musculature. Rump rises only a few pixels as hip, stifle and hock begin gently opening to push. Chest remains suspended, no front paw touches ground. BOTH front paws begin a modest forward/left reaching movement, only about20–30 pixels from PHOTO1, elbows and wrists naturally flexed, not instantly fully extended. Preserve head size and nose position almost exactly; neck softly compensates the small torso change, gaze forward/left. Preserve original torso dimensions, coat markings, face, entire fluffy black tail with white tip and gentle tail response to pelvis. Preserve photo1's background pixels/composition as closely as possible: same gray studio horizon and textured floor, do not raise or lower the floor boundary, no new floor line. Whole dog remains visible at same scale with generous upper margin. Exactly FOUR connected canine legs and FOUR paws, no extra/missing/fused/twisted limb, no limb buried in chest. Same sharp natural real photograph, black/white fur, no accessories, no motion blur, no text/guide marks/watermarks/grid/collage. Generate just ONE single image.",
+      "default_image_path": "/Users/byeolee/.codex/generated_images/01a10fce-6e28-7031-a509-10fa135070eb/exec-598e2e16-6a53-4ef4-ab6f-f2ab1af3f3be.png",
+      "reason": "Hind-paw advance was visually larger than the intended small next instant; targeted retry requests explicit smaller paw positions."
+    }
+  ],
+  "resolution": [
+    1536,
+    1024
+  ],
+  "sha256": "dd8edfca5f583f86a1e6f5560668e61ff5e6edf776f087def41c730d55ca07aa",
+  "bytes": 1775431
+}

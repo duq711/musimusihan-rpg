@@ -1,0 +1,30 @@
+{
+  "frame": 10,
+  "mode": "built-in image_gen",
+  "prompt": "Use case: precise-object-edit. ONE full 1536x1024 realistic Border Collie photo, next animation instant after IMAGE1 PHOTO Frame009. IMAGE1 is the dominant edit target; preserve its exact head, face, muzzle/eye/ear size and position, photographic background, floor boundary, lighting, torso and tail size. IMAGE2 is a rough secondary guide to two hind paws supporting the dog; its angular geometry and absolute endpoint coordinates must NOT override PHOTO1. Make only SMALL changes to four limbs and rump: move BOTH grounded hind paws only25 pixels RIGHT along the floor, keeping BOTH whole paw soles planted. Keep natural existing joints and extend the hind ankles/knees only slightly. Lift the pelvis just5pixels while maintaining the same body shape and no body rescaling. Both forepaws remain airborne. Move each forepaw only25pixels LEFT at almost the SAME height it had in PHOTO1. In particular keep the nearer curled forepaw's same compact paw shape, same wrist bend, same visible sole orientation—do not replace it with a dangling straight wrist or move it100pixels. Keep the farther forepaw's same white foot shape and sole orientation. Tiny elbow opening only; not yet the extended leap. No jump in any paw position or head position. All four canine limbs attached naturally with four separated paws; all current black-white fur markings and healthy dog identity retained. One sharp natural photographic individual image, entire nose/tail/paws visible. No drawing marks, rods, squared joints, accessories, text, watermark, blur, sheet or montage.",
+  "referenced_image_paths": [
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_009.png",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_010.png"
+  ],
+  "reference_roles": [
+    "first: preceding accepted photograph; immutable appearance, camera and background",
+    "second: approximate contact/propulsion schematic, not exact joint geometry"
+  ],
+  "default_image_path": "/Users/byeolee/.codex/generated_images/01a10fce-6e28-7031-a509-10fa135070eb/exec-fbb6cd6a-05f4-4872-9751-ad6d1dc05d5b.png",
+  "selected_image": "export/frames/Frame_010.png",
+  "guide": "guides/Guide_010.json",
+  "visual_review": "Viewed original generated image. Four limbs/paws separate, both hind soles planted, forepaws airborne. Retry retains curled forepaw orientation and head/background of009 with smaller forepaw change; hind joints extend and paws pass backward. Hind-paw displacement is visually larger than requested25px, and pelvis movement is subtle. Coordinate adherence and perfectly uniform temporal speed are not established.",
+  "discarded_attempts": [
+    {
+      "prompt": "Use case: precise-object-edit. ONE separate 1536x1024 sharp real photographic Border Collie run frame. IMAGE1 is accepted previous photo Frame009, PRIMARY edit target for dog identity, position, size, photographic background, lighting and camera. IMAGE2 is a supporting pose/contact schematic for the next hind-propulsion instant only, never imitate its square/zigzag skeleton or jump to diagram coordinates. Advance image1 by one small instant. Both hind paws remain firmly flat on exactly the same floor plane, move only30px farther RIGHT/back relative to torso: far hind paw approximately x935y855, near hind paw x1040y860. Distinct realistic contact shadows; no hovering and no premature liftoff. Rear hips, knees and hocks begin opening slightly, pelvis rises about8px and torso/spine gradually lengthens through natural posture without changing actual body size. Both forelegs remain off floor and reach a little farther LEFT: far forepaw aboutx350y700, near forepaw aboutx505y735. The near foreleg starts opening its curled wrist, fore elbows remain naturally bent; do not fully straighten the front legs yet. Preserve same head/face size and near-level leftward gaze, nose moves at most a few pixels, small neck compensation as the rump rises. Gentle tail-root following pelvis, same white tail tip and overall tail silhouette. Keep exact same warm gray seamless studio, floor boundary position and texture, full-body camera and generous upper margin; do not rescale or translate whole dog. Exactly four anatomically connected canine legs/four separated paws, all joints natural, healthy athletic black-white long-haired Border Collie. No fused or extra leg, chest-embedded limb, flat drawing, rods, labels, blur, watermark, grid, montage, accessories. ONE individual image.",
+      "default_image_path": "/Users/byeolee/.codex/generated_images/01a10fce-6e28-7031-a509-10fa135070eb/exec-18d5b818-be31-4b4a-b5ab-3a9289fc8187.png",
+      "reason": "First output moved the front paws and hind stance substantially farther than a single small instant; targeted retry limits all paw displacement and preserves the previous curled-wrist orientation."
+    }
+  ],
+  "resolution": [
+    1536,
+    1024
+  ],
+  "sha256": "e33982e3915fb0e960463c7b602758647becf51d64df220d8d983eb4bcba8108",
+  "bytes": 1780762
+}

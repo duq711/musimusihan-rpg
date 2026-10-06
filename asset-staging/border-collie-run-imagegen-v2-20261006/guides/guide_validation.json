@@ -1,0 +1,34 @@
+{
+  "schema": "border_collie_run_v2_guide_validation/1",
+  "svg_xml_parse_count": 42,
+  "frame_count": 42,
+  "limb_chain_count": 168,
+  "reach_errors": [],
+  "cycle_closure_exact": true,
+  "maximum_paw_step_px": 46.9904,
+  "maximum_segment_length_error_from_rounded_json_px": 0.000107,
+  "maximum_contact_edge_derivative_mismatch_px_per_frame": 0.00022,
+  "first_lift_frame_rise_px": {
+    "near_hind": 9.6296,
+    "far_hind": 12.3635,
+    "far_fore": 8.1592,
+    "near_fore": 11.0365
+  },
+  "nose_vertical_range_px": [
+    512.6984,
+    542.443
+  ],
+  "final_image_validation": "Not evaluated by this guide validation. Final individual generated images still require anatomy, consistency and sequence QA.",
+  "visual_reviewed_guide_frames": [
+    1,
+    8,
+    18,
+    25,
+    37
+  ],
+  "visual_review_notes": [
+    "All reviewed silhouettes fit within the canvas and retain the intended side view.",
+    "Frame 18 has a broad rear extension rather than a sharply folded Z; frame 25 visibly compresses the front elbows after landing.",
+    "The line guides are abstract controls, not final canine anatomy. Generated hind recovery must retain readable stifle and hock bends rather than a merged vertical rod."
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "frame": 34,
+  "mode": "built-in image_gen",
+  "prompt": "Use case: precise-object-edit. Input1 is the existing frame034 photograph, PRIMARY EDIT TARGET. Correct ONLY the FAR RIGHT FORELEG, the small curled front leg with visible paw pads currently ahead beneath the chest near (600,680). Reposition that far forepaw gently BACK to the RIGHT under the belly, to around (735,725), using a natural bent elbow and wrist, so it is only one small earlier instant than the far forepaw in input3 frame035 (near735,710). This is the BACKGROUND front leg, not the foreground white foreleg whose paw is near(665,800): keep that foreground foreleg completely unchanged. Keep the head, entire torso, spine, tail, BOTH hindlegs, other foreleg, identity, fur, studio, fixed camera, lighting and all positions otherwise entirely unchanged. Input2 is the frame034 pose guide for the overall gathered airborne stage and floor only; the guide's limb coordinates are approximate, and the anatomical neighboring-photo continuity has priority for this one far foreleg. Input3 accepted frame035 is the neighboring photograph for the far foreleg's appearance and natural folded shape only, not a new whole-body pose. Exactly four naturally attached canine legs and separate paws, all airborne abovefloor y850. Preserve1536x1024 canvas. No rods, fused limbs, diagram lines, captions, accessories or motionblur. One locally corrected individual image.",
+  "referenced_image_paths": [
+    "/Users/byeolee/.codex/generated_images/01a10fce-1419-7a00-b30d-b3cce690f97b/exec-b07c6a1f-3811-4652-b758-1abdc7c5d8ff.png",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_034.png",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_035.png"
+  ],
+  "default_image_path": "/Users/byeolee/.codex/generated_images/01a10fce-1419-7a00-b30d-b3cce690f97b/exec-24bd9f57-1a4a-4998-8dfd-5a3b19f4839e.png",
+  "selected_image": "export/frames/Frame_034.png",
+  "visual_review": "Actual output inspected: same identity and camera; four separate airborne paws and soft canine joints. The foreground forepaw is more open/lower than Frame035; local head-height and far-foreleg corrections removed the largest original pose displacement. Target coordinates remain approximate: far forepaw is tighter/higher than the guide, and muzzle height differs from Frame035 by about 20–25 px. This adjacent-frame variance should be included in full-sequence QA. No visible rods or extra limbs.",
+  "guide": "guides/Guide_034.json",
+  "resolution": [
+    1536,
+    1024
+  ],
+  "sha256": "81ef7300082d08a265c3723fe10ebab774b40471e5603e9515e2a96f1fb942ef",
+  "bytes": 1767029
+}

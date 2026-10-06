@@ -1,0 +1,28 @@
+{
+  "frame": 24,
+  "mode": "built-in imagegen",
+  "prompt": "Use case: precise-object-edit. Produce ONE separate complete1536x1024 photographic frame, not collage. Image1 photograph is the PRIMARY edit target: preserve exact BorderCollie identity, face, coat markings, realistic fur, body proportions, camera/framing, gray studio floor/background and soft light. Image2 sketch is SECONDARY phase/layout guidance; use only its contact status and direction, no square stick joints or whole dog relocation. Keep exactly four connected canine legs and four paw ends, natural shoulder/elbow/carpus and hip/stifle/hock anatomy. Whole nose, ears, all four paws and tail visible. No text/lines/grid/extra dog/hand/collar/harness/motionblur. Ground contact plane stays y840–850. Anatomical naturalness and incremental photo continuity override exact sketch coordinates. Frame024 targetedposecorrection. The LEFTMOST FRONTPAW inphotograph1 is hovering too high. CHANGE THAT FRONTLEG NOW: extenditslowerforeleg down sothepaw isJUST ONE PAW-THICKNESS (about15pixels) ABOVE THE FLOOR, nearlytouchingground atx250–280,y825–835. Thisleftmostpawmustmove visibly DOWN fromitscurrent~y780 position. It isNOT toremainstuckinthepreviouspose. Itsforelegcomesfromthefar shoulder andhasnormalelbowandwrist; do notduplicateit.\nTheOTHER,rightwardfrontpaw alreadyatx420,y860 remainsplanted. ExactlyONE forepawgrounded andoneforepawonly15pxairborneabovefloor. TWO hindpawsairborne andbent; samebody/muzzlecamera/backgroundphotograph1. Shiftmuzzleonly~5pxleft andlowerschest~5pxwithnaturalshoulderloadcompression. Fourlegs/fourfeettotal. Input2sketchonlyconfirmsalmostsecondforecontact; naturaljointsfollowphotograph, nomontage. Thisintermediateinstant mustshowleftpawsubstantiallyclosertogroundthaninput1, withno changeinidentity/camera.",
+  "referenced_image_paths": [
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_023.png",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/guides/Guide_024.png"
+  ],
+  "default_image_path": "/Users/byeolee/.codex/generated_images/01a10fc9-bfe2-7b63-8b30-7e3db4aa6d24/exec-6f3a523f-414a-43f4-97f5-efc94bc98271.png",
+  "selected_image": "export/frames/Frame_024.png",
+  "guide": "guides/Guide_024.png",
+  "visual_review": {
+    "status": "pass_contact_with_temporal_limits",
+    "actual_inspection": "Native individually viewed. First/right forepaw grounded, second/left forepaw noticeablylower nearfloor yetairborne; two rear pawsairborne. Fourconnectedlimbs,appearance/backgroundconsistent.",
+    "limits": "Leftforepawloweringneededtargetedsecondattempt. Remaining gapabout30–40pxratherthan15px. Contactside reversedcatalogtomaintainphotoorder; precisejoint/contactgeometryapproximate.",
+    "actual_ground_contacts": [
+      "rightward_forepaw"
+    ],
+    "attempts": 2,
+    "rejected_first_attempt": "Secondforepawremainedtoohigh/nearlyunchanged; originalpreservedunselected."
+  },
+  "resolution": [
+    1536,
+    1024
+  ],
+  "sha256": "0ac29d6223e0fcf45ff40d7da1ab7b28aa5613b4abf50c2eff16aae7e22b59b3",
+  "bytes": 1778496
+}

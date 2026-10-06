@@ -1,0 +1,30 @@
+{
+  "frame": 16,
+  "mode": "built-in image_gen",
+  "prompt": "Use case: precise-object-edit. Attached acceptedFrame015 PHOTO is the primaryedit target. MakeONE1536x1024 adjacentinstant016. Preserve absolutelyeverything inphoto includingdogscale, exacthead, torso, coat, tail, camerafloorbackground. Verysmallfourpawchanges only, NOTanewrunningpose. The left/farhindpaw islowaround1155,800; moveitjust20pixelsrightand15pixelsup, endroughly1175,785. The right/nearhindpawaround1310,735 movesjust8pixelsrightand7pixelsup, end1318,728. Thesechanges are barelynoticeable: do NOT extendhindreachfarbeyondtheiroriginalpositions, do NOTmovefeet80pixels. Retainnaturalcaninehip/stifle/hock, two distinctrearpawsairborne. Nearforegroundforepawmoves10pixelsLEFT toward330,715; farupperforepawjust5pixelsDOWN, retainitsxposition. Frontlimbsremainextended towardLEFTandnotretracted/folded. Fourrealpaws/legs. Headandtorsoalmostidentical, norepositioning. Nochangedfloorboundary, text,diagram, blur, extra/fused/missinglimbs orcollage. Thisisoneverysmalllocaladvance, notthemaximumextendedflightpose.",
+  "referenced_image_paths": [
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v2-20261006/export/frames/Frame_015.png"
+  ],
+  "reference_roles": [
+    "first and only: revised preceding015 photo; very small leg endpoint edits",
+    "guide016 viewed, omitted for local photo continuity"
+  ],
+  "default_image_path": "/Users/byeolee/.codex/generated_images/01a10fce-6e28-7031-a509-10fa135070eb/exec-4da16954-cb47-4369-a517-bd632a89b57c.png",
+  "selected_image": "export/frames/Frame_016.png",
+  "guide": "guides/Guide_016.json",
+  "visual_review": "Full retry candidate viewed after015. Far hindpaw advances roughly25–35px right/up and near hindfoot modestly raises; natural connected stifle/hock shapes, four airborne paws. Near forepaw advances left slightly, far forepaw remains almost fixed. Head/body/floor/tail close to015. First candidate moved far hindpaw about80px horizontally and was rejected. Exact uniform speed and requested pixel coordinates remain approximate.",
+  "discarded_attempts": [
+    {
+      "prompt": "Use case: precise-object-edit. ONE separate1536x1024 photorealistic actionphoto, directly edit attached acceptedFrame015 PHOTO into the immediatelynextinstant016. Same exactdog identity, headsize, fur, body, torso, camera, tail, studiofloor boundary andlighting. Only make SMALL paw advances, not a dramaticnewpose. Far rearleg onleft currentlyfoot1155,800 shouldunfold andendfoot1190,770: moveabout35pxRIGHT/30pxUP. Nearrearleg onright currentfoot1310,735 moveonly18pxRIGHT/14pxUP to1328,721. Bothrearlegs continueEXTENDING BACKWARD/RIGHT withnormalhip-stifle-hock, notcollecting/tucking, four pawsairborne. FRONT LEGS maintain theirextended forward-left shapes; the NEAR foreground frontpaw currentlyat350,710 moves20pxLEFT to330,715. Thefarupperfrontpaw staysabout195x butmoves15pxdown to670y, onlyveryslightleftreach; do NOT retractforepawsrighttowardthechest or bendthemascollected. Face/head remainalmostidentical, noseonly2pxleft and1pxup, naturallevelgaze. Subtle lumbaropening, negligibleheadbodymovement. Don'traiseentirebody orchangebackground. Naturalcaninejoints, fourseparatepaws. Noextra/fused/missinglimbs, labels, diagram, blur, collage. JustONE barelydifferentnextphotographicinstant.",
+      "default_image_path": "/Users/byeolee/.codex/generated_images/01a10fce-6e28-7031-a509-10fa135070eb/exec-61f81fee-fb79-4ffc-a41b-e89986886a81.png",
+      "reason": "Far hindpaw horizontal advance roughly80px rather than35; this increases the adjacent stride jump. One local retry from preceding015 with smaller requested paw changes."
+    }
+  ],
+  "resolution": [
+    1536,
+    1024
+  ],
+  "sha256": "7ebcf3ce2f9dd16581ab0396f89f9507c5b9a1ff64c66ef32587c095a1f6369c",
+  "bytes": 1777632,
+  "previous_selected_receipt": "generation/attempts/frame016-replaced-493eb445b113.json"
+}
