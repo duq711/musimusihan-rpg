@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>실제 영상 · 개 달리기 프레임</title>
+<style>
+:root{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:#26343b;background:#edf0f1;line-height:1.45}*{box-sizing:border-box}body{margin:0}main{max-width:1280px;margin:auto;padding:18px 22px 24px}header{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:13px}h1{margin:0;font-size:25px;line-height:1.25;letter-spacing:-.04em}.subtitle{margin:5px 0 0;color:#64727b;font-size:12px}.tag{border:1px solid #c9d2d7;border-radius:20px;padding:6px 11px;white-space:nowrap;font-size:11px;color:#506572}.viewer{background:#fafcfc;border:1px solid #c9d2d7;border-radius:14px;overflow:hidden}.framebar,.caption{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 15px}.framebar{border-bottom:1px solid #d5dde1}.counter{font-size:13px;font-weight:700;font-variant-numeric:tabular-nums}.filename{font:11px ui-monospace,SFMono-Regular,Menlo,monospace;color:#6f7c85;overflow-wrap:anywhere}.image-area{display:grid;place-items:center;background:#dce2e5;height:min(61vh,590px);min-height:220px}.image-area img{display:none;width:100%;height:100%;max-height:min(61vh,590px);object-fit:contain}.placeholder{margin:0;padding:24px;text-align:center;color:#52656f;font-size:13px}.caption{min-height:38px}.time{margin:0;font-size:13px;font-weight:650;font-variant-numeric:tabular-nums}.source-frame{margin:0;color:#6d7b83;font-size:11px;font-variant-numeric:tabular-nums}.controls{margin-top:12px;padding:12px 15px;border:1px solid #c9d2d7;border-radius:12px;background:#fafcfc}.row{display:flex;align-items:center;gap:8px}.top{flex-wrap:wrap}.navigation{display:flex;gap:6px}.playback{display:flex;align-items:center;gap:8px;margin-left:auto}button,a.download,select{min-height:36px;border:1px solid #c4cfd5;border-radius:7px;background:white;color:#304b5c;padding:6px 12px;font:inherit;font-size:12px;text-decoration:none;cursor:pointer}button:hover:not(:disabled),a.download:hover{background:#eaf1f5}button:disabled,a[aria-disabled="true"]{opacity:.45;cursor:default}a[aria-disabled="true"]{pointer-events:none}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #4e7b98;outline-offset:3px}#play{min-width:82px;background:#31556a;border-color:#31556a;color:#fff}.rate-label{font-size:11px;color:#637782;white-space:nowrap}select{padding:6px 8px}.slider-row{margin:12px 0;font-size:11px;color:#6d7f89;font-variant-numeric:tabular-nums}#frame-slider{flex:1;min-width:0;accent-color:#456d84;cursor:pointer}.bottom{justify-content:space-between;gap:12px}.status{margin:0;font-size:11px;color:#637781}.downloads{display:flex;gap:6px;flex-wrap:wrap}.download.primary{background:#e5eef3}.note{margin:10px 2px 0;color:#677a84;font-size:11px}.source{overflow-wrap:anywhere}.source a{color:#3d6580;text-underline-offset:3px}.english{color:#87959c;font-size:10px}[hidden]{display:none!important}
+@media(max-width:700px){main{padding:12px 10px 20px}h1{font-size:21px}.tag{display:none}.framebar,.caption{padding:7px 11px}.framebar{align-items:flex-start}.filename{max-width:50%;text-align:right}.image-area{height:min(52vh,450px);min-height:170px}.image-area img{max-height:min(52vh,450px)}.caption{flex-wrap:wrap;gap:3px}.controls{padding:10px}.navigation{width:100%;justify-content:space-between}.navigation button{flex:1;padding:6px 8px}.playback{width:100%;margin:3px 0 0;justify-content:space-between}.bottom{align-items:flex-start;flex-direction:column;gap:9px}.downloads{width:100%}.download{flex:1;text-align:center}.note{font-size:10px}}
+</style>
+</head>
+<body>
+<main>
+<header><div><h1 id="title">실제 영상 · 개 달리기 프레임</h1><p class="subtitle">영상에서 추출한 PNG를 한 장씩 보기 · AI 생성 이미지 아님</p></div><span id="resolution" class="tag">원본 영상 프레임</span></header>
+<section class="viewer" aria-label="현재 영상 프레임">
+<div class="framebar"><span id="counter" class="counter" aria-live="polite">프레임 불러오는 중…</span><span id="filename" class="filename"></span></div>
+<div class="image-area"><img id="frame-image" alt="현재 개 달리기 영상 프레임"><p id="placeholder" class="placeholder" role="status">실제 영상 프레임을 불러오는 중입니다.</p></div>
+<div class="caption"><p id="time" class="time">원본 영상 시간 —</p><p id="source-frame" class="source-frame"></p></div>
+</section>
+<section class="controls" aria-label="프레임 선택과 느린 반복 재생">
+<div class="row top"><div class="navigation"><button id="first" type="button" disabled>처음</button><button id="previous" type="button" disabled>← 이전</button><button id="next" type="button" disabled>다음 →</button><button id="last" type="button" disabled>마지막</button></div><div class="playback"><button id="play" type="button" disabled>▶ 반복 재생</button><label class="rate-label" for="preview-rate">재생 속도</label><select id="preview-rate" aria-label="프레임 미리보기 재생 속도" disabled><option value="2">2 fps</option><option value="4">4 fps</option><option value="8" selected>8 fps · 느리게</option><option value="12">12 fps</option></select></div></div>
+<div class="row slider-row"><span>1</span><input id="frame-slider" type="range" min="1" max="1" step="1" value="1" aria-label="프레임 선택" disabled><span id="slider-last">—</span></div>
+<div class="row bottom"><p id="status" class="status" role="status">한 장씩 이동 · 재생은 처음부터 다시 반복합니다.</p><div class="downloads"><a id="download-frame" class="download" aria-disabled="true" tabindex="-1">현재 PNG</a><a id="download-all" class="download primary" aria-disabled="true" tabindex="-1">전체 ZIP</a></div></div>
+</section>
+<p class="note">← →로 한 장씩 이동 · Space로 재생/정지 · Home / End로 처음/마지막 이동. 느린 재생에서도 이미지 순서를 건너뛰지 않습니다.<br><span class="english">Separate PNGs extracted from the actual video, not AI-generated images. Arrow keys select a frame; Space starts or pauses the loop.</span></p>
+<p id="source-note" class="note source" hidden>원본 영상: <a id="source-link" target="_blank" rel="noopener noreferrer"></a><span id="source-info"></span></p>
+</main>
+<script>
+"use strict";
+// Manifest: schema_version, title_ko, source_url, source_title, source_fps,
+// width, height, initial_frame (one-based; default 1), default_preview_rate_fps,
+// archive_filename, archive_available,
+// frames: [{frame: 1, filename: "Frame_000001.png", timestamp_seconds: 0,
+//           source_frame: 0, label_ko: "optional"}]. source_frame is zero-based.
+// PNG files live in frames/. Copy this template beside manifest.json.
+const image = document.getElementById("frame-image");
+const placeholder = document.getElementById("placeholder");
+const counter = document.getElementById("counter");
+const slider = document.getElementById("frame-slider");
+const rate = document.getElementById("preview-rate");
+const playButton = document.getElementById("play");
+const status = document.getElementById("status");
+const frameDownload = document.getElementById("download-frame");
+const archiveDownload = document.getElementById("download-all");
+const navigation = ["first", "previous", "next", "last"].map(id => document.getElementById(id));
+let frames = [];
+let current = 0;
+let playing = false;
+let timer = null;
+let requestToken = 0;
+let playbackToken = 0;
+const cache = new Map();
+const CACHE_LIMIT = 6;
+function framePath(frame) { return "frames/" + encodeURIComponent(frame.filename); }
+function timestamp(seconds) {
+  if (!Number.isFinite(seconds) || seconds < 0) return "—";
+  const millis = Math.round(seconds * 1000);
+  const hours = Math.floor(millis / 3600000);
+  const minutes = Math.floor(millis / 60000) % 60;
+  const wholeSeconds = Math.floor(millis / 1000) % 60;
+  return [hours, minutes, wholeSeconds].map(value => String(value).padStart(2, "0")).join(":") + "." + String(millis % 1000).padStart(3, "0");
+}
+function setDownload(link, path, name) {
+  const available = Boolean(path);
+  link.setAttribute("aria-disabled", String(!available));
+  link.tabIndex = available ? 0 : -1;
+  if (available) { link.href = path; link.download = name || ""; }
+  else { link.removeAttribute("href"); link.removeAttribute("download"); }
+}
+function updateNavigation() {
+  navigation[0].disabled = navigation[1].disabled = current === 0;
+  navigation[2].disabled = navigation[3].disabled = current === frames.length - 1;
+}
+function loadFrame(index) {
+  const path = framePath(frames[index]);
+  if (cache.has(path)) {
+    const result = cache.get(path);
+    cache.delete(path); cache.set(path, result);
+    return result;
+  }
+  const item = new Image();
+  const promise = new Promise((resolve, reject) => {
+    item.onload = () => resolve(item);
+    item.onerror = () => { cache.delete(path); reject(new Error("Image unavailable: " + frames[index].filename)); };
+    item.src = path;
+  });
+  cache.set(path, promise);
+  while (cache.size > CACHE_LIMIT) cache.delete(cache.keys().next().value);
+  return promise;
+}
+async function showFrame(index) {
+  const next = Math.max(0, Math.min(frames.length - 1, index));
+  const token = ++requestToken;
+  let item;
+  try { item = await loadFrame(next); }
+  catch (error) { if (token !== requestToken) return false; throw error; }
+  if (token !== requestToken) return false;
+  current = next;
+  const frame = frames[current];
+  const ordinal = current + 1;
+  image.src = item.src;
+  image.alt = "실제 영상의 개 달리기 프레임 " + ordinal + ", 원본 시간 " + timestamp(frame.timestamp_seconds);
+  image.style.display = "block";
+  placeholder.hidden = true;
+  counter.textContent = "프레임 " + ordinal + " / " + frames.length;
+  document.getElementById("filename").textContent = frame.filename;
+  document.getElementById("time").textContent = "원본 영상 시간 " + timestamp(frame.timestamp_seconds);
+  const description = [];
+  if (Number.isInteger(frame.source_frame) && frame.source_frame >= 0) description.push("원본 프레임 " + frame.source_frame + " (0부터)");
+  if (frame.label_ko) description.push(frame.label_ko);
+  document.getElementById("source-frame").textContent = description.join(" · ");
+  slider.value = String(ordinal);
+  slider.setAttribute("aria-valuetext", "프레임 " + ordinal + " / " + frames.length + ", 원본 시간 " + timestamp(frame.timestamp_seconds));
+  setDownload(frameDownload, framePath(frame), frame.filename);
+  updateNavigation();
+  // Keep only a few decoded full-size images; long clips need no bulk preload.
+  if (frames.length > 1) loadFrame((current + 1) % frames.length).catch(() => {});
+  return true;
+}
+function pause() {
+  playing = false;
+  playbackToken += 1;
+  requestToken += 1;
+  clearTimeout(timer);
+  timer = null;
+  playButton.textContent = "▶ 반복 재생";
+  counter.setAttribute("aria-live", "polite");
+  status.textContent = "한 장씩 이동 · 재생은 처음부터 다시 반복합니다.";
+}
+function imageFailure(error) {
+  pause();
+  status.textContent = "프레임을 열 수 없습니다. frames 폴더의 PNG를 확인해 주세요.";
+  placeholder.textContent = "이미지를 불러오지 못했습니다.";
+  placeholder.hidden = false;
+  image.style.display = "none";
+  setDownload(frameDownload, null);
+  console.error(error);
+}
+async function navigate(index) {
+  pause();
+  try { await showFrame(index); }
+  catch (error) { imageFailure(error); }
+}
+async function tick(token) {
+  if (!playing || token !== playbackToken) return;
+  const started = performance.now();
+  try { await showFrame((current + 1) % frames.length); }
+  catch (error) { if (playing && token === playbackToken) imageFailure(error); return; }
+  if (!playing || token !== playbackToken) return;
+  const delay = Math.max(0, 1000 / Number(rate.value) - (performance.now() - started));
+  timer = setTimeout(() => tick(token), delay);
+}
+function togglePlay() {
+  if (playing) { pause(); return; }
+  if (!frames.length) return;
+  playing = true;
+  const token = ++playbackToken;
+  playButton.textContent = "Ⅱ 정지";
+  counter.setAttribute("aria-live", "off");
+  status.textContent = "반복 미리보기 · " + rate.value + " fps 설정";
+  timer = setTimeout(() => tick(token), 1000 / Number(rate.value));
+}
+navigation[0].addEventListener("click", () => navigate(0));
+navigation[1].addEventListener("click", () => navigate(current - 1));
+navigation[2].addEventListener("click", () => navigate(current + 1));
+navigation[3].addEventListener("click", () => navigate(frames.length - 1));
+slider.addEventListener("input", () => navigate(Number(slider.value) - 1));
+playButton.addEventListener("click", togglePlay);
+rate.addEventListener("change", () => { if (playing) status.textContent = "반복 미리보기 · " + rate.value + " fps 설정"; });
+for (const link of [frameDownload, archiveDownload]) link.addEventListener("click", event => { if (link.getAttribute("aria-disabled") === "true") event.preventDefault(); });
+document.addEventListener("keydown", event => {
+  if (!frames.length || event.altKey || event.ctrlKey || event.metaKey || event.target.matches("input,select,textarea,[contenteditable='true']")) return;
+  const targets = {ArrowLeft: current - 1, ArrowRight: current + 1, Home: 0, End: frames.length - 1};
+  if (Object.prototype.hasOwnProperty.call(targets, event.key)) { event.preventDefault(); navigate(targets[event.key]); }
+  else if (event.code === "Space" && !event.target.matches("button,a")) { event.preventDefault(); togglePlay(); }
+});
+document.addEventListener("visibilitychange", () => { if (document.hidden) pause(); });
+async function initialize() {
+  try {
+    const response = await fetch("manifest.json", {cache: "no-store"});
+    if (!response.ok) throw new Error("Manifest HTTP " + response.status);
+    const data = await response.json();
+    if (!Array.isArray(data.frames) || !data.frames.length) throw new Error("Manifest contains no frames");
+    frames = data.frames;
+    if (frames.some(frame => !frame || typeof frame.filename !== "string" || !/^[^/\\]+\.png$/i.test(frame.filename))) throw new Error("Invalid PNG filename");
+    const title = data.title_ko || "실제 영상 · 개 달리기 프레임";
+    document.getElementById("title").textContent = title;
+    document.title = title;
+    const resolution = document.getElementById("resolution");
+    if (Number(data.width) > 0 && Number(data.height) > 0) resolution.textContent = "실제 영상 PNG · " + data.width + " × " + data.height;
+    const sourceFps = Number(data.source_fps);
+    if (Number.isFinite(sourceFps) && sourceFps > 0 && sourceFps <= 240) {
+      const option = document.createElement("option");
+      option.value = String(sourceFps);
+      option.textContent = "원본 " + sourceFps.toFixed(sourceFps % 1 ? 3 : 0) + " fps";
+      rate.append(option);
+    }
+    const requestedRate = Number(data.default_preview_rate_fps) || 8;
+    if (!Array.from(rate.options).some(option => Number(option.value) === requestedRate) && requestedRate > 0 && requestedRate <= 240) {
+      const option = document.createElement("option"); option.value = String(requestedRate); option.textContent = requestedRate + " fps"; rate.append(option);
+    }
+    rate.value = Array.from(rate.options).some(option => Number(option.value) === requestedRate) ? String(requestedRate) : "8";
+    if (data.source_url) {
+      const source = new URL(data.source_url);
+      if (["https:", "http:"].includes(source.protocol)) {
+        const link = document.getElementById("source-link");
+        link.href = source.href;
+        link.textContent = data.source_title || data.source_url;
+        document.getElementById("source-note").hidden = false;
+        document.getElementById("source-info").textContent = Number.isFinite(sourceFps) && sourceFps > 0 ? " · 원본 " + sourceFps.toFixed(sourceFps % 1 ? 3 : 0) + " fps" : "";
+      }
+    }
+    slider.max = String(frames.length);
+    document.getElementById("slider-last").textContent = String(frames.length);
+    archiveDownload.textContent = frames.length + "장 ZIP";
+    setDownload(archiveDownload, data.archive_available && data.archive_filename ? encodeURI(data.archive_filename) : null, data.archive_filename);
+    if (!data.archive_available) archiveDownload.textContent = "ZIP 없음";
+    const requestedInitialFrame = Number(data.initial_frame);
+    const initialIndex = Number.isFinite(requestedInitialFrame)
+      ? Math.max(0, Math.min(frames.length - 1, Math.trunc(requestedInitialFrame) - 1))
+      : 0;
+    await showFrame(initialIndex);
+    slider.disabled = rate.disabled = false;
+    playButton.disabled = frames.length < 2;
+  } catch (error) {
+    pause();
+    placeholder.textContent = "프레임 정보를 열 수 없습니다. manifest.json과 PNG 폴더를 확인하고 HTTP 미리보기로 열어 주세요.";
+    placeholder.hidden = false;
+    image.style.display = "none";
+    counter.textContent = "프레임 불러오기 실패";
+    status.textContent = "프레임 정보 또는 이미지 파일을 불러오지 못했습니다.";
+    console.error(error);
+  }
+}
+initialize();
+</script>
+</body>
+</html>

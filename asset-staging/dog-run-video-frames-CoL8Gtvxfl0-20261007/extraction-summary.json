@@ -1,0 +1,33 @@
+{
+  "source_decoded_frames": 791,
+  "selected_frames": 716,
+  "pngs_checked": 716,
+  "width": 640,
+  "height": 360,
+  "source_fps": 24.0,
+  "source_pts_strictly_increasing": true,
+  "source_indices_contiguous": true,
+  "exact_duplicate_png_count": 0,
+  "source_sha256": "6a601dde5dee6e09f4941e26bf3b03abd19930876371126e9046edd7f201f4c1",
+  "selected_png_bytes": 133758607,
+  "ffmpeg_version": "ffmpeg version 7.1 Copyright (c) 2000-2024 the FFmpeg developers",
+  "command": [
+    "ffmpeg",
+    "-nostdin",
+    "-hide_banner",
+    "-i",
+    "asset-staging/dog-run-video-frames-CoL8Gtvxfl0-20261007/source/Slow-Motion-Dog-Run-CoL8Gtvxfl0.mp4",
+    "-map",
+    "0:v:0",
+    "-an",
+    "-vf",
+    "showinfo,select=gte(n\\,8)*lt(n\\,724)",
+    "-fps_mode",
+    "passthrough",
+    "-pix_fmt",
+    "rgb24",
+    "-compression_level",
+    "6",
+    "asset-staging/dog-run-video-frames-CoL8Gtvxfl0-20261007/export/frames/Frame_%06d.png"
+  ]
+}
