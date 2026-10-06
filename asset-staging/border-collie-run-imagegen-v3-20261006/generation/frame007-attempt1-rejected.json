@@ -1,0 +1,21 @@
+{
+  "frame": 7,
+  "mode": "built-in imagegen",
+  "prompt": "Create ONE single standalone frame of the SAME realistic black and white athletic Border Collie galloping LEFT. Landscape 1536x1024, strict orthographic side profile, full dog with all paws, ears and tail within frame. REFERENCE 1 is the full-body POSE guide and determines this frame: reproduce its whole-body silhouette, body pitch/height, four limb placements and paw contact state. Make a fresh full-body pose, not a retouch of another dog photo. REFERENCE 2 is ONLY a cropped appearance portrait with no legs: use the same face, brown eye, white blaze/muzzle/ruff, black back, white paws and white tail tip. Do not use the portrait scale; full-body framing comes from reference 1. Anatomically credible canine shoulder/elbow and hip/stifle/hock joints, four connected limbs only, near and far paws readable, no extra legs. Realistic detailed medium fur with a clean silhouette. Uniform pale light-gray background, soft even lighting, no textured floor, no visible horizon line, no motion blur, no labels, no grid, no collage, no cropping or automatic zoom to fill the frame. Virtual contact plane is around y=850; only the supporting paws touch it, all other paws are visibly raised. Leg articulation and body compression must change together.  THIS FRAME: Both forepaws leave the ground; all four limbs actively fold underneath the dog; the back begins rounding, forepaws recover behind the chest and hind paws reach forward.",
+  "referenced_image_paths": [
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v3-20261006/guides/Guide_007.png",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v3-20261006/references/dog-appearance-portrait.png"
+  ],
+  "reference_roles": [
+    "full-body pose guide FIRST",
+    "cropped appearance portrait SECOND; no limb pose"
+  ],
+  "default_image_path": "/Users/byeolee/.codex/generated_images/01a10fc9-bfe2-7b63-8b30-7e3db4aa6d24/exec-9b8c3803-1f37-4381-aa2e-16cede6a208e.png",
+  "guide": "guides/Guide_007.png",
+  "visual_review": {
+    "status": "rejected_for_overlapping_hindfeet",
+    "actual_inspection": "The result shows a clearly collected airborne pose with two folded forefeet and rounded back. However the two hindfeet visually overlap into one white paw cluster, so four distinct paw ends cannot be confidently verified from the native image.",
+    "limits": "No extra limb is obvious, but the far hindleg endpoint cannot be separated for this frame's required readable four-limb pose.",
+    "attempt": 1
+  }
+}

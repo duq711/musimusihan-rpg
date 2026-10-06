@@ -1,0 +1,21 @@
+{
+  "frame": 9,
+  "mode": "built-in image_gen",
+  "prompt": "Create ONE single standalone frame of the SAME realistic black and white athletic Border Collie galloping LEFT. Landscape 1536x1024, strict orthographic side profile, full dog with all paws, ears and tail within frame. REFERENCE 1 is the full-body POSE guide and determines this frame: reproduce its whole-body silhouette, body pitch/height, four limb placements and paw contact state. Make a fresh full-body pose, not a retouch of another dog photo. REFERENCE 2 is ONLY a cropped appearance portrait with no legs: use the same face, brown eye, white blaze/muzzle/ruff, black back, white paws and white tail tip. Do not use the portrait scale; full-body framing comes from reference 1. Anatomically credible canine shoulder/elbow and hip/stifle/hock joints, four connected limbs only, near and far paws readable, no extra legs. Realistic detailed medium fur with a clean silhouette. Uniform pale light-gray background, soft even lighting, no textured floor, no visible horizon line, no motion blur, no labels, no grid, no collage, no cropping or automatic zoom to fill the frame. Virtual contact plane is around y=850; only the supporting paws touch it, all other paws are visibly raised. Leg articulation and body compression must change together.  THIS FRAME: After gathered flight, hind paws now advance forward and start descending beneath the hips; forepaws have begun swinging forward out of their fold. This must be a new silhouette, not the same gathered pose.\nCRITICAL INTERMEDIATE RECOVERY POSE: Both front legs are still DEFINITELY BENT at the elbows and partly folded below the chest. This is only the START of uncurling. Do not show full forward reach. Forepaws stay around x=430–520, y=700–750, beneath the chest, with the lower forearms angled down-left and clearly soft elbows. Both hind knees remain bent underneath the rear torso; hindpaws descend slightly out of gathered flight to approximately x=805–870,y=730–775, still safely airborne. Show FOUR distinct readable paws with a modest near/far stagger. The torso is moderately gathered, beginning to lengthen, not fully extended. Muzzle/nose should be around x=80–100,y=440–455 and upper back around y=330–350: low forward running neck, level gaze, no high alert head. This is the halfway pose between tight gathered knees and wider foreleg reach, not the wider foreleg reach itself. Keep the gray background, full-body size, side view, and the first guide's layout. No near/far limb swapping, no fused paw, no camera zoom.",
+  "referenced_image_paths": [
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v3-20261006/guides/Guide_009.png",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v3-20261006/references/dog-appearance-portrait.png"
+  ],
+  "default_image_path": "/Users/byeolee/.codex/generated_images/01a10fce-1419-7a00-b30d-b3cce690f97b/exec-e30397a4-beb2-4419-abcb-f9b354be60a6.png",
+  "selected_image": "export/frames/Frame_009.png",
+  "guide": "guides/Guide_009.json",
+  "visual_review": {
+    "status": "selected bounded revision; bent fore recovery retained",
+    "notes": [
+      "Four separately readable normal limbs. Both forearms remain deeply bent under chest, paws around x=510/595,y=715–725; hindfeet unfold down underneath hip to roughly x=780/870,y=715/760.",
+      "Muzzle around x=80,y=445 and upper back around350: head height now sits between actual008(~430) and010(~475), removing the first009 candidate's high alert head.",
+      "Actual008→009 fore paws move modestly left and hind limbs open/down; body lengthens and drops about40–50px. This is an intermediate gathered recovery pose, not full forward fore reach.",
+      "Actual009→010 still advances far forepaw roughly280px and near forepaw roughly155px left, so the cycle has a remaining large foreground pose transition. Numeric guide correspondence is approximate; smooth natural gallop has not been demonstrated."
+    ]
+  }
+}

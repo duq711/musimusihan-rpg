@@ -1,0 +1,213 @@
+{
+  "schema": "border-collie-run-v3-early-pose-distinctness-review/1",
+  "reviewed_at_utc": "2026-10-06T13:54:20.867835+00:00",
+  "reviewed_sequence": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "final_selection_confirmed_by_root": true,
+  "photos_individually_viewed": 9,
+  "adjacent_pairs_visually_compared": 8,
+  "method": "Each actual selected1536x1024 photograph was viewed individually at native resolution. Adjacent body silhouette, limb articulation, paw positions and support states were compared visually. SHA values bind observations to selected files; hashes were not used as evidence of pose difference. Coordinate estimates are approximate visual observations.",
+  "scope": "Early001–009 pose distinction only. No images, guides or other receipts edited during this review. This is not a natural16-frame continuous-run or biomechanical pass.",
+  "frames": [
+    {
+      "frame": 1,
+      "image": "export/frames/Frame_001.png",
+      "sha256": "3493f92c582d2d7fed62dc2f8f3ec27635f9a83702ecbfa82d118e8ec8d8182f",
+      "generation_record": "generation/frame001.json"
+    },
+    {
+      "frame": 2,
+      "image": "export/frames/Frame_002.png",
+      "sha256": "a07e3b51a5f2beb6e9c37380b9f9166495a156844f9bac2cef99978033827e3b",
+      "generation_record": "generation/frame002.json"
+    },
+    {
+      "frame": 3,
+      "image": "export/frames/Frame_003.png",
+      "sha256": "2ea48d9443d993406f81b2304f89671e24c5e7b73d4e841b3443b5bdb4471fdb",
+      "generation_record": "generation/frame003.json"
+    },
+    {
+      "frame": 4,
+      "image": "export/frames/Frame_004.png",
+      "sha256": "608bc3208a843c2494394bf3967028dbb07bf87b75252c5ac6370106c1821178",
+      "generation_record": "generation/frame004.json"
+    },
+    {
+      "frame": 5,
+      "image": "export/frames/Frame_005.png",
+      "sha256": "438f738ca9d144c460c322eaf3dc86523214b34d8c3ff51794dfdaaf538d45d0",
+      "generation_record": "generation/frame005.json"
+    },
+    {
+      "frame": 6,
+      "image": "export/frames/Frame_006.png",
+      "sha256": "98c48afea6f3c36155ea358de0600bcc102d76456c93a9a401abc745a8996b8f",
+      "generation_record": "generation/frame006.json"
+    },
+    {
+      "frame": 7,
+      "image": "export/frames/Frame_007.png",
+      "sha256": "a7df0f7d4b34b026d23f6d596c0ce36077b58d1c0e13dec37fd42cb99c85f9f2",
+      "generation_record": "generation/frame007.json"
+    },
+    {
+      "frame": 8,
+      "image": "export/frames/Frame_008.png",
+      "sha256": "4276a6ba220668114683371e9f45501ac3880a4a8d4b8f83eedb40b155577fc3",
+      "generation_record": "generation/frame008.json"
+    },
+    {
+      "frame": 9,
+      "image": "export/frames/Frame_009.png",
+      "sha256": "e2f9d01cfad67ea92d590b15f0b5524e999b2cab7d6b107d732523069d7e35f1",
+      "generation_record": "generation/frame009.json"
+    }
+  ],
+  "per_frame": [
+    {
+      "frame": 1,
+      "actual_pose": "Maximum extended airborne stride: long forelimbs reach left, rear limbs trail almost horizontally right, all paws off ground; widest limb span."
+    },
+    {
+      "frame": 2,
+      "actual_pose": "Forefeet lower and shift right toward landing, rear stifles/hocks fold under hips; still airborne, shorter rear reach than001."
+    },
+    {
+      "frame": 3,
+      "actual_pose": "One fore sole planted nearx400,y835, other forepaw remains in front/air aroundx175,y780; rear paws staggered and flexed under hips."
+    },
+    {
+      "frame": 4,
+      "actual_pose": "Two fore soles flat nearx285/y855 andx415/y860; chest/neck visibly lower, hip high and back pitched/arched; rear feet remain raised and folded."
+    },
+    {
+      "frame": 5,
+      "actual_pose": "Chest rises and back is flatter, forelegs stand closer under shoulder with soles aroundy830; rear feet remain airborne and flexed."
+    },
+    {
+      "frame": 6,
+      "actual_pose": "One foreleg folds to chest while the remaining long foreleg has sole aroundx470,y870, with slight support shadow; hindfeet recover farther underneath body."
+    },
+    {
+      "frame": 7,
+      "actual_pose": "All four paws airborne, both forelegs curl downward under chest, rearlegs fold forward and spine rounds slightly."
+    },
+    {
+      "frame": 8,
+      "actual_pose": "Deeper collected aerial pose: forefeet curl backward/right with visible pads, rearfeet tucked higher toward belly, rounded back; four paws separately readable in revised008."
+    },
+    {
+      "frame": 9,
+      "actual_pose": "Revised recovery/descending pose: hindfeet lowered about40–60px from008, torso flatter/longer and less deeply gathered, forefeet still curl beneath chest but pads/angles change; all four paws airborne."
+    }
+  ],
+  "adjacent_pairs": [
+    {
+      "from": 1,
+      "to": 2,
+      "duplicate_pose_flag": false,
+      "visible_changes_ko": "앞발이 아래로 내려오고 뒷다리가 엉덩이 아래로 접혀 확장 실루엣이 짧아집니다.",
+      "visible_changes_en": "Forepaws descend while hindlegs fold under the hips, shortening the extended silhouette.",
+      "limitations": [
+        "Foreleg white/black coat coverage and tail/fur shape vary between independent images."
+      ]
+    },
+    {
+      "from": 2,
+      "to": 3,
+      "duplicate_pose_flag": false,
+      "visible_changes_ko": "앞발 하나가 낮은 접지 위치로 들어가고 반대 앞발은 앞으로 떠 있어 비대칭 첫 착지로 바뀝니다.",
+      "visible_changes_en": "One forepaw reaches support while the other remains forward/airborne, forming asymmetric first landing.",
+      "limitations": [
+        "Head/nose shifts roughly30px up/left; supporting plane is implied rather than a fixed visible floor."
+      ]
+    },
+    {
+      "from": 3,
+      "to": 4,
+      "duplicate_pose_flag": false,
+      "visible_changes_ko": "두 앞발이 지지하고 가슴과 머리가 낮아지며 엉덩이는 높아져 충격 수용 자세가 됩니다.",
+      "visible_changes_en": "Both forepaws support, chest/head lower and hips rise into impact absorption.",
+      "limitations": [
+        "Large chest/head-height change and body pitch variation; motion timing not measured."
+      ]
+    },
+    {
+      "from": 4,
+      "to": 5,
+      "duplicate_pose_flag": false,
+      "visible_changes_ko": "가슴이 올라오고 등이 평평해지며 앞다리가 어깨 아래에 가까워져 지지 이후 몸통 이동이 보입니다.",
+      "visible_changes_en": "Chest rises, back flattens and forelegs stand closer under the shoulder during late support.",
+      "limitations": [
+        "Nose rises roughly100px and support sole heights change fromaround860 to830; camera/pose continuity remains approximate."
+      ]
+    },
+    {
+      "from": 5,
+      "to": 6,
+      "duplicate_pose_flag": false,
+      "visible_changes_ko": "앞발 하나가 가슴 쪽으로 접히고 반대 앞다리만 길게 남아 마지막 앞발 지지로 바뀝니다.",
+      "visible_changes_en": "One forepaw folds to chest while the opposite foreleg remains extended in final support.",
+      "limitations": [
+        "Remaining support foot shifts left/down instead of a clean uniform rearward stance path; actual sole height near870 differs fromprioraround830."
+      ]
+    },
+    {
+      "from": 6,
+      "to": 7,
+      "duplicate_pose_flag": false,
+      "visible_changes_ko": "마지막 지지 앞발도 떠오르고 두 앞다리가 함께 접혀 네 발이 공중에서 모입니다.",
+      "visible_changes_en": "The last supporting forefoot lifts and both forelegs fold into a four-paw airborne gather.",
+      "limitations": [
+        "Large rise/shift of the previously supporting forepaw; torso/head scale varies slightly."
+      ]
+    },
+    {
+      "from": 7,
+      "to": 8,
+      "duplicate_pose_flag": false,
+      "visible_changes_ko": "앞발이 더 뒤로 말리고 발바닥이 드러나며 뒷발이 더 높게 모여 수축 실루엣이 달라집니다.",
+      "visible_changes_en": "Forepaws curl farther back with pads visible while hindpaws tuck higher, producing a different compact silhouette.",
+      "limitations": [
+        "Head shifts left/down and wrists/paw pads rotate substantially; no measured biomechanical trajectory compliance."
+      ]
+    },
+    {
+      "from": 8,
+      "to": 9,
+      "duplicate_pose_flag": false,
+      "visible_changes_ko": "뒷발이 약40–60px 내려오고 몸통이 더 길고 평평해져 모은 공중 자세에서 다음 하강으로 바뀝니다. 앞발의 말린 방향과 발바닥 노출도 달라집니다.",
+      "visible_changes_en": "Hindpaws lower about40–60px and the torso becomes longer/flatter, leaving the deepest gather for descent. Forepaw curl/pad orientation also changes.",
+      "limitations": [
+        "Forelegs remain collected rather than a fully opened forward swing; phase adherence is qualitative.",
+        "Small head/body-layout and coat changes remain between independent images."
+      ]
+    }
+  ],
+  "result": {
+    "adjacent_duplicate_or_near_unchanged_silhouette_pairs": 0,
+    "duplicate_pose_flag": false,
+    "every_reviewed_adjacent_pair_has_visible_posture_change": true,
+    "pose_distinctness_review": "pass qualitative visible differences in reviewed001–009",
+    "natural_continuous_run_pass": false,
+    "summary_ko": "새v3의1–9에서는 최대 확장→하강→첫 앞발 접지→두 앞발 지지/가슴 눌림→체중 이동→한 앞발 회수→앞발 이륙→깊은 모으기→뒷발 하강으로 실제 실루엣과 발 배치가 바뀝니다. 같은 포즈의 미세한 반복으로 보이는 인접 쌍은 없었습니다. 자세 차이가 보인다는 판정과 자연스러운 연속 달리기 판정은 구분합니다.",
+    "summary_en": "The new v3 frames001–009 visibly progress through maximum extension, descent, first fore support, double fore support/compression, late support, single fore recovery, fore liftoff, deeper gather and hind descent. No adjacent pair reads as an unchanged or nearly unchanged silhouette. Visible pose distinction does not establish natural continuous running."
+  },
+  "camera_and_pose_continuity_limits": [
+    "Head/neck/body height and apparent proportions vary; pronounced chest/head movement remains across003→004→005.",
+    "Virtual support-foot heights change between photographs despite the uniform background; no fixed visible floor/horizon gives strict contact tracking.",
+    "Support-paw motion is not uniformly rearward relative to the body, notably005→006; foot trajectories are not measured physical motion.",
+    "Fur shape, foreleg white/black coverage, tail outline and paw-pad angles vary between independently generated images.",
+    "Guide adherence, exact frame-to-frame velocity and real capture fps are not validated by this distinctness review."
+  ]
+}

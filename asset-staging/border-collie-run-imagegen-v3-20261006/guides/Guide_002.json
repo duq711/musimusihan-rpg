@@ -1,0 +1,155 @@
+{
+  "frame": 2,
+  "time_seconds": 0.04375,
+  "cycle_phase": 0.0625,
+  "stage": "extended aerial",
+  "body_vertical_offset_px": -25.2902,
+  "body_pitch_degrees": -1.4445,
+  "spine_flex_px": -6.0201,
+  "head_nod_degrees": 1.157,
+  "world_head_gaze_degrees": -0.2875,
+  "neck_compensation_y_px": 11.3896,
+  "body_points": {
+    "shoulder": [
+      598.5574,
+      500.2747
+    ],
+    "hip": [
+      1018.8021,
+      504.6823
+    ],
+    "nose": [
+      182.5567,
+      525.3874
+    ],
+    "tail": [
+      [
+        1109.1516,
+        517.4088
+      ],
+      [
+        1189.3743,
+        525.2332
+      ],
+      [
+        1280.0704,
+        551.7016
+      ],
+      [
+        1375.6879,
+        574.9944
+      ]
+    ]
+  },
+  "legs": {
+    "near_hind": {
+      "contact": false,
+      "joints": {
+        "hip": [
+          1018.8021,
+          504.6823
+        ],
+        "stifle": [
+          1055.4085,
+          670.6943
+        ],
+        "hock": [
+          1210.5797,
+          631.6826
+        ],
+        "paw": [
+          1227.9012,
+          720.0
+        ]
+      },
+      "segment_lengths_px": [
+        170,
+        160,
+        90
+      ],
+      "unreachable_extension_px": 0.0,
+      "unreachable_fold_px": 0.0
+    },
+    "far_hind": {
+      "contact": false,
+      "joints": {
+        "hip": [
+          1034.5449,
+          494.2822
+        ],
+        "stifle": [
+          1065.6736,
+          661.4079
+        ],
+        "hock": [
+          1223.2198,
+          633.4936
+        ],
+        "paw": [
+          1241.3782,
+          721.6428
+        ]
+      },
+      "segment_lengths_px": [
+        170,
+        160,
+        90
+      ],
+      "unreachable_extension_px": 0.0,
+      "unreachable_fold_px": 0.0
+    },
+    "far_fore": {
+      "contact": false,
+      "joints": {
+        "shoulder": [
+          614.3002,
+          489.8746
+        ],
+        "elbow": [
+          569.1092,
+          648.5654
+        ],
+        "paw": [
+          354.7115,
+          804.3172
+        ]
+      },
+      "segment_lengths_px": [
+        165,
+        265
+      ],
+      "unreachable_extension_px": 0.0,
+      "unreachable_fold_px": 0.0
+    },
+    "near_fore": {
+      "contact": false,
+      "joints": {
+        "shoulder": [
+          598.5574,
+          500.2747
+        ],
+        "elbow": [
+          545.3076,
+          656.446
+        ],
+        "paw": [
+          303.7793,
+          765.483
+        ]
+      },
+      "segment_lengths_px": [
+        165,
+        265
+      ],
+      "unreachable_extension_px": 0.0,
+      "unreachable_fold_px": 0.0
+    }
+  },
+  "control_phase_t": 19.625,
+  "gait_phase": 0.4672619,
+  "art_control_notes": [
+    "Dominant full-body filled pose/layout reference; no prior whole-body photograph is a pose reference.",
+    "Proximal limb volumes are occluded by the torso; visible joints are rounded canine anatomy suggestions.",
+    "Guide geometry is unverified art direction; generated-photo anatomy and continuity need separate inspection."
+  ]
+}

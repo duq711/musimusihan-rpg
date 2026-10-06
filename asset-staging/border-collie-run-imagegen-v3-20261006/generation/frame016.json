@@ -1,0 +1,31 @@
+{
+  "frame": 16,
+  "mode": "built-in image_gen",
+  "prompt": "Create ONE single standalone frame of the SAME realistic black and white athletic Border Collie galloping LEFT. Landscape 1536x1024, strict orthographic side profile, full dog with all paws, ears and tail within frame. REFERENCE 1 is the full-body POSE guide and determines this frame: reproduce its whole-body silhouette, body pitch/height, four limb placements and paw contact state. Make a fresh full-body pose, not a retouch of another dog photo. REFERENCE 2 is ONLY a cropped appearance portrait with no legs: use the same face, brown eye, white blaze/muzzle/ruff, black back, white paws and white tail tip. Do not use the portrait scale; full-body framing comes from reference 1. Anatomically credible canine shoulder/elbow and hip/stifle/hock joints, four connected limbs only, near and far paws readable, no extra legs. Realistic detailed medium fur with a clean silhouette. Uniform pale light-gray background, soft even lighting, no textured floor, no visible horizon line, no motion blur, no labels, no grid, no collage, no cropping or automatic zoom to fill the frame. Virtual contact plane is around y=850; only the supporting paws touch it, all other paws are visibly raised. Leg articulation and body compression must change together.  THIS FRAME: Last hindpaw has left the ground; all four paws airborne, hind legs extend back and forelegs continue reaching left toward the next maximum-extension frame. Torso unfolds into a long airborne stride. Critical single016 phase: early flight after final hindfoot leaves, all FOUR paws visibly clear of the virtual y850 contact plane. Keep rearhocks modestly flexed and rearfeet still pointing somewhat down/back as in guide, not already fully horizontal maximumextension. Lowest hindsole at least25pixels above the contact plane, with no footcontactshadow. Frontlegs reach left inair; natural chest/elbow/wrist shapes, hindhip/stifle/hock clearlyconnected. Long torso unfolding but retainearlyflightflex, so this image reads as lift-off beforemaximumflight. Use only FIRSTguidefor bodypose and SECONDportraitfor identity; portrait supplies nolegpose. Allnose/ears/paws/tail comfortablyinside canvas, uniformlightgraybackground,no visiblehorizon.",
+  "referenced_image_paths": [
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v3-20261006/guides/Guide_016.png",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v3-20261006/references/dog-appearance-portrait.png"
+  ],
+  "reference_roles": [
+    "full-body pose guide FIRST",
+    "cropped appearance portrait SECOND; no limb pose"
+  ],
+  "default_image_path": "/Users/byeolee/.codex/generated_images/01a10fce-6e28-7031-a509-10fa135070eb/exec-c11ce765-25cc-4f2e-9763-6304a88c5283.png",
+  "selected_image": "export/frames/Frame_016.png",
+  "guide": "guides/Guide_016.json",
+  "visual_review": {
+    "status": "individual airborne pose selected with forepaw overlap/appearance limits; wrap review pending",
+    "notes": [
+      "Full generated photo inspected: four limb paths with normal rear hocks, two distinct rear feet; all soles visibly clear of virtual contact plane. No foot-contact shadow, cropping or visible floor horizon.",
+      "Near and far forefeet are very close and overlap, so separate paw readability is weaker than requested; no obvious additional limb but this is not an unqualified anatomy pass.",
+      "Rear legs extend back/down rather than a contact hold, making it visibly different from015. Forelegs have more black coat than015 despite same portrait identity, and nose roughlyx85,y425 is higher than015 roughlyx105,y450.",
+      "Guide adherence and camera/coat consistency remain approximate. This is independent pose review, not a natural full-run pass."
+    ]
+  },
+  "resolution": [
+    1536,
+    1024
+  ],
+  "sha256": "659a2ea9e3717f8ea771fedda1d0e7bf0c3f1fffb51ef49d6ad32e8eca3a253d",
+  "bytes": 1533926
+}

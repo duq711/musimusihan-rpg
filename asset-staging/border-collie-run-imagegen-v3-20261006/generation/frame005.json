@@ -1,0 +1,33 @@
+{
+  "frame": 5,
+  "mode": "built-in imagegen",
+  "prompt": "Create ONE single standalone frame of the SAME realistic black and white athletic Border Collie galloping LEFT. Landscape 1536x1024, strict orthographic side profile, full dog with all paws, ears and tail within frame. REFERENCE 1 is the full-body POSE guide and determines this frame: reproduce its whole-body silhouette, body pitch/height, four limb placements and paw contact state. Make a fresh full-body pose, not a retouch of another dog photo. REFERENCE 2 is ONLY a cropped appearance portrait with no legs: use the same face, brown eye, white blaze/muzzle/ruff, black back, white paws and white tail tip. Do not use the portrait scale; full-body framing comes from reference 1. Anatomically credible canine shoulder/elbow and hip/stifle/hock joints, four connected limbs only, near and far paws readable, no extra legs. Realistic detailed medium fur with a clean silhouette. Uniform pale light-gray background, soft even lighting, no textured floor, no visible horizon line, no motion blur, no labels, no grid, no collage, no cropping or automatic zoom to fill the frame. Virtual contact plane is around y=850; only the supporting paws touch it, all other paws are visibly raised. Leg articulation and body compression must change together.  THIS FRAME: Fore support after landing: torso passes forward over the planted forepaws, forelegs sweep rearward relative to the trunk, hind legs swing forward underneath; chest begins to rise. Critical pose correction: BOTH forepaws are planted at the same virtual ground height y=850, with their paw pads flat and two separate forefeet around x=560 and x=670. The shoulders are already farther LEFT than these planted paws, around x=490, so both forelegs angle BACKWARD toward the right from the shoulders. Both elbows are naturally flexed while supporting weight. Do not extend either foreleg forward. Do not lift either forepaw in this frame. The white chest has begun rising after compression. Both rear knees have rotated forward under the belly; two hindfeet are airborne with separate hocks and paws near x=900 and x=1050/y=740. Follow the dominant full-body guide silhouette rather than the portrait's crop or scale.",
+  "referenced_image_paths": [
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v3-20261006/guides/Guide_005.png",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v3-20261006/references/dog-appearance-portrait.png"
+  ],
+  "reference_roles": [
+    "full-body pose guide FIRST",
+    "cropped appearance portrait SECOND; no limb pose"
+  ],
+  "default_image_path": "/Users/byeolee/.codex/generated_images/01a10fc9-bfe2-7b63-8b30-7e3db4aa6d24/exec-53110109-6fb6-4095-ac75-9056196e19b7.png",
+  "selected_image": "export/frames/Frame_005.png",
+  "guide": "guides/Guide_005.png",
+  "planned_cycle_phase": 0.25,
+  "visual_review": {
+    "status": "pass_basic_anatomy_and_distinct_pose_with_pose_limits",
+    "actual_inspection": "Native result individually viewed. Four connected limbs and four distinct paw ends are readable. Both forepaws reach the same low virtual contact height around y=830, with paws farther right than Frame004. Both hindfeet remain airborne with folded knees and hocks. The torso and head are higher than Frame004. Full body, tail and ears remain within a uniform gray frame; appearance matches the portrait.",
+    "limits": "The stronger retry fixed the earlier lifted second forepaw, but both forelegs still slope forward from the shoulders rather than clearly behind them. The planned torso-over-paws phase is only partly achieved. Head/chest rise from Frame004 is visually large; no continuous gait or exact contact coordinates are verified.",
+    "actual_ground_contacts": [
+      "two forepaws at approximately the same virtual contact height"
+    ],
+    "attempts": 2,
+    "rejected_attempt_receipt": "generation/frame005-attempt1-rejected.json"
+  },
+  "resolution": [
+    1536,
+    1024
+  ],
+  "sha256": "438f738ca9d144c460c322eaf3dc86523214b34d8c3ff51794dfdaaf538d45d0",
+  "bytes": 1730506
+}

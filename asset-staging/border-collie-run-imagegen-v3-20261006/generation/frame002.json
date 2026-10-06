@@ -1,0 +1,26 @@
+{
+  "frame": 2,
+  "mode": "built-in imagegen; independent pose-first single-image call",
+  "prompt": "Create ONE single standalone frame of the SAME realistic black and white athletic Border Collie galloping LEFT. Landscape 1536x1024, strict orthographic side profile, full dog with all paws, ears and tail within frame. REFERENCE 1 is the full-body POSE guide and determines this frame: reproduce its whole-body silhouette, body pitch/height, four limb placements and paw contact state. Make a fresh full-body pose, not a retouch of another dog photo. REFERENCE 2 is ONLY a cropped appearance portrait with no legs: use the same face, brown eye, white blaze/muzzle/ruff, black back, white paws and white tail tip. Do not use the portrait scale; full-body framing comes from reference 1. Anatomically credible canine shoulder/elbow and hip/stifle/hock joints, four connected limbs only, near and far paws readable, no extra legs. Realistic detailed medium fur with a clean silhouette. Uniform pale light-gray background, soft even lighting, no textured floor, no visible horizon line, no motion blur, no labels, no grid, no collage, no cropping or automatic zoom to fill the frame. Virtual contact plane is around y=850; only the supporting paws touch it, all other paws are visibly raised. Leg articulation and body compression must change together.  THIS FRAME: Descending extended flight: forepaws swing downward toward landing, hind stifles begin to fold forward; forelegs and hind legs differ visibly from maximum extension.",
+  "referenced_image_paths": [
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v3-20261006/guides/Guide_002.png",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v3-20261006/references/dog-appearance-portrait.png"
+  ],
+  "reference_roles": [
+    "full-body pose guide FIRST",
+    "cropped appearance portrait SECOND; no limb pose"
+  ],
+  "default_image_path": "/Users/byeolee/.codex/generated_images/01a107f1-ecad-7902-b7f4-8e94e0915fa6/exec-4ff8289a-b7d1-45c3-87f9-dd7e2029da98.png",
+  "selected_image": "export/frames/Frame_002.png",
+  "visual_review": {
+    "distinct_from_previous": true,
+    "notes_ko": "001에 비해 앞발이 아래로 내려오고 뒷다리가 접히기 시작함. 얼굴 위치는 비슷하고 네 발이 공중에 있음.",
+    "notes_en": "Forepaws descend and hindlimbs begin folding relative to001; similar head placement and four paws airborne."
+  },
+  "resolution": [
+    1536,
+    1024
+  ],
+  "sha256": "a07e3b51a5f2beb6e9c37380b9f9166495a156844f9bac2cef99978033827e3b",
+  "bytes": 1706800
+}

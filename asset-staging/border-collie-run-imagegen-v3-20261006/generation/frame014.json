@@ -1,0 +1,28 @@
+{
+  "frame": 14,
+  "mode": "built-in image_gen",
+  "prompt": "Create ONE single standalone frame of the SAME realistic black and white athletic Border Collie galloping LEFT. Landscape 1536x1024, strict orthographic side profile, full dog with all paws, ears and tail within frame. REFERENCE 1 is the full-body POSE guide and determines this frame: reproduce its whole-body silhouette, body pitch/height, four limb placements and paw contact state. Make a fresh full-body pose, not a retouch of another dog photo. REFERENCE 2 is ONLY a cropped appearance portrait with no legs: use the same face, brown eye, white blaze/muzzle/ruff, black back, white paws and white tail tip. Do not use the portrait scale; full-body framing comes from reference 1. Anatomically credible canine shoulder/elbow and hip/stifle/hock joints, four connected limbs only, near and far paws readable, no extra legs. Realistic detailed medium fur with a clean silhouette. Uniform pale light-gray background, soft even lighting, no textured floor, no visible horizon line, no motion blur, no labels, no grid, no collage, no cropping or automatic zoom to fill the frame. Virtual contact plane is around y=850; only the supporting paws touch it, all other paws are visibly raised. Leg articulation and body compression must change together.  THIS FRAME: Both hind paws are grounded and staggered, pelvis drops and stifles load for propulsion; forelegs extend forward airborne, chest starts rising. The lower hip must make the body visibly different from first contact.",
+  "referenced_image_paths": [
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v3-20261006/guides/Guide_014.png",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v3-20261006/references/dog-appearance-portrait.png"
+  ],
+  "default_image_path": "/Users/byeolee/.codex/generated_images/01a10fce-1419-7a00-b30d-b3cce690f97b/exec-a40a4d65-666a-4b52-8da5-f55962e7c091.png",
+  "selected_image": "export/frames/Frame_014.png",
+  "guide": "guides/Guide_014.json",
+  "visual_review": {
+    "status": "individual hind-loading phase gate passed; full-cycle continuity pending",
+    "notes": [
+      "Four identifiable connected limbs with separate paws; no visibly inverted hock, extra limb or fused foot.",
+      "Both staggered hind soles touch virtual contact plane around y855 with small contact shadows; pelvis is lowered and knees/hocks flexed; both forepaws extend left airborne.",
+      "Strong pose difference from accepted001 extended flight.",
+      "Actual nose is around x80,y465, rather than guide approximatelyx190,y530. Whole-dog horizontal scale/layout deviates from control, but head/scale remain fairly close to accepted001 actualphoto (nose aboutx100,y450).",
+      "Foreground and far forepaw positions are more forward than their guide; coordinates are approximate. Do not infer exact numerical trajectory compliance or natural continuous motion from this individual gate."
+    ]
+  },
+  "resolution": [
+    1536,
+    1024
+  ],
+  "sha256": "d1723b75170492afbd09e2b1ed831da4e88f995e9e97ee67a5e4cc0737b1ff9f",
+  "bytes": 1535980
+}

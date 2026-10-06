@@ -1,0 +1,29 @@
+{
+  "frame": 4,
+  "mode": "built-in imagegen",
+  "prompt": "Create ONE single standalone frame of the SAME realistic black and white athletic Border Collie galloping LEFT. Landscape 1536x1024, strict orthographic side profile, full dog with all paws, ears and tail within frame. REFERENCE 1 is the full-body POSE guide and determines this frame: reproduce its whole-body silhouette, body pitch/height, four limb placements and paw contact state. Make a fresh full-body pose, not a retouch of another dog photo. REFERENCE 2 is ONLY a cropped appearance portrait with no legs: use the same face, brown eye, white blaze/muzzle/ruff, black back, white paws and white tail tip. Do not use the portrait scale; full-body framing comes from reference 1. Anatomically credible canine shoulder/elbow and hip/stifle/hock joints, four connected limbs only, near and far paws readable, no extra legs. Realistic detailed medium fur with a clean silhouette. Uniform pale light-gray background, soft even lighting, no textured floor, no visible horizon line, no motion blur, no labels, no grid, no collage, no cropping or automatic zoom to fill the frame. Virtual contact plane is around y=850; only the supporting paws touch it, all other paws are visibly raised. Leg articulation and body compression must change together.  THIS FRAME: Both forepaws support the body on the ground; chest is visibly lower with bent elbows absorbing impact, hips higher, hind legs folded and airborne under the belly.",
+  "referenced_image_paths": [
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v3-20261006/guides/Guide_004.png",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v3-20261006/references/dog-appearance-portrait.png"
+  ],
+  "reference_roles": [
+    "full-body pose guide FIRST",
+    "cropped appearance portrait SECOND; no limb pose"
+  ],
+  "default_image_path": "/Users/byeolee/.codex/generated_images/01a10fc9-bfe2-7b63-8b30-7e3db4aa6d24/exec-155248a9-08f5-4f14-9220-5deb37488375.png",
+  "selected_image": "export/frames/Frame_004.png",
+  "guide": "guides/Guide_004.png",
+  "planned_cycle_phase": 0.1875,
+  "visual_review": {
+    "status": "candidate_pass_basic_anatomy_and_distinct_pose",
+    "actual_inspection": "Native output individually inspected. Exactlyfour connectedlimbs/fourpawends; bothforepaws visibly grounded nearvirtualy850, bothrearpawsairborne andfolded. Chestclearlylowerthanrump, back/pelvismorearched; fullnose/ears/tail/feetvisible. Sameportraitblack-whiteface/browneye/ruff/paws/tailtip anduniformpalegraybackground. Wholebodyposeclearlydiffersfrom001'smaximumextension.",
+    "limits": "Shoulder/elbowcompressionisvisiblethroughbodydipbutjointbendremainspartlyhiddenfur. Forepawsat~x235/360 ratherthanguide~380/480, dogfillsmorewidththanguide. Exactjointcoordinates/proportionsandcontinuousgaitarenotverified. Rootgatepending.",
+    "attempts": 1
+  },
+  "resolution": [
+    1536,
+    1024
+  ],
+  "sha256": "608bc3208a843c2494394bf3967028dbb07bf87b75252c5ac6370106c1821178",
+  "bytes": 1707964
+}

@@ -1,0 +1,33 @@
+{
+  "frame": 8,
+  "mode": "built-in imagegen; reviewed same-pose visibility edit",
+  "prompt": "Edit this single Border Collie gallop frame while keeping its SAME gathered airborne full-body silhouette, face, scale, body arch, canvas1536x1024 and uniform light-gray background. Correct only the visibility of the FAR-SIDE limbs. This animal has exactly FOUR legs and FOUR paws. At present the two forepaws overlap and the two hindpaws overlap. Make all four paws separately readable by moving the existing far forepaw modestly LEFT and DOWN from the near forepaw (roughly one paw-length), and the existing far hindpaw modestly LEFT and UP from the near hindpaw. Reveal the anatomical limb segments connecting those far paws behind the nearer legs, without adding extra legs or changing the near-side chains. Keep the forelegs folded beneath the chest and the hind stifles folded forward beneath the belly; all four paws airborne. Maintain the current closed mouth and eye, coat markings, rump/back arc and head height. No labels or motion blur. This is still the compact collection phase, not an extended stride. Preserve the dog's size and head placement; only separate the occluded far paws.",
+  "referenced_image_paths": [
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v3-20261006/export/frames/Frame_008.png"
+  ],
+  "reference_roles": [
+    "current gathered-frame candidate; far-side paw visibility correction only"
+  ],
+  "default_image_path": "/Users/byeolee/.codex/generated_images/01a107f1-ecad-7902-b7f4-8e94e0915fa6/exec-4f6d6d1b-7613-43e1-b733-3eb5821a5db6.png",
+  "selected_image": "export/frames/Frame_008.png",
+  "visual_review": {
+    "four_paws_separately_readable": true,
+    "distinct_from_frame007": true,
+    "notes_ko": "기존008의 몸·머리와 모은 자세를 유지하며 먼 앞발·뒷발을 드러냄. 네 발이 구분되며 007보다 앞발이 뒤로 말리고 뒷발이 더 모임.",
+    "notes_en": "Retains the gathered body/head pose while revealing far paws. Four paws readable; more curled forepaws and gathered hindpaws versus007."
+  },
+  "resolution": [
+    1536,
+    1024
+  ],
+  "sha256": "4276a6ba220668114683371e9f45501ac3880a4a8d4b8f83eedb40b155577fc3",
+  "bytes": 1817594,
+  "previous_selected_receipt": "generation/attempts/frame008-replaced-4304dd25a451.json",
+  "referenced_image_hashes": [
+    {
+      "path_used_during_call": "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v3-20261006/export/frames/Frame_008.png",
+      "sha256_at_generation": "4304dd25a4516a73ba51df980dc79a2a2cb3039108c1d7bf28b57b16834dc0a5",
+      "preserved_original_default_source": "/Users/byeolee/.codex/generated_images/01a107f1-ecad-7902-b7f4-8e94e0915fa6/exec-46834f80-3a41-45e5-bc82-2edb48e37446.png"
+    }
+  ]
+}

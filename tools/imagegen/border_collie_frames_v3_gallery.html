@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>보더콜리 달리기 v3 · 개별 자세</title>
+<style>
+:root{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:#273127;background:#edf0e9;line-height:1.4}
+*{box-sizing:border-box}body{margin:0}main{max-width:1180px;margin:auto;padding:14px 22px 18px}header{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:10px}h1{margin:0;font-size:25px;line-height:1.2;letter-spacing:-.04em}.subtitle{margin:4px 0 0;color:#64715f;font-size:12px}.tag{border:1px solid #cbd5c5;border-radius:20px;white-space:nowrap;padding:6px 10px;font-size:11px;color:#66755e}.viewer{background:#fafbf7;border:1px solid #cbd5c5;border-radius:14px;overflow:hidden}.framebar,.caption{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:7px 16px}.framebar{border-bottom:1px solid #d4dccf}.counter{font-size:13px;font-weight:700;font-variant-numeric:tabular-nums}.filename{font:11px ui-monospace,SFMono-Regular,Menlo,monospace;color:#74816e}.image-area{display:grid;place-items:center;background:#dedfd8;height:min(55vh,380px);min-height:180px}.image-area img{display:block;width:100%;height:100%;max-height:min(55vh,380px);object-fit:contain}.image-area .missing{display:none;margin:0;padding:24px;text-align:center;color:#76584c;font-size:13px}.caption{min-height:35px}.pose{margin:0;font-size:14px;font-weight:600}.phase{margin:0;font-size:11px;color:#6d7866;white-space:nowrap;font-variant-numeric:tabular-nums}.controls{margin-top:11px;padding:11px 15px;border:1px solid #cbd5c5;border-radius:12px;background:#fafbf7}.row{display:flex;align-items:center;gap:8px}.top{flex-wrap:wrap}.navigation{display:flex;gap:5px}.playback{display:flex;align-items:center;gap:8px;margin-left:auto}button,a.download,select{min-height:35px;border:1px solid #c6d0bf;border-radius:7px;background:white;color:#35482d;padding:6px 12px;font:inherit;font-size:12px;text-decoration:none;cursor:pointer}button:hover:not(:disabled),a.download:hover{background:#edf3e7}button:disabled,a[aria-disabled="true"]{opacity:.45;cursor:default}a[aria-disabled="true"]{pointer-events:none}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #5f8250;outline-offset:3px}#play{background:#354f2f;color:#fff;border-color:#354f2f;min-width:72px}.rate-label{font-size:11px;color:#67755e;white-space:nowrap}select{padding:6px 8px}.slider-row{margin:11px 0;font-size:11px;color:#74816b;font-variant-numeric:tabular-nums}#frame-slider{flex:1;min-width:0;accent-color:#4c7140;cursor:pointer}.bottom{justify-content:space-between;gap:14px}.status{margin:0;font-size:11px;color:#67755e}.downloads{display:flex;gap:6px;flex-wrap:wrap}.download.primary{background:#e8eedf}.note{margin:9px 2px 0;font-size:11px;color:#727d6a}.english{color:#8a9482;font-size:10px}
+@media(max-width:700px){main{padding:12px 10px}h1{font-size:21px}.tag{display:none}.framebar,.caption{padding:7px 11px}.caption{flex-direction:column;align-items:flex-start;gap:3px}.pose{font-size:13px}.image-area{height:min(55vh,380px);min-height:150px}.controls{padding:10px}.top{gap:10px}.playback{margin-left:0;justify-content:space-between;width:100%}.navigation{width:100%;justify-content:space-between}.navigation button{flex:1;padding:6px 8px}.bottom{align-items:flex-start;flex-direction:column;gap:8px}.downloads{width:100%}.download{flex:1;text-align:center;padding:7px 8px}.phase{white-space:normal}.note{font-size:10px}}
+</style>
+</head>
+<body>
+<main>
+<header><div><h1>다리 펴기·착지·모으기 __FRAME_COUNT__장</h1><p class="subtitle">보더콜리 달리기 v3 · 개별 자세를 한 장씩 살펴보기</p></div><span class="tag">원본 PNG · 1536 × 1024</span></header>
+<section class="viewer" aria-label="현재 달리기 프레임">
+<div class="framebar"><span id="counter" class="counter" aria-live="polite">프레임 01 / __FRAME_COUNT__</span><span id="filename" class="filename">Frame_001.png</span></div>
+<div class="image-area"><img id="frame-image" src="frames/Frame_001.png" alt="보더콜리 달리기 프레임 1" width="1536" height="1024"><p id="missing" class="missing" role="alert">이 프레임은 아직 준비 중입니다.</p></div>
+<div class="caption"><p id="pose" class="pose">달리기 자세</p><p id="phase" class="phase">제작 순서 01 / __FRAME_COUNT__</p></div>
+</section>
+<section class="controls" aria-label="프레임 선택과 미리보기">
+<div class="row top"><div class="navigation"><button id="first" type="button" aria-label="첫 프레임">처음</button><button id="previous" type="button" aria-label="이전 프레임">← 이전</button><button id="next" type="button" aria-label="다음 프레임">다음 →</button><button id="last" type="button" aria-label="마지막 프레임">마지막</button></div><div class="playback"><button id="play" type="button">▶ 재생</button><label class="rate-label" for="preview-rate">미리보기 속도</label><select id="preview-rate" aria-label="미리보기 재생 속도"><option value="12">12 fps</option><option value="16">16 fps</option><option value="24" selected>24 fps</option></select></div></div>
+<div class="row slider-row"><span>01</span><input id="frame-slider" type="range" min="1" max="__FRAME_COUNT__" step="1" value="1" aria-label="프레임 선택"><span id="slider-last">__FRAME_COUNT__</span></div>
+<div class="row bottom"><p id="status" class="status" role="status">한 장씩 이동 · 재생은 반복 미리보기</p><div class="downloads"><a id="download-frame" class="download" href="frames/Frame_001.png" download="Frame_001.png">현재 PNG</a><a id="download-all" class="download primary" href="__ARCHIVE_NAME__" download>__FRAME_COUNT__장 ZIP</a></div></div>
+</section>
+<p class="note">← →로 한 장씩 이동 · Space로 재생/정지 · Home / End로 처음/마지막 이동. 12 fps를 선택하면 자세 변화를 천천히 볼 수 있습니다.<br><span class="english">__FRAME_COUNT__ separate images. Use the arrows to inspect each pose or play the loop.</span></p>
+<p class="note">각 장을 별도로 생성해 털 모양과 일부 관절 연결에 차이가 남을 수 있습니다.<br><span class="english">Individually generated frames may vary in fur and joint continuity.</span></p>
+</main>
+<script id="frame-data" type="application/json">__FRAME_DATA__</script>
+<script>
+"use strict";
+const data = JSON.parse(document.getElementById("frame-data").textContent);
+const frames = data.frames;
+const image = document.getElementById("frame-image");
+const missing = document.getElementById("missing");
+const slider = document.getElementById("frame-slider");
+const rate = document.getElementById("preview-rate");
+const playButton = document.getElementById("play");
+const status = document.getElementById("status");
+const frameDownload = document.getElementById("download-frame");
+const archiveDownload = document.getElementById("download-all");
+const counter = document.getElementById("counter");
+slider.max = String(frames.length);
+document.getElementById("slider-last").textContent = String(frames.length);
+archiveDownload.textContent = frames.length + "장 ZIP";
+rate.value = String(data.default_preview_rate_fps || 24);
+let current = 0;
+let playing = false;
+let preparing = false;
+let preloadPromise = null;
+let preloadedImages = [];
+let animation = null;
+let lastTick = null;
+let prepareToken = 0;
+function imagePath(frame) { return "frames/" + frame.filename; }
+function setDownloadAvailability(link, available) {
+  link.setAttribute("aria-disabled", String(!available));
+  link.tabIndex = available ? 0 : -1;
+}
+function showFrame(index) {
+  current = Math.max(0, Math.min(frames.length - 1, index));
+  const frame = frames[current];
+  const number = String(frame.frame).padStart(2, "0");
+  counter.textContent = "프레임 " + number + " / " + frames.length;
+  document.getElementById("filename").textContent = frame.filename;
+  document.getElementById("pose").textContent = frame.label_ko + (frame.caption_ko ? " · " + frame.caption_ko : "");
+  document.getElementById("phase").textContent = "순서 " + number + " / " + frames.length;
+  slider.value = String(frame.frame);
+  slider.setAttribute("aria-valuetext", "프레임 " + frame.frame + " / " + frames.length + " · " + frame.label_ko);
+  image.alt = "보더콜리 달리기 프레임 " + frame.frame + ": " + frame.label_ko;
+  image.style.display = frame.available ? "block" : "none";
+  missing.style.display = frame.available ? "none" : "block";
+  missing.textContent = "이 프레임은 아직 준비 중입니다. / Frame pending.";
+  if (frame.available) image.src = imagePath(frame);
+  frameDownload.href = imagePath(frame);
+  frameDownload.download = frame.filename;
+  setDownloadAvailability(frameDownload, frame.available);
+  document.getElementById("first").disabled = current === 0;
+  document.getElementById("previous").disabled = current === 0;
+  document.getElementById("next").disabled = current === frames.length - 1;
+  document.getElementById("last").disabled = current === frames.length - 1;
+}
+function pause() {
+  playing = false;
+  preparing = false;
+  prepareToken += 1;
+  if (animation !== null) cancelAnimationFrame(animation);
+  animation = null;
+  lastTick = null;
+  playButton.textContent = "▶ 재생";
+  counter.setAttribute("aria-live", "polite");
+  status.textContent = "한 장씩 이동 · 재생은 반복 미리보기";
+}
+function tick(timestamp) {
+  if (!playing) return;
+  if (lastTick === null) lastTick = timestamp;
+  const interval = 1000 / Number(rate.value);
+  const elapsed = timestamp - lastTick;
+  if (elapsed >= interval - 0.5) {
+    showFrame((current + 1) % frames.length);
+    lastTick = elapsed > interval * 3 ? timestamp : lastTick + interval;
+  }
+  animation = requestAnimationFrame(tick);
+}
+async function preload() {
+  if (!preloadPromise) {
+    preloadedImages = frames.map(frame => {
+      const item = new Image();
+      item.src = imagePath(frame);
+      return item;
+    });
+    preloadPromise = Promise.all(preloadedImages.map(item => item.decode()));
+  }
+  try { await preloadPromise; }
+  catch (error) {
+    preloadPromise = null;
+    preloadedImages = [];
+    throw error;
+  }
+}
+async function togglePlay() {
+  if (playing || preparing) { pause(); return; }
+  const token = ++prepareToken;
+  preparing = true;
+  playButton.textContent = "■ 취소";
+  status.textContent = "개별 원본 " + frames.length + "장 미리보기 준비 중…";
+  try { await preload(); }
+  catch (error) {
+    if (token !== prepareToken) return;
+    pause();
+    status.textContent = "이미지를 불러오지 못했습니다. frames 폴더를 확인해 주세요.";
+    return;
+  }
+  if (token !== prepareToken) return;
+  preparing = false;
+  playing = true;
+  lastTick = null;
+  playButton.textContent = "Ⅱ 정지";
+  counter.setAttribute("aria-live", "off");
+  status.textContent = "반복 미리보기 · " + rate.value + " fps 설정";
+  animation = requestAnimationFrame(tick);
+}
+function navigate(index) { pause(); showFrame(index); }
+image.addEventListener("error", () => {
+  pause(); image.style.display = "none"; missing.style.display = "block";
+  missing.textContent = "이미지를 열 수 없습니다. frames 폴더를 확인해 주세요. / Image unavailable.";
+  setDownloadAvailability(frameDownload, false);
+});
+document.getElementById("first").addEventListener("click", () => navigate(0));
+document.getElementById("previous").addEventListener("click", () => navigate(current - 1));
+document.getElementById("next").addEventListener("click", () => navigate(current + 1));
+document.getElementById("last").addEventListener("click", () => navigate(frames.length - 1));
+slider.addEventListener("input", () => navigate(Number(slider.value) - 1));
+playButton.addEventListener("click", togglePlay);
+rate.addEventListener("change", () => {
+  lastTick = null;
+  if (playing) status.textContent = "반복 미리보기 · " + rate.value + " fps 설정";
+});
+frameDownload.addEventListener("click", event => {
+  if (frameDownload.getAttribute("aria-disabled") === "true") event.preventDefault();
+});
+setDownloadAvailability(archiveDownload, data.archive_available);
+if (!data.archive_available) archiveDownload.textContent = "ZIP 준비 중";
+archiveDownload.addEventListener("click", event => {
+  if (!data.archive_available) event.preventDefault();
+});
+if (!frames.every(frame => frame.available)) {
+  playButton.disabled = true;
+  playButton.title = frames.length + "장이 모두 준비되면 재생할 수 있습니다.";
+}
+document.addEventListener("keydown", event => {
+  if (event.altKey || event.ctrlKey || event.metaKey || event.target.matches("input,select,button,a")) return;
+  const targets = {ArrowLeft: current - 1, ArrowRight: current + 1, Home: 0, End: frames.length - 1};
+  if (Object.prototype.hasOwnProperty.call(targets, event.key)) {
+    event.preventDefault(); navigate(targets[event.key]);
+  } else if (event.code === "Space" && !playButton.disabled) {
+    event.preventDefault(); togglePlay();
+  }
+});
+document.addEventListener("visibilitychange", () => { if (document.hidden) pause(); });
+showFrame(0);
+</script>
+</body>
+</html>

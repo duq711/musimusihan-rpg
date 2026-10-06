@@ -1,0 +1,32 @@
+{
+  "frame": 6,
+  "mode": "built-in imagegen",
+  "prompt": "Create ONE single standalone frame of the SAME realistic black and white athletic Border Collie galloping LEFT. Landscape 1536x1024, strict orthographic side profile, full dog with all paws, ears and tail within frame. REFERENCE 1 is the full-body POSE guide and determines this frame: reproduce its whole-body silhouette, body pitch/height, four limb placements and paw contact state. Make a fresh full-body pose, not a retouch of another dog photo. REFERENCE 2 is ONLY a cropped appearance portrait with no legs: use the same face, brown eye, white blaze/muzzle/ruff, black back, white paws and white tail tip. Do not use the portrait scale; full-body framing comes from reference 1. Anatomically credible canine shoulder/elbow and hip/stifle/hock joints, four connected limbs only, near and far paws readable, no extra legs. Realistic detailed medium fur with a clean silhouette. Uniform pale light-gray background, soft even lighting, no textured floor, no visible horizon line, no motion blur, no labels, no grid, no collage, no cropping or automatic zoom to fill the frame. Virtual contact plane is around y=850; only the supporting paws touch it, all other paws are visibly raised. Leg articulation and body compression must change together.  THIS FRAME: One forepaw has lifted and folds toward the chest while the other remains in its last support behind the shoulder; hind legs swing far forward under the belly.",
+  "referenced_image_paths": [
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v3-20261006/guides/Guide_006.png",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v3-20261006/references/dog-appearance-portrait.png"
+  ],
+  "reference_roles": [
+    "full-body pose guide FIRST",
+    "cropped appearance portrait SECOND; no limb pose"
+  ],
+  "default_image_path": "/Users/byeolee/.codex/generated_images/01a10fc9-bfe2-7b63-8b30-7e3db4aa6d24/exec-4f84f0a7-80bc-4b1c-a1e7-2894ae2c6b42.png",
+  "selected_image": "export/frames/Frame_006.png",
+  "guide": "guides/Guide_006.png",
+  "planned_cycle_phase": 0.3125,
+  "visual_review": {
+    "status": "pass_basic_anatomy_and_distinct_pose_with_limits",
+    "actual_inspection": "Native result individually viewed. Four connected limbs and four paw ends are visible. One forepaw is tightly folded near the white chest around x=400/y=650; the other foreleg reaches the lowest support level around x=455/y=875. Two hindpaws remain raised with separate knees/hocks around x=860/y=720 and x=1010/y=770. The lifted forepaw makes this clearly different from Frame005's two low forepaws. Full body and tail fit the uniform gray frame.",
+    "limits": "The supporting forepaw remains forward of the shoulder rather than behind it. Hindleg recovery is only partly under the belly. The nominal contact height differs from the prompt by about 25 pixels. The guide itself shows both forepaws near the floor, whereas the prompt asks one to fold to the chest; the generated result follows the described contact phase more than that guide detail. Smooth temporal continuity and measured ground locking are unverified.",
+    "actual_ground_contacts": [
+      "one forepaw at the lowest virtual contact level"
+    ],
+    "attempts": 1
+  },
+  "resolution": [
+    1536,
+    1024
+  ],
+  "sha256": "98c48afea6f3c36155ea358de0600bcc102d76456c93a9a401abc745a8996b8f",
+  "bytes": 1715447
+}

@@ -1,0 +1,31 @@
+{
+  "frame": 7,
+  "mode": "built-in imagegen",
+  "prompt": "Create ONE single standalone frame of the SAME realistic black and white athletic Border Collie galloping LEFT. Landscape 1536x1024, strict orthographic side profile, full dog with all paws, ears and tail within frame. REFERENCE 1 is the full-body POSE guide and determines this frame: reproduce its whole-body silhouette, body pitch/height, four limb placements and paw contact state. Make a fresh full-body pose, not a retouch of another dog photo. REFERENCE 2 is ONLY a cropped appearance portrait with no legs: use the same face, brown eye, white blaze/muzzle/ruff, black back, white paws and white tail tip. Do not use the portrait scale; full-body framing comes from reference 1. Anatomically credible canine shoulder/elbow and hip/stifle/hock joints, four connected limbs only, near and far paws readable, no extra legs. Realistic detailed medium fur with a clean silhouette. Uniform pale light-gray background, soft even lighting, no textured floor, no visible horizon line, no motion blur, no labels, no grid, no collage, no cropping or automatic zoom to fill the frame. Virtual contact plane is around y=850; only the supporting paws touch it, all other paws are visibly raised. Leg articulation and body compression must change together.  THIS FRAME: Both forepaws leave the ground; all four limbs actively fold underneath the dog; the back begins rounding, forepaws recover behind the chest and hind paws reach forward. Critical visibility correction: Show FOUR clearly separate paw ends, one for each connected leg. In this collected airborne pose, both forelegs are bent with two white forepaws separated around x=520 and x=670/y=670. Both rear thighs fold forward and their hocks bend separately, showing TWO distinct white hindpaws around x=850/y=735 and x=1030/y=710. Keep a visible gap between the rear feet; do not merge the rear paws into a single white cluster. All four feet are airborne and higher than y=800, with a gently rounded back. No fifth paw and no duplicated joints.",
+  "referenced_image_paths": [
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v3-20261006/guides/Guide_007.png",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v3-20261006/references/dog-appearance-portrait.png"
+  ],
+  "reference_roles": [
+    "full-body pose guide FIRST",
+    "cropped appearance portrait SECOND; no limb pose"
+  ],
+  "default_image_path": "/Users/byeolee/.codex/generated_images/01a10fc9-bfe2-7b63-8b30-7e3db4aa6d24/exec-393e5d07-e7e6-455c-bbdc-fdc35a8274ed.png",
+  "selected_image": "export/frames/Frame_007.png",
+  "guide": "guides/Guide_007.png",
+  "planned_cycle_phase": 0.375,
+  "visual_review": {
+    "status": "pass_basic_anatomy_and_distinct_collected_airborne_pose_with_limits",
+    "actual_inspection": "Native result individually viewed. Four connected limbs end in four separate white paws, with readable gaps between both forefeet and both hindfeet. Both forelegs are bent under the chest, both hindlegs fold forward under the rear trunk, all four paws are visibly above the virtual contact plane, and the back is rounded. This clearly differs from Frame006's long single supporting foreleg. Whole dog, ears and tail fit the uniform gray frame.",
+    "limits": "The generated folded forelegs do not reproduce the guide's almost-straight descending forelegs; they follow the intended textual airborne collection phase. The exact guide paw locations and body scale are not reproduced. This is a distinct key pose, without a verified physical trajectory or seamless interpolation to neighboring frames.",
+    "actual_ground_contacts": [],
+    "attempts": 2,
+    "rejected_attempt_receipt": "generation/frame007-attempt1-rejected.json"
+  },
+  "resolution": [
+    1536,
+    1024
+  ],
+  "sha256": "a7df0f7d4b34b026d23f6d596c0ce36077b58d1c0e13dec37fd42cb99c85f9f2",
+  "bytes": 1534179
+}

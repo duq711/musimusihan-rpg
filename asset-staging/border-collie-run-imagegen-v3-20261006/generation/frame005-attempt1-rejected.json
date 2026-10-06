@@ -1,0 +1,21 @@
+{
+  "frame": 5,
+  "mode": "built-in imagegen",
+  "prompt": "Create ONE single standalone frame of the SAME realistic black and white athletic Border Collie galloping LEFT. Landscape 1536x1024, strict orthographic side profile, full dog with all paws, ears and tail within frame. REFERENCE 1 is the full-body POSE guide and determines this frame: reproduce its whole-body silhouette, body pitch/height, four limb placements and paw contact state. Make a fresh full-body pose, not a retouch of another dog photo. REFERENCE 2 is ONLY a cropped appearance portrait with no legs: use the same face, brown eye, white blaze/muzzle/ruff, black back, white paws and white tail tip. Do not use the portrait scale; full-body framing comes from reference 1. Anatomically credible canine shoulder/elbow and hip/stifle/hock joints, four connected limbs only, near and far paws readable, no extra legs. Realistic detailed medium fur with a clean silhouette. Uniform pale light-gray background, soft even lighting, no textured floor, no visible horizon line, no motion blur, no labels, no grid, no collage, no cropping or automatic zoom to fill the frame. Virtual contact plane is around y=850; only the supporting paws touch it, all other paws are visibly raised. Leg articulation and body compression must change together.  THIS FRAME: Fore support after landing: torso passes forward over the planted forepaws, forelegs sweep rearward relative to the trunk, hind legs swing forward underneath; chest begins to rise.",
+  "referenced_image_paths": [
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v3-20261006/guides/Guide_005.png",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v3-20261006/references/dog-appearance-portrait.png"
+  ],
+  "reference_roles": [
+    "full-body pose guide FIRST",
+    "cropped appearance portrait SECOND; no limb pose"
+  ],
+  "default_image_path": "/Users/byeolee/.codex/generated_images/01a10fc9-bfe2-7b63-8b30-7e3db4aa6d24/exec-e98d9a17-2ad3-4189-a1db-1daebc269ce6.png",
+  "guide": "guides/Guide_005.png",
+  "visual_review": {
+    "status": "rejected_for_contact_and_pose_phase",
+    "actual_inspection": "Four connected legs with four paw ends are visible, but only the leftmost forepaw appears planted around y=830. The second forepaw is already lifted behind it around x=730/y=800. The supporting foreleg reaches forward from the shoulder rather than sweeping behind it. Hindlegs remain behind instead of a clear forward recovery underneath the trunk.",
+    "limits": "The single-image anatomy is basically readable, but the intended double-fore support and torso-over-paws phase was not reproduced.",
+    "attempt": 1
+  }
+}

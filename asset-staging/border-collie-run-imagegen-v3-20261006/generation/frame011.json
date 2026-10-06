@@ -1,0 +1,28 @@
+{
+  "frame": 11,
+  "mode": "built-in image_gen",
+  "prompt": "Create ONE single standalone frame of the SAME realistic black and white athletic Border Collie galloping LEFT. Landscape 1536x1024, strict orthographic side profile, full dog with all paws, ears and tail within frame. REFERENCE 1 is the full-body POSE guide and determines this frame: reproduce its whole-body silhouette, body pitch/height, four limb placements and paw contact state. Make a fresh full-body pose, not a retouch of another dog photo. REFERENCE 2 is ONLY a cropped appearance portrait with no legs: use the same face, brown eye, white blaze/muzzle/ruff, black back, white paws and white tail tip. Do not use the portrait scale; full-body framing comes from reference 1. Anatomically credible canine shoulder/elbow and hip/stifle/hock joints, four connected limbs only, near and far paws readable, no extra legs. Realistic detailed medium fur with a clean silhouette. Uniform pale light-gray background, soft even lighting, no textured floor, no visible horizon line, no motion blur, no labels, no grid, no collage, no cropping or automatic zoom to fill the frame. Virtual contact plane is around y=850; only the supporting paws touch it, all other paws are visibly raised. Leg articulation and body compression must change together.  THIS FRAME: First hindpaw reaches down close to ground beneath the body, the other hindpaw remains higher and staggered. Forelegs continue opening forward and stay airborne. This precise late-air phase has a near hind leg unfolding DOWN in preparation: near hind sole aroundy825-835, clearly15-25px OFFplane850; far hind sole remains higher aroundy790-805. Neither hind paw has landed, and there is no grounded shadow under airborne feet. Hind stifles/hocks are softly open rather than a deep belly curl. Forelegs reach LEFT but keep visibly bent natural elbows, four paws staggered/separate. The neck is carried low and forward with the eye below the upper-back level; avoid raising the muzzle into an alert upright position. Maintain the guide's whole-dog framing, uniform gray, and gradual body descent.",
+  "referenced_image_paths": [
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v3-20261006/guides/Guide_011.png",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v3-20261006/references/dog-appearance-portrait.png"
+  ],
+  "default_image_path": "/Users/byeolee/.codex/generated_images/01a10fce-1419-7a00-b30d-b3cce690f97b/exec-ae960d65-26be-411a-b1cb-799e25633fa7.png",
+  "selected_image": "export/frames/Frame_011.png",
+  "guide": "guides/Guide_011.json",
+  "visual_review": {
+    "status": "selected distinct near-hind prelanding phase; continuity deviations noted",
+    "notes": [
+      "Four separate connected limbs, normal stifles/hocks and bent elbows; all soles airborne.",
+      "Near hind sole aroundy835 is close to plane850, far hind sole aroundy760 stays clearly higher, so prelanding stagger is visible.",
+      "Compared with010, near hindpaw visibly swings forward/down while far hindpaw remains back/higher; distinct whole-body silhouette.",
+      "Actual muzzle aroundx70,y430 rises~40-45px relative010 and body is somewhat higher, contrary the planned gradual descent. Actual forepaws aroundx275/470 shift right/up rather than opening farther left.",
+      "No exact guide-coordinate or continuous-motion compliance claim; root should review timing/camera across the cycle."
+    ]
+  },
+  "resolution": [
+    1536,
+    1024
+  ],
+  "sha256": "5ffa948e6e2eafb9424a4f780aa5ef95c43bb0fd87cc35e01a6baf3004889750",
+  "bytes": 1618740
+}

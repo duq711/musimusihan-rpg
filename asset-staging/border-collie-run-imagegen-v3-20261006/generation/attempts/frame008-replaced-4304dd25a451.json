@@ -1,0 +1,26 @@
+{
+  "frame": 8,
+  "mode": "built-in imagegen; independent pose-first single-image call",
+  "prompt": "Create ONE single standalone frame of the SAME realistic black and white athletic Border Collie galloping LEFT. Landscape 1536x1024, strict orthographic side profile, full dog with all paws, ears and tail within frame. REFERENCE 1 is the full-body POSE guide and determines this frame: reproduce its whole-body silhouette, body pitch/height, four limb placements and paw contact state. Make a fresh full-body pose, not a retouch of another dog photo. REFERENCE 2 is ONLY a cropped appearance portrait with no legs: use the same face, brown eye, white blaze/muzzle/ruff, black back, white paws and white tail tip. Do not use the portrait scale; full-body framing comes from reference 1. Anatomically credible canine shoulder/elbow and hip/stifle/hock joints, four connected limbs only, near and far paws readable, no extra legs. Realistic detailed medium fur with a clean silhouette. Uniform pale light-gray background, soft even lighting, no textured floor, no visible horizon line, no motion blur, no labels, no grid, no collage, no cropping or automatic zoom to fill the frame. Virtual contact plane is around y=850; only the supporting paws touch it, all other paws are visibly raised. Leg articulation and body compression must change together.  THIS FRAME: Gathered aerial phase: spine visibly rounded, forelegs folded back and hind stifles tucked forward underneath the belly, four separated paws airborne.",
+  "referenced_image_paths": [
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v3-20261006/guides/Guide_008.png",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v3-20261006/references/dog-appearance-portrait.png"
+  ],
+  "reference_roles": [
+    "full-body pose guide FIRST",
+    "cropped appearance portrait SECOND; no limb pose"
+  ],
+  "default_image_path": "/Users/byeolee/.codex/generated_images/01a107f1-ecad-7902-b7f4-8e94e0915fa6/exec-46834f80-3a41-45e5-bc82-2edb48e37446.png",
+  "selected_image": "export/frames/Frame_008.png",
+  "visual_review": {
+    "distinct_from_max_extension": true,
+    "notes_ko": "척추가 굽고 앞뒤 다리를 모은 공중 자세가 001의 펼친 자세와 분명히 다름. 먼 다리와 발 일부는 가까운 다리에 가려짐. 시간 연결은 별도 검토.",
+    "notes_en": "Clear gathered silhouette versus001. Some far-side limb details are occluded; continuity requires separate review."
+  },
+  "resolution": [
+    1536,
+    1024
+  ],
+  "sha256": "4304dd25a4516a73ba51df980dc79a2a2cb3039108c1d7bf28b57b16834dc0a5",
+  "bytes": 1538391
+}

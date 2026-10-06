@@ -1,0 +1,28 @@
+{
+  "frame": 9,
+  "mode": "built-in image_gen",
+  "prompt": "Create ONE single standalone frame of the SAME realistic black and white athletic Border Collie galloping LEFT. Landscape 1536x1024, strict orthographic side profile, full dog with all paws, ears and tail within frame. REFERENCE 1 is the full-body POSE guide and determines this frame: reproduce its whole-body silhouette, body pitch/height, four limb placements and paw contact state. Make a fresh full-body pose, not a retouch of another dog photo. REFERENCE 2 is ONLY a cropped appearance portrait with no legs: use the same face, brown eye, white blaze/muzzle/ruff, black back, white paws and white tail tip. Do not use the portrait scale; full-body framing comes from reference 1. Anatomically credible canine shoulder/elbow and hip/stifle/hock joints, four connected limbs only, near and far paws readable, no extra legs. Realistic detailed medium fur with a clean silhouette. Uniform pale light-gray background, soft even lighting, no textured floor, no visible horizon line, no motion blur, no labels, no grid, no collage, no cropping or automatic zoom to fill the frame. Virtual contact plane is around y=850; only the supporting paws touch it, all other paws are visibly raised. Leg articulation and body compression must change together.  THIS FRAME: After gathered flight, hind paws now advance forward and start descending beneath the hips; forepaws have begun swinging forward out of their fold. This must be a new silhouette, not the same gathered pose. Preserve FOUR separately readable paws rather than hiding the far paws behind the near ones: stagger the two forepaws by35-45pixels and the two hindpaws by25-35pixels with a small vertical difference, while retaining the guide's gathered-forward hind limb pose. In this specific phase, forearms visibly OPEN DOWN/FORWARD from their tight chest curl, and hind stifles pull forward beneath the belly; all four soles remain at least100pixels ABOVE the virtual plane850. The back is still flexed but begins lengthening. No paw can stay fused or copied as one shared shape.",
+  "referenced_image_paths": [
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v3-20261006/guides/Guide_009.png",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v3-20261006/references/dog-appearance-portrait.png"
+  ],
+  "default_image_path": "/Users/byeolee/.codex/generated_images/01a10fce-1419-7a00-b30d-b3cce690f97b/exec-5c516e7a-01db-4744-919c-479383e7cb88.png",
+  "selected_image": "export/frames/Frame_009.png",
+  "guide": "guides/Guide_009.json",
+  "visual_review": {
+    "status": "selected distinct independent phase; continuity deviations noted",
+    "notes": [
+      "Four separate normal connected limbs/paws, all airborne, no inverted joints or fused feet.",
+      "Compared with actual008, both forelegs are visibly more open and down/forward; hind paws also descend and separate. This is not the same folded pose.",
+      "Actual pose is more unfolded/lower-pawed than the compact guide suggests; near hind paw moves back rather than forward relative actual008.",
+      "Actual muzzle aroundx60,y385 vs actual008 aboutx70,y430; head rises roughly45px while torso lowers/lengthens. Body/head/camera continuity needs whole-cycle review.",
+      "Guide targets and requested100px paw clearance are approximate: lowest soles aroundy810, only~40px above virtualplane850."
+    ]
+  },
+  "resolution": [
+    1536,
+    1024
+  ],
+  "sha256": "30319f974245d1dafb4848f57b42db013f5ea535a6680590a2754c76cf0313fa",
+  "bytes": 1639804
+}

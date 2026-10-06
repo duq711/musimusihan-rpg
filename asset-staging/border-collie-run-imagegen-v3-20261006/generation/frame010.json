@@ -1,0 +1,28 @@
+{
+  "frame": 10,
+  "mode": "built-in image_gen",
+  "prompt": "Create ONE single standalone frame of the SAME realistic black and white athletic Border Collie galloping LEFT. Landscape 1536x1024, strict orthographic side profile, full dog with all paws, ears and tail within frame. REFERENCE 1 is the full-body POSE guide and determines this frame: reproduce its whole-body silhouette, body pitch/height, four limb placements and paw contact state. Make a fresh full-body pose, not a retouch of another dog photo. REFERENCE 2 is ONLY a cropped appearance portrait with no legs: use the same face, brown eye, white blaze/muzzle/ruff, black back, white paws and white tail tip. Do not use the portrait scale; full-body framing comes from reference 1. Anatomically credible canine shoulder/elbow and hip/stifle/hock joints, four connected limbs only, near and far paws readable, no extra legs. Realistic detailed medium fur with a clean silhouette. Uniform pale light-gray background, soft even lighting, no textured floor, no visible horizon line, no motion blur, no labels, no grid, no collage, no cropping or automatic zoom to fill the frame. Virtual contact plane is around y=850; only the supporting paws touch it, all other paws are visibly raised. Leg articulation and body compression must change together.  THIS FRAME: Hind limbs unfold downward toward the coming hind landing, first hindpaw clearly lower than the other; forelegs unfold farther forward, shoulders/head lowered modestly. This is an intermediate UNFOLDING flight before hind landing: the two hind legs must have visibly more open knees/hocks than a deep gathered curl, one near hind sole descends to abouty785-805 and the far hind sole remains aroundy735-755, separated by40-55px of height; neither touchesplane850. Both forelegs visibly reach FORWARD LEFT with relaxed curved elbows, rather than staying tightly folded beneath the chest; retain distinct near/far forepaws with35-50px stagger. The entire torso drops gently while the neck keeps the eye almost level. Four soles are individually readable, no paw overlap that hides a complete limb.",
+  "referenced_image_paths": [
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v3-20261006/guides/Guide_010.png",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v3-20261006/references/dog-appearance-portrait.png"
+  ],
+  "default_image_path": "/Users/byeolee/.codex/generated_images/01a10fce-1419-7a00-b30d-b3cce690f97b/exec-7d3899b5-341e-4191-a318-0c20f6fc99e8.png",
+  "selected_image": "export/frames/Frame_010.png",
+  "guide": "guides/Guide_010.json",
+  "visual_review": {
+    "status": "selected distinct unfolding flight; continuity review pending",
+    "notes": [
+      "Four separate paws, all airborne, no inverted or fused joints; hind stifles/hocks more open than compact008.",
+      "Near hind sole aroundy820 and far aroundy785, descending toward landing; limbs/body clearly differ from009.",
+      "Forepaws aroundx220/440,y730/780 are less tightly folded than008, though forward reach differs from guide targets.",
+      "Actual head aroundx75,y475 returns much lower than current009(~y385), creating an evident head-position jump. 009 is scheduled for bounded retry, so no smooth-cycle claim.",
+      "Camera/layout and hind-foot coordinates are approximate rather than numerical guide adherence."
+    ]
+  },
+  "resolution": [
+    1536,
+    1024
+  ],
+  "sha256": "f0dc35179d1a84b5785fa7f0bf214908dc722c5a2f942a2b20fd8f79e3b81eb0",
+  "bytes": 1544097
+}

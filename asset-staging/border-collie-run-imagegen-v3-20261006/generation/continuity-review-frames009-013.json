@@ -1,0 +1,86 @@
+{
+  "scope": "Read-only actual-photo continuity review of selected v3 frames008→014 after producing009–013.",
+  "generated_frames": [
+    9,
+    10,
+    11,
+    12,
+    13
+  ],
+  "built_in_calls": 6,
+  "bounded_revisions": {
+    "9": 1
+  },
+  "review_method": "Viewed each selected full-resolution photograph in chronological order; approximate landmarks are human visual estimates, not segmentation, mocap or numerical validation of gait.",
+  "individual_frame_result": "All five selected photographs contain four readable connected limbs and differ in actual paw/body pose. No clear inverted hock, fused paw, added limb or repeated identical silhouette was seen.",
+  "continuity_result": "Improved phase variety over v2, but a consistently natural continuous gallop is not verified and still has visibly discontinuous forepaw and head/body transitions.",
+  "transitions": [
+    {
+      "from": 8,
+      "to": 9,
+      "status": "improved intermediate recovery",
+      "observations": [
+        "Bent forepaws remain beneath chest rather than suddenly reaching fully left.",
+        "Hindlegs open/down and body lengthens/lowers. Muzzle ~430→445 remains close."
+      ]
+    },
+    {
+      "from": 9,
+      "to": 10,
+      "status": "largest remaining forepaw opening jump",
+      "observations": [
+        "Far forepaw advances left roughly280px and near forepaw155px in one slot; hind legs open rearward.",
+        "Head drops roughly30px. Distinct phase change is evident but the foot arc is abrupt."
+      ]
+    },
+    {
+      "from": 10,
+      "to": 11,
+      "status": "trajectory reversal and head rise",
+      "observations": [
+        "Forepaws move right/up by roughly30–55px/20–25px, reversing preceding leftward reach.",
+        "Hind limb stagger changes substantially; muzzle rises roughly40–45px."
+      ]
+    },
+    {
+      "from": 11,
+      "to": 12,
+      "status": "body vertical jump",
+      "observations": [
+        "Muzzle/back descend roughly45–50px, larger than nearby guide variation.",
+        "Near hindsole approaches850; pre-contact gap is ambiguous. Far hindpaw remains raised."
+      ]
+    },
+    {
+      "from": 12,
+      "to": 13,
+      "status": "small but visible articulation change",
+      "observations": [
+        "Far hindpaw descends roughly30–40px and the more curled forepaw opens left70–90px.",
+        "Torso/head silhouette is similar; near hindsole stays ~850. This pair cannot establish exact landing timing."
+      ]
+    },
+    {
+      "from": 13,
+      "to": 14,
+      "status": "double-hind support recognizable",
+      "observations": [
+        "Both hind soles reach the floor, with bent knees/hocks and depressed pelvis.",
+        "Forepaws reach left/up another roughly90–140px; head height differs about20px."
+      ]
+    }
+  ],
+  "prioritized_remaining_repairs": [
+    "009→010 foreleg uncurling still spans a large foot displacement; an intermediate curved-elbow trajectory would need actual photographic verification.",
+    "010→011→012 head/back rise then fall and forepaw arc reversal remain; image-generation guide compliance is approximate rather than a physical animation guarantee."
+  ],
+  "production_checks": {
+    "selected_source_byte_identity": "5/5 pass",
+    "receipt_hash_match": "5/5 pass",
+    "resolution_1536x1024": "5/5 pass",
+    "frame014_preserved_sha256": "d1723b75170492afbd09e2b1ed831da4e88f995e9e97ee67a5e4cc0737b1ff9f",
+    "all_default_sources_and_replaced009_receipt_preserved": true
+  },
+  "selected009_sha256": "e2f9d01cfad67ea92d590b15f0b5524e999b2cab7d6b107d732523069d7e35f1",
+  "limitations": "Imagegen output scale/pose does not exactly reproduce guide coordinates. Four limbs, distinct poses, hashes and byte identity verify limited properties only; they do not prove a natural animated cycle. No pixel postprocessing, no prior full-body photo used as a generation reference for009–013."
+}

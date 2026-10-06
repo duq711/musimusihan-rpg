@@ -1,0 +1,31 @@
+{
+  "frame": 15,
+  "mode": "built-in image_gen",
+  "prompt": "Create ONE single standalone frame of the SAME realistic black and white athletic Border Collie galloping LEFT. Landscape 1536x1024, strict orthographic side profile, full dog with all paws, ears and tail within frame. REFERENCE 1 is the full-body POSE guide and determines this frame: reproduce its whole-body silhouette, body pitch/height, four limb placements and paw contact state. Make a fresh full-body pose, not a retouch of another dog photo. REFERENCE 2 is ONLY a cropped appearance portrait with no legs: use the same face, brown eye, white blaze/muzzle/ruff, black back, white paws and white tail tip. Do not use the portrait scale; full-body framing comes from reference 1. Anatomically credible canine shoulder/elbow and hip/stifle/hock joints, four connected limbs only, near and far paws readable, no extra legs. Realistic detailed medium fur with a clean silhouette. Uniform pale light-gray background, soft even lighting, no textured floor, no visible horizon line, no motion blur, no labels, no grid, no collage, no cropping or automatic zoom to fill the frame. Virtual contact plane is around y=850; only the supporting paws touch it, all other paws are visibly raised. Leg articulation and body compression must change together.  THIS FRAME: Hind propulsion: pelvis rises, one hindpaw already airborne trailing back and the last supporting hindpaw pushes behind the hip. Forelegs reach forward and the spine unfolds. Critical contact clarification for this single015 pose: only the FAR/LEFT rear paw is still planted, its sole near y850 with one tiny contact shadow. The NEAR/RIGHT rear paw must be visibly airborne, its sole at least25–35pixels above this plane; the guide's near-paw clearance is subtle, so make the lift plainly readable while keeping the same natural hind-leg trajectory. Forepaws both reach left in air. Pelvis rises and rear joints open from compression, torso visibly lengthens. Preserve guide full-body margins rather than portrait zoom. Do not render both hindpaws grounded or a fully airborne dog yet.",
+  "referenced_image_paths": [
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v3-20261006/guides/Guide_015.png",
+    "/Users/byeolee/Projects/musimusihan-rpg/asset-staging/border-collie-run-imagegen-v3-20261006/references/dog-appearance-portrait.png"
+  ],
+  "reference_roles": [
+    "full-body pose guide FIRST",
+    "cropped appearance portrait SECOND; no limb pose"
+  ],
+  "default_image_path": "/Users/byeolee/.codex/generated_images/01a10fce-6e28-7031-a509-10fa135070eb/exec-fa794713-ba55-499a-b39c-a728e9197ed0.png",
+  "selected_image": "export/frames/Frame_015.png",
+  "guide": "guides/Guide_015.json",
+  "visual_review": {
+    "status": "individual propulsion pose selected; wrap continuity review pending",
+    "notes": [
+      "Full generated photo inspected: four identifiable connected limbs and separate paws, natural hocks/elbows, no obvious extra/fused/missing limbs.",
+      "Exactly one left/lower hind sole supports near y855 with a small contact shadow; other rear paw clearly airborne at abouty785, both forepaws extend left airborne.",
+      "Rear limbs and torso show propulsion instead of a double-hind-contact hold. Actual paws/head differ from guide coordinates; nose roughlyx105,y450 and large full-body span, preserving all margins.",
+      "The near rear air gap is larger than guide clearance so contact change is visible. This is individual pose review, not measured motion or full-run pass."
+    ]
+  },
+  "resolution": [
+    1536,
+    1024
+  ],
+  "sha256": "6972c9581cef3cde64bbac7f7f5d11dbb96faa91dcfc7b58f1a6a4ab501de38e",
+  "bytes": 1841274
+}

@@ -1,0 +1,142 @@
+{
+  "schema": "border-collie-run-v3-wrap-continuity-review/1",
+  "reviewed_at_utc": "2026-10-06T13:40:19.632099+00:00",
+  "reviewer": "run_v2_reference_timing",
+  "reviewed_sequence": [
+    14,
+    15,
+    16,
+    1,
+    2
+  ],
+  "method": "Actual selected full photographs individually viewed at native1536x1024; qualitative manual comparison of contacts, silhouette, scale, head, markings and limbs. Pixel-coordinate estimates are approximate visual observations, not measured tracking.",
+  "generated_in_this_task": [
+    15,
+    16
+  ],
+  "builtin_calls_with_images": 2,
+  "image_processing": "none; selected default image bytes copied unchanged",
+  "integrity_checks": {
+    "generated_original_byte_copies": 2,
+    "generated_sha256_matches": 2
+  },
+  "frames": [
+    {
+      "frame": 14,
+      "image": "export/frames/Frame_014.png",
+      "sha256": "d1723b75170492afbd09e2b1ed831da4e88f995e9e97ee67a5e4cc0737b1ff9f",
+      "generation_record": "generation/frame014.json"
+    },
+    {
+      "frame": 15,
+      "image": "export/frames/Frame_015.png",
+      "sha256": "6972c9581cef3cde64bbac7f7f5d11dbb96faa91dcfc7b58f1a6a4ab501de38e",
+      "generation_record": "generation/frame015.json"
+    },
+    {
+      "frame": 16,
+      "image": "export/frames/Frame_016.png",
+      "sha256": "659a2ea9e3717f8ea771fedda1d0e7bf0c3f1fffb51ef49d6ad32e8eca3a253d",
+      "generation_record": "generation/frame016.json"
+    },
+    {
+      "frame": 1,
+      "image": "export/frames/Frame_001.png",
+      "sha256": "3493f92c582d2d7fed62dc2f8f3ec27635f9a83702ecbfa82d118e8ec8d8182f",
+      "generation_record": "generation/frame001.json"
+    },
+    {
+      "frame": 2,
+      "image": "export/frames/Frame_002.png",
+      "sha256": "a07e3b51a5f2beb6e9c37380b9f9166495a156844f9bac2cef99978033827e3b",
+      "generation_record": "generation/frame002.json"
+    }
+  ],
+  "overall": {
+    "planned_phase_sequence_visible": true,
+    "each_adjacent_pose_visibly_distinct": true,
+    "duplicate_or_near_unchanged_pose_problem_reduced_in_reviewed_sequence": true,
+    "full_run_anatomy_and_temporal_pass": false,
+    "reason_ko": "접지 두 발→한 발→무접지→최대 확장→앞발 하강은 보이지만 앞발 겹침·털 무늬 변화·큰 발 이동·머리 높이 변화가 남습니다. 이5장 확인은16장 전체의 자연스러운 주기 합격을 뜻하지 않습니다.",
+    "reason_en": "Double hind support, single hind support, liftoff, maximum flight and descent are visibly different. Forepaw overlap, marking changes, large paw movement and head-height changes remain; these five frames do not establish a natural full16-frame cycle."
+  },
+  "per_frame": [
+    {
+      "frame": 14,
+      "actual_contacts": [
+        "two hind paws near y855"
+      ],
+      "observation": "Four readable limb/paw ends, hind flexion and lowered pelvis; forefeet forward airborne. Nose roughly80,465."
+    },
+    {
+      "frame": 15,
+      "actual_contacts": [
+        "left/lower hind sole near y855"
+      ],
+      "observation": "One supporting hindpaw around1070,855; other rear paw around1310,790 clearly airborne. Forefeet extend left, torso/hip unfold. Nose roughly105,450. Natural joint shapes; four separate paw ends. White foreleg coverage greater than014/016."
+    },
+    {
+      "frame": 16,
+      "actual_contacts": [],
+      "observation": "All paws above virtual floor, rear feet point back/down around1290,800 and1370,740, unlike fully horizontal maximum-flight001. Two forefeet are closely overlapped near140–165,620–640, weakening separate-paw readability. Nose roughly85,425. No obvious additional limb, but not an unqualified anatomy pass."
+    },
+    {
+      "frame": 1,
+      "actual_contacts": [],
+      "observation": "Maximum extended flight, both forefeet and rearfeet are separated and extended. Hindfeet more horizontal/higher than016. Nose roughly100,450; white foreleg coverage greater than016."
+    },
+    {
+      "frame": 2,
+      "actual_contacts": [],
+      "observation": "Forefeet descend and move toward landing; rear stifles/hocks collect under hips. Clearly shorter/collected rear silhouette compared with001. Nose roughly105,455."
+    }
+  ],
+  "transitions": [
+    {
+      "from": 14,
+      "to": 15,
+      "distinctness": "pass qualitative phase difference",
+      "notes_ko": "뒷발 두 개 접지에서 한 개 접지로 바뀝니다. 골반이 올라가고 앞발도 앞으로 뻗습니다.",
+      "notes_en": "Double rear support changes to single rear support with hip rise and forward forepaw reach.",
+      "limits": [
+        "One rear foot moves roughly150px right/up, stronger than a tiny adjacent step.",
+        "Foreleg black/white marking area changes appreciably."
+      ]
+    },
+    {
+      "from": 15,
+      "to": 16,
+      "distinctness": "pass qualitative contact difference; temporal limits remain",
+      "notes_ko": "마지막 뒷발이 떠올라 네 발이 공중에 있고, 전신이 더 길게 펴집니다.",
+      "notes_en": "The final rear support leaves and all four paws are airborne while the body unfolds.",
+      "limits": [
+        "Former supporting rear foot advances roughly200px right and rises about50px; largest paw-position change in this reviewed section.",
+        "Forefeet converge and become hard to separate.",
+        "Nose shifts around20px left/25–30px up; foreleg markings change back to more black."
+      ]
+    },
+    {
+      "from": 16,
+      "to": 1,
+      "distinctness": "pass qualitative earlyflight-to-maximumflight difference; loop limits remain",
+      "notes_ko": "초기 이륙의 아래로 향한 뒷발이 최대 확장의 수평에 가까운 뒷발로 바뀝니다.",
+      "notes_en": "Down/back rearfeet in earlyflight change to longer, more horizontal maximumextension.",
+      "limits": [
+        "Nose lowers roughly25–30px while torso/head layout and fur markings change.",
+        "Two forefeet separate abruptly from prior close overlap; rearfoot vertical movement is substantial.",
+        "Camera/identity remain qualitatively similar, not pixel-locked."
+      ]
+    },
+    {
+      "from": 1,
+      "to": 2,
+      "distinctness": "pass qualitative extension-to-descent difference",
+      "notes_ko": "앞발이 내려가고 뒷다리가 몸 아래로 회수되어 전 장과 분명히 다릅니다.",
+      "notes_en": "Forepaws descend and hindlimbs recover under the body, visibly different from full extension.",
+      "limits": [
+        "Independent-photo proportions, fur and endpoint positions vary; actual uniform temporal speed not verified."
+      ]
+    }
+  ],
+  "remaining_scope": "No image editing or regeneration was performed during this continuity review. Only014→015→016→001→002 was inspected here; the rest of the cycle is outside this record. No measured capture fps or biomechanical trajectory compliance claimed."
+}

@@ -1,0 +1,123 @@
+{
+  "schema": "actual-selected-photo-review-v3",
+  "review_method": "Each selected original PNG was visually inspected individually; silhouette, articulated limb positions and contact phase compared with neighboring images. No montage generated.",
+  "selected_frames_reviewed": 16,
+  "adjacent_pairs_reviewed_including_wrap": 16,
+  "all_adjacent_pairs_show_pose_change": true,
+  "pose_variety_passed": true,
+  "natural_continuous_run_verified": false,
+  "four_paws_separately_readable_frames": 15,
+  "frame016_forepaw_overlap": true,
+  "limits_ko": [
+    "003→004→005 머리와 가슴의 큰 높이 변화",
+    "009→010 큰 앞발 전진과010→012 머리 높이 변화",
+    "005의 지지발과 몸통 통과 조건 미흡",
+    "일부 털 무늬·몸통 형태 차이와016 앞발 겹침",
+    "각 장은2D 이미지이며 실제3D 리깅/애니메이션 클립을 제작한 결과가 아님"
+  ],
+  "limits_en": [
+    "Large head/chest height changes around004",
+    "Large forepaw advance009→010 and head-height variation010→012",
+    "Partial support/body-passage conditions in005",
+    "Fur/body variation and forepaw overlap in016",
+    "Separate2D images, not a rigged3D animation clip"
+  ],
+  "frames": [
+    {
+      "frame": 1,
+      "sha256": "3493f92c582d2d7fed62dc2f8f3ec27635f9a83702ecbfa82d118e8ec8d8182f",
+      "actual_pose_difference_observed": true,
+      "observation_ko": "최대 확장: 앞다리 왼쪽·뒷다리 오른쪽, 네 발 공중."
+    },
+    {
+      "frame": 2,
+      "sha256": "a07e3b51a5f2beb6e9c37380b9f9166495a156844f9bac2cef99978033827e3b",
+      "actual_pose_difference_observed": true,
+      "observation_ko": "앞발이 하강하고 뒷관절이 접히기 시작해001보다 발 간격과 각도가 달라짐."
+    },
+    {
+      "frame": 3,
+      "sha256": "2ea48d9443d993406f81b2304f89671e24c5e7b73d4e841b3443b5bdb4471fdb",
+      "actual_pose_difference_observed": true,
+      "observation_ko": "앞발 하나가 지지하고 다른 앞발은 위/앞에 있음."
+    },
+    {
+      "frame": 4,
+      "sha256": "608bc3208a843c2494394bf3967028dbb07bf87b75252c5ac6370106c1821178",
+      "actual_pose_difference_observed": true,
+      "observation_ko": "두 앞발 지지와 낮은 가슴·높은 골반. 머리 하강이 과함."
+    },
+    {
+      "frame": 5,
+      "sha256": "438f738ca9d144c460c322eaf3dc86523214b34d8c3ff51794dfdaaf538d45d0",
+      "actual_pose_difference_observed": true,
+      "observation_ko": "앞다리가 더 몸 아래로 이동하고 가슴·머리가 올라감. 몸통 통과/접지 높이는 미흡."
+    },
+    {
+      "frame": 6,
+      "sha256": "98c48afea6f3c36155ea358de0600bcc102d76456c93a9a401abc745a8996b8f",
+      "actual_pose_difference_observed": true,
+      "observation_ko": "앞발 하나가 가슴으로 접히고 다른 앞발이 지지함."
+    },
+    {
+      "frame": 7,
+      "sha256": "a7df0f7d4b34b026d23f6d596c0ce36077b58d1c0e13dec37fd42cb99c85f9f2",
+      "actual_pose_difference_observed": true,
+      "observation_ko": "네 발 공중, 앞발 회수와 뒷관절 굽힘.006과 실루엣 다름."
+    },
+    {
+      "frame": 8,
+      "sha256": "4276a6ba220668114683371e9f45501ac3880a4a8d4b8f83eedb40b155577fc3",
+      "actual_pose_difference_observed": true,
+      "observation_ko": "앞발이 뒤로 말리고 뒷발을 더 모음. 먼 발을 드러내 네 발 구분됨."
+    },
+    {
+      "frame": 9,
+      "sha256": "e2f9d01cfad67ea92d590b15f0b5524e999b2cab7d6b107d732523069d7e35f1",
+      "actual_pose_difference_observed": true,
+      "observation_ko": "앞발은 접힌 채 뒷발이 내려오고 몸통이 길어짐.008과 뒷관절·몸통 차이."
+    },
+    {
+      "frame": 10,
+      "sha256": "f0dc35179d1a84b5785fa7f0bf214908dc722c5a2f942a2b20fd8f79e3b81eb0",
+      "actual_pose_difference_observed": true,
+      "observation_ko": "앞다리가 앞으로 열리고 뒷다리가 아래로 펴짐.009에서 앞발 이동이 큼."
+    },
+    {
+      "frame": 11,
+      "sha256": "5ffa948e6e2eafb9424a4f780aa5ef95c43bb0fd87cc35e01a6baf3004889750",
+      "actual_pose_difference_observed": true,
+      "observation_ko": "첫 뒷발이 더 내려가고 앞발이 위치/각도를 바꿈. 머리 높이 변화 있음."
+    },
+    {
+      "frame": 12,
+      "sha256": "8d6bceca2e0da29d874cd2a728c270f0bdee85be28de85f5de6665aec288c0c4",
+      "actual_pose_difference_observed": true,
+      "observation_ko": "첫 뒷발이 바닥 근처, 다른 뒷발은 위. 한 앞발은 다시 접힘. 착지 직전 간격 불명확."
+    },
+    {
+      "frame": 13,
+      "sha256": "b40933bd4a9c633400fcdac79437a2862ede2ea728cf1a7af0e7ccafffd9dead",
+      "actual_pose_difference_observed": true,
+      "observation_ko": "다른 뒷발이 더 내려오고 앞다리가 다시 열림.012와 몸통은 비슷하지만 다리 다름."
+    },
+    {
+      "frame": 14,
+      "sha256": "d1723b75170492afbd09e2b1ed831da4e88f995e9e97ee67a5e4cc0737b1ff9f",
+      "actual_pose_difference_observed": true,
+      "observation_ko": "두 뒷발 지지·골반 눌림·앞발 공중.013보다 지지 상태와 뒷관절 다름."
+    },
+    {
+      "frame": 15,
+      "sha256": "6972c9581cef3cde64bbac7f7f5d11dbb96faa91dcfc7b58f1a6a4ab501de38e",
+      "actual_pose_difference_observed": true,
+      "observation_ko": "한 뒷발만 지지, 다른 뒷발은 뒤로 이륙.014와 지지/관절 다름."
+    },
+    {
+      "frame": 16,
+      "sha256": "659a2ea9e3717f8ea771fedda1d0e7bf0c3f1fffb51ef49d6ad32e8eca3a253d",
+      "actual_pose_difference_observed": true,
+      "observation_ko": "네 발 공중으로 길게 펼치기 시작. 앞발 쌍은 일부 겹침.001보다 뒷발 각도가 아래로 향함."
+    }
+  ]
+}
