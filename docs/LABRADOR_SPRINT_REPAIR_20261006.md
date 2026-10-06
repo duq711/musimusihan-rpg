@@ -50,3 +50,7 @@ Cleanup completed by each contributor within owned validation scope. Combined re
 공개 저장소의 기존 `codex/labrador-pet-20261005` 작업 브랜치에 이번 코드·문서·작은 검증 기록만 반영합니다. licensed 모델/FBX/영상/app과 인증 정보·검증 캡처는 업로드하지 않습니다. 커밋과 원격/로컬 일치 확인은 publication receipt에 남깁니다.
 
 Only this repair's code, documentation and compact evidence are published on the existing Labrador task branch. Licensed model/FBX/movie/app and temporary captures remain local. The publication receipt records commit and remote/local verification.
+
+GitHub 코드 반영 확인: [`5acab262`](https://github.com/duq711/musimusihan-rpg/commit/5acab262004f58a500ad51fcb2ff08da714e0a2e). 선택43파일의 remote commit blob과 로컬 SHA가 모두 일치하며 GitHub ref·fetch한 remote ref·로컬 task ref도 동일합니다. 공유 작업의 primary HEAD와 index는 변경하지 않았습니다.
+
+Verified code publication: all43 selected file blobs match local SHA256. GitHub/fetched/local task refs match the linked commit; shared primary HEAD/index remain unchanged. Receipt: `repair-publication-code.json`.
