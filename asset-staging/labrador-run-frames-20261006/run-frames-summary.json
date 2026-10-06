@@ -1,0 +1,52 @@
+{
+  "result": "Completed",
+  "summary_ko": "수정된 실제 달리기 한 주기를 42장 PNG로 렌더하고 모아보기와 개별 이미지 ZIP을 만들었습니다.",
+  "summary_en": "Rendered one actual corrected Run cycle into42 PNGs with overview/detail sheets and a frame-only ZIP.",
+  "fps": 60,
+  "cycle_duration_seconds": 0.7,
+  "time_range_seconds": [
+    0,
+    0.6833333333333333
+  ],
+  "frame_count": 42,
+  "resolution": [
+    1280,
+    854
+  ],
+  "repeated_closure_frame_excluded": 43,
+  "source_sha256": "136aaccdf9817bff8479b75ddd1984139c2c13b58941361088497abc0ff646c8",
+  "manifest_sha256": "901af882ac01ab737171132798e9a4983a2b7d73d233c66e4114f17d4218a6ef",
+  "source_preserved": true,
+  "checks": {
+    "actual_deformed_geometry_framing": 42,
+    "independent_check_count": 12,
+    "all42_PNG_decoded": true,
+    "actual_image_content_distinct_excluding_caption": true,
+    "ZIP_frame_count": 42,
+    "ZIP_hashes_match": true,
+    "root_visual_frames": 42
+  },
+  "artifacts": {
+    "frames_directory": "export/frames",
+    "overview": "export/Labrador_Run_42Frames_Overview.png",
+    "detail_pages": [
+      "export/sheets/Run_Frames_01-06.png",
+      "export/sheets/Run_Frames_07-12.png",
+      "export/sheets/Run_Frames_13-18.png",
+      "export/sheets/Run_Frames_19-24.png",
+      "export/sheets/Run_Frames_25-30.png",
+      "export/sheets/Run_Frames_31-36.png",
+      "export/sheets/Run_Frames_37-42.png"
+    ],
+    "zip": "export/Labrador_Run_42Frames.zip"
+  },
+  "total_individual_PNG_bytes": 40777094,
+  "receipts": {
+    "run-frames-render.json": "7f498ede956dc4959f6e19e781ef11ee6ee1b41091286c4c2ae35988e3403429",
+    "run-frames-validation.json": "d745371bd2da904ad3ae62deabe81d6789d8b5c16182c1dfafd794c4c6181777",
+    "run-frames-package.json": "3604b1ae26d6883abed002fa5b060416cf42989e91fa420439de8ca24e04a36a",
+    "run-frames-visual-review.json": "1a880533ab3fc606d90259260256d83c394d30065585172e16156ae229be4205"
+  },
+  "preserved": "Requested42PNGs, overview, seven detail sheets, ZIP, original model/motion, prior movie and playable app.",
+  "scope": "Frame output only; no animation/model/Unity changes or full native acceptance rerun. Licensed rendered images and ZIP stay local."
+}

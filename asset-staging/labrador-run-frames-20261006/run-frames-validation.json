@@ -1,0 +1,505 @@
+{
+  "status": "Passed",
+  "checked_utc": "2026-10-06T03:53:26.867549+00:00",
+  "scope_ko": "최종 수정된 Run 모션에서 렌더한 고유 42장의 PNG 무결성·순서·시각 매핑·해상도·이미지 고유성·원본 보존을 독립 검증했습니다.",
+  "scope_en": "Independently verified all 42 unique rendered Run PNGs for integrity, ordering, time/phase mapping, resolution, image uniqueness, and source preservation.",
+  "render_receipt": "run-frames-render.json",
+  "render_receipt_sha256": "7f498ede956dc4959f6e19e781ef11ee6ee1b41091286c4c2ae35988e3403429",
+  "source_sha256": "136aaccdf9817bff8479b75ddd1984139c2c13b58941361088497abc0ff646c8",
+  "animation_manifest_sha256": "901af882ac01ab737171132798e9a4983a2b7d73d233c66e4114f17d4218a6ef",
+  "checks_passed": 12,
+  "checks": [
+    {
+      "name": "Approved final source and animation manifest hashes",
+      "passed": true
+    },
+    {
+      "name": "Run duration and range metadata",
+      "passed": true
+    },
+    {
+      "name": "Source explicitly preserved by renderer",
+      "passed": true
+    },
+    {
+      "name": "Full resolution and motion blur disabled",
+      "passed": true
+    },
+    {
+      "name": "Exactly 42 expected consecutive PNG filenames",
+      "passed": true
+    },
+    {
+      "name": "42 full PNG decode and integrity checks",
+      "passed": true
+    },
+    {
+      "name": "42 exact scene/time/phase mappings and manifest hashes",
+      "passed": true
+    },
+    {
+      "name": "All frame files have distinct SHA256",
+      "passed": true
+    },
+    {
+      "name": "All caption-excluded actual image areas are distinct",
+      "passed": true
+    },
+    {
+      "name": "Last frame differs from first; loop closure is omitted",
+      "passed": true
+    },
+    {
+      "name": "All renderer-reported actual mesh bounds fit camera",
+      "passed": true
+    },
+    {
+      "name": "Source remains unchanged after independent verification",
+      "passed": true
+    }
+  ],
+  "frame_count": 42,
+  "png_resolution": [
+    1280,
+    854
+  ],
+  "png_color_mode": "RGB",
+  "fps": 60,
+  "cycle_duration_seconds": 0.7,
+  "first_time_seconds": 0,
+  "last_time_seconds": 0.6833333333333333,
+  "first_phase": 0,
+  "last_phase": 0.9761904761904762,
+  "excluded_repeated_endpoint_scene_frame": 43,
+  "png_bytes": 40777094,
+  "caption_excluded_raster_crop_xyxy": [
+    0,
+    180,
+    1280,
+    854
+  ],
+  "frames": [
+    {
+      "index": 1,
+      "file": "export/frames/Run_001.png",
+      "scene_frame": 1,
+      "time_seconds": 0.0,
+      "phase": 0.0,
+      "sha256": "70adfa5d5ec564b8b23804831456fb04b058bb3c437b4bc7c8ce1736bd55dae7",
+      "caption_excluded_raster_sha256": "c6a8f11edaff7648b0855bd5b7f029ec8619aa3f6a338e6cf96c8b64adabca75",
+      "bytes": 980390
+    },
+    {
+      "index": 2,
+      "file": "export/frames/Run_002.png",
+      "scene_frame": 2,
+      "time_seconds": 0.016666666666666666,
+      "phase": 0.023809523809523808,
+      "sha256": "a4ad8f99adf7f6a80a459e2fe11ccbd69df310975ffb5c2682c1f06d62587864",
+      "caption_excluded_raster_sha256": "aefe3f6f1a736b3b18f1690068d4a733df4ba0b6f67385046c36e06d40f6702b",
+      "bytes": 983656
+    },
+    {
+      "index": 3,
+      "file": "export/frames/Run_003.png",
+      "scene_frame": 3,
+      "time_seconds": 0.03333333333333333,
+      "phase": 0.047619047619047616,
+      "sha256": "a579b43b00e39492fa3e36dbe77bbdf1c42c858abf6268edb779e282982b4249",
+      "caption_excluded_raster_sha256": "25af957ed4581aec9524b72ddfa93bfac925f279215d574f16bd2d39077257fb",
+      "bytes": 976629
+    },
+    {
+      "index": 4,
+      "file": "export/frames/Run_004.png",
+      "scene_frame": 4,
+      "time_seconds": 0.05,
+      "phase": 0.07142857142857142,
+      "sha256": "7c9ee07ca8c0abfbbf4f2c1185771fcff993d2921a06f495faf958fe4700e290",
+      "caption_excluded_raster_sha256": "a1963a100fad635b292e41d89ea85094b0aec736d5574736aaa1531da3204646",
+      "bytes": 976490
+    },
+    {
+      "index": 5,
+      "file": "export/frames/Run_005.png",
+      "scene_frame": 5,
+      "time_seconds": 0.06666666666666667,
+      "phase": 0.09523809523809523,
+      "sha256": "376faacaedfd6f24a0e4aa430d8cbf07eaac0f993edaf8202d02aff2e4663180",
+      "caption_excluded_raster_sha256": "71632892d40185a419a9f87984c25c8a132ba735e7afd3689bf3399151fbc8b3",
+      "bytes": 974354
+    },
+    {
+      "index": 6,
+      "file": "export/frames/Run_006.png",
+      "scene_frame": 6,
+      "time_seconds": 0.08333333333333333,
+      "phase": 0.11904761904761904,
+      "sha256": "f558891996326f30202766bf74a9739afe0fdac28c9a3c0f174ec7c7fe76ac10",
+      "caption_excluded_raster_sha256": "bde59c8c6c82ca47c2240abd85df015fa73f1a16c9152438917aa0f76e06bb4a",
+      "bytes": 974429
+    },
+    {
+      "index": 7,
+      "file": "export/frames/Run_007.png",
+      "scene_frame": 7,
+      "time_seconds": 0.1,
+      "phase": 0.14285714285714285,
+      "sha256": "5a451f45641fd4aab7f8885508e69629ed91962ba3ab4f0ac638d8084d6d99eb",
+      "caption_excluded_raster_sha256": "0860e95d1b311eedaefd4d60298b853e3b12c2c62e89d594b1d4f739bf157fdb",
+      "bytes": 973548
+    },
+    {
+      "index": 8,
+      "file": "export/frames/Run_008.png",
+      "scene_frame": 8,
+      "time_seconds": 0.11666666666666667,
+      "phase": 0.16666666666666666,
+      "sha256": "a40502b361625ab18cba8a128c0f357b5386f223d04e425e0718249a5bc48546",
+      "caption_excluded_raster_sha256": "f53214c0de5abd568126a230d8739d8bfa369afb9b1702b320597daacd8b84e3",
+      "bytes": 968331
+    },
+    {
+      "index": 9,
+      "file": "export/frames/Run_009.png",
+      "scene_frame": 9,
+      "time_seconds": 0.13333333333333333,
+      "phase": 0.19047619047619047,
+      "sha256": "515df07a8b5dbfd1c1df416e1253f6f9c040b8bc1aedb19d592b19e012979b42",
+      "caption_excluded_raster_sha256": "f444895fdcc7883204a2c4d2673be21ffc72641eabe6a9927843d0839fa359ea",
+      "bytes": 967080
+    },
+    {
+      "index": 10,
+      "file": "export/frames/Run_010.png",
+      "scene_frame": 10,
+      "time_seconds": 0.15,
+      "phase": 0.21428571428571427,
+      "sha256": "c8dd3b6ee9adf3ce0d1a75b4756d0050f83c37ffc01df3c0434203453d252407",
+      "caption_excluded_raster_sha256": "f3f9e2b70326b58531d8104db63986e83b06b6bfa7166cec6c77fd6c921833d6",
+      "bytes": 964797
+    },
+    {
+      "index": 11,
+      "file": "export/frames/Run_011.png",
+      "scene_frame": 11,
+      "time_seconds": 0.16666666666666666,
+      "phase": 0.23809523809523808,
+      "sha256": "7d82384aeece5b8e60fcc35e60b0a021eeb61adfa504acad421094df0693e4ec",
+      "caption_excluded_raster_sha256": "d1009a3a0ebb7219a1e710fd644f848243ce222d6747ed919e288cda922e8f50",
+      "bytes": 966185
+    },
+    {
+      "index": 12,
+      "file": "export/frames/Run_012.png",
+      "scene_frame": 12,
+      "time_seconds": 0.18333333333333332,
+      "phase": 0.2619047619047619,
+      "sha256": "79d2765e7d25ce5b15e1d6a61d14f461944f28b8012bab3c0d851b3f65092e09",
+      "caption_excluded_raster_sha256": "b36e9052975a561412e7069dd72a71863f7eb4db46969b02ba9ce6dfe6b2eb02",
+      "bytes": 969740
+    },
+    {
+      "index": 13,
+      "file": "export/frames/Run_013.png",
+      "scene_frame": 13,
+      "time_seconds": 0.2,
+      "phase": 0.2857142857142857,
+      "sha256": "a28886441eccf3a9e345b0a45c758dbf2bb125e9023b288a632da3e906c715ff",
+      "caption_excluded_raster_sha256": "4ff4c9f2f2a27523cd468a54f422337a74589eb1bbdc703f16812f4316a05cfc",
+      "bytes": 969614
+    },
+    {
+      "index": 14,
+      "file": "export/frames/Run_014.png",
+      "scene_frame": 14,
+      "time_seconds": 0.21666666666666667,
+      "phase": 0.30952380952380953,
+      "sha256": "4d278128fd5ed5f43f0286ae3d1fb883d1f5c15d85e77d09395963fef8e7584a",
+      "caption_excluded_raster_sha256": "6e331044fbebb87de20cf23bdaff9244d2ad53b2f35aa8df1d22061e629b4cad",
+      "bytes": 969042
+    },
+    {
+      "index": 15,
+      "file": "export/frames/Run_015.png",
+      "scene_frame": 15,
+      "time_seconds": 0.23333333333333334,
+      "phase": 0.3333333333333333,
+      "sha256": "bb2a65e6edd23694ca2c85276c438dcc40effc25c0284e648745923ab4bf48d7",
+      "caption_excluded_raster_sha256": "1ff9274adf83ac14defa550891ab2151d65079ef43eb60d6e1526a5a8213b970",
+      "bytes": 971565
+    },
+    {
+      "index": 16,
+      "file": "export/frames/Run_016.png",
+      "scene_frame": 16,
+      "time_seconds": 0.25,
+      "phase": 0.35714285714285715,
+      "sha256": "b34d0d9c8fa45c0f02bc55f7173e02d87a75dcf694c526159cd5e89eb804173a",
+      "caption_excluded_raster_sha256": "143b8e9149876d58f8271a27a43c2dd41b7731d39f7ef05d19b6b3bb93b216fb",
+      "bytes": 972460
+    },
+    {
+      "index": 17,
+      "file": "export/frames/Run_017.png",
+      "scene_frame": 17,
+      "time_seconds": 0.26666666666666666,
+      "phase": 0.38095238095238093,
+      "sha256": "b39c03a65c832c5d5f283fe2927add9e36789964e5551806fa3c17d326d4da23",
+      "caption_excluded_raster_sha256": "6e7760e7f1a9e3d724bbc07270e73280aba3817e88e63d48295579c424b8fd38",
+      "bytes": 970604
+    },
+    {
+      "index": 18,
+      "file": "export/frames/Run_018.png",
+      "scene_frame": 18,
+      "time_seconds": 0.2833333333333333,
+      "phase": 0.40476190476190477,
+      "sha256": "de4dffab5fbd6b646ba7a9c4c206abcf57ae132f4e191a383b160bac1964783f",
+      "caption_excluded_raster_sha256": "9b17c6f60194398711f99b98e8051b02e57ea3b8866d9861737c45c7220a4ce9",
+      "bytes": 968720
+    },
+    {
+      "index": 19,
+      "file": "export/frames/Run_019.png",
+      "scene_frame": 19,
+      "time_seconds": 0.3,
+      "phase": 0.42857142857142855,
+      "sha256": "bdf7050277250780a97e6db8db754525c64491c12a1489da9a8d05e6b538ba3c",
+      "caption_excluded_raster_sha256": "9159b5f055868fe76bc04491ace95627dd4b028798715cb7ed0cfd34170ae640",
+      "bytes": 967488
+    },
+    {
+      "index": 20,
+      "file": "export/frames/Run_020.png",
+      "scene_frame": 20,
+      "time_seconds": 0.31666666666666665,
+      "phase": 0.4523809523809524,
+      "sha256": "938504389fd2afb06f13036911844d6b66f70da6e0aa8404f1fdc2b25431e31c",
+      "caption_excluded_raster_sha256": "db18b92915460cedd735d2629726d7ce0050f5173eb7ccf34233ec9ddcd816c9",
+      "bytes": 966380
+    },
+    {
+      "index": 21,
+      "file": "export/frames/Run_021.png",
+      "scene_frame": 21,
+      "time_seconds": 0.3333333333333333,
+      "phase": 0.47619047619047616,
+      "sha256": "812767fda6febd13aad9c2958afe4e535194e9046a5d1b2e28805a0f72cabd39",
+      "caption_excluded_raster_sha256": "d5f2aab45ed659d2951bc829341e0930725c168ad1f803beef8b329d7179b11f",
+      "bytes": 966046
+    },
+    {
+      "index": 22,
+      "file": "export/frames/Run_022.png",
+      "scene_frame": 22,
+      "time_seconds": 0.35,
+      "phase": 0.5,
+      "sha256": "905bf673a61d867ecaa047d3ae86b3636c469c73342482d167e4df39f2d82eb5",
+      "caption_excluded_raster_sha256": "4c7a07a44d4b886388c88657ac251ab0a8888e194af788b63f35a922bf9e5e77",
+      "bytes": 965856
+    },
+    {
+      "index": 23,
+      "file": "export/frames/Run_023.png",
+      "scene_frame": 23,
+      "time_seconds": 0.36666666666666664,
+      "phase": 0.5238095238095238,
+      "sha256": "5ac0abe97a5535a2ba529e21e5618801a8324c1cdbdbb26e09cbd124c8bfd99d",
+      "caption_excluded_raster_sha256": "2ad1d54c1fe1ddfa263ee3e25997ce9dae6b451d36fc7f7ad8b47b8e470f45eb",
+      "bytes": 964111
+    },
+    {
+      "index": 24,
+      "file": "export/frames/Run_024.png",
+      "scene_frame": 24,
+      "time_seconds": 0.38333333333333336,
+      "phase": 0.5476190476190477,
+      "sha256": "8bdd7ff5ef1f7cd5e23f9fa4c2d64e8293f68679c9403e43a9fe77529df4c1ba",
+      "caption_excluded_raster_sha256": "16d5760cc901d105c8adc5b1a978327a5621bfa2d1a7a3b0fda76458ed596bd8",
+      "bytes": 965716
+    },
+    {
+      "index": 25,
+      "file": "export/frames/Run_025.png",
+      "scene_frame": 25,
+      "time_seconds": 0.4,
+      "phase": 0.5714285714285714,
+      "sha256": "085349f62f513a98b5eba58c3106a8b98bb3776b7855034e1ceafb69b90d3d6b",
+      "caption_excluded_raster_sha256": "99a7bee616dc10b755a2eec6890a0f04ac517bb00e5da8f212a352ccdc0dce48",
+      "bytes": 968310
+    },
+    {
+      "index": 26,
+      "file": "export/frames/Run_026.png",
+      "scene_frame": 26,
+      "time_seconds": 0.4166666666666667,
+      "phase": 0.5952380952380952,
+      "sha256": "c8e57ba8a1364d2d73a6c0412476c3894b8f97950fbe5b1eea8db8a74f5b645d",
+      "caption_excluded_raster_sha256": "c2325c62b2d7df3ef93892151d70f88a80177eaef3f6c38a86513dadc3ecdf55",
+      "bytes": 969270
+    },
+    {
+      "index": 27,
+      "file": "export/frames/Run_027.png",
+      "scene_frame": 27,
+      "time_seconds": 0.43333333333333335,
+      "phase": 0.6190476190476191,
+      "sha256": "9ab235911f5fe3cba98f9f111c9c76afde3bfa1f5e332b2892067c064be03845",
+      "caption_excluded_raster_sha256": "a04517f120b9d2f8bcd3d343adbb3c06bfa69e64db94844a3d477677b4545465",
+      "bytes": 967315
+    },
+    {
+      "index": 28,
+      "file": "export/frames/Run_028.png",
+      "scene_frame": 28,
+      "time_seconds": 0.45,
+      "phase": 0.6428571428571429,
+      "sha256": "40929724171f106e5700af4dc4ec9b50c9fe3a9419cbf1e06c922041cde49f99",
+      "caption_excluded_raster_sha256": "bc46ed42e49c6ba496761cbb7d409760604e58b930041cdd8afb569cc8e3c6b3",
+      "bytes": 966993
+    },
+    {
+      "index": 29,
+      "file": "export/frames/Run_029.png",
+      "scene_frame": 29,
+      "time_seconds": 0.4666666666666667,
+      "phase": 0.6666666666666666,
+      "sha256": "64da40358acd26059fd7f48fc7df2bce78e413d021e49bd5b0c98f69f73368fe",
+      "caption_excluded_raster_sha256": "e09b05cdf5d4ad124c77fcde3b019e590bb54f2f1a12c20e2ae42e1d45b182ef",
+      "bytes": 962859
+    },
+    {
+      "index": 30,
+      "file": "export/frames/Run_030.png",
+      "scene_frame": 30,
+      "time_seconds": 0.48333333333333334,
+      "phase": 0.6904761904761905,
+      "sha256": "60a9b3c890eb19c5130ab9a7cb26d12c93891f1b317319bad2b5f56ac3c9647c",
+      "caption_excluded_raster_sha256": "19b699186f58ca22133d04913cd11fcfc2a5c7cab2a6391b81ada9fd00882fe6",
+      "bytes": 962490
+    },
+    {
+      "index": 31,
+      "file": "export/frames/Run_031.png",
+      "scene_frame": 31,
+      "time_seconds": 0.5,
+      "phase": 0.7142857142857143,
+      "sha256": "cf468a331e365483732b2d5eaafcd74f16f5231d67ef3d72feb4c8c89c7be54a",
+      "caption_excluded_raster_sha256": "9f86adb6aa74f32ab5288f4609b809756fc7e0c65066da313908c4497e7310de",
+      "bytes": 958305
+    },
+    {
+      "index": 32,
+      "file": "export/frames/Run_032.png",
+      "scene_frame": 32,
+      "time_seconds": 0.5166666666666667,
+      "phase": 0.7380952380952381,
+      "sha256": "1c98fd43661f84c3672ff0aa5ae6a17c2f7a02f24a178b74711d690e739049e4",
+      "caption_excluded_raster_sha256": "8d7faa2841e9cc2ff1e7db2eef94c5abd589028c3335e5fd45b97b504b0686e9",
+      "bytes": 961329
+    },
+    {
+      "index": 33,
+      "file": "export/frames/Run_033.png",
+      "scene_frame": 33,
+      "time_seconds": 0.5333333333333333,
+      "phase": 0.7619047619047619,
+      "sha256": "9f01bc9224bdc0ae4e17e84dac50bf79ea2c1664e606af0e925828f49194a805",
+      "caption_excluded_raster_sha256": "05aa50011f1a1be7f67511f1d18f8b495c49acfc10c0a2d8ff3ca4a30c5965c6",
+      "bytes": 965471
+    },
+    {
+      "index": 34,
+      "file": "export/frames/Run_034.png",
+      "scene_frame": 34,
+      "time_seconds": 0.55,
+      "phase": 0.7857142857142857,
+      "sha256": "3c88757d9bbdc4af8293b4b16c60f34a1018bcea7ae51769a0998103c781d46d",
+      "caption_excluded_raster_sha256": "10e20cf666862718b524a6af36d928ec90da541d3bb0df9c3877ce10758c716e",
+      "bytes": 970696
+    },
+    {
+      "index": 35,
+      "file": "export/frames/Run_035.png",
+      "scene_frame": 35,
+      "time_seconds": 0.5666666666666667,
+      "phase": 0.8095238095238095,
+      "sha256": "bfac41d2073faacdcf707db89607adbf50fc159c950fda3460976999858068ea",
+      "caption_excluded_raster_sha256": "81d547f649eaa0024fb279714ece18cb2ec568d0f933fcd5ddb3004b489acc86",
+      "bytes": 975161
+    },
+    {
+      "index": 36,
+      "file": "export/frames/Run_036.png",
+      "scene_frame": 36,
+      "time_seconds": 0.5833333333333334,
+      "phase": 0.8333333333333334,
+      "sha256": "f26394f187cc9be287bed48553d6a58a100f5d28053d736a442b6e134020a47f",
+      "caption_excluded_raster_sha256": "81e1bb478b4b1fc46c1f8535d668d7df7a8045bb68e963e9191d1e1fbaabcf06",
+      "bytes": 977263
+    },
+    {
+      "index": 37,
+      "file": "export/frames/Run_037.png",
+      "scene_frame": 37,
+      "time_seconds": 0.6,
+      "phase": 0.8571428571428571,
+      "sha256": "495f394ea4f7930e7a88beabb84bffb6301d4f8ad47f6cf9b8165ce3262ed0e5",
+      "caption_excluded_raster_sha256": "2193e72191a5c5f0b0372e19de9353cdb84a3e5e91bf0320582d9e8f968efe30",
+      "bytes": 977469
+    },
+    {
+      "index": 38,
+      "file": "export/frames/Run_038.png",
+      "scene_frame": 38,
+      "time_seconds": 0.6166666666666667,
+      "phase": 0.8809523809523809,
+      "sha256": "9849a52dd9502d7cac0480823ea61a6d2b296f9eee80b4fdd98a4386b34bbf01",
+      "caption_excluded_raster_sha256": "7cbe47d94b7258224c069255735e91aa305ee719521d579bdad243cd614b07f4",
+      "bytes": 977001
+    },
+    {
+      "index": 39,
+      "file": "export/frames/Run_039.png",
+      "scene_frame": 39,
+      "time_seconds": 0.6333333333333333,
+      "phase": 0.9047619047619048,
+      "sha256": "4a1984ca2c9b574e39f32e12cc3d7ff9de80594cb66abe01c803a9045a88e0d2",
+      "caption_excluded_raster_sha256": "8dbedb0efc7754121db4d0eb4b3603be8230627fc50cc2056b9b02b1e68042d0",
+      "bytes": 979548
+    },
+    {
+      "index": 40,
+      "file": "export/frames/Run_040.png",
+      "scene_frame": 40,
+      "time_seconds": 0.65,
+      "phase": 0.9285714285714286,
+      "sha256": "679e27a9fa488e43a3d192f1991c247a66c1d4cbb91d18db1096e5b17bb0d36f",
+      "caption_excluded_raster_sha256": "669a1cfee8f42d4c4409e2309f031e7fcb570a57c6a772c045959244067eae8c",
+      "bytes": 981017
+    },
+    {
+      "index": 41,
+      "file": "export/frames/Run_041.png",
+      "scene_frame": 41,
+      "time_seconds": 0.6666666666666666,
+      "phase": 0.9523809523809523,
+      "sha256": "1b91749b11805224d9ad6926830f9d1483971c5607d02adb380b983589a5d52c",
+      "caption_excluded_raster_sha256": "b4c03bda29d79cdeac6dee56422785e7a828a74e7101f66690345f12692fed9f",
+      "bytes": 982081
+    },
+    {
+      "index": 42,
+      "file": "export/frames/Run_042.png",
+      "scene_frame": 42,
+      "time_seconds": 0.6833333333333333,
+      "phase": 0.9761904761904762,
+      "sha256": "a5848677567a8aac664e1ccb86d6c22a7ed8e8d6c6c2307f1fedf06012ee59af",
+      "caption_excluded_raster_sha256": "ec3f6e42e3708ddb57a500c13e5ec6e361dcbb675d76e6c71c7665197330a43f",
+      "bytes": 981285
+    }
+  ],
+  "limits_ko": "관절 자세·전체 시퀀스의 시각 품질 검토는 별도입니다. 카메라 범위 값은 렌더러의 실제 변형 메시 기록을 검사한 것이며 별도 Blender 재평가를 실행하지 않았습니다. 상단 번호 캡션을 제외한 이미지 영역의 고유성을 확인했습니다.",
+  "limits_en": "Pose and sequence visual quality are reviewed separately. Camera bounds are checked from renderer-recorded deformed meshes; no independent Blender reevaluation was run. Image uniqueness is verified with the top frame-number caption excluded."
+}
