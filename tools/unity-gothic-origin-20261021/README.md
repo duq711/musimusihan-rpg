@@ -35,3 +35,7 @@ ORIGIN_QA_DIR=/tmp/origin-native-qa <app>/Contents/MacOS/<executable> -batchmode
 QA는 별도 저장 경로·음소거·포인터 잠금 해제로 실행합니다. 실제 Metal 렌더링을 측정하므로 `-nographics`를 붙이지 않습니다. 기능 검증과600프레임씩4개 경로의 결과를 `summary.json`에 기록합니다. 완료 요약을 프로젝트 문서에 남긴 뒤 QA 이미지·로그·격리 프로젝트를 정리합니다.
 
 QA uses a separate save, muted audio and no pointer lock. Do not add `-nographics`: performance uses real Metal rendering. It records functional checks and four600-frame routes in `summary.json`. Retain a compact project report, then remove reviewed captures/logs and the isolated build project.
+
+## Dock 실행 연결 / Dock launcher
+
+`python3 tools/unity-gothic-origin-20261021/install_mac_launcher.py`는 새 앱만 별도 Dock 항목으로 추가합니다. 기존 게임과 다른 앱의 순서는 보존하고, 중복 추가를 방지하며 Mac 정수 형식·실제 앱 북마크·서명을 확인합니다. 기존 프로젝트의 설치·CoreFoundation 도구를 `launcher_support/`에 그대로 재사용했습니다. / Add only the new native app to the Dock, preserving the old game and unrelated app order. The installer checks duplicates, native integer/bookmark data and signing; shared helpers are preserved copies of the existing project tools.
