@@ -1,5 +1,7 @@
 # 잔향의 성소: 검은 성물실 / Sanctuary of Echoes: The Black Reliquary
 
+> 보존된 브라우저 시안입니다. 현재 확정된 실행 대상은 [Unity Mac 게임](../docs/UNITY_GOTHIC_ORIGIN_20261021.md)입니다. / Archived browser prototype; the active target is the native Unity Mac game.
+
 2026-10-20에 시작해 2026-10-21에 검증한 **새 고딕 코믹스 원정 버전**입니다. 기존 사실적 장면에 필터를 추가하지 않고, 이 폴더의 소스가 건축·가구·적·손·장비·재질·UI를 새로 만듭니다. 현재 탐색기와 같은 Three.js 기반으로 실행합니다.
 
 A new gothic comics expedition, authored from October 20 and validated on October 21, 2026. This folder constructs new architecture, furniture, enemies, hands, equipment, materials and UI. It uses the existing explorer's Three.js runtime approach.

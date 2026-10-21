@@ -1,8 +1,8 @@
 # 무시무시한 RPG / Musimusihan RPG
 
-2026-10-21: 처음부터 새로 만든 [고딕 코믹스 원정 버전](gothic-game/README.md)입니다. 35개 방 탐험·검과 방패·성물 회수·귀환을 플레이할 수 있습니다. 기존 제작 원본과 앱은 보존합니다. 실행과 검증은 새 버전 안내를 따릅니다.
+2026-10-21 사용자 재확인: **Unity Mac 게임**으로 고딕 코믹스풍 새 버전을 제작하고 **기존35개 방 던전·가구를 재사용**합니다. [새 Unity 버전과 검증](docs/UNITY_GOTHIC_ORIGIN_20261021.md). `gothic-game/`은 브라우저 대상으로 잘못 제작했던 보존 시안이며 현재 실행 대상이 아닙니다.
 
-October 21, 2026: Play the newly authored [gothic comics expedition](gothic-game/README.md), with 35 rooms, sword/shield combat, relics and a return ending. Previous sources and apps remain preserved; see the new guide for running and validation.
+October21,2026: The confirmed target is a **native Unity Mac game**, rebuilt in a gothic comics style while **reusing the existing furnished35-room dungeon**. See the [native build record](docs/UNITY_GOTHIC_ORIGIN_20261021.md). `gothic-game/` is a preserved browser prototype and is not the active target.
 
 아래 문서는 보존된 이전 버전의 역사적 안내입니다. 2026-10-03 사용자 지시에 따라 이후 작업에서 Godot을 사용하지 않습니다.
 

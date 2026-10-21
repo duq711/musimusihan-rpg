@@ -1,3 +1,5 @@
+> 이후 사용자 재확인: 게임 실행 대상은 Unity입니다. 이 문서는 잘못 선택했던 브라우저 시안의 당시 기록입니다. 현재 작업은 [Unity 고딕 원정](UNITY_GOTHIC_ORIGIN_20261021.md)을 따릅니다. / Superseded by the confirmed native Unity target. This preserves the earlier browser prototype record; see the native build report.
+
 # 고딕 코믹스 새 제작 / Gothic comics rebuild
 
 시작 2026-10-20 · 검증·전달 2026-10-21. 사용자 요청은 사실적 그래픽에서 전환하며 생긴 이질감을 줄이도록 처음부터 고딕 코믹스풍으로 다시 만드는 것입니다.
