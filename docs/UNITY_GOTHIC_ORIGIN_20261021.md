@@ -1,5 +1,8 @@
 # Unity 고딕의 기원 / Native Gothic Origin
 
+> 후속 수정: [방 거리 소실 수정·전체 화면 렌더 예산](UNITY_GOTHIC_VISIBILITY_FIX_20261021.md). 아래는 최초 제작 당시의 기록입니다. / Follow-up visibility/render-budget fix; the report below preserves the original checkpoint.
+
+
 2026-10-21 사용자 확정: 게임은 **Unity Mac 앱**으로 제작하고, 기존35개 방 던전·회랑·가구를 재사용합니다. 브라우저를 실행 대상으로 선택한 것은 작업자의 판단 오류였습니다. `gothic-game/`은 당시 시안으로 보존하고, 미완성 브라우저 맵 연결 코드는 제거했습니다.
 
 User decision: build a **native Unity Mac app** and reuse the existing furnished35-room dungeon. Selecting the browser as the game target was an implementation mistake. The earlier `gothic-game/` prototype is preserved; its unfinished map-bridge changes were removed.

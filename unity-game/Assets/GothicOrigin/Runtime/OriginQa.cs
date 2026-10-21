@@ -11,12 +11,13 @@ using UnityEngine;
 
 namespace MusimusihanRpg.GothicOrigin
 {
-    public static class OriginQa
+    public static partial class OriginQa
     {
         static readonly List<string> passed=new List<string>();static string folder;
         static void Check(bool ok,string label){if(!ok)throw new InvalidOperationException("QA FAIL: "+label);passed.Add(label);UnityEngine.Debug.Log("ORIGIN_CHECK "+label);}
         static void Pose(OriginGame game,int room)
         {
+            if(room==-35){ReproductionPose(game);return;}
             var at=game.ClearPoint(room);var foe=game.Foes.FirstOrDefault(f=>f.room==room&&!f.dead);var focus=foe!=null?foe.home+Vector3.up*1.3f:game.World.RoomCenter(room)+Vector3.up*1.3f;
             if(foe!=null)
             {
@@ -34,7 +35,7 @@ namespace MusimusihanRpg.GothicOrigin
 
         static void Shot(OriginGame g,string name,RenderTexture target)
         {
-            g.View.Render();var prior=RenderTexture.active;RenderTexture.active=target;var tex=new Texture2D(target.width,target.height,TextureFormat.RGB24,false);tex.ReadPixels(new Rect(0,0,target.width,target.height),0,0);tex.Apply();File.WriteAllBytes(Path.Combine(folder,name+".png"),tex.EncodeToPNG());UnityEngine.Object.Destroy(tex);RenderTexture.active=prior;
+            g.Presentation.RenderQa();var prior=RenderTexture.active;RenderTexture.active=target;var tex=new Texture2D(target.width,target.height,TextureFormat.RGB24,false);tex.ReadPixels(new Rect(0,0,target.width,target.height),0,0);tex.Apply();File.WriteAllBytes(Path.Combine(folder,name+".png"),tex.EncodeToPNG());UnityEngine.Object.Destroy(tex);RenderTexture.active=prior;
         }
         public static IEnumerator Run(OriginGame g)
         {
@@ -49,28 +50,31 @@ namespace MusimusihanRpg.GothicOrigin
         static IEnumerator RunCore(OriginGame g)
         {
             folder=Environment.GetEnvironmentVariable("ORIGIN_QA_DIR")??Path.Combine(Path.GetTempPath(),"origin-native-qa");Directory.CreateDirectory(folder);AudioListener.pause=true;AudioListener.volume=0;QualitySettings.vSyncCount=0;Application.targetFrameRate=-1;
-            var rt=new RenderTexture(1280,900,24,RenderTextureFormat.ARGB32){antiAliasing=2};rt.Create();g.View.targetTexture=rt;g.View.enabled=false;g.Ui.Canvas.renderMode=RenderMode.ScreenSpaceCamera;g.Ui.Canvas.worldCamera=g.View;g.Ui.Canvas.planeDistance=.1f;
+            int qaWidth=int.TryParse(Environment.GetEnvironmentVariable("ORIGIN_QA_WIDTH"),out var w)?Mathf.Clamp(w,640,4096):1280;int qaHeight=int.TryParse(Environment.GetEnvironmentVariable("ORIGIN_QA_HEIGHT"),out var h)?Mathf.Clamp(h,480,4096):900;
+            var rt=new RenderTexture(qaWidth,qaHeight,24,RenderTextureFormat.ARGB32){antiAliasing=2};rt.Create();g.Presentation.ConfigureQa(rt,Environment.GetEnvironmentVariable("ORIGIN_QA_FULL_RESOLUTION")=="1");
             var sync=new Texture2D(1,1,TextureFormat.RGB24,false);var results=new JObject();var performance=new JArray();Exception failure=null;
-            var checks=Functional(g,rt);while(true){bool next=false;try{next=checks.MoveNext();}catch(Exception e){failure=e;}if(failure!=null||!next)break;yield return checks.Current;}
+            if(VisibilityRequested)g.World.SetLegacyDistanceCullingForQa(Environment.GetEnvironmentVariable("ORIGIN_QA_LEGACY_VISIBILITY")=="1");
+            var sequences=VisibilityRequested?new[]{Functional(g,rt),VisibilityChecks(g,rt)}:new[]{Functional(g,rt)};
+            foreach(var checks in sequences){while(true){bool next=false;try{next=checks.MoveNext();}catch(Exception e){failure=e;}if(failure!=null||!next)break;yield return checks.Current;}if(failure!=null)break;}
             if(failure==null)
             {
-                foreach(int room in new[]{35,33,1,30})
+                foreach(int room in VisibilityRequested?new[]{35,33,1,30,-35}:new[]{35,33,1,30})
                 {
-                    Pose(g,room);g.Resume();for(int i=0;i<90;i++){g.View.Render();yield return null;}
+                    Pose(g,room);g.Resume();for(int i=0;i<90;i++){g.Presentation.RenderQa();yield return null;}
                     var times=new List<double>();var gpu=new List<double>();var cpu=new List<double>();long maxDraws=0,maxTriangles=0;using(var draw=ProfilerRecorder.StartNew(ProfilerCategory.Render,"Draw Calls Count",16))using(var tris=ProfilerRecorder.StartNew(ProfilerCategory.Render,"Triangles Count",16))
                     {
                         var clock=Stopwatch.StartNew();double previous=clock.Elapsed.TotalMilliseconds;var origin=g.Body.transform.position;
                         for(int i=0;i<600;i++)
                         {
                             // Real controller motion against the furnished map, with a small repeatable turn.
-                            float phase=i/60f;var desired=origin+new Vector3(Mathf.Sin(phase)*.65f,0,Mathf.Sin(phase*.5f)*.55f);var move=desired-g.Body.transform.position;move.y=-.06f;g.Body.Move(Vector3.ClampMagnitude(move,.07f));g.Body.transform.rotation=Quaternion.Euler(0,g.Yaw+Mathf.Sin(phase)*38,0);g.Health=100;g.World.RefreshVisibility();g.View.Render();var prior=RenderTexture.active;RenderTexture.active=rt;sync.ReadPixels(new Rect(0,0,1,1),0,0,false);RenderTexture.active=prior;FrameTimingManager.CaptureFrameTimings();yield return null;
+                            float phase=i/60f;var desired=origin+new Vector3(Mathf.Sin(phase)*.65f,0,Mathf.Sin(phase*.5f)*.55f);var move=desired-g.Body.transform.position;move.y=-.06f;g.Body.Move(Vector3.ClampMagnitude(move,.07f));g.Body.transform.rotation=Quaternion.Euler(0,g.Yaw+Mathf.Sin(phase)*38,0);g.Health=100;g.World.RefreshVisibility();g.Presentation.RenderQa();var prior=RenderTexture.active;RenderTexture.active=rt;sync.ReadPixels(new Rect(0,0,1,1),0,0,false);RenderTexture.active=prior;FrameTimingManager.CaptureFrameTimings();yield return null;
                             double now=clock.Elapsed.TotalMilliseconds;times.Add(now-previous);previous=now;var timing=new FrameTiming[1];if(FrameTimingManager.GetLatestTimings(1,timing)>0){if(timing[0].gpuFrameTime>0)gpu.Add(timing[0].gpuFrameTime);if(timing[0].cpuFrameTime>0)cpu.Add(timing[0].cpuFrameTime);}maxDraws=Math.Max(maxDraws,draw.LastValue);maxTriangles=Math.Max(maxTriangles,tris.LastValue);
                         }
                     }
                     times.Sort();performance.Add(new JObject{["room"]=room,["samples"]=times.Count,["meanMs"]=times.Average(),["p95Ms"]=times[(int)(times.Count*.95)],["p99Ms"]=times[(int)(times.Count*.99)],["over16_67Percent"]=times.Count(v=>v>16.67)*100.0/times.Count,["over20Percent"]=times.Count(v=>v>20)*100.0/times.Count,["maxDrawCalls"]=maxDraws>0?(JToken)maxDraws:JValue.CreateNull(),["maxTriangles"]=maxTriangles>0?(JToken)maxTriangles:JValue.CreateNull(),["submissionEstimate"]=Estimate(g),["gpuMeanMs"]=gpu.Count>0?(JToken)gpu.Average():JValue.CreateNull(),["cpuMeanMs"]=cpu.Count>0?(JToken)cpu.Average():JValue.CreateNull()});Shot(g,"room"+room,rt);
                 }
             }
-            results["engine"]=Application.unityVersion;results["graphics"]=SystemInfo.graphicsDeviceName+" / "+SystemInfo.graphicsDeviceType;results["resolution"]="1280x900 offscreen with real Metal, UI, exact collision, animated creatures";results["frameLimit"]="uncapped explicit camera render +1px synchronous GPU readback per sample, conservative capacity; not foreground constant60";results["gearBatching"]=Environment.GetEnvironmentVariable("ORIGIN_UNBATCHED_GEAR")!="1";results["passed"]=new JArray(passed);results["checkCount"]=passed.Count;results["failure"]=failure==null?JValue.CreateNull():failure.ToString();results["performance"]=performance;results["renderTrianglesAuthored"]=g.World.RenderTriangles;results["collisionTriangles"]=g.World.CollisionTriangles;File.WriteAllText(Path.Combine(folder,"summary.json"),results.ToString());UnityEngine.Debug.Log("ORIGIN_QA_DONE "+(failure==null?"PASS":"FAIL "+failure));g.Playing=false;g.View.targetTexture=null;UnityEngine.Object.Destroy(sync);rt.Release();UnityEngine.Object.Destroy(rt);Application.Quit(failure==null?0:1);
+            results["renderResolution"]=g.Presentation.QaResolution;results["visibility"]=visibilityReport;results["engine"]=Application.unityVersion;results["graphics"]=SystemInfo.graphicsDeviceName+" / "+SystemInfo.graphicsDeviceType;results["resolution"]=rt.width+"x"+rt.height+" offscreen with real Metal, UI, exact collision, animated creatures";results["frameLimit"]="uncapped explicit camera render +1px synchronous GPU readback per sample, conservative capacity; not foreground constant60";results["gearBatching"]=Environment.GetEnvironmentVariable("ORIGIN_UNBATCHED_GEAR")!="1";results["passed"]=new JArray(passed);results["checkCount"]=passed.Count;results["failure"]=failure==null?JValue.CreateNull():failure.ToString();results["performance"]=performance;results["renderTrianglesAuthored"]=g.World.RenderTriangles;results["collisionTriangles"]=g.World.CollisionTriangles;File.WriteAllText(Path.Combine(folder,"summary.json"),results.ToString());UnityEngine.Debug.Log("ORIGIN_QA_DONE "+(failure==null?"PASS":"FAIL "+failure));g.Playing=false;g.View.targetTexture=null;UnityEngine.Object.Destroy(sync);rt.Release();UnityEngine.Object.Destroy(rt);Application.Quit(failure==null?0:1);
         }
         static JObject Estimate(OriginGame g)
         {

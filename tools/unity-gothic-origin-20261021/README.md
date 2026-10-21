@@ -39,3 +39,11 @@ QA uses a separate save, muted audio and no pointer lock. Do not add `-nographic
 ## Dock 실행 연결 / Dock launcher
 
 `python3 tools/unity-gothic-origin-20261021/install_mac_launcher.py`는 새 앱만 별도 Dock 항목으로 추가합니다. 기존 게임과 다른 앱의 순서는 보존하고, 중복 추가를 방지하며 Mac 정수 형식·실제 앱 북마크·서명을 확인합니다. 기존 프로젝트의 설치·CoreFoundation 도구를 `launcher_support/`에 그대로 재사용했습니다. / Add only the new native app to the Dock, preserving the old game and unrelated app order. The installer checks duplicates, native integer/bookmark data and signing; shared helpers are preserved copies of the existing project tools.
+
+## 방 소실 회귀 검사 / Room-visibility regression
+
+`-originQa -originVisibilityQa`는 신고된35번 방 시점, 문 접근 거리2·4.9·5.1·8·12m와 각도−20·0·20도, 경계 왕복, 기존 기능 및5개 이동 경로를 검증합니다. `ORIGIN_QA_LEGACY_VISIBILITY=1`은 격리 QA 실행에서만 이전5m 숨김 판정을 재현합니다. 일반 게임에서는 이 판정을 사용하지 않습니다. / Test the reported room35 view, doorway distance/angle sweeps, boundary crossings, existing functions and five movement routes. The legacy switch is restricted to isolated QA; normal gameplay uses native mesh-frustum culling.
+
+실제 사용자 게임 로그의2940×1846 해상도에서 비교하려면 `ORIGIN_QA_WIDTH=2940 ORIGIN_QA_HEIGHT=1846`과 같은 `-screen-width 2940 -screen-height 1846`을 두 실행에 똑같이 적용합니다. / Use matching QA texture and player-window dimensions for both runs at the observed2940×1846 resolution. Original game saves are excluded from QA.
+
+2026-10-21 방 소실 수정: [수정·검증 기록](../../docs/UNITY_GOTHIC_VISIBILITY_FIX_20261021.md). 건축은 유지하고 가려진 소품만 별도로 제외하며,3D는 최대1280×900·UI는 출력 해상도를 유지합니다. `ORIGIN_QA_FULL_RESOLUTION=1`은 비교용 전체 해상도3D를 사용합니다. / See the visibility-fix report. Structural geometry stays intact; occluded loose props are culled separately. World pixels are budgeted while UI retains native resolution. The full-resolution switch is QA-only.

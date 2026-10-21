@@ -28,6 +28,7 @@ namespace MusimusihanRpg.GothicOrigin
         public Camera View {get;private set;}
         public CharacterController Body {get;private set;}
         public OriginUi Ui {get;private set;}
+        public OriginPresentation Presentation {get;private set;}
         public OriginSculpt.Gear Gear {get;private set;}
         public readonly List<Foe> Foes=new List<Foe>();public readonly List<Cache> Caches=new List<Cache>();
         readonly List<GltfImport> imports=new List<GltfImport>();readonly HashSet<int> visited=new HashSet<int>();
@@ -44,7 +45,7 @@ namespace MusimusihanRpg.GothicOrigin
             Application.runInBackground=true;Application.targetFrameRate=60;QualitySettings.vSyncCount=0;Volume=Mathf.Clamp01(PlayerPrefs.GetFloat("OriginVolume",.35f));AudioListener.volume=Qa?0:Volume;
             var player=new GameObject("Player");Body=player.AddComponent<CharacterController>();Body.height=1.72f;Body.radius=.25f;Body.center=new Vector3(0,.88f,0);Body.stepOffset=.25f;Body.slopeLimit=50;Body.skinWidth=.035f;
             var camera=new GameObject("ExpeditionCamera");camera.transform.SetParent(player.transform,false);camera.transform.localPosition=Vector3.up*1.6f;View=camera.AddComponent<Camera>();View.nearClipPlane=.045f;View.fieldOfView=72;View.allowHDR=false;View.allowMSAA=true;camera.AddComponent<AudioListener>();sound=camera.AddComponent<AudioSource>();
-            Ui=gameObject.AddComponent<OriginUi>();Ui.Initialize(this);Ui.Loading("35개의 방을 불러오고 있습니다",0);
+            Ui=gameObject.AddComponent<OriginUi>();Ui.Initialize(this);Presentation=gameObject.AddComponent<OriginPresentation>();Presentation.Initialize(View,Ui.Canvas);Ui.Loading("35개의 방을 불러오고 있습니다",0);
             try
             {
                 World=await OriginDungeonWorld.Load(p=>Ui.Loading("기존 던전과 가구를 불러오고 있습니다",p*.8f));World.Activate(View);

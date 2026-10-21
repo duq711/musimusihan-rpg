@@ -17,7 +17,7 @@ namespace MusimusihanRpg.GothicOrigin
         public void Initialize(OriginGame owner)
         {
             game=owner;sans=Resources.Load<TMP_FontAsset>("OriginSans");serif=Resources.Load<TMP_FontAsset>("OriginSerif");display=Resources.Load<TMP_FontAsset>("OriginDisplay");
-            var root=new GameObject("GothicCanvas",typeof(RectTransform),typeof(Canvas),typeof(UnityEngine.UI.CanvasScaler),typeof(UnityEngine.UI.GraphicRaycaster));Canvas=root.GetComponent<Canvas>();Canvas.renderMode=RenderMode.ScreenSpaceOverlay;Canvas.sortingOrder=10;
+            var root=new GameObject("GothicCanvas",typeof(RectTransform),typeof(Canvas),typeof(UnityEngine.UI.CanvasScaler),typeof(UnityEngine.UI.GraphicRaycaster));root.layer=5;Canvas=root.GetComponent<Canvas>();Canvas.renderMode=RenderMode.ScreenSpaceOverlay;Canvas.sortingOrder=10;
             var scaler=root.GetComponent<UnityEngine.UI.CanvasScaler>();scaler.uiScaleMode=UnityEngine.UI.CanvasScaler.ScaleMode.ConstantPixelSize;scaler.scaleFactor=1;
             var content=new GameObject("Fitted1920Layout",typeof(RectTransform));design=content.GetComponent<RectTransform>();design.SetParent(root.transform,false);design.anchorMin=design.anchorMax=design.pivot=new Vector2(.5f,.5f);design.sizeDelta=new Vector2(1920,1080);screen=design;Fit();
             if(FindFirstObjectByType<EventSystem>()==null)new GameObject("EventSystem",typeof(EventSystem),typeof(StandaloneInputModule));
@@ -27,11 +27,11 @@ namespace MusimusihanRpg.GothicOrigin
         void LateUpdate()=>Fit();
         RectTransform Box(Transform parent,string name,float x,float y,float w,float h,Color color)
         {
-            var n=new GameObject(name,typeof(RectTransform),typeof(UnityEngine.UI.Image));var r=n.GetComponent<RectTransform>();r.SetParent(parent,false);r.anchorMin=r.anchorMax=new Vector2(0,1);r.pivot=new Vector2(0,1);r.anchoredPosition=new Vector2(x,-y);r.sizeDelta=new Vector2(w,h);var image=n.GetComponent<UnityEngine.UI.Image>();image.color=color;image.raycastTarget=false;return r;
+            var n=new GameObject(name,typeof(RectTransform),typeof(UnityEngine.UI.Image));n.layer=5;var r=n.GetComponent<RectTransform>();r.SetParent(parent,false);r.anchorMin=r.anchorMax=new Vector2(0,1);r.pivot=new Vector2(0,1);r.anchoredPosition=new Vector2(x,-y);r.sizeDelta=new Vector2(w,h);var image=n.GetComponent<UnityEngine.UI.Image>();image.color=color;image.raycastTarget=false;return r;
         }
         TextMeshProUGUI Text(Transform parent,string value,float x,float y,float w,float h,float size=24,TMP_FontAsset font=null,Color? color=null,TextAlignmentOptions align=TextAlignmentOptions.TopLeft)
         {
-            var n=new GameObject("Text",typeof(RectTransform),typeof(TextMeshProUGUI));var r=n.GetComponent<RectTransform>();r.SetParent(parent,false);r.anchorMin=r.anchorMax=new Vector2(0,1);r.pivot=new Vector2(0,1);r.anchoredPosition=new Vector2(x,-y);r.sizeDelta=new Vector2(w,h);var t=n.GetComponent<TextMeshProUGUI>();t.font=font??sans;t.text=value;t.fontSize=size;t.color=color??paper;t.alignment=align;t.textWrappingMode=TextWrappingModes.Normal;t.raycastTarget=false;return t;
+            var n=new GameObject("Text",typeof(RectTransform),typeof(TextMeshProUGUI));n.layer=5;var r=n.GetComponent<RectTransform>();r.SetParent(parent,false);r.anchorMin=r.anchorMax=new Vector2(0,1);r.pivot=new Vector2(0,1);r.anchoredPosition=new Vector2(x,-y);r.sizeDelta=new Vector2(w,h);var t=n.GetComponent<TextMeshProUGUI>();t.font=font??sans;t.text=value;t.fontSize=size;t.color=color??paper;t.alignment=align;t.textWrappingMode=TextWrappingModes.Normal;t.raycastTarget=false;return t;
         }
         void Line(Transform p,float x,float y,float w,Color? color=null)=>Box(p,"Rule",x,y,w,1,color??gold);
         void Button(Transform p,string label,float x,float y,float w,Action action,bool primary=false,bool enabled=true)
