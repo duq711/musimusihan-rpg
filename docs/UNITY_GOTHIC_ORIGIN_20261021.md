@@ -66,3 +66,11 @@ Authored geometry totals6,397,151 render triangles and3,312,064 collision triang
 원본 맵·몬스터·폰트·importer metadata와 최종 앱을 보존합니다. 검토한 캡처·로그·QA 저장·격리 프로젝트와 복제 캐시는 검증 후 제거합니다. 실제 제거 할당량·관찰된 여유 공간 변화는 `cleanup.json`에 기록합니다. APFS 공유 블록 때문에 두 수치는 다를 수 있습니다.
 
 Production originals, importer metadata and the final playable app are preserved. Reviewed captures/logs/QA saves and the isolated project/cache are removed after validation. `cleanup.json` records removed allocation and observed free-space change, which can differ with APFS sharing.
+
+정리 결과: 임시 파일·격리 프로젝트의 할당량750,161,920바이트(약715MiB)를 제거했습니다. 관찰된 여유 공간 증가는372,744,192바이트(약356MiB), 정리 직후 여유 공간은15,497,187,328바이트(약14.4GiB)입니다. APFS 공유 블록과 동시 시스템 작업을 고려해 제거 할당량과 여유 공간 증가를 구분합니다.
+
+Cleanup removed750,161,920 allocated bytes (about715MiB). Observed free space increased372,744,192 bytes (about356MiB), reaching15,497,187,328 bytes (about14.4GiB). Allocation and recovered space differ with APFS sharing and concurrent activity.
+
+GitHub: [`codex/unity-gothic-origin-20261021`](https://github.com/duq711/musimusihan-rpg/tree/codex/unity-gothic-origin-20261021). 구현 커밋 `9614a7de65285fbc883463e38ec99a696b9f3719`을 가져와41개 작업 파일의 Git blob 해시를 확인했습니다. 별도 검증 기록 커밋은 이 구현 커밋 뒤에 이어집니다. 다른 진행 중 변경은 포함하지 않았습니다. / Fetched the implementation commit and verified41 exact task blobs. A following documentation commit records verification; unrelated work is excluded.
+
+CLI provenance의 Git revision은 당시 변경 전 체크아웃 HEAD입니다. 실제 빌드에 사용한 소스는 `build-receipt.json`의 파일별 SHA256과 컴파일된 모듈 해시로 구분합니다. Unity가 생성한 `.meta`의 빈 필드 뒤 공백은 importer 원본 형식을 보존했습니다. / The CLI provenance revision names the pre-existing checkout HEAD; per-file source and managed-module hashes in the build receipt identify the actual build. Generated `.meta` empty-field whitespace is preserved.
