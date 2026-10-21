@@ -18,6 +18,8 @@ namespace MusimusihanRpg.GothicOrigin
         static void Pose(OriginGame game,int room)
         {
             if(room==-35){ReproductionPose(game);return;}
+            if(room==-28){CeilingPose(game);return;}
+            if(CeilingRequested&&room==28){var at28=game.ClearPoint(28);game.Teleport(at28,0);game.Pitch=-65;game.View.transform.localRotation=Quaternion.Euler(-65,0,0);game.World.RefreshVisibility();return;}
             var at=game.ClearPoint(room);var foe=game.Foes.FirstOrDefault(f=>f.room==room&&!f.dead);var focus=foe!=null?foe.home+Vector3.up*1.3f:game.World.RoomCenter(room)+Vector3.up*1.3f;
             if(foe!=null)
             {
@@ -50,15 +52,19 @@ namespace MusimusihanRpg.GothicOrigin
         static IEnumerator RunCore(OriginGame g)
         {
             folder=Environment.GetEnvironmentVariable("ORIGIN_QA_DIR")??Path.Combine(Path.GetTempPath(),"origin-native-qa");Directory.CreateDirectory(folder);AudioListener.pause=true;AudioListener.volume=0;QualitySettings.vSyncCount=0;Application.targetFrameRate=-1;
+            // Direct event assertions work without accepting the user's physical
+            // mouse/keyboard while this hidden player validates in the background.
+            foreach(var module in UnityEngine.Object.FindObjectsByType<UnityEngine.EventSystems.BaseInputModule>(FindObjectsSortMode.None))module.enabled=false;
+            Application.wantsToQuit+=()=>{UnityEngine.Debug.Log("ORIGIN_QA_QUIT_REQUEST\n"+Environment.StackTrace);return true;};
             int qaWidth=int.TryParse(Environment.GetEnvironmentVariable("ORIGIN_QA_WIDTH"),out var w)?Mathf.Clamp(w,640,4096):1280;int qaHeight=int.TryParse(Environment.GetEnvironmentVariable("ORIGIN_QA_HEIGHT"),out var h)?Mathf.Clamp(h,480,4096):900;
             var rt=new RenderTexture(qaWidth,qaHeight,24,RenderTextureFormat.ARGB32){antiAliasing=2};rt.Create();g.Presentation.ConfigureQa(rt,Environment.GetEnvironmentVariable("ORIGIN_QA_FULL_RESOLUTION")=="1");
             var sync=new Texture2D(1,1,TextureFormat.RGB24,false);var results=new JObject();var performance=new JArray();Exception failure=null;
             if(VisibilityRequested)g.World.SetLegacyDistanceCullingForQa(Environment.GetEnvironmentVariable("ORIGIN_QA_LEGACY_VISIBILITY")=="1");
-            var sequences=VisibilityRequested?new[]{Functional(g,rt),VisibilityChecks(g,rt)}:new[]{Functional(g,rt)};
+            bool probe=Environment.GetCommandLineArgs().Contains("-originCeilingProbe");var sequences=new List<IEnumerator>();if(!probe)sequences.Add(Functional(g,rt));if(VisibilityRequested)sequences.Add(VisibilityChecks(g,rt));if(CeilingRequested)sequences.Add(CeilingChecks(g,rt));
             foreach(var checks in sequences){while(true){bool next=false;try{next=checks.MoveNext();}catch(Exception e){failure=e;}if(failure!=null||!next)break;yield return checks.Current;}if(failure!=null)break;}
-            if(failure==null)
+            if(failure==null&&!probe)
             {
-                foreach(int room in VisibilityRequested?new[]{35,33,1,30,-35}:new[]{35,33,1,30})
+                foreach(int room in CeilingRequested?new[]{-28,28,35,33,1}:VisibilityRequested?new[]{35,33,1,30,-35}:new[]{35,33,1,30})
                 {
                     Pose(g,room);g.Resume();for(int i=0;i<90;i++){g.Presentation.RenderQa();yield return null;}
                     var times=new List<double>();var gpu=new List<double>();var cpu=new List<double>();long maxDraws=0,maxTriangles=0;using(var draw=ProfilerRecorder.StartNew(ProfilerCategory.Render,"Draw Calls Count",16))using(var tris=ProfilerRecorder.StartNew(ProfilerCategory.Render,"Triangles Count",16))
@@ -74,7 +80,7 @@ namespace MusimusihanRpg.GothicOrigin
                     times.Sort();performance.Add(new JObject{["room"]=room,["samples"]=times.Count,["meanMs"]=times.Average(),["p95Ms"]=times[(int)(times.Count*.95)],["p99Ms"]=times[(int)(times.Count*.99)],["over16_67Percent"]=times.Count(v=>v>16.67)*100.0/times.Count,["over20Percent"]=times.Count(v=>v>20)*100.0/times.Count,["maxDrawCalls"]=maxDraws>0?(JToken)maxDraws:JValue.CreateNull(),["maxTriangles"]=maxTriangles>0?(JToken)maxTriangles:JValue.CreateNull(),["submissionEstimate"]=Estimate(g),["gpuMeanMs"]=gpu.Count>0?(JToken)gpu.Average():JValue.CreateNull(),["cpuMeanMs"]=cpu.Count>0?(JToken)cpu.Average():JValue.CreateNull()});Shot(g,"room"+room,rt);
                 }
             }
-            results["renderResolution"]=g.Presentation.QaResolution;results["visibility"]=visibilityReport;results["engine"]=Application.unityVersion;results["graphics"]=SystemInfo.graphicsDeviceName+" / "+SystemInfo.graphicsDeviceType;results["resolution"]=rt.width+"x"+rt.height+" offscreen with real Metal, UI, exact collision, animated creatures";results["frameLimit"]="uncapped explicit camera render +1px synchronous GPU readback per sample, conservative capacity; not foreground constant60";results["gearBatching"]=Environment.GetEnvironmentVariable("ORIGIN_UNBATCHED_GEAR")!="1";results["passed"]=new JArray(passed);results["checkCount"]=passed.Count;results["failure"]=failure==null?JValue.CreateNull():failure.ToString();results["performance"]=performance;results["renderTrianglesAuthored"]=g.World.RenderTriangles;results["collisionTriangles"]=g.World.CollisionTriangles;File.WriteAllText(Path.Combine(folder,"summary.json"),results.ToString());UnityEngine.Debug.Log("ORIGIN_QA_DONE "+(failure==null?"PASS":"FAIL "+failure));g.Playing=false;g.View.targetTexture=null;UnityEngine.Object.Destroy(sync);rt.Release();UnityEngine.Object.Destroy(rt);Application.Quit(failure==null?0:1);
+            results["renderResolution"]=g.Presentation.QaResolution;results["visibility"]=visibilityReport;results["ceilings"]=ceilingReport;results["engine"]=Application.unityVersion;results["graphics"]=SystemInfo.graphicsDeviceName+" / "+SystemInfo.graphicsDeviceType;results["resolution"]=rt.width+"x"+rt.height+" offscreen with real Metal, UI, exact collision, animated creatures";results["frameLimit"]="uncapped explicit camera render +1px synchronous GPU readback per sample, conservative capacity; not foreground constant60";results["gearBatching"]=Environment.GetEnvironmentVariable("ORIGIN_UNBATCHED_GEAR")!="1";results["passed"]=new JArray(passed);results["checkCount"]=passed.Count;results["failure"]=failure==null?JValue.CreateNull():failure.ToString();results["performance"]=performance;results["renderTrianglesAuthored"]=g.World.RenderTriangles;results["collisionTriangles"]=g.World.CollisionTriangles;File.WriteAllText(Path.Combine(folder,"summary.json"),results.ToString());UnityEngine.Debug.Log("ORIGIN_QA_DONE "+(failure==null?"PASS":"FAIL "+failure));g.Playing=false;g.View.targetTexture=null;UnityEngine.Object.Destroy(sync);rt.Release();UnityEngine.Object.Destroy(rt);Application.Quit(failure==null?0:1);
         }
         static JObject Estimate(OriginGame g)
         {

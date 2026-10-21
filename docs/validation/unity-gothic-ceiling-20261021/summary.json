@@ -1,0 +1,256 @@
+{
+  "before": {
+    "checkCount": 490,
+    "failure": null,
+    "engine": "6000.6.3f1",
+    "graphics": "Apple M4 / Metal",
+    "resolution": "2940x1846 offscreen with real Metal, UI, exact collision, animated creatures",
+    "renderResolution": "1280x804 world, 2940x1846 UI/output",
+    "frameLimit": "uncapped explicit camera render +1px synchronous GPU readback per sample, conservative capacity; not foreground constant60",
+    "performance": [
+      {
+        "room": -28,
+        "samples": 600,
+        "meanMs": 6.170661833333335,
+        "p95Ms": 10.776700000000119,
+        "p99Ms": 11.706600000000208,
+        "over16_67Percent": 0.16666666666666666,
+        "over20Percent": 0.16666666666666666,
+        "maxDrawCalls": null,
+        "maxTriangles": 671064,
+        "submissionEstimate": {
+          "frustumMeshDraws": 74,
+          "frustumTriangles": 618394,
+          "scope": "Enabled mesh/submesh estimate after frustum culling, excludes Canvas and driver passes; counters are null if unavailable"
+        },
+        "gpuMeanMs": 11.481491230752956,
+        "cpuMeanMs": 6.154983401666672
+      },
+      {
+        "room": 28,
+        "samples": 600,
+        "meanMs": 5.918101000000002,
+        "p95Ms": 11.959400000000187,
+        "p99Ms": 16.701099999999997,
+        "over16_67Percent": 1.0,
+        "over20Percent": 0.5,
+        "maxDrawCalls": null,
+        "maxTriangles": 283012,
+        "submissionEstimate": {
+          "frustumMeshDraws": 30,
+          "frustumTriangles": 220574,
+          "scope": "Enabled mesh/submesh estimate after frustum culling, excludes Canvas and driver passes; counters are null if unavailable"
+        },
+        "gpuMeanMs": 8.774605259532109,
+        "cpuMeanMs": 5.88188305666667
+      },
+      {
+        "room": 35,
+        "samples": 600,
+        "meanMs": 14.027379166666673,
+        "p95Ms": 18.73570000000018,
+        "p99Ms": 27.149699999999996,
+        "over16_67Percent": 18.5,
+        "over20Percent": 3.0,
+        "maxDrawCalls": null,
+        "maxTriangles": 2526718,
+        "submissionEstimate": {
+          "frustumMeshDraws": 366,
+          "frustumTriangles": 1555491,
+          "scope": "Enabled mesh/submesh estimate after frustum culling, excludes Canvas and driver passes; counters are null if unavailable"
+        },
+        "gpuMeanMs": 25.829131942979682,
+        "cpuMeanMs": 13.99098527666668
+      },
+      {
+        "room": 33,
+        "samples": 600,
+        "meanMs": 11.373336000000013,
+        "p95Ms": 18.04880000000003,
+        "p99Ms": 20.644500000000107,
+        "over16_67Percent": 11.833333333333334,
+        "over20Percent": 1.3333333333333333,
+        "maxDrawCalls": null,
+        "maxTriangles": 2080594,
+        "submissionEstimate": {
+          "frustumMeshDraws": 409,
+          "frustumTriangles": 1961920,
+          "scope": "Enabled mesh/submesh estimate after frustum culling, excludes Canvas and driver passes; counters are null if unavailable"
+        },
+        "gpuMeanMs": 20.99968201640111,
+        "cpuMeanMs": 11.315213333333334
+      },
+      {
+        "room": 1,
+        "samples": 600,
+        "meanMs": 10.606575666666668,
+        "p95Ms": 17.30690000000004,
+        "p99Ms": 24.397100000000137,
+        "over16_67Percent": 5.833333333333333,
+        "over20Percent": 2.5,
+        "maxDrawCalls": null,
+        "maxTriangles": 1686900,
+        "submissionEstimate": {
+          "frustumMeshDraws": 83,
+          "frustumTriangles": 527580,
+          "scope": "Enabled mesh/submesh estimate after frustum culling, excludes Canvas and driver passes; counters are null if unavailable"
+        },
+        "gpuMeanMs": 19.172916662581784,
+        "cpuMeanMs": 10.580988054999999
+      }
+    ],
+    "renderTrianglesAuthored": 6397151,
+    "collisionTriangles": 3312064,
+    "ceilings": {
+      "legacyBackFaceOnly": true,
+      "reportedRoom28VoidFraction": 0.190220773,
+      "rooms": 35,
+      "views": 280,
+      "viewsWithVoid": 229,
+      "thresholdFraction": 0.002,
+      "method": "Magenta clear-colour coverage,4px grid over complete1280x804 world render;65/85deg upward at4 headings, plus reported pose",
+      "maximumResidualFraction": 0.9377643
+    },
+    "visibility": {
+      "legacy5mRule": false,
+      "reportedPose": {
+        "room": 35,
+        "distanceFromBounds": 6.153351,
+        "inFrustumBatches": 52,
+        "hiddenInFrustumBatches": 0,
+        "legacyDistanceCulling": false
+      },
+      "doorwaySamples": 359,
+      "roomsCovered": 35,
+      "skippedOccludedOrUnsupported": 316,
+      "hiddenVisibleBatchObservations": 0
+    }
+  },
+  "after": {
+    "checkCount": 771,
+    "failure": null,
+    "engine": "6000.6.3f1",
+    "graphics": "Apple M4 / Metal",
+    "resolution": "2940x1846 offscreen with real Metal, UI, exact collision, animated creatures",
+    "renderResolution": "1280x804 world, 2940x1846 UI/output",
+    "frameLimit": "uncapped explicit camera render +1px synchronous GPU readback per sample, conservative capacity; not foreground constant60",
+    "performance": [
+      {
+        "room": -28,
+        "samples": 600,
+        "meanMs": 7.006790833333334,
+        "p95Ms": 12.232499999999845,
+        "p99Ms": 13.362999999999829,
+        "over16_67Percent": 0.3333333333333333,
+        "over20Percent": 0.16666666666666666,
+        "maxDrawCalls": null,
+        "maxTriangles": 671064,
+        "submissionEstimate": {
+          "frustumMeshDraws": 74,
+          "frustumTriangles": 618394,
+          "scope": "Enabled mesh/submesh estimate after frustum culling, excludes Canvas and driver passes; counters are null if unavailable"
+        },
+        "gpuMeanMs": 12.830348690745028,
+        "cpuMeanMs": 6.9805587499999975
+      },
+      {
+        "room": 28,
+        "samples": 600,
+        "meanMs": 4.268101000000002,
+        "p95Ms": 9.226900000000114,
+        "p99Ms": 11.641399999999976,
+        "over16_67Percent": 0.16666666666666666,
+        "over20Percent": 0.16666666666666666,
+        "maxDrawCalls": null,
+        "maxTriangles": 283012,
+        "submissionEstimate": {
+          "frustumMeshDraws": 30,
+          "frustumTriangles": 220574,
+          "scope": "Enabled mesh/submesh estimate after frustum culling, excludes Canvas and driver passes; counters are null if unavailable"
+        },
+        "gpuMeanMs": 7.383945175158595,
+        "cpuMeanMs": 4.229341943333336
+      },
+      {
+        "room": 35,
+        "samples": 600,
+        "meanMs": 13.834389333333338,
+        "p95Ms": 18.197000000000003,
+        "p99Ms": 23.523500000000013,
+        "over16_67Percent": 14.666666666666666,
+        "over20Percent": 2.0,
+        "maxDrawCalls": null,
+        "maxTriangles": 2526782,
+        "submissionEstimate": {
+          "frustumMeshDraws": 368,
+          "frustumTriangles": 1555587,
+          "scope": "Enabled mesh/submesh estimate after frustum culling, excludes Canvas and driver passes; counters are null if unavailable"
+        },
+        "gpuMeanMs": 27.74651315887336,
+        "cpuMeanMs": 13.80024507
+      },
+      {
+        "room": 33,
+        "samples": 600,
+        "meanMs": 12.358211666666676,
+        "p95Ms": 18.17529999999988,
+        "p99Ms": 19.92470000000003,
+        "over16_67Percent": 13.0,
+        "over20Percent": 0.8333333333333334,
+        "maxDrawCalls": null,
+        "maxTriangles": 2080594,
+        "submissionEstimate": {
+          "frustumMeshDraws": 409,
+          "frustumTriangles": 1961920,
+          "scope": "Enabled mesh/submesh estimate after frustum culling, excludes Canvas and driver passes; counters are null if unavailable"
+        },
+        "gpuMeanMs": 23.518037024283938,
+        "cpuMeanMs": 12.292189236666667
+      },
+      {
+        "room": 1,
+        "samples": 600,
+        "meanMs": 9.526716499999997,
+        "p95Ms": 13.169400000000678,
+        "p99Ms": 17.72759999999994,
+        "over16_67Percent": 1.8333333333333333,
+        "over20Percent": 0.3333333333333333,
+        "maxDrawCalls": null,
+        "maxTriangles": 1686900,
+        "submissionEstimate": {
+          "frustumMeshDraws": 83,
+          "frustumTriangles": 527580,
+          "scope": "Enabled mesh/submesh estimate after frustum culling, excludes Canvas and driver passes; counters are null if unavailable"
+        },
+        "gpuMeanMs": 18.069993415816786,
+        "cpuMeanMs": 9.488677708333343
+      }
+    ],
+    "renderTrianglesAuthored": 6397247,
+    "collisionTriangles": 3312160,
+    "ceilings": {
+      "legacyBackFaceOnly": false,
+      "reportedRoom28VoidFraction": 3.109453e-05,
+      "rooms": 35,
+      "views": 280,
+      "viewsWithVoid": 0,
+      "thresholdFraction": 0.002,
+      "method": "Magenta clear-colour coverage,4px grid over complete1280x804 world render;65/85deg upward at4 headings, plus reported pose",
+      "maximumResidualFraction": 0.000155472633
+    },
+    "visibility": {
+      "legacy5mRule": false,
+      "reportedPose": {
+        "room": 35,
+        "distanceFromBounds": 6.153351,
+        "inFrustumBatches": 52,
+        "hiddenInFrustumBatches": 0,
+        "legacyDistanceCulling": false
+      },
+      "doorwaySamples": 359,
+      "roomsCovered": 35,
+      "skippedOccludedOrUnsupported": 316,
+      "hiddenVisibleBatchObservations": 0
+    }
+  }
+}

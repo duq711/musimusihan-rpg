@@ -10,6 +10,7 @@ Shader "GothicOrigin/InkPaint"
         [Enum(UnityEngine.Rendering.BlendMode)] _SrcBlend("Source",Int)=1
         [Enum(UnityEngine.Rendering.BlendMode)] _DstBlend("Destination",Int)=0
         [Enum(Off,0,On,1)] _ZWrite("Depth",Int)=1
+        [Enum(UnityEngine.Rendering.CullMode)] _Cull("Authored face culling",Int)=2
     }
     SubShader
     {
@@ -18,7 +19,7 @@ Shader "GothicOrigin/InkPaint"
         {
             Blend [_SrcBlend] [_DstBlend]
             ZWrite [_ZWrite]
-            Cull Back
+            Cull [_Cull]
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
@@ -28,10 +29,10 @@ Shader "GothicOrigin/InkPaint"
             struct appdata {float4 vertex:POSITION;float3 normal:NORMAL;float2 uv:TEXCOORD0;float4 color:COLOR;};
             struct v2f {float4 vertex:SV_POSITION;float3 world:TEXCOORD0;float3 normal:TEXCOORD1;float2 uv:TEXCOORD2;float4 color:COLOR;};
             v2f vert(appdata v){v2f o;o.vertex=UnityObjectToClipPos(v.vertex);o.world=mul(unity_ObjectToWorld,v.vertex).xyz;o.normal=UnityObjectToWorldNormal(v.normal);o.uv=TRANSFORM_TEX(v.uv,_MainTex);o.color=v.color;return o;}
-            fixed4 frag(v2f i):SV_Target
+            fixed4 frag(v2f i,fixed facing:VFACE):SV_Target
             {
                 float4 pigment=tex2D(_MainTex,i.uv)*_Color*i.color;clip(pigment.a-_Cutoff);
-                float3 n=normalize(i.normal);float key=dot(n,normalize(float3(-.45,1,.32)))*.5+.5;
+                float3 n=normalize(i.normal)*(facing>=0?1:-1);float key=dot(n,normalize(float3(-.45,1,.32)))*.5+.5;
                 float band=key<.36?.27:(key<.72?.59:1.0);
                 float brush=sin(i.world.x*2.1+i.world.y*2.7)*sin(i.world.z*3.7+i.world.y*.9)*.025;
                 float3 c=pigment.rgb*(band+brush);

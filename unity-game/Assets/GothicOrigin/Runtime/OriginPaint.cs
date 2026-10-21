@@ -17,7 +17,7 @@ namespace MusimusihanRpg.GothicOrigin
             var material=new Material(Shader){name=name};material.SetColor("_Color",color);
             material.SetFloat("_Emissive",emissive);return material;
         }
-        public static void Apply(GameObject root)
+        public static void Apply(GameObject root,IReadOnlyDictionary<Material,bool> authoredSides=null)
         {
             foreach(var renderer in root.GetComponentsInChildren<MeshRenderer>(true))
             {
@@ -31,6 +31,13 @@ namespace MusimusihanRpg.GothicOrigin
                         foreach(string p in new[]{"baseColorFactor","_BaseColor","_Color"})if(source.HasProperty(p)){color=source.GetColor(p);break;}
                         foreach(string p in new[]{"baseColorTexture","_BaseMap","_MainTex"})if(source.HasProperty(p)&&source.GetTexture(p)!=null){texture=source.GetTexture(p);scale=source.GetTextureScale(p);offset=source.GetTextureOffset(p);break;}
                         material=Solid(source.name,color);material.SetTexture("_MainTex",texture);material.SetTextureScale("_MainTex",scale);material.SetTextureOffset("_MainTex",offset);
+                        // glTF doubleSided is part of the authored geometry contract.
+                        // Many dungeon vault panels deliberately face away from the interior.
+                        int cull=(int)CullMode.Back;
+                        foreach(string p in new[]{"_Cull","_CullMode","cullMode"})if(source.HasProperty(p)){cull=source.GetInt(p);break;}
+                        if(authoredSides!=null&&authoredSides.TryGetValue(source,out bool twoSided))cull=(int)(twoSided?CullMode.Off:CullMode.Back);
+                        if(OriginGame.Qa&&Environment.GetEnvironmentVariable("ORIGIN_QA_LEGACY_SIDEDNESS")=="1")cull=(int)CullMode.Back;
+                        material.SetInt("_Cull",cull);
                         bool ink=source.name.IndexOf("ink",StringComparison.OrdinalIgnoreCase)>=0||source.name.IndexOf("outline",StringComparison.OrdinalIgnoreCase)>=0;
                         material.SetFloat("_Ink",ink?1:0);
                         if(source.renderQueue>=3000){material.renderQueue=3000;material.SetInt("_SrcBlend",(int)BlendMode.SrcAlpha);material.SetInt("_DstBlend",(int)BlendMode.OneMinusSrcAlpha);material.SetInt("_ZWrite",0);}

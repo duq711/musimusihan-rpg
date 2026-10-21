@@ -1,5 +1,7 @@
 # 방 소실 수정 / Room-visibility fix
 
+> 후속 천장 검사에서 별도의 재질·메시 틈을 수정했습니다: [천장 소실 수정](UNITY_GOTHIC_CEILING_FIX_20261021.md). 이 문서의 문 시야 검사는 천장 전체의 검증을 의미하지 않습니다. / The later ceiling fix addresses separate sidedness and joint gaps; the doorway tests below do not establish correct upward rendering.
+
 2026-10-21: 문밖의 특정 거리에서 방 바닥·천장·가구가 사라지고 일부 벽과 귀환 표식만 남는 문제를 수정했습니다. 사용자가 제공한35번 방 시점에서 원인을 재현했습니다.
 
 Fixed the reported doorway-distance disappearance of floors, ceilings and furniture, reproduced at the supplied room35 view.

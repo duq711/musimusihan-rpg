@@ -1,5 +1,7 @@
 # Unity 고딕의 기원 / Native Gothic Origin
 
+> 최신 천장 수정: [양면 재질과 천장 틈 수정](UNITY_GOTHIC_CEILING_FIX_20261021.md). / Latest ceiling sidedness and joint fix.
+
 > 후속 수정: [방 거리 소실 수정·전체 화면 렌더 예산](UNITY_GOTHIC_VISIBILITY_FIX_20261021.md). 아래는 최초 제작 당시의 기록입니다. / Follow-up visibility/render-budget fix; the report below preserves the original checkpoint.
 
 

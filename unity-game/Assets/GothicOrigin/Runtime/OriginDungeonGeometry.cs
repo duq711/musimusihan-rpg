@@ -33,6 +33,37 @@ namespace MusimusihanRpg.GothicOrigin
 #endif
         }
         static bool GatePart(Transform node){for(var t=node;t!=null;t=t.parent)if(t.name.StartsWith("Gate_Leaf_"))return true;return false;}
+        void AddVaultJointBackings()
+        {
+            if(OriginGame.Qa&&Environment.GetEnvironmentVariable("ORIGIN_QA_LEGACY_SIDEDNESS")=="1")return;
+            // Preserve the original GLBs. These small surfaces close real gaps behind
+            // room34's separate vault stones and room35's front arch spandrels.
+            void Strip(string name,int room,Transform parent,List<Vector3> vertices,Material material,bool wallUv)
+            {
+                var indices=new List<int>();for(int i=0;i<vertices.Count/2-1;i++){int a=i*2;indices.AddRange(new[]{a,a+1,a+3,a,a+3,a+2});}
+                var mesh=new Mesh{name=name};mesh.SetVertices(vertices);mesh.SetTriangles(indices,0);
+                mesh.SetUVs(0,vertices.Select(v=>wallUv?new Vector2(v.x/2.8f,v.y/2.6f):new Vector2(v.x,v.z)).ToList());mesh.RecalculateNormals();mesh.RecalculateBounds();ownedMeshes.Add(mesh);
+                var node=new GameObject(name);node.transform.SetParent(parent,false);node.layer=WorldLayer;node.AddComponent<MeshFilter>().sharedMesh=mesh;node.AddComponent<MeshRenderer>().sharedMaterial=material;sources.Add(node);RegisterSource(node,room);
+            }
+            var original=AuthoredRenderers();var mortar=original.SelectMany(r=>r.sharedMaterials).First(m=>m.name=="Room34_Deep_Mortar");
+            var vault=new List<Vector3>();var profile=new List<Vector2>();const float half=2.2f;
+            for(int i=0;i<=8;i++)
+            {float x=-half*Mathf.Cos(i*Mathf.PI/16),offset=.3f*half,radius=half+offset;float y=2.75f+1.3f*Mathf.Sqrt(Mathf.Max(0,1-Mathf.Pow((Mathf.Abs(x)+offset)/radius,2)))/Mathf.Sqrt(1-Mathf.Pow(offset/radius,2));profile.Add(new Vector2(x,y+.205f));}
+            for(int i=7;i>=0;i--)profile.Add(new Vector2(-profile[i].x,profile[i].y));
+            foreach(var p in profile){vault.Add(new Vector3(p.x,p.y,.01f));vault.Add(new Vector3(p.x,p.y,-4.45f));}
+            Strip("Room34_Vault_Mortar_Backing",34,roomFrames[34],vault,mortar,false);
+            var storage=original.First(r=>r.name=="Architecture_Back_Gable");var storageFrame=storage.GetComponentInParent<GothicDungeonRegion>(true).transform;
+            var front=new List<Vector3>();profile.Clear();float r35=(half*half+2.95f*2.95f)/(2*half),center=r35-half,end=Mathf.Acos(-center/r35);
+            for(int i=0;i<=16;i++){float a=Mathf.PI+(end-Mathf.PI)*i/16;profile.Add(new Vector2(center+r35*Mathf.Cos(a),3.1f+r35*Mathf.Sin(a)*.5f));}
+            for(int i=15;i>=0;i--)profile.Add(new Vector2(-profile[i].x,profile[i].y));
+            foreach(var p in profile)
+            {
+                // Leave more than the authored2m width/3.8m crown clear for the gate.
+                float opening=2.7f+1.2f*Mathf.Sqrt(Mathf.Max(0,1-Mathf.Pow(p.x/1.1f,2)));
+                front.Add(new Vector3(p.x,opening,.27f));front.Add(new Vector3(p.x,p.y+.025f,.27f));
+            }
+            Strip("Room35_Front_Arch_Joint_Backing",35,storageFrame,front,storage.sharedMaterial,true);
+        }
         MeshRenderer[] AuthoredRenderers()=>sources.SelectMany(r=>r.GetComponentsInChildren<MeshRenderer>(true)).Distinct().ToArray();
         string MaterialKey(Material material)
         {

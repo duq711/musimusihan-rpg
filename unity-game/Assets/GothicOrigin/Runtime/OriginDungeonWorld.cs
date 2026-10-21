@@ -91,7 +91,10 @@ namespace MusimusihanRpg.GothicOrigin
                 foreach(string property in material.GetTexturePropertyNames())
                 {var texture=material.GetTexture(property);if(texture!=null&&sharedTextures.TryGetValue(texture,out var canonical))material.SetTexture(property,canonical);}
             }
-            OriginPaint.Apply(root);
+            var sides=new Dictionary<Material,bool>();
+            for(int i=0;i<(json["materials"]?.Count()??0);i++)
+            {var material=gltf.GetMaterial(i);if(material!=null)sides[material]=(bool?)json["materials"][i]["doubleSided"]??false;}
+            OriginPaint.Apply(root,sides);
             return root;
         }
         public static async Task<OriginDungeonWorld> Load(Action<float> progress)
@@ -134,7 +137,7 @@ namespace MusimusihanRpg.GothicOrigin
             foreach(var torch in corridor["gothic_torches"]??new JArray())
             {var at=torch["fire_position"]??torch["position"];if(at is JArray)lamps.Add((Point(at),new Color(1,.45f,.18f),3.2f,9));}
             foreach(var source in sources)foreach(Transform node in source.GetComponentsInChildren<Transform>(true))node.gameObject.layer=WorldLayer;
-            PrepareGate(corridor);progress?.Invoke(.82f);await Task.Yield();BuildBatches();progress?.Invoke(.94f);await Task.Yield();BuildColliders();CompactSources(templatesRoot);progress?.Invoke(.98f);
+            PrepareGate(corridor);AddVaultJointBackings();progress?.Invoke(.82f);await Task.Yield();BuildBatches();progress?.Invoke(.94f);await Task.Yield();BuildColliders();CompactSources(templatesRoot);progress?.Invoke(.98f);
             for(int i=0;i<nearbyLights.Length;i++){var node=new GameObject("NearbyDungeonLight"+i);node.transform.SetParent(transform,false);var light=node.AddComponent<Light>();light.type=LightType.Point;light.shadows=LightShadows.None;light.cullingMask=1<<WorldLayer;nearbyLights[i]=light;}
             var fill=new GameObject("InteriorBounce");fill.transform.SetParent(transform,false);var sun=fill.AddComponent<Light>();sun.type=LightType.Directional;sun.color=new Color(.96f,.86f,.71f);sun.intensity=1.2f;sun.shadows=LightShadows.None;sun.cullingMask=1<<WorldLayer;fill.transform.rotation=Quaternion.Euler(60,-35,0);
             Physics.SyncTransforms();progress?.Invoke(1);
