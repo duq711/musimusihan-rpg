@@ -1,0 +1,524 @@
+{
+  "started": "2026-10-20",
+  "completed": "2026-10-21",
+  "scope": "New gothic comics 35-room standalone expedition. Not all previous Unity RPG systems or a hand-painted production finish. See the bilingual production record.",
+  "functional_checks": [
+    {
+      "name": "Hardware Metal renderer",
+      "detail": {
+        "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M4, Unspecified Version)",
+        "framebuffer": [
+          1280,
+          900
+        ]
+      }
+    },
+    {
+      "name": "All 35 newly authored rooms load"
+    },
+    {
+      "name": "New game opens the real expedition"
+    },
+    {
+      "name": "Actual WASD walking moves on floor"
+    },
+    {
+      "name": "Sprinting spends stamina"
+    },
+    {
+      "name": "Pause freezes simulation and expedition clock"
+    },
+    {
+      "name": "M opens exploration map"
+    },
+    {
+      "name": "Inventory shows equipment and actual item counts"
+    },
+    {
+      "name": "Journal shows three live relic objectives"
+    },
+    {
+      "name": "Physical capsule path reaches all 35 rooms and every loot/relic/exit",
+      "detail": {
+        "testedNodes": 12649,
+        "reachableNodes": 12629,
+        "unreachableRooms": [],
+        "unreachableObjects": []
+      }
+    },
+    {
+      "name": "Actual movement rejects wall penetration"
+    },
+    {
+      "name": "Player remains on unoccupied supported floor"
+    },
+    {
+      "name": "E opens the actual chest and grants one potion"
+    },
+    {
+      "name": "Opened chest cannot grant duplicate loot"
+    },
+    {
+      "name": "Exit remains sealed before all relics"
+    },
+    {
+      "name": "Living quarters have their own room title"
+    },
+    {
+      "name": "Guardian seals relic 30"
+    },
+    {
+      "name": "Facing shield blocks the real enemy strike"
+    },
+    {
+      "name": "Unguarded enemy strike damages health"
+    },
+    {
+      "name": "Healing consumes a potion and restores health"
+    },
+    {
+      "name": "Actual sword defeats guardian 30"
+    },
+    {
+      "name": "Actual E interaction recovers relic 30"
+    },
+    {
+      "name": "Guardian seals relic 23"
+    },
+    {
+      "name": "Actual sword defeats guardian 23"
+    },
+    {
+      "name": "Actual E interaction recovers relic 23"
+    },
+    {
+      "name": "Guardian seals relic 1"
+    },
+    {
+      "name": "Actual sword defeats guardian 1"
+    },
+    {
+      "name": "Actual E interaction recovers relic 1"
+    },
+    {
+      "name": "New game uses its own saved expedition"
+    },
+    {
+      "name": "Reload preserves relics, loot and defeated guardians"
+    },
+    {
+      "name": "All three relics unlock the actual victory return"
+    },
+    {
+      "name": "Retry resets a complete new expedition"
+    },
+    {
+      "name": "Quality setting changes actual framebuffer"
+    },
+    {
+      "name": "Reduced motion preference works"
+    },
+    {
+      "name": "Corrupt save safely returns to a fresh title"
+    },
+    {
+      "name": "390px title has no horizontal overflow"
+    },
+    {
+      "name": "390px map close remains accessible"
+    },
+    {
+      "name": "Zero runtime or shader errors",
+      "detail": []
+    },
+    {
+      "name": "All runtime assets load offline",
+      "detail": []
+    }
+  ],
+  "final_ui_checks": [
+    "Ready gate enables start",
+    "QA controls excluded from normal launch",
+    "Toast cannot cover an open panel",
+    "Map closes back to gameplay",
+    "Focus loss safely pauses",
+    "Resume restores play after focus loss",
+    "Formatted sources have zero runtime errors",
+    "Server rejects parent traversal"
+  ],
+  "launcher_checks": [
+    "Existing correct loopback server reused without launching a duplicate",
+    "Play.command zsh syntax valid"
+  ],
+  "runtime_errors": [],
+  "external_requests": [],
+  "performance": [
+    {
+      "name": "room33-interior",
+      "samples": 600,
+      "mean_ms": 16.666,
+      "p50_ms": 16.69999999999891,
+      "p95_ms": 16.700000000000728,
+      "p99_ms": 16.80000000000109,
+      "over_16_67_ratio": 0.6166666666666667,
+      "over_18_ratio": 0,
+      "over_33_34_ratio": 0,
+      "mean_fps": 60.00240009600384,
+      "max_draw_calls": 82,
+      "max_submitted_triangles": 221641,
+      "max_cpu_submit_ms": 2.5,
+      "before": {
+        "x": -23.759999999999998,
+        "z": 31.74,
+        "yaw": 0,
+        "pitch": 0
+      },
+      "after": {
+        "x": -23.759999999999998,
+        "z": 31.74,
+        "yaw": 0,
+        "pitch": 0
+      },
+      "target_met": true
+    },
+    {
+      "name": "room33-walking-aisle",
+      "samples": 600,
+      "mean_ms": 16.665999999999997,
+      "p50_ms": 16.700000000000728,
+      "p95_ms": 16.799999999999272,
+      "p99_ms": 16.799999999999272,
+      "over_16_67_ratio": 0.6083333333333333,
+      "over_18_ratio": 0,
+      "over_33_34_ratio": 0,
+      "mean_fps": 60.00240009600385,
+      "max_draw_calls": 82,
+      "max_submitted_triangles": 221641,
+      "max_cpu_submit_ms": 1.7999999970197678,
+      "before": {
+        "x": -23.759999999999998,
+        "z": 31.639999999999997,
+        "yaw": 0,
+        "pitch": 0
+      },
+      "after": {
+        "x": -23.759999999999998,
+        "z": 31.220839999999995,
+        "yaw": 0,
+        "pitch": 0
+      },
+      "target_met": true
+    },
+    {
+      "name": "room34-interior",
+      "samples": 600,
+      "mean_ms": 16.666166666666662,
+      "p50_ms": 16.69999999999709,
+      "p95_ms": 16.700000000004366,
+      "p99_ms": 16.80000000000291,
+      "over_16_67_ratio": 0.6283333333333333,
+      "over_18_ratio": 0,
+      "over_33_34_ratio": 0,
+      "mean_fps": 60.001800054001635,
+      "max_draw_calls": 70,
+      "max_submitted_triangles": 159169,
+      "max_cpu_submit_ms": 2.2000000029802322,
+      "before": {
+        "x": -35.28,
+        "z": 32.459999999999994,
+        "yaw": 0,
+        "pitch": 0
+      },
+      "after": {
+        "x": -35.28,
+        "z": 32.459999999999994,
+        "yaw": 0,
+        "pitch": 0
+      },
+      "target_met": true
+    },
+    {
+      "name": "room35-interior",
+      "samples": 600,
+      "mean_ms": 16.666166666666662,
+      "p50_ms": 16.69999999999709,
+      "p95_ms": 16.700000000004366,
+      "p99_ms": 16.80000000000291,
+      "over_16_67_ratio": 0.625,
+      "over_18_ratio": 0,
+      "over_33_34_ratio": 0,
+      "mean_fps": 60.001800054001635,
+      "max_draw_calls": 94,
+      "max_submitted_triangles": 286771,
+      "max_cpu_submit_ms": 2.2999999970197678,
+      "before": {
+        "x": -20.16,
+        "z": 42.54,
+        "yaw": 0,
+        "pitch": 0
+      },
+      "after": {
+        "x": -20.16,
+        "z": 42.54,
+        "yaw": 0,
+        "pitch": 0
+      },
+      "target_met": true
+    },
+    {
+      "name": "chapel-combat-view",
+      "samples": 600,
+      "mean_ms": 16.66600000000001,
+      "p50_ms": 16.69999999999709,
+      "p95_ms": 16.799999999995634,
+      "p99_ms": 16.80000000000291,
+      "over_16_67_ratio": 0.6116666666666667,
+      "over_18_ratio": 0,
+      "over_33_34_ratio": 0,
+      "mean_fps": 60.002400096003804,
+      "max_draw_calls": 73,
+      "max_submitted_triangles": 118113,
+      "max_cpu_submit_ms": 2.2999999970197678,
+      "before": {
+        "x": -46.08,
+        "z": 2.2199999999999998,
+        "yaw": 0,
+        "pitch": 0
+      },
+      "after": {
+        "x": -46.08,
+        "z": 2.2199999999999998,
+        "yaw": 0,
+        "pitch": 0
+      },
+      "target_met": true
+    }
+  ],
+  "baseline": [
+    {
+      "name": "main-corridor",
+      "frames": 241,
+      "meanFrameMs": 16.6655601659751,
+      "p95FrameMs": 16.799999999999272,
+      "meanFps": 60.00398366696545,
+      "slowFrameRatio": 0,
+      "targetMet": true,
+      "over_16_67_ratio": 0.6141078838174274,
+      "renderer": {
+        "calls": 503,
+        "triangles": 1335704,
+        "geometries": 842,
+        "textures": 146
+      }
+    },
+    {
+      "name": "room33-interior",
+      "frames": 241,
+      "meanFrameMs": 16.66597510373444,
+      "p95FrameMs": 16.700000000000728,
+      "meanFps": 60.002489729864315,
+      "slowFrameRatio": 0,
+      "targetMet": true,
+      "over_16_67_ratio": 0.6099585062240664,
+      "renderer": {
+        "calls": 155,
+        "triangles": 410536,
+        "geometries": 842,
+        "textures": 146
+      }
+    },
+    {
+      "name": "room34-interior",
+      "frames": 241,
+      "meanFrameMs": 16.66597510373444,
+      "p95FrameMs": 16.700000000000728,
+      "meanFps": 60.002489729864315,
+      "slowFrameRatio": 0,
+      "targetMet": true,
+      "over_16_67_ratio": 0.6141078838174274,
+      "renderer": {
+        "calls": 81,
+        "triangles": 234602,
+        "geometries": 842,
+        "textures": 146
+      }
+    },
+    {
+      "name": "room35-interior",
+      "frames": 241,
+      "meanFrameMs": 16.665975103734425,
+      "p95FrameMs": 16.799999999995634,
+      "meanFps": 60.002489729864365,
+      "slowFrameRatio": 0,
+      "targetMet": true,
+      "over_16_67_ratio": 0.6016597510373444,
+      "renderer": {
+        "calls": 88,
+        "triangles": 499904,
+        "geometries": 842,
+        "textures": 146
+      }
+    },
+    {
+      "name": "overview",
+      "frames": 241,
+      "meanFrameMs": 16.66597510373444,
+      "p95FrameMs": 16.700000000004366,
+      "meanFps": 60.002489729864315,
+      "slowFrameRatio": 0,
+      "targetMet": true,
+      "over_16_67_ratio": 0.6307053941908713,
+      "renderer": {
+        "calls": 562,
+        "triangles": 3763138,
+        "geometries": 842,
+        "textures": 146
+      }
+    },
+    {
+      "name": "plan",
+      "frames": 241,
+      "meanFrameMs": 16.66597510373444,
+      "p95FrameMs": 16.799999999995634,
+      "meanFps": 60.002489729864315,
+      "slowFrameRatio": 0,
+      "targetMet": true,
+      "over_16_67_ratio": 0.6058091286307054,
+      "renderer": {
+        "calls": 562,
+        "triangles": 3763138,
+        "geometries": 842,
+        "textures": 146
+      }
+    },
+    {
+      "name": "room33-walking-collision-route",
+      "frames": 505,
+      "meanFrameMs": 16.66594059405941,
+      "p95FrameMs": 16.700000000004366,
+      "meanFps": 60.00261397526227,
+      "slowFrameRatio": 0,
+      "targetMet": true,
+      "over_16_67_ratio": 0.6217821782178218
+    }
+  ],
+  "performance_conditions": {
+    "viewport": [
+      1280,
+      900
+    ],
+    "dpr": 1,
+    "frames": 600,
+    "warmupFrames": 90,
+    "browser": "Installed Google Chrome, headless, ANGLE Metal, muted",
+    "scope": "Actual new game, nonempty representative views and a real keyboard movement route. Compare room identities, not pixel-equivalent geometry, with the preserved explorer."
+  },
+  "gpu": {
+    "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M4, Unspecified Version)",
+    "framebuffer": [
+      1280,
+      900
+    ]
+  },
+  "hardware": {
+    "cpu": "Apple M4",
+    "arch": "arm64",
+    "os": "27.0.0"
+  },
+  "browser_version": "155.0.8059.84",
+  "performance_limit": "3000 hidden Chrome Metal intervals at1280x900. Zero above18ms; exact16.67ms overruns retained. New geometry/routes preclude a causal speedup comparison. Not certification of foreground full play or constant60 on every frame.",
+  "corruption_fixture_note": "Final inactive-save fixture passed. The earlier full run reached 34 successful checks including victory/save restore and measured all five performance scenarios before active-page autosave overwrote intentionally corrupt test data. This was a test fixture failure.",
+  "sources": [
+    {
+      "path": "gothic-game/Play.command",
+      "bytes": 48,
+      "sha256": "6e4091493c6770b6ebbc38e30dc5501eba8c69865f611c3483e69f437c6417bd"
+    },
+    {
+      "path": "gothic-game/README.md",
+      "bytes": 5271,
+      "sha256": "81a6a35f0db9c3a1243b6bd9d9ef05222e9cba7b226b61a590502fe32e5f5010"
+    },
+    {
+      "path": "gothic-game/game.js",
+      "bytes": 31079,
+      "sha256": "5c8c9865c144f9cfc4546cd2d22dd1cc048e20953e3cd6b5f24b9ba6e4e6baf0"
+    },
+    {
+      "path": "gothic-game/identity.json",
+      "bytes": 153,
+      "sha256": "01aa3ceff0464a3f9cd19104d8e813add436d248b5cf10509b97a2a70b9adb87"
+    },
+    {
+      "path": "gothic-game/index.html",
+      "bytes": 7043,
+      "sha256": "822cba6407bb856e5b2395386bad4fb3e31c5924814d3b81a62c0d52be59ec27"
+    },
+    {
+      "path": "gothic-game/launch.py",
+      "bytes": 1545,
+      "sha256": "498ad6f4e6476be0a48338a6e33d8d9fb82b35e03775e4cf330f8d1181de0666"
+    },
+    {
+      "path": "gothic-game/layout.json",
+      "bytes": 42407,
+      "sha256": "5a84f7d8c456f0814ef5bceb824fdbf1f874b50416ac1fa51ac8e84ba46a4cc2"
+    },
+    {
+      "path": "gothic-game/serve.py",
+      "bytes": 1725,
+      "sha256": "fe9cc781041768cc92a3e9006aa2c8841d610e6102d752e3df255d64154d7849"
+    },
+    {
+      "path": "gothic-game/style.css",
+      "bytes": 10718,
+      "sha256": "f16a0d1eab4fc6413ed4a6b54947cb2dfecb22269ec78983b014f107e39c1c19"
+    },
+    {
+      "path": "gothic-game/vendor/THREE-LICENSE",
+      "bytes": 1081,
+      "sha256": "4c40a1ef62450b857c3b2aaf294936304cd552d965fbcd9d32d4c5bcf4ba4454"
+    },
+    {
+      "path": "gothic-game/vendor/three.module.js",
+      "bytes": 1314681,
+      "sha256": "ce1fa418de16a19495a9f72495580e3015d7745c296d3ce0485897f902ddedfb"
+    },
+    {
+      "path": "gothic-game/world.js",
+      "bytes": 27729,
+      "sha256": "02f4dc1f910ede956d2a741540e0cac33932b6cec8f7052e44f0f19150bfb06b"
+    }
+  ],
+  "preserved": [
+    "New game source, launcher and offline runtime",
+    "Current loopback game server",
+    "Previous Unity playable app and Applications/Dock links",
+    "Previous explorer, source models, Blender files, concepts and saves"
+  ],
+  "publication": {
+    "branch": "codex/gothic-origin-20261021",
+    "status": "prepared_for_connected_github_publication",
+    "local_production_commit": "332a5153c32b96149060ed5e5bc600ceef6e18b3",
+    "local_production_branch": "codex/gothic-origin-20261020",
+    "git_https_push": "failed: no HTTPS username credential",
+    "method": "Connected GitHub app Git data API; task files on remote main; no unrelated local checkout changes."
+  },
+  "cleanup": {
+    "removed_allocated_bytes": 12800000,
+    "removed_logical_bytes": 12507335,
+    "removed_entries": 156,
+    "paths": [
+      "/tmp/gothic-rebuild-baseline-20261020",
+      "/tmp/gothic-rebuild-qa-20261020",
+      "/tmp/gothic-rebuild-final-20261020",
+      "/tmp/gothic-rebuild-functional-20261021",
+      "/tmp/gothic-format-20261021",
+      "/tmp/gothic-rebuild-ui-20261021.json"
+    ],
+    "free_before_bytes": 19064893440,
+    "free_after_bytes": 19077652480,
+    "observed_free_change_bytes": 12759040,
+    "apfs_note": "Removed allocation and observed free-space change differ because of shared APFS blocks, delayed reclamation and unrelated running processes."
+  }
+}

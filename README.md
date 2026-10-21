@@ -1,5 +1,15 @@
 # 무시무시한 RPG / Musimusihan RPG
 
+2026-10-21: 처음부터 새로 만든 [고딕 코믹스 원정 버전](gothic-game/README.md)입니다. 35개 방 탐험·검과 방패·성물 회수·귀환을 플레이할 수 있습니다. 기존 제작 원본과 앱은 보존합니다. 실행과 검증은 새 버전 안내를 따릅니다.
+
+October 21, 2026: Play the newly authored [gothic comics expedition](gothic-game/README.md), with 35 rooms, sword/shield combat, relics and a return ending. Previous sources and apps remain preserved; see the new guide for running and validation.
+
+아래 문서는 보존된 이전 버전의 역사적 안내입니다. 2026-10-03 사용자 지시에 따라 이후 작업에서 Godot을 사용하지 않습니다.
+
+The following material is the historical guide for the preserved previous version. The October 3, 2026 user direction stops future Godot use.
+
+---
+
 **잔향의 성소: 검은 성물실** — Godot 4.7로 제작 중인 1인칭 다크 판타지 RPG입니다.
 
 **Sanctuary of Echoes: The Black Reliquary** — a first-person dark fantasy RPG in development with Godot 4.7. The English title is a working translation.

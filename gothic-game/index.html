@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#141c21">
+  <title>잔향의 성소 — 검은 성물실</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+  <script type="importmap">{"imports":{"three":"./vendor/three.module.js"}}</script>
+</head>
+<body>
+  <main id="stage" aria-label="잔향의 성소 · 1인칭 고딕 코믹스 게임"></main>
+  <div class="print-frame" aria-hidden="true"></div>
+  <div id="damage" aria-hidden="true"></div>
+  <section id="hud" hidden>
+    <header class="chapter"><span class="smallcaps">THE BLACK RELIQUARY</span><h1 id="room-name">보급 창고</h1><p id="room-number">지하 1층 · XXXV</p></header>
+    <aside class="objective"><span class="smallcaps">남겨진 서약</span><p id="quest">세 개의 검은 성물을 찾아라</p><span id="relic-count">성물 0 / 3</span><button id="map-button" aria-label="지도 열기">M · 지도</button></aside>
+    <div id="boss" hidden><span id="enemy-name"></span><div class="meter"><i id="enemy-health"></i></div></div>
+    <div id="reticle" aria-hidden="true">+</div>
+    <div id="prompt" hidden><kbd>E</kbd><span id="prompt-text"></span></div>
+    <div class="vitals"><div class="vital"><span>생명</span><div class="meter health"><i id="health"></i></div><b id="health-value">100</b></div><div class="vital"><span>기력</span><div class="meter stamina"><i id="stamina"></i></div></div><p id="vital-note">방패를 들어 두려움에 맞서라.</p></div>
+    <div class="quickslots"><button id="potion-button" aria-label="회복약 사용"><span>1</span><svg viewBox="0 0 32 40" aria-hidden="true"><path d="M12 3h8v8l8 16q4 11-12 11T4 27l8-16Z"/><path class="liquid" d="M8 24h16l3 6q0 6-11 6T5 30Z"/></svg><b id="potion-count">3</b></button><button id="bag-button"><span>I</span><svg viewBox="0 0 36 40" aria-hidden="true"><path d="m9 13 5-8h8l5 8 5 21H4Z"/><path d="M9 14h18M12 19l12 12m0-12L12 31"/></svg><b>가방</b></button><button id="journal-button"><span>J</span><svg viewBox="0 0 36 40" aria-hidden="true"><path d="M7 5h24v30H7l-3-3V8Zm3 0v30M15 12h10m-10 6h10m-10 6h6"/></svg><b>기록</b></button></div>
+    <footer><span>WASD 이동 <em>·</em> Shift 달리기 <em>·</em> 드래그 시선</span><span>클릭 공격 <em>·</em> 우클릭 방어 <em>·</em> E 조사 <em>·</em> Esc 휴식</span></footer>
+    <button id="pause-button" aria-label="일시정지">Ⅱ</button>
+  </section>
+  <div id="toast" role="status" aria-live="polite" hidden></div>
+  <section id="title-screen" class="screen">
+    <div class="title-copy"><span class="smallcaps">A GOTHIC TALE IN INK & ASH</span><p class="eyebrow">제 1 장 · 잊힌 지하 성소</p><h2>잔향의 성소</h2><div class="title-rule"><i></i><span>검은 성물실</span><i></i></div><p class="intro">종은 오래전에 멎었다.<br>그 아래에서는, 아직 무언가 기도하고 있다.</p><button class="primary" id="new-game" disabled>성소에 들어가기 <span>→</span></button><button class="text-button" id="continue-game" hidden>이전 서약 이어가기</button><p class="title-hint">1인칭 탐험 · 검과 방패 · 35개의 방</p><p id="load-status" role="status">먹과 돌로 성소를 빚는 중…</p></div>
+    <div class="edition"><span>Ⅰ</span><p>잉크로 빚은 세계<br><small>SANCTUARY OF ECHOES</small></p></div>
+  </section>
+  <section id="pause-screen" class="screen veil" hidden><div class="panel narrow"><span class="smallcaps">A MOMENT OF SILENCE</span><h2>잠시, 숨을 고르다</h2><p>이곳에서 시간은 흐르지 않습니다.</p><button class="primary" id="resume">성소로 돌아가기</button><div class="setting"><label for="sensitivity">시선 감도</label><input id="sensitivity" type="range" min="0.5" max="2" step="0.1" value="1"></div><div class="setting"><label for="quality">화면 품질</label><select id="quality"><option value="1">선명 · 기본</option><option value="0.75">가벼움 · 75%</option></select></div><label class="check"><input id="motion" type="checkbox"> 화면 흔들림 줄이기</label><p class="controls">WASD 이동 · Shift 달리기 · ← → 시선 회전<br>클릭 / Space 공격 · 우클릭 / Q 방어<br>E 조사 · 1 회복약 · I 가방 · J 기록 · M 지도<br>화면 드래그로 둘러보기 · F 마우스 잠금</p><p id="save-status"></p><button class="text-button" id="save-title">기록하고 제목 화면으로</button></div></section>
+  <section id="map-screen" class="screen veil" hidden><div class="panel map-panel"><button class="close" data-close aria-label="지도 닫기">×</button><span class="smallcaps">THE UNDERCROFT</span><h2>성소의 흔적</h2><p>지나온 방과 복도만 기록됩니다. <span class="map-key">◆ 나의 위치　● 미수복 성물　◇ 귀환점</span></p><canvas id="map" width="900" height="760" aria-label="탐험한 던전 지도"></canvas><p id="map-progress"></p></div></section>
+  <section id="bag-screen" class="screen veil" hidden><div class="panel narrow"><button class="close" data-close aria-label="가방 닫기">×</button><span class="smallcaps">WHAT REMAINS</span><h2>떠돌이의 가방</h2><div id="inventory"></div><button id="bag-heal" class="primary">회복약 마시기</button></div></section>
+  <section id="journal-screen" class="screen veil" hidden><div class="panel journal-panel"><button class="close" data-close aria-label="기록 닫기">×</button><span class="smallcaps">THE UNFINISHED VOW</span><h2>남겨진 서약</h2><p class="journal-prose">성소를 떠나려면 흩어진 세 성물을 되찾아야 한다.<br>먹빛은 길을 삼키지만, 불빛은 아직 거짓말하지 않는다.</p><ol id="journal-list"></ol><hr><p>검은 성물 셋을 모아 <strong>35번 보급 창고의 귀환 인장</strong>으로 돌아오십시오. 지도는 탐험한 길을 기억합니다.</p><p class="muted">적의 붉은 예고를 보고 Q 또는 우클릭으로 방패를 드십시오. 수색으로 회복약과 크라운을 얻을 수 있습니다.</p></div></section>
+  <section id="end-screen" class="screen veil" hidden><div class="panel narrow"><span class="smallcaps" id="end-kicker"></span><h2 id="end-title"></h2><p id="end-copy"></p><p id="end-stats"></p><button id="retry" class="primary">새로운 서약 시작</button><button id="end-title-button" class="text-button">제목 화면</button></div></section>
+  <div id="touch-controls" hidden><div class="dpad"><button data-move="KeyW" aria-label="앞으로">↑</button><button data-move="KeyA" aria-label="왼쪽">←</button><button data-move="KeyS" aria-label="뒤로">↓</button><button data-move="KeyD" aria-label="오른쪽">→</button></div><div class="touch-actions"><button id="touch-attack">검</button><button id="touch-block">방패</button><button id="touch-use">E</button></div></div>
+  <script type="module" src="game.js"></script>
+</body>
+</html>
