@@ -65,3 +65,11 @@ Cleanup removed **12,800,000 allocated bytes** and12,507,335 logical bytes acros
 현재 작업 파일만 `codex/gothic-origin-20261021` 브랜치에 저장합니다. 로컬 커밋·원격 푸시·원격 SHA 확인은 구분하며, 결과는 아래 전달 기록과 작은 요약에 남깁니다. 기존 체크아웃과 다른 진행 중 변경을 보존합니다.
 
 Only task files are published on `codex/gothic-origin-20261021`. Local commit, push and remote SHA verification are tracked separately. The existing checkout and unrelated work remain preserved.
+
+Git HTTPS 인증 부재로 일반 push는 실패했습니다. 연결된 GitHub 앱의 쓰기 권한을 확인한 뒤 Git data API로 기본 브랜치 위에 이 작업 파일만 게시했습니다. 구현 커밋 **`bd6ac428dba7b031fae82ced40bffe894cca41f6`**의 원격 ref와 fetch한 로컬 ref가 같고, 새 버전 파일 **15개 blob**이 로컬 파일과 일치함을 확인했습니다. 원격 루트 README는 기존 역사적 안내를 보존하고 새 버전 실행 안내와 Godot 중단 지시만 앞에 추가했습니다. 다른 로컬 미게시 변경은 전송하지 않았습니다.
+
+Normal Git push failed because HTTPS credentials are absent. The connected GitHub app had write access, so its Git data API published only task files on the remote main baseline. The remote and fetched local refs match implementation commit **`bd6ac428dba7b031fae82ced40bffe894cca41f6`**; **15 rebuild blobs** exactly match local files. The remote root README retains its historical content with a new-version entry and the no-Godot direction prepended. Unrelated unpublished local changes were not uploaded.
+
+[GitHub 새 버전 / Published rebuild](https://github.com/duq711/musimusihan-rpg/tree/codex/gothic-origin-20261021). 로컬 제작 단계 커밋 `332a5153c32b96149060ed5e5bc600ceef6e18b3`과 `codex/gothic-origin-20261020` 브랜치도 보존했습니다. 이 확인 기록은 이후 문서 커밋으로 덧붙입니다.
+
+The earlier local production commit and branch remain preserved. This verification record is appended in a subsequent documentation commit.
